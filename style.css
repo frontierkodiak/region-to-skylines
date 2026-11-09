@@ -127,14 +127,14 @@ footer a, details a { color: inherit; }
   #dlbar { margin-bottom: 0; }
   .playgrid { grid-template-columns: 1fr; }
 }
-#refinewrap { display: flex; flex-direction: column; gap: 4px; }
-#refinewrap[hidden] { display: none; }
-#refinewrap small { font-size: 12px; color: var(--muted); }
-#refine {
-  align-self: flex-start; font: inherit; font-size: 13px; padding: 5px 12px; border-radius: 8px; cursor: pointer;
+#agent { display: flex; flex-direction: column; gap: 4px; }
+#agentcopy {
+  align-self: stretch; font: inherit; font-weight: 600; padding: 8px 12px; border-radius: 8px; cursor: pointer;
   border: 1px solid var(--accent); background: transparent; color: var(--accent);
 }
-#refine:disabled { cursor: default; opacity: .6; border-color: var(--line); color: var(--muted); }
+#agent .note { margin: 0; }
+#agentprompt { width: 100%; font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; padding: 8px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--bg); color: var(--ink); resize: vertical; }
 footer details { margin-top: 6px; }
 footer details summary { font-weight: 500; }
 footer ul { padding-left: 16px; margin: 6px 0; }

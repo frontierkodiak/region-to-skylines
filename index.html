@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Region to Skylines</title>
   <meta name="description" content="Pick any square of real terrain and download it as a Cities: Skylines 1 heightmap. Runs in your browser, no account or key.">
+  <link rel="alternate" type="text/markdown" href="/agents.md" title="Instructions for AI agents">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script type="importmap">
     {"imports": {
       "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+      "@mapbox/vector-tile": "https://cdn.jsdelivr.net/npm/@mapbox/vector-tile@2.0.3/+esm",
+      "pbf": "https://cdn.jsdelivr.net/npm/pbf@4.0.1/+esm"
     }}
   </script>
 </head>
@@ -54,10 +57,6 @@
           </select>
         </label>
         <label class="check"><input id="rivers" type="checkbox" checked> Cut OSM rivers and lakes</label>
-        <div id="refinewrap" class="wide">
-          <button id="refine" type="button" disabled>Refine water with live OSM data</button>
-          <small>Optional. The rivers and lakes come from the basemap's OpenStreetMap tiles. This asks a public Overpass server once for this square's live data (exact river directions and starts, every lake name); it is slower and the servers are often busy.</small>
-        </div>
         <p id="scalenote" class="note wide"></p>
       </div>
 
@@ -119,13 +118,19 @@
         <button id="resetplay" type="button" class="linkish">Reset to defaults</button>
       </details>
 
-      <details id="water" open>
-        <summary>Where to put water</summary>
-        <p class="note">The heightmap carves the beds; the game adds the water. Suggested spots, in the editor's coordinates (metres from the centre, x east, z north):</p>
+      <details id="water">
+        <summary>Water sources for the Map Editor</summary>
+        <p class="note">The heightmap carves the river and lake beds; for now the Map Editor adds the water. Suggested spots, in the editor's coordinates (metres from the centre, x east, z north). Which way each river flows is read from the ground.</p>
         <ol id="sources"><li>Waiting for rivers and lakes…</li></ol>
       </details>
 
       <label class="namefield">Map name <input id="name" value="asheville" spellcheck="false"></label>
+
+      <section id="agent">
+        <button id="agentcopy" type="button">Copy instructions for your AI agent</button>
+        <p class="note">Have Claude Code, Codex or another agent with a terminal do the setup: paste what this copies. It links this square and the <a href="agents.md">agent instructions</a>; the agent runs one command that builds the same heightmap and puts it in the game's folder.</p>
+        <textarea id="agentprompt" rows="6" readonly hidden aria-label="Instructions for your AI agent"></textarea>
+      </section>
 
       <details id="howto" open>
         <summary>Put it in the game</summary>
@@ -139,7 +144,7 @@
           </li>
           <li>Start Cities: Skylines, open <b>Tools → Map Editor</b>, make a new map, and pick your file under <b>Import heightmap</b>.</li>
           <li><b>Sea level.</b> Coastal maps: set it to the value under “Sea level in game” above. Inland maps: drag it below the lowest riverbed (under “In game” above) so the valleys stay dry.</li>
-          <li><b>Water sources.</b> Under Water, place one source on each dark blue pin, where a river enters the map, and raise it until the bed fills to its banks. Grey pins mark where a river leaves: put nothing there, it drains off the map's edge. Put one in the middle of each lake (light blue pins) and drag its height to the lake's surface. Then unpause and watch: if a valley floods, lower the source.</li>
+          <li><b>Water sources.</b> Under Water, place one source on each dark blue pin (where a river enters or starts) and one in the middle of each lake (light blue pins); positions are under “Water sources for the Map Editor”. Grey pins mark where a river leaves: put nothing there.</li>
           <li><b>Starting tile.</b> It must have water and a highway in and out (Map Settings → Start Area moves it). Draw highways from the map edge along the real ones.</li>
           <li>Playing with <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a>? Disable it before opening the Map Editor; the mod turns the editor off because it breaks saved maps.</li>
         </ol>
@@ -150,7 +155,6 @@
         Elevation: <a href="https://registry.opendata.aws/terrain-tiles/">Terrain Tiles</a> on AWS Open Data (Mapzen/Tilezen).
         Rivers, lakes and basemap: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (ODbL), served by <a href="https://openfreemap.org">OpenFreeMap</a> in the <a href="https://openmaptiles.org">OpenMapTiles</a> schema (© OpenMapTiles).
         Search: <a href="https://nominatim.org">Nominatim</a>, © OpenStreetMap contributors, used within the <a href="https://operations.osmfoundation.org/policies/nominatim/">usage policy</a> (search on Enter only, at most one per second).
-        Only if you press “Refine water with live OSM data”: one query for the square to a public <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> server (private.coffee, then VK Maps), cached in your browser.
         <details>
           <summary>Elevation data credits</summary>
           <ul>

@@ -1,44 +1,21 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { CS1, corners, extentOf, squareToLonLat, sampleElevation, fetchWater, cachedWater, fetchBasemapWater, carveWater, seaMask, fitHeights, smooth, waterSources, encode16, png16 } from "./terrain.js";
-
-const PRESETS = [
-  { name: "Asheville", slug: "asheville", lon: -82.555, lat: 35.58 },
-  { name: "Yosemite Valley", slug: "yosemite", lon: -119.575, lat: 37.735 },
-  { name: "Rio de Janeiro", slug: "rio", lon: -43.205, lat: -22.94 },
-  { name: "Hong Kong", slug: "hong-kong", lon: 114.17, lat: 22.29 },
-  { name: "Innsbruck", slug: "innsbruck", lon: 11.4, lat: 47.27 },
-  { name: "Grand Canyon", slug: "grand-canyon", lon: -112.11, lat: 36.08 },
-];
+import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16 } from "./terrain.js";
 
 const $ = (id) => document.getElementById(id);
-// Playability defaults. sm: smoothing sigma in 16 m pixels; rd: river depth m; rw: river half-width m; ld: lake depth m.
-const DEFAULTS = { sm: 1, rd: 10, rw: 40, ld: 4 };
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
 let result = null, job = null;
 
 // ---------------------------------------------------------------- URL state
 
 function readHash() {
-  const p = new URLSearchParams(location.hash.slice(1));
-  if (p.has("c")) {
-    const [lon, lat] = p.get("c").split(",").map(Number);
-    if (isFinite(lon) && isFinite(lat)) Object.assign(state, { lon, lat });
-  }
-  if (p.has("r")) state.rotation = Number(p.get("r")) || 0;
-  if (p.has("s")) state.scale = Number(p.get("s")) || 1;
-  if (p.has("h")) state.vscale = ["auto", "slopes"].includes(p.get("h")) ? p.get("h") : Number(p.get("h"));
-  if (p.has("rivers")) state.rivers = p.get("rivers") !== "0";
-  if (p.has("n")) $("name").value = p.get("n");
-  for (const k of Object.keys(DEFAULTS)) if (p.has(k) && isFinite(Number(p.get(k)))) state[k] = Number(p.get(k));
+  const { name, ...o } = parseHash(location.hash);
+  Object.assign(state, o);
+  if (name !== undefined) $("name").value = name;
 }
+const link = () => location.origin + location.pathname + squareHash({ ...state, name: $("name").value });
 function writeHash() {
-  const p = new URLSearchParams({
-    c: `${state.lon.toFixed(5)},${state.lat.toFixed(5)}`, r: state.rotation, s: state.scale,
-    h: state.vscale, rivers: state.rivers ? 1 : 0, n: $("name").value,
-  });
-  for (const k of Object.keys(DEFAULTS)) if (state[k] !== DEFAULTS[k]) p.set(k, state[k]);
-  history.replaceState(null, "", "#" + p.toString().replaceAll("%2C", ","));
+  history.replaceState(null, "", squareHash({ ...state, name: $("name").value }));
 }
 readHash();
 $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
@@ -154,9 +131,6 @@ $("scale").onchange = (e) => { state.scale = Number(e.target.value); scaleNote()
 /** Real ground in km, one way everywhere: 2 decimals at true size (17.28, 9.6, 1.92), else 1 (25.9). */
 const km = (metres, s = state.scale) =>
   (metres / 1000).toFixed(s === 1 ? 2 : 1).replace(/(\.\d*?)0+$/, "$1").replace(/\.$/, "") + " km";
-/** The height factor the current options give: Auto and Real slopes are capped so the map fits. */
-const heightFactor = (sq, auto) => state.vscale === "auto" ? auto : state.vscale === "slopes" ? Math.min(1 / sq.scale, auto) : state.vscale;
-
 /**
  * What the scale choice does, in plain words, from the real extent and the height factor in
  * use (once terrain is loaded). Cities: Skylines 1 terrain is 1 game metre = 1 real metre.
@@ -186,7 +160,7 @@ $("vscale").onchange = (e) => {
   writeHash();
   if (result) finish(result.raw); // no refetch needed
 };
-$("rivers").onchange = (e) => { state.rivers = e.target.checked; writeHash(); refineButton(); schedule(0); };
+$("rivers").onchange = (e) => { state.rivers = e.target.checked; writeHash(); schedule(0); };
 for (const k of Object.keys(DEFAULTS)) $(k).onchange = (e) => { state[k] = Number(e.target.value); writeHash(); if (result) finish(result.raw); };
 $("resetplay").onclick = () => { Object.assign(state, DEFAULTS); for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]); writeHash(); if (result) finish(result.raw); };
 $("name").onchange = () => { writeHash(); finishLabel(); };
@@ -248,9 +222,6 @@ async function build() {
     if (ctl.signal.aborted) return;
     elev.sea = seaMask(elev.heights);
     if (!sq.rivers) return finish({ sq, elev, w: null, waterNote: "off", water: "off" });
-    // Live OSM water fetched earlier for this square (the user asked for it) is reused without asking again.
-    const live = cachedWater(sq);
-    if (live) return finish({ sq, elev, w: live, water: "osm" });
     // Bare terrain at once; then the rivers and lakes from the basemap's vector tiles, a second or two.
     finish({ sq, elev, w: null, waterNote: "loading…", water: "loading" }, "Loading rivers and lakes…");
     let w = null;
@@ -267,43 +238,13 @@ async function build() {
   }
 }
 
-/**
- * Opt-in only: ask a public Overpass server, once, for this square's full OSM water. The basemap
- * water is the default because public Overpass instances are not meant as an app's backend.
- */
-async function refine() {
-  if (!result || !["basemap", "failed"].includes(result.raw.water)) return;
-  const ctl = job, { raw } = result, t0 = Date.now();
-  let asking = "";
-  $("refine").disabled = true;
-  const tick = setInterval(() => asking && setStatus(`Asking ${asking} for live OSM water · ${Math.round((Date.now() - t0) / 1000)} s`), 500);
-  try {
-    const w = await fetchWater(raw.sq, ctl.signal, (host, k, n) => (asking = `${host} (${k} of ${n})`));
-    if (ctl.signal.aborted || result.raw !== raw) return;
-    finish({ ...raw, w, water: "osm", waterNote: undefined });
-  } catch {
-    if (ctl.signal.aborted || result.raw !== raw) return;
-    setStatus("No Overpass server answered; the basemap water stays. Try again later.");
-  } finally {
-    clearInterval(tick);
-    refineButton();
-  }
-}
-$("refine").onclick = refine;
-function refineButton() {
-  const b = $("refine"), mode = result?.raw.water;
-  $("refinewrap").hidden = !state.rivers;
-  b.disabled = !["basemap", "failed"].includes(mode);
-  b.textContent = mode === "osm" ? "Using live OSM water" : "Refine water with live OSM data";
-}
-
 /** The download button says whether the map it would save has its rivers and lakes. */
 function setDownload(mode) {
   const dl = $("dl");
   dl.disabled = $("dljson").disabled = mode === "busy";
   dl.classList.toggle("partial", mode === "loading" || mode === "failed");
   dl.textContent = {
-    busy: "Download heightmap", basemap: "Download heightmap", osm: "Download heightmap", off: "Download heightmap",
+    busy: "Download heightmap", basemap: "Download heightmap", off: "Download heightmap",
     loading: "Download now (rivers still loading)", failed: "Download (no rivers or lakes)",
   }[mode];
 }
@@ -311,23 +252,17 @@ function setDownload(mode) {
 /** Smooth, carve and fit the fetched terrain with the current options; cheap enough to rerun on any change. */
 function finish(raw, status = "") {
   const { sq, elev, w } = raw;
-  const ground = smooth(elev.heights, state.sm);
-  const carved = w ? carveWater(ground, sq, w, { depth: state.rd, halfWidth: state.rw, lakeDepth: state.ld })
-    : { heights: ground, wet: null, riversCut: false, lakes: 0, lakeInfo: [] };
-  const fit = fitHeights(ground, carved.heights, { sea: elev.sea, verticalScale: (auto) => heightFactor(sq, auto) });
-  const sources = w ? waterSources(sq, w, carved, fit) : [];
-  if (w) raw.waterNote = `${new Set(w.rivers.map((r) => r.name || "?")).size} rivers (${w.rivers.length} ${w.fragments ? "pieces" : "OSM ways"}` +
-    `${w.riverAreas?.length ? `, ${w.riverAreas.length} wide-river outlines` : ""}), ${carved.lakes} lakes · ` +
-    (w.fragments ? `OSM via OpenFreeMap tiles, zoom ${w.zoom}` : "live OSM via Overpass");
+  const built = buildMap(raw, opts());
+  const { carved, fit, sources } = built;
+  if (w) raw.waterNote = built.note;
   raw.carved = carved;
-  result = { raw, fit, sq, sources };
+  result = { raw, fit, sq, sources, built };
   showStats(fit, elev, raw.waterNote, sq);
   scaleNote(fit);
   drawPreview(fit, carved.wet);
   showSources(sources, fit);
   setStatus(status);
   setDownload(raw.water);
-  refineButton();
   $("mapname").textContent = `${fileName()}.png · ${km(extentOf(sq), sq.scale)} · ${Math.round(fit.gameMin)}–${Math.round(fit.gameMax)} m`;
 }
 
@@ -337,7 +272,7 @@ function showSources(sources, fit) {
     type: "Feature", properties: { kind: s.kind === "lake" ? "lake" : s.kind === "river exit" ? "exit" : "river" }, geometry: { type: "Point", coordinates: [s.lon, s.lat] } })) });
   const list = $("sources");
   if (!sources.length) {
-    list.innerHTML = ["basemap", "osm"].includes(result.raw.water) ? "<li>No sizeable river or lake in this square.</li>" : "<li>Waiting for rivers and lakes…</li>";
+    list.innerHTML = result.raw.water === "basemap" ? "<li>No sizeable river or lake in this square.</li>" : "<li>Waiting for rivers and lakes…</li>";
   } else {
     list.replaceChildren(...sources.map((s) => {
       const li = document.createElement("li");
@@ -406,38 +341,31 @@ $("dljson").onclick = () => {
   save(new Blob([JSON.stringify(details(), null, 2)], { type: "application/json" }), `${fileName()}.json`);
 };
 
+const opts = () => ({ vscale: state.vscale, ...Object.fromEntries(Object.keys(DEFAULTS).map((k) => [k, state[k]])) });
 function details() {
-  const { sq, fit, raw } = result;
-  const r1 = (v) => Math.round(v * 10) / 10;
-  return {
-    game: "Cities: Skylines 1",
-    heightmap: { file: `${fileName()}.png`, px: CS1.px, bit_depth: 16, extent_m: extentOf(sq),
-      spacing_m: extentOf(sq) / (CS1.px - 1), height_scale_m: CS1.maxHeight },
-    center: { lon: +sq.lon.toFixed(6), lat: +sq.lat.toFixed(6) },
-    rotation_deg: sq.rotation,
-    scale: sq.scale,
-    corners_lonlat: corners(sq).slice(0, 4).map(([x, y]) => [+x.toFixed(6), +y.toFixed(6)]),
-    heights: {
-      real_min_m: r1(fit.realMin), real_max_m: r1(fit.realMax), vertical_scale: +fit.verticalScale.toFixed(4),
-      game_m: "(real_m - base_m) * vertical_scale + 50", base_m: r1(fit.base),
-      game_min_m: r1(fit.gameMin), game_max_m: r1(fit.gameMax),
-      sea_level_game_m: fit.seaLevel === null ? null : r1(fit.seaLevel),
-    },
-    water: {
-      rivers_and_lakes_cut: !!raw.w, rivers_cut: !!raw.carved.riversCut, lakes_lowered: raw.carved.lakes || 0,
-      open_sea: !!fit.sea, note: raw.waterNote,
-      source: !raw.w ? null : raw.w.fragments ? `OpenStreetMap via OpenFreeMap vector tiles (OpenMapTiles schema), zoom ${raw.w.zoom}` : "OpenStreetMap via Overpass API (live)",
-      river_depth_m: state.rd, river_half_width_m: state.rw, lake_depth_m: state.ld,
-    },
-    terrain_smoothing_m: state.sm * 16,
-    // x east and z north, metres from the map centre; heights in game metres
-    water_sources: result.sources.map(({ col, row, ...s }) => s),
-    tiles: { grid: "9 x 9", tile_game_m: 1920, tile_real_m: 1920 * sq.scale, base_game_buildable: "middle 5 x 5",
-      middle_25_real_m: 9600 * sq.scale, all_81_real_m: extentOf(sq), start_tile: "centre tile" },
-    elevation: { source: "AWS Terrain Tiles (Terrarium)", zoom: raw.elev.zoom },
-    link: location.href,
-  };
+  const { sq, raw, built } = result;
+  return mapDetails({ sq, elev: raw.elev, w: raw.w, map: built, opts: opts(), file: `${fileName()}.png`, link: link(), note: raw.waterNote });
 }
+
+// ---------------------------------------------------------------- hand it to an AI agent
+
+/** A short prompt an agent can act on: this square's link, the instructions page and the one command. */
+function agentPrompt() {
+  return [
+    "Please put this real-world map into Cities: Skylines (the first game) on this computer:",
+    link(),
+    "",
+    `Instructions for AI agents: ${SITE}/agents.md`,
+    `In short, run: npx -y github:frontierkodiak/region-to-skylines "${link()}" --install`,
+    "then tell me what it printed and what to do in the game.",
+  ].join("\n");
+}
+$("agentcopy").onclick = async () => {
+  const text = agentPrompt(), b = $("agentcopy");
+  try { await navigator.clipboard.writeText(text); b.textContent = "Copied: paste it to your agent"; }
+  catch { $("agentprompt").hidden = false; $("agentprompt").value = text; $("agentprompt").select(); b.textContent = "Copy the text below"; }
+  setTimeout(() => (b.textContent = "Copy instructions for your AI agent"), 2500);
+};
 
 // ---------------------------------------------------------------- 3D preview
 
@@ -617,4 +545,4 @@ function finishLabel() {
 }
 
 // for automated checks
-window.__regionmap = { state, get result() { return result; }, details: () => details(), png: () => png16(encode16(result.fit.game), CS1.px, CS1.px) };
+window.__regionmap = { state, get result() { return result; }, details: () => details(), agentPrompt: () => agentPrompt(), png: () => png16(encode16(result.fit.game), CS1.px, CS1.px) };

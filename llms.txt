@@ -1,0 +1,12 @@
+# Region to Cities: Skylines
+
+> Turns any square of real terrain into a Cities: Skylines 1 heightmap (1081 x 1081 px, 16-bit PNG) with OpenStreetMap rivers and lakes carved in. Runs in the browser, or from the command line with `npx -y github:frontierkodiak/region-to-skylines "<link | lat,lon | place>" --install`, which also copies the map into the game's folder.
+
+## For agents
+
+- [Instructions for AI agents](https://region-to-skylines.vercel.app/agents.md): the command, where files go on macOS, Windows and Linux, exit codes, and what to tell the person next.
+
+## Project
+
+- [Web app](https://region-to-skylines.vercel.app): pick a square; the link after `#` records it.
+- [Source code and README](https://github.com/frontierkodiak/region-to-skylines) (MIT).

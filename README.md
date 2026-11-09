@@ -1,9 +1,27 @@
 # Region to Cities: Skylines
 
 Pick any square of real terrain and download it as a Cities: Skylines (CS1)
-heightmap. It runs in your browser from open data, with no account or key.
+heightmap. It runs in your browser from open data, with no account or key, or from
+the command line, where it can put the map straight into the game's folder.
 
 Live at <https://region-to-skylines.vercel.app>.
+
+## Have your AI agent do it
+
+Press **Copy instructions for your AI agent** on the page and paste the text to Claude
+Code, Codex or any agent with a terminal. It carries the square's link and points the
+agent at [agents.md](https://region-to-skylines.vercel.app/agents.md) (also listed in
+[llms.txt](https://region-to-skylines.vercel.app/llms.txt)). The agent runs:
+
+```sh
+npx -y github:frontierkodiak/region-to-skylines "<link | lat,lon | place>" --install
+```
+
+That builds the same heightmap pixels as the page, writes `<name>.png` and `<name>.json`
+to the current directory, copies the PNG into the game's heightmap folder (below) without
+replacing an existing file unless you pass `--force`, and prints the in-game steps with this
+map's numbers. `--help` lists the options (rotation, scale, height, name, game folder,
+JSON output). It needs Node.js 20.3 or newer and git.
 
 ## What it does
 
@@ -25,15 +43,15 @@ How it is built:
   level.
 - **Rivers and lakes** come from OpenStreetMap, read from the basemap's vector
   tiles (OpenFreeMap, OpenMapTiles schema) at the most detailed zoom available
-  for the square (zoom 14 at true size). River lines are cut 10 m deep with a
+  for the square (zoom 14 at true size); for Asheville they match a live Overpass
+  query on 99.7% of wet pixels. River lines are cut 10 m deep with a
   smooth profile; wide rivers mapped as areas are cut across their full width;
   lakes are sunk flat 4 m below their shore so a water source can fill them.
   Depths, widths and terrain smoothing are adjustable under "Make it buildable".
-- **Refine water with live OSM data** is optional. It sends one query for the
-  square to a public Overpass API server and caches the answer in your browser.
-  Live data gives exact river directions and starts; the tiles already match it
-  closely. Public Overpass servers are run by volunteers for OSM mappers and are
-  often busy, so the app never asks them on its own.
+- **Which way rivers flow** is read from the ground: from each place a river
+  crosses the edge, or ends inside the map, the app walks the carved line 0.6 to
+  2.4 km and checks whether it runs downhill (an entry or a start) or uphill (an
+  exit or a mouth). That places the suggested water sources.
 
 ## Using the heightmap in Cities: Skylines
 
@@ -45,7 +63,8 @@ How it is built:
    under **Import heightmap**.
 3. **Sea level.** Coastal maps: set it to the "Sea level in game" value the app
    shows. Inland maps: drag it below the lowest riverbed so the valleys stay dry.
-4. **Water sources.** The heightmap carves the beds; the game adds the water.
+4. **Water sources.** The heightmap carves the beds; for now the Map Editor adds
+   the water (a ready-to-play map file that skips this step is in the works).
    Place a source on each dark blue pin, where a river enters the map or starts,
    and raise it until the bed fills to its banks. Grey pins mark where a river
    leaves; put nothing there. Put one in the middle of each lake (light blue
@@ -75,8 +94,12 @@ It is a static page with no build step:
 python3 -m http.server -d . 8000   # then open http://localhost:8000
 ```
 
-`terrain.js` holds the data fetching, carving and PNG encoding; `app.js` the map,
-controls and 3D preview (MapLibre GL JS and three.js from CDNs).
+`terrain.js` holds the data fetching, carving and PNG encoding, with no DOM or canvas,
+so the page and the CLI share it; `app.js` is the map, controls and 3D preview (MapLibre
+GL JS and three.js from CDNs); `cli.mjs` is the command line. The page's import map loads
+`@mapbox/vector-tile` and `pbf` from jsDelivr; Node takes the same versions from
+`package.json`. To run the CLI from a checkout: `npm install`, then
+`node cli.mjs "35.58,-82.555" --name asheville`.
 
 ## Deploying
 
@@ -94,9 +117,8 @@ vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope <team>
 | Data | Source | Licence and credit |
 |---|---|---|
 | Rivers, lakes, basemap | [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, served as vector tiles by [OpenFreeMap](https://openfreemap.org) in the [OpenMapTiles](https://openmaptiles.org) schema | OSM data © OpenStreetMap contributors, [ODbL](https://opendatacommons.org/licenses/odbl/). Tiles © OpenMapTiles. A heightmap made with the water cut is a produced work from OSM data; credit "© OpenStreetMap contributors" if you share it. |
-| Live water (optional) | Public [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) instances: private.coffee, then VK Maps | OSM data, ODbL, as above. One query per square, only when asked, cached in the browser. |
 | Elevation | [Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) on AWS Open Data (Mapzen/Tilezen) | Credits below, as the [attribution page](https://github.com/tilezen/joerd/blob/master/docs/attribution.md) requires. |
-| Place search | [Nominatim](https://nominatim.org) at nominatim.openstreetmap.org | OSM data, ODbL. Used within the [usage policy](https://operations.osmfoundation.org/policies/nominatim/): only when you press Enter, at most one request a second, answers cached, attribution shown. |
+| Place search | [Nominatim](https://nominatim.org) at nominatim.openstreetmap.org | OSM data, ODbL. Used within the [usage policy](https://operations.osmfoundation.org/policies/nominatim/): only when you press Enter, at most one request a second, answers cached, attribution shown. The CLI sends one request per run, only for a place name, with its own User-Agent. |
 | Map hillshade | Terrain Tiles, as above | As above. |
 
 Terrain Tiles source credits:
