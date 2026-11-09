@@ -768,18 +768,8 @@ const crc32 = (bytes) => {
   return (c ^ 0xffffffff) >>> 0;
 };
 
-/** 16-bit greyscale PNG (colour type 0, depth 16) from a Uint16Array, deflated with CompressionStream. */
-export async function png16(data, w, h) {
-  const stride = 1 + w * 2, raw = new Uint8Array(stride * h);
-  for (let y = 0; y < h; y++) {
-    raw[y * stride] = 2; // "Up" filter: neighbouring rows of terrain are similar
-    for (let x = 0; x < w; x++) {
-      const v = data[y * w + x], u = y ? data[(y - 1) * w + x] : 0;
-      const o = y * stride + 1 + 2 * x;
-      raw[o] = ((v >> 8) - (u >> 8)) & 0xff;
-      raw[o + 1] = ((v & 0xff) - (u & 0xff)) & 0xff;
-    }
-  }
+/** PNG from already-filtered scanlines (each row: filter byte + pixels), deflated with CompressionStream. */
+async function pngFile(raw, w, h, depth, colourType) {
   const z = new Uint8Array(await new Response(new Blob([raw]).stream().pipeThrough(new CompressionStream("deflate"))).arrayBuffer());
   const chunk = (type, body) => {
     const b = new Uint8Array(12 + body.length), dv = new DataView(b.buffer);
@@ -791,9 +781,118 @@ export async function png16(data, w, h) {
   };
   const ihdr = new Uint8Array(13), dv = new DataView(ihdr.buffer);
   dv.setUint32(0, w); dv.setUint32(4, h);
-  ihdr.set([16, 0, 0, 0, 0], 8);
+  ihdr.set([depth, colourType, 0, 0, 0], 8);
   const sig = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10]);
   return new Blob([sig, chunk("IHDR", ihdr), chunk("IDAT", z), chunk("IEND", new Uint8Array())], { type: "image/png" });
+}
+
+/** 16-bit greyscale PNG (colour type 0, depth 16) from a Uint16Array. */
+export async function png16(data, w, h) {
+  const stride = 1 + w * 2, raw = new Uint8Array(stride * h);
+  for (let y = 0; y < h; y++) {
+    raw[y * stride] = 2; // "Up" filter: neighbouring rows of terrain are similar
+    for (let x = 0; x < w; x++) {
+      const v = data[y * w + x], u = y ? data[(y - 1) * w + x] : 0;
+      const o = y * stride + 1 + 2 * x;
+      raw[o] = ((v >> 8) - (u >> 8)) & 0xff;
+      raw[o + 1] = ((v & 0xff) - (u & 0xff)) & 0xff;
+    }
+  }
+  return pngFile(raw, w, h, 16, 0);
+}
+
+/** 8-bit RGB PNG from a Uint8Array of w * h * 3 bytes. */
+export async function pngRGB(rgb, w, h) {
+  const stride = 1 + w * 3, raw = new Uint8Array(stride * h);
+  for (let y = 0; y < h; y++) raw.set(rgb.subarray(y * w * 3, (y + 1) * w * 3), y * stride + 1);
+  return pngFile(raw, w, h, 8, 2);
+}
+
+// ---------------------------------------------------------------- names, checks, and where the water goes
+
+/** A file name from a place name: accents dropped (Zürich -> zurich, Ærø -> aero), anything else not a-z or 0-9 -> "-"; "" for a name in another script. */
+const LETTERS = { æ: "ae", ø: "o", œ: "oe", ß: "ss", ł: "l", đ: "d", ð: "d", þ: "th", ı: "i" };
+export const slugify = (s) => String(s).normalize("NFKD").replace(/\p{M}+/gu, "").toLowerCase()
+  .replace(/[æøœßłđðþı]/g, (ch) => LETTERS[ch]).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40).replace(/-+$/, "");
+/** A file name from a centre point: 35.58n-82.56w. */
+export const coordName = (lat, lon) =>
+  `${Math.abs(lat).toFixed(2)}${lat < 0 ? "s" : "n"}-${Math.abs(lon).toFixed(2)}${lon < 0 ? "w" : "e"}`;
+
+export const SCALES = [0.5, 0.75, 1, 1.5, 2];
+/** What is wrong with a square's settings, or null. The page's controls can't produce a bad one; a hand-made link or command can. */
+export function squareProblem(sq) {
+  if (!(isFinite(sq.lat) && Math.abs(sq.lat) <= 85)) return "latitude must be within ±85";
+  if (!(isFinite(sq.lon) && Math.abs(sq.lon) <= 180)) return "longitude must be within ±180";
+  if (!(isFinite(sq.rotation) && Math.abs(sq.rotation) <= 180)) return "rotation takes degrees from -180 to 180";
+  if (!SCALES.includes(sq.scale)) return `scale takes ${SCALES.slice(0, -1).join(", ")} or ${SCALES.at(-1)}`;
+  if (!["auto", "slopes"].includes(sq.vscale) && !(typeof sq.vscale === "number" && sq.vscale > 0 && sq.vscale <= 4))
+    return "height takes auto, slopes or a factor above 0, up to 4";
+  const range = { sm: [0, 4], rd: [0, 40], rw: [8, 200], ld: [0, 20] };
+  for (const [k, [lo, hi]] of Object.entries(range))
+    if (sq[k] !== undefined && !(isFinite(sq[k]) && sq[k] >= lo && sq[k] <= hi)) return `${k} takes ${lo} to ${hi}`;
+  return null;
+}
+
+/**
+ * A water source's spot in words, in the heightmap's own frame (top of the image = top of the
+ * map as imported): "top edge, 30% from the left", or "30% from the left, 70% down".
+ */
+export function describeSpot({ col, row }) {
+  const last = CS1.px - 1, pc = (v) => `${Math.round((v / last) * 100)}%`, near = 0.04 * last;
+  if (row < near) return `top edge, ${pc(col)} from the left`;
+  if (row > last - near) return `bottom edge, ${pc(col)} from the left`;
+  if (col < near) return `left edge, ${pc(row)} down from the top`;
+  if (col > last - near) return `right edge, ${pc(row)} down from the top`;
+  if (Math.hypot(col - last / 2, row - last / 2) < 0.06 * last) return "near the centre";
+  return `${pc(col)} from the left, ${pc(row)} down from the top`;
+}
+
+// 3 x 5 pixel digits for numbering pins
+const DIGITS = ["111101101101111", "010110010010111", "111001111100111", "111001111001111", "101101111001001",
+  "111100111001111", "111100111101111", "111001001001001", "111101111101111", "111101111001111"];
+
+/**
+ * A picture of the map to place water sources from: shaded terrain, the 9 x 9 tile grid, water in
+ * blue, and numbered pins (dark blue: river enters or starts; light blue: lake; grey: river leaves).
+ * Returns RGB bytes, CS1.px square, oriented like the heightmap.
+ */
+export function waterMap({ fit, carved, sources }) {
+  const N = CS1.px, g = fit.game, rgb = new Uint8Array(N * N * 3);
+  const lo = fit.seaLevel ?? fit.gameMin, span = Math.max(fit.gameMax - lo, 1);
+  for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) {
+    const i = r * N + c;
+    const dx = g[r * N + Math.min(c + 1, N - 1)] - g[r * N + Math.max(c - 1, 0)];
+    const dy = g[Math.min(r + 1, N - 1) * N + c] - g[Math.max(r - 1, 0) * N + c];
+    const shade = Math.max(0.35, Math.min(1.25, 0.9 + (-dx + -dy) * 0.04)); // light from the top left
+    const t = (g[i] - lo) / span;
+    let col = [(150 + 70 * t) * shade, (175 + 40 * t) * shade, (130 + 70 * t) * shade];
+    if (carved?.wet?.[i]) col = [70, 125, 200];
+    if (fit.sea?.[i]) col = [45, 92, 155];
+    if ((c % 120 === 0 || r % 120 === 0)) col = col.map((v) => v * 0.7); // tile lines, every 1,920 m
+    rgb.set(col.map((v) => Math.max(0, Math.min(255, Math.round(v)))), 3 * i);
+  }
+  const dot = (cx, cy, rad, colr) => {
+    for (let y = -rad; y <= rad; y++) for (let x = -rad; x <= rad; x++) {
+      const X = cx + x, Y = cy + y;
+      if (X < 0 || Y < 0 || X >= N || Y >= N || x * x + y * y > rad * rad) continue;
+      rgb.set(colr, 3 * (Y * N + X));
+    }
+  };
+  sources.forEach((s, k) => {
+    const cx = Math.min(N - 17, Math.max(16, s.col)), cy = Math.min(N - 17, Math.max(16, s.row));
+    dot(cx, cy, 16, [255, 255, 255]);
+    dot(cx, cy, 13, s.kind === "lake" ? [40, 190, 220] : s.kind === "river exit" ? [130, 130, 130] : [20, 70, 190]);
+    const text = String(k + 1), S = 3, w = text.length * 4 * S - S;
+    [...text].forEach((d, j) => {
+      const bits = DIGITS[+d];
+      for (let b = 0; b < 15; b++) if (bits[b] === "1")
+        for (let yy = 0; yy < S; yy++) for (let xx = 0; xx < S; xx++) {
+          const X = cx - (w >> 1) + j * 4 * S + (b % 3) * S + xx, Y = cy - 7 + Math.floor(b / 3) * S + yy;
+          rgb.set([255, 255, 255], 3 * (Y * N + X));
+        }
+    });
+  });
+  return rgb;
 }
 
 // ---------------------------------------------------------------- the whole map, for the page and the CLI
@@ -875,7 +974,7 @@ export function mapDetails({ sq, elev, w, map, opts = {}, file, link, note }) {
     },
     terrain_smoothing_m: o.sm * 16,
     // x east and z north, metres from the map centre; heights in game metres
-    water_sources: sources.map(({ col, row, ...s }) => s),
+    water_sources: sources.map(({ col, row, ...s }, k) => ({ pin: k + 1, ...s, where: describeSpot({ col, row }) })),
     tiles: { grid: "9 x 9", tile_game_m: 1920, tile_real_m: 1920 * sq.scale, base_game_buildable: "middle 5 x 5",
       middle_25_real_m: 9600 * sq.scale, all_81_real_m: extentOf(sq), start_tile: "centre tile" },
     elevation: { source: "AWS Terrain Tiles (Terrarium)", zoom: elev.zoom },

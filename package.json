@@ -1,6 +1,6 @@
 {
   "name": "region-to-skylines",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Real terrain to a Cities: Skylines 1 heightmap, from the command line or the browser.",
   "license": "MIT",
   "type": "module",

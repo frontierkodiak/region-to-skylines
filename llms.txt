@@ -1,6 +1,6 @@
 # Region to Cities: Skylines
 
-> Turns any square of real terrain into a Cities: Skylines 1 heightmap (1081 x 1081 px, 16-bit PNG) with OpenStreetMap rivers and lakes carved in. Runs in the browser, or from the command line with `npx -y github:frontierkodiak/region-to-skylines "<link | lat,lon | place>" --install`, which also copies the map into the game's folder.
+> Turns any square of real terrain into a Cities: Skylines 1 heightmap (1081 x 1081 px, 16-bit PNG) with OpenStreetMap rivers and lakes carved in. Runs in the browser, or from the command line with `npx -y __CLI_TGZ__ "<link | lat,lon | place>" --install`, which also copies the map into the game's folder.
 
 ## For agents
 

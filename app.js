@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16 } from "./terrain.js";
+import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
@@ -190,7 +190,7 @@ $("search").onsubmit = async (e) => {
     }
     if (!hit) return setStatus(`No place called “${q}”`);
     Object.assign(state, { lon: Number(hit.lon), lat: Number(hit.lat) });
-    $("name").value = q.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40) || "map";
+    $("name").value = slugify(q) || coordName(state.lat, state.lon);
     refreshSquare();
     fitToSquare();
   } catch {
@@ -241,7 +241,7 @@ async function build() {
 /** The download button says whether the map it would save has its rivers and lakes. */
 function setDownload(mode) {
   const dl = $("dl");
-  dl.disabled = $("dljson").disabled = mode === "busy";
+  dl.disabled = $("dljson").disabled = $("dlwater").disabled = mode === "busy";
   dl.classList.toggle("partial", mode === "loading" || mode === "failed");
   dl.textContent = {
     busy: "Download heightmap", basemap: "Download heightmap", off: "Download heightmap",
@@ -277,7 +277,7 @@ function showSources(sources, fit) {
     list.replaceChildren(...sources.map((s) => {
       const li = document.createElement("li");
       li.className = s.kind === "lake" ? "lake" : s.kind === "river exit" ? "exit" : "river";
-      const where = `x ${s.x_m.toLocaleString()}, z ${s.z_m.toLocaleString()}`;
+      const where = describeSpot(s);
       li.innerHTML = `<b></b> <span></span>`;
       li.querySelector("b").textContent = s.kind === "lake" ? `${s.name} (${s.area_ha} ha)` : `${s.name}, ${{ "river entry": "enters", "river start": "starts", "river exit": "leaves" }[s.kind]}`;
       li.querySelector("span").textContent = s.kind === "lake"
@@ -336,6 +336,10 @@ $("dl").onclick = async () => {
   $("dl").disabled = false;
   if (result.raw.water === "loading") setStatus("Saved without rivers; download again once they load");
 };
+$("dlwater").onclick = async () => {
+  if (!result) return;
+  save(await pngRGB(waterMap(result.built), CS1.px, CS1.px), `${fileName()}-water.png`);
+};
 $("dljson").onclick = () => {
   if (!result) return;
   save(new Blob([JSON.stringify(details(), null, 2)], { type: "application/json" }), `${fileName()}.json`);
@@ -349,6 +353,9 @@ function details() {
 
 // ---------------------------------------------------------------- hand it to an AI agent
 
+// the command-line tool packed from this same deploy (build.mjs fills it in), so page and tool agree
+const CLI_TGZ = "__CLI_TGZ__".startsWith("__") ? "https://codeload.github.com/frontierkodiak/region-to-skylines/tar.gz/main" : "__CLI_TGZ__";
+
 /** A short prompt an agent can act on: this square's link, the instructions page and the one command. */
 function agentPrompt() {
   return [
@@ -356,7 +363,7 @@ function agentPrompt() {
     link(),
     "",
     `Instructions for AI agents: ${SITE}/agents.md`,
-    `In short, run: npx -y github:frontierkodiak/region-to-skylines "${link()}" --install`,
+    `In short, run: npx -y ${CLI_TGZ} "${link()}" --install`,
     "then tell me what it printed and what to do in the game.",
   ].join("\n");
 }

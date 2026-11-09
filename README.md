@@ -14,14 +14,16 @@ agent at [agents.md](https://region-to-skylines.vercel.app/agents.md) (also list
 [llms.txt](https://region-to-skylines.vercel.app/llms.txt)). The agent runs:
 
 ```sh
-npx -y github:frontierkodiak/region-to-skylines "<link | lat,lon | place>" --install
+npx -y https://region-to-skylines.vercel.app/cli.tgz "<link | lat,lon | place>" --install
 ```
 
-That builds the same heightmap pixels as the page, writes `<name>.png` and `<name>.json`
-to the current directory, copies the PNG into the game's heightmap folder (below) without
-replacing an existing file unless you pass `--force`, and prints the in-game steps with this
-map's numbers. `--help` lists the options (rotation, scale, height, name, game folder,
-JSON output). It needs Node.js 20.3 or newer and git.
+That builds the same heightmap pixels as the page, puts the PNG into the game's heightmap
+folder (below) without replacing an existing file unless you pass `--force`, writes a water
+map (the map with numbered water-source pins) and a JSON of details to a cache folder, and
+prints the in-game steps with this map's numbers. `--help` lists the options (rotation,
+scale, height, name, output folder, game folder, JSON output). It needs Node.js 20.3 or
+newer, not git. The site builds the package from the same commit as the page (`build.mjs`);
+the copied prompt names that commit's file, and `/cli.tgz` is the latest.
 
 ## What it does
 
