@@ -80,12 +80,13 @@ controls and 3D preview (MapLibre GL JS and three.js from CDNs).
 
 ## Deploying
 
-The site is hosted on Vercel as a static project (no framework, no build
-command, output directory `.`). Pushes to `main` deploy to production through
-Vercel's GitHub integration. To deploy by hand with the Vercel CLI:
+The site is a static Vercel project (no framework, no build command, served
+from the repository root), connected to this repository: every push to `main`
+deploys to production, and other branches get preview deployments. To deploy by
+hand from a checkout with the Vercel CLI and a token that can reach the project:
 
 ```sh
-vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope <team> 
+vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope <team>
 ```
 
 ## Data sources and licences
