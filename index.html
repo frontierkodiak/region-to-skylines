@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Region to Skylines</title>
+  <meta name="description" content="Pick any square of real terrain and download it as a Cities: Skylines 1 heightmap. Runs in your browser, no account or key.">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script type="importmap">
+    {"imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    }}
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Region <span>to</span> Cities: Skylines</h1>
+    <form id="search" autocomplete="off">
+      <input id="q" type="search" placeholder="Search a place" aria-label="Search a place">
+    </form>
+  </header>
+  <main>
+    <section id="mapwrap">
+      <div id="map"></div>
+      <div id="maphint">Drag the map: the square stays in the middle</div>
+    </section>
+    <aside id="panel">
+      <div id="presets" role="group" aria-label="Presets"></div>
+
+      <div class="controls">
+        <label>Rotate <output id="rotOut">0°</output>
+          <input id="rot" type="range" min="-180" max="180" step="1" value="0">
+        </label>
+        <label>Real ground on the map
+          <select id="scale">
+            <option value="0.5">8.6 km (0.5x, stretched)</option>
+            <option value="0.75">13 km (0.75x, stretched)</option>
+            <option value="1" selected>17.28 km (1x, true size)</option>
+            <option value="1.5">25.9 km (1.5x, squeezed)</option>
+            <option value="2">34.6 km (2x, squeezed)</option>
+          </select>
+        </label>
+        <label>Height
+          <select id="vscale">
+            <option value="auto" selected>Auto: 1:1, squeeze if too tall</option>
+            <option value="slopes">Real slopes (1 ÷ ground scale)</option>
+            <option value="1">1:1 true height</option>
+            <option value="0.75">0.75x</option>
+            <option value="0.5">0.5x</option>
+            <option value="1.5">1.5x</option>
+          </select>
+        </label>
+        <label class="check"><input id="rivers" type="checkbox" checked> Cut OSM rivers and lakes</label>
+        <div id="refinewrap" class="wide">
+          <button id="refine" type="button" disabled>Refine water with live OSM data</button>
+          <small>Optional. The rivers and lakes come from the basemap's OpenStreetMap tiles. This asks a public Overpass server once for this square's live data (exact river directions and starts, every lake name); it is slower and the servers are often busy.</small>
+        </div>
+        <p id="scalenote" class="note wide"></p>
+      </div>
+
+      <div id="previewwrap">
+        <canvas id="preview3d"></canvas>
+        <div id="status">Loading…</div>
+        <div id="legend">Height x3 · drag to orbit</div>
+      </div>
+
+      <p class="note" id="tilesnote">
+        <span class="sw grid"></span> The game cuts the map into 9 x 9 tiles of <span id="tTile">1.92 km</span>.
+        <span class="sw g25"></span> The base game lets you build on the middle 25 (<span id="t25">9.6 km</span> square), unlocked one at a time as the city grows;
+        <span class="sw st"></span> you start on the centre tile.
+        The <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a> mod opens all 81 (<span id="t81">17.28 km</span>), and can unlock them all at once.
+        The heightmap always covers all 81.
+      </p>
+
+      <dl id="stats"></dl>
+
+      <details id="play" open>
+        <summary>Make it buildable</summary>
+        <div class="playgrid">
+          <label>Smooth terrain
+            <select id="sm">
+              <option value="0">Off: raw elevation</option>
+              <option value="1">Light (16 m)</option>
+              <option value="2">Medium (32 m)</option>
+              <option value="4">Strong (64 m)</option>
+            </select>
+            <small>Removes survey and tile-seam noise that makes jagged slopes roads can't follow.</small>
+          </label>
+          <label>River depth
+            <select id="rd">
+              <option value="5">5 m</option>
+              <option value="10">10 m</option>
+              <option value="15">15 m</option>
+              <option value="20">20 m</option>
+            </select>
+            <small>Deeper beds hold water and keep it from spilling into the valley.</small>
+          </label>
+          <label>River width
+            <select id="rw">
+              <option value="24">~50 m</option>
+              <option value="40">~80 m</option>
+              <option value="64">~130 m</option>
+              <option value="96">~190 m</option>
+            </select>
+            <small>Wider channels flow more steadily; the game's water needs room to spread.</small>
+          </label>
+          <label>Lake depth
+            <select id="ld">
+              <option value="2">2 m</option>
+              <option value="4">4 m</option>
+              <option value="8">8 m</option>
+            </select>
+            <small>Lakes are sunk flat below their shore so a water source can fill them.</small>
+          </label>
+        </div>
+        <button id="resetplay" type="button" class="linkish">Reset to defaults</button>
+      </details>
+
+      <details id="water" open>
+        <summary>Where to put water</summary>
+        <p class="note">The heightmap carves the beds; the game adds the water. Suggested spots, in the editor's coordinates (metres from the centre, x east, z north):</p>
+        <ol id="sources"><li>Waiting for rivers and lakes…</li></ol>
+      </details>
+
+      <label class="namefield">Map name <input id="name" value="asheville" spellcheck="false"></label>
+
+      <details id="howto" open>
+        <summary>Put it in the game</summary>
+        <ol>
+          <li>Save the PNG into the game's heightmap folder:
+            <ul>
+              <li>Windows: <code>%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\MapEditor\Heightmaps</code></li>
+              <li>macOS: <code>~/Library/Application Support/Colossal Order/Cities_Skylines/Addons/MapEditor/Heightmaps</code></li>
+              <li>Linux: <code>~/.local/share/Colossal Order/Cities_Skylines/Addons/MapEditor/Heightmaps</code></li>
+            </ul>
+          </li>
+          <li>Start Cities: Skylines, open <b>Tools → Map Editor</b>, make a new map, and pick your file under <b>Import heightmap</b>.</li>
+          <li><b>Sea level.</b> Coastal maps: set it to the value under “Sea level in game” above. Inland maps: drag it below the lowest riverbed (under “In game” above) so the valleys stay dry.</li>
+          <li><b>Water sources.</b> Under Water, place one source on each dark blue pin, where a river enters the map, and raise it until the bed fills to its banks. Grey pins mark where a river leaves: put nothing there, it drains off the map's edge. Put one in the middle of each lake (light blue pins) and drag its height to the lake's surface. Then unpause and watch: if a valley floods, lower the source.</li>
+          <li><b>Starting tile.</b> It must have water and a highway in and out (Map Settings → Start Area moves it). Draw highways from the map edge along the real ones.</li>
+          <li>Playing with <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a>? Disable it before opening the Map Editor; the mod turns the editor off because it breaks saved maps.</li>
+        </ol>
+        <p class="note">The file is 1081 x 1081 px, 16-bit greyscale, 17.28 km across, with black = 0 m and white = 1024 m. The lowest ground sits at 50 m so water has room below the land; when the relief is too tall for 1024 m, heights are squeezed to fit (shown under “Height”).</p>
+      </details>
+
+      <footer>
+        Elevation: <a href="https://registry.opendata.aws/terrain-tiles/">Terrain Tiles</a> on AWS Open Data (Mapzen/Tilezen).
+        Rivers, lakes and basemap: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (ODbL), served by <a href="https://openfreemap.org">OpenFreeMap</a> in the <a href="https://openmaptiles.org">OpenMapTiles</a> schema (© OpenMapTiles).
+        Search: <a href="https://nominatim.org">Nominatim</a>, © OpenStreetMap contributors, used within the <a href="https://operations.osmfoundation.org/policies/nominatim/">usage policy</a> (search on Enter only, at most one per second).
+        Only if you press “Refine water with live OSM data”: one query for the square to a public <a href="https://wiki.openstreetmap.org/wiki/Overpass_API">Overpass API</a> server (private.coffee, then VK Maps), cached in your browser.
+        <details>
+          <summary>Elevation data credits</summary>
+          <ul>
+            <li>Terrain Tiles: Mapzen, via AWS Open Data (<a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">attribution</a>).</li>
+            <li>ArcticDEM terrain data DEM(s) were created from DigitalGlobe, Inc., imagery and funded under National Science Foundation awards 1043681, 1559691, and 1542736.</li>
+            <li>Australia terrain data © Commonwealth of Australia (Geoscience Australia) 2017.</li>
+            <li>Austria terrain data © offene Daten Österreichs – Digitales Geländemodell (DGM) Österreich.</li>
+            <li>Canada terrain data contains information licensed under the Open Government Licence – Canada.</li>
+            <li>Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers.</li>
+            <li>Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration.</li>
+            <li>Mexico terrain data source: INEGI, Continental relief, 2016.</li>
+            <li>New Zealand terrain data Copyright 2011 Crown copyright (c) Land Information New Zealand and the New Zealand Government (All rights reserved).</li>
+            <li>Norway terrain data © Kartverket.</li>
+            <li>United Kingdom terrain data © Environment Agency copyright and/or database right 2015. All rights reserved.</li>
+            <li>United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey.</li>
+          </ul>
+        </details>
+        <a href="https://github.com/frontierkodiak/region-to-skylines">Source code</a> (MIT).
+      </footer>
+
+      <div class="download" id="dlbar">
+        <div id="mapname">Loading…</div>
+        <button id="dl" disabled>Download heightmap</button>
+        <button id="dljson" class="secondary" disabled title="Centre, rotation, scale and heights of this square">.json</button>
+      </div>
+    </aside>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
