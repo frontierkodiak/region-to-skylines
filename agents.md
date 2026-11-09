@@ -20,7 +20,7 @@ npx -y __CLI_TGZ__ "<where>" --install
 - `"lat,lon"` in decimal degrees, latitude first, e.g. `"35.58,-82.555"`;
 - a place name, e.g. `"Innsbruck"` (looked up once on OpenStreetMap's Nominatim).
 
-The package is built from the same deploy as the page, so it makes the same pixels the page
+The command is pinned to the commit the page runs, so it makes the same pixels the page
 shows. With `--install` it puts `<name>.png` into the game's heightmap folder, and keeps
 `<name>.json` and `<name>-water.png` (the map with the water-source spots pinned) in this
 OS's cache folder (`~/Library/Caches/region-to-skylines` on macOS,

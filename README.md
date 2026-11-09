@@ -22,8 +22,8 @@ folder (below) without replacing an existing file unless you pass `--force`, wri
 map (the map with numbered water-source pins) and a JSON of details to a cache folder, and
 prints the in-game steps with this map's numbers. `--help` lists the options (rotation,
 scale, height, name, output folder, game folder, JSON output). It needs Node.js 20.3 or
-newer, not git. The site builds the package from the same commit as the page (`build.mjs`);
-the copied prompt names that commit's file, and `/cli.tgz` is the latest.
+newer, not git. The copied prompt and agents.md pin the command to the page's commit
+(GitHub's tarball of it, via `build.mjs`); `/cli.tgz` is the latest.
 
 ## What it does
 
