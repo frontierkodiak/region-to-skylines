@@ -383,6 +383,28 @@ copies of real runs (`notify --dry-run`), and that the `driver` profile reads
 issues from blade outside a task. Not yet checked: a live post from a finished
 `submit` job; the first submitted run is that test.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · who has the slot
+
+**What got in the way.** When a run had to wait, the only message was
+"another cs1-harness run holds the lock". Agents couldn't see whose run it
+was, which issue it served, or how long it would take, so they guessed at
+retry times. Nobody counted how often the slot was contended, which is what
+Caleb needs to decide on a second Steam account.
+
+**What changed.** `cs1-harness queue` names the holder (from `/proc/locks`
+and a `holder.json` the new code writes), its issue, label, minutes held and
+an ETA for `run` (3 min of boot and teardown plus game-minutes × the median
+wall-per-game-minute in the run registry, 0.3 until the registry has runs).
+It lists the waiters, including ones started from older checkouts, found from
+their command lines. The slot now logs every wait, acquisition, give-up and
+release to `slot.jsonl`, and `queue --stats` sums the window.
+
+**Before → after.** Before: "the lock is held". After, the first live
+reading at 15:49 ET: PL-857's Innsbruck soak holds the slot, 11.7 min in with
+about 9 min left; PL-857's strict Asheville `up` and PL-856's dialog retest
+have each been waiting about 11 min. The contention log starts empty and
+counts only runs from this checkout on.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

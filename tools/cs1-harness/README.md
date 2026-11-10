@@ -150,6 +150,17 @@ uv run cs1-harness compare RUN_A RUN_B --out DIR           # compare.png + compa
 share of required probes wet, and population against game-minutes, and lists
 which verdict checks differ between the runs.
 
+## The slot
+
+One Steam account runs one game at a time. `cs1-harness queue` shows who
+holds the host's slot (command, issue, label, minutes held and an ETA for
+`run`) and who is waiting, including runs from older checkouts, found from
+their command lines. Every wait, acquisition, give-up and release goes to
+`~/.local/share/cs1-harness/slot.jsonl`; `queue --stats [--hours 24]` sums it:
+acquisitions that had to wait, total and longest wait, and the share of the
+window the slot was held. That's the evidence for or against a second Steam
+account.
+
 ## Results come to the issue
 
 `run --issue PL-NNN --notify` comments the verdict table, the water-change
