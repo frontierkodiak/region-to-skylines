@@ -20,6 +20,7 @@ import sys
 import time
 
 from . import build as build_mod
+from . import notify as notify_mod
 from . import registry
 from . import report as report_mod
 from . import setup as setup_mod
@@ -252,6 +253,7 @@ def cmd_run(cfg, a):
             v = verdict_mod.judge(out)
             log(verdict_mod.summary(v))
             registry.add(out)
+            announce(out, a)
             if report["session"]["cleanup"] != {"game": [], "steam_instances": [], "units_active": []}:
                 log(f"cleanup left something running: {report['session']['cleanup']}")
                 return 1
@@ -266,6 +268,7 @@ def cmd_run(cfg, a):
                 continue
             verdict_mod.error_verdict(out, "map-soak", f"blocked: {b}", b.code)
             registry.add(out)
+            announce(out, a)
             return b.code
         except HarnessError as e:
             if stage.exists():
@@ -273,7 +276,88 @@ def cmd_run(cfg, a):
             log(f"failed: {e}")
             verdict_mod.error_verdict(out, "map-soak", f"failed: {e}", 1)
             registry.add(out)
+            announce(out, a)
             return 1
+
+
+def announce(out: pathlib.Path, a):
+    """With --notify, comment the verdict on the run's issue. Never fails the run."""
+    if not getattr(a, "notify", False):
+        return
+    issue = a.issue or registry.issue_of(out, {"label": a.label})
+    if not issue:
+        log("--notify: no issue (give --issue); not posted")
+        return
+    try:
+        r = notify_mod.post(out, issue, wake=a.wake)
+    except Exception as e:  # noqa: BLE001 - the run's result stands; posting is best effort
+        log(f"--notify: could not post on {issue}: {e!r}")
+        return
+    log(f"posted the verdict on {issue}" if r["posted"] else f"--notify: posting on {issue} failed: {r.get('error')}")
+
+
+def cmd_notify(cfg, a):
+    """Post a finished run's verdict on an issue (what `run --notify` does at the end)."""
+    r = notify_mod.post(a.dir, a.issue, wake=a.wake, dry_run=a.dry_run)
+    print(r["body"] if a.dry_run else json.dumps(r, indent=2))
+    if a.dry_run:
+        print("attachments:", *r["attachments"], sep="\n  ")
+    return 0 if a.dry_run or r["posted"] else 1
+
+
+def cmd_submit(cfg, a):
+    """Start a `run` detached from this shell, so the agent that asked can end its turn.
+
+    The job waits for the slot, runs, and comments its verdict on --issue,
+    @mentioning the issue's agent assignee (that starts the agent's next run).
+    """
+    args = list(a.run_args)
+    if args and args[0] == "--":
+        args = args[1:]
+    if not args or args[0] != "run":
+        raise SystemExit("usage: cs1-harness submit --issue PL-NNN -- run --map … --out … [run options]")
+    if "--out" not in args:
+        raise SystemExit("submit needs run's --out")
+    out = pathlib.Path(args[args.index("--out") + 1]).expanduser().resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if not a.no_wake else [])
+    if "--wait-minutes" not in args:
+        args += ["--wait-minutes", str(a.wait_minutes)]
+    if "--retry-minutes" not in args:
+        args += ["--retry-minutes", "30", "--max-attempts", "8"]
+    tool = pathlib.Path(__file__).resolve().parents[1]
+    unit = f"cs1-harness-job-{a.issue.lower()}-{time.strftime('%H%M%S')}"
+    cmd = [
+        "systemd-run",
+        "--user",
+        f"--unit={unit}",
+        "--collect",
+        "--quiet",
+        f"--working-directory={tool}",
+        f"--setenv=PATH={os.environ.get('PATH', '')}",
+        f"--setenv=HOME={pathlib.Path.home()}",
+        f"--property=StandardOutput=append:{out / 'submit.log'}",
+        f"--property=StandardError=append:{out / 'submit.log'}",
+        "uv",
+        "run",
+        "cs1-harness",
+        *args,
+    ]
+    subprocess.run(cmd, check=True)
+    print(
+        json.dumps(
+            {
+                "unit": unit,
+                "issue": a.issue,
+                "out": str(out),
+                "log": str(out / "submit.log"),
+                "stop": f"systemctl --user stop {unit}",
+                "args": args,
+            },
+            indent=2,
+        )
+    )
+    return 0
 
 
 def cmd_verdict(cfg, a):
@@ -407,6 +491,8 @@ def main(argv=None):
     )
     r.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
     r.add_argument("--issue", help="the issue this run is for (e.g. PL-857); default: from --label or --out")
+    r.add_argument("--notify", action="store_true", help="comment the verdict, frames and timelapse on the issue")
+    r.add_argument("--wake", action="store_true", help="with --notify, @mention the issue's agent assignee")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
     r.add_argument("--no-live", action="store_true", help="skip the live frame page")
     r.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
@@ -429,6 +515,16 @@ def main(argv=None):
     k = sub.add_parser("compare", help="overlay two or more map runs over time (compare.png, compare.json)")
     k.add_argument("runs", nargs="+", help="run directories or registry ids")
     k.add_argument("--out", type=pathlib.Path, required=True)
+    n = sub.add_parser("notify", help="comment a finished run's verdict on an issue")
+    n.add_argument("dir", type=pathlib.Path)
+    n.add_argument("--issue", required=True)
+    n.add_argument("--wake", action="store_true", help="@mention the issue's agent assignee")
+    n.add_argument("--dry-run", action="store_true", help="print the comment and attachments; post nothing")
+    m = sub.add_parser("submit", help="start a run detached; its verdict is commented on --issue when it ends")
+    m.add_argument("--issue", required=True, help="where the verdict goes (e.g. PL-857)")
+    m.add_argument("--no-wake", action="store_true", help="comment without @mentioning the assignee")
+    m.add_argument("--wait-minutes", type=float, default=240, help="how long the job waits for the slot")
+    m.add_argument("run_args", nargs=argparse.REMAINDER, help="-- run --map … --out … [options]")
     j = sub.add_parser("verdict", help="(re)judge finished run directories and write verdict.json")
     j.add_argument("dirs", nargs="+", type=pathlib.Path)
     j.add_argument("--json", action="store_true", help="print the full verdict")
@@ -456,6 +552,8 @@ def main(argv=None):
             "run": cmd_run,
             "verdict": cmd_verdict,
             "runs": cmd_runs,
+            "notify": cmd_notify,
+            "submit": cmd_submit,
             "compare": cmd_compare,
         }[a.cmd](cfg, a)
     except Blocked as b:
