@@ -39,6 +39,10 @@ PROFILES = {
 }
 
 
+# Machine hostnames that differ from the fleet name.
+HOST_ALIASES = {"r5-worm": "worm"}
+
+
 def _env_path(name: str, default: pathlib.Path) -> pathlib.Path:
     return pathlib.Path(os.environ.get(name, str(default))).expanduser()
 
@@ -72,6 +76,7 @@ class Config:
     @classmethod
     def for_host(cls, host: str | None = None) -> Config:
         here = socket.gethostname().split(".")[0]
+        here = HOST_ALIASES.get(here, here)
         host = host or os.environ.get("CS1_HARNESS_HOST") or here
         if host not in PROFILES:
             raise SystemExit(f"no harness profile for host {host!r}; known: {', '.join(PROFILES)}")
