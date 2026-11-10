@@ -400,7 +400,12 @@ namespace Cs1Harness
             heading.y = 0;
             if (heading.sqrMagnitude > 0.1f)
             {
-                var join = mean + heading.normalized * 96;
+                // Native CanAddSegment rejects approaches less than ~41 degrees
+                // apart. Keep the merge close enough for the two highway stubs.
+                float approach = hooks.Count == 2
+                    ? Mathf.Clamp(VectorUtils.LengthXZ(net.m_nodes.m_buffer[hooks[0]].m_position
+                        - net.m_nodes.m_buffer[hooks[1]].m_position) * 0.75f, 12, 96) : 96;
+                var join = mean + heading.normalized * approach;
                 junction = Link(road, Vector3.zero, join, hooks[0], 0, true);
                 for (int i = 1; i < hooks.Count; i++)
                     Link(road, Vector3.zero, Vector3.zero, hooks[i], junction, true);
