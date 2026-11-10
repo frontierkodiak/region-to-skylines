@@ -294,6 +294,42 @@ all three were real:
 itself. After: none of these three; checked offline (display filter against
 the live harness game, SIGTERM under `timeout uv run`), not yet in a full run.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-856 · no run waits behind a dialog
+
+**Why.** The lead found PL-857's game sitting at the main menu behind a Paradox
+"Account Link Found" prompt. Caleb cleared answering it ("yes of course go
+ahead automatically log in to paradox account") and asked that runs stop
+waiting on known prompts.
+
+**Changed.** A new mod module, `DialogOps`, lists the visible dialogs: the UI
+library's panels, the modal on top, and the tutorial advisor. It presses a
+named button with `SimulateClick()`, as a player's click would; the advisor is
+closed with `OnClose()`, as Escape does. A guard unit in every session checks
+every 2 s against a short rule table (`dialogs.py`), answers what it knows, and
+logs every answer to `dialogs.jsonl`. A dialog the table doesn't cover is
+logged as unknown and left alone. Reports list both. Steam's own prompts stay
+with the Steam-log watcher, which never answers.
+
+**First live session** (blade, 15:36), within 2 s of each dialog appearing:
+
+| Dialog | Answer |
+|:--|:--|
+| What's New (`WhatsNewPanelPanel`) | Got it! |
+| Account Link Found (`ParadoxSteamLoginWithSteamFirstTimePanel`) | YES |
+| "Thank you for logging in" (`ParadoxAccountThankYouLoginPanel`) | *unknown, left alone* |
+| Tutorial advisor "Hello!" | closed |
+| Tutorial hint "Build Roads" (`TutorialPanel`) | *unknown, left alone* |
+
+The two unknowns are acknowledgements: the first follows the login Caleb
+cleared, and the second is part of the tutorial. Both got rules (OK, Close).
+In the retest (16:03), What's New, the advisor and two tutorial hints were
+answered, and no dialog was open afterwards. Account Link didn't come back,
+because the account is now logged in. The legal disclaimer didn't appear in
+either session; its rule is untested.
+
+**Side effect.** Logging in made the game add a "Paradox Plaza" to Parks &
+Plazas, as the thank-you dialog says.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

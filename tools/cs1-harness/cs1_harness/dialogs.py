@@ -36,6 +36,12 @@ RULES = [
         r"(?i)^yes$",
         "'Account Link Found': log in to the linked Paradox account (Caleb, 2026-11-10)",
     ),
+    (
+        "ParadoxAccountThankYouLoginPanel",
+        r"(?i)^ok$",
+        "'Thank you for logging in' after the Account Link login; acknowledgement only",
+    ),
+    ("TutorialPanel", r"(?i)^close$", "tutorial hint panel (e.g. 'Build Roads'); closed with its own close button"),
     ("TutorialAdvisorPanel", r"close", "tutorial advisor ('Hello!'); closed as Escape does"),
 ]
 
