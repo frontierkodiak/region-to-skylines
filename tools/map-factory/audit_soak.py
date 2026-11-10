@@ -132,9 +132,11 @@ def audit(run, prepared, geometry, reference_water=None):
             and abs(native["x"] - source["position"][0]) < 0.001
             and abs(native["z"] - source["position"][2]) < 0.001
             and abs(native["target"] - source["target"]) <= 1 / 128 + 1e-6
-            and native["input_rate"]
-            == native["output_rate"]
-            == math.floor(source["capacity"] * 65535 + 0.5)
+            and native["input_rate"] == math.floor(source["capacity"] * 65535 + 0.5)
+            and native["output_rate"]
+            == math.floor(
+                source.get("output_capacity", source["capacity"]) * 65535 + 0.5
+            )
         )
     terrain = run / "grids" / (report["first_dump"] + "-terrain.u16")
     return {

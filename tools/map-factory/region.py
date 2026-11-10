@@ -79,6 +79,15 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
     union = np.zeros_like(ground, dtype=bool)
     for mask in masks.values():
         union |= mask
+    major_rivers = np.zeros_like(union)
+    for (_, kind), mask in masks.items():
+        if kind == "river":
+            major_rivers |= mask
+    major_distance = (
+        ndimage.distance_transform_edt(~major_rivers) * SPACING
+        if major_rivers.any()
+        else np.full_like(ground, np.inf)
+    )
     areas = raster(sq, geometry.get("riverAreas", []), polygons=True)
     smooth_banks = ndimage.median_filter(banks, size=5)
     original = ground.copy()
@@ -178,7 +187,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 ground < local_surface
             )
             initial_surface = (
-                np.minimum(local_surface, ground + 1.0)
+                np.minimum(local_surface, ground + 0.25)
                 if kind == "stream"
                 else local_surface
             )
@@ -205,13 +214,24 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             for role, source_i in controls:
                 if sea is not None and fitted[source_i] <= sea + 0.5:
                     continue
+                if kind == "stream" and major_distance[y[source_i], x[source_i]] <= 96:
+                    # A confluence already has an outlet. A creek regulator
+                    # here would draw down the receiving perennial river.
+                    continue
                 gradient = (fitted[0] - fitted[-1]) / arc[-1]
                 capacity = (
                     0.01 if kind == "stream" else 0.8 if gradient <= 0.005 else 0.2
                 )
                 target = float(fitted[source_i])
                 if kind == "stream":
-                    target = min(target, float(ground[y[source_i], x[source_i]] + 1))
+                    bed = float(ground[y[source_i], x[source_i]])
+                    # A creek outlet is not a second spring. Below-center-bed
+                    # targets alone do not prevent injection into lower cells
+                    # within the native source's radius; output must be zero.
+                    target = max(
+                        0, min(target, bed + (0.25 if role == "upstream" else -0.25))
+                    )
+                    capacity = 0.01
                 sources.append(
                     {
                         "name": name,
@@ -226,6 +246,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                         "capacity": capacity,
                     }
                 )
+                if kind == "stream" and role == "downstream":
+                    sources[-1]["output_capacity"] = 0
             summaries.append(
                 {
                     "name": name,

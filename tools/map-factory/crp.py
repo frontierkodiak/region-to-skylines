@@ -229,7 +229,8 @@ def water_payload(depth, sources, frame, sea_level=35.0):
             ">6fHH", *position, *position, 1, math.floor(s["target"] * 64 + 0.5)
         )
         rate = math.floor(s["capacity"] * 65535 + 0.5)
-        for value in [0, 0, rate, rate, 0]:
+        output_rate = math.floor(s.get("output_capacity", s["capacity"]) * 65535 + 0.5)
+        for value in [0, 0, rate, output_rate, 0]:
             data += value.to_bytes(3, "big")
     return data + struct.pack(">HfbbI", 0, sea_level, 0, 0, frame)
 
@@ -286,7 +287,11 @@ def write_map(template, layout, terrain, water, hydrology, output):
         x, _, z = s["position"]
         if not (-8640 <= x <= 8640 and -8640 <= z <= 8640):
             raise ValueError("Water source is outside the map")
-        if not (0 <= s["target"] < 1024 and 0 < s["capacity"] <= 1):
+        if not (
+            0 <= s["target"] < 1024
+            and 0 < s["capacity"] <= 1
+            and 0 <= s.get("output_capacity", s["capacity"]) <= 1
+        ):
             raise ValueError("Invalid water-source target or capacity")
         i = math.floor((z + 8640) / 16 + 0.5) * 1081 + math.floor((x + 8640) / 16 + 0.5)
         s["position"][1] = float(raw[i] / 64)

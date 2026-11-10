@@ -165,15 +165,26 @@ empty maps.
 Water surfaces come from a monotone fit to uncarved elevations, not a running
 minimum of the already carved bed. Terrain-aware routing can move around DEM
 obstructions inside the mapped corridor. The channels start filled. Streams
-start at no more than 1 m depth with 0.01 capacity controls. River capacity is
+start at no more than 0.25 m depth with 0.01 capacity controls. River capacity is
 0.8 for mean profile gradients at most 0.5%, otherwise 0.2. These are game
-regulator capacities, not calibrated discharge rates. Both ends of each mapped
-reach receive native level controls: the downstream control supplies tailwater
-and can remove excess at missing mapped continuations. This does not join
-disconnected mapped fragments. Lake targets are capped below the lowest
+regulator capacities, not calibrated discharge rates. River reach controls
+supply tailwater and remove excess at missing mapped continuations. Creek
+outlets instead have zero output capacity and a target below their local bed;
+they withdraw excess without introducing a second spring. Creek controls are
+omitted within 96 m of mapped major rivers to avoid drawing down a receiving
+river. This does not join disconnected mapped fragments. Lake targets are
+capped below the lowest
 surrounding uncarved bank or actual prepared ground, so an interior DEM
 percentile cannot continuously flood an outlet. Some mapped lakes consequently
 receive no inland regulator.
+
+In `hydrology.json`, `capacity` sets native withdrawal capacity and defaults
+the injection capacity to the same value. Optional `output_capacity` overrides
+injection, including **zero for a true drain**. Each becomes
+`floor(capacity * 65535 + 0.5)`. A below-center-bed target alone is not drain-only:
+CS1 acts on a radius of `10 + 0.4 * sqrt(rate)` metres and can inject into lower
+neighbouring cells. The JavaScript port must preserve distinct input/output
+rates. Existing inputs without `output_capacity` retain their original bytes.
 
 Additional channel lowering is capped at **3 m relative to the exported PNG**.
 That PNG already includes the browser's river carve, normally 10 m. Corridor
