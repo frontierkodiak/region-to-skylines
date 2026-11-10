@@ -188,11 +188,11 @@ namespace Cs1Harness
 
         static NetTool.ControlPoint Point(NetInfo info, Vector3 p, ushort node = 0, float elevation = float.NaN)
         {
-            if (float.IsNaN(elevation)) elevation = info.m_netAI.IsUnderground() ? -12f : 0f;
+            if (float.IsNaN(elevation)) elevation = 0f;
             if (node != 0)
             {
                 p = Singleton<NetManager>.instance.m_nodes.m_buffer[node].m_position;
-                elevation = p.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(p);
+                elevation = p.y - NetSegment.SampleTerrainHeight(info, p, false, 0);
                 if (Mathf.Abs(elevation) < 1) elevation = 0;
             }
             else
@@ -258,7 +258,7 @@ namespace Cs1Harness
                 var p = Vector3.Lerp(a, b, i / 16f);
                 top = Mathf.Max(top, Singleton<TerrainManager>.instance.SampleRawHeightSmoothWithWater(p, false, 0));
             }
-            float elevation = Mathf.Max(12, top + 12 - mid.y);
+            float elevation = Mathf.Max(12, top + 12 - NetSegment.SampleTerrainHeight(road, mid, false, 0));
             ushort bridge = Link(road, a, mid, from, 0, true, elevation);
             Link(road, mid, b, bridge, to, true);
         }
@@ -554,7 +554,7 @@ namespace Cs1Harness
                     ? Mathf.Clamp(VectorUtils.LengthXZ(net.m_nodes.m_buffer[hooks[0]].m_position
                         - net.m_nodes.m_buffer[hooks[1]].m_position) * 0.75f, 12, 96) : 96;
                 var join = mean + heading.normalized * approach;
-                float elevation = Mathf.Max(0, mean.y - Ground(join.x, join.z).y);
+                float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
                 junction = Link(road, Vector3.zero, join, hooks[0], 0, true, elevation);
                 for (int i = 1; i < hooks.Count; i++)
                     Link(road, Vector3.zero, Vector3.zero, hooks[i], junction, true);
@@ -646,7 +646,8 @@ namespace Cs1Harness
                 {
                     var n = Singleton<NetManager>.instance.m_nodes.m_buffer[h];
                     hooks.Add(Host.Obj("node", h, "position", XYZ(n.m_position), "prefab", n.Info.name, "segments", n.CountSegments(),
-                        "elevation", n.m_elevation, "ground", Singleton<TerrainManager>.instance.SampleRawHeightSmooth(n.m_position)));
+                        "elevation", n.m_elevation, "base_height", n.Info.m_buildHeight,
+                        "ground", Singleton<TerrainManager>.instance.SampleRawHeightSmooth(n.m_position)));
                 }
                 doc["hookups"] = hooks;
                 var water = new List<object>();
