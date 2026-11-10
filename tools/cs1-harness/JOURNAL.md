@@ -405,6 +405,31 @@ about 9 min left; PL-857's strict Asheville `up` and PL-856's dialog retest
 have each been waiting about 11 min. The contention log starts empty and
 counts only runs from this checkout on.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · triage
+
+**What got in the way.** A run that stopped said only "failed: …" or
+"blocked: …". Before anyone could fix it, someone had to work out whose
+problem it was: the map's writer, the harness, Steam, the game, a dialog or
+the GPU. That meant digging through the game log, Steam's logs and
+`nvidia-smi` by hand, often after the evidence had rotated away.
+
+**What changed.** Every non-pass now carries a triage class in
+`verdict.json` (`map`, `harness`, `steam`, `game-crash`, `unknown-dialog`,
+`gpu-vram`, `slot`, `unknown`), with the rule's reason and the evidence copied
+beside it: log tails, Steam's launch lines, the last live frame and GPU
+samples. An unexpected Python exception no longer escapes `run`. It becomes an
+error verdict classed `harness`, with `traceback.txt`, and still posts with
+`--notify`. The registry and the `--notify` comment show the class.
+
+**Before → after.** Before: an error string, with the evidence somewhere on
+the host. After: a class, a reason and files. On blade's four failing runs,
+triage says `map` for each, which is what their agents concluded. Nine
+synthetic error reasons, one per harness message family, land in the
+expected class. One case needs Steam's own log to decide: the game ending
+because the account started playing elsewhere is `steam`, not `game-crash`.
+Not covered yet: the dialog guard on PL-856's dialogs branch writes
+`dialogs.jsonl`, which triage reads once that lands.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

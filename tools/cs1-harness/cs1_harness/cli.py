@@ -24,6 +24,7 @@ from . import notify as notify_mod
 from . import registry
 from . import report as report_mod
 from . import setup as setup_mod
+from . import triage as triage_mod
 from . import verdict as verdict_mod
 from .client import Client, HarnessError
 from .config import Config
@@ -278,6 +279,9 @@ def cmd_run(cfg, a):
             print((out / "report.md").read_text())
             v = verdict_mod.judge(out)
             log(verdict_mod.summary(v))
+            t = triage_mod.attach(out, cfg)
+            if t:
+                log(f"triage: {t['class']} ({t['why']})")
             registry.add(out)
             announce(out, a)
             if report["session"]["cleanup"] != {"game": [], "steam_instances": [], "units_active": []}:
@@ -292,18 +296,33 @@ def cmd_run(cfg, a):
                 log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
                 time.sleep(a.retry_minutes * 60)
                 continue
-            verdict_mod.error_verdict(out, "map-soak", f"blocked: {b}", b.code, issue=a.issue, label=a.label)
-            registry.add(out)
-            announce(out, a)
+            finish_error(cfg, out, a, f"blocked: {b}", b.code)
             return b.code
         except HarnessError as e:
             if stage.exists():
                 collect(stage, out)
             log(f"failed: {e}")
-            verdict_mod.error_verdict(out, "map-soak", f"failed: {e}", 1, issue=a.issue, label=a.label)
-            registry.add(out)
-            announce(out, a)
+            finish_error(cfg, out, a, f"failed: {e}", 1)
             return 1
+        except Exception:  # a harness bug: judge, triage and report it like any other failure
+            import traceback
+
+            if stage.exists():
+                collect(stage, out)
+            tb = traceback.format_exc()
+            log(f"harness error:\n{tb}")
+            (out / "traceback.txt").write_text(tb)
+            finish_error(cfg, out, a, "Traceback: " + tb.strip().splitlines()[-1], 70)
+            return 70
+
+
+def finish_error(cfg, out: pathlib.Path, a, reason: str, code: int):
+    verdict_mod.error_verdict(out, "map-soak", reason, code, issue=a.issue, label=a.label)
+    t = triage_mod.attach(out, cfg)
+    if t:
+        log(f"triage: {t['class']} ({t['why']})")
+    registry.add(out)
+    announce(out, a)
 
 
 def announce(out: pathlib.Path, a):
@@ -432,7 +451,8 @@ def cmd_verdict(cfg, a):
             log(str(e))
             worst = 1
             continue
-        print(f"{d}: {verdict_mod.summary(v)}")
+        t = triage_mod.attach(d)
+        print(f"{d}: {verdict_mod.summary(v)}" + (f" · triage {t['class']}: {t['why']}" if t else ""))
         if a.json:
             print(json.dumps(v, indent=2, default=str))
         worst = max(worst, 0 if v["verdict"] == "pass" else 1)

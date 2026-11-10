@@ -65,6 +65,7 @@ def entry(out: pathlib.Path) -> dict:
         "verdict": v.get("verdict"),
         "failed": v.get("failed"),
         "reason": v.get("reason"),
+        "triage": (v.get("triage") or {}).get("class"),
         "issue": v.get("issue") or issue_of(out, run),
         "label": run.get("label") or v.get("label"),
         "map": (run.get("map") or {}).get("map_name") if isinstance(run.get("map"), dict) else run.get("map"),
