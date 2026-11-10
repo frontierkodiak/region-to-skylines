@@ -51,7 +51,16 @@ def cmd_kit_house(a) -> int:
             node += [f"--{flag}", str(getattr(a, flag))]
     subprocess.run(node, check=True)
     baked = kit_bake.bake(raw, out, a.name, kit_bake.lot_from(a.lot))
-    cmd = [blender_exe(a.blender), "-b", "--factory-startup", "-P", str(HERE / "blender_fbx.py"), "--"]
+    cmd = [
+        blender_exe(a.blender),
+        "-b",
+        "--factory-startup",
+        "--python-exit-code",
+        "1",
+        "-P",
+        str(HERE / "blender_fbx.py"),
+        "--",
+    ]
     cmd += [str(out / f"{a.name}.mesh.json"), str(out)] + (["--preview"] if a.preview else [])
     r = subprocess.run(cmd, capture_output=True, text=True)
     if r.returncode != 0:

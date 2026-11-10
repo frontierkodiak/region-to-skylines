@@ -56,7 +56,10 @@ def cs1_colour(hex_colour: str) -> tuple[int, int, int]:
     r, g, b = (n >> 16) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255
     h, s, v = colorsys.rgb_to_hsv(r, g, b)
     s *= 0.85
-    v = min(v, 1.0) * 0.58  # clapboard #efe9d8 (239) lands at about 139
+    # The game's lighting brightens a lot: scale so clapboard #efe9d8 (239) lands near 139, the
+    # guide's ceiling. Checked in game on blade (PL-880): a soft cap that kept dark tones washed
+    # the grey roof out to near white.
+    v = min(v, 1.0) * 0.58
     r, g, b = colorsys.hsv_to_rgb(h, s, v)
     return round(r * 255), round(g * 255), round(b * 255)
 
@@ -194,6 +197,9 @@ def bake(src: pathlib.Path, out: pathlib.Path, name: str, lot: tuple[int, int], 
     # Kit (u, y, w) -> Blender (x, y, z) = (u, w + offset, y): front wall faces -Y.
     width_m, depth_m = lot[0] * 8.0, lot[1] * 8.0
     tri = np.stack([p[..., 0], p[..., 2], p[..., 1]], axis=-1)
+    # Swapping two axes is a reflection, so it turns every kit triangle inside out; restore
+    # outward winding (the kit's own normals agree with its winding in its frame).
+    tri = tri[:, [0, 2, 1]]
     tri[..., 1] += -depth_m / 2 + margin - tri[..., 1].min()
     tri[..., 2] = np.where(tri[..., 2] < 0.05, 0.05, tri[..., 2])  # lift ground pieces off the lot
     lo, hi = tri.reshape(-1, 3).min(axis=0), tri.reshape(-1, 3).max(axis=0)

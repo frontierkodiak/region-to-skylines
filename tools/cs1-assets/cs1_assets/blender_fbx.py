@@ -31,22 +31,14 @@ def clear():
             block.remove(item)
 
 
-def build(name, triangles, uvs, cs1_winding=True):
-    """One flat-shaded mesh. With cs1_winding, every triangle is stored in reverse order and
-    keeps its outward normal as a custom normal: the game's FBX import negates X (the
-    right- to left-handed change) without reversing winding, so a correctly wound file
-    renders inside out in game (seen in the Asset Editor, PL-880, 2026-11-10)."""
-    verts, faces, loops_uv, normals = [], [], [], []
+def build(name, triangles, uvs):
+    """One flat-shaded mesh from outward-wound triangles (kit_bake fixes the winding)."""
+    verts, faces, loops_uv = [], [], []
     for t, uv in zip(triangles, uvs):
-        a, b, c = (Vector(v) for v in t)
-        n = (b - a).cross(c - a)
-        n = n.normalized() if n.length > 1e-12 else Vector((0, 0, 1))
         base = len(verts)
         verts.extend(t)
-        order = (0, 2, 1) if cs1_winding else (0, 1, 2)
-        faces.append(tuple(base + k for k in order))
-        loops_uv.extend(uv[k] for k in order)
-        normals.extend([n] * 3)
+        faces.append((base, base + 1, base + 2))
+        loops_uv.extend(uv)
     me = bpy.data.meshes.new(name)
     me.from_pydata(verts, [], faces)
     me.update()
@@ -55,7 +47,6 @@ def build(name, triangles, uvs, cs1_winding=True):
         layer.data[i].uv = loops_uv[i]
     for poly in me.polygons:
         poly.use_smooth = False
-    me.normals_split_custom_set([tuple(n) for n in normals])
     ob = bpy.data.objects.new(name, me)
     bpy.context.scene.collection.objects.link(ob)
     # Per-face vertices stay separate: flat shading, atlas cells and custom normals all
@@ -110,9 +101,10 @@ for name, obj in spec["objects"].items():
     back = [o for o in bpy.context.scene.objects if o.type == "MESH"]
     got = bounds(back)
     err = max(abs(a - b) for a, b in zip(want[0] + want[1], got[0] + got[1]))
-    # Normals point against the stored winding (see build); count the faces that do.
+    # Outward check: area-weighted, face normals should point away from the mesh centre.
     me = back[0].data
-    reversed_faces = sum(1 for poly in me.polygons if poly.normal.dot(me.corner_normals[poly.loop_start].vector) < 0)
+    centre = sum((v.co for v in me.vertices), Vector()) / max(len(me.vertices), 1)
+    outward = sum(p.area * p.normal.dot(p.center - centre) for p in me.polygons)
     report["objects"][name] = {
         "fbx": path.name,
         "triangles": sum(len(o.data.polygons) for o in back),
@@ -120,16 +112,18 @@ for name, obj in spec["objects"].items():
         "bounds_m": {"min": [round(v, 3) for v in want[0]], "max": [round(v, 3) for v in want[1]]},
         "reimport_error_m": round(err, 5),
         "objects_in_file": len(back),
-        "faces_reversed_for_cs1": reversed_faces,
+        "outward_score": round(outward, 2),
     }
-    if err > 1e-3 or len(back) != 1:
-        raise SystemExit(f"{path.name}: re-import differs ({err:.4f} m, {len(back)} objects)")
+    if err > 1e-3 or len(back) != 1 or outward <= 0:
+        raise SystemExit(
+            f"{path.name}: re-import differs ({err:.4f} m, {len(back)} objects) or faces inward ({outward:.1f})"
+        )
 
 if preview:
     # CS1-like look-down views: the main mesh (left) beside its LOD (right).
     clear()
     name = spec["name"]
-    ob = build(name, spec["objects"][name]["triangles"], spec["objects"][name]["uvs"], cs1_winding=False)
+    ob = build(name, spec["objects"][name]["triangles"], spec["objects"][name]["uvs"])
     ob.data.materials.append(material(name, out_dir / f"{name}_d.png"))
     scene = bpy.context.scene
     scene.render.engine = "CYCLES"
@@ -152,7 +146,6 @@ if preview:
         f"{name}_lod",
         spec["objects"][f"{name}_lod"]["triangles"],
         spec["objects"][f"{name}_lod"]["uvs"],
-        cs1_winding=False,
     )
     lod.data.materials.append(material(f"{name}_lod", out_dir / f"{name}_lod_d.png"))
     lod.location.x = spec["lot"][0] * 8 + 4

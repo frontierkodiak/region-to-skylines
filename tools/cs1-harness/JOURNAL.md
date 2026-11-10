@@ -297,15 +297,20 @@ nothing did it for buildings, or headless.
   the main menu; New Game and the editor load past it, and nothing answers it.
 - The pointer is parked off-centre before screenshots: the game's hover
   highlight tinted the building blue under the centred pointer.
+- The template's colour variations are off by default (they tinted the grey
+  roof blue), and the materials' colours are set to white.
 - The mod builds per checkout (`.build/`). The shared `~/.cache` build let one
   agent's `build` change the DLL another agent's next `up` installed.
 - `CS1_HARNESS_SCREEN=1280x720` sets the harness screen. It saved little VRAM
   (10.78 GB vs 10.82 GB on the card), so it is a knob, not a fix.
 
 **Learned in game, not from docs.** Blender's "FBX All" export is read at
-1/100 scale (the asset guide's "scale 100"). The importer negates X but keeps
-winding, so correctly wound meshes render inside out; `cs1-assets` writes
-reversed triangles with outward custom normals. Built-in themes load through
+1/100 scale (the asset guide's "scale 100"). The first house rendered inside
+out; I blamed the importer and reversed the triangles with outward custom
+normals, which fixed culling but left the roof black. The real fault was
+upstream: moving the kit's axes onto Blender's is a reflection, so every face
+pointed inward. `cs1-assets` now fixes the winding in the bake and checks it at
+export, and the game imports it like any FBX. Built-in themes load through
 their metadata's `assetRef`, not the metadata asset ("File format version not
 supported"). Custom buildings become prefabs only when a level loads. Flatpak
 shows the data directory through a `data` symlink, so paths compare resolved.
@@ -325,3 +330,5 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 |:--|:--|:--|:--|:--|:--|:--|
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
+| 2026-11-10 | Opus 5.5 · PL-880 | blade · 2080 Ti 05:00.0, 1280×720 | 10,821 MiB card / ~2.8 GB game | 154 W / 63 °C | 2 min | `asset build` KudzuCraftsman: .crp saved, 17 s import to save (build-7) |
+| 2026-11-10 | Opus 5.5 · PL-880 | blade · 2080 Ti 05:00.0, 1280×720 | 10,821 MiB card / ~2.8 GB game | 154 W / 63 °C | 3 min | `asset check` on PL-848 Asheville: placed, day/night/distant views, save and reload kept it (check-5) |

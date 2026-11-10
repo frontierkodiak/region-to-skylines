@@ -20,7 +20,7 @@ Then `cs1-harness asset build --src <out> --name KudzuCraftsman` turns it into a
 |:--|:--|
 | `<name>.fbx` | the house, metres, origin at the lot centre on the ground, front facing the road |
 | `<name>_lod.fbx` | the distant-view mesh: the roof's convex hull over walls dropped from its outline (about 35 triangles); UVs inside 0–1 |
-| `<name>_d.png` | diffuse: one flat 16 px cell per kit palette ramp, darkened so nothing passes about 140 RGB |
+| `<name>_d.png` | diffuse: one flat 16 px cell per kit palette ramp, darkened (× 0.58) so nothing passes about 140 RGB |
 | `<name>_s.png` | specular: glass 235 (the game draws a fake interior behind it), roofs 8, the rest 25 |
 | `<name>_i.png` | illumination: glass split by window into the two random night sets (255, 128), the rest 0 |
 | `<name>_c.png` | colour-variation mask: black, so a template's colour variations leave the kit colours alone |
@@ -59,8 +59,12 @@ Seen in the game on blade (PL-880, 2026-11-10), not just read from settings:
   Asset Editor's scale field must be 100, the value the creators' guide calls
   common. `<name>.bake.json` records `import_scale: 100`, and `cs1-harness asset
   build` uses it and fails if the imported size differs from the bake's.
-- **Winding.** The importer negates X (the right- to left-handed change) but
-  keeps triangle order, so a correctly wound file renders inside out. The FBX
-  stores every triangle reversed, with its outward normal as a custom normal;
-  `fbx-receipt.json` counts the reversed faces. The previews render the model as
-  authored.
+- **Winding.** Moving the kit's frame (u, y up, w) onto Blender's (x, y, z up)
+  swaps two axes, which is a reflection and turns every triangle inside out.
+  `kit_bake.py` reverses the order back, and `blender_fbx.py` fails the export
+  if the faces point inward on balance. Inward faces showed in game as an
+  inside-out house, then as a black roof once culling was patched over: the
+  game's importer itself behaves like any FBX importer.
+- **Colour.** The game brightens a lot. Scaling the palette by 0.58 keeps
+  clapboard near the guide's 140 ceiling; a soft cap that kept dark tones read
+  washed out in game.
