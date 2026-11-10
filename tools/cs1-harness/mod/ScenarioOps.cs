@@ -161,14 +161,32 @@ namespace Cs1Harness
             return p;
         }
 
+        static BuildingInfo WaterPrefab(bool intake)
+        {
+            BuildingInfo selected = null;
+            int cheapest = int.MaxValue;
+            for (uint i = 0; i < PrefabCollection<BuildingInfo>.LoadedCount(); i++)
+            {
+                var p = PrefabCollection<BuildingInfo>.GetLoaded(i);
+                var ai = p == null ? null : p.m_buildingAI as WaterFacilityAI;
+                if (ai == null || p.m_placementMode != BuildingInfo.PlacementMode.Shoreline
+                    || ai.m_useGroundWater || ai.m_waterStorage != 0 || ai.m_sewageStorage != 0) continue;
+                if (intake ? ai.m_waterIntake <= 0 || ai.m_sewageOutlet != 0 : ai.m_sewageOutlet <= 0 || ai.m_waterIntake != 0) continue;
+                int cost = ai.GetConstructionCost();
+                if (cost < cheapest) { cheapest = cost; selected = p; }
+            }
+            if (selected == null) throw new Exception("no loaded shoreline " + (intake ? "water pump" : "sewage drain"));
+            return selected;
+        }
+
         static NetTool.ControlPoint Point(NetInfo info, Vector3 p, ushort node = 0, float elevation = float.NaN)
         {
             if (float.IsNaN(elevation)) elevation = info.m_netAI.IsUnderground() ? -12f : 0f;
             if (node != 0)
             {
                 p = Singleton<NetManager>.instance.m_nodes.m_buffer[node].m_position;
-                elevation = Singleton<NetManager>.instance.m_nodes.m_buffer[node].m_elevation;
-                if (info.m_netAI.IsUnderground()) elevation = -elevation;
+                elevation = p.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(p);
+                if (Mathf.Abs(elevation) < 1) elevation = 0;
             }
             else
                 p.y = NetSegment.SampleTerrainHeight(info, p, false, elevation);
@@ -194,7 +212,8 @@ namespace Cs1Harness
             var errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, true, true, false, true, true, false, false, 0,
                 out first, out last, out segment, out cost, out production);
             if (errors != ToolBase.ToolErrors.None)
-                throw new PlacementRejected(info.name + " " + a + " -> " + b, errors);
+                throw new PlacementRejected(info.name + " " + start.m_position + " -> " + end.m_position
+                    + " (elevation " + start.m_elevation + " -> " + end.m_elevation + ")", errors);
             if (testOnly) return 0;
             errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, false, true, false, true, true, false, false, 0,
                 out first, out last, out segment, out cost, out production);
@@ -472,7 +491,8 @@ namespace Cs1Harness
                     ? Mathf.Clamp(VectorUtils.LengthXZ(net.m_nodes.m_buffer[hooks[0]].m_position
                         - net.m_nodes.m_buffer[hooks[1]].m_position) * 0.75f, 12, 96) : 96;
                 var join = mean + heading.normalized * approach;
-                junction = Link(road, Vector3.zero, join, hooks[0], 0, true);
+                float elevation = Mathf.Max(0, mean.y - Ground(join.x, join.z).y);
+                junction = Link(road, Vector3.zero, join, hooks[0], 0, true, elevation);
                 for (int i = 1; i < hooks.Count; i++)
                     Link(road, Vector3.zero, Vector3.zero, hooks[i], junction, true);
             }
@@ -486,8 +506,8 @@ namespace Cs1Harness
             var plantInfo = BuildingPrefab("Coal Power Plant");
             ushort plant = Roadside(plantInfo);
             var distant = new Vector3(100000, 0, 100000);
-            ushort pump = Shore(BuildingPrefab("Water Pumping Station"), center, distant);
-            ushort drain = Shore(BuildingPrefab("Water Drain Pipe"), center, bm.m_buildings.m_buffer[pump].m_position);
+            ushort pump = Shore(WaterPrefab(true), center, distant);
+            ushort drain = Shore(WaterPrefab(false), center, bm.m_buildings.m_buffer[pump].m_position);
             // One connected pipe tree covers the whole grid. Native pipes couple to
             // facilities by proximity, as when drawn with the pipe tool.
             var hub = Ground(center.x, center.z);
@@ -561,7 +581,8 @@ namespace Cs1Harness
                 foreach (ushort h in Hookups())
                 {
                     var n = Singleton<NetManager>.instance.m_nodes.m_buffer[h];
-                    hooks.Add(Host.Obj("node", h, "position", XYZ(n.m_position), "prefab", n.Info.name, "segments", n.CountSegments()));
+                    hooks.Add(Host.Obj("node", h, "position", XYZ(n.m_position), "prefab", n.Info.name, "segments", n.CountSegments(),
+                        "elevation", n.m_elevation, "ground", Singleton<TerrainManager>.instance.SampleRawHeightSmooth(n.m_position)));
                 }
                 doc["hookups"] = hooks;
             }
