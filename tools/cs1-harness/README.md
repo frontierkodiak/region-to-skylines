@@ -131,6 +131,18 @@ otherwise: inside the central 25 tiles, not on the map edge, and not tagged
 `[stream]`. `cs1-harness verdict DIR…` re-judges finished runs (exit 1 if any
 fails), for example after a threshold changes.
 
+## Triage
+
+A run that doesn't pass gets a `triage` block in `verdict.json`: a class, why
+the rule matched, and its evidence. The classes are `map` (only map checks
+failed), `harness`, `steam`, `game-crash`, `unknown-dialog`, `gpu-vram`,
+`slot` (it waited out its `--wait-minutes`) and `unknown`. The evidence sits
+beside the verdict: tails of `game.log`, `game-stdout.log` and Steam's
+launch log, `last-frame.jpg` (the live page's last frame), `gpu.csv`, and
+`traceback.txt` when the harness itself raised. The rules are in
+`cs1_harness/triage.py`, ordered, first match wins. A game that ends while
+Steam logs a playing-session conflict is `steam`, not a crash.
+
 ## Finding and comparing runs
 
 Every `run` adds a line to the host's run registry,

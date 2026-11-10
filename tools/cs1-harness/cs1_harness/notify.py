@@ -72,6 +72,9 @@ def body(out: pathlib.Path, v: dict, entry: dict) -> str:
     else:
         if m.get("game_minutes"):
             lines += [f"{m['game_minutes']} game-minutes in {m.get('wall_minutes')} wall minutes.", ""]
+        triage = v.get("triage") or {}
+        if triage:
+            lines += [f"Triage: **{triage.get('class')}**. {triage.get('why', '')}", ""]
         lines += ["| Check | Status | Value |", "|:--|:--|:--|"]
         lines += [
             f"| {c['name']} | {'**fail**' if c['status'] == 'fail' else c['status']} | {short(c).replace('|', '/')} |"
