@@ -26,7 +26,7 @@ def freeze(inputs, output):
         "layout": "templates/native-corridors.json",
         "template_sha256": hashlib.sha256(template.read_bytes()).hexdigest(),
         "native_template_origin": "PL-848 editor factory; region-to-skylines PR #1 at 4011a6b717e50bebd92f0b9caf8547a7a16e5c8c",
-        "status": "offline reference only; generated geography is not yet game-verified",
+        "status": "byte reference; native qualification tracked separately in NATIVE_FINDINGS.md",
         "cases": [],
     }
     with tempfile.TemporaryDirectory(prefix=".freeze-", dir=output) as temporary:

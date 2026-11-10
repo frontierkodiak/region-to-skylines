@@ -2,8 +2,9 @@
 
 The Python reference writes terrain, initialized water, natural sources and
 terrain-following connection corridors into a native `.crp` template. It needs
-no game DLLs at export time. **The new arbitrary-region outputs are not yet
-game-verified. Do not make them the website default until that check passes.**
+no game DLLs at export time. **Five-region native qualification is in progress;
+see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). Do not make these the website default
+until that check passes.**
 
 The original PL-848 Asheville template passed ordinary **New Game** and city
 play with `--disableMods --noWorkshop` on CS1 1.21.1-f9. That result does not
@@ -188,6 +189,8 @@ injection, including **zero for a true drain**. Each becomes
 CS1 acts on a radius of `10 + 0.4 * sqrt(rate)` metres and can inject into lower
 neighbouring cells. The JavaScript port must preserve distinct input/output
 rates. Existing inputs without `output_capacity` retain their original bytes.
+Zero is intentional; a port must use a missing-value fallback, not a truthiness
+fallback that replaces zero with the default capacity.
 
 Additional channel lowering is capped at **3 m relative to the exported PNG**.
 That PNG already includes the browser's river carve, normally 10 m. Corridor
