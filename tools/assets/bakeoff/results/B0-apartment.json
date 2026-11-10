@@ -1,0 +1,108 @@
+{
+  "method": "B",
+  "target": "apartment",
+  "main": {
+    "triangles": 11946,
+    "vertices": 6353,
+    "bounds_m": [
+      [
+        -8.662002563476562,
+        -5.0,
+        0.0
+      ],
+      [
+        8.662002563476562,
+        5.0,
+        7.572321891784668
+      ]
+    ],
+    "uv_range": [
+      0.0028518240433186293,
+      0.9971481561660767
+    ],
+    "dimensions_m": [
+      17.324005126953125,
+      10.0,
+      7.572321891784668
+    ]
+  },
+  "lod": {
+    "triangles": 12,
+    "vertices": 8,
+    "bounds_m": [
+      [
+        -8.662002563476562,
+        -5.0,
+        0.0
+      ],
+      [
+        8.662002563476562,
+        5.0,
+        7.572321891784668
+      ]
+    ],
+    "uv_range": [
+      0.0028517846949398518,
+      0.9971481561660767
+    ],
+    "dimensions_m": [
+      17.324005126953125,
+      10.0,
+      7.572321891784668
+    ]
+  },
+  "spec": {
+    "size": [
+      28.0,
+      10.0,
+      8.3
+    ],
+    "lot": [
+      4,
+      3
+    ],
+    "budget": 12000,
+    "lod": 240
+  },
+  "generation_seconds": 1.2041576670017093,
+  "normalization": {
+    "raw_bounds": [
+      [
+        -0.4999998211860657,
+        -0.28860634565353394,
+        -0.2185358703136444
+      ],
+      [
+        0.500003457069397,
+        0.28862929344177246,
+        0.21856552362442017
+      ]
+    ],
+    "uniform_scale": 17.32394766143141,
+    "yaw_degrees": 0,
+    "rule": "Uniform fit inside the shared metre envelope; inferred aspect ratios preserved",
+    "window_semantics": "No inferred illumination or color-variation mask; disabled, not guessed"
+  },
+  "normal_map": "flat neutral tangent-space +X +Y; no invented relief",
+  "lod_strategy": "B: closed convex-envelope retopology and source baking; A/C: authored low-poly shell",
+  "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
+  "render_seconds": 12.717245000007097,
+  "files": {
+    "B-apartment_s.png": "1ab372fdbc17a1653b181bc77baf57b34dee698a60dc64b9dcee1bba76feb616",
+    "B-apartment_d.png": "f548b606c7d356aa7c73973120ff955f3890838f38eaa09398105ccddb15a63f",
+    "B-apartment.fbx": "76cc3fe41246939a6bd12dfdc7e73365d5f203c5d48ad15068bad520ace8098f",
+    "B-apartment_c.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+    "B-apartment_lod_c.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+    "B-apartment_lod_s.png": "31b799718916a70031aa9c6840c4d0e6cf9f5a8ac634fb07148fed79337da4ba",
+    "B-apartment_lod_d.png": "39e0bdb9e29c9dda8d7101a22c954a5d3a126a94205136678163a8d4fc8f8284",
+    "B-apartment_lod.fbx": "ffb75b70076bef30d5fabbc534b02f3f22021d26aa71097adf99a65a18b6f992",
+    "gameplay.png": "2676c5979adc29893a0d33065580dcd8154478405f4d764c5f19fbea171ec0a4",
+    "B-apartment_lod_i.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+    "B-apartment_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+    "B-apartment_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "lod.png": "983507dcb2a2e5a022b59f3211602053708fbf07714225f34ff69fe8a1b2ccb4",
+    "night.png": "0c2dfcb327f8fb597cbae96078265db73dc1a282485374492bb099e4d12c1cfe",
+    "B-apartment_i.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+    "close.png": "ea90a34637b7ce1db1e049073203b84e2698cfe727bfdbcaa404f4b8ac1383aa"
+  }
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "asset": "B-apartment",
+    "triangles": 11658,
+    "budget": 12000,
+    "max_bounds_error_m": 4.959057946507528e-07,
+    "lot_cells": [
+      4,
+      3
+    ],
+    "passed": true
+  },
+  {
+    "asset": "B-apartment_lod",
+    "triangles": 222,
+    "budget": 240,
+    "max_bounds_error_m": 4.959057946507528e-07,
+    "lot_cells": [
+      4,
+      3
+    ],
+    "passed": true
+  },
+  {
+    "asset": "B-bungalow",
+    "triangles": 5645,
+    "budget": 6000,
+    "max_bounds_error_m": 7.171464062594168e-07,
+    "lot_cells": [
+      2,
+      3
+    ],
+    "passed": true
+  },
+  {
+    "asset": "B-bungalow_lod",
+    "triangles": 160,
+    "budget": 180,
+    "max_bounds_error_m": 7.171464062594168e-07,
+    "lot_cells": [
+      2,
+      3
+    ],
+    "passed": true
+  },
+  {
+    "asset": "B-storefront",
+    "triangles": 7783,
+    "budget": 8000,
+    "max_bounds_error_m": 1.0882895367103629e-06,
+    "lot_cells": [
+      2,
+      3
+    ],
+    "passed": true
+  },
+  {
+    "asset": "B-storefront_lod",
+    "triangles": 178,
+    "budget": 180,
+    "max_bounds_error_m": 1.0882895367103629e-06,
+    "lot_cells": [
+      2,
+      3
+    ],
+    "passed": true
+  }
+]

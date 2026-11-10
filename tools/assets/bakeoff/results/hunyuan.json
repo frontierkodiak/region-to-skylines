@@ -1,0 +1,73 @@
+{
+  "model": "tencent/Hunyuan3D-2mini",
+  "revision": "f90a0f7df7d5e6f71109cf333f6a95a0ae3194a6",
+  "seed": 881,
+  "steps": 30,
+  "resolution": 256,
+  "setup_seconds": 22.871329357963987,
+  "torch": "2.6.0+cu124",
+  "device": "NVIDIA GeForce RTX 3090",
+  "source_commit": "f8db63096c8282cb27354314d896feba5ba6ff8a",
+  "assets": {
+    "bungalow": {
+      "seconds": 13.475850593997166,
+      "triangles": 971004,
+      "vertices": 485312,
+      "bounds": [
+        [
+          -1.0011874437332153,
+          -0.836117684841156,
+          -0.7935997843742371
+        ],
+        [
+          0.9929553866386414,
+          0.8297730088233948,
+          0.7845523953437805
+        ]
+      ],
+      "peak_allocated_bytes": 4307037696,
+      "sha256": "e9306cf77cfd7357619d8d2a06a688e20b17283a6a11dd0f5792cc118a35fa42",
+      "texture": "none; geometry-only control, not eligible for the textured ranking"
+    },
+    "storefront": {
+      "seconds": 12.313534143031575,
+      "triangles": 360308,
+      "vertices": 179730,
+      "bounds": [
+        [
+          -0.9991293549537659,
+          -0.9531400203704834,
+          -0.19777503609657288
+        ],
+        [
+          0.9922645688056946,
+          0.9325114488601685,
+          0.28048357367515564
+        ]
+      ],
+      "peak_allocated_bytes": 4307037696,
+      "sha256": "f3b1dca27f4794e78d9c463e499ff26c817aafea5f5ae8d485ad4a12b6288190",
+      "texture": "none; geometry-only control, not eligible for the textured ranking"
+    },
+    "apartment": {
+      "seconds": 12.948199449048843,
+      "triangles": 1142308,
+      "vertices": 571119,
+      "bounds": [
+        [
+          -0.995932936668396,
+          -0.6508922576904297,
+          -0.9986598491668701
+        ],
+        [
+          0.9799889326095581,
+          0.606680691242218,
+          0.9916397333145142
+        ]
+      ],
+      "peak_allocated_bytes": 4307037696,
+      "sha256": "a90486b90c3fe51639bc39ec8d4ddec4ecc9b28d48747da4e11bc6c063bf8672",
+      "texture": "none; geometry-only control, not eligible for the textured ranking"
+    }
+  }
+}

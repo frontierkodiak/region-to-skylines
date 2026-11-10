@@ -1,0 +1,1190 @@
+{
+  "A-bungalow-close": {
+    "request_sha256": "6662e3fb01a7c701b5f14ec4bb88691b56ec7aed03ce3c9cdbd5579737aeb009",
+    "image_sha256": "df467dcf0c651d77a94da8c2b33672319841f23fb67d7eb0333bc0b7c16382a7",
+    "reference_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Asheville 1920s Craftsman bungalow: broad porch, pale horizontal siding, pitched roof, dormer and chimney. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.8786270022392273
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.0316520035266876,
+          "confidence": 0.4541310966014862,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.020119445398449898,
+            "1": 0.09449639916419983,
+            "2": 0.17312787473201752,
+            "3": 0.2581251561641693,
+            "4": 0.4541310966014862
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "df467dcf0c651d77a94da8c2b33672319841f23fb67d7eb0333bc0b7c16382a7",
+        "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.9410106100258417,
+    "advisory_only": true
+  },
+  "A-bungalow-gameplay": {
+    "request_sha256": "977903adca8421f97b0ac1aff4b876ad5da69e0a372375c96d5482a0d5997f2f",
+    "image_sha256": "e2cf9e9ccb73d57c8a7581ba671996c1db8b37d12f0d4114864e21fe7454a21c",
+    "reference_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Asheville 1920s Craftsman bungalow: broad porch, pale horizontal siding, pitched roof, dormer and chimney. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.769253671169281
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.8873159289360046,
+          "confidence": 0.36325138807296753,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.017214959487318993,
+            "1": 0.11897152662277222,
+            "2": 0.18634776771068573,
+            "3": 0.31421443819999695,
+            "4": 0.36325138807296753
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "e2cf9e9ccb73d57c8a7581ba671996c1db8b37d12f0d4114864e21fe7454a21c",
+        "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5374311089981347,
+    "advisory_only": true
+  },
+  "C-bungalow-close": {
+    "request_sha256": "3e45ce8b42f424e4e73ab061fd893505b5539fa74653c10528572f158e7bf3c8",
+    "image_sha256": "0b34c452b504495a20bfa020f9db486b9c486d2cba1e2c8a40d009f607bde52d",
+    "reference_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Asheville 1920s Craftsman bungalow: broad porch, pale horizontal siding, pitched roof, dormer and chimney. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.8550662994384766
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.049125090241432,
+          "confidence": 0.4507034420967102,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.018840426579117775,
+            "1": 0.08970727026462555,
+            "2": 0.16564269363880157,
+            "3": 0.2751062214374542,
+            "4": 0.4507034420967102
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "0b34c452b504495a20bfa020f9db486b9c486d2cba1e2c8a40d009f607bde52d",
+        "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.552229675988201,
+    "advisory_only": true
+  },
+  "C-bungalow-gameplay": {
+    "request_sha256": "227ac22b989b42d0af65ea9cdb3dce04c39eaf3d0d80a40a4ec39952d17db97c",
+    "image_sha256": "18c482cd27feba014c88d0581c7d041b4be9962a7f7f85f2e0f58ce35277700e",
+    "reference_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Asheville 1920s Craftsman bungalow: broad porch, pale horizontal siding, pitched roof, dormer and chimney. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.7879312038421631
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.912138819694519,
+          "confidence": 0.37601375579833984,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.01757781207561493,
+            "1": 0.11478975415229797,
+            "2": 0.18156221508979797,
+            "3": 0.31005653738975525,
+            "4": 0.37601375579833984
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "18c482cd27feba014c88d0581c7d041b4be9962a7f7f85f2e0f58ce35277700e",
+        "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5315333160106093,
+    "advisory_only": true
+  },
+  "A-storefront-close": {
+    "request_sha256": "61c050a4c9fb2a2f2953385a55432db967a4b2064e738709e21cf6d63d964a9a",
+    "image_sha256": "f772262906a3e1694a5e12be102e4ed332de6c6dcd77c2fd4bdfacc2cc8cc35b",
+    "reference_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Lexington Avenue Asheville brick storefront: three stories, flat roof/parapet, tall sash windows and glazed shopfront. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.8727275133132935
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.306295856833458,
+          "confidence": 0.5314970016479492,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.01799250766634941,
+            "1": 0.035922423005104065,
+            "2": 0.09937889873981476,
+            "3": 0.31520920991897583,
+            "4": 0.5314970016479492
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "f772262906a3e1694a5e12be102e4ed332de6c6dcd77c2fd4bdfacc2cc8cc35b",
+        "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 1.184334602963645,
+    "advisory_only": true
+  },
+  "A-storefront-gameplay": {
+    "request_sha256": "141aa266c0f52e7b4fc1adc87406c9b07cc34b051a4c46a0e0ca4ae312953ee6",
+    "image_sha256": "ad83c1ec8c0a4559c64ca67ffe2589b3c2c2cfe5fcd6bda9ad2e2b58271740cf",
+    "reference_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Lexington Avenue Asheville brick storefront: three stories, flat roof/parapet, tall sash windows and glazed shopfront. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.8175016045570374
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.290811203420162,
+          "confidence": 0.5448553562164307,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.020819121971726418,
+            "1": 0.04172850400209427,
+            "2": 0.10812985152006149,
+            "3": 0.2844671905040741,
+            "4": 0.5448553562164307
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "ad83c1ec8c0a4559c64ca67ffe2589b3c2c2cfe5fcd6bda9ad2e2b58271740cf",
+        "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.9192727120243944,
+    "advisory_only": true
+  },
+  "C-storefront-close": {
+    "request_sha256": "0de86235202d736d033f15bdd3cf67db29556f446ab552875a179f6f5d266b85",
+    "image_sha256": "a53bb70df9eea8cfa7cb5ef1ebaedfd8b4b553c6596ce486af5cc7eaeb61d3d4",
+    "reference_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Lexington Avenue Asheville brick storefront: three stories, flat roof/parapet, tall sash windows and glazed shopfront. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.8794059157371521
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.3448514714837074,
+          "confidence": 0.5624032020568848,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.017351923510432243,
+            "1": 0.03702213615179062,
+            "2": 0.09145186096429825,
+            "3": 0.29177093505859375,
+            "4": 0.5624032020568848
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "a53bb70df9eea8cfa7cb5ef1ebaedfd8b4b553c6596ce486af5cc7eaeb61d3d4",
+        "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 1.0600747509743087,
+    "advisory_only": true
+  },
+  "C-storefront-gameplay": {
+    "request_sha256": "457ac59d8b741e3d119115308da3321431f5938bdacadb28b232578d364b1a1d",
+    "image_sha256": "a11c11e34f917c3d09e6d5650a7770f14614b58ecb0a54ed77e1ce36ed65e869",
+    "reference_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Lexington Avenue Asheville brick storefront: three stories, flat roof/parapet, tall sash windows and glazed shopfront. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.8311430811882019
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.348544593900442,
+          "confidence": 0.5870968103408813,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.019235022366046906,
+            "1": 0.03993293270468712,
+            "2": 0.10098133981227875,
+            "3": 0.2527539134025574,
+            "4": 0.5870968103408813
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "a11c11e34f917c3d09e6d5650a7770f14614b58ecb0a54ed77e1ce36ed65e869",
+        "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.92565716302488,
+    "advisory_only": true
+  },
+  "A-apartment-close": {
+    "request_sha256": "d43585ba194df81e53d463535cf717df1eec618b3517c41ceafc224c7fb6e004",
+    "image_sha256": "1b33a1c89889d3243b5489d850b5d865668571634bb72d947f982b413772120f",
+    "reference_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Hillcrest Asheville brick townhome/apartment row: long two-story red-brick mass, pitched cross-gable roof, cream panels and porch entries. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.7818307876586914
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.0868484675884247,
+          "confidence": 0.41109180450439453,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.020189136266708374,
+            "1": 0.04274040460586548,
+            "2": 0.17819511890411377,
+            "3": 0.34778353571891785,
+            "4": 0.41109180450439453
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 645,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "1b33a1c89889d3243b5489d850b5d865668571634bb72d947f982b413772120f",
+        "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.9602170439902693,
+    "advisory_only": true
+  },
+  "A-apartment-gameplay": {
+    "request_sha256": "d8cfc125b125a6cf83196ebcbfbb42036ce380539aacb589b1d711461fea1df5",
+    "image_sha256": "82ab400160f989552f60a38df387421ba6f591630e1de35856b54c8020a1b751",
+    "reference_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Hillcrest Asheville brick townhome/apartment row: long two-story red-brick mass, pitched cross-gable roof, cream panels and porch entries. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.5104354619979858
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.7569770738482475,
+          "confidence": 0.38843169808387756,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.03517240658402443,
+            "1": 0.08933477848768234,
+            "2": 0.22294865548610687,
+            "3": 0.38843169808387756,
+            "4": 0.2641124725341797
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 645,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "82ab400160f989552f60a38df387421ba6f591630e1de35856b54c8020a1b751",
+        "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5823260599863715,
+    "advisory_only": true
+  },
+  "C-apartment-close": {
+    "request_sha256": "b871fc534b07969ff2cf455a84d29b33a630a0f31131d131f755d4327882aace",
+    "image_sha256": "b2849f7f2f2ef320565a60a99b3df7af907a67f68ba48423cb91cfe6519c7c3b",
+    "reference_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Hillcrest Asheville brick townhome/apartment row: long two-story red-brick mass, pitched cross-gable roof, cream panels and porch entries. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.820900559425354
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 3.192837670445442,
+          "confidence": 0.4717513918876648,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.01799062266945839,
+            "1": 0.035292789340019226,
+            "2": 0.1543564647436142,
+            "3": 0.32060879468917847,
+            "4": 0.4717513918876648
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 645,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "b2849f7f2f2ef320565a60a99b3df7af907a67f68ba48423cb91cfe6519c7c3b",
+        "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5826198359718546,
+    "advisory_only": true
+  },
+  "C-apartment-gameplay": {
+    "request_sha256": "21dd98b704257cbe68d4367c21ea75d066220b20fd09a99d4f2db604f5d1e9de",
+    "image_sha256": "38f3e71747401eb4bf08a4737c56be32e7758e0266dcaee101e3eed5bf40146b",
+    "reference_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Hillcrest Asheville brick townhome/apartment row: long two-story red-brick mass, pitched cross-gable roof, cream panels and porch entries. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.49536144733428955
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.743001453578472,
+          "confidence": 0.39091333746910095,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.035709597170352936,
+            "1": 0.09603159874677658,
+            "2": 0.2175760418176651,
+            "3": 0.39091333746910095,
+            "4": 0.2597694396972656
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 645,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "38f3e71747401eb4bf08a4737c56be32e7758e0266dcaee101e3eed5bf40146b",
+        "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5810489180148579,
+    "advisory_only": true
+  },
+  "B-bungalow-close": {
+    "request_sha256": "008513f77a55164ffda512e427bdb77aae087420be23f3fa3cca5c5ae4d25b79",
+    "image_sha256": "807f2a8ef957de969ed6d37aa6c825bc69d4eb1f83f31a46561ccda346b2a371",
+    "reference_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Asheville 1920s Craftsman bungalow: broad porch, pale horizontal siding, pitched roof, dormer and chimney. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.21858596801757812
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.1612738966941833,
+          "confidence": 0.2497769445180893,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.11154364794492722,
+            "1": 0.2497769445180893,
+            "2": 0.20446012914180756,
+            "3": 0.23430027067661285,
+            "4": 0.1999189704656601
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "807f2a8ef957de969ed6d37aa6c825bc69d4eb1f83f31a46561ccda346b2a371",
+        "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.596291657013353,
+    "advisory_only": true
+  },
+  "B-bungalow-gameplay": {
+    "request_sha256": "8e12a1295af63e20c5f676f5bfde1f5395a65adfac3639324161b7b1925323a6",
+    "image_sha256": "a125cbd34b5f27587da06aa2179693447d0b2d16da3bb0cf0eb98a77a5f9d955",
+    "reference_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Asheville 1920s Craftsman bungalow: broad porch, pale horizontal siding, pitched roof, dormer and chimney. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.4746311902999878
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.540422737598419,
+          "confidence": 0.2877229154109955,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.06119994819164276,
+            "1": 0.1815532147884369,
+            "2": 0.19119742512702942,
+            "3": 0.2877229154109955,
+            "4": 0.27832648158073425
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 638,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "a125cbd34b5f27587da06aa2179693447d0b2d16da3bb0cf0eb98a77a5f9d955",
+        "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.530522488988936,
+    "advisory_only": true
+  },
+  "B-storefront-close": {
+    "request_sha256": "02beb172a354343a85e8085e8b4e68b3fbde309624e60abf3e4a3135fc191d6a",
+    "image_sha256": "e1adbf73f65dd6db9952520a522285bdd8ee6ac7cc9ad5ddb8bd903463a1a153",
+    "reference_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Lexington Avenue Asheville brick storefront: three stories, flat roof/parapet, tall sash windows and glazed shopfront. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.5507282018661499
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.6946773752570152,
+          "confidence": 0.37782716751098633,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.08315987884998322,
+            "1": 0.08251272886991501,
+            "2": 0.17365892231464386,
+            "3": 0.37782716751098633,
+            "4": 0.2828413248062134
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "e1adbf73f65dd6db9952520a522285bdd8ee6ac7cc9ad5ddb8bd903463a1a153",
+        "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.8428661819780245,
+    "advisory_only": true
+  },
+  "B-storefront-gameplay": {
+    "request_sha256": "29b699208eaee8a20a0564d15d576ba3327e5fa2e88ea0b12fc7e501e0e5a32c",
+    "image_sha256": "eb723bfd05ac1d3b67c304d80634c6a69ff00cbac6d759439e7599da092d9b85",
+    "reference_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Lexington Avenue Asheville brick storefront: three stories, flat roof/parapet, tall sash windows and glazed shopfront. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.5416513085365295
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 2.8618295043706894,
+          "confidence": 0.37512391805648804,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.06436442583799362,
+            "1": 0.08560274541378021,
+            "2": 0.14899557828903198,
+            "3": 0.32591331005096436,
+            "4": 0.37512391805648804
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 640,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "eb723bfd05ac1d3b67c304d80634c6a69ff00cbac6d759439e7599da092d9b85",
+        "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.835812044038903,
+    "advisory_only": true
+  },
+  "B-apartment-close": {
+    "request_sha256": "93d2a630f1786bb1ddab4580e5aaa7c6e6d060fff674283efbc7fa8aced2e6d6",
+    "image_sha256": "ea90a34637b7ce1db1e049073203b84e2698cfe727bfdbcaa404f4b8ac1383aa",
+    "reference_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Hillcrest Asheville brick townhome/apartment row: long two-story red-brick mass, pitched cross-gable roof, cream panels and porch entries. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.13822896778583527
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 1.9532231986522675,
+          "confidence": 0.29106923937797546,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.1476508229970932,
+            "1": 0.21800078451633453,
+            "2": 0.29106923937797546,
+            "3": 0.2200326770544052,
+            "4": 0.12324647605419159
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 645,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "ea90a34637b7ce1db1e049073203b84e2698cfe727bfdbcaa404f4b8ac1383aa",
+        "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5878409650176764,
+    "advisory_only": true
+  },
+  "B-apartment-gameplay": {
+    "request_sha256": "3b01f156f56c9c2b41d3c4272e7fbb81e0b80896177e1bf77fdcaa170bf5c3d4",
+    "image_sha256": "2676c5979adc29893a0d33065580dcd8154478405f4d764c5f19fbea171ec0a4",
+    "reference_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511",
+    "questions": {
+      "reads_as_target": {
+        "type": "noul",
+        "criteria": {
+          "true": "The first image is a recognizable, plausible example of the described building type.",
+          "false": "Wrong type, malformed building, or unrecognizable architectural form."
+        }
+      },
+      "reference_fidelity": {
+        "type": "score",
+        "criteria": [
+          "Not a coherent building",
+          "Building but wrong architectural type",
+          "Recognizable type, major form or material errors",
+          "Plausible local type, some reference details differ",
+          "Close architectural match to the photo in massing, roof, openings and materials"
+        ]
+      }
+    },
+    "state": "The first image is a game-asset preview, the second a real reference. Desired building: Hillcrest Asheville brick townhome/apartment row: long two-story red-brick mass, pitched cross-gable roof, cream panels and porch entries. Judge architectural form and materials, not the photograph versus render medium. Do not infer a generation method.",
+    "response": {
+      "model": "clef-flash",
+      "answers": {
+        "reads_as_target": {
+          "type": "noul",
+          "noul": 0.04084571823477745
+        },
+        "reference_fidelity": {
+          "type": "score",
+          "score": 1.558274656534195,
+          "confidence": 0.26823389530181885,
+          "legend": {
+            "0": "Not a coherent building",
+            "1": "Building but wrong architectural type",
+            "2": "Recognizable type, major form or material errors",
+            "3": "Plausible local type, some reference details differ",
+            "4": "Close architectural match to the photo in massing, roof, openings and materials"
+          },
+          "probabilities": {
+            "0": 0.26823389530181885,
+            "1": 0.26705771684646606,
+            "2": 0.21385470032691956,
+            "3": 0.1399073600769043,
+            "4": 0.11094636470079422
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 645,
+        "output_tokens": 0
+      },
+      "status": "ok",
+      "images_sha256": [
+        "2676c5979adc29893a0d33065580dcd8154478405f4d764c5f19fbea171ec0a4",
+        "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1"
+      ],
+      "model_id": "392b56645a5810b1d0c9341dada2059972b5dcee89f85ed46d1ca799ecb8a511"
+    },
+    "seconds": 0.5862080850056373,
+    "advisory_only": true
+  }
+}

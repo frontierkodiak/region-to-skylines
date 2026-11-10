@@ -1,0 +1,90 @@
+{
+  "method": "C",
+  "target": "apartment",
+  "main": {
+    "triangles": 1000,
+    "vertices": 672,
+    "bounds_m": [
+      [
+        -14.300000190734863,
+        -7.050000190734863,
+        0.0
+      ],
+      [
+        14.300000190734863,
+        5.400000095367432,
+        8.300000190734863
+      ]
+    ],
+    "uv_range": [
+      0.009398269467055798,
+      0.9906018376350403
+    ],
+    "dimensions_m": [
+      28.600000381469727,
+      12.450000286102295,
+      8.300000190734863
+    ]
+  },
+  "lod": {
+    "triangles": 68,
+    "vertices": 48,
+    "bounds_m": [
+      [
+        -14.300000190734863,
+        -7.0,
+        0.0
+      ],
+      [
+        14.300000190734863,
+        5.400000095367432,
+        8.300000190734863
+      ]
+    ],
+    "uv_range": [
+      0.005918060429394245,
+      0.9940819144248962
+    ],
+    "dimensions_m": [
+      28.600000381469727,
+      12.400000095367432,
+      8.300000190734863
+    ]
+  },
+  "spec": {
+    "size": [
+      28.0,
+      10.0,
+      8.3
+    ],
+    "lot": [
+      4,
+      3
+    ],
+    "budget": 12000,
+    "lod": 240
+  },
+  "generation_seconds": 0.8788552500191145,
+  "normalization": null,
+  "normal_map": "flat neutral tangent-space +X +Y; no invented relief",
+  "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
+  "render_seconds": 8.389516666997224,
+  "files": {
+    "C-apartment_lod_c.png": "b49e4dfc01c6b24517e3f130a580faecb86406c9445201936958935018302a28",
+    "C-apartment_c.png": "6292e1159aedcdde18656d9b3fa18134ae242932a873b1a756ca75461c0aee05",
+    "C-apartment_lod.fbx": "ab0f1ce722fdb82f0e1b071b2a34a0dd81428595385cd4b8488251a23098836b",
+    "C-apartment_d.png": "3742c6d3122e2465bbb4e56fc228f0db6a13e1b2ccf968e92271db97284f158e",
+    "C-apartment_s.png": "e3813513421850628d4a467837dd48eb660f64b7f6ae8606e2fda7717448571b",
+    "C-apartment_lod_s.png": "bc05ceedd2e30ce944b88ba1bd4ecd628de5c81c43453760d8dd8c06193b6c20",
+    "C-apartment_lod_d.png": "72c6c72afa0f86e13688d4fe89479daab014347550fa62886612980f72baf4dd",
+    "gameplay.png": "38f3e71747401eb4bf08a4737c56be32e7758e0266dcaee101e3eed5bf40146b",
+    "C-apartment_lod_i.png": "54459b622d39e847594c7fce7c957fa2fbc5d1e81341477a5454189ec1b410cd",
+    "C-apartment_i.png": "219c150d707c9e764a35d354d53b0c05730b08fd9b3c4ea838232bb2f7ae6c02",
+    "C-apartment_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "C-apartment_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+    "lod.png": "3d7350f1606f41384d30f87210cd4919b50bbe7cbf7a800ce8eeedfee336fa55",
+    "night.png": "514e3ec0298056614626f67bf33002f979a45530510565ec6847ac5e7ff8adfa",
+    "C-apartment.fbx": "61870227355e611d72b2434fec68c5b2f131cf41e7ae5618e1f1389904f26f32",
+    "close.png": "b2849f7f2f2ef320565a60a99b3df7af907a67f68ba48423cb91cfe6519c7c3b"
+  }
+}

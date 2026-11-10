@@ -1,0 +1,57 @@
+{
+  "bungalow": {
+    "photo_url": "https://psabc.org/wp-content/uploads/2020/02/108Norwood.jpg",
+    "source": "https://psabc.org/but-bungalows-go-on-forever/",
+    "address": "108 Norwood Avenue",
+    "photo_sha256": "61f4b9f0e665c194e44f0f1b3404aebba29c635422ed1f02ae6d6e739c53ff54",
+    "center_wgs84": {
+      "x": -82.5508845758,
+      "y": 35.615382409717
+    },
+    "bbox_wgs84": [
+      -82.5526845758,
+      35.613882409717,
+      -82.5490845758,
+      35.616882409717
+    ],
+    "naip_url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-82.5526845758%2C35.613882409717%2C-82.5490845758%2C35.616882409717&bboxSR=4326&imageSR=3857&size=768%2C768&format=png&bandIds=0%2C1%2C2&f=image",
+    "naip_sha256": "182b4ad07799becd79e4769274648e961c6eb10074d29787427effee7aa101b7"
+  },
+  "storefront": {
+    "photo_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/40%2B36_N_Lexington_Ave_Asheville_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "source": "https://commons.wikimedia.org/wiki/File:40%2B36_N_Lexington_Ave_Asheville_1.jpg",
+    "address": "40 North Lexington Avenue",
+    "photo_sha256": "e6f48e43b86725bf60469bc95c8980abad375969364843f11f8abf11e4ea296e",
+    "center_wgs84": {
+      "x": -82.5530834803,
+      "y": 35.596383259936
+    },
+    "bbox_wgs84": [
+      -82.5548834803,
+      35.594883259936,
+      -82.5512834803,
+      35.597883259936
+    ],
+    "naip_url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-82.5548834803%2C35.594883259936%2C-82.5512834803%2C35.597883259936&bboxSR=4326&imageSR=3857&size=768%2C768&format=png&bandIds=0%2C1%2C2&f=image",
+    "naip_sha256": "606bb71ef900b660876e4acc311036efa91f863903a03fbc192ea4a452a4ded9"
+  },
+  "apartment": {
+    "photo_url": "https://haca.org/wp-content/uploads/2025/12/Hillcrest-14-1024x768-1.webp",
+    "source": "https://haca.org/properties/hillcrest-apartments/",
+    "address": "100 Atkinson Street",
+    "photo_sha256": "0880d8af99bbfc481aea59d36c7131d67ae5607a304fb0814fe4e6fc860a66d1",
+    "coordinate_source": "https://haca.org/properties/hillcrest-apartments/ (embedded Google map)",
+    "center_wgs84": {
+      "x": -82.5712694,
+      "y": 35.5944931
+    },
+    "bbox_wgs84": [
+      -82.57306940000001,
+      35.5929931,
+      -82.5694694,
+      35.5959931
+    ],
+    "naip_url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPImagery/ImageServer/exportImage?bbox=-82.57306940000001%2C35.5929931%2C-82.5694694%2C35.5959931&bboxSR=4326&imageSR=3857&size=768%2C768&format=png&bandIds=0%2C1%2C2&f=image",
+    "naip_sha256": "f4d06e947b9a3d7d3675babeccc3ee9181ea139a084174c1bb99750e707c4d38"
+  }
+}
