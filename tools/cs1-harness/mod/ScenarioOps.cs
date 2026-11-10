@@ -233,9 +233,18 @@ namespace Cs1Harness
             var connection = new Segment3();
             float low, high, height;
             Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out low, out high, out height);
-            pos.y = info.m_placementMode == BuildingInfo.PlacementMode.Shoreline ? Mathf.Max(pos.y, height) : height;
+            bool shoreline = info.m_placementMode == BuildingInfo.PlacementMode.Shoreline;
+            float shoreHeight = pos.y;
+            pos.y = shoreline ? Mathf.Max(pos.y, height) : height;
             int production, cost;
             var errors = info.m_buildingAI.CheckBuildPosition(0, ref pos, ref angle, waterHeight, 0, ref connection, out production, out cost);
+            if (shoreline)
+            {
+                if (shoreHeight - waterHeight > 128) errors |= ToolBase.ToolErrors.HeightTooHigh;
+                if (pos.y <= waterHeight) errors |= ToolBase.ToolErrors.ShoreNotFound;
+                var facility = info.m_buildingAI as WaterFacilityAI;
+                if (facility != null && facility.m_waterIntake > 0 && production == 0) errors |= ToolBase.ToolErrors.WaterNotFound;
+            }
             var tool = Singleton<ToolManager>.instance.m_properties;
             ulong[] segments, bs;
             tool.BeginColliding(out segments, out bs);
@@ -243,7 +252,7 @@ namespace Cs1Harness
             {
                 errors |= BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, Mathf.Min(low, waterHeight == 0 ? low : waterHeight),
                     pos.y + info.m_collisionHeight, angle, info.m_cellWidth, info.m_cellLength, true, segments, bs);
-                if (high - low > info.m_maxHeightOffset) errors |= ToolBase.ToolErrors.SlopeTooSteep;
+                if (!shoreline && high - low > info.m_maxHeightOffset) errors |= ToolBase.ToolErrors.SlopeTooSteep;
                 if (Singleton<EconomyManager>.instance.PeekResource(EconomyManager.Resource.Construction, cost) != cost)
                     errors |= ToolBase.ToolErrors.NotEnoughMoney;
                 if (errors != ToolBase.ToolErrors.None)
