@@ -398,24 +398,37 @@ namespace Cs1Harness
                 throw new Exception("the road grid produced no zone cells for one of R/C/I");
         }
 
-        static ushort Supply(NetInfo info, ushort building, List<ushort> nodes, float standOff)
+        static void Supply(NetInfo info, ushort building, List<ushort> nodes)
         {
             var net = Singleton<NetManager>.instance;
-            var target = Singleton<BuildingManager>.instance.m_buildings.m_buffer[building].m_position;
+            var facility = Singleton<BuildingManager>.instance.m_buildings.m_buffer[building];
+            var target = facility.m_position;
+            bool electricity = info.m_class.m_service == ItemClass.Service.Electricity;
+            var waterAI = facility.Info.m_buildingAI as WaterFacilityAI;
+            if (electricity && waterAI != null && waterAI.m_electricityConsumption == 0) return;
+            var ends = new List<Vector3> { target };
+            if (electricity)
+            {
+                ends.Clear();
+                float x = facility.Info.m_cellWidth * 4 + 16;
+                float z = facility.Info.m_cellLength * 4 + 16;
+                foreach (var offset in new Vector3[] { new Vector3(x,0,0), new Vector3(-x,0,0), new Vector3(0,0,z), new Vector3(0,0,-z),
+                    new Vector3(x,0,z), new Vector3(x,0,-z), new Vector3(-x,0,z), new Vector3(-x,0,-z) })
+                    ends.Add(Building.CalculatePosition(target, facility.m_angle, offset));
+            }
             var origins = new List<ushort>(nodes);
             origins.RemoveAll(id => (net.m_nodes.m_buffer[id].m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted)) != NetNode.Flags.Created);
             origins.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - target).sqrMagnitude
                 .CompareTo((net.m_nodes.m_buffer[b].m_position - target).sqrMagnitude));
             string lastError = "no usable network endpoint";
             foreach (ushort origin in origins)
-                for (int i = 0; i < (standOff == 0 ? 1 : 8); i++)
+                foreach (var end in ends)
                 {
-                    var end = target + new Vector3(Mathf.Cos(i * Mathf.PI / 4), 0, Mathf.Sin(i * Mathf.PI / 4)) * standOff;
                     try
                     {
                         ushort node = Link(info, Vector3.zero, end, origin);
                         nodes.Add(node);
-                        return node;
+                        return;
                     }
                     catch (PlacementRejected e)
                     {
@@ -426,10 +439,9 @@ namespace Cs1Harness
             // A straight wire can collide with the plant or the road grid. Test a
             // dogleg before constructing either leg, keeping normal tool checks.
             foreach (ushort origin in origins)
-                for (int i = 0; i < (standOff == 0 ? 1 : 8); i++)
+                foreach (var end in ends)
                 {
                     var start = net.m_nodes.m_buffer[origin].m_position;
-                    var end = target + new Vector3(Mathf.Cos(i * Mathf.PI / 4), 0, Mathf.Sin(i * Mathf.PI / 4)) * standOff;
                     var bends = new Vector3[] {
                         Ground(start.x, end.z), Ground(end.x, start.z),
                         Ground(center.x - Half - 64, center.z + Half + 128),
@@ -456,7 +468,7 @@ namespace Cs1Harness
                         ushort middle = Link(info, start, bend, origin);
                         ushort node = Link(info, bend, end, middle);
                         nodes.Add(node);
-                        return node;
+                        return;
                     }
                 }
             throw new Exception("cannot connect " + info.name + " to building " + building + ": " + lastError);
@@ -572,16 +584,16 @@ namespace Cs1Harness
                 pipeEnds.Add(Link(pipe, p, Ground(center.x - Half - 32, p.z), spine));
                 pipeEnds.Add(Link(pipe, p, Ground(center.x + Half + 32, p.z), spine));
             }
-            Supply(pipe, pump, pipeEnds, 0);
-            Supply(pipe, drain, pipeEnds, 0);
+            Supply(pipe, pump, pipeEnds);
+            Supply(pipe, drain, pipeEnds);
             // Keep pylons outside the road/zone footprint; the two trunks supply
             // both facilities and early growables before they form a power grid.
             Vector3 powerHub = Ground(center.x - Half - 48, center.z + Half + 48);
             var powerEnds = new List<ushort>();
             Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), endpoints: powerEnds);
-            Supply(power, plant, powerEnds, 40);
-            Supply(power, pump, powerEnds, 40);
-            Supply(power, drain, powerEnds, 40);
+            Supply(power, plant, powerEnds);
+            Supply(power, pump, powerEnds);
+            Supply(power, drain, powerEnds);
             Zone();
             result["money_after"] = Singleton<EconomyManager>.instance.InternalCashAmount;
             result["road_segments"] = roads.ToArray();
@@ -598,7 +610,8 @@ namespace Cs1Harness
                 var b = Singleton<BuildingManager>.instance.m_buildings.m_buffer[id];
                 live.Add(Host.Obj("id", id, "name", b.Info == null ? null : b.Info.name, "position", XYZ(b.m_position),
                     "flags", b.m_flags.ToString(), "problems", b.m_problems.ToString(),
-                    "electricity", b.m_electricityBuffer, "water", b.m_waterBuffer, "sewage", b.m_sewageBuffer));
+                    "electricity", b.m_electricityBuffer, "water", b.m_waterBuffer, "sewage", b.m_sewageBuffer,
+                    "width", b.Width, "length", b.Length, "electricity_rate", b.Info.m_buildingAI.GetElectricityRate(id, ref b)));
             }
             var doc = Host.Obj("state", state, "error", error, "result", result, "utilities", live);
             if (state == "done")
@@ -645,6 +658,7 @@ namespace Cs1Harness
                     water.Add(Host.Obj("name", p.name, "mode", p.m_placementMode.ToString(), "intake", ai.m_waterIntake,
                         "outlet", ai.m_waterOutlet, "sewage", ai.m_sewageOutlet, "storage", ai.m_waterStorage,
                         "sewage_storage", ai.m_sewageStorage, "ground_water", ai.m_useGroundWater, "cost", ai.GetConstructionCost(),
+                        "width", p.m_cellWidth, "length", p.m_cellLength, "electricity_consumption", ai.m_electricityConsumption,
                         "unlocked", Singleton<UnlockManager>.instance.Unlocked(p.m_UnlockMilestone)));
                 }
                 doc["water_prefabs"] = water;
