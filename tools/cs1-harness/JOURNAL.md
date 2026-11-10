@@ -61,3 +61,26 @@ that drives the Asset Editor.
 process. After: any agent can start the game, send ops and stop it from a
 shell. Second `up` while one is running exits 75 with a clear message; `call`
 with no game says how to start one. In-game ops are still unverified.
+
+## 2026-11-09 · Sol 6.1 (worm) · PL-857 · display fallback
+
+Source: PL-857, before the 20:15–22:30 ET Steam blackout. CS1 1.21.1-f9 on
+worm aborted in `SDL_GL_GetAttribute_REAL` before managed startup, both at
+1920×1080 windowed and 3840×2160 fullscreen with `-force-glcore`. The existing
+GNOME Xorg `:0` had a 3840×2160 screen, but every connector was disconnected
+and NVIDIA's `CurrentMetaMode` was `NULL`. The 2080 Ti PRIME-offload route and
+a clean transient user-unit launch had the same failure. These observations
+do not establish the crash's cause.
+
+`-batchmode -nographics` reached managed startup, then exited on **Steam
+Initialization failed** with the Steam client signed out. This is not proof
+of usable headless gameplay. No login, EULA acceptance, display reconfiguration
+or GPU power change was attempted. The original bridge DLL and game settings
+were restored. No game or test-owned Steam process was left running.
+
+Worm's monitor must remain off because it faces Caleb's bed. Do not ask for it
+to be turned on or change the live X session to make tests work. Use blade's
+private GPU display once its first-launch gate is resolved. PL-857 still needs
+ordinary New Game with `--disableMods --noWorkshop`, water stability and native
+car-path checks for five generated maps; programmatic map loading alone is
+not that acceptance evidence.
