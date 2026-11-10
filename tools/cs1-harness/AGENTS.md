@@ -12,9 +12,16 @@ Limits that still hold:
 - No purchases.
 - Shared host services change only through the `configs` repo. The harness's
   own transient `systemd --user` units are not shared services.
-- Caleb's Steam account comes first. Launch through Steam (`-applaunch`), never
-  answer a Steam prompt, and never start a game during a window he has
-  reserved. If Steam says the account is in use, stop and retry later.
+- Caleb's Steam account comes first. Launch through Steam (`-applaunch`) and
+  never start a game during a window he has reserved. If Steam says the
+  account is in use, stop and retry later; never pick "play here". The
+  harness itself answers no prompt.
+- Terms that reappear only because a host is a fresh install (a game's EULA in
+  Steam, the Paradox Launcher's user agreement) may be accepted by an agent.
+  Caleb has already accepted them on his account and gave broad clearance on
+  2026-11-10 (PL-856). That clearance doesn't cover purchases, Workshop
+  publishing or new accounts. Harness runs start `Cities.x64` directly, so the
+  Paradox Launcher doesn't appear in them anyway.
 - Nothing runs after you finish: `cs1-harness down` leaves no game, Steam,
   display or bus behind, and says so.
 
