@@ -707,6 +707,13 @@ long soak. It still starts neither Steam nor the game.
 
 ## Run log
 
+PL-857's PR was replayed onto the merged harness on `main` (`8fadee3`),
+preserving the observer, verdict, registry and fair queue layers. The older
+two-second polling waiters had repeatedly lost gaps to newer work. Only
+PL-857's still-queued processes were interrupted and collected; no game or
+other user's session was stopped. Their replacements use the registered
+first-come-first-served queue. The same map hashes and water policy are used.
+
 Per run: host, GPU, peak VRAM (total and game share), peak power and
 temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 
