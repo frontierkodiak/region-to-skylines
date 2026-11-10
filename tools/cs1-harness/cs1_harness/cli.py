@@ -179,6 +179,19 @@ def cmd_bench_observe(cfg, a):
     print(json.dumps(result, indent=2))
 
 
+def cmd_dialogs(cfg, a):
+    """Show the game's open dialogs; with --answer, answer the known ones once (as the guard does)."""
+    from . import dialogs
+
+    client = Client(cfg.port)
+    if a.answer:
+        for e in dialogs.handle(client, None, set()):
+            print(json.dumps(e))
+        return 0
+    print(json.dumps(client.call("dialogs"), indent=2))
+    return 0
+
+
 def cmd_see(cfg, a):
     """Score screenshots with Clef-Flash (advisory)."""
     from . import vision
@@ -286,6 +299,8 @@ def main(argv=None):
     w = sub.add_parser("watch", help="view-only VNC of the running session (localhost; reach it over ssh)")
     w.add_argument("--hold", type=float, default=0, help="keep it this many minutes, then stop (0: until down)")
     w.add_argument("--stop", action="store_true", help="stop the VNC server")
+    dg = sub.add_parser("dialogs", help="list the game's open dialogs (--answer: answer the known ones)")
+    dg.add_argument("--answer", action="store_true")
     c = sub.add_parser("call", help="send one op to the running game (`call ops` lists them)")
     c.add_argument("op")
     c.add_argument("json", nargs="?", help="op arguments as a JSON object")
@@ -345,6 +360,7 @@ def main(argv=None):
             "call": cmd_call,
             "down": cmd_down,
             "watch": cmd_watch,
+            "dialogs": cmd_dialogs,
             "bench-observe": cmd_bench_observe,
             "see": cmd_see,
             "run": cmd_run,
