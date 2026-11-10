@@ -361,6 +361,28 @@ PL-857 runs settle near 19 M m³ by minute 20, and the PL-848 map loses every
 required probe by minute 25. Runs from before this change have no recorded
 harness commit; the registry says so (null) rather than guessing.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · results wake the owner
+
+**What got in the way.** A 60-minute soak takes half an hour of slot time,
+plus however long it waits for the slot. The agent that wanted it had to hold
+its turn open the whole time, or end it and schedule rechecks. Today PL-857's
+waits stacked behind PL-880's builds, and its scheduled recheck fired into a
+slot that was still busy.
+
+**What changed.** `run --notify` comments the verdict table, the water-change
+map, the last two screenshots and the timelapse on the run's issue, and
+`--wake` @mentions the issue's agent assignee so its next run starts on the
+result. `cs1-harness submit --issue PL-NNN -- run …` starts the run as a
+detached `systemd --user` job with `--notify --wake`, a 4-hour slot wait and
+30-minute Steam retries, so the agent can end its turn right after
+submitting. Detached jobs post as Driver sessions.
+
+**Before → after.** Before: hold the turn open or poll. After: submit, end the
+turn, and resume on the comment. Checked: the comment body and attachments on
+copies of real runs (`notify --dry-run`), and that the `driver` profile reads
+issues from blade outside a task. Not yet checked: a live post from a finished
+`submit` job; the first submitted run is that test.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
