@@ -26,6 +26,9 @@ PROFILES = {
         "harness_home": SANDBOX_HOME / "opt/cs1-harness",
         "virtualgl": SANDBOX_HOME / "opt/virtualgl-3.1.5",
         "gpu_bus": "00000000:05:00.0",
+        # Live page: an existing tailnet static route (Tailscale Serve /research/), no new port.
+        "live_dir": HOME / ".config/polli/serve/research/cs1-live",
+        "live_url": "https://blade.tailc29f0.ts.net/research/cs1-live/",
     },
     "worm": {
         "steam": "native",
@@ -35,6 +38,8 @@ PROFILES = {
         "harness_home": HOME / ".local/share/cs1-harness",
         "virtualgl": HOME / ".local/opt/virtualgl-3.1.5",
         "gpu_bus": "00000000:05:00.0",
+        "live_dir": HOME / ".local/share/cs1-harness/live",
+        "live_url": None,
     },
 }
 
@@ -57,6 +62,8 @@ class Config:
     harness_home: pathlib.Path
     virtualgl: pathlib.Path
     gpu_bus: str
+    live_dir: pathlib.Path
+    live_url: str | None
     x11_shim: str = os.environ.get(
         "CS1_HARNESS_X11_SHIM",
         str(HOME / ".local/lib/blade-x11-filesystem") + "/$LIB/libblade-x11-filesystem.so",
@@ -70,6 +77,13 @@ class Config:
     xvfb_unit: str = "cs1-harness-xvfb"
     dbus_unit: str = "cs1-harness-dbus"
     gpu_unit: str = "cs1-harness-gpu"
+    rec_unit: str = "cs1-harness-rec"
+    live_unit: str = "cs1-harness-live"
+    vnc_unit: str = "cs1-harness-vnc"
+    vnc_port: int = int(os.environ.get("CS1_HARNESS_VNC_PORT", "5957"))
+    live_every: int = 5
+    ffmpeg: pathlib.Path = _env_path("CS1_HARNESS_FFMPEG", HOME / ".local/bin/ffmpeg")
+    x11vnc: pathlib.Path = _env_path("CS1_HARNESS_X11VNC", HOME / ".local/opt/x11vnc-0.9.16")
     app_id: str = "255710"
     cache_dir: pathlib.Path = _env_path("CS1_HARNESS_CACHE", HOME / ".cache" / "cs1-harness")
 
@@ -86,7 +100,7 @@ class Config:
                 f"ssh {host} 'cd <checkout>/tools/cs1-harness && uv run cs1-harness --host {host} ...'"
             )
         p = dict(PROFILES[host])
-        for key in ("steam_root", "game_dir", "data_dir", "harness_home", "virtualgl"):
+        for key in ("steam_root", "game_dir", "data_dir", "harness_home", "virtualgl", "live_dir"):
             p[key] = _env_path(f"CS1_{key.upper()}", p[key])
         p["gpu_bus"] = os.environ.get("CS1_HARNESS_GPU_BUS", p["gpu_bus"])
         return cls(host=host, **p)

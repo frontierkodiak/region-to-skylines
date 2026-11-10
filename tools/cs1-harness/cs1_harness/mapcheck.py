@@ -7,6 +7,7 @@ import pathlib
 import shutil
 import time
 
+from . import observe
 from .client import HarnessError
 from .session import Session
 
@@ -52,6 +53,12 @@ class MapCheck:
             sample["name"] = p["name"]
         row = {"label": label, "stats": stats, "water": water}
         self.record("sample", row)
+        if self.points:
+            wet = sum(1 for s in water["samples"] if s["wet"])
+            summary = f"wet probes {wet}/{len(self.points)}, volume {water['volume_m3'] / 1e6:.2f} M m3"
+        else:
+            summary = f"volume {water['volume_m3'] / 1e6:.2f} M m3"
+        observe.write_context(self.s.cfg, water=summary)
         return row
 
     def dump(self, label: str, terrain: bool = False) -> dict:
@@ -116,6 +123,7 @@ class MapCheck:
         if entry is None:
             raise HarnessError(f"the game does not list {installed.name} as a map")
         self.log(f"starting New Game on {entry['map_name']} (listed in New Game: {entry['published']})")
+        observe.write_context(s.cfg, map=entry["map_name"])
         self.c.call("new_game", path=entry["path"])
         status = self.c.wait(
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
@@ -146,6 +154,7 @@ class MapCheck:
             s.alive()
             stats = self.c.call("stats")
             m = minute(stats["frame"])
+            observe.write_context(s.cfg, minute=m, of_minutes=game_minutes)
             if stats["frame"] != last_progress[1]:
                 last_progress = (time.monotonic(), stats["frame"])
             elif time.monotonic() - last_progress[0] > 300:

@@ -19,7 +19,7 @@ import shutil
 import subprocess
 import time
 
-from . import gpu
+from . import gpu, observe
 from .client import Client, HarnessError
 from .config import Config
 from .steam import backend
@@ -144,6 +144,9 @@ class Session(contextlib.AbstractContextManager):
         self.installed: list[pathlib.Path] = []
         self.lock_fd = None
         self.detached = False
+        self.label: str | None = None
+        self.record = True
+        self.live = True
         self.receipt: dict = {"stage": str(stage)}
 
     # -- lifecycle -------------------------------------------------------
@@ -203,6 +206,7 @@ class Session(contextlib.AbstractContextManager):
             "port": self.cfg.port,
             "display": self.cfg.display,
             "egl": self.egl,
+            "label": self.label,
             "host": self.cfg.host,
             "started": time.time(),
         }
@@ -216,6 +220,7 @@ class Session(contextlib.AbstractContextManager):
         s.installed = [pathlib.Path(p) for p in state["installed"]]
         s.receipt = state["receipt"]
         s.egl = state.get("egl")
+        s.label = state.get("label")
         return s
 
     def preflight(self):
@@ -231,7 +236,15 @@ class Session(contextlib.AbstractContextManager):
             )
         if (pathlib.Path("/tmp/.X11-unix") / f"X{self.cfg.display.lstrip(':')}").exists():
             raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL, busy=True)
-        for unit in (self.cfg.steam_unit, self.cfg.gpu_unit, self.cfg.dbus_unit, self.cfg.xvfb_unit):
+        for unit in (
+            self.cfg.vnc_unit,
+            self.cfg.live_unit,
+            self.cfg.rec_unit,
+            self.cfg.steam_unit,
+            self.cfg.gpu_unit,
+            self.cfg.dbus_unit,
+            self.cfg.xvfb_unit,
+        ):
             sh("systemctl", "--user", "reset-failed", unit, check=False)
 
     def unit(self, name: str, *cmd, env: dict | None = None, props=()):
@@ -308,6 +321,7 @@ class Session(contextlib.AbstractContextManager):
             "bus": target["bus"],
             "name": name,
             "egl": self.egl,
+            "label": self.label,
             "mem_used_before_mib": target["mem_used"],
             "mem_total_mib": target["mem_total"],
         }
@@ -370,6 +384,7 @@ class Session(contextlib.AbstractContextManager):
             # nvidia-smi -f buffers until exit; systemd writes each stdout line as it comes.
             props=["-p", f"StandardOutput=file:{self.stage / 'gpu.csv'}"],
         )
+        observe.start(self, record=self.record, live=self.live, label=self.label)
         self.log("Steam starting; waiting for the game")
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
@@ -433,13 +448,15 @@ class Session(contextlib.AbstractContextManager):
             else:
                 with contextlib.suppress(ProcessLookupError, ValueError):
                     os.kill(int(inst), 15)
-        for unit in (c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
+        for unit in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
             sh("systemctl", "--user", "stop", unit, check=False)
         for path in reversed(self.installed):
             if path.is_dir():
                 shutil.rmtree(path, ignore_errors=True)
             else:
                 path.unlink(missing_ok=True)
+        with contextlib.suppress(OSError):
+            observe.mark_idle(c, "run ended")
         (c.harness_home / "session.env").unlink(missing_ok=True)
         c.state_file.unlink(missing_ok=True)
         leftovers = {
@@ -447,7 +464,7 @@ class Session(contextlib.AbstractContextManager):
             "steam_instances": self.steam.instances(),
             "units_active": [
                 u
-                for u in (c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)
+                for u in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)
                 if sh("systemctl", "--user", "is-active", "--quiet", u, check=False).returncode == 0
             ],
         }

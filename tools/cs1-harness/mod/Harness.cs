@@ -184,8 +184,13 @@ namespace Cs1Harness
             }
         }
 
+        public static float FrameMs = 0;
+
         void Update()
         {
+            // Smoothed render frame time, for checking that observers don't slow the game.
+            float ms = Time.unscaledDeltaTime * 1000f;
+            FrameMs = FrameMs <= 0 ? ms : FrameMs * 0.95f + ms * 0.05f;
             if (!autosaveStopped && InGame() && Singleton<LoadingManager>.instance.m_loadingComplete)
             {
                 // A harness city is never saved. Stop this process's autosave timer

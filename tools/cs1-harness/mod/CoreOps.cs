@@ -47,6 +47,8 @@ namespace Cs1Harness
                 "gpu_memory_mb", SystemInfo.graphicsMemorySize,
                 "screen", new object[] { Screen.width, Screen.height },
                 "fixed_delta_time", Time.fixedDeltaTime,
+                "frame_ms", Host.FrameMs,
+                "render_fps", Host.FrameMs > 0 ? 1000f / Host.FrameMs : 0f,
                 "enabled_mod_count", Singleton<PluginManager>.instance.enabledModCount,
                 "plugins", plugins,
                 "error_count", count,
