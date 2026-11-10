@@ -87,9 +87,11 @@ uv run python soak.py ~/experiments/PL-857-soak
 Add `--harness /path/to/checkout/tools/cs1-harness` to run each map for 60
 game-minutes, serially in the foreground. `--only asheville` selects a subset;
 `--game-minutes 10` permits an explicitly short diagnostic run. Use a fresh
-output directory for each experiment. An occupied harness or Steam prompt stops
-the command without taking over or answering it. Follow the issue's Steam
-reservation windows before starting any native check.
+output directory for each experiment. Each region waits up to 120 minutes for
+the shared harness slot, without taking over another session. Steam account
+conflicts retry after 30 minutes; no prompt is answered. This requires the
+harness at `339cfe4` or later. Follow the issue's Steam reservation windows
+before starting any native check.
 
 Each map is checked against the committed CRP checksum before launch. The
 harness retains the timeline, native grids, screenshots, GPU measurements and
@@ -99,11 +101,30 @@ major rivers. Newly wet area is a flooding diagnostic, not a flooding verdict;
 review the grids and screenshots as well.
 
 A successful driver exit means the requested checks completed, not that the
-map passed acceptance. Harness runs use `--noWorkshop` and a disabled control
-mod, not strict `--disableMods`. Ordinary vanilla menu/city starts and native
-car paths still require separate checks. PL-856's first 60-minute result used
+map passed acceptance. Full native car and train route checks run at the start
+and end when supported by the harness. Harness runs use `--noWorkshop` and a
+disabled control mod, not strict `--disableMods`. Ordinary vanilla menu/city
+starts require separate checks. PL-856's first 60-minute result used
 the older PL-848 map (two sources), not the arbitrary-region Asheville fixture
 (207 sources); do not treat that result as a soak of the new writer.
+
+`--prepared DIR` tests explicitly staged candidates before replacing the golden
+fixtures. It regenerates their packages and checks their generation-receipt
+checksums. `generate.py --no-prefill` is a diagnostic sea-only initialization;
+terrain, networks and source controls remain unchanged.
+
+```sh
+uv run python audit_soak.py RUN PREPARED GEOMETRY_JSON > audit.json
+```
+
+The audit compares native initial terrain, water and source controls with the
+prepared inputs. It retains exact dry probes and separately counts water
+within 64 m, never relabeling an exact failure as a pass. It splits map-boundary
+and playable-envelope probes and measures spreading deeper than 0.5 m more
+than 128 m from initial water or mapped water lines/polygons. Spreading and
+grid-neighbourhood results cover saved grids only; newer harnesses additionally
+retain native neighbourhood readings at every point sample. These thresholds
+are diagnostics, not a proof that every river, stream or lake is perennial.
 
 ## Fixed topology, fitted coordinates
 
@@ -117,8 +138,8 @@ boundary-to-boundary railway. The writer preserves its allocation IDs, lane
 chains, native prefabs, flags and outside-connection buildings. It updates
 recorded node vectors, segment direction vectors, support and connection
 building vectors and angles. The native `NetManager.AfterDeserialize` rebuilds
-lane curves from those nodes. This behavior is source-verified; the transformed
-outputs still need a native pathfinding check.
+lane curves from those nodes. Native pathfinding checks are required for
+transformed outputs, not inferred from topology preservation alone.
 
 This replaces a proposed eight-file edge/rail template library with one
 fingerprint-bound topology. Road entry is selected from real motorway or trunk
@@ -128,6 +149,9 @@ or disconnected alignments use a synthetic approach, recorded in the report.
 The railway remains present in every map, even when its alignment is synthetic.
 Node-to-node grade limits are 12% highway and 4% rail; these are not measurements
 of the native curved deck's steepest tangent.
+Rail alignments are smoothed until adjacent turns are at most 45°; a straight,
+explicitly synthetic alignment is the fallback. Native testing found that a
+108° mapped bend could preserve topology while blocking the full train path.
 
 The starting tile is selected inside the vanilla 25-tile area for water, road
 access and buildable land. If no suitable tile has water, preparation adds an
@@ -140,10 +164,16 @@ empty maps.
 
 Water surfaces come from a monotone fit to uncarved elevations, not a running
 minimum of the already carved bed. Terrain-aware routing can move around DEM
-obstructions inside the mapped corridor. The channels start filled, lakes have
-local regulators, and sources are placed inside upstream reaches. Stream
-capacity is 0.06 and river capacity 0.2. These are provisional class defaults,
-not calibrated discharge rates.
+obstructions inside the mapped corridor. The channels start filled. Streams
+start at no more than 1 m depth with 0.01 capacity controls. River capacity is
+0.8 for mean profile gradients at most 0.5%, otherwise 0.2. These are game
+regulator capacities, not calibrated discharge rates. Both ends of each mapped
+reach receive native level controls: the downstream control supplies tailwater
+and can remove excess at missing mapped continuations. This does not join
+disconnected mapped fragments. Lake targets are capped below the lowest
+surrounding uncarved bank or actual prepared ground, so an interior DEM
+percentile cannot continuously flood an outlet. Some mapped lakes consequently
+receive no inland regulator.
 
 Additional channel lowering is capped at **3 m relative to the exported PNG**.
 That PNG already includes the browser's river carve, normally 10 m. Corridor

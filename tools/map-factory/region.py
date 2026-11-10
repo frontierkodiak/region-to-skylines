@@ -177,7 +177,12 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             wet = ((distance <= 4) | (areas & (distance <= 32))) & (
                 ground < local_surface
             )
-            surface[wet] = np.maximum(surface[wet], local_surface[wet])
+            initial_surface = (
+                np.minimum(local_surface, ground + 1.0)
+                if kind == "stream"
+                else local_surface
+            )
+            surface[wet] = np.maximum(surface[wet], initial_surface[wet])
             key = f"{name} [{kind}] #{component}"
             samples[key] = [
                 [int(px * 16 - HALF), 0, int(HALF - py * 16)]
@@ -186,21 +191,38 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             interior = np.flatnonzero(
                 (x >= 6) & (x <= SIZE - 7) & (y >= 6) & (y <= SIZE - 7)
             )
-            source_i = (
-                int(interior[min(2, len(interior) - 1)]) if len(interior) else None
+            controls = (
+                [
+                    ("upstream", int(interior[min(2, len(interior) - 1)])),
+                    ("downstream", int(interior[max(0, len(interior) - 3)])),
+                ]
+                if len(interior)
+                else []
             )
-            if source_i is not None and (sea is None or fitted[source_i] > sea + 0.5):
-                capacity = 0.06 if kind == "stream" else 0.2
+            # A missing continuation in OSM is an open hydraulic boundary, not
+            # a closed basin. Natural sources regulate both excess and deficit;
+            # a downstream control supplies tailwater and drains blocked ends.
+            for role, source_i in controls:
+                if sea is not None and fitted[source_i] <= sea + 0.5:
+                    continue
+                gradient = (fitted[0] - fitted[-1]) / arc[-1]
+                capacity = (
+                    0.01 if kind == "stream" else 0.8 if gradient <= 0.005 else 0.2
+                )
+                target = float(fitted[source_i])
+                if kind == "stream":
+                    target = min(target, float(ground[y[source_i], x[source_i]] + 1))
                 sources.append(
                     {
                         "name": name,
                         "class": kind,
+                        "role": role,
                         "position": [
                             int(x[source_i] * 16 - HALF),
                             0,
                             int(HALF - y[source_i] * 16),
                         ],
-                        "target": float(fitted[source_i]),
+                        "target": target,
                         "capacity": capacity,
                     }
                 )
@@ -211,7 +233,10 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     "length_m": float(arc[-1]),
                     "upstream": list(start),
                     "downstream": list(end),
-                    "max_surface_above_uncarved_m": float((fitted - banks[y, x]).max()),
+                    "max_surface_above_uncarved_m": float(
+                        (initial_surface[y, x] - banks[y, x]).max()
+                    ),
+                    "profile_above_uncarved_m": float((fitted - banks[y, x]).max()),
                 }
             )
     lake_mask = raster(sq, geometry.get("lakes", []), polygons=True)
@@ -221,7 +246,14 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
         if component.sum() < 8:
             continue
         bed, bank = ground[region][component], banks[region][component]
+        # A percentile of lake-interior DEM heights can sit above its outlet.
+        # Regulating to that level continuously floods the downstream valley.
+        # The lowest actual bank around the polygon bounds the retained level.
+        full_component = labels == label
+        rim = ndimage.binary_dilation(full_component) & ~full_component
         level = float(np.percentile(bank, 25) - 0.5)
+        if rim.any():
+            level = min(level, float(np.minimum(banks[rim], ground[rim]).min() - 0.5))
         if sea is not None:
             level = max(sea, level)
         values = surface[region]
@@ -439,6 +471,24 @@ def fit_networks(ground, depth, geometry, spec, start):
         ids, kind = route_spec["nodes"], route_spec["kind"]
         if kind == "rail":
             xy, follows_osm = alignment(rail_ends, "rail", len(ids))
+            raw_xy = xy.copy()
+            fractions = np.linspace(0, 1, len(ids))[:, None]
+            for sigma in [2, 4, 8, 16]:
+                xy = ndimage.gaussian_filter1d(raw_xy, sigma, axis=0, mode="nearest")
+                xy += (rail_ends[0] - xy[0]) * (1 - fractions) + (
+                    rail_ends[1] - xy[-1]
+                ) * fractions
+                xy = np.clip(xy, -HALF, HALF)
+                vectors = np.diff(xy, axis=0)
+                lengths = np.linalg.norm(vectors, axis=1)
+                cosine = np.sum(vectors[:-1] * vectors[1:], axis=1) / (
+                    lengths[:-1] * lengths[1:]
+                )
+                if np.isfinite(cosine).all() and cosine.min() >= np.cos(np.pi / 4):
+                    break
+            else:
+                xy = rail_ends[0] * (1 - fractions) + rail_ends[1] * fractions
+                follows_osm = False
             max_grade = 0.04
         else:
             side = 1 if kind == "road_in" else -1
@@ -505,6 +555,21 @@ def fit_networks(ground, depth, geometry, spec, start):
                 "nodes": len(ids),
                 "follows_osm": follows_osm,
                 "maximum_grade": float(np.max(np.abs(np.diff(heights)) / np.diff(arc))),
+                "maximum_turn_degrees": float(
+                    np.degrees(
+                        np.arccos(
+                            np.clip(
+                                np.sum(
+                                    np.diff(xy, axis=0)[:-1] * np.diff(xy, axis=0)[1:],
+                                    axis=1,
+                                )
+                                / (np.diff(arc)[:-1] * np.diff(arc)[1:]),
+                                -1,
+                                1,
+                            )
+                        )
+                    ).max()
+                ),
                 "maximum_deck_height_above_ground_m": float(
                     (heights - sample(ground, xy)).max()
                 ),
