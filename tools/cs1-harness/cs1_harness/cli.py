@@ -20,6 +20,7 @@ import sys
 import time
 
 from . import build as build_mod
+from . import registry
 from . import report as report_mod
 from . import setup as setup_mod
 from . import verdict as verdict_mod
@@ -239,6 +240,8 @@ def cmd_run(cfg, a):
                 result["probes"] = str(a.probes.resolve()) if a.probes else None
                 result["requested_game_minutes"] = a.game_minutes
                 result["harness"] = harness
+                result["issue"] = a.issue
+                result["label"] = s.label
                 result["clef"] = a.clef
                 result["gpu_processes"] = s.gpu_processes()
             collect(stage, out)
@@ -248,6 +251,7 @@ def cmd_run(cfg, a):
             print((out / "report.md").read_text())
             v = verdict_mod.judge(out)
             log(verdict_mod.summary(v))
+            registry.add(out)
             if report["session"]["cleanup"] != {"game": [], "steam_instances": [], "units_active": []}:
                 log(f"cleanup left something running: {report['session']['cleanup']}")
                 return 1
@@ -261,12 +265,14 @@ def cmd_run(cfg, a):
                 time.sleep(a.retry_minutes * 60)
                 continue
             verdict_mod.error_verdict(out, "map-soak", f"blocked: {b}", b.code)
+            registry.add(out)
             return b.code
         except HarnessError as e:
             if stage.exists():
                 collect(stage, out)
             log(f"failed: {e}")
             verdict_mod.error_verdict(out, "map-soak", f"failed: {e}", 1)
+            registry.add(out)
             return 1
 
 
@@ -285,6 +291,58 @@ def cmd_verdict(cfg, a):
             print(json.dumps(v, indent=2, default=str))
         worst = max(worst, 0 if v["verdict"] == "pass" else 1)
     return worst
+
+
+def cmd_runs(cfg, a):
+    """List registered runs, or add run directories to the registry."""
+    if a.index:
+        dirs = registry.scan(a.index)
+        known = {r["path"] for r in registry.load()}
+        for d in dirs:
+            if str(d) in known and not a.rejudge:
+                continue
+            try:
+                e = registry.add(d)
+            except (FileNotFoundError, KeyError, ValueError) as err:
+                log(f"skipped {d}: {err!r}")
+                continue
+            log(f"indexed {e['id']}: {e['verdict']}")
+        return 0
+    rows = registry.find(
+        registry.load(),
+        issue=a.issue,
+        check_type=a.check_type,
+        verdict=a.verdict,
+        map=a.map,
+        map_sha256=a.map_sha,
+        harness_commit=a.commit,
+    )
+    if a.json:
+        print(json.dumps(rows, indent=2))
+        return 0
+    for r in rows:
+        m = r["metrics"]
+        probes = f"{m['probes_wet_end']}/{m['probes_required']}" if m.get("probes_required") else "-"
+        print(
+            f"{(r['finished'] or '')[:16]:16}  {r['verdict'] or '?':5}  {r['issue'] or '-':7}  "
+            f"{(r['map'] or '-')[:22]:22}  {(r['map_sha256'] or '-')[:8]:8}  {(r['harness_commit'] or '-')[:7]:7}  "
+            f"probes {probes:7}  flood {m.get('flood_km2') if m.get('flood_km2') is not None else '-'}  {r['path']}"
+        )
+    return 0
+
+
+def cmd_compare(cfg, a):
+    """Overlay water, wet probes and population over time for two or more map runs."""
+    result = registry.compare(a.runs, a.out.resolve())
+    for s in result["runs"]:
+        last = s["samples"][-1] if s["samples"] else {}
+        print(
+            f"{s['label']}: {s['verdict']}; end {last.get('minute')} min, volume {last.get('volume_m3')}, "
+            f"wet {last.get('wet_required')}/{last.get('required')}, population {last.get('population')}"
+        )
+    print(f"checks that differ: {', '.join(result['differs']) or 'none'}")
+    print(result["png"])
+    return 0
 
 
 def main(argv=None):
@@ -348,6 +406,7 @@ def main(argv=None):
         help="also score every screenshot with blade's Clef-Flash (advisory: frame kind, garbling)",
     )
     r.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
+    r.add_argument("--issue", help="the issue this run is for (e.g. PL-857); default: from --label or --out")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
     r.add_argument("--no-live", action="store_true", help="skip the live frame page")
     r.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
@@ -357,6 +416,19 @@ def main(argv=None):
         default=0,
         help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
     )
+    q = sub.add_parser("runs", help="list registered runs (filters AND together), or --index run directories")
+    q.add_argument("--issue")
+    q.add_argument("--check-type", choices=("map-soak", "asset-check"))
+    q.add_argument("--verdict", choices=("pass", "fail", "error"))
+    q.add_argument("--map", help="map name as the game lists it")
+    q.add_argument("--map-sha", help="map sha256 prefix")
+    q.add_argument("--commit", help="harness commit prefix")
+    q.add_argument("--json", action="store_true")
+    q.add_argument("--index", nargs="+", type=pathlib.Path, metavar="DIR", help="register runs found under these")
+    q.add_argument("--rejudge", action="store_true", help="with --index, re-add runs already registered")
+    k = sub.add_parser("compare", help="overlay two or more map runs over time (compare.png, compare.json)")
+    k.add_argument("runs", nargs="+", help="run directories or registry ids")
+    k.add_argument("--out", type=pathlib.Path, required=True)
     j = sub.add_parser("verdict", help="(re)judge finished run directories and write verdict.json")
     j.add_argument("dirs", nargs="+", type=pathlib.Path)
     j.add_argument("--json", action="store_true", help="print the full verdict")
@@ -383,6 +455,8 @@ def main(argv=None):
             "see": cmd_see,
             "run": cmd_run,
             "verdict": cmd_verdict,
+            "runs": cmd_runs,
+            "compare": cmd_compare,
         }[a.cmd](cfg, a)
     except Blocked as b:
         log(f"blocked: {b}")

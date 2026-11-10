@@ -3,7 +3,11 @@ name = "cs1-harness"
 version = "0.1.0"
 description = "Headless GPU Cities: Skylines 1 test runs for generated maps"
 requires-python = ">=3.11"
-dependencies = ["numpy>=2.0", "pillow>=10.0"]
+dependencies = [
+    "matplotlib>=3.11.2",
+    "numpy>=2.0",
+    "pillow>=10.0",
+]
 
 [project.scripts]
 cs1-harness = "cs1_harness.cli:main"
