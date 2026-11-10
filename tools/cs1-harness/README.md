@@ -50,6 +50,12 @@ stages there and moves results to `--out`.
   it stops with exit code 75 (`--retry-minutes 30` waits and tries again). Other
   prompts, such as the EULA, stop the run with exit code 77. The run refuses to
   start if any Steam is already running for the user.
+- **One slot per host.** One run or `up` session at a time. A second one
+  exits 75 while another holds the slot (its lock, an `up` session, a running
+  game or Steam, the display). `run` and `up` take `--wait-minutes N` to wait
+  instead: they poll every 2 s and start in the gap after the other user's
+  command, so a long job can queue behind another agent's short ones. They
+  never end or take over the other session.
 - **Control.** `mod/` is a small mod with a loopback JSON socket
   (`127.0.0.1:8779`). The game constructs every local mod at startup, enabled or
   not, so the socket opens without ticking the mod in Content Manager. The mod
