@@ -430,6 +430,24 @@ because the account started playing elsewhere is `steam`, not `game-crash`.
 Not covered yet: the dialog guard on PL-856's dialogs branch writes
 `dialogs.jsonl`, which triage reads once that lands.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · the harness over MCP
+
+**What got in the way.** Claude agents drive the harness from a shell. Codex
+and DeepSeek agents in other harnesses do best with tools, and each would
+otherwise learn the CLI's flags from the README.
+
+**What changed.** `cs1-harness mcp` is a stdio MCP server (Python `mcp` 2.3,
+`MCPServer`) with ten tools: `queue`, `contention`, `runs`, `verdict`,
+`compare`, `submit`, `notify`, `up`, `call`, `down`. Each one shells out to
+the CLI, so there's one contract and one set of slot rules. `verdict --json`
+now prints only JSON, which the tool returns.
+
+**Before → after.** Before: shell only. After: an MCP client over stdio
+listed all ten tools, and `queue`, `runs` and `verdict` returned live results
+(PL-857's Innsbruck soak holding the slot; PL-857's passing runs; PL-856's
+PL-848 verdict, a fail with its triage). Not exercised over MCP: `up`, `call`,
+`down` and `submit`, which only wrap the CLI commands of the same names.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

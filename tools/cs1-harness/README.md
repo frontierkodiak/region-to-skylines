@@ -193,6 +193,21 @@ how to stop it. Detached jobs post as Driver sessions (the host's `driver`
 Multica profile); a run inside a Multica task posts as that task's agent.
 `cs1-harness notify DIR --issue PL-NNN --dry-run` shows what would be posted.
 
+## MCP
+
+`cs1-harness mcp` serves the same operations over MCP (stdio): `queue`,
+`contention`, `runs`, `verdict`, `compare`, `submit`, `notify`, `up`, `call`
+and `down`. Each tool runs the CLI in a subprocess, so the CLI stays the one
+contract: same arguments, slot rules and outputs. Register it with, for
+example:
+
+```sh
+claude mcp add cs1-harness -- uv run --directory ~/dev/frontierkodiak/region-to-skylines/main/tools/cs1-harness cs1-harness mcp
+```
+
+Soaks go through `submit`: it returns at once, and the verdict arrives as a
+comment on the issue.
+
 ## Hosts
 
 `--host blade|worm` picks a profile; the default is this machine's hostname.
