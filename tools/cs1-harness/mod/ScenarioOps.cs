@@ -340,7 +340,7 @@ namespace Cs1Harness
             return id;
         }
 
-        static ushort Shore(BuildingInfo info, Vector3 near, Vector3 avoid)
+        static ushort Shore(BuildingInfo info, Vector3 near, Vector3 avoid, List<ushort> powerNodes)
         {
             var tm = Singleton<TerrainManager>.instance;
             var candidates = new List<Vector3>();
@@ -364,6 +364,8 @@ namespace Cs1Harness
                 p += dir.normalized * info.m_placementOffset;
                 if (!Inside(p, 64) || VectorUtils.LengthXZ(p - avoid) < 160) continue;
                 float angle = Mathf.Atan2(dir.x, -dir.z);
+                if (!PowerReachable(info, p, angle, powerNodes))
+                { lastError = "no native power-line path to shoreline at " + p; continue; }
                 try { return Place(info, p, angle, water); }
                 catch (PlacementRejected e)
                 {
@@ -427,24 +429,9 @@ namespace Cs1Harness
                 throw new Exception("the road grid produced no zone cells for one of R/C/I");
         }
 
-        static void Supply(NetInfo info, ushort building, List<ushort> nodes)
+        static List<ushort> NetworkNodes(NetInfo info, List<ushort> nodes)
         {
             var net = Singleton<NetManager>.instance;
-            var facility = Singleton<BuildingManager>.instance.m_buildings.m_buffer[building];
-            var target = facility.m_position;
-            bool electricity = info.m_class.m_service == ItemClass.Service.Electricity;
-            var waterAI = facility.Info.m_buildingAI as WaterFacilityAI;
-            if (electricity && waterAI != null && waterAI.m_electricityConsumption == 0) return;
-            var ends = new List<Vector3> { target };
-            if (electricity)
-            {
-                ends.Clear();
-                float x = facility.Info.m_cellWidth * 4 + 16;
-                float z = facility.Info.m_cellLength * 4 + 16;
-                foreach (var offset in new Vector3[] { new Vector3(x,0,0), new Vector3(-x,0,0), new Vector3(0,0,z), new Vector3(0,0,-z),
-                    new Vector3(x,0,z), new Vector3(x,0,-z), new Vector3(-x,0,z), new Vector3(-x,0,-z) })
-                    ends.Add(Building.CalculatePosition(target, facility.m_angle, offset));
-            }
             var origins = new List<ushort>();
             var pending = new Queue<ushort>(nodes);
             var seen = new HashSet<ushort>();
@@ -464,11 +451,72 @@ namespace Cs1Harness
                     pending.Enqueue(s.m_startNode == id ? s.m_endNode : s.m_startNode);
                 }
             }
+            return origins;
+        }
+
+        static Vector3 PowerEnd(BuildingInfo info, Vector3 pos, float angle, Vector3 origin)
+        {
+            var d = origin - pos;
+            var local = new Vector3(Mathf.Cos(angle) * d.x + Mathf.Sin(angle) * d.z, 0,
+                Mathf.Sin(angle) * d.x - Mathf.Cos(angle) * d.z);
+            var edge = new Vector3(Mathf.Clamp(local.x, -info.m_cellWidth * 4, info.m_cellWidth * 4), 0,
+                Mathf.Clamp(local.z, -info.m_cellLength * 4, info.m_cellLength * 4));
+            return Building.CalculatePosition(pos, angle, edge + (local - edge).normalized * 16);
+        }
+
+        static bool PowerReachable(BuildingInfo info, Vector3 pos, float angle, List<ushort> nodes)
+        {
+            var ai = info.m_buildingAI as WaterFacilityAI;
+            if (ai != null && ai.m_electricityConsumption == 0) return true;
+            var wire = Net("Power Line");
+            foreach (ushort id in NetworkNodes(wire, nodes))
+            {
+                var origin = Singleton<NetManager>.instance.m_nodes.m_buffer[id].m_position;
+                var end = PowerEnd(info, pos, angle, origin);
+                try { Link(wire, origin, end, id, testOnly: true); return true; }
+                catch (PlacementRejected e)
+                {
+                    if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                }
+            }
+            return false;
+        }
+
+        static void Supply(NetInfo info, ushort building, List<ushort> nodes)
+        {
+            var net = Singleton<NetManager>.instance;
+            var facility = Singleton<BuildingManager>.instance.m_buildings.m_buffer[building];
+            var target = facility.m_position;
+            bool electricity = info.m_class.m_service == ItemClass.Service.Electricity;
+            var waterAI = facility.Info.m_buildingAI as WaterFacilityAI;
+            if (electricity && waterAI != null && waterAI.m_electricityConsumption == 0) return;
+            var ends = new List<Vector3> { target };
+            if (electricity)
+            {
+                ends.Clear();
+                float x = facility.Info.m_cellWidth * 4 + 16;
+                float z = facility.Info.m_cellLength * 4 + 16;
+                foreach (var offset in new Vector3[] { new Vector3(x,0,0), new Vector3(-x,0,0), new Vector3(0,0,z), new Vector3(0,0,-z),
+                    new Vector3(x,0,z), new Vector3(x,0,-z), new Vector3(-x,0,z), new Vector3(-x,0,-z) })
+                    ends.Add(Building.CalculatePosition(target, facility.m_angle, offset));
+            }
+            var origins = NetworkNodes(info, nodes);
             origins.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - target).sqrMagnitude
                 .CompareTo((net.m_nodes.m_buffer[b].m_position - target).sqrMagnitude));
             string lastError = "no usable network endpoint";
             var rejected = new List<object>();
             result["utility_last_rejections"] = rejected;
+            if (electricity)
+                foreach (ushort origin in origins)
+                {
+                    var end = PowerEnd(facility.Info, target, facility.m_angle, net.m_nodes.m_buffer[origin].m_position);
+                    try { nodes.Add(Link(info, Vector3.zero, end, origin)); return; }
+                    catch (PlacementRejected e)
+                    {
+                        if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                        if (rejected.Count < 8) rejected.Add(e.Message);
+                    }
+                }
             foreach (ushort origin in origins)
                 foreach (var end in ends)
                 {
@@ -617,9 +665,15 @@ namespace Cs1Harness
             // A normal roadside coal plant; no forced completion or resource buffers.
             var plantInfo = BuildingPrefab("Coal Power Plant");
             ushort plant = Roadside(plantInfo);
+            Vector3 powerHub = Ground(center.x - Half - 48, center.z + Half + 48);
+            var powerEnds = new List<ushort>();
+            Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), endpoints: powerEnds);
+            Supply(power, plant, powerEnds);
             var distant = new Vector3(100000, 0, 100000);
-            ushort pump = Shore(WaterPrefab(true), center, distant);
-            ushort drain = Shore(WaterPrefab(false), center, bm.m_buildings.m_buffer[pump].m_position);
+            ushort pump = Shore(WaterPrefab(true), center, distant, powerEnds);
+            Supply(power, pump, powerEnds);
+            ushort drain = Shore(WaterPrefab(false), center, bm.m_buildings.m_buffer[pump].m_position, powerEnds);
+            Supply(power, drain, powerEnds);
             // One connected pipe tree covers the whole grid. Native pipes couple to
             // facilities by proximity, as when drawn with the pipe tool.
             var hub = Ground(center.x, center.z);
@@ -635,14 +689,6 @@ namespace Cs1Harness
             }
             Supply(pipe, pump, pipeEnds);
             Supply(pipe, drain, pipeEnds);
-            // Keep pylons outside the road/zone footprint; the two trunks supply
-            // both facilities and early growables before they form a power grid.
-            Vector3 powerHub = Ground(center.x - Half - 48, center.z + Half + 48);
-            var powerEnds = new List<ushort>();
-            Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), endpoints: powerEnds);
-            Supply(power, plant, powerEnds);
-            Supply(power, pump, powerEnds);
-            Supply(power, drain, powerEnds);
             Zone();
             result["money_after"] = Singleton<EconomyManager>.instance.InternalCashAmount;
             result["road_segments"] = roads.ToArray();
