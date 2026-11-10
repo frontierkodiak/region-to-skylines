@@ -8,8 +8,8 @@ import shutil
 import subprocess
 import tempfile
 
-from .config import SANDBOX_HOME, Config
-from .session import steam_instances
+from .config import Config
+from .steam import backend
 
 VGL_VERSION = "3.1.5"
 VGL_DEB = f"virtualgl_{VGL_VERSION}_amd64.deb"
@@ -33,8 +33,8 @@ exec "$@"
 """
 
 
-def localconfig() -> pathlib.Path:
-    found = sorted((SANDBOX_HOME / ".local/share/Steam/userdata").glob("*/config/localconfig.vdf"))
+def localconfig(cfg: Config) -> pathlib.Path:
+    found = sorted((cfg.steam_root / "userdata").glob("*/config/localconfig.vdf"))
     if len(found) != 1:
         raise SystemExit(f"expected one Steam user's localconfig.vdf, found {found}")
     return found[0]
@@ -42,9 +42,9 @@ def localconfig() -> pathlib.Path:
 
 def set_launch_options(cfg: Config, value: str | None) -> str:
     """Set (or with None, remove) LaunchOptions in the app's block of localconfig.vdf."""
-    if steam_instances():
+    if backend(cfg).instances():
         raise SystemExit("Steam is running; it rewrites localconfig.vdf on exit. Quit Steam first.")
-    path = localconfig()
+    path = localconfig(cfg)
     text = path.read_text(encoding="utf-8")
     # The app's settings block (LastPlayed, Playtime, ...), not the CDN-token
     # or license blocks that share its id.

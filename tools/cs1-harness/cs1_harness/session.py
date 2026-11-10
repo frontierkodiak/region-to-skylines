@@ -19,8 +19,10 @@ import shutil
 import subprocess
 import time
 
+from . import gpu
 from .client import Client, HarnessError
-from .config import FLATPAK_ID, Config
+from .config import Config
+from .steam import backend
 
 EX_TEMPFAIL = 75  # try again later (account in use, Steam busy)
 EX_NOPERM = 77  # needs a person (EULA, sign-in)
@@ -46,20 +48,6 @@ def sh(*args, check=True, **kw) -> subprocess.CompletedProcess:
     return subprocess.run(list(map(str, args)), check=check, text=True, capture_output=True, **kw)
 
 
-def flatpak_instances() -> list[dict]:
-    out = sh("flatpak", "ps", "--columns=instance,pid,application", check=False).stdout
-    rows = []
-    for line in out.splitlines():
-        parts = line.split()
-        if len(parts) >= 3:
-            rows.append({"instance": parts[0], "pid": parts[1], "application": parts[2]})
-    return rows
-
-
-def steam_instances() -> list[dict]:
-    return [r for r in flatpak_instances() if r["application"] == FLATPAK_ID]
-
-
 def game_pids() -> list[int]:
     out = sh("pgrep", "-x", "Cities.x64", check=False).stdout
     return [int(p) for p in out.split()]
@@ -71,8 +59,8 @@ GPU_FIELDS = "timestamp,index,temperature.gpu,power.draw,power.limit,utilization
 class SteamLog:
     """Follows Steam's console log for this launch's GameAction lines."""
 
-    def __init__(self, cfg: Config):
-        self.path = pathlib.Path.home() / ".var/app" / FLATPAK_ID / ".local/share/Steam/logs/console-linux.txt"
+    def __init__(self, cfg: Config, path: pathlib.Path):
+        self.path = path
         self.offset = self.path.stat().st_size if self.path.exists() else 0
         self.app_id = cfg.app_id
 
@@ -111,6 +99,8 @@ class Session(contextlib.AbstractContextManager):
         self.stage = stage
         self.log = log
         self.client = Client(cfg.port)
+        self.steam = backend(cfg)
+        self.egl: str | None = None
         self.steam_log: SteamLog | None = None
         self.our_instances: set[str] = set()
         self.installed: list[pathlib.Path] = []
@@ -164,6 +154,8 @@ class Session(contextlib.AbstractContextManager):
             "receipt": self.receipt,
             "port": self.cfg.port,
             "display": self.cfg.display,
+            "egl": self.egl,
+            "host": self.cfg.host,
             "started": time.time(),
         }
         self.cfg.state_file.write_text(json.dumps(state, indent=2, default=str) + "\n")
@@ -175,6 +167,7 @@ class Session(contextlib.AbstractContextManager):
         s.our_instances = set(state["our_instances"])
         s.installed = [pathlib.Path(p) for p in state["installed"]]
         s.receipt = state["receipt"]
+        s.egl = state.get("egl")
         return s
 
     def preflight(self):
@@ -182,7 +175,7 @@ class Session(contextlib.AbstractContextManager):
             raise HarnessError("refusing display :0 (Caleb's desktop)")
         if game_pids():
             raise Blocked("Cities.x64 is already running on this host", EX_TEMPFAIL)
-        if steam_instances():
+        if self.steam.instances():
             raise Blocked(
                 "Steam is already running for this user (maybe on :0); the harness only uses a Steam it started itself",
                 EX_TEMPFAIL,
@@ -248,12 +241,46 @@ class Session(contextlib.AbstractContextManager):
         target = c.mod_dir / dll.name
         shutil.copy2(dll, target)
         self.installed.append(c.mod_dir)
+        self.receipt["mod_sha256"] = sha256(target)
+
+    def pin_gpu(self):
+        """Resolve the EGL device for the configured PCI bus and write the launch wrapper's session file."""
+        c = self.cfg
+        env = self.steam.base_env()
+
+        def glxinfo(dev):
+            script = self.steam.vgl_env_script() + f"vglrun -d {dev} glxinfo -B 2>/dev/null"
+            r = subprocess.run(self.steam.shell_argv(script), env=env, capture_output=True, text=True, timeout=120)
+            return r.stdout
+
+        self.egl, name = gpu.resolve_egl(c.gpu_bus, glxinfo)
+        target = gpu.gpu_at(c.gpu_bus)
+        self.receipt["gpu"] = {
+            "bus": target["bus"],
+            "name": name,
+            "egl": self.egl,
+            "mem_used_before_mib": target["mem_used"],
+            "mem_total_mib": target["mem_total"],
+        }
         c.harness_home.mkdir(parents=True, exist_ok=True)
         (c.harness_home / "session.env").write_text(
-            f"CS1_HARNESS_DISPLAY={c.display}\nCS1_HARNESS_EGL={c.egl_device}\n"
+            f"CS1_HARNESS_DISPLAY={c.display}\nCS1_HARNESS_EGL={self.egl}\n"
             f"CS1_HARNESS_PORT={c.port}\nCS1_HARNESS_VGL={c.virtualgl}\n"
         )
-        self.receipt["mod_sha256"] = sha256(target)
+        self.log(
+            f"rendering on {name} at {target['bus']} ({self.egl}); {target['mem_total'] - target['mem_used']} MiB free"
+        )
+        return self.receipt["gpu"]
+
+    def check_placement(self) -> list[dict]:
+        """The game must be on the pinned GPU and nowhere else."""
+        placed = gpu.game_placement()
+        want = gpu.norm_bus(self.cfg.gpu_bus)
+        self.receipt["game_gpu"] = placed
+        wrong = [p for p in placed if p["bus"] != want]
+        if wrong:
+            raise HarnessError(f"the game is using GPU(s) {sorted({p['bus'] for p in wrong})}, not {want}")
+        return placed
 
     def install_map(self, crp: pathlib.Path) -> pathlib.Path:
         target = self.cfg.maps_dir / crp.name
@@ -266,33 +293,24 @@ class Session(contextlib.AbstractContextManager):
         self.receipt["map"] = {"source": str(crp), "installed": str(target), "sha256": sha256(target)}
         return target
 
-    def flatpak_env(self) -> tuple[dict, list[str]]:
-        c = self.cfg
-        env = dict(os.environ, DISPLAY=c.display, XAUTHORITY="/dev/null", DBUS_SESSION_BUS_ADDRESS=c.bus_address)
-        opts = [
-            f"--env=DISPLAY={c.display}",
-            "--env=TZ=America/New_York",
-            f"--env=LD_PRELOAD={c.x11_shim}",
-            f"--env=PATH={c.harness_home / 'bin'}:/app/bin:/app/utils/bin:/usr/bin:/bin",
-        ]
-        return env, opts
-
     def launch(self, game_args: list[str], timeout: float = 600):
         """Start Steam on the harness display with -applaunch; wait for the mod's socket."""
         c = self.cfg
-        env, opts = self.flatpak_env()
-        before = {r["instance"] for r in steam_instances()}
-        self.steam_log = SteamLog(c)
+        if self.egl is None:
+            self.pin_gpu()
+        env = self.steam.base_env()
+        before = set(self.steam.instances())
+        self.steam_log = SteamLog(c, self.steam.log_path)
         log_file = self.stage / "game.log"
         args = ["-silent", "-applaunch", c.app_id, *game_args, "-logFile", str(log_file)]
         self.receipt["launch_args"] = args
         props = ["-p", "KillMode=control-group"]
         unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}
-        self.unit(c.steam_unit, "/usr/bin/flatpak", "run", *opts, FLATPAK_ID, *args, env=unit_env, props=props)
+        self.unit(c.steam_unit, *self.steam.steam_argv(args), env=unit_env, props=props)
         self.unit(
             c.gpu_unit,
             "/usr/bin/nvidia-smi",
-            f"-i={c.nvidia_index}",
+            f"--id={c.gpu_bus}",
             f"--query-gpu={GPU_FIELDS}",
             "--format=csv,nounits",
             "-l",
@@ -303,7 +321,7 @@ class Session(contextlib.AbstractContextManager):
         self.log("Steam starting; waiting for the game")
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
-            self.our_instances |= {r["instance"] for r in steam_instances()} - before
+            self.our_instances |= set(self.steam.instances()) - before
             self.steam_log.check()
             status = self.client.try_status()
             if (
@@ -312,7 +330,8 @@ class Session(contextlib.AbstractContextManager):
                 and not status.get("loading")
             ):
                 self.receipt["menu_status"] = status
-                self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}")
+                placed = self.check_placement()
+                self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}; GPU processes {placed}")
                 return status
             if not self.steam_alive():
                 raise HarnessError(f"Steam exited before the game started; see the journal for {c.steam_unit}")
@@ -322,7 +341,7 @@ class Session(contextlib.AbstractContextManager):
     def steam_alive(self) -> bool:
         return sh(
             "systemctl", "--user", "is-active", "--quiet", self.cfg.steam_unit, check=False
-        ).returncode == 0 or bool(self.our_instances & {r["instance"] for r in steam_instances()})
+        ).returncode == 0 or bool(self.our_instances & set(self.steam.instances()))
 
     def alive(self):
         """Raise if the game went away or Steam reported a conflict mid-run."""
@@ -339,7 +358,7 @@ class Session(contextlib.AbstractContextManager):
     def stop(self):
         """Quit the game, shut Steam down, stop the X server and bus, uninstall what we installed."""
         c = self.cfg
-        env, opts = self.flatpak_env()
+        env = self.steam.base_env()
         pids = game_pids()
         if pids:
             with contextlib.suppress(Exception):
@@ -353,14 +372,18 @@ class Session(contextlib.AbstractContextManager):
                 with contextlib.suppress(ProcessLookupError):
                     os.kill(pid, 15)
         if self.steam_alive() and (self.cfg.runtime_dir / "bus").exists():
-            sh("timeout", "60", "flatpak", "run", *opts, FLATPAK_ID, "-shutdown", check=False, env=env)
+            sh("timeout", "60", *self.steam.steam_argv(["-shutdown"]), check=False, env=env)
             for _ in range(90):
                 if not self.steam_alive():
                     break
                 time.sleep(1)
-        for inst in self.our_instances & {r["instance"] for r in steam_instances()}:
+        for inst in self.our_instances & set(self.steam.instances()):
             self.log(f"Steam instance {inst} still up; killing it")
-            sh("flatpak", "kill", inst, check=False)
+            if c.steam == "flatpak":
+                sh("flatpak", "kill", inst, check=False)
+            else:
+                with contextlib.suppress(ProcessLookupError, ValueError):
+                    os.kill(int(inst), 15)
         for unit in (c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
             sh("systemctl", "--user", "stop", unit, check=False)
         for path in reversed(self.installed):
@@ -372,7 +395,7 @@ class Session(contextlib.AbstractContextManager):
         c.state_file.unlink(missing_ok=True)
         leftovers = {
             "game": game_pids(),
-            "steam_instances": [r["instance"] for r in steam_instances()],
+            "steam_instances": self.steam.instances(),
             "units_active": [
                 u
                 for u in (c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)

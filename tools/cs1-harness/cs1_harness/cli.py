@@ -8,11 +8,11 @@ timed map check with a report.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import datetime
 import json
 import pathlib
 import shutil
-import subprocess
 import sys
 import time
 
@@ -20,7 +20,7 @@ from . import build as build_mod
 from . import report as report_mod
 from . import setup as setup_mod
 from .client import Client, HarnessError
-from .config import FLATPAK_ID, Config
+from .config import Config
 from .mapcheck import MapCheck, collect, load_probe_file
 from .session import EX_TEMPFAIL, Blocked, Session
 
@@ -38,23 +38,12 @@ def cmd_setup(cfg, a):
 
 
 def cmd_doctor(cfg, a):
-    """Check the GPU path without starting Steam: VirtualGL in the sandbox on the harness display."""
+    """Check the GPU path without starting Steam: VirtualGL on the harness display, pinned by PCI bus."""
     with Session(cfg, cfg.harness_home / "runs" / "doctor", log=log) as s:
-        env, opts = s.flatpak_env()
-        vgl = cfg.virtualgl
-        script = (
-            f"export PATH={vgl}/opt/VirtualGL/bin:$PATH LD_LIBRARY_PATH={vgl}/usr/lib; "
-            f"vglrun -d {cfg.egl_device} glxinfo -B 2>/dev/null | grep -E 'renderer|direct rendering'"
-        )
-        r = subprocess.run(
-            ["flatpak", "run", *opts, "--command=sh", FLATPAK_ID, "-c", script],
-            env=env,
-            capture_output=True,
-            text=True,
-            timeout=120,
-        )
-        print(r.stdout.strip() or r.stderr.strip()[-2000:])
+        print(json.dumps({"host": cfg.host, "steam": cfg.steam, **s.pin_gpu()}, indent=2))
     shutil.rmtree(cfg.harness_home / "runs" / "doctor", ignore_errors=True)
+    with contextlib.suppress(OSError):
+        (cfg.harness_home / "runs").rmdir()
 
 
 def cmd_up(cfg, a):
@@ -63,9 +52,25 @@ def cmd_up(cfg, a):
     with Session(cfg, stage, log=log) as s:
         if a.map:
             s.install_map(a.map.resolve())
-        status = None if a.display_only else s.launch(["--noWorkshop", *a.game_arg])
+        if a.display_only:
+            s.pin_gpu()
+            status = None
+        else:
+            status = s.launch(["--noWorkshop", *a.game_arg])
         s.detach()
-    print(json.dumps({"stage": str(stage), "display": cfg.display, "port": cfg.port, "status": status}, indent=2))
+    print(
+        json.dumps(
+            {
+                "host": cfg.host,
+                "stage": str(stage),
+                "display": cfg.display,
+                "port": cfg.port,
+                "gpu": s.receipt.get("gpu"),
+                "status": status,
+            },
+            indent=2,
+        )
+    )
 
 
 def cmd_call(cfg, a):
@@ -137,6 +142,7 @@ def cmd_run(cfg, a):
 
 def main(argv=None):
     p = argparse.ArgumentParser(prog="cs1-harness", description=__doc__)
+    p.add_argument("--host", help="host profile (blade, worm); default: this machine's hostname")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("build", help="compile the harness mod against the installed game")
     s = sub.add_parser("setup", help="user-level host setup (VirtualGL, Steam launch wrapper)")
@@ -172,7 +178,7 @@ def main(argv=None):
     )
     r.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
     a = p.parse_args(argv)
-    cfg = Config()
+    cfg = Config.for_host(a.host)
     try:
         rc = {
             "build": cmd_build,
