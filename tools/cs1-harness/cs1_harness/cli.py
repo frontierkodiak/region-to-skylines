@@ -399,8 +399,9 @@ def main(argv=None):
     b.add_argument("--name", required=True, help="mesh base name (the FBX's file name without extension)")
     b.add_argument(
         "--template",
-        required=True,
-        help="building template prefab name (`call templates` lists them), or auto: low-density residential level 1 on the lot",
+        default="auto",
+        help="building template prefab name (`call templates` lists them); auto (default): low-density "
+        "residential level 1 on the lot",
     )
     b.add_argument("--cells", help="lot in 8 m cells, WxL (default: the bake receipt's)")
     b.add_argument("--scale", type=float, default=1.0, help="import scale (default 1: the FBX is in metres)")

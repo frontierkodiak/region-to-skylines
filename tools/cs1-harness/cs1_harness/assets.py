@@ -253,7 +253,11 @@ class Driver:
         return {
             "menu_status": {k: menu.get(k) for k in ("gpu", "screen", "unity", "plugins", "enabled_mod_count")},
             "asset": info,
-            "packages": [p for p in assets["packages"] if p["path"] and pathlib.Path(p["path"]) == installed_crp],
+            "packages": [
+                p
+                for p in assets["packages"]
+                if p["path"] and pathlib.Path(p["path"]).resolve() == installed_crp.resolve()
+            ],
             "map": installed_map.name,
             "city_frame": status.get("frame"),
             "spot": {"x": x, "z": z, **spot},
