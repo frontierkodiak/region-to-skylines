@@ -141,3 +141,28 @@ def run(session, seconds: float = 60) -> dict:
         subprocess.run(["systemctl", "--user", "stop", u], check=False)
     out["off_2"] = window(client, seconds, units)
     return out
+
+
+SPEED_SETTINGS = [
+    ("default", {"fps": 0, "camera": True}),
+    ("fps10", {"fps": 10, "camera": True}),
+    ("fps2", {"fps": 2, "camera": True}),
+    ("camera_off", {"fps": 2, "camera": False}),
+    ("default_again", {"fps": 0, "camera": True}),
+]
+
+
+def speed(session, seconds: float = 45) -> dict:
+    """Simulation frames per second at speed 3 with drawing throttled in steps, then restored."""
+    client = session.client
+    out = {}
+    for name, setting in SPEED_SETTINGS:
+        applied = client.call("render", **setting)
+        time.sleep(5)  # let the frame rate settle
+        out[name] = {**window(client, seconds, []), "render": applied}
+        out[name].pop("observer_cpu_pct", None)
+    client.call("render", fps=0, camera=True)
+    base = (out["default"]["sim_frames_per_s"] + out["default_again"]["sim_frames_per_s"]) / 2
+    for name in out:
+        out[name]["vs_default"] = round(out[name]["sim_frames_per_s"] / base, 3) if base else None
+    return out

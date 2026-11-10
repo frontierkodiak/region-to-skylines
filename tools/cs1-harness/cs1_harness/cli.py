@@ -208,6 +208,32 @@ def cmd_bench_observe(cfg, a):
     print(json.dumps(result, indent=2))
 
 
+def cmd_bench_speed(cfg, a):
+    """How fast does the simulation run when drawing is throttled?"""
+    from . import bench
+
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    stage = staging(cfg, out)
+    with slot(cfg, stage, a.wait_minutes, {"command": "bench-speed", "out": str(out)}) as s:
+        s.record, s.live, s.label = False, False, "sim speed bench"
+        installed = s.install_map(a.map.resolve())
+        s.launch(["--noWorkshop"])
+        entry = next(
+            m
+            for m in s.client.call("maps")["maps"]
+            if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+        )
+        s.client.call("new_game", path=entry["path"])
+        s.client.wait(lambda st: st.get("in_game") and not st.get("loading"), 900, "the city to load", alive=s.alive)
+        s.client.call("run", paused=False, speed=3)
+        time.sleep(20)
+        result = bench.speed(s, a.seconds)
+    collect(stage, out)
+    (out / "bench-speed.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result, indent=2))
+
+
 def cmd_see(cfg, a):
     """Score screenshots with Clef-Flash (advisory)."""
     from . import vision
@@ -397,6 +423,7 @@ def cmd_submit(cfg, a):
         f"--working-directory={tool}",
         f"--setenv=PATH={os.environ.get('PATH', '')}",
         f"--setenv=HOME={pathlib.Path.home()}",
+        *[f"--setenv={k}={v}" for k, v in os.environ.items() if k.startswith("CS1_")],
         # `systemctl stop` must let the run tear the game down (quit waits up to 60 s, Steam 90 s):
         # SIGTERM to uv, which forwards it to the harness, then up to 5 min before anything is killed.
         "--property=KillMode=mixed",
@@ -561,6 +588,11 @@ def main(argv=None):
     b.add_argument("--out", type=pathlib.Path, required=True)
     b.add_argument("--seconds", type=float, default=60)
     b.add_argument("--wait-minutes", type=float, default=0)
+    bs = sub.add_parser("bench-speed", help="simulation speed with drawing throttled in steps")
+    bs.add_argument("--map", type=pathlib.Path, required=True)
+    bs.add_argument("--out", type=pathlib.Path, required=True)
+    bs.add_argument("--seconds", type=float, default=45)
+    bs.add_argument("--wait-minutes", type=float, default=0)
     w = sub.add_parser("watch", help="view-only VNC of the running session (localhost; reach it over ssh)")
     w.add_argument("--hold", type=float, default=0, help="keep it this many minutes, then stop (0: until down)")
     w.add_argument("--stop", action="store_true", help="stop the VNC server")
@@ -661,6 +693,7 @@ def main(argv=None):
             "down": cmd_down,
             "watch": cmd_watch,
             "bench-observe": cmd_bench_observe,
+            "bench-speed": cmd_bench_speed,
             "see": cmd_see,
             "run": cmd_run,
             "verdict": cmd_verdict,
