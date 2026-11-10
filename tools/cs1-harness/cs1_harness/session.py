@@ -349,8 +349,8 @@ class Session(contextlib.AbstractContextManager):
             "--format=csv,nounits",
             "-l",
             "5",
-            "-f",
-            str(self.stage / "gpu.csv"),
+            # nvidia-smi -f buffers until exit; systemd writes each stdout line as it comes.
+            props=["-p", f"StandardOutput=file:{self.stage / 'gpu.csv'}"],
         )
         self.log("Steam starting; waiting for the game")
         deadline = time.monotonic() + timeout

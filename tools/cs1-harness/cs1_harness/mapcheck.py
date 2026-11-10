@@ -103,12 +103,20 @@ class MapCheck:
         installed = s.install_map(crp)
         menu = s.launch(["--noWorkshop"])
         maps = self.c.call("maps")["maps"]
-        entry = next((m for m in maps if m["path"] and pathlib.Path(m["path"]) == installed), None)
+        # The game may name the file through an alias (Flatpak's data -> .local/share link).
+        entry = next(
+            (
+                m
+                for m in maps
+                if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+            ),
+            None,
+        )
         self.record("maps", {"maps": maps})
         if entry is None:
             raise HarnessError(f"the game does not list {installed.name} as a map")
         self.log(f"starting New Game on {entry['map_name']} (listed in New Game: {entry['published']})")
-        self.c.call("new_game", path=str(installed))
+        self.c.call("new_game", path=entry["path"])
         status = self.c.wait(
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
         )

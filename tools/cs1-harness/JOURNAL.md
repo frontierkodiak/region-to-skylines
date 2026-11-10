@@ -152,6 +152,61 @@ image, about 1 s each after a 3 s first call. The server caps images at 384².
 small, the garbled frames are synthetic, and the terracing positives are
 quantized copies, not a real stair-stepped game import.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-856 · first game runs, and the rivers drain
+
+**Unblocked.** Caleb authorized accepting the Cities: Skylines EULA in blade's
+Steam, and nothing else. It was clicked on the harness display through XTEST,
+and Steam logged "accepted eula 255710_eula_0".
+
+**Got in the way, in order.**
+1. *Steam doesn't resume the launch after the EULA.* The second try said
+   "Update required" while a CS1 shader-cache update was finishing; the third
+   went through.
+2. *Steam's target is Paradox's launcher (`dowser`).* It showed its own
+   Paradox User Agreement. Accepting that is outside the authorization, so it
+   was closed unanswered. In a harness session the launch wrapper now swaps
+   `dowser` for `Cities.x64` and keeps Steam's reaper and Steam Linux Runtime
+   container, the same binary worm's runs always used.
+3. *Software rendering.* VirtualGL's preload outside pressure-vessel doesn't
+   reach the game, which reported `llvmpipe`. The wrapper now preloads it on
+   the game itself, inside the container, with absolute paths. The placement
+   check now fails a run that isn't on any NVIDIA GPU; before, it passed
+   because no wrong GPU showed up.
+4. *Small things.* CS1's main menu is the `IntroScreen` scene. Steam logs
+   launch prompts in `webhelper_js.txt`. The game names its data directory
+   through Flatpak's `data -> .local/share` link, so maps are matched by file
+   identity. `nvidia-smi -f` buffers until exit (the unit now uses systemd's
+   stdout).
+
+**The proof: PL-848 Asheville, 60 game-minutes on blade's 2080 Ti.**
+- **Timing.** Main menu 49 s after `Steam starting`, city loaded 39 s later.
+  `fixedDeltaTime` is 1/60 s, so a game-minute is 3,600 frames. Speed 3 (4×)
+  sustained about 161 frames/s, not the nominal 240: 60 game-minutes took
+  27 min of wall time.
+- **GPU.** `Cities.x64` was on 2080 Ti `05:00.0` only. VRAM 1,574 MiB at the
+  menu, peak card total 10,821 of 11,264 MiB beside the `decisions` replica's
+  ~8 GB, so the game's peak was about 2.8 GB and headroom was about 440 MiB.
+  60 °C max, 119.5 W mean and 148.3 W max against the 150 W cap, 94 % mean
+  utilisation.
+- **Water.** Both sources stay active (flow 756 and 930 at capacity 0.2), but
+  the prefilled channels drain. Volume falls from 9.1 M m³ to about 1.16 M m³
+  by minute 25, then holds. Wet area goes from 3.09 to 0.70 km², with 0.01 km²
+  newly wet (no flooding). River probes wet: 62/62 at the start, 20/62 at the
+  end. All French Broad samples from FB06 downstream dry out, and the lower
+  Swannanoa does too. PL-848's short checks couldn't show this.
+- **Terrain.** No terracing (0.0034).
+- **Log.** 27 error lines: localisation noise, and worm's `CitiesBridge.dll`
+  failing to load because Harmony is a Workshop item and the run uses
+  `--noWorkshop`. The bridge is disabled, so these are expected.
+- **Clef.** 9 of 25 screenshots flagged, all at minutes 30 and 45, and all
+  night frames from the game's day/night cycle. Clef called them "world" but
+  scored garbling 0.53-0.81. They're false alarms. Fix: screenshots in
+  daylight, or day/night off for harness runs.
+- **Teardown.** Nothing left running: no game, Steam, display, bus or sampler.
+
+**Not working yet.** Hiding the UI before screenshots leaves the bottom
+toolbar visible.
+
 ### Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
@@ -159,3 +214,4 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 
 | Date | Agent · issue | Host · GPU | Peak VRAM (game) | Peak W / °C | Wall | Result |
 |:--|:--|:--|:--|:--|:--|:--|
+| 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
