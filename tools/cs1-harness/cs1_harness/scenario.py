@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+import json
+import pathlib
 import time
 
 from .client import HarnessError
 
 
-def build(session, log=print) -> dict:
+def build(session, out: pathlib.Path, log=print) -> dict:
     """Build using native tools, keeping every rejection in the run's evidence."""
     log("building test-city in the start tile")
     session.client.call("scenario_build")
@@ -15,6 +17,7 @@ def build(session, log=print) -> dict:
     while time.monotonic() < deadline:
         session.alive()
         status = session.client.call("scenario_status")
+        (out / "scenario.json").write_text(json.dumps(status, indent=2) + "\n")
         if status["state"] == "failed":
             raise HarnessError(f"test-city construction failed: {status['error']}")
         if status["state"] == "done":

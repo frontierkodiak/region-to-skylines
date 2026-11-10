@@ -23,6 +23,13 @@ namespace Cs1Harness
         static readonly List<string> pathDirections = new List<string>();
         static Vector3 center;
 
+        sealed class PlacementRejected : Exception
+        {
+            public readonly ToolBase.ToolErrors Errors;
+            public PlacementRejected(string context, ToolBase.ToolErrors errors) : base(context + ": " + errors)
+            { Errors = errors; }
+        }
+
         public static void Register()
         {
             Host.Register("scenario_build", Needs.City, "build test-city in a fresh, paused New Game; poll scenario_status", Start);
@@ -80,8 +87,7 @@ namespace Cs1Harness
             var tile = new Vector3((tx - 2) * 1920, 0, (tz - 2) * 1920);
             var net = Singleton<NetManager>.instance;
             var tm = Singleton<TerrainManager>.instance;
-            float best = float.MaxValue;
-            Vector3 selected = Vector3.zero;
+            var candidates = new List<KeyValuePair<float, Vector3>>();
             for (float z = -672; z <= 672; z += 96)
                 for (float x = -672; x <= 672; x += 96)
                 {
@@ -116,11 +122,28 @@ namespace Cs1Harness
                     foreach (ushort h in hooks)
                         distance += VectorUtils.LengthXZ(net.m_nodes.m_buffer[h].m_position - p);
                     float score = distance + (high - low) * 30f;
-                    if (score < best) { best = score; selected = Ground(p.x, p.z); }
+                    candidates.Add(new KeyValuePair<float, Vector3>(score, Ground(p.x, p.z)));
                 }
-            if (best == float.MaxValue)
-                throw new Exception("no dry 384 m site with <=32 m relief in the start tile");
-            return selected;
+            candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
+            foreach (var candidate in candidates)
+            {
+                var p = candidate.Value;
+                try
+                {
+                    var road = Net("Basic Road");
+                    for (int i = 0; i < 4; i++)
+                        for (int j = 0; j < 3; j++)
+                        {
+                            var a = Ground(p.x - Half + j * Spacing, p.z - Half + i * Spacing);
+                            Link(road, a, Ground(a.x + Spacing, a.z), testOnly: true);
+                            a = Ground(p.x - Half + i * Spacing, p.z - Half + j * Spacing);
+                            Link(road, a, Ground(a.x, a.z + Spacing), testOnly: true);
+                        }
+                    return p;
+                }
+                catch (PlacementRejected) { }
+            }
+            throw new Exception("no dry start-tile site whose grid passes native road placement checks");
         }
 
         static NetInfo Net(string name)
@@ -137,20 +160,26 @@ namespace Cs1Harness
             return p;
         }
 
-        static NetTool.ControlPoint Point(NetInfo info, Vector3 p, ushort node = 0)
+        static NetTool.ControlPoint Point(NetInfo info, Vector3 p, ushort node = 0, float elevation = float.NaN)
         {
+            if (float.IsNaN(elevation)) elevation = info.m_netAI.IsUnderground() ? -12f : 0f;
             if (node != 0)
+            {
                 p = Singleton<NetManager>.instance.m_nodes.m_buffer[node].m_position;
+                elevation = Singleton<NetManager>.instance.m_nodes.m_buffer[node].m_elevation;
+                if (info.m_netAI.IsUnderground()) elevation = -elevation;
+            }
             else
-                p.y = NetSegment.SampleTerrainHeight(info, p, false, info.m_netAI.IsUnderground() ? -12f : 0f);
+                p.y = NetSegment.SampleTerrainHeight(info, p, false, elevation);
             return new NetTool.ControlPoint { m_position = p, m_node = node,
-                m_elevation = info.m_netAI.IsUnderground() ? -12f : 0f };
+                m_elevation = elevation };
         }
 
-        static ushort Link(NetInfo info, Vector3 a, Vector3 b, ushort from = 0, ushort to = 0, bool road = false)
+        static ushort Link(NetInfo info, Vector3 a, Vector3 b, ushort from = 0, ushort to = 0, bool road = false,
+            float endElevation = float.NaN, bool testOnly = false)
         {
             var start = Point(info, a, from);
-            var end = Point(info, b, to);
+            var end = Point(info, b, to, endElevation);
             var dir = end.m_position - start.m_position;
             dir.y = 0;
             dir.Normalize();
@@ -164,7 +193,8 @@ namespace Cs1Harness
             var errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, true, true, false, true, true, false, false, 0,
                 out first, out last, out segment, out cost, out production);
             if (errors != ToolBase.ToolErrors.None)
-                throw new Exception(info.name + " " + a + " -> " + b + ": " + errors);
+                throw new PlacementRejected(info.name + " " + a + " -> " + b, errors);
+            if (testOnly) return 0;
             errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, false, true, false, true, true, false, false, 0,
                 out first, out last, out segment, out cost, out production);
             if (errors != ToolBase.ToolErrors.None || last == 0)
@@ -173,12 +203,37 @@ namespace Cs1Harness
             return last;
         }
 
+        static void Connect(NetInfo road, ushort from, ushort to)
+        {
+            var net = Singleton<NetManager>.instance;
+            var a = net.m_nodes.m_buffer[from].m_position;
+            var b = net.m_nodes.m_buffer[to].m_position;
+            try { Link(road, a, b, from, to, true); return; }
+            catch (PlacementRejected e)
+            {
+                // Test mode has not constructed anything. A player would raise the
+                // middle of this crossing; the native tool selects bridge/ramp prefabs.
+                if ((e.Errors & (ToolBase.ToolErrors.CannotBuildOnWater | ToolBase.ToolErrors.SlopeTooSteep)) == 0) throw;
+                result["crossing_ground_rejection"] = e.Message;
+            }
+            var mid = Ground((a.x + b.x) * 0.5f, (a.z + b.z) * 0.5f);
+            float top = Mathf.Max(a.y, b.y);
+            for (int i = 0; i <= 16; i++)
+            {
+                var p = Vector3.Lerp(a, b, i / 16f);
+                top = Mathf.Max(top, Singleton<TerrainManager>.instance.SampleRawHeightSmoothWithWater(p, false, 0));
+            }
+            float elevation = Mathf.Max(12, top + 12 - mid.y);
+            ushort bridge = Link(road, a, mid, from, 0, true, elevation);
+            Link(road, mid, b, bridge, to, true);
+        }
+
         static ushort Place(BuildingInfo info, Vector3 pos, float angle, float waterHeight = 0)
         {
             var connection = new Segment3();
             float low, high, height;
             Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out low, out high, out height);
-            pos.y = Mathf.Max(pos.y, height);
+            pos.y = info.m_placementMode == BuildingInfo.PlacementMode.Shoreline ? Mathf.Max(pos.y, height) : height;
             int production, cost;
             var errors = info.m_buildingAI.CheckBuildPosition(0, ref pos, ref angle, waterHeight, 0, ref connection, out production, out cost);
             var tool = Singleton<ToolManager>.instance.m_properties;
@@ -192,7 +247,7 @@ namespace Cs1Harness
                 if (Singleton<EconomyManager>.instance.PeekResource(EconomyManager.Resource.Construction, cost) != cost)
                     errors |= ToolBase.ToolErrors.NotEnoughMoney;
                 if (errors != ToolBase.ToolErrors.None)
-                    throw new Exception(info.name + " " + pos + ": " + errors);
+                    throw new PlacementRejected(info.name + " " + pos, errors);
                 BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, low, pos.y + info.m_collisionHeight,
                     angle, info.m_cellWidth, info.m_cellLength, false, segments, bs);
             }
@@ -212,11 +267,11 @@ namespace Cs1Harness
         {
             var tm = Singleton<TerrainManager>.instance;
             var candidates = new List<Vector3>();
+            int tx, tz;
+            Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
             for (float z = -832; z <= 832; z += 32)
                 for (float x = -832; x <= 832; x += 32)
                 {
-                    int tx, tz;
-                    Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
                     var p = Ground((tx - 2) * 1920 + x, (tz - 2) * 1920 + z);
                     if (VectorUtils.LengthXZ(p - avoid) >= 160)
                         candidates.Add(p);
@@ -233,7 +288,11 @@ namespace Cs1Harness
                 if (!Inside(p, 64) || VectorUtils.LengthXZ(p - avoid) < 160) continue;
                 float angle = Mathf.Atan2(dir.x, -dir.z);
                 try { return Place(info, p, angle, water); }
-                catch (Exception e) { lastError = e.Message; }
+                catch (PlacementRejected e)
+                {
+                    if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                    lastError = e.Message;
+                }
             }
             throw new Exception("cannot place " + info.name + ": " + lastError);
         }
@@ -319,12 +378,37 @@ namespace Cs1Harness
             for (int x = 0; x < 4; x++)
                 for (int z = 0; z < 3; z++)
                     Link(road, Vector3.zero, Vector3.zero, grid[x, z], grid[x, z + 1], true);
+            ushort junction = 0;
+            var mean = Vector3.zero;
+            var heading = Vector3.zero;
             foreach (ushort hook in hooks)
             {
+                var n = net.m_nodes.m_buffer[hook];
+                mean += n.m_position;
+                if (n.CountSegments() == 1)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        ushort sid = n.GetSegment(i);
+                        if (sid == 0) continue;
+                        var s = net.m_segments.m_buffer[sid];
+                        heading -= s.m_startNode == hook ? s.m_startDirection : s.m_endDirection;
+                    }
+                }
+            }
+            mean /= hooks.Count;
+            heading.y = 0;
+            if (heading.sqrMagnitude > 0.1f)
+            {
+                var join = mean + heading.normalized * 96;
+                junction = Link(road, Vector3.zero, join, hooks[0], 0, true);
+                for (int i = 1; i < hooks.Count; i++)
+                    Link(road, Vector3.zero, Vector3.zero, hooks[i], junction, true);
+            }
+            foreach (ushort hook in junction != 0 ? new List<ushort> { junction } : hooks)
+            {
                 var p = net.m_nodes.m_buffer[hook].m_position;
-                int gx = p.x < center.x ? 0 : 3;
-                int gz = p.z < center.z ? 0 : 3;
-                Link(road, p, net.m_nodes.m_buffer[grid[gx, gz]].m_position, hook, grid[gx, gz], true);
+                Connect(road, hook, grid[p.x < center.x ? 0 : 3, p.z < center.z ? 0 : 3]);
             }
 
             // A normal roadside coal plant; no forced completion or resource buffers.
@@ -369,6 +453,28 @@ namespace Cs1Harness
                     "electricity", b.m_electricityBuffer, "water", b.m_waterBuffer, "sewage", b.m_sewageBuffer));
             }
             var doc = Host.Obj("state", state, "error", error, "result", result, "utilities", live);
+            if (state == "done")
+            {
+                var grown = Host.Obj("Residential", 0, "Commercial", 0, "Industrial", 0);
+                var problems = new Dictionary<string, object>();
+                var bm = Singleton<BuildingManager>.instance;
+                for (int i = 1; i < bm.m_buildings.m_buffer.Length; i++)
+                {
+                    var b = bm.m_buildings.m_buffer[i];
+                    if ((b.m_flags & (Building.Flags.Created | Building.Flags.Deleted)) != Building.Flags.Created || b.Info == null
+                        || Mathf.Abs(b.m_position.x - center.x) > Half + 40 || Mathf.Abs(b.m_position.z - center.z) > Half + 40) continue;
+                    string service = b.Info.m_class.m_service.ToString();
+                    if (!grown.ContainsKey(service)) continue;
+                    grown[service] = (int)grown[service] + 1;
+                    if (b.m_problems.IsNotNone)
+                    {
+                        string key = b.m_problems.ToString();
+                        problems[key] = problems.ContainsKey(key) ? (int)problems[key] + 1 : 1;
+                    }
+                }
+                doc["growables"] = grown;
+                doc["growable_problems"] = problems;
+            }
             if (Json.Bool(q, "inspect", false))
             {
                 int x, z;

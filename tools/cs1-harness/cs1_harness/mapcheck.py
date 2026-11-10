@@ -134,9 +134,8 @@ class MapCheck:
         if scenario:
             from . import scenario as scenario_mod
 
-            fixture = scenario_mod.build(s, log=self.log)
+            fixture = scenario_mod.build(s, self.out, log=self.log)
             self.record("scenario", fixture)
-            (self.out / "scenario.json").write_text(json.dumps(fixture, indent=2) + "\n")
             x, _, z = fixture["result"]["center"]
             self.views = [*self.views, {"name": "test-city", "x": x, "z": z, "size": 650, "pitch": 60}]
         fdt = status["fixed_delta_time"]

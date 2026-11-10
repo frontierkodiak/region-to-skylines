@@ -25,12 +25,42 @@ uv run cs1-harness down --out DIR           # quit, stop everything, keep the lo
 
 uv run cs1-harness run --map Asheville.crp --game-minutes 60 \
     --probes examples/pl848-asheville-probes.json --out ~/experiments/PL-856-cs1-harness/asheville-60
+
+uv run cs1-harness run --map Asheville.crp --scenario test-city \
+    --game-minutes 10 --sample-every 1 --wait-minutes 90 \
+    --issue PL-893 --out ~/experiments/PL-893-test-city/asheville
 ```
 
 The game writes files (screenshots, grids, log) only inside the Steam sandbox,
 so paths given to ops must be under
 `~/.var/app/com.valvesoftware.Steam/` or `/peach/Games/SteamLibrary`. `run`
 stages there and moves results to `--out`.
+
+## Standard test city
+
+`run --scenario test-city` builds a disposable city after ordinary New Game,
+then runs the same water/terrain soak. It finds a dry site in the starting
+tile, connects the existing highway approaches to a 288 m road grid, zones
+residential/commercial/industrial, and places a coal plant, water pump, drain,
+pipes and power lines. Construction runs on the simulation thread through
+the native tools, with space, slope, purchased-area and money checks. A river
+crossing uses the game's bridge/ramp prefabs. It spends starting money; it
+doesn't enable unlimited money, place growables, force utility buffers or
+set population.
+
+The run keeps `scenario.json` (including a partial receipt on a placement
+failure), adds a close-up camera view, and observes population between the
+normal water samples. `population_growth` and `outside_connection` are verdict
+checks only when a scenario was requested. The latter uses the game's
+passenger-car pathfinder in both directions between the grid and actual
+outside road segments, and releases every completed path.
+
+For another driver, the same ops are `scenario_build` in a paused New Game,
+`scenario_status` until `done`/`failed`, and `scenario_paths {"start":true}`
+followed by polling `scenario_paths` after the simulation has advanced. A city
+can be built only once per New Game. The planner rejects a map without an
+accessible starting-tile road hookup, a suitable dry grid site, an affordable
+crossing, or usable shoreline; it never bypasses a rejected placement.
 
 ## How it runs
 
