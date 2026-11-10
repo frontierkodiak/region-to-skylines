@@ -176,7 +176,7 @@ namespace Cs1Harness
         }
 
         static ushort Link(NetInfo info, Vector3 a, Vector3 b, ushort from = 0, ushort to = 0, bool road = false,
-            float endElevation = float.NaN, bool testOnly = false)
+            float endElevation = float.NaN, bool testOnly = false, List<ushort> endpoints = null)
         {
             var start = Point(info, a, from);
             var end = Point(info, b, to, endElevation);
@@ -200,6 +200,11 @@ namespace Cs1Harness
             if (errors != ToolBase.ToolErrors.None || last == 0)
                 throw new Exception(info.name + " construction failed: " + errors);
             if (road) roads.Add(segment);
+            if (endpoints != null)
+            {
+                endpoints.Add(first);
+                if (last != first) endpoints.Add(last);
+            }
             return last;
         }
 
@@ -303,6 +308,27 @@ namespace Cs1Harness
                     lastError = e.Message;
                 }
             }
+            throw new Exception("cannot place " + info.name + ": " + lastError);
+        }
+
+        static ushort Roadside(BuildingInfo info)
+        {
+            string lastError = "no legal roadside site";
+            foreach (var away in new Vector3[] { Vector3.forward, Vector3.right, Vector3.left, Vector3.back })
+                foreach (float along in new float[] { 0, -96, 96 })
+                {
+                    var tangent = new Vector3(away.z, 0, -away.x);
+                    var p = center + away * (Half + 8 + info.m_cellLength * 4) + tangent * along;
+                    p = Ground(p.x, p.z);
+                    // CalculateSidewalkPosition puts the road at local +Z for angle 0.
+                    float angle = Mathf.Atan2(away.x, -away.z);
+                    try { return Place(info, p, angle); }
+                    catch (PlacementRejected e)
+                    {
+                        if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                        lastError = e.Message;
+                    }
+                }
             throw new Exception("cannot place " + info.name + ": " + lastError);
         }
 
@@ -454,8 +480,7 @@ namespace Cs1Harness
 
             // A normal roadside coal plant; no forced completion or resource buffers.
             var plantInfo = BuildingPrefab("Coal Power Plant");
-            Vector3 plantPos = Ground(center.x, center.z + Half + 8 + plantInfo.m_cellLength * 4);
-            ushort plant = Place(plantInfo, plantPos, 0);
+            ushort plant = Roadside(plantInfo);
             var distant = new Vector3(100000, 0, 100000);
             ushort pump = Shore(BuildingPrefab("Water Pumping Station"), center, distant);
             ushort drain = Shore(BuildingPrefab("Water Drain Pipe"), center, bm.m_buildings.m_buffer[pump].m_position);
@@ -477,9 +502,9 @@ namespace Cs1Harness
             // Keep pylons outside the road/zone footprint; the two trunks supply
             // both facilities and early growables before they form a power grid.
             Vector3 powerHub = Ground(center.x - Half - 48, center.z + Half + 48);
-            ushort powerNode = Link(power, plantPos + new Vector3(-48, 0, 0), powerHub);
-            ushort powerEnd = Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), powerNode);
-            var powerEnds = new List<ushort> { powerNode, powerEnd };
+            var powerEnds = new List<ushort>();
+            Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), endpoints: powerEnds);
+            Supply(power, plant, powerEnds, 40);
             Supply(power, pump, powerEnds, 40);
             Supply(power, drain, powerEnds, 40);
             Zone();
