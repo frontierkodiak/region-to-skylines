@@ -105,6 +105,7 @@ class MapCheck:
         shot_every: float,
         dump_every: float,
         load_timeout: float,
+        scenario: str | None = None,
     ) -> dict:
         s = self.s
         installed = s.install_map(crp)
@@ -129,6 +130,15 @@ class MapCheck:
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
         )
         self.c.call("run", paused=True, speed=speed)
+        fixture = None
+        if scenario:
+            from . import scenario as scenario_mod
+
+            fixture = scenario_mod.build(s, log=self.log)
+            self.record("scenario", fixture)
+            (self.out / "scenario.json").write_text(json.dumps(fixture, indent=2) + "\n")
+            x, _, z = fixture["result"]["center"]
+            self.views = [*self.views, {"name": "test-city", "x": x, "z": z, "size": 650, "pitch": 60}]
         fdt = status["fixed_delta_time"]
         frames_per_minute = 60.0 / fdt
         start_frame = status["frame"]
@@ -147,6 +157,7 @@ class MapCheck:
         next_sample = sample_every
         next_shot = shot_every
         next_dump = dump_every
+        population_observations = [{"minute": 0.0, "population": self.c.call("stats")["population"]}]
         self.c.call("run", paused=False, speed=speed)
         wall_start = time.monotonic()
         last_progress = (wall_start, start_frame)
@@ -154,6 +165,8 @@ class MapCheck:
             s.alive()
             stats = self.c.call("stats")
             m = minute(stats["frame"])
+            if stats["population"] != population_observations[-1]["population"]:
+                population_observations.append({"minute": round(m, 3), "population": stats["population"]})
             observe.write_context(s.cfg, minute=m, of_minutes=game_minutes)
             if stats["frame"] != last_progress[1]:
                 last_progress = (time.monotonic(), stats["frame"])
@@ -177,6 +190,14 @@ class MapCheck:
         end = f"t{int(round(game_minutes)):03d}"
         self.dump(end)
         final = self.sample(end)
+        if scenario:
+            fixture = {
+                **fixture,
+                "final": self.c.call("scenario_status"),
+                "reachability": scenario_mod.reachability(s),
+            }
+            self.record("scenario_end", fixture)
+            (self.out / "scenario.json").write_text(json.dumps(fixture, indent=2) + "\n")
         self.screenshots(end)
         status = self.c.call("status")
         self.timeline.close()
@@ -195,6 +216,9 @@ class MapCheck:
             "first_dump": "t000",
             "last_dump": end,
             "shots": self.shots,
+            "scenario": fixture,
+            "requested_scenario": scenario,
+            "population_observations": population_observations,
             "final_status": {k: status.get(k) for k in ("error_count", "errors", "population", "game_time")},
         }
 
