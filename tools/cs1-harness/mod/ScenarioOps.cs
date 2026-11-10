@@ -219,11 +219,20 @@ namespace Cs1Harness
             var buffer = new FastList<NetTool.NodePosition>();
             ushort first, last, segment;
             int cost, production;
-            var errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, true, true, false, true, true, false, false, 0,
-                out first, out last, out segment, out cost, out production);
-            if (errors != ToolBase.ToolErrors.None)
-                throw new PlacementRejected(info.name + " " + start.m_position + " -> " + end.m_position
-                    + " (elevation " + start.m_elevation + " -> " + end.m_elevation + ")", errors);
+            var controller = Singleton<ToolManager>.instance.m_properties;
+            ulong[] collidingSegments, collidingBuildings;
+            controller.BeginColliding(out collidingSegments, out collidingBuildings);
+            ToolBase.ToolErrors errors;
+            try
+            {
+                errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, true, true, false, true, true, false, false, 0,
+                    out first, out last, out segment, out cost, out production);
+                if (errors != ToolBase.ToolErrors.None)
+                    throw new PlacementRejected(info.name + " " + start.m_position + " -> " + end.m_position
+                        + " (elevation " + start.m_elevation + " -> " + end.m_elevation + ")"
+                        + CollisionDetail(collidingSegments, collidingBuildings), errors);
+            }
+            finally { controller.EndColliding(); }
             if (testOnly) return 0;
             errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, false, true, false, true, true, false, false, 0,
                 out first, out last, out segment, out cost, out production);
@@ -236,6 +245,26 @@ namespace Cs1Harness
                 if (last != first) endpoints.Add(last);
             }
             return last;
+        }
+
+        static string CollisionDetail(ulong[] segments, ulong[] buildings)
+        {
+            var hits = new List<string>();
+            var net = Singleton<NetManager>.instance;
+            for (int i = 1; i < net.m_segments.m_buffer.Length && hits.Count < 8; i++)
+                if ((segments[i >> 6] & (1UL << (i & 63))) != 0)
+                {
+                    var s = net.m_segments.m_buffer[i];
+                    hits.Add("segment " + i + " " + (s.Info == null ? "?" : s.Info.name) + " " + s.m_flags);
+                }
+            var bm = Singleton<BuildingManager>.instance;
+            for (int i = 1; i < bm.m_buildings.m_buffer.Length && hits.Count < 8; i++)
+                if ((buildings[i >> 6] & (1UL << (i & 63))) != 0)
+                {
+                    var b = bm.m_buildings.m_buffer[i];
+                    hits.Add("building " + i + " " + (b.Info == null ? "?" : b.Info.name));
+                }
+            return hits.Count == 0 ? "" : " [" + string.Join("; ", hits.ToArray()) + "]";
         }
 
         static void Connect(NetInfo road, ushort from, ushort to)
@@ -416,11 +445,30 @@ namespace Cs1Harness
                     new Vector3(x,0,z), new Vector3(x,0,-z), new Vector3(-x,0,z), new Vector3(-x,0,-z) })
                     ends.Add(Building.CalculatePosition(target, facility.m_angle, offset));
             }
-            var origins = new List<ushort>(nodes);
-            origins.RemoveAll(id => (net.m_nodes.m_buffer[id].m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted)) != NetNode.Flags.Created);
+            var origins = new List<ushort>();
+            var pending = new Queue<ushort>(nodes);
+            var seen = new HashSet<ushort>();
+            while (pending.Count != 0)
+            {
+                ushort id = pending.Dequeue();
+                if (!seen.Add(id)) continue;
+                var n = net.m_nodes.m_buffer[id];
+                if ((n.m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted)) != NetNode.Flags.Created) continue;
+                origins.Add(id);
+                for (int i = 0; i < 8; i++)
+                {
+                    ushort sid = n.GetSegment(i);
+                    if (sid == 0) continue;
+                    var s = net.m_segments.m_buffer[sid];
+                    if (s.Info == null || s.Info.m_class.m_service != info.m_class.m_service) continue;
+                    pending.Enqueue(s.m_startNode == id ? s.m_endNode : s.m_startNode);
+                }
+            }
             origins.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - target).sqrMagnitude
                 .CompareTo((net.m_nodes.m_buffer[b].m_position - target).sqrMagnitude));
             string lastError = "no usable network endpoint";
+            var rejected = new List<object>();
+            result["utility_last_rejections"] = rejected;
             foreach (ushort origin in origins)
                 foreach (var end in ends)
                 {
@@ -434,6 +482,7 @@ namespace Cs1Harness
                     {
                         if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
                         lastError = e.Message;
+                        if (rejected.Count < 8) rejected.Add(lastError);
                     }
                 }
             // A straight wire can collide with the plant or the road grid. Test a
