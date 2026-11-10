@@ -57,38 +57,70 @@ GPU_FIELDS = "timestamp,index,temperature.gpu,power.draw,power.limit,utilization
 
 
 class SteamLog:
-    """Follows Steam's console log for this launch's GameAction lines."""
+    """Follows Steam's logs for this launch's game actions.
+
+    The client logs launch steps to webhelper_js.txt
+    ("OnGameActionUserRequest: <app> LaunchApp <Step>", "launch error ...") and
+    older builds to console-linux.txt ("waiting for user response to <Step>").
+    Steps such as ShowInterstitials or CreatingProcess pass; prompts stop the
+    run, because the harness never answers them.
+    """
+
+    PASSING = {
+        "ShowInterstitials",
+        "ProcessingShaderCache",
+        "CreatingProcess",
+        "SynchronizingCloud",
+        "SiteLicenseSeatCheckout",
+        "WaitingGameWindow",
+        "Completed",
+        "RunningInstallScript",
+        "VerifyingFiles",
+        "None",
+    }
 
     def __init__(self, cfg: Config, path: pathlib.Path):
-        self.path = path
-        self.offset = self.path.stat().st_size if self.path.exists() else 0
+        self.paths = [path, path.with_name("webhelper_js.txt")]
+        self.offsets = {p: (p.stat().st_size if p.exists() else 0) for p in self.paths}
         self.app_id = cfg.app_id
 
     def new_lines(self) -> list[str]:
-        if not self.path.exists():
-            return []
-        with open(self.path, "rb") as f:
-            f.seek(self.offset)
-            data = f.read()
-            self.offset += len(data)
-        return data.decode("utf-8", "replace").splitlines()
+        lines = []
+        for p in self.paths:
+            if not p.exists():
+                continue
+            with open(p, "rb") as f:
+                f.seek(self.offsets[p])
+                data = f.read()
+                self.offsets[p] += len(data)
+            lines += data.decode("utf-8", "replace").splitlines()
+        return lines
+
+    def prompt(self, step: str):
+        if re.search(r"Play|Session|Kick|Another|Elsewhere|InUse", step, re.I):
+            raise Blocked(f"Steam says the account is in use elsewhere ({step}); not answering", EX_TEMPFAIL)
+        if re.search(r"Eula", step, re.I):
+            raise Blocked(
+                "Steam wants the Cities: Skylines EULA accepted on this machine; that is the account owner's call",
+                EX_NOPERM,
+            )
+        raise Blocked(f"Steam launch is waiting on a prompt the harness won't answer: {step}", EX_NOPERM)
 
     def check(self):
         for line in self.new_lines():
-            if f"AppID {self.app_id}" not in line and "PlayingSession" not in line:
+            if self.app_id not in line and "PlayingSession" not in line:
                 continue
-            m = re.search(r"waiting for user response to (\w+)", line)
+            m = re.search(r"waiting for user response to (\w+)", line) or re.search(
+                rf"OnGameActionUserRequest: {self.app_id} LaunchApp (\w+)", line
+            )
+            if m and m.group(1) not in self.PASSING:
+                self.prompt(m.group(1))
+            m = re.search(rf"launch error \d+ {self.app_id} LaunchApp (\w+)", line)
             if m:
-                prompt = m.group(1)
-                if re.search(r"Play|Session|Kick|Another|Elsewhere", prompt, re.I):
-                    raise Blocked(f"Steam says the account is in use elsewhere ({prompt}); not answering", EX_TEMPFAIL)
-                if re.search(r"Eula", prompt, re.I):
-                    raise Blocked(
-                        "Steam wants the Cities: Skylines EULA accepted on this machine; that is the account "
-                        "owner's call",
-                        EX_NOPERM,
-                    )
-                raise Blocked(f"Steam launch is waiting on a prompt the harness won't answer: {prompt}", EX_NOPERM)
+                raise HarnessError(
+                    f"Steam could not launch the game ({m.group(1)}); see the Steam window or "
+                    "content_log.txt (an update may be required)"
+                )
             if "PlayingSession" in line and re.search(r"blocked|another", line, re.I):
                 raise Blocked(f"Steam playing-session conflict: {line.strip()}", EX_TEMPFAIL)
 
@@ -279,6 +311,8 @@ class Session(contextlib.AbstractContextManager):
         wrong = [p for p in placed if p["bus"] != want]
         if wrong:
             raise HarnessError(f"the game is using GPU(s) {sorted({p['bus'] for p in wrong})}, not {want}")
+        if not placed:
+            raise HarnessError(f"the game is not on any NVIDIA GPU (software rendering?); expected {want}")
         return placed
 
     def install_map(self, crp: pathlib.Path) -> pathlib.Path:
@@ -324,11 +358,8 @@ class Session(contextlib.AbstractContextManager):
             self.our_instances |= set(self.steam.instances()) - before
             self.steam_log.check()
             status = self.client.try_status()
-            if (
-                status
-                and status.get("scene") not in (None, "", "IntroScreen", "Startup", "LoadingScreen")
-                and not status.get("loading")
-            ):
+            # CS1's main menu lives in the IntroScreen scene; it is ready once nothing is loading.
+            if status and not status.get("loading") and not status.get("in_game"):
                 self.receipt["menu_status"] = status
                 placed = self.check_placement()
                 self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}; GPU processes {placed}")
