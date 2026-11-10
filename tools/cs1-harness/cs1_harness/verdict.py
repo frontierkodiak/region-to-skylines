@@ -350,8 +350,8 @@ def common(session: dict, errors: list[str]) -> list[dict]:
     return rows
 
 
-def judge(out: pathlib.Path) -> dict:
-    """Write and return `verdict.json` for a finished run directory."""
+def judge(out: pathlib.Path, write: bool = True) -> dict:
+    """Judge a finished run directory; write `verdict.json` unless `write` is False."""
     out = pathlib.Path(out)
     if (out / "report.json").exists():
         doc = json.loads((out / "report.json").read_text())
@@ -375,10 +375,11 @@ def judge(out: pathlib.Path) -> dict:
         "checks": checks,
         "thresholds": thresholds,
         "map_sha256": (session.get("map") or {}).get("sha256"),
-        "harness": doc.get("harness") or harness_commit(),
+        "harness": doc.get("harness") or (doc.get("result") or {}).get("harness"),  # None: run predates recording
         "judged_by": harness_commit(),
     }
-    (out / "verdict.json").write_text(json.dumps(verdict, indent=2, default=str) + "\n")
+    if write:
+        (out / "verdict.json").write_text(json.dumps(verdict, indent=2, default=str) + "\n")
     return verdict
 
 

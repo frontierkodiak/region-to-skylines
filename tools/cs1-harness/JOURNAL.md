@@ -338,6 +338,29 @@ so editing the source later can't flip an archived verdict.
 verdict per run, judged the same way every time, and 9/9 agreement with the
 hand calls on existing runs.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · a run registry, and compare
+
+**What got in the way.** PL-857 ran a dozen Asheville and Innsbruck variants
+today. Finding which run used which map, and lining their water curves up,
+meant reading directory names and journal rows, then writing a one-off script.
+
+**What changed.** Every `run` now adds a line to a host-wide registry
+(`~/.local/share/cs1-harness/runs.jsonl`): the run's directory, check type,
+verdict, map sha256, harness commit, issue and headline metrics.
+`cs1-harness runs` filters it by issue, map, map hash, commit, check type or
+verdict, and `runs --index DIR` registers older runs without writing into
+them. `cs1-harness compare A B …` overlays water volume, wet required probes
+and population over game-minutes in `compare.png`, and `compare.json` lists the
+verdict checks that differ.
+
+**Before → after.** Before: no index; a comparison was a custom script per
+question. After: `runs --index` on copies of blade's nine finished runs
+registered all nine in about a second. One `compare` call put PL-857's
+prefilled and no-prefill Asheville beside PL-856's draining PL-848 map: both
+PL-857 runs settle near 19 M m³ by minute 20, and the PL-848 map loses every
+required probe by minute 25. Runs from before this change have no recorded
+harness commit; the registry says so (null) rather than guessing.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

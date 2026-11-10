@@ -131,6 +131,25 @@ otherwise: inside the central 25 tiles, not on the map edge, and not tagged
 `[stream]`. `cs1-harness verdict DIR…` re-judges finished runs (exit 1 if any
 fails), for example after a threshold changes.
 
+## Finding and comparing runs
+
+Every `run` adds a line to the host's run registry,
+`~/.local/share/cs1-harness/runs.jsonl` (`CS1_HARNESS_REGISTRY` overrides): its
+directory, check type, verdict, map name and sha256, harness commit, the issue
+it's for (`--issue`, else a `PL-NNN` in `--label` or `--out`) and headline
+metrics.
+
+```sh
+uv run cs1-harness runs --issue PL-857 --verdict fail      # filters AND together
+uv run cs1-harness runs --map-sha 4b3d3cd3 --json
+uv run cs1-harness runs --index ~/experiments              # register older runs (judged, not modified)
+uv run cs1-harness compare RUN_A RUN_B --out DIR           # compare.png + compare.json
+```
+
+`compare` takes run directories or registry ids. It plots water volume, the
+share of required probes wet, and population against game-minutes, and lists
+which verdict checks differ between the runs.
+
 ## Hosts
 
 `--host blade|worm` picks a profile; the default is this machine's hostname.
