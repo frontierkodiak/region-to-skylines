@@ -109,7 +109,27 @@ Grids are little-endian `uint16`, 1081 × 1081, in the game's order: index
 
 A probes file is JSON with `points` (`{"name", "x", "z"}` in world metres) and
 optional `views` (`{"name", "x", "z", "size", "yaw", "pitch"}`). Without one the
-run takes a single overview screenshot set and no point samples.
+run takes a single overview screenshot set and no point samples. A point may
+set `"required": true|false` for the verdict, and the file may name a
+`reference_water` grid (relative to the file) that flooding is judged against.
+
+## Verdict
+
+Every `run` ends with `verdict.json`: `pass`, `fail` or `error`, one row per
+check with its value and threshold, the map's sha256 and the harness commit.
+Gate on it rather than on the prose report. The thresholds live in code, in
+`cs1_harness/verdict.py`, with the runs they were calibrated on.
+
+| Check type | Checks that can fail it |
+|:--|:--|
+| `map-soak` (`run`) | `completed`, `probes_wet_end` (≥ 95 % of required probes wet, exactly or within 64 m), `no_flooding` (≤ 0.05 km² deeper than 0.5 m beyond 128 m of expected water), `paths`, `no_terracing`, `screenshots` (none blank), `frame_kinds` (only when Clef flags half the shots), `cleanup` |
+| `asset-check` (`asset check`) | `loaded`, `triangles`, `has_lod`, `placed`, `survives_reload`, `screenshots`, `cleanup` |
+
+`warn` rows (unexplained log errors, a few Clef flags) don't fail a run; `skip`
+rows say what data was missing. A probe is required unless the probe file says
+otherwise: inside the central 25 tiles, not on the map edge, and not tagged
+`[stream]`. `cs1-harness verdict DIR…` re-judges finished runs (exit 1 if any
+fails), for example after a threshold changes.
 
 ## Hosts
 

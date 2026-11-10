@@ -22,6 +22,7 @@ import time
 from . import build as build_mod
 from . import report as report_mod
 from . import setup as setup_mod
+from . import verdict as verdict_mod
 from .client import Client, HarnessError
 from .config import Config
 from .mapcheck import MapCheck, collect, load_probe_file
@@ -211,6 +212,13 @@ def cmd_run(cfg, a):
     points, views = load_probe_file(a.probes)
     if not a.map.exists():
         raise SystemExit(f"no such map: {a.map}")
+    if a.probes:
+        # Freeze what the verdict reads, so editing the source later can't change it.
+        shutil.copyfile(a.probes, out / "probes.json")
+        ref = json.loads(a.probes.read_text())
+        if isinstance(ref, dict) and ref.get("reference_water"):
+            shutil.copyfile(a.probes.parent / ref["reference_water"], out / "reference-water.u16")
+    harness = verdict_mod.harness_commit()
     stage = staging(cfg, out)
     attempt = 0
     while True:
@@ -228,7 +236,9 @@ def cmd_run(cfg, a):
                     a.dump_every,
                     a.load_timeout,
                 )
-                result["probes"] = str(a.probes) if a.probes else None
+                result["probes"] = str(a.probes.resolve()) if a.probes else None
+                result["requested_game_minutes"] = a.game_minutes
+                result["harness"] = harness
                 result["clef"] = a.clef
                 result["gpu_processes"] = s.gpu_processes()
             collect(stage, out)
@@ -236,6 +246,8 @@ def cmd_run(cfg, a):
                 out, {**result, "session": json.loads((out / "session-receipt.json").read_text())}
             )
             print((out / "report.md").read_text())
+            v = verdict_mod.judge(out)
+            log(verdict_mod.summary(v))
             if report["session"]["cleanup"] != {"game": [], "steam_instances": [], "units_active": []}:
                 log(f"cleanup left something running: {report['session']['cleanup']}")
                 return 1
@@ -248,12 +260,31 @@ def cmd_run(cfg, a):
                 log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
                 time.sleep(a.retry_minutes * 60)
                 continue
+            verdict_mod.error_verdict(out, "map-soak", f"blocked: {b}", b.code)
             return b.code
         except HarnessError as e:
             if stage.exists():
                 collect(stage, out)
             log(f"failed: {e}")
+            verdict_mod.error_verdict(out, "map-soak", f"failed: {e}", 1)
             return 1
+
+
+def cmd_verdict(cfg, a):
+    """Judge finished run directories; exit 1 if any fails or can't be judged."""
+    worst = 0
+    for d in a.dirs:
+        try:
+            v = verdict_mod.judge(d)
+        except FileNotFoundError as e:
+            log(str(e))
+            worst = 1
+            continue
+        print(f"{d}: {verdict_mod.summary(v)}")
+        if a.json:
+            print(json.dumps(v, indent=2, default=str))
+        worst = max(worst, 0 if v["verdict"] == "pass" else 1)
+    return worst
 
 
 def main(argv=None):
@@ -326,6 +357,9 @@ def main(argv=None):
         default=0,
         help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
     )
+    j = sub.add_parser("verdict", help="(re)judge finished run directories and write verdict.json")
+    j.add_argument("dirs", nargs="+", type=pathlib.Path)
+    j.add_argument("--json", action="store_true", help="print the full verdict")
     a = p.parse_args(argv)
     cfg = Config.for_host(a.host)
 
@@ -348,6 +382,7 @@ def main(argv=None):
             "bench-observe": cmd_bench_observe,
             "see": cmd_see,
             "run": cmd_run,
+            "verdict": cmd_verdict,
         }[a.cmd](cfg, a)
     except Blocked as b:
         log(f"blocked: {b}")
