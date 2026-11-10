@@ -328,6 +328,12 @@ All nine agree. The flooding number differs a little from PL-857's
 expected water, not the mapped river lines. A probe file can name a
 `reference_water` grid to judge no-prefill runs.
 
+An independent review (GPT-6.1 Sol, high) caught two ways to a wrong pass, both
+fixed: a probe file that names native paths now fails `paths` when the run
+didn't check them (until PR #8 lands, `run` doesn't), instead of skipping; and
+the verdict reads the run's frozen copy of the probe file and reference grid,
+so editing the source later can't flip an archived verdict.
+
 **Before → after.** Before: reading prose, no gate. After: one file with a
 verdict per run, judged the same way every time, and 9/9 agreement with the
 hand calls on existing runs.

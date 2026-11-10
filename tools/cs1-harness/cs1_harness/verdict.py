@@ -125,8 +125,9 @@ def required(point: dict, meta: dict | None, t: dict) -> bool:
 
 
 def probe_meta(out: pathlib.Path, report: dict) -> dict:
-    """The probe file this run used: a copy in the run directory, else the path it recorded."""
-    for p in (pathlib.Path(report.get("probes") or "/nonexistent"), out / "probes.json"):
+    """The probe file this run used: its frozen copy in the run directory, else (older runs) the
+    path it recorded. Editing the source later can't change an archived run's verdict."""
+    for p in (out / "probes.json", pathlib.Path(report.get("probes") or "/nonexistent")):
         if p.is_file():
             data = json.loads(p.read_text())
             data = {"points": data} if isinstance(data, list) else data
@@ -156,7 +157,9 @@ def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict) -> dict:
     grids = out / "grids"
     first = grids / f"{report.get('first_dump', 't000')}-water.u16"
     ref_path, ref_from = None, None
-    if meta.get("reference_water"):
+    if (out / "reference-water.u16").exists():
+        ref_path, ref_from = out / "reference-water.u16", "probe file reference_water (frozen copy)"
+    elif meta.get("reference_water"):
         ref_path = pathlib.Path(meta["_path"]).parent / meta["reference_water"]
         ref_from = "probe file reference_water"
     elif first.exists():
@@ -229,7 +232,18 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
     paths = [("start", p) for p in report.get("paths_start") or []] + [
         ("end", p) for p in report.get("paths_end") or []
     ]
-    if not paths:
+    asked_paths = [p.get("name") for p in meta.get("paths") or [] if isinstance(p, dict)]
+    if not paths and asked_paths:
+        checks.append(
+            row(
+                "paths",
+                "fail",
+                {"asked": asked_paths, "checked": 0},
+                "every native path found, no expected segment missing",
+                "the probe file names paths but this harness didn't check them (needs native path probes, PR #8)",
+            )
+        )
+    elif not paths:
         checks.append(row("paths", "skip", detail="the probe file names no paths"))
     else:
         broken = [

@@ -213,7 +213,11 @@ def cmd_run(cfg, a):
     if not a.map.exists():
         raise SystemExit(f"no such map: {a.map}")
     if a.probes:
+        # Freeze what the verdict reads, so editing the source later can't change it.
         shutil.copyfile(a.probes, out / "probes.json")
+        ref = json.loads(a.probes.read_text())
+        if isinstance(ref, dict) and ref.get("reference_water"):
+            shutil.copyfile(a.probes.parent / ref["reference_water"], out / "reference-water.u16")
     harness = verdict_mod.harness_commit()
     stage = staging(cfg, out)
     attempt = 0
