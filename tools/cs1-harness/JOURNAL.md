@@ -293,6 +293,44 @@ all three were real:
 **Before → after.** Before: three ways a run could damage something outside
 itself. After: none of these three; checked offline (display filter against
 the live harness game, SIGTERM under `timeout uv run`), not yet in a full run.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · verdicts
+
+**What got in the way.** A run ended in a prose report. To decide whether a
+map passed, an agent read `report.md`, picked its own notion of "wet enough"
+and "flooded", and wrote it into a comment. Two agents could read the same run
+differently, and nothing could gate on it.
+
+**What changed.** `cs1_harness/verdict.py` declares the pass/fail thresholds
+per check type, and every `run` writes `verdict.json`: pass, fail or error,
+with each check's value and threshold, the map hash and the harness commit. A
+run that stops early writes an `error` verdict with its reason.
+`cs1-harness verdict DIR…` re-judges old runs. The map soak judges required
+probes wet at the end, flooding beyond the expected water, native paths,
+terracing, blank screenshots, Clef frame kinds and cleanup. The asset check
+judges load, triangle count, LOD, placement, reload and screenshots.
+
+**Calibration.** I judged copies of every finished run on blade and compared
+with what the agents who ran them concluded by hand:
+
+| Run | By hand | Verdict | Failing checks (value) |
+|:--|:--|:--|:--|
+| PL-856 PL-848 Asheville, 60 min | rivers drain | fail | probes 0/28 required wet |
+| PL-857 original fixture, 10 min | flooding | fail | flooding 0.566 km² |
+| PL-857 conservative, 10 min | less flooding, rail failed | fail | paths (rail, road_out); flooding 0.040 km² passes |
+| PL-857 gap-joining, 60 min | rail failed, abandoned | fail | paths (rail); flooding 0.095 km² |
+| PL-857 selected Asheville, 60 min | pass | pass | (flooding 0.0018 km²) |
+| PL-857 R0 Innsbruck, 60 min | pass, 0.023 km² stream pooling | pass | (flooding 0.030 km²) |
+| PL-857 no-prefill Asheville, 60 min | pass | pass | flooding skipped: no reference water |
+| PL-880 asset checks 3 and 4 | pass | pass | |
+
+All nine agree. The flooding number differs a little from PL-857's
+`audit_soak.py`, because the harness has only the run's first water dump as
+expected water, not the mapped river lines. A probe file can name a
+`reference_water` grid to judge no-prefill runs.
+
+**Before → after.** Before: reading prose, no gate. After: one file with a
+verdict per run, judged the same way every time, and 9/9 agreement with the
+hand calls on existing runs.
 
 ## Run log
 
