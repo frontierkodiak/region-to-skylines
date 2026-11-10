@@ -60,6 +60,34 @@ Blender scene, four previews and a receipt. The two FBXs are the import inputs;
 the scene also contains preview lights/ground and is not itself an import file.
 Normal maps are neutral +X/+Y tangent-space maps in every arm.
 
+### Continue through the native bridge
+
+The original Blender experiment is pinned at
+`82336461fec711a70e3fbba40987e1805af668d4`. Preserve those previews and judge
+receipts. `bridge_inputs.py` opens its saved scenes and changes only the FBX
+export convention (baked axis transform, FBX All scale), copies the exact map
+bytes, and adds the bridge's named `.bake.json` with measured dimensions,
+lot cells and import scale 100. It does not run image generation or rebuild
+geometry. Re-import the resulting FBXs with `verify.py` before game use.
+
+```sh
+blender --background --factory-startup --python-exit-code 1 \
+  --python tools/assets/bakeoff/bridge_inputs.py -- \
+  ~/experiments/PL-881-assets ~/experiments/PL-881-assets/game-inputs
+blender --background --factory-startup --python-exit-code 1 \
+  --python tools/assets/bakeoff/verify.py -- \
+  ~/experiments/PL-881-assets/game-inputs
+```
+
+Each game build/check must run serially under the harness slot. The bungalow
+uses `--template auto`; storefront and apartment need explicit CommercialLow
+and ResidentialHigh templates, respectively, discovered with `call templates`
+in the Asset Editor. Do not silently give all nine residential-low behavior.
+`game_report.py <game-build-and-check-root> <game-inputs> <destination>` audits
+the CRP hashes, native dimensions/triangles/lot, save/reload and cleanup
+receipts before assembling the native-renderer comparison. Keep that review
+distinct from the Blender fallback.
+
 ## Reproduce image-to-3D on blade
 
 These are real existing, isolated experiment environments, not persistent

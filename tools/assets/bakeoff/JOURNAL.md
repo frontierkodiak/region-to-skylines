@@ -35,6 +35,16 @@ Next gate: import the review pack with the PL-880 bridge, capture close,
 gameplay, LOD and night in CS1 itself, and reassess the recommendation. No
 claim here establishes that the game accepts or renders these assets correctly.
 
+## 2026-11-10 — bridge continuation
+
+Verified the exact original source above before continuing. PL-880's final
+bridge is `6b5b3429e568495013fae149679cc308d4e15e77` (PR #10), used in an
+isolated blade worktree. Its measured importer needs scale 100 for FBX All.
+Re-exported the nine saved A/B1/C scenes with baked axis conversion and named
+size/lot receipts, without changing generated designs or any map bytes.
+All 18 new main/LOD FBX re-import checks passed. The original 48 Blender
+previews, their hashes and Clef bindings remain historical evidence unchanged.
+
 The final contact sheet also rejected direct-decimation LODs for B: they met
 triangle counts but tore into fragments. Switched to closed convex-envelope
 retopology and source baking, with a real re-imported manifold/volume check.

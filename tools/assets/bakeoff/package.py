@@ -39,6 +39,7 @@ def main():
                     if (
                         path.suffix not in (".fbx", ".png")
                         and path.name != "receipt.json"
+                        and not path.name.endswith(".bake.json")
                     ):
                         continue
                     if path.name in (
@@ -56,9 +57,9 @@ def main():
                             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                         }
                     )
-                assert len(files) == 13, (
+                assert len(files) == 14, (
                     name,
-                    "expected two FBXs, ten maps and a receipt",
+                    "expected two FBXs, ten maps and two receipts",
                     len(files),
                 )
                 manifest["assets"].append(
@@ -99,7 +100,7 @@ Code: https://github.com/frontierkodiak/region-to-skylines (PL-881-assets branch
                     == item["sha256"]
                 )
     print(
-        "PASS: 9 import candidates, 117 hashed input files;",
+        "PASS: 9 import candidates, 126 hashed input files;",
         args.archive.stat().st_size,
         "archive bytes",
     )

@@ -427,6 +427,8 @@ def export(obj, out):
         object_types={"MESH"},
         global_scale=1.0,
         apply_unit_scale=True,
+        apply_scale_options="FBX_SCALE_ALL",
+        bake_space_transform=True,
         axis_forward="-Z",
         axis_up="Y",
         bake_anim=False,
@@ -615,6 +617,16 @@ def build(name, method):
         "lod_strategy": "B: closed convex-envelope retopology and source baking; A/C: authored low-poly shell",
         "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
     }
+    (out / (main.name + ".bake.json")).write_text(
+        json.dumps(
+            {
+                "lot_cells": TARGETS[name]["lot"],
+                "size_m": record["main"]["dimensions_m"],
+                "import_scale": 100,
+            },
+            indent=2,
+        )
+    )
     render_views(main, lod, out, TARGETS[name])
     record["render_seconds"] = time.monotonic() - before - generated
     bpy.context.preferences.filepaths.save_version = 0
