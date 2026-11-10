@@ -258,7 +258,7 @@ def _session_tool(cfg, a, label: str, body) -> int:
         attempt += 1
         result, rc = None, 0
         try:
-            with Session(cfg, stage, log=log) as s:
+            with slot(cfg, stage, a.wait_minutes) as s:
                 result = body(AssetDriver(s, out, log=log))
                 result["gpu_processes"] = s.gpu_processes()
         except Blocked as b:
@@ -421,6 +421,12 @@ def main(argv=None):
         x.add_argument("--load-timeout", type=float, default=900, help="seconds to wait for a level to load")
         x.add_argument("--retry-minutes", type=float, default=0, help="if the account is in use, wait and retry")
         x.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
+        x.add_argument(
+            "--wait-minutes",
+            type=float,
+            default=0,
+            help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
+        )
     a = p.parse_args(argv)
     cfg = Config.for_host(a.host)
     try:

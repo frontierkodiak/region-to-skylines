@@ -415,7 +415,10 @@ class Session(contextlib.AbstractContextManager):
         before = set(self.steam.instances())
         self.steam_log = SteamLog(c, self.steam.log_path)
         log_file = self.stage / "game.log"
-        args = ["-silent", "-applaunch", c.app_id, *game_args, "-logFile", str(log_file)]
+        # The display's size, explicitly: Unity otherwise reuses the last session's resolution
+        # from its prefs, so one session's screen size leaked into the next.
+        size = ["-screen-width", str(c.width), "-screen-height", str(c.height), "-screen-fullscreen", "1"]
+        args = ["-silent", "-applaunch", c.app_id, *size, *game_args, "-logFile", str(log_file)]
         self.receipt["launch_args"] = args
         props = ["-p", "KillMode=control-group"]
         unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}
