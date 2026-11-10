@@ -266,7 +266,7 @@ def cmd_run(cfg, a):
                 log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
                 time.sleep(a.retry_minutes * 60)
                 continue
-            verdict_mod.error_verdict(out, "map-soak", f"blocked: {b}", b.code)
+            verdict_mod.error_verdict(out, "map-soak", f"blocked: {b}", b.code, issue=a.issue, label=a.label)
             registry.add(out)
             announce(out, a)
             return b.code
@@ -274,7 +274,7 @@ def cmd_run(cfg, a):
             if stage.exists():
                 collect(stage, out)
             log(f"failed: {e}")
-            verdict_mod.error_verdict(out, "map-soak", f"failed: {e}", 1)
+            verdict_mod.error_verdict(out, "map-soak", f"failed: {e}", 1, issue=a.issue, label=a.label)
             registry.add(out)
             announce(out, a)
             return 1
@@ -314,6 +314,10 @@ def cmd_submit(cfg, a):
     args = list(a.run_args)
     if args and args[0] == "--":
         args = args[1:]
+    # The job runs in the harness checkout; make every path absolute against the submitter's cwd.
+    for i, arg in enumerate(args[:-1]):
+        if arg in ("--map", "--probes", "--out", "--from-save"):
+            args[i + 1] = str(pathlib.Path(args[i + 1]).expanduser().resolve())
     if not args or args[0] != "run":
         raise SystemExit("usage: cs1-harness submit --issue PL-NNN -- run --map … --out … [run options]")
     if "--out" not in args:
@@ -336,6 +340,10 @@ def cmd_submit(cfg, a):
         f"--working-directory={tool}",
         f"--setenv=PATH={os.environ.get('PATH', '')}",
         f"--setenv=HOME={pathlib.Path.home()}",
+        # `systemctl stop` must let the run tear the game down (quit waits up to 60 s, Steam 90 s):
+        # SIGTERM to uv, which forwards it to the harness, then up to 5 min before anything is killed.
+        "--property=KillMode=mixed",
+        "--property=TimeoutStopSec=300",
         f"--property=StandardOutput=append:{out / 'submit.log'}",
         f"--property=StandardError=append:{out / 'submit.log'}",
         "uv",

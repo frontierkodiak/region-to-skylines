@@ -383,7 +383,9 @@ def judge(out: pathlib.Path, write: bool = True) -> dict:
     return verdict
 
 
-def error_verdict(out: pathlib.Path, check_type: str, reason: str, exit_code: int) -> dict:
+def error_verdict(
+    out: pathlib.Path, check_type: str, reason: str, exit_code: int, issue: str | None = None, label: str | None = None
+) -> dict:
     """A run that ended before it could be judged."""
     verdict = {
         "schema": SCHEMA,
@@ -392,6 +394,8 @@ def error_verdict(out: pathlib.Path, check_type: str, reason: str, exit_code: in
         "failed": [],
         "reason": reason,
         "exit_code": exit_code,
+        "issue": issue,
+        "label": label,
         "checks": [],
         "harness": harness_commit(),
     }
