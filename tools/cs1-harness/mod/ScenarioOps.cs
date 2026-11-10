@@ -329,6 +329,33 @@ namespace Cs1Harness
                 throw new Exception("the road grid produced no zone cells for one of R/C/I");
         }
 
+        static ushort Supply(NetInfo info, ushort building, List<ushort> nodes, float standOff)
+        {
+            var net = Singleton<NetManager>.instance;
+            var target = Singleton<BuildingManager>.instance.m_buildings.m_buffer[building].m_position;
+            var origins = new List<ushort>(nodes);
+            origins.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - target).sqrMagnitude
+                .CompareTo((net.m_nodes.m_buffer[b].m_position - target).sqrMagnitude));
+            string lastError = "no usable network endpoint";
+            foreach (ushort origin in origins)
+                for (int i = 0; i < (standOff == 0 ? 1 : 8); i++)
+                {
+                    var end = target + new Vector3(Mathf.Cos(i * Mathf.PI / 4), 0, Mathf.Sin(i * Mathf.PI / 4)) * standOff;
+                    try
+                    {
+                        ushort node = Link(info, Vector3.zero, end, origin);
+                        nodes.Add(node);
+                        return node;
+                    }
+                    catch (PlacementRejected e)
+                    {
+                        if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                        lastError = e.Message;
+                    }
+                }
+            throw new Exception("cannot connect " + info.name + " to building " + building + ": " + lastError);
+        }
+
         static Dictionary<string, object> Start(Dictionary<string, object> q)
         {
             var sm = Singleton<SimulationManager>.instance;
@@ -428,17 +455,24 @@ namespace Cs1Harness
             var hub = Ground(center.x, center.z);
             ushort pipeHub = Link(pipe, Ground(center.x - Half, center.z), hub);
             Link(pipe, hub, Ground(center.x + Half, center.z), pipeHub);
-            Link(pipe, hub, Ground(center.x, center.z - Half), pipeHub);
-            Link(pipe, hub, Ground(center.x, center.z + Half), pipeHub);
-            Link(pipe, hub, bm.m_buildings.m_buffer[pump].m_position, pipeHub);
-            Link(pipe, hub, bm.m_buildings.m_buffer[drain].m_position, pipeHub);
+            var pipeEnds = new List<ushort>();
+            foreach (float dz in new float[] { -96, 96 })
+            {
+                var p = Ground(center.x, center.z + dz);
+                ushort spine = Link(pipe, hub, p, pipeHub);
+                pipeEnds.Add(Link(pipe, p, Ground(center.x - Half - 32, p.z), spine));
+                pipeEnds.Add(Link(pipe, p, Ground(center.x + Half + 32, p.z), spine));
+            }
+            Supply(pipe, pump, pipeEnds, 0);
+            Supply(pipe, drain, pipeEnds, 0);
             // Keep pylons outside the road/zone footprint; the two trunks supply
             // both facilities and early growables before they form a power grid.
             Vector3 powerHub = Ground(center.x - Half - 48, center.z + Half + 48);
             ushort powerNode = Link(power, plantPos + new Vector3(-48, 0, 0), powerHub);
-            Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), powerNode);
-            Link(power, powerHub, bm.m_buildings.m_buffer[pump].m_position + new Vector3(40, 0, 0), powerNode);
-            Link(power, powerHub, bm.m_buildings.m_buffer[drain].m_position + new Vector3(40, 0, 0), powerNode);
+            ushort powerEnd = Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), powerNode);
+            var powerEnds = new List<ushort> { powerNode, powerEnd };
+            Supply(power, pump, powerEnds, 40);
+            Supply(power, drain, powerEnds, 40);
             Zone();
             result["money_after"] = Singleton<EconomyManager>.instance.InternalCashAmount;
             result["road_segments"] = roads.ToArray();
