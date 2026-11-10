@@ -39,14 +39,19 @@ SLOT_POLL_SECONDS = 2
 
 
 @contextlib.contextmanager
-def slot(cfg, stage, wait_minutes: float):
+def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     """A Session, waiting up to `wait_minutes` while another user holds the host's harness slot.
 
     It polls every few seconds rather than queueing, so it takes the slot in the
     gap between another agent's commands. It never ends or takes over the
-    other session.
+    other session. Waits, acquisitions and releases go to the contention log,
+    and `cs1-harness queue` shows this process while it waits or holds.
     """
-    deadline = time.monotonic() + wait_minutes * 60
+    from . import slots
+
+    meta = meta or {}
+    t0 = time.monotonic()
+    deadline = t0 + wait_minutes * 60
     last = None
     while True:
         with contextlib.ExitStack() as stack:
@@ -54,15 +59,24 @@ def slot(cfg, stage, wait_minutes: float):
                 s = stack.enter_context(Session(cfg, stage, log=log))
             except Blocked as b:
                 if not b.busy or time.monotonic() >= deadline:
+                    if last:
+                        slots.mark_gave_up(cfg, meta, time.monotonic() - t0, str(b))
                     raise
                 if str(b) != last:
                     log(f"waiting for the harness slot: {b}")
+                    if last is None:
+                        slots.mark_waiting(cfg, meta, str(b))
                     last = str(b)
                 time.sleep(SLOT_POLL_SECONDS)
                 continue
             if last:
                 log("harness slot acquired")
-            yield s
+            slots.mark_acquired(cfg, meta, time.monotonic() - t0)
+            held = time.monotonic()
+            try:
+                yield s
+            finally:
+                slots.mark_released(cfg, meta, time.monotonic() - held, detached=s.detached)
             return
 
 
@@ -93,7 +107,7 @@ def cmd_doctor(cfg, a):
 def cmd_up(cfg, a):
     """Start a session and leave it running: display, bus, Steam, game at the main menu."""
     stage = cfg.harness_home / "runs" / (a.name or time.strftime("session-%Y%m%d-%H%M%S"))
-    with slot(cfg, stage, a.wait_minutes) as s:
+    with slot(cfg, stage, a.wait_minutes, {"command": "up", "label": a.label or a.name}) as s:
         observers(s, a)
         if a.map:
             s.install_map(a.map.resolve())
@@ -163,7 +177,7 @@ def cmd_bench_observe(cfg, a):
     out = a.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     stage = staging(cfg, out)
-    with slot(cfg, stage, a.wait_minutes) as s:
+    with slot(cfg, stage, a.wait_minutes, {"command": "bench-observe", "out": str(out)}) as s:
         s.record, s.live, s.label = False, False, "observer bench"
         installed = s.install_map(a.map.resolve())
         s.launch(["--noWorkshop"])
@@ -199,8 +213,13 @@ def cmd_down(cfg, a):
     if not cfg.state_file.exists():
         log("no harness session is up")
         return 0
+    from . import slots
+
     s = Session.attach(cfg, log=log)
+    started = json.loads(cfg.state_file.read_text()).get("started")
     s.stop()
+    slots.holder_file(cfg).unlink(missing_ok=True)
+    slots.log_event("release", held_s=round(time.time() - started, 1) if started else None, command="down")
     if a.out:
         a.out.mkdir(parents=True, exist_ok=True)
         collect(s.stage, a.out.resolve())
@@ -226,7 +245,14 @@ def cmd_run(cfg, a):
     while True:
         attempt += 1
         try:
-            with slot(cfg, stage, a.wait_minutes) as s:
+            meta = {
+                "command": "run",
+                "label": a.label or f"map check: {a.map.name}",
+                "issue": a.issue,
+                "out": str(out),
+                "game_minutes": a.game_minutes,
+            }
+            with slot(cfg, stage, a.wait_minutes, meta) as s:
                 observers(s, a, default_label=f"map check: {a.map.name}")
                 r = MapCheck(s, out, points, views, log=log)
                 result = r.execute(
@@ -365,6 +391,34 @@ def cmd_submit(cfg, a):
             indent=2,
         )
     )
+    return 0
+
+
+def cmd_queue(cfg, a):
+    """Who holds the slot, the issue and ETA, and who is waiting; --stats sums contention."""
+    from . import slots
+
+    if a.stats:
+        print(json.dumps(slots.stats(a.hours), indent=2))
+        return 0
+    st = slots.status(cfg)
+    if a.json:
+        print(json.dumps(st, indent=2, default=str))
+        return 0
+    h = st["holder"]
+    if not h:
+        print("slot free")
+    else:
+        eta = f", about {h['remaining_minutes']} min left" if h.get("remaining_minutes") is not None else ""
+        print(
+            f"held by {h.get('command')} pid {h.get('pid')} · {h.get('issue') or '-'} · {h.get('label') or '-'} · "
+            f"{h.get('held_minutes')} min so far{eta}"
+        )
+    for i, w in enumerate(st["waiting"], 1):
+        print(
+            f"  {i}. {w.get('command')} pid {w['pid']} · {w.get('issue') or '-'} · {w.get('label') or '-'} · "
+            f"waiting {w.get('waiting_minutes')} min"
+        )
     return 0
 
 
@@ -523,6 +577,10 @@ def main(argv=None):
     k = sub.add_parser("compare", help="overlay two or more map runs over time (compare.png, compare.json)")
     k.add_argument("runs", nargs="+", help="run directories or registry ids")
     k.add_argument("--out", type=pathlib.Path, required=True)
+    qq = sub.add_parser("queue", help="who holds the harness slot (issue, ETA) and who is waiting")
+    qq.add_argument("--json", action="store_true")
+    qq.add_argument("--stats", action="store_true", help="contention summary from the slot log")
+    qq.add_argument("--hours", type=float, default=24, help="with --stats, the window (default 24 h)")
     n = sub.add_parser("notify", help="comment a finished run's verdict on an issue")
     n.add_argument("dir", type=pathlib.Path)
     n.add_argument("--issue", required=True)
@@ -561,6 +619,7 @@ def main(argv=None):
             "verdict": cmd_verdict,
             "runs": cmd_runs,
             "notify": cmd_notify,
+            "queue": cmd_queue,
             "submit": cmd_submit,
             "compare": cmd_compare,
         }[a.cmd](cfg, a)
