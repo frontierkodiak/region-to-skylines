@@ -1,8 +1,8 @@
-"""cs1-harness: run Cities: Skylines 1 headless on a GPU, control it, and check maps.
+"""cs1-harness: run Cities: Skylines 1 headless on a GPU, control it, and check maps and assets.
 
 Two layers. `up` / `call` / `down` hold a game session that any tool can drive
-through the mod's ops (`call ops` lists them). `run` is one tool built on it: a
-timed map check with a report.
+through the mod's ops (`call ops` lists them). `run` (a timed map check) and
+`asset build` / `asset check` (Asset Editor mode) are tools built on it.
 """
 
 from __future__ import annotations
@@ -22,6 +22,7 @@ from . import report as report_mod
 from . import setup as setup_mod
 from .client import Client, HarnessError
 from .config import Config
+from .assets import Driver as AssetDriver
 from .mapcheck import MapCheck, collect, load_probe_file
 from .session import EX_TEMPFAIL, Blocked, Session
 
@@ -247,6 +248,80 @@ def cmd_run(cfg, a):
             return 1
 
 
+def _session_tool(cfg, a, label: str, body) -> int:
+    """Run body(driver) in a fresh session, collect its files into --out, write a receipt."""
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    stage = cfg.harness_home / "runs" / out.name
+    attempt = 0
+    while True:
+        attempt += 1
+        result, rc = None, 0
+        try:
+            with Session(cfg, stage, log=log) as s:
+                result = body(AssetDriver(s, out, log=log))
+                result["gpu_processes"] = s.gpu_processes()
+        except Blocked as b:
+            log(f"blocked: {b}")
+            if stage.exists():
+                collect(stage, out)
+            if b.code == EX_TEMPFAIL and a.retry_minutes and (a.max_attempts == 0 or attempt < a.max_attempts):
+                log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
+                time.sleep(a.retry_minutes * 60)
+                continue
+            return b.code
+        except HarnessError as e:
+            log(f"failed: {e}")
+            result, rc = {"error": str(e)}, 1
+        if stage.exists():
+            collect(stage, out)
+        receipt = {"tool": label, "result": result}
+        session = out / "session-receipt.json"
+        if session.exists():
+            receipt["session"] = json.loads(session.read_text())
+            if receipt["session"].get("cleanup") != {"game": [], "steam_instances": [], "units_active": []}:
+                log(f"cleanup left something running: {receipt['session'].get('cleanup')}")
+                rc = rc or 1
+        (out / f"{label}.json").write_text(json.dumps(receipt, indent=2, default=str) + "\n")
+        print(json.dumps({"out": str(out), "ok": rc == 0, **({"error": result["error"]} if rc else {})}))
+        return rc
+
+
+def cmd_asset(cfg, a):
+    if a.action == "build":
+        bake = (
+            json.loads((a.src / f"{a.name}.bake.json").read_text()) if (a.src / f"{a.name}.bake.json").exists() else {}
+        )
+        cells = (
+            tuple(int(v) for v in a.cells.lower().split("x")) if a.cells else tuple(bake.get("lot_cells", ())) or None
+        )
+        expect = None
+        if bake.get("size_m") and not a.no_size_check:
+            sx, sy, sz = bake["size_m"]  # Blender x across, y deep, z up -> game x, y up, z deep
+            expect = [sx, sz, sy]
+        return _session_tool(
+            cfg,
+            a,
+            "asset-build",
+            lambda d: d.build(
+                a.src.resolve(),
+                a.name,
+                a.template,
+                cells,
+                a.scale,
+                expect,
+                a.asset_name or a.name,
+                a.save_name or a.name,
+                a.theme,
+                a.load_timeout,
+            ),
+        )
+    at = tuple(float(v) for v in a.at.split(",")) if a.at else None
+    return _session_tool(
+        cfg, a, "asset-check", lambda d: d.check(a.crp.resolve(), a.map.resolve(), at, a.angle, a.load_timeout)
+    )
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="cs1-harness", description=__doc__)
     p.add_argument("--host", help="host profile (blade, worm); default: this machine's hostname")
@@ -317,6 +392,33 @@ def main(argv=None):
         default=0,
         help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
     )
+    ab = sub.add_parser("asset", help="Asset Editor mode: build a .crp from an import set, or check one in game")
+    asub = ab.add_subparsers(dest="action", required=True)
+    b = asub.add_parser("build", help="import <name>.fbx (+ _lod and maps) onto a template and save a .crp")
+    b.add_argument("--src", type=pathlib.Path, required=True, help="directory with <name>.fbx, <name>_lod.fbx, maps")
+    b.add_argument("--name", required=True, help="mesh base name (the FBX's file name without extension)")
+    b.add_argument(
+        "--template",
+        required=True,
+        help="building template prefab name (`call templates` lists them), or auto: low-density residential level 1 on the lot",
+    )
+    b.add_argument("--cells", help="lot in 8 m cells, WxL (default: the bake receipt's)")
+    b.add_argument("--scale", type=float, default=1.0, help="import scale (default 1: the FBX is in metres)")
+    b.add_argument("--no-size-check", action="store_true", help="skip comparing the imported size with the bake's")
+    b.add_argument("--asset-name", help="asset name in game menus (default: --name)")
+    b.add_argument("--save-name", help=".crp file name without extension (default: --name)")
+    b.add_argument("--theme", default="Sunny", help="Asset Editor environment")
+    b.add_argument("--out", type=pathlib.Path, required=True)
+    k = asub.add_parser("check", help="fresh game: New Game on a map, place the asset, views, save and reload")
+    k.add_argument("--crp", type=pathlib.Path, required=True, help="the asset .crp")
+    k.add_argument("--map", type=pathlib.Path, required=True, help="map .crp for the New Game")
+    k.add_argument("--at", help="x,z world metres to place it (default: a dry, flat spot near the centre)")
+    k.add_argument("--angle", type=float, default=0, help="building angle, degrees")
+    k.add_argument("--out", type=pathlib.Path, required=True)
+    for x in (b, k):
+        x.add_argument("--load-timeout", type=float, default=900, help="seconds to wait for a level to load")
+        x.add_argument("--retry-minutes", type=float, default=0, help="if the account is in use, wait and retry")
+        x.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
     a = p.parse_args(argv)
     cfg = Config.for_host(a.host)
     try:
@@ -331,6 +433,7 @@ def main(argv=None):
             "bench-observe": cmd_bench_observe,
             "see": cmd_see,
             "run": cmd_run,
+            "asset": cmd_asset,
         }[a.cmd](cfg, a)
     except Blocked as b:
         log(f"blocked: {b}")

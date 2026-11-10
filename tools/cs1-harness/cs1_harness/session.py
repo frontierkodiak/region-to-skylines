@@ -347,6 +347,26 @@ class Session(contextlib.AbstractContextManager):
             raise HarnessError(f"the game is not on any NVIDIA GPU (software rendering?); expected {want}")
         return placed
 
+    def install_file(self, src: pathlib.Path, target_dir: pathlib.Path) -> pathlib.Path:
+        """Copy a file into the game's data (Addons/Import, Addons/Assets, ...); `stop` removes it again.
+
+        A file already there is left alone if identical and refused if not: it isn't the harness's.
+        """
+        target = target_dir / src.name
+        target_dir.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            if sha256(target) != sha256(src):
+                raise HarnessError(f"{target} exists with different contents; it isn't the harness's to replace")
+            return target
+        shutil.copy2(src, target)
+        self.track(target)
+        return target
+
+    def track(self, path: pathlib.Path):
+        """Something the game wrote for this session (a save, an asset); `stop` removes it."""
+        if path not in self.installed:
+            self.installed.append(path)
+
     def install_map(self, crp: pathlib.Path) -> pathlib.Path:
         target = self.cfg.maps_dir / crp.name
         self.cfg.maps_dir.mkdir(parents=True, exist_ok=True)

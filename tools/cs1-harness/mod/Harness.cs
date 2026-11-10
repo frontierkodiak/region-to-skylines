@@ -8,7 +8,7 @@
 //
 // Protocol: one JSON object per line in, one JSON object per line out, on
 // 127.0.0.1 (port 8779, or CS1_HARNESS_PORT). Requests run on Unity's main
-// thread between frames. Nothing here saves a city or a map.
+// thread between frames. Nothing saves a city, map or asset unless an op asks.
 
 using System;
 using System.Collections.Generic;
@@ -51,6 +51,7 @@ namespace Cs1Harness
         MainMenu,
         Level,
         City,
+        AssetEditor,
     }
 
     public sealed class Host : MonoBehaviour
@@ -91,6 +92,8 @@ namespace Cs1Harness
             Application.logMessageReceived += OnLog;
             CoreOps.Register();
             CityOps.Register();
+            EditorOps.Register();
+            CheckOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
             acceptThread = new Thread(Accept) { IsBackground = true, Name = "Cs1Harness" };
@@ -191,14 +194,15 @@ namespace Cs1Harness
             // Smoothed render frame time, for checking that observers don't slow the game.
             float ms = Time.unscaledDeltaTime * 1000f;
             FrameMs = FrameMs <= 0 ? ms : FrameMs * 0.95f + ms * 0.05f;
-            if (!autosaveStopped && InGame() && Singleton<LoadingManager>.instance.m_loadingComplete)
+            if (!autosaveStopped && LevelLoaded())
             {
-                // A harness city is never saved. Stop this process's autosave timer
-                // without touching the player's persistent autosave preference.
+                // Nothing autosaves in a harness session, city or asset editor: stop this
+                // process's autosave timer without touching the player's persistent
+                // autosave preference. Saves happen only when an op asks for one.
                 Singleton<LoadingManager>.instance.autoSaveTimer.Stop();
                 autosaveStopped = true;
             }
-            if (!InGame())
+            if (!LevelLoaded())
                 autosaveStopped = false;
             for (int i = 0; i < 8; i++)
             {
@@ -220,6 +224,7 @@ namespace Cs1Harness
                 }
                 w.Done.Set();
             }
+            Jobs.Tick();
             if (quitRequested)
             {
                 quitRequested = false;
@@ -232,7 +237,7 @@ namespace Cs1Harness
             return SceneManager.GetActiveScene().name;
         }
 
-        static ItemClass.Availability Mode()
+        public static ItemClass.Availability Mode()
         {
             var tm = Singleton<ToolManager>.exists ? Singleton<ToolManager>.instance : null;
             return tm == null || tm.m_properties == null ? ItemClass.Availability.None : tm.m_properties.m_mode;
@@ -249,6 +254,11 @@ namespace Cs1Harness
         public static bool InGame()
         {
             return LevelLoaded() && (Mode() & ItemClass.Availability.Game) != ItemClass.Availability.None;
+        }
+
+        public static bool InAssetEditor()
+        {
+            return LevelLoaded() && (Mode() & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;
         }
 
         public static void RequestQuit()
@@ -304,6 +314,9 @@ namespace Cs1Harness
                     break;
                 case Needs.City:
                     ok = InGame();
+                    break;
+                case Needs.AssetEditor:
+                    ok = InAssetEditor();
                     break;
                 default:
                     ok = true;

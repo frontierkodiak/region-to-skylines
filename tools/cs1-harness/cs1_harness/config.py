@@ -111,7 +111,9 @@ class Config:
 
     @property
     def build_dir(self) -> pathlib.Path:
-        return self.cache_dir / "build"
+        # Per checkout: agents build from their own worktrees, and a shared build directory
+        # let one agent's `build` change the DLL another agent's next `up` installed.
+        return pathlib.Path(__file__).resolve().parents[1] / ".build"
 
     @property
     def mod_dir(self) -> pathlib.Path:

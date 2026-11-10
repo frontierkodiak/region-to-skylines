@@ -40,6 +40,8 @@ namespace Cs1Harness
                 "protocol", Host.Protocol,
                 "scene", Host.Scene(),
                 "in_game", Host.InGame(),
+                "in_asset_editor", Host.InAssetEditor(),
+                "mode", Host.Mode().ToString(),
                 "loading", lm.m_currentlyLoading,
                 "loading_complete", lm.m_loadingComplete,
                 "unity", Application.unityVersion,
