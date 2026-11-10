@@ -75,6 +75,36 @@ Review changed bytes and the native-game result before accepting a new contract.
 The original PL-848 bundle remains compatible with `verify.py` and the bounded
 Asheville preparer in `prepare.py`.
 
+## Native hydraulic soak
+
+Stage the five exact golden packages and all 14,615 committed waterway probes
+without starting Steam:
+
+```sh
+uv run python soak.py ~/experiments/PL-857-soak
+```
+
+Add `--harness /path/to/checkout/tools/cs1-harness` to run each map for 60
+game-minutes, serially in the foreground. `--only asheville` selects a subset;
+`--game-minutes 10` permits an explicitly short diagnostic run. Use a fresh
+output directory for each experiment. An occupied harness or Steam prompt stops
+the command without taking over or answering it. Follow the issue's Steam
+reservation windows before starting any native check.
+
+Each map is checked against the committed CRP checksum before launch. The
+harness retains the timeline, native grids, screenshots, GPU measurements and
+cleanup receipt. `hydraulic-summary.json` groups every probe by waterway, with
+final wetness and any dry samples. This includes small streams, not just the
+major rivers. Newly wet area is a flooding diagnostic, not a flooding verdict;
+review the grids and screenshots as well.
+
+A successful driver exit means the requested checks completed, not that the
+map passed acceptance. Harness runs use `--noWorkshop` and a disabled control
+mod, not strict `--disableMods`. Ordinary vanilla menu/city starts and native
+car paths still require separate checks. PL-856's first 60-minute result used
+the older PL-848 map (two sources), not the arbitrary-region Asheville fixture
+(207 sources); do not treat that result as a soak of the new writer.
+
 ## Fixed topology, fitted coordinates
 
 `templates/native-corridors.crp` is the editor-authored PL-848 template, not a
