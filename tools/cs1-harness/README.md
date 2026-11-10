@@ -52,10 +52,17 @@ disabled for this process so it cannot pause an unattended soak.
 
 The run keeps `scenario.json` (including a partial receipt on a placement
 failure), adds a close-up camera view, and observes population between the
-normal water samples. `population_growth` and `outside_connection` are verdict
-checks only when a scenario was requested. The latter uses the game's
-passenger-car pathfinder in both directions between the grid and actual
-outside road segments, and releases every completed path.
+normal water samples. A requested scenario adds three verdict checks:
+
+- `population_growth`: at least 50 new residents within 5 game-minutes, with
+  that net growth retained at the end.
+- `outside_connection`: native passenger-car paths in both directions between
+  the grid and the actual map-edge endpoint, with every completed path released.
+- `utilities`: power, water and sewage active, both native pipe connection
+  nodes attached, and no connection or supply problems.
+
+Without `--scenario`, these checks are skipped; an empty-map soak is not
+evidence that a city can grow. Calibration runs are in `JOURNAL.md`.
 
 For another driver, the same ops are `scenario_build` in a paused New Game,
 `scenario_status` until `done`/`failed`, and `scenario_paths {"start":true}`

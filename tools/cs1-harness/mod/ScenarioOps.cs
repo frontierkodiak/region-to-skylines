@@ -64,7 +64,8 @@ namespace Cs1Harness
             {
                 var n = net.m_nodes.m_buffer[i];
                 if ((n.m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted | NetNode.Flags.Outside)) != NetNode.Flags.Created
-                    || n.Info == null || !(n.Info.m_netAI is RoadBaseAI) || !Inside(n.m_position, 48))
+                    || n.Info == null || !(n.Info.m_netAI is RoadBaseAI)
+                    || Singleton<GameAreaManager>.instance.PointOutOfArea(n.m_position))
                     continue;
                 nodes.Add((ushort)i);
                 if (n.CountSegments() == 1)
@@ -79,6 +80,35 @@ namespace Cs1Harness
             if (chosen.Count > 2)
                 chosen.RemoveRange(2, chosen.Count - 2);
             return chosen;
+        }
+
+        static List<object> HookupInfo()
+        {
+            int x, z;
+            var area = Singleton<GameAreaManager>.instance;
+            area.GetStartTile(out x, out z);
+            var tile = new Vector3((x - 2) * 1920, 0, (z - 2) * 1920);
+            var net = Singleton<NetManager>.instance;
+            var ids = new List<ushort>();
+            for (int i = 1; i < net.m_nodes.m_buffer.Length; i++)
+            {
+                var n = net.m_nodes.m_buffer[i];
+                if ((n.m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted)) == NetNode.Flags.Created
+                    && n.Info != null && n.Info.m_netAI is RoadBaseAI) ids.Add((ushort)i);
+            }
+            ids.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - tile).sqrMagnitude
+                .CompareTo((net.m_nodes.m_buffer[b].m_position - tile).sqrMagnitude));
+            var rows = new List<object>();
+            foreach (ushort id in ids.GetRange(0, Math.Min(12, ids.Count)))
+            {
+                var n = net.m_nodes.m_buffer[id];
+                rows.Add(Host.Obj("node", id, "position", XYZ(n.m_position), "prefab", n.Info.name,
+                    "segments", n.CountSegments(), "flags", n.m_flags.ToString(),
+                    "out_of_area", area.PointOutOfArea(n.m_position), "elevation", n.m_elevation,
+                    "base_height", n.Info.m_buildHeight,
+                    "ground", Singleton<TerrainManager>.instance.SampleRawHeightSmooth(n.m_position)));
+            }
+            return rows;
         }
 
         static Vector3 Site(List<ushort> hooks)
@@ -605,6 +635,10 @@ namespace Cs1Harness
         {
             var net = Singleton<NetManager>.instance;
             var bm = Singleton<BuildingManager>.instance;
+            int tx, tz;
+            Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
+            result["start_tile"] = new object[] { tx, tz };
+            result["hookup_candidates"] = HookupInfo();
             var hooks = Hookups();
             center = Site(hooks);
             result["center"] = XYZ(center);
@@ -680,8 +714,8 @@ namespace Cs1Harness
             Supply(power, pump, powerEnds);
             ushort drain = Shore(WaterPrefab(false), center, bm.m_buildings.m_buffer[pump].m_position, powerEnds);
             Supply(power, drain, powerEnds);
-            // One connected pipe tree covers the whole grid. Native pipes couple to
-            // facilities by proximity, as when drawn with the pipe tool.
+            // One connected pipe tree covers the grid and attaches directly to
+            // each facility's native pipe connection node.
             var hub = Ground(center.x, center.z);
             ushort pipeHub = Link(pipe, Ground(center.x - Half, center.z), hub);
             Link(pipe, hub, Ground(center.x + Half, center.z), pipeHub);
@@ -746,15 +780,7 @@ namespace Cs1Harness
                 int x, z;
                 Singleton<GameAreaManager>.instance.GetStartTile(out x, out z);
                 doc["start_tile"] = new object[] { x, z };
-                var hooks = new List<object>();
-                foreach (ushort h in Hookups())
-                {
-                    var n = Singleton<NetManager>.instance.m_nodes.m_buffer[h];
-                    hooks.Add(Host.Obj("node", h, "position", XYZ(n.m_position), "prefab", n.Info.name, "segments", n.CountSegments(),
-                        "elevation", n.m_elevation, "base_height", n.Info.m_buildHeight,
-                        "ground", Singleton<TerrainManager>.instance.SampleRawHeightSmooth(n.m_position)));
-                }
-                doc["hookups"] = hooks;
+                doc["hookups"] = HookupInfo();
                 var water = new List<object>();
                 for (uint i = 0; i < PrefabCollection<BuildingInfo>.LoadedCount(); i++)
                 {
