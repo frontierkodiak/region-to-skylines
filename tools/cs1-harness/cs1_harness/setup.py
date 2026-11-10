@@ -120,6 +120,16 @@ def setup(cfg: Config) -> dict:
     zenity.write_text("#!/bin/sh\nexit 0\n")
     zenity.chmod(0o755)
     done["launch_options"] = set_launch_options(cfg, f"{launch} %command%")
+    # A stable command for people and agents: ~/.local/bin/cs1-harness runs this checkout.
+    shim = pathlib.Path.home() / ".local/bin/cs1-harness"
+    shim.parent.mkdir(parents=True, exist_ok=True)
+    tool_dir = pathlib.Path(__file__).resolve().parents[1]
+    uv = shutil.which("uv") or str(pathlib.Path.home() / ".local/bin/uv")
+    shim.write_text(
+        f'#!/bin/sh\n# Installed by `cs1-harness setup` from {tool_dir}\nexec {uv} run --quiet --project {tool_dir} cs1-harness "$@"\n'
+    )
+    shim.chmod(0o755)
+    done["command"] = str(shim)
     done["launch_wrapper"] = str(launch)
     return done
 

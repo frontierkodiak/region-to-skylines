@@ -13,6 +13,7 @@ import datetime
 import json
 import pathlib
 import shutil
+import subprocess
 import sys
 import time
 
@@ -81,6 +82,7 @@ def cmd_up(cfg, a):
     """Start a session and leave it running: display, bus, Steam, game at the main menu."""
     stage = cfg.harness_home / "runs" / (a.name or time.strftime("session-%Y%m%d-%H%M%S"))
     with slot(cfg, stage, a.wait_minutes) as s:
+        observers(s, a)
         if a.map:
             s.install_map(a.map.resolve())
         if a.display_only:
@@ -102,6 +104,70 @@ def cmd_up(cfg, a):
             indent=2,
         )
     )
+
+
+def observers(s, a, default_label=None):
+    s.label = a.label or default_label
+    s.record = not a.no_record
+    s.live = not a.no_live
+
+
+def cmd_watch(cfg, a):
+    """View-only VNC of the running session's display, on localhost only."""
+    from . import observe
+
+    if a.stop:
+        subprocess.run(["systemctl", "--user", "stop", cfg.vnc_unit], check=False)
+        print("watch stopped")
+        return 0
+    # Any harness session (up or run) owns the display; watching needs only that.
+    if not (pathlib.Path("/tmp/.X11-unix") / f"X{cfg.display.lstrip(':')}").exists():
+        log(f"no harness display {cfg.display} is up; start a session with `cs1-harness up` or `run`")
+        return 1
+    s = Session(cfg, cfg.harness_home / "runs" / "watch", log=log)
+    subprocess.run(["systemctl", "--user", "stop", cfg.vnc_unit], check=False, capture_output=True)
+    subprocess.run(["systemctl", "--user", "reset-failed", cfg.vnc_unit], check=False, capture_output=True)
+    info = observe.watch_start(s)
+    print(
+        f"view-only VNC of {cfg.display} on {cfg.host}, localhost:{info['port']} (password {info['password']})\n"
+        f"from carbon: ssh -N -L {info['port']}:localhost:{info['port']} {cfg.host} & open vnc://localhost:{info['port']}"
+        + (f"\nlive page: {cfg.live_url}" if cfg.live_url else ""),
+        flush=True,
+    )
+    if a.hold:
+        try:
+            time.sleep(a.hold * 60)
+        except KeyboardInterrupt:
+            pass
+        subprocess.run(["systemctl", "--user", "stop", cfg.vnc_unit], check=False)
+        print("watch stopped")
+    return 0
+
+
+def cmd_bench_observe(cfg, a):
+    """A/B/A: does the timelapse, live page and a VNC viewer slow the game?"""
+    from . import bench
+
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    stage = cfg.harness_home / "runs" / out.name
+    with slot(cfg, stage, a.wait_minutes) as s:
+        s.record, s.live, s.label = False, False, "observer bench"
+        installed = s.install_map(a.map.resolve())
+        s.launch(["--noWorkshop"])
+        entry = next(
+            m
+            for m in s.client.call("maps")["maps"]
+            if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+        )
+        s.client.call("new_game", path=entry["path"])
+        s.client.wait(lambda st: st.get("in_game") and not st.get("loading"), 900, "the city to load", alive=s.alive)
+        s.client.call("run", paused=False, speed=3)
+        time.sleep(20)
+        result = bench.run(s, a.seconds)
+    collect(stage, out)
+    (out / "bench.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result, indent=2))
 
 
 def cmd_see(cfg, a):
@@ -142,6 +208,7 @@ def cmd_run(cfg, a):
         attempt += 1
         try:
             with slot(cfg, stage, a.wait_minutes) as s:
+                observers(s, a, default_label=f"map check: {a.map.name}")
                 r = MapCheck(s, out, points, views, log=log)
                 result = r.execute(
                     a.map.resolve(),
@@ -192,6 +259,9 @@ def main(argv=None):
     u.add_argument("--map", type=pathlib.Path, help="install this .crp into Maps/ for the session")
     u.add_argument("--name", help="staging directory name")
     u.add_argument("--display-only", action="store_true", help="display and bus only; no Steam or game")
+    u.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
+    u.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
+    u.add_argument("--no-live", action="store_true", help="skip the live frame page")
     u.add_argument("--game-arg", action="append", default=[], help="extra game argument (repeatable)")
     u.add_argument(
         "--wait-minutes",
@@ -199,6 +269,14 @@ def main(argv=None):
         default=0,
         help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
     )
+    b = sub.add_parser("bench-observe", help="measure what watching costs the game (A/B/A)")
+    b.add_argument("--map", type=pathlib.Path, required=True)
+    b.add_argument("--out", type=pathlib.Path, required=True)
+    b.add_argument("--seconds", type=float, default=60)
+    b.add_argument("--wait-minutes", type=float, default=0)
+    w = sub.add_parser("watch", help="view-only VNC of the running session (localhost; reach it over ssh)")
+    w.add_argument("--hold", type=float, default=0, help="keep it this many minutes, then stop (0: until down)")
+    w.add_argument("--stop", action="store_true", help="stop the VNC server")
     c = sub.add_parser("call", help="send one op to the running game (`call ops` lists them)")
     c.add_argument("op")
     c.add_argument("json", nargs="?", help="op arguments as a JSON object")
@@ -229,6 +307,9 @@ def main(argv=None):
         action="store_true",
         help="also score every screenshot with blade's Clef-Flash (advisory: frame kind, garbling)",
     )
+    r.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
+    r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
+    r.add_argument("--no-live", action="store_true", help="skip the live frame page")
     r.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
     r.add_argument(
         "--wait-minutes",
@@ -246,6 +327,8 @@ def main(argv=None):
             "up": cmd_up,
             "call": cmd_call,
             "down": cmd_down,
+            "watch": cmd_watch,
+            "bench-observe": cmd_bench_observe,
             "see": cmd_see,
             "run": cmd_run,
         }[a.cmd](cfg, a)

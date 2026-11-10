@@ -222,6 +222,51 @@ exception, and with it the session's lock file, alive during the sleep. So a
 blocked waiter held everyone else out. `__enter__` now releases the lock when
 it raises.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-856 · watching a run
+
+**Why.** Caleb: "it would be neat to be able to peer in and see what the agent
+is seeing as it is doing the playtest." The lead had already grabbed the
+display by hand and found PL-857's game behind a Paradox "Account Link Found"
+prompt. Being able to look settles questions like that.
+
+**Changed.**
+- *Timelapse.* One ffmpeg per session grabs the harness display at 1 fps. It
+  writes `timelapse.mp4` (H.264, 1280 px, played back at 30 fps) into the run's
+  output, and every 5 s an atomically replaced JPEG for the live page. The
+  first try played at 2× the intended rate; `fps=1` plus passthrough timing
+  fixed it.
+- *Live page.* `https://blade.tailc29f0.ts.net/research/cs1-live/` (tailnet
+  only) shows the frame and a status line: label, map, game-minute, water
+  probes, population, fps. It uses blade's existing `/research/` Tailscale
+  Serve directory, so there's no new route or port. The shelf links to it, and
+  it says "No harness run" when a session ends.
+- *Live view.* `cs1-harness watch`: x11vnc 0.9.16 unpacked from Ubuntu's
+  packages into `~/.local/opt`, view-only, bound to 127.0.0.1 and ::1, with a
+  per-host password. Reach it with an SSH tunnel. It works for `run` sessions
+  as well as `up` ones.
+- `~/.local/bin/cs1-harness` is a stable command (installed by `setup`). The
+  mod reports smoothed render frame time.
+
+**Does watching slow the game?** `bench-observe`, PL-848 Asheville at speed 3
+on blade's 2080 Ti, three 60 s windows: off, on, off. "On" means timelapse,
+live page, and x11vnc with a viewer pulling raw updates.
+
+| Window | Sim frames/s | Render frame (ms) | Game CPU | Observer CPU |
+|:--|--:|--:|--:|--:|
+| off | 157.5 | 153.8 | 192 % | 0 |
+| on (viewer 13.7 MB/s) | 155.7 | 157.2 | 187 % | 3.7 % |
+| off | 155.4 | 157.7 | 186 % | 0 |
+
+"On" is within the drift between the two "off" windows: sim rate 1.1 % below
+the first and 0.2 % above the second. On its own, the grabber used 2.6 % of one
+core. Render frames are long (about 6 fps) because at speed 3 the simulation,
+not drawing, sets the pace. The bench viewer stalled once for 10 s in the "on"
+window (a socket timeout), so its 13.7 MB/s average understates a viewer that
+never pauses.
+
+**Noticed.** This session came up at 1280×720, where earlier ones were
+1920×1080. Something changed the game's resolution setting between runs.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
@@ -230,3 +275,4 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 | Date | Agent · issue | Host · GPU | Peak VRAM (game) | Peak W / °C | Wall | Result |
 |:--|:--|:--|:--|:--|:--|:--|
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
+| 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
