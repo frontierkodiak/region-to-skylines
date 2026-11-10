@@ -490,6 +490,12 @@ namespace Cs1Harness
             bool electricity = info.m_class.m_service == ItemClass.Service.Electricity;
             var waterAI = facility.Info.m_buildingAI as WaterFacilityAI;
             if (electricity && waterAI != null && waterAI.m_electricityConsumption == 0) return;
+            ushort destination = electricity ? (ushort)0 : facility.m_netNode;
+            if (!electricity)
+            {
+                if (destination == 0) throw new Exception("water facility has no native pipe connection node: " + building);
+                target = net.m_nodes.m_buffer[destination].m_position;
+            }
             var ends = new List<Vector3> { target };
             if (electricity)
             {
@@ -522,7 +528,7 @@ namespace Cs1Harness
                 {
                     try
                     {
-                        ushort node = Link(info, Vector3.zero, end, origin);
+                        ushort node = Link(info, Vector3.zero, end, origin, destination);
                         nodes.Add(node);
                         return;
                     }
@@ -554,7 +560,7 @@ namespace Cs1Harness
                         try
                         {
                             Link(info, start, bend, origin, testOnly: true);
-                            Link(info, bend, end, testOnly: true);
+                            Link(info, bend, end, to: destination, testOnly: true);
                         }
                         catch (PlacementRejected e)
                         {
@@ -563,7 +569,7 @@ namespace Cs1Harness
                             continue;
                         }
                         ushort middle = Link(info, start, bend, origin);
-                        ushort node = Link(info, bend, end, middle);
+                        ushort node = Link(info, bend, end, middle, destination);
                         nodes.Add(node);
                         return;
                     }
@@ -703,7 +709,11 @@ namespace Cs1Harness
             foreach (ushort id in buildings)
             {
                 var b = Singleton<BuildingManager>.instance.m_buildings.m_buffer[id];
+                var water = b.Info.m_buildingAI as WaterFacilityAI;
+                string role = water == null ? "power" : water.m_waterIntake > 0 ? "water" : "sewage";
                 live.Add(Host.Obj("id", id, "name", b.Info == null ? null : b.Info.name, "position", XYZ(b.m_position),
+                    "role", role, "net_node", b.m_netNode,
+                    "connected_segments", b.m_netNode == 0 ? 0 : Singleton<NetManager>.instance.m_nodes.m_buffer[b.m_netNode].CountSegments(),
                     "flags", b.m_flags.ToString(), "problems", b.m_problems.ToString(),
                     "electricity", b.m_electricityBuffer, "water", b.m_waterBuffer, "sewage", b.m_sewageBuffer,
                     "width", b.Width, "length", b.Length, "electricity_rate", b.Info.m_buildingAI.GetElectricityRate(id, ref b)));
