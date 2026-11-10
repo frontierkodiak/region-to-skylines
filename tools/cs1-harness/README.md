@@ -1,17 +1,36 @@
 # cs1-harness
 
-Runs Cities: Skylines 1 on blade's GPU with no screen. It starts a New Game on a
-`.crp` map, lets the simulation run, then reports water, population, log errors
-and GPU load, with screenshots. No game window appears on anyone's desktop.
+Runs Cities: Skylines 1 on blade's GPU with no screen, so agents can drive it.
+It has two layers. A **session** (`up` / `call` / `down`) holds the game
+running headless and takes ops over a loopback socket from any tool. The **map
+check** (`run`) is one tool on that session: it starts a New Game on a `.crp`
+map, lets the simulation run, and reports water, population, log errors and
+GPU load, with screenshots.
+
+This is a shared tool: agents who use it improve it. See [AGENTS.md](AGENTS.md)
+for the limits and the layer layout, and [JOURNAL.md](JOURNAL.md) for what
+changed and why.
 
 ```sh
 cd tools/cs1-harness
 uv run cs1-harness build                 # compile the mod against the installed game
 uv run cs1-harness setup                 # once per host: VirtualGL, Steam launch wrapper
 uv run cs1-harness doctor                # GPU check on the harness display; no Steam
+
+uv run cs1-harness up --map Asheville.crp   # game at the main menu, left running
+uv run cs1-harness call ops                 # what this mod build can do
+uv run cs1-harness call new_game '{"path": "/…/Maps/Asheville.crp"}'
+uv run cs1-harness call screenshot '{"path": "/…/shot.png"}'
+uv run cs1-harness down --out DIR           # quit, stop everything, keep the log
+
 uv run cs1-harness run --map Asheville.crp --game-minutes 60 \
     --probes examples/pl848-asheville-probes.json --out ~/experiments/PL-856-cs1-harness/asheville-60
 ```
+
+The game writes files (screenshots, grids, log) only inside the Steam sandbox,
+so paths given to ops must be under
+`~/.var/app/com.valvesoftware.Steam/` or `/peach/Games/SteamLibrary`. `run`
+stages there and moves results to `--out`.
 
 ## How it runs
 
@@ -75,4 +94,4 @@ harness session on the current display the wrapper runs the game unchanged, so
 playing on `:0` is unaffected. `setup --undo` removes the launch options,
 wrapper, VirtualGL and mod. Session pieces (`cs1-harness-xvfb`,
 `cs1-harness-dbus`, `cs1-harness-steam`) are transient `systemd --user` units
-that exist only during a run.
+that exist only while a session is up; `cs1-harness-gpu` samples the GPU every 5 s into the session's `gpu.csv`.

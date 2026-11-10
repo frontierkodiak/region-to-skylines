@@ -18,7 +18,13 @@ class Client:
 
     def call(self, op: str, **args) -> dict:
         request = json.dumps({"op": op, **args}) + "\n"
-        with socket.create_connection(("127.0.0.1", self.port), timeout=self.timeout) as s:
+        try:
+            conn = socket.create_connection(("127.0.0.1", self.port), timeout=self.timeout)
+        except ConnectionRefusedError:
+            raise HarnessError(
+                f"no game is listening on 127.0.0.1:{self.port}; start one with `cs1-harness up`"
+            ) from None
+        with conn as s:
             s.sendall(request.encode())
             buf = b""
             while not buf.endswith(b"\n"):

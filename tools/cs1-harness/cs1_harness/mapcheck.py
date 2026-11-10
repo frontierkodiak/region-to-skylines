@@ -30,7 +30,7 @@ def load_probe_file(path: pathlib.Path | None) -> tuple[list[dict], list[dict]]:
     return points, data.get("views") or DEFAULT_VIEWS
 
 
-class Run:
+class MapCheck:
     def __init__(self, session: Session, out: pathlib.Path, points, views, log=print):
         self.s = session
         self.c = session.client

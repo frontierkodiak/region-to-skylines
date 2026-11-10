@@ -43,6 +43,7 @@ class Config:
     steam_unit: str = "cs1-harness-steam"
     xvfb_unit: str = "cs1-harness-xvfb"
     dbus_unit: str = "cs1-harness-dbus"
+    gpu_unit: str = "cs1-harness-gpu"
     app_id: str = "255710"
     cache_dir: pathlib.Path = _path("CS1_HARNESS_CACHE", HOME / ".cache" / "cs1-harness")
 
@@ -69,6 +70,10 @@ class Config:
     @property
     def bus_address(self) -> str:
         return f"unix:path={self.runtime_dir / 'bus'}"
+
+    @property
+    def state_file(self) -> pathlib.Path:
+        return self.runtime_dir / "session.json"
 
     @property
     def lock_file(self) -> pathlib.Path:

@@ -17,7 +17,6 @@ import pathlib
 import re
 import shutil
 import subprocess
-import threading
 import time
 
 from .client import Client, HarnessError
@@ -66,35 +65,7 @@ def game_pids() -> list[int]:
     return [int(p) for p in out.split()]
 
 
-class GpuMonitor(threading.Thread):
-    """Samples temperature and power of the harness GPU every few seconds."""
-
-    FIELDS = "timestamp,index,temperature.gpu,power.draw,power.limit,utilization.gpu,memory.used,clocks.sm,fan.speed"
-
-    def __init__(self, index: int, path: pathlib.Path, every: float = 5.0):
-        super().__init__(daemon=True)
-        self.index, self.path, self.every = index, path, every
-        self.stop_event = threading.Event()
-
-    def run(self):
-        with open(self.path, "w") as f:
-            f.write(self.FIELDS + "\n")
-            while not self.stop_event.is_set():
-                r = sh(
-                    "nvidia-smi",
-                    f"-i={self.index}",
-                    f"--query-gpu={self.FIELDS}",
-                    "--format=csv,noheader,nounits",
-                    check=False,
-                )
-                if r.returncode == 0:
-                    f.write(r.stdout.strip() + "\n")
-                    f.flush()
-                self.stop_event.wait(self.every)
-
-    def stop(self):
-        self.stop_event.set()
-        self.join(timeout=15)
+GPU_FIELDS = "timestamp,index,temperature.gpu,power.draw,power.limit,utilization.gpu,memory.used,clocks.sm,fan.speed"
 
 
 class SteamLog:
@@ -140,11 +111,11 @@ class Session(contextlib.AbstractContextManager):
         self.stage = stage
         self.log = log
         self.client = Client(cfg.port)
-        self.gpu: GpuMonitor | None = None
         self.steam_log: SteamLog | None = None
         self.our_instances: set[str] = set()
         self.installed: list[pathlib.Path] = []
         self.lock_fd = None
+        self.detached = False
         self.receipt: dict = {"stage": str(stage)}
 
     # -- lifecycle -------------------------------------------------------
@@ -156,6 +127,8 @@ class Session(contextlib.AbstractContextManager):
             fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise Blocked("another cs1-harness run holds the lock", EX_TEMPFAIL) from None
+        if self.cfg.state_file.exists():
+            raise Blocked(f"a harness session is up ({self.cfg.state_file}); `cs1-harness down` ends it", EX_TEMPFAIL)
         self.preflight()
         self.stage.mkdir(parents=True, exist_ok=True)
         try:
@@ -168,11 +141,41 @@ class Session(contextlib.AbstractContextManager):
 
     def __exit__(self, *exc):
         try:
-            self.stop()
+            if self.detached and exc[0] is None:
+                self.save_state()
+            else:
+                self.stop()
         finally:
             if self.lock_fd:
                 self.lock_fd.close()
         return False
+
+    # -- persistent sessions (cs1-harness up / call / down) ----------------
+
+    def detach(self):
+        """Leave the session running when the context exits; `down` ends it."""
+        self.detached = True
+
+    def save_state(self):
+        state = {
+            "stage": str(self.stage),
+            "our_instances": sorted(self.our_instances),
+            "installed": [str(p) for p in self.installed],
+            "receipt": self.receipt,
+            "port": self.cfg.port,
+            "display": self.cfg.display,
+            "started": time.time(),
+        }
+        self.cfg.state_file.write_text(json.dumps(state, indent=2, default=str) + "\n")
+
+    @classmethod
+    def attach(cls, cfg: Config, log=print) -> "Session":
+        state = json.loads(cfg.state_file.read_text())
+        s = cls(cfg, pathlib.Path(state["stage"]), log=log)
+        s.our_instances = set(state["our_instances"])
+        s.installed = [pathlib.Path(p) for p in state["installed"]]
+        s.receipt = state["receipt"]
+        return s
 
     def preflight(self):
         if self.cfg.display == ":0":
@@ -186,7 +189,7 @@ class Session(contextlib.AbstractContextManager):
             )
         if (pathlib.Path("/tmp/.X11-unix") / f"X{self.cfg.display.lstrip(':')}").exists():
             raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL)
-        for unit in (self.cfg.steam_unit, self.cfg.dbus_unit, self.cfg.xvfb_unit):
+        for unit in (self.cfg.steam_unit, self.cfg.gpu_unit, self.cfg.dbus_unit, self.cfg.xvfb_unit):
             sh("systemctl", "--user", "reset-failed", unit, check=False)
 
     def unit(self, name: str, *cmd, env: dict | None = None, props=()):
@@ -286,8 +289,17 @@ class Session(contextlib.AbstractContextManager):
         props = ["-p", "KillMode=control-group"]
         unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}
         self.unit(c.steam_unit, "/usr/bin/flatpak", "run", *opts, FLATPAK_ID, *args, env=unit_env, props=props)
-        self.gpu = GpuMonitor(c.nvidia_index, self.stage / "gpu.csv")
-        self.gpu.start()
+        self.unit(
+            c.gpu_unit,
+            "/usr/bin/nvidia-smi",
+            f"-i={c.nvidia_index}",
+            f"--query-gpu={GPU_FIELDS}",
+            "--format=csv,nounits",
+            "-l",
+            "5",
+            "-f",
+            str(self.stage / "gpu.csv"),
+        )
         self.log("Steam starting; waiting for the game")
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
@@ -349,22 +361,21 @@ class Session(contextlib.AbstractContextManager):
         for inst in self.our_instances & {r["instance"] for r in steam_instances()}:
             self.log(f"Steam instance {inst} still up; killing it")
             sh("flatpak", "kill", inst, check=False)
-        for unit in (c.steam_unit, c.dbus_unit, c.xvfb_unit):
+        for unit in (c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
             sh("systemctl", "--user", "stop", unit, check=False)
-        if self.gpu:
-            self.gpu.stop()
         for path in reversed(self.installed):
             if path.is_dir():
                 shutil.rmtree(path, ignore_errors=True)
             else:
                 path.unlink(missing_ok=True)
         (c.harness_home / "session.env").unlink(missing_ok=True)
+        c.state_file.unlink(missing_ok=True)
         leftovers = {
             "game": game_pids(),
             "steam_instances": [r["instance"] for r in steam_instances()],
             "units_active": [
                 u
-                for u in (c.steam_unit, c.dbus_unit, c.xvfb_unit)
+                for u in (c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)
                 if sh("systemctl", "--user", "is-active", "--quiet", u, check=False).returncode == 0
             ],
         }

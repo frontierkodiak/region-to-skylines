@@ -80,7 +80,11 @@ def log_errors(log: pathlib.Path, limit: int = 25) -> dict:
 def gpu_summary(path: pathlib.Path) -> dict:
     if not path.exists():
         return {}
-    rows = list(csv.DictReader(open(path)))
+    # nvidia-smi headers look like "power.draw [W]"; keep the field name only.
+    with open(path) as f:
+        reader = csv.reader(f, skipinitialspace=True)
+        header = [h.split(" [")[0].strip() for h in next(reader, [])]
+        rows = [dict(zip(header, row)) for row in reader if len(row) == len(header)]
     out = {"samples": len(rows)}
     for field, name in (
         ("temperature.gpu", "temp_c"),

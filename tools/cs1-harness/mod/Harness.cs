@@ -45,6 +45,14 @@ namespace Cs1Harness
         }
     }
 
+    public enum Needs
+    {
+        Any,
+        MainMenu,
+        Level,
+        City,
+    }
+
     public sealed class Host : MonoBehaviour
     {
         public const int Protocol = 1;
@@ -81,6 +89,8 @@ namespace Cs1Harness
             if (!string.IsNullOrEmpty(env))
                 port = int.Parse(env);
             Application.logMessageReceived += OnLog;
+            CoreOps.Register();
+            CityOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
             acceptThread = new Thread(Accept) { IsBackground = true, Name = "Cs1Harness" };
@@ -96,6 +106,15 @@ namespace Cs1Harness
                 listener.Stop();
             }
             catch { }
+        }
+
+        public static string[] ErrorSnapshot(out int count)
+        {
+            lock (Errors)
+            {
+                count = errorCount;
+                return Errors.ToArray();
+            }
         }
 
         static void OnLog(string message, string stack, LogType type)
@@ -203,356 +222,91 @@ namespace Cs1Harness
             }
         }
 
-        static string Scene()
+        public static string Scene()
         {
             return SceneManager.GetActiveScene().name;
         }
 
-        static bool InGame()
+        static ItemClass.Availability Mode()
         {
             var tm = Singleton<ToolManager>.exists ? Singleton<ToolManager>.instance : null;
-            return tm != null
-                && tm.m_properties != null
-                && (tm.m_properties.m_mode & ItemClass.Availability.Game) != ItemClass.Availability.None
-                && Singleton<LoadingManager>.instance.m_loadingComplete;
+            return tm == null || tm.m_properties == null ? ItemClass.Availability.None : tm.m_properties.m_mode;
+        }
+
+        // A city (or any editor level) has finished loading.
+        public static bool LevelLoaded()
+        {
+            return Singleton<LoadingManager>.instance.m_loadingComplete
+                && !Singleton<LoadingManager>.instance.m_currentlyLoading
+                && Mode() != ItemClass.Availability.None;
+        }
+
+        public static bool InGame()
+        {
+            return LevelLoaded() && (Mode() & ItemClass.Availability.Game) != ItemClass.Availability.None;
+        }
+
+        public static void RequestQuit()
+        {
+            instance.quitRequested = true;
+        }
+
+        // -- op registry ------------------------------------------------------
+        // Each module (CoreOps, CityOps, and later e.g. an asset-editor module)
+        // registers its ops from Awake. "ops" lists them, so a CLI or MCP server
+        // can discover what this build of the mod can do.
+
+        public delegate Dictionary<string, object> OpFn(Dictionary<string, object> q);
+
+        sealed class OpInfo
+        {
+            public Needs Needs;
+            public string Help;
+            public OpFn Fn;
+        }
+
+        static readonly Dictionary<string, OpInfo> Registry = new Dictionary<string, OpInfo>();
+
+        public static void Register(string name, Needs needs, string help, OpFn fn)
+        {
+            Registry[name] = new OpInfo { Needs = needs, Help = help, Fn = fn };
+        }
+
+        static Dictionary<string, object> ListOps()
+        {
+            var ops = new List<object>();
+            foreach (var kv in Registry)
+                ops.Add(Obj("op", kv.Key, "needs", kv.Value.Needs.ToString(), "help", kv.Value.Help));
+            return Obj("protocol", Protocol, "ops", ops);
         }
 
         Dictionary<string, object> Execute(Dictionary<string, object> q)
         {
             string op = Json.Str(q, "op", "");
-            switch (op)
+            if (op == "ops")
+                return ListOps();
+            OpInfo info;
+            if (!Registry.TryGetValue(op, out info))
+                throw new Exception("unknown op '" + op + "'; 'ops' lists them");
+            bool ok;
+            switch (info.Needs)
             {
-                case "status":
-                    return Status();
-                case "maps":
-                    return Maps();
-                case "new_game":
-                    return NewGame(q);
-                case "quit":
-                    quitRequested = true;
-                    return Obj("quitting", true);
+                case Needs.MainMenu:
+                    ok = !Singleton<LoadingManager>.instance.m_currentlyLoading && !LevelLoaded();
+                    break;
+                case Needs.Level:
+                    ok = LevelLoaded();
+                    break;
+                case Needs.City:
+                    ok = InGame();
+                    break;
+                default:
+                    ok = true;
+                    break;
             }
-            if (!InGame())
-                throw new Exception("op '" + op + "' needs a loaded city; scene is " + Scene());
-            switch (op)
-            {
-                case "run":
-                    return Run(q);
-                case "stats":
-                    return Stats();
-                case "water":
-                    return Water(q);
-                case "dump":
-                    return Dump(q);
-                case "camera":
-                    return CameraOp(q);
-                case "ui":
-                    UIView.Show(Json.Bool(q, "visible", true));
-                    return Obj("ui_visible", Json.Bool(q, "visible", true));
-                case "screenshot":
-                    return Screenshot(q);
-            }
-            throw new Exception("unknown op '" + op + "'");
-        }
-
-        static Dictionary<string, object> Status()
-        {
-            var lm = Singleton<LoadingManager>.instance;
-            var plugins = new List<object>();
-            foreach (var p in Singleton<PluginManager>.instance.GetPluginsInfo())
-                plugins.Add(Obj("name", p.name, "enabled", p.isEnabled, "builtin", p.isBuiltin, "path", p.modPath));
-            string[] errors;
-            int count;
-            lock (Errors)
-            {
-                errors = Errors.ToArray();
-                count = errorCount;
-            }
-            var result = Obj(
-                "protocol", Protocol,
-                "scene", Scene(),
-                "in_game", InGame(),
-                "loading", lm.m_currentlyLoading,
-                "loading_complete", lm.m_loadingComplete,
-                "unity", Application.unityVersion,
-                "gpu", SystemInfo.graphicsDeviceName,
-                "gpu_memory_mb", SystemInfo.graphicsMemorySize,
-                "screen", new object[] { Screen.width, Screen.height },
-                "fixed_delta_time", Time.fixedDeltaTime,
-                "enabled_mod_count", Singleton<PluginManager>.instance.enabledModCount,
-                "plugins", plugins,
-                "error_count", count,
-                "errors", errors
-            );
-            if (InGame())
-                foreach (var kv in Stats())
-                    result[kv.Key] = kv.Value;
-            return result;
-        }
-
-        static Dictionary<string, object> Maps()
-        {
-            var maps = new List<object>();
-            foreach (var a in PackageManager.FilterAssets(UserAssetType.MapMetaData))
-            {
-                if (a == null || !a.isEnabled)
-                    continue;
-                MapMetaData m = null;
-                try
-                {
-                    m = a.Instantiate<MapMetaData>();
-                }
-                catch { }
-                maps.Add(Obj(
-                    "name", a.name,
-                    "package", a.package.packageName,
-                    "path", a.package.packagePath,
-                    "map_name", m == null ? null : m.mapName,
-                    "published", m != null && m.isPublished
-                ));
-            }
-            return Obj("maps", maps);
-        }
-
-        // Mirrors NewGamePanel.StartNewGameRoutine for the selected map, with the
-        // city named after the map and inverted traffic off.
-        static Dictionary<string, object> NewGame(Dictionary<string, object> q)
-        {
-            var lm = Singleton<LoadingManager>.instance;
-            if (lm.m_currentlyLoading || InGame())
-                throw new Exception("new_game needs the idle main menu");
-            string path = Path.GetFullPath(Json.Str(q, "path", ""));
-            Package.Asset asset = null;
-            foreach (var a in PackageManager.FilterAssets(UserAssetType.MapMetaData))
-                if (a != null && a.package.packagePath != null && Path.GetFullPath(a.package.packagePath) == path)
-                {
-                    if (asset != null)
-                        throw new Exception("more than one map asset in " + path);
-                    asset = a;
-                }
-            if (asset == null)
-                throw new Exception("no map asset at " + path + "; is the file in Maps/ and did the game start after it was copied?");
-            var meta = asset.Instantiate<MapMetaData>();
-            var sim = new SimulationMetaData
-            {
-                m_CityName = Json.Str(q, "city", meta.mapName),
-                m_gameInstanceIdentifier = Guid.NewGuid().ToString(),
-                m_invertTraffic = SimulationMetaData.MetaBool.False,
-                m_disableAchievements = SimulationMetaData.MetaBool.False,
-                m_startingDateTime = DateTime.Now,
-                m_currentDateTime = DateTime.Now,
-                m_newGameAppVersion = 222554386u,
-                m_updateMode = SimulationManager.UpdateMode.NewGameFromMap,
-                m_MapName = meta.mapName,
-            };
-            if (meta.mapThemeRef != null)
-            {
-                var theme = PackageManager.FindAssetByName(meta.mapThemeRef, UserAssetType.MapThemeMetaData);
-                if (theme != null)
-                {
-                    sim.m_MapThemeMetaData = theme.Instantiate<MapThemeMetaData>();
-                    sim.m_MapThemeMetaData.SetSelfRef(theme);
-                }
-            }
-            if (lm.LoadLevel(meta.assetRef, "Game", "InGame", sim) == null)
-                throw new Exception("LoadingManager refused the map");
-            return Obj("loading", path, "map_name", meta.mapName, "published", meta.isPublished);
-        }
-
-        static Dictionary<string, object> Run(Dictionary<string, object> q)
-        {
-            var sm = Singleton<SimulationManager>.instance;
-            if (q.ContainsKey("speed"))
-            {
-                int speed = (int)Json.Num(q, "speed", 1);
-                if (speed < 1 || speed > 3)
-                    throw new Exception("speed is 1, 2 or 3 (the game's buttons)");
-                sm.SelectedSimulationSpeed = speed;
-            }
-            if (q.ContainsKey("paused"))
-                sm.SimulationPaused = Json.Bool(q, "paused", true);
-            return Obj("paused", sm.SimulationPaused, "speed", sm.SelectedSimulationSpeed, "final_speed", sm.FinalSimulationSpeed);
-        }
-
-        static Dictionary<string, object> Stats()
-        {
-            var sm = Singleton<SimulationManager>.instance;
-            var district = Singleton<DistrictManager>.instance.m_districts.m_buffer[0];
-            var water = Singleton<TerrainManager>.instance.WaterSimulation;
-            return Obj(
-                "frame", sm.m_currentFrameIndex,
-                "game_time", sm.m_currentGameTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                "paused", sm.SimulationPaused,
-                "speed", sm.SelectedSimulationSpeed,
-                "final_speed", sm.FinalSimulationSpeed,
-                "population", district.m_populationData.m_finalCount,
-                "buildings", Singleton<BuildingManager>.instance.m_buildingCount,
-                "segments", Singleton<NetManager>.instance.m_segmentCount,
-                "citizens", Singleton<CitizenManager>.instance.m_citizenCount,
-                "money", Singleton<EconomyManager>.instance.LastCashAmount,
-                "sea_level", water.m_currentSeaLevel
-            );
-        }
-
-        static Vector3 Point(object v)
-        {
-            var a = v as List<object>;
-            if (a == null || a.Count < 2)
-                throw new Exception("points are [x, z] world metres");
-            return new Vector3(Convert.ToSingle(a[0]), 0, Convert.ToSingle(a[a.Count == 2 ? 1 : 2]));
-        }
-
-        static Dictionary<string, object> Water(Dictionary<string, object> q)
-        {
-            var tm = Singleton<TerrainManager>.instance;
-            var water = tm.WaterSimulation;
-            var samples = new List<object>();
-            if (q.ContainsKey("points"))
-                foreach (var v in (List<object>)q["points"])
-                {
-                    var p = Point(v);
-                    float ground, surface;
-                    Vector3 velocity, normal;
-                    bool wet = tm.SampleWaterData(new Vector2(p.x, p.z), out ground, out surface, out velocity, out normal);
-                    samples.Add(Obj(
-                        "x", p.x, "z", p.z,
-                        "terrain", tm.SampleRawHeightSmooth(p),
-                        "ground", ground,
-                        "surface", surface,
-                        "depth", wet ? surface - ground : 0f,
-                        "wet", wet,
-                        "velocity", new object[] { velocity.x, velocity.y, velocity.z }
-                    ));
-                }
-            var sources = new List<object>();
-            for (int i = 0; i < water.m_waterSources.m_size; i++)
-            {
-                var s = water.m_waterSources.m_buffer[i];
-                if (s.m_type == 0)
-                    continue;
-                sources.Add(Obj(
-                    "id", i + 1,
-                    "type", s.m_type,
-                    "x", s.m_inputPosition.x,
-                    "z", s.m_inputPosition.z,
-                    "target", s.m_target / 64f,
-                    "input_rate", s.m_inputRate,
-                    "output_rate", s.m_outputRate,
-                    "flow", s.m_flow
-                ));
-            }
-            var cells = water.BeginRead();
-            long wetCells = 0, depthSum = 0;
-            int maxDepth = 0;
-            try
-            {
-                for (int i = 0; i < cells.Length; i++)
-                {
-                    int h = cells[i].m_height;
-                    if (h > 0)
-                    {
-                        wetCells++;
-                        depthSum += h;
-                        if (h > maxDepth)
-                            maxDepth = h;
-                    }
-                }
-            }
-            finally
-            {
-                water.EndRead();
-            }
-            const double cellArea = 16.0 * 16.0;
-            return Obj(
-                "frame", Singleton<SimulationManager>.instance.m_currentFrameIndex,
-                "samples", samples,
-                "sources", sources,
-                "wet_cells", wetCells,
-                "volume_m3", depthSum / 64.0 * cellArea,
-                "max_depth_m", maxDepth / 64.0,
-                "sea_level", water.m_currentSeaLevel
-            );
-        }
-
-        // Raw grids for offline comparison: little-endian ushort, 1081 x 1081,
-        // the game's own order: index = iz * 1081 + ix, world x = ix * 16 - 8640,
-        // world z = iz * 16 - 8640. Water is depth in 1/64 m; terrain is raw
-        // height in 1/64 m.
-        static Dictionary<string, object> Dump(Dictionary<string, object> q)
-        {
-            string dir = Json.Str(q, "dir", "");
-            if (string.IsNullOrEmpty(dir) || !Path.IsPathRooted(dir))
-                throw new Exception("dump needs an absolute dir");
-            Directory.CreateDirectory(dir);
-            string prefix = Json.Str(q, "prefix", "grid");
-            var water = Singleton<TerrainManager>.instance.WaterSimulation;
-            var cells = water.BeginRead();
-            byte[] w = new byte[cells.Length * 2];
-            try
-            {
-                for (int i = 0; i < cells.Length; i++)
-                {
-                    w[2 * i] = (byte)(cells[i].m_height & 0xff);
-                    w[2 * i + 1] = (byte)(cells[i].m_height >> 8);
-                }
-            }
-            finally
-            {
-                water.EndRead();
-            }
-            string waterPath = Path.Combine(dir, prefix + "-water.u16");
-            File.WriteAllBytes(waterPath, w);
-            var result = Obj("water", waterPath, "cells", cells.Length, "frame", Singleton<SimulationManager>.instance.m_currentFrameIndex);
-            if (Json.Bool(q, "terrain", false))
-            {
-                ushort[] raw = Singleton<TerrainManager>.instance.RawHeights;
-                byte[] t = new byte[raw.Length * 2];
-                Buffer.BlockCopy(raw, 0, t, 0, t.Length);
-                string terrainPath = Path.Combine(dir, prefix + "-terrain.u16");
-                File.WriteAllBytes(terrainPath, t);
-                result["terrain"] = terrainPath;
-            }
-            return result;
-        }
-
-        static Dictionary<string, object> CameraOp(Dictionary<string, object> q)
-        {
-            var c = ToolsModifierControl.cameraController;
-            if (Json.Bool(q, "release", false))
-            {
-                c.SetOverrideModeOff();
-                return Obj("camera", "released");
-            }
-            // [x, z] targets the terrain surface there; [x, y, z] is explicit.
-            var p = (List<object>)q["position"];
-            Vector3 pos;
-            if (p.Count == 2)
-            {
-                pos = new Vector3(Convert.ToSingle(p[0]), 0, Convert.ToSingle(p[1]));
-                pos.y = Singleton<TerrainManager>.instance.SampleRawHeightSmooth(pos);
-            }
-            else
-                pos = new Vector3(Convert.ToSingle(p[0]), Convert.ToSingle(p[1]), Convert.ToSingle(p[2]));
-            var angle = new Vector2((float)Json.Num(q, "yaw", 0), (float)Json.Num(q, "pitch", 60));
-            float size = (float)Json.Num(q, "size", 2000);
-            c.m_targetPosition = pos;
-            c.m_targetAngle = angle;
-            c.m_targetSize = size;
-            c.SetOverrideModeOn(pos, angle, size);
-            return Obj("camera", new object[] { pos.x, pos.y, pos.z }, "yaw", angle.x, "pitch", angle.y, "size", size);
-        }
-
-        static Dictionary<string, object> Screenshot(Dictionary<string, object> q)
-        {
-            string path = Json.Str(q, "path", "");
-            if (string.IsNullOrEmpty(path) || !Path.IsPathRooted(path))
-                throw new Exception("screenshot needs an absolute path");
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
-            if (File.Exists(path))
-                File.Delete(path);
-            // Written at the end of the current frame; the caller waits for the file.
-            Application.CaptureScreenshot(path, (int)Json.Num(q, "supersize", 1));
-            return Obj("path", path, "frame", Singleton<SimulationManager>.instance.m_currentFrameIndex);
+            if (!ok)
+                throw new Exception("op '" + op + "' needs " + info.Needs + "; scene is " + Scene());
+            return info.Fn(q);
         }
 
         public static Dictionary<string, object> Obj(params object[] kv)
