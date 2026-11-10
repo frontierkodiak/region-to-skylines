@@ -123,7 +123,6 @@ class Session(contextlib.AbstractContextManager):
         self.stage.mkdir(parents=True, exist_ok=True)
         try:
             self.start_display()
-            self.install_mod()
         except BaseException:
             self.__exit__(None, None, None)
             raise
@@ -298,6 +297,7 @@ class Session(contextlib.AbstractContextManager):
         c = self.cfg
         if self.egl is None:
             self.pin_gpu()
+        self.install_mod()
         env = self.steam.base_env()
         before = set(self.steam.instances())
         self.steam_log = SteamLog(c, self.steam.log_path)
