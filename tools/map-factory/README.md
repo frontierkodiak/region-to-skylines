@@ -62,6 +62,8 @@ elevations, prepared terrain and water, source and corridor parameters, and an
 expected `.crp` checksum in `fixtures/manifest.json`. This separates the
 JavaScript serializer parity test from the hydrology port: the serializer can
 consume the frozen prepared grids directly.
+`prepared_sha256` records the uncompressed terrain and depth checksums;
+`files_sha256` records the distributed fixture-file checksums.
 
 Fixture replacement is an explicit authoring operation, not part of the tests:
 

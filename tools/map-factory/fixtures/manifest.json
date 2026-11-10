@@ -17,6 +17,10 @@
         "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
         "terrain.u16.gz": "42fa2ed1acd8d69adb609524289b7533df1d672398ce33f6cd5570cfb89ddea2",
         "water.u16.gz": "5dead42c34f8b0472f8ac6f7afa8d273a0b3ed2d8067b2987b4ba16d4245822e"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "ff90e4d91dd30ec7ae85e585a559b0d5b9dbe1d0a128a2cbcf21a28a05ecec28",
+        "water.u16": "c0cfbbcb8f800684f5680c534210cdebed9cf630f77548c3b9cb30aef38a08b8"
       }
     },
     {
@@ -30,6 +34,10 @@
         "input.png": "e34c7ba4eaa1969cdd89deb1f04140a7ede6696fef19c90c69ea35d38aef9aed",
         "terrain.u16.gz": "951587d09e7e431e0c9fd57c056318e9051e6b5639dff46e58b968258b14806f",
         "water.u16.gz": "b95709b106e308f32bda2de2e7656a536ab28022ff45b241e2fc92a838393428"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "ad4084650c44405d9f79e392761a91be82b8450496bb5688dd25abed6f5aead3",
+        "water.u16": "2b9bacc5b29cf2a2b380ac3a6f8abe19ade448a798d2e371aef1b127b4b2d6ae"
       }
     },
     {
@@ -43,6 +51,10 @@
         "input.png": "c9aa38db952dc0032da692516bdf5f427bc5bfab2d77abdf315a3a488f43a861",
         "terrain.u16.gz": "18bcfec1f2f3e0b2c005ecc1fbc9442a66d4b75433e5ea19ff56ee4ccbbe1d81",
         "water.u16.gz": "679d58f8388b6bf20427a36dd6f404c1d071a506aee0ca7214dbceb618738c9a"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "b35befa21bbe4e22795b205b28d81be3418b8b846bfc0a927aaf5b2903cc3ed1",
+        "water.u16": "835b711d78f5f8d9343c8d634ba1a4774800a7661a46cb3e46315b8a54ad6341"
       }
     },
     {
@@ -56,6 +68,10 @@
         "input.png": "8721f6dd69d672a4b5893fd0b72d465a2b20b265790b486893a8a229a3b72385",
         "terrain.u16.gz": "c4e789678b0e11bad5f50f5a9626643f6f52d37572c96a2c3e725408cb77afa8",
         "water.u16.gz": "fa0bf1260dede1d8e04994d145d0dce5415e01019548e004a5b4eeb5582982b8"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "433299ef101729b353ca909ccc5ab36a6cf45df7e411cb6c9efe25f1f33e5ec6",
+        "water.u16": "0ad22aac1a7dc4de37820c9ed93a9aa1c4ea6df566b84e58f0e9c65febc8f86d"
       }
     },
     {
@@ -69,6 +85,10 @@
         "input.png": "03a5eea8a8c14c0de7fc8416ad1630421da3735892467c3740d79b241b92479b",
         "terrain.u16.gz": "4e63b42199c60fe8f28155b4c5bd75388c10cdf9adc22b8fbc8eb74c1e909874",
         "water.u16.gz": "a84270708e2ef2a2b530b54229472ea27aa70a7c054110a26d2a985553fd4d1c"
+      },
+      "prepared_sha256": {
+        "terrain.u16": "da245170e82362f4b81821290ca049a4fd22d72ed56cb4c8c4086985c47cbf8d",
+        "water.u16": "024cddf8b093e4424b5f89cdeedc4f86c374d23267e604abc979d6e232914c14"
       }
     }
   ]

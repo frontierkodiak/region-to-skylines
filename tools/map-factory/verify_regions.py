@@ -91,6 +91,11 @@ def verify(folder):
                 unpack(fixture / (name + ".gz"), work / name)
             raw = np.fromfile(work / "terrain.u16", dtype="<u2")
             depth = np.fromfile(work / "water.u16", dtype="<u2")
+            for name, expected_hash in case["prepared_sha256"].items():
+                assert (
+                    hashlib.sha256((work / name).read_bytes()).hexdigest()
+                    == expected_hash
+                )
             assert len(raw) == len(depth) == N
             hydro = json.loads((work / "hydrology.json").read_text())
             output = work / (slug + ".crp")
