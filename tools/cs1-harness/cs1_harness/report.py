@@ -151,6 +151,12 @@ def clef_shots(out: pathlib.Path, shots: list[dict]) -> dict:
     }
 
 
+def dialog_summary(path: pathlib.Path) -> dict:
+    from . import dialogs
+
+    return dialogs.summarize(path)
+
+
 def vram(run: dict) -> dict:
     """VRAM on the pinned GPU: what else held it before launch, the peak, and the game's share."""
     session = run.get("session") or {}
@@ -245,6 +251,7 @@ def build(out: pathlib.Path, run: dict) -> dict:
         "curve": curve,
         "errors": log_errors(out / "game.log"),
         "gpu": gpu_summary(out / "gpu.csv"),
+        "dialogs": dialog_summary(out / "dialogs.jsonl"),
         "vram": vram(run),
     }
     (out / "report.json").write_text(json.dumps(report, indent=2, default=str) + "\n")
@@ -287,6 +294,18 @@ def markdown(r: dict) -> str:
             f"- GPU {g.get('index')}: {g.get('temp_c', {}).get('max')} °C max, power "
             f"{g.get('power_w', {}).get('mean')} W mean / {g.get('power_w', {}).get('max')} W max "
             f"(limit {g.get('power_limit_w')} W), utilisation {g.get('util_pct', {}).get('mean')}% mean."
+        )
+    dl = r.get("dialogs") or {}
+    if dl.get("answered") or dl.get("unknown") or dl.get("failed"):
+        lines.append(
+            f"- Dialogs: answered {len(dl.get('answered', []))} ({'; '.join(dl.get('answered', [])) or 'none'})"
+            + (
+                f"; **unknown, left alone:** {', '.join(u['dialog'] for u in dl['unknown'])}"
+                if dl.get("unknown")
+                else ""
+            )
+            + (f"; failed: {'; '.join(dl['failed'])}" if dl.get("failed") else "")
+            + "."
         )
     t = r.get("terrain") or {}
     if t:

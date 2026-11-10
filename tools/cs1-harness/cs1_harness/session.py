@@ -17,6 +17,7 @@ import pathlib
 import re
 import shutil
 import subprocess
+import sys
 import time
 
 from . import gpu, observe
@@ -254,6 +255,7 @@ class Session(contextlib.AbstractContextManager):
         if (pathlib.Path("/tmp/.X11-unix") / f"X{self.cfg.display.lstrip(':')}").exists():
             raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL, busy=True)
         for unit in (
+            self.cfg.guard_unit,
             self.cfg.vnc_unit,
             self.cfg.live_unit,
             self.cfg.rec_unit,
@@ -402,6 +404,19 @@ class Session(contextlib.AbstractContextManager):
             props=["-p", f"StandardOutput=file:{self.stage / 'gpu.csv'}"],
         )
         observe.start(self, record=self.record, live=self.live, label=self.label)
+        # Answer the game's known first-run dialogs; log unknown ones (dialogs.py).
+        self.unit(
+            c.guard_unit,
+            sys.executable,
+            "-m",
+            "cs1_harness.dialogs",
+            "guard-loop",
+            "--host",
+            c.host,
+            "--log",
+            str(self.stage / "dialogs.jsonl"),
+            props=["-p", "Nice=10"],
+        )
         self.log("Steam starting; waiting for the game")
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
@@ -465,7 +480,16 @@ class Session(contextlib.AbstractContextManager):
             else:
                 with contextlib.suppress(ProcessLookupError, ValueError):
                     os.kill(int(inst), 15)
-        for unit in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
+        for unit in (
+            c.guard_unit,
+            c.vnc_unit,
+            c.live_unit,
+            c.rec_unit,
+            c.steam_unit,
+            c.gpu_unit,
+            c.dbus_unit,
+            c.xvfb_unit,
+        ):
             sh("systemctl", "--user", "stop", unit, check=False)
         for path in reversed(self.installed):
             if path.is_dir():
@@ -481,7 +505,16 @@ class Session(contextlib.AbstractContextManager):
             "steam_instances": self.steam.instances(),
             "units_active": [
                 u
-                for u in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)
+                for u in (
+                    c.guard_unit,
+                    c.vnc_unit,
+                    c.live_unit,
+                    c.rec_unit,
+                    c.steam_unit,
+                    c.gpu_unit,
+                    c.dbus_unit,
+                    c.xvfb_unit,
+                )
                 if sh("systemctl", "--user", "is-active", "--quiet", u, check=False).returncode == 0
             ],
         }

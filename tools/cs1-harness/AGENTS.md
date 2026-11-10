@@ -43,6 +43,16 @@ style: load the editor, import, save `.crp`) belongs here as `EditorOps.cs`
 plus a driver, not inside the map check. An MCP server should wrap `up`,
 `call` and `down`, and nothing else.
 
+## Dialogs
+
+The guard answers only the game's dialogs listed in `cs1_harness/dialogs.py`
+(`RULES`). Add a rule when a run logs an unknown dialog that is either covered
+by Caleb's clearance (terms that reappear on a fresh install, the Paradox
+account link) or is an acknowledgement or tutorial with nothing to decide. Put
+the reason in the rule. Anything that buys something, publishes, or creates an
+account stays unknown and goes to the owning issue. Steam's prompts are never
+answered.
+
 ## Each run
 
 Add a line to the run log in [JOURNAL.md](JOURNAL.md): host, GPU, peak VRAM

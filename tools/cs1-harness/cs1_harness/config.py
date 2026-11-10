@@ -80,6 +80,7 @@ class Config:
     rec_unit: str = "cs1-harness-rec"
     live_unit: str = "cs1-harness-live"
     vnc_unit: str = "cs1-harness-vnc"
+    guard_unit: str = "cs1-harness-guard"
     vnc_port: int = int(os.environ.get("CS1_HARNESS_VNC_PORT", "5957"))
     live_every: int = 5
     ffmpeg: pathlib.Path = _env_path("CS1_HARNESS_FFMPEG", HOME / ".local/bin/ffmpeg")
