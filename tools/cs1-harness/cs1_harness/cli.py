@@ -11,8 +11,10 @@ import argparse
 import contextlib
 import datetime
 import json
+import os
 import pathlib
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -59,6 +61,13 @@ def slot(cfg, stage, wait_minutes: float):
                 log("harness slot acquired")
             yield s
             return
+
+
+def staging(cfg, out: pathlib.Path) -> pathlib.Path:
+    """This process's own staging directory. Two runs whose --out share a name
+    (…/a/asheville, …/b/asheville) must not share one: a run blocked on the slot
+    collects its staging, and would otherwise take the active run's files."""
+    return cfg.harness_home / "runs" / f"{out.name}-{os.getpid()}"
 
 
 def cmd_build(cfg, a):
@@ -150,7 +159,7 @@ def cmd_bench_observe(cfg, a):
 
     out = a.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
-    stage = cfg.harness_home / "runs" / out.name
+    stage = staging(cfg, out)
     with slot(cfg, stage, a.wait_minutes) as s:
         s.record, s.live, s.label = False, False, "observer bench"
         installed = s.install_map(a.map.resolve())
@@ -202,7 +211,7 @@ def cmd_run(cfg, a):
     points, views = load_probe_file(a.probes)
     if not a.map.exists():
         raise SystemExit(f"no such map: {a.map}")
-    stage = cfg.harness_home / "runs" / out.name
+    stage = staging(cfg, out)
     attempt = 0
     while True:
         attempt += 1
@@ -319,6 +328,14 @@ def main(argv=None):
     )
     a = p.parse_args(argv)
     cfg = Config.for_host(a.host)
+
+    # `timeout` and job control send SIGTERM/SIGHUP. Turn them into SystemExit so
+    # every open session's __exit__ runs and stops the game, Steam and units.
+    def terminate(signum, _frame):
+        raise SystemExit(128 + signum)
+
+    for sig in (signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, terminate)
     try:
         rc = {
             "build": cmd_build,
