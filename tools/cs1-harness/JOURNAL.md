@@ -448,6 +448,36 @@ listed all ten tools, and `queue`, `runs` and `verdict` returned live results
 PL-848 verdict, a fail with its triage). Not exercised over MCP: `up`, `call`,
 `down` and `submit`, which only wrap the CLI commands of the same names.
 
+## 2026-11-10 · Sol xhigh (blade) · PL-893 · standard test city
+
+**Why.** Empty-map soaks stay at population 0 and cannot test whether a
+player's road grid reaches the outside world. `run --scenario test-city`
+adds a small city after ordinary New Game, before the existing soak.
+
+**Changed.** `ScenarioOps` builds through native road and building placement
+checks on the simulation thread. It selects a dry starting-tile site, joins
+the highway approaches, builds a grid, zones R/C/I, and adds a coal plant,
+water pump, drain, pipes and power lines. Normal construction costs come from
+starting money. No growables, population, utility buffers or completion flags
+are forced. The run preserves the construction receipt and checks actual
+population growth and native passenger-car paths in both directions.
+
+**Native rules that mattered.** CS1 1.21.1-f9's `NetTool.CanAddSegment` rejects
+approaches whose direction dot product exceeds 0.75, including pipes and power
+lines. A far-away merge of the two highway stubs, or arbitrary branches from
+a central pipe node, is not legal. The fixture uses a close highway merge and
+tests utility connections at existing endpoints. `BuildingTool.SimulationStep`
+uses shoreline-specific height rules, not the roadside maximum ground-height
+difference, for the pump and drain.
+The fixture also omits `UnlockManager`'s modal milestone panel. Unlocks and
+rewards still run normally, but the panel cannot pause an unattended soak.
+
+**Verification pending.** The mod compiles against the installed game's
+assemblies. Six verdict tests pass. The construction trial is queued behind
+PL-857's game runs. The provisional growth threshold is 50 new residents by
+5 game-minutes, with at least that net growth at the end. It is not calibrated
+until the Asheville and vanilla runs below are collected.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

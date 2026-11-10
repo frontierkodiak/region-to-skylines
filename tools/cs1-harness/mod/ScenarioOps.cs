@@ -400,6 +400,9 @@ namespace Cs1Harness
             if (!sm.SimulationPaused || Singleton<DistrictManager>.instance.m_districts.m_buffer[0].m_populationData.m_finalCount != 0)
                 throw new Exception("test-city needs a paused, empty New Game");
             city = instance;
+            // UnlockManager still grants normal milestones and rewards, but its
+            // modal presentation would pause a headless growth soak.
+            Singleton<UnlockManager>.instance.RegisterUnlockingPanel(null);
             state = "building";
             error = null;
             roads.Clear(); buildings.Clear();

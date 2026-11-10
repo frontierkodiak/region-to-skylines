@@ -47,6 +47,8 @@ the native tools, with space, slope, purchased-area and money checks. A river
 crossing uses the game's bridge/ramp prefabs. It spends starting money; it
 doesn't enable unlimited money, place growables, force utility buffers or
 set population.
+Milestones and their rewards still apply. Their modal notification panel is
+disabled for this process so it cannot pause an unattended soak.
 
 The run keeps `scenario.json` (including a partial receipt on a placement
 failure), adds a close-up camera view, and observes population between the
