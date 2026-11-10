@@ -19,7 +19,7 @@ import time
 from . import registry
 
 LOG = registry.REGISTRY.parent / "slot.jsonl"
-COMMANDS = ("run", "up", "doctor", "bench-observe", "asset")
+COMMANDS = ("run", "up", "doctor", "bench-observe", "bench-speed", "asset")
 DEFAULT_WALL_PER_GAME_MINUTE = 0.3  # blade's 2080 Ti at speed 3: 60 game-min in 16-27 wall min
 BOOT_MINUTES = 3.0  # Steam, menu, city load and teardown
 
