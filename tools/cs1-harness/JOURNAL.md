@@ -111,6 +111,47 @@ keeps worm's 3090, whose fan can wake him, out of it.
 Worm's card has 11,254 MiB free. Worm still can't launch the game through the
 harness, because its Steam client is signed out (PL-857 entry above).
 
+## 2026-11-09 · Opus 5.5 (blade) · PL-856 · eyes: Clef-Flash, and the grid where it can't see
+
+**Why.** The lead suggested blade's resident Clef-Flash (`127.0.0.1:9120/v1/systemone`,
+the `decisions` replica on the same 2080 Ti) for things the game's state
+doesn't report: stair-stepped terrain, water that looks wrong, black or garbled
+frames, whether the start looks buildable. The rule stays: where the mod reads
+the truth, trust that over Clef.
+
+**Tried.** I labelled 20 screenshots myself, without looking at Clef's answers:
+17 real frames from PL-828/PL-848 on worm (menus, a loading screen, a GNOME
+crash dialog, editor and city views, Innsbruck before and after smoothing, and
+Rio with the transient water sheet over land) plus 3 synthetic bad frames
+(black, shifted blocks with a noise band, a magenta hole). One request per
+image, about 1 s each after a 3 s first call. The server caps images at 384².
+
+| Question | Caught | Missed / false |
+|:--|:--|:--|
+| Frame kind (world / menu / desktop / blank) | 18 of 19 labelled, including the crash desktop (0.97) and the black frame | the loading screen, whose backdrop is a 3D scene, scored "world" (0.94) |
+| Garbled frame, threshold 0.5 | 3 of 3 synthetic (0.71, 0.79, 0.95) | no false positives on 17 real frames (max 0.12; the crash desktop 0.42) |
+| Stair-stepped terrain | none | raw Innsbruck import 0.085 vs smoothed 0.03-0.05; 384 px native crops about 0.02 everywhere |
+| Water looks wrong | none | Rio's water sheet over land 0.27, within the 0.06-0.30 of normal frames; a dry Rio crop scored 0.41 |
+| Buildable land | not checked | no labels |
+
+**Changed.**
+- `run --clef` scores every screenshot after the run and flags frames that
+  aren't the game world or score above 0.5 for garbling. It's advisory, and
+  `cs1-harness see IMAGE…` does the same by hand.
+- Terraces come from the grid instead. Every report checks the game's own raw
+  heights. On ground with more than 4 m of relief in a 5 × 5 window, it counts
+  how often east-west neighbours have exactly equal height. Measured on
+  PL-828's smoothed heightmaps: Asheville 0.002, Innsbruck 0.003, Rio 0.022.
+  Quantized copies of the same maps: 1 m steps 0.14-0.17, 4 m steps 0.44-0.51,
+  8-bit source 0.54-0.56. Threshold 0.08. PL-848's Asheville terrain grid
+  scores 0.003.
+- Water stays with the mod's numbers: probe depths, wet area gained or lost,
+  and volume.
+
+**Limits.** I chose the labels and judged the screenshots myself, the set is
+small, the garbled frames are synthetic, and the terracing positives are
+quantized copies, not a real stair-stepped game import.
+
 ### Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

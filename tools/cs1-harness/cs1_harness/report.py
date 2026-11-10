@@ -106,6 +106,51 @@ def gpu_summary(path: pathlib.Path) -> dict:
     return out
 
 
+TERRACED = 0.08  # see terracing(); smoothed real maps score 0.002-0.022, 1 m terraces >= 0.14
+
+
+def terracing(raw: np.ndarray) -> dict:
+    """Stair-stepped terrain check from the game's raw heights (1/64 m units).
+
+    On ground whose 5 x 5 neighbourhood spans more than 4 m, smooth slopes almost
+    never have two east-west neighbours at exactly the same raw height; terraces
+    (e.g. from an 8-bit heightmap) have many. Calibrated on PL-828's smoothed
+    Asheville, Innsbruck and Rio heightmaps against quantized copies of them.
+    """
+    from numpy.lib.stride_tricks import sliding_window_view
+
+    h = raw.astype(np.int32)
+    w = sliding_window_view(np.pad(h, 2, mode="edge"), (5, 5))
+    sloped = (w.max(axis=(2, 3)) - w.min(axis=(2, 3))) > 4 * 64
+    m = sloped[:, 1:] & sloped[:, :-1]
+    frac = float((np.diff(h, axis=1)[m] == 0).mean()) if m.any() else 0.0
+    return {"equal_pair_fraction_on_slopes": round(frac, 4), "threshold": TERRACED, "terraced": frac > TERRACED}
+
+
+def clef_shots(out: pathlib.Path, shots: list[dict]) -> dict:
+    """Advisory Clef-Flash pass over every screenshot: frame kind and garbling."""
+    from . import vision
+
+    if not vision.available():
+        return {"available": False}
+    rows, flagged = [], []
+    for shot in shots:
+        try:
+            a = vision.summarize(vision.ask(out / shot["file"]))
+        except Exception as e:  # noqa: BLE001 - advisory; a failed call is recorded, not fatal
+            a = {"error": str(e)}
+        row = {**shot, **a}
+        rows.append(row)
+        if a.get("frame") not in (None, "world") or a.get("glitched", 0) > 0.5:
+            flagged.append(row)
+    return {
+        "available": True,
+        "shots": rows,
+        "flagged": flagged,
+        "note": "advisory; frame kind and garbling only (terraces and water judged unreliable, see JOURNAL.md)",
+    }
+
+
 def vram(run: dict) -> dict:
     """VRAM on the pinned GPU: what else held it before launch, the peak, and the game's share."""
     session = run.get("session") or {}
@@ -131,6 +176,7 @@ def build(out: pathlib.Path, run: dict) -> dict:
     water_image(terrain, first, out / "water-start.png")
     water_image(terrain, last, out / "water-end.png")
     change_image(terrain, first, last, out / "water-change.png")
+    raw_terrain = grid(grids / f"{run['first_dump']}-terrain.u16")
     b, a = first > WET, last > WET
     km2 = CELL * CELL / 1e6
     fpm = run["frames_per_game_minute"]
@@ -180,6 +226,8 @@ def build(out: pathlib.Path, run: dict) -> dict:
     ]
     report = {
         **run,
+        "terrain": terracing(raw_terrain),
+        "clef": clef_shots(out, run.get("shots") or []) if run.get("clef") else None,
         "water": {
             "wet_km2_start": round(float(b.sum()) * km2, 2),
             "wet_km2_end": round(float(a.sum()) * km2, 2),
@@ -240,6 +288,20 @@ def markdown(r: dict) -> str:
             f"{g.get('power_w', {}).get('mean')} W mean / {g.get('power_w', {}).get('max')} W max "
             f"(limit {g.get('power_limit_w')} W), utilisation {g.get('util_pct', {}).get('mean')}% mean."
         )
+    t = r.get("terrain") or {}
+    if t:
+        lines.append(
+            f"- Terrain: {'**terraced**' if t['terraced'] else 'no terracing'} "
+            f"({t['equal_pair_fraction_on_slopes']} equal-height pairs on slopes; threshold {t['threshold']})."
+        )
+    c = r.get("clef")
+    if c and c.get("available"):
+        lines.append(
+            f"- Clef (advisory): {len(c['flagged'])} of {len(c['shots'])} screenshots flagged as not the game world "
+            "or garbled" + (": " + ", ".join(f"`{x['file']}`" for x in c["flagged"]) if c["flagged"] else "") + "."
+        )
+    elif c is not None:
+        lines.append("- Clef (advisory): endpoint not available; screenshots not scored.")
     lines += ["", "| minute | population | wet cells | volume m³ | max depth m |", "|--:|--:|--:|--:|--:|"]
     lines += [
         f"| {c['minute']} | {c['population']} | {c['wet_cells']} | {c['volume_m3']:,} | {c['max_depth_m']:.2f} |"

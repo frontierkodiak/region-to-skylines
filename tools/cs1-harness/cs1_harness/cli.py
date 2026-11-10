@@ -73,6 +73,14 @@ def cmd_up(cfg, a):
     )
 
 
+def cmd_see(cfg, a):
+    """Score screenshots with Clef-Flash (advisory)."""
+    from . import vision
+
+    for path in a.images:
+        print(json.dumps({"image": str(path), **vision.summarize(vision.ask(path))}))
+
+
 def cmd_call(cfg, a):
     args = json.loads(a.json) if a.json else {}
     print(json.dumps(Client(cfg.port).call(a.op, **args), indent=2))
@@ -114,6 +122,7 @@ def cmd_run(cfg, a):
                     a.load_timeout,
                 )
                 result["probes"] = str(a.probes) if a.probes else None
+                result["clef"] = a.clef
                 result["gpu_processes"] = s.gpu_processes()
             collect(stage, out)
             report = report_mod.build(
@@ -156,6 +165,8 @@ def main(argv=None):
     c = sub.add_parser("call", help="send one op to the running game (`call ops` lists them)")
     c.add_argument("op")
     c.add_argument("json", nargs="?", help="op arguments as a JSON object")
+    v = sub.add_parser("see", help="score screenshots with Clef-Flash (advisory)")
+    v.add_argument("images", nargs="+", type=pathlib.Path)
     d = sub.add_parser("down", help="quit the game and stop everything `up` started")
     d.add_argument("--out", type=pathlib.Path, help="move the session's files (log, GPU samples, shots) here")
     r = sub.add_parser("run", help="New Game on a map, simulate, report")
@@ -176,6 +187,11 @@ def main(argv=None):
         default=0,
         help="if Steam says the account is in use, wait this long and retry (0: exit 75)",
     )
+    r.add_argument(
+        "--clef",
+        action="store_true",
+        help="also score every screenshot with blade's Clef-Flash (advisory: frame kind, garbling)",
+    )
     r.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
     a = p.parse_args(argv)
     cfg = Config.for_host(a.host)
@@ -187,6 +203,7 @@ def main(argv=None):
             "up": cmd_up,
             "call": cmd_call,
             "down": cmd_down,
+            "see": cmd_see,
             "run": cmd_run,
         }[a.cmd](cfg, a)
     except Blocked as b:
