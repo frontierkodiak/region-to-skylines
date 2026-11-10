@@ -120,10 +120,11 @@ def cmd_watch(cfg, a):
         subprocess.run(["systemctl", "--user", "stop", cfg.vnc_unit], check=False)
         print("watch stopped")
         return 0
-    if not cfg.state_file.exists():
-        log("no harness session is up; start one with `cs1-harness up` or `run`")
+    # Any harness session (up or run) owns the display; watching needs only that.
+    if not (pathlib.Path("/tmp/.X11-unix") / f"X{cfg.display.lstrip(':')}").exists():
+        log(f"no harness display {cfg.display} is up; start a session with `cs1-harness up` or `run`")
         return 1
-    s = Session.attach(cfg, log=log)
+    s = Session(cfg, cfg.harness_home / "runs" / "watch", log=log)
     subprocess.run(["systemctl", "--user", "stop", cfg.vnc_unit], check=False, capture_output=True)
     subprocess.run(["systemctl", "--user", "reset-failed", cfg.vnc_unit], check=False, capture_output=True)
     info = observe.watch_start(s)

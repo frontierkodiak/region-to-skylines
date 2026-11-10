@@ -66,6 +66,30 @@ stages there and moves results to `--out`.
 - **Never saves.** The mod stops the autosave timer once a city loads. Nothing
   writes a save or a map.
 
+## Watching a run
+
+Every session records and publishes what the game shows, unless you pass
+`--no-record` / `--no-live`. Watching costs the game nothing measurable; the
+numbers are in `JOURNAL.md`.
+
+- **Timelapse.** `timelapse.mp4` lands in the run's output: one frame a second,
+  played back at 30 fps (a 27-minute run is about 54 s), H.264 at 1280 px.
+- **Live page.** <https://blade.tailc29f0.ts.net/research/cs1-live/> (tailnet
+  only): the latest frame every 5 s and a status line with the run's label
+  (`--label`), map, game-minute, water probes and population. The shelf links
+  to it. When the run ends it says so and keeps the last frame.
+- **Live view.** `cs1-harness watch` starts a view-only VNC server on the
+  harness display, bound to localhost. From carbon, one line:
+
+  ```sh
+  ssh -f -L 5957:localhost:5957 blade '.local/bin/cs1-harness watch --hold 60' && sleep 3 && open vnc://localhost:5957
+  ```
+
+  Screen Sharing asks for the password `watch` prints; it is per host, in
+  `~/.config/cs1-harness/vnc.pass.txt` on blade. `--hold 60` stops the server
+  after an hour; `watch --stop` or `down` stops it sooner. Nothing listens on the
+  LAN or the internet.
+
 ## Output
 
 `--out DIR` gets `report.md`, `report.json`, `timeline.jsonl` (stats and probe
