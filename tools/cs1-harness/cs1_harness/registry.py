@@ -27,9 +27,9 @@ ISSUE = re.compile(r"\b((?:PL|POL)-\d+)\b", re.IGNORECASE)
 
 def issue_of(out: pathlib.Path, doc: dict) -> str | None:
     for text in (doc.get("issue"), doc.get("label"), str(out)):
-        m = ISSUE.search(text or "")
-        if m:
-            return m.group(1).upper()
+        found = ISSUE.findall(text or "")
+        if found:
+            return found[-1].upper()  # the most specific: …/PL-891-PL-893-test-city is PL-893
     return None
 
 
