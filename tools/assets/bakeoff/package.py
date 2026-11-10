@@ -11,6 +11,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("experiment", type=Path)
     parser.add_argument("archive", type=Path)
+    parser.add_argument(
+        "--inputs", type=Path, help="Use the verified flat bridge-input directory"
+    )
+    parser.add_argument(
+        "--methods", nargs="+", choices=("A", "B", "C"), default=["A", "B", "C"]
+    )
     args = parser.parse_args()
     sources = Path(__file__).parent
     manifest = {
@@ -20,8 +26,10 @@ def main():
     with zipfile.ZipFile(
         args.archive, "w", zipfile.ZIP_DEFLATED, compresslevel=6
     ) as archive:
-        for method in ("A", "B", "C"):
-            root = args.experiment / ("outputs-clean" if method == "B" else "outputs")
+        for method in args.methods:
+            root = args.inputs or args.experiment / (
+                "outputs-clean" if method == "B" else "outputs"
+            )
             checks = json.loads((root / "verification.json").read_text())
             for target in ("bungalow", "storefront", "apartment"):
                 name = method + "-" + target
@@ -74,7 +82,8 @@ def main():
             "IMPORT.md",
             """# Asheville A/B1/C authoring inputs
 
-Nine main meshes, nine custom LODs, and all five maps at each level.
+Selected main meshes, custom LODs, and all five maps at each level.
+The full study has nine candidates; this archive may select one method only.
 Names are unique across the pack; do not mix in the separate B0 photo control.
 Each folder holds one asset. Preserve suffix names when copying into CS1's
 Addons/Import directory or passing files to the PL-880 authoring bridge.
@@ -100,7 +109,7 @@ Code: https://github.com/frontierkodiak/region-to-skylines (PL-881-assets branch
                     == item["sha256"]
                 )
     print(
-        "PASS: 9 import candidates, 126 hashed input files;",
+        f"PASS: {len(manifest['assets'])} import candidates, {sum(len(a['files']) for a in manifest['assets'])} hashed input files;",
         args.archive.stat().st_size,
         "archive bytes",
     )
