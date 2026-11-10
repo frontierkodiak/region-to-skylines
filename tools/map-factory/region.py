@@ -208,6 +208,14 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 if len(interior)
                 else []
             )
+            if kind == "river" and len(interior):
+                # Endpoint-only forcing can leave dry gaps on long reaches.
+                # Supply omitted catchment inflow at fixed arc intervals,
+                # independently of the verification sample locations.
+                controls[1:1] = [
+                    ("interior", int(interior[np.argmin(abs(arc[interior] - at))]))
+                    for at in np.arange(2048, arc[-1] - 1024, 2048)
+                ]
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
@@ -312,6 +320,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
         "sea_level_m": float(sea if sea is not None else 0),
         "max_channel_lowering_m": float((original - ground).max()),
         "channel_lowering_cap_m": max_lowering,
+        "river_control_spacing_m": 2048,
         "mapped_waterway_coverage": coverage,
     }
 

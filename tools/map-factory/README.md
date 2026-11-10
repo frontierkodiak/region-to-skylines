@@ -168,7 +168,10 @@ obstructions inside the mapped corridor. The channels start filled. Streams
 start at no more than 0.25 m depth with 0.01 capacity controls. River capacity is
 0.8 for mean profile gradients at most 0.5%, otherwise 0.2. These are game
 regulator capacities, not calibrated discharge rates. River reach controls
-supply tailwater and remove excess at missing mapped continuations. Creek
+supply tailwater and remove excess at missing mapped continuations. River
+controls are spaced at 2,048 m arc intervals as well as the two ends;
+this represents catchment inflow omitted from an endpoint-only simulation,
+independently of the verification probe positions. Creek
 outlets instead have zero output capacity and a target below their local bed;
 they withdraw excess without introducing a second spring. Creek controls are
 omitted within 96 m of mapped major rivers to avoid drawing down a receiving
