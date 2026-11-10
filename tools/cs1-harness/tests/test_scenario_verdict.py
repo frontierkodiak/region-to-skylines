@@ -12,6 +12,12 @@ def report(final=120, reached=2.0, directions=("inbound", "outbound")):
         "population_observations": [{"minute": reached, "population": 60}],
         "scenario": {
             "state": "done",
+            "final": {
+                "utilities": [
+                    {"role": role, "flags": "Created, Completed, Active", "problems": "None", "connected_segments": 1}
+                    for role in ("power", "water", "sewage")
+                ]
+            },
             "reachability": {
                 "complete": True,
                 "paths": [
@@ -63,6 +69,12 @@ class ScenarioVerdictTest(unittest.TestCase):
         for path in doc["scenario"]["reachability"]["paths"]:
             path["positions"][-1][2] = 128
         self.assertEqual(statuses(doc)["outside_connection"], "fail")
+
+    def test_population_growth_does_not_excuse_disconnected_water(self):
+        doc = report()
+        doc["scenario"]["final"]["utilities"][1].update(problems="WaterNotConnected", connected_segments=0)
+        self.assertEqual(statuses(doc)["population_growth"], "pass")
+        self.assertEqual(statuses(doc)["utilities"], "fail")
 
 
 if __name__ == "__main__":

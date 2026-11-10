@@ -307,6 +307,7 @@ def scenario_checks(report: dict) -> list[dict]:
         return [
             row("population_growth", "skip", detail="no scenario requested (use --scenario test-city)"),
             row("outside_connection", "skip", detail="no scenario requested"),
+            row("utilities", "skip", detail="no scenario requested"),
         ]
     fixture = report.get("scenario") or {}
     curve = report.get("curve") or []
@@ -352,7 +353,37 @@ def scenario_checks(report: dict) -> list[dict]:
         },
         "native passenger-car paths grid -> highway edge and edge -> grid, released",
     )
-    return [population, outside]
+    facilities = {u.get("role"): u for u in (fixture.get("final") or {}).get("utilities") or []}
+    broken = []
+    for role in ("power", "water", "sewage"):
+        facility = facilities.get(role) or {}
+        active = "Active" in (facility.get("flags") or "").split(", ")
+        connected = role == "power" or (facility.get("connected_segments") or 0) > 0
+        supply_problems = set((facility.get("problems") or "").split(", ")) & {
+            "Electricity",
+            "Water",
+            "WaterNotConnected",
+            "Sewage",
+            "NoResources",
+            "Flood",
+            "TurnedOff",
+        }
+        if not active or not connected or supply_problems:
+            broken.append(
+                {
+                    "role": role,
+                    "flags": facility.get("flags"),
+                    "problems": facility.get("problems"),
+                    "connected": connected,
+                }
+            )
+    utilities = row(
+        "utilities",
+        "fail" if broken else "pass",
+        {"broken": broken},
+        "power, water and sewage active, native pipe nodes connected, no connection or supply problems",
+    )
+    return [population, outside, utilities]
 
 
 def asset_check(out: pathlib.Path, doc: dict) -> list[dict]:
