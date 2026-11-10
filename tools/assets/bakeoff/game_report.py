@@ -122,7 +122,7 @@ def main():
         + "".join(f'<button data-view="{v}">{v}</button>' for v in VIEWS)
         + "</nav><section>"
         + "".join(cards)
-        + """</section><p><a href="manifest.json">Exact asset and image receipts</a></p><script>document.querySelectorAll('button').forEach(b=>b.onclick=()=>document.querySelectorAll('article img').forEach(i=>i.src=i.src.replace(/(close|gameplay|lod|night|reload)\.png$/,b.dataset.view+'.png')));document.querySelectorAll('article img').forEach(i=>i.onclick=()=>window.open(i.src,'_blank'));</script></html>"""
+        + r"""</section><p><a href="manifest.json">Exact asset and image receipts</a></p><script>document.querySelectorAll('button').forEach(b=>b.onclick=()=>document.querySelectorAll('article img').forEach(i=>i.src=i.src.replace(/(close|gameplay|lod|night|reload)\.png$/,b.dataset.view+'.png')));document.querySelectorAll('article img').forEach(i=>i.onclick=()=>window.open(i.src,'_blank'));</script></html>"""
     )
     print(
         "PASS: 9 CRPs, native scale/triangle/lot and save/reload receipts; 45 image hashes"
