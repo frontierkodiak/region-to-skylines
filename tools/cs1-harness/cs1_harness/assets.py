@@ -125,16 +125,21 @@ class Driver:
         self.c.call("asset_editor", theme=theme)
         self.wait_level("in_asset_editor", load_timeout, "the Asset Editor to load")
         self.s.track(crp)  # the job writes it; it leaves the game's data at `down`
-        templates = self.c.call("templates", service="Residential", sub_service="ResidentialLow", limit=200)[
-            "templates"
-        ]
+        service, sub_service = "Residential", "ResidentialLow"
+        if template.startswith("auto:"):
+            parts = template.split(":")
+            if len(parts) != 3 or not all(parts[1:]):
+                raise HarnessError("template selector must be auto:SERVICE:SUB_SERVICE")
+            _, service, sub_service = parts
+            template = "auto"
+        templates = self.c.call("templates", service=service, sub_service=sub_service, limit=200)["templates"]
         self.record("templates", {"templates": templates})
         if template == "auto":
-            # Low-density residential, level 1, on the same lot if one exists: a growable house.
+            # Level 1 in the selected class, on the same lot if one exists.
             fits = [t for t in templates if t["level"] == 1 and (not cells or t["cells"] == list(cells))]
             fits = fits or [t for t in templates if t["level"] == 1]
             if not fits:
-                raise HarnessError("no low-density residential level-1 template in this game")
+                raise HarnessError(f"no {service}/{sub_service} level-1 template in this game")
             template = sorted(fits, key=lambda t: t["name"])[0]["name"]
             self.log(f"template: {template}")
         args = {"name": name, "template": template, "scale": scale, "asset_name": asset_name, "save_name": save_name}
@@ -192,6 +197,7 @@ class Driver:
         for name, size, pitch, turn in (
             ("close", 45, 25, 0),
             ("back", 45, 25, 180),
+            ("gameplay", 120, 40, 0),
             ("distant", far, 40, 0),
             ("high", 120, 65, 0),
         ):

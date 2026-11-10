@@ -86,6 +86,11 @@ job in the mod; poll `call job`.
 
 ## Files
 
+`--template auto:Commercial:CommercialLow` and
+`--template auto:Residential:ResidentialHigh` select level-1 templates in those
+classes, preferring the requested lot. Plain `auto` remains ResidentialLow.
+The check also captures a 120 m, 40-degree gameplay view between close and LOD.
+
 The game writes files (screenshots, grids, log) only inside the Steam sandbox,
 so paths given to ops must be under
 `~/.var/app/com.valvesoftware.Steam/` or `/peach/Games/SteamLibrary`. `run`

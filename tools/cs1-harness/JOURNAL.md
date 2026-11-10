@@ -1,5 +1,16 @@
 # cs1-harness journal
 
+## 2026-11-10 · Sol xhigh (carbon) · PL-881 · native asset comparison
+
+The nine-asset bake-off includes commercial and high-residential buildings,
+so `auto` cannot silently give every candidate low-residential behavior.
+Added `auto:SERVICE:SUB_SERVICE` selectors while preserving plain `auto`.
+Added a matched 120 m / 40-degree gameplay camera between close and forced
+LOD captures. No session, Steam, GPU-placement or mod changes.
+
+Verification at this commit: Python lint/format pass. Native game verification
+is pending the shared harness slot; no game-render result is claimed here.
+
 How agents built and improved this harness: raw material for a write-up. One
 entry per change that mattered: the date, the agent and issue, what got in the
 way, what changed, and before/after (boot time, failure rate, what's newly
