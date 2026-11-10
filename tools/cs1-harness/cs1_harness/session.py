@@ -352,9 +352,10 @@ class Session(contextlib.AbstractContextManager):
         )
         return self.receipt["gpu"]
 
-    def check_placement(self) -> list[dict]:
+    def check_placement(self, placed: list[dict] | None = None) -> list[dict]:
         """The game must be on the pinned GPU and nowhere else."""
-        placed = gpu.game_placement()
+        if placed is None:
+            placed = gpu.game_placement()
         want = gpu.norm_bus(self.cfg.gpu_bus)
         self.receipt["game_gpu"] = placed
         wrong = [p for p in placed if p["bus"] != want]
@@ -376,11 +377,14 @@ class Session(contextlib.AbstractContextManager):
         return target
 
     def launch(self, game_args: list[str], timeout: float = 600):
-        """Start Steam on the harness display with -applaunch; wait for the mod's socket."""
+        """Launch through Steam; strict vanilla returns at rendering, not menu readiness."""
         c = self.cfg
         if self.egl is None:
             self.pin_gpu()
-        self.install_mod()
+        control = "--disableMods" not in game_args
+        self.receipt["control"] = control
+        if control:
+            self.install_mod()
         env = self.steam.base_env()
         before = set(self.steam.instances())
         self.steam_log = SteamLog(c, self.steam.log_path)
@@ -407,7 +411,13 @@ class Session(contextlib.AbstractContextManager):
         while time.monotonic() < deadline:
             self.our_instances |= set(self.steam.instances()) - before
             self.steam_log.check()
-            status = self.client.try_status()
+            live_games = set(game_pids(self.cfg.display)) if not control else set()
+            observed = [p for p in gpu.game_placement() if p["pid"] in live_games] if not control else []
+            if observed:
+                placed = self.check_placement(observed)
+                self.log("strict --disableMods game rendering; observe menu readiness through the private X display")
+                return {"control": False, "menu_ready": None, "game_gpu": placed}
+            status = self.client.try_status() if control else None
             # CS1's main menu lives in the IntroScreen scene; it is ready once nothing is loading.
             if status and not status.get("loading") and not status.get("in_game"):
                 self.receipt["menu_status"] = status
@@ -442,14 +452,19 @@ class Session(contextlib.AbstractContextManager):
         env = self.steam.base_env()
         pids = game_pids(c.display)
         if pids:
-            with contextlib.suppress(Exception):
-                self.client.call("quit")
-            for _ in range(60):
-                if not game_pids(c.display):
-                    break
-                time.sleep(1)
+            if self.receipt.get("control", True):
+                with contextlib.suppress(Exception):
+                    self.client.call("quit")
+                for _ in range(60):
+                    if not game_pids(c.display):
+                        break
+                    time.sleep(1)
             for pid in game_pids(c.display):
-                self.log(f"game {pid} ignored quit; terminating it")
+                self.log(
+                    f"game {pid} ignored quit; terminating it"
+                    if self.receipt.get("control", True)
+                    else f"closing uninstrumented game {pid}"
+                )
                 with contextlib.suppress(ProcessLookupError):
                     os.kill(pid, 15)
         if self.steam_alive() and (self.cfg.runtime_dir / "bus").exists():

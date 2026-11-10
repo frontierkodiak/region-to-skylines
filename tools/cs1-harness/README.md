@@ -63,6 +63,13 @@ stages there and moves results to `--out`.
   `--disableMods` skips mod loading entirely, which would remove control too. So
   harness runs use `--noWorkshop`, with only the local mods present. The mod is
   installed for the run and removed after it.
+- **Strict vanilla checks.** `up --game-arg=--disableMods` skips control-mod
+  installation and returns when the game renders on the pinned GPU. It does
+  **not** claim that the main menu is ready. `cs1_harness.x11.GameWindow`
+  captures and drives only the exact game window in a caller-named private
+  session; it never targets Steam prompts. Use ordinary New Game, record the
+  listing and loaded city, and `down` promptly. Autosave suppression requires
+  the control mod and therefore does not apply to this mode.
 - **Never saves.** The mod stops the autosave timer once a city loads. Nothing
   writes a save or a map.
 
@@ -207,6 +214,23 @@ claude mcp add cs1-harness -- uv run --directory ~/dev/frontierkodiak/region-to-
 
 Soaks go through `submit`: it returns at once, and the verdict arrives as a
 comment on the issue.
+
+Optional `paths` entries contain `name`, `from` and `to` native
+`[segment,lane,offset]` positions, `rail` (boolean), and `expected_segments`.
+The map check asks the native car/train pathfinder at the start and end,
+retaining success flags, all positions, and missing expected segments. A
+completed run is not a path-pass verdict. `networks` lists native IDs, lanes,
+directions, segment/node flags, bounds and matching render-part/LOD metadata
+to calibrate those probes. Runs with paths retain `networks-t000.json` and
+the final network snapshot alongside path results; these are read-only
+observations, not repairs. `path_start` and `path_result` also work
+interactively. Completed harness-owned paths are released.
+
+Exact water samples remain authoritative point measurements. Supplementary
+`wet_within_64m`, `max_depth_within_64m` and `nearest_water_m` fields describe
+water above 0.1 m in nearby native grid cells; they do not turn an exact dry
+sample into a wet one. Map checks disable day/night for that session only,
+without changing saved user settings, to keep screenshots interpretable.
 
 ## Hosts
 
