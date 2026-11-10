@@ -483,6 +483,10 @@ assemblies, then exercised in fresh New Games:
   now separately requires active, connected, problem-free utilities.
 - The fixture omits only `UnlockManager`'s modal milestone presentation.
   Unlocks and rewards still run, but the panel cannot pause an unattended soak.
+- The first Green Plains attempt found no hookup under the planner's 48 m
+  start-tile inset. Hookup selection now uses the game's purchased-area test;
+  receipts include the starting tile and twelve nearest road-node candidates,
+  and inspection remains usable when construction fails.
 
 **CLI proofs.** Built against the installed game, with eight verdict tests.
 Both proof commands use `run --scenario test-city --game-minutes 10
@@ -550,6 +554,7 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 | 2026-11-10 | Sol xhigh · PL-893 trial 11 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.08 W / 63 °C | ~6.7 min | grew 154, both car paths found, native water node disconnected; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 trial 12 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 161.86 W / 63 °C | ~5.4 min | grew 153 by 2.05 game-min, utilities working; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 Asheville proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.82 W / 63 °C | 4.59 min soak / 6.52 min slot | 10 game-min; population 0 → 377; verdict pass; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Green Plains first attempt | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 155.29 W / 63 °C | ~1.75 min monitored | no hookup found under planner inset; error verdict; clean teardown |
 
 PL-893 development wall times are the approximate first-to-last GPU sample
 span, including boot and teardown. Game VRAM is card peak minus the 8,000 MiB
