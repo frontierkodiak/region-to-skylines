@@ -45,6 +45,13 @@ size/lot receipts, without changing generated designs or any map bytes.
 All 18 new main/LOD FBX re-import checks passed. The original 48 Blender
 previews, their hashes and Clef bindings remain historical evidence unchanged.
 
+The first native build attempt (A-bungalow) waited from 21:04:55 to 21:19:55
+UTC for the shared harness lock and exited 75. It never launched CS1. The
+active game belonged to PL-857's Innsbruck water soak; PL-891/PL-893 harness
+work was also queued. No other agent's session was stopped. Native-game
+verification of the inputs, scoped-template/gameplay-camera extension and
+prepared batch/report helpers remains pending, not a passed acceptance gate.
+
 The final contact sheet also rejected direct-decimation LODs for B: they met
 triangle counts but tore into fragments. Switched to closed convex-envelope
 retopology and source baking, with a real re-imported manifold/volume check.

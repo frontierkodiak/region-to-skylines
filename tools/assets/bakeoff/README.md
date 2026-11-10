@@ -80,13 +80,22 @@ blender --background --factory-startup --python-exit-code 1 \
 ```
 
 Each game build/check must run serially under the harness slot. The bungalow
-uses `--template auto`; storefront and apartment need explicit CommercialLow
-and ResidentialHigh templates, respectively, discovered with `call templates`
-in the Asset Editor. Do not silently give all nine residential-low behavior.
+uses `--template auto`; storefront and apartment need CommercialLow and
+ResidentialHigh templates, respectively. The prepared PL-881 harness branch
+adds `auto:Commercial:CommercialLow` and `auto:Residential:ResidentialHigh`
+selectors that discover real template names in the editor. These extensions
+and the batch/report drivers still await native-game verification. Do not
+silently give all nine residential-low behavior.
 `game_report.py <game-build-and-check-root> <game-inputs> <destination>` audits
 the CRP hashes, native dimensions/triangles/lot, save/reload and cleanup
 receipts before assembling the native-renderer comparison. Keep that review
 distinct from the Blender fallback.
+
+`game_batch.py <harness-directory> <game-inputs> <map.crp> <output-root>` runs
+the fixed nine build/check pairs serially. It preserves a hash-bound plan,
+checks completed receipt/CRP hashes on resume, stops on a failed or blocked
+operation for diagnosis, and never answers a Steam prompt. Queue time is
+included in its wall times and must not be called import/inference time.
 
 ## Reproduce image-to-3D on blade
 
