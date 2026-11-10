@@ -659,6 +659,51 @@ to agree. Re-judged under the new rule, PL-857's best Asheville soak reads
 `unverified` until its probe file names its region. The lesson: an agent's
 check is only as independent as the frame it's drawn in. The playtest checked
 the world, so now the harness does too.
+## 2026-11-10 · Sol xhigh (blade) · PL-857 · hydraulic and native-path evidence
+
+The first arbitrary-region Asheville fixture was not the older two-source
+PL-848 map: its 207 sources flooded 0.522 km² more than 128 m from initial or
+mapped water in just ten game-minutes (depth >0.5 m). Stream initialization and
+lake outlet targets, not just river capacity, mattered. Conservative stream
+rates and lake rim limits reduced that to 0.038 km² in the next diagnostic.
+The R0 trial also controls the downstream ends of mapped reaches;
+its 60-minute saved grids show no water meeting that distant-flood threshold.
+Exact-point dry samples are retained separately from nearby wet-channel
+evidence. Minor streams are not all perennial.
+
+Added native network inspection and owned car/train path requests, with full
+returned lane/segment positions and release on completion. Positive highway
+checks pass all 56 segments per direction; deliberately reversed traffic fails.
+Rail chunks passed but a full rail path failed at one 108.22° turn. Smoothing
+the writer's rail alignment made the complete 173-segment native path pass at
+both ends of the R0 Asheville soak. This was a geometry defect, not a
+generic pathfinder-probe problem.
+
+Added 64 m neighbourhood water measurements alongside unchanged exact samples,
+and session-only daylight for screenshots. Neither changes the exported map.
+
+## 2026-11-10 · Sol xhigh (blade) · PL-857 · ordinary vanilla New Game
+
+`up --game-arg=--disableMods` now skips the mod/socket entirely and returns at
+GPU rendering, explicitly not menu readiness. A named private-window X11 helper
+captures and drives the actual game; bounds checks reject off-window clicks.
+Unity ignored instantaneous button events, so presses now hold for 120 ms.
+No Steam prompt is targeted. The existing account-conflict policy is unchanged.
+
+Verified on the R0 Asheville CRP (SHA-256
+`4b3d3cd31b3c934b0b6d4a44e6b98d3f39d97f01f40170722b6292c3ce32a390`):
+actual arguments `--disableMods --noWorkshop`, absent control socket, main menu
+0/0 mods and Workshop inactive, correct ordinary New Game listing, selection,
+and a loaded city with the city UI and starter approaches. Only that exact map
+was installed. Screenshots and the native load log were retained. The map
+preview is black, a remaining cosmetic template limitation. Optional Paradox
+auto-login was declined; no account or terms were accepted. Vanilla teardown
+terminates its own uninstrumented game instead of waiting for an absent socket;
+the resulting game/Steam/unit cleanup lists are all empty.
+
+The display-only `doctor` check now accepts the same `--wait-minutes` slot
+queue as `run` and `up`, so verifying a harness PR does not require racing a
+long soak. It still starts neither Steam nor the game.
 
 ## Run log
 
@@ -667,7 +712,6 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 
 | Date | Agent · issue | Host · GPU | Peak VRAM (game) | Peak W / °C | Wall | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
 | 2026-11-10 | Sol xhigh · PL-893 trial 1 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.42 W / 63 °C | ~3.0 min | highway elevation rejected; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 trial 2 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.57 W / 63 °C | ~3.9 min | highway elevation rejected; clean teardown |
@@ -694,3 +738,82 @@ Active wall time is slot acquisition through completed cleanup, excluding the
 queue; soak time is only the simulation loop. Green Plains reported 1280×720
 at the menu and the final Asheville run 1920×1080, so these are not controlled
 performance comparisons.
+| 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 161.9 W / 63 °C | 3.9 min sim | original arbitrary-region: 10 min; flooding; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 160.3 W / 63 °C | 2.7 min sim | conservative: 10 min; reduced flooding, rail failed; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 159.9 W / 63 °C | 16.2 min sim | gap-joining diagnostic: 60 min; rail failed; abandoned; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 166.4 W / 63 °C | 17.7 min sim | R0 Asheville: 60 min; paths pass; no distant flooding in saved grids; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 163.4 W / 63 °C | 16.6 min sim | R0 no-prefill Asheville A/B: 60 min; all28 playable river probes wet by5min and at end; paths pass; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GiB incremental | 169.7 W / 64 °C | 14.3 min session samples | R0 strict vanilla Asheville: ordinary listing, selection and city; no socket; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 8,259 MiB card / ~0.3 GiB incremental | 145.0 W / 62 °C | 50 s sampled | strict Innsbruck startup attempt: driver grayscale/RGB comparison error; safe exit before menu; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 168.9 W / 63 °C | 16.6 min sim | R0 Innsbruck60: all93 major probes have nearby water throughout; exact92/93end, allpaths pass;0.023km2 shallow stream pooling; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 162.6W / 63°C | 8.6min session sampled | R1 failed drain experiment; stopped aftert020; Sill drawdown, source-radius injection; normalquit, cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 168.9W / 63°C | 15.7min sim | R2 Innsbruck60: true creek drains verified; pooling reduced97%; long Inn has intermittent drygaps; nativepathsallpass; cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 165.9W / 63°C | 16.1min sim | R3 Innsbruck60: all35playable wetend,all455nearbyreadingswet;allpaths;4cellmaxshallowpooling;cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 159.2W / 64°C | 15.7min sim | R3 Ashnofill60: all28playablemajorwetby5minandend;nodistantspreading;allpaths;cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 163.3 W / 63 °C | 120 s sampled | R3 strict Asheville: ordinary city and complete highway, checksum-bound; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 8,099 MiB card / ~0.1 GB incremental | 145.6 W / 63 °C | 45 s sampled | R3 strict Innsbruck first attempt: double-query GPU race; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 159.3 W / 64 °C | 321 s sampled | R3 strict Innsbruck: real city verified; UI driver falsely expected a different internal asset name; cleanup empty |
+
+All runs retained the existing 150 W power limit. Instantaneous telemetry
+occasionally exceeded it; no power setting was changed. About 8,000 MiB on the
+card belonged to the resident inference replica, which was left untouched.
+
+The R0 A/B used byte-identical terrain and source controls. Final volume was
+18.990 M m³ without prefill versus 18.936 M m³ with it (0.3% apart). Both had
+28/28 playable river probes wet at the end; without prefill they start 0/28
+and reach 28/28 by minute5. Prefill is retained for immediate startup water,
+not credited for equilibrium. Comparing spreading against the SAME prefilled
+expected footprint, neither run has distant flooding in its saved grids.
+Native 64 m neighbourhood fields were exercised live by the no-prefill run.
+
+`doctor --wait-minutes120` acquired a real gap after this soak and passed on
+blade's 2080 Ti05:00.0 / egl0, 8,000 MiB existing use of11,264 MiB. No Steam
+or game was launched by doctor; its transient display/bus were removed.
+
+The task-local UI driver initially assumed RGB screenshots. ImageMagick emits
+grayscale for a black startup frame; normalizing both comparison crops to RGB
+fixed that driver error. The harness capture itself was correct. The obsolete
+R0 Rio and vanilla waiters were explicitly canceled before launch after the
+Innsbruck pooling finding; no other agent/session was touched.
+
+Native source review explained the failed trial: natural sources emit into ALL
+lower cells inside their capacity-dependent radius, not just their center.
+A below-center-bed target is NOT drain-only. The R2 writer therefore supports
+an explicit zero output capacity, keeps small creek withdrawal at0.01, and
+omits creek controls within96m of major mapped rivers. These are writer
+changes, not a change to native simulation or harness measurements.
+
+R3 adds writer-level river stage controls at fixed2,048m arc intervals,
+independent of verification probes: endpoint-only forcing left intermittent
+mid-Inn dry gaps once creek spillover was removed. Initial R3samples retain
+all35 playable Inn/Sill/Ruetz points wet exactly, without extra distant
+spreading beyond the tiny known creek pool. Full five-region qualification
+remains pending. The completed R3 Innsbruck run retained all 35 playable
+major-river probes wet at the end, with nearby water throughout; four shallow
+creek-pooling cells remain.
+
+A staging-camera error was caught before publishing evidence: shallow creek
+initialization changed Asheville's selected tile17to11, but copied camera
+coordinates still aimed at the old start. The writer's soak driver now binds
+that view to the candidate's actual landing. Only the queued old-view run was
+canceled; the replacement uses the SAMECRP bytes and corrected camera.
+
+A live strict Innsbruck startup exposed a placement-check race: launch queried
+GPU processes twice, saw a process first, then an empty transient registration
+on the second query, and incorrectly failed as software rendering. Reusing
+one observed snapshot fixes that inconsistency; wrong-GPU checks remain.
+The failed attempt cleaned up fully and was archived separately before retry.
+The observed GPU processes are also intersected with live game PIDs so stale
+registrations cannot certify a new launch. The retry rendered the complete
+Innsbruck starter highway in an ordinary vanilla city. The task-local UI
+driver then falsely timed out because it expected a region-labelled internal
+asset name. Native names are opaque template identifiers; reading kind 52
+from the installed checksum-bound CRP fixed that assumption. Screenshots and
+the real native load line independently verify the city. Both attempts
+cleaned up. The queued display-only doctor passed on 05:00.0 / egl0.
+
+Added read-only network snapshots at path-check endpoints: native bounds,
+segment/node flags and matching render parts/LOD metadata. This investigates
+highway meshes absent only in a wide harness camera while native paths and
+the normal vanilla view remain intact. It changes no map or simulation state.

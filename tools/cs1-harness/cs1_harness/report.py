@@ -215,6 +215,10 @@ def build(out: pathlib.Path, run: dict) -> dict:
                     "depth_end": round(depths[-1], 2),
                     "depth_min": round(min(depths), 2),
                     "depth_max": round(max(depths), 2),
+                    "wet_within_64m_end": series[-1].get("wet_within_64m"),
+                    "nearby_samples": sum("wet_within_64m" in p for p in series),
+                    "dry_within_64m_samples": sum(p.get("wet_within_64m") is False for p in series),
+                    "nearest_water_m_end": series[-1].get("nearest_water_m"),
                     "grid_depth_start": round(float(first[iz, ix]), 2) if 0 <= iz < N and 0 <= ix < N else None,
                 }
             )

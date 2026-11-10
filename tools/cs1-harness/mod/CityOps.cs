@@ -160,6 +160,28 @@ namespace Cs1Harness
             int maxDepth = 0;
             try
             {
+                foreach (Dictionary<string, object> point in samples)
+                {
+                    float px = Convert.ToSingle(point["x"]), pz = Convert.ToSingle(point["z"]);
+                    int cx = Mathf.RoundToInt((px + 8640f) / 16f), cz = Mathf.RoundToInt((pz + 8640f) / 16f);
+                    int localMax = 0;
+                    float nearest = float.PositiveInfinity;
+                    for (int z = Mathf.Max(0, cz - 4); z <= Mathf.Min(1080, cz + 4); z++)
+                        for (int x = Mathf.Max(0, cx - 4); x <= Mathf.Min(1080, cx + 4); x++)
+                        {
+                            float dx = x * 16 - 8640 - px, dz = z * 16 - 8640 - pz;
+                            float squared = dx * dx + dz * dz;
+                            if (squared > 64 * 64)
+                                continue;
+                            int h = cells[z * 1081 + x].m_height;
+                            localMax = Mathf.Max(localMax, h);
+                            if (h >= 7)
+                                nearest = Mathf.Min(nearest, squared);
+                        }
+                    point["max_depth_within_64m"] = localMax / 64f;
+                    point["wet_within_64m"] = localMax >= 7;
+                    point["nearest_water_m"] = float.IsPositiveInfinity(nearest) ? null : (object)Mathf.Sqrt(nearest);
+                }
                 for (int i = 0; i < cells.Length; i++)
                 {
                     int h = cells[i].m_height;

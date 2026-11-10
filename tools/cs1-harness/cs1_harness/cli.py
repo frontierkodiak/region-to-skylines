@@ -109,7 +109,7 @@ def cmd_setup(cfg, a):
 
 def cmd_doctor(cfg, a):
     """Check the GPU path without starting Steam: VirtualGL on the harness display, pinned by PCI bus."""
-    with Session(cfg, cfg.harness_home / "runs" / "doctor", log=log) as s:
+    with slot(cfg, cfg.harness_home / "runs" / "doctor", a.wait_minutes) as s:
         print(json.dumps({"host": cfg.host, "steam": cfg.steam, **s.pin_gpu()}, indent=2))
     shutil.rmtree(cfg.harness_home / "runs" / "doctor", ignore_errors=True)
     with contextlib.suppress(OSError):
@@ -292,7 +292,9 @@ def cmd_run(cfg, a):
             }
             with slot(cfg, stage, a.wait_minutes, meta) as s:
                 observers(s, a, default_label=f"map check: {a.map.name}")
-                r = MapCheck(s, out, points, views, log=log)
+                probe_data = json.loads(a.probes.read_text()) if a.probes else {}
+                paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
+                r = MapCheck(s, out, points, views, log=log, paths=paths)
                 r.render_fps = a.render_fps
                 result = r.execute(
                     a.map.resolve(),
@@ -569,7 +571,8 @@ def main(argv=None):
     sub.add_parser("build", help="compile the harness mod against the installed game")
     s = sub.add_parser("setup", help="user-level host setup (VirtualGL, Steam launch wrapper)")
     s.add_argument("--undo", action="store_true", help="remove everything setup added")
-    sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")
+    doctor = sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")
+    doctor.add_argument("--wait-minutes", type=float, default=0, help="wait for the shared harness slot")
     u = sub.add_parser("up", help="start a session and leave it running (ends with `down`)")
     u.add_argument("--map", type=pathlib.Path, help="install this .crp into Maps/ for the session")
     u.add_argument("--name", help="staging directory name")

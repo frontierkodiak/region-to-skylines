@@ -22,7 +22,7 @@ namespace Cs1Harness
         {
             Host.Register("status", Needs.Any, "process, scene, GPU, plugins, errors; city stats when a city is loaded", q => Status());
             Host.Register("quit", Needs.Any, "quit the game after this frame", q => { Host.RequestQuit(); return Host.Obj("quitting", true); });
-            Host.Register("run", Needs.Level, "pause/unpause and set speed 1-3: {paused, speed}", Run);
+            Host.Register("run", Needs.Level, "pause/speed and session-only day/night: {paused, speed, day_night}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
             Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", q => { UIView.Show(Json.Bool(q, "visible", true)); return Host.Obj("ui_visible", Json.Bool(q, "visible", true)); });
             Host.Register("camera_state", Needs.Level, "where the camera is and which way it faces: position, heading (0 = +z, 90 = +x), pitch, size, max size", q => CameraState());
@@ -101,7 +101,10 @@ namespace Cs1Harness
             }
             if (q.ContainsKey("paused"))
                 sm.SimulationPaused = Json.Bool(q, "paused", true);
-            return Host.Obj("paused", sm.SimulationPaused, "speed", sm.SelectedSimulationSpeed, "final_speed", sm.FinalSimulationSpeed);
+            if (q.ContainsKey("day_night"))
+                sm.m_enableDayNight = Json.Bool(q, "day_night", true);
+            return Host.Obj("paused", sm.SimulationPaused, "speed", sm.SelectedSimulationSpeed, "final_speed", sm.FinalSimulationSpeed,
+                "day_night", sm.m_enableDayNight);
         }
 
         static Dictionary<string, object> CameraOp(Dictionary<string, object> q)

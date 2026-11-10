@@ -33,16 +33,42 @@ def load_probe_file(path: pathlib.Path | None) -> tuple[list[dict], list[dict]]:
 
 
 class MapCheck:
-    def __init__(self, session: Session, out: pathlib.Path, points, views, log=print):
+    def __init__(self, session: Session, out: pathlib.Path, points, views, log=print, paths=()):
         self.s = session
         self.c = session.client
         self.out = out
         self.points = points
         self.views = views
+        self.paths = paths
         self.log = log
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
         self.render_fps = 0  # cap drawing between screenshot sets (0: unlimited); see `bench-speed`
+
+    def path_checks(self, label):
+        """Use native pathfinding, retaining every returned position and missing segment."""
+        checks = []
+        if self.paths:
+            (self.out / f"networks-{label}.json").write_text(json.dumps(self.c.call("networks"), indent=2) + "\n")
+        for test in self.paths:
+            request = {k: test[k] for k in ("from", "to", "rail")}
+            path = self.c.call("path_start", **request)
+            deadline = time.monotonic() + 60
+            while True:
+                result = self.c.call("path_result", id=path["id"])
+                if result["complete"]:
+                    break
+                if time.monotonic() >= deadline:
+                    raise HarnessError(f"native path {test['name']} did not finish in 60 seconds")
+                time.sleep(0.1)
+            visited = {p[0] for p in result["positions"]}
+            result.update(
+                name=test["name"],
+                missing_segments=sorted(set(test.get("expected_segments", ())) - visited),
+            )
+            checks.append(result)
+        self.record("paths", {"label": label, "checks": checks})
+        return checks
 
     def record(self, kind: str, data: dict):
         self.timeline.write(json.dumps({"kind": kind, "wall": time.time(), **data}) + "\n")
@@ -206,7 +232,7 @@ class MapCheck:
         status = self.c.wait(
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
         )
-        self.c.call("run", paused=True, speed=speed)
+        self.c.call("run", paused=True, speed=speed, day_night=False)
         fixture = None
         if scenario:
             from . import scenario as scenario_mod
@@ -227,6 +253,7 @@ class MapCheck:
         self.dump("t000", terrain=True)
         self.world_heights()
         self.sample("t000")
+        paths_start = self.path_checks("t000")
         self.screenshots("t000")
 
         def minute(frame):
@@ -277,6 +304,7 @@ class MapCheck:
             }
             self.record("scenario_end", fixture)
             (self.out / "scenario.json").write_text(json.dumps(fixture, indent=2) + "\n")
+        paths_end = self.path_checks(end)
         self.screenshots(end)
         status = self.c.call("status")
         self.timeline.close()
@@ -299,6 +327,8 @@ class MapCheck:
             "requested_scenario": scenario,
             "population_observations": population_observations,
             "opening_camera": opening,
+            "paths_start": paths_start,
+            "paths_end": paths_end,
             "final_status": {k: status.get(k) for k in ("error_count", "errors", "population", "game_time")},
         }
 
