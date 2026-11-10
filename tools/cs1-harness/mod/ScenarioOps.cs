@@ -21,6 +21,7 @@ namespace Cs1Harness
         static readonly List<uint> paths = new List<uint>();
         static readonly List<Dictionary<string, object>> pathResults = new List<Dictionary<string, object>>();
         static readonly List<string> pathDirections = new List<string>();
+        static readonly List<PathUnit.Position> pathEdges = new List<PathUnit.Position>();
         static Vector3 center;
 
         sealed class PlacementRejected : Exception
@@ -581,6 +582,32 @@ namespace Cs1Harness
             return default(PathUnit.Position);
         }
 
+        static bool EdgeNode(ushort id)
+        {
+            var n = Singleton<NetManager>.instance.m_nodes.m_buffer[id];
+            return (n.m_flags & NetNode.Flags.Outside) != 0
+                && Mathf.Max(Mathf.Abs(n.m_position.x), Mathf.Abs(n.m_position.z)) >= 8500;
+        }
+
+        static PathUnit.Position EdgeLane(ushort segment, bool outbound, int choice)
+        {
+            var s = Singleton<NetManager>.instance.m_segments.m_buffer[segment];
+            bool atStart = EdgeNode(s.m_startNode);
+            var want = atStart == outbound ? NetInfo.Direction.Backward : NetInfo.Direction.Forward;
+            if ((s.m_flags & NetSegment.Flags.Invert) != 0)
+                want = want == NetInfo.Direction.Forward ? NetInfo.Direction.Backward : NetInfo.Direction.Forward;
+            int seen = 0;
+            for (int i = 0; i < s.Info.m_lanes.Length; i++)
+            {
+                var lane = s.Info.m_lanes[i];
+                if ((lane.m_laneType & NetInfo.LaneType.Vehicle) == 0 || (lane.m_vehicleType & VehicleInfo.VehicleType.Car) == 0
+                    || (lane.m_finalDirection & want) == 0) continue;
+                if (seen++ == choice)
+                    return new PathUnit.Position { m_segment = segment, m_lane = (byte)i, m_offset = atStart ? (byte)0 : (byte)255 };
+            }
+            return default(PathUnit.Position);
+        }
+
         static Dictionary<string, object> Paths(Dictionary<string, object> q)
         {
             var pm = Singleton<PathManager>.instance;
@@ -588,7 +615,7 @@ namespace Cs1Harness
             {
                 if (paths.Count != 0) throw new Exception("poll pending scenario paths first");
                 if (state != "done") throw new Exception("build test-city first");
-                pathResults.Clear(); pathDirections.Clear();
+                pathResults.Clear(); pathDirections.Clear(); pathEdges.Clear();
                 var net = Singleton<NetManager>.instance;
                 var random = new Randomizer(893u);
                 var fromA = Lane(roads[0], 0);
@@ -597,13 +624,13 @@ namespace Cs1Harness
                 {
                     var s = net.m_segments.m_buffer[id];
                     if ((s.m_flags & NetSegment.Flags.Created) == 0 || s.Info == null || !(s.Info.m_netAI is RoadBaseAI)) continue;
-                    if (((net.m_nodes.m_buffer[s.m_startNode].m_flags | net.m_nodes.m_buffer[s.m_endNode].m_flags) & NetNode.Flags.Outside) == 0) continue;
-                    var toA = Lane((ushort)id, 0);
-                    var toB = Lane((ushort)id, 1);
-                    if (toA.m_segment == 0) continue;
-                    if (paths.Count >= 32) throw new Exception("more than 16 road edge segments; scenario path probe limit exceeded");
+                    if (!EdgeNode(s.m_startNode) && !EdgeNode(s.m_endNode)) continue;
                     for (int direction = 0; direction < 2; direction++)
                     {
+                        var toA = EdgeLane((ushort)id, direction == 0, 0);
+                        var toB = EdgeLane((ushort)id, direction == 0, 1);
+                        if (toA.m_segment == 0) continue;
+                        if (paths.Count >= 32) throw new Exception("more than 32 scenario edge path requests");
                         uint path;
                         bool created = direction == 0
                             ? pm.CreatePath(out path, ref random, Singleton<SimulationManager>.instance.m_currentBuildIndex, fromA, fromB, toA, toB,
@@ -613,6 +640,7 @@ namespace Cs1Harness
                         if (!created) throw new Exception("native CreatePath refused the scenario probe");
                         paths.Add(path);
                         pathDirections.Add(direction == 0 ? "outbound" : "inbound");
+                        pathEdges.Add(toA);
                     }
                 }
             }
@@ -642,9 +670,10 @@ namespace Cs1Harness
                     }
                 }
                 pathResults.Add(Host.Obj("direction", pathDirections[i], "success", (flags & 4) != 0,
-                    "length", length, "positions", positions, "released", true));
+                    "length", length, "positions", positions, "released", true, "grid_segment", roads[0],
+                    "edge_segment", pathEdges[i].m_segment, "edge_offset", pathEdges[i].m_offset));
                 pm.ReleasePath(id);
-                paths.RemoveAt(i); pathDirections.RemoveAt(i);
+                paths.RemoveAt(i); pathDirections.RemoveAt(i); pathEdges.RemoveAt(i);
             }
             bool inbound = false, outbound = false;
             foreach (var p in pathResults)

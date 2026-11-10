@@ -116,7 +116,9 @@ class MapCheck:
             (
                 m
                 for m in maps
-                if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+                if m["path"]
+                and pathlib.Path(m["path"]).exists()
+                and any(pathlib.Path(m["path"]).samefile(p) for p in (installed, crp))
             ),
             None,
         )

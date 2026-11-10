@@ -50,7 +50,7 @@ MAP_SOAK = {
     # Clef frame-kind flags fail the run only when at least this share of shots
     # is flagged (systematic); fewer is a warning. Clef misread 1 of 19 frames.
     "clef_fail_fraction": 0.5,
-    # test-city only; calibrated on PL-893's two-map trial (JOURNAL.md).
+    # test-city only; calibration and measured growth times go in JOURNAL.md.
     "population_min_growth": 50,
     "population_growth_by_minute": 5.0,
 }
@@ -325,11 +325,22 @@ def scenario_checks(report: dict) -> list[dict]:
         f">= {minimum} new residents by minute {deadline:g}, retained at the end",
     )
     reach = fixture.get("reachability") or {}
-    successful = {
-        p.get("direction")
-        for p in reach.get("paths") or []
-        if p.get("success") and len(p.get("positions") or []) >= 2 and p.get("released")
-    }
+    successful = set()
+    for path in reach.get("paths") or []:
+        positions = path.get("positions") or []
+        grid = path.get("grid_segment")
+        edge = path.get("edge_segment")
+        offset = path.get("edge_offset")
+        if (
+            path.get("success")
+            and path.get("released")
+            and grid
+            and edge
+            and offset in (0, 255)
+            and any(p[0] == grid for p in positions)
+            and any(p[0] == edge and abs(p[2] - offset) <= 1 for p in positions)
+        ):
+            successful.add(path.get("direction"))
     connected = reach.get("complete") and {"inbound", "outbound"}.issubset(successful)
     outside = row(
         "outside_connection",

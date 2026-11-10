@@ -15,7 +15,15 @@ def report(final=120, reached=2.0, directions=("inbound", "outbound")):
             "reachability": {
                 "complete": True,
                 "paths": [
-                    {"direction": d, "success": True, "positions": [[1, 0, 128], [100, 0, 128]], "released": True}
+                    {
+                        "direction": d,
+                        "success": True,
+                        "positions": [[1, 0, 128], [100, 0, 255]],
+                        "released": True,
+                        "grid_segment": 1,
+                        "edge_segment": 100,
+                        "edge_offset": 255,
+                    }
                     for d in directions
                 ],
             },
@@ -48,6 +56,12 @@ class ScenarioVerdictTest(unittest.TestCase):
     def test_summary_booleans_without_native_evidence_cannot_pass(self):
         doc = report(directions=())
         doc["scenario"]["reachability"].update(inbound=True, outbound=True)
+        self.assertEqual(statuses(doc)["outside_connection"], "fail")
+
+    def test_path_to_highway_midpoint_is_not_an_exit_proof(self):
+        doc = report()
+        for path in doc["scenario"]["reachability"]["paths"]:
+            path["positions"][-1][2] = 128
         self.assertEqual(statuses(doc)["outside_connection"], "fail")
 
 
