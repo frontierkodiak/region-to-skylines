@@ -1,0 +1,78 @@
+# cs1-harness
+
+Runs Cities: Skylines 1 on blade's GPU with no screen. It starts a New Game on a
+`.crp` map, lets the simulation run, then reports water, population, log errors
+and GPU load, with screenshots. No game window appears on anyone's desktop.
+
+```sh
+cd tools/cs1-harness
+uv run cs1-harness build                 # compile the mod against the installed game
+uv run cs1-harness setup                 # once per host: VirtualGL, Steam launch wrapper
+uv run cs1-harness doctor                # GPU check on the harness display; no Steam
+uv run cs1-harness run --map Asheville.crp --game-minutes 60 \
+    --probes examples/pl848-asheville-probes.json --out ~/experiments/PL-856-cs1-harness/asheville-60
+```
+
+## How it runs
+
+- **Display.** A private `Xvfb :57`. The game renders on the NVIDIA GPU through
+  VirtualGL's EGL back end (`vglrun -d egl1`, the RTX 3090; `CS1_HARNESS_EGL=egl0`
+  picks the 2080 Ti). EGL needs only `/dev/nvidia*`. gamescope's headless
+  backend was tried first and fails here: it needs the DRM nodes `/dev/dri/card*`,
+  and the `caleb` user has no access to them.
+- **Steam.** The harness starts its own Flatpak Steam on that display, on a
+  private D-Bus session bus that carries `DISPLAY=:57`. Steam's Flatpak refuses to
+  start when the desktop bus's activation environment lacks `DISPLAY`, and the
+  desktop bus must not be pointed at the harness display. It launches the game
+  with `-applaunch`, so Steam's own prompts guard the account. If the account is
+  playing on another computer, Steam asks first, and the harness never answers:
+  it stops with exit code 75 (`--retry-minutes 30` waits and tries again). Other
+  prompts, such as the EULA, stop the run with exit code 77. The run refuses to
+  start if any Steam is already running for the user.
+- **Control.** `mod/` is a small mod with a loopback JSON socket
+  (`127.0.0.1:8779`). The game constructs every local mod at startup, enabled or
+  not, so the socket opens without ticking the mod in Content Manager. The mod
+  stays disabled, so the game counts zero enabled mods. The game's
+  `--disableMods` skips mod loading entirely, which would remove control too. So
+  harness runs use `--noWorkshop`, with only the local mods present. The mod is
+  installed for the run and removed after it.
+- **Never saves.** The mod stops the autosave timer once a city loads. Nothing
+  writes a save or a map.
+
+## Output
+
+`--out DIR` gets `report.md`, `report.json`, `timeline.jsonl` (stats and probe
+samples every `--sample-every` game-minutes), `game.log`, `gpu.csv`
+(temperature and power every 5 s), `shots/` (one image per view every
+`--screenshot-every` game-minutes, UI hidden), `grids/` (raw water depth and
+terrain), and `water-start.png`, `water-end.png` and `water-change.png` (red
+newly wet, yellow dried).
+
+A game-minute is a minute of play at 1x speed: `60 / Time.fixedDeltaTime`
+simulation frames. Speed 3 runs at 4x when the CPU keeps up. The in-game clock
+moves much faster, about 2.5 game-clock minutes per frame.
+
+Grids are little-endian `uint16`, 1081 × 1081, in the game's order: index
+`iz * 1081 + ix`, world `x = ix * 16 - 8640`, `z = iz * 16 - 8640`, units of
+1/64 m. Images put north (+z) at the top.
+
+A probes file is JSON with `points` (`{"name", "x", "z"}` in world metres) and
+optional `views` (`{"name", "x", "z", "size", "yaw", "pitch"}`). Without one the
+run takes a single overview screenshot set and no point samples.
+
+## Host layout (blade)
+
+| What | Where |
+|:--|:--|
+| Game | `/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines` (`CS1_GAME_DIR`) |
+| Game data (Flatpak) | `~/.var/app/com.valvesoftware.Steam/.local/share/Colossal Order/Cities_Skylines` |
+| VirtualGL 3.1.5 | `~/.var/app/com.valvesoftware.Steam/opt/virtualgl-3.1.5` |
+| Launch wrapper, staging | `~/.var/app/com.valvesoftware.Steam/opt/cs1-harness` |
+| .NET SDK, built mod | `~/.cache/cs1-harness` |
+
+`setup` sets the game's Steam launch options to `<wrapper> %command%`. Without a
+harness session on the current display the wrapper runs the game unchanged, so
+playing on `:0` is unaffected. `setup --undo` removes the launch options,
+wrapper, VirtualGL and mod. Session pieces (`cs1-harness-xvfb`,
+`cs1-harness-dbus`, `cs1-harness-steam`) are transient `systemd --user` units
+that exist only during a run.
