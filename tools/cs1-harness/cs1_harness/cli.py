@@ -443,7 +443,7 @@ def cmd_queue(cfg, a):
 
 def cmd_verdict(cfg, a):
     """Judge finished run directories; exit 1 if any fails or can't be judged."""
-    worst = 0
+    worst, judged = 0, []
     for d in a.dirs:
         try:
             v = verdict_mod.judge(d)
@@ -452,11 +452,22 @@ def cmd_verdict(cfg, a):
             worst = 1
             continue
         t = triage_mod.attach(d)
-        print(f"{d}: {verdict_mod.summary(v)}" + (f" · triage {t['class']}: {t['why']}" if t else ""))
-        if a.json:
-            print(json.dumps(v, indent=2, default=str))
+        if t:
+            v["triage"] = t
+        judged.append({"dir": str(d), **v})
+        if not a.json:
+            print(f"{d}: {verdict_mod.summary(v)}" + (f" · triage {t['class']}: {t['why']}" if t else ""))
         worst = max(worst, 0 if v["verdict"] == "pass" else 1)
+    if a.json:
+        print(json.dumps(judged, indent=2, default=str))
     return worst
+
+
+def cmd_mcp(cfg, a):
+    """Serve the harness over MCP (stdio)."""
+    from . import mcp_server
+
+    mcp_server.main()
 
 
 def cmd_runs(cfg, a):
@@ -611,6 +622,7 @@ def main(argv=None):
     m.add_argument("--no-wake", action="store_true", help="comment without @mentioning the assignee")
     m.add_argument("--wait-minutes", type=float, default=240, help="how long the job waits for the slot")
     m.add_argument("run_args", nargs=argparse.REMAINDER, help="-- run --map … --out … [options]")
+    sub.add_parser("mcp", help="serve these commands over MCP (stdio), for agents that prefer tools")
     j = sub.add_parser("verdict", help="(re)judge finished run directories and write verdict.json")
     j.add_argument("dirs", nargs="+", type=pathlib.Path)
     j.add_argument("--json", action="store_true", help="print the full verdict")
@@ -637,6 +649,7 @@ def main(argv=None):
             "see": cmd_see,
             "run": cmd_run,
             "verdict": cmd_verdict,
+            "mcp": cmd_mcp,
             "runs": cmd_runs,
             "notify": cmd_notify,
             "queue": cmd_queue,

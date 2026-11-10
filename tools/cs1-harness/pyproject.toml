@@ -5,6 +5,7 @@ description = "Headless GPU Cities: Skylines 1 test runs for generated maps"
 requires-python = ">=3.11"
 dependencies = [
     "matplotlib>=3.11.2",
+    "mcp>=2.3.0",
     "numpy>=2.0",
     "pillow>=10.0",
 ]
