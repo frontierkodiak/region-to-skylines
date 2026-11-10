@@ -34,7 +34,7 @@ namespace Cs1Harness
         public static void Register()
         {
             Host.Register("scenario_build", Needs.City, "build test-city in a fresh, paused New Game; poll scenario_status", Start);
-            Host.Register("scenario_status", Needs.City, "construction result and live utility/building state (inspect:true lists hookup nodes)", Status);
+            Host.Register("scenario_status", Needs.City, "construction and live utility state (inspect:true lists hookup nodes and water prefabs)", Status);
             Host.Register("scenario_paths", Needs.City, "native car paths between the fixture and highway edges: {start:true}, then poll", Paths);
         }
 
@@ -169,14 +169,21 @@ namespace Cs1Harness
             {
                 var p = PrefabCollection<BuildingInfo>.GetLoaded(i);
                 var ai = p == null ? null : p.m_buildingAI as WaterFacilityAI;
-                if (ai == null || p.m_placementMode != BuildingInfo.PlacementMode.Shoreline
+                if (ai == null || !ShoreMode(p)
                     || ai.m_useGroundWater || ai.m_waterStorage != 0 || ai.m_sewageStorage != 0) continue;
                 if (intake ? ai.m_waterIntake <= 0 || ai.m_sewageOutlet != 0 : ai.m_sewageOutlet <= 0 || ai.m_waterIntake != 0) continue;
+                if (!Singleton<UnlockManager>.instance.Unlocked(p.m_UnlockMilestone)) continue;
                 int cost = ai.GetConstructionCost();
                 if (cost < cheapest) { cheapest = cost; selected = p; }
             }
             if (selected == null) throw new Exception("no loaded shoreline " + (intake ? "water pump" : "sewage drain"));
             return selected;
+        }
+
+        static bool ShoreMode(BuildingInfo info)
+        {
+            return info.m_placementMode == BuildingInfo.PlacementMode.Shoreline
+                || info.m_placementMode == BuildingInfo.PlacementMode.ShorelineOrGround;
         }
 
         static NetTool.ControlPoint Point(NetInfo info, Vector3 p, ushort node = 0, float elevation = float.NaN)
@@ -197,6 +204,9 @@ namespace Cs1Harness
         static ushort Link(NetInfo info, Vector3 a, Vector3 b, ushort from = 0, ushort to = 0, bool road = false,
             float endElevation = float.NaN, bool testOnly = false, List<ushort> endpoints = null)
         {
+            var unlocks = Singleton<UnlockManager>.instance;
+            unlocks.CheckMilestone(info.m_UnlockMilestone, false, false);
+            if (!unlocks.Unlocked(info.m_UnlockMilestone)) throw new Exception("network is locked: " + info.name);
             var start = Point(info, a, from);
             var end = Point(info, b, to, endElevation);
             var dir = end.m_position - start.m_position;
@@ -255,10 +265,14 @@ namespace Cs1Harness
 
         static ushort Place(BuildingInfo info, Vector3 pos, float angle, float waterHeight = 0)
         {
+            var unlocks = Singleton<UnlockManager>.instance;
+            unlocks.CheckMilestone(info.m_UnlockMilestone, false, false);
+            if (!unlocks.Unlocked(info.m_UnlockMilestone)) throw new Exception("building is locked: " + info.name);
             var connection = new Segment3();
             float low, high, height;
             Building.SampleBuildingHeight(pos, angle, info.m_cellWidth, info.m_cellLength, info, out low, out high, out height);
-            bool shoreline = info.m_placementMode == BuildingInfo.PlacementMode.Shoreline;
+            bool shoreline = ShoreMode(info);
+            var mode = shoreline ? BuildingInfo.PlacementMode.Shoreline : info.m_placementMode;
             float shoreHeight = pos.y;
             pos.y = shoreline ? Mathf.Max(pos.y, height) : height;
             int production, cost;
@@ -275,14 +289,14 @@ namespace Cs1Harness
             tool.BeginColliding(out segments, out bs);
             try
             {
-                errors |= BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, Mathf.Min(low, waterHeight == 0 ? low : waterHeight),
+                errors |= BuildingTool.CheckSpace(info, mode, 0, pos, Mathf.Min(low, waterHeight == 0 ? low : waterHeight),
                     pos.y + info.m_collisionHeight, angle, info.m_cellWidth, info.m_cellLength, true, segments, bs);
                 if (!shoreline && high - low > info.m_maxHeightOffset) errors |= ToolBase.ToolErrors.SlopeTooSteep;
                 if (Singleton<EconomyManager>.instance.PeekResource(EconomyManager.Resource.Construction, cost) != cost)
                     errors |= ToolBase.ToolErrors.NotEnoughMoney;
                 if (errors != ToolBase.ToolErrors.None)
                     throw new PlacementRejected(info.name + " " + pos, errors);
-                BuildingTool.CheckSpace(info, info.m_placementMode, 0, pos, low, pos.y + info.m_collisionHeight,
+                BuildingTool.CheckSpace(info, mode, 0, pos, low, pos.y + info.m_collisionHeight,
                     angle, info.m_cellWidth, info.m_cellLength, false, segments, bs);
             }
             finally { tool.EndColliding(); }
@@ -585,6 +599,18 @@ namespace Cs1Harness
                         "elevation", n.m_elevation, "ground", Singleton<TerrainManager>.instance.SampleRawHeightSmooth(n.m_position)));
                 }
                 doc["hookups"] = hooks;
+                var water = new List<object>();
+                for (uint i = 0; i < PrefabCollection<BuildingInfo>.LoadedCount(); i++)
+                {
+                    var p = PrefabCollection<BuildingInfo>.GetLoaded(i);
+                    var ai = p == null ? null : p.m_buildingAI as WaterFacilityAI;
+                    if (ai == null) continue;
+                    water.Add(Host.Obj("name", p.name, "mode", p.m_placementMode.ToString(), "intake", ai.m_waterIntake,
+                        "outlet", ai.m_waterOutlet, "sewage", ai.m_sewageOutlet, "storage", ai.m_waterStorage,
+                        "sewage_storage", ai.m_sewageStorage, "ground_water", ai.m_useGroundWater, "cost", ai.GetConstructionCost(),
+                        "unlocked", Singleton<UnlockManager>.instance.Unlocked(p.m_UnlockMilestone)));
+                }
+                doc["water_prefabs"] = water;
             }
             return doc;
         }
