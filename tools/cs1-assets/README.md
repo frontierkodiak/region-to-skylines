@@ -41,15 +41,26 @@ Main and LOD maps are each one resolution, as the game requires. No normal map
    cell (non-degenerate, so the game's tangents stay finite), paints the maps,
    and builds the LOD.
 3. `cs1_assets/blender_fbx.py` runs in Blender 4.2 LTS with no UI. It builds both
-   meshes, exports each alone with "FBX All" scaling, -Z forward, Y up and Apply
-   Transform, then re-imports the files and fails on any bounds difference.
+   meshes (winding reversed for the game, below), exports each alone with "FBX
+   All" scaling, -Z forward, Y up and Apply Transform, then re-imports the files
+   and fails on any bounds difference.
 
-## Coordinates
+## Coordinates, scale and winding
 
-The game's building frame has the road side at +Z. Blender's FBX export with
--Z forward and Y up turns Blender -Y into FBX +Z, and Unity's import keeps +Z
-while mirroring X. So a model whose front faces Blender's front view (-Y) faces
-the road in game, without the importer's rotate buttons, which the creators'
-guide warns break tangents. That chain was read from the exporter's settings,
-not yet seen in game; `asset build` reports the imported bounds and `asset
-check` takes a front view.
+Seen in the game on blade (PL-880, 2026-11-10), not just read from settings:
+
+- **Front.** The game's building frame has the road side at +Z. Blender's FBX
+  export with -Z forward and Y up turns Blender -Y into FBX +Z, so a model whose
+  front faces Blender's front view (-Y) faces the road. In game the garden walls
+  and porch sit on the lot's road side and the chimney stays on the left seen
+  from the street.
+- **Scale.** "FBX All" writes metres with `UnitScaleFactor` 100. The game's
+  importer reads that as centimetres: the house came in at 0.13 m wide. The
+  Asset Editor's scale field must be 100, the value the creators' guide calls
+  common. `<name>.bake.json` records `import_scale: 100`, and `cs1-harness asset
+  build` uses it and fails if the imported size differs from the bake's.
+- **Winding.** The importer negates X (the right- to left-handed change) but
+  keeps triangle order, so a correctly wound file renders inside out. The FBX
+  stores every triangle reversed, with its outward normal as a custom normal;
+  `fbx-receipt.json` counts the reversed faces. The previews render the model as
+  authored.

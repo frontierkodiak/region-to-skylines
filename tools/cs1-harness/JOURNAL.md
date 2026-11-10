@@ -267,6 +267,55 @@ never pauses.
 **Noticed.** This session came up at 1280×720, where earlier ones were
 1920×1080. Something changed the game's resolution setting between runs.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-880 · Asset Editor mode: a kit house to a placeable .crp
+
+**In the way.** The prompt-to-asset pipeline needs the game's Asset Editor,
+which has no API. CSUR RoadImporter drives it for roads from inside the game;
+nothing did it for buildings, or headless.
+
+**What changed.**
+- `EditorOps.cs` opens the editor on a new asset and runs one job: pick the
+  template, select the FBX in the import wizard, wait for the model, set the
+  scale, compare the imported size with the bake receipt, continue, wait for
+  texture compression, set the lot, and save through the save panel after its
+  compulsory snapshots. `CheckOps.cs` loads the `.crp` in a fresh game, places
+  it completed, sets the clock, and saves and reloads the city.
+  `asset build` / `asset check` drive them; `Jobs.cs` steps multi-frame work
+  once a frame so ops stay quick.
+- **The native texture read-back kills the game here.** `Image(Texture)` reads
+  the GL texture through its native pointer; under VirtualGL's EGL back end the
+  process died a few seconds later with no trace, in threaded and direct
+  rendering, for RGB24 and RGBA32. The importer's compression and the package
+  save both use it. Bisected with `image_check` (no debugger: ptrace scope 1,
+  no gdb, no cores). `Readback.cs` redirects that one constructor to a read-back
+  through Unity (the texture's CPU copy, else blit and `ReadPixels`, keeping
+  sRGB colour maps encoded because the game renders in Linear). It is installed
+  for Asset Editor sessions only and lasts for that process.
+- The launch wrapper now keeps the game's stdout and stderr in the run
+  (`game-stdout.log`), where Mono writes native crash traces.
+- `status` reports the modal stack. A Paradox "log in with Steam" panel sits on
+  the main menu; New Game and the editor load past it, and nothing answers it.
+- The pointer is parked off-centre before screenshots: the game's hover
+  highlight tinted the building blue under the centred pointer.
+- The mod builds per checkout (`.build/`). The shared `~/.cache` build let one
+  agent's `build` change the DLL another agent's next `up` installed.
+- `CS1_HARNESS_SCREEN=1280x720` sets the harness screen. It saved little VRAM
+  (10.78 GB vs 10.82 GB on the card), so it is a knob, not a fix.
+
+**Learned in game, not from docs.** Blender's "FBX All" export is read at
+1/100 scale (the asset guide's "scale 100"). The importer negates X but keeps
+winding, so correctly wound meshes render inside out; `cs1-assets` writes
+reversed triangles with outward custom normals. Built-in themes load through
+their metadata's `assetRef`, not the metadata asset ("File format version not
+supported"). Custom buildings become prefabs only when a level loads. Flatpak
+shows the data directory through a `data` symlink, so paths compare resolved.
+
+**Before → after.** Before: no way to make a building asset without a person
+in the editor. After: `asset build` turns an FBX import set into a `.crp` in
+about 2 minutes, game start included (17 s from import to save), and `asset
+check` places it in a fresh New Game with day, night, distant and reload views
+in about 4 minutes.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and

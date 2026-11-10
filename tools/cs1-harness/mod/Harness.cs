@@ -256,6 +256,14 @@ namespace Cs1Harness
             return LevelLoaded() && (Mode() & ItemClass.Availability.Game) != ItemClass.Availability.None;
         }
 
+        // Modal panels stack in UIView; a dialog nobody answers (an account prompt, a warning)
+        // sits on top and blocks the panels under it. Top first.
+        public static object ModalStack()
+        {
+            var top = UIView.GetModalComponent();
+            return Obj("count", UIView.ModalInputCount(), "top", top == null ? null : top.name, "top_visible", top != null && top.isVisible);
+        }
+
         public static bool InAssetEditor()
         {
             return LevelLoaded() && (Mode() & ItemClass.Availability.AssetEditor) != ItemClass.Availability.None;

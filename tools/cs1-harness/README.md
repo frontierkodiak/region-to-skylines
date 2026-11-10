@@ -61,6 +61,20 @@ and takes close, distant (past its LOD distance) and high views at noon and at
 22:00. Then it saves the city, reloads the save and checks the building is
 still there by id and prefab name. The save is deleted at `down`.
 
+Two things the editor needs on blade that a desktop doesn't:
+
+- **Texture read-back.** The game's native `Image(Texture)` read-back kills the
+  process under VirtualGL. `asset_editor` installs `Readback.cs`, which reads
+  textures back through Unity instead, for that game process only
+  (`safe_readback: false` turns it off; `call image_check` reproduces the crash).
+- **Colours.** By default the job turns the template's colour variations off and
+  sets the materials' colours to white, so the model keeps its own colours
+  (`color_variations: true` keeps the template's).
+
+The import set's scale comes from its bake receipt (`import_scale`, 100 for
+`cs1-assets` FBX files), and a size mismatch fails the job before anything is
+saved.
+
 Placing a growable by hand would leave a construction site that the
 simulation abandons without zoning or a road, so `place_building` marks it
 completed and the check keeps the simulation paused.

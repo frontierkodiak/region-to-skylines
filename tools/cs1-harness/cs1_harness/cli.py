@@ -295,6 +295,7 @@ def cmd_asset(cfg, a):
         cells = (
             tuple(int(v) for v in a.cells.lower().split("x")) if a.cells else tuple(bake.get("lot_cells", ())) or None
         )
+        scale = a.scale if a.scale is not None else float(bake.get("import_scale", 1))
         expect = None
         if bake.get("size_m") and not a.no_size_check:
             sx, sy, sz = bake["size_m"]  # Blender x across, y deep, z up -> game x, y up, z deep
@@ -308,7 +309,7 @@ def cmd_asset(cfg, a):
                 a.name,
                 a.template,
                 cells,
-                a.scale,
+                scale,
                 expect,
                 a.asset_name or a.name,
                 a.save_name or a.name,
@@ -404,7 +405,7 @@ def main(argv=None):
         "residential level 1 on the lot",
     )
     b.add_argument("--cells", help="lot in 8 m cells, WxL (default: the bake receipt's)")
-    b.add_argument("--scale", type=float, default=1.0, help="import scale (default 1: the FBX is in metres)")
+    b.add_argument("--scale", type=float, help="import scale (default: the bake receipt's import_scale, else 1)")
     b.add_argument("--no-size-check", action="store_true", help="skip comparing the imported size with the bake's")
     b.add_argument("--asset-name", help="asset name in game menus (default: --name)")
     b.add_argument("--save-name", help=".crp file name without extension (default: --name)")

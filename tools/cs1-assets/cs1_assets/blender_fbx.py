@@ -31,31 +31,35 @@ def clear():
             block.remove(item)
 
 
-def build(name, triangles, uvs):
-    verts, faces, loops_uv = [], [], []
+def build(name, triangles, uvs, cs1_winding=True):
+    """One flat-shaded mesh. With cs1_winding, every triangle is stored in reverse order and
+    keeps its outward normal as a custom normal: the game's FBX import negates X (the
+    right- to left-handed change) without reversing winding, so a correctly wound file
+    renders inside out in game (seen in the Asset Editor, PL-880, 2026-11-10)."""
+    verts, faces, loops_uv, normals = [], [], [], []
     for t, uv in zip(triangles, uvs):
+        a, b, c = (Vector(v) for v in t)
+        n = (b - a).cross(c - a)
+        n = n.normalized() if n.length > 1e-12 else Vector((0, 0, 1))
         base = len(verts)
         verts.extend(t)
-        faces.append((base, base + 1, base + 2))
-        loops_uv.extend(uv)
+        order = (0, 2, 1) if cs1_winding else (0, 1, 2)
+        faces.append(tuple(base + k for k in order))
+        loops_uv.extend(uv[k] for k in order)
+        normals.extend([n] * 3)
     me = bpy.data.meshes.new(name)
     me.from_pydata(verts, [], faces)
     me.update()
     layer = me.uv_layers.new(name="UVMap")
-    for i, loop in enumerate(me.loops):
-        layer.data[i].uv = loops_uv[loop.index]
+    for i in range(len(me.loops)):
+        layer.data[i].uv = loops_uv[i]
     for poly in me.polygons:
         poly.use_smooth = False
+    me.normals_split_custom_set([tuple(n) for n in normals])
     ob = bpy.data.objects.new(name, me)
     bpy.context.scene.collection.objects.link(ob)
-    # Merge the per-face vertices only where position and UV agree: keeps flat shading and
-    # the atlas cells, halves the vertex count.
-    bpy.context.view_layer.objects.active = ob
-    ob.select_set(True)
-    bpy.ops.object.mode_set(mode="EDIT")
-    bpy.ops.mesh.select_all(action="SELECT")
-    bpy.ops.mesh.remove_doubles(threshold=1e-4, use_unselected=False, use_sharp_edge_from_normals=False)
-    bpy.ops.object.mode_set(mode="OBJECT")
+    # Per-face vertices stay separate: flat shading, atlas cells and custom normals all
+    # live per corner, and the game splits vertices that way anyway.
     return ob
 
 
@@ -106,6 +110,9 @@ for name, obj in spec["objects"].items():
     back = [o for o in bpy.context.scene.objects if o.type == "MESH"]
     got = bounds(back)
     err = max(abs(a - b) for a, b in zip(want[0] + want[1], got[0] + got[1]))
+    # Normals point against the stored winding (see build); count the faces that do.
+    me = back[0].data
+    reversed_faces = sum(1 for poly in me.polygons if poly.normal.dot(me.corner_normals[poly.loop_start].vector) < 0)
     report["objects"][name] = {
         "fbx": path.name,
         "triangles": sum(len(o.data.polygons) for o in back),
@@ -113,6 +120,7 @@ for name, obj in spec["objects"].items():
         "bounds_m": {"min": [round(v, 3) for v in want[0]], "max": [round(v, 3) for v in want[1]]},
         "reimport_error_m": round(err, 5),
         "objects_in_file": len(back),
+        "faces_reversed_for_cs1": reversed_faces,
     }
     if err > 1e-3 or len(back) != 1:
         raise SystemExit(f"{path.name}: re-import differs ({err:.4f} m, {len(back)} objects)")
@@ -121,7 +129,7 @@ if preview:
     # CS1-like look-down views: the main mesh (left) beside its LOD (right).
     clear()
     name = spec["name"]
-    ob = build(name, spec["objects"][name]["triangles"], spec["objects"][name]["uvs"])
+    ob = build(name, spec["objects"][name]["triangles"], spec["objects"][name]["uvs"], cs1_winding=False)
     ob.data.materials.append(material(name, out_dir / f"{name}_d.png"))
     scene = bpy.context.scene
     scene.render.engine = "CYCLES"
@@ -140,7 +148,12 @@ if preview:
     cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam"))
     scene.collection.objects.link(cam)
     scene.camera = cam
-    lod = build(f"{name}_lod", spec["objects"][f"{name}_lod"]["triangles"], spec["objects"][f"{name}_lod"]["uvs"])
+    lod = build(
+        f"{name}_lod",
+        spec["objects"][f"{name}_lod"]["triangles"],
+        spec["objects"][f"{name}_lod"]["uvs"],
+        cs1_winding=False,
+    )
     lod.data.materials.append(material(f"{name}_lod", out_dir / f"{name}_lod_d.png"))
     lod.location.x = spec["lot"][0] * 8 + 4
     for label, dist, pitch, yaw in (("front", 48, 35, -20), ("back", 70, 55, 200)):

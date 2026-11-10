@@ -329,11 +329,38 @@ class Session(contextlib.AbstractContextManager):
         (c.harness_home / "session.env").write_text(
             f"CS1_HARNESS_DISPLAY={c.display}\nCS1_HARNESS_EGL={self.egl}\n"
             f"CS1_HARNESS_PORT={c.port}\nCS1_HARNESS_VGL={c.virtualgl}\n"
+            f"CS1_HARNESS_STDOUT='{self.stage / 'game-stdout.log'}'\n"
         )
         self.log(
             f"rendering on {name} at {target['bus']} ({self.egl}); {target['mem_total'] - target['mem_used']} MiB free"
         )
         return self.receipt["gpu"]
+
+    def park_pointer(self, x: int = 40, y: int = 40):
+        """Move the harness display's pointer off the centre, so the game's hover highlight
+        doesn't tint whatever the camera looks at. Not on an edge: edge scrolling."""
+        import ctypes
+
+        x11 = ctypes.cdll.LoadLibrary("libX11.so.6")
+        x11.XOpenDisplay.restype = ctypes.c_void_p
+        x11.XDefaultRootWindow.argtypes = [ctypes.c_void_p]
+        x11.XDefaultRootWindow.restype = ctypes.c_ulong
+        x11.XWarpPointer.argtypes = (
+            [ctypes.c_void_p, ctypes.c_ulong, ctypes.c_ulong]
+            + [ctypes.c_int] * 2
+            + [ctypes.c_uint] * 2
+            + [ctypes.c_int] * 2
+        )
+        x11.XFlush.argtypes = [ctypes.c_void_p]
+        x11.XCloseDisplay.argtypes = [ctypes.c_void_p]
+        d = x11.XOpenDisplay(self.cfg.display.encode())
+        if not d:
+            raise HarnessError(f"cannot open display {self.cfg.display} to move the pointer")
+        try:
+            x11.XWarpPointer(d, 0, x11.XDefaultRootWindow(d), 0, 0, 0, 0, x, y)
+            x11.XFlush(d)
+        finally:
+            x11.XCloseDisplay(d)
 
     def check_placement(self) -> list[dict]:
         """The game must be on the pinned GPU and nowhere else."""

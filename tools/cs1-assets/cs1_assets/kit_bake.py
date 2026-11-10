@@ -260,6 +260,10 @@ def bake(src: pathlib.Path, out: pathlib.Path, name: str, lot: tuple[int, int], 
         "materials": atlas.keys,
         "lod_materials": lod_atlas.keys,
         "textures": {"main_px": MAIN_SIZE, "lod_px": LOD_SIZE},
+        # Blender's "FBX All" writes metres with UnitScaleFactor 100; the game's importer reads
+        # that as centimetres, so the Asset Editor's scale field must be 100 (seen in game,
+        # PL-880, 2026-11-10). `cs1-harness asset build` takes it from here.
+        "import_scale": 100,
         "files": files,
     }
     (out / f"{name}.bake.json").write_text(json.dumps(receipt, indent=2) + "\n")

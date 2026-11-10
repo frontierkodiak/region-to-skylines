@@ -79,6 +79,7 @@ class Driver:
     def shot(self, label: str, ui: bool = False, settle: float = 4) -> str:
         if not ui:
             self.c.call("ui", visible=False)
+        self.s.park_pointer()
         try:
             time.sleep(settle)
             staged = self.s.stage / "shots" / f"{label}.png"
@@ -188,8 +189,13 @@ class Driver:
 
     def views(self, label: str, x: float, z: float, y: float, far: float, yaw: float):
         """Close, distant (past the LOD switch) and a high view, in daylight."""
-        for name, size, pitch in (("close", 45, 25), ("distant", far, 40), ("high", 120, 65)):
-            self.c.call("camera", position=[x, y + 3, z], size=size, yaw=yaw, pitch=pitch)
+        for name, size, pitch, turn in (
+            ("close", 45, 25, 0),
+            ("back", 45, 25, 180),
+            ("distant", far, 40, 0),
+            ("high", 120, 65, 0),
+        ):
+            self.c.call("camera", position=[x, y + 3, z], size=size, yaw=yaw + turn, pitch=pitch)
             self.shot(f"{label}-{name}")
 
     def check(
@@ -204,6 +210,17 @@ class Driver:
         installed_crp = self.s.install_file(crp, cfg.data_dir / "Addons" / "Assets")
         installed_map = self.s.install_map(map_crp)
         menu = self.s.launch(["--noWorkshop"])
+        listed = self.c.call("custom_assets", contains=crp.stem)["packages"]
+        self.record("custom_assets_at_menu", {"packages": listed})
+        # Custom buildings become prefabs while a level loads, so look for ours after New Game.
+        maps = self.c.call("maps")["maps"]
+        entry = next(
+            (m for m in maps if m["path"] and pathlib.Path(m["path"]).resolve() == installed_map.resolve()), None
+        )
+        if entry is None:
+            raise HarnessError(f"the game does not list {installed_map.name} as a map")
+        self.c.call("new_game", path=entry["path"])  # the game's own path (Flatpak's data link)
+        status = self.wait_level("in_game", load_timeout, "the city to load")
         assets = self.c.call("custom_assets", contains=crp.stem)
         self.record("custom_assets", assets)
         ours = [b for b in assets["buildings"] if b["name"].startswith(crp.stem + ".")]
@@ -211,8 +228,6 @@ class Driver:
             raise HarnessError(f"the game loaded {len(ours)} buildings from {crp.name}: {[b['name'] for b in ours]}")
         info = ours[0]
         self.log(f"loaded {info['name']}: {info.get('mesh', {}).get('triangles')} triangles, LOD {info.get('lod')}")
-        self.c.call("new_game", path=str(installed_map))
-        status = self.wait_level("in_game", load_timeout, "the city to load")
         self.c.call("run", paused=True)
         if at is None:
             x, z, spot = self.pick_spot((0.0, 0.0), 1200)
@@ -221,7 +236,8 @@ class Driver:
         placed = self.job(self.c.call("place_building", name=info["name"], position=[x, z], angle=angle), 60, "place")
         bid = placed["id"]
         y = placed["position"][1]
-        far = max(400.0, float(placed["lod_distance"][1]) * 1.4)
+        # Just past the far LOD distance, so the distant view shows the LOD mesh, not a speck.
+        far = float(placed["lod_distance"][1]) * 1.05
         self.log(f"placed building {bid} at ({x:.0f}, {z:.0f}); LOD from {placed['lod_distance']} m")
         # The camera yaw that looks at the building's front: its front faces +Z rotated by the angle.
         yaw = 180 + angle

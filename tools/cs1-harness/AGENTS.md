@@ -36,6 +36,7 @@ Keep these separate. Map checks are one tool on top of a general game session.
 | Map checks | `mapcheck.py`, `report.py`, `run` | `CityOps.cs` (maps, new_game, stats, water, dump) | generated-map QA |
 | Asset Editor mode | `assets.py`, `asset build` / `asset check` | `EditorOps.cs` (asset_editor, templates, asset_build, job), `CheckOps.cs` (custom_assets, place_building, time_of_day, save_game, load_game) | prompt-to-asset pipeline (PL-880) |
 | Multi-frame work | | `Jobs.cs` (one job at a time, polled with `job`; `Reflect` for named private members) | anything that waits on the game |
+| GPU-stack workarounds | | `Readback.cs` (texture read-back through Unity; installed by `asset_editor`) | anything that reads textures back under VirtualGL |
 
 To add a capability, add an ops module to the mod: a static class with
 `Register()`, called from `Host.Awake`. Give each op a `Needs` level and one

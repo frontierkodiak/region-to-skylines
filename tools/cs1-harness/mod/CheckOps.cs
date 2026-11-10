@@ -16,7 +16,7 @@ namespace Cs1Harness
     {
         public static void Register()
         {
-            Host.Register("custom_assets", Needs.Level, "custom building assets the game loaded, with mesh, LOD and texture details: {contains}", CustomAssets);
+            Host.Register("custom_assets", Needs.Any, "custom asset packages, and (once a level has loaded them) their buildings with mesh, LOD and texture details: {contains}", CustomAssets);
             Host.Register("place_building", Needs.City, "place a building, completed, at {position:[x,z], angle (deg), name}", Place);
             Host.Register("building", Needs.City, "one building's state: {id}", q => BuildingState((ushort)Json.Num(q, "id", 0)));
             Host.Register("time_of_day", Needs.City, "day/night on (this session only) and the clock at {hour}", TimeOfDay);

@@ -21,17 +21,19 @@ namespace Cs1Harness
         public static void Register()
         {
             Host.Register("themes", Needs.Any, "built-in Asset Editor themes (environments)", q => Themes());
-            Host.Register("asset_editor", Needs.MainMenu, "open the Asset Editor on a new asset: {theme}", OpenEditor);
+            Host.Register("asset_editor", Needs.MainMenu, "open the Asset Editor on a new asset: {theme, safe_readback (default true)}", OpenEditor);
             Host.Register("templates", Needs.AssetEditor, "building templates: {service, sub_service, level, width, length, limit}", Templates);
             Host.Register(
                 "asset_build",
                 Needs.AssetEditor,
                 "job: import <name>.fbx (+ <name>_lod.fbx and maps) from Addons/Import onto a building template, "
                     + "set the lot, save a .crp: {name, template, cells:[w,l], scale, expect_size:[x,y,z], "
-                    + "asset_name, save_name, description, overwrite, keep_import}",
+                    + "asset_name, save_name, description, overwrite, keep_import, color_variations (default false), stepwise}",
                 Build
             );
             Host.Register("job", Needs.Any, "the current or last job: state, step, log, result", q => Jobs.Status());
+            Host.Register("safe_readback", Needs.Any, "read textures back through Unity instead of the game's native path (on for asset_editor; see Readback.cs)", q => { Readback.Install(); return Host.Obj("installed", Readback.Installed); });
+            Host.Register("image_check", Needs.Any, "run the game's native image path on one file, one step at a time: {path, step: load|compress|upload|readback|all}", ImageCheck);
         }
 
         static Dictionary<string, object> Themes()
@@ -47,11 +49,12 @@ namespace Cs1Harness
             return Host.Obj("themes", themes);
         }
 
-        // Mirrors NewAssetBuiltinThemePanel.OnCreate.
+        // Mirrors NewAssetBuiltinThemePanel.OnCreate, which loads GetListingData: the theme's
+        // assetRef. Loading the metadata asset itself fails with "File format version not supported".
         static Dictionary<string, object> OpenEditor(Dictionary<string, object> q)
         {
             string want = Json.Str(q, "theme", "Sunny");
-            Package.Asset theme = null;
+            Package.Asset theme = null; // the theme's map data (MetaData.assetRef), as the panel's listing holds
             var seen = new List<string>();
             foreach (var a in PackageManager.FilterAssets(UserAssetType.SystemMapMetaData))
             {
@@ -60,7 +63,7 @@ namespace Cs1Harness
                 var m = a.Instantiate<SystemMapMetaData>();
                 seen.Add(m.environment);
                 if (string.Equals(m.environment, want, StringComparison.OrdinalIgnoreCase))
-                    theme = a;
+                    theme = m.assetRef;
             }
             if (theme == null)
                 throw new Exception("no built-in theme '" + want + "'; have " + string.Join(", ", seen.ToArray()));
@@ -71,6 +74,8 @@ namespace Cs1Harness
                 m_updateMode = SimulationManager.UpdateMode.NewAsset,
                 m_invertTraffic = SimulationMetaData.MetaBool.False,
             };
+            if (Json.Bool(q, "safe_readback", true))
+                Readback.Install();
             Singleton<LoadingManager>.instance.LoadLevel(theme, "AssetEditor", "InAssetEditor", sim, true);
             return Host.Obj("loading", "AssetEditor", "theme", want);
         }
@@ -167,6 +172,83 @@ namespace Cs1Harness
             return Host.Obj("shader", m.shader == null ? null : m.shader.name, "textures", tex);
         }
 
+        // Bisects native crashes in the importer's texture path (Image load, DXT compression,
+        // GPU upload, read-back) on this host's GPU stack. Each step is logged before it runs.
+        static readonly List<object> Kept = new List<object>();
+
+        static Dictionary<string, object> ImageCheck(Dictionary<string, object> q)
+        {
+            if (Json.Str(q, "step", "") == "gc")
+            {
+                Kept.Clear();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                return Host.Obj("gc", true);
+            }
+            string path = Json.Str(q, "path", "");
+            string upTo = Json.Str(q, "step", "all");
+            var done = new List<object>();
+            Action<string> mark = step =>
+            {
+                Debug.Log("[Cs1Harness] image_check " + step + " " + path);
+                Console.Out.Flush();
+            };
+            if (upTo == "raw")
+            {
+                mark("raw: upload uncompressed");
+                var t = new ColossalFramework.Importers.Image(path).CreateTexture(Json.Bool(q, "linear", false));
+                mark("raw: read back " + t.format);
+                var b = new ColossalFramework.Importers.Image(t);
+                mark("raw: read back done " + b.format);
+                if (Json.Bool(q, "destroy", false))
+                    UnityEngine.Object.Destroy(t);
+                if (Json.Bool(q, "keep", false))
+                    Kept.Add(b);
+                return Host.Obj("raw", new object[] { b.width, b.height, b.format.ToString() });
+            }
+            if (upTo == "exact")
+            {
+                // AssetImporterTextureLoader.CompressTexture's own sequence on a texture made from the file.
+                mark("exact: upload");
+                var src = new ColossalFramework.Importers.Image(path).CreateTexture(Json.Bool(q, "linear", false));
+                mark("exact: read back " + src.format);
+                var im = new ColossalFramework.Importers.Image(src);
+                mark("exact: convert " + im.format + " " + im.width + "x" + im.height);
+                im.Convert(TextureFormat.RGB24);
+                mark("exact: compress on the task distributor");
+                ColossalFramework.Threading.ThreadHelper.taskDistributor.Dispatch(() => im.Compress()).Wait();
+                mark("exact: create texture");
+                var outTex = im.CreateTexture(Json.Bool(q, "linear", false));
+                UnityEngine.Object.Destroy(src);
+                return Host.Obj("exact", new object[] { outTex.width, outTex.height, outTex.format.ToString() });
+            }
+            mark("load");
+            var img = new ColossalFramework.Importers.Image(path);
+            done.Add(Host.Obj("load", new object[] { img.width, img.height, img.format.ToString() }));
+            if (upTo == "load")
+                return Host.Obj("steps", done);
+            mark("convert");
+            img.Convert(TextureFormat.RGB24);
+            mark(Json.Bool(q, "thread", false) ? "compress on the task distributor" : "compress");
+            if (Json.Bool(q, "thread", false))
+                ColossalFramework.Threading.ThreadHelper.taskDistributor.Dispatch(() => img.Compress()).Wait();
+            else
+                img.Compress();
+            done.Add(Host.Obj("compress", img.format.ToString()));
+            if (upTo == "compress")
+                return Host.Obj("steps", done);
+            mark("upload");
+            var tex = img.CreateTexture(false);
+            done.Add(Host.Obj("upload", new object[] { tex.width, tex.height, tex.format.ToString() }));
+            if (upTo == "upload")
+                return Host.Obj("steps", done);
+            mark("readback");
+            var back = new ColossalFramework.Importers.Image(tex);
+            done.Add(Host.Obj("readback", new object[] { back.width, back.height, back.format.ToString() }));
+            UnityEngine.Object.Destroy(tex);
+            return Host.Obj("steps", done);
+        }
+
         static string SavePath(string saveName)
         {
             // SaveAssetPanel.GetSavePathName, so the job reports the file the game wrote.
@@ -231,6 +313,7 @@ namespace Cs1Harness
             );
 
             // Asset type "Building" -> template -> import panel, as the wizard's Continue buttons do.
+            job.Result["modal_at_start"] = Host.ModalStack();
             job.Note("template " + template.name);
             Reflect.Set(wizard.assetTemplatePanel, "m_SelectedPrefabInfo", template); // its setter is private
             var importPanel = wizard.assetImportPanel;
@@ -295,10 +378,60 @@ namespace Cs1Harness
                 }
             }
 
+            job.Result["modal_before_continue"] = Host.ModalStack();
             job.Note("continue: finalize import");
             var cont = Reflect.Get<UIButton>(importPanel, "m_ContinueButton");
             yield return Jobs.Until(() => cont.isEnabled, 60, "the import panel's Continue button");
-            cont.SimulateClick();
+            if (Json.Bool(q, "stepwise", false))
+            {
+                // AssetImporterAssetImport.OnContinue, one step per frame with a log line each,
+                // to find which step a native crash comes from.
+                job.Note("stepwise: apply transform");
+                current.ApplyTransform(new Vector3(scale, scale, scale), Vector3.zero, false);
+                yield return Jobs.Frames(30);
+                // ImportAsset.FinalizeImport, call by call.
+                job.Note("stepwise: FinalizeLOD (LOD material and textures)");
+                Reflect.Call(current, "FinalizeLOD");
+                yield return Jobs.Frames(30);
+                job.Note("stepwise: CompressTextures");
+                Reflect.Call(current, "CompressTextures");
+                yield return Jobs.Frames(30);
+                var wrapper = new MultiAsyncTaskWrapper(
+                    Reflect.Get<List<string>>(current, "m_TaskNames"),
+                    Reflect.Get<List<ColossalFramework.Threading.Task[]>>(current, "m_Tasks")
+                );
+                Reflect.Set(current, "m_TaskWrapper", wrapper);
+                LoadSaveStatus.activeTask = wrapper;
+                job.Note("stepwise: InitializeObject");
+                Reflect.Call(current, "InitializeObject");
+                yield return Jobs.Frames(30);
+                job.Note("stepwise: CreateThumbnails");
+                AssetImporterThumbnails.CreateThumbnails(
+                    current.Object,
+                    Path.Combine(importDir, name),
+                    Reflect.Get<PreviewCamera>(importPanel, "m_PreviewCamera")
+                );
+                yield return Jobs.Frames(30);
+                job.Note("stepwise: waiting for tasks");
+                yield return Jobs.Until(() => LoadSaveStatus.activeTask == null || LoadSaveStatus.activeTask.completedOrFailed, 600, "tasks");
+                yield return Jobs.Frames(30);
+                job.Note("stepwise: hand the prefab to the editor");
+                var old = ToolsModifierControl.toolController.m_editPrefabInfo;
+                if (old != null && !(old is NetInfo))
+                {
+                    ToolsModifierControl.toolController.m_editPrefabInfo = null;
+                    UnityEngine.Object.DestroyImmediate(old.gameObject);
+                }
+                ToolsModifierControl.toolController.m_editPrefabInfo = current.Object.GetComponent<PrefabInfo>();
+                ToolsModifierControl.toolController.m_templatePrefabInfo = current.TemplateObject.GetComponent<PrefabInfo>();
+                yield return Jobs.Frames(30);
+                job.Note("stepwise: close the wizard");
+                wizard.Complete();
+                yield return Jobs.Frames(30);
+                job.Note("stepwise: done");
+            }
+            else
+                cont.SimulateClick();
             yield return Jobs.Frames(2);
             yield return Jobs.Until(
                 () => LoadSaveStatus.activeTask == null || LoadSaveStatus.activeTask.completedOrFailed,
@@ -320,6 +453,30 @@ namespace Cs1Harness
                     throw new Exception(string.Format("lot {0}x{1} is outside the template's {2}-{3} x {4}-{5}", w, l, minW, maxW, minL, maxL));
                 info.m_cellWidth = w;
                 info.m_cellLength = l;
+            }
+            if (!Json.Bool(q, "color_variations", false))
+            {
+                // The model's own colours: no tint from the template's variation colours. With
+                // variations off the game uses the material's _Color, which the template set,
+                // so every colour the shader multiplies by goes to white (LOD included).
+                var tint = new Dictionary<string, object>();
+                info.m_useColorVariations = false;
+                var renderers = new List<Renderer> { info.GetComponent<MeshRenderer>() };
+                if (info.m_lodObject != null)
+                    renderers.Add(info.m_lodObject.GetComponent<MeshRenderer>());
+                foreach (var r in renderers)
+                {
+                    if (r == null || r.sharedMaterial == null)
+                        continue;
+                    foreach (var prop in new[] { "_Color", "_ColorV0", "_ColorV1", "_ColorV2", "_ColorV3" })
+                        if (r.sharedMaterial.HasProperty(prop))
+                        {
+                            var c = r.sharedMaterial.GetColor(prop);
+                            tint[r.gameObject.name + prop] = new object[] { c.r, c.g, c.b, c.a };
+                            r.sharedMaterial.SetColor(prop, Color.white);
+                        }
+                }
+                job.Result["template_colours_replaced"] = tint;
             }
             job.Result["edit_prefab"] = Describe(info);
 
