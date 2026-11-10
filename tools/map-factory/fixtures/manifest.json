@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "template": "templates/native-corridors.crp",
+  "layout": "templates/native-corridors.json",
+  "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+  "native_template_origin": "PL-848 editor factory; region-to-skylines PR #1 at 4011a6b717e50bebd92f0b9caf8547a7a16e5c8c",
+  "status": "offline reference only; generated geography is not yet game-verified",
+  "cases": [
+    {
+      "slug": "asheville",
+      "expected_crp_sha256": "977f473e7e6b061d0882eebca429472217842869b6bafe9c0c95c5aa1e14b32b",
+      "expected_crp_bytes": 4647878,
+      "files_sha256": {
+        "banks.f32.gz": "966dfeae9c4e2a0e07d66a33fee61e447a6d8eba3927d501cfc4638b7d930759",
+        "geometry.json.gz": "0ccfa008590ebd1f023bce86dd5a84a1ac9038a06db8d1a829bf7de943b423af",
+        "hydrology.json.gz": "038df5d307847ee59920e05d054757d0c3d08f620a751305305080e398d2d24c",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "terrain.u16.gz": "42fa2ed1acd8d69adb609524289b7533df1d672398ce33f6cd5570cfb89ddea2",
+        "water.u16.gz": "5dead42c34f8b0472f8ac6f7afa8d273a0b3ed2d8067b2987b4ba16d4245822e"
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "expected_crp_sha256": "590ce03cc4574f19711904cb764f17c0d1a8f36f9c8868e0c85f9ec61eaf84ca",
+      "expected_crp_bytes": 4212005,
+      "files_sha256": {
+        "banks.f32.gz": "5d059f367290ae30c7f01930899dcdff634d2bf4b766507522dd882c9df25180",
+        "geometry.json.gz": "af09d9b6d0a9a3b0ce1a5289f71885a46224248f4ac1b1153582217119962841",
+        "hydrology.json.gz": "230aa5d719fa97df21d52a1bb587ef6d9a358a2562d0154911137ae1dfcd79fa",
+        "input.png": "e34c7ba4eaa1969cdd89deb1f04140a7ede6696fef19c90c69ea35d38aef9aed",
+        "terrain.u16.gz": "951587d09e7e431e0c9fd57c056318e9051e6b5639dff46e58b968258b14806f",
+        "water.u16.gz": "b95709b106e308f32bda2de2e7656a536ab28022ff45b241e2fc92a838393428"
+      }
+    },
+    {
+      "slug": "rio",
+      "expected_crp_sha256": "0f24267847a7f0852c1083c47e56f4613c41e5e474210a86057f20c51e9958b0",
+      "expected_crp_bytes": 3867474,
+      "files_sha256": {
+        "banks.f32.gz": "fc0e9e25c7d30bbc203f9609c48869684fe7ad31efc9b0c1f7d333071fe170a5",
+        "geometry.json.gz": "a89d5161f212847338646db53777d8a8e0b82ab0d746c69d6f95511f6c73d874",
+        "hydrology.json.gz": "5d956cf206e16ac530b23d97e4b9d2e7a123256aa85a4c817c36f176dd75d8f3",
+        "input.png": "c9aa38db952dc0032da692516bdf5f427bc5bfab2d77abdf315a3a488f43a861",
+        "terrain.u16.gz": "18bcfec1f2f3e0b2c005ecc1fbc9442a66d4b75433e5ea19ff56ee4ccbbe1d81",
+        "water.u16.gz": "679d58f8388b6bf20427a36dd6f404c1d071a506aee0ca7214dbceb618738c9a"
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "expected_crp_sha256": "de16f29768e7d62f97cb4d9a1b7df8f7d6a98eba61f09293b227099e423455a1",
+      "expected_crp_bytes": 4197092,
+      "files_sha256": {
+        "banks.f32.gz": "0a9ee248b8257dd27d38843746c0fd4b52e044587cdbc2f124ad0de393f1b4d2",
+        "geometry.json.gz": "eb79d1197fedae3e51bceb232b89233e529c09125ae29327e3563112d83d9215",
+        "hydrology.json.gz": "7be7514a429d0125c923af50a870d390b2e628f74729ebb1709a96121c94399b",
+        "input.png": "8721f6dd69d672a4b5893fd0b72d465a2b20b265790b486893a8a229a3b72385",
+        "terrain.u16.gz": "c4e789678b0e11bad5f50f5a9626643f6f52d37572c96a2c3e725408cb77afa8",
+        "water.u16.gz": "fa0bf1260dede1d8e04994d145d0dce5415e01019548e004a5b4eeb5582982b8"
+      }
+    },
+    {
+      "slug": "charleston",
+      "expected_crp_sha256": "fa6e9fe2a5f87057ae8970bb6482936c256c0033ad6d536cf59a0deeab639322",
+      "expected_crp_bytes": 3688467,
+      "files_sha256": {
+        "banks.f32.gz": "934d85fc00eac42d297c020f664ed56c53da57d9c89ddabec83881400d7dbad5",
+        "geometry.json.gz": "b0cc1feabd085f3b4beb2880828a4e23d2328bf9bae10ea729901b55ff950c0f",
+        "hydrology.json.gz": "deacf9b60efab54bf7c3f1e0007df25e2c56d45d69c70a99f9f7bdcbad477975",
+        "input.png": "03a5eea8a8c14c0de7fc8416ad1630421da3735892467c3740d79b241b92479b",
+        "terrain.u16.gz": "4e63b42199c60fe8f28155b4c5bd75388c10cdf9adc22b8fbc8eb74c1e909874",
+        "water.u16.gz": "a84270708e2ef2a2b530b54229472ea27aa70a7c054110a26d2a985553fd4d1c"
+      }
+    }
+  ]
+}

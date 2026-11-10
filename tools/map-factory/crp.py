@@ -1,13 +1,14 @@
-"""A fingerprint-bound CS1 CRP terrain/water writer, not a generic save editor.
+"""A fingerprint-bound CS1 CRP map writer, not a generic save editor.
 
-The native factory records manager byte ranges for its own template. Network,
-building, lane, resource and tree payloads are preserved, not regenerated.
-No game assemblies are needed to run this module.
+The native factory supplies consistent topology and serializer reference tables.
+Known terrain, water, network geometry, building and resource fields are patched;
+allocation IDs and all other payloads are preserved. No game DLLs are required.
 """
 
 import argparse
 import hashlib
 import json
+import math
 import struct
 from pathlib import Path
 
@@ -170,7 +171,16 @@ def metadata_value(r, typename):
     return r.number(formats[typename])
 
 
-def patch_metadata(payload, checksum):
+def mono_hash(value):
+    """Unity Mono's UTF-16 string hash (verified against native MapMetaData)."""
+    result = 0
+    encoded = value.encode("utf-16-le")
+    for (char,) in struct.iter_unpack("<H", encoded):
+        result = (result * 31 + char) & 0xFFFFFFFF
+    return result if result < 0x80000000 else result - 0x100000000
+
+
+def patch_metadata(payload, checksum, label=None, water_amount=None):
     r = Reader(payload)
     if r.number("B") != 0 or not r.string().startswith("MapMetaData,"):
         raise ValueError("Expected MapMetaData object")
@@ -190,6 +200,12 @@ def patch_metadata(payload, checksum):
             result.extend(string(checksum))
         elif name == "mods":
             result.extend(struct.pack("<i", 0))
+        elif name == "mapName" and label is not None:
+            result.extend(string(label))
+        elif name == "publishedHash" and label is not None:
+            result.extend(struct.pack("<i", mono_hash(label)))
+        elif name == "waterAmount" and water_amount is not None:
+            result.extend(struct.pack("<I", water_amount))
         else:
             result.extend(payload[value_start : r.pos])
     if r.pos != len(payload):
@@ -197,7 +213,7 @@ def patch_metadata(payload, checksum):
     return bytes(result)
 
 
-def water_payload(depth, sources, frame):
+def water_payload(depth, sources, frame, sea_level=35.0):
     wet = depth.reshape(1081, 1081) > 0
     vx = wet.copy()
     vx[:, :-1] |= wet[:, 1:]
@@ -209,11 +225,13 @@ def water_payload(depth, sources, frame):
     data += struct.pack(">H", len(sources))
     for s in sources:
         position = list(s["position"])
-        data += struct.pack(">6fHH", *position, *position, 1, round(s["target"] * 64))
-        rate = round(s["capacity"] * 65535)
+        data += struct.pack(
+            ">6fHH", *position, *position, 1, math.floor(s["target"] * 64 + 0.5)
+        )
+        rate = math.floor(s["capacity"] * 65535 + 0.5)
         for value in [0, 0, rate, rate, 0]:
             data += value.to_bytes(3, "big")
-    return data + struct.pack(">HfbbI", 0, 35.0, 0, 0, frame)
+    return data + struct.pack(">HfbbI", 0, sea_level, 0, 0, frame)
 
 
 def begin_tag_size(data, offset, expected):
@@ -235,6 +253,7 @@ def begin_tag_size(data, offset, expected):
 def write_map(template, layout, terrain, water, hydrology, output):
     original = template.read_bytes()
     spec = json.loads(layout.read_text())
+    hydro = json.loads(hydrology.read_text())
     if hashlib.sha256(original).hexdigest() != spec["template_sha256"]:
         raise ValueError(
             "Template fingerprint mismatch; byte ranges are template-specific"
@@ -244,59 +263,144 @@ def write_map(template, layout, terrain, water, hydrology, output):
     data = simulation["payload"]
     raw = np.fromfile(terrain, dtype="<u2")
     depth = np.fromfile(water, dtype="<u2")
-    if len(raw) != N or len(depth) != N or np.any(raw == 0):
-        raise ValueError(
-            "Expected nonzero terrain and depth grids of 1081 squared ushorts"
-        )
+    if len(raw) != N or len(depth) != N:
+        raise ValueError("Expected terrain and depth grids of 1081 squared ushorts")
     ranges = {v["type"]: v for v in spec["ranges"]}
     tr, wr = ranges["TerrainManager+Data"], ranges["WaterSimulation+Data"]
     terrain_prefix = begin_tag_size(data, tr["start"], "TerrainManager")
     water_prefix = begin_tag_size(data, wr["start"], "WaterSimulation")
     old_raw, end = decode_u16(data, N, tr["start"] + terrain_prefix)
     delta, tail = decode_u16(data, int((old_raw != 0).sum()), end)
-    if np.any(delta) or np.any(old_raw == 0) or tail >= tr["end"]:
-        raise ValueError(
-            "This writer requires a positive-terrain template without sculpting deltas"
-        )
+    if np.any(delta) or tail >= tr["end"]:
+        raise ValueError("This writer requires a template without sculpting deltas")
     # Elevated factory networks do not sculpt terrain. This fixture requires no
     # detail-height deltas; a ground-network template needs its own delta policy.
     terrain_data = (
         data[tr["start"] : tr["start"] + terrain_prefix]
         + encode_u16(raw)
-        + encode_u16(np.zeros(N, dtype=np.uint16))
+        + encode_u16(np.zeros(int(np.count_nonzero(raw)), dtype=np.uint16))
         + data[tail : tr["end"]]
     )
-    sources = json.loads(hydrology.read_text())["sources"]
+    sources = hydro["sources"]
     for s in sources:
         x, _, z = s["position"]
-        i = round((z + 8640) / 16) * 1081 + round((x + 8640) / 16)
+        if not (-8640 <= x <= 8640 and -8640 <= z <= 8640):
+            raise ValueError("Water source is outside the map")
+        if not (0 <= s["target"] < 1024 and 0 < s["capacity"] <= 1):
+            raise ValueError("Invalid water-source target or capacity")
+        i = math.floor((z + 8640) / 16 + 0.5) * 1081 + math.floor((x + 8640) / 16 + 0.5)
         s["position"][1] = float(raw[i] / 64)
     frame = int.from_bytes(data[wr["end"] - 6 : wr["end"] - 2], "big")
     water_data = (
         data[wr["start"] : wr["start"] + water_prefix]
-        + water_payload(depth, sources, frame)
+        + water_payload(depth, sources, frame, hydro.get("sea_level_m", 35.0))
         + data[wr["end"] - 2 : wr["end"]]
     )
     replacements = [
         (tr["start"], tr["end"], terrain_data),
         (wr["start"], wr["end"], water_data),
     ]
+    # The native template supplies topology, prefab references, flags, outside
+    # buildings and lane IDs. Only recorded, fingerprint-bound vector positions
+    # change. CS1's NetManager.AfterDeserialize rebuilds the lane curves.
+    positions = hydro.get("node_positions", {})
+    for record in spec.get("nodes", []):
+        node_id = str(record["id"])
+        if node_id not in positions:
+            raise ValueError(f"Missing fitted position for template node {node_id}")
+        start = record["offset"]
+        expected = struct.pack(">3f", *record["position"])
+        if data[start : start + 12] != expected:
+            raise ValueError("Template position does not match recorded bytes")
+        position = positions[node_id]
+        if (
+            len(position) != 3
+            or not all(math.isfinite(v) for v in position)
+            or not 0 < position[1] < 1024
+            or abs(position[0]) > 8640.01
+            or abs(position[2]) > 8640.01
+        ):
+            raise ValueError("Invalid fitted network position")
+        replacements.append((start, start + 12, struct.pack(">3f", *position)))
+    nodes = {n["id"]: n for n in spec.get("nodes", [])}
+    neighbors = {}
+    for segment in spec.get("segments", []):
+        start = segment["direction_offset"]
+        if data[start : start + 24] != struct.pack(">6f", *segment["directions"]):
+            raise ValueError("Template direction does not match recorded bytes")
+        a, b = [positions[str(segment[k])] for k in ["from", "to"]]
+        length = math.hypot(b[0] - a[0], b[2] - a[2])
+        if length < 1:
+            raise ValueError("Degenerate fitted network segment")
+        direction = [(b[0] - a[0]) / length, 0, (b[2] - a[2]) / length]
+        replacements.append(
+            (
+                start,
+                start + 24,
+                struct.pack(">6f", *direction, *[-v for v in direction]),
+            )
+        )
+        neighbors[segment["from"]] = segment["to"]
+        neighbors[segment["to"]] = segment["from"]
+    for building in spec.get("buildings", []):
+        start, node_id = building["offset"], building["node"]
+        if data[start : start + 16] != struct.pack(
+            ">4f", *building["position"], building["angle"]
+        ):
+            raise ValueError("Template building does not match recorded bytes")
+        position = list(positions[str(node_id)])
+        position[1] += building["position"][1] - nodes[node_id]["position"][1]
+        other = neighbors[node_id]
+        old_a, old_b = nodes[node_id]["position"], nodes[other]["position"]
+        new_a, new_b = positions[str(node_id)], positions[str(other)]
+        turn = math.atan2(new_b[0] - new_a[0], new_b[2] - new_a[2]) - math.atan2(
+            old_b[0] - old_a[0], old_b[2] - old_a[2]
+        )
+        angle = (building["angle"] + turn) % (2 * math.pi)
+        replacements.append((start, start + 16, struct.pack(">4f", *position, angle)))
+    water_amount = None
+    if positions:
+        from template import resource_replacements
+
+        resources, water_amount = resource_replacements(data, spec, depth)
+        replacements.extend(resources)
+        start = spec["start_tile_offset"]
+        if (
+            data[start] != spec["original_start_tile"]
+            or not 0 <= hydro["start_tile"] < 25
+        ):
+            raise ValueError("Invalid template start-tile descriptor")
+        replacements.append((start, start + 1, bytes([hydro["start_tile"]])))
     for start, end, replacement in sorted(replacements, reverse=True):
         data = data[:start] + replacement + data[end:]
     simulation["payload"] = data
     checksum = hashlib.md5(data).hexdigest()
     for a in assets:
         if a["kind"] == 100:
-            a["payload"] = patch_metadata(a["payload"], checksum)
+            a["payload"] = patch_metadata(
+                a["payload"], checksum, hydro.get("map_name"), water_amount
+            )
+    if "map_id" in hydro:
+        package["name"] = hydro["map_id"]
+        package["author"] = ""
     result = write_package(package, assets)
     read_package(result)
     output.write_bytes(result)
+    regenerated = ["terrain", "water", "sources"]
+    preserved = ["network_topology", "outside_connections", "lane_ids", "trees"]
+    if positions:
+        regenerated.extend(["network_geometry", "start_tile", "water_resources"])
+        preserved.append("other_resources")
+    else:
+        preserved.extend(["network_geometry", "buildings", "resources"])
+    if "map_id" in hydro or "map_name" in hydro:
+        regenerated.append("map_identity")
     return {
         "output": str(output),
         "sha256": hashlib.sha256(result).hexdigest(),
         "bytes": len(result),
-        "regenerated": ["terrain", "water", "sources"],
-        "preserved": ["networks", "buildings", "lanes", "resources", "trees"],
+        "regenerated": regenerated,
+        "preserved": preserved,
     }
 
 

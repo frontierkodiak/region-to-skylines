@@ -1,83 +1,151 @@
-# Experimental CS1 map-file prototype (PL-848)
+# Experimental arbitrary-region CS1 map writer
 
-These offline tools demonstrate a ready-to-play Asheville `.crp` without game
-DLLs or a player-side companion mod. **They are not connected to the web app and
-are not a generic arbitrary-region exporter.** The shipped heightmap workflow
-is unchanged.
+The Python reference writes terrain, initialized water, natural sources and
+terrain-following connection corridors into a native `.crp` template. It needs
+no game DLLs at export time. **The new arbitrary-region outputs are not yet
+game-verified. Do not make them the website default until that check passes.**
 
-## What is implemented
+The original PL-848 Asheville template passed ordinary **New Game** and city
+play with `--disableMods --noWorkshop` on CS1 1.21.1-f9. That result does not
+validate the new geographic transformations. The website and installer are
+unchanged by this work.
 
-- `prepare.py` conditions the two Asheville rivers to a connected descending
-  profile and produces native-order terrain/depth grids from the exported PNG
-  and the matching basemap water geometry.
-- `crp.py` rebuilds a fingerprint-bound native template's terrain, water cells
-  and natural sources, updates package checksums and metadata references, and
-  removes the factory's mod references from map metadata.
-- `verify.py` checks the real native package's byte-exact roundtrip, decoded
-  heights, encoded-array edge values, a separate one-metre terrain change and
-  refusal of the wrong template.
+## Generate a map
 
-The template, layout and inputs are in the **PL-848 evidence attachment**, not
-this repository. No proprietary game assembly or decompiled source is bundled.
-The factory created the template with the installed game's serializer. It
-followed OSM highway/rail alignments, selected native outside-connection and
-bridge variants, and initialized the starting tile. The standalone writer
-**preserves** its networks, buildings, lanes, resource maps, trees, starting
-area and serializer reference tables. It cannot transplant those correctly to
-a new region. The template has no forest/oil/ore/fertility and no map thumbnail;
-those are remaining content work, not supported exports.
-
-## Reproduce the bounded writer
-
-From this directory, with the evidence archive extracted as `ARTIFACTS`:
+Run from this directory:
 
 ```sh
 uv sync --locked
-uv run python verify.py ARTIFACTS
-uv run python crp.py \
-  ARTIFACTS/PL848-Asheville-template.crp ARTIFACTS/template-layout.json \
-  ARTIFACTS/terrain.u16 ARTIFACTS/water.u16 ARTIFACTS/hydrology.json \
-  ARTIFACTS/PL848-Asheville.crp
+uv run python generate.py CAPTURE/asheville.png \
+  CAPTURE/asheville-geometry.json OUTPUT \
+  --banks CAPTURE/asheville-banks.f32
 ```
 
-`terrain.u16` and `water.u16` are little-endian unsigned 16-bit arrays of
-1081 × 1081 values, south to north, with 64 units per metre. Water values are
-**depths**, not absolute surface levels. The CRP inner serializer uses big-endian
-numbers; its enclosing package directory uses little-endian numbers. Layout
-ranges include shared-string manager tags and are valid only for the exact
-SHA-256-bound template. Ground-network terrain deltas are explicitly refused.
+`OUTPUT` contains the `.crp`, prepared terrain and depth grids, hydrology and
+corridor diagnostics, and `generation.json`. The generation receipt explicitly
+records `in_game_verified: false`. It is not a playable-map certificate.
 
-To reproduce the hydrology preparation (fixed Asheville fixture coordinates):
+The matching geometry and uncarved elevations come from `capture.js`, evaluated
+in a Playwright page on the application's origin. That function uses the real
+browser elevation, smoothing, carving and height-fit code. It also reads OSM
+motorway, trunk, rail and stream geometry from OpenFreeMap vector tiles.
+Finish all three browser downloads before closing the page.
+
+The geometry input contains:
+
+- `sq`: `lon`, `lat`, clockwise `rotation`, horizontal `scale`, `name`, `slug`.
+- `rivers` and `streams`: lines with `name`, geographic `pts`, optional `class`.
+- `lakes` and `riverAreas`: polygons with geographic `rings`, holes after the
+  outer ring.
+- `roads`: lines with `class` (`motorway`, `trunk`, `rail`) and geographic `pts`.
+- `seaLevel`: fitted sea height in game metres, or `null` inland.
+
+Without `--banks`, preparation estimates bank heights with a local maximum
+filter. The committed real-region fixtures use the actual uncarved elevations.
+
+## Verify the frozen fixtures
 
 ```sh
-uv run python prepare.py ARTIFACTS/kudzu-asheville.png \
-  ARTIFACTS/water-geometry.json ARTIFACTS
+uv run python verify_regions.py
 ```
 
-The output has a 3.5 m nominal channel depth, a descending hydraulic profile and
-prefilled water. It lowers only a narrow corridor, but the maximum correction
-in this fixture is 26.73 m. This is **not** a universally safe terrain-editing
-rule. Rivers need continuity, bridge clearance and live flood checks; a source
-at each edge plus the original fixed 10 m carve was insufficient.
+The fixtures cover Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
+Charleston, the flat coastal case. Verification checks their source hashes,
+reproduces preparation, regenerates each package to its expected SHA-256,
+decodes its actual terrain and water, and compares all unmodified network bytes
+with the native template. It also checks initial sample wetness, start tiles,
+earthwork limits and node-to-node grades. **It does not run CS1, simulate water,
+query its pathfinder or prove New Game visibility.**
 
-## Verification scope
+Each case includes the original browser heightmap and geometry, uncarved
+elevations, prepared terrain and water, source and corridor parameters, and an
+expected `.crp` checksum in `fixtures/manifest.json`. This separates the
+JavaScript serializer parity test from the hydrology port: the serializer can
+consume the frozen prepared grids directly.
 
-On worm's native CS1 1.21.1-f9, the offline output appeared in the ordinary
-**New Game** list and started a normal city with starting-tile water, one road
-connection each way and two rail connections each way. The native pathfinder
-traversed every segment of both highway approaches and the boundary-to-boundary
-rail route. The game was used to validate the result, not to run `crp.py`.
+Fixture replacement is an explicit authoring operation, not part of the tests:
 
-The prototype does not import a complete city, place services or demonstrate
-population growth. It is not a long-duration water-stability certification or
-a Windows/macOS compatibility test. See the PL-848 findings attachment for
-final runtime checks and residuals.
+```sh
+uv run python freeze_fixtures.py CAPTURE
+```
 
-## Direction
+Review changed bytes and the native-game result before accepting a new contract.
+The original PL-848 bundle remains compatible with `verify.py` and the bounded
+Asheville preparer in `prepare.py`.
 
-Direct `.crp` output is technically feasible. A production browser writer still
-needs network/building/lane serializers, geographic resources and vegetation,
-map previews, general starting-area selection, and hydraulic admission checks.
-Keep a native factory as the serializer oracle and playable-map regression
-harness. Do not make Workshop publication or a companion mod a prerequisite
-for the player's downloaded map.
+## Fixed topology, fitted coordinates
+
+`templates/native-corridors.crp` is the editor-authored PL-848 template, not a
+stock map or a copy of a city save. Its layout is bound to the entire package's
+SHA-256. `template.py` derives and checks the descriptor from that exact source.
+No proprietary game code or assemblies are included.
+
+One authored topology supplies two one-way highway approaches and one
+boundary-to-boundary railway. The writer preserves its allocation IDs, lane
+chains, native prefabs, flags and outside-connection buildings. It updates
+recorded node vectors, segment direction vectors, support and connection
+building vectors and angles. The native `NetManager.AfterDeserialize` rebuilds
+lane curves from those nodes. This behavior is source-verified; the transformed
+outputs still need a native pathfinding check.
+
+This replaces a proposed eight-file edge/rail template library with one
+fingerprint-bound topology. Road entry is selected from real motorway or trunk
+boundary crossings. Corridors follow the mapped alignments where connected;
+terrain-following deck heights and blended earthworks fit the region. Missing
+or disconnected alignments use a synthetic approach, recorded in the report.
+The railway remains present in every map, even when its alignment is synthetic.
+Node-to-node grade limits are 12% highway and 4% rail; these are not measurements
+of the native curved deck's steepest tangent.
+
+The starting tile is selected inside the vanilla 25-tile area for water, road
+access and buildable land. If no suitable tile has water, preparation adds an
+explicitly labeled **constructed starter reservoir**. It does not claim that
+reservoir came from OSM. Resource water/shore cells and tile totals are updated
+for the new geography. Other resource types and trees remain the template's
+empty maps.
+
+## Water and terrain limits
+
+Water surfaces come from a monotone fit to uncarved elevations, not a running
+minimum of the already carved bed. Terrain-aware routing can move around DEM
+obstructions inside the mapped corridor. The channels start filled, lakes have
+local regulators, and sources are placed inside upstream reaches. Stream
+capacity is 0.06 and river capacity 0.2. These are provisional class defaults,
+not calibrated discharge rates.
+
+Additional channel lowering is capped at **3 m relative to the exported PNG**.
+That PNG already includes the browser's river carve, normally 10 m. Corridor
+cut and fill are separately capped at 3 m. Wet channels and their margins are
+excluded from road earthworks. Reports include mapped-line wet coverage as well
+as the samples, so a good sampled path cannot hide omitted geometry.
+
+Coastal maps use the browser's fitted sea level, rather than the prototype's
+fixed 35 m. Initial sea depth fills every below-sea cell, including disconnected
+depressions, matching the inspected native reset behavior.
+
+Initialized water does not establish hydraulic equilibrium. Buried waterways,
+DEM artifacts, tidal geometry and disconnected tile fragments still need live
+drainage and flooding checks. Native road admission, ordinary New Game listing,
+population growth, long-duration stability and cross-platform behavior remain
+unverified for these new outputs.
+
+## Binary conventions
+
+| Input | Order and units |
+| --- | --- |
+| Browser PNG | North to south; unsigned 16-bit; 65535 = 1024 m |
+| `banks.f32` | North to south; little-endian Float32; game metres |
+| `terrain.u16` | South to north; little-endian unsigned 16-bit; 64 units/m |
+| `water.u16` | Same order; **depth**, not absolute surface height; 64 units/m |
+| Inner serializer | Big-endian numbers and native delta/RLE arrays |
+| CRP directory | Little-endian numbers, .NET strings, MD5 asset checksums |
+
+Fixture `.gz` files use gzip with a zero timestamp. The outer manifest uses
+SHA-256. Map metadata gets a new package identity, map label, Unity Mono UTF-16
+publication hash, simulation asset reference and resource water amount; factory
+mod references are removed. New exports have an empty package author rather
+than inheriting the template author's account hash. Serializer shared-string and object tables are
+preserved. The writer refuses a mismatched template or descriptor.
+
+Elevation: AWS Terrain Tiles. Geographic features: © OpenStreetMap contributors,
+ODbL, via OpenFreeMap/OpenMapTiles. Capture provenance is frozen with each case.

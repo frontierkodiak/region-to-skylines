@@ -31,13 +31,17 @@ def pixel(sq, lonlat):
     return (u / sq["scale"] / SPACING + 540, 540 - v / sq["scale"] / SPACING)
 
 
-def route(mask, start, end):
+def route(mask, start, end, ground=None):
     distance = ndimage.distance_transform_edt(~mask)
     corridor = distance < 10
     ids = np.full(mask.shape, -1, dtype=np.int32)
     ids[corridor] = np.arange(corridor.sum())
     ys, xs = np.nonzero(corridor)
     cost = 1 + distance**2
+    if ground is not None:
+        # Prefer the existing low bed over DEM bridge decks and single-pixel
+        # obstructions. Distance still keeps repairs inside the mapped corridor.
+        cost += np.maximum(0, ground - ndimage.minimum_filter(ground, size=9)) ** 2
     rows, cols, values = [], [], []
     for dy, dx in [(0, 1), (1, 0), (1, 1), (1, -1)]:
         ny, nx = ys + dy, xs + dx
