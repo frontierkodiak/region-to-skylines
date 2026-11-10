@@ -29,11 +29,17 @@ EX_NOPERM = 77  # needs a person (EULA, sign-in)
 
 
 class Blocked(HarnessError):
-    """The launch is waiting on something the harness must not answer."""
+    """The launch is waiting on something the harness must not answer.
 
-    def __init__(self, message: str, code: int):
+    `busy` means another user of this host's harness slot (an agent's run or
+    session, or a person's Steam) holds it; it frees on its own, so callers may
+    wait for it.
+    """
+
+    def __init__(self, message: str, code: int, busy: bool = False):
         super().__init__(message)
         self.code = code
+        self.busy = busy
 
 
 def sha256(path: pathlib.Path) -> str:
@@ -146,12 +152,23 @@ class Session(contextlib.AbstractContextManager):
         self.cfg.runtime_dir.mkdir(parents=True, exist_ok=True)
         self.lock_fd = open(self.cfg.lock_file, "w")
         try:
-            fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        except BlockingIOError:
-            raise Blocked("another cs1-harness run holds the lock", EX_TEMPFAIL) from None
-        if self.cfg.state_file.exists():
-            raise Blocked(f"a harness session is up ({self.cfg.state_file}); `cs1-harness down` ends it", EX_TEMPFAIL)
-        self.preflight()
+            try:
+                fcntl.flock(self.lock_fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise Blocked("another cs1-harness run holds the lock", EX_TEMPFAIL, busy=True) from None
+            if self.cfg.state_file.exists():
+                raise Blocked(
+                    f"a harness session is up ({self.cfg.state_file}); `cs1-harness down` ends it",
+                    EX_TEMPFAIL,
+                    busy=True,
+                )
+            self.preflight()
+        except BaseException:
+            # Release the lock here: __exit__ doesn't run when __enter__ raises,
+            # and a retry in this process would otherwise block on its own lock.
+            self.lock_fd.close()
+            self.lock_fd = None
+            raise
         self.stage.mkdir(parents=True, exist_ok=True)
         try:
             self.start_display()
@@ -205,14 +222,15 @@ class Session(contextlib.AbstractContextManager):
         if self.cfg.display == ":0":
             raise HarnessError("refusing display :0 (Caleb's desktop)")
         if game_pids():
-            raise Blocked("Cities.x64 is already running on this host", EX_TEMPFAIL)
+            raise Blocked("Cities.x64 is already running on this host", EX_TEMPFAIL, busy=True)
         if self.steam.instances():
             raise Blocked(
                 "Steam is already running for this user (maybe on :0); the harness only uses a Steam it started itself",
                 EX_TEMPFAIL,
+                busy=True,
             )
         if (pathlib.Path("/tmp/.X11-unix") / f"X{self.cfg.display.lstrip(':')}").exists():
-            raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL)
+            raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL, busy=True)
         for unit in (self.cfg.steam_unit, self.cfg.gpu_unit, self.cfg.dbus_unit, self.cfg.xvfb_unit):
             sh("systemctl", "--user", "reset-failed", unit, check=False)
 

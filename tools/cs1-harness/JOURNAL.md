@@ -207,7 +207,22 @@ and Steam logged "accepted eula 255710_eula_0".
 **Not working yet.** Hiding the UI before screenshots leaves the bottom
 toolbar visible.
 
-### Run log
+## 2026-11-10 · Opus 5.5 (blade) · PL-857 · waiting for the slot
+
+Two lanes now share blade's harness. PL-880 runs short Asset Editor builds
+back to back, and PL-857 needs five 60-minute soaks, about 27 minutes each. A
+soak that exits 75 on a held lock and retries every 30 minutes keeps losing to
+the short loop. `run` and `up` now take `--wait-minutes N`: they poll the slot
+every 2 s and start in the gap between the other agent's commands. Nobody has
+to ferry messages between lanes, and nothing ends another session.
+
+Found on the way: a run blocked by an `up` session, a running game or Steam
+kept its lock open for the whole `--retry-minutes` sleep. Python keeps the
+exception, and with it the session's lock file, alive during the sleep. So a
+blocked waiter held everyone else out. `__enter__` now releases the lock when
+it raises.
+
+## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
 temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.

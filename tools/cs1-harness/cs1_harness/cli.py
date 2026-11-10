@@ -29,6 +29,37 @@ def log(msg: str):
     print(f"[{datetime.datetime.now().strftime('%H:%M:%S')}] {msg}", file=sys.stderr, flush=True)
 
 
+SLOT_POLL_SECONDS = 2
+
+
+@contextlib.contextmanager
+def slot(cfg, stage, wait_minutes: float):
+    """A Session, waiting up to `wait_minutes` while another user holds the host's harness slot.
+
+    It polls every few seconds rather than queueing, so it takes the slot in the
+    gap between another agent's commands. It never ends or takes over the
+    other session.
+    """
+    deadline = time.monotonic() + wait_minutes * 60
+    last = None
+    while True:
+        with contextlib.ExitStack() as stack:
+            try:
+                s = stack.enter_context(Session(cfg, stage, log=log))
+            except Blocked as b:
+                if not b.busy or time.monotonic() >= deadline:
+                    raise
+                if str(b) != last:
+                    log(f"waiting for the harness slot: {b}")
+                    last = str(b)
+                time.sleep(SLOT_POLL_SECONDS)
+                continue
+            if last:
+                log("harness slot acquired")
+            yield s
+            return
+
+
 def cmd_build(cfg, a):
     print(json.dumps(build_mod.build(cfg), indent=2))
 
@@ -49,7 +80,7 @@ def cmd_doctor(cfg, a):
 def cmd_up(cfg, a):
     """Start a session and leave it running: display, bus, Steam, game at the main menu."""
     stage = cfg.harness_home / "runs" / (a.name or time.strftime("session-%Y%m%d-%H%M%S"))
-    with Session(cfg, stage, log=log) as s:
+    with slot(cfg, stage, a.wait_minutes) as s:
         if a.map:
             s.install_map(a.map.resolve())
         if a.display_only:
@@ -110,7 +141,7 @@ def cmd_run(cfg, a):
     while True:
         attempt += 1
         try:
-            with Session(cfg, stage, log=log) as s:
+            with slot(cfg, stage, a.wait_minutes) as s:
                 r = MapCheck(s, out, points, views, log=log)
                 result = r.execute(
                     a.map.resolve(),
@@ -162,6 +193,12 @@ def main(argv=None):
     u.add_argument("--name", help="staging directory name")
     u.add_argument("--display-only", action="store_true", help="display and bus only; no Steam or game")
     u.add_argument("--game-arg", action="append", default=[], help="extra game argument (repeatable)")
+    u.add_argument(
+        "--wait-minutes",
+        type=float,
+        default=0,
+        help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
+    )
     c = sub.add_parser("call", help="send one op to the running game (`call ops` lists them)")
     c.add_argument("op")
     c.add_argument("json", nargs="?", help="op arguments as a JSON object")
@@ -193,6 +230,12 @@ def main(argv=None):
         help="also score every screenshot with blade's Clef-Flash (advisory: frame kind, garbling)",
     )
     r.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
+    r.add_argument(
+        "--wait-minutes",
+        type=float,
+        default=0,
+        help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
+    )
     a = p.parse_args(argv)
     cfg = Config.for_host(a.host)
     try:
