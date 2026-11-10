@@ -116,6 +116,11 @@ def stage_prepared(inputs, output, slugs):
             data["views"] = json.loads((source / "probes.json").read_text()).get(
                 "views", []
             )
+            for view in data["views"]:
+                if view["name"] == "start-tile":
+                    # Water preparation can select a different starting tile.
+                    # Camera evidence must follow this package, not a prior run.
+                    view["x"], view["z"] = hydro["start_area"]["landing"]
         probes = folder / "probes.json"
         probes.write_text(json.dumps(data, indent=2) + "\n")
         receipt.update(
