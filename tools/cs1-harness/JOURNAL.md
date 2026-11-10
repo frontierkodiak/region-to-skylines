@@ -267,6 +267,33 @@ never pauses.
 **Noticed.** This session came up at 1280×720, where earlier ones were
 1920×1080. Something changed the game's resolution setting between runs.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · fixes from the first independent review
+
+Before merging the harness to `main`, GPT-6.1 Sol (xhigh, `codex exec`) read
+the whole diff for anything that would break a real run. It found three, and
+all three were real:
+
+- **Teardown could kill a game that isn't ours.** `stop()` quit and then
+  killed every `Cities.x64` on the host. A game someone started on blade's
+  desktop during a `--display-only` session would have died at `down`.
+  Teardown now acts only on games whose environment has the harness `DISPLAY`
+  (the running harness game shows `DISPLAY=:57`). Preflight still refuses to
+  start while any game runs.
+- **A blocked run could take an active run's files.** Staging was named after
+  `--out`'s last component, and PL-857 writes many runs to `…/asheville`. A
+  second run waiting for the slot with the same name would, on giving up,
+  move the first run's logs, grids and screenshots into its own output.
+  Staging is now per process (`<name>-<pid>`).
+- **`timeout` left the game running.** SIGTERM ended Python without running
+  the session's cleanup, so the game, Steam and units stayed up with no state
+  file for `down`. SIGTERM and SIGHUP now raise `SystemExit`, and the session
+  stops as on any other exit. `uv run` forwards SIGTERM, checked under
+  `timeout`.
+
+**Before → after.** Before: three ways a run could damage something outside
+itself. After: none of these three; checked offline (display filter against
+the live harness game, SIGTERM under `timeout uv run`), not yet in a full run.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
