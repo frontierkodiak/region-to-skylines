@@ -403,6 +403,7 @@ namespace Cs1Harness
             var net = Singleton<NetManager>.instance;
             var target = Singleton<BuildingManager>.instance.m_buildings.m_buffer[building].m_position;
             var origins = new List<ushort>(nodes);
+            origins.RemoveAll(id => (net.m_nodes.m_buffer[id].m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted)) != NetNode.Flags.Created);
             origins.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - target).sqrMagnitude
                 .CompareTo((net.m_nodes.m_buffer[b].m_position - target).sqrMagnitude));
             string lastError = "no usable network endpoint";
@@ -420,6 +421,42 @@ namespace Cs1Harness
                     {
                         if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
                         lastError = e.Message;
+                    }
+                }
+            // A straight wire can collide with the plant or the road grid. Test a
+            // dogleg before constructing either leg, keeping normal tool checks.
+            foreach (ushort origin in origins)
+                for (int i = 0; i < (standOff == 0 ? 1 : 8); i++)
+                {
+                    var start = net.m_nodes.m_buffer[origin].m_position;
+                    var end = target + new Vector3(Mathf.Cos(i * Mathf.PI / 4), 0, Mathf.Sin(i * Mathf.PI / 4)) * standOff;
+                    var bends = new Vector3[] {
+                        Ground(start.x, end.z), Ground(end.x, start.z),
+                        Ground(center.x - Half - 64, center.z + Half + 128),
+                        Ground(center.x + Half + 64, center.z + Half + 128),
+                        Ground(center.x - Half - 64, center.z - Half - 128),
+                        Ground(center.x + Half + 64, center.z - Half - 128)
+                    };
+                    foreach (var bend in bends)
+                    {
+                        var a = bend - start; a.y = 0; a.Normalize();
+                        var b = end - bend; b.y = 0; b.Normalize();
+                        if (Vector3.Dot(-a, b) > 0.75f) continue;
+                        try
+                        {
+                            Link(info, start, bend, origin, testOnly: true);
+                            Link(info, bend, end, testOnly: true);
+                        }
+                        catch (PlacementRejected e)
+                        {
+                            if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                            lastError = e.Message;
+                            continue;
+                        }
+                        ushort middle = Link(info, start, bend, origin);
+                        ushort node = Link(info, bend, end, middle);
+                        nodes.Add(node);
+                        return node;
                     }
                 }
             throw new Exception("cannot connect " + info.name + " to building " + building + ": " + lastError);
