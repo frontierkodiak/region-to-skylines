@@ -19,7 +19,7 @@ import time
 from . import registry
 
 LOG = registry.REGISTRY.parent / "slot.jsonl"
-COMMANDS = ("run", "up", "doctor", "bench-observe", "asset")
+COMMANDS = ("run", "up", "doctor", "bench-observe", "bench-speed", "asset")
 DEFAULT_WALL_PER_GAME_MINUTE = 0.3  # blade's 2080 Ti at speed 3: 60 game-min in 16-27 wall min
 BOOT_MINUTES = 3.0  # Steam, menu, city load and teardown
 
@@ -66,6 +66,31 @@ def mark_waiting(cfg, meta: dict, reason: str):
         json.dumps({"pid": os.getpid(), "since": time.time(), "reason": reason, **describe(meta)})
     )
     log_event("wait", reason=reason, holder=holder(cfg), **describe(meta))
+
+
+def unmark_waiting(cfg):
+    (waiter_dir(cfg) / f"{os.getpid()}.json").unlink(missing_ok=True)
+
+
+def older_waiters(cfg) -> list[int]:
+    """Live registered waiters that started waiting before this process."""
+    mine = waiter_dir(cfg) / f"{os.getpid()}.json"
+    if not mine.exists():
+        return []
+    since = json.loads(mine.read_text())["since"]
+    ahead = []
+    for f in waiter_dir(cfg).glob("*.json"):
+        if f == mine:
+            continue
+        try:
+            w = json.loads(f.read_text())
+        except (OSError, ValueError):
+            continue
+        if not alive(w.get("pid", -1)):
+            f.unlink(missing_ok=True)
+        elif w["since"] < since:
+            ahead.append(w["pid"])
+    return ahead
 
 
 def mark_acquired(cfg, meta: dict, waited_s: float):
@@ -127,9 +152,12 @@ def harness_processes() -> list[dict]:
         if "cs1-harness" not in joined and "cs1_harness" not in joined:
             continue
         cmd = next((a for a in argv[1:] if a in COMMANDS), None)
+        script = next((a for a in argv[1:] if a.endswith(".py")), None)
+        if cmd is None and script and "tools/cs1-harness" in argv[0]:
+            cmd = f"script {pathlib.Path(script).name}"  # a driver importing the harness as a library
         if cmd is None:
             continue
-        opts = argv[argv.index(cmd) + 1 :]
+        opts = argv[argv.index(cmd) + 1 :] if cmd in argv else argv[2:]
 
         def opt(name):
             return opts[opts.index(name) + 1] if name in opts and opts.index(name) + 1 < len(opts) else None
@@ -143,10 +171,19 @@ def harness_processes() -> list[dict]:
                 "out": opt("--out"),
                 "game_minutes": float(opt("--game-minutes")) if opt("--game-minutes") else None,
                 "checkout": str(pathlib.Path(argv[0]).parents[2]) if len(pathlib.Path(argv[0]).parents) > 2 else None,
+                "script": script,
                 "started": d.stat().st_mtime,
             }
         )
     return found
+
+
+def infer_issue(d: dict) -> str | None:
+    for where in (d.get("out"), d.get("script"), d.get("checkout")):
+        found = registry.issue_of(pathlib.Path(where or ""), {"label": d.get("label")})
+        if found:
+            return found
+    return None
 
 
 def holder(cfg) -> dict | None:
@@ -163,9 +200,7 @@ def holder(cfg) -> dict | None:
         state = json.loads(cfg.state_file.read_text())
         info = {"command": "up (detached)", "label": state.get("label"), "since": state.get("started"), "pid": None}
     if info and info.get("issue") is None:
-        info["issue"] = registry.issue_of(
-            pathlib.Path(info.get("out") or info.get("checkout") or ""), {"label": info.get("label")}
-        )
+        info["issue"] = infer_issue(info)
     return info
 
 
@@ -184,12 +219,11 @@ def status(cfg) -> dict:
         if h and p["pid"] == h.get("pid"):
             continue
         w = files.pop(p["pid"], None) or {**p, "since": p["started"], "reason": "(older harness; inferred)"}
-        if w.get("issue") is None:
-            w["issue"] = registry.issue_of(
-                pathlib.Path(w.get("out") or w.get("checkout") or ""), {"label": w.get("label")}
-            )
         waiting.append(w)
     waiting += list(files.values())
+    for w in waiting:
+        if w.get("issue") is None:
+            w["issue"] = infer_issue(w)
     now = time.time()
     if h:
         h["held_minutes"] = round((now - h["since"]) / 60, 1) if h.get("since") else None

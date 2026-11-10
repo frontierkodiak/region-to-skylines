@@ -507,6 +507,27 @@ No claim here about every map, long-term utility capacity, or PL-848's river
 health: this proof supplies no required water probes and does not replace its
 known failing 60-minute river soak.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · taking turns
+
+**What got in the way.** Waiters polled the lock every 2 s, and whoever
+polled first in a gap won. This afternoon PL-891's speed bench waited 88
+minutes while runs that arrived after it took the slot five times. `queue`
+also showed PL-893's `trial.py`, which imports the harness as a library, as an
+unknown holder.
+
+**What changed.** A waiter now registers in the slot's `waiting/` directory
+and tries the lock only when no older registered waiter is still alive. That
+makes it first come, first served among runs from this checkout on. Older
+checkouts don't register, so they can still take a gap until they update.
+Files left by dead waiters are removed. `queue` names Python scripts run from a
+harness checkout (`script trial.py`), and takes the issue from the most
+specific `PL-NNN` in a path (`PL-891-PL-893-test-city` is PL-893).
+
+**Before → after.** Before: the order was a polling race, and one wait ran
+88 min. After: oldest first among registered waiters, checked offline with a
+live older waiter (deferred), a dead one (cleaned up) and the older one
+exiting (proceeds). `queue` now reads "held by script trial.py · PL-893".
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
