@@ -12,6 +12,7 @@ Register it with a client as a stdio server, e.g. for Claude Code:
 from __future__ import annotations
 
 import json
+import signal
 import subprocess
 import sys
 
@@ -21,19 +22,31 @@ mcp = MCPServer("cs1-harness")
 
 
 def cli(*args: str, timeout: float = 600) -> dict:
-    r = subprocess.run(
+    """Run one CLI command. On timeout it gets SIGTERM, so a session it holds tears down as on any
+    other exit (the CLI turns SIGTERM into SystemExit); SIGKILL only if teardown takes 5 more minutes."""
+    p = subprocess.Popen(
         [sys.executable, "-m", "cs1_harness.cli", *args],
-        capture_output=True,
-        text=True,
-        timeout=timeout,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
         stdin=subprocess.DEVNULL,
+        text=True,
     )
-    out = r.stdout.strip()
+    try:
+        stdout, stderr = p.communicate(timeout=timeout)
+    except subprocess.TimeoutExpired:
+        p.send_signal(signal.SIGTERM)
+        try:
+            stdout, stderr = p.communicate(timeout=300)
+        except subprocess.TimeoutExpired:
+            p.kill()
+            stdout, stderr = p.communicate()
+        stderr = f"timed out after {timeout:.0f} s; stopped with SIGTERM\n" + (stderr or "")
+    out = (stdout or "").strip()
     try:
         data = json.loads(out) if out else None
     except ValueError:
         data = out
-    return {"exit_code": r.returncode, "result": data, "log": r.stderr.strip()[-4000:]}
+    return {"exit_code": p.returncode, "result": data, "log": (stderr or "").strip()[-4000:]}
 
 
 @mcp.tool()
