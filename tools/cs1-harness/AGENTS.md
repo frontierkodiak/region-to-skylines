@@ -36,6 +36,12 @@ style: load the editor, import, save `.crp`) belongs here as `EditorOps.cs`
 plus a driver, not inside the map check. An MCP server should wrap `up`,
 `call` and `down`, and nothing else.
 
+## Each run
+
+Add a line to the run log in [JOURNAL.md](JOURNAL.md): host, GPU, peak VRAM
+(total and the game's share), peak power and temperature, wall time and
+result. The 2080 Tis are capped at 150 W; never change power settings.
+
 ## Before a PR
 
 - `uv run cs1-harness build` compiles against the installed game.

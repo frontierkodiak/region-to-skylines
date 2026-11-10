@@ -34,9 +34,11 @@ stages there and moves results to `--out`.
 
 ## How it runs
 
-- **Display.** A private `Xvfb :57`. The game renders on the NVIDIA GPU through
-  VirtualGL's EGL back end (`vglrun -d egl1`, the RTX 3090; `CS1_HARNESS_EGL=egl0`
-  picks the 2080 Ti). EGL needs only `/dev/nvidia*`. gamescope's headless
+- **Display and GPU.** A private `Xvfb :57`. The game renders through
+  VirtualGL's EGL back end on the GPU at the profile's PCI bus ID: the RTX 2080
+  Ti at `05:00.0` on both blade and worm. `CS1_HARNESS_GPU_BUS` overrides it.
+  The harness maps the bus to an EGL device by probing renderers, and it fails
+  the launch if the game lands on another GPU. EGL needs only `/dev/nvidia*`. gamescope's headless
   backend was tried first and fails here: it needs the DRM nodes `/dev/dri/card*`,
   and the `caleb` user has no access to them.
 - **Steam.** The harness starts its own Flatpak Steam on that display, on a
@@ -78,6 +80,14 @@ Grids are little-endian `uint16`, 1081 × 1081, in the game's order: index
 A probes file is JSON with `points` (`{"name", "x", "z"}` in world metres) and
 optional `views` (`{"name", "x", "z", "size", "yaw", "pitch"}`). Without one the
 run takes a single overview screenshot set and no point samples.
+
+## Hosts
+
+`--host blade|worm` picks a profile; the default is this machine's hostname.
+The profile runs on its own host: from blade, `ssh worm` and run the harness in
+worm's checkout. Blade uses its Flatpak Steam, worm its native Steam. Worm's
+Steam must be signed in, and the CS1 EULA accepted there, before it can launch
+the game.
 
 ## Host layout (blade)
 

@@ -106,6 +106,21 @@ def gpu_summary(path: pathlib.Path) -> dict:
     return out
 
 
+def vram(run: dict) -> dict:
+    """VRAM on the pinned GPU: what else held it before launch, the peak, and the game's share."""
+    session = run.get("session") or {}
+    before = (session.get("gpu") or {}).get("mem_used_before_mib")
+    total = (session.get("gpu") or {}).get("mem_total_mib")
+    game = [p.get("mib") for p in session.get("game_gpu") or []]
+    return {
+        "gpu": (session.get("gpu") or {}).get("name"),
+        "bus": (session.get("gpu") or {}).get("bus"),
+        "before_launch_mib": before,
+        "total_mib": total,
+        "game_at_menu_mib": max(game) if game else None,
+    }
+
+
 def build(out: pathlib.Path, run: dict) -> dict:
     timeline = [json.loads(line) for line in open(out / "timeline.jsonl")]
     samples = [t for t in timeline if t["kind"] == "sample"]
@@ -182,6 +197,7 @@ def build(out: pathlib.Path, run: dict) -> dict:
         "curve": curve,
         "errors": log_errors(out / "game.log"),
         "gpu": gpu_summary(out / "gpu.csv"),
+        "vram": vram(run),
     }
     (out / "report.json").write_text(json.dumps(report, indent=2, default=str) + "\n")
     (out / "report.md").write_text(markdown(report))
@@ -208,6 +224,16 @@ def markdown(r: dict) -> str:
         f"- Log: {e.get('error_lines', 0)} error lines ({e.get('distinct', 0)} distinct); "
         f"mod saw {r['final_status'].get('error_count')} Unity errors.",
     ]
+    v = r.get("vram") or {}
+    if g and v.get("before_launch_mib") is not None:
+        peak = (g.get("mem_mib") or {}).get("max")
+        v["peak_total_mib"] = peak
+        v["peak_game_mib"] = peak - v["before_launch_mib"] if peak is not None else None
+        lines.append(
+            f"- VRAM on {v.get('gpu')} ({v.get('bus')}): {v['before_launch_mib']} MiB held by other work before launch, "
+            f"peak {peak} of {v.get('total_mib')} MiB, so the game's peak was about {v['peak_game_mib']} MiB "
+            f"({v.get('game_at_menu_mib')} MiB at the main menu)."
+        )
     if g:
         lines.append(
             f"- GPU {g.get('index')}: {g.get('temp_c', {}).get('max')} °C max, power "
