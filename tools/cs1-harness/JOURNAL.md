@@ -1507,3 +1507,17 @@ readings rescued natively). Source report/probes/timeline SHA checks unchanged.
 Receipt: scratch `2026-11-11-pl857/wet-throughout/read-only-assessments.json`.
 No native build, game/browser/session/service or game-cache changes. GPU/VRAM/power/
 temperature/native wall time: not applicable; this is verdict-only source work.
+
+## 2026-11-11 06:36 ET — complete-source river pilots
+
+After the original five-region comparison batch completed, integrated the
+sampled wet-throughout gate; no native DLL or cache replacement. Writer1c1f747
+retains two-vertex surface rivers (streams retain their prior minimum) and
+initializes retained geographic river cells with a bank-bounded shallow film.
+Fresh complete-river candidates are not accepted by earlier routed-probe runs.
+Stage every retained river cell independently of hydraulic routes, then pilot
+Rio/Pittsburgh for15minutes before committing to another all-five60minute run.
+All calls keep --wait-minutes120 / --retry-minutes30, each region separately.
+Portal-drain footprint overlap is an explicit pilot risk, not silently waived.
+Actual New Game/start/Areas PNGs still require genuine hash-bound review.
+Private native DLL remains9940eaf0; shared checkout/cache/services untouched.
