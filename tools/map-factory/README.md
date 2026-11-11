@@ -44,6 +44,40 @@ The geometry input contains:
 Without `--banks`, preparation estimates bank heights with a local maximum
 filter. The committed real-region fixtures use the actual uncarved elevations.
 
+## Natural resources and trees
+
+The resource stage writes trees, forest, fertile land, ore and oil, and the
+New Game panel amounts. It's opt-in until it has been checked in game.
+
+```sh
+uv run python landcover.py GEOMETRY_JSON landcover.u8.gz   # ESA WorldCover 10 m, about 3 s
+uv run python evidence.py GEOMETRY_JSON evidence.json      # USGS MRDS deposits (mostly US)
+uv run python generate.py PNG GEOMETRY_JSON OUTPUT --banks BANKS \
+  --landcover landcover.u8.gz --evidence evidence.json
+# or, on an already prepared region or fixture:
+uv run python paint.py fixtures/asheville fixtures/asheville/landcover.u8.gz OUTPUT \
+  --evidence fixtures/asheville/evidence.json
+uv run python verify_resources.py                          # frozen bytes and native rules
+```
+
+- **Trees** follow WorldCover tree cover, grouped into stands and glades. The
+  default is 180k trees, under the editor's 250k cap. Only original-release
+  prefabs the map theme loads are used, so the Temperate template gets no
+  conifers.
+- **Forest** bytes are derived from the trees with the game's own formula.
+- **Fertile land** comes from crop and pasture on flat, dry ground.
+- **Ore and oil** come from MRDS deposits. In `balanced` mode, the default,
+  ore, oil and fertile land are topped up to the official maps' median New
+  Game shares, where shipped maps put them. `real` uses evidence only.
+
+`paint.py` also writes `resources.png` (an overlay preview),
+`resources.json` (amounts, invented patches, evidence used) and `plan.npz`
+(grids and trees, which `--plan` replays through the encoders alone). The
+WorldCover bucket has no CORS headers, so a browser port needs a same-origin
+proxy for it. [CONVENTIONS.md](CONVENTIONS.md) ranks what players expect and
+records what this tool does about each. `survey/` holds the shipped-map and
+community research behind the defaults.
+
 ## Verify the frozen fixtures
 
 ```sh
