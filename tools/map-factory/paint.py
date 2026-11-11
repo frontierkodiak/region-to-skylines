@@ -5,7 +5,8 @@
 
 PREPARED holds terrain.u16, water.u16 and hydrology.json (gzipped or not),
 as `region.prepare` or a frozen fixture leaves them. LANDCOVER is
-`landcover.py` output. Writes the .crp, resources.png and resources.json.
+`landcover.py` output. Writes the .crp, resources.png, resources.json and the grids (resources.npz,
+south-first 512 squared).
 """
 
 import argparse
@@ -106,6 +107,7 @@ def main():
     report = R.summary(result, per_tile, knobs)
     report.update({"palette": palette, "package": package})
     preview(result, terrain, depth, out / "resources.png")
+    np.savez_compressed(out / "resources.npz", **{k: result[k] for k in ["ore", "oil", "fertility", "forest"]})
     (out / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "palette"]}, indent=2))
     print(json.dumps(package, indent=2))
