@@ -155,6 +155,23 @@ for these new packages. Use its independent decoder checks, not `--freeze`.
 
 ## Verify the frozen fixtures
 
+Resource-bearing reference authoring also accepts
+`freeze_fixtures.py CAPTURE OUTPUT --resource-inputs PINNED_RESOURCES`, where
+each resource directory contains its pinned `landcover.u8.gz`, provenance and
+optional `evidence.json`. It freezes the deterministic plan, knobs and resource
+report alongside terrain/water inputs. `verify_regions.py OUTPUT` independently
+reprepares geography, replans resources, compares the plan and complete CRP,
+and decodes trees/resource totals. `soak.py` replays the same resource plan.
+Writing a byte fixture is **not** native acceptance; rejected hydraulic
+candidates must not be promoted merely because their checksum reproduces.
+
+New staged hydraulic requests include a hash-bound, unbuffered geographic
+waterway mask (`mapped-water.u8`), in addition to the initial-water reference.
+This distinguishes filling a mapped channel from flooding land beyond it.
+The harness keeps its original initial-footprint-only metric as a diagnostic;
+the depth/distance/area tolerances are unchanged. Mask provenance records the
+geometry hash and fields, never a footprint inferred from the final wet grid.
+
 ```sh
 uv run python verify_regions.py
 ```

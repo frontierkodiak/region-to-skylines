@@ -1,5 +1,64 @@
 # Native qualification · PL-857
 
+## Current compound integration · 2026-11-11
+
+PR27 combines the exact writer, PR24's resource stage and explicit coastal
+ocean evidence. The original committed manifest below remains a historical
+unpainted byte reference; it is not the following full-package inventory.
+Website and installer remain unchanged. All five current resource-bearing
+packages have separately reviewed ordinary New Game/city starts with actual
+`--disableMods --noWorkshop`, absent control socket and empty cleanup.
+
+| Region | Current CRP SHA-256 prefix | Native 60-minute result |
+| --- | --- | --- |
+| Asheville | `be8b24824972463b` | 28/28 playable river points exactly wet throughout; no distant spread |
+| Innsbruck | `5859e371c1a0a7d3` | 34/35 exact end wet; all35 nearby wet throughout; four shallow distant cells |
+| Rio | `bc1045d2b8a954d4` | Rejected: 336/342 exact end wet, all nearby wet, 0.353024km² distant flooding, up to4.328125m |
+| Pittsburgh | `1acdfbb94ae5daf5` | 79/79 playable points exactly wet throughout; no mapped-corridor distant spread |
+| Charleston | `3d6443ff5257fe83` | Running; not accepted |
+
+All completed rows have exact native initial grids/controls, six complete
+native paths and empty cleanup. Pittsburgh's original first-water-only verdict
+flags2.165km²; the independent mapped-corridor audit finds0. These references
+are explicitly different, and archived requests are not rewritten. Nearby
+water does not silently replace exact dry points. Minor streams are not all
+perennial. This remains a draft, not a five-region certificate.
+
+Current listing buildable scores are73/75/73/79/58. Forest derives exactly from
+placed trees; fertile land follows WorldCover, with explicitly labelled
+balanced game-convention top-ups. Ore/oil top-ups are not claims of real
+deposits. Previews resolve and author is blank in the actual native listings.
+The stock city-name field randomizes; it has no map suggested-name metadata.
+Air/ship remain honestly absent; no fake metadata-only availability.
+
+Current Asheville actual terrain samples independently match GNIS/DEM; the
+1,600-point native comparison is north-up (r=.9999 versus strongest wrong.3727).
+Fresh untouched opening and actual Areas tool headings are0 degrees, with
+opening pivot exactly at selected tile centre(-1920,0). The player's old saved
+terrain also independently matches at its original-.905-degree clockwise frame;
+do not transpose/rotate the grid. These save and live observations are distinct.
+
+Native resource-bar telemetry now observes all five actual progress values,
+targets and animation states. Fresh Asheville reports the correct ore value
+0.4135, but Unity's screenshot still draws it empty while the strict vanilla
+window capture shows it filled. Its instrumented visual approval is withheld;
+an actual-window capture comparison is pending. Never substitute numeric
+metadata for an image review.
+
+### Rejected Rio causal diagnostics
+
+At15minutes, removing only initial land fill leaves the same0.332032km² spill
+as the prefilled baseline. Removing all natural output produces0 spill but
+dries most rivers. Capping173 bank-limited targets to finished bed+1m retains
+all initial inputs/rates/positions but gives only244/342 playable exact end wet,
+38 with no64m water, and still0.094720km² spill up to4.015625m. None is a release
+policy. The dominant residual Joana source has a downhill escape to off-channel
+land beyond its finite safety footprint; local bed head alone cannot guarantee
+a safe river. Stream spill also survives, so asymmetric river rates alone do
+not explain the result.
+
+## Historical pre-resource qualification notes
+
 **Qualification in progress (2026-11-10).** The committed R4+listing fixtures are a
 draft byte reference, not a five-region playable-map certificate. Asheville
 and Innsbruck completed their prefilled 60-minute soaks; Rio **failed** the

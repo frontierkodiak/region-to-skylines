@@ -17,7 +17,7 @@ from generate import ROOT, generate
 REGIONS = ["asheville", "innsbruck", "rio", "pittsburgh", "charleston"]
 
 
-def freeze(inputs, output):
+def freeze(inputs, output, resource_inputs=None):
     output.mkdir(parents=True, exist_ok=True)
     template = ROOT / "templates/native-corridors.crp"
     manifest = {
@@ -40,6 +40,13 @@ def freeze(inputs, output):
                 inputs / f"{slug}-geometry.json",
                 generated,
                 inputs / f"{slug}-banks.f32",
+                landcover=resource_inputs / slug / "landcover.u8.gz"
+                if resource_inputs
+                else None,
+                evidence=resource_inputs / slug / "evidence.json"
+                if resource_inputs
+                and (resource_inputs / slug / "evidence.json").exists()
+                else None,
             )
             shutil.copyfile(inputs / f"{slug}.png", case / "input.png")
             landmarks = inputs / f"{slug}-landmarks.json"
@@ -58,6 +65,13 @@ def freeze(inputs, output):
                 (case / (name + ".gz")).write_bytes(
                     gzip.compress(source.read_bytes(), compresslevel=9, mtime=0)
                 )
+            if resource_inputs:
+                for name in ["landcover.u8.gz", "landcover.json", "evidence.json"]:
+                    source = resource_inputs / slug / name
+                    if source.exists():
+                        shutil.copyfile(source, case / name)
+                shutil.copyfile(generated / "plan.npz", case / "plan.npz")
+                shutil.copyfile(generated / "resources.json", case / "resources.json")
             fixture = {
                 "slug": slug,
                 "expected_crp_sha256": result["package"]["sha256"],
@@ -73,6 +87,9 @@ def freeze(inputs, output):
                     if p.is_file()
                 },
             }
+            if resource_inputs:
+                fixture["resource_plan"] = "plan.npz"
+                fixture["resource_knobs"] = result["resources"]["knobs"]
             manifest["cases"].append(fixture)
             print(json.dumps(fixture, ensure_ascii=False), flush=True)
     (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
@@ -82,5 +99,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("inputs", type=Path)
     parser.add_argument("output", type=Path, nargs="?", default=ROOT / "fixtures")
+    parser.add_argument(
+        "--resource-inputs",
+        type=Path,
+        help="Per-region pinned landcover/evidence; freezes and checks resource plans too",
+    )
     args = parser.parse_args()
-    freeze(args.inputs, args.output)
+    freeze(args.inputs, args.output, args.resource_inputs)

@@ -12,9 +12,36 @@ from pathlib import Path
 import shutil
 import subprocess
 
+import numpy as np
+
 from crp import Reader, metadata_value, read_package, write_map
+from region import raster
 
 ROOT = Path(__file__).resolve().parent
+
+
+def mapped_water_reference(data, geometry, folder):
+    """Freeze unbuffered geographic channels, not water observed after a run."""
+    mask = np.zeros((1081, 1081), dtype=bool)
+    for field in ["rivers", "streams"]:
+        mask |= raster(geometry["sq"], geometry.get(field, []))
+    for field in ["lakes", "riverAreas"]:
+        mask |= raster(geometry["sq"], geometry.get(field, []), polygons=True)
+    raw = np.flipud(mask).astype(np.uint8).tobytes()
+    (folder / "mapped-water.u8").write_bytes(raw)
+    data["mapped_water"] = {
+        "file": "mapped-water.u8",
+        "format": "cs1-water-mask-u8-v1",
+        "sha256": hashlib.sha256(raw).hexdigest(),
+    }
+    data["mapped_water_provenance"] = {
+        "geometry_sha256": hashlib.sha256(
+            json.dumps(geometry, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "fields": ["rivers", "streams", "lakes", "riverAreas"],
+        "buffer_m": 0,
+        "frame": "1081-square uint8 south-first; x=ix*16-8640,z=iz*16-8640",
+    }
 
 
 def world_references(data, geometry, landmarks=None):
@@ -148,6 +175,18 @@ def stage(output, slugs):
                 raise ValueError(f"Fixture checksum changed: {slug}/{name}.gz")
             (folder / name).write_bytes(gzip.decompress(encoded))
         crp = folder / f"PL857-{slug}.crp"
+        resource_plan = None
+        if case.get("resource_plan"):
+            from paint import load_plan
+            from resources import TREE_NAMES
+
+            plan = fixtures / slug / case["resource_plan"]
+            if (
+                hashlib.sha256(plan.read_bytes()).hexdigest()
+                != case["files_sha256"][plan.name]
+            ):
+                raise ValueError(f"Fixture resource plan changed: {slug}")
+            resource_plan = (load_plan(plan), TREE_NAMES)
         receipt = write_map(
             template,
             layout,
@@ -155,6 +194,7 @@ def stage(output, slugs):
             folder / "water.u16",
             folder / "hydrology.json",
             crp,
+            resources=resource_plan,
         )
         if receipt["sha256"] != case["expected_crp_sha256"]:
             raise ValueError(f"CRP reference mismatch: {slug}")
@@ -169,9 +209,11 @@ def stage(output, slugs):
             != case["files_sha256"]["geometry.json.gz"]
         ):
             raise ValueError(f"Fixture geometry changed: {slug}")
+        geometry = json.loads(gzip.decompress(geometry_bytes))
+        mapped_water_reference(data, geometry, folder)
         world_references(
             data,
-            json.loads(gzip.decompress(geometry_bytes)),
+            geometry,
             json.loads(landmarks.read_text()) if landmarks.exists() else None,
         )
         probes.write_text(json.dumps(data, indent=2) + "\n")
@@ -231,9 +273,11 @@ def stage_prepared(inputs, output, slugs):
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
         if (source / "geometry.json").exists():
+            geometry = json.loads((source / "geometry.json").read_text())
+            mapped_water_reference(data, geometry, folder)
             world_references(
                 data,
-                json.loads((source / "geometry.json").read_text()),
+                geometry,
                 json.loads((source / "landmarks.json").read_text())
                 if (source / "landmarks.json").exists()
                 else None,
