@@ -707,6 +707,13 @@ long soak. It still starts neither Steam nor the game.
 
 ## Run log
 
+Large map checks produced a single Markdown line containing thousands of dry
+probe names. The report now shows the full failing count and the first eight
+names, pointing to `report.json` for the unchanged full list. This limits
+terminal/context output without dropping measurements or changing verdicts.
+Checked by rendering the completed R3 Asheville report and retaining its
+original JSON bytes and full dry-point array.
+
 PL-857's PR was replayed onto the merged harness on `main` (`8fadee3`),
 preserving the observer, verdict, registry and fair queue layers. The older
 two-second polling waiters had repeatedly lost gaps to newer work. Only
@@ -719,6 +726,10 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 
 | Date | Agent · issue | Host · GPU | Peak VRAM (game) | Peak W / °C | Wall | Result |
 |:--|:--|:--|:--|:--|:--|:--|
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 165.5 W / 63 °C | 20.3 min sim | R3 Rio60 FAIL: 1.652 km² distant flooding, max13.77m; 323/342 playable river points wet end; inputs/controls/native paths pass, cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 9,748 MiB card / 1,748 MiB incremental | 158.7 W / 62 °C | 130 s sampled | Strict R3 Rio attempt: actual 1920×1080, no control socket; task driver rejected ordinary What's New header; safe exit before New Game, cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 163.1 W / 63 °C | 16.3 min sim | R3 prefilled Asheville60: all28 playable river points wet at every sample; no distant flooding; all native paths/inputs/controls; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 160.0 W / 63 °C | 17.6 s sim / 230 s sampled | R3 Innsbruck render diagnostic, 1.12 game-min: all six native paths pass; render metadata exercised; zoom-dependent mesh gap retained; cleanup empty |
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
 | 2026-11-10 | Sol xhigh · PL-893 trial 1 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.42 W / 63 °C | ~3.0 min | highway elevation rejected; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 trial 2 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.57 W / 63 °C | ~3.9 min | highway elevation rejected; clean teardown |
