@@ -1367,3 +1367,31 @@ tile16's1,080m³/no deep water. This validates meaningful water priority, not a
 final tunnel-aware package certificate. All new surface candidates need exact
 native receipts. `surface-rio-smoke-15` is the first such trial, before all-five
 qualification; required jobs remain foreground, fair slot/Steam guards intact.
+
+## 2026-11-11 04:17 ET — corrected all-five exact-package qualification
+
+Writerf494ff6 integrates all-five exact metadata recovery and controlled tunnel
+captures plus Python surface/portal semantics and unforced infeasible minor
+streams. All five deterministic resource plans, repeats, replays and independent
+decoders pass. They are NEW packages, not inherited R4 acceptance. Native
+`surface-final-five-60` now tests each for60minutes, serial/fair queued, using
+private DLL9940eaf0. The stream update retains geometry/prefill/intake/probes and
+records disabled output explicitly; major river forcing is not globally scaled.
+
+Exact full CRP SHA-256:
+
+- Asheville `4409846c62af4cc336c13261f1590872f0685d0783c48eebae50f93284ed2251`
+- Innsbruck `97833522e5bf06c5f8f508ce49109db229fc941a029cd46f5a819c9c7ba12b66`
+- Rio `117b4d16179853c19527891b55e431ec6559aa47c44add346bd2665024777555`
+- Pittsburgh `0e0673e898c13972b57923cbbb4221dbfc2bd3b745f50911288beb782f5eb8ce`
+- Charleston `8f5b5268f00aa7eb789727ea0f98753b4c90d62d23ddbdb8a9f6fa8c3dc25c2c`
+
+Initial `surface-rio-smoke-15` package2f9248de passes after genuine panel/opening/
+Areas review:236/244 surface river exact end wet, all976 native nearby readings
+wet,0.037888km² off-channel spread. A6.8125m residual minor-creek pool motivated
+the explicit infeasible-stream supply correction above; the15minute map is not
+the final matrix. Historical inland PNG recapture drift is separately recorded
+from fresh original-geometry controls: identical banks/frame/fit, but original
+raw bytes unavailable for those three. Fresh control/candidate raw bytes match;
+only explicit tunnel removal differs between those controls. No grid flip or
+source substitution is claimed. Website/installer and shared services unchanged.
