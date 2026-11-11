@@ -1,0 +1,41 @@
+{
+  "slug": "pittsburgh",
+  "geometry_sha256": "b73e79b4313ec0b897d0f84b8128db898dfac975d3ec089b6d3398f0872f52b9",
+  "landcover_sha256": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f",
+  "sampler_sha256": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+  "provenance": {
+    "kind": "exact PL-902 fixture",
+    "source_revision": "0d3b873a903bca0275fcc90e110fc222e41e5e0f"
+  },
+  "attribution": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "classes": {
+    "10": {
+      "cells": 1660688,
+      "share": 0.5561610510973937
+    },
+    "30": {
+      "cells": 191821,
+      "share": 0.06424046478480795
+    },
+    "40": {
+      "cells": 2206,
+      "share": 0.0007387849365569273
+    },
+    "50": {
+      "cells": 1001179,
+      "share": 0.33529282139489025
+    },
+    "60": {
+      "cells": 12133,
+      "share": 0.0040633171510631
+    },
+    "80": {
+      "cells": 117949,
+      "share": 0.03950088145147462
+    },
+    "90": {
+      "cells": 8,
+      "share": 2.6791838134430725e-06
+    }
+  }
+}

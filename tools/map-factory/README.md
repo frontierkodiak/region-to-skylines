@@ -158,13 +158,14 @@ an unpainted map. Staging without resource plans retains the existing behavior.
 Generated probes retain separate panel, actual-startup/Areas, geographic
 `ground_truth` and optional `landmark_expectations` contracts.
 
-These compound packages are **unverified experimental integration**, not native
-resource acceptance or PL-902 closeout. In particular, adding resources cannot
-repair Rio R4's failing flood gate. Do not freeze these packages as finals.
-The original PR24 expected resource CRP hashes in `fixtures/resources.json`
-are deliberately retained: compound previews/camera change the bytes, so the
-old checksum assertions in `verify_resources.py` are not an acceptance gate
-for these new packages. Use its independent decoder checks, not `--freeze`.
+The original compound packages were experimental integration, not acceptance
+or PL-902 closeout. The current reference contract is the single five-case
+`fixtures/manifest.json`: full geographic rivers, bounded shallow supplies,
+resource plans, previews and north-facing mode-2 cameras. Both
+`verify_regions.py` and `verify_resources.py` reproduce those same full hashes;
+the obsolete two-case resource checksum file is removed. Native findings and
+explicit failing subsets are recorded in `NATIVE_FINDINGS.md`. Reproducible
+bytes do not turn a failed game measurement into a passing one.
 
 ## Verify the frozen fixtures
 

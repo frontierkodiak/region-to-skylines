@@ -75,10 +75,12 @@ resource usability remain to be checked.
 - Full map-factory Ruff lint and format checks passed. Minor imported-source
   lint fixes and formatting preserve the resource research and default knobs.
 
-The original resource expected hashes in `fixtures/resources.json` remain
-byte-identical to pinned PR24. `verify_resources.py --freeze` was **not** run;
-its old package hashes necessarily differ from this compound writer. Its
-independent manager checks were reused without blessing new golden values.
+At this historical checkpoint, the original two-case resource checksums were
+unchanged. They are now superseded by the unified five-case
+`fixtures/manifest.json`. `verify_resources.py` replans and replays every case,
+checks the complete expected CRP and independently decodes the native rules.
+It has no checksum-writing mode. See `NATIVE_FINDINGS.md` for current native
+results; these historical compound hashes are not the final reference set.
 
 ## Integration decisions
 
