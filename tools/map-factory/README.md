@@ -206,6 +206,12 @@ Asheville preparer in `prepare.py`.
 
 ## Native hydraulic soak
 
+Starting-tile selection requires at least256 initial vertices deeper than0.5m
+before a tile receives water priority, not merely eight shallow creek pixels.
+This is a preparation heuristic, not proof of sustained intake: native audits
+still report the selected tile's actual end water/depth/volume. Otherwise the
+explicit constructed reservoir fallback remains visible in the receipt.
+
 Stage the five exact golden packages and all 14,615 committed waterway probes
 without starting Steam:
 

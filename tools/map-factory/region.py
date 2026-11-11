@@ -383,7 +383,7 @@ def start_area(ground, depth, geometry):
             if land > 0.15:
                 options.append(
                     (
-                        int(water >= 8),
+                        int(water >= 256),
                         int(road_mask[area].any()),
                         land - 0.15 * np.hypot(x - 2, z - 2),
                         x,
@@ -408,6 +408,9 @@ def start_area(ground, depth, geometry):
         "x": x,
         "z": z,
         "has_water": bool(has_water),
+        "initial_deep_water_vertices": int(
+            (depth[row - 60 : row + 60, col - 60 : col + 60] > 0.5).sum()
+        ),
         "landing": [int(xx[target] * 16 - HALF), int(HALF - yy[target] * 16)],
         "buildable_fraction": float(
             buildable[row - 60 : row + 60, col - 60 : col + 60].mean()
