@@ -334,3 +334,68 @@ playing on `:0` is unaffected. `setup --undo` removes the launch options,
 wrapper, VirtualGL and mod. Session pieces (`cs1-harness-xvfb`,
 `cs1-harness-dbus`, `cs1-harness-steam`) are transient `systemd --user` units
 that exist only while a session is up; `cs1-harness-gpu` samples the GPU every 5 s into the session's `gpu.csv`.
+
+### Opt-in New Game panel verdict (PL-857)
+
+Add `new_game_panel` to the probe JSON to check the real menu before loading
+the city. Every expectation is required. Use the intended map's actual values,
+**not these illustrative zeros**. Amounts and directional counts are raw
+`MapMetaData` fields; `buildableArea` is the integer percentage. `author` is
+the package author, not the randomly generated suggested city name. An
+intentional empty author hides the label.
+
+```json
+{
+  "new_game_panel": {
+    "map_name": "Asheville", "author": "", "buildableArea": 37,
+    "resources": {
+      "maxResourceAmount": 1000000.0,
+      "oilAmount": 0, "oreAmount": 0, "forestAmount": 0,
+      "fertileLandAmount": 0, "waterAmount": 0
+    },
+    "connections": {
+      "incomingRoads": 0, "outgoingRoads": 0,
+      "incomingTrainTracks": 0, "outgoingTrainTracks": 0,
+      "incomingShipPath": 0, "outgoingShipPath": 0,
+      "incomingPlanePath": 0, "outgoingPlanePath": 0
+    }
+  }
+}
+```
+
+The mod opens `NewGamePanel`, finds the exact package path in its native
+listing, selects it, waits for resource animations, and captures the rendered
+modal. `new-game-panel.json` retains native metadata, resolved `imageRef` and
+`steamPreviewRef` texture dimensions, actual labels and screenshot SHA-256.
+`new-game-panel.png` is game-rendered, never constructed. Package metadata
+alone cannot pass this check.
+
+Initially `new_game_panel` **fails as unreviewed**. Inspect that PNG and record
+what you actually see in `new-game-panel-review.json` in the run directory:
+
+```json
+{
+  "sha256": "SHA256_OF_THE_CAPTURE_YOU_REVIEWED",
+  "reviewer": "your name or agent/run identifier",
+  "notes": "Specific observations of the selected map, preview, bars and icons",
+  "observed": {
+    "map_name": "Asheville", "author": "", "buildableArea": 37,
+    "preview_matches_map": true, "resources_match": true,
+    "connections_match": true, "selected_map_visible": true
+  }
+}
+```
+
+Only mark those assertions true after reviewing the panel against expectations:
+preview is the intended map (not template), author/buildable percent are correct,
+resource bars/no-resource marks match amounts, and directional transport icons
+match intended connections. Resource bars use native nonlinear normalization,
+not raw counts or percentages. Then rejudge with
+`uv run cs1-harness verdict RUN_DIR`.
+
+Missing/invalid expectations or evidence, unresolved refs, changed screenshots,
+and absent/stale reviews fail closed. Without a request the row is `skip`.
+Rejudging uses only the frozen run's `probes.json`, not mutable source probes.
+This is mod-enabled instrumentation only: strict `--disableMods` vanilla checks
+are unchanged. Manual vanilla panel captures are a separate workflow and cannot
+silently substitute for these native bridge observations.

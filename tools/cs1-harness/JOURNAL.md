@@ -835,3 +835,16 @@ Added read-only network snapshots at path-check endpoints: native bounds,
 segment/node flags and matching render parts/LOD metadata. This investigates
 highway meshes absent only in a wide harness camera while native paths and
 the normal vanilla view remain intact. It changes no map or simulation state.
+
+## 2026-11-10 — PL-857 opt-in New Game panel check (offline)
+
+Added frozen probe expectations for native NewGamePanel listing, package
+author/buildable/resource/connection values and resolvable snapshot + Steam
+preview textures. Driver selects the native modal and captures its rendered
+selection; verdict requires separate hash-bound visual review and fails while
+unreviewed. No synthetic image or package-only success counts as a panel pass.
+Strict disableMods verification is unchanged. Offline: built against installed
+game assemblies; eleven verdict fixture tests and Ruff lint/format checks passed.
+No game, Steam, doctor, display or GPU session started: Caleb's reservation
+remained held. Native modal operation/rendered capture still need live checks
+after the hold; GPU/VRAM/power/temperature/run-wall metrics are not applicable.

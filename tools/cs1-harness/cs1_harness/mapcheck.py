@@ -8,7 +8,7 @@ import pathlib
 import shutil
 import time
 
-from . import observe
+from . import new_game_panel, observe
 from .client import HarnessError
 from .session import Session
 
@@ -40,6 +40,7 @@ class MapCheck:
         self.points = points
         self.views = views
         self.paths = paths
+        self.panel_expectations = new_game_panel.request(out)
         self.log = log
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
@@ -228,6 +229,8 @@ class MapCheck:
             raise HarnessError(f"the game does not list {installed.name} as a map")
         self.log(f"starting New Game on {entry['map_name']} (listed in New Game: {entry['published']})")
         observe.write_context(s.cfg, map=entry["map_name"])
+        if self.panel_expectations is not None:
+            new_game_panel.capture(s, self.out, entry["path"], self.panel_expectations)
         self.c.call("new_game", path=entry["path"])
         status = self.c.wait(
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
