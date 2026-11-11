@@ -1531,3 +1531,25 @@ qualification is inherited. Original Charleston8f5b completed60.1367min,
 central source geometry2748/2748nearby end wet;0.004608km2 max distant spread,
 max0.859375m. Global terrain correlation remains failed and explicitly retained;
 independent land/wetland subsets are a diagnosis, not a rewritten pass.
+
+## 2026-11-11 06:51 ET — reject short-reach pilot flooding
+
+Rio5b533d62 completed15.0133min with exact initial inputs/controls and empty
+cleanup. Independent central source-river coverage rose from573/1147(old60min)
+to1137/1147nearby end wet; all1147initially near wet. Native required geographic
+reads have7no-nearby misses at10min, including a persistent modeled Joana
+inlet leg inside a101.6m withdrawal footprint. Output0 drains remain required,
+but should not withdraw onto higher upstream channel beds.
+
+The candidate is rejected:0.175104km2 distant spreading at15min,max4.546875m,
+including439cells around outerJacaré. New short outlets still inject at
+0.2/0.8capacity; their envelope borrows prefill and can cross omitted tunnel
+gaps. Next bounded experiment limits short intake by upstream-bed clearance
+and short output to actual retained surface corridor minus tunnel barriers.
+No gate/mapped geometry/failed probes are removed; no new deep excavation.
+
+Avoided superseded strict Rio/Pitt starts: revalidated queued child63337,
+its actual strict_complete_batch.py ancestor and own activeAshholder37656,
+then SIGINT only waiting63337. Foreground parent collectedexit1(child130);
+no game started, active Ash untouched. Strict Ash/Inn had already completed.
+Resume Charleston separately, then qualify changed urban packages anew.
