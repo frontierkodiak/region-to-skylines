@@ -22,16 +22,22 @@ def main():
     p.add_argument("game", type=Path)
     p.add_argument("map", type=Path)
     p.add_argument("out", type=Path)
+    p.add_argument(
+        "--vanilla-only", action="store_true", help="same map and completed fixture, no candidate CRPs installed"
+    )
     a = p.parse_args()
     a.wait_minutes, a.retry_minutes, a.max_attempts, a.issue = 15, 0, 1, "PL-881"
     cfg = Config.for_host()
     names = [f"{arm}-{target}" for target in ("bungalow", "storefront", "apartment") for arm in "ABC"]
+    if a.vanilla_only:
+        names = []
     plan = {
         "source": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
         "script_sha256": digest(Path(__file__)),
         "mod_sha256": digest(cfg.build_dir / "Cs1Harness.dll"),
         "map_sha256": digest(a.map),
         "crps": {name: digest(a.game / "build" / name / f"{name}.crp") for name in names},
+        "vanilla_only": a.vanilla_only,
         "inspection_only": "LOD distances forced to zero in a fresh paused city; never a gameplay-distance or performance measurement",
     }
 
@@ -73,7 +79,16 @@ def main():
             c.call("time_of_day", hour=hour)
             d.shot(f"vanilla-hour-{hour}", settle=6)
         c.call("camera", release=True)
-        return {"plan": plan, "menu_status": menu, "placed": placed, "vanilla": vanilla, "shots": d.shots}
+        status = c.call("status")
+        return {
+            "plan": plan,
+            "menu_status": menu,
+            "placed": placed,
+            "vanilla": vanilla,
+            "shots": d.shots,
+            "errors": status.get("errors"),
+            "custom_assets": c.call("custom_assets"),
+        }
 
     raise SystemExit(_session_tool(cfg, a, "render-probes", body))
 
