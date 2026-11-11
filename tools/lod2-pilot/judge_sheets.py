@@ -7,11 +7,14 @@ random code instead of the building id. `topo`: references and one unnamed candi
 (measured LoD2) seen from above and obliquely, for the roof-form check. The key that maps
 codes back to buildings and arms is written outside the folder judges are given.
 
-    uv run judge_sheets.py
+    uv run judge_sheets.py [--set dev|locked|all] [--pairs h,c] [--seed N]
+
+Sheets go to `judge/<set>/ab` and `judge/<set>/topo`, the key to `judge-key-<set>.json`.
 """
 
 from __future__ import annotations
 
+import argparse
 import random
 
 from PIL import Image, ImageDraw
@@ -38,9 +41,14 @@ def compose(cells, labels, w=330, h=330):
 
 
 def main():
-    rng = random.Random(SEED)
-    sel = read_json(EXP / "selection" / "buildings.json")["buildings"]
-    out = EXP / "judge"
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--set", default="all")
+    ap.add_argument("--pairs", default="h,c")
+    ap.add_argument("--seed", type=int, default=SEED)
+    args = ap.parse_args()
+    rng = random.Random(args.seed)
+    sel = [b for b in read_json(EXP / "selection" / "buildings.json")["buildings"] if args.set in ("all", b["set"])]
+    out = EXP / "judge" / args.set
     (out / "ab").mkdir(parents=True, exist_ok=True)
     (out / "topo").mkdir(parents=True, exist_ok=True)
     key = {"ab": {}, "topo": {}}
@@ -54,7 +62,7 @@ def main():
         if "height" not in scene["arms"] or "lod2" not in scene["arms"]:
             continue
         for pair, (x, y) in PAIRS.items():
-            if y not in scene["arms"]:
+            if pair not in args.pairs.split(",") or y not in scene["arms"]:
                 continue
             for view in ("city", "close"):
                 code = codes.pop()
@@ -67,7 +75,7 @@ def main():
         cells = refs + [panel(r / "lod2-top.png", 330, 330), panel(r / "lod2-close.png", 330, 330)]
         compose(cells, ref_labels + ["CANDIDATE from above", "CANDIDATE oblique"]).save(out / "topo" / f"{code}.png")
         key["topo"][str(code)] = {"id": b["id"], "fallback": bool(scene["arms"]["lod2"].get("note"))}
-    write_json(EXP / "judge-key.json", key)
+    write_json(EXP / f"judge-key-{args.set}.json", key)
     print(len(key["ab"]), "A/B sheets,", len(key["topo"]), "roof-form sheets")
 
 

@@ -19,6 +19,7 @@ _W, _S = 934130.9644820734, 680537.4966984562
 E0 = _W * FTUS + 3000.0  # EPSG:6542 easting of local x = 0
 N0 = _S * FTUS + 3000.0  # EPSG:6542 northing of local z = 0
 WORK_EPSG = 6542
+CLASSES = "rescue"  # how building points are prepared (reconstruct.py); PL-900 froze "promote"
 FIT_EPOCH = "2017"  # folder name of the cloud the reconstruction is fitted to
 # Another place (second_city.py): LOD2_FRAME="<easting>,<northing>,<epsg>,<epoch>" moves the frame.
 if os.environ.get("LOD2_FRAME"):

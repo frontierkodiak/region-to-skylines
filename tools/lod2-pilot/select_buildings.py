@@ -8,6 +8,11 @@ guarantee each hard case appears; the rest is a seeded random draw. Ten become t
 development set, forty stay locked.
 
     uv run select_buildings.py --pixel <workbench>/pixel-asheville/public/data
+
+Round 2 (PL-909) draws a second locked set from the same pools after its method was
+frozen: `--fresh 20 --seed 909` keeps the buildings already in `selection/buildings.json`
+as they are and adds 20 per neighbourhood that are not among them, all locked, with the
+hard-case quotas scaled to the smaller draw.
 """
 
 from __future__ import annotations
@@ -54,7 +59,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pixel", type=Path, required=True, help="pixel-asheville public/data")
     ap.add_argument("--out", type=Path, default=EXP / "selection")
+    ap.add_argument("--fresh", type=int, default=0, help="add this many new locked buildings per neighbourhood to the existing selection")
+    ap.add_argument("--seed", type=int, default=SEED)
     args = ap.parse_args()
+    per_hood = args.fresh or 25
+    before = __import__("json").loads((args.out / "buildings.json").read_text()) if args.fresh else None
+    used = {b["id"] for b in before["buildings"]} if before else set()
     meta = __import__("json").loads((args.pixel / "meta.json").read_text())
     X0, Z0, X1, Z1 = meta["bounds"]
     cols, rows = meta["cols"], meta["rows"]
@@ -131,12 +141,14 @@ def main():
                 ] if on
             ]
         everyone += [{k: v for k, v in c.items() if k != "ring"} for c in cands]
-        rng = random.Random(f"{SEED}-{hood}")
+        rng = random.Random(f"{args.seed}-{hood}")
+        cands = [c for c in cands if c["id"] not in used]
         cands.sort(key=lambda c: c["id"])
         quotas = (
             {"canopy": 6, "complex": 6, "steep": 5, "small": 2} if hood == "montford"
             else {"adjoining": 8, "complex": 5, "steep": 4, "tile": 10, "small": 1}
         )
+        quotas = {flag: round(n * per_hood / 25) for flag, n in quotas.items()}
         chosen: dict[int, dict] = {}
         for flag, n in quotas.items():
             pool = [c for c in cands if (c["in_2025_tile"] if flag == "tile" else flag in c["flags"]) and c["id"] not in chosen]
@@ -144,18 +156,22 @@ def main():
             for c in rng.sample(pool, min(len(pool), max(0, n - have))):
                 chosen[c["id"]] = c
         rest = [c for c in cands if c["id"] not in chosen]
-        for c in rng.sample(rest, 25 - len(chosen)):
+        for c in rng.sample(rest, per_hood - len(chosen)):
             chosen[c["id"]] = c
         sel = sorted(chosen.values(), key=lambda c: c["id"])
-        dev = set(c["id"] for c in rng.sample(sel, 5))
+        dev = set() if args.fresh else set(c["id"] for c in rng.sample(sel, 5))
         for c in sel:
             c["set"] = "dev" if c["id"] in dev else "locked"
         picked += sel
         table.append({"hood": hood, "candidates": len(cands), "flag_counts": {
             f: sum(1 for c in cands if f in c["flags"]) for f in ["canopy", "complex", "steep", "adjoining", "small"]},
             "in_2025_tile": sum(1 for c in cands if c["in_2025_tile"])})
-    write_json(args.out / "buildings.json", {"seed": SEED, "aois": AOIS, "pools": table, "buildings": picked})
-    write_json(args.out / "candidates.json", everyone, indent=None)
+    if before:
+        write_json(args.out / "buildings.json", before | {"fresh": {"seed": args.seed, "per_hood": per_hood, "pools": table},
+                                                          "buildings": before["buildings"] + picked})
+    else:
+        write_json(args.out / "buildings.json", {"seed": args.seed, "aois": AOIS, "pools": table, "buildings": picked})
+        write_json(args.out / "candidates.json", everyone, indent=None)
     for t in table:
         print(t)
     for c in picked:

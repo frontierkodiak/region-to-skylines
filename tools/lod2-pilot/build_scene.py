@@ -22,7 +22,7 @@ from PIL import Image, ImageDraw
 from scipy.interpolate import NearestNDInterpolator
 from shapely.geometry import Polygon
 
-from common import EXP, FIT_EPOCH, FTUS, ORTHO_2025, WORK_EPSG, read_json, to_local, to_work, write_json
+from common import CLASSES, EXP, FIT_EPOCH, FTUS, ORTHO_2025, WORK_EPSG, read_json, to_local, to_work, write_json
 
 ORIGIN_Y = 592.86  # pixel-asheville's elevation origin, NAVD88 m
 MARGIN = 14.0
@@ -88,7 +88,7 @@ def ortho(b, half, path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--set", default="dev")
-    ap.add_argument("--classes", default="promote")
+    ap.add_argument("--classes", default=CLASSES)
     args = ap.parse_args()
     for b in read_json(EXP / "selection" / "buildings.json")["buildings"]:
         if args.set != "all" and b["set"] != args.set:
@@ -115,11 +115,13 @@ def main():
                                "note": cur["how"]}
         if rec["height_only"]:
             arms["height"] = {"tri": shift(rec["height_only"]["tri"], g0), "kind": rec["height_only"]["kind"]}
-        usable = bool(rec["lod22"]) and (rec["roofer"] or {}).get("rf_extrusion_mode") == "standard"
-        if usable:
+        if rec["lod22"]:
             keep = [k for k, kind in enumerate(rec["lod22"]["kind"]) if kind != "ground"]
             tri = np.array(rec["lod22"]["tri"]).reshape(-1, 9)[keep]
             arms["lod2"] = {"tri": shift(tri.reshape(-1).tolist(), g0), "kind": [rec["lod22"]["kind"][k] for k in keep]}
+            back = [q for q in rec.get("parts", []) if not q["standard"]]
+            if back:
+                arms["lod2"]["note"] = f"{len(back)} of {len(rec['parts'])} parts fell back to height-only"
         elif "height" in arms:
             arms["lod2"] = arms["height"] | {"note": "fallback: height-only"}
 

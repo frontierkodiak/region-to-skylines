@@ -26,7 +26,7 @@ import numpy as np
 from shapely import contains_xy
 from shapely.geometry import Polygon
 
-from common import EXP, FIT_EPOCH, read_json, to_local, write_json
+from common import CLASSES, EXP, FIT_EPOCH, read_json, to_local, write_json
 from reconstruct import label_roof, load
 
 ORIGIN_Y = 592.86
@@ -106,7 +106,7 @@ def score(tri, R, ground, edge):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--set", default="dev")
-    ap.add_argument("--classes", default="promote")
+    ap.add_argument("--classes", default=CLASSES)
     ap.add_argument("--tag", default="", help="suffix of the reconstruction folders, for parameter trials")
     args = ap.parse_args()
     rows = []
@@ -130,8 +130,9 @@ def main():
             g = rec["prepare"]["ground"] if rec["prepare"]["ground"] is not None else ground
             arms = {"current": cur_tri}
             arms["height"] = roof_tris(rec["height_only"]["tri"], rec["height_only"]["kind"]) if rec["height_only"] else np.zeros((0, 3, 3))
-            ok = rec["lod22"] and (rec["roofer"] or {}).get("rf_extrusion_mode") == "standard"
-            arms["lod2"] = roof_tris(rec["lod22"]["tri"], rec["lod22"]["kind"]) if ok else arms["height"]
+            # the joined model; a part Roofer did not reconstruct is already at its measured height in it
+            ok = bool(rec["lod22"]) and (rec["roofer"] or {}).get("rf_extrusion_mode") == "standard"
+            arms["lod2"] = roof_tris(rec["lod22"]["tri"], rec["lod22"]["kind"]) if rec["lod22"] else arms["height"]
             row["checks"][check] = {k: score(t, R, g, edge) for k, t in arms.items()}
             row["checks"][check]["lod2_is_fallback"] = not ok
         rows.append(row)
@@ -140,7 +141,7 @@ def main():
                 print(b["id"], b["set"], check, " | ".join(
                     f"{k}: med {s['median_abs']} rmse {s['rmse']} ≤1m {s['within_1']} ridge {s.get('ridge_err')} eave {s.get('eave_err')}"
                     for k, s in v.items() if isinstance(s, dict)))
-    name = "" if args.classes == "promote" else f"-{args.classes}"
+    name = "" if args.classes == CLASSES else f"-{args.classes}"
     write_json(EXP / "results" / f"geometry-{args.set}{name}{args.tag}.json", rows)
     for check in ("held", "x2025"):
         for arm in ("current", "height", "lod2"):

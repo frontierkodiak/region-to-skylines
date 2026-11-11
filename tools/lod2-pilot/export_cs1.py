@@ -23,7 +23,69 @@ from shapely.geometry import Polygon
 
 from common import EXP, read_json
 
-WALL_HEX = {"brick": "#8a4c35", "stone": "#7c776b", "siding": "#dfd39a"}
+# The game's lighting brightens and saturates: PL-900's #8a4c35 brick came out salmon and
+# its #dfd39a siding bright yellow. These are the same hues at about half the saturation.
+WALL_HEX = {"brick": "#7d5a4e", "stone": "#7c776b", "siding": "#d6d0bd"}
+GLASS_HEX = "#2f3b56"
+STOREY = 3.0  # m between window rows
+WINDOW = (1.0, 1.4)  # m wide, tall
+SILL = 0.9  # m above each floor line
+BAY = 2.6  # m between window centres along a wall
+EDGE = 0.6  # m kept clear at wall ends and under the eave
+
+
+def windows(tri: np.ndarray, kinds: list[str]) -> np.ndarray:
+    """Plain window panes on the walls, so the game has glass to light at night.
+
+    Wall triangles are grouped by the vertical plane they lie in. Each plane gets rows of
+    panes at fixed storey heights from the ground and a fixed spacing along the wall,
+    wherever a whole pane with its margin fits inside the wall. Panes sit 3 cm off the
+    wall and wind like it. This is a regular fill, not a reading of the real facade.
+    """
+    from shapely.geometry import Polygon, box
+    from shapely.ops import unary_union
+
+    walls = tri[np.array(kinds) == "wall"]
+    nrm = np.cross(walls[:, 1] - walls[:, 0], walls[:, 2] - walls[:, 0])
+    ln = np.linalg.norm(nrm, axis=1)
+    keep = (ln > 1e-6) & (np.abs(nrm[:, 1]) < 0.05 * ln)
+    walls, nrm = walls[keep], nrm[keep] / ln[keep, None]
+    groups: dict[tuple, list[int]] = {}
+    for i, (t, n) in enumerate(zip(walls, nrm)):
+        ang = round(float(np.degrees(np.arctan2(n[2], n[0]))) / 3)
+        off = round(float(t[0] @ n) / 0.1)
+        groups.setdefault((ang, off), []).append(i)
+    out = []
+    for idx in groups.values():
+        n = nrm[idx].mean(axis=0)
+        n[1] = 0
+        n /= np.linalg.norm(n)
+        along = np.array([-n[2], 0.0, n[0]])
+        origin = walls[idx[0]][0]
+        face = unary_union([Polygon([((v - origin) @ along, v[1]) for v in walls[i]]).buffer(1e-4) for i in idx])
+        if face.is_empty:
+            continue
+        a0, _, a1, top = face.bounds
+        count = int((a1 - a0 - 2 * EDGE - WINDOW[0]) // BAY) + 1
+        if count < 1:
+            continue
+        start = (a0 + a1) / 2 - (count - 1) * BAY / 2
+        floor = 0.0
+        while floor + SILL + WINDOW[1] + EDGE <= top:
+            for k in range(count):
+                c, y0 = start + k * BAY, floor + SILL
+                pane = box(c - WINDOW[0] / 2, y0, c + WINDOW[0] / 2, y0 + WINDOW[1])
+                if not face.contains(pane.buffer(EDGE * 0.5)):
+                    continue
+                q = [origin + along * a + np.array([0, y - origin[1], 0]) + n * 0.03
+                     for a, y in ((c - WINDOW[0] / 2, y0), (c + WINDOW[0] / 2, y0), (c + WINDOW[0] / 2, y0 + WINDOW[1]), (c - WINDOW[0] / 2, y0 + WINDOW[1]))]
+                for t in ([q[0], q[1], q[2]], [q[0], q[2], q[3]]):
+                    t = np.array(t)
+                    if np.cross(t[1] - t[0], t[2] - t[0]) @ n < 0:
+                        t = t[::-1]
+                    out.append(t)
+            floor += STOREY
+    return np.array(out).reshape(-1, 3, 3)
 
 
 def main():
@@ -45,6 +107,10 @@ def main():
         ang = math.atan2(long[1], long[0])
         c, s = math.cos(-ang), math.sin(-ang)
         t = np.array(arm["tri"], float).reshape(-1, 3, 3)
+        t[..., 1] = np.maximum(t[..., 1], 0.0)
+        panes = windows(t, arm["kind"])
+        kinds = list(arm["kind"]) + ["glass"] * len(panes)
+        t = np.vstack([t, panes]) if len(panes) else t
         u = t[..., 0] * c - t[..., 2] * s
         w = t[..., 0] * s + t[..., 2] * c
         y = np.maximum(t[..., 1], 0.0)
@@ -55,12 +121,14 @@ def main():
         out = args.out / name
         out.mkdir(parents=True, exist_ok=True)
         wall = scene["wall"] if scene["wall"] in WALL_HEX else "siding"
-        ramp = np.repeat([1 if k == "roof" else 0 for k in arm["kind"]], 3)
+        ramp = np.repeat([{"roof": 1, "glass": 2}.get(k, 0) for k in kinds], 3)
         (out / f"{name}.kit.json").write_text(json.dumps({
-            "source": {"pilot": "PL-900", "building": bid, "arm": "measured LoD2 (Roofer 1.0.0, 2017 USGS lidar)"},
+            "source": {"pilot": "PL-909", "building": bid, "arm": "measured LoD2 (Roofer 1.0.0, 2017 USGS lidar)"},
             "frame": "kit-local: u right along the frontage, y up, w back from the street; metres",
             "triangles": len(p), "position": np.round(p, 4).reshape(-1).tolist(), "ramp": ramp.tolist(),
-            "ramps": {"0": {"name": wall, "hex": WALL_HEX[wall]}, "1": {"name": "roof", "hex": "#55585e"}},
+            "ramps": {"0": {"name": wall, "hex": WALL_HEX[wall]}, "1": {"name": "roof", "hex": "#55585e"},
+                      "2": {"name": "glass", "hex": GLASS_HEX}},
+            "windows": len(panes) // 2,
         }))
         size = p.reshape(-1, 3).max(axis=0) - p.reshape(-1, 3).min(axis=0)
         lot = (math.ceil((size[0] + 0.5) / 8), math.ceil((size[2] + 2.5) / 8))

@@ -2,12 +2,15 @@
 
 For each building and epoch:
 
-- prepare the fitting cloud. `--classes asis` leaves the delivered classes; `--classes
-  promote` (the frozen choice, see README) also marks as building every non-ground point
-  over the outline that is 2 m or more above the ground beside it, because both
-  collections only call something class 6 when it is 800 ft2 or larger;
+- prepare the fitting cloud. Both lidar collections only call something class 6 when it
+  is 800 ft2 or larger, so small buildings arrive with no building points. `--classes
+  rescue` (round 2, the default) handles only those: where an outline has fewer than 50
+  class-6 points, non-ground points over it that are 2 m or more above the ground beside
+  it and lie on roof-like planes become building points. `promote` (PL-900's frozen rule)
+  did that for every outline and lifted tree canopy into roofs; `asis` changes nothing;
 - run Roofer (LoD 1.2, 1.3, 2.2) on that cloud and the county outline, nothing tuned per
-  building;
+  building. An outline that `split_outlines.py` cut into several buildings goes to Roofer
+  as its parts, in one call, and the parts are joined again under the outline's id;
 - measure the height-only arm ourselves: outline extruded from the ground beside it to
   the 70th percentile of the building points (the LoD1.2 convention), so that arm does
   not depend on Roofer succeeding.
@@ -19,7 +22,7 @@ rendered, judged and exported).
 Writes `<building>/<epoch>/<classes>-<cloud>/recon.json` with Roofer's attributes, timing, and
 triangles for LoD2.2 and LoD1.2 in the local frame (x east, y up NAVD88 m, z south).
 
-    uv run reconstruct.py --set dev --classes promote
+    uv run reconstruct.py --set dev
 """
 
 from __future__ import annotations
@@ -45,6 +48,27 @@ ROOFER = EXP / "tools" / "roofer" / "bin" / "roofer"
 MIN_ABOVE = 2.0  # m above the ground beside the outline to count as roof evidence
 NOT_ROOF = (2, 7, 9, 18)  # ground, low noise, water, high noise
 PLANE_TOL = 0.12  # m, inlier distance when looking for unclassified roof planes
+# Round 2's two departures from Roofer's defaults. Its insufficient-data skip compares the
+# outlines of one call with each other, which is meaningless for one block (MIN_COVER does
+# that job). Its terrain clipping cut roofs out of 23 of the 50 pilot outlines; with it
+# off the model keeps the county outline and 46 instead of 39 pass the withheld-point check.
+ROOFER_OPTIONS = ("--no-clear-insufficient", "--no-clip-terrain")
+RESCUE_BELOW = 50  # class-6 points over an outline; fewer means the collection skipped it
+MIN_COVER = 0.4  # share of an outline's 1 m cells holding a building point, below which nothing stood there
+
+
+def cover(poly: Polygon, x, y) -> float:
+    """Share of the outline's 1 m cells that hold one of the points."""
+    x0, y0, x1, y1 = poly.bounds
+    gx, gy = np.meshgrid(np.arange(x0 + 0.5, x1, 1.0), np.arange(y0 + 0.5, y1, 1.0))
+    cells = contains_xy(poly, gx.ravel(), gy.ravel()).reshape(gx.shape)
+    if not cells.any():
+        return 0.0
+    hit = np.zeros(gx.shape, bool)
+    i, j = np.floor(x - x0).astype(int), np.floor(y - y0).astype(int)
+    ok = (i >= 0) & (i < gx.shape[1]) & (j >= 0) & (j < gx.shape[0])
+    hit[j[ok], i[ok]] = True
+    return float((hit & cells).sum() / cells.sum())
 
 
 def ground_beside(poly: Polygon, x, y, z, c) -> float | None:
@@ -104,34 +128,79 @@ def load(bid, epoch: str, cloud: str):
     return P[:, 0], P[:, 1], P[:, 2], P[:, 3].astype(np.uint8)
 
 
-def label_roof(b, x, y, z, c, classes: str):
-    """Classes after the frozen preparation, the ground beside the outline, and counts."""
-    c = c.copy()
-    poly = Polygon([to_work(px, pz) for px, pz in b["ring"]])
+def parts_of(b) -> list[list]:
+    """The outlines a building is reconstructed as: its parts from `split_outlines.py`, or itself."""
+    f = EXP / "selection" / "parts.json"
+    if f.exists():
+        rings = read_json(f)["parts"].get(str(b["id"]))
+        if rings:
+            return rings
+    return [b["ring"]]
+
+
+def label_part(ring, seed: int, x, y, z, c, classes: str):
+    """Mark one outline's roof points in `c` (in place). Returns the outline in working
+    coordinates, the ground beside it, the points over it, and how many points were promoted."""
+    poly = Polygon([to_work(px, pz) for px, pz in ring])
     ground = ground_beside(poly, x, y, z, c)
     inside = contains_xy(poly, x, y)
     promoted = 0
-    rescue_only = classes == "rescue" and (c[inside] == 6).sum() < 50
+    # `rescue` (the round-2 rule): only an outline the collection left without building points
+    rescue_only = classes == "rescue" and (c[inside] == 6).sum() < RESCUE_BELOW
     if (classes == "promote" or rescue_only) and ground is not None:
         up = np.flatnonzero(inside & ~np.isin(c, NOT_ROOF + (6,)) & (z >= ground + MIN_ABOVE))
-        on = roof_planes(np.c_[x, y, z][up], b["id"]) if len(up) >= 25 else np.zeros(len(up), bool)
+        on = roof_planes(np.c_[x, y, z][up], seed) if len(up) >= 25 else np.zeros(len(up), bool)
         promoted = int(on.sum())
         c[up[on]] = 6
-    return c, poly, ground, inside, promoted
+    return poly, ground, inside, promoted
+
+
+def label_roof(b, x, y, z, c, classes: str):
+    """Classes after the frozen preparation, over every part of the building: the whole
+    outline, the lowest ground beside any part, the points over it, and the promoted count."""
+    c = c.copy()
+    grounds, promoted = [], 0
+    for k, ring in enumerate(parts_of(b)):
+        _, g, _, n = label_part(ring, b["id"] + k, x, y, z, c, classes)
+        promoted += n
+        if g is not None:
+            grounds.append(g)
+    poly = Polygon([to_work(px, pz) for px, pz in b["ring"]])
+    return c, poly, min(grounds) if grounds else None, contains_xy(poly, x, y), promoted
 
 
 def prepare(b, epoch: str, classes: str, cloud: str, out: Path):
+    """Write Roofer's inputs (one cloud, one outline per part) and measure each part."""
     x, y, z, c0 = load(b["id"], epoch, cloud)
-    c, poly, ground, inside, promoted = label_roof(b, x, y, z, c0, classes)
+    c = c0.copy()
+    rings = parts_of(b)
+    parts, polys = [], []
+    for k, ring in enumerate(rings):
+        poly, ground, inside, promoted = label_part(ring, b["id"] + k, x, y, z, c, classes)
+        parts.append({"ring": ring, "ground": ground, "inside": inside, "promoted": promoted, "area": round(poly.area, 1), "poly": poly})
+        polys.append(poly)
+    for p in parts:  # after every part is labelled, so a neighbour's promotion cannot leak in
+        inside = p.pop("inside")
+        roof = inside & (c == 6)
+        p |= {"points": int(inside.sum()), "class6_delivered": int((c0[inside] == 6).sum()), "roof_points": int(roof.sum()),
+              "cover": round(cover(p.pop("poly"), x[roof], y[roof]), 2)}
+        # An outline the lidar shows as open ground (built since, or never a building) is left
+        # out of both measured arms. Roofer's own test for this compares each outline with the
+        # others in the same call, which means nothing for a call of one block.
+        p["evidence"] = p["cover"] >= MIN_COVER
+        p["h70"] = float(np.percentile(z[roof], 70)) if p["evidence"] and roof.sum() >= 10 else None
     write_las(out / "cloud.las", x, y, z, c, np.ones(len(x), np.uint8), np.ones(len(x), np.uint8))
-    roof = inside & (c == 6)
+    ids = [str(b["id"])] if len(rings) == 1 else [f"{b['id']}p{k}" for k in range(len(rings))]
+    sent = [k for k, p in enumerate(parts) if p["evidence"]] or [0]  # Roofer needs at least one outline
+    gpd.GeoDataFrame({"id": [ids[k] for k in sent]}, geometry=[polys[k] for k in sent], crs=WORK_EPSG).to_file(out / "footprint.gpkg", driver="GPKG")
+    grounds = [p["ground"] for p in parts if p["ground"] is not None]
+    tops = [p["h70"] for p in parts if p["h70"] is not None]
     stats = {
-        "ground": ground, "inside": int(inside.sum()), "class6_delivered": int((c0[inside] == 6).sum()),
-        "promoted": promoted, "roof_points": int(roof.sum()),
-        "h70": float(np.percentile(z[roof], 70)) if roof.sum() >= 10 else None,
+        "ground": min(grounds) if grounds else None, "inside": sum(p["points"] for p in parts),
+        "class6_delivered": sum(p["class6_delivered"] for p in parts), "promoted": sum(p["promoted"] for p in parts),
+        "roof_points": sum(p["roof_points"] for p in parts), "h70": max(tops) if tops else None,
     }
-    gpd.GeoDataFrame({"id": [str(b["id"])]}, geometry=[poly], crs=WORK_EPSG).to_file(out / "footprint.gpkg", driver="GPKG")
-    return stats, poly
+    return stats, parts, ids
 
 
 def triangulate(ring_sets, verts):
@@ -225,49 +294,85 @@ def extrude(poly_local: Polygon, y0: float, y1: float):
     return np.round(tri, 3).reshape(-1, 9).tolist(), kinds
 
 
-def run(b, epoch: str, classes: str, cloud: str):
-    out = EXP / "buildings" / str(b["id"]) / epoch / f"{classes}-{cloud}"
+def merge(into: dict | None, add: dict) -> dict:
+    """Append one part's triangles (`parse` or `extrude` output) to a building's."""
+    if into is None:
+        return {k: list(v) for k, v in add.items()}
+    off = len(into.get("roof_parts", []))
+    for k, v in add.items():
+        into[k] = into.get(k, []) + ([p + off if p >= 0 else -1 for p in v] if k == "part" else list(v))
+    return into
+
+
+def run(b, epoch: str, classes: str, cloud: str, tag: str = "", extra: tuple = ()):
+    out = EXP / "buildings" / str(b["id"]) / epoch / f"{classes}-{cloud}{tag}"
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    stats, poly = prepare(b, epoch, classes, cloud, out)
+    stats, parts, ids = prepare(b, epoch, classes, cloud, out)
     t0 = time.time()
     p = subprocess.run(
-        [str(ROOFER), "--lod12", "--lod13", "--lod22", "--id-attribute", "id", "--split-cjseq", "-j", "2",
-         "cloud.las", "footprint.gpkg", "roofer"],
+        [str(ROOFER), "--lod12", "--lod13", "--lod22", *ROOFER_OPTIONS, "--id-attribute", "id", "--split-cjseq", "-j", "2",
+         *extra, "cloud.las", "footprint.gpkg", "roofer"],
         cwd=out, capture_output=True, text=True, timeout=1800,
     )
     seconds = time.time() - t0
     (out / "roofer.log").write_text(p.stdout + p.stderr)
     rec = {"id": b["id"], "epoch": epoch, "classes": classes, "cloud": cloud, "prepare": stats, "roofer_seconds": round(seconds, 2),
-           "roofer_exit": p.returncode, "roofer": None, "lod22": None, "lod12": None}
-    feats = list((out / "roofer").glob("objects/*/reconstruct/*.city.jsonl"))
-    if p.returncode == 0 and feats:
-        attrs, lods = parse(feats[0], out / "roofer" / "metadata.json")
-        rec["roofer"] = attrs
-        rec["lod22"], rec["lod12"] = lods.get("2.2"), lods.get("1.2")
-    local = Polygon(b["ring"])
-    if stats["ground"] is not None and stats["h70"] is not None:
-        tri, kind = extrude(local, stats["ground"], stats["h70"])
-        rec["height_only"] = {"tri": tri, "kind": kind, "ground": stats["ground"], "top": stats["h70"]}
-    else:
-        rec["height_only"] = None
+           "roofer_exit": p.returncode, "roofer": None, "lod22": None, "lod12": None, "height_only": None, "parts": []}
+    area = sum(q["area"] for q in parts)
+    standard_area, planes, biggest = 0.0, 0, None
+    for q, pid in zip(parts, ids):
+        feat = out / "roofer" / "objects" / pid / "reconstruct" / f"{pid}.city.jsonl"
+        attrs, lods = parse(feat, out / "roofer" / "metadata.json") if p.returncode == 0 and q["evidence"] and feat.exists() else (None, {})
+        ok = bool(attrs) and attrs.get("rf_extrusion_mode") == "standard" and bool(lods.get("2.2"))
+        flat = None
+        if q["ground"] is not None and q["h70"] is not None:
+            tri, kind = extrude(Polygon(q["ring"]), q["ground"], q["h70"])
+            flat = {"tri": tri, "kind": kind}
+            rec["height_only"] = merge(rec["height_only"], flat)
+        # a part Roofer did not reconstruct stands in at its measured height, and is counted
+        use = lods.get("2.2") if ok else flat and {"tri": flat["tri"], "kind": flat["kind"], "part": [-1] * len(flat["kind"]), "roof_parts": []}
+        if use:
+            rec["lod22"] = merge(rec["lod22"], use)
+        if lods.get("1.2"):
+            rec["lod12"] = merge(rec["lod12"], lods["1.2"])
+        if ok:
+            standard_area += q["area"]
+            planes += attrs.get("rf_roof_planes") or 0
+        if attrs and (biggest is None or q["area"] > biggest[0]):
+            biggest = (q["area"], attrs)
+        rec["parts"].append({k: q[k] for k in ("area", "ground", "points", "class6_delivered", "promoted", "roof_points", "cover", "h70")}
+                            | {"id": pid, "standard": ok, "mode": (attrs or {}).get("rf_extrusion_mode") if q["evidence"] else "no building points",
+                               "roof_type": (attrs or {}).get("rf_roof_type"), "planes": (attrs or {}).get("rf_roof_planes")})
+    if rec["height_only"]:
+        rec["height_only"] |= {"ground": stats["ground"], "top": stats["h70"]}
+    if biggest:
+        # one record for the building: the largest part's attributes, standard only if every part is
+        all_standard = all(q["standard"] for q in rec["parts"])
+        rec["roofer"] = dict(biggest[1]) | {"rf_roof_planes": planes, "standard_area_share": round(standard_area / area, 3)}
+        if not all_standard:
+            rec["roofer"]["rf_extrusion_mode"] = next(q["mode"] or "none" for q in rec["parts"] if not q["standard"])
+    if not any(q["standard"] for q in rec["parts"]):
+        rec["lod22"] = None
     write_json(out / "recon.json", rec, indent=None)
     a = rec["roofer"] or {}
-    print(b["id"], epoch, classes, cloud, b["set"], f"{seconds:.1f}s", "roof pts", stats["roof_points"], "promoted", stats["promoted"],
+    print(b["id"], epoch, classes, cloud, b["set"], f"{seconds:.1f}s", "parts", f"{sum(q['standard'] for q in rec['parts'])}/{len(parts)}",
+          "roof pts", stats["roof_points"], "promoted", stats["promoted"],
           "| roofer:", a.get("rf_extrusion_mode"), a.get("rf_roof_type"), "planes", a.get("rf_roof_planes"),
-          "rmse22", round(a.get("rf_rmse_lod22") or -1, 2), "nodata", round(a.get("rf_nodata_frac") or -1, 2),
-          "val", a.get("rf_val3dity_lod22"))
+          "rmse22", round(a.get("rf_rmse_lod22") or -1, 2), "nodata", round(a.get("rf_nodata_frac") or -1, 2))
     return rec
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--set", default="dev")
-    ap.add_argument("--classes", default="promote", choices=["asis", "promote", "rescue"])
+    ap.add_argument("--classes", default="rescue", choices=["asis", "promote", "rescue"])
     ap.add_argument("--epoch", default="both", choices=[FIT_EPOCH, "2025", "both"])
     ap.add_argument("--cloud", default="both", choices=["fit", "all", "both"],
                     help="fit: without the withheld patches (for accuracy checks); all: every point (what ships)")
+    ap.add_argument("--tag", default="", help="suffix for the output folders, for parameter trials")
+    ap.add_argument("--roofer", default="", help="extra Roofer options for a trial, space separated")
     args = ap.parse_args()
     sel = read_json(EXP / "selection" / "buildings.json")["buildings"]
     for b in sel:
@@ -278,7 +383,7 @@ def main():
                 continue
             for cloud in ("fit", "all"):
                 if args.cloud in (cloud, "both"):
-                    run(b, epoch, args.classes, cloud)
+                    run(b, epoch, args.classes, cloud, args.tag, tuple(args.roofer.split()))
 
 
 if __name__ == "__main__":
