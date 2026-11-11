@@ -133,9 +133,18 @@ class SteamLog:
         for line in self.new_lines():
             if self.app_id not in line and "PlayingSession" not in line:
                 continue
-            m = re.search(r"waiting for user response to (\w+)", line) or re.search(
-                rf"OnGameActionUserRequest: {self.app_id} LaunchApp (\w+)", line
+            m = re.search(r'waiting for user response to (\w+)(?: "?(\w+))?', line) or re.search(
+                rf"OnGameActionUserRequest: {self.app_id} LaunchApp (\w+)(?: (\w+))?", line
             )
+            if m and m.group(1) == "SynchronizingCloud" and "fail" in (m.group(2) or "").lower():
+                # Steam's "cloud sync failed" dialog (seen after the account's last session ran on
+                # another computer). The step is normally a passing one, so without this the
+                # launch sat at the dialog until the main-menu timeout.
+                raise Blocked(
+                    "Steam Cloud sync failed before launch and Steam is asking whether to play anyway; "
+                    "the harness won't choose between cloud and local saves. Retry later",
+                    EX_TEMPFAIL,
+                )
             if m and m.group(1) not in self.PASSING:
                 self.prompt(m.group(1))
             m = re.search(rf"launch error \d+ {self.app_id} LaunchApp (\w+)", line)

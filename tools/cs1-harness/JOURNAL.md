@@ -469,6 +469,25 @@ specific `PL-NNN` in a path (`PL-891-PL-893-test-city` is PL-893).
 live older waiter (deferred), a dead one (cleaned up) and the older one
 exiting (proceeds). `queue` now reads "held by script trial.py · PL-893".
 
+## 2026-11-10 · Fable 5 (blade) · PL-900 · the cloud-sync dialog
+
+**What got in the way.** The first launch after Caleb's playtest on carbon sat
+for the full 600 s and ended "game did not reach the main menu". Steam had
+logged `LaunchApp SynchronizingCloud syncfailed` and was showing its "cloud
+sync failed, play anyway?" dialog: it had found an incomplete sync from the
+last run and was still pulling his new save. `SynchronizingCloud` is on the
+passing list, because it normally is one, so the harness never saw a prompt.
+
+**What changed.** `SteamLog.check` reads the word after the step. A
+`SynchronizingCloud` request whose reason contains "fail" stops the run with
+exit 75 (retry later) and says why; the harness still answers nothing. Tested
+on the two real log lines, on a normal passing line and on
+`KickingOtherSession`.
+
+**Before → after.** Before: 10 minutes, then a timeout with no cause. After:
+stops within seconds with the cause. The retry two minutes later launched
+normally, because Steam had finished the download by then.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
