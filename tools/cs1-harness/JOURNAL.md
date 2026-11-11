@@ -1056,3 +1056,22 @@ sampler/height and terrain-modification diagnosis; no exclusion mask or
 automatic pass was added. All registered jobs wait fairly and answer no Steam
 prompt. Inferred parent-script entries in `queue` are display-only: inspecting
 the actual wait tickets ruled out the suspected parent/child FIFO deadlock.
+
+## 2026-11-11 00:57 ET — neutral pointer before native startup observation
+
+Resource Asheville's panel now genuinely shows the two previews, hidden blank
+author and nonempty forest/fertile/ore/oil/water bars (buildable73%). Its
+opening native/render yaw remains0, but position drifts to the start tile's
+north-west corner while paused. Read-only X11 inspection found the pointer at
+root(160,90), exactly the upper-left of the1600×900 Cities window positioned
+at(160,90) in the1920×1080 private root. This triggers ordinary edge panning;
+it is not evidence for a serialized grid/camera rotation.
+
+`Session.launch` now parks the pointer at the private root centre after the
+game is observed, before any New Game operation. It requires the owned slot,
+refuses display:0, sends no key/click, and records the position in the receipt.
+No camera position/heading is forced. Existing queued Python processes retain
+their already imported source; the currently running60-minute water check is
+not altered. A fresh short startup check must verify centring and stable
+position on the same package before that claim is made. All47 unit tests and
+whole-harness Ruff pass; this pointer correction is not yet live-verified.

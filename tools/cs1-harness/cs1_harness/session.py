@@ -9,6 +9,7 @@ prompt and stops instead.
 from __future__ import annotations
 
 import contextlib
+import ctypes
 import fcntl
 import hashlib
 import json
@@ -311,6 +312,44 @@ class Session(contextlib.AbstractContextManager):
         self.receipt["display"] = c.display
         self.log(f"display {c.display} and private bus up")
 
+    def park_pointer(self):
+        """Avoid edge-scroll input at the start of this owned private game.
+
+        Unity's window can place the pointer at its upper-left when it opens.
+        Moving the pointer is not a camera override and sends no click/key.
+        """
+        if self.lock_fd is None or self.cfg.display == ":0":
+            raise HarnessError("pointer parking requires an owned private slot")
+        x = ctypes.CDLL("libX11.so.6")
+        x.XOpenDisplay.argtypes = [ctypes.c_char_p]
+        x.XOpenDisplay.restype = ctypes.c_void_p
+        x.XDefaultRootWindow.argtypes = [ctypes.c_void_p]
+        x.XDefaultRootWindow.restype = ctypes.c_ulong
+        x.XWarpPointer.argtypes = [
+            ctypes.c_void_p,
+            ctypes.c_ulong,
+            ctypes.c_ulong,
+            ctypes.c_int,
+            ctypes.c_int,
+            ctypes.c_uint,
+            ctypes.c_uint,
+            ctypes.c_int,
+            ctypes.c_int,
+        ]
+        x.XSync.argtypes = [ctypes.c_void_p, ctypes.c_int]
+        x.XCloseDisplay.argtypes = [ctypes.c_void_p]
+        display = x.XOpenDisplay(self.cfg.display.encode())
+        if not display:
+            raise HarnessError("cannot open owned private display to park pointer")
+        px, py = self.cfg.width // 2, self.cfg.height // 2
+        try:
+            root = x.XDefaultRootWindow(display)
+            x.XWarpPointer(display, 0, root, 0, 0, 0, 0, px, py)
+            x.XSync(display, 0)
+        finally:
+            x.XCloseDisplay(display)
+        self.receipt["pointer_parked"] = {"display": self.cfg.display, "root_position": [px, py]}
+
     def install_mod(self):
         c = self.cfg
         dll = c.build_dir / "Cs1Harness.dll"
@@ -415,6 +454,7 @@ class Session(contextlib.AbstractContextManager):
             observed = [p for p in gpu.game_placement() if p["pid"] in live_games] if not control else []
             if observed:
                 placed = self.check_placement(observed)
+                self.park_pointer()
                 self.log("strict --disableMods game rendering; observe menu readiness through the private X display")
                 return {"control": False, "menu_ready": None, "game_gpu": placed}
             status = self.client.try_status() if control else None
@@ -422,6 +462,7 @@ class Session(contextlib.AbstractContextManager):
             if status and not status.get("loading") and not status.get("in_game"):
                 self.receipt["menu_status"] = status
                 placed = self.check_placement()
+                self.park_pointer()
                 self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}; GPU processes {placed}")
                 return status
             if not self.steam_alive():
