@@ -1,6 +1,11 @@
-# Experimental compound resources · PL-857
+# Historical compound resource integration · PL-857
 
-**Offline qualification only, 2026-11-11. No native acceptance.** This integrates
+This is the initial offline integration record, not the current package
+inventory. See [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md) for exact native results
+and [SURFACE_WATER_EVIDENCE.md](SURFACE_WATER_EVIDENCE.md) for the later input
+correction. Historical claims below apply only to the listed hashes.
+
+**Initial offline qualification, 2026-11-11.** This integrates
 writer `fb77e74cb3c64801044c8b231d1265205d006cab` and resource branch
 `0d3b873a903bca0275fcc90e110fc222e41e5e0f` with both histories preserved.
 It does not adopt or close PL-902, whose native resource judgment stays with

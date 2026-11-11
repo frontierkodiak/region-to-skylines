@@ -1,6 +1,75 @@
 # Native qualification · PL-857
 
-## Current compound integration · 2026-11-11
+## Current status · complete geographic rivers
+
+The prior fitted-route-only probe plan was insufficient. Independent retained
+source-river rasterization found Rio only573/1147central cells within64m of
+water at minute60, and Pittsburgh2242/2461, despite green fitted-route probes.
+Joana had0/184; a1.74km SawMillRun surface piece was dry. These are real visible
+river omissions, not tunnel or minor-stream exceptions. Prior green totals
+below are comparative history, **not complete river acceptance**.
+
+Writer1c1f747 retains two-vertex surface river legs at every routing cutoff,
+keeps streams' prior minimum, and initializes retained major-river geography
+with a shallow bank-bounded film. Supplies remain shallow and locally bounded;
+actual carved-bed crests, not verification points, determine added supplies.
+`soak.py` independently stages every retained river raster cell. A separate
+pyproj/source-segment audit checks full geographic coverage on saved native
+grids, without the writer's routing or minimum-length policy. End-only wetness
+is insufficient: PR8 also judges every observed five-minute sample.
+
+Fresh `complete-river-candidates` packages (all previous full-package
+qualification superseded) are:
+
+| Region | Full CRP SHA-256 | New native qualification |
+| --- | --- | --- |
+| Asheville | `b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535` | Strict ordinary start reviewed;60minute run queued |
+| Innsbruck | `3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6` | Queued |
+| Rio | `5b533d623816f753b512e7e98eec49441a2fb004db79ff8372ae46bc4ec0f2f4` |15minute geographic-coverage pilot active |
+| Pittsburgh | `78e17efe8b21b7c337650ca391543aed5f3212ad2b79ac946ae01e813b2ebb26` |15minute pilot queued |
+| Charleston | `fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667` | Queued |
+
+All five full hashes reproduce from newly frozen scratch fixtures; complete
+region/resource verification and direct-generator/staging-integrity tests
+pass. Scratch fixture authoring is not native acceptance and the old committed
+goldens have not yet been promoted. Website/installer remain unchanged.
+
+Charleston's original global DEM comparison remains failed. Native built and
+forested land agree much better than the low-variance coastal-water aggregate;
+the failed subset and tidal/wetland bed deformation must remain explicit.
+Do not flip the grid or conceal those differences with a post-run mask.
+
+## Surface-water qualification · 2026-11-11
+
+### Historical surface-water comparison inventory
+
+These are the resource-bearing `surface-final-candidates` packages, not the
+older R3/R4 matrix below. Each native receipt binds the full CRP hash; all
+source geometry hashes also independently match generation receipts. New
+source-policy candidates remain separate until judged.
+
+| Region | Full CRP SHA-256 | Current native result |
+| --- | --- | --- |
+| Asheville | `4409846c62af4cc336c13261f1590872f0685d0783c48eebae50f93284ed2251` | 60.0611 min; 28/28 playable and 59/59 nonboundary river probes exactly wet at every sample; no distant spread |
+| Innsbruck | `97833522e5bf06c5f8f508ce49109db229fc941a029cd46f5a819c9c7ba12b66` | 60.0267 min; 33/33 playable and 91/91 nonboundary exactly wet at every sample; no distant spread |
+| Rio | `117b4d16179853c19527891b55e431ec6559aa47c44add346bd2665024777555` | 60.1100 min; 235/244 exact end wet, 9 ever exact dry; all 3,172 required native64m neighbourhood observations wet; 0.014848km² maximum distant pool, up to2.0625m |
+| Pittsburgh | `0e0673e898c13972b57923cbbb4221dbfc2bd3b745f50911288beb782f5eb8ce` | Queued; not yet qualified |
+| Charleston | `8f5b5268f00aa7eb789727ea0f98753b4c90d62d23ddbdb8a9f6fa8c3dc25c2c` | Pending; not yet qualified |
+
+All three completed runs have exact initial native terrain/water/control
+comparisons, six complete native paths, reviewed actual-window New Game panels,
+reviewed untouched opening and real Areas-tool images, independent native DEM
+comparison, and empty cleanup. Asheville's four named native landmark residuals
+are -1.605/-0.335/-0.925/-1.629m; its actual current/target opening centre is
+(-1920,0), native/render heading0°. No camera override precedes that observation.
+
+Asheville and Innsbruck also have independently reviewed ordinary New Game
+starts of these exact hashes with `--disableMods --noWorkshop` and no control
+socket. Rio's strict start completed and awaits image review. Current native
+listing scores are73%/76%/75% for these three; these are native weighted scores,
+not geographic flat-land percentages. Exact misses, physical-edge points and
+nonperennial minor streams remain in their audits rather than a total-only
+headline. Rio's stable small built-up-area pool is not called zero flooding.
 
 ### Surface-water classification correction under qualification
 
@@ -38,20 +107,24 @@ infeasible **minor streams** only, retaining their initial fill, geometry,
 intake and every probe/dry result. New packages require new native receipts;
 the15minute package is not the final reference.
 
-PR27 combines the exact writer, PR24's resource stage and explicit coastal
-ocean evidence. The original committed manifest below remains a historical
-unpainted byte reference; it is not the following full-package inventory.
-Website and installer remain unchanged. All five current resource-bearing
-packages have separately reviewed ordinary New Game/city starts with actual
+PR27 combines the writer, PR24's resource stage, explicit coastal ocean
+evidence and the surface-only correction. The current native matrix uses
+`surface-final-candidates` and `surface-final-five-60`; every changed package
+is qualified separately. The following R4 matrix is historical and rejected
+as a final inventory.
+Website and installer remain unchanged. All five earlier R4 resource-bearing
+packages had separately reviewed ordinary New Game/city starts with actual
 `--disableMods --noWorkshop`, absent control socket and empty cleanup.
 
-| Region | Current CRP SHA-256 prefix | Native 60-minute result |
+### Historical pre-tunnel R4 matrix — superseded
+
+| Region | Historical CRP SHA-256 prefix | Native 60-minute result |
 | --- | --- | --- |
 | Asheville | `be8b24824972463b` | 28/28 playable river points exactly wet throughout; no distant spread |
 | Innsbruck | `5859e371c1a0a7d3` | 34/35 exact end wet; all35 nearby wet throughout; four shallow distant cells |
 | Rio | `bc1045d2b8a954d4` | Rejected: 336/342 exact end wet, all nearby wet, 0.353024km² distant flooding, up to4.328125m |
 | Pittsburgh | `1acdfbb94ae5daf5` | 79/79 playable points exactly wet throughout; no mapped-corridor distant spread |
-| Charleston | `3d6443ff5257fe83` | Running; not accepted |
+| Charleston | `3d6443ff5257fe83` | Rejected starter-water tile; 198/198 exact end wet, transient dry points and 0.115712km² maximum distant spread |
 
 All completed rows have exact native initial grids/controls, six complete
 native paths and empty cleanup. Pittsburgh's original first-water-only verdict
@@ -60,7 +133,7 @@ are explicitly different, and archived requests are not rewritten. Nearby
 water does not silently replace exact dry points. Minor streams are not all
 perennial. This remains a draft, not a five-region certificate.
 
-Current listing buildable scores are73/75/73/79/58. Forest derives exactly from
+That historical listing matrix has buildable scores73/75/73/79/58. Forest derives exactly from
 placed trees; fertile land follows WorldCover, with explicitly labelled
 balanced game-convention top-ups. Ore/oil top-ups are not claims of real
 deposits. Previews resolve and author is blank in the actual native listings.
@@ -75,11 +148,12 @@ terrain also independently matches at its original-.905-degree clockwise frame;
 do not transpose/rotate the grid. These save and live observations are distinct.
 
 Native resource-bar telemetry now observes all five actual progress values,
-targets and animation states. Fresh Asheville reports the correct ore value
-0.4135, but Unity's screenshot still draws it empty while the strict vanilla
-window capture shows it filled. Its instrumented visual approval is withheld;
-an actual-window capture comparison is pending. Never substitute numeric
-metadata for an image review.
+targets and animation states. A paired fresh Asheville capture reports the correct ore value0.4135:
+Unity's screenshot draws it empty, but the actual game window at the same
+selection shows it filled. PR8 now uses the ownership-checked X11 window as
+primary panel evidence, retaining the unchanged Unity image separately. The
+actual-window panel and opening/Areas images were manually reviewed and
+hash-bound. Native numbers alone never substitute for image review.
 
 ### Rejected Rio causal diagnostics
 
