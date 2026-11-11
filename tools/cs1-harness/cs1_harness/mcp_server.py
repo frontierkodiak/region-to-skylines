@@ -108,12 +108,12 @@ def submit(
     out_dir: str,
     probes: str | None = None,
     game_minutes: float = 60,
-    wake: bool = True,
+    wake: bool = False,
     extra_run_args: list[str] | None = None,
 ) -> dict:
     """Queue a map soak detached. It waits for the slot, runs, and comments the verdict, frames and
-    timelapse on `issue`; with `wake` it @mentions the issue's agent assignee. Returns at once."""
-    args = ["submit", "--issue", issue] + ([] if wake else ["--no-wake"])
+    timelapse on `issue`, which wakes an agent assignee; `wake` adds an @mention for other cases. Returns at once."""
+    args = ["submit", "--issue", issue] + (["--wake"] if wake else [])
     args += ["--", "run", "--map", map_path, "--out", out_dir, "--game-minutes", str(game_minutes)]
     if probes:
         args += ["--probes", probes]

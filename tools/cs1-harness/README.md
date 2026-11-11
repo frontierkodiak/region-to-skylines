@@ -129,6 +129,17 @@ numbers are in `JOURNAL.md`.
   after an hour; `watch --stop` or `down` stops it sooner. Nothing listens on the
   LAN or the internet.
 
+## Speed
+
+The game's fastest setting, speed 3, is 4× play: 240 simulation frames a
+second, so 60 game-minutes take at least 15 wall minutes. On blade's 2080 Ti at
+1280×720 the game holds that cap. `run` draws at most 10 frames a second
+between screenshot sets (`--render-fps`, 0 for unlimited), which keeps the full
+240 at half the game's CPU. It draws at full rate again for each screenshot.
+Below about 10 fps the simulation slows, because the game advances at most
+about 42 simulation frames per drawn frame. `cs1-harness bench-speed` measures
+this on a map, and the mod's `render` op sets the cap (`{fps, camera}`).
+
 ## Output
 
 `--out DIR` gets `report.md`, `report.json`, `timeline.jsonl` (stats and probe
@@ -215,9 +226,12 @@ account.
 ## Results come to the issue
 
 `run --issue PL-NNN --notify` comments the verdict table, the water-change
-map, the last screenshots and the timelapse on that issue when the run ends;
-`--wake` also @mentions the issue's assignee if it's an agent, which starts its
-next run. A blocked or failed run posts its error verdict the same way.
+map, the last screenshots and the timelapse on that issue when the run ends.
+A detached job posts as Driver sessions, and a member's comment on an issue
+assigned to an agent starts that agent's next run, so the comment alone wakes
+the owner. `--wake` adds an @mention of the assignee; use it only when the
+comment wouldn't wake them (for example, when the run posts as that same
+agent). A blocked or failed run posts its error verdict the same way.
 
 To queue a check and end your turn, submit it instead of running it:
 
@@ -227,7 +241,7 @@ uv run cs1-harness submit --issue PL-857 -- run --map X.crp --probes P.json --ou
 
 `submit` starts the run as a `systemd --user` job that waits for the slot (4 h
 by default), retries if Steam says the account is busy, and posts with
-`--notify --wake`. It prints the unit, the log (`submit.log` in `--out`) and
+`--notify` (`submit --wake` adds the mention). It prints the unit, the log (`submit.log` in `--out`) and
 how to stop it. Detached jobs post as Driver sessions (the host's `driver`
 Multica profile); a run inside a Multica task posts as that task's agent.
 `cs1-harness notify DIR --issue PL-NNN --dry-run` shows what would be posted.

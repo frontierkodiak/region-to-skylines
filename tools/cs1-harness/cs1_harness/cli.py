@@ -208,6 +208,32 @@ def cmd_bench_observe(cfg, a):
     print(json.dumps(result, indent=2))
 
 
+def cmd_bench_speed(cfg, a):
+    """How fast does the simulation run when drawing is throttled?"""
+    from . import bench
+
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    stage = staging(cfg, out)
+    with slot(cfg, stage, a.wait_minutes, {"command": "bench-speed", "out": str(out)}) as s:
+        s.record, s.live, s.label = False, False, "sim speed bench"
+        installed = s.install_map(a.map.resolve())
+        s.launch(["--noWorkshop"])
+        entry = next(
+            m
+            for m in s.client.call("maps")["maps"]
+            if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+        )
+        s.client.call("new_game", path=entry["path"])
+        s.client.wait(lambda st: st.get("in_game") and not st.get("loading"), 900, "the city to load", alive=s.alive)
+        s.client.call("run", paused=False, speed=3)
+        time.sleep(20)
+        result = bench.speed(s, a.seconds)
+    collect(stage, out)
+    (out / "bench-speed.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result, indent=2))
+
+
 def cmd_see(cfg, a):
     """Score screenshots with Clef-Flash (advisory)."""
     from . import vision
@@ -267,6 +293,7 @@ def cmd_run(cfg, a):
             with slot(cfg, stage, a.wait_minutes, meta) as s:
                 observers(s, a, default_label=f"map check: {a.map.name}")
                 r = MapCheck(s, out, points, views, log=log)
+                r.render_fps = a.render_fps
                 result = r.execute(
                     a.map.resolve(),
                     a.game_minutes,
@@ -381,7 +408,7 @@ def cmd_submit(cfg, a):
         raise SystemExit("submit needs run's --out")
     out = pathlib.Path(args[args.index("--out") + 1]).expanduser().resolve()
     out.mkdir(parents=True, exist_ok=True)
-    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if not a.no_wake else [])
+    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if a.wake else [])
     if "--wait-minutes" not in args:
         args += ["--wait-minutes", str(a.wait_minutes)]
     if "--retry-minutes" not in args:
@@ -397,6 +424,7 @@ def cmd_submit(cfg, a):
         f"--working-directory={tool}",
         f"--setenv=PATH={os.environ.get('PATH', '')}",
         f"--setenv=HOME={pathlib.Path.home()}",
+        *[f"--setenv={k}={v}" for k, v in os.environ.items() if k.startswith("CS1_")],
         # `systemctl stop` must let the run tear the game down (quit waits up to 60 s, Steam 90 s):
         # SIGTERM to uv, which forwards it to the harness, then up to 5 min before anything is killed.
         "--property=KillMode=mixed",
@@ -561,6 +589,11 @@ def main(argv=None):
     b.add_argument("--out", type=pathlib.Path, required=True)
     b.add_argument("--seconds", type=float, default=60)
     b.add_argument("--wait-minutes", type=float, default=0)
+    bs = sub.add_parser("bench-speed", help="simulation speed with drawing throttled in steps")
+    bs.add_argument("--map", type=pathlib.Path, required=True)
+    bs.add_argument("--out", type=pathlib.Path, required=True)
+    bs.add_argument("--seconds", type=float, default=45)
+    bs.add_argument("--wait-minutes", type=float, default=0)
     w = sub.add_parser("watch", help="view-only VNC of the running session (localhost; reach it over ssh)")
     w.add_argument("--hold", type=float, default=0, help="keep it this many minutes, then stop (0: until down)")
     w.add_argument("--stop", action="store_true", help="stop the VNC server")
@@ -599,6 +632,12 @@ def main(argv=None):
     )
     r.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
     r.add_argument("--issue", help="the issue this run is for (e.g. PL-857); default: from --label or --out")
+    r.add_argument(
+        "--render-fps",
+        type=int,
+        default=10,
+        help="cap drawing between screenshot sets (default 10: full sim speed at half the CPU; 0: unlimited)",
+    )
     r.add_argument("--notify", action="store_true", help="comment the verdict, frames and timelapse on the issue")
     r.add_argument("--wake", action="store_true", help="with --notify, @mention the issue's agent assignee")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
@@ -634,7 +673,12 @@ def main(argv=None):
     n.add_argument("--dry-run", action="store_true", help="print the comment and attachments; post nothing")
     m = sub.add_parser("submit", help="start a run detached; its verdict is commented on --issue when it ends")
     m.add_argument("--issue", required=True, help="where the verdict goes (e.g. PL-857)")
-    m.add_argument("--no-wake", action="store_true", help="comment without @mentioning the assignee")
+    m.add_argument(
+        "--wake",
+        action="store_true",
+        help="also @mention the issue's agent assignee (a Driver comment on an agent's issue already wakes it)",
+    )
+    m.add_argument("--no-wake", action="store_true", help=argparse.SUPPRESS)  # the default now; kept for old callers
     m.add_argument("--wait-minutes", type=float, default=240, help="how long the job waits for the slot")
     m.add_argument("run_args", nargs=argparse.REMAINDER, help="-- run --map … --out … [options]")
     sub.add_parser("mcp", help="serve these commands over MCP (stdio), for agents that prefer tools")
@@ -661,6 +705,7 @@ def main(argv=None):
             "down": cmd_down,
             "watch": cmd_watch,
             "bench-observe": cmd_bench_observe,
+            "bench-speed": cmd_bench_speed,
             "see": cmd_see,
             "run": cmd_run,
             "verdict": cmd_verdict,
