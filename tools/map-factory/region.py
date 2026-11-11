@@ -866,6 +866,10 @@ def limit_source_footprints(ground, depth, banks, geometry, summary):
         unsafe_output = (bed < target) & (
             (ceiling[region] < target) | ~permitted_output
         )
+        if source.get("short_surface_river"):
+            # Footprints must not jump over a high tunnel barrier and emit on
+            # lower surface cells beyond it. Barrier clearance is unconditional.
+            unsafe_output |= forbidden[region]
         original_output = int(
             np.floor(source.get("output_capacity", source["capacity"]) * 65535 + 0.5)
         )

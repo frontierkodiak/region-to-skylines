@@ -196,6 +196,61 @@ class SurfaceWaterTests(unittest.TestCase):
             footprint["nearest_unsafe_output_cell_m"],
         )
 
+    def test_short_output_cannot_jump_over_high_tunnel_barrier(self):
+        geometry = self.short_geometry([(-320, -16), (16, 320)])
+        tunnel = self.short_geometry([(-16, 16)])["rivers"][0]
+        geometry["undergroundWaterways"] = [{**tunnel, "brunnel": "tunnel"}]
+        ground = np.full((1081, 1081), 100.0)
+        # Raise the tunnel/barrier neighborhood above the source target while
+        # retaining the two real surface legs below it. The low opposite leg
+        # must not become reachable just because the barrier itself cannot emit.
+        ground[537:544, 537:544] = 102.0
+        ground[540, 520:540] = 100.0
+        ground[540, 541:561] = 100.0
+        source = {
+            "position": [-32, 0, 0],
+            "target": 101.0,
+            "capacity": 0.8,
+            "bank_limited": True,
+            "short_surface_river": True,
+        }
+        report = {"sources": [source], "sea_level_m": 0}
+        limit_source_footprints(
+            ground, np.ones_like(ground), ground + 5, geometry, report
+        )
+        footprint = source["short_source_footprint"]
+        self.assertGreater(source["output_capacity"], 0)
+        self.assertLessEqual(footprint["nearest_unsafe_output_cell_m"], 32)
+        self.assertLess(
+            footprint["output_radius_after_m"],
+            footprint["nearest_unsafe_output_cell_m"],
+        )
+        self.assertLess(footprint["output_radius_after_m"], 48)
+
+    def test_real_surface_body_takes_precedence_over_buried_crossing(self):
+        geometry = self.short_geometry([(-320, -16), (16, 320)])
+        tunnel = self.short_geometry([(-16, 16)])["rivers"][0]
+        geometry["undergroundWaterways"] = [{**tunnel, "brunnel": "tunnel"}]
+        span = float(np.rad2deg(128 / 6378137))
+        geometry["lakes"] = [
+            {"rings": [[[-span, -span], [span, -span], [span, span], [-span, span]]]}
+        ]
+        ground = np.full((1081, 1081), 100.0)
+        source = {
+            "position": [-32, 0, 0],
+            "target": 101.0,
+            "capacity": 0.8,
+            "bank_limited": True,
+            "short_surface_river": True,
+        }
+        report = {"sources": [source], "sea_level_m": 0}
+        limit_source_footprints(
+            ground, np.ones_like(ground), ground + 5, geometry, report
+        )
+        self.assertGreater(
+            source["short_source_footprint"]["output_radius_after_m"], 48
+        )
+
     def test_short_coastal_reach_does_not_lower_the_ocean_stage(self):
         geometry = self.short_geometry([(0, 320)]) | {"seaLevel": 110.0}
         ground = np.full((1081, 1081), 100.0)
