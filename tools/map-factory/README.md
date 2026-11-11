@@ -312,7 +312,11 @@ terrain with the installed game's weighted-flatness score and water fraction.
 It is not the fraction below a particular slope threshold. CS1's inspected
 flatness API composes two +2 tile offsets; the writer preserves that native
 quirk. The current Asheville candidate scores 70%, not the template's 74%.
-The native panel still needs to verify these new assets and values.
+The resource-painted Asheville native panel now verifies both resolved images,
+the hidden blank author, resource amounts and73% buildable. The earlier
+unpainted candidate scored70%; resource painting supplies native water coverage
+instead of the fallback estimate. Exact-package regional qualification is
+tracked in `NATIVE_FINDINGS.md`, not implied by metadata decoding.
 
 The stock `NewGamePanel` generates the proposed **city** name randomly; its
 `MapMetaData` has no suggested-city-name field. Setting `mapName` controls the
@@ -323,8 +327,11 @@ The writer now supplies a north-facing start camera centred on the starting
 tile. Its native saved-view mode must be **2** (`NewGameFromMap`), rather than
 the editor/load-game modes, which the game ignores on a fresh map start.
 Position, angle and zoom are fingerprint-bound patches, not a UI mod. The
-fields are byte-verified; native startup and actual Area Zoom validation are
-still pending. No geographic grid flip is introduced.
+fields are byte-verified. Native Asheville opening and actual GameAreaTool
+Area Zoom headings both verify0°; independent terrain landmarks and1,600 native
+world samples confirm north-up geography. A fresh pointer-neutral check is
+queued to verify opening centring separately: an earlier harness pointer position caused edge
+scrolling. No geographic grid flip is introduced.
 
 Air availability requires a real `FlightPathAI` network and native outside
 connection buildings. AVL's location alone does not supply those objects.
