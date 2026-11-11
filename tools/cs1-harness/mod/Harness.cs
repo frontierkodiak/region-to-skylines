@@ -91,6 +91,7 @@ namespace Cs1Harness
             Application.logMessageReceived += OnLog;
             CoreOps.Register();
             CityOps.Register();
+            PanelOps.Register();
             NetworkOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
