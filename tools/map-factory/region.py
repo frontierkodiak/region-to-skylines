@@ -242,7 +242,10 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             if bank_limited:
                 initial_surface = np.minimum(
                     initial_surface,
-                    np.maximum(banks - 0.25, sea if sea is not None else 0),
+                    np.minimum(
+                        np.maximum(banks - 0.25, sea if sea is not None else 0),
+                        np.maximum(ground + 1.0, sea if sea is not None else 0),
+                    ),
                 )
             surface[wet] = np.maximum(surface[wet], initial_surface[wet])
             key = f"{name} [{kind}] #{component}"
@@ -297,6 +300,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     0.01 if kind == "stream" else 0.8 if gradient <= 0.005 else 0.2
                 )
                 target = float(fitted[source_i])
+                if bank_limited:
+                    target = min(target, float(ground[y[source_i], x[source_i]]) + 1.0)
                 portal = None
                 endpoint = (
                     path[0]

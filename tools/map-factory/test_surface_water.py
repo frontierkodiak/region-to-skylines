@@ -122,6 +122,26 @@ class SurfaceWaterTests(unittest.TestCase):
         self.assertTrue(all(s["output_capacity"] == 0 for s in report["sources"]))
         self.assertTrue(all(s["capacity"] > 0 for s in report["sources"]))
 
+    def test_bank_limited_river_bounds_prefill_and_source_head_together(self):
+        def coord(x):
+            return [float(np.rad2deg(x / 6378137)), 0]
+
+        geometry = {
+            "sq": {"lat": 0, "lon": 0, "rotation": 0, "scale": 1},
+            "rivers": [{"name": "bounded river", "pts": [coord(-2000), coord(2000)]}],
+        }
+        ground = np.full((1081, 1081), 100.0)
+        banks = np.full_like(ground, 103.0)
+        banks[:, 530:550] = 101
+        depth, report = hydrology(ground, banks, geometry)
+        self.assertTrue(any(s.get("bank_limited") for s in report["sources"]))
+        self.assertLessEqual(float(depth.max()), 1.0 + 1e-9)
+        self.assertGreater(float(depth.max()), 0.5)
+        for source in report["sources"]:
+            x, _, z = source["position"]
+            bed = ground[round(540 - z / 16), round(540 + x / 16)]
+            self.assertLessEqual(source["target"] - bed, 1.0 + 1e-9)
+
 
 if __name__ == "__main__":
     unittest.main()
