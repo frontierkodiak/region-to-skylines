@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {assertPinnedTile,matchFrozen,surfaceGeometry} from './waterway-evidence.js';
+import {assertPinnedTile,matchFrozen,surfaceGeometry,snapshotTiles,SNAPSHOT} from './waterway-evidence.js';
 const sha='a'.repeat(64), evidenceSha='b'.repeat(64);
 const tile={x:1,y:2,z:14,url:'https://example.test/pinned.pbf',sha256:sha,status:200};
 function fixture() {
@@ -50,4 +50,45 @@ test('changed/missing tile SHA, HTTP status and unbound source evidence rejected
   const {frozen,inspection}=fixture();assert.throws(()=>surfaceGeometry(frozen,inspection,sha,null),/SHA binding/);
   inspection.pieces[0].properties.brunnel='unknown';
   assert.throws(()=>surfaceGeometry(frozen,inspection,sha,evidenceSha),/unknown waterway/);
+});
+test('identical buffer multiset retains every duplicate and all provenance without tile assignment',()=>{
+  const {frozen,inspection}=fixture();
+  frozen.rivers.push(structuredClone(frozen.rivers[0]));
+  inspection.pieces.push({...structuredClone(inspection.pieces[0]),tile:{...tile,x:2,url:'https://example.test/tile2.pbf',sha256:evidenceSha},feature_index:40});
+  const g=surfaceGeometry(frozen,inspection,sha,evidenceSha);
+  assert.equal(g.undergroundWaterways.length,2); // never deduplicate frozen geometry
+  for(const u of g.undergroundWaterways) {
+    const s=u.sourceFeature;assert.equal(s.tile,null);assert.equal(s.feature_index,null);
+    assert.equal(s.properties.brunnel,'tunnel');assert.equal(s.provenanceGroup.source_count,2);
+    assert.equal(s.provenanceGroup.frozen_count,2);assert.equal(s.provenanceGroup.members.length,2);
+    assert.equal(s.provenanceGroup.evidence_sha256,evidenceSha);
+    assert.deepEqual(s.provenanceGroup.members.map(p=>p.feature_index),[0,40]);
+    assert.deepEqual(s.provenanceGroup.members.map(p=>p.tile.sha256),[sha,evidenceSha]);
+  }
+  assert.equal(g.surfaceWaterPolicy.provenanceGroupCount,1);
+});
+test('buffer grouping rejects ID/property/tag/multiplicity disagreement',()=>{
+  for(const kind of ['id','tag','property','class','coordinates','count']) {
+    const {frozen,inspection}=fixture();frozen.rivers.push(structuredClone(frozen.rivers[0]));
+    const duplicate=structuredClone(inspection.pieces[0]);
+    if(kind==='id') duplicate.feature_id=999;
+    if(kind==='tag') duplicate.properties.brunnel='bridge';
+    if(kind==='property') duplicate.properties.intermittent=1;
+    if(kind==='class') duplicate.class='stream';
+    if(kind==='coordinates') duplicate.pts[1][0]+=.01;
+    if(kind!=='count') inspection.pieces.push(duplicate);
+    assert.throws(()=>surfaceGeometry(frozen,inspection,sha,evidenceSha),/unknown\/ambiguous/);
+  }
+});
+test('snapshot tile requests preserve recorded hashes and separate padded river/unpadded stream scope',()=>{
+  const frozen={zoom:14,sq:{rotation:37}};
+  const original={x:0,y:0,z:14,status:200,sha256:sha,url:`https://tiles.openfreemap.org/planet/${SNAPSHOT}/14/0/0.pbf`};
+  const t={bbox:(_,pad)=>pad,tileRange:pad=>({x0:0,y0:0,x1:pad?1:0,y1:pad?1:0})};
+  const jobs=snapshotTiles(frozen,[original],t);
+  assert.equal(jobs.length,4);assert.equal(jobs[0].sha256,sha);
+  assert.equal(jobs.filter(j=>j.streamEligible).length,1);
+  assert.equal(jobs.filter(j=>j.sha256===undefined).length,3);
+  assert.ok(jobs.every(j=>j.url.includes(`/${SNAPSHOT}/`)));
+  assert.throws(()=>snapshotTiles(frozen,[{...original,url:original.url.replace(SNAPSHOT,'latest')}],t),/snapshot/);
+  assert.throws(()=>snapshotTiles(frozen,[original,original],t),/duplicate recorded/);
 });
