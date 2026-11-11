@@ -95,7 +95,22 @@ def probes_for(hydro, descriptor):
                 "expected_segments": segments,
             }
         )
-    return {"points": points, "paths": paths}
+    tile = hydro["start_tile"]
+    return {
+        "points": points,
+        "paths": paths,
+        "views": [
+            {
+                "name": "start-tile",
+                "x": (tile % 5 - 2) * 1920,
+                "z": (tile // 5 - 2) * 1920,
+                "size": 1000,
+                "yaw": 0,
+                "pitch": 60,
+            },
+            {"name": "overview", "x": 0, "z": 0, "size": 4000, "yaw": 0, "pitch": 70},
+        ],
+    }
 
 
 def stage(output, slugs):

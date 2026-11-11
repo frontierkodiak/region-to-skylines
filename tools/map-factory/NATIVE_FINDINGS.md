@@ -205,7 +205,7 @@ own rendering and not a live mod call.
 
 The same save stores camera yaw 55.7° and pitch 26.32°, rather than a
 north-facing view. A candidate now writes a fingerprint-bound native
-`SavedCameraView` with NewGameFromMap mode 2, yaw 0°, pitch 60°, size 1,800,
+`SavedCameraView` with NewGameFromMap mode 2, yaw 0°, pitch 60°, size 1,000,
 and a terrain-height pivot at the selected tile's centre. Offline verification
 decodes every candidate's fields. The first live start and actual Area Zoom
 heading still need checking; no north-facing game screenshot is claimed.

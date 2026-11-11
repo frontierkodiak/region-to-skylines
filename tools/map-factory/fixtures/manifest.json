@@ -8,7 +8,7 @@
   "cases": [
     {
       "slug": "asheville",
-      "expected_crp_sha256": "72dd13244af577fbfc83ed02fb0ef260165dd4d18cc862995176e01cdf25941c",
+      "expected_crp_sha256": "3013a635f7a1de8ff4bbe437a801f61cbaef7bedf16bf8ffee9945ec1e886b15",
       "expected_crp_bytes": 6234037,
       "prepared_sha256": {
         "terrain.u16": "47157796329c8e6ab0c279a26ce06729492ec6221e0bb081aa892bdd09bec8b1",
@@ -23,11 +23,11 @@
         "water.u16.gz": "7f5a0edc3361a6f5fa3f55dbdb95a6f288ac4aa585412d0df2ca6bb6032f0696",
         "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16"
       },
-      "expected_simulation_sha256": "a10de045a83933f0e3cf4e6a77ff7581bcf5f01b31e62a03c99c8b12382925dc"
+      "expected_simulation_sha256": "44b6108da92655978601a567e2f830ebcffb2a535db5e3120ffdd66cac646a74"
     },
     {
       "slug": "innsbruck",
-      "expected_crp_sha256": "4d702fb03f0ce4d8fc71820e5c2e7fbe9eef739ec6d3db92af1f5601f63ed20a",
+      "expected_crp_sha256": "e0aabe7d0de9195ce0b8af9205fe6c5d8b257abf3330fe1ebeff9c2372f519e3",
       "expected_crp_bytes": 5449042,
       "prepared_sha256": {
         "terrain.u16": "30ba2875fa7553f9a6e4413e16a7e00e5ef92cfc7e027da1fd1d468d5b7b3b0f",
@@ -41,11 +41,11 @@
         "terrain.u16.gz": "20d14aba48fa39acef82b6aa6728454f86fe34f33b78a0754ae9735ff6c0927a",
         "water.u16.gz": "fc32c65f501e7863b54228630f30800c2b08fa524ff10cddcf0a8e255ac394f0"
       },
-      "expected_simulation_sha256": "f04dcbdffbc5c41123d7eb83b8046c0364ae83bb748fc8e07325d9ff1431872f"
+      "expected_simulation_sha256": "4cd09ddf40eb069f5bedc42e191839be61a19db85042c7d1cf0d86e389911e79"
     },
     {
       "slug": "rio",
-      "expected_crp_sha256": "547a1a28f0641d923dc82c0d6324bfc8dc2dae22b0e36f31415bf2e2f5840945",
+      "expected_crp_sha256": "e1844ef2fc5bffb240eea860739c18f93d8e176aa1eacf345ba63b249e24e7bd",
       "expected_crp_bytes": 5035065,
       "prepared_sha256": {
         "terrain.u16": "76bc7dd41f787b0cad816de49b134a5ae1fabf4e8d8bff710a0a927ed193b65a",
@@ -59,11 +59,11 @@
         "terrain.u16.gz": "2892a2ac58ecbf133afffc84a1405651547d2b8c59e0bac36ffc74a50bc8dd9c",
         "water.u16.gz": "cdd4f834453a2ea78af70b3610c318de01e77fe21787a6278a909b8ecb15b218"
       },
-      "expected_simulation_sha256": "5c82748c2c397b5bba83ad393ebb4e9198a87de932388549302c04f60573b507"
+      "expected_simulation_sha256": "e7ef165ffa237c24459923090f3aca0413259475b658fe41eb9ab73202028f16"
     },
     {
       "slug": "pittsburgh",
-      "expected_crp_sha256": "04cc1e1ddbc293151a3f96b5e233ebaf5dc46ce41d8e2220dac487785b6c3464",
+      "expected_crp_sha256": "977417101adaeb20e81eae502cf314997c45aa5e6a0d7478bfea6b814cfc28ce",
       "expected_crp_bytes": 5533372,
       "prepared_sha256": {
         "terrain.u16": "cddada60d40c9781d54d50911d51d5bd0822edd3fcbf446e615d620bc685157c",
@@ -77,11 +77,11 @@
         "terrain.u16.gz": "5ec7c57009c2c2ddef785ec8fd5904fd78c40ead9f83eada83f56b51aa7c2fd2",
         "water.u16.gz": "73ae8466698eea955f5e7727d87e049f6879ddc67a41d05cda18502ec5061fd9"
       },
-      "expected_simulation_sha256": "fae845a2eb88e03557758a11327791093a044e15e53e2ccb20cbaed974bf7584"
+      "expected_simulation_sha256": "e5519a92dea13c35c6d95ddbd306e7e85a6b4d387f0c23e1a57ac2b8a1556bd9"
     },
     {
       "slug": "charleston",
-      "expected_crp_sha256": "7c4e473d77ce57f70c53a5d380b990dc95763857ea49fff7beb9eb44294ee5b8",
+      "expected_crp_sha256": "8c4993bfbf0b6f8b91e455634c0c804b99875d306dac12d3556cc56308163aa8",
       "expected_crp_bytes": 4231230,
       "prepared_sha256": {
         "terrain.u16": "bcc22e5a96f1509548047c46b496c2995d89c8528acedac5f9fc16391d775302",
@@ -95,7 +95,7 @@
         "terrain.u16.gz": "f3fb5f1bb1218034ff0bcff04e1d1cd99ccde8728e70cd8735ee642a03df6136",
         "water.u16.gz": "56327c36fbfc618e18bac3d4f89537467a21717f48086bb7d01e0aa549255676"
       },
-      "expected_simulation_sha256": "4e0e7e639318e149bd2aa6ae2601702eb6a0bf74225d51e0f700d02bda2e2731"
+      "expected_simulation_sha256": "919c9390c9d9a71eb35beffc4f0c1e25f4c093198153d1c24165bd3f130035c8"
     }
   ]
 }

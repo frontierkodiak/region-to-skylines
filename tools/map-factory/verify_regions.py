@@ -237,7 +237,7 @@ def verify(folder):
             mode, x, y, z, size, yaw, pitch, height = struct.unpack_from(
                 ">h7f", data, camera["offset"]
             )
-            assert (mode, size, yaw, pitch, height) == (2, 1800, 0, 60, 0)
+            assert (mode, size, yaw, pitch, height) == (2, 1000, 0, 60, 0)
             assert (x, z) == (
                 (hydro["start_tile"] % 5 - 2) * 1920,
                 (hydro["start_tile"] // 5 - 2) * 1920,

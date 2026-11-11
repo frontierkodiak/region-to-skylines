@@ -410,7 +410,7 @@ def write_map(template, layout, terrain, water, hydrology, output, preview=None)
         # NewGameFromMap is mode 2. An ordinary editor-mode (1) camera is
         # ignored by native Reset; a matching mode restores this actual view.
         replacements.append(
-            (start, start + 30, struct.pack(">h7f", 2, x, y, z, 1800, 0, 60, 0))
+            (start, start + 30, struct.pack(">h7f", 2, x, y, z, 1000, 0, 60, 0))
         )
     for start, end, replacement in sorted(replacements, reverse=True):
         data = data[:start] + replacement + data[end:]
