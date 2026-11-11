@@ -848,3 +848,15 @@ game assemblies; eleven verdict fixture tests and Ruff lint/format checks passed
 No game, Steam, doctor, display or GPU session started: Caleb's reservation
 remained held. Native modal operation/rendered capture still need live checks
 after the hold; GPU/VRAM/power/temperature/run-wall metrics are not applicable.
+
+PL-857 offline review follow-up: capture now polls up to30s for a verified,
+decodable native PNG, hashes those exact validated bytes, and fails immediately
+on explicit false liveness (or Session.alive's normal exception); dead bridges
+are not called just to dismiss the modal. Four additional tests cover death,
+partial-to-complete writes, timeout and float-only denominator tolerance (15
+passing total). Only maxResourceAmount gets rel1e-7/abs1e-6 comparison slack.
+Native Package.cs:946-962 deserializes each Instantiate; PackageDeserializer.cs:
+243-257 calls Image.CreateTexture, which constructs a fresh Texture2D at
+Image.cs:279-284. CacheAsset caches bytes, not texture objects; destroying the
+private inspection texture cannot destroy the displayed snapshot. Offline build
+and full Ruff checks passed again; no game/session/Steam actions.

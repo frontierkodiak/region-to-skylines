@@ -7,7 +7,9 @@ person/agent actually saw; requested checks fail until that review is supplied.
 from __future__ import annotations
 
 import hashlib
+import io
 import json
+import math
 import pathlib
 import time
 
@@ -72,6 +74,29 @@ def object_value(value, label: str) -> dict:
     return value
 
 
+def wait_for_capture(session, shot: pathlib.Path, timeout: float = 30) -> str:
+    """Wait for a complete native PNG; hash the exact bytes that were validated."""
+    deadline = time.monotonic() + timeout
+    while True:
+        # Session.alive normally returns None and raises on death/conflict. Also
+        # support boolean liveness implementations without ignoring explicit False.
+        if session.alive() is False:
+            raise RuntimeError("game process ended before native New Game screenshot completed")
+        try:
+            data = shot.read_bytes()
+            with Image.open(io.BytesIO(data)) as image:
+                if image.format != "PNG":
+                    raise ValueError("native screenshot is not PNG")
+                image.verify()
+            with Image.open(io.BytesIO(data)) as image:
+                image.load()
+            return hashlib.sha256(data).hexdigest()
+        except (OSError, ValueError, SyntaxError) as exc:
+            if time.monotonic() >= deadline:
+                raise RuntimeError("native New Game screenshot did not become a complete PNG") from exc
+        time.sleep(0.25)
+
+
 def capture(session, out: pathlib.Path, path: str, wanted: dict) -> None:
     """Called only by the mod-enabled map-check driver, before loading a city."""
     expectations(wanted)
@@ -82,20 +107,14 @@ def capture(session, out: pathlib.Path, path: str, wanted: dict) -> None:
         time.sleep(3)
         shot = session.stage / "new-game-panel.png"
         observed = client.call("new_game_panel", path=path, screenshot=str(shot))
-        deadline = time.monotonic() + 30
-        while not shot.exists() or not shot.stat().st_size:
-            if time.monotonic() >= deadline:
-                raise RuntimeError("native New Game screenshot was not written")
-            session.alive()
-            time.sleep(0.25)
-        # Fail on a partial write; never synthesize or substitute a panel image.
-        with Image.open(shot) as image:
-            image.verify()
+        sha256 = wait_for_capture(session, shot)
         (out / "new-game-panel.json").write_text(
-            json.dumps({"observed": observed, "screenshot": shot.name, "sha256": digest(shot)}, indent=2) + "\n"
+            json.dumps({"observed": observed, "screenshot": shot.name, "sha256": sha256}, indent=2) + "\n"
         )
     finally:
-        client.call("new_game_panel", close=True)
+        # Don't wait on a dead bridge just to dismiss a vanished modal.
+        if session.alive() is not False:
+            client.call("new_game_panel", close=True)
 
 
 def assess(out: pathlib.Path) -> dict:
@@ -116,9 +135,20 @@ def assess(out: pathlib.Path) -> dict:
         observed = object_value(evidence["observed"], "native observation")
         if observed.get("source") != "native NewGamePanel" or not observed.get("published"):
             problems.append("not a published native New Game listing")
-        for key in ("map_name", "author", "buildableArea", "resources", "connections"):
+        for key in ("map_name", "author", "buildableArea", "connections"):
             if observed.get(key) != wanted[key]:
                 problems.append(f"native {key} differs from expectation")
+        resources = object_value(observed.get("resources"), "native resources")
+        for key in RESOURCE_FIELDS:
+            actual = resources.get(key)
+            expected = wanted["resources"][key]
+            # Only the native float denominator gets float32 serialization slack;
+            # resource amounts, directional counts and buildable percent stay exact.
+            matches = actual == expected
+            if key == "maxResourceAmount" and type(actual) in (int, float):
+                matches = math.isclose(actual, expected, rel_tol=1e-7, abs_tol=1e-6)
+            if not matches:
+                problems.append(f"native resources.{key} differs from expectation")
         for key in ("imageRef", "steamPreviewRef"):
             ref = object_value(observed.get(key) or {}, key)
             if not ref.get("resolved") or min(ref.get("width", 0), ref.get("height", 0)) <= 0:
