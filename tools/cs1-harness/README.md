@@ -489,7 +489,8 @@ These are **explicit example expectations**, not verified headings for a map:
   "startup_views": {
     "opening": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
     "area_zoom": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
-    "tolerance_degrees": 1
+    "tolerance_degrees": 1,
+    "opening_center": {"x": -1920, "z": 0, "tolerance_m": 64}
   }
 }
 ```
@@ -498,7 +499,12 @@ Both headings are required for each view; comparison is circular in degrees.
 Tolerance must be explicitly chosen in `(0,5]`. Native yaw is the interpolated
 `SavedCameraView.m_angle.x`, not the target angle. Render heading is the world
 forward-vector heading described above; a null/vertical heading cannot pass.
-No geographic orientation or pivot expectation is inferred from these fields.
+No geographic orientation or pivot expectation is inferred from headings.
+Optional `opening_center` explicitly checks both current and target opening
+pivots after capture against world x/z, with a tolerance in `(0,960]` metres.
+Omitting it makes no centring claim. The launcher parks the pointer at the
+private display centre before New Game to prevent accidental edge scrolling;
+it does not aim or reset the camera.
 
 After the existing `startup-world.json` observation and **before the first
 harness camera override**, the driver pauses simulation, captures the opening

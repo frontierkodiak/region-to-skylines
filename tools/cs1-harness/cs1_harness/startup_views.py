@@ -7,6 +7,7 @@ require a separate visual review bound to both captured PNG hashes.
 from __future__ import annotations
 
 import json
+import math
 import pathlib
 import time
 
@@ -23,7 +24,8 @@ STABLE_DEGREES = 0.1
 
 
 def expectations(value: dict) -> dict:
-    if not isinstance(value, dict) or set(value) != {*VIEWS, "tolerance_degrees"}:
+    required = {*VIEWS, "tolerance_degrees"}
+    if not isinstance(value, dict) or not required <= set(value) or set(value) - required - {"opening_center"}:
         raise ValueError("startup_views requires opening, area_zoom and tolerance_degrees")
     tolerance = value["tolerance_degrees"]
     if not number(tolerance) or not 0 < tolerance <= 5:
@@ -34,6 +36,16 @@ def expectations(value: dict) -> dict:
             raise ValueError(f"startup_views {name} needs explicit native_yaw_degrees and render_heading_degrees")
         if any(not number(v) or not -360 <= v <= 360 for v in view.values()):
             raise ValueError("startup_views headings must be finite degrees in [-360, 360]")
+    if "opening_center" in value:
+        center = value["opening_center"]
+        if (
+            not isinstance(center, dict)
+            or set(center) != {"x", "z", "tolerance_m"}
+            or not all(number(v) for v in center.values())
+            or max(abs(center["x"]), abs(center["z"])) > 8640
+            or not 0 < center["tolerance_m"] <= 960
+        ):
+            raise ValueError("opening_center needs finite world x/z and tolerance_m in (0, 960]")
     return value
 
 
@@ -194,6 +206,15 @@ def assess(out: pathlib.Path) -> dict:
             values = [headings(sample, visible) for sample in samples + [view["after"]]]
             if name == "opening":
                 values.append(initial_headings)
+                if "opening_center" in wanted:
+                    center = wanted["opening_center"]
+                    camera = object_value(view["after"].get("camera"), "opening camera")
+                    for key in ["current_position", "target_position"]:
+                        p = camera.get(key)
+                        if not isinstance(p, list) or len(p) != 3 or not all(number(v) for v in p):
+                            raise ValueError(f"opening {key} unavailable/nonfinite")
+                        if math.hypot(p[0] - center["x"], p[2] - center["z"]) > center["tolerance_m"]:
+                            problems.append(f"opening {key} outside start-tile centre tolerance")
             expected = wanted[name]
             for native, render in values:
                 if (
@@ -240,6 +261,10 @@ def assess(out: pathlib.Path) -> dict:
                 "screenshot": filename,
                 "sha256": view["sha256"],
             }
+            if name == "opening" and "opening_center" in wanted:
+                measured[name]["current_position"] = view["after"]["camera"]["current_position"]
+                measured[name]["target_position"] = view["after"]["camera"]["target_position"]
+                measured[name]["expected_center"] = wanted["opening_center"]
         row.update(
             status="fail" if problems else "pass",
             value={"views": measured, "problems": problems},

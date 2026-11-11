@@ -269,6 +269,22 @@ class StartupViewTests(unittest.TestCase):
         self.write("probes.json", {"startup_views": self.wanted})
         self.assertEqual(views.assess(self.out)["status"], "pass")
 
+    def test_north_heading_cannot_hide_opening_camera_at_tile_corner(self):
+        self.wanted["opening_center"] = {"x": -1920, "z": 0, "tolerance_m": 64}
+        self.initial["camera"].update(current_position=[-1920, 100, 0], target_position=[-1920, 100, 0])
+        self.write("probes.json", {"startup_views": self.wanted})
+        self.write("startup-world.json", self.initial)
+        original = self.captured()
+        self.assertEqual(views.assess(self.out)["status"], "pass")
+        for key in ["current_position", "target_position"]:
+            with self.subTest(key=key):
+                evidence = copy.deepcopy(original)
+                evidence["views"]["opening"]["after"]["camera"][key] = [-2880, 100, 960]
+                self.write("startup-views.json", evidence)
+                row = views.assess(self.out)
+                self.assertEqual(row["status"], "fail", row)
+                self.assertIn("centre tolerance", row["detail"])
+
     def test_invalid_png_cannot_pass_even_when_rehashed(self):
         evidence = self.captured()
         shot = self.out / "startup-opening.png"

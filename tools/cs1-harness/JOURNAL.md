@@ -1075,3 +1075,10 @@ their already imported source; the currently running60-minute water check is
 not altered. A fresh short startup check must verify centring and stable
 position on the same package before that claim is made. All47 unit tests and
 whole-harness Ruff pass; this pointer correction is not yet live-verified.
+
+The frozen startup request also supports explicit `opening_center` world x/z
+and metre tolerance. It checks both observed current and target pivots after
+capture, not just heading. A regression fixture reproduces the actual corner
+drift and must fail despite yaw0. All48 tests pass. Writer PR27 now emits the
+selected start-tile centre with64m tolerance for newly staged runs. Existing
+frozen requests are not edited retroactively and make heading-only claims.
