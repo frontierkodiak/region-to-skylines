@@ -142,6 +142,33 @@ class SurfaceWaterTests(unittest.TestCase):
             bed = ground[round(540 - z / 16), round(540 + x / 16)]
             self.assertLessEqual(source["target"] - bed, 1.0 + 1e-9)
 
+    def test_bed_crest_receives_shallow_supply_without_deepening_the_barrier(self):
+        def coord(x):
+            return [float(np.rad2deg(x / 6378137)), 0]
+
+        geometry = {
+            "sq": {"lat": 0, "lon": 0, "rotation": 0, "scale": 1},
+            "rivers": [
+                {"name": "obstructed river", "pts": [coord(-2000), coord(2000)]}
+            ],
+        }
+        ground = np.broadcast_to(
+            100 + 5 * np.exp(-(((np.arange(1081) - 540) / 8) ** 2)),
+            (1081, 1081),
+        ).copy()
+        banks = ground + 3
+        original = ground.copy()
+        _, report = hydrology(ground, banks, geometry)
+        crests = [s for s in report["sources"] if s["role"] == "bed_crest"]
+        self.assertTrue(crests)
+        self.assertLessEqual(float((original - ground).max()), 3.0 + 1e-9)
+        self.assertTrue(any(abs(s["position"][0]) <= 32 for s in crests))
+        for source in crests:
+            x, _, z = source["position"]
+            bed = ground[round(540 - z / 16), round(540 + x / 16)]
+            self.assertGreater(source["target"] - bed, 0.1)
+            self.assertLessEqual(source["target"] - bed, 1.0 + 1e-9)
+
 
 if __name__ == "__main__":
     unittest.main()

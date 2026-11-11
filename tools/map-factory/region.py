@@ -281,6 +281,17 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                             levels * sign, prominence=0.5, distance=8
                         )
                         controls += [(role, int(i)) for i in peaks if int(i) in allowed]
+                    occupied = {i for _, i in controls}
+                    bed_peaks, _ = signal.find_peaks(
+                        ndimage.gaussian_filter1d(ground[y, x], 1),
+                        prominence=0.5,
+                        distance=8,
+                    )
+                    controls += [
+                        ("bed_crest", int(i))
+                        for i in bed_peaks
+                        if int(i) in allowed and int(i) not in occupied
+                    ]
                     controls = [
                         (role, i)
                         for i, role in sorted({i: role for role, i in controls}.items())
