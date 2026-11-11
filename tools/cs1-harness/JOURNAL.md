@@ -1579,3 +1579,27 @@ snapshot will also be assessed. Fresh strict --disableMods starts queue for
 Riof60d9f4a/Pittd32e51a4, no control socket and sole exact custom package.
 No native success is inferred from offline receipt/plan replay. These and all
 other requests remain foreground, fair per-region and account-conflict-safe.
+
+## 2026-11-11 07:32 ET — test the failed footprint-containment premise
+
+Riof60d9f4a15 still spreads0.155904km2,max3.859375m. Native source-flow fields
+are last-update OUTPUT only, not net/cumulative. The drain-rate reduction
+also moved flooding: Papa-Couve outlet withdrawal fell13107->224 while its
+upstream supply still reports roughly294 output units. Local footprint
+clearance therefore does not establish settled hydraulic containment.
+
+Queue three matched5minute diagnostic arms, each separately/fair/foreground:
+baselinef60d9f4a; short-output-offea58f17f; sea-only010ab01b. Writer70308dc
+first proves exact full-source replay, then patches only WaterSimulation and
+its metadataassetRef. Short-output-off disables101short positive outputs,
+retaining all initial water/intakes/targets/counts. Sea-only changes initial
+depth alone to max(0,sea-ground), retaining every encoded control. Every other
+manager, resource/listing field and preview remains byte-preserved; sea-only
+is intentionally a frozen-context diagnostic, not a distributable map.
+
+Sample every1minute and dump0/5. Compare all three with the SAME predeclared
+baseline initial-water union source-geometry footprint, not a fitted outcome
+mask; keep each native verdict's own original reference as well. No gate,
+probe, source geometry, terrain or default-policy relaxation. Exact inputs
+are frozen in short-flow-factorial-inputs; run outputs short-flow-factorial-5.
+The old zero-output baseline is not silently substituted for either arm.
