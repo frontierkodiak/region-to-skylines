@@ -180,7 +180,7 @@ def mono_hash(value):
     return result if result < 0x80000000 else result - 0x100000000
 
 
-def patch_metadata(payload, checksum, label=None, water_amount=None):
+def patch_metadata(payload, checksum, label=None, water_amount=None, amounts=None):
     r = Reader(payload)
     if r.number("B") != 0 or not r.string().startswith("MapMetaData,"):
         raise ValueError("Expected MapMetaData object")
@@ -204,6 +204,8 @@ def patch_metadata(payload, checksum, label=None, water_amount=None):
             result.extend(string(label))
         elif name == "publishedHash" and label is not None:
             result.extend(struct.pack("<i", mono_hash(label)))
+        elif amounts and name in amounts:
+            result.extend(struct.pack("<I", amounts[name]))
         elif name == "waterAmount" and water_amount is not None:
             result.extend(struct.pack("<I", water_amount))
         else:
@@ -251,7 +253,9 @@ def begin_tag_size(data, offset, expected):
     return size + 4
 
 
-def write_map(template, layout, terrain, water, hydrology, output):
+def write_map(template, layout, terrain, water, hydrology, output, resources=None):
+    """`resources`: optional (plan, tree prefab names) from resources.plan;
+    it regenerates natural resources, trees and the New Game amounts."""
     original = template.read_bytes()
     spec = json.loads(layout.read_text())
     hydro = json.loads(hydrology.read_text())
@@ -363,12 +367,18 @@ def write_map(template, layout, terrain, water, hydrology, output):
         )
         angle = (building["angle"] + turn) % (2 * math.pi)
         replacements.append((start, start + 16, struct.pack(">4f", *position, angle)))
-    water_amount = None
-    if positions:
-        from template import resource_replacements
+    water_amount = amounts = None
+    if resources is not None:
+        from resources import apply
 
-        resources, water_amount = resource_replacements(data, spec, depth)
-        replacements.extend(resources)
+        regenerated_resources, amounts, _ = apply(data, spec, depth, raw, *resources)
+        replacements.extend(regenerated_resources)
+    if positions:
+        if resources is None:
+            from template import resource_replacements
+
+            regenerated_resources, water_amount = resource_replacements(data, spec, depth)
+            replacements.extend(regenerated_resources)
         start = spec["start_tile_offset"]
         if (
             data[start] != spec["original_start_tile"]
@@ -383,7 +393,7 @@ def write_map(template, layout, terrain, water, hydrology, output):
     for a in assets:
         if a["kind"] == 100:
             a["payload"] = patch_metadata(
-                a["payload"], checksum, hydro.get("map_name"), water_amount
+                a["payload"], checksum, hydro.get("map_name"), water_amount, amounts
             )
     if "map_id" in hydro:
         package["name"] = hydro["map_id"]
@@ -398,6 +408,9 @@ def write_map(template, layout, terrain, water, hydrology, output):
         preserved.append("other_resources")
     else:
         preserved.extend(["network_geometry", "buildings", "resources"])
+    if resources is not None:
+        regenerated.extend(["natural_resources", "trees", "resource_amounts"])
+        preserved = [p for p in preserved if p not in ("trees", "other_resources", "resources")]
     if "map_id" in hydro or "map_name" in hydro:
         regenerated.append("map_identity")
     return {
