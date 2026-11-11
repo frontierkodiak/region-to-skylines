@@ -129,6 +129,17 @@ numbers are in `JOURNAL.md`.
   after an hour; `watch --stop` or `down` stops it sooner. Nothing listens on the
   LAN or the internet.
 
+## Speed
+
+The game's fastest setting, speed 3, is 4× play: 240 simulation frames a
+second, so 60 game-minutes take at least 15 wall minutes. On blade's 2080 Ti at
+1280×720 the game holds that cap. `run` draws at most 10 frames a second
+between screenshot sets (`--render-fps`, 0 for unlimited), which keeps the full
+240 at half the game's CPU. It draws at full rate again for each screenshot.
+Below about 10 fps the simulation slows, because the game advances at most
+about 42 simulation frames per drawn frame. `cs1-harness bench-speed` measures
+this on a map, and the mod's `render` op sets the cap (`{fps, camera}`).
+
 ## Output
 
 `--out DIR` gets `report.md`, `report.json`, `timeline.jsonl` (stats and probe

@@ -571,6 +571,46 @@ Exiting"). The observer bench worked because it was the first run.
 Fix: `-y`. Reproduced with the same output options on a test source: without
 `-y`, a 0-byte MP4; with it, a 8.9 kB MP4 and a fresh frame. The smoke run's
 comment on PL-891 claimed a timelapse attachment it didn't have.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · how fast can a soak go
+
+**What got in the way.** One Steam account runs one game at a time, so the
+slot's speed sets everyone's throughput. The harness never knew whether
+drawing frames was slowing the simulation.
+
+**What changed.** A mod op, `render {fps, camera}`, caps the frame rate (or
+stops the main camera), and `cs1-harness bench-speed` measures simulation
+frames per second at speed 3 with drawing throttled in steps. `run` now caps
+drawing at 10 fps between screenshot sets (`--render-fps`, default 10) and
+draws at full rate for the screenshots themselves.
+
+**Measured.** PL-848 Asheville on blade's 2080 Ti at 1280×720, 45–50 s per
+window:
+
+| Drawing | Sim frames/s | Game CPU |
+|:--|--:|--:|
+| unlimited | 241.2 | 225 % |
+| 10 fps | 239.9 | 114 % |
+| 2 fps | 84.5 | 87 % |
+| camera off, 2 fps | 84.9 | 73 % |
+| unlimited again | 240.0 | 216 % |
+
+Speed 3 is the game's 4× cap, 240 frames a second, and the game holds it at
+720p. A 10 fps cap keeps it and halves the CPU. At 2 fps the simulation drops
+to about 42 frames per drawn frame, so the cap can go too low. Turning the
+camera off adds nothing once the rate is capped. The 157–166 frames/s of
+earlier soaks ran at 1920×1080, where drawing held the simulation back.
+
+**Live check** (10 game-minutes of PL-848 Asheville at 1920×1080 with the
+default cap, 23:02 ET): 205 simulation frames a second, against 157–166 in
+earlier uncapped 1080p soaks. That's 29 % faster, with the cap active and
+screenshots still full 1920×1080. (Those screenshots show the game's toolbar,
+as every harness screenshot has since the first run: the `ui` op doesn't hide
+it. That's a separate issue.)
+
+**Before → after.** Before: unknown, and 1080p soaks ran at about 160
+frames/s. After: the ceiling is the game's own 4× (60 game-minutes ≥ 15 wall
+minutes), reached at 720p with half the CPU. Going faster than 4× would mean
+changing the game's speed table, which the harness doesn't do.
 
 ## Run log
 

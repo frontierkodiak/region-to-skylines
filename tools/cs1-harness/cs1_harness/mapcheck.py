@@ -41,6 +41,7 @@ class MapCheck:
         self.log = log
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
+        self.render_fps = 0  # cap drawing between screenshot sets (0: unlimited); see `bench-speed`
 
     def record(self, kind: str, data: dict):
         self.timeline.write(json.dumps({"kind": kind, "wall": time.time(), **data}) + "\n")
@@ -66,10 +67,21 @@ class MapCheck:
         self.record("dump", {"label": label, **d})
         return d
 
+    def render(self, fps: int):
+        """Cap drawing; a mod build without the `render` op just keeps drawing at full rate."""
+        if not self.render_fps:
+            return
+        try:
+            self.c.call("render", fps=fps, camera=True)
+        except HarnessError as e:
+            self.log(f"render cap unavailable ({e}); drawing at full rate")
+            self.render_fps = 0
+
     def screenshots(self, label: str):
         paused = self.c.call("stats")["paused"]
         self.c.call("run", paused=True)
         self.c.call("ui", visible=False)
+        self.render(0)
         try:
             for v in self.views:
                 self.c.call(
@@ -94,6 +106,7 @@ class MapCheck:
         finally:
             self.c.call("camera", release=True)
             self.c.call("ui", visible=True)
+            self.render(self.render_fps)
             self.c.call("run", paused=paused)
 
     def execute(
@@ -159,6 +172,7 @@ class MapCheck:
         next_shot = shot_every
         next_dump = dump_every
         population_observations = [{"minute": 0.0, "population": self.c.call("stats")["population"]}]
+        self.render(self.render_fps)
         self.c.call("run", paused=False, speed=speed)
         wall_start = time.monotonic()
         last_progress = (wall_start, start_frame)

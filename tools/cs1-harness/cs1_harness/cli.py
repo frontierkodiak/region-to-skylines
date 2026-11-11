@@ -293,6 +293,7 @@ def cmd_run(cfg, a):
             with slot(cfg, stage, a.wait_minutes, meta) as s:
                 observers(s, a, default_label=f"map check: {a.map.name}")
                 r = MapCheck(s, out, points, views, log=log)
+                r.render_fps = a.render_fps
                 result = r.execute(
                     a.map.resolve(),
                     a.game_minutes,
@@ -631,6 +632,12 @@ def main(argv=None):
     )
     r.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
     r.add_argument("--issue", help="the issue this run is for (e.g. PL-857); default: from --label or --out")
+    r.add_argument(
+        "--render-fps",
+        type=int,
+        default=10,
+        help="cap drawing between screenshot sets (default 10: full sim speed at half the CPU; 0: unlimited)",
+    )
     r.add_argument("--notify", action="store_true", help="comment the verdict, frames and timelapse on the issue")
     r.add_argument("--wake", action="store_true", help="with --notify, @mention the issue's agent assignee")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
