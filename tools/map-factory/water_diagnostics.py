@@ -39,7 +39,7 @@ from soak import (
 from template import manager_tag
 
 ROOT = Path(__file__).resolve().parent
-MODES = ("short-output-off", "sea-only")
+MODES = ("short-output-off", "sea-only", "portal-intake-original")
 
 
 def digest(data):
@@ -179,6 +179,7 @@ def transform(source, hydro, terrain, mode):
         raise ValueError("Native initial-water decoding does not round-trip exactly")
     depth = water["depth"].copy()
     changed_indices = []
+    restored_intakes = {}
     new_hydro = copy.deepcopy(hydro)
     if mode == "short-output-off":
         for i, (actual, expected) in enumerate(zip(water["sources"], hydro["sources"])):
@@ -186,6 +187,27 @@ def transform(source, hydro, terrain, mode):
                 controls[i]["output_capacity"] = 0
                 new_hydro["sources"][i]["output_capacity"] = 0
                 changed_indices.append(i)
+    elif mode == "portal-intake-original":
+        for i, (actual, expected) in enumerate(zip(water["sources"], hydro["sources"])):
+            if (
+                expected.get("short_surface_river")
+                and expected.get("underground_portal") == "surface_inlet_to_tunnel"
+                and actual["output_rate"] == 0
+            ):
+                footprint = expected.get("short_source_footprint")
+                original_rate = (
+                    footprint.get("intake_rate_before")
+                    if isinstance(footprint, dict)
+                    else None
+                )
+                if type(original_rate) is not int or not 1 <= original_rate <= 65535:
+                    raise ValueError(
+                        "Missing/invalid frozen original portal intake rate"
+                    )
+                if original_rate != actual["intake_rate"]:
+                    controls[i]["capacity"] = original_rate / 65535
+                    new_hydro["sources"][i]["capacity"] = original_rate / 65535
+                    restored_intakes[i] = original_rate
     else:
         sea = hydro["sea_level_m"]
         if not math.isfinite(sea):
@@ -230,16 +252,21 @@ def transform(source, hydro, terrain, mode):
             if before[k] != actual[k]
         }
         if difference:
-            if (
-                set(difference) != {"output_rate"}
-                or actual["index"] not in changed_indices
-                or actual["output_rate"] != 0
-            ):
+            output_change = (
+                set(difference) == {"output_rate"}
+                and actual["index"] in changed_indices
+                and actual["output_rate"] == 0
+            )
+            intake_change = (
+                set(difference) == {"intake_rate"}
+                and restored_intakes.get(actual["index"]) == actual["intake_rate"]
+            )
+            if not (output_change or intake_change):
                 raise ValueError("Unexpected encoded water-control difference")
             differences.append({"index": actual["index"], **difference})
     if len(after["sources"]) != len(before_controls) or len(differences) != len(
         changed_indices
-    ):
+    ) + len(restored_intakes):
         raise ValueError("Unexpected encoded source count/differences")
     if not np.array_equal(after["depth"], depth):
         raise ValueError("Encoded diagnostic water differs from requested grid")
@@ -249,6 +276,8 @@ def transform(source, hydro, terrain, mode):
         "crp_sha256": digest(result),
         "source_count": len(before_controls),
         "changed_output_indices": changed_indices,
+        "changed_intake_indices": list(restored_intakes),
+        "frozen_original_intake_rates": restored_intakes,
         "encoded_source_changes": differences,
         "assets": [
             {
@@ -299,8 +328,10 @@ def transform(source, hydro, terrain, mode):
             "camera",
             "resources and listing values",
             "previews",
-            "source count/positions/targets/intake",
-        ],
+            "source count/positions/targets",
+        ]
+        + (["intake rates"] if mode != "portal-intake-original" else [])
+        + (["bounded output rates"] if mode != "short-output-off" else []),
         "limitations": [
             "matched hydraulic diagnostic, NOT qualification",
             "resource water/listing/preview bytes intentionally frozen, not recomputed for sea-only initial water",
@@ -310,10 +341,16 @@ def transform(source, hydro, terrain, mode):
     return result, new_hydro, depth, receipt
 
 
-def export(source, output):
+def export(source, output, modes=MODES):
     source, output = Path(source), Path(output)
     if output.exists():
         raise ValueError("Use a fresh diagnostic output directory")
+    if (
+        not modes
+        or any(mode not in MODES for mode in modes)
+        or len(set(modes)) != len(modes)
+    ):
+        raise ValueError("Select distinct supported diagnostic modes")
     generation = read_json(source / "generation.json")
     declared_inputs = generation.get("source", {}).get("inputs_sha256", {})
     for name in ["terrain.u16", "water.u16", "hydrology.json"]:
@@ -366,7 +403,7 @@ def export(source, output):
     if water["depth"].astype("<u2").tobytes() != (source / "water.u16").read_bytes():
         raise ValueError("Source initial grid differs from actual CRP")
     outputs = []
-    for mode in MODES:
+    for mode in modes:
         variant, variant_hydro, depth, receipt = transform(
             original, hydro, terrain, mode
         )
@@ -458,7 +495,10 @@ def export(source, output):
                 "directory": str(folder.relative_to(output)),
                 "sha256": digest(variant),
                 "water_sha256": receipt["initial_water_after_sha256"],
-                "changed_controls": len(receipt["changed_output_indices"]),
+                "changed_controls": len(receipt["changed_output_indices"])
+                + len(receipt["changed_intake_indices"]),
+                "changed_intake_controls": len(receipt["changed_intake_indices"]),
+                "changed_output_controls": len(receipt["changed_output_indices"]),
             }
         )
     result = {
@@ -475,5 +515,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument(
+        "--mode",
+        choices=MODES,
+        action="append",
+        help="export only selected mode(s); default: all",
+    )
     args = parser.parse_args()
-    print(json.dumps(export(args.source, args.output), indent=2))
+    print(json.dumps(export(args.source, args.output, args.mode or MODES), indent=2))

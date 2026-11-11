@@ -176,6 +176,43 @@ class WaterDiagnosticTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "target/rates differ"):
             transform(self.source, bad, self.terrain, "short-output-off")
 
+    def test_original_portal_intake_changes_only_frozen_zero_output_inlet_rate(self):
+        hydro = copy.deepcopy(self.hydro)
+        hydro["sources"][1].update(
+            underground_portal="surface_inlet_to_tunnel",
+            short_source_footprint={"intake_rate_before": 13107},
+        )
+        # A positive-output control is not a drain and must remain untouched.
+        hydro["sources"][0].update(
+            underground_portal="surface_inlet_to_tunnel",
+            short_source_footprint={"intake_rate_before": 65535},
+        )
+        package, actual_hydro, depth, receipt = transform(
+            self.source, hydro, self.terrain, "portal-intake-original"
+        )
+        original_assets, _, before = self.unpack(self.source)
+        assets, _, after = self.unpack(package)
+        self.assertEqual(receipt["changed_intake_indices"], [1])
+        self.assertEqual(receipt["changed_output_indices"], [])
+        self.assertEqual(after["sources"][1]["intake_rate"], 13107)
+        for i, (a, b) in enumerate(zip(before["sources"], after["sources"])):
+            self.assertEqual(
+                {k: v for k, v in a.items() if i != 1 or k != "intake_rate"},
+                {k: v for k, v in b.items() if i != 1 or k != "intake_rate"},
+            )
+        np.testing.assert_array_equal(depth, self.depth)
+        self.assertEqual(actual_hydro["sources"][0], hydro["sources"][0])
+        self.assertEqual(
+            [a for a in assets if a["kind"] == 3],
+            [a for a in original_assets if a["kind"] == 3],
+        )
+
+    def test_missing_frozen_original_portal_rate_fails_closed(self):
+        hydro = copy.deepcopy(self.hydro)
+        hydro["sources"][1]["underground_portal"] = "surface_inlet_to_tunnel"
+        with self.assertRaisesRegex(ValueError, "frozen original portal intake"):
+            transform(self.source, hydro, self.terrain, "portal-intake-original")
+
 
 if __name__ == "__main__":
     unittest.main()
