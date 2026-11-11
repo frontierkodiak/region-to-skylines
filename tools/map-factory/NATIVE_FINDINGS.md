@@ -203,6 +203,13 @@ discrepancy was measured in the wrong geographic frame. No terrain transpose
 or mirror fix is justified. This is actual game-save terrain, not the writer's
 own rendering and not a live mod call.
 
+A read-only recheck of PL-891's completed native `t000-terrain.u16` from
+PL-848 package `b8507bf6…` gives the same result in that corrected frame.
+Its full grid is byte-identical to the terrain decoded from Caleb's save:
+SHA-256 `293d639f53119e7c5903bbd618c6e3a23a1ec4e222dd4e040075a0e4fa9ad6b6`.
+This ties the independent DEM comparison to a native game dump as well as the
+save. It is not a new live landmark/camera call on the newer PL-857 package.
+
 The same save stores camera yaw 55.7° and pitch 26.32°, rather than a
 north-facing view. A candidate now writes a fingerprint-bound native
 `SavedCameraView` with NewGameFromMap mode 2, yaw 0°, pitch 60°, size 1,000,

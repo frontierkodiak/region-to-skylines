@@ -99,6 +99,11 @@ def probes_for(hydro, descriptor):
     return {
         "points": points,
         "paths": paths,
+        "startup_views": {
+            "opening": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
+            "area_zoom": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
+            "tolerance_degrees": 1,
+        },
         "views": [
             {
                 "name": "start-tile",

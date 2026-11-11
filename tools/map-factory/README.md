@@ -107,6 +107,10 @@ Asheville also includes four independent GNIS/AWS-DEM landmarks. Staging passes
 them to harness PR #8's `terrain_landmarks` check, which samples native world
 heights before any harness camera override. The harness records startup camera
 heading; `world_observe` can read it again while actual Area Zoom is open.
+Staging also requests the opt-in native opening/Areas-tool captures, with
+explicit zero-degree yaw/render-heading expectations and a one-degree
+tolerance. The game itself enters Area Zoom; no harness camera aim creates
+that view. Both screenshots need a separate hash-bound visual review.
 This guards geographic orientation separately from the writer's own grid
 renderer. `landmark_expectations` carries the frozen absolute-height reference;
 `ground_truth` also names the region and geographic landmarks for harness
