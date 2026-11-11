@@ -11,6 +11,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image
+from scipy import ndimage
 
 from crp import (
     N,
@@ -92,6 +93,18 @@ def verify(folder):
                 unpack(fixture / (name + ".gz"), work / name)
             raw = np.fromfile(work / "terrain.u16", dtype="<u2")
             depth = np.fromfile(work / "water.u16", dtype="<u2")
+            if (fixture / "landmarks.json").exists():
+                landmarks = json.loads((fixture / "landmarks.json").read_text())
+                assert len(landmarks["points"]) >= 2 and landmarks["reference"]
+                for point in landmarks["points"]:
+                    value = ndimage.map_coordinates(
+                        raw.reshape(1081, 1081).astype(float) / 64,
+                        [[point["z"] / 16 + 540], [point["x"] / 16 + 540]],
+                        order=1,
+                    )[0]
+                    assert (
+                        abs(value - point["expected_height_m"]) <= point["tolerance_m"]
+                    ), (slug, point["name"], "independent geographic DEM check", value)
             for name, expected_hash in case["prepared_sha256"].items():
                 assert (
                     hashlib.sha256((work / name).read_bytes()).hexdigest()

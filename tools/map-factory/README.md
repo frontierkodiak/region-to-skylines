@@ -103,6 +103,15 @@ an explicit hash-bound visual review. Rejudge after reviewing it; do not
 turn the review flag on automatically. This instrumented panel observation
 does not replace the separate strict vanilla start.
 
+Asheville also includes four independent GNIS/AWS-DEM landmarks. Staging passes
+them to harness PR #8's `terrain_landmarks` check, which samples native world
+heights before any harness camera override. The harness records startup camera
+heading; `world_observe` can read it again while actual Area Zoom is open.
+This guards the geographic orientation separately from the writer's own grid
+renderer. See the unresolved orientation gate in `NATIVE_FINDINGS.md`.
+When authoring fixtures, supply `CAPTURE/asheville-landmarks.json` as well;
+`freeze_fixtures.py` refuses to silently reuse an old landmark reference.
+
 Each map is checked against the committed CRP checksum before launch. The
 harness retains the timeline, native grids, screenshots, GPU measurements and
 cleanup receipt. `hydraulic-summary.json` groups every probe by waterway, with

@@ -42,6 +42,11 @@ def freeze(inputs, output):
                 inputs / f"{slug}-banks.f32",
             )
             shutil.copyfile(inputs / f"{slug}.png", case / "input.png")
+            landmarks = inputs / f"{slug}-landmarks.json"
+            if landmarks.exists():
+                shutil.copyfile(landmarks, case / "landmarks.json")
+            elif (case / "landmarks.json").exists():
+                raise ValueError(f"Refusing to silently reuse stale {slug} landmarks")
             files = {
                 "geometry.json": inputs / f"{slug}-geometry.json",
                 "banks.f32": inputs / f"{slug}-banks.f32",

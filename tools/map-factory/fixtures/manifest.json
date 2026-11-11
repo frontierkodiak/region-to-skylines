@@ -20,7 +20,8 @@
         "hydrology.json.gz": "0a00547a6915481ff8f4ce9e6e2529544d32d3002ced456fbaefeb7430e34c93",
         "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
         "terrain.u16.gz": "ddf79eecef80c25b0fdd2f3d53a5e7187cc9857471f71d9270718cab51a4fa53",
-        "water.u16.gz": "7f5a0edc3361a6f5fa3f55dbdb95a6f288ac4aa585412d0df2ca6bb6032f0696"
+        "water.u16.gz": "7f5a0edc3361a6f5fa3f55dbdb95a6f288ac4aa585412d0df2ca6bb6032f0696",
+        "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16"
       },
       "expected_simulation_sha256": "9e69d839788680a2b9eaff91854a48be93d5673d19b2b0e8bdfaa4383d054f69"
     },

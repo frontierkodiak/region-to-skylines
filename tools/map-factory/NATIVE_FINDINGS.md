@@ -189,6 +189,39 @@ complete native route. Topology preservation alone was not sufficient proof.
 
 ## Evidence definitions and limits
 
+### Orientation is still a native acceptance gate
+
+Caleb's opening/Area Zoom views raised a possible 90° orientation error. The
+writer's own north-up rendering cannot settle it. Four independent landmarks
+are now frozen in `fixtures/asheville/landmarks.json`: Sunset Mountain,
+Richmond Hill, Beaucatcher Mountain and Busbee Mountain. Coordinates come from
+the [USGS GNIS landform service](https://carto.nationalmap.gov/arcgis/rest/services/geonames/MapServer/5);
+fresh AWS Terrarium samples supply elevations, converted with the recorded
+height-fit transform, not sampled from the prepared map.
+
+Offline prepared heights differ by at most 1.85 m from those independent
+expectations. A 12 m tolerance covers DEM/grid smoothing, while Sunset
+Mountain alone differs by over 267 m under each of the seven wrong square
+rotations/reflections tested offline. This is a discriminating fixture, **not
+a native orientation verdict**. Harness PR #8 adds direct native world-height
+sampling before camera overrides, startup camera observations, and a strict
+`terrain_landmarks` verdict. Live sampling and Area Zoom heading remain pending.
+
+The earlier PL-848 reproduction artifact is reachable by its original
+`b8507bf6…` checksum. Its recorded geographic frame has rotation −0.905°,
+whereas the current PL-857 Asheville capture is 0°. Do not apply the current
+frame blindly to that older package, or claim its identity with Caleb's carbon
+file without comparing bytes. Its original height-fit offset also needs to
+be established before reusing an absolute-height reference.
+
+Native-source inspection shows `NewGameFromMap` is mode 2. Normal saved
+game/editor camera modes are 3/1 and are ignored by the camera reset in mode 2.
+A matching serialized mode-2 camera appears structurally possible; no binary
+patch or live north-facing start is claimed yet. Area Zoom selects a cardinal
+heading from the current camera orientation, so its matching sideways view is
+not independent proof of a terrain transpose. No grid or camera was changed
+to make this unverified bug disappear.
+
 `audit_soak.py` checks native initial terrain, water and source controls against
 the tested inputs. Exact wetness means native depth above 0.1 m. Nearby-water
 evidence uses a 64 m radius and never relabels an exact dry sample. The playable

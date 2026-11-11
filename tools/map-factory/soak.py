@@ -116,6 +116,9 @@ def stage(output, slugs):
         probes = folder / "probes.json"
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
+        landmarks = fixtures / slug / "landmarks.json"
+        if landmarks.exists():
+            data["landmarks"] = json.loads(landmarks.read_text())
         probes.write_text(json.dumps(data, indent=2) + "\n")
         receipt.update({"slug": slug, "probes": len(data["points"])})
         (folder / "staging.json").write_text(json.dumps(receipt, indent=2) + "\n")
@@ -150,6 +153,8 @@ def stage_prepared(inputs, output, slugs):
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
+        if (source / "landmarks.json").exists():
+            data["landmarks"] = json.loads((source / "landmarks.json").read_text())
         if (source / "probes.json").exists():
             data["views"] = json.loads((source / "probes.json").read_text()).get(
                 "views", []
