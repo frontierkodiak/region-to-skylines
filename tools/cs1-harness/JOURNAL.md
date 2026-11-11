@@ -448,6 +448,95 @@ listed all ten tools, and `queue`, `runs` and `verdict` returned live results
 PL-848 verdict, a fail with its triage). Not exercised over MCP: `up`, `call`,
 `down` and `submit`, which only wrap the CLI commands of the same names.
 
+## 2026-11-10 · Sol xhigh (blade) · PL-893 · standard test city
+
+**Why.** Empty-map soaks stay at population 0 and cannot test whether a
+player's road grid reaches the outside world. `run --scenario test-city`
+adds a small city after ordinary New Game, before the existing soak.
+
+**Changed.** `ScenarioOps` builds through native road and building placement
+checks on the simulation thread. It selects a dry starting-tile site, joins
+the highway approaches, builds a grid, zones R/C/I, and adds a coal plant,
+water pump, drain, pipes and power lines. Normal construction costs come from
+starting money. No growables, population, utility buffers or completion flags
+are forced. The run preserves the construction receipt and checks actual
+population growth and native passenger-car paths in both directions.
+The source-dirty flag now covers the whole harness, including `mod/`, rather
+than just the Python package. A temporary untracked file under `mod/` reproduced
+the false-clean result before the fix and reported dirty afterward; removing
+it restored clean status.
+
+**Native rules that mattered.** Inspected against the installed CS1 1.21.1-f9
+assemblies, then exercised in fresh New Games:
+
+- `NetTool.CanAddSegment` rejects direction dot products over 0.75, including
+  pipes and wires. The highway merge must be close, and utility branches must
+  use legal angles at connected network nodes.
+- PL-848's highway ends are physically about 12 m above terrain although their
+  stored node elevation and prefab base height are both zero. Connection
+  elevation must come from world geometry relative to the native terrain
+  sampler, not that stored byte.
+- The stock water prefabs are `Water Intake` and `Water Outlet`, both
+  `ShorelineOrGround`. Select by AI capabilities and normal unlock/cost checks,
+  not translated UI names. Use the shoreline height rules from the building
+  tool, not its roadside maximum height difference.
+- A legal shoreline site can be across an elevated railway from the power
+  network. Test power access before committing the facility. Pipe proximity
+  alone also isn't enough: attach to the facility's native `m_netNode`.
+  A development city grew to 154 despite disconnected water, so the verdict
+  now separately requires active, connected utilities without supply problems.
+- The fixture omits only `UnlockManager`'s modal milestone presentation.
+  Unlocks and rewards still run, but the panel cannot pause an unattended soak.
+- Green Plains' highway ends are at x=917.28 and 920.18 m: legally inside the
+  tile, but outside the planner's original 48 m inset (x<912). The first attempt
+  failed. Using the native purchased-area test fixed it without an exception
+  for this map. Receipts now include the tile and twelve nearest road-node
+  candidates, and inspection remains usable when construction fails.
+
+**CLI proofs.** Native build, Ruff (22 files), eight verdict tests and the GPU
+doctor pass. Both final runs use the same mod DLL (SHA-256
+`dee3d1f6bb82accb1ba0a764824d79271784b1df8fef91ca68ec9b5f111cc9a9`).
+Both proof commands use `run --scenario test-city --game-minutes 10
+--sample-every 1 --screenshot-every 5 --dump-every 5 --wait-minutes 240`.
+Evidence lives under `~/experiments/PL-893-test-city/`. Green Plains records
+harness `3c84b91`; Asheville records `8fa196e` (documentation-only changes).
+The later provenance fix changes no construction or verdict decision logic.
+
+| Map / output | Population | First observed +50 | Native edge paths | Utilities | Verdict | Wall |
+|:--|:--|:--|:--|:--|:--|:--|
+| Exact PL-848 Asheville / `asheville-area-10` | 0 → 380 at 10.01 game-min | 1.935 game-min | 1 inbound + 1 outbound, found and released | all active, no problems | pass | 6.18 min soak; 8.58 min active; 25.98 min queue |
+| Vanilla Green Plains / `vanilla-area-10` | 0 → 411 at 10.06 game-min | 1.524 game-min | 4 inbound + 4 outbound, found and released | all active, no problems | pass | 5.69 min soak; 8.15 min active; 21.15 min queue |
+
+Asheville's source SHA-256 is
+`b8507bf6e4c00f2336eb2051daed8785a6912a56ad594161e1e09a32ef0c94f4`.
+Construction spent $48,680 of $70,000 starting cash. At the end, 63 residential,
+10 commercial and 24 industrial buildings had grown without growable warnings.
+The native paths include grid segment 35065 and physical edge endpoints
+19415/255 outbound and 6014/0 inbound; both path units were released.
+Cleanup reports no game, Steam instances or harness units left running.
+
+Green Plains (`NorthEurope1FINAL.crp`) has source SHA-256
+`a4afe28315db5fbcb7b5a08548a80a495960a358bafdf39ad47d435f01d9d538`.
+It spent $45,520 and grew 60 residential, 6 commercial and 28 industrial
+buildings, also without growable warnings. All eight paths include grid
+segment 13760 and the physical map-edge endpoint; all were released. Utilities
+were active and cleanup was empty. The earlier Asheville proof, before the
+hookup-selector correction, grew 0 → 377 in 10.05 game-min (`asheville-10`).
+
+**Calibration.** Require 50 new residents by 5 game-minutes, retained at the
+end. Both final runs cross 50 before minute 2, leaving over 3 game-minutes of
+margin for slower arrivals; the empty-map baseline stays at zero. The separate
+utility check rejects the observed development false-pass (154 residents but
+disconnected water). Outside reachability requires native path positions at
+the grid and the real edge endpoint in both directions, not summary booleans.
+
+**Not verified.** Every map, long-term city/utility health, required river
+probes or Clef. These city proofs do not replace PL-848's known failing
+60-minute river soak. The final Asheville startup log also contains
+`CitiesBridge.Bridge` / `CitiesBridge.Ownership` type-load exceptions from a
+separate assembly; these precede the post-city error list used by the verdict.
+The fixture and native checks pass; that bridge was not investigated or changed.
+
 ## 2026-11-10 · Opus 5.5 (blade) · PL-891 · taking turns
 
 **What got in the way.** Waiters polled the lock every 2 s, and whoever
@@ -478,3 +567,28 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 |:--|:--|:--|:--|:--|:--|:--|
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
+| 2026-11-10 | Sol xhigh · PL-893 trial 1 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.42 W / 63 °C | ~3.0 min | highway elevation rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 2 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.57 W / 63 °C | ~3.9 min | highway elevation rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 3 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.66 W / 63 °C | ~4.3 min | water prefab name rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 4 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.89 W / 63 °C | ~5.0 min | water placement mode rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 5 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.44 W / 63 °C | ~5.0 min | native prefab inspection; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 6 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.10 W / 63 °C | ~7.5 min | power routing rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 7 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 163.22 W / 63 °C | ~7.3 min | power routing rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 8 | blade · 2080 Ti 05:00.0 | 9,553 MiB (~1,553 MiB game) | 163.25 W / 63 °C | ~3.8 min | menu only after failed rebuild; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 9 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.40 W / 64 °C | ~13.7 min | rail collision diagnosed; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 10 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 165.44 W / 64 °C | ~6.9 min | rail collision rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 11 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.08 W / 63 °C | ~6.7 min | grew 154, both car paths found, native water node disconnected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 12 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 161.86 W / 63 °C | ~5.4 min | grew 153 by 2.05 game-min, utilities working; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Asheville first proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.82 W / 63 °C | 4.59 min soak / 6.92 min active | 10 game-min; population 0 → 377; verdict pass; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Green Plains first attempt | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 155.29 W / 63 °C | ~1.75 min monitored | no hookup found under planner inset; error verdict; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Green Plains final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 158.62 W / 63 °C | 5.69 min soak / 8.15 min active | 10 game-min; population 0 → 411; verdict pass; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Asheville final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.80 W / 63 °C | 6.18 min soak / 8.58 min active | 10 game-min; population 0 → 380; verdict pass; clean teardown |
+
+PL-893 development wall times are the approximate first-to-last GPU sample
+span, including boot and teardown. Game VRAM is card peak minus the 8,000 MiB
+pre-launch baseline, not a process-isolated peak. The existing 150 W limit was
+unchanged; the table reports `nvidia-smi`'s observed transient power peaks.
+Active wall time is slot acquisition through completed cleanup, excluding the
+queue; soak time is only the simulation loop. Green Plains reported 1280×720
+at the menu and the final Asheville run 1920×1080, so these are not controlled
+performance comparisons.

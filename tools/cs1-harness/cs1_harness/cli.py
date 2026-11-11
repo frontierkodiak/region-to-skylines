@@ -275,6 +275,7 @@ def cmd_run(cfg, a):
                     a.screenshot_every,
                     a.dump_every,
                     a.load_timeout,
+                    a.scenario,
                 )
                 result["probes"] = str(a.probes.resolve()) if a.probes else None
                 result["requested_game_minutes"] = a.game_minutes
@@ -572,6 +573,9 @@ def main(argv=None):
     d.add_argument("--out", type=pathlib.Path, help="move the session's files (log, GPU samples, shots) here")
     r = sub.add_parser("run", help="New Game on a map, simulate, report")
     r.add_argument("--map", type=pathlib.Path, required=True, help="the .crp map file")
+    r.add_argument(
+        "--scenario", choices=("test-city",), help="build a standard city before the soak; check growth and car paths"
+    )
     r.add_argument(
         "--game-minutes", type=float, default=60, help="simulated minutes, counted as play at 1x speed (default 60)"
     )

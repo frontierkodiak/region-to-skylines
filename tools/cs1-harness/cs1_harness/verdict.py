@@ -7,7 +7,7 @@ should look at that isn't calibrated well enough to fail a run; `skip` means
 the run has no data for that check, with the reason.
 
 Thresholds were calibrated on blade's 2026-11-10 runs (PL-856, PL-857,
-PL-880); JOURNAL.md has the numbers. Change one only with evidence, and say
+PL-880, PL-893); JOURNAL.md has the numbers. Change one only with evidence, and say
 which runs it moves from pass to fail or back.
 """
 
@@ -50,6 +50,9 @@ MAP_SOAK = {
     # Clef frame-kind flags fail the run only when at least this share of shots
     # is flagged (systematic); fewer is a warning. Clef misread 1 of 19 frames.
     "clef_fail_fraction": 0.5,
+    # test-city only; calibration and measured growth times go in JOURNAL.md.
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0,
 }
 
 # Asset placement (`cs1-harness asset check`).
@@ -80,7 +83,7 @@ def harness_commit() -> dict:
         ).stdout.strip()
         dirty = bool(
             subprocess.run(
-                ["git", "-C", str(here), "status", "--porcelain", "--", "."], capture_output=True, text=True
+                ["git", "-C", str(here), "status", "--porcelain", "--", ".."], capture_output=True, text=True
             ).stdout.strip()
         )
         return {"commit": sha, "dirty": dirty}
@@ -228,6 +231,7 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
         )
 
     checks.append(flooding(out, report, meta, t))
+    checks.extend(scenario_checks(report))
 
     paths = [("start", p) for p in report.get("paths_start") or []] + [
         ("end", p) for p in report.get("paths_end") or []
@@ -295,6 +299,91 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
 
     checks += common(report.get("session") or {}, (report.get("final_status") or {}).get("errors") or [])
     return checks
+
+
+def scenario_checks(report: dict) -> list[dict]:
+    """An empty map isn't a growth test; a requested fixture must never skip it."""
+    if not report.get("requested_scenario"):
+        return [
+            row("population_growth", "skip", detail="no scenario requested (use --scenario test-city)"),
+            row("outside_connection", "skip", detail="no scenario requested"),
+            row("utilities", "skip", detail="no scenario requested"),
+        ]
+    fixture = report.get("scenario") or {}
+    curve = report.get("curve") or []
+    initial = curve[0]["population"] if curve else 0
+    final = curve[-1]["population"] if curve else 0
+    minimum = MAP_SOAK["population_min_growth"]
+    deadline = MAP_SOAK["population_growth_by_minute"]
+    observations = report.get("population_observations") or curve
+    hits = [p["minute"] for p in observations if p["population"] - initial >= minimum]
+    reached = min(hits) if hits else None
+    grew = fixture.get("state") == "done" and reached is not None and reached <= deadline and final - initial >= minimum
+    population = row(
+        "population_growth",
+        "pass" if grew else "fail",
+        {"initial": initial, "final": final, "growth": final - initial, "first_observed_minute": reached},
+        f">= {minimum} new residents by minute {deadline:g}, retained at the end",
+    )
+    reach = fixture.get("reachability") or {}
+    successful = set()
+    for path in reach.get("paths") or []:
+        positions = path.get("positions") or []
+        grid = path.get("grid_segment")
+        edge = path.get("edge_segment")
+        offset = path.get("edge_offset")
+        if (
+            path.get("success")
+            and path.get("released")
+            and grid
+            and edge
+            and offset in (0, 255)
+            and any(p[0] == grid for p in positions)
+            and any(p[0] == edge and abs(p[2] - offset) <= 1 for p in positions)
+        ):
+            successful.add(path.get("direction"))
+    connected = reach.get("complete") and {"inbound", "outbound"}.issubset(successful)
+    outside = row(
+        "outside_connection",
+        "pass" if connected else "fail",
+        {
+            "complete": bool(reach.get("complete")),
+            "directions": sorted(successful),
+            "paths_checked": len(reach.get("paths") or []),
+        },
+        "native passenger-car paths grid -> highway edge and edge -> grid, released",
+    )
+    facilities = {u.get("role"): u for u in (fixture.get("final") or {}).get("utilities") or []}
+    broken = []
+    for role in ("power", "water", "sewage"):
+        facility = facilities.get(role) or {}
+        active = "Active" in (facility.get("flags") or "").split(", ")
+        connected = role == "power" or (facility.get("connected_segments") or 0) > 0
+        supply_problems = set((facility.get("problems") or "").split(", ")) & {
+            "Electricity",
+            "Water",
+            "WaterNotConnected",
+            "Sewage",
+            "NoResources",
+            "Flood",
+            "TurnedOff",
+        }
+        if not active or not connected or supply_problems:
+            broken.append(
+                {
+                    "role": role,
+                    "flags": facility.get("flags"),
+                    "problems": facility.get("problems"),
+                    "connected": connected,
+                }
+            )
+    utilities = row(
+        "utilities",
+        "fail" if broken else "pass",
+        {"broken": broken},
+        "power, water and sewage active, native pipe nodes connected, no connection or supply problems",
+    )
+    return [population, outside, utilities]
 
 
 def asset_check(out: pathlib.Path, doc: dict) -> list[dict]:
