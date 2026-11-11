@@ -1,0 +1,19 @@
+{
+ "frozen_at": "2026-11-11T00:55:31Z",
+ "after": "10 development buildings; before any locked building's lidar was cropped",
+ "selection_sha256": "f1407f736991b08cf73576853784a6e6f5703494809829aede90549fbeccf687",
+ "fit_epoch": "2017 USGS EPT (NC_Phase5_Buncombe_2017)",
+ "roofer": "v1.0.0 (bb2a85a), default parameters, --lod12 --lod13 --lod22",
+ "classes": "promote: delivered class 6, plus non-ground points over the outline >= 2 m above the ground beside it that lie on RANSAC planes (0.12 m, <= 60 deg, >= 6 m2 at >= 3 pts/m2)",
+ "height_only": "outline extruded from the 5th-percentile ground within 4 m to the 70th percentile of roof points",
+ "holdout": "2 m patches, one in five withheld, hash of patch position",
+ "appearance": "PL-881 hybrid atlas at 82336461, walls by recorded wall material, all up-facing faces shingle, no openings or trim in any arm",
+ "tolerances": {
+  "geometry_pass": "arm 3 fitted without the withheld patches: median |error| <= 0.5 m and >= 75% of withheld roof points within 1 m",
+  "ridge_eave": "within 1.0 m of the withheld points' 99th percentile (ridge) and 5th percentile near the outline (eave), where at least 8 edge points exist",
+  "topology": "blind judge, from the 2025 orthoimage and lidar surface: dominant roof form right and ridge within 30 degrees, on >= 80% of judgeable buildings",
+  "preference": "blind A/B, arm 3 preferred over arm 2 on >= 70%, ties counted separately, city and close views scored apart",
+  "usable_lod2": "Roofer returns standard-mode LoD2.2 with no per-building change and it passes geometry_pass; target >= 80% of all 50 attempts"
+ },
+ "scripts_sha256": {"crop_points.py": "bb456e94069b130894df8ccf3d4ebc8bc8a83ee8806e29911588d00bf7daa588","reconstruct.py": "d7ae1022ba019eb52aff00aff1a963829f19203f2e4fac556e87e8237b8f4df8","evaluate.py": "4920118a570631f0e2abd7b116b5955640be0eddb007faa026c53d7d1681a575","build_scene.py": "344a4e770936833e46825bb7e397381aa04516db0ab151c723b6f0dba012f0d0","select_buildings.py": "3434bb37ff612d7f8714bafcdb9fb22c258cfbf96cb934e5d70f09176be27053","render/render.js": "ed279a3d79b9ba788f4a2cff7d76a3847d637f66ea004d851fa4a6be57067a92"}
+}
