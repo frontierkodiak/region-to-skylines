@@ -660,6 +660,38 @@ to agree. Re-judged under the new rule, PL-857's best Asheville soak reads
 check is only as independent as the frame it's drawn in. The playtest checked
 the world, so now the harness does too.
 
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · saves: a repro for Caleb, and checkpoints
+
+**What got in the way.** When a run found something, nobody could open the
+city it was looking at. Every soak also started from a fresh New Game, even
+when the question was about minute 40.
+
+**What changed.**
+- `run --save-at N` (repeatable), `--save-end` and `--save-on-dry` save the
+  city with the game's own save routine. The last one saves once, when
+  required probes first fall below the verdict's threshold.
+- Saves land in `saves/`, `repro.md` says how to open one on carbon, and
+  `--notify` attaches the latest.
+- `run --from-save X.crp` starts from a save, so a soak can resume or branch
+  from minute N. The mod's `load_game` only works inside a level, so from the
+  main menu the harness first starts a New Game on the run's map (about
+  40 s), then loads the save over it.
+- The opening-camera check skips on runs started from a save.
+
+**What the first live runs found.** Saving and loading come from PL-880's
+`save_game` and `load_game` ops (PR #10), tested here on a local merge of
+PR #28 on 2026-11-11. The first attempt saved at minute 1, but the
+end-of-run save never finished in 300 s, and loading from the menu was
+refused. Two fixes: the harness lets the simulation run while a save
+writes, because the end save had been asked for with the simulation paused,
+and loading bridges through a New Game.
+
+**Before → after.** Before: no saves, no resume. After, on PL-848 Asheville,
+both saves were written (t001 2.06 MB, t002 2.38 MB), and a second run
+resumed from t001 at its own frame (206,456) and soaked on. Until PR #10
+lands on `main`, a save logs "no save_game op" and the run carries on;
+`--from-save` stops with a clear error.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
