@@ -1,6 +1,7 @@
 // Run in a Playwright page on the app's origin. Captures the actual browser
 // terrain pipeline, not a second implementation of its elevation/carving rules.
-async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 = null } = {}) {
+async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 = null, pinnedVectorTiles = null } = {}) {
+  if (frozenGeometry?.surfaceWaterPolicy && !pinnedVectorTiles) throw Error('surface policy requires pinned vector evidence');
   const t = await import('/terrain.js');
   const { oceanPolygons, rasterizeOcean } = await import('/tools/map-factory/capture-ocean.js');
   const hash = async bytes => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)),
@@ -15,7 +16,7 @@ async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 =
 
   const { VectorTile } = await import('https://cdn.jsdelivr.net/npm/@mapbox/vector-tile@2.0.3/+esm');
   const { default: Pbf } = await import('https://cdn.jsdelivr.net/npm/pbf@4.0.1/+esm');
-  const tj = await (await fetch('https://tiles.openfreemap.org/planet')).json();
+  const tj = pinnedVectorTiles ? null : await (await fetch('https://tiles.openfreemap.org/planet')).json();
   const z = water.zoom;
   const corners = t.corners(sq);
   const merc = ([lon, lat]) => [(lon + 180) / 360 * 2 ** z,
@@ -24,10 +25,13 @@ async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 =
   const waterClasses = {};
   for (let y = Math.floor(Math.min(...tiles.map(p => p[1]))); y <= Math.floor(Math.max(...tiles.map(p => p[1]))); y++)
     for (let x = Math.floor(Math.min(...tiles.map(p => p[0]))); x <= Math.floor(Math.max(...tiles.map(p => p[0]))); x++) jobs.push([x, y]);
+  if (pinnedVectorTiles) jobs.splice(0,jobs.length,...pinnedVectorTiles.map(tile=>[tile.x,tile.y,tile]));
   const worker = async () => {
     while (jobs.length) {
-      const [x, y] = jobs.shift();
-      const response = await fetch(tj.tiles[0].replace('{z}', z).replace('{x}', x).replace('{y}', y));
+      const [x, y, pinned] = jobs.shift();
+      if (pinned && pinned.z !== z) throw Error('pinned tile zoom differs from frozen water');
+      const response = await fetch(pinned ? pinned.url : tj.tiles[0].replace('{z}', z).replace('{x}', x).replace('{y}', y));
+      if (pinned && response.status !== pinned.status) throw Error('pinned vector status changed');
       const evidence = { x, y, z, status: response.status, url: response.url, waterClasses: {} };
       tileEvidence.push(evidence);
       // Missing tiles are unknown/no evidence, never an inferred ocean square.
@@ -35,6 +39,7 @@ async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 =
       if (!response.ok) throw new Error(`transport ${z}/${x}/${y}: ${response.status}`);
       const bytes = await response.arrayBuffer();
       evidence.sha256 = await hash(bytes);
+      if (pinned && evidence.sha256 !== pinned.sha256) throw Error(`pinned vector SHA changed ${pinned.url}`);
       const vt = new VectorTile(new Pbf(bytes));
       const waterLayer = vt.layers.water;
       for (let i = 0; waterLayer && i < waterLayer.length; i++) {
@@ -85,6 +90,7 @@ async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 =
       polygons: oceans.length, maskCells: sea ? sea.reduce((a, b) => a + b, 0) : 0,
       classification: 'explicit ocean polygons only; separate polygon union with even-odd holes; alpha >=128',
       maskSha256: sea ? await hash(sea.buffer) : null, missingTiles: 'not classified as sea', heightThreshold: null },
+    pinnedVectorTiles: !!pinnedVectorTiles,
     nonSea: { mode: frozenGeometry ? 'frozen vector geometry' : 'fresh vector geometry',
       frozenGeometrySha256, preservedFields: frozenGeometry ? ['sq', 'rivers', 'lakes', 'riverAreas', 'roads', 'streams'] : [],
       derivedSources: 'recomputed by unchanged terrain.waterSources after corrected sea fitting',
@@ -94,6 +100,8 @@ async function captureRegion(sq, { frozenGeometry = null, frozenGeometrySha256 =
   };
   const metadata = { sq, ...water, streams: keptStreams, roads: keptRoads, oceans, sources, seaLevel: fit.seaLevel,
     fit: { base: fit.base, verticalScale: fit.verticalScale },
+    ...(frozenGeometry?.surfaceWaterPolicy ? {surfaceWaterPolicy:frozenGeometry.surfaceWaterPolicy,
+      undergroundWaterways:frozenGeometry.undergroundWaterways} : {}),
     provenance };
   download(`${sq.slug}-geometry.json`, new Blob([JSON.stringify(metadata)]));
   download(`${sq.slug}.png`, await t.png16(t.encode16(fit.game), 1081, 1081));
