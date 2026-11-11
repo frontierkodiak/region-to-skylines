@@ -15,14 +15,14 @@ namespace Cs1Harness
     // Explicit disposable MapEditor authoring. Never patch a package or allocate IDs.
     public static class TemplateOps
     {
-        static string source, sourceHash, state = "idle", error, checkedPlan, exportPath;
+        static string source, requestedSource, sourceBinding, sourceHash, state = "idle", error, checkedPlan, exportPath;
         static volatile bool busy;
         static Dictionary<int, string> originalNodes, originalSegments;
         static Dictionary<string, object> originalCounts, lastPlacement;
 
         public static void Register()
         {
-            Host.Register("template_open", Needs.MainMenu, "load an explicit local map in MapEditor, not New Game: {path}", Open);
+            Host.Register("template_open", Needs.MainMenu, "load an explicit local map in MapEditor, not New Game: {path,source_sha256}", Open);
             Host.Register("template_status", Needs.Level, "MapEditor-only native graph/prefabs/outside buildings and authoring state", Status);
             Host.Register("template_air", Needs.Level, "native straight air path: {prefab,endpoints:[[x,z],[x,z]],apply:false}; test first, then identical apply:true", Air);
             Host.Register("template_export", Needs.Level, "save a new unpublished map through native SaveMapPanel: {name:air-template-...,map_name}", Export);
@@ -169,13 +169,34 @@ namespace Cs1Harness
         static Dictionary<string, object> Open(Dictionary<string, object> q)
         {
             string path = Path.GetFullPath(Json.Str(q, "path", ""));
-            Package.Asset selected = null;
+            string expected = Json.Str(q, "source_sha256", "");
+            if (!Regex.IsMatch(expected, "^[0-9a-f]{64}$") || Hash(File.ReadAllBytes(path)) != expected)
+                throw new Exception("requested source SHA256 mismatch");
+            var exact = new List<Package.Asset>();
+            var aliases = new List<Package.Asset>();
             foreach (var a in PackageManager.FilterAssets(UserAssetType.MapMetaData))
-                if (a != null && a.package.packagePath != null && Path.GetFullPath(a.package.packagePath) == path)
-                { if (selected != null) throw new Exception("ambiguous map file"); selected = a; }
-            if (selected == null) throw new Exception("map must be installed and listed before editor load");
+            {
+                if (a == null || a.package.packagePath == null) continue;
+                string installed = Path.GetFullPath(a.package.packagePath);
+                if (installed == path) exact.Add(a);
+            }
+            // Flatpak aliases are eligible only when exact lookup failed.
+            if (exact.Count == 0)
+                foreach (var a in PackageManager.FilterAssets(UserAssetType.MapMetaData))
+                {
+                    if (a == null || a.package.packagePath == null) continue;
+                    string installed = Path.GetFullPath(a.package.packagePath);
+                    if (Path.GetFileName(installed) == Path.GetFileName(path)
+                        && Hash(File.ReadAllBytes(installed)) == expected) aliases.Add(a);
+                }
+            var candidates = exact.Count > 0 ? exact : aliases;
+            if (candidates.Count != 1) throw new Exception("source must identify exactly one installed map asset; matches=" + candidates.Count);
+            var selected = candidates[0];
+            string selectedPath = Path.GetFullPath(selected.package.packagePath);
+            if (Hash(File.ReadAllBytes(selectedPath)) != expected) throw new Exception("installed source SHA256 mismatch");
             var meta = selected.Instantiate<MapMetaData>();
-            source = path; sourceHash = Hash(File.ReadAllBytes(path)); state = "loading";
+            source = selectedPath; requestedSource = path; sourceBinding = exact.Count > 0 ? "exact_path" : "basename_sha256";
+            sourceHash = expected; state = "loading";
             originalNodes = originalSegments = null; originalCounts = lastPlacement = null;
             error = checkedPlan = exportPath = null; busy = false;
             var sim = new SimulationMetaData { m_updateMode = SimulationManager.UpdateMode.LoadMap,
@@ -187,7 +208,8 @@ namespace Cs1Harness
             }
             if (Singleton<LoadingManager>.instance.LoadLevel(meta.assetRef, "MapEditor", "InMapEditor", sim) == null)
                 throw new Exception("native editor load refused");
-            return Host.Obj("loading", path, "source_sha256", sourceHash, "update_mode", 1);
+            return Host.Obj("loading", source, "source_path", source, "requested_source_path", requestedSource,
+                "source_binding", sourceBinding, "source_matches", 1, "source_sha256", sourceHash, "update_mode", 1);
         }
 
         static Dictionary<string, object> Status(Dictionary<string, object> q)
@@ -209,7 +231,8 @@ namespace Cs1Harness
             for (uint i = 0; i < PrefabCollection<NetInfo>.LoadedCount(); i++)
             { var info = PrefabCollection<NetInfo>.GetLoaded(i); if (Plane(info)) prefabs.Add(Info(info)); }
             return Host.Obj("state", state, "busy", false, "error", error, "mode", "MapEditor", "update_mode", 1,
-                "source_sha256", sourceHash, "graph", Graph(), "plane_prefabs", prefabs,
+                "source_sha256", sourceHash, "source_path", source, "requested_source_path", requestedSource,
+                "source_binding", sourceBinding, "source_matches", 1, "graph", Graph(), "plane_prefabs", prefabs,
                 "original_node_fingerprints", originalNodes, "original_segment_fingerprints", originalSegments,
                 "placement", lastPlacement, "saving", SaveMapPanel.isSaving,
                 "export_path", exportPath, "export_sha256", exportPath != null && !SaveMapPanel.isSaving && File.Exists(exportPath) ? Hash(File.ReadAllBytes(exportPath)) : null);

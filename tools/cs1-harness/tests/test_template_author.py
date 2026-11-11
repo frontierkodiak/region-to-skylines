@@ -8,7 +8,7 @@ import unittest
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
-from cs1_harness.template_author import author, graph_evidence, poll, validate_plan
+from cs1_harness.template_author import author, graph_evidence, poll, source_binding, validate_plan
 from cs1_harness.client import HarnessError
 
 
@@ -48,6 +48,47 @@ class TemplateAuthorTests(unittest.TestCase):
             {"id": 601, "from": 102, "to": 103, "prefab": self.air, "lane_ids": [901]},
         ]
         self.after["graph"]["outside_counts"]["air"] = {"incoming": 2, "outgoing": 2}
+
+    @staticmethod
+    def binding(source, digest):
+        return {
+            "source_path": str(source.resolve()),
+            "source_sha256": digest,
+            "source_binding": "exact_path",
+            "source_matches": 1,
+        }
+
+    def test_alias_receipt_accepts_only_same_basename_and_exact_hash(self):
+        source = self.out / "source.crp"
+        source.write_bytes(b"fixture")
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()
+        receipt = {
+            **self.binding(source, digest),
+            "source_path": "/flatpak/alias/source.crp",
+            "source_binding": "basename_sha256",
+        }
+        self.assertEqual(source_binding(receipt, source, digest)["source_path"], receipt["source_path"])
+        for changes in [
+            {"source_sha256": "0" * 64},
+            {"source_matches": 2},
+            {"source_matches": True},
+            {"source_path": "/flatpak/alias/nearby.crp"},
+            {"source_binding": "exact_path"},
+        ]:
+            with self.subTest(changes=changes), self.assertRaisesRegex(ValueError, "binding"):
+                source_binding({**receipt, **changes}, source, digest)
+
+    def test_ambiguous_binding_stops_before_wait_or_authoring(self):
+        source = self.out / "source.crp"
+        source.write_bytes(b"fixture")
+        digest = hashlib.sha256(source.read_bytes()).hexdigest()
+        client = SimpleNamespace(
+            call=Mock(return_value={**self.binding(source, digest), "source_matches": 2}), wait=Mock()
+        )
+        with self.assertRaisesRegex(ValueError, "ambiguous"):
+            author(client, source, self.out / "result", self.plan)
+        self.assertEqual(client.call.call_count, 1)
+        client.wait.assert_not_called()
 
     def test_explicit_plan_accepts_edges_not_inland_or_nonfinite(self):
         self.assertEqual(validate_plan(self.plan), self.plan)
@@ -104,11 +145,13 @@ class TemplateAuthorTests(unittest.TestCase):
         source = self.out / "source.crp"
         source.write_bytes(b"offline fixture only")
         digest = hashlib.sha256(source.read_bytes()).hexdigest()
-        before = {**self.before, "state": "ready", "plane_prefabs": [{"prefab": self.plan["prefab"]}]}
+        binding = self.binding(source, hashlib.sha256(source.read_bytes()).hexdigest())
+        before = {**self.before, **binding, "state": "ready", "plane_prefabs": [{"prefab": self.plan["prefab"]}]}
 
         def call(op, **kw):
             if op == "template_open":
-                return {"source_sha256": digest}
+                self.assertEqual(kw["source_sha256"], digest)
+                return binding
             if op == "template_status":
                 return before
             return {}
@@ -141,12 +184,14 @@ class TemplateAuthorTests(unittest.TestCase):
         exported.write_bytes(b"export fixture only, not native CRP")
         source_hash = hashlib.sha256(source.read_bytes()).hexdigest()
         export_hash = hashlib.sha256(exported.read_bytes()).hexdigest()
-        before = {**self.before, "state": "ready", "plane_prefabs": [{"prefab": self.plan["prefab"]}]}
-        saved = {**self.after, "state": "export_requested", "saving": False, "export_sha256": export_hash}
+        binding = self.binding(source, hashlib.sha256(source.read_bytes()).hexdigest())
+        before = {**self.before, **binding, "state": "ready", "plane_prefabs": [{"prefab": self.plan["prefab"]}]}
+        saved = {**self.after, **binding, "state": "export_requested", "saving": False, "export_sha256": export_hash}
 
         def call(op, **kw):
             if op == "template_open":
-                return {"source_sha256": source_hash}
+                self.assertEqual(kw["source_sha256"], source_hash)
+                return binding
             if op == "template_status":
                 return before
             if op == "template_export":

@@ -111,6 +111,26 @@ def poll(client, wanted, timeout):
         time.sleep(0.25)
 
 
+def source_binding(observed, source, expected):
+    """Validate the native selection receipt, not native alias-resolution behavior."""
+    installed = observed.get("source_path")
+    binding = observed.get("source_binding")
+    if (
+        observed.get("source_sha256") != expected
+        or type(observed.get("source_matches")) is not int
+        or observed["source_matches"] != 1
+        or not isinstance(installed, str)
+        or not pathlib.Path(installed).is_absolute()
+        or pathlib.Path(installed).name != source.resolve().name
+        or binding not in {"exact_path", "basename_sha256"}
+        or (binding == "exact_path" and installed != str(source.resolve()))
+    ):
+        raise ValueError(
+            "native installed source binding is missing, ambiguous, or differs from the requested template"
+        )
+    return {key: observed[key] for key in ("source_path", "source_binding", "source_matches", "source_sha256")}
+
+
 def author(
     client, source, out, plan=None, apply=False, export_name=None, map_name=None, timeout=60, continue_editor=False
 ):
@@ -128,13 +148,16 @@ def author(
     out.mkdir(parents=True, exist_ok=True)
     expected = hashlib.sha256(source.read_bytes()).hexdigest()
     opened = (
-        client.call("template_status") if continue_editor else client.call("template_open", path=str(source.resolve()))
+        client.call("template_status")
+        if continue_editor
+        else client.call("template_open", path=str(source.resolve()), source_sha256=expected)
     )
-    if opened["source_sha256"] != expected:
-        raise ValueError("native installed source differs from the requested template")
+    binding = source_binding(opened, source, expected)
     if not continue_editor:
         client.wait(lambda st: st.get("loading_complete") and not st.get("loading"), timeout, "MapEditor to load")
     before = client.call("template_status")
+    if source_binding(before, source, expected) != binding:
+        raise ValueError("native source binding changed after load")
     (out / "before.json").write_text(json.dumps(before, indent=2) + "\n")
     if plan is None:
         return before
@@ -158,6 +181,8 @@ def author(
     exported = client.call("template_export", name=export_name, map_name=map_name)
     saved = poll(client, lambda st: not st.get("saving") and bool(st.get("export_sha256")), timeout)
     evidence = graph_evidence(before, saved)
+    if source_binding(saved, source, expected) != binding:
+        raise ValueError("native source binding changed before export")
     path = pathlib.Path(exported["path"])
     sha = hashlib.sha256(path.read_bytes()).hexdigest()
     if sha != saved["export_sha256"]:
@@ -165,6 +190,7 @@ def author(
     receipt = {
         "schema": 1,
         "source_sha256": expected,
+        "source_binding": binding,
         "export_sha256": sha,
         "export_file": path.name,
         "plan": plan,

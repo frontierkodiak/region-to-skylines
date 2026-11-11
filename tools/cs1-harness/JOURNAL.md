@@ -1296,3 +1296,16 @@ The next rate-only arm retains R4 targets/intakes/positions/prefill and caps
 bank-limited output at min(existing intake, existing output). Streams remain
 unchanged as a spatial counterexample. Native capacities are ceilings, not
 measured net discharge; the trial does not assume their difference is pumped.
+
+
+## 2026-11-11 — air-template installed-source alias preflight (OFFLINE)
+
+`PL-857-air-template`: require client source SHA before native editor load;
+permit only unique same-basename/exact-byte installed aliases when exact path
+lookup fails. Return actual installed path/binding mode; Python checks binding
+through export. Added isolated alias/wrong-hash/ambiguity protocol fixtures.
+61 offline unittest fixtures pass; full harness Ruff check/format and diff check
+pass. Confirmed SaveMapPanel fields in installed source. No native run, build/cache
+write, descriptor adoption or topology-guard relaxation. Paused native outside
+updates and live export remain unverified. GPU/VRAM, power, temperature and
+native wall time: not applicable.

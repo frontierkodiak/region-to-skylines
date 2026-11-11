@@ -143,3 +143,24 @@ paused updates and save controls remain unverified. If they differ, discard
 the editor instead of bypassing checks. A later disposable New Game must prove
 the real icon/connection before adoption. No Steam, game, native authoring,
 template save, service change or platform write ran for this implementation.
+
+## Offline alias preflight (2026-11-11)
+
+`template_open` requires `{path, source_sha256}`. Before loading, it checks the
+requested file bytes, then selects exactly one installed MapMetaData asset:
+exact full path first; only when absent, same basename AND exact SHA-256 bytes.
+Zero or ambiguous matching assets fail. Different basenames never qualify.
+Native open/status receipts contain actual installed `source_path`,
+`requested_source_path`, `source_binding` (`exact_path` / `basename_sha256`),
+`source_matches: 1`, and `source_sha256`. Python checks binding at open, initial
+inventory, and export; its final receipt retains the installed path. No similar
+terrain/content fallback exists. Source files must remain immutable during
+loading; no atomic filesystem lease or native alias behavior is demonstrated.
+
+Exporter names are confirmed in installed `acs.cs:236939`–`236941`:
+`MapName`, `SaveName`, `Publish`; public `OnSave()` at `237271` reads those fields
+and calls the native save routine. This does not prove live panel hierarchy or
+export. Offline protocol fixtures cover alias receipt acceptance, wrong hash
+and basename, ambiguous/malformed selection rejection. No native run or compile
+for this follow-up. Original topology fingerprints and deferred native outside
+updates while paused remain strict pilot uncertainties; no guards relaxed.
