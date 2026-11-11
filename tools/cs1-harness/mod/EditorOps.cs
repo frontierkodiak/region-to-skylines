@@ -149,14 +149,52 @@ namespace Cs1Harness
         internal static Dictionary<string, object> MeshInfo(Mesh m)
         {
             var bb = m.bounds;
+            int bodyVertices, bodyTriangles;
+            var body = AuthoredBounds(m, out bodyVertices, out bodyTriangles);
             return Host.Obj(
                 "name", m.name,
                 "vertices", m.vertexCount,
                 "triangles", m.triangles.Length / 3,
                 "min", new object[] { bb.min.x, bb.min.y, bb.min.z },
                 "max", new object[] { bb.max.x, bb.max.y, bb.max.z },
-                "size", new object[] { bb.size.x, bb.size.y, bb.size.z }
+                "size", new object[] { bb.size.x, bb.size.y, bb.size.z },
+                "authored", Host.Obj(
+                    "vertices", bodyVertices, "triangles", bodyTriangles,
+                    "min", new object[] { body.min.x, body.min.y, body.min.z },
+                    "max", new object[] { body.max.x, body.max.y, body.max.z },
+                    "size", new object[] { body.size.x, body.size.y, body.size.z }
+                ),
+                "generated_basement_triangles", m.triangles.Length / 3 - bodyTriangles
             );
+        }
+
+        // BuildingInfoBase.CalculateGeneratedInfo marks original vertices alpha=0,
+        // generated basement vertices alpha=255, and extends renderer bounds to -16 m.
+        // Validate the actual authored body, not that culling envelope; keep both in receipts.
+        static Bounds AuthoredBounds(Mesh mesh, out int vertexCount, out int triangleCount)
+        {
+            var vertices = mesh.vertices;
+            var colors = mesh.colors32;
+            bool marked = colors.Length == vertices.Length && Array.Exists(colors, c => c.a == 0);
+            var included = new bool[vertices.Length];
+            var bounds = new Bounds();
+            vertexCount = 0;
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                included[i] = !marked || colors[i].a != byte.MaxValue;
+                if (!included[i])
+                    continue;
+                if (vertexCount++ == 0)
+                    bounds = new Bounds(vertices[i], Vector3.zero);
+                else
+                    bounds.Encapsulate(vertices[i]);
+            }
+            triangleCount = 0;
+            var indices = mesh.triangles;
+            for (int i = 0; i < indices.Length; i += 3)
+                if (included[indices[i]] && included[indices[i + 1]] && included[indices[i + 2]])
+                    triangleCount++;
+            return bounds;
         }
 
         internal static Dictionary<string, object> MaterialInfo(Material m)
@@ -362,7 +400,8 @@ namespace Cs1Harness
             {
                 // Catch unit and axis slips here, not in the game: x across, y up, z deep.
                 var want = (List<object>)q["expect_size"];
-                var got = mesh.bounds.size;
+                int bodyVertices, bodyTriangles;
+                var got = AuthoredBounds(mesh, out bodyVertices, out bodyTriangles).size;
                 var have = new[] { got.x, got.y, got.z };
                 for (int i = 0; i < 3; i++)
                 {
