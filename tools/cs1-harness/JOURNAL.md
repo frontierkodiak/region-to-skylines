@@ -1136,3 +1136,45 @@ The exact current five-map strict batch finished ordinary New Game/city starts
 with `--disableMods --noWorkshop`, absent control socket, checksum-bound sole
 custom map and empty named-session cleanup. Actual selected/city PNG visual
 reviews remain pending; they are not automatically marked reviewed.
+
+## 2026-11-11 02:16 ET — phase-specific outcomes and panel-review correction
+
+All ten strict selected/city PNGs have now been inspected and hash-bound in
+`strict-resources-coast-<slug>-review.json`. All five exact packages show their
+own preview, blank author, populated resources and ordinary city HUD with no
+Map Editor; actual launch flags/socket absence and empty cleanup are checked.
+Buildable scores are73/75/73/79/58 (Asheville/Innsbruck/Rio/Pittsburgh/Charleston).
+The test typed `pl857-<slug>` into the editable city field for identification;
+that is not evidence for a supported metadata city-name default.
+
+Painted Innsbruck60 completed60.0122 game-minutes:34/35 playable major probes
+end exactly wet,35/35 have nearby water in all455 native observations. The
+Sill point(192,-2112) has an exact miss with1m water16m away; it is retained,
+not relabelled exact wet. Nonboundary rivers end89/90 exact wet; all have nearby
+water throughout. Maximum distant extent is0.001024km², maximum depth0.671875m
+(a few shallow cells, not zero). Inputs, six paths, cleanup and native1,600-point
+DEM comparison pass (r=1.0000, strongest wrong.4728). Actual opening/Areas
+images are reviewed; opening pivot(1920,0), headings0.
+
+`resources-neutral-pointer-asheville-1` confirms same-package `be8b2482…f3cc3`
+current/target pivot exactly(-1920,0) before/after opening capture, native/render
+yaw0, actual Areas yaw0 and empty cleanup. Explicit64m centring check passes.
+
+**Review correction:** comparing strict vanilla versus instrumented Asheville
+showed the latter's ore bar captured visually empty despite positive metadata.
+Both instrumented Asheville panel reviews now set `resources_match:false`;
+rejudged verdicts fail only `new_game_panel`, retaining valid physics/geography/
+camera findings. The old3s sleep is not settled-UI proof. A disjoint helper
+change will read actual bar values/targets/animation state and wait boundedly;
+fresh same-package panel proofs are required. No image was replaced/blessed
+and no map bytes changed to conceal this capture problem.
+
+Corrected-coast Rio full baseline `bc1045d2…bd137` still fails:60.1289 minutes,
+336/342 playable exact end wet, all4,446 native nearby readings wet, but0.353024
+km² distant spread (up to4.328125m). Its matching no-land-prefill15 arm reaches
+0.332032km²/4.140625m, identical extent to prefilled baseline at15minutes;
+no-output arm remains0. Sustained forcing, not startup fill, drives this spill.
+`rio-coast-shallow-head-15` is queued at CRP `31ff92e5…97851`: only173 bank-
+limited source targets cap at1m above finished local grid bed; both rates,
+positions, terrain, prefill and frozen resource plan remain exact. Diagnostic,
+not a release policy. All tests/runs remain foreground and fair queued.
