@@ -855,7 +855,6 @@ def limit_source_footprints(ground, depth, banks, geometry, summary):
         intake = (
             maximum
             if source.get("underground_portal") == "surface_inlet_to_tunnel"
-            and not source.get("short_surface_river")
             else safe_rate(unsafe_intake)
         )
         permitted_output = (
