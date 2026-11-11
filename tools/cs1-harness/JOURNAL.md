@@ -878,3 +878,8 @@ missing evidence, invalid expectations/camera/phase and read-only capture.
 No Steam/game/doctor/session/lock actions. Actual old/new package orientation,
 startup/Area Zoom headings and any serialized camera change remain unverified
 until live sampling after Caleb's held slot. No GPU/run metrics applicable.
+
+PL-857: the frozen absolute-height request now uses `landmark_expectations`,
+leaving PR #22's geographic `ground_truth`/landmark contract unambiguous.
+The two checks are complementary: fixed GNIS/DEM absolute samples and
+independently fetched whole-map orientation. No map or camera is changed.

@@ -416,7 +416,7 @@ JSON (numbers shown are **synthetic examples, not Asheville landmarks**):
 
 ```json
 {
-  "landmarks": {
+  "landmark_expectations": {
     "reference": "Independent DEM and landmark coordinates, source/hash and vertical-transform provenance",
     "points": [
       {"name": "ridge", "x": 103.125, "z": -500.75, "expected_height_m": 612, "tolerance_m": 12},

@@ -32,7 +32,7 @@ class LandmarkTests(unittest.TestCase):
                 for p in self.wanted["points"]
             ],
         }
-        self.write("probes.json", {"landmarks": self.wanted})
+        self.write("probes.json", {"landmark_expectations": self.wanted})
         self.write("startup-world.json", self.observed)
 
     def write(self, name, data):
@@ -74,7 +74,7 @@ class LandmarkTests(unittest.TestCase):
         same_height = copy.deepcopy(self.wanted)
         same_height["points"][1]["expected_height_m"] = 612
         for bad in ({}, {**self.wanted, "points": self.wanted["points"][:1]}, same_height):
-            self.write("probes.json", {"landmarks": bad})
+            self.write("probes.json", {"landmark_expectations": bad})
             self.assertEqual(landmarks.assess(self.out)["status"], "fail")
 
     def test_nonfinite_height_and_camera_fail(self):

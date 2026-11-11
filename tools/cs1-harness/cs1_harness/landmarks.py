@@ -16,9 +16,9 @@ def number(value) -> bool:
 def request(out: pathlib.Path) -> dict | None:
     path = out / "probes.json"
     data = json.loads(path.read_text()) if path.is_file() else {}
-    if not isinstance(data, dict) or "landmarks" not in data:
+    if not isinstance(data, dict) or "landmark_expectations" not in data:
         return None
-    value = data["landmarks"]
+    value = data["landmark_expectations"]
     if not isinstance(value, dict) or not isinstance(value.get("reference"), str) or not value["reference"].strip():
         raise ValueError("landmarks requires an independent DEM reference description")
     points = value.get("points")
