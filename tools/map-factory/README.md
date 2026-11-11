@@ -206,6 +206,16 @@ Asheville preparer in `prepare.py`.
 
 ## Native hydraulic soak
 
+Explicit `brunnel=tunnel` waterways belong in `undergroundWaterways`, not
+terrain-surface carving, source placement or surface-water reference masks.
+Capture receipts preserve each excluded feature and exact tile/geometry
+binding. `surface_water.py` also normalizes tagged direct inputs and rejects
+conflicting visibility/source properties; bridge/intermittent tags are not
+silently discarded. Hydrology keeps surface legs separate across underground
+gaps and uses an output-free regulated drain at an entering surface portal.
+This is not a native underground-water network or a promise that every short
+mapped creek is perennial; modeled-reach omissions are explicit in hydrology.
+
 Starting-tile selection requires at least256 initial vertices deeper than0.5m
 before a tile receives water priority, not merely eight shallow creek pixels.
 This is a preparation heuristic, not proof of sustained intake: native audits

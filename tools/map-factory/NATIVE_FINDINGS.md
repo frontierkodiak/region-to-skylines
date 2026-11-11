@@ -2,6 +2,31 @@
 
 ## Current compound integration · 2026-11-11
 
+### Surface-water classification correction under qualification
+
+The R4 hydraulic trials below forced underground waterways onto the surface.
+The [OpenMapTiles schema](https://openmaptiles.org/docs/schema/) explicitly
+marks waterway `brunnel=tunnel`. The [Rio municipality's description of the
+Joana diversion](https://prefeitura.rio/rio-faz-noticias/prefeitura-inaugura-maior-tunel-de-drenagem-urbana-do-pais-ao-fazer-desvio-do-rio-joana/)
+identifies a3.412km route made of2.4km tunnel and1.012km gallery. All72 pinned
+Rio vector tiles match their original SHA; all462 frozen river/stream pieces
+match exact coordinates/class/name, with zero unknown/ambiguous joins.176
+river pieces and24 stream pieces are explicitly underground. DesvioJoana has
+both underground and visible pieces: this is not a whole-name exclusion.
+
+The corrected capture retains every excluded feature, properties, native
+vector ID, original index, tile URL/hash and coordinate array. It re-carves
+from the byte-identical raw DEM and uncarved banks, with the identical sea
+mask, geographic frame and fit. No grid rotation or deep running-min incision.
+The Python preparation separately normalizes explicit tunnel tags, prevents
+short underground gaps from being re-routed/excavated as surface canals and
+represents a visible reach entering a tunnel with an output-free drain.
+Visible crossings take precedence over another waterway's underground mask.
+Underground flow geometry itself is not simulated. Existing short modeled-
+reach omissions are now listed, not silently represented as perennial water.
+Old failing probes/packages remain historical evidence; new surface-only
+packages require new exact-package native qualification and are not yet final.
+
 PR27 combines the exact writer, PR24's resource stage and explicit coastal
 ocean evidence. The original committed manifest below remains a historical
 unpainted byte reference; it is not the following full-package inventory.

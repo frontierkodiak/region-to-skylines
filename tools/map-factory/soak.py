@@ -16,12 +16,14 @@ import numpy as np
 
 from crp import Reader, metadata_value, read_package, write_map
 from region import raster
+from surface_water import surface_geometry
 
 ROOT = Path(__file__).resolve().parent
 
 
 def mapped_water_reference(data, geometry, folder):
     """Freeze unbuffered geographic channels, not water observed after a run."""
+    geometry, _ = surface_geometry(geometry)
     mask = np.zeros((1081, 1081), dtype=bool)
     for field in ["rivers", "streams"]:
         mask |= raster(geometry["sq"], geometry.get(field, []))
