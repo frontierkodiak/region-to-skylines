@@ -119,7 +119,7 @@ class SurfaceWaterTests(unittest.TestCase):
         self.assertEqual(report["geographic_river_prefill"]["mapped_cells"], 2)
         self.assertEqual(report["geographic_river_prefill"]["film_added_cells"], 2)
 
-    def test_short_portal_intake_cannot_drain_adjacent_high_bed_supply(self):
+    def test_short_portal_keeps_full_withdrawal_and_zero_output(self):
         geometry = self.short_geometry([(0, 160)])
         ground = np.full((1081, 1081), 100.0)
         ground[540, 541] = 98.0
@@ -138,10 +138,14 @@ class SurfaceWaterTests(unittest.TestCase):
         )
         self.assertEqual(source["target"], 98.25)
         self.assertEqual(source["output_capacity"], 0)
-        self.assertGreater(source["capacity"], 0)
-        self.assertLess(source["short_source_footprint"]["intake_radius_after_m"], 16)
+        self.assertEqual(source["capacity"], 0.8)
+        footprint = source["short_source_footprint"]
         self.assertEqual(
-            report["short_source_footprints"]["intake_reduced_controls"], 1
+            footprint["intake_rate_after"], footprint["intake_rate_before"]
+        )
+        self.assertGreater(footprint["intake_radius_after_m"], 16)
+        self.assertEqual(
+            report["short_source_footprints"]["intake_reduced_controls"], 0
         )
 
     def test_short_output_cannot_borrow_broad_initial_water_footprint(self):
