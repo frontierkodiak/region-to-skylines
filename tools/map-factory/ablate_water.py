@@ -3,6 +3,8 @@
 These are not release candidates. Native terrain, source positions/targets and
 intake rates stay fixed. The noemit arm sets only output rates to zero; nofill
 retains sources and ocean fill but removes water initially above sea level.
+Shallow-head retains terrain, prefill, placement and both rates, and caps only
+bank-limited source targets at one metre above the finished local grid bed.
 Resource plans, when present, are replayed rather than replanned.
 """
 
@@ -39,13 +41,24 @@ def prepare(source, output, arm):
     if arm == "noemit":
         for control in hydro["sources"]:
             control["output_capacity"] = 0
-    else:
+    elif arm == "nofill":
         terrain = np.fromfile(source / "terrain.u16", dtype="<u2") / 64
         sea = hydro.get("sea_level_m") or 0
         depth = np.maximum(0, sea - terrain)
         np.floor(depth * 64 + 0.5).clip(0, 65535).astype("<u2").tofile(
             output / "water.u16"
         )
+    else:
+        terrain = (
+            np.fromfile(source / "terrain.u16", dtype="<u2").reshape(1081, 1081) / 64
+        )
+        for control in hydro["sources"]:
+            if not control.get("bank_limited"):
+                continue
+            ix = round((control["position"][0] + 8640) / 16)
+            iz = round((control["position"][2] + 8640) / 16)
+            control["target"] = float(min(control["target"], terrain[iz, ix] + 1))
+        hydro["diagnostic_bank_limited_head_cap_m"] = 1
     (output / "hydrology.json").write_text(json.dumps(hydro, indent=2) + "\n")
     plan = receipt.get("resource_plan")
     resources = None
@@ -83,6 +96,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
-    parser.add_argument("--arm", choices=["noemit", "nofill"], required=True)
+    parser.add_argument(
+        "--arm", choices=["noemit", "nofill", "shallow-head"], required=True
+    )
     args = parser.parse_args()
     print(json.dumps(prepare(args.source, args.output, args.arm), indent=2))
