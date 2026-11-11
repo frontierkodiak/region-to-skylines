@@ -204,6 +204,12 @@ JavaScript serializer parity test from the hydrology port: the serializer can
 consume the frozen prepared grids directly.
 `prepared_sha256` records the uncompressed terrain and depth checksums;
 `files_sha256` records the distributed fixture-file checksums.
+Each case also freezes `preview-thumbnail.png` and `preview-large.png` as exact
+expected PNG outputs, with their native texture checksums in `preview_assets`.
+The JavaScript serializer can consume those bytes when isolating full-package
+parity from image-renderer/encoder differences; the Python renderer must still
+reproduce the complete expected CRP. These are reference outputs, not native
+screenshots or a replacement for New Game image review.
 `expected_simulation_sha256` separately binds the native simulation payload,
 so listing-only changes cannot silently invalidate or inherit hydraulic proof.
 

@@ -12,9 +12,47 @@ import shutil
 import tempfile
 from pathlib import Path
 
+from crp import Reader, metadata_value, read_package
 from generate import ROOT, generate
 
 REGIONS = ["asheville", "innsbruck", "rio", "pittsburgh", "charleston"]
+
+
+def freeze_previews(crp, case):
+    """Keep expected encoded images available to independent serializer ports."""
+    _, assets = read_package(crp.read_bytes())
+    reader = Reader(next(a["payload"] for a in assets if a["kind"] == 100))
+    assert reader.number("B") == 0 and reader.string().startswith("MapMetaData,")
+    reader.string()
+    fields = {}
+    for _ in range(reader.number("i")):
+        if reader.number("B"):
+            continue
+        typename, name = reader.string().split(",")[0], reader.string()
+        fields[name] = metadata_value(reader, typename)
+    checksums = {hashlib.md5(a["payload"]).hexdigest(): a for a in assets}
+    previews = {}
+    for field, name in [
+        ("imageRef", "preview-thumbnail.png"),
+        ("steamPreviewRef", "preview-large.png"),
+    ]:
+        asset = checksums[fields[field]]
+        assert asset["kind"] == 3
+        texture = Reader(asset["payload"])
+        assert texture.number("B") == 0
+        assert texture.string().startswith("ColossalFramework.Importers.Image,")
+        assert texture.string() == asset["name"]
+        assert texture.number("B") == 0 and texture.number("i") == 1
+        png = texture.take(texture.number("i"))
+        assert texture.pos == len(asset["payload"])
+        assert png.startswith(b"\x89PNG\r\n\x1a\n")
+        (case / name).write_bytes(png)
+        previews[field] = {
+            "file": name,
+            "texture_asset_md5": fields[field],
+            "png_sha256": hashlib.sha256(png).hexdigest(),
+        }
+    return previews
 
 
 def freeze(inputs, output, resource_inputs=None):
@@ -72,11 +110,13 @@ def freeze(inputs, output, resource_inputs=None):
                         shutil.copyfile(source, case / name)
                 shutil.copyfile(generated / "plan.npz", case / "plan.npz")
                 shutil.copyfile(generated / "resources.json", case / "resources.json")
+            previews = freeze_previews(next(generated.glob("*.crp")), case)
             fixture = {
                 "slug": slug,
                 "expected_crp_sha256": result["package"]["sha256"],
                 "expected_crp_bytes": result["package"]["bytes"],
                 "expected_simulation_sha256": result["package"]["simulation_sha256"],
+                "preview_assets": previews,
                 "prepared_sha256": {
                     name: hashlib.sha256((generated / name).read_bytes()).hexdigest()
                     for name in ["terrain.u16", "water.u16"]
