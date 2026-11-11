@@ -139,7 +139,7 @@ def inspect(folder, original, evidence):
     }
 
 
-def qualify(prepared, inputs, output, stage):
+def qualify(prepared, inputs, output, stage, only=None):
     output.mkdir(parents=True, exist_ok=True)
     revision = subprocess.check_output(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
@@ -151,7 +151,8 @@ def qualify(prepared, inputs, output, stage):
         ["git", "show", f"{RESOURCE_REVISION}:tools/map-factory/landcover.py"], cwd=ROOT
     )
     rows = []
-    for slug in SLUGS:
+    slugs = only or SLUGS
+    for slug in slugs:
         source, resource, folder = prepared / slug, inputs / slug, output / slug
         if folder.exists():
             raise ValueError(f"Use a fresh candidate directory: {folder}")
@@ -163,9 +164,12 @@ def qualify(prepared, inputs, output, stage):
         assert sha(resource / "landcover.u8.gz") == cover["landcover_sha256"]
         assert sha(resource / "geometry.json") == cover["geometry_sha256"]
         assert hashlib.sha256(pinned_sampler).hexdigest() == cover["sampler_sha256"]
-        assert json.loads((source / "geometry.json").read_text()) == json.loads(
-            (resource / "geometry.json").read_text()
-        )
+        # Land-cover sampling depends on the geographic square, not on the
+        # old capture's fitted heights, derived sources or coastline. Keep the
+        # original sampler receipt intact when corrected terrain is repainted.
+        source_geometry = json.loads((source / "geometry.json").read_text())
+        resource_geometry = json.loads((resource / "geometry.json").read_text())
+        assert source_geometry["sq"] == resource_geometry["sq"]
         evidence_file = resource / "evidence.json"
         if evidence_file.exists():
             pinned_evidence = subprocess.check_output(
@@ -239,6 +243,9 @@ def qualify(prepared, inputs, output, stage):
                 "report": "resources.json",
                 "report_sha256": sha(folder / "resources.json"),
                 "landcover": cover,
+                "prepared_geometry_sha256": sha(source / "geometry.json"),
+                "landcover_geometry_sha256": sha(resource / "geometry.json"),
+                "same_sampling_square": True,
                 "evidence": "exact pinned PR24 USGS fixture"
                 if evidence
                 else "no MRDS evidence supplied",
@@ -253,7 +260,9 @@ def qualify(prepared, inputs, output, stage):
                 "No golden checksums updated",
             ]
             + (
-                ["Rio R4 fails flood acceptance; parent will retune water; not a final"]
+                [
+                    "Rio's prior R4 failed flood acceptance; corrected inputs require a new native soak"
+                ]
                 if slug == "rio"
                 else []
             ),
@@ -272,7 +281,7 @@ def qualify(prepared, inputs, output, stage):
             f"{slug}: deterministic plan/replay and independent offline checks pass; native unverified",
             flush=True,
         )
-    staged = stage_prepared(output, stage, SLUGS)
+    staged = stage_prepared(output, stage, slugs)
     for slug, crp, probes in staged:
         data = json.loads(probes.read_text())
         assert (
@@ -311,5 +320,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ["prepared", "inputs", "output", "stage"]:
         parser.add_argument(name, type=Path)
+    parser.add_argument("--only", nargs="+", choices=SLUGS)
     args = parser.parse_args()
-    qualify(**{k: v.resolve() for k, v in vars(args).items()})
+    qualify(
+        args.prepared.resolve(),
+        args.inputs.resolve(),
+        args.output.resolve(),
+        args.stage.resolve(),
+        args.only,
+    )

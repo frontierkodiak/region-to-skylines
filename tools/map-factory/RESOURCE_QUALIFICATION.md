@@ -89,8 +89,9 @@ pinned sampler. Asheville/Pittsburgh use byte-exact pinned USGS MRDS fixtures;
 the other three have no MRDS evidence supplied. Balanced additions are
 explicitly labelled convention top-ups, not deposit or crop evidence.
 
-No Steam, game, doctor, GPU/display/session service, remote GitHub or Multica
-operation was performed. No shared worktree/cache was changed. All five maps
+The original offline qualification performed no Steam, game, doctor,
+GPU/display/session service, remote GitHub or Multica operation. No shared
+worktree/cache was changed. All five maps
 remain experimental and unverified in game; resource overlays and deterministic
 bytes do not establish native visual correctness, hydrology or playability.
 
@@ -103,3 +104,15 @@ therefore the producer's original source. Lint/format claims for this cleanup
 are scoped to the integration's changed Python files; unchanged dependency
 files retain their pre-existing lint/format findings. Replanning, plan replay
 and package identity are rechecked against the earlier experimental packages.
+
+### Coastal input integration
+
+The capture-only explicit ocean correction is integrated from `08e7a81`;
+`COAST_EVIDENCE.md` records its controlled input changes and remaining native
+uncertainty. It does not modify the website, installer or Python water policy.
+Resource sampling receipts retain their original geometry checksum: the
+sampling square must match exactly, while a corrected capture may have new
+coast polygons and derived water sources. Qualification records both geometry
+hashes and regenerates the resource plan against the corrected terrain/water.
+`qualify_resources.py --only rio charleston` supports this bounded replay.
+No old coastal package acceptance or resource plan is inherited.
