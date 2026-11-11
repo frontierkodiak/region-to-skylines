@@ -692,6 +692,21 @@ resumed from t001 at its own frame (206,456) and soaked on. Until PR #10
 lands on `main`, a save logs "no save_game op" and the run carries on;
 `--from-save` stops with a clear error.
 
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · screenshots without the toolbar
+
+Every harness screenshot since the first run showed the game's toolbar. The
+`ui` op called `UIView.Show(false)`, which only disables the views' updates.
+The game's world camera draws into `kFullScreenWithoutMenuBarRect`, everything
+above a 10.5 % menu-bar strip, unless free-camera mode is on, so nothing ever
+redrew the toolbar's last pixels (decompiled `CameraController.UpdateFreeCamera`,
+1.21.1-f9). Turning the UI camera off made no difference, as a live run showed.
+
+The `ui` op now uses the game's own hide-UI mode, `m_freeCamera`. It also hides
+notifications, area borders, names and markers, and gives the world the full
+screen. Live on PL-848 Asheville the bottom strip of a world screenshot went from
+toolbar (grey-level std 40) to terrain (std 6). The player's-path opening view
+still shows the UI, on purpose.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
