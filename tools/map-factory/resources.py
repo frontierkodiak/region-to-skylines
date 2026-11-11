@@ -235,6 +235,10 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="tem
         z = (rows + rng.random(len(rows))) * LC_STEP - HALF
         px = np.clip(np.round(x / TREE_UNIT), -32767, 32767).astype(np.int16)
         pz = np.clip(np.round(z / TREE_UNIT), -32767, 32767).astype(np.int16)
+        # 128 position steps are exactly one 33.75 m cell, and TreesModified
+        # counts a tree on a boundary in both cells; keep trees off them.
+        px[px % 128 == 0] += 1
+        pz[pz % 128 == 0] += 1
         kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, palette)
         trees = (px, pz, kinds)
 
