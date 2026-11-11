@@ -23,7 +23,10 @@ uv run python generate.py CAPTURE/asheville.png \
 ```
 
 `OUTPUT` contains the `.crp`, prepared terrain and depth grids, hydrology and
-corridor diagnostics, and `generation.json`. The generation receipt explicitly
+corridor diagnostics, the exact `geometry.json` snapshot, and `generation.json`.
+Preparation and resource planning use that snapshot; the receipt binds its hash
+and any resource plan so direct exports can be staged without a separate helper.
+The generation receipt explicitly
 records `in_game_verified: false`. It is not a playable-map certificate.
 
 The matching geometry and uncarved elevations come from `capture.js`, evaluated
@@ -69,11 +72,21 @@ It introduces no coastal exclusion mask or native acceptance threshold.
 The geometry input contains:
 
 - `sq`: `lon`, `lat`, clockwise `rotation`, horizontal `scale`, `name`, `slug`.
-- `rivers` and `streams`: lines with `name`, geographic `pts`, optional `class`.
+- `rivers` and `streams`: lines with `name`, geographic `pts`, optional `class`,
+  and preserved `brunnel` / `intermittent` tags. Explicit `brunnel=tunnel`
+  sections must not be carved or continuously supplied as surface rivers.
+- `undergroundWaterways`: excluded exact source pieces and their full provenance;
+  visible reaches remain separate at portals. Underground transport is not
+  simulated. Bridges and intermittent tags are retained, not excluded.
 - `lakes` and `riverAreas`: polygons with geographic `rings`, holes after the
   outer ring.
 - `roads`: lines with `class` (`motorway`, `trunk`, `rail`) and geographic `pts`.
 - `seaLevel`: fitted sea height in game metres, or `null` inland.
+
+The frozen five-region surface inputs recover tags by exact source-piece
+matching, including equivalent tile-buffer multiplicities. Missing or conflicting
+classifications fail; names, nearby lines or observed flooding never determine
+exclusion. See [SURFACE_WATER_EVIDENCE.md](SURFACE_WATER_EVIDENCE.md).
 
 Without `--banks`, preparation estimates bank heights with a local maximum
 filter. The committed real-region fixtures use the actual uncarved elevations.

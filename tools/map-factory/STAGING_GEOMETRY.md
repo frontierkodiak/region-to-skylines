@@ -36,6 +36,25 @@ No flood tolerance, mask rasterization, probe, portal, source or package policy
 changes here. Exact hashes bind provenance; they are not hydraulic exact-digit
 thresholds.
 
+### Public generator receipts
+
+`generate.py` snapshots the caller's exact geometry into `OUTPUT/geometry.json`
+before preparation, and both preparation and resource planning use that snapshot.
+Every new generation receipt binds it under `source.inputs_sha256`. Resource
+exports also carry `resources.prepared_geometry_sha256` and the frozen plan's
+filename/hash, so direct `generate.py --landcover` output passes the same staging
+guard as `qualify_resources.py` output. This changes receipts, not map bytes.
+
+The opt-in real-region regression starts from frozen inputs, generates Rio,
+checks the full expected CRP hash, changes the original caller file, and stages
+the intact snapshot successfully. Changing only the exported acceptance geometry
+then fails before creating a staging directory:
+
+```sh
+MAP_FACTORY_DIRECT_GENERATION=fixtures \
+  uv run python -m unittest test_direct_generation.py
+```
+
 ## Verification
 
 ```sh

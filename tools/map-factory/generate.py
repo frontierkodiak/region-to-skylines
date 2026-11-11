@@ -1,6 +1,7 @@
 """Build a map from a browser heightmap and its matching geographic inputs."""
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -24,7 +25,12 @@ def generate(
 ):
     template = ROOT / "templates/native-corridors.crp"
     layout = ROOT / "templates/native-corridors.json"
-    summary = prepare(png, geometry, layout, output, banks)
+    output.mkdir(parents=True, exist_ok=True)
+    geometry_bytes = geometry.read_bytes()
+    geometry_snapshot = output / "geometry.json"
+    geometry_snapshot.write_bytes(geometry_bytes)
+    geometry_sha256 = hashlib.sha256(geometry_bytes).hexdigest()
+    summary = prepare(png, geometry_snapshot, layout, output, banks)
     if not prefill:
         terrain = np.fromfile(output / "terrain.u16", dtype="<u2").astype(float) / 64
         sea_depth = np.maximum(0, summary["sea_level_m"] - terrain)
@@ -35,7 +41,7 @@ def generate(
         # Resource stage: trees, forest, fertile land, ore and oil (PL-902).
         from paint import paint
 
-        report = paint(output, landcover, output, geometry, evidence, knobs)
+        report = paint(output, landcover, output, geometry_snapshot, evidence, knobs)
         result = report["package"]
     else:
         report = None
@@ -52,10 +58,19 @@ def generate(
         "package": result,
         "resources": None
         if report is None
-        else {k: report[k] for k in ["knobs", "trees", "unlockable", "placed"]},
+        else {
+            **{k: report[k] for k in ["knobs", "trees", "unlockable", "placed"]},
+            "prepared_geometry_sha256": geometry_sha256,
+        },
+        "source": {"inputs_sha256": {"geometry.json": geometry_sha256}},
         "prefill": prefill,
         "in_game_verified": False,
     }
+    if report is not None:
+        receipt["resource_plan"] = {
+            "file": "plan.npz",
+            "sha256": hashlib.sha256((output / "plan.npz").read_bytes()).hexdigest(),
+        }
     (output / "generation.json").write_text(json.dumps(receipt, indent=2) + "\n")
     return receipt
 
