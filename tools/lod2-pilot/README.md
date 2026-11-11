@@ -45,15 +45,15 @@ into the real pixel-asheville scene; `uv run export_cs1.py --cs1-assets ../cs1-a
   pixel-asheville origin; heights NAVD88 metres.
 - **Outlines.** City of Asheville's Buncombe County Building Footprints 2024, as published.
   Downtown, one outline is often a whole block.
-- **Lidar.** 2017 USGS `NC_Phase5_Buncombe_2017` EPT for every building. It is
-  Geiger-mode: every point is a single return, about 20-40 points/m2, and trees hide
-  roofs more than a linear sensor would. The one 2025 NC QL1 tile held (SDD job 234441,
+- **Lidar.** 2017 USGS `NC_Phase5_Buncombe_2017` EPT for every building. Every
+  point in it is a single return (what a Geiger-mode sensor delivers), about 20-40
+  points/m2, and trees hide roofs. The one 2025 NC QL1 tile held (SDD job 234441,
   39 points/m2, up to 7 returns) covers 13 downtown buildings and is used as an
   independent check, not for fitting.
 - **Building points.** Delivered class 6, plus (`--classes promote`) non-ground points
   over the outline, 2 m or more above the ground beside it, that lie on roof-like planes.
-  Needed because class 6 skips small buildings: 6 of the 50 outlines had no class-6 point.
-  It also lifted tree canopy into four roofs as towers; `--classes rescue` (only when an
+  Needed because class 6 skips small buildings: 4 of the 50 outlines had no class-6 point.
+  It also added points on 5 other outlines and lifted tree canopy into three roofs as towers; `--classes rescue` (only when an
   outline has almost no class 6) avoids that and was tried after unblinding.
 - **Roofer.** Default parameters, one call per building, about 0.1 s for a house and up
   to 9 s for a downtown block. Its terrain clipping removes parts of an outline where it
