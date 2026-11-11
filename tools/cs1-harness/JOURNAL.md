@@ -1309,3 +1309,36 @@ pass. Confirmed SaveMapPanel fields in installed source. No native run, build/ca
 write, descriptor adoption or topology-guard relaxation. Paused native outside
 updates and live export remain unverified. GPU/VRAM, power, temperature and
 native wall time: not applicable.
+
+## 2026-11-11 03:22 ET — actual-window proof and native air authoring pilot
+
+`window-panel-asheville-1` genuinely shows the ore bar in its1920x1080 X11
+window image; Unity's simultaneous1600x900 image omits it. Both originals are
+preserved. All five actual bars, blank author, preview,73% buildable and correct
+connection icons have now been visually reviewed and hash-bound. Native four
+landmarks, untouched centred north-facing opening and real Areas tool pass;
+the same-package1minute verdict is PASS. Its separate exact-package60minute
+physics receipt remains the hydraulic evidence, not an inferred60minute UI run.
+
+Merged optional air authoring and strict alias binding from0a54f86/bae92d4;
+all89 tests and installed-assembly compile pass. Combined private DLL
+`9940eaf0d639b21feb430d1f25791137f2b4ac80af79333ad9d891e38fa47386`.
+`air-template-pilot-0310` loads the exact native template, chooses actual
+Airplane Path by its connected native outside-prefab relationship, tests and
+authors one explicit opposite-edge route, then exports through native SaveMap.
+Native IDs add175 plane nodes/174 segments and two outside buildings; actual
+air counts2incoming/2outgoing, original graph fingerprints and road/rail/ship
+counts unchanged. ExportSHA `33871c8a…7938`; original source unchanged, named
+cleanup empty, exported game-directory file removed after a private exact copy.
+No writer template/descriptor, package defaults or New Game air acceptance is
+silently adopted. Native export may carry account metadata; keep it private.
+
+Rio symmetric-footprint15 (`46856b98…0917`) preserves all heads/inputs and only
+reduces87 output rates:333/342 playable exact end wet, all nearby wet, but
+0.235264km² spill up to4.328125m. Rejected. Next rate-only diagnostics retain
+R4 targets/intakes/positions and scale bank-limited output ceilings to10% and
+2.5%; streams remain unchanged. This measures wetness/flood tradeoffs rather
+than committing another untested default. New Charleston start selection
+requires256 deep initial vertices, changing only its chosen tile16→21 among
+the five cases; exact resource candidate `b6f27b69…765eb` queues a fresh60minute
+soak. Earlier tile16 lost its usable intake water and is not final acceptance.
