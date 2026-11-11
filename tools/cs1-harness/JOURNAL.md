@@ -920,3 +920,23 @@ Ruff lint/format checks passed. No Steam/game/doctor/session/display/lock
 actions, no GPU use or native captures; VRAM/power/temperature/game-run wall
 metrics do not apply. Actual tool transitions, headings, screenshots and native
 cleanup are **not verified** and await the integration owner's live run.
+
+## 2026-11-10 23:23 ET — PL-857 first panel trial and native hierarchy fix
+
+Blade / RTX 2080 Ti 05:00.0 / egl0 launched the exact Asheville camera
+candidate (`3013a635…886b15`) after a 15.6-minute fair-queue wait. The map was
+listed, but the panel op failed before city load: it looked for NewGamePanel
+on the library root, which actually has NewGameMainPanel. The map-list
+controller is a child of its Maps tab. Resolve that unique child and activate
+the native TabChooseMap button rather than treating the modal root as the
+listing. Installed-assembly build passes; the corrected native operation still
+needs a live retry. Startup and Areas instrumentation is integrated but remains
+unverified in game.
+
+GPU samples span 55.1 s: peak 9,584 MiB total (1,584 above the 8,000 MiB
+baseline), 83.86 W and 41 C; power limit remained 150 W. Output:
+`PL-857-sustained-water/native-north-smoke-retry-2307/asheville`. Game and
+units were gone at cleanup, but its receipt still listed one Steam instance;
+do not call that an empty cleanup or terminate another queued session to fix
+it. The next successful retry must check cleanup again. No city, landmark,
+camera, water or screenshot acceptance came from this failed trial.

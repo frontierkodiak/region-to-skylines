@@ -542,7 +542,7 @@ Inspect both actual game PNGs, then add `startup-views-review.json` to the run:
 
 Do not generate those assertions from native camera values. They assert actual
 screenshot content; numeric heading comes separately from native readbacks.
-Re-run `cs1-harness judge RUN_DIR` after review. No geographic `ground_truth`
+Re-run `cs1-harness verdict RUN_DIR` after review. No geographic `ground_truth`
 or landmark contract is added or changed by this check.
 
 Implementation has an installed-assembly build and mocked fixture coverage,

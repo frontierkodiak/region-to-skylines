@@ -49,8 +49,20 @@ namespace Cs1Harness
             }
             string path = Path.GetFullPath(Json.Str(q, "path", ""));
             if (Json.Bool(q, "select", false)) UIView.library.ShowModal("NewGamePanel");
-            var panel = UIView.library.Get<NewGamePanel>("NewGamePanel");
-            if (panel == null || !panel.GetComponent<UIComponent>().isVisible) throw new Exception("native NewGamePanel is not visible");
+            // The library root has NewGameMainPanel; the map listing controller
+            // lives on its Maps tab, not on that root's GameObject.
+            var root = UIView.library.Get("NewGamePanel");
+            if (root == null || !root.isVisible) throw new Exception("native New Game modal is not visible");
+            if (Json.Bool(q, "select", false))
+            {
+                var chooseMap = root.Find<UIButton>("TabChooseMap");
+                if (chooseMap == null || !chooseMap.isEnabled) throw new Exception("native Maps tab is unavailable");
+                chooseMap.SimulateClick();
+            }
+            var listings = root.GetComponentsInChildren<NewGamePanel>(true);
+            if (listings.Length != 1) throw new Exception("expected one native NewGamePanel map listing, found " + listings.Length);
+            var panel = listings[0];
+            if (!panel.GetComponent<UIComponent>().isVisible) throw new Exception("native New Game Maps tab is not visible");
             var list = panel.Find<UIListBox>("MapList");
             int found = -1;
             for (int i = 0; i < (int)Listing(panel, "GetListingCount"); i++)
