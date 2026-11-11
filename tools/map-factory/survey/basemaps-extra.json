@@ -1,0 +1,5311 @@
+{
+ "AP Asanu Beach.crp": {
+  "forest_values_top": {
+   "60": 27513,
+   "120": 14613,
+   "180": 9328,
+   "255": 9168,
+   "240": 5961
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 5.741,
+   "p90_km2": 6.439,
+   "max_km2": 6.613,
+   "share_area_in_top3": 0.988
+  },
+  "fertility_edge_profile": {
+   "1": 47.0,
+   "2": 112.6,
+   "3": 140.9,
+   "4": 156.9,
+   "6": 189.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.603,
+   "p90_km2": 4.908,
+   "max_km2": 9.079,
+   "share_area_in_top3": 0.805
+  },
+  "ore_edge_profile": {
+   "1": 58.7,
+   "2": 123.1,
+   "3": 173.4,
+   "4": 202.1,
+   "6": 219.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.642,
+   "p90_km2": 1.043,
+   "max_km2": 1.105,
+   "share_area_in_top3": 0.701
+  },
+  "oil_edge_profile": {
+   "1": 111.1,
+   "2": 180.3,
+   "3": 208.1,
+   "4": 219.3,
+   "6": 246.0
+  }
+ },
+ "AP Hanami Bay.crp": {
+  "forest_values_top": {
+   "60": 44568,
+   "120": 15565,
+   "180": 5140,
+   "240": 1710,
+   "255": 768
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 2.536,
+   "p90_km2": 6.887,
+   "max_km2": 8.412,
+   "share_area_in_top3": 0.966
+  },
+  "fertility_edge_profile": {
+   "1": 90.9,
+   "2": 149.3,
+   "3": 186.5,
+   "4": 204.8,
+   "6": 213.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.735,
+   "p90_km2": 2.488,
+   "max_km2": 2.906,
+   "share_area_in_top3": 0.665
+  },
+  "ore_edge_profile": {
+   "1": 16.9,
+   "2": 49.2,
+   "3": 79.8,
+   "4": 112.8,
+   "6": 164.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.646,
+   "p90_km2": 2.541,
+   "max_km2": 3.033,
+   "share_area_in_top3": 0.837
+  },
+  "oil_edge_profile": {
+   "1": 24.0,
+   "2": 65.1,
+   "3": 107.7,
+   "4": 133.5,
+   "6": 171.6
+  }
+ },
+ "AP Noyou Port.crp": {
+  "forest_values_top": {
+   "60": 34616,
+   "120": 20246,
+   "180": 10101,
+   "240": 4514,
+   "255": 2776
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.26,
+   "p90_km2": 2.118,
+   "max_km2": 2.853,
+   "share_area_in_top3": 0.799
+  },
+  "fertility_edge_profile": {
+   "1": 84.6,
+   "2": 137.9,
+   "3": 175.5,
+   "4": 201.9,
+   "6": 237.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.235,
+   "p90_km2": 1.784,
+   "max_km2": 3.203,
+   "share_area_in_top3": 0.793
+  },
+  "ore_edge_profile": {
+   "1": 40.3,
+   "2": 75.6,
+   "3": 75.6,
+   "4": 84.3,
+   "6": 141.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 15,
+   "median_km2": 0.169,
+   "p90_km2": 0.41,
+   "max_km2": 1.486,
+   "share_area_in_top3": 0.547
+  },
+  "oil_edge_profile": {
+   "1": 68.9,
+   "2": 184.9,
+   "3": 188.1,
+   "4": 163.9,
+   "6": 143.1
+  }
+ },
+ "CCMP2 Boreal Map 1.crp": {
+  "forest_values_top": {
+   "60": 31310,
+   "120": 17877,
+   "180": 9581,
+   "240": 4731,
+   "255": 3341
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.351,
+   "p90_km2": 2.889,
+   "max_km2": 8.046,
+   "share_area_in_top3": 0.646
+  },
+  "fertility_edge_profile": {
+   "1": 35.6,
+   "2": 63.8,
+   "3": 73.2,
+   "4": 77.4,
+   "6": 77.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 26,
+   "median_km2": 0.337,
+   "p90_km2": 1.554,
+   "max_km2": 10.73,
+   "share_area_in_top3": 0.712
+  },
+  "ore_edge_profile": {
+   "1": 30.3,
+   "2": 112.4,
+   "3": 136.9,
+   "4": 126.3,
+   "6": 97.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.219,
+   "p90_km2": 0.426,
+   "max_km2": 0.581,
+   "share_area_in_top3": 0.448
+  },
+  "oil_edge_profile": {
+   "1": 54.9,
+   "2": 166.4,
+   "3": 186.9,
+   "4": 230.4,
+   "6": 255.0
+  }
+ },
+ "CCMP2 Boreal Map 2.crp": {
+  "forest_values_top": {
+   "60": 12824,
+   "120": 10133,
+   "255": 8982,
+   "180": 7769,
+   "240": 5612
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 16,
+   "median_km2": 0.326,
+   "p90_km2": 2.385,
+   "max_km2": 4.909,
+   "share_area_in_top3": 0.662
+  },
+  "fertility_edge_profile": {
+   "1": 55.0,
+   "2": 127.0,
+   "3": 123.7,
+   "4": 106.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.734,
+   "p90_km2": 2.215,
+   "max_km2": 2.762,
+   "share_area_in_top3": 0.449
+  },
+  "ore_edge_profile": {
+   "1": 43.3,
+   "2": 139.0,
+   "3": 132.7,
+   "4": 121.0,
+   "6": 97.9
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 18,
+   "median_km2": 0.161,
+   "p90_km2": 0.335,
+   "max_km2": 5.899,
+   "share_area_in_top3": 0.762
+  },
+  "oil_edge_profile": {
+   "1": 62.0,
+   "2": 143.2,
+   "3": 111.5,
+   "4": 145.5,
+   "6": 174.5
+  }
+ },
+ "CCMP2 Desert Map 1.crp": {
+  "forest_values_top": {
+   "60": 6328,
+   "120": 4296,
+   "180": 2952,
+   "255": 2258,
+   "240": 2033
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.168,
+   "p90_km2": 0.548,
+   "max_km2": 0.844,
+   "share_area_in_top3": 0.701
+  },
+  "fertility_edge_profile": {
+   "1": 60.1,
+   "2": 128.4,
+   "3": 161.2,
+   "4": 202.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.752,
+   "p90_km2": 8.009,
+   "max_km2": 13.997,
+   "share_area_in_top3": 0.818
+  },
+  "ore_edge_profile": {
+   "1": 11.9,
+   "2": 47.4,
+   "3": 78.9,
+   "4": 101.1,
+   "6": 143.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 16,
+   "median_km2": 0.249,
+   "p90_km2": 4.617,
+   "max_km2": 20.115,
+   "share_area_in_top3": 0.879
+  },
+  "oil_edge_profile": {
+   "1": 14.4,
+   "2": 60.0,
+   "3": 87.7,
+   "4": 104.0,
+   "6": 137.3
+  }
+ },
+ "CCMP2 Desert Map 2.crp": {
+  "forest_values_top": {
+   "60": 13151,
+   "120": 9833,
+   "180": 7080,
+   "255": 6306,
+   "240": 4850
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.183,
+   "p90_km2": 0.614,
+   "max_km2": 1.524,
+   "share_area_in_top3": 0.589
+  },
+  "fertility_edge_profile": {
+   "1": 82.3,
+   "2": 118.0,
+   "3": 112.9,
+   "4": 147.7
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.101,
+   "p90_km2": 0.208,
+   "max_km2": 27.881,
+   "share_area_in_top3": 0.95
+  },
+  "ore_edge_profile": {
+   "1": 11.3,
+   "2": 32.1,
+   "3": 44.0,
+   "4": 60.2,
+   "6": 107.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.516,
+   "p90_km2": 8.881,
+   "max_km2": 17.239,
+   "share_area_in_top3": 0.941
+  },
+  "oil_edge_profile": {
+   "1": 18.4,
+   "2": 64.6,
+   "3": 80.8,
+   "4": 74.9,
+   "6": 87.2
+  }
+ },
+ "CCMP2 Euro Map 1.crp": {
+  "forest_values_top": {
+   "60": 22023,
+   "255": 15060,
+   "120": 14602,
+   "180": 10654,
+   "240": 7724
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 48,
+   "median_km2": 0.208,
+   "p90_km2": 0.811,
+   "max_km2": 2.926,
+   "share_area_in_top3": 0.307
+  },
+  "fertility_edge_profile": {
+   "1": 32.0,
+   "2": 54.5,
+   "3": 65.9,
+   "4": 71.1,
+   "6": 76.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 50,
+   "median_km2": 0.177,
+   "p90_km2": 0.646,
+   "max_km2": 3.521,
+   "share_area_in_top3": 0.425
+  },
+  "ore_edge_profile": {
+   "1": 28.1,
+   "2": 87.1,
+   "3": 89.3,
+   "4": 82.5,
+   "6": 69.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 18,
+   "median_km2": 0.065,
+   "p90_km2": 0.128,
+   "max_km2": 0.244,
+   "share_area_in_top3": 0.262
+  },
+  "oil_edge_profile": {
+   "1": 55.5,
+   "2": 137.1,
+   "3": 121.0,
+   "4": 110.0
+  }
+ },
+ "CCMP2 Euro Map 2.crp": {
+  "forest_values_top": {
+   "60": 28156,
+   "120": 16886,
+   "255": 13192,
+   "180": 12150,
+   "240": 8573
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 26,
+   "median_km2": 0.482,
+   "p90_km2": 1.525,
+   "max_km2": 3.188,
+   "share_area_in_top3": 0.379
+  },
+  "fertility_edge_profile": {
+   "1": 29.5,
+   "2": 64.8,
+   "3": 76.7,
+   "4": 78.3,
+   "6": 77.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 36,
+   "median_km2": 0.183,
+   "p90_km2": 1.025,
+   "max_km2": 2.208,
+   "share_area_in_top3": 0.327
+  },
+  "ore_edge_profile": {
+   "1": 14.4,
+   "2": 72.3,
+   "3": 101.8,
+   "4": 95.4,
+   "6": 103.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.181,
+   "p90_km2": 0.311,
+   "max_km2": 0.32,
+   "share_area_in_top3": 0.628
+  },
+  "oil_edge_profile": {
+   "1": 22.1,
+   "2": 106.5,
+   "3": 137.0,
+   "4": 97.1,
+   "6": 157.0
+  }
+ },
+ "CCMP2 Temperate Map 1.crp": {
+  "forest_values_top": {
+   "255": 11722,
+   "60": 10207,
+   "120": 8422,
+   "180": 7045,
+   "240": 5862
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.513,
+   "p90_km2": 2.893,
+   "max_km2": 4.549,
+   "share_area_in_top3": 0.649
+  },
+  "fertility_edge_profile": {
+   "1": 79.3,
+   "2": 129.1,
+   "3": 121.6,
+   "4": 107.3,
+   "6": 215.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 20,
+   "median_km2": 0.431,
+   "p90_km2": 2.344,
+   "max_km2": 10.826,
+   "share_area_in_top3": 0.724
+  },
+  "ore_edge_profile": {
+   "1": 45.9,
+   "2": 128.2,
+   "3": 125.9,
+   "4": 121.0,
+   "6": 139.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 28,
+   "median_km2": 0.257,
+   "p90_km2": 1.899,
+   "max_km2": 15.467,
+   "share_area_in_top3": 0.718
+  },
+  "oil_edge_profile": {
+   "1": 59.4,
+   "2": 174.8,
+   "3": 190.4,
+   "4": 197.0,
+   "6": 219.4
+  }
+ },
+ "CCMP2 Temperate Map 2.crp": {
+  "forest_values_top": {
+   "255": 17880,
+   "60": 13516,
+   "120": 10461,
+   "180": 8550,
+   "240": 7248
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 23,
+   "median_km2": 0.289,
+   "p90_km2": 2.071,
+   "max_km2": 7.018,
+   "share_area_in_top3": 0.538
+  },
+  "fertility_edge_profile": {
+   "1": 70.2,
+   "2": 124.3,
+   "3": 134.2,
+   "4": 137.1,
+   "6": 122.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 19,
+   "median_km2": 0.368,
+   "p90_km2": 2.608,
+   "max_km2": 22.94,
+   "share_area_in_top3": 0.806
+  },
+  "ore_edge_profile": {
+   "1": 40.7,
+   "2": 122.2,
+   "3": 146.4,
+   "4": 135.7,
+   "6": 121.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 32,
+   "median_km2": 0.195,
+   "p90_km2": 0.667,
+   "max_km2": 5.52,
+   "share_area_in_top3": 0.499
+  },
+  "oil_edge_profile": {
+   "1": 50.1,
+   "2": 164.0,
+   "3": 169.5,
+   "4": 163.6,
+   "6": 208.9
+  }
+ },
+ "CCMP2 Tropical Map 1.crp": {
+  "forest_values_top": {
+   "60": 7186,
+   "120": 5854,
+   "255": 4788,
+   "180": 4508,
+   "240": 3301
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 1.523,
+   "p90_km2": 3.197,
+   "max_km2": 3.611,
+   "share_area_in_top3": 0.682
+  },
+  "fertility_edge_profile": {
+   "1": 66.2,
+   "2": 120.1,
+   "3": 137.4,
+   "4": 118.7,
+   "6": 114.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 22,
+   "median_km2": 0.206,
+   "p90_km2": 3.69,
+   "max_km2": 6.415,
+   "share_area_in_top3": 0.669
+  },
+  "ore_edge_profile": {
+   "1": 32.4,
+   "2": 132.9,
+   "3": 159.4,
+   "4": 156.8,
+   "6": 231.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 32,
+   "median_km2": 0.114,
+   "p90_km2": 0.701,
+   "max_km2": 3.713,
+   "share_area_in_top3": 0.602
+  },
+  "oil_edge_profile": {
+   "1": 60.4,
+   "2": 171.3,
+   "3": 191.3,
+   "4": 221.2,
+   "6": 236.4
+  }
+ },
+ "CCMP2 Tropical Map 2.crp": {
+  "forest_values_top": {
+   "60": 29742,
+   "120": 21245,
+   "180": 13700,
+   "240": 8019,
+   "255": 6732
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 27,
+   "median_km2": 0.501,
+   "p90_km2": 2.35,
+   "max_km2": 6.683,
+   "share_area_in_top3": 0.461
+  },
+  "fertility_edge_profile": {
+   "1": 43.6,
+   "2": 69.1,
+   "3": 76.4,
+   "4": 79.9,
+   "6": 81.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 52,
+   "median_km2": 0.149,
+   "p90_km2": 0.732,
+   "max_km2": 8.117,
+   "share_area_in_top3": 0.522
+  },
+  "ore_edge_profile": {
+   "1": 22.6,
+   "2": 74.6,
+   "3": 95.3,
+   "4": 97.7,
+   "6": 91.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 15,
+   "median_km2": 0.229,
+   "p90_km2": 1.123,
+   "max_km2": 9.808,
+   "share_area_in_top3": 0.807
+  },
+  "oil_edge_profile": {
+   "1": 35.7,
+   "2": 132.8,
+   "3": 191.0,
+   "4": 216.0,
+   "6": 240.0
+  }
+ },
+ "CCP Map 1.crp": {
+  "forest_values_top": {
+   "60": 28541,
+   "120": 19891,
+   "180": 11540,
+   "240": 4883,
+   "255": 1753
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 1.366,
+   "p90_km2": 4.403,
+   "max_km2": 6.116,
+   "share_area_in_top3": 0.685
+  },
+  "fertility_edge_profile": {
+   "1": 164.6,
+   "2": 210.3,
+   "3": 236.2,
+   "4": 243.3,
+   "6": 248.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.158,
+   "p90_km2": 2.588,
+   "max_km2": 3.619,
+   "share_area_in_top3": 0.952
+  },
+  "ore_edge_profile": {
+   "1": 36.4,
+   "2": 145.5,
+   "3": 208.1,
+   "4": 242.6,
+   "6": 253.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.948,
+   "p90_km2": 2.938,
+   "max_km2": 3.045,
+   "share_area_in_top3": 0.667
+  },
+  "oil_edge_profile": {
+   "1": 35.7,
+   "2": 104.0,
+   "3": 186.1,
+   "4": 225.9,
+   "6": 249.1
+  }
+ },
+ "CCP Map 2.crp": {
+  "forest_values_top": {
+   "60": 20265,
+   "120": 14393,
+   "180": 8435,
+   "240": 3994,
+   "255": 2002
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.527,
+   "p90_km2": 3.171,
+   "max_km2": 11.883,
+   "share_area_in_top3": 0.797
+  },
+  "fertility_edge_profile": {
+   "1": 79.1,
+   "2": 109.1,
+   "3": 138.6,
+   "4": 159.1,
+   "6": 217.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 2.826,
+   "p90_km2": 3.223,
+   "max_km2": 3.323,
+   "share_area_in_top3": 0.999
+  },
+  "ore_edge_profile": {
+   "1": 17.9,
+   "2": 110.0,
+   "3": 197.2,
+   "4": 235.3,
+   "6": 250.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.274,
+   "p90_km2": 4.266,
+   "max_km2": 5.444,
+   "share_area_in_top3": 0.966
+  },
+  "oil_edge_profile": {
+   "1": 9.8,
+   "2": 40.8,
+   "3": 73.4,
+   "4": 101.0,
+   "6": 151.5
+  }
+ },
+ "CCP Map 3.crp": {
+  "forest_values_top": {
+   "60": 26712,
+   "120": 14515,
+   "180": 7109,
+   "240": 3096,
+   "255": 1592
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 6.203,
+   "p90_km2": 16.731,
+   "max_km2": 23.468,
+   "share_area_in_top3": 0.953
+  },
+  "fertility_edge_profile": {
+   "1": 111.6,
+   "2": 116.4,
+   "3": 125.4,
+   "4": 135.7,
+   "6": 159.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 6.116,
+   "p90_km2": 8.492,
+   "max_km2": 9.086,
+   "share_area_in_top3": 0.999
+  },
+  "ore_edge_profile": {
+   "1": 43.1,
+   "2": 128.1,
+   "3": 165.9,
+   "4": 189.3,
+   "6": 222.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.726,
+   "p90_km2": 0.95,
+   "max_km2": 1.006,
+   "share_area_in_top3": 0.947
+  },
+  "oil_edge_profile": {
+   "1": 32.4,
+   "2": 57.2,
+   "3": 84.2,
+   "4": 116.1,
+   "6": 178.9
+  }
+ },
+ "CCP Map 4.crp": {
+  "forest_values_top": {
+   "60": 20901,
+   "120": 11791,
+   "180": 6494,
+   "240": 3446,
+   "255": 2857
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.645,
+   "p90_km2": 2.365,
+   "max_km2": 6.073,
+   "share_area_in_top3": 0.587
+  },
+  "fertility_edge_profile": {
+   "1": 104.8,
+   "2": 135.0,
+   "3": 152.8,
+   "4": 162.3,
+   "6": 207.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.165,
+   "p90_km2": 1.88,
+   "max_km2": 2.115,
+   "share_area_in_top3": 0.973
+  },
+  "ore_edge_profile": {
+   "1": 101.2,
+   "2": 240.8,
+   "3": 253.2,
+   "4": 255.0,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 1.231,
+   "p90_km2": 1.356,
+   "max_km2": 1.387,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 115.3,
+   "2": 249.1,
+   "3": 252.8,
+   "4": 255.0,
+   "6": 255.0
+  }
+ },
+ "CCP Map 5.crp": {
+  "forest_values_top": {
+   "60": 11095,
+   "120": 7874,
+   "255": 7761,
+   "180": 5529,
+   "240": 3832
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.027,
+   "share_area_in_top3": 1.0
+  },
+  "fertility_edge_profile": {
+   "1": 136.7
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 25.058,
+   "p90_km2": 25.058,
+   "max_km2": 25.058,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 26.5,
+   "2": 82.9,
+   "3": 177.3,
+   "4": 225.3,
+   "6": 247.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 17.601,
+   "p90_km2": 22.156,
+   "max_km2": 23.295,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 15.6,
+   "2": 89.8,
+   "3": 219.6,
+   "4": 245.8,
+   "6": 251.1
+  }
+ },
+ "CCP Map 6.crp": {
+  "forest_values_top": {
+   "60": 33569,
+   "120": 16732,
+   "180": 8815,
+   "240": 4267,
+   "255": 2645
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 2.049,
+   "p90_km2": 10.859,
+   "max_km2": 16.06,
+   "share_area_in_top3": 0.858
+  },
+  "fertility_edge_profile": {
+   "1": 103.5,
+   "2": 130.2,
+   "3": 151.5,
+   "4": 167.3,
+   "6": 209.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 1.725,
+   "p90_km2": 4.142,
+   "max_km2": 5.802,
+   "share_area_in_top3": 0.695
+  },
+  "ore_edge_profile": {
+   "1": 21.6,
+   "2": 67.6,
+   "3": 99.6,
+   "4": 126.4,
+   "6": 179.1
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 3.206,
+   "p90_km2": 4.094,
+   "max_km2": 4.257,
+   "share_area_in_top3": 0.886
+  },
+  "oil_edge_profile": {
+   "1": 56.4,
+   "2": 192.6,
+   "3": 230.1,
+   "4": 239.8,
+   "6": 247.1
+  }
+ },
+ "CCP Map 7.crp": {
+  "forest_values_top": {
+   "60": 22264,
+   "120": 14948,
+   "180": 8765,
+   "240": 4218,
+   "255": 2205
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.865,
+   "p90_km2": 9.584,
+   "max_km2": 10.184,
+   "share_area_in_top3": 0.934
+  },
+  "fertility_edge_profile": {
+   "1": 132.6,
+   "2": 157.7,
+   "3": 164.9,
+   "4": 176.4,
+   "6": 188.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.95,
+   "p90_km2": 6.292,
+   "max_km2": 7.627,
+   "share_area_in_top3": 0.998
+  },
+  "ore_edge_profile": {
+   "1": 49.0,
+   "2": 157.8,
+   "3": 207.6,
+   "4": 222.9,
+   "6": 217.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 2.135,
+   "p90_km2": 4.32,
+   "max_km2": 4.866,
+   "share_area_in_top3": 0.996
+  },
+  "oil_edge_profile": {
+   "1": 84.8,
+   "2": 216.4,
+   "3": 244.6,
+   "4": 250.4,
+   "6": 250.5
+  }
+ },
+ "CCP Map 8.crp": {
+  "forest_values_top": {
+   "60": 38680,
+   "120": 19906,
+   "180": 10329,
+   "255": 5019,
+   "240": 4932
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.732,
+   "p90_km2": 7.28,
+   "max_km2": 23.093,
+   "share_area_in_top3": 0.908
+  },
+  "fertility_edge_profile": {
+   "1": 117.9,
+   "2": 137.2,
+   "3": 159.0,
+   "4": 182.6,
+   "6": 239.7
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 2.032,
+   "p90_km2": 4.285,
+   "max_km2": 4.848,
+   "share_area_in_top3": 0.964
+  },
+  "ore_edge_profile": {
+   "1": 35.8,
+   "2": 146.9,
+   "3": 223.3,
+   "4": 240.9,
+   "6": 248.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.932,
+   "p90_km2": 5.535,
+   "max_km2": 8.651,
+   "share_area_in_top3": 0.912
+  },
+  "oil_edge_profile": {
+   "1": 26.1,
+   "2": 106.0,
+   "3": 163.5,
+   "4": 194.3,
+   "6": 216.7
+  }
+ },
+ "CL Marin Bay.crp": {
+  "forest_values_top": {
+   "60": 24742,
+   "120": 20670,
+   "180": 15206,
+   "240": 8605,
+   "255": 5065
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.145,
+   "p90_km2": 2.063,
+   "max_km2": 4.216,
+   "share_area_in_top3": 0.725
+  },
+  "fertility_edge_profile": {
+   "1": 102.6,
+   "2": 118.9,
+   "3": 127.2,
+   "4": 118.1,
+   "6": 174.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.559,
+   "p90_km2": 3.649,
+   "max_km2": 5.903,
+   "share_area_in_top3": 0.89
+  },
+  "ore_edge_profile": {
+   "1": 11.0,
+   "2": 39.4,
+   "3": 73.6,
+   "4": 99.7,
+   "6": 140.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.259,
+   "p90_km2": 2.664,
+   "max_km2": 3.005,
+   "share_area_in_top3": 0.773
+  },
+  "oil_edge_profile": {
+   "1": 13.2,
+   "2": 45.3,
+   "3": 80.7,
+   "4": 106.7,
+   "6": 147.8
+  }
+ },
+ "CL Murky Coast.crp": {
+  "forest_values_top": {
+   "60": 36267,
+   "120": 23978,
+   "180": 14004,
+   "240": 6990,
+   "255": 3769
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 1.243,
+   "p90_km2": 2.662,
+   "max_km2": 4.307,
+   "share_area_in_top3": 0.655
+  },
+  "fertility_edge_profile": {
+   "1": 54.6,
+   "2": 118.6,
+   "3": 189.5,
+   "4": 219.6,
+   "6": 239.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.409,
+   "p90_km2": 1.372,
+   "max_km2": 1.416,
+   "share_area_in_top3": 0.849
+  },
+  "ore_edge_profile": {
+   "1": 86.8,
+   "2": 131.4,
+   "3": 175.2,
+   "4": 205.2,
+   "6": 243.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 0.217,
+   "p90_km2": 0.218,
+   "max_km2": 0.219,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 51.1,
+   "2": 204.5,
+   "3": 250.1
+  }
+ },
+ "CL Northwood Hills.crp": {
+  "forest_values_top": {
+   "60": 49811,
+   "120": 18450,
+   "180": 6674,
+   "240": 2602,
+   "255": 1471
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.679,
+   "p90_km2": 10.547,
+   "max_km2": 12.478,
+   "share_area_in_top3": 0.956
+  },
+  "fertility_edge_profile": {
+   "1": 148.3,
+   "2": 160.8,
+   "3": 168.6,
+   "4": 171.9,
+   "6": 194.7
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.801,
+   "p90_km2": 4.352,
+   "max_km2": 5.728,
+   "share_area_in_top3": 0.783
+  },
+  "ore_edge_profile": {
+   "1": 11.2,
+   "2": 40.0,
+   "3": 68.6,
+   "4": 95.3,
+   "6": 130.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 2.191,
+   "p90_km2": 2.604,
+   "max_km2": 2.708,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 11.9,
+   "2": 34.3,
+   "3": 58.9,
+   "4": 73.3,
+   "6": 94.3
+  }
+ },
+ "CL Roslyn Peninsula.crp": {
+  "forest_values_top": {
+   "60": 13055,
+   "120": 5969,
+   "180": 2742,
+   "240": 1167,
+   "255": 667
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.529,
+   "p90_km2": 0.791,
+   "max_km2": 0.866,
+   "share_area_in_top3": 0.83
+  },
+  "fertility_edge_profile": {
+   "1": 36.8,
+   "2": 84.6,
+   "3": 144.4,
+   "4": 161.4,
+   "6": 172.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.44,
+   "p90_km2": 1.0,
+   "max_km2": 1.198,
+   "share_area_in_top3": 0.719
+  },
+  "ore_edge_profile": {
+   "1": 23.3,
+   "2": 136.9,
+   "3": 191.9,
+   "4": 203.6,
+   "6": 176.9
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.352,
+   "p90_km2": 3.245,
+   "max_km2": 5.722,
+   "share_area_in_top3": 0.894
+  },
+  "oil_edge_profile": {
+   "1": 27.5,
+   "2": 115.6,
+   "3": 174.7,
+   "4": 194.7,
+   "6": 208.8
+  }
+ },
+ "CL Wolf Creek.crp": {
+  "forest_values_top": {
+   "60": 27608,
+   "120": 16728,
+   "180": 9277,
+   "240": 4597,
+   "255": 2960
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.86,
+   "p90_km2": 1.729,
+   "max_km2": 1.947,
+   "share_area_in_top3": 1.0
+  },
+  "fertility_edge_profile": {
+   "1": 85.5,
+   "2": 156.9,
+   "3": 175.3,
+   "4": 191.4,
+   "6": 218.8
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 1.106,
+   "p90_km2": 2.046,
+   "max_km2": 3.801,
+   "share_area_in_top3": 0.532
+  },
+  "ore_edge_profile": {
+   "1": 55.8,
+   "2": 119.7,
+   "3": 154.4,
+   "4": 179.3,
+   "6": 208.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.743,
+   "p90_km2": 1.223,
+   "max_km2": 1.343,
+   "share_area_in_top3": 0.997
+  },
+  "oil_edge_profile": {
+   "1": 53.5,
+   "2": 82.2,
+   "3": 119.1,
+   "4": 143.7
+  }
+ },
+ "Cliffside Bay.crp": {
+  "forest_values_top": {
+   "60": 13064,
+   "120": 6565,
+   "180": 3735,
+   "240": 2071,
+   "255": 1659
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.121,
+   "p90_km2": 11.037,
+   "max_km2": 15.091,
+   "share_area_in_top3": 0.992
+  },
+  "fertility_edge_profile": {
+   "1": 70.6,
+   "2": 73.0,
+   "3": 85.1,
+   "4": 93.5,
+   "6": 112.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.649,
+   "p90_km2": 6.902,
+   "max_km2": 10.236,
+   "share_area_in_top3": 0.981
+  },
+  "ore_edge_profile": {
+   "1": 17.1,
+   "2": 52.8,
+   "3": 88.4,
+   "4": 118.6,
+   "6": 169.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 1.248,
+   "p90_km2": 1.71,
+   "max_km2": 1.826,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 23.8,
+   "2": 80.7,
+   "3": 139.1,
+   "4": 175.1,
+   "6": 231.7
+  }
+ },
+ "DN Azure Gulf.crp": {
+  "forest_values_top": {
+   "60": 34717,
+   "120": 20478,
+   "180": 10602,
+   "240": 4889,
+   "255": 2629
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.29,
+   "p90_km2": 0.866,
+   "max_km2": 2.832,
+   "share_area_in_top3": 0.625
+  },
+  "fertility_edge_profile": {
+   "1": 61.3,
+   "2": 148.6,
+   "3": 176.1,
+   "4": 181.8,
+   "6": 148.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.36,
+   "p90_km2": 0.935,
+   "max_km2": 0.992,
+   "share_area_in_top3": 0.537
+  },
+  "ore_edge_profile": {
+   "1": 54.1,
+   "2": 160.4,
+   "3": 182.1,
+   "4": 190.3,
+   "6": 207.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.257,
+   "p90_km2": 1.574,
+   "max_km2": 2.114,
+   "share_area_in_top3": 0.842
+  },
+  "oil_edge_profile": {
+   "1": 53.1,
+   "2": 127.7,
+   "3": 148.7,
+   "4": 166.4,
+   "6": 186.7
+  }
+ },
+ "DN Crater Falls.crp": {
+  "forest_values_top": {
+   "60": 41172,
+   "120": 16816,
+   "180": 7589,
+   "240": 3824,
+   "255": 2732
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 3.562,
+   "p90_km2": 5.981,
+   "max_km2": 8.586,
+   "share_area_in_top3": 0.633
+  },
+  "fertility_edge_profile": {
+   "1": 91.3,
+   "2": 85.5,
+   "3": 101.8,
+   "4": 111.4,
+   "6": 119.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 16,
+   "median_km2": 1.359,
+   "p90_km2": 3.069,
+   "max_km2": 4.32,
+   "share_area_in_top3": 0.438
+  },
+  "ore_edge_profile": {
+   "1": 9.8,
+   "2": 32.9,
+   "3": 57.1,
+   "4": 77.0,
+   "6": 106.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 2.472,
+   "p90_km2": 3.311,
+   "max_km2": 3.521,
+   "share_area_in_top3": 0.999
+  },
+  "oil_edge_profile": {
+   "1": 11.1,
+   "2": 28.8,
+   "3": 38.7,
+   "4": 46.0,
+   "6": 59.4
+  }
+ },
+ "DN Desert Oasis.crp": {
+  "forest_values_top": {
+   "60": 34868,
+   "120": 6041,
+   "180": 1698,
+   "240": 757,
+   "255": 591
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.12,
+   "p90_km2": 0.603,
+   "max_km2": 0.865,
+   "share_area_in_top3": 0.815
+  },
+  "fertility_edge_profile": {
+   "1": 69.3,
+   "2": 65.9,
+   "3": 63.9,
+   "4": 68.0,
+   "6": 69.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 7.154,
+   "p90_km2": 7.697,
+   "max_km2": 7.832,
+   "share_area_in_top3": 0.999
+  },
+  "ore_edge_profile": {
+   "1": 8.6,
+   "2": 23.5,
+   "3": 38.3,
+   "4": 51.6,
+   "6": 76.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 4.588,
+   "p90_km2": 8.052,
+   "max_km2": 10.159,
+   "share_area_in_top3": 0.652
+  },
+  "oil_edge_profile": {
+   "1": 7.1,
+   "2": 17.9,
+   "3": 28.1,
+   "4": 38.0,
+   "6": 55.6
+  }
+ },
+ "DN Fisher Enclave.crp": {
+  "forest_values_top": {
+   "60": 18761,
+   "120": 15137,
+   "180": 9760,
+   "240": 4934,
+   "255": 2489
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.683,
+   "p90_km2": 1.2,
+   "max_km2": 1.272,
+   "share_area_in_top3": 0.511
+  },
+  "fertility_edge_profile": {
+   "1": 50.4,
+   "2": 128.9,
+   "3": 159.3,
+   "4": 168.2,
+   "6": 181.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 0.814,
+   "p90_km2": 1.121,
+   "max_km2": 1.197,
+   "share_area_in_top3": 0.991
+  },
+  "ore_edge_profile": {
+   "1": 24.7,
+   "2": 48.1,
+   "3": 60.4,
+   "4": 64.4,
+   "6": 96.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.622,
+   "p90_km2": 1.644,
+   "max_km2": 2.287,
+   "share_area_in_top3": 0.407
+  },
+  "oil_edge_profile": {
+   "1": 29.2,
+   "2": 79.0,
+   "3": 117.3,
+   "4": 151.0,
+   "6": 180.1
+  }
+ },
+ "DN Swamplands.crp": {
+  "forest_values_top": {
+   "60": 52017,
+   "120": 32510,
+   "180": 15833,
+   "240": 6029,
+   "255": 2469
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.616,
+   "p90_km2": 1.703,
+   "max_km2": 4.344,
+   "share_area_in_top3": 0.627
+  },
+  "fertility_edge_profile": {
+   "1": 97.8,
+   "2": 147.6,
+   "3": 178.6,
+   "4": 181.4,
+   "6": 193.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.409,
+   "p90_km2": 0.991,
+   "max_km2": 1.253,
+   "share_area_in_top3": 0.626
+  },
+  "ore_edge_profile": {
+   "1": 70.7,
+   "2": 111.1,
+   "3": 127.7,
+   "4": 138.1,
+   "6": 167.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.879,
+   "p90_km2": 1.742,
+   "max_km2": 1.958,
+   "share_area_in_top3": 0.943
+  },
+  "oil_edge_profile": {
+   "1": 50.4,
+   "2": 71.5,
+   "3": 76.0,
+   "4": 86.1,
+   "6": 78.4
+  }
+ },
+ "Eden Valley2.crp": {
+  "forest_values_top": {
+   "60": 25878,
+   "120": 15263,
+   "180": 9546,
+   "240": 5534,
+   "255": 3654
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.976,
+   "p90_km2": 5.623,
+   "max_km2": 8.582,
+   "share_area_in_top3": 0.786
+  },
+  "fertility_edge_profile": {
+   "1": 131.5,
+   "2": 118.9,
+   "3": 138.6,
+   "4": 156.9,
+   "6": 143.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.592,
+   "p90_km2": 1.518,
+   "max_km2": 4.063,
+   "share_area_in_top3": 0.661
+  },
+  "ore_edge_profile": {
+   "1": 16.4,
+   "2": 52.3,
+   "3": 81.3,
+   "4": 104.9,
+   "6": 120.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 9.759,
+   "p90_km2": 9.759,
+   "max_km2": 9.759,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 4.7,
+   "2": 9.6,
+   "3": 17.8,
+   "4": 27.7,
+   "6": 56.5
+  }
+ },
+ "Foggy Hills.crp": {
+  "forest_values_top": {
+   "60": 44173,
+   "120": 27677,
+   "180": 13228,
+   "240": 4855,
+   "255": 1641
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 2.115,
+   "p90_km2": 7.406,
+   "max_km2": 7.864,
+   "share_area_in_top3": 0.78
+  },
+  "fertility_edge_profile": {
+   "1": 50.0,
+   "2": 50.4,
+   "3": 64.6,
+   "4": 77.8,
+   "6": 101.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 11.198,
+   "p90_km2": 14.337,
+   "max_km2": 15.122,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 4.2,
+   "2": 10.2,
+   "3": 18.0,
+   "4": 26.1,
+   "6": 47.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 3.337,
+   "p90_km2": 3.402,
+   "max_km2": 3.418,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 9.3,
+   "2": 28.6,
+   "3": 55.6,
+   "4": 78.2,
+   "6": 130.9
+  }
+ },
+ "Garden Rivers2.crp": {
+  "forest_values_top": {
+   "60": 46132,
+   "120": 22280,
+   "180": 12935,
+   "240": 7341,
+   "255": 7324
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.619,
+   "p90_km2": 1.523,
+   "max_km2": 2.263,
+   "share_area_in_top3": 0.688
+  },
+  "fertility_edge_profile": {
+   "1": 125.9,
+   "2": 175.1,
+   "3": 196.8,
+   "4": 199.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 2.159,
+   "p90_km2": 2.487,
+   "max_km2": 2.57,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 27.5,
+   "2": 97.1,
+   "3": 162.7,
+   "4": 203.2,
+   "6": 247.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.135,
+   "p90_km2": 1.393,
+   "max_km2": 1.472,
+   "share_area_in_top3": 0.929
+  },
+  "oil_edge_profile": {
+   "1": 53.2,
+   "2": 120.6,
+   "3": 164.6,
+   "4": 187.3,
+   "6": 215.1
+  }
+ },
+ "Grand River.crp": {
+  "forest_values_top": {
+   "60": 55607,
+   "120": 22989,
+   "180": 8380,
+   "240": 2446,
+   "255": 716
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.122,
+   "p90_km2": 13.162,
+   "max_km2": 13.498,
+   "share_area_in_top3": 0.985
+  },
+  "fertility_edge_profile": {
+   "1": 64.7,
+   "2": 88.4,
+   "3": 104.0,
+   "4": 114.1,
+   "6": 162.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 5.395,
+   "p90_km2": 6.52,
+   "max_km2": 6.977,
+   "share_area_in_top3": 0.992
+  },
+  "ore_edge_profile": {
+   "1": 11.2,
+   "2": 36.4,
+   "3": 66.9,
+   "4": 90.0,
+   "6": 133.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  }
+ },
+ "IN Green Peaks.crp": {
+  "forest_values_top": {
+   "60": 29442,
+   "120": 11461,
+   "180": 4673,
+   "240": 1690,
+   "255": 716
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 1.915,
+   "p90_km2": 4.223,
+   "max_km2": 6.327,
+   "share_area_in_top3": 0.731
+  },
+  "fertility_edge_profile": {
+   "1": 72.5,
+   "2": 86.2,
+   "3": 128.0,
+   "4": 160.9,
+   "6": 220.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.775,
+   "p90_km2": 1.092,
+   "max_km2": 1.14,
+   "share_area_in_top3": 0.599
+  },
+  "ore_edge_profile": {
+   "1": 14.6,
+   "2": 53.4,
+   "3": 112.9,
+   "4": 142.9,
+   "6": 170.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.342,
+   "p90_km2": 0.763,
+   "max_km2": 1.034,
+   "share_area_in_top3": 0.786
+  },
+  "oil_edge_profile": {
+   "1": 30.9,
+   "2": 116.6,
+   "3": 195.6,
+   "4": 236.8,
+   "6": 253.4
+  }
+ },
+ "IN Marble Canyon.crp": {
+  "forest_values_top": {
+   "60": 25942,
+   "120": 11284,
+   "180": 6648,
+   "240": 4110,
+   "255": 3516
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 2.432,
+   "p90_km2": 4.923,
+   "max_km2": 5.66,
+   "share_area_in_top3": 0.87
+  },
+  "fertility_edge_profile": {
+   "1": 101.5,
+   "2": 128.4,
+   "3": 136.0,
+   "4": 146.7,
+   "6": 152.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.946,
+   "p90_km2": 24.236,
+   "max_km2": 33.723,
+   "share_area_in_top3": 0.974
+  },
+  "ore_edge_profile": {
+   "1": 24.1,
+   "2": 44.8,
+   "3": 58.3,
+   "4": 68.6,
+   "6": 88.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 4.065,
+   "p90_km2": 4.763,
+   "max_km2": 4.938,
+   "share_area_in_top3": 0.993
+  },
+  "oil_edge_profile": {
+   "1": 30.4,
+   "2": 70.2,
+   "3": 102.8,
+   "4": 123.1,
+   "6": 155.8
+  }
+ },
+ "IN Pearl Bay.crp": {
+  "forest_values_top": {
+   "60": 27608,
+   "120": 14769,
+   "255": 9276,
+   "180": 7883,
+   "240": 4969
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 2.368,
+   "p90_km2": 9.046,
+   "max_km2": 9.739,
+   "share_area_in_top3": 0.873
+  },
+  "fertility_edge_profile": {
+   "1": 55.1,
+   "2": 59.8,
+   "3": 75.2,
+   "4": 83.8,
+   "6": 118.8
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 2.777,
+   "p90_km2": 10.737,
+   "max_km2": 12.703,
+   "share_area_in_top3": 0.882
+  },
+  "ore_edge_profile": {
+   "1": 6.4,
+   "2": 17.0,
+   "3": 28.6,
+   "4": 37.4,
+   "6": 58.1
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 2.448,
+   "p90_km2": 5.816,
+   "max_km2": 6.3,
+   "share_area_in_top3": 0.832
+  },
+  "oil_edge_profile": {
+   "1": 21.4,
+   "2": 55.4,
+   "3": 80.7,
+   "4": 95.8,
+   "6": 143.2
+  }
+ },
+ "IN Twin Fjords.crp": {
+  "forest_values_top": {
+   "60": 46657,
+   "120": 15079,
+   "180": 4531,
+   "240": 1381,
+   "255": 744
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.22,
+   "p90_km2": 2.054,
+   "max_km2": 2.39,
+   "share_area_in_top3": 0.852
+  },
+  "fertility_edge_profile": {
+   "1": 109.4,
+   "2": 100.1,
+   "3": 92.9,
+   "4": 95.7,
+   "6": 52.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 1.002,
+   "p90_km2": 2.616,
+   "max_km2": 3.247,
+   "share_area_in_top3": 0.476
+  },
+  "ore_edge_profile": {
+   "1": 18.6,
+   "2": 60.5,
+   "3": 106.4,
+   "4": 143.5,
+   "6": 189.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 1.277,
+   "p90_km2": 2.55,
+   "max_km2": 4.906,
+   "share_area_in_top3": 0.56
+  },
+  "oil_edge_profile": {
+   "1": 25.9,
+   "2": 75.9,
+   "3": 122.9,
+   "4": 158.7,
+   "6": 204.6
+  }
+ },
+ "IN Woodgarden.crp": {
+  "forest_values_top": {
+   "60": 38696,
+   "120": 22370,
+   "180": 12286,
+   "240": 5720,
+   "255": 3135
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 1.506,
+   "p90_km2": 5.211,
+   "max_km2": 6.142,
+   "share_area_in_top3": 0.75
+  },
+  "fertility_edge_profile": {
+   "1": 109.3,
+   "2": 180.5,
+   "3": 217.4,
+   "4": 234.3,
+   "6": 248.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 2.081,
+   "p90_km2": 4.755,
+   "max_km2": 5.139,
+   "share_area_in_top3": 0.778
+  },
+  "ore_edge_profile": {
+   "1": 34.8,
+   "2": 67.4,
+   "3": 91.4,
+   "4": 107.8,
+   "6": 142.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  }
+ },
+ "Lavender Lake2.crp": {
+  "forest_values_top": {
+   "60": 55371,
+   "120": 29723,
+   "180": 14752,
+   "240": 6265,
+   "255": 3313
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 3.108,
+   "p90_km2": 3.668,
+   "max_km2": 3.808,
+   "share_area_in_top3": 1.0
+  },
+  "fertility_edge_profile": {
+   "1": 148.0,
+   "2": 160.2,
+   "3": 187.2,
+   "4": 199.1,
+   "6": 225.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.275,
+   "p90_km2": 3.142,
+   "max_km2": 3.615,
+   "share_area_in_top3": 0.969
+  },
+  "ore_edge_profile": {
+   "1": 34.9,
+   "2": 105.0,
+   "3": 157.7,
+   "4": 189.0,
+   "6": 245.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.994,
+   "p90_km2": 1.906,
+   "max_km2": 1.973,
+   "share_area_in_top3": 0.778
+  },
+  "oil_edge_profile": {
+   "1": 20.3,
+   "2": 67.9,
+   "3": 112.3,
+   "4": 145.4,
+   "6": 208.5
+  }
+ },
+ "MM Coastal Flatland.crp": {
+  "forest_values_top": {
+   "60": 45700,
+   "120": 24132,
+   "180": 9172,
+   "240": 2576,
+   "255": 737
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.725,
+   "p90_km2": 7.754,
+   "max_km2": 11.181,
+   "share_area_in_top3": 0.938
+  },
+  "fertility_edge_profile": {
+   "1": 104.8,
+   "2": 159.0,
+   "3": 196.8,
+   "4": 210.8,
+   "6": 224.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 1.294,
+   "p90_km2": 3.124,
+   "max_km2": 3.581,
+   "share_area_in_top3": 0.998
+  },
+  "ore_edge_profile": {
+   "1": 27.4,
+   "2": 88.0,
+   "3": 127.3,
+   "4": 147.6,
+   "6": 178.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.855,
+   "p90_km2": 2.137,
+   "max_km2": 2.301,
+   "share_area_in_top3": 0.711
+  },
+  "oil_edge_profile": {
+   "1": 20.4,
+   "2": 72.7,
+   "3": 126.8,
+   "4": 158.6,
+   "6": 207.3
+  }
+ },
+ "MM Emerald Cliffs.crp": {
+  "forest_values_top": {
+   "60": 37180,
+   "120": 11943,
+   "180": 3274,
+   "240": 719,
+   "255": 283
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.341,
+   "p90_km2": 6.589,
+   "max_km2": 7.909,
+   "share_area_in_top3": 0.847
+  },
+  "fertility_edge_profile": {
+   "1": 104.7,
+   "2": 153.3,
+   "3": 198.5,
+   "4": 213.2,
+   "6": 233.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.394,
+   "p90_km2": 1.235,
+   "max_km2": 1.469,
+   "share_area_in_top3": 0.532
+  },
+  "ore_edge_profile": {
+   "1": 34.4,
+   "2": 111.9,
+   "3": 156.4,
+   "4": 182.4,
+   "6": 205.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.949,
+   "p90_km2": 1.54,
+   "max_km2": 2.145,
+   "share_area_in_top3": 0.561
+  },
+  "oil_edge_profile": {
+   "1": 33.4,
+   "2": 140.3,
+   "3": 208.0,
+   "4": 232.4,
+   "6": 241.8
+  }
+ },
+ "MM Maze Valley.crp": {
+  "forest_values_top": {
+   "60": 56710,
+   "120": 25220,
+   "180": 9484,
+   "240": 3103,
+   "255": 1158
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.919,
+   "p90_km2": 5.043,
+   "max_km2": 5.319,
+   "share_area_in_top3": 0.773
+  },
+  "fertility_edge_profile": {
+   "1": 105.7,
+   "2": 161.7,
+   "3": 183.4,
+   "4": 183.9,
+   "6": 173.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.884,
+   "p90_km2": 1.558,
+   "max_km2": 1.972,
+   "share_area_in_top3": 0.573
+  },
+  "ore_edge_profile": {
+   "1": 13.4,
+   "2": 57.4,
+   "3": 113.7,
+   "4": 153.5,
+   "6": 205.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.442,
+   "p90_km2": 1.048,
+   "max_km2": 1.568,
+   "share_area_in_top3": 0.59
+  },
+  "oil_edge_profile": {
+   "1": 26.2,
+   "2": 101.8,
+   "3": 151.3,
+   "4": 173.7,
+   "6": 214.1
+  }
+ },
+ "MM Shifting Sands.crp": {
+  "forest_values_top": {
+   "60": 28735,
+   "120": 8650,
+   "180": 2157,
+   "240": 497,
+   "255": 307
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.88,
+   "p90_km2": 3.566,
+   "max_km2": 4.058,
+   "share_area_in_top3": 0.855
+  },
+  "fertility_edge_profile": {
+   "1": 52.8,
+   "2": 93.9,
+   "3": 135.4,
+   "4": 155.4,
+   "6": 168.8
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.738,
+   "p90_km2": 2.441,
+   "max_km2": 6.3,
+   "share_area_in_top3": 0.675
+  },
+  "ore_edge_profile": {
+   "1": 23.4,
+   "2": 71.1,
+   "3": 102.8,
+   "4": 120.9,
+   "6": 160.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.377,
+   "p90_km2": 1.362,
+   "max_km2": 1.472,
+   "share_area_in_top3": 0.532
+  },
+  "oil_edge_profile": {
+   "1": 22.9,
+   "2": 80.8,
+   "3": 126.7,
+   "4": 157.7,
+   "6": 197.1
+  }
+ },
+ "MM Weaving Waters.crp": {
+  "forest_values_top": {
+   "60": 52741,
+   "120": 17777,
+   "180": 7228,
+   "240": 2646,
+   "255": 990
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 2.374,
+   "p90_km2": 10.128,
+   "max_km2": 12.784,
+   "share_area_in_top3": 0.976
+  },
+  "fertility_edge_profile": {
+   "1": 84.3,
+   "2": 122.3,
+   "3": 143.8,
+   "4": 165.8,
+   "6": 204.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.522,
+   "p90_km2": 4.689,
+   "max_km2": 5.029,
+   "share_area_in_top3": 0.811
+  },
+  "ore_edge_profile": {
+   "1": 13.4,
+   "2": 45.0,
+   "3": 67.9,
+   "4": 81.7,
+   "6": 116.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 1.022,
+   "p90_km2": 1.405,
+   "max_km2": 1.709,
+   "share_area_in_top3": 0.586
+  },
+  "oil_edge_profile": {
+   "1": 24.4,
+   "2": 93.7,
+   "3": 152.8,
+   "4": 186.5,
+   "6": 220.2
+  }
+ },
+ "MP23_Map01.crp": {
+  "forest_values_top": {
+   "60": 15408,
+   "255": 10699,
+   "120": 10442,
+   "180": 7740,
+   "240": 5923
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.093,
+   "p90_km2": 26.868,
+   "max_km2": 51.978,
+   "share_area_in_top3": 0.995
+  },
+  "fertility_edge_profile": {
+   "1": 69.3,
+   "2": 73.4,
+   "3": 77.5,
+   "4": 78.2,
+   "6": 73.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 23,
+   "median_km2": 0.178,
+   "p90_km2": 5.503,
+   "max_km2": 9.429,
+   "share_area_in_top3": 0.785
+  },
+  "ore_edge_profile": {
+   "1": 30.0,
+   "2": 87.7,
+   "3": 124.7,
+   "4": 151.9,
+   "6": 196.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 24,
+   "median_km2": 0.096,
+   "p90_km2": 0.457,
+   "max_km2": 2.745,
+   "share_area_in_top3": 0.579
+  },
+  "oil_edge_profile": {
+   "1": 49.4,
+   "2": 130.7,
+   "3": 173.7,
+   "4": 211.0,
+   "6": 240.0
+  }
+ },
+ "MP23_Map02.crp": {
+  "forest_values_top": {
+   "60": 20147,
+   "120": 7680,
+   "180": 3529,
+   "255": 1695,
+   "240": 1662
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.262,
+   "p90_km2": 46.797,
+   "max_km2": 77.162,
+   "share_area_in_top3": 0.996
+  },
+  "fertility_edge_profile": {
+   "1": 76.3,
+   "2": 79.6,
+   "3": 83.5,
+   "4": 84.5,
+   "6": 81.7
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.2,
+   "p90_km2": 0.661,
+   "max_km2": 3.037,
+   "share_area_in_top3": 0.711
+  },
+  "ore_edge_profile": {
+   "1": 67.5,
+   "2": 196.9,
+   "3": 233.6,
+   "4": 250.3,
+   "6": 254.9
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 86.301,
+   "p90_km2": 86.301,
+   "max_km2": 86.301,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 63.7,
+   "2": 136.5,
+   "3": 167.0,
+   "4": 177.0,
+   "6": 180.4
+  }
+ },
+ "MP23_Map03.crp": {
+  "forest_values_top": {
+   "60": 37762,
+   "120": 30625,
+   "180": 13929,
+   "240": 4927,
+   "255": 3029
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.391,
+   "p90_km2": 18.586,
+   "max_km2": 35.535,
+   "share_area_in_top3": 0.965
+  },
+  "fertility_edge_profile": {
+   "1": 74.3,
+   "2": 63.3,
+   "3": 48.0,
+   "4": 50.3,
+   "6": 73.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 25,
+   "median_km2": 0.163,
+   "p90_km2": 1.727,
+   "max_km2": 9.946,
+   "share_area_in_top3": 0.748
+  },
+  "ore_edge_profile": {
+   "1": 11.2,
+   "2": 39.1,
+   "3": 70.2,
+   "4": 94.2,
+   "6": 159.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 15,
+   "median_km2": 0.181,
+   "p90_km2": 2.234,
+   "max_km2": 3.238,
+   "share_area_in_top3": 0.664
+  },
+  "oil_edge_profile": {
+   "1": 58.5,
+   "2": 107.5,
+   "3": 123.4,
+   "4": 129.0,
+   "6": 165.4
+  }
+ },
+ "MP23_Map04.crp": {
+  "forest_values_top": {
+   "60": 40194,
+   "120": 30000,
+   "180": 19759,
+   "240": 10373,
+   "255": 7607
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.072,
+   "p90_km2": 49.048,
+   "max_km2": 70.031,
+   "share_area_in_top3": 0.997
+  },
+  "fertility_edge_profile": {
+   "1": 152.1,
+   "2": 168.7,
+   "3": 169.2,
+   "4": 166.1,
+   "6": 166.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 37,
+   "median_km2": 0.219,
+   "p90_km2": 0.711,
+   "max_km2": 4.571,
+   "share_area_in_top3": 0.476
+  },
+  "ore_edge_profile": {
+   "1": 19.7,
+   "2": 69.0,
+   "3": 140.9,
+   "4": 194.9,
+   "6": 220.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 22,
+   "median_km2": 0.262,
+   "p90_km2": 0.759,
+   "max_km2": 2.19,
+   "share_area_in_top3": 0.472
+  },
+  "oil_edge_profile": {
+   "1": 77.3,
+   "2": 142.0,
+   "3": 150.5,
+   "4": 174.2,
+   "6": 141.2
+  }
+ },
+ "MP23_Map05.crp": {
+  "forest_values_top": {
+   "60": 10830,
+   "120": 4824,
+   "180": 2446,
+   "240": 1222,
+   "255": 968
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 11.352,
+   "p90_km2": 11.352,
+   "max_km2": 11.352,
+   "share_area_in_top3": 1.0
+  },
+  "fertility_edge_profile": {
+   "1": 37.0,
+   "2": 133.2,
+   "3": 204.4,
+   "4": 247.8,
+   "6": 255.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.268,
+   "p90_km2": 9.651,
+   "max_km2": 22.392,
+   "share_area_in_top3": 0.927
+  },
+  "ore_edge_profile": {
+   "1": 65.6,
+   "2": 155.9,
+   "3": 189.8,
+   "4": 208.9,
+   "6": 226.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.208,
+   "p90_km2": 23.354,
+   "max_km2": 38.777,
+   "share_area_in_top3": 0.992
+  },
+  "oil_edge_profile": {
+   "1": 105.7,
+   "2": 183.9,
+   "3": 201.0,
+   "4": 211.0,
+   "6": 220.1
+  }
+ },
+ "MP23_Map06.crp": {
+  "forest_values_top": {
+   "60": 18520,
+   "120": 10711,
+   "255": 8863,
+   "180": 7319,
+   "240": 5298
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.106,
+   "p90_km2": 29.091,
+   "max_km2": 48.28,
+   "share_area_in_top3": 0.996
+  },
+  "fertility_edge_profile": {
+   "1": 86.0,
+   "2": 113.4,
+   "3": 129.6,
+   "4": 135.5,
+   "6": 143.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.067,
+   "p90_km2": 8.523,
+   "max_km2": 28.119,
+   "share_area_in_top3": 0.979
+  },
+  "ore_edge_profile": {
+   "1": 187.5,
+   "2": 243.7,
+   "3": 251.6,
+   "4": 252.6,
+   "6": 253.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 63.254,
+   "p90_km2": 63.254,
+   "max_km2": 63.254,
+   "share_area_in_top3": 0.999
+  },
+  "oil_edge_profile": {
+   "1": 145.8,
+   "2": 191.2,
+   "3": 205.2,
+   "4": 215.1,
+   "6": 229.8
+  }
+ },
+ "MP23_Map07.crp": {
+  "forest_values_top": {
+   "60": 34475,
+   "120": 25447,
+   "180": 16890,
+   "255": 11275,
+   "240": 9954
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.46,
+   "p90_km2": 50.347,
+   "max_km2": 71.63,
+   "share_area_in_top3": 0.996
+  },
+  "fertility_edge_profile": {
+   "1": 58.4,
+   "2": 40.2,
+   "3": 36.9,
+   "4": 36.5,
+   "6": 38.7
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.35,
+   "p90_km2": 15.027,
+   "max_km2": 20.431,
+   "share_area_in_top3": 0.907
+  },
+  "ore_edge_profile": {
+   "1": 13.0,
+   "2": 30.5,
+   "3": 45.1,
+   "4": 57.9,
+   "6": 86.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.46,
+   "p90_km2": 2.179,
+   "max_km2": 11.255,
+   "share_area_in_top3": 0.856
+  },
+  "oil_edge_profile": {
+   "1": 30.8,
+   "2": 65.2,
+   "3": 85.4,
+   "4": 120.2,
+   "6": 175.3
+  }
+ },
+ "MP23_Map08.crp": {
+  "forest_values_top": {
+   "120": 15260,
+   "60": 13377,
+   "180": 13260,
+   "255": 11950,
+   "240": 9231
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.452,
+   "p90_km2": 3.423,
+   "max_km2": 14.484,
+   "share_area_in_top3": 0.835
+  },
+  "fertility_edge_profile": {
+   "1": 84.2,
+   "2": 70.8,
+   "3": 26.8,
+   "4": 30.8
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.456,
+   "p90_km2": 5.631,
+   "max_km2": 7.42,
+   "share_area_in_top3": 0.659
+  },
+  "ore_edge_profile": {
+   "1": 9.1,
+   "2": 25.2,
+   "3": 44.6,
+   "4": 72.5,
+   "6": 165.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 30,
+   "median_km2": 0.129,
+   "p90_km2": 1.39,
+   "max_km2": 7.228,
+   "share_area_in_top3": 0.568
+  },
+  "oil_edge_profile": {
+   "1": 19.2,
+   "2": 55.3,
+   "3": 61.2,
+   "4": 70.6,
+   "6": 95.9
+  }
+ },
+ "MP23_Map09.crp": {
+  "forest_values_top": {
+   "60": 13640,
+   "120": 9600,
+   "255": 9372,
+   "180": 6677,
+   "240": 4782
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.175,
+   "p90_km2": 42.389,
+   "max_km2": 60.436,
+   "share_area_in_top3": 0.998
+  },
+  "fertility_edge_profile": {
+   "1": 71.1,
+   "2": 52.4,
+   "3": 45.0,
+   "4": 40.3,
+   "6": 40.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 15,
+   "median_km2": 0.367,
+   "p90_km2": 2.199,
+   "max_km2": 20.997,
+   "share_area_in_top3": 0.871
+  },
+  "ore_edge_profile": {
+   "1": 13.1,
+   "2": 34.1,
+   "3": 51.7,
+   "4": 61.2,
+   "6": 81.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.124,
+   "p90_km2": 0.201,
+   "max_km2": 22.302,
+   "share_area_in_top3": 0.95
+  },
+  "oil_edge_profile": {
+   "1": 24.4,
+   "2": 51.4,
+   "3": 54.4,
+   "4": 54.6,
+   "6": 61.0
+  }
+ },
+ "MP23_Map10.crp": {
+  "forest_values_top": {
+   "255": 15136,
+   "60": 13029,
+   "120": 10491,
+   "180": 9227,
+   "240": 7516
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.996,
+   "p90_km2": 15.383,
+   "max_km2": 24.122,
+   "share_area_in_top3": 0.931
+  },
+  "fertility_edge_profile": {
+   "1": 98.8,
+   "2": 107.1,
+   "3": 116.0,
+   "4": 114.4,
+   "6": 128.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 38,
+   "median_km2": 0.158,
+   "p90_km2": 0.998,
+   "max_km2": 2.414,
+   "share_area_in_top3": 0.352
+  },
+  "ore_edge_profile": {
+   "1": 75.3,
+   "2": 156.9,
+   "3": 188.2,
+   "4": 208.0,
+   "6": 244.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 21,
+   "median_km2": 0.197,
+   "p90_km2": 1.104,
+   "max_km2": 22.527,
+   "share_area_in_top3": 0.893
+  },
+  "oil_edge_profile": {
+   "1": 71.6,
+   "2": 158.4,
+   "3": 165.9,
+   "4": 171.7,
+   "6": 206.0
+  }
+ },
+ "MP27_Map01.crp": {
+  "forest_values_top": {
+   "255": 21091,
+   "60": 7975,
+   "120": 6664,
+   "180": 6607,
+   "240": 5904
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 1.188,
+   "p90_km2": 5.655,
+   "max_km2": 11.268,
+   "share_area_in_top3": 0.717
+  },
+  "fertility_edge_profile": {
+   "1": 171.9,
+   "2": 239.6,
+   "3": 254.2,
+   "4": 254.3,
+   "6": 254.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.63,
+   "p90_km2": 1.249,
+   "max_km2": 1.631,
+   "share_area_in_top3": 0.566
+  },
+  "ore_edge_profile": {
+   "1": 67.0,
+   "2": 194.6,
+   "3": 236.9,
+   "4": 246.3,
+   "6": 254.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 1.297,
+   "p90_km2": 4.661,
+   "max_km2": 10.096,
+   "share_area_in_top3": 0.784
+  },
+  "oil_edge_profile": {
+   "1": 134.2,
+   "2": 208.8,
+   "3": 235.1,
+   "4": 248.3,
+   "6": 246.8
+  }
+ },
+ "MP27_Map02.crp": {
+  "forest_values_top": {
+   "60": 24622,
+   "120": 16297,
+   "255": 15457,
+   "180": 11112,
+   "240": 7590
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.544,
+   "p90_km2": 1.332,
+   "max_km2": 3.92,
+   "share_area_in_top3": 0.571
+  },
+  "fertility_edge_profile": {
+   "1": 139.1,
+   "2": 223.0,
+   "3": 251.4,
+   "4": 252.6,
+   "6": 253.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.283,
+   "p90_km2": 0.691,
+   "max_km2": 1.771,
+   "share_area_in_top3": 0.565
+  },
+  "ore_edge_profile": {
+   "1": 41.2,
+   "2": 176.8,
+   "3": 245.2,
+   "4": 250.6,
+   "6": 252.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 32,
+   "median_km2": 0.177,
+   "p90_km2": 0.729,
+   "max_km2": 0.892,
+   "share_area_in_top3": 0.259
+  },
+  "oil_edge_profile": {
+   "1": 58.6,
+   "2": 181.1,
+   "3": 236.8,
+   "4": 248.1,
+   "6": 254.2
+  }
+ },
+ "MP27_Map03.crp": {
+  "forest_values_top": {
+   "255": 21053,
+   "60": 7299,
+   "240": 4607,
+   "120": 4530,
+   "180": 4473
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 37,
+   "median_km2": 0.115,
+   "p90_km2": 0.363,
+   "max_km2": 11.982,
+   "share_area_in_top3": 0.826
+  },
+  "fertility_edge_profile": {
+   "1": 223.4,
+   "2": 248.7,
+   "3": 253.6,
+   "4": 254.2,
+   "6": 254.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.678,
+   "p90_km2": 2.175,
+   "max_km2": 2.188,
+   "share_area_in_top3": 0.783
+  },
+  "ore_edge_profile": {
+   "1": 53.0,
+   "2": 208.1,
+   "3": 249.8,
+   "4": 252.1,
+   "6": 252.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.153,
+   "p90_km2": 2.358,
+   "max_km2": 2.59,
+   "share_area_in_top3": 0.722
+  },
+  "oil_edge_profile": {
+   "1": 61.0,
+   "2": 232.2,
+   "3": 253.9,
+   "4": 253.0,
+   "6": 255.0
+  }
+ },
+ "MP27_Map04.crp": {
+  "forest_values_top": {
+   "255": 13761,
+   "180": 5446,
+   "240": 5379,
+   "120": 5245,
+   "60": 5183
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.667,
+   "p90_km2": 3.13,
+   "max_km2": 3.595,
+   "share_area_in_top3": 0.732
+  },
+  "fertility_edge_profile": {
+   "1": 196.9,
+   "2": 249.8,
+   "3": 254.1,
+   "4": 250.4,
+   "6": 251.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.782,
+   "p90_km2": 2.405,
+   "max_km2": 3.621,
+   "share_area_in_top3": 0.649
+  },
+  "ore_edge_profile": {
+   "1": 34.6,
+   "2": 156.0,
+   "3": 243.8,
+   "4": 253.5,
+   "6": 252.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.346,
+   "p90_km2": 1.556,
+   "max_km2": 8.524,
+   "share_area_in_top3": 0.752
+  },
+  "oil_edge_profile": {
+   "1": 49.8,
+   "2": 206.6,
+   "3": 246.7,
+   "4": 251.7,
+   "6": 240.2
+  }
+ },
+ "MP27_Map05.crp": {
+  "forest_values_top": {
+   "60": 23998,
+   "120": 7922,
+   "255": 7367,
+   "180": 3165,
+   "240": 1692
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.436,
+   "p90_km2": 1.923,
+   "max_km2": 1.925,
+   "share_area_in_top3": 0.966
+  },
+  "fertility_edge_profile": {
+   "1": 248.3,
+   "2": 255.0,
+   "3": 255.0,
+   "4": 255.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.254,
+   "p90_km2": 11.722,
+   "max_km2": 20.754,
+   "share_area_in_top3": 0.946
+  },
+  "ore_edge_profile": {
+   "1": 50.2,
+   "2": 127.1,
+   "3": 161.7,
+   "4": 198.8,
+   "6": 243.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.223,
+   "p90_km2": 2.347,
+   "max_km2": 4.417,
+   "share_area_in_top3": 0.765
+  },
+  "oil_edge_profile": {
+   "1": 65.7,
+   "2": 188.3,
+   "3": 244.4,
+   "4": 250.7,
+   "6": 252.8
+  }
+ },
+ "MP27_Map06.crp": {
+  "forest_values_top": {
+   "60": 30067,
+   "120": 15773,
+   "255": 12515,
+   "180": 9532,
+   "240": 6200
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.723,
+   "p90_km2": 8.799,
+   "max_km2": 16.137,
+   "share_area_in_top3": 0.977
+  },
+  "fertility_edge_profile": {
+   "1": 153.7,
+   "2": 229.5,
+   "3": 249.5,
+   "4": 251.2,
+   "6": 248.8
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.947,
+   "p90_km2": 2.132,
+   "max_km2": 5.911,
+   "share_area_in_top3": 0.523
+  },
+  "ore_edge_profile": {
+   "1": 35.0,
+   "2": 130.5,
+   "3": 224.4,
+   "4": 247.2,
+   "6": 252.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 34,
+   "median_km2": 0.151,
+   "p90_km2": 0.474,
+   "max_km2": 6.62,
+   "share_area_in_top3": 0.585
+  },
+  "oil_edge_profile": {
+   "1": 49.4,
+   "2": 148.5,
+   "3": 228.8,
+   "4": 249.4,
+   "6": 254.0
+  }
+ },
+ "MP27_Map07.crp": {
+  "forest_values_top": {
+   "60": 25068,
+   "120": 15720,
+   "255": 15586,
+   "180": 10414,
+   "240": 7057
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.215,
+   "p90_km2": 5.752,
+   "max_km2": 6.651,
+   "share_area_in_top3": 0.916
+  },
+  "fertility_edge_profile": {
+   "1": 189.9,
+   "2": 243.6,
+   "3": 245.8,
+   "4": 244.1,
+   "6": 245.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.482,
+   "p90_km2": 8.181,
+   "max_km2": 12.648,
+   "share_area_in_top3": 0.892
+  },
+  "ore_edge_profile": {
+   "1": 37.9,
+   "2": 142.2,
+   "3": 220.3,
+   "4": 244.7,
+   "6": 249.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.216,
+   "p90_km2": 0.513,
+   "max_km2": 8.172,
+   "share_area_in_top3": 0.881
+  },
+  "oil_edge_profile": {
+   "1": 83.6,
+   "2": 232.1,
+   "3": 241.3,
+   "4": 245.8,
+   "6": 232.9
+  }
+ },
+ "MP27_Map08.crp": {
+  "forest_values_top": {
+   "255": 17390,
+   "60": 17222,
+   "120": 11954,
+   "180": 9130,
+   "240": 6756
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 1.144,
+   "p90_km2": 5.22,
+   "max_km2": 6.072,
+   "share_area_in_top3": 0.779
+  },
+  "fertility_edge_profile": {
+   "1": 168.4,
+   "2": 224.8,
+   "3": 244.9,
+   "4": 250.5,
+   "6": 251.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.579,
+   "p90_km2": 7.873,
+   "max_km2": 10.36,
+   "share_area_in_top3": 0.947
+  },
+  "ore_edge_profile": {
+   "1": 15.4,
+   "2": 65.0,
+   "3": 132.2,
+   "4": 198.2,
+   "6": 241.9
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.218,
+   "p90_km2": 4.7,
+   "max_km2": 5.71,
+   "share_area_in_top3": 0.865
+  },
+  "oil_edge_profile": {
+   "1": 17.4,
+   "2": 58.8,
+   "3": 129.0,
+   "4": 191.8,
+   "6": 239.8
+  }
+ },
+ "MP27_Map09.crp": {
+  "forest_values_top": {
+   "60": 36339,
+   "120": 17266,
+   "255": 13812,
+   "180": 9337,
+   "240": 5721
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.695,
+   "p90_km2": 2.943,
+   "max_km2": 3.406,
+   "share_area_in_top3": 0.553
+  },
+  "fertility_edge_profile": {
+   "1": 182.5,
+   "2": 241.7,
+   "3": 252.3,
+   "4": 251.4,
+   "6": 247.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 19,
+   "median_km2": 0.98,
+   "p90_km2": 3.132,
+   "max_km2": 3.489,
+   "share_area_in_top3": 0.396
+  },
+  "ore_edge_profile": {
+   "1": 37.7,
+   "2": 91.8,
+   "3": 163.9,
+   "4": 211.0,
+   "6": 248.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 24,
+   "median_km2": 0.237,
+   "p90_km2": 0.621,
+   "max_km2": 2.719,
+   "share_area_in_top3": 0.462
+  },
+  "oil_edge_profile": {
+   "1": 126.9,
+   "2": 217.9,
+   "3": 224.3,
+   "4": 231.4,
+   "6": 239.3
+  }
+ },
+ "MP27_Map10.crp": {
+  "forest_values_top": {
+   "255": 14815,
+   "60": 12106,
+   "120": 10560,
+   "180": 7995,
+   "240": 5909
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 20,
+   "median_km2": 0.368,
+   "p90_km2": 4.492,
+   "max_km2": 16.024,
+   "share_area_in_top3": 0.749
+  },
+  "fertility_edge_profile": {
+   "1": 168.1,
+   "2": 250.4,
+   "3": 252.5,
+   "4": 249.9,
+   "6": 248.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 50,
+   "median_km2": 0.231,
+   "p90_km2": 1.156,
+   "max_km2": 2.964,
+   "share_area_in_top3": 0.267
+  },
+  "ore_edge_profile": {
+   "1": 99.2,
+   "2": 246.9,
+   "3": 253.1,
+   "4": 248.6,
+   "6": 238.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 51,
+   "median_km2": 0.23,
+   "p90_km2": 0.616,
+   "max_km2": 1.754,
+   "share_area_in_top3": 0.236
+  },
+  "oil_edge_profile": {
+   "1": 103.1,
+   "2": 249.1,
+   "3": 254.0,
+   "4": 248.9,
+   "6": 247.6
+  }
+ },
+ "MT Ferry Empire.crp": {
+  "forest_values_top": {
+   "60": 77799,
+   "120": 31200,
+   "180": 10258,
+   "240": 3351,
+   "255": 1808
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.474,
+   "p90_km2": 0.692,
+   "max_km2": 0.754,
+   "share_area_in_top3": 0.815
+  },
+  "fertility_edge_profile": {
+   "1": 62.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.208,
+   "p90_km2": 0.359,
+   "max_km2": 0.383,
+   "share_area_in_top3": 0.881
+  },
+  "ore_edge_profile": {
+   "1": 42.1,
+   "2": 176.8,
+   "3": 253.5,
+   "4": 255.0,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 0.079,
+   "p90_km2": 0.079,
+   "max_km2": 0.079,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 94.5,
+   "2": 228.8,
+   "3": 255.0
+  }
+ },
+ "MT Fix The Traffic.crp": {
+  "forest_values_top": {
+   "60": 19953,
+   "120": 4948,
+   "180": 2370,
+   "255": 1459,
+   "240": 1423
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.628,
+   "p90_km2": 0.96,
+   "max_km2": 1.042,
+   "share_area_in_top3": 0.843
+  },
+  "fertility_edge_profile": {
+   "1": 85.2,
+   "2": 93.5,
+   "3": 89.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.311,
+   "p90_km2": 0.389,
+   "max_km2": 0.391,
+   "share_area_in_top3": 0.647
+  },
+  "ore_edge_profile": {
+   "1": 36.7,
+   "2": 170.6,
+   "3": 246.1,
+   "4": 255.0,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 0.182,
+   "p90_km2": 0.261,
+   "max_km2": 0.28,
+   "share_area_in_top3": 0.991
+  },
+  "oil_edge_profile": {
+   "1": 51.0,
+   "2": 222.5,
+   "3": 255.0,
+   "4": 255.0,
+   "6": 255.0
+  }
+ },
+ "MT Trains.crp": {
+  "forest_values_top": {
+   "60": 16588,
+   "120": 4640,
+   "180": 1994,
+   "255": 1093,
+   "240": 1002
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.301,
+   "p90_km2": 0.315,
+   "max_km2": 0.328,
+   "share_area_in_top3": 0.377
+  },
+  "fertility_edge_profile": {
+   "1": 127.0,
+   "2": 217.4,
+   "3": 254.9,
+   "4": 243.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.439,
+   "p90_km2": 0.762,
+   "max_km2": 0.886,
+   "share_area_in_top3": 0.826
+  },
+  "ore_edge_profile": {
+   "1": 62.3,
+   "2": 160.6,
+   "3": 229.5,
+   "4": 249.2,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.135,
+   "p90_km2": 0.154,
+   "max_km2": 0.155,
+   "share_area_in_top3": 0.809
+  },
+  "oil_edge_profile": {
+   "1": 110.0,
+   "2": 248.5,
+   "3": 255.0
+  }
+ },
+ "ND Alpine Villages.crp": {
+  "forest_values_top": {
+   "60": 41764,
+   "120": 31879,
+   "180": 21103,
+   "240": 11417,
+   "255": 6573
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.473,
+   "p90_km2": 1.31,
+   "max_km2": 1.549,
+   "share_area_in_top3": 0.709
+  },
+  "fertility_edge_profile": {
+   "1": 41.2,
+   "2": 13.1,
+   "3": 12.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 2.262,
+   "p90_km2": 2.294,
+   "max_km2": 2.302,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 3.9,
+   "2": 10.2,
+   "3": 25.6,
+   "4": 45.1,
+   "6": 115.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 2.526,
+   "p90_km2": 2.526,
+   "max_km2": 2.526,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 3.0,
+   "2": 7.6,
+   "3": 16.0,
+   "4": 25.3,
+   "6": 53.2
+  }
+ },
+ "ND By The Dam.crp": {
+  "forest_values_top": {
+   "60": 28880,
+   "120": 25553,
+   "180": 19012,
+   "240": 10848,
+   "255": 6293
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.358,
+   "p90_km2": 5.251,
+   "max_km2": 7.731,
+   "share_area_in_top3": 0.893
+  },
+  "fertility_edge_profile": {
+   "1": 70.0,
+   "2": 47.4,
+   "3": 54.1,
+   "4": 71.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.107,
+   "p90_km2": 2.21,
+   "max_km2": 2.854,
+   "share_area_in_top3": 0.771
+  },
+  "ore_edge_profile": {
+   "1": 10.9,
+   "2": 30.4,
+   "3": 67.9,
+   "4": 111.4,
+   "6": 203.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 1.341,
+   "p90_km2": 2.174,
+   "max_km2": 2.382,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 6.4,
+   "2": 18.2,
+   "3": 37.1,
+   "4": 58.7,
+   "6": 109.6
+  }
+ },
+ "ND Floodland.crp": {
+  "forest_values_top": {
+   "60": 60372,
+   "120": 40658,
+   "180": 21182,
+   "240": 8044,
+   "255": 2917
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  }
+ },
+ "ND Island Hopping.crp": {
+  "forest_values_top": {
+   "255": 25426,
+   "240": 11635,
+   "180": 7946,
+   "120": 4638,
+   "60": 3052
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.079,
+   "p90_km2": 0.51,
+   "max_km2": 0.625,
+   "share_area_in_top3": 0.557
+  },
+  "fertility_edge_profile": {
+   "1": 11.2,
+   "2": 15.5,
+   "3": 27.5,
+   "4": 33.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 0,
+   "median_km2": 0,
+   "p90_km2": 0,
+   "max_km2": 0.0,
+   "share_area_in_top3": 0.0
+  }
+ },
+ "ND Tornado Country.crp": {
+  "forest_values_top": {
+   "60": 52608,
+   "120": 32256,
+   "180": 13694,
+   "240": 3976,
+   "255": 803
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 2.87,
+   "p90_km2": 5.184,
+   "max_km2": 5.624,
+   "share_area_in_top3": 0.749
+  },
+  "fertility_edge_profile": {
+   "1": 74.3,
+   "2": 75.2,
+   "3": 71.5,
+   "4": 66.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 2.918,
+   "p90_km2": 2.918,
+   "max_km2": 2.918,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 4.5,
+   "2": 8.4,
+   "3": 14.8,
+   "4": 22.4,
+   "6": 46.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 2.785,
+   "p90_km2": 2.785,
+   "max_km2": 2.785,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 1.3,
+   "2": 2.2,
+   "3": 4.2,
+   "4": 6.3,
+   "6": 13.5
+  }
+ },
+ "NorthEurope1FINAL.crp": {
+  "forest_values_top": {
+   "60": 64251,
+   "120": 39717,
+   "180": 19127,
+   "240": 6547,
+   "255": 1798
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.718,
+   "p90_km2": 3.734,
+   "max_km2": 4.399,
+   "share_area_in_top3": 0.592
+  },
+  "fertility_edge_profile": {
+   "1": 81.3,
+   "2": 67.4,
+   "3": 88.6,
+   "4": 96.4,
+   "6": 105.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.607,
+   "p90_km2": 2.784,
+   "max_km2": 2.786,
+   "share_area_in_top3": 0.59
+  },
+  "ore_edge_profile": {
+   "1": 4.2,
+   "2": 10.7,
+   "3": 21.7,
+   "4": 33.2,
+   "6": 70.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 2.734,
+   "p90_km2": 3.049,
+   "max_km2": 3.15,
+   "share_area_in_top3": 0.856
+  },
+  "oil_edge_profile": {
+   "1": 5.2,
+   "2": 15.2,
+   "3": 29.6,
+   "4": 45.6,
+   "6": 97.4
+  }
+ },
+ "NorthEurope2FINAL.crp": {
+  "forest_values_top": {
+   "60": 49214,
+   "120": 37457,
+   "180": 23734,
+   "240": 11381,
+   "255": 5072
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.766,
+   "p90_km2": 9.595,
+   "max_km2": 14.686,
+   "share_area_in_top3": 0.866
+  },
+  "fertility_edge_profile": {
+   "1": 90.0,
+   "2": 93.5,
+   "3": 92.6,
+   "4": 92.2,
+   "6": 124.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 1.35,
+   "p90_km2": 2.375,
+   "max_km2": 2.897,
+   "share_area_in_top3": 0.594
+  },
+  "ore_edge_profile": {
+   "1": 4.7,
+   "2": 16.3,
+   "3": 36.5,
+   "4": 61.8,
+   "6": 147.9
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.814,
+   "p90_km2": 1.44,
+   "max_km2": 1.805,
+   "share_area_in_top3": 0.481
+  },
+  "oil_edge_profile": {
+   "1": 10.3,
+   "2": 39.6,
+   "3": 76.4,
+   "4": 96.1,
+   "6": 146.6
+  }
+ },
+ "NorthEurope3FINAL.crp": {
+  "forest_values_top": {
+   "60": 53736,
+   "120": 36453,
+   "180": 24934,
+   "240": 13197,
+   "255": 6999
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 1.32,
+   "p90_km2": 1.931,
+   "max_km2": 2.372,
+   "share_area_in_top3": 0.464
+  },
+  "fertility_edge_profile": {
+   "1": 77.3,
+   "2": 95.6,
+   "3": 109.9,
+   "4": 125.1,
+   "6": 133.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 1.135,
+   "p90_km2": 2.674,
+   "max_km2": 3.745,
+   "share_area_in_top3": 0.52
+  },
+  "ore_edge_profile": {
+   "1": 3.7,
+   "2": 10.8,
+   "3": 23.9,
+   "4": 39.9,
+   "6": 90.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.739,
+   "p90_km2": 3.251,
+   "max_km2": 4.221,
+   "share_area_in_top3": 0.668
+  },
+  "oil_edge_profile": {
+   "1": 4.7,
+   "2": 14.0,
+   "3": 31.3,
+   "4": 53.4,
+   "6": 121.1
+  }
+ },
+ "PB Cape Apple.crp": {
+  "forest_values_top": {
+   "60": 28143,
+   "120": 15055,
+   "180": 8843,
+   "240": 4729,
+   "255": 2675
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 16,
+   "median_km2": 0.63,
+   "p90_km2": 1.034,
+   "max_km2": 1.223,
+   "share_area_in_top3": 0.308
+  },
+  "fertility_edge_profile": {
+   "1": 39.2,
+   "2": 111.2,
+   "3": 191.3,
+   "4": 227.4,
+   "6": 247.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.639,
+   "p90_km2": 0.913,
+   "max_km2": 1.038,
+   "share_area_in_top3": 0.777
+  },
+  "ore_edge_profile": {
+   "1": 45.3,
+   "2": 147.3,
+   "3": 197.2,
+   "4": 213.9,
+   "6": 238.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.233,
+   "p90_km2": 0.707,
+   "max_km2": 0.9,
+   "share_area_in_top3": 0.908
+  },
+  "oil_edge_profile": {
+   "1": 84.1,
+   "2": 235.1,
+   "3": 254.8,
+   "4": 252.8,
+   "6": 255.0
+  }
+ },
+ "PB Coastal Gem.crp": {
+  "forest_values_top": {
+   "60": 20495,
+   "120": 9235,
+   "180": 5150,
+   "240": 2746,
+   "255": 1769
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.284,
+   "p90_km2": 0.562,
+   "max_km2": 0.648,
+   "share_area_in_top3": 0.536
+  },
+  "fertility_edge_profile": {
+   "1": 121.8,
+   "2": 219.2,
+   "3": 239.1,
+   "4": 254.2,
+   "6": 255.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.266,
+   "p90_km2": 0.886,
+   "max_km2": 1.819,
+   "share_area_in_top3": 0.681
+  },
+  "ore_edge_profile": {
+   "1": 30.7,
+   "2": 96.1,
+   "3": 147.9,
+   "4": 182.9,
+   "6": 226.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.132,
+   "p90_km2": 0.324,
+   "max_km2": 0.476,
+   "share_area_in_top3": 0.759
+  },
+  "oil_edge_profile": {
+   "1": 89.0,
+   "2": 164.8,
+   "3": 214.0,
+   "4": 237.3,
+   "6": 249.4
+  }
+ },
+ "PB Gondola Islands.crp": {
+  "forest_values_top": {
+   "60": 6944,
+   "120": 3462,
+   "180": 2010,
+   "240": 1230,
+   "255": 870
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.876,
+   "p90_km2": 1.979,
+   "max_km2": 2.319,
+   "share_area_in_top3": 0.671
+  },
+  "fertility_edge_profile": {
+   "1": 102.1,
+   "2": 187.2,
+   "3": 231.7,
+   "4": 247.2,
+   "6": 254.2
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.382,
+   "p90_km2": 0.554,
+   "max_km2": 0.589,
+   "share_area_in_top3": 0.693
+  },
+  "ore_edge_profile": {
+   "1": 57.0,
+   "2": 184.9,
+   "3": 226.3,
+   "4": 240.2,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.193,
+   "p90_km2": 0.542,
+   "max_km2": 0.578,
+   "share_area_in_top3": 0.828
+  },
+  "oil_edge_profile": {
+   "1": 102.3,
+   "2": 235.0,
+   "3": 254.4,
+   "4": 255.0
+  }
+ },
+ "PB Oracle Lake.crp": {
+  "forest_values_top": {
+   "60": 37392,
+   "120": 24737,
+   "180": 15433,
+   "240": 8445,
+   "255": 5627
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.327,
+   "p90_km2": 0.443,
+   "max_km2": 0.558,
+   "share_area_in_top3": 0.634
+  },
+  "fertility_edge_profile": {
+   "1": 102.4,
+   "2": 224.0,
+   "3": 241.3,
+   "4": 247.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.531,
+   "p90_km2": 1.037,
+   "max_km2": 2.245,
+   "share_area_in_top3": 0.47
+  },
+  "ore_edge_profile": {
+   "1": 46.7,
+   "2": 188.5,
+   "3": 231.6,
+   "4": 245.0,
+   "6": 250.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.302,
+   "p90_km2": 0.403,
+   "max_km2": 0.434,
+   "share_area_in_top3": 0.78
+  },
+  "oil_edge_profile": {
+   "1": 70.3,
+   "2": 217.7,
+   "3": 252.6,
+   "4": 255.0,
+   "6": 255.0
+  }
+ },
+ "PB Splitz Tributary.crp": {
+  "forest_values_top": {
+   "60": 41320,
+   "120": 21926,
+   "180": 9186,
+   "240": 2932,
+   "255": 946
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.342,
+   "p90_km2": 0.501,
+   "max_km2": 0.59,
+   "share_area_in_top3": 0.54
+  },
+  "fertility_edge_profile": {
+   "1": 76.1,
+   "2": 185.3,
+   "3": 210.8,
+   "4": 241.9,
+   "6": 245.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.298,
+   "p90_km2": 0.603,
+   "max_km2": 0.891,
+   "share_area_in_top3": 0.494
+  },
+  "ore_edge_profile": {
+   "1": 51.3,
+   "2": 182.7,
+   "3": 217.8,
+   "4": 197.1,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.215,
+   "p90_km2": 0.315,
+   "max_km2": 0.316,
+   "share_area_in_top3": 0.517
+  },
+  "oil_edge_profile": {
+   "1": 95.9,
+   "2": 167.2,
+   "3": 184.9,
+   "4": 196.1,
+   "6": 214.4
+  }
+ },
+ "PL Cavern Coast.crp": {
+  "forest_values_top": {
+   "60": 29295,
+   "120": 26202,
+   "180": 20667,
+   "240": 12879,
+   "255": 8438
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 1.718,
+   "p90_km2": 4.096,
+   "max_km2": 7.755,
+   "share_area_in_top3": 0.65
+  },
+  "fertility_edge_profile": {
+   "1": 106.2,
+   "2": 126.2,
+   "3": 147.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 9,
+   "median_km2": 0.964,
+   "p90_km2": 1.629,
+   "max_km2": 2.391,
+   "share_area_in_top3": 0.494
+  },
+  "ore_edge_profile": {
+   "1": 24.0,
+   "2": 98.7,
+   "3": 161.2,
+   "4": 201.2,
+   "6": 220.7
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.801,
+   "p90_km2": 0.89,
+   "max_km2": 0.911,
+   "share_area_in_top3": 0.785
+  },
+  "oil_edge_profile": {
+   "1": 8.3,
+   "2": 23.8,
+   "3": 50.4,
+   "4": 76.4,
+   "6": 139.4
+  }
+ },
+ "PL Honu Island.crp": {
+  "forest_values_top": {
+   "60": 32218,
+   "120": 26157,
+   "180": 16979,
+   "255": 12713,
+   "240": 9778
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.173,
+   "p90_km2": 0.375,
+   "max_km2": 0.497,
+   "share_area_in_top3": 0.747
+  },
+  "fertility_edge_profile": {
+   "1": 191.3
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 0.567,
+   "p90_km2": 2.883,
+   "max_km2": 3.578,
+   "share_area_in_top3": 0.892
+  },
+  "ore_edge_profile": {
+   "1": 6.6,
+   "2": 19.8,
+   "3": 36.9,
+   "4": 55.1,
+   "6": 101.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 5.869,
+   "p90_km2": 11.364,
+   "max_km2": 13.506,
+   "share_area_in_top3": 0.849
+  },
+  "oil_edge_profile": {
+   "1": 5.1,
+   "2": 17.2,
+   "3": 33.9,
+   "4": 49.7,
+   "6": 80.1
+  }
+ },
+ "PL Mountain Meadows.crp": {
+  "forest_values_top": {
+   "60": 34407,
+   "120": 15136,
+   "180": 5723,
+   "240": 1831,
+   "255": 496
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 19.541,
+   "p90_km2": 22.239,
+   "max_km2": 22.913,
+   "share_area_in_top3": 0.999
+  },
+  "fertility_edge_profile": {
+   "1": 111.5,
+   "2": 142.9,
+   "3": 154.7,
+   "4": 152.7,
+   "6": 175.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.202,
+   "p90_km2": 1.112,
+   "max_km2": 1.177,
+   "share_area_in_top3": 0.795
+  },
+  "ore_edge_profile": {
+   "1": 25.3,
+   "2": 76.8,
+   "3": 112.5,
+   "4": 135.5,
+   "6": 154.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 0.838,
+   "p90_km2": 1.945,
+   "max_km2": 2.336,
+   "share_area_in_top3": 0.933
+  },
+  "oil_edge_profile": {
+   "1": 20.5,
+   "2": 45.5,
+   "3": 41.2,
+   "4": 34.2,
+   "6": 30.6
+  }
+ },
+ "PL Pine Rivers.crp": {
+  "forest_values_top": {
+   "60": 22018,
+   "120": 3962,
+   "180": 1166,
+   "240": 442,
+   "255": 299
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.734,
+   "p90_km2": 0.903,
+   "max_km2": 0.945,
+   "share_area_in_top3": 0.997
+  },
+  "fertility_edge_profile": {
+   "1": 100.2,
+   "2": 97.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 28,
+   "median_km2": 0.124,
+   "p90_km2": 0.561,
+   "max_km2": 1.368,
+   "share_area_in_top3": 0.429
+  },
+  "ore_edge_profile": {
+   "1": 59.6,
+   "2": 197.3,
+   "3": 220.6,
+   "4": 210.3,
+   "6": 204.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.11,
+   "p90_km2": 0.147,
+   "max_km2": 0.156,
+   "share_area_in_top3": 0.99
+  },
+  "oil_edge_profile": {
+   "1": 97.9,
+   "2": 235.6
+  }
+ },
+ "PL Windfield.crp": {
+  "forest_values_top": {
+   "60": 38444,
+   "120": 28823,
+   "180": 18314,
+   "240": 8965,
+   "255": 5265
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 33.502,
+   "p90_km2": 33.502,
+   "max_km2": 33.502,
+   "share_area_in_top3": 1.0
+  },
+  "fertility_edge_profile": {
+   "1": 75.3,
+   "2": 96.3,
+   "3": 118.8,
+   "4": 127.9,
+   "6": 146.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 0.908,
+   "p90_km2": 2.215,
+   "max_km2": 2.542,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 11.4,
+   "2": 49.8,
+   "3": 89.0,
+   "4": 120.5,
+   "6": 126.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 3.417,
+   "p90_km2": 11.759,
+   "max_km2": 15.24,
+   "share_area_in_top3": 0.996
+  },
+  "oil_edge_profile": {
+   "1": 6.3,
+   "2": 11.3,
+   "3": 20.4,
+   "4": 27.2,
+   "6": 52.1
+  }
+ },
+ "PU Gray Waters.crp": {
+  "forest_values_top": {
+   "60": 35127,
+   "120": 11017,
+   "180": 3229,
+   "240": 906,
+   "255": 311
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 0.47,
+   "p90_km2": 1.26,
+   "max_km2": 2.153,
+   "share_area_in_top3": 0.517
+  },
+  "fertility_edge_profile": {
+   "1": 62.9,
+   "2": 91.5,
+   "3": 107.1,
+   "4": 107.2,
+   "6": 146.1
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.763,
+   "p90_km2": 2.559,
+   "max_km2": 2.668,
+   "share_area_in_top3": 0.555
+  },
+  "ore_edge_profile": {
+   "1": 25.3,
+   "2": 58.7,
+   "3": 72.2,
+   "4": 70.2,
+   "6": 73.9
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.371,
+   "p90_km2": 1.07,
+   "max_km2": 1.859,
+   "share_area_in_top3": 0.701
+  },
+  "oil_edge_profile": {
+   "1": 56.3,
+   "2": 139.0,
+   "3": 165.6,
+   "4": 159.7,
+   "6": 136.0
+  }
+ },
+ "PU Narrow Passage.crp": {
+  "forest_values_top": {
+   "60": 25886,
+   "120": 11547,
+   "180": 4346,
+   "240": 1429,
+   "255": 673
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 3.088,
+   "p90_km2": 14.828,
+   "max_km2": 18.82,
+   "share_area_in_top3": 0.991
+  },
+  "fertility_edge_profile": {
+   "1": 143.4,
+   "2": 143.2,
+   "3": 134.7,
+   "4": 135.8,
+   "6": 255.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.387,
+   "p90_km2": 4.789,
+   "max_km2": 5.581,
+   "share_area_in_top3": 0.978
+  },
+  "ore_edge_profile": {
+   "1": 19.4,
+   "2": 57.5,
+   "3": 83.2,
+   "4": 100.0,
+   "6": 134.2
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.474,
+   "p90_km2": 0.883,
+   "max_km2": 1.345,
+   "share_area_in_top3": 0.544
+  },
+  "oil_edge_profile": {
+   "1": 39.3,
+   "2": 146.4,
+   "3": 198.4,
+   "4": 211.5,
+   "6": 191.8
+  }
+ },
+ "PU River Terrace.crp": {
+  "forest_values_top": {
+   "60": 51771,
+   "120": 22244,
+   "180": 9065,
+   "240": 3227,
+   "255": 1346
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 2.148,
+   "p90_km2": 6.071,
+   "max_km2": 7.037,
+   "share_area_in_top3": 0.707
+  },
+  "fertility_edge_profile": {
+   "1": 106.7,
+   "2": 138.8,
+   "3": 168.1,
+   "4": 190.8,
+   "6": 224.8
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.375,
+   "p90_km2": 1.467,
+   "max_km2": 2.184,
+   "share_area_in_top3": 0.632
+  },
+  "ore_edge_profile": {
+   "1": 40.2,
+   "2": 113.7,
+   "3": 169.7,
+   "4": 203.2,
+   "6": 232.6
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 10,
+   "median_km2": 0.219,
+   "p90_km2": 0.717,
+   "max_km2": 0.879,
+   "share_area_in_top3": 0.609
+  },
+  "oil_edge_profile": {
+   "1": 70.0,
+   "2": 164.9,
+   "3": 205.6,
+   "4": 216.6,
+   "6": 235.7
+  }
+ },
+ "PU Windblown Coast.crp": {
+  "forest_values_top": {
+   "60": 13168,
+   "120": 5270,
+   "180": 2137,
+   "240": 963,
+   "255": 963
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.326,
+   "p90_km2": 0.895,
+   "max_km2": 1.248,
+   "share_area_in_top3": 0.628
+  },
+  "fertility_edge_profile": {
+   "1": 170.3,
+   "2": 232.0,
+   "3": 250.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 1.502,
+   "p90_km2": 1.82,
+   "max_km2": 1.899,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 94.8,
+   "2": 189.6,
+   "3": 220.0,
+   "4": 229.9,
+   "6": 230.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 12,
+   "median_km2": 0.389,
+   "p90_km2": 0.756,
+   "max_km2": 1.399,
+   "share_area_in_top3": 0.462
+  },
+  "oil_edge_profile": {
+   "1": 50.0,
+   "2": 140.1,
+   "3": 189.6,
+   "4": 207.3,
+   "6": 219.1
+  }
+ },
+ "PU Wyvern Pass.crp": {
+  "forest_values_top": {
+   "60": 45796,
+   "120": 17127,
+   "180": 5653,
+   "240": 1848,
+   "255": 1037
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.802,
+   "p90_km2": 6.045,
+   "max_km2": 6.842,
+   "share_area_in_top3": 0.833
+  },
+  "fertility_edge_profile": {
+   "1": 125.1,
+   "2": 145.8,
+   "3": 160.1,
+   "4": 173.8,
+   "6": 219.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 14,
+   "median_km2": 1.344,
+   "p90_km2": 2.663,
+   "max_km2": 2.774,
+   "share_area_in_top3": 0.41
+  },
+  "ore_edge_profile": {
+   "1": 24.8,
+   "2": 96.2,
+   "3": 161.1,
+   "4": 190.5,
+   "6": 218.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 11,
+   "median_km2": 0.296,
+   "p90_km2": 0.458,
+   "max_km2": 0.761,
+   "share_area_in_top3": 0.502
+  },
+  "oil_edge_profile": {
+   "1": 44.6,
+   "2": 157.7,
+   "3": 211.9,
+   "4": 223.5,
+   "6": 248.2
+  }
+ },
+ "SouthEurope1FINAL.crp": {
+  "forest_values_top": {
+   "60": 45294,
+   "120": 36456,
+   "180": 23061,
+   "240": 10667,
+   "255": 5463
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.029,
+   "p90_km2": 3.582,
+   "max_km2": 4.893,
+   "share_area_in_top3": 0.627
+  },
+  "fertility_edge_profile": {
+   "1": 103.8,
+   "2": 95.1,
+   "3": 105.5,
+   "4": 119.4,
+   "6": 195.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 1.123,
+   "p90_km2": 2.898,
+   "max_km2": 4.39,
+   "share_area_in_top3": 0.838
+  },
+  "ore_edge_profile": {
+   "1": 4.2,
+   "2": 14.2,
+   "3": 31.2,
+   "4": 48.7,
+   "6": 88.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.549,
+   "p90_km2": 2.239,
+   "max_km2": 2.264,
+   "share_area_in_top3": 0.59
+  },
+  "oil_edge_profile": {
+   "1": 3.8,
+   "2": 14.2,
+   "3": 31.9,
+   "4": 52.5,
+   "6": 110.9
+  }
+ },
+ "SouthEurope2FINAL.crp": {
+  "forest_values_top": {
+   "60": 30823,
+   "120": 28022,
+   "180": 20902,
+   "240": 11753,
+   "255": 6748
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 2.728,
+   "p90_km2": 6.857,
+   "max_km2": 9.537,
+   "share_area_in_top3": 0.802
+  },
+  "fertility_edge_profile": {
+   "1": 89.8,
+   "2": 49.6,
+   "3": 78.6,
+   "4": 124.3,
+   "6": 161.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 3.16,
+   "p90_km2": 3.306,
+   "max_km2": 3.342,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 5.2,
+   "2": 19.3,
+   "3": 47.3,
+   "4": 80.9,
+   "6": 172.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.285,
+   "p90_km2": 1.494,
+   "max_km2": 1.537,
+   "share_area_in_top3": 0.886
+  },
+  "oil_edge_profile": {
+   "1": 3.7,
+   "2": 14.8,
+   "3": 40.3,
+   "4": 72.9,
+   "6": 173.8
+  }
+ },
+ "SouthEurope3FINAL.crp": {
+  "forest_values_top": {
+   "60": 61613,
+   "120": 40567,
+   "180": 21214,
+   "240": 8798,
+   "255": 4048
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.631,
+   "p90_km2": 1.92,
+   "max_km2": 2.034,
+   "share_area_in_top3": 0.649
+  },
+  "fertility_edge_profile": {
+   "1": 113.0,
+   "2": 84.5,
+   "3": 71.4,
+   "4": 77.2,
+   "6": 79.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 2.53,
+   "p90_km2": 3.926,
+   "max_km2": 4.89,
+   "share_area_in_top3": 0.701
+  },
+  "ore_edge_profile": {
+   "1": 4.3,
+   "2": 11.1,
+   "3": 22.5,
+   "4": 33.4,
+   "6": 63.8
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 2.157,
+   "p90_km2": 2.489,
+   "max_km2": 2.753,
+   "share_area_in_top3": 0.561
+  },
+  "oil_edge_profile": {
+   "1": 3.6,
+   "2": 8.6,
+   "3": 18.1,
+   "4": 29.7,
+   "6": 68.5
+  }
+ },
+ "Tropical1FINAL.crp": {
+  "forest_values_top": {
+   "60": 40495,
+   "120": 26352,
+   "180": 17521,
+   "255": 11511,
+   "240": 10636
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.447,
+   "p90_km2": 1.384,
+   "max_km2": 5.976,
+   "share_area_in_top3": 0.701
+  },
+  "fertility_edge_profile": {
+   "1": 73.5,
+   "2": 56.9,
+   "3": 71.1,
+   "4": 85.5
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 1.19,
+   "p90_km2": 1.653,
+   "max_km2": 1.874,
+   "share_area_in_top3": 0.525
+  },
+  "ore_edge_profile": {
+   "1": 9.7,
+   "2": 37.9,
+   "3": 75.4,
+   "4": 103.7,
+   "6": 162.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 3,
+   "median_km2": 1.787,
+   "p90_km2": 1.817,
+   "max_km2": 1.825,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 8.7,
+   "2": 35.7,
+   "3": 82.7,
+   "4": 135.1,
+   "6": 174.0
+  }
+ },
+ "Tropical2FINAL.crp": {
+  "forest_values_top": {
+   "60": 38204,
+   "120": 19640,
+   "180": 11786,
+   "255": 8586,
+   "240": 7422
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 17,
+   "median_km2": 0.23,
+   "p90_km2": 2.37,
+   "max_km2": 14.88,
+   "share_area_in_top3": 0.82
+  },
+  "fertility_edge_profile": {
+   "1": 51.2,
+   "2": 37.5,
+   "3": 41.6,
+   "4": 45.1,
+   "6": 36.6
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 9.175,
+   "p90_km2": 10.4,
+   "max_km2": 10.706,
+   "share_area_in_top3": 1.0
+  },
+  "ore_edge_profile": {
+   "1": 10.5,
+   "2": 29.0,
+   "3": 50.4,
+   "4": 75.4,
+   "6": 128.1
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 1,
+   "median_km2": 8.877,
+   "p90_km2": 8.877,
+   "max_km2": 8.877,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 4.3,
+   "2": 11.1,
+   "3": 21.7,
+   "4": 35.8,
+   "6": 69.0
+  }
+ },
+ "Tropical3FINAL.crp": {
+  "forest_values_top": {
+   "255": 22432,
+   "60": 11157,
+   "180": 9212,
+   "240": 9043,
+   "120": 8674
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 8,
+   "median_km2": 0.588,
+   "p90_km2": 4.391,
+   "max_km2": 6.904,
+   "share_area_in_top3": 0.87
+  },
+  "fertility_edge_profile": {
+   "1": 113.6,
+   "2": 122.1,
+   "3": 139.8,
+   "4": 166.8,
+   "6": 197.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 7,
+   "median_km2": 1.224,
+   "p90_km2": 5.652,
+   "max_km2": 7.492,
+   "share_area_in_top3": 0.806
+  },
+  "ore_edge_profile": {
+   "1": 49.9,
+   "2": 92.3,
+   "3": 125.2,
+   "4": 143.5,
+   "6": 160.3
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 2,
+   "median_km2": 2.779,
+   "p90_km2": 3.718,
+   "max_km2": 3.953,
+   "share_area_in_top3": 1.0
+  },
+  "oil_edge_profile": {
+   "1": 65.2,
+   "2": 107.1,
+   "3": 126.3,
+   "4": 159.9,
+   "6": 192.5
+  }
+ },
+ "Winter1Final.crp": {
+  "forest_values_top": {
+   "60": 35999,
+   "120": 26828,
+   "180": 16435,
+   "240": 7935,
+   "255": 3680
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.319,
+   "p90_km2": 1.516,
+   "max_km2": 1.561,
+   "share_area_in_top3": 0.558
+  },
+  "fertility_edge_profile": {
+   "1": 172.6,
+   "2": 156.8,
+   "3": 225.6,
+   "4": 253.0,
+   "6": 255.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.521,
+   "p90_km2": 2.287,
+   "max_km2": 2.49,
+   "share_area_in_top3": 0.829
+  },
+  "ore_edge_profile": {
+   "1": 4.1,
+   "2": 15.2,
+   "3": 36.7,
+   "4": 67.3,
+   "6": 152.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.003,
+   "p90_km2": 1.714,
+   "max_km2": 1.984,
+   "share_area_in_top3": 0.951
+  },
+  "oil_edge_profile": {
+   "1": 4.4,
+   "2": 21.3,
+   "3": 69.1,
+   "4": 118.3,
+   "6": 206.6
+  }
+ },
+ "Winter2Final.crp": {
+  "forest_values_top": {
+   "60": 44132,
+   "120": 27190,
+   "180": 13235,
+   "240": 4850,
+   "255": 1837
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.193,
+   "p90_km2": 3.529,
+   "max_km2": 4.369,
+   "share_area_in_top3": 0.921
+  },
+  "fertility_edge_profile": {
+   "1": 141.3,
+   "2": 104.4,
+   "3": 104.9,
+   "4": 126.1,
+   "6": 255.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 1.86,
+   "p90_km2": 3.493,
+   "max_km2": 4.666,
+   "share_area_in_top3": 0.751
+  },
+  "ore_edge_profile": {
+   "1": 3.3,
+   "2": 13.0,
+   "3": 35.2,
+   "4": 66.6,
+   "6": 139.1
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 2.23,
+   "p90_km2": 4.514,
+   "max_km2": 5.414,
+   "share_area_in_top3": 0.912
+  },
+  "oil_edge_profile": {
+   "1": 3.8,
+   "2": 14.4,
+   "3": 34.5,
+   "4": 61.2,
+   "6": 143.9
+  }
+ },
+ "Winter3Final.crp": {
+  "forest_values_top": {
+   "60": 36202,
+   "120": 25058,
+   "180": 15879,
+   "240": 8013,
+   "255": 4149
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 2.045,
+   "p90_km2": 3.399,
+   "max_km2": 4.041,
+   "share_area_in_top3": 0.72
+  },
+  "fertility_edge_profile": {
+   "1": 154.2,
+   "2": 131.9,
+   "3": 149.7,
+   "4": 168.2,
+   "6": 170.9
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 1.255,
+   "p90_km2": 1.459,
+   "max_km2": 1.524,
+   "share_area_in_top3": 0.659
+  },
+  "ore_edge_profile": {
+   "1": 13.0,
+   "2": 58.0,
+   "3": 140.2,
+   "4": 210.9,
+   "6": 246.4
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 4,
+   "median_km2": 1.214,
+   "p90_km2": 1.38,
+   "max_km2": 1.386,
+   "share_area_in_top3": 0.855
+  },
+  "oil_edge_profile": {
+   "1": 8.8,
+   "2": 50.5,
+   "3": 146.5,
+   "4": 232.6,
+   "6": 252.0
+  }
+ },
+ "Winter4Final.crp": {
+  "forest_values_top": {
+   "60": 28251,
+   "120": 20762,
+   "180": 14109,
+   "240": 7741,
+   "255": 4679
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.581,
+   "p90_km2": 0.862,
+   "max_km2": 0.896,
+   "share_area_in_top3": 0.641
+  },
+  "fertility_edge_profile": {
+   "1": 101.5,
+   "2": 120.1,
+   "3": 126.7,
+   "4": 132.7,
+   "6": 123.4
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 13,
+   "median_km2": 0.883,
+   "p90_km2": 2.613,
+   "max_km2": 9.718,
+   "share_area_in_top3": 0.658
+  },
+  "ore_edge_profile": {
+   "1": 13.4,
+   "2": 40.9,
+   "3": 65.1,
+   "4": 82.2,
+   "6": 115.5
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.484,
+   "p90_km2": 4.035,
+   "max_km2": 5.957,
+   "share_area_in_top3": 0.927
+  },
+  "oil_edge_profile": {
+   "1": 10.4,
+   "2": 31.9,
+   "3": 54.7,
+   "4": 70.4,
+   "6": 96.7
+  }
+ },
+ "Winter5Final.crp": {
+  "forest_values_top": {
+   "60": 13532,
+   "120": 8316,
+   "180": 4339,
+   "240": 2089,
+   "255": 1826
+  },
+  "forest_multiple60_share": 1.0,
+  "fertility_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.081,
+   "p90_km2": 0.145,
+   "max_km2": 0.146,
+   "share_area_in_top3": 0.746
+  },
+  "fertility_edge_profile": {
+   "1": 93.4,
+   "2": 51.0
+  },
+  "ore_blobs": {
+   "n_ge_0p05km2": 6,
+   "median_km2": 0.186,
+   "p90_km2": 0.463,
+   "max_km2": 0.69,
+   "share_area_in_top3": 0.744
+  },
+  "ore_edge_profile": {
+   "1": 124.3,
+   "2": 237.6,
+   "3": 255.0,
+   "4": 255.0,
+   "6": 255.0
+  },
+  "oil_blobs": {
+   "n_ge_0p05km2": 5,
+   "median_km2": 0.191,
+   "p90_km2": 0.573,
+   "max_km2": 0.576,
+   "share_area_in_top3": 0.88
+  },
+  "oil_edge_profile": {
+   "1": 84.4,
+   "2": 145.0,
+   "3": 180.7,
+   "4": 220.3,
+   "6": 222.2
+  }
+ }
+}

@@ -190,6 +190,27 @@ def stage_prepared(inputs, output, slugs):
             shutil.copyfile(source / name, folder / name)
         hydro = json.loads((folder / "hydrology.json").read_text())
         crp = folder / (hydro["map_id"] + ".crp")
+        resource_plan = None
+        plan_path = source / "plan.npz"
+        plan_binding = generation.get("resource_plan")
+        if (
+            plan_binding is not None or generation.get("resources")
+        ) and not plan_path.is_file():
+            raise ValueError(f"Prepared resource candidate is missing plan.npz: {slug}")
+        if plan_path.is_file():
+            from paint import load_plan
+            from resources import TREE_NAMES
+
+            plan_sha256 = hashlib.sha256(plan_path.read_bytes()).hexdigest()
+            if plan_binding is not None and (
+                plan_binding.get("file") != "plan.npz"
+                or plan_binding.get("sha256") != plan_sha256
+            ):
+                raise ValueError(
+                    f"Prepared resource plan changed since generation: {slug}"
+                )
+            shutil.copyfile(plan_path, folder / "plan.npz")
+            resource_plan = (load_plan(folder / "plan.npz"), TREE_NAMES)
         receipt = write_map(
             template,
             layout,
@@ -197,6 +218,7 @@ def stage_prepared(inputs, output, slugs):
             folder / "water.u16",
             folder / "hydrology.json",
             crp,
+            resources=resource_plan,
         )
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
@@ -226,6 +248,19 @@ def stage_prepared(inputs, output, slugs):
             source_kind="prepared candidate",
             prefill=generation.get("prefill", True),
         )
+        if resource_plan is not None:
+            receipt["resource_plan_sha256"] = plan_sha256
+            receipt["generation"] = {
+                "path": str(source / "generation.json"),
+                "sha256": hashlib.sha256(
+                    (source / "generation.json").read_bytes()
+                ).hexdigest(),
+            }
+            source_crp = source / crp.name
+            if hashlib.sha256(source_crp.read_bytes()).hexdigest() != receipt["sha256"]:
+                raise ValueError(
+                    f"Prepared resource package differs from its receipt: {slug}"
+                )
         (folder / "staging.json").write_text(json.dumps(receipt, indent=2) + "\n")
         staged.append((slug, crp, probes))
     return staged

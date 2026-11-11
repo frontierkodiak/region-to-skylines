@@ -203,9 +203,12 @@ def describe(template, layout, output):
             ids.append(outgoing[ids[-1]])
             if len(ids) > len(nodes):
                 raise ValueError("Cyclic template route")
-        outside = lambda node: (
-            max(abs(node_index[node]["position"][axis]) for axis in [0, 2]) >= 8639
-        )
+
+        def outside(node):
+            return (
+                max(abs(node_index[node]["position"][axis]) for axis in [0, 2]) >= 8639
+            )
+
         kind = (
             "rail"
             if outside(ids[0]) and outside(ids[-1])
