@@ -111,13 +111,19 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
     for (name, kind), mask in sorted(
         masks.items(), key=lambda item: (-int(item[1].sum()), item[0])
     ):
-        if mask.sum() < 45:
+        minimum = 2 if kind == "river" else 45
+        omission_reason = (
+            "below native two-vertex river resolution"
+            if kind == "river"
+            else "below existing 45-vertex modeled-reach minimum"
+        )
+        if mask.sum() < minimum:
             short_reaches.append(
                 {
                     "name": name,
                     "class": kind,
                     "mapped_vertices": int(mask.sum()),
-                    "reason": "below existing 45-vertex modeled-reach minimum",
+                    "reason": omission_reason,
                 }
             )
             continue
@@ -127,14 +133,14 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
         joins = ndimage.binary_dilation(others, iterations=3)
         for component in range(1, count + 1):
             channel = mask & (labels == component)
-            if channel.sum() < 45:
+            if channel.sum() < minimum:
                 short_reaches.append(
                     {
                         "name": name,
                         "class": kind,
                         "component": component,
                         "mapped_vertices": int(channel.sum()),
-                        "reason": "below existing 45-vertex modeled-reach minimum",
+                        "reason": omission_reason,
                     }
                 )
                 continue
@@ -180,14 +186,14 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     start, end = end, start
             path = route(channel, start, end, ground=ground, forbidden=forbidden)
             y, x = path.T
-            if len(path) < 45:
+            if len(path) < minimum:
                 short_reaches.append(
                     {
                         "name": name,
                         "class": kind,
                         "component": component,
                         "routed_vertices": len(path),
-                        "reason": "below existing 45-vertex modeled-reach minimum",
+                        "reason": omission_reason,
                     }
                 )
                 continue
@@ -211,10 +217,18 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 fitted = np.maximum(fitted, sea)
             ceiling = np.maximum(banks[y, x] - 0.25, sea if sea is not None else 0)
             overbank = float((fitted - ceiling).max())
-            bank_limited = kind == "river" and overbank > 1 / 64
+            short_river = kind == "river" and len(path) < 45
+            bank_limited = kind == "river" and (overbank > 1 / 64 or short_river)
             unforced_stream = kind == "stream" and overbank > 1 / 64
             if bank_limited:
                 fitted = np.minimum(fitted, ceiling)
+            if short_river:
+                # Newly retained small surface legs need local shallow stages,
+                # not the old long-reach monotone head propagated across a crest.
+                fitted = np.maximum(
+                    sea if sea is not None else 0,
+                    np.minimum(ceiling, original[y, x] + 1.0),
+                )
             line = np.zeros_like(channel)
             line[y, x] = True
             distance, nearest = ndimage.distance_transform_edt(
@@ -223,7 +237,12 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             line_levels = np.zeros_like(ground)
             line_levels[y, x] = fitted
             local_surface = line_levels[tuple(nearest)]
-            desired_bed = local_surface - 3.0 + (distance * SPACING / 32) ** 2 * 3.0
+            channel_depth = 1.0 if short_river else 3.0
+            desired_bed = (
+                local_surface
+                - channel_depth
+                + (distance * SPACING / 32) ** 2 * channel_depth
+            )
             corridor = (distance <= 3) & ~forbidden
             ground[corridor] = np.maximum(
                 original[corridor] - max_lowering,
@@ -256,12 +275,15 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             interior = np.flatnonzero(
                 (x >= 6) & (x <= SIZE - 7) & (y >= 6) & (y <= SIZE - 7)
             )
+            inset = min(2, max(0, (len(interior) - 2) // 2))
             controls = (
                 [
-                    ("upstream", int(interior[min(2, len(interior) - 1)])),
-                    ("downstream", int(interior[max(0, len(interior) - 3)])),
+                    ("upstream", int(interior[inset])),
+                    ("downstream", int(interior[-1 - inset])),
                 ]
-                if len(interior)
+                if len(interior) >= 2
+                else [("upstream", int(interior[0]))]
+                if len(interior) == 1
                 else []
             )
             if kind == "river" and len(interior):
@@ -364,6 +386,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     sources[-1]["unforced_infeasible_stream"] = True
                 if bank_limited:
                     sources[-1]["bank_limited"] = True
+                if short_river:
+                    sources[-1]["short_surface_river"] = True
                 if portal:
                     sources[-1]["underground_portal"] = portal
                     if role == "downstream":
@@ -384,9 +408,12 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             if bank_limited:
                 summaries[-1].update(
                     bank_limited=True,
-                    rejected_monotone_overbank_m=overbank,
                     control_spacing_m=512,
                 )
+                if overbank > 1 / 64:
+                    summaries[-1]["rejected_monotone_overbank_m"] = overbank
+            if short_river:
+                summaries[-1].update(short_surface_river=True, local_stage_profile=True)
             if unforced_stream:
                 summaries[-1].update(
                     unforced_infeasible_stream=True,
@@ -424,10 +451,20 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     "capacity": 0.06,
                 }
             )
+    # Initialize the retained source geography, not just fitted thalwegs or
+    # verification probes. This shallow film establishes no perennial claim:
+    # native flow must still prove that every visible branch stays wet.
+    film_ceiling = np.maximum(banks - 0.25, sea if sea is not None else 0)
+    film = np.minimum(ground + 0.25, film_ceiling)
+    film_cells = major_rivers & ~forbidden & (film > ground)
+    film_added = film_cells & (film > surface)
+    surface[film_cells] = np.maximum(surface[film_cells], film[film_cells])
     depth = np.maximum(0, surface - ground)
+    unseeded = major_rivers & (depth <= 0.1)
+    unseeded_y, unseeded_x = np.nonzero(unseeded)
     coverage = []
     for (name, kind), mask in sorted(masks.items()):
-        if mask.sum() >= 45:
+        if mask.any():
             coverage.append(
                 {
                     "name": name,
@@ -447,6 +484,19 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
         "mapped_waterway_coverage": coverage,
         "surface_water_classification": visibility,
         "unmodeled_short_surface_reaches": short_reaches,
+        "geographic_river_prefill": {
+            "mapped_cells": int(major_rivers.sum()),
+            "film_depth_cap_m": 0.25,
+            "film_added_cells": int(film_added.sum()),
+            "unseeded_cells": int(unseeded.sum()),
+            "insufficient_bank_clearance_cells": int(
+                (unseeded & (film_ceiling - ground <= 0.1)).sum()
+            ),
+            "unseeded_world_positions": [
+                [int(x * SPACING - HALF), 0, int(HALF - y * SPACING)]
+                for y, x in zip(unseeded_y, unseeded_x)
+            ],
+        },
     }
 
 
@@ -761,7 +811,10 @@ def limit_source_footprints(ground, depth, banks, geometry, summary):
     for source in limited:
         col = round((source["position"][0] + HALF) / SPACING)
         row = round((HALF - source["position"][2]) / SPACING)
-        target = np.floor(source["target"] * 64) / 64
+        target = source["target"]
+        if source.get("short_surface_river"):
+            target = min(target, float(ground[row, col]) + 1.0)
+        target = np.floor(target * 64) / 64
         if target <= ground[row, col] + 0.125:
             raise ValueError(
                 "Bank-bounded regulator has insufficient local water depth"
