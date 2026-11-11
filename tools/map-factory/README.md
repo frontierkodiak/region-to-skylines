@@ -2,9 +2,10 @@
 
 The Python reference writes terrain, initialized water, natural sources and
 terrain-following connection corridors into a native `.crp` template. It needs
-no game DLLs at export time. **Five-region native qualification is in progress;
-see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). Do not make these the website default
-until that check passes.**
+no game DLLs at export time. **Five exact packages have completed native60min
+and ordinary vanilla starts. Two raw checks remain failed with measured
+limitations; see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). This is a reference/test
+pack, not a universal website default.**
 
 The original PL-848 Asheville template passed ordinary **New Game** and city
 play with `--disableMods --noWorkshop` on CS1 1.21.1-f9. That result does not
@@ -94,7 +95,9 @@ filter. The committed real-region fixtures use the actual uncarved elevations.
 ## Natural resources and trees
 
 The resource stage writes trees, forest, fertile land, ore and oil, and the
-New Game panel amounts. It's opt-in until it has been checked in game.
+New Game panel amounts. Supply explicit land-cover inputs to opt in; all five
+current resource-bearing reference packages have actual panel/start/Areas
+review. That does not establish natural deposit accuracy or arbitrary regions.
 
 ```sh
 uv run python landcover.py GEOMETRY_JSON landcover.u8.gz   # ESA WorldCover 10 m, about 3 s

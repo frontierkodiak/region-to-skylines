@@ -1,58 +1,138 @@
 # Native qualification · PL-857
 
-## Current status · complete geographic rivers
+## Current reference delivery · 2026-11-11
 
-The prior fitted-route-only probe plan was insufficient. Independent retained
-source-river rasterization found Rio only573/1147central cells within64m of
-water at minute60, and Pittsburgh2242/2461, despite green fitted-route probes.
-Joana had0/184; a1.74km SawMillRun surface piece was dry. These are real visible
-river omissions, not tunnel or minor-stream exceptions. Prior green totals
-below are comparative history, **not complete river acceptance**.
+**Five exact resource-bearing packages each completed a 60-minute native soak
+and a separate ordinary New Game with `--disableMods --noWorkshop`, no control
+socket and reviewed images. This is a reviewable reference/test pack, not an
+all-green or universal-default certificate.** Website and installer are unchanged.
+All current initial native terrain/water grids and source controls match their
+prepared inputs. Road-in, road-out and rail paths at start and end (six checks), selected
+start-tile water, genuine New Game panels, untouched openings, actual Areas
+views and empty owned-session cleanup were verified for every package.
 
-Writer1c1f747 retains two-vertex surface river legs at every routing cutoff,
-keeps streams' prior minimum, and initializes retained major-river geography
-with a shallow bank-bounded film. Supplies remain shallow and locally bounded;
-actual carved-bed crests, not verification points, determine added supplies.
-`soak.py` independently stages every retained river raster cell. A separate
-pyproj/source-segment audit checks full geographic coverage on saved native
-grids, without the writer's routing or minimum-length policy. End-only wetness
-is insufficient: PR8 also judges every observed five-minute sample.
+| Region | Full CRP SHA-256 | Game min | Central source-river cells near wet through all saved grids | Max distant spread km² | Raw native verdict |
+| --- | --- | ---: | ---: | ---: | --- |
+| Asheville | `b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535` | 60.1144 | 1736/1736 | 0.000000 | PASS |
+| Innsbruck | `3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6` | 60.0389 | 910/910 | 0.000000 | PASS |
+| Rio | `997d4d07925e26ee07f20e8f82120e2e5785cdf99017d502066e20a3329aefd1` | 60.0356 | 1122/1147 | 0.050432 | no_flooding |
+| Pittsburgh | `97f727a7c3eba2019b448d49289312199d7d4301c6df3d4d93dec42399b4fffe` | 60.0619 | 2461/2461 | 0.000000 | PASS |
+| Charleston | `fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667` | 60.0078 | 2748/2748 | 0.005632 | ground_truth |
 
-Fresh `complete-river-candidates` packages (all previous full-package
-qualification superseded) are:
+Independent source-segment coverage uses pyproj and every retained geographic
+river raster cell, not fitted hydraulic routes or an outcome mask. Depth >0.1m
+is wet; “near” means actual water within64m, not exact wetness. The independent
+grids are 0/15/30/45/60; native geographic probes additionally sample every5min.
+All five pass the unchanged95% required-probe near-wet-throughout check.
+No continuous inter-sample claim is made. Independent exact-wet-throughout
+central counts are1732/1736,860/910,809/1147,2159/2461,2730/2748 respectively.
+Every exact-dry, boundary, named-river and minor-stream subset remains archived.
 
-| Region | Full CRP SHA-256 | New native qualification |
-| --- | --- | --- |
-| Asheville | `b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535` | Native 60-minute PASS and reviewed strict start; 1,736/1,736 central source-river cells near wet through all five grids; no distant spread |
-| Innsbruck | `3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6` | Native 60-minute run active; reviewed strict start |
-| Rio | `f60d9f4a4b2f222ffeb4fe5efb4b40cbbd90f74047f771e34090764f410c869a` | Rejected at 15 minutes: 0.155904 km2 distant spreading, max 3.859375 m; controlled intake/output/prefill diagnostics queued |
-| Pittsburgh | `d32e51a49fa9d65e5a476927696337cf90aae42a202f64f75d6bba4fa9ff1fcd` | Native 60.0636-minute PASS; 2,461/2,461 central source-river cells near wet through all five grids; no distant spread; strict start queued |
-| Charleston | `fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667` | Native soak queued; strict start completed, images await review |
+### Residuals and release judgment
 
-The later short-source footprint guards change only Rio/Pittsburgh; exact
-rebuilds prove all other CRP bytes unchanged. Native geographic probes sample
-every five game-minutes; the independent source-segment raster checks saved
-grids at 0/15/30/45/60. "Near wet" means actual water within 64 m, not an exact
-wetness claim. Pittsburgh's independent raster has 2,159/2,461 exact-wet cells
-through all saved grids; all 2,461 are near wet. Exact dry subsets remain in
-the evidence, along with physical edges and nonperennial minor streams.
+- **Rio raw flood FAIL retained:** worst .050432km² versus .05 limit, about
+  two16m cells over. Most is outside the central25tiles. Central distant spread
+  is3–5cells (.000768–.001280km²), maxdepth .84375m; outer pools reach2.8125m.
+  At60min global area is .049664km². Independent central coverage is97.82%
+  throughout; final Joana174/184 and Papa-Couve8/10 near-wet subsets remain
+  below95%. These are localized short gaps, not the former kilometre omissions.
+- **Charleston raw global terrain FAIL retained:** independent actual native
+  world-height correlation .7100 versus .9, strongest of all8 orientations.
+  Water/tidal synthetic beds dominate; fixed central built/forest subsets agree
+  much better, but finite nonwater exceptions remain. Small distant shallow
+  spread peaks .005632km², maxdepth .828125m—not zero flooding.
+- **Terrain fidelity is not fully qualified:** Rio's115.471m bank-to-final
+  maximum is mapped permanent lake water, not a115m terrestrial hill removal.
+  Small urban/shoreline anomalies also exist, including an isolated46.120m
+  direct-raw-fit discrepancy. See [TERRAIN_LIMITATIONS.md](TERRAIN_LIMITATIONS.md)
+  for exact source binding, scales and unchanged failures. They are not hidden
+  by a water exclusion or a more permissive gate.
+- High template viaducts remain a visual trade-off (up to~63m above ground).
+  Innsbruck's intermediate-zoom1800 mesh gap is unresolved although normal
+  vanilla views, complete paths and render metadata pass.
 
-The original short-reach Rio `5b533d62` failed too (0.175104 km2, max 4.546875 m).
-Reducing footprint rates changed withdrawal as well as supply and moved some
-flooding. `water_diagnostics.py` exports fingerprint-bound matched factors:
-zero short output; sea-only initial water; and original portal intake with
-bounded output retained. They are causal diagnostics, not qualified defaults.
-No distributed intake field or invisible facility-source pump is adopted.
+**Recommendation:** publish/review the Python reference and harness, with the
+known-failure evidence and candidate maps. The small hydraulic subset does not
+justify another blind source-tuning round. Do not infer universal terrain
+fidelity or promote website/installer defaults from these five results.
+No populated-city growth, cross-platform gameplay, >60min stability, real
+underground water transfer or every-future-region guarantee is established.
 
-All five full hashes reproduce from newly frozen scratch fixtures; complete
-region/resource verification and direct-generator/staging-integrity tests
-pass. Scratch fixture authoring is not native acceptance and the old committed
-goldens have not yet been promoted. Website/installer remain unchanged.
+### What changed and what the controls show
 
-Charleston's original global DEM comparison remains failed. Native built and
-forested land agree much better than the low-variance coastal-water aggregate;
-the failed subset and tidal/wetland bed deformation must remain explicit.
-Do not flip the grid or conceal those differences with a post-run mask.
+The original fitted-route-only probes missed visible rivers. Exact source-piece
+tunnel classification prevents buried waterways being forced onto the surface;
+visible rivers retain even short/two-vertex legs. Geography, not probe placement,
+determines shallow startup film. Local actual-bed crests choose bounded supplies;
+short output footprints respect source geometry and unconditional tunnel barriers.
+Output-free portal inlets retain full withdrawal, not a throttled one-cell sink.
+No field of invisible pumps, extra discharge sources or deeper incision was added.
+
+Matched ~5min Rio interventions compare the SAME initial-water/source-geometry
+reference: baseline .106240km² distant spread; sea-only initial water .103168;
+short-output-off .003072 but544/1558 required probes lack nearby water;
+restored portal withdrawal .037376 while retaining most river coverage. This
+isolates interacting output/withdrawal, not cumulative flux or60min acceptance.
+Type1 `m_flow` is the latest update's output, not net/cumulative flow. No pump
+field is adopted. Historical matched Asheville60min nofill/prefill ends within
+.33% volume, late means within .26%; nofill rivers fill by5min. Retain prefill
+for immediate startup, not sustainment. That A/B covers one older region only.
+
+### New Game and world orientation
+
+All five actual panels show their real preview assets, blank author, visible
+resource bars, native buildable score and honest highway/rail-only icons.
+Scores are73/76/75/79/58%, a native weighted score—not GIS flat-land percent.
+Default previews are deterministic prepared-grid renders, not game photographs.
+WorldCover tree/forest/cropland inputs and explicitly labelled balanced game-
+convention top-ups are integrated from pinned PR24; additions are not evidence
+of real ore/oil deposits. Resource formula/tile totals decode independently.
+
+Asheville's four asymmetric live GNIS/DEM absolute samples differ by at most
+1.63m. All five untouched openings and actual Areas views face north and centre
+the selected tile. No grid flip was made. The earlier actual carbon t=0 saved
+terrain also matches its original frame (r=.9999); its yaw55.7 explains the
+sideways playtest view. The save was hash-guardedly deleted when no longer useful;
+only extracted measurements remain. A maximum-zoom override is not Areas proof.
+
+Stock metadata has no supported suggested city-name field; random city names
+remain. A native editor pilot created a real air network, but template/descriptor
+and flight acceptance are not adopted, so final air/ship counts remain zero.
+
+### Reproducible reference and earthwork
+
+The unified committed five-case `fixtures/manifest.json` reproduces every full
+hash above from original geographic inputs, resource planning and plan replay.
+It includes both expected PNGs, separate simulation hashes and native template/
+layout. Full `verify_regions.py` and `verify_resources.py` pass, including exact
+manager totals, source snapshots, topology and four-edge/dry cases.37 focused
+unit tests pass with2opt-in skips; the real-region public-generator/staging test
+also passes when explicitly enabled. Harness101tests and whole-harness Ruff/
+format pass; changed factory files pass Ruff/format (untouched producer/template
+lint findings are not represented as globally fixed). Tests never write goldens.
+
+| Region | Additional Python cut from browser m | Additional fill m | Max lowering from smoothed uncarved banks m |
+| --- | ---: | ---: | ---: |
+| Asheville | 3.007 | 2.999 | 10.008 |
+| Innsbruck | 3.008 | 2.999 | 6.292 |
+| Rio | 3.008 | 2.999 | 115.471 |
+| Pittsburgh | 3.003 | 2.999 | 10.362 |
+| Charleston | 3.002 | 2.999 | 41.000 |
+
+The browser input already carves river/lake/ocean beds. Therefore a~3m Python
+cap is NOT a~3m total DEM-deformation claim. Quantization explains the~.008m
+overshoot of the nominal cap. Bank smoothing and synthetic bathymetry require
+separate interpretation; see the terrain limitations, not just this maximum.
+
+Current experiments are `inlet-throughput-candidates` all5;
+`complete-river-final-60` Asheville/Innsbruck/Charleston;
+`inlet-throughput-final-60` Rio/Pittsburgh. Exact strict starts use prefixes
+`strict-complete-river-*` or `strict-inlet-throughput-*` respectively. All native
+runs/builds used the private cache and DLL9940eaf0d639b21feb430d1f25791137f2b4ac80af79333ad9d891e38fa47386.
+No required job is handed off running. Known identical bridge load warnings are
+recorded separately; a passing filtered game-errors row is not an error-free claim.
+
+## Historical comparisons below — not current package qualification
 
 ## Surface-water qualification · 2026-11-11
 

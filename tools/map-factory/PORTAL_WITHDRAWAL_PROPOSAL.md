@@ -1,7 +1,10 @@
 # Isolated portal-withdrawal proposal
 
 Prepared from exact parent `78b384f43dd34e75859118c4401bc3ff323a5358`.
-This branch is a **proposal**, not adopted policy or native acceptance.
+The isolated proposal was adopted in the integration at b092ce8 after matched
+controls. The exact final Rio/Pittsburgh packages have separate60min receipts;
+see NATIVE_FINDINGS.md, including Rio's retained flood failure. Adoption is not
+an all-green certificate.
 
 The source-bound native Rio trials disproved the premise that limiting a
 short source's emission footprint guarantees settled containment. The intake
