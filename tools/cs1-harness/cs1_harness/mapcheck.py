@@ -7,7 +7,7 @@ import pathlib
 import shutil
 import time
 
-from . import new_game_panel, observe
+from . import landmarks, new_game_panel, observe
 from .client import HarnessError
 from .session import Session
 
@@ -40,6 +40,7 @@ class MapCheck:
         self.views = views
         self.paths = paths
         self.panel_expectations = new_game_panel.request(out)
+        self.landmark_expectations = landmarks.request(out)
         self.log = log
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
@@ -157,6 +158,7 @@ class MapCheck:
         status = self.c.wait(
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
         )
+        startup_world = landmarks.capture(s, self.out, self.landmark_expectations)
         self.c.call("run", paused=True, speed=speed, day_night=False)
         fdt = status["fixed_delta_time"]
         frames_per_minute = 60.0 / fdt
@@ -213,6 +215,7 @@ class MapCheck:
         self.timeline.close()
         return {
             "map": entry,
+            "startup_world": startup_world,
             "menu_status": {
                 k: menu.get(k) for k in ("gpu", "gpu_memory_mb", "screen", "unity", "plugins", "enabled_mod_count")
             },
