@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import pathlib
 import shutil
 import time
@@ -41,6 +42,7 @@ class MapCheck:
         self.log = log
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
+        self.render_fps = 0  # cap drawing between screenshot sets (0: unlimited); see `bench-speed`
 
     def record(self, kind: str, data: dict):
         self.timeline.write(json.dumps({"kind": kind, "wall": time.time(), **data}) + "\n")
@@ -66,10 +68,82 @@ class MapCheck:
         self.record("dump", {"label": label, **d})
         return d
 
+    def render(self, fps: int):
+        """Cap drawing; a mod build without the `render` op just keeps drawing at full rate."""
+        if not self.render_fps:
+            return
+        try:
+            self.c.call("render", fps=fps, camera=True)
+        except HarnessError as e:
+            self.log(f"render cap unavailable ({e}); drawing at full rate")
+            self.render_fps = 0
+
+    def player_path(self) -> dict | None:
+        """What a player sees first: the opening view with the UI, and Area Zoom (fully zoomed out).
+
+        Read before the harness moves the camera, so it's the map's own start camera."""
+        try:
+            cam = self.c.call("camera_state")
+        except HarnessError as e:
+            self.log(f"camera_state unavailable ({e}); no player's-path shots")
+            return None
+        # Facing from the camera's own forward vector (independent of how yaw is counted).
+        fx, _, fz = cam.get("forward") or [0, 0, 1]
+        bearing = (math.degrees(math.atan2(fx, fz)) + 360) % 360 if (fx or fz) else cam["heading_deg"]
+        cam["heading_deg"] = round(bearing, 1)
+        cam["facing"] = ["north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"][
+            int(((bearing + 22.5) % 360) // 45)
+        ]
+        self.record("opening_camera", cam)
+        paused = self.c.call("stats")["paused"]
+        self.c.call("run", paused=True)
+        try:
+            for name, size in (("opening", None), ("area-zoom", cam.get("max_size"))):
+                if size:
+                    self.c.call(
+                        "camera",
+                        position=cam["position"],
+                        size=size,
+                        yaw=cam["yaw"],
+                        pitch=cam["pitch"],
+                    )
+                time.sleep(5)
+                staged = self.s.stage / "shots" / f"player-{name}.png"
+                self.c.call("screenshot", path=str(staged))
+                for _ in range(60):
+                    if staged.exists() and staged.stat().st_size > 0:
+                        break
+                    time.sleep(0.5)
+                time.sleep(0.5)
+                self.shots.append({"label": "player", "view": name, "file": f"shots/{staged.name}"})
+                self.record("screenshot", self.shots[-1])
+        finally:
+            self.c.call("camera", release=True)
+            self.c.call("run", paused=paused)
+        return cam
+
+    def world_heights(self, n: int = 40):
+        """Terrain heights from the game's own world-coordinate sampler on an n x n grid.
+
+        The ground-truth check uses these, so it doesn't depend on how we read the dump."""
+        step = 17280 / n
+        pts = [[-8640 + step * (i + 0.5), -8640 + step * (j + 0.5)] for j in range(n) for i in range(n)]
+        heights = []
+        for k in range(0, len(pts), 400):
+            heights += [p["terrain"] for p in self.c.call("water", points=pts[k : k + 400])["samples"]]
+        grids = self.s.stage / "grids"
+        grids.mkdir(parents=True, exist_ok=True)
+        (grids / "t000-terrain-points.json").write_text(
+            json.dumps(
+                {"source": "TerrainManager.SampleRawHeightSmooth via the mod", "points": pts, "heights": heights}
+            )
+        )
+
     def screenshots(self, label: str):
         paused = self.c.call("stats")["paused"]
         self.c.call("run", paused=True)
         self.c.call("ui", visible=False)
+        self.render(0)
         try:
             for v in self.views:
                 self.c.call(
@@ -94,6 +168,7 @@ class MapCheck:
         finally:
             self.c.call("camera", release=True)
             self.c.call("ui", visible=True)
+            self.render(self.render_fps)
             self.c.call("run", paused=paused)
 
     def execute(
@@ -105,6 +180,7 @@ class MapCheck:
         shot_every: float,
         dump_every: float,
         load_timeout: float,
+        scenario: str | None = None,
     ) -> dict:
         s = self.s
         installed = s.install_map(crp)
@@ -115,7 +191,9 @@ class MapCheck:
             (
                 m
                 for m in maps
-                if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+                if m["path"]
+                and pathlib.Path(m["path"]).exists()
+                and any(pathlib.Path(m["path"]).samefile(p) for p in (installed, crp))
             ),
             None,
         )
@@ -129,6 +207,14 @@ class MapCheck:
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
         )
         self.c.call("run", paused=True, speed=speed)
+        fixture = None
+        if scenario:
+            from . import scenario as scenario_mod
+
+            fixture = scenario_mod.build(s, self.out, log=self.log)
+            self.record("scenario", fixture)
+            x, _, z = fixture["result"]["center"]
+            self.views = [*self.views, {"name": "test-city", "x": x, "z": z, "size": 650, "pitch": 60}]
         fdt = status["fixed_delta_time"]
         frames_per_minute = 60.0 / fdt
         start_frame = status["frame"]
@@ -137,7 +223,9 @@ class MapCheck:
             f"city loaded at frame {start_frame}; {frames_per_minute:.0f} frames per game-minute; "
             f"running to frame {target}"
         )
+        opening = self.player_path()
         self.dump("t000", terrain=True)
+        self.world_heights()
         self.sample("t000")
         self.screenshots("t000")
 
@@ -147,6 +235,8 @@ class MapCheck:
         next_sample = sample_every
         next_shot = shot_every
         next_dump = dump_every
+        population_observations = [{"minute": 0.0, "population": self.c.call("stats")["population"]}]
+        self.render(self.render_fps)
         self.c.call("run", paused=False, speed=speed)
         wall_start = time.monotonic()
         last_progress = (wall_start, start_frame)
@@ -154,6 +244,8 @@ class MapCheck:
             s.alive()
             stats = self.c.call("stats")
             m = minute(stats["frame"])
+            if stats["population"] != population_observations[-1]["population"]:
+                population_observations.append({"minute": round(m, 3), "population": stats["population"]})
             observe.write_context(s.cfg, minute=m, of_minutes=game_minutes)
             if stats["frame"] != last_progress[1]:
                 last_progress = (time.monotonic(), stats["frame"])
@@ -177,6 +269,14 @@ class MapCheck:
         end = f"t{int(round(game_minutes)):03d}"
         self.dump(end)
         final = self.sample(end)
+        if scenario:
+            fixture = {
+                **fixture,
+                "final": self.c.call("scenario_status"),
+                "reachability": scenario_mod.reachability(s),
+            }
+            self.record("scenario_end", fixture)
+            (self.out / "scenario.json").write_text(json.dumps(fixture, indent=2) + "\n")
         self.screenshots(end)
         status = self.c.call("status")
         self.timeline.close()
@@ -195,6 +295,10 @@ class MapCheck:
             "first_dump": "t000",
             "last_dump": end,
             "shots": self.shots,
+            "scenario": fixture,
+            "requested_scenario": scenario,
+            "population_observations": population_observations,
+            "opening_camera": opening,
             "final_status": {k: status.get(k) for k in ("error_count", "errors", "population", "game_time")},
         }
 

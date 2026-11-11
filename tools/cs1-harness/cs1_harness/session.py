@@ -54,9 +54,26 @@ def sh(*args, check=True, **kw) -> subprocess.CompletedProcess:
     return subprocess.run(list(map(str, args)), check=check, text=True, capture_output=True, **kw)
 
 
-def game_pids() -> list[int]:
+def game_pids(display: str | None = None) -> list[int]:
+    """Running Cities.x64 processes; with `display`, only those drawing on that X display.
+
+    Teardown passes the harness display, so it never quits or kills a game
+    someone started elsewhere (on :0, say). Preflight passes none: any running
+    game blocks a new session.
+    """
     out = sh("pgrep", "-x", "Cities.x64", check=False).stdout
-    return [int(p) for p in out.split()]
+    pids = [int(p) for p in out.split()]
+    if display is None:
+        return pids
+    mine = []
+    for pid in pids:
+        try:
+            env = pathlib.Path(f"/proc/{pid}/environ").read_bytes().split(b"\0")
+        except OSError:
+            continue
+        if f"DISPLAY={display}".encode() in env:
+            mine.append(pid)
+    return mine
 
 
 GPU_FIELDS = "timestamp,index,temperature.gpu,power.draw,power.limit,utilization.gpu,memory.used,clocks.sm,fan.speed"
@@ -461,7 +478,7 @@ class Session(contextlib.AbstractContextManager):
         """Raise if the game went away or Steam reported a conflict mid-run."""
         if self.steam_log:
             self.steam_log.check()
-        if not game_pids():
+        if not game_pids(self.cfg.display):
             raise Blocked(
                 "the game process ended unexpectedly (crash, or the account started playing elsewhere)", EX_TEMPFAIL
             )
@@ -473,15 +490,15 @@ class Session(contextlib.AbstractContextManager):
         """Quit the game, shut Steam down, stop the X server and bus, uninstall what we installed."""
         c = self.cfg
         env = self.steam.base_env()
-        pids = game_pids()
+        pids = game_pids(c.display)
         if pids:
             with contextlib.suppress(Exception):
                 self.client.call("quit")
             for _ in range(60):
-                if not game_pids():
+                if not game_pids(c.display):
                     break
                 time.sleep(1)
-            for pid in game_pids():
+            for pid in game_pids(c.display):
                 self.log(f"game {pid} ignored quit; terminating it")
                 with contextlib.suppress(ProcessLookupError):
                     os.kill(pid, 15)
@@ -510,7 +527,7 @@ class Session(contextlib.AbstractContextManager):
         (c.harness_home / "session.env").unlink(missing_ok=True)
         c.state_file.unlink(missing_ok=True)
         leftovers = {
-            "game": game_pids(),
+            "game": game_pids(c.display),
             "steam_instances": self.steam.instances(),
             "units_active": [
                 u

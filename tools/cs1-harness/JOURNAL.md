@@ -1,5 +1,16 @@
 # cs1-harness journal
 
+## 2026-11-11 · Sol xhigh (carbon) · PL-881 · integrate native assets with current queue
+
+Created a new isolated worktree because PL-900 was using the older PL-881
+checkout. Merged main e971c27 into the pinned PL-880 bridge plus the scoped
+template/gameplay-camera extension. Kept both command families and all three
+ops modules at the additive merge conflicts. Asset commands now use the same
+FIFO slot helper, per-process staging and issue metadata as map checks. This
+prevents an asset batch from racing older waiters or collecting another run.
+Python lint/format and compilation pass; native verification is recorded below
+when actual build/check results exist. No other agent checkout was edited.
+
 ## 2026-11-10 · Sol xhigh (carbon) · PL-881 · native asset comparison
 
 The nine-asset bake-off includes commercial and high-residential buildings,
@@ -331,6 +342,398 @@ in the editor. After: `asset build` turns an FBX import set into a `.crp` in
 about 2 minutes, game start included (17 s from import to save), and `asset
 check` places it in a fresh New Game with day, night, distant and reload views
 in about 4 minutes.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · fixes from the first independent review
+
+Before merging the harness to `main`, GPT-6.1 Sol (xhigh, `codex exec`) read
+the whole diff for anything that would break a real run. It found three, and
+all three were real:
+
+- **Teardown could kill a game that isn't ours.** `stop()` quit and then
+  killed every `Cities.x64` on the host. A game someone started on blade's
+  desktop during a `--display-only` session would have died at `down`.
+  Teardown now acts only on games whose environment has the harness `DISPLAY`
+  (the running harness game shows `DISPLAY=:57`). Preflight still refuses to
+  start while any game runs.
+- **A blocked run could take an active run's files.** Staging was named after
+  `--out`'s last component, and PL-857 writes many runs to `…/asheville`. A
+  second run waiting for the slot with the same name would, on giving up,
+  move the first run's logs, grids and screenshots into its own output.
+  Staging is now per process (`<name>-<pid>`).
+- **`timeout` left the game running.** SIGTERM ended Python without running
+  the session's cleanup, so the game, Steam and units stayed up with no state
+  file for `down`. SIGTERM and SIGHUP now raise `SystemExit`, and the session
+  stops as on any other exit. `uv run` forwards SIGTERM, checked under
+  `timeout`.
+
+**Before → after.** Before: three ways a run could damage something outside
+itself. After: none of these three; checked offline (display filter against
+the live harness game, SIGTERM under `timeout uv run`), not yet in a full run.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · verdicts
+
+**What got in the way.** A run ended in a prose report. To decide whether a
+map passed, an agent read `report.md`, picked its own notion of "wet enough"
+and "flooded", and wrote it into a comment. Two agents could read the same run
+differently, and nothing could gate on it.
+
+**What changed.** `cs1_harness/verdict.py` declares the pass/fail thresholds
+per check type, and every `run` writes `verdict.json`: pass, fail or error,
+with each check's value and threshold, the map hash and the harness commit. A
+run that stops early writes an `error` verdict with its reason.
+`cs1-harness verdict DIR…` re-judges old runs. The map soak judges required
+probes wet at the end, flooding beyond the expected water, native paths,
+terracing, blank screenshots, Clef frame kinds and cleanup. The asset check
+judges load, triangle count, LOD, placement, reload and screenshots.
+
+**Calibration.** I judged copies of every finished run on blade and compared
+with what the agents who ran them concluded by hand:
+
+| Run | By hand | Verdict | Failing checks (value) |
+|:--|:--|:--|:--|
+| PL-856 PL-848 Asheville, 60 min | rivers drain | fail | probes 0/28 required wet |
+| PL-857 original fixture, 10 min | flooding | fail | flooding 0.566 km² |
+| PL-857 conservative, 10 min | less flooding, rail failed | fail | paths (rail, road_out); flooding 0.040 km² passes |
+| PL-857 gap-joining, 60 min | rail failed, abandoned | fail | paths (rail); flooding 0.095 km² |
+| PL-857 selected Asheville, 60 min | pass | pass | (flooding 0.0018 km²) |
+| PL-857 R0 Innsbruck, 60 min | pass, 0.023 km² stream pooling | pass | (flooding 0.030 km²) |
+| PL-857 no-prefill Asheville, 60 min | pass | pass | flooding skipped: no reference water |
+| PL-880 asset checks 3 and 4 | pass | pass | |
+
+All nine agree. The flooding number differs a little from PL-857's
+`audit_soak.py`, because the harness has only the run's first water dump as
+expected water, not the mapped river lines. A probe file can name a
+`reference_water` grid to judge no-prefill runs.
+
+An independent review (GPT-6.1 Sol, high) caught two ways to a wrong pass, both
+fixed: a probe file that names native paths now fails `paths` when the run
+didn't check them (until PR #8 lands, `run` doesn't), instead of skipping; and
+the verdict reads the run's frozen copy of the probe file and reference grid,
+so editing the source later can't flip an archived verdict.
+
+**Before → after.** Before: reading prose, no gate. After: one file with a
+verdict per run, judged the same way every time, and 9/9 agreement with the
+hand calls on existing runs.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · a run registry, and compare
+
+**What got in the way.** PL-857 ran a dozen Asheville and Innsbruck variants
+today. Finding which run used which map, and lining their water curves up,
+meant reading directory names and journal rows, then writing a one-off script.
+
+**What changed.** Every `run` now adds a line to a host-wide registry
+(`~/.local/share/cs1-harness/runs.jsonl`): the run's directory, check type,
+verdict, map sha256, harness commit, issue and headline metrics.
+`cs1-harness runs` filters it by issue, map, map hash, commit, check type or
+verdict, and `runs --index DIR` registers older runs without writing into
+them. `cs1-harness compare A B …` overlays water volume, wet required probes
+and population over game-minutes in `compare.png`, and `compare.json` lists the
+verdict checks that differ.
+
+**Before → after.** Before: no index; a comparison was a custom script per
+question. After: `runs --index` on copies of blade's nine finished runs
+registered all nine in about a second. One `compare` call put PL-857's
+prefilled and no-prefill Asheville beside PL-856's draining PL-848 map: both
+PL-857 runs settle near 19 M m³ by minute 20, and the PL-848 map loses every
+required probe by minute 25. Runs from before this change have no recorded
+harness commit; the registry says so (null) rather than guessing.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · results wake the owner
+
+**What got in the way.** A 60-minute soak takes half an hour of slot time,
+plus however long it waits for the slot. The agent that wanted it had to hold
+its turn open the whole time, or end it and schedule rechecks. Today PL-857's
+waits stacked behind PL-880's builds, and its scheduled recheck fired into a
+slot that was still busy.
+
+**What changed.** `run --notify` comments the verdict table, the water-change
+map, the last two screenshots and the timelapse on the run's issue, and
+`--wake` @mentions the issue's agent assignee so its next run starts on the
+result. `cs1-harness submit --issue PL-NNN -- run …` starts the run as a
+detached `systemd --user` job with `--notify --wake`, a 4-hour slot wait and
+30-minute Steam retries, so the agent can end its turn right after
+submitting. Detached jobs post as Driver sessions.
+
+**Before → after.** Before: hold the turn open or poll. After: submit, end the
+turn, and resume on the comment. Checked: the comment body and attachments on
+copies of real runs (`notify --dry-run`), and that the `driver` profile reads
+issues from blade outside a task. Not yet checked: a live post from a finished
+`submit` job; the first submitted run is that test.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · who has the slot
+
+**What got in the way.** When a run had to wait, the only message was
+"another cs1-harness run holds the lock". Agents couldn't see whose run it
+was, which issue it served, or how long it would take, so they guessed at
+retry times. Nobody counted how often the slot was contended, which is what
+Caleb needs to decide on a second Steam account.
+
+**What changed.** `cs1-harness queue` names the holder (from `/proc/locks`
+and a `holder.json` the new code writes), its issue, label, minutes held and
+an ETA for `run` (3 min of boot and teardown plus game-minutes × the median
+wall-per-game-minute in the run registry, 0.3 until the registry has runs).
+It lists the waiters, including ones started from older checkouts, found from
+their command lines. The slot now logs every wait, acquisition, give-up and
+release to `slot.jsonl`, and `queue --stats` sums the window.
+
+**Before → after.** Before: "the lock is held". After, the first live
+reading at 15:49 ET: PL-857's Innsbruck soak holds the slot, 11.7 min in with
+about 9 min left; PL-857's strict Asheville `up` and PL-856's dialog retest
+have each been waiting about 11 min. The contention log starts empty and
+counts only runs from this checkout on.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · triage
+
+**What got in the way.** A run that stopped said only "failed: …" or
+"blocked: …". Before anyone could fix it, someone had to work out whose
+problem it was: the map's writer, the harness, Steam, the game, a dialog or
+the GPU. That meant digging through the game log, Steam's logs and
+`nvidia-smi` by hand, often after the evidence had rotated away.
+
+**What changed.** Every non-pass now carries a triage class in
+`verdict.json` (`map`, `harness`, `steam`, `game-crash`, `unknown-dialog`,
+`gpu-vram`, `slot`, `unknown`), with the rule's reason and the evidence copied
+beside it: log tails, Steam's launch lines, the last live frame and GPU
+samples. An unexpected Python exception no longer escapes `run`. It becomes an
+error verdict classed `harness`, with `traceback.txt`, and still posts with
+`--notify`. The registry and the `--notify` comment show the class.
+
+**Before → after.** Before: an error string, with the evidence somewhere on
+the host. After: a class, a reason and files. On blade's four failing runs,
+triage says `map` for each, which is what their agents concluded. Nine
+synthetic error reasons, one per harness message family, land in the
+expected class. One case needs Steam's own log to decide: the game ending
+because the account started playing elsewhere is `steam`, not `game-crash`.
+Not covered yet: the dialog guard on PL-856's dialogs branch writes
+`dialogs.jsonl`, which triage reads once that lands.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · the harness over MCP
+
+**What got in the way.** Claude agents drive the harness from a shell. Codex
+and DeepSeek agents in other harnesses do best with tools, and each would
+otherwise learn the CLI's flags from the README.
+
+**What changed.** `cs1-harness mcp` is a stdio MCP server (Python `mcp` 2.3,
+`MCPServer`) with ten tools: `queue`, `contention`, `runs`, `verdict`,
+`compare`, `submit`, `notify`, `up`, `call`, `down`. Each one shells out to
+the CLI, so there's one contract and one set of slot rules. `verdict --json`
+now prints only JSON, which the tool returns.
+
+**Before → after.** Before: shell only. After: an MCP client over stdio
+listed all ten tools, and `queue`, `runs` and `verdict` returned live results
+(PL-857's Innsbruck soak holding the slot; PL-857's passing runs; PL-856's
+PL-848 verdict, a fail with its triage). Not exercised over MCP: `up`, `call`,
+`down` and `submit`, which only wrap the CLI commands of the same names.
+
+## 2026-11-10 · Sol xhigh (blade) · PL-893 · standard test city
+
+**Why.** Empty-map soaks stay at population 0 and cannot test whether a
+player's road grid reaches the outside world. `run --scenario test-city`
+adds a small city after ordinary New Game, before the existing soak.
+
+**Changed.** `ScenarioOps` builds through native road and building placement
+checks on the simulation thread. It selects a dry starting-tile site, joins
+the highway approaches, builds a grid, zones R/C/I, and adds a coal plant,
+water pump, drain, pipes and power lines. Normal construction costs come from
+starting money. No growables, population, utility buffers or completion flags
+are forced. The run preserves the construction receipt and checks actual
+population growth and native passenger-car paths in both directions.
+The source-dirty flag now covers the whole harness, including `mod/`, rather
+than just the Python package. A temporary untracked file under `mod/` reproduced
+the false-clean result before the fix and reported dirty afterward; removing
+it restored clean status.
+
+**Native rules that mattered.** Inspected against the installed CS1 1.21.1-f9
+assemblies, then exercised in fresh New Games:
+
+- `NetTool.CanAddSegment` rejects direction dot products over 0.75, including
+  pipes and wires. The highway merge must be close, and utility branches must
+  use legal angles at connected network nodes.
+- PL-848's highway ends are physically about 12 m above terrain although their
+  stored node elevation and prefab base height are both zero. Connection
+  elevation must come from world geometry relative to the native terrain
+  sampler, not that stored byte.
+- The stock water prefabs are `Water Intake` and `Water Outlet`, both
+  `ShorelineOrGround`. Select by AI capabilities and normal unlock/cost checks,
+  not translated UI names. Use the shoreline height rules from the building
+  tool, not its roadside maximum height difference.
+- A legal shoreline site can be across an elevated railway from the power
+  network. Test power access before committing the facility. Pipe proximity
+  alone also isn't enough: attach to the facility's native `m_netNode`.
+  A development city grew to 154 despite disconnected water, so the verdict
+  now separately requires active, connected utilities without supply problems.
+- The fixture omits only `UnlockManager`'s modal milestone presentation.
+  Unlocks and rewards still run, but the panel cannot pause an unattended soak.
+- Green Plains' highway ends are at x=917.28 and 920.18 m: legally inside the
+  tile, but outside the planner's original 48 m inset (x<912). The first attempt
+  failed. Using the native purchased-area test fixed it without an exception
+  for this map. Receipts now include the tile and twelve nearest road-node
+  candidates, and inspection remains usable when construction fails.
+
+**CLI proofs.** Native build, Ruff (22 files), eight verdict tests and the GPU
+doctor pass. Both final runs use the same mod DLL (SHA-256
+`dee3d1f6bb82accb1ba0a764824d79271784b1df8fef91ca68ec9b5f111cc9a9`).
+Both proof commands use `run --scenario test-city --game-minutes 10
+--sample-every 1 --screenshot-every 5 --dump-every 5 --wait-minutes 240`.
+Evidence lives under `~/experiments/PL-893-test-city/`. Green Plains records
+harness `3c84b91`; Asheville records `8fa196e` (documentation-only changes).
+The later provenance fix changes no construction or verdict decision logic.
+
+| Map / output | Population | First observed +50 | Native edge paths | Utilities | Verdict | Wall |
+|:--|:--|:--|:--|:--|:--|:--|
+| Exact PL-848 Asheville / `asheville-area-10` | 0 → 380 at 10.01 game-min | 1.935 game-min | 1 inbound + 1 outbound, found and released | all active, no problems | pass | 6.18 min soak; 8.58 min active; 25.98 min queue |
+| Vanilla Green Plains / `vanilla-area-10` | 0 → 411 at 10.06 game-min | 1.524 game-min | 4 inbound + 4 outbound, found and released | all active, no problems | pass | 5.69 min soak; 8.15 min active; 21.15 min queue |
+
+Asheville's source SHA-256 is
+`b8507bf6e4c00f2336eb2051daed8785a6912a56ad594161e1e09a32ef0c94f4`.
+Construction spent $48,680 of $70,000 starting cash. At the end, 63 residential,
+10 commercial and 24 industrial buildings had grown without growable warnings.
+The native paths include grid segment 35065 and physical edge endpoints
+19415/255 outbound and 6014/0 inbound; both path units were released.
+Cleanup reports no game, Steam instances or harness units left running.
+
+Green Plains (`NorthEurope1FINAL.crp`) has source SHA-256
+`a4afe28315db5fbcb7b5a08548a80a495960a358bafdf39ad47d435f01d9d538`.
+It spent $45,520 and grew 60 residential, 6 commercial and 28 industrial
+buildings, also without growable warnings. All eight paths include grid
+segment 13760 and the physical map-edge endpoint; all were released. Utilities
+were active and cleanup was empty. The earlier Asheville proof, before the
+hookup-selector correction, grew 0 → 377 in 10.05 game-min (`asheville-10`).
+
+**Calibration.** Require 50 new residents by 5 game-minutes, retained at the
+end. Both final runs cross 50 before minute 2, leaving over 3 game-minutes of
+margin for slower arrivals; the empty-map baseline stays at zero. The separate
+utility check rejects the observed development false-pass (154 residents but
+disconnected water). Outside reachability requires native path positions at
+the grid and the real edge endpoint in both directions, not summary booleans.
+
+**Not verified.** Every map, long-term city/utility health, required river
+probes or Clef. These city proofs do not replace PL-848's known failing
+60-minute river soak. The final Asheville startup log also contains
+`CitiesBridge.Bridge` / `CitiesBridge.Ownership` type-load exceptions from a
+separate assembly; these precede the post-city error list used by the verdict.
+The fixture and native checks pass; that bridge was not investigated or changed.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · taking turns
+
+**What got in the way.** Waiters polled the lock every 2 s, and whoever
+polled first in a gap won. This afternoon PL-891's speed bench waited 88
+minutes while runs that arrived after it took the slot five times. `queue`
+also showed PL-893's `trial.py`, which imports the harness as a library, as an
+unknown holder.
+
+**What changed.** A waiter now registers in the slot's `waiting/` directory
+and tries the lock only when no older registered waiter is still alive. That
+makes it first come, first served among runs from this checkout on. Older
+checkouts don't register, so they can still take a gap until they update.
+Files left by dead waiters are removed. `queue` names Python scripts run from a
+harness checkout (`script trial.py`), and takes the issue from the most
+specific `PL-NNN` in a path (`PL-891-PL-893-test-city` is PL-893).
+
+**Before → after.** Before: the order was a polling race, and one wait ran
+88 min. After: oldest first among registered waiters, checked offline with a
+live older waiter (deferred), a dead one (cleaned up) and the older one
+exiting (proceeds). `queue` now reads "held by script trial.py · PL-893".
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · the recorder had stopped after its first run
+
+Every PL-891 run tonight had a 0-byte `timelapse.mp4`, and the live page
+showed a stale frame. The grabber's ffmpeg writes the timelapse and the live
+page's `frame.jpg` in one process. The live page keeps its last frame when a
+run ends, so from the second run on, ffmpeg found `frame.jpg` already there,
+refused to overwrite it without `-y`, and exited at once, taking the timelapse
+with it. The journal said so every time ("File … frame.jpg already exists.
+Exiting"). The observer bench worked because it was the first run.
+
+Fix: `-y`. Reproduced with the same output options on a test source: without
+`-y`, a 0-byte MP4; with it, a 8.9 kB MP4 and a fresh frame. The smoke run's
+comment on PL-891 claimed a timelapse attachment it didn't have.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · the comment is the wake
+
+The first `submit` smoke run posted its PASS on PL-891 with `--no-wake`, and
+that comment alone started the assignee's next run: a member's comment on an
+agent's issue wakes the agent. An @mention on top would be redundant and might
+start a second run, so `submit` no longer adds `--wake` by default. It's
+opt-in (`submit --wake`), and the MCP `submit` tool now defaults to
+`wake=False`.
+
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · how fast can a soak go
+
+**What got in the way.** One Steam account runs one game at a time, so the
+slot's speed sets everyone's throughput. The harness never knew whether
+drawing frames was slowing the simulation.
+
+**What changed.** A mod op, `render {fps, camera}`, caps the frame rate (or
+stops the main camera), and `cs1-harness bench-speed` measures simulation
+frames per second at speed 3 with drawing throttled in steps. `run` now caps
+drawing at 10 fps between screenshot sets (`--render-fps`, default 10) and
+draws at full rate for the screenshots themselves.
+
+**Measured.** PL-848 Asheville on blade's 2080 Ti at 1280×720, 45–50 s per
+window:
+
+| Drawing | Sim frames/s | Game CPU |
+|:--|--:|--:|
+| unlimited | 241.2 | 225 % |
+| 10 fps | 239.9 | 114 % |
+| 2 fps | 84.5 | 87 % |
+| camera off, 2 fps | 84.9 | 73 % |
+| unlimited again | 240.0 | 216 % |
+
+Speed 3 is the game's 4× cap, 240 frames a second, and the game holds it at
+720p. A 10 fps cap keeps it and halves the CPU. At 2 fps the simulation drops
+to about 42 frames per drawn frame, so the cap can go too low. Turning the
+camera off adds nothing once the rate is capped. The 157–166 frames/s of
+earlier soaks ran at 1920×1080, where drawing held the simulation back.
+
+**Live check** (10 game-minutes of PL-848 Asheville at 1920×1080 with the
+default cap, 23:02 ET): 205 simulation frames a second, against 157–166 in
+earlier uncapped 1080p soaks. That's 29 % faster, with the cap active and
+screenshots still full 1920×1080. (Those screenshots show the game's toolbar,
+as every harness screenshot has since the first run: the `ui` op doesn't hide
+it. That's a separate issue.)
+
+**Before → after.** Before: unknown, and 1080p soaks ran at about 160
+frames/s. After: the ceiling is the game's own 4× (60 game-minutes ≥ 15 wall
+minutes), reached at 720p with half the CPU. Going faster than 4× would mean
+changing the game's speed table, which the harness doesn't do.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · agents check their own frame; the playtest checks the world
+
+**What happened.** Caleb's first playtest of "Asheville - Ready to Play"
+(7:40–8:05 PM) found two problems that every agent review had missed. The New
+Game panel looked broken: no preview, a stranger's name as author, empty
+resources. And the map looked rotated about 90°.
+
+**Why we missed them.** Every check we had compared the game with our own
+code's frame. The writer's coordinate code placed the probes and drew the water
+readback, the terrace check and `water-start.png`. A rotated, mirrored or
+transposed map passes all of them. The lead's first answer to "is it
+rotated?" was "no". That answer rested on `water-start.png`, which the harness
+draws in the writer's frame. None of these checks saw what a player sees.
+
+**What changed.**
+- `ground_truth` checks the map against the world. The harness fetches
+  elevation itself and projects it with its own code into the game's frame
+  (+x east, +z north). It then correlates it with the terrain the game reports,
+  in all eight rotations and mirrors.
+- `opening_camera` reads the camera's real heading at load. `run` saves the
+  opening view and Area Zoom as a player sees them, and `--notify` posts them
+  with the New Game panel (PR #8's capture) and the ground-truth image.
+- A map soak can no longer report PASS from self-consistent checks alone. With
+  no passing `ground_truth` it reports `unverified`.
+
+**First answer.** On the PL-848 Asheville terrain the game reported in
+tonight's smoke run, the heights correlate with the real DEM at r = 0.977 as
+is. Every rotation or mirror scores 0.38 or less. So the heights reach the game
+north-up, and Caleb's sideways view is most likely the opening camera. The
+camera heading needs a live run; it's queued behind the playtest hold. The
+region's highest point is 58 m lower in game than the DEM's trend predicts,
+which looks like smoothing on the peaks. That goes to the writer.
+
+**Before → after.** Before: nine checks, all in our own frame, and a PASS on a
+map a person saw as broken in its first minute. After: a PASS needs the world
+to agree. Re-judged under the new rule, PL-857's best Asheville soak reads
+`unverified` until its probe file names its region. The lesson: an agent's
+check is only as independent as the frame it's drawn in. The playtest checked
+the world, so now the harness does too.
 
 ## Run log
 
@@ -343,3 +746,28 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
 | 2026-11-10 | Opus 5.5 · PL-880 | blade · 2080 Ti 05:00.0, 1280×720 | 10,821 MiB card / ~2.8 GB game | 154 W / 63 °C | 2 min | `asset build` KudzuCraftsman: .crp saved, 17 s import to save (build-7) |
 | 2026-11-10 | Opus 5.5 · PL-880 | blade · 2080 Ti 05:00.0, 1280×720 | 10,821 MiB card / ~2.8 GB game | 154 W / 63 °C | 3 min | `asset check` on PL-848 Asheville: placed, day/night/distant views, save and reload kept it (check-5) |
+| 2026-11-10 | Sol xhigh · PL-893 trial 1 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.42 W / 63 °C | ~3.0 min | highway elevation rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 2 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.57 W / 63 °C | ~3.9 min | highway elevation rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 3 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.66 W / 63 °C | ~4.3 min | water prefab name rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 4 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.89 W / 63 °C | ~5.0 min | water placement mode rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 5 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.44 W / 63 °C | ~5.0 min | native prefab inspection; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 6 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.10 W / 63 °C | ~7.5 min | power routing rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 7 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 163.22 W / 63 °C | ~7.3 min | power routing rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 8 | blade · 2080 Ti 05:00.0 | 9,553 MiB (~1,553 MiB game) | 163.25 W / 63 °C | ~3.8 min | menu only after failed rebuild; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 9 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.40 W / 64 °C | ~13.7 min | rail collision diagnosed; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 10 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 165.44 W / 64 °C | ~6.9 min | rail collision rejected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 11 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.08 W / 63 °C | ~6.7 min | grew 154, both car paths found, native water node disconnected; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 trial 12 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 161.86 W / 63 °C | ~5.4 min | grew 153 by 2.05 game-min, utilities working; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Asheville first proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 157.82 W / 63 °C | 4.59 min soak / 6.92 min active | 10 game-min; population 0 → 377; verdict pass; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Green Plains first attempt | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 155.29 W / 63 °C | ~1.75 min monitored | no hookup found under planner inset; error verdict; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Green Plains final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 158.62 W / 63 °C | 5.69 min soak / 8.15 min active | 10 game-min; population 0 → 411; verdict pass; clean teardown |
+| 2026-11-10 | Sol xhigh · PL-893 Asheville final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.80 W / 63 °C | 6.18 min soak / 8.58 min active | 10 game-min; population 0 → 380; verdict pass; clean teardown |
+
+PL-893 development wall times are the approximate first-to-last GPU sample
+span, including boot and teardown. Game VRAM is card peak minus the 8,000 MiB
+pre-launch baseline, not a process-isolated peak. The existing 150 W limit was
+unchanged; the table reports `nvidia-smi`'s observed transient power peaks.
+Active wall time is slot acquisition through completed cleanup, excluding the
+queue; soak time is only the simulation loop. Green Plains reported 1280×720
+at the menu and the final Asheville run 1920×1080, so these are not controlled
+performance comparisons.

@@ -353,5 +353,12 @@
    "yaw": 180,
    "pitch": 55
   }
- ]
+ ],
+ "ground_truth": {
+  "lat": 35.58,
+  "lon": -82.555,
+  "size_m": 17280,
+  "rotation": 0,
+  "source": "the region the website exported (skylines.clbswrs.co c=-82.555,35.58 r=0 s=1)"
+ }
 }
