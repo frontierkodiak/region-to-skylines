@@ -1,5 +1,50 @@
 # cs1-harness journal
 
+## 2026-11-11 · Sol xhigh (carbon) · PL-881 · nine native asset pairs
+
+At source `a1d01a6cddd8cddf069915676a64d779a6f7430e`, blade's 2080 Ti
+completed all nine A/B1/C editor builds and fresh-city checks at 1280×720.
+Scoped CommercialLow and ResidentialHigh templates and the 120m gameplay
+camera are now game-tested. All nine custom LODs and native shader/map metadata
+loaded, and all buildings persisted completed in the same x/z and lot after
+save/reload. All 18 cleanup receipts were empty; personal saves were preserved.
+
+The final audit found a real residual: A-apartment and C-storefront rose
+0.302m on reload, while seven other candidates retained height. The cause is
+unresolved; this is not a centimetre-stable placement pass. All city checks
+also retain nine serialization messages (the same ServicePointGroupPanel,
+HotelGroupPanel and RaceGroupPanel resolution messages repeated three times).
+No enabled user mods or embedded asset mods were reported. Dark night
+captures do not establish occupied/powered window illumination.
+
+| Target | A / B1 / C native main tris | A / B1 / C custom LOD tris | A / B1 / C editor job seconds |
+| --- | --- | --- | --- |
+| Bungalow | 716 / 5699 / 716 | 96 / 160 / 96 | 15.69 / 15.76 / 15.78 |
+| Storefront | 728 / 7883 / 728 | 72 / 178 / 72 | 15.44 / 15.81 / 15.76 |
+| Apartment row | 1016 / 11756 / 1016 | 68 / 222 / 68 | 15.96 / 15.66 / 15.70 |
+
+Native triangle counts include the game's generated basement, not a changed
+main mesh. The first diagnostic rejected a correct 6.9m bungalow because
+CS1 expanded renderer bounds down to -16m. `AuthoredBounds` now records the
+alpha-0 source body separately from alpha-255 generated basement vertices;
+the size guard uses body bounds while retaining total/native renderer metrics.
+The unchanged 708 authored bungalow triangles became 716 native triangles.
+
+Whole batch wall time: 3352.4s, including 721.5s recorded slot/preflight wait;
+the remainder includes all boot/load/screens/save/reload/teardown. Whole-card
+peaks: 10821MiB, 124.08W, 55°C, beside 8000MiB resident baseline. Final game
+allocation was 2814–2818MiB; per-process peak was not sampled separately.
+SAM/Clef stayed resident; no power or shared-service settings were changed.
+
+The private review at
+https://blade.tailc29f0.ts.net/shelf/asheville-asset-bakeoff-pl881/cs1/
+contains 72 native frames and QA CRPs. Report/code and exact receipts are in
+PR #6 under `tools/assets/bakeoff/results/game/`. A prepared, separate branch
+`PL-881-render-probes` compiled runtime-only forced-LOD and vanilla-night
+controls, but its one 15-minute attempt exited 75 at 05:57:54 UTC without
+starting a game, behind PL-902/PL-857. Those ops are not part of this verified
+branch or evidence. No waiter was left active.
+
 ## 2026-11-11 · Sol xhigh (carbon) · PL-881 · integrate native assets with current queue
 
 Created a new isolated worktree because PL-900 was using the older PL-881
