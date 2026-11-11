@@ -20,7 +20,7 @@
         "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c",
         "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293"
       },
-      "expected_crp_sha256": "2188e9d0ad3bad26ab904be31e2267c70bf15755f7e725708ba284fdc2937724"
+      "expected_crp_sha256": "3300152be42f6493dd5f96de5dae639f0236700fb9add30e3d1f06a9a8f6be23"
     },
     {
       "slug": "pittsburgh",
@@ -39,7 +39,7 @@
         "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f",
         "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0"
       },
-      "expected_crp_sha256": "eb020dfe3e2d6513719ae080be1f42c6d5e1bce86c6c7d7d5dcaeebcf3c4e9e9"
+      "expected_crp_sha256": "745634eb450eb04bf949df7751affbe9b08bb747158b3cab0b973e4f0c04ec63"
     }
   ]
 }

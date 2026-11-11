@@ -126,14 +126,21 @@ def main():
     parser.add_argument("--evidence", type=Path)
     parser.add_argument("--trees", type=int, default=R.Knobs.trees)
     parser.add_argument("--resources", choices=["balanced", "real"], default=R.Knobs.resources)
-    parser.add_argument("--fertile", type=float, default=R.Knobs.fertile)
+    parser.add_argument("--fertile", type=float, default=R.Knobs.fertile, help="scale fertile land from crop and pasture")
+    defaults = R.Knobs().targets
+    for kind in ["ore", "oil", "fertile"]:
+        parser.add_argument(f"--{kind}-share", type=float, default=defaults[kind],
+                            help=f"balanced: top {kind} up to this New Game share (default {defaults[kind]})")
+    parser.add_argument("--outer-trees", type=float, default=R.Knobs.outer_trees, help="tree density outside the 25 tiles")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--map-name", help="override the New Game name")
     parser.add_argument("--plan", type=Path, help="replay a frozen plan.npz instead of planning")
     args = parser.parse_args()
     if args.plan is None and args.landcover is None:
         parser.error("LANDCOVER is required unless --plan is given")
-    knobs = R.Knobs(trees=args.trees, resources=args.resources, fertile=args.fertile, seed=args.seed)
+    knobs = R.Knobs(trees=args.trees, resources=args.resources, fertile=args.fertile, seed=args.seed,
+                    outer_trees=args.outer_trees,
+                    targets={"ore": args.ore_share, "oil": args.oil_share, "fertile": args.fertile_share})
     report = paint(args.prepared, args.landcover, args.output, args.geometry, args.evidence, knobs, args.map_name, args.plan)
     print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "theme"]}, indent=2))
     print(json.dumps(report["package"], indent=2))

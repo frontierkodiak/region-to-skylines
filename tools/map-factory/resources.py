@@ -87,14 +87,15 @@ def theme_of(template_bytes):
 class Knobs:
     """The few choices a map-maker would want; defaults need no touching."""
 
-    trees: int = 180_000  # vanilla limit is 262,144; leave room to build parks
+    trees: int = 180_000  # editor cap 250,000; leaves the player ~70k to plant
+    outer_trees: float = 0.6  # tree density outside the 25 buyable tiles
     resources: str = "balanced"  # "real": evidence only; "balanced": top up
     fertile: float = 1.0  # scales fertile land from crop and pasture cover
     seed: int = 0
-    # "balanced" tops ore and oil up to these New Game shares (of
-    # maxResourceAmount), about the lower quartile of 104 shipped maps
-    # (medians: ore 5.9 %, oil 3.9 %).
-    targets: dict = field(default_factory=lambda: {"ore": 0.035, "oil": 0.02})
+    # "balanced" tops each resource up to its New Game share (amount over
+    # maxResourceAmount). Defaults are the official maps' medians, as the
+    # community reads them: ore 5.2 %, oil 2.7 %, fertile land 3.4 %.
+    targets: dict = field(default_factory=lambda: {"ore": 0.052, "oil": 0.027, "fertile": 0.034})
 
 
 def cell_centres():
@@ -201,6 +202,9 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     # Real valleys are narrower than shipped maps' plains, so ramp faster.
     value = 50 + 205 * (1 - np.exp(-inward / 75))  # ~200 at 100 m
     fertility = np.where(mask, value * np.clip(0.65 + suit, 0.65, 1), 0)
+    placed = []
+    if knobs.resources == "balanced":
+        placed += top_up_fertile(fertility, cell_slope, cell_wet, positions, segments, sx, sz, knobs, rng, node_grid(terrain, RES, CELL), lc)
     fertility = np.floor(fertility + 0.5).astype(np.uint8)
 
     # Trees: weight by cover, cluster into stands and glades, and keep them out
@@ -212,6 +216,10 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     # where they read as woods (shipped maps: ~2 trees per 33.75 m forest cell).
     stands = 0.65 * smooth_noise(lc.shape, 7, rng) + 0.35 * smooth_noise(lc.shape, 25, rng)
     w *= np.clip(0.35 + 0.9 * stands, 0, None)
+    # Makers spend the budget inside the 25 buyable tiles (1920 m each).
+    centres = (np.arange(lc.shape[0]) + 0.5) * LC_STEP - HALF
+    inner = np.abs(centres) < 2.5 * 1920
+    w[~(inner[:, None] & inner[None, :])] *= knobs.outer_trees
     fertile_px = resample(fertility.astype(float), CELL, lc.shape[0], LC_STEP, order=0) > 0
     # Trees touching water die, and vanilla keeps them off rock faces.
     w[ndimage.binary_dilation(lc_wet) | lc_road | fertile_px] = 0
@@ -261,9 +269,8 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     # land already under the outside-connection roads.
     usable = np.clip((40 - cell_slope) / 10, 0, 1) * ~cell_wet * ~network_mask(positions, segments, RES, CELL, 24)
     shape = {"ore": rugged * usable, "oil": level * usable}
-    placed = []
     if knobs.resources == "balanced":
-        placed = top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, node_grid(terrain, RES, CELL))
+        placed += top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, node_grid(terrain, RES, CELL), fertility)
     ore = np.floor(ore * shape["ore"] * 255 + 0.5)
     oil = np.floor(oil * shape["oil"] * 255 + 0.5)
     ore[cell_wet] = 0
@@ -283,7 +290,46 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     }
 
 
-def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
+def top_up_fertile(fertility, cell_slope, cell_wet, positions, segments, sx, sz, knobs, rng, height, lc):
+    """Add fields until fertile land reaches its share: flat, low, open ground
+    near water, nearest the start tile first (shipped maps have fertile land
+    in the start tile on 91 of 104). Trees are planned after, around them."""
+    tiles = tile_index()
+    tz, tx = np.meshgrid(tiles, tiles, indexing="ij")
+    buildable = (tx >= 2) & (tx <= 6) & (tz >= 2) & (tz <= 6)
+    centres = cell_centres()
+    maximum = 25 * 3686400 / 1139.0625 * 255
+    built = resample((lc == 50).astype(float), LC_STEP, RES, CELL) > 0.5
+    relief = height - ndimage.uniform_filter(height, 31)
+    water_d = ndimage.distance_transform_edt(~cell_wet) * CELL
+    sx_m, sz_m = (sx - 4.5 + 0.5) * 1920, (sz - 4.5 + 0.5) * 1920
+    d_start = np.hypot(centres[None, :] - sx_m, centres[:, None] - sz_m)
+    score = (
+        np.clip((8 - cell_slope) / 8, 0, 1) * 2
+        + np.clip(1 - water_d / 1200, 0, 1)
+        + np.clip(-relief / 30, -0.5, 0.5)
+        + np.clip(1 - d_start / 5000, 0, 1)
+    )
+    score = ndimage.uniform_filter(score, 9)
+    blocked = cell_wet | built | network_mask(positions, segments, RES, CELL, 24) | (cell_slope > 12)
+    score[~buildable | blocked] = -np.inf
+    placed = []
+    for _ in range(10):
+        if (fertility * buildable).sum() >= knobs.targets["fertile"] * maximum or not np.isfinite(score).any():
+            break
+        r, c = np.unravel_index(np.argmax(score + rng.random(score.shape) * 0.3), score.shape)
+        x, z = float(centres[c]), float(centres[r])
+        radius = float(rng.uniform(450, 800))
+        lobes = np.clip(0.8 + 0.35 * smooth_noise((RES, RES), 5, rng), 0.45, 1.1)
+        patch = np.clip(blob(x, z, radius) * lobes * 1.3, 0, 1) * 235
+        patch[blocked] = 0
+        np.maximum(fertility, patch, out=fertility)
+        placed.append({"kind": "fertile", "x": x, "z": z, "radius_m": round(radius), "source": "convention"})
+        score[np.hypot(centres[None, :] - x, centres[:, None] - z) < 1400] = -np.inf
+    return placed
+
+
+def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height, fertility):
     """Add patches until ore and oil reach their New Game share targets in the
     25 buildable tiles. Shipped maps put oil on low, flat ground near water and
     ore at the foot of hills, a tile out from the start; no top-up patch
@@ -318,6 +364,7 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
         # Shipped maps put ore and oil a tile out from the start, not in it.
         score[ndimage.binary_dilation(start, iterations=6)] = -np.inf
         score[other > 0.2] = -np.inf
+        score[ndimage.binary_dilation(fertility > 0, iterations=4)] = -np.inf  # keep fields clear
         for _ in range(10):
             amount = (np.floor(grid * shape[kind] * 255 + 0.5) * buildable).sum()
             if amount >= knobs.targets[kind] * maximum or not np.isfinite(score).any():
@@ -329,6 +376,7 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
             radius = float(rng.uniform(500, 900) if not placed or placed[-1]["kind"] != kind else rng.uniform(420, 700))
             lobes = np.clip(0.8 + 0.35 * smooth_noise((RES, RES), 5, rng), 0.45, 1.1)
             patch = np.clip(blob(x, z, radius) * lobes * 1.3, 0, 1)
+            patch[fertility > 0] = 0
             np.maximum(grid, patch, out=grid)
             placed.append({"kind": kind, "x": x, "z": z, "radius_m": round(radius), "source": "convention"})
             d = np.hypot(centres[None, :] - x, centres[:, None] - z)
