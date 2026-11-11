@@ -51,8 +51,9 @@ Created a new isolated worktree because PL-900 was using the older PL-881
 checkout. Merged main e971c27 into the pinned PL-880 bridge plus the scoped
 template/gameplay-camera extension. Kept both command families and all three
 ops modules at the additive merge conflicts. Asset commands now use the same
-FIFO slot helper, per-process staging and issue metadata as map checks. This
-prevents an asset batch from racing older waiters or collecting another run.
+registered-waiter slot helper, per-process staging and issue metadata as map
+checks. Per-process staging prevents collection of another run. The queue is
+not a reservation or a proof of FIFO fairness.
 Python lint/format and compilation pass; native verification is recorded below
 when actual build/check results exist. No other agent checkout was edited.
 
