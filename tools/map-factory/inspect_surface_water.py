@@ -13,11 +13,21 @@ import threading
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def run(frozen, provenance, output, capture=False):
+def run(frozen, provenance, output, capture=False, first_observed=False, control=False):
+    if control and not capture:
+        raise ValueError("control requires explicit capture")
     output.mkdir(parents=True, exist_ok=False)
+    if first_observed and str(provenance) != "-":
+        raise ValueError(
+            "first-observed input must explicitly use '-' instead of recorded provenance"
+        )
     config = {
         "frozen": json.loads(frozen.read_text()),
-        "tiles": json.loads(provenance.read_text())["ocean"]["tiles"],
+        "tiles": []
+        if first_observed
+        else json.loads(provenance.read_text())["ocean"]["tiles"],
+        "firstObserved": first_observed,
+        "control": control,
     }
 
     class Handler(SimpleHTTPRequestHandler):
@@ -26,7 +36,9 @@ def run(frozen, provenance, output, capture=False):
                 data = json.dumps(config).encode()
                 kind = "application/json"
             elif self.path == "/__surface/terrain.js":
-                data = (ROOT / "terrain.js").read_bytes() + b"\nexport {clipLine};\n"
+                data = (
+                    ROOT / "terrain.js"
+                ).read_bytes() + b"\nexport {clipLine,bbox,tileRange};\n"
                 kind = "text/javascript"
             elif self.path == "/__surface/blank":
                 data = b"<!doctype html><title>Own surface evidence</title>"
@@ -75,10 +87,11 @@ def run(frozen, provenance, output, capture=False):
         script.write_text(
             """async page => {
           const result=await page.evaluate(async()=>{
-            const {clipLine}=await import('/__surface/terrain.js');
-            const {inspectWaterways,matchFrozen}=await import('/tools/map-factory/waterway-evidence.js');
+            const t=await import('/__surface/terrain.js');
+            const {inspectWaterways,matchFrozen,snapshotTiles}=await import('/tools/map-factory/waterway-evidence.js');
             const config=await(await fetch('/__surface/config.json')).json();
-            const decoded=await inspectWaterways(config.tiles,clipLine);
+            const tiles=snapshotTiles(config.frozen,config.tiles,t);
+            const decoded=await inspectWaterways(tiles,t.clipLine,{firstObserved:true});
             return {...decoded,...matchFrozen(config.frozen,decoded.pieces)};
           });
           const [download] = await Promise.all([page.waitForEvent('download'),page.evaluate(data=>{
@@ -98,6 +111,7 @@ def run(frozen, provenance, output, capture=False):
             config["inspectionSha256"] = hashlib.sha256(
                 (output / "waterway-evidence.json").read_bytes()
             ).hexdigest()
+            config["tiles"] = config["inspection"]["tiles"]
             config["originalGeometrySha256"] = hashlib.sha256(
                 frozen.read_bytes()
             ).hexdigest()
@@ -114,7 +128,7 @@ def run(frozen, provenance, output, capture=False):
               const result=await page.evaluate(async()=>{
                 const config=await(await fetch('/__surface/config.json')).json();
                 const {surfaceGeometry}=await import('/tools/map-factory/waterway-evidence.js');
-                const selected=surfaceGeometry(config.frozen,config.inspection,config.originalGeometrySha256,config.inspectionSha256);
+                const selected=config.control ? config.frozen : surfaceGeometry(config.frozen,config.inspection,config.originalGeometrySha256,config.inspectionSha256);
                 const bytes=new TextEncoder().encode(JSON.stringify(selected));
                 const sha=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
                 return captureRegion(selected.sq,{frozenGeometry:selected,frozenGeometrySha256:sha,pinnedVectorTiles:config.tiles});
@@ -134,12 +148,16 @@ def run(frozen, provenance, output, capture=False):
                     raise ValueError(f"controlled capture changed {key}")
             for field in ["rivers", "streams"]:
                 kept = after[field]
-                originals = [
-                    m["original"]
-                    for m in config["inspection"]["matched"]
-                    if m["field"] == field
-                    and m["evidence"]["properties"].get("brunnel") != "tunnel"
-                ]
+                originals = (
+                    before[field]
+                    if control
+                    else [
+                        m["original"]
+                        for m in config["inspection"]["matched"]
+                        if m["field"] == field
+                        and m["evidence"]["properties"].get("brunnel") != "tunnel"
+                    ]
+                )
                 if len(kept) != len(originals) or any(
                     {k: f[k] for k in orig} != orig for f, orig in zip(kept, originals)
                 ):
@@ -152,7 +170,8 @@ def run(frozen, provenance, output, capture=False):
                             p.name: hashlib.sha256(p.read_bytes()).hexdigest()
                             for p in folder.iterdir()
                         },
-                        "surface_water_policy": after["surfaceWaterPolicy"],
+                        "surface_water_policy": after.get("surfaceWaterPolicy"),
+                        "control_capture": control,
                         "in_game_verified": False,
                         "default_adopted": False,
                     },
@@ -164,9 +183,10 @@ def run(frozen, provenance, output, capture=False):
             json.dumps(
                 {
                     "frozen_sha256": hashlib.sha256(frozen.read_bytes()).hexdigest(),
-                    "provenance_sha256": hashlib.sha256(
-                        provenance.read_bytes()
-                    ).hexdigest(),
+                    "provenance_sha256": None
+                    if first_observed
+                    else hashlib.sha256(provenance.read_bytes()).hexdigest(),
+                    "recorded_provenance": not first_observed,
                     "terrain_sha256": hashlib.sha256(
                         (ROOT / "terrain.js").read_bytes()
                     ).hexdigest(),
@@ -214,4 +234,14 @@ if __name__ == "__main__":
     for k in ["frozen", "provenance", "output"]:
         p.add_argument(k, type=Path)
     p.add_argument("--capture", action="store_true")
+    p.add_argument(
+        "--control",
+        action="store_true",
+        help="capture original full geometry without exclusions, as a recapture-drift control",
+    )
+    p.add_argument(
+        "--first-observed",
+        action="store_true",
+        help="use provenance '-' and fixed snapshot only; no historical tile hash claim",
+    )
     run(**vars(p.parse_args()))

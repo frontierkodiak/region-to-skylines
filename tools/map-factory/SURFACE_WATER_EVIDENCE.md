@@ -134,3 +134,123 @@ No Python preparation, portal/drainage simulation, resource regeneration, native
 60-minute soak, panel/start-area judgment or golden acceptance was performed.
 Website/installer and `terrain.js` remain unchanged. This is source-backed input
 correction evidence, not proof that default rivers now survive a soak.
+
+## Five-region extension: exact buffer multisets and first-observed metadata
+
+A separate follow-up extends inspection/capture to the remaining four regions;
+it does **not** retroactively upgrade Rio's original unique1:1 proof. The fixed
+snapshot remains `20261101_080013_pt`. `snapshotTiles()` uses the original
+`terrain.js` `bbox`/`tileRange` functions, exported only by the task-local served
+copy, to recover the original 500m-margin river jobs. Stream recovery is restricted
+to its original **unpadded** capture range. Extra padded stream copies are not
+silently imported as frozen input. Full tiles still provide ocean evidence in
+the same frame; no live/latest planet URL is used.
+
+When no historical tile-hash file exists, use:
+
+```sh
+python3 inspect_surface_water.py FROZEN_GEOMETRY - NEW_OUTPUT --first-observed --capture
+```
+
+This records first-read exact-snapshot SHA values, then verifies them again during
+capture. It makes **no historical binary-hash claim**. Recorded Rio/Charleston
+tiles retain strict old-SHA verification; extra bbox tiles are separately marked
+`assurance="first_observed_exact_snapshot"`, versus
+`assurance="recorded_sha256_verified"`. Exact class/name/coordinates remain
+mandatory for every frozen piece. Changed snapshot URLs, unknown or conflicting
+matches fail; there is no nearby-geometry fallback.
+
+### Approved equivalent-buffer grouping, not guessed tile attribution
+
+The original stream loop copied tile buffers without clipping, sometimes recording
+the identical global feature twice (or more). Literal tile provenance was lost in
+the frozen file. The initial strict guard rejected those cases, retaining evidence
+and closing its browser/server. The bounded extension accepts an **indistinguishable
+multiset only** when all candidates have the same non-null featureID, class, name,
+all properties and exact coordinate array, and source/frozen multiplicities agree.
+Any ID, tag/property, coordinate, class or count disagreement still fails.
+
+Every original geometry copy is retained or excluded separately: no deduplication
+or tunnel-policy change. For grouped copies `sourceFeature.properties` remains the
+common object, while `sourceFeature.tile/feature_index/line_index/piece_index` are
+null rather than an arbitrary choice. `sourceFeature.provenanceGroup` contains:
+
+- `group_index` and `evidence_sha256`, binding the group to archived full evidence;
+- equal `source_count` / `frozen_count`;
+- **all** `members`, each with actual tileURL/SHA/assurance and feature/line/piece
+  indices;
+- all `original_occurrences` (frozen field/index), plus explicit equivalence rule.
+
+Unique pieces retain their original single-source shape. `surfaceWaterPolicy`
+adds `provenanceGroupCount` / `groupedFrozenPieces`. The evidence JSON retains
+both all raw source pieces and complete matches/groups. The original Rio archive
+is still its unique1:1 run, not a reconstructed multiset.
+
+| Region | Matched frozen river+stream pieces | Excluded river / stream | Equivalent groups / frozen copies | Tile assurance |
+|---|---:|---:|---:|---|
+| Rio, original run | 462 | 176 / 24 | 0 / 0 | 72 historically hash-verified |
+| Asheville | 3,390 | 0 / 982 | 84 / 168 | 100 first-observed snapshot |
+| Innsbruck | 1,181 | 13 / 369 | 23 / 46 | 144 first-observed snapshot |
+| Pittsburgh | 1,508 | 7 / 421 | 34 / 72 | 121 first-observed snapshot |
+| Charleston | 1,954 | 0 / 112 | 20 / 40 | 81 historically verified + 19 first-observed bbox |
+
+Every region has **zero unknown/decision-ambiguous matches** after these exact
+checks. Intermittent tags remain preserved only. Counts include original duplicate
+geometry copies; they are not counts of unique real-world culverts.
+
+### Inputs, controls and honest limits on historical PNG comparison
+
+The final four cases are under
+`/home/caleb/scratch/2026-11-11-pl857/surface-water/all-five-final/SLUG/SLUG/`.
+The sibling `all-five-final/manifest.json` names all five exact input paths/hashes,
+including the original Rio archive; `summary.json` and per-case
+`controlled-comparison.json` retain full comparisons. These are experimental
+inputs only, never substituted into the parent or packaged here.
+
+All five keep their original square and fit; every available historical banks file
+is byte-identical. Rio/Charleston also keep historical raw DEM and ocean masks
+byte-identical; inland sea remains null. The three original inland captures did
+**not archive raw DEM bytes**, so equality to those missing bytes cannot be claimed.
+Their fresh raw bytes repeat exactly and equal fresh all-original-geometry controls.
+
+An important non-tunnel source difference is reported, not hidden: the original
+inland PNGs do not reproduce under the current inherited capture environment even
+with **all original vectors**, despite identical bank arrays/frame/fit. Historical
+vs new PNGs contain both raises and lowerings (max lowerings: Asheville3.08m,
+Innsbruck1.16m, Pittsburgh3.14m). The exact historical cause is **not established**;
+no renderer/algorithm explanation is asserted. Those differences cannot be
+attributed to underground filtering.
+
+`--capture --control` produces a fresh **all-original-geometry control**, without
+any tunnel exclusion, using the same pinned metadata/terrain pipeline. Comparing
+the tunnel-aware capture against these controls gives:
+
+| Region | Tunnel-policy pixels raised | Pixels lowered | Maximum raise |
+|---|---:|---:|---:|
+| Asheville | 0 | 0 | 0m |
+| Innsbruck | 5,804 | 0 | 1.391m |
+| Pittsburgh | 502 | 0 | 7.234m |
+| Charleston, equal to historical control | 0 | 0 | 0m |
+| Rio, equal-frame historical control | 19,421 | 0 | 7.781m |
+
+Each fresh control/candidate pair has byte-identical raw DEM, banks and coast.
+Asheville's PNG is exactly its fresh control, as expected with no excluded river
+lines (streams were not burned by this browser carver). All four candidate PNGs
+also reproduce exactly across separate captures. Control evidence is under
+`surface-water/original-controls/SLUG/`; historical PNG drift remains a distinct
+review concern for parent staging, not silently accepted terrain change.
+
+Final four candidate PNG SHA-256 values:
+
+- Asheville: `b6959a092a4e4ada2f05a46d335fe72d1c8b90feb2a7a501155617e056f1602c`
+- Innsbruck: `1b905a90082f8bb2ce4534e2e8250bbfb4f06bcba45a15dc07f81c3f376e9563`
+- Pittsburgh: `13457e721891a54620f2686b2b5fa3d937975cdd967d0e1ae704ba9b698d9a38`
+- Charleston: `89f2574f4e505fafe62a26cb5ef38aac4784159962da43e30d69893f7e5d8611`
+
+Eight Node tests now pass, including equivalent-group/no-dedup positive cases,
+ID/tag/property/class/coordinate/count disagreement rejection, and exact-snapshot
+job/hash preservation. Existing 11 real-browser ocean tests pass for every final
+capture/control. Ruff, JS syntax and diff checks pass. All foreground commands
+were collected; every owned browser/server cleanup receipt confirms closure.
+No native execution, portal modeling, Python source-policy changes, golden updates,
+product `terrain.js`, website or installer changes were made by this extension.

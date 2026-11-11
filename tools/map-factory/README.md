@@ -463,3 +463,10 @@ It leaves product terrain/defaults unchanged. See
 [SURFACE_WATER_EVIDENCE.md](SURFACE_WATER_EVIDENCE.md) for source evidence, the
 capture schema, Rio receipts and the mandatory downstream barrier/portal work.
 These inputs are not an accepted ready-to-play map.
+
+For frozen captures with no historical VT receipt, pass provenance `-` plus
+`--first-observed`; only the fixed documented snapshot is allowed. Exact
+metadata-equivalent buffer duplicates retain all provenance as a group, never an
+arbitrary tile choice. `--capture --control` captures all original geometry for
+separating historical PNG recapture drift from tunnel-only effects. The five-region
+ledger and source-assurance distinctions are in `SURFACE_WATER_EVIDENCE.md`.
