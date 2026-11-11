@@ -78,6 +78,47 @@ proxy for it. [CONVENTIONS.md](CONVENTIONS.md) ranks what players expect and
 records what this tool does about each. `survey/` holds the shipped-map and
 community research behind the defaults.
 
+### Experimental compound resource qualification
+
+`qualify_resources.py` combines existing prepared terrain/water/hydrology with
+explicit WorldCover inputs. It does not launch the game or promote a map:
+
+```sh
+uv run python qualify_resources.py PREPARED_ROOT RESOURCE_INPUTS CANDIDATES STAGING
+```
+
+Each root contains the five region directories. Resource inputs contain
+`landcover.u8.gz`, `landcover.json` and `geometry.json`; optional `evidence.json`
+must match the pinned PR24 fixture exactly. The input receipt binds geometry,
+land cover and the original pinned sampler. Prepared packages must match their
+generation receipts. The qualification source must be committed and clean so
+the resulting receipts identify exact source.
+
+The tool uses PL-902's unchanged balanced defaults: WorldCover-based forest and
+fertility with explicitly labelled **convention top-ups**, not invented MRDS or
+crop evidence. No MRDS evidence is inferred for a region without an evidence
+file. It repeats planning, replays `plan.npz`, independently decodes the managers
+with the survey reader, and checks exact resource/tile totals, tree/forest
+consistency, terrain/water/network preservation, previews, blank author,
+mode-2 north-facing camera and the resource-path buildable score.
+
+Each candidate's `generation.json` binds its package, frozen plan, resource
+report and source inputs. `qualification.json` summarizes offline results.
+`soak.py --prepared CANDIDATES` replays `plan.npz` through the same resource
+encoder when present. If a receipt declares resources but the plan is missing,
+or the bound plan/package differs, staging fails instead of silently producing
+an unpainted map. Staging without resource plans retains the existing behavior.
+Generated probes retain separate panel, actual-startup/Areas, geographic
+`ground_truth` and optional `landmark_expectations` contracts.
+
+These compound packages are **unverified experimental integration**, not native
+resource acceptance or PL-902 closeout. In particular, adding resources cannot
+repair Rio R4's failing flood gate. Do not freeze these packages as finals.
+The original PR24 expected resource CRP hashes in `fixtures/resources.json`
+are deliberately retained: compound previews/camera change the bytes, so the
+old checksum assertions in `verify_resources.py` are not an acceptance gate
+for these new packages. Use its independent decoder checks, not `--freeze`.
+
 ## Verify the frozen fixtures
 
 ```sh
