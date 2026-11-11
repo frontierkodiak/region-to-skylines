@@ -61,14 +61,10 @@ def read_any(data):
     count, start = r.number("i"), r.number("q")
     assets = []
     for _ in range(count):
-        name, _checksum, kind = r.string(), r.string(), r.number("i")
+        name, checksum, kind = r.string(), r.string(), r.number("i")
         off, size = r.number("q"), r.number("q")
         assets.append(
-            {
-                "name": name,
-                "kind": kind,
-                "payload": data[start + off : start + off + size],
-            }
+            {"name": name, "kind": kind, "payload": data[start + off : start + off + size]}
         )
     return pkg, assets
 
@@ -77,22 +73,12 @@ def _meta_value(r, t):
     if t.endswith("[]"):
         n = r.number("i")
         return [_meta_value(r, t[:-2]) for _ in range(n)]
-    if t in (
-        "System.String",
-        "System.DateTime",
-        "ColossalFramework.Packaging.Package+Asset",
-    ):
+    if t in ("System.String", "System.DateTime", "ColossalFramework.Packaging.Package+Asset"):
         return r.string()
     if t == "ModInfo":
         return (r.string(), r.number("Q"))
-    return r.number(
-        {
-            "System.Boolean": "B",
-            "System.Int32": "i",
-            "System.UInt32": "I",
-            "System.Single": "f",
-        }[t]
-    )
+    return r.number({"System.Boolean": "B", "System.Int32": "i", "System.UInt32": "I",
+                     "System.Single": "f"}[t])
 
 
 def parse_metadata(payload):
@@ -142,18 +128,14 @@ def decode(data, count, offset, width, signed=False):
             vals = prev + delta * np.arange(1, n + 1, dtype=np.int64)
         elif width == 1 or code < 64:
             n = code + 1 if width == 1 else (code & 63) + 1
-            vals = np.frombuffer(
-                data, dtype=f">u{width}", count=n, offset=offset
-            ).astype(np.int64)
+            vals = np.frombuffer(data, dtype=f">u{width}", count=n, offset=offset).astype(np.int64)
             offset += n * width
             before = prev if n == 1 else int(vals[-2])
             delta = (int(vals[-1]) - before) & mask
         else:
             n = (code & 63) + 1
             h = width // 2
-            ex = np.frombuffer(data, dtype=f">i{h}", count=n, offset=offset).astype(
-                np.int64
-            )
+            ex = np.frombuffer(data, dtype=f">i{h}", count=n, offset=offset).astype(np.int64)
             offset += n * h
             deltas = delta + np.cumsum(ex)
             vals = prev + np.cumsum(deltas)
@@ -220,7 +202,7 @@ def parse_resources(data, v):
     g["oil"], o = decode(data, N, o, 1)
     if v < 22:
         _, o = decode(data, int((g["oil"] == 0).sum()), o, 1)
-    g["sand"], o = decode(data, N, o, 1) if v >= 27 else (np.zeros(N, np.int64), o)
+    g["sand"], o = (decode(data, N, o, 1) if v >= 27 else (np.zeros(N, np.int64), o))
     g["forest"], o = decode(data, N, o, 1)
     tree, o = decode(data, int((g["forest"] != 0).sum()), o, 1)
     fert, o = decode(data, int((g["forest"] == 0).sum()), o, 1)
@@ -228,8 +210,8 @@ def parse_resources(data, v):
     g["tree"][g["forest"] != 0] = tree
     g["fertility"] = np.zeros(N, np.int64)
     g["fertility"][g["forest"] == 0] = fert
-    g["water"], o = decode(data, N, o, 1) if v >= 22 else (np.zeros(N, np.int64), o)
-    g["shore"], o = decode(data, N, o, 1) if v >= 223 else (g["water"].copy(), o)
+    g["water"], o = (decode(data, N, o, 1) if v >= 22 else (np.zeros(N, np.int64), o))
+    g["shore"], o = (decode(data, N, o, 1) if v >= 223 else (g["water"].copy(), o))
     g["pollution"], o = decode(data, N, o, 1)
     if v >= 265:
         g["burned"], o = decode(data, N, o, 1)
@@ -240,18 +222,8 @@ def parse_resources(data, v):
     if v >= 111:
         k = 10 if v >= 125 else 8
         a, o = decode(data, 81 * k, o, 4)
-        names = [
-            "tempOre",
-            "tempOil",
-            "tempForest",
-            "tempFertility",
-            "finalOre",
-            "finalOil",
-            "finalForest",
-            "finalFertility",
-            "tempWater",
-            "finalWater",
-        ][:k]
+        names = ["tempOre", "tempOil", "tempForest", "tempFertility", "finalOre",
+                 "finalOil", "finalForest", "finalFertility", "tempWater", "finalWater"][:k]
         area = {n: a[i * 81 : (i + 1) * 81].reshape(9, 9) for i, n in enumerate(names)}
     for k_ in list(g):
         g[k_] = g[k_].reshape(RES, RES)  # [z, x]
@@ -274,14 +246,8 @@ def parse_trees(data, v):
     px, o = decode(data, n, o, 2, signed=True)
     pz, o = decode(data, n, o, 2, signed=True)
     burning = int.from_bytes(data[o : o + 3], "big") if v >= 266 else 0
-    return {
-        "flags": flags[used],
-        "prefab": idx,
-        "names": names,
-        "x": px * TREE_UNIT,
-        "z": pz * TREE_UNIT,
-        "burning": burning,
-    }
+    return {"flags": flags[used], "prefab": idx, "names": names,
+            "x": px * TREE_UNIT, "z": pz * TREE_UNIT, "burning": burning}
 
 
 def parse_terrain(data):
@@ -304,22 +270,14 @@ def parse_start_tile(data, v):
 
 
 # ---------------------------------------------------------------- statistics
-TILE = np.minimum(
-    8, (np.arange(RES) * 9) // 512
-)  # NaturalResourceManager.SimulationStepImpl2
-CENTRAL = (
-    (TILE[:, None] >= 2)
-    & (TILE[:, None] <= 6)
-    & (TILE[None, :] >= 2)
-    & (TILE[None, :] <= 6)
-)
+TILE = np.minimum(8, (np.arange(RES) * 9) // 512)  # NaturalResourceManager.SimulationStepImpl2
+CENTRAL = (TILE[:, None] >= 2) & (TILE[:, None] <= 6) & (TILE[None, :] >= 2) & (TILE[None, :] <= 6)
 CELL_KM2 = CELL * CELL / 1e6
 
 
 def tile_sums(grid):
-    return np.bincount(
-        (TILE[:, None] * 9 + TILE[None, :]).ravel(), weights=grid.ravel(), minlength=81
-    ).reshape(9, 9)
+    return np.bincount((TILE[:, None] * 9 + TILE[None, :]).ravel(), weights=grid.ravel(),
+                       minlength=81).reshape(9, 9)
 
 
 def patches(mask):
@@ -329,26 +287,21 @@ def patches(mask):
     if n == 0:
         return {"count": 0}
     sizes = np.bincount(lab.ravel())[1:] * CELL_KM2
-    return {
-        "count": int(n),
-        "median_km2": round(float(np.median(sizes)), 4),
-        "p90_km2": round(float(np.percentile(sizes, 90)), 4),
-        "max_km2": round(float(sizes.max()), 3),
-        "n_ge_0p1km2": int((sizes >= 0.1).sum()),
-    }
+    return {"count": int(n), "median_km2": round(float(np.median(sizes)), 4),
+            "p90_km2": round(float(np.percentile(sizes, 90)), 4),
+            "max_km2": round(float(sizes.max()), 3),
+            "n_ge_0p1km2": int((sizes >= 0.1).sum())}
 
 
 def hist(values):
     v = values[values > 0]
     if len(v) == 0:
         return {}
-    return {
-        "eq255": round(float((v == 255).mean()), 3),
-        "ge192": round(float((v >= 192).mean()), 3),
-        "64_191": round(float(((v >= 64) & (v < 192)).mean()), 3),
-        "lt64": round(float((v < 64).mean()), 3),
-        "mean": round(float(v.mean()), 1),
-    }
+    return {"eq255": round(float((v == 255).mean()), 3),
+            "ge192": round(float((v >= 192).mean()), 3),
+            "64_191": round(float(((v >= 64) & (v < 192)).mean()), 3),
+            "lt64": round(float((v < 64).mean()), 3),
+            "mean": round(float(v.mean()), 1)}
 
 
 def terrain_fields(height, depth):
@@ -367,11 +320,7 @@ def terrain_fields(height, depth):
         above = height - height.min()
         dist = np.full(height.shape, np.inf)
     # sample at resource-cell centres (nearest 16 m node)
-    c = np.clip(
-        np.floor(((np.arange(RES) - 256 + 0.5) * CELL + 8640) / 16 + 0.5).astype(int),
-        0,
-        HN - 1,
-    )
+    c = np.clip(np.floor(((np.arange(RES) - 256 + 0.5) * CELL + 8640) / 16 + 0.5).astype(int), 0, HN - 1)
     pick = np.ix_(c, c)
     land = ~wet[pick]
     h = height[pick]
@@ -380,14 +329,8 @@ def terrain_fields(height, depth):
     if ref.any():
         order = np.sort(h[ref])
         pct = np.searchsorted(order, h) / len(order) * 100
-    return {
-        "slope": slope[pick],
-        "above": above[pick],
-        "dist": dist[pick],
-        "land": land,
-        "wet": wet[pick],
-        "pct": pct,
-    }
+    return {"slope": slope[pick], "above": above[pick], "dist": dist[pick], "land": land,
+            "wet": wet[pick], "pct": pct}
 
 
 def placement(field, mask):
@@ -411,33 +354,13 @@ def measure(path):
     sim = next(a for a in assets if a["kind"] == 52)
     data = sim["payload"]
     v = data_version(data)
-    rec = {
-        "file": os.path.basename(path),
-        "display": sim["name"].rsplit("_Data", 1)[0],
-        "package_format": pkg["format"],
-        "data_version": v,
-    }
-    keep = [
-        "mapName",
-        "environment",
-        "mapThemeRef",
-        "builtin",
-        "buildableArea",
-        "maxResourceAmount",
-        "oreAmount",
-        "oilAmount",
-        "forestAmount",
-        "fertileLandAmount",
-        "waterAmount",
-        "incomingRoads",
-        "outgoingRoads",
-        "incomingTrainTracks",
-        "outgoingTrainTracks",
-        "incomingShipPath",
-        "outgoingShipPath",
-        "incomingPlanePath",
-        "outgoingPlanePath",
-    ]
+    rec = {"file": os.path.basename(path), "display": sim["name"].rsplit("_Data", 1)[0],
+           "package_format": pkg["format"], "data_version": v}
+    keep = ["mapName", "environment", "mapThemeRef", "builtin", "buildableArea",
+            "maxResourceAmount", "oreAmount", "oilAmount", "forestAmount", "fertileLandAmount",
+            "waterAmount", "incomingRoads", "outgoingRoads", "incomingTrainTracks",
+            "outgoingTrainTracks", "incomingShipPath", "outgoingShipPath",
+            "incomingPlanePath", "outgoingPlanePath"]
     rec["meta"] = {k: meta.get(k) for k in keep}
     area_count, start = parse_start_tile(data, v)
     sx, sz = start % 5, start // 5
@@ -453,34 +376,19 @@ def measure(path):
         pos = grid > 0
         ts = tile_sums(grid)
         central_ts = ts[2:7, 2:7]
-        r = {
-            "cells": int(pos.sum()),
-            "km2": round(float(pos.sum() * CELL_KM2), 2),
-            "sum": int(grid.sum()),
-            "central_km2": round(float((pos & CENTRAL).sum() * CELL_KM2), 2),
-            "central_sum": int(grid[CENTRAL].sum()),
-            "central_share_of_area": round(
-                float((pos & CENTRAL).sum() / CENTRAL.sum()), 4
-            ),
-            "central_share_of_land": round(
-                float(
-                    (pos & CENTRAL & field["land"]).sum()
-                    / max((CENTRAL & field["land"]).sum(), 1)
-                ),
-                4,
-            ),
-            "start_km2": round(float((pos & st).sum() * CELL_KM2), 3),
-            "central_tiles_with": int((central_ts > 0).sum()),
-            "central_tiles_ge5pct": int(
-                (central_ts >= 0.05 * 255 * (CENTRAL.sum() / 25)).sum()
-            ),
-            "hist": hist(grid),
-            "patches": patches(pos),
-            "patches_central": patches(pos & CENTRAL),
-        }
-        r["central_fraction_of_cells"] = round(
-            float((pos & CENTRAL).sum() / max(pos.sum(), 1)), 3
-        )
+        r = {"cells": int(pos.sum()), "km2": round(float(pos.sum() * CELL_KM2), 2),
+             "sum": int(grid.sum()),
+             "central_km2": round(float((pos & CENTRAL).sum() * CELL_KM2), 2),
+             "central_sum": int(grid[CENTRAL].sum()),
+             "central_share_of_area": round(float((pos & CENTRAL).sum() / CENTRAL.sum()), 4),
+             "central_share_of_land": round(float((pos & CENTRAL & field["land"]).sum()
+                                                  / max((CENTRAL & field["land"]).sum(), 1)), 4),
+             "start_km2": round(float((pos & st).sum() * CELL_KM2), 3),
+             "central_tiles_with": int((central_ts > 0).sum()),
+             "central_tiles_ge5pct": int((central_ts >= 0.05 * 255 * (CENTRAL.sum() / 25)).sum()),
+             "hist": hist(grid), "patches": patches(pos),
+             "patches_central": patches(pos & CENTRAL)}
+        r["central_fraction_of_cells"] = round(float((pos & CENTRAL).sum() / max(pos.sum(), 1)), 3)
         if k != "sand":
             r["placement"] = placement(field, pos & CENTRAL)
             r["placement_saturated"] = placement(field, (grid >= 192) & CENTRAL)
@@ -489,14 +397,9 @@ def measure(path):
     land = field["land"]
     rec["baseline"] = placement(field, CENTRAL.copy())
     rec["baseline_full_map"] = placement(field, np.ones_like(land))
-    rec["water_central_share"] = round(
-        float((~land & CENTRAL).sum() / CENTRAL.sum()), 4
-    )
+    rec["water_central_share"] = round(float((~land & CENTRAL).sum() / CENTRAL.sum()), 4)
     if area is not None:
-        fin = {
-            k: int(area["final" + k][2:7, 2:7].sum())
-            for k in ["Ore", "Oil", "Forest", "Fertility"]
-        }
+        fin = {k: int(area["final" + k][2:7, 2:7].sum()) for k in ["Ore", "Oil", "Forest", "Fertility"]}
         if "finalWater" in area:
             fin["Water"] = int(area["finalWater"][2:7, 2:7].sum())
         rec["area_final_central"] = fin
@@ -506,26 +409,13 @@ def measure(path):
     names = t["names"]
     counts = np.bincount(t["prefab"][created], minlength=len(names))
     inside = (np.abs(t["x"]) < 4800) & (np.abs(t["z"]) < 4800)
-    rec["trees"] = {
-        "total": int(created.sum()),
-        "slots_used": int(len(t["flags"])),
-        "central": int((created & inside).sum()),
-        "prefabs": {
-            (names[i] if i < len(names) else f"#{i}"): int(c)
-            for i, c in sorted(enumerate(counts), key=lambda x: -x[1])
-            if c
-        },
-        "grow_state": {
-            int(s): int(c)
-            for s, c in zip(
-                *np.unique((t["flags"][created] >> 8) & 15, return_counts=True)
-            )
-        },
-        "single_flag_share": round(float(((t["flags"][created] & 0x10) != 0).mean()), 3)
-        if created.any()
-        else None,
-        "burning": t["burning"],
-    }
+    rec["trees"] = {"total": int(created.sum()), "slots_used": int(len(t["flags"])),
+                    "central": int((created & inside).sum()),
+                    "prefabs": {(names[i] if i < len(names) else f"#{i}"): int(c)
+                                for i, c in sorted(enumerate(counts), key=lambda x: -x[1]) if c},
+                    "grow_state": {int(s): int(c) for s, c in zip(*np.unique((t["flags"][created] >> 8) & 15, return_counts=True))},
+                    "single_flag_share": round(float(((t["flags"][created] & 0x10) != 0).mean()), 3) if created.any() else None,
+                    "burning": t["burning"]}
     # forest vs TreesModified prediction
     cx = np.clip((t["x"][created] / CELL + 256).astype(int), 0, 511)
     cz = np.clip((t["z"][created] / CELL + 256).astype(int), 0, 511)
@@ -537,21 +427,14 @@ def measure(path):
         "forest_cells_without_trees": int(((f > 0) & (per_cell == 0)).sum()),
         "tree_cells_without_forest": int(((f == 0) & (per_cell > 0)).sum()),
         "mismatch_cells": int((pred != f).sum()),
-        "trees_per_forest_cell_median": float(np.median(per_cell[per_cell > 0]))
-        if (per_cell > 0).any()
-        else None,
-        "forest_cells_saturated_share": round(float((f[f > 0] == 255).mean()), 3)
-        if (f > 0).any()
-        else None,
+        "trees_per_forest_cell_median": float(np.median(per_cell[per_cell > 0])) if (per_cell > 0).any() else None,
+        "forest_cells_saturated_share": round(float((f[f > 0] == 255).mean()), 3) if (f > 0).any() else None,
     }
     # fertility: does it avoid forest and sit next to water?
     rec["fert_forest_overlap"] = int(((g["fertility"] > 0) & (f > 0)).sum())
     rec["ore_oil_overlap"] = int(((g["ore"] > 0) & (g["oil"] > 0)).sum())
-    rec["terrain"] = {
-        "min": round(float(height.min()), 1),
-        "max": round(float(height.max()), 1),
-        "median_land_slope_pct": rec["baseline"]["slope"] if rec["baseline"] else None,
-    }
+    rec["terrain"] = {"min": round(float(height.min()), 1), "max": round(float(height.max()), 1),
+                      "median_land_slope_pct": rec["baseline"]["slope"] if rec["baseline"] else None}
     return rec
 
 
@@ -571,12 +454,7 @@ def main():
         except Exception as e:  # keep going; record the failure
             rec = {"file": os.path.basename(f), "error": f"{type(e).__name__}: {e}"}
         out.append(rec)
-        print(
-            rec.get("file"),
-            rec.get("error") or rec["trees"]["total"],
-            file=sys.stderr,
-            flush=True,
-        )
+        print(rec.get("file"), rec.get("error") or rec["trees"]["total"], file=sys.stderr, flush=True)
         json.dump(out, open(a.out, "w"), indent=1)
 
 

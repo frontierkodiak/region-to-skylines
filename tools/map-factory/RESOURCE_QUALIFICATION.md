@@ -93,3 +93,13 @@ No Steam, game, doctor, GPU/display/session service, remote GitHub or Multica
 operation was performed. No shared worktree/cache was changed. All five maps
 remain experimental and unverified in game; resource overlays and deterministic
 bytes do not establish native visual correctness, hydrology or playability.
+
+### Integration-review cleanup
+
+Dependency-only resource and survey modules are kept byte-for-byte at pinned
+PR24, rather than carrying unrelated formatter/unused-variable churn in this
+integration. The shared encoders, planner defaults and independent decoder are
+therefore the producer's original source. Lint/format claims for this cleanup
+are scoped to the integration's changed Python files; unchanged dependency
+files retain their pre-existing lint/format findings. Replanning, plan replay
+and package identity are rechecked against the earlier experimental packages.

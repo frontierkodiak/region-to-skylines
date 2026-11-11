@@ -100,28 +100,18 @@ def check(crp, evidence=None):
     # Only real deposits may put ore or oil in the start tile.
     tile = (np.arange(512) * 18) >> 10
     start_index = M.parse_start_tile(data, v)[1]
-    in_start = (tile[:, None] == start_index // 5 + 2) & (
-        tile[None, :] == start_index % 5 + 2
-    )
+    in_start = (tile[:, None] == start_index // 5 + 2) & (tile[None, :] == start_index % 5 + 2)
     centres = (np.arange(512) + 0.5) * R.CELL - R.HALF
     near_real = np.zeros((512, 512), bool)
     for e in evidence or []:
-        near_real |= (
-            np.hypot(centres[None, :] - e["x"], centres[:, None] - e["z"]) < 700
-        )
+        near_real |= np.hypot(centres[None, :] - e["x"], centres[:, None] - e["z"]) < 700
     if np.any(((g["ore"] > 0) | (g["oil"] > 0)) & in_start & ~near_real):
         problems.append("invented ore or oil inside the start tile")
-    names = (
-        [trees["names"][i] for i in np.unique(trees["prefab"])]
-        if len(trees["prefab"])
-        else []
-    )
+    names = [trees["names"][i] for i in np.unique(trees["prefab"])] if len(trees["prefab"]) else []
     theme = meta["environment"]
     allowed = {n for pool in R.THEMES.get(theme, {}).values() for n, _ in pool}
     if set(names) - allowed:
-        problems.append(
-            f"tree prefabs the {theme} theme doesn't load: {sorted(set(names) - allowed)}"
-        )
+        problems.append(f"tree prefabs the {theme} theme doesn't load: {sorted(set(names) - allowed)}")
     if len(trees["prefab"]) and any(n is None for n in trees["names"]):
         problems.append("tree prefab table has null entries")
     if np.any(trees["flags"] != R.GROWN_TREE):
@@ -135,11 +125,7 @@ def check(crp, evidence=None):
         ("finalForest", "forestAmount", g["forest"]),
         ("finalFertility", "fertileLandAmount", g["fertility"]),
     ]:
-        binned = np.bincount(
-            (tile[:, None] * 9 + tile[None, :]).ravel(),
-            weights=cells.ravel(),
-            minlength=81,
-        )
+        binned = np.bincount((tile[:, None] * 9 + tile[None, :]).ravel(), weights=cells.ravel(), minlength=81)
         if np.any(binned.reshape(9, 9) != area[key]):
             problems.append(f"{key} tile sums differ from the cell grid")
         if int(area[key][2:7, 2:7].sum()) != meta[field]:
@@ -149,19 +135,11 @@ def check(crp, evidence=None):
     mx = meta["maxResourceAmount"]
     return problems, {
         "trees": int(len(trees["flags"])),
-        "species": {
-            n: int((trees["prefab"] == i).sum()) for i, n in enumerate(trees["names"])
-        },
+        "species": {n: int((trees["prefab"] == i).sum()) for i, n in enumerate(trees["names"])},
         "forest_formula_match": round(match, 5),
         "panel_share": {
             k: round(meta[f] / mx, 4)
-            for k, f in [
-                ("ore", "oreAmount"),
-                ("oil", "oilAmount"),
-                ("forest", "forestAmount"),
-                ("fertile", "fertileLandAmount"),
-                ("water", "waterAmount"),
-            ]
+            for k, f in [("ore", "oreAmount"), ("oil", "oilAmount"), ("forest", "forestAmount"), ("fertile", "fertileLandAmount"), ("water", "waterAmount")]
         },
     }
 
@@ -181,42 +159,19 @@ def main():
         knobs = R.Knobs(**case["knobs"])
         with tempfile.TemporaryDirectory() as tmp:
             planned, replayed = Path(tmp) / "plan", Path(tmp) / "replay"
-            paint(
-                fixture,
-                fixture / "landcover.u8.gz",
-                planned,
-                None,
-                fixture / "evidence.json",
-                knobs,
-                case["map_name"],
-            )
+            paint(fixture, fixture / "landcover.u8.gz", planned, None, fixture / "evidence.json", knobs, case["map_name"])
             crp = next(planned.glob("*.crp"))
-            paint(
-                fixture,
-                None,
-                replayed,
-                knobs=knobs,
-                map_name=case["map_name"],
-                plan=planned / "plan.npz",
-            )
+            paint(fixture, None, replayed, knobs=knobs, map_name=case["map_name"], plan=planned / "plan.npz")
             digest, replay_digest = sha(crp), sha(next(replayed.glob("*.crp")))
-            problems, facts = check(
-                crp, json.loads((fixture / "evidence.json").read_text())["evidence"]
-            )
+            problems, facts = check(crp, json.loads((fixture / "evidence.json").read_text())["evidence"])
             if args.freeze:
                 case["expected_crp_sha256"] = digest
             if digest != case["expected_crp_sha256"]:
-                problems.append(
-                    f"planned map {digest} != expected {case['expected_crp_sha256']}"
-                )
+                problems.append(f"planned map {digest} != expected {case['expected_crp_sha256']}")
             if replay_digest != digest:
-                problems.append(
-                    "replaying plan.npz through the encoders changed the bytes"
-                )
+                problems.append("replaying plan.npz through the encoders changed the bytes")
         failed |= bool(problems)
-        report.append(
-            {"slug": case["slug"], "sha256": digest, "problems": problems, **facts}
-        )
+        report.append({"slug": case["slug"], "sha256": digest, "problems": problems, **facts})
     if args.freeze:
         manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
     print(json.dumps({"cases": report, "in_game_verified": False}, indent=2))

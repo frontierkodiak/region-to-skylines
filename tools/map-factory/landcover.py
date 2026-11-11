@@ -30,9 +30,7 @@ ATTRIBUTION = "ESA WorldCover project 2021 / Contains modified Copernicus Sentin
 
 def tile_name(lat, lon):
     la, lo = 3 * math.floor(lat / 3), 3 * math.floor(lon / 3)
-    return (
-        f"{'N' if la >= 0 else 'S'}{abs(la):02d}{'E' if lo >= 0 else 'W'}{abs(lo):03d}"
-    )
+    return f"{'N' if la >= 0 else 'S'}{abs(la):02d}{'E' if lo >= 0 else 'W'}{abs(lo):03d}"
 
 
 def lonlat(sq, x, z):
@@ -75,27 +73,18 @@ def sample(sq):
                 if not inside.any():
                     continue
                 pad = 2 * src.res[0]
-                window = (
-                    from_bounds(
-                        max(left, lon[inside].min() - pad),
-                        max(bottom, lat[inside].min() - pad),
-                        min(right, lon[inside].max() + pad),
-                        min(top, lat[inside].max() + pad),
-                        src.transform,
-                    )
-                    .round_offsets()
-                    .round_lengths()
-                )
+                window = from_bounds(
+                    max(left, lon[inside].min() - pad),
+                    max(bottom, lat[inside].min() - pad),
+                    min(right, lon[inside].max() + pad),
+                    min(top, lat[inside].max() + pad),
+                    src.transform,
+                ).round_offsets().round_lengths()
                 block = src.read(1, window=window)
                 transform = src.window_transform(window)
                 col = np.floor((lon[inside] - transform.c) / transform.a).astype(int)
                 row = np.floor((lat[inside] - transform.f) / transform.e).astype(int)
-                ok = (
-                    (row >= 0)
-                    & (row < block.shape[0])
-                    & (col >= 0)
-                    & (col < block.shape[1])
-                )
+                ok = (row >= 0) & (row < block.shape[0]) & (col >= 0) & (col < block.shape[1])
                 values = np.zeros(int(inside.sum()), dtype=np.uint8)
                 values[ok] = block[row[ok], col[ok]]
                 out[inside] = values
@@ -118,9 +107,7 @@ def main():
             {
                 "output": str(args.output),
                 "tiles": tiles,
-                "share": {
-                    int(c): round(n / grid.size, 4) for c, n in zip(classes, counts)
-                },
+                "share": {int(c): round(n / grid.size, 4) for c, n in zip(classes, counts)},
                 "attribution": ATTRIBUTION,
             },
             indent=2,

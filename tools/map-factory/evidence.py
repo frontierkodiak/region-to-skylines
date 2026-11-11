@@ -18,6 +18,8 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+import numpy as np
+
 from prepare import pixel
 
 MRDS = "https://mrdata.usgs.gov/mrds/search-bbox.php?xmin={w}&ymin={s}&xmax={e}&ymax={n}&format=xml"
@@ -39,9 +41,7 @@ def game_xz(sq, lon, lat):
 
 def mrds(sq):
     s, w, n, e = bbox(sq)
-    request = urllib.request.Request(
-        MRDS.format(s=s, w=w, n=n, e=e), headers={"User-Agent": "map-factory"}
-    )
+    request = urllib.request.Request(MRDS.format(s=s, w=w, n=n, e=e), headers={"User-Agent": "map-factory"})
     with urllib.request.urlopen(request, timeout=60) as response:
         root = ET.fromstring(response.read())
     out = []
@@ -52,12 +52,8 @@ def mrds(sq):
         operation = deposit.get("oper_tp", "") if deposit is not None else ""
         if not weight or operation == "Processing Plant":
             continue
-        codes = {
-            c.strip().upper() for c in record.get("code_list", "").split() if c.strip()
-        }
-        commodities = {
-            c.get("value", "").upper() for c in record.iter("commodity")
-        } | codes
+        codes = {c.strip().upper() for c in record.get("code_list", "").split() if c.strip()}
+        commodities = {c.get("value", "").upper() for c in record.iter("commodity")} | codes
         x, z = game_xz(sq, float(record.get("x")), float(record.get("y")))
         if max(abs(x), abs(z)) > 8640:
             continue
@@ -83,22 +79,10 @@ def main():
     geometry = json.loads(gzip.decompress(raw) if raw[:2] == b"\x1f\x8b" else raw)
     evidence = mrds(geometry["sq"])
     args.output.write_text(
-        json.dumps(
-            {"evidence": evidence, "sources": ["USGS MRDS (public domain)"]}, indent=2
-        )
-        + "\n"
+        json.dumps({"evidence": evidence, "sources": ["USGS MRDS (public domain)"]}, indent=2) + "\n"
     )
     kinds = {k: sum(1 for e in evidence if e["kind"] == k) for k in ["ore", "oil"]}
-    print(
-        json.dumps(
-            {
-                "output": str(args.output),
-                **kinds,
-                "records": [e["source"] for e in evidence],
-            },
-            indent=2,
-        )
-    )
+    print(json.dumps({"output": str(args.output), **kinds, "records": [e["source"] for e in evidence]}, indent=2))
 
 
 if __name__ == "__main__":
