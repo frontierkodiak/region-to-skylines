@@ -558,6 +558,20 @@ specific `PL-NNN` in a path (`PL-891-PL-893-test-city` is PL-893).
 live older waiter (deferred), a dead one (cleaned up) and the older one
 exiting (proceeds). `queue` now reads "held by script trial.py · PL-893".
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · the recorder had stopped after its first run
+
+Every PL-891 run tonight had a 0-byte `timelapse.mp4`, and the live page
+showed a stale frame. The grabber's ffmpeg writes the timelapse and the live
+page's `frame.jpg` in one process. The live page keeps its last frame when a
+run ends, so from the second run on, ffmpeg found `frame.jpg` already there,
+refused to overwrite it without `-y`, and exited at once, taking the timelapse
+with it. The journal said so every time ("File … frame.jpg already exists.
+Exiting"). The observer bench worked because it was the first run.
+
+Fix: `-y`. Reproduced with the same output options on a test source: without
+`-y`, a 0-byte MP4; with it, a 8.9 kB MP4 and a fresh frame. The smoke run's
+comment on PL-891 claimed a timelapse attachment it didn't have.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
