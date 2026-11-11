@@ -163,6 +163,31 @@ run takes a single overview screenshot set and no point samples. A point may
 set `"required": true|false` for the verdict, and the file may name a
 `reference_water` grid (relative to the file) that flooding is judged against.
 
+## Checking against the world
+
+Every other map check is drawn in the map writer's own coordinate frame, so a
+rotated or mirrored map would pass all of them. Two checks look from outside
+that frame:
+
+- `ground_truth` fetches elevation itself (AWS Terrain Tiles, Terrarium, cached
+  in `~/.cache/cs1-harness/terrarium`) and projects it with pyproj into the
+  game's frame (+x east, +z north). It then correlates it with the terrain the
+  game reports, as is and in the seven other rotations and mirrors. It passes
+  when the map as is correlates at r ≥ 0.9 and beats every other orientation by
+  0.15. `ground-truth.png` shows north-up hillshades of the real DEM beside the
+  game's terrain. Landmark rows give the game's height at the region's highest
+  and lowest points, and at any named landmarks. The probe file supplies the
+  region: `"ground_truth": {"lat", "lon", "size_m", "rotation", "base"?,
+  "landmarks"?: [{"name", "lat", "lon"}]}`.
+- `opening_camera` reads the camera the map opens with, before the harness
+  moves it, and fails if it faces more than 45° from north. `run` also saves
+  what a player sees first: `shots/player-opening.png` (UI showing) and
+  `shots/player-area-zoom.png` (fully zoomed out). `--notify` posts both, with
+  the New Game panel and `ground-truth.png`.
+
+A map soak with no passing `ground_truth` check reports `unverified`, never
+`pass`.
+
 ## Verdict
 
 Every `run` ends with `verdict.json`: `pass`, `fail` or `error`, one row per

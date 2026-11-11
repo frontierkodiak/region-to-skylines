@@ -297,6 +297,8 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
     else:
         checks.append(row("frame_kinds", "skip", detail="Clef not run (pass --clef)"))
 
+    checks.append(ground_truth(out, report, meta))
+    checks.append(opening_camera(report))
     checks += common(report.get("session") or {}, (report.get("final_status") or {}).get("errors") or [])
     return checks
 
@@ -386,6 +388,64 @@ def scenario_checks(report: dict) -> list[dict]:
     return [population, outside, utilities]
 
 
+# Checks against the world, independent of the map writer's coordinate code. A map
+# soak can't PASS without at least one of these passing (see judge()).
+GROUND_TRUTH_CHECKS = ("ground_truth",)
+OPENING_HEADING_MAX_DEG = 45  # the opening camera must face within this of north
+
+
+def ground_truth(out: pathlib.Path, report: dict, meta: dict) -> dict:
+    region = meta.get("ground_truth")
+    terrain = out / "grids" / f"{report.get('first_dump', 't000')}-terrain.u16"
+    if not region:
+        return row(
+            "ground_truth",
+            "skip",
+            detail="the probe file has no ground_truth region, so nothing checks the map against the world",
+        )
+    if not terrain.exists():
+        return row("ground_truth", "skip", detail="no terrain dump from the game")
+    cached = out / "ground-truth.json"
+    if cached.exists():
+        r = json.loads(cached.read_text())
+    else:
+        from . import groundtruth
+
+        try:
+            r = groundtruth.check(terrain, region, out)
+        except OSError as e:  # the DEM fetch failed; say so rather than guess
+            return row("ground_truth", "skip", detail=f"DEM unavailable: {e}")
+        cached.write_text(json.dumps(r, indent=2) + "\n")
+    return row(
+        "ground_truth",
+        "pass" if r["passed"] else "fail",
+        {
+            "orientation": r["orientation"],
+            "correlation_as_is": r["correlation"]["as is"],
+            "best_other": max(v for k, v in r["correlation"].items() if k != "as is"),
+            "landmarks": r["landmarks"],
+        },
+        f"terrain correlates with the real DEM >= {r['thresholds']['min_correlation']} as is, "
+        f"and beats every rotation or mirror by >= {r['thresholds']['min_margin']}",
+        "" if r["passed"] else f"the game shows the world {r['orientation']}",
+    )
+
+
+def opening_camera(report: dict) -> dict:
+    cam = report.get("opening_camera")
+    if not cam:
+        return row("opening_camera", "skip", detail="this run didn't read the opening camera")
+    heading = float(cam.get("heading_deg", 0.0))
+    off = abs((heading + 180) % 360 - 180)
+    return row(
+        "opening_camera",
+        "pass" if off <= OPENING_HEADING_MAX_DEG else "fail",
+        {"heading_deg": round(heading, 1), "facing": cam.get("facing")},
+        f"faces within {OPENING_HEADING_MAX_DEG}° of north, so the first view matches a north-up map",
+        "" if off <= OPENING_HEADING_MAX_DEG else f"a player's first view faces {cam.get('facing')}",
+    )
+
+
 def asset_check(out: pathlib.Path, doc: dict) -> list[dict]:
     t = ASSET_CHECK
     r = doc.get("result") or {}
@@ -455,10 +515,12 @@ def judge(out: pathlib.Path, write: bool = True) -> dict:
     else:
         raise FileNotFoundError(f"{out} has no report.json or asset-check.json")
     failed = [c["name"] for c in checks if c["status"] == "fail"]
+    grounded = any(c["name"] in GROUND_TRUTH_CHECKS and c["status"] == "pass" for c in checks)
+    outcome = "fail" if failed else ("pass" if grounded or check_type != "map-soak" else "unverified")
     verdict = {
         "schema": SCHEMA,
         "check_type": check_type,
-        "verdict": "fail" if failed else "pass",
+        "verdict": outcome,
         "failed": failed,
         "warnings": [c["name"] for c in checks if c["status"] == "warn"],
         "checks": checks,
