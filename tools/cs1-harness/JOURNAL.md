@@ -1082,3 +1082,25 @@ capture, not just heading. A regression fixture reproduces the actual corner
 drift and must fail despite yaw0. All48 tests pass. Writer PR27 now emits the
 selected start-tile centre with64m tolerance for newly staged runs. Existing
 frozen requests are not edited retroactively and make heading-only claims.
+
+## 2026-11-11 01:11 ET — painted Asheville60 completed
+
+`resources-north-asheville-60/asheville`, exact CRP `be8b2482…f3cc3`, completed
+60.0731 game-minutes /932.74 simulation wall seconds. Native initial grids and
+all source controls match. All28 playable major rivers and59 nonboundary
+rivers are exactly wet in all13 samples. Two physical-edge river misses remain;
+streams are not all perennial (837/1527 playable stream probes end exact wet).
+All saved0/15/30/45/60 grids show0 distant spread. Six full car/train paths and
+empty cleanup pass; its own game ignored graceful quit and was terminated by
+normal owned-session teardown, not by touching another session.
+
+Independent grid and native1,600-point terrain checks both passr=.9999;
+best wrong native transform.3727. Four GNIS/DEM landmark errors are−.335 to
+−1.629m. Actual panel and real Areas/opening images were manually inspected,
+hash-bound and reviewed. Panel has preview/blank author/resources/73% buildable;
+heading0 in opening and actual Areas; the drifted opening is explicitly **not**
+centred-camera acceptance. Native verdict passes its frozen heading-only
+request; no extra centring claim is inherited. `resources-neutral-pointer-
+asheville-1` queues the same exact CRP with new64m centre expectation. Matching
+Rio nofill15 arm `rio-coast-nofill-15` is also now queued; both remain foreground.
+Peak memory10,821 MiB /2,821 above8,000 baseline;136.59 W,54°C,150 W unchanged.
