@@ -1395,3 +1395,21 @@ from fresh original-geometry controls: identical banks/frame/fit, but original
 raw bytes unavailable for those three. Fresh control/candidate raw bytes match;
 only explicit tunnel removal differs between those controls. No grid flip or
 source substitution is claimed. Website/installer and shared services unchanged.
+
+## 2026-11-11 04:43 ET — Rio residual and bounded-head diagnostic
+
+Current surface-only Rio117b4d16 completed60.1100game-minutes:235/244
+playable river points exact end wet, nine ever exact dry; all3172 native64m
+neighbourhood readings wet. Exact native initial grids/controls, six paths,
+independent terrain comparison, reviewed actual panel/opening/Areas and empty
+cleanup pass. Off-channel spread is0.014848km² maximum, up to2.0625m, mostly
+WorldCover built-up cells nearRioComprido. This is NOT a zero-flood claim.
+The nearest upstream tunnel-outlet source has4.34m head above its actual bed;
+local-footprint rate bounds do not stop farther valley spill.
+
+A fresh diagnostic from writer0bed816 caps only bank-limited river source
+head AND matching initial fill at1m above local bed (sea retained). No new
+excavation, mapped-mask or probe exclusion. All five offline inputs will be
+compared; only a15minute Rio pilot queues initially. Six constructed geometry/
+portal/head tests and changed-file Ruff/format pass; native success is pending.
+All jobs remain foreground, queue fairly and never answer an account prompt.
