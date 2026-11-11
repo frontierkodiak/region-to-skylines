@@ -30,7 +30,15 @@ def main():
         p.resolve() for p in (args.harness, args.inputs, args.output)
     )
     out.mkdir(parents=True, exist_ok=True)
+    manifest = json.loads((inputs / "manifest.json").read_text())
+    for asset in manifest["assets"]:
+        for filename, expected in asset["files"].items():
+            assert digest(inputs / asset["name"] / filename) == expected, (
+                asset["name"],
+                filename,
+            )
     plan = {
+        "batch_sha256": digest(Path(__file__)),
         "input_manifest_sha256": digest(inputs / "manifest.json"),
         "map_sha256": digest(args.map),
         "harness_source": subprocess.check_output(
@@ -88,6 +96,8 @@ def main():
                 cmd += [
                     "--out",
                     str(dest),
+                    "--issue",
+                    "PL-881",
                     "--wait-minutes",
                     str(args.wait_minutes),
                     "--max-attempts",

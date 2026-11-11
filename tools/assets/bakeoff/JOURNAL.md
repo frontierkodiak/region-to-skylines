@@ -58,3 +58,26 @@ retopology and source baking, with a real re-imported manifold/volume check.
 This conversion is explicit in B's cost and does not change its generated main
 geometry. A separate receipt audit prevents reusing a judge score after even
 an apparently identical rerender without checking its exact image hash.
+
+## 2026-11-11 — first native import and basement diagnostic
+
+The playtest hold ended and the older checks cleared. Created the isolated
+`PL-881-harness-native` worktree because PL-900 was using the previous
+`PL-881-game-check` checkout. Integrated main `e971c27` into the pinned bridge
+and scoped-template/gameplay-view extension; asset commands now use FIFO,
+per-process staging and explicit owning-issue metadata. Compilation, lint,
+format and the real 2080 Ti doctor passed.
+
+The first real import at harness `95c3206` stopped before saving: 11.4 × 6.9 ×
+15.54 m became renderer bounds 11.4 × 22.9 × 15.54 m. Native
+`BuildingInfoBase.CalculateGeneratedInfo` adds a basement skirt and extends
+the renderer bounds down to -16 m. It marks original vertices alpha 0 and
+generated basement vertices alpha 255. The source's 708 triangles became 716,
+not a scaled 22.9-m house. `results/game/first-native-import.json` preserves
+the failed probe and receipt hash.
+
+Harness `a1d01a6` retains the game's basement, records authored-body metrics
+separately from renderer bounds and total triangles, and applies the size guard
+to that body. Source geometry and every input texture remain unchanged. Its
+native retry is separate (`game-native`); the failed `game` output is preserved.
+Do not count the diagnostic failure as a successful package or render check.
