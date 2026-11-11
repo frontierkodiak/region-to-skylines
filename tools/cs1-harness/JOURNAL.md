@@ -1460,3 +1460,29 @@ qualification for either changed package. Initial bank-limited shallow fill
 and actual-bed-crest supply are a paired policy: the head-only pilot failed.
 The original five-case baseline continues foreground, retaining the old Rio
 pool and providing comparative Pitt/Char data. No owned job is detached.
+
+## 2026-11-11 06:20 ET — reject fitted-probe-only acceptance; cancel superseded queued Pitt
+
+An independent pyproj/whole-retained-river raster audit of completed native
+surface-final baselines found real gaps hidden by the modeled-route probe plan:
+Rio central25only573/1147rivercells within64m at end (Joana0/184and no named
+probes); Pittsburgh2242/2461, including SawMillRun2/221and a1.74km dry piece.
+All source geometry/CRP/native grid hashes match. Explicit tunnels were already
+excluded; the remaining gaps are visible source features. The45vertex minimum
+omits short surface legs, sometimes routedSawMillRun41/44vertex legs. Existing
+routed-probe green verdicts are NOT complete river acceptance.
+
+Rioa39c2d57 completed its60minute comparison and strict ordinary start. Its
+short-reach omission remains in code and must be fixed; no final acceptance.
+Superseded Pitt964ef322 run/up requests were still queued. Revalidated holder
+4078600 as own baselineCharleston, queueentries4145152/4152995and exactowned
+commands, then SIGINT only those two waiting Python children. No game was
+started for them; both foreground parents collectedexit1(child130), cancellation
+receipt saved. The active Charleston game/other sessions were untouched.
+
+Writer probe staging now adds EVERY retained surface-river raster cell,
+independent of hydraulic routes and without length cuts, while keeping old
+routed probes. Source-hashed independent audit remains a separate cross-check.
+Short-river modeling and source-geography startup fill are being corrected in
+an isolated writer worktree. Every changed final package needs new native
+qualification; prior masks/verdicts/requests are not rewritten.
