@@ -25,6 +25,7 @@ namespace Cs1Harness
             Host.Register("run", Needs.Level, "pause/speed and session-only day/night: {paused, speed, day_night}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
             Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", q => { UIView.Show(Json.Bool(q, "visible", true)); return Host.Obj("ui_visible", Json.Bool(q, "visible", true)); });
+            Host.Register("area_zoom", Needs.Level, "open/close the native Areas tool (not camera zoom): {enabled}", AreaZoom);
             Host.Register("screenshot", Needs.Level, "write a PNG at the end of this frame: {path (absolute), supersize}", Screenshot);
         }
 
@@ -103,6 +104,21 @@ namespace Cs1Harness
             c.m_targetSize = size;
             c.SetOverrideModeOn(pos, angle, size);
             return Host.Obj("camera", new object[] { pos.x, pos.y, pos.z }, "yaw", angle.x, "pitch", angle.y, "size", size);
+        }
+
+        static Dictionary<string, object> AreaZoom(Dictionary<string, object> q)
+        {
+            if (!q.ContainsKey("enabled") || !(q["enabled"] is bool))
+                throw new Exception("area_zoom needs a boolean enabled");
+            // Same tool transitions as the normal toolbar. GameAreaTool owns
+            // AreasVisible and the native camera mapping; do not emulate it.
+            if (Json.Bool(q, "enabled", false))
+                ToolsModifierControl.SetTool<GameAreaTool>();
+            else
+                ToolsModifierControl.SetTool<DefaultTool>();
+            var tool = ToolsModifierControl.toolController.CurrentTool;
+            return Host.Obj("source", "native ToolsModifierControl", "tool", tool == null ? null : tool.GetType().Name,
+                "areas_visible", Singleton<GameAreaManager>.instance.AreasVisible);
         }
 
         static Dictionary<string, object> Screenshot(Dictionary<string, object> q)

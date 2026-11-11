@@ -394,3 +394,79 @@ Native source notes (installed game's decompilation):
 - `GameAreaManager.UpdateAreaMapping` chooses Area Zoom yaw0/180 or±90 from
   the current camera right-vector and uses SetOverrideModeOn. An Area Zoom
   heading alone therefore does not establish that terrain was transposed.
+
+### Opt-in opening and actual Areas-tool views (PL-857; offline verified)
+
+Add `startup_views` to the frozen probe JSON to require native camera headings
+and rendered evidence in the untouched opening view and actual Area Zoom.
+These are **explicit example expectations**, not verified headings for a map:
+
+```json
+{
+  "startup_views": {
+    "opening": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
+    "area_zoom": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
+    "tolerance_degrees": 1
+  }
+}
+```
+
+Both headings are required for each view; comparison is circular in degrees.
+Tolerance must be explicitly chosen in `(0,5]`. Native yaw is the interpolated
+`SavedCameraView.m_angle.x`, not the target angle. Render heading is the world
+forward-vector heading described above; a null/vertical heading cannot pass.
+No geographic orientation or pivot expectation is inferred from these fields.
+
+After the existing `startup-world.json` observation and **before the first
+harness camera override**, the driver pauses simulation, captures the opening
+view without aiming it, and calls `area_zoom {"enabled":true}`. That op uses
+`ToolsModifierControl.SetTool<GameAreaTool>()`, just like the normal toolbar.
+Native `GameAreaTool.OnEnable` sets `AreasVisible`; the game itself performs
+Area Zoom camera mapping. This is not a maximum-zoom camera preset. The helper
+waits up to 15 seconds per mode for three native/render heading samples,
+0.25 seconds apart, stable within 0.1 degrees, and checks again after each
+native PNG capture. PNG completion/decode uses the same bounded reader as the
+New Game panel check. Bridge calls retain the client's socket timeout.
+
+In `finally`, it selects `DefaultTool`, waits for `AreasVisible=false`, and
+restores the previous pause state. It never calls `camera`, purchases a tile,
+changes terrain/package data, or edits any camera field. `world_observe`
+remains unchanged and read-only. Runs without this request do not open Areas
+or capture these additional images; the new verdict row skips.
+
+Evidence files are `startup-views.json`, `startup-opening.png` and
+`startup-area_zoom.png`. The JSON binds the initial startup-world hash, mode
+transitions, stable samples, post-capture observations, native screenshot
+path/frame receipts, image dimensions/hashes and tool cleanup. The
+`startup_views` verdict fails on missing/changed evidence, incorrect phase,
+wrong tool/mode, unstable or out-of-tolerance headings, invalid/blank PNGs,
+or missing visual review. Initial startup headings must also match the opening
+expectations, so a later settled view cannot hide a wrong opening heading.
+
+Inspect both actual game PNGs, then add `startup-views-review.json` to the run:
+
+```json
+{
+  "reviewer": "Who inspected these two exact PNGs",
+  "notes": "What was visibly checked; identify the intended opening and Areas view",
+  "opening": {
+    "sha256": "SHA-256 from the opening capture",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "SHA-256 from the actual Areas capture",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}
+```
+
+Do not generate those assertions from native camera values. They assert actual
+screenshot content; numeric heading comes separately from native readbacks.
+Re-run `cs1-harness judge RUN_DIR` after review. No geographic `ground_truth`
+or landmark contract is added or changed by this check.
+
+Implementation has an installed-assembly build and mocked fixture coverage,
+**not native execution**. The tool transitions, opening/Areas PNGs, headings,
+and cleanup still require a live run; no actual map passes based on these tests.

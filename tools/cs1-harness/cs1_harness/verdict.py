@@ -21,7 +21,7 @@ import subprocess
 import numpy as np
 from PIL import Image
 
-from . import landmarks, new_game_panel
+from . import landmarks, new_game_panel, startup_views
 
 SCHEMA = 1
 
@@ -194,7 +194,7 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
     t = MAP_SOAK
     meta = probe_meta(out, report)
     by_name = {p.get("name"): p for p in meta.get("points", []) if isinstance(p, dict)}
-    checks = [new_game_panel.assess(out), landmarks.assess(out)]
+    checks = [new_game_panel.assess(out), landmarks.assess(out), startup_views.assess(out)]
 
     asked = report.get("requested_game_minutes")
     got = report.get("game_minutes") or 0
