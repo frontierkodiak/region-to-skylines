@@ -22,6 +22,45 @@ from surface_water import surface_geometry
 ROOT = Path(__file__).resolve().parent
 
 
+def geographic_river_probes(data, geometry):
+    """Probe every retained river cell, independently of modeled hydraulic paths."""
+    geometry, _ = surface_geometry(geometry)
+    grouped = {}
+    for feature in geometry.get("rivers", []):
+        name = feature.get("name") or "unnamed waterway"
+        grouped.setdefault(name, []).append(feature)
+    added, counts = [], {}
+    for name, features in sorted(grouped.items()):
+        mask = raster(geometry["sq"], features)
+        rows, cols = np.nonzero(mask)
+        counts[name] = int(mask.sum())
+        added.extend(
+            {
+                "name": f"geography:{name} [river] @{int(col)},{int(row)}",
+                "x": int(col) * 16 - 8640,
+                "z": 8640 - int(row) * 16,
+                "required": max(abs(int(col) * 16 - 8640), abs(8640 - int(row) * 16))
+                <= 4800,
+            }
+            for row, col in zip(rows, cols)
+        )
+    existing = data.setdefault("points", [])
+    names = {p["name"] for p in existing}
+    if names.intersection(p["name"] for p in added):
+        raise ValueError("Geographic river probes already present")
+    existing.extend(added)
+    data["geographic_river_probes"] = {
+        "source": "retained surface geometry.rivers, not hydraulic routes or water",
+        "geometry_sha256": hashlib.sha256(
+            json.dumps(geometry, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "frame": "16m native nodes; x=col*16-8640,z=8640-row*16",
+        "minimum_reach_length_m": 0,
+        "counts_by_name": counts,
+        "points": len(added),
+    }
+
+
 def mapped_water_reference(data, geometry, folder):
     """Freeze unbuffered geographic channels, not water observed after a run."""
     geometry, _ = surface_geometry(geometry)
@@ -214,6 +253,7 @@ def stage(output, slugs):
         ):
             raise ValueError(f"Fixture geometry changed: {slug}")
         geometry = json.loads(gzip.decompress(geometry_bytes))
+        geographic_river_probes(data, geometry)
         mapped_water_reference(data, geometry, folder)
         world_references(
             data,
@@ -324,6 +364,7 @@ def stage_prepared(inputs, output, slugs):
         data["new_game_panel"] = panel_expectations(crp)
         if geometry_raw is not None:
             geometry = json.loads(geometry_raw)
+            geographic_river_probes(data, geometry)
             mapped_water_reference(data, geometry, folder)
             data["mapped_water_provenance"]["source_geometry"] = geometry_binding
             world_references(
