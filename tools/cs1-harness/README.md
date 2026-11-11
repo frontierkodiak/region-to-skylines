@@ -399,3 +399,76 @@ Rejudging uses only the frozen run's `probes.json`, not mutable source probes.
 This is mod-enabled instrumentation only: strict `--disableMods` vanilla checks
 are unchanged. Manual vanilla panel captures are a separate workflow and cannot
 silently substitute for these native bridge observations.
+
+### Native landmark orientation and read-only camera receipts (PL-857)
+
+Every mod-enabled map run records `startup-world.json` (also report's
+`startup_world`) immediately after city load and **before any harness camera
+or run overrides**. It contains the native interpolated current camera
+position/angle/size/height, requested target fields, actual render transform
+(position/forward/up/Euler angles), and `areas_visible`. Heading is yaw in
+Unity world axes: `atan2(forward.x, forward.z)` in [0,360), so0faces+Z and90
+faces+X; no geographic north assumption is embedded. At a near-vertical view
+render heading is null; current native yaw/tilt remains available.
+
+To require geographic orientation checks, add this object to the frozen probe
+JSON (numbers shown are **synthetic examples, not Asheville landmarks**):
+
+```json
+{
+  "landmarks": {
+    "reference": "Independent DEM and landmark coordinates, source/hash and vertical-transform provenance",
+    "points": [
+      {"name": "ridge", "x": 103.125, "z": -500.75, "expected_height_m": 612, "tolerance_m": 12},
+      {"name": "river", "x": -1000, "z": 2048, "expected_height_m": 101, "tolerance_m": 12}
+    ]
+  }
+}
+```
+
+Use at least two uniquely named known landmarks with separated x **and** z
+coordinates and expected heights distinguishable beyond combined tolerances.
+Coordinates are native world meters; expected heights are native game-height
+meters **after the documented DEM vertical transform**, not unconverted ASL
+and not sampled back from the prepared game grid. Extra per-point source
+metadata is retained. Choose tolerances for DEM accuracy, quantization and
+native cubic smoothing; do not widen them to hide orientation failures.
+`TerrainManager.SampleRawHeightSmooth(Vector3(x,0,z))` supplies each native
+height. Input coordinates are retained exactly; `sample_position` records the
+actual float32 position passed to the native sampler.
+
+The `terrain_landmarks` verdict row fails on any out-of-tolerance height,
+missing/malformed evidence, wrong point identities, or startup observations
+already in Area Zoom. Without landmark expectations it skips; camera receipts
+are observational, not an assertion that any heading is correct. This detects
+orientation mismatches but does not automatically rotate terrain or override
+the camera. Verify the actual artifact under investigation: a newer package
+cannot certify an older screenshot/package.
+
+For Area Zoom inspection, open the actual area UI through ordinary gameplay
+and call `world_observe` with optional `points` containing `{name,x,z}` objects:
+
+```sh
+uv run cs1-harness call world_observe '{}'
+```
+
+This op is entirely read-only, usable in normal/Area Zoom views. It neither
+opens the UI nor changes terrain, camera or area state. Strict disableMods
+vanilla runs remain a separate workflow; this mod bridge is not available there.
+
+Native source notes (installed game's decompilation):
+
+- `TerrainManager.SampleRawHeightSmooth` maps worldx/16+540 to the contiguous
+  x index and worldz/16+540 to rowz; smoothing indexes `rawHeights2[z*1081+x]`
+  and converts height units by/64. This establishes native axes, not the actual
+  geographic correctness of an untested package.
+- `CameraController.SavedCameraView` serializes mode,position,size,angle,height;
+  `GameAreaManager.Data.Serialize` stores it after the four buildable-area
+  floats. `Reset` restores it only when saved mode matches load UpdateMode.
+  Native enum values are NewGameFromMap=2 and LoadGame=3; ordinary in-game saves
+  use3, map-editor saves use1. Otherwise Reset uses original camera settings
+  plus start-tile offset. Binary patch safety still requires exact version and
+  offset verification; this harness does not patch serialized camera data.
+- `GameAreaManager.UpdateAreaMapping` chooses Area Zoom yaw0/180 or±90 from
+  the current camera right-vector and uses SetOverrideModeOn. An Area Zoom
+  heading alone therefore does not establish that terrain was transposed.

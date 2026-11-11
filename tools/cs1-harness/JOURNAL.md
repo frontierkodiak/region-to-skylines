@@ -860,3 +860,21 @@ Native Package.cs:946-962 deserializes each Instantiate; PackageDeserializer.cs:
 Image.cs:279-284. CacheAsset caches bytes, not texture objects; destroying the
 private inspection texture cannot destroy the displayed snapshot. Offline build
 and full Ruff checks passed again; no game/session/Steam actions.
+
+## 2026-11-10 — PL-857 native landmark and camera observations (offline)
+
+Added read-only world_observe op: native SampleRawHeightSmooth heights plus
+interpolated/current target/render camera vectors and AreasVisible. Map runs
+freeze startup-world before any harness camera/run overrides; explicit frozen
+landmark expectations give a fail-closed terrain_landmarks verdict. References
+must be independent DEM/known landmark coordinates, not prepared-grid roundtrips;
+no geography or expected heights were invented and no terrain/camera mutated.
+Native source confirms x contiguous/z rows at[z*1081+x], world/16+540, height/64;
+Area Zoom snaps current right-vector to a cardinal camera override. SavedCamera
+mode2 matches NewGameFromMap; normal mode3 matches LoadGame, not NewGame.
+Offline installed-assembly build and full Ruff lint/format passed; nine new
+meaningful fixture checks (24total) cover height mismatches, swapped probes,
+missing evidence, invalid expectations/camera/phase and read-only capture.
+No Steam/game/doctor/session/lock actions. Actual old/new package orientation,
+startup/Area Zoom headings and any serialized camera change remain unverified
+until live sampling after Caleb's held slot. No GPU/run metrics applicable.
