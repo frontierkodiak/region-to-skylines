@@ -1,5 +1,13 @@
 # cs1-harness
 
+New Game capture preserves an actual private game-window PNG as
+`new-game-panel.png`, plus Unity's unmodified `new-game-panel-native.png` for
+comparison. Evidence records both hashes and `capture_source`. A request may
+set `new_game_panel.require_window_capture: true`; legacy captures do not gain
+that proof. This supplements actual stable bar readbacks and still requires
+manual hash-bound image review. A numeric ore value at target does not
+override a visibly empty rendered bar.
+
 Runs Cities: Skylines 1 on blade's GPU with no screen, so agents can drive it.
 It has two layers. A **session** (`up` / `call` / `down`) holds the game
 running headless and takes ops over a loopback socket from any tool. The **map

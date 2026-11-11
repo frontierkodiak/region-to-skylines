@@ -46,8 +46,9 @@ def expectations(value: dict) -> dict:
     """Require explicit intended values; no guessing what a map should advertise."""
     if not isinstance(value, dict):
         raise ValueError("new_game_panel must be an expectations object")
-    if "require_resource_bars" in value and type(value["require_resource_bars"]) is not bool:
-        raise ValueError("new_game_panel require_resource_bars must be a boolean")
+    for flag in ["require_resource_bars", "require_window_capture"]:
+        if flag in value and type(value[flag]) is not bool:
+            raise ValueError(f"new_game_panel {flag} must be a boolean")
     for field in ("map_name", "author", "buildableArea", "resources", "connections"):
         if field not in value:
             raise ValueError(f"new_game_panel missing expectation: {field}")
@@ -285,10 +286,19 @@ def capture(session, out: pathlib.Path, path: str, wanted: dict, bar_timeout: fl
         evidence["resource_bar_settlement"]["samples"] = wait_for_bars(
             session, path, evidence["resource_bar_settlement"], bar_timeout
         )
+        native_shot = session.stage / "new-game-panel-native.png"
+        observed = client.call("new_game_panel", path=path, screenshot=str(native_shot))
+        native_sha256 = wait_for_capture(session, native_shot)
         shot = session.stage / "new-game-panel.png"
-        observed = client.call("new_game_panel", path=path, screenshot=str(shot))
+        session.capture_window(shot)
         sha256 = wait_for_capture(session, shot)
-        evidence.update(observed=observed, screenshot=shot.name, sha256=sha256)
+        evidence.update(
+            observed=observed,
+            screenshot=shot.name,
+            sha256=sha256,
+            capture_source="X11 game window",
+            native_capture={"screenshot": native_shot.name, "sha256": native_sha256},
+        )
         evidence["resource_bar_settlement"]["after"] = measurement(
             client.call("new_game_panel", path=path, bars_only=True)
         )
@@ -322,6 +332,8 @@ def assess(out: pathlib.Path) -> dict:
         if evidence.get("error"):
             raise ValueError(evidence["error"])
         observed = object_value(evidence["observed"], "native observation")
+        if wanted.get("require_window_capture") and evidence.get("capture_source") != "X11 game window":
+            problems.append("actual game-window capture required")
         require_bars = wanted.get("require_resource_bars", False)
         if require_bars:
             result["threshold"] += "; five native bars at target (1e-4) and stable (1e-5) on three distinct frames"

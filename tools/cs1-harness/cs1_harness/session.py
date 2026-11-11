@@ -230,6 +230,12 @@ class Session(contextlib.AbstractContextManager):
         }
         self.cfg.state_file.write_text(json.dumps(state, indent=2, default=str) + "\n")
 
+    def capture_window(self, path):
+        from .x11 import GameWindow
+
+        with GameWindow.from_session(self) as window:
+            window.capture(path)
+
     @classmethod
     def attach(cls, cfg: Config, log=print) -> "Session":
         state = json.loads(cfg.state_file.read_text())

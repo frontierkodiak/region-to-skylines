@@ -213,7 +213,10 @@ class ResourceBarTests(unittest.TestCase):
             return observed
 
         return SimpleNamespace(
-            client=SimpleNamespace(call=Mock(side_effect=call)), stage=self.stage, alive=Mock(return_value=None)
+            client=SimpleNamespace(call=Mock(side_effect=call)),
+            stage=self.stage,
+            alive=Mock(return_value=None),
+            capture_window=Mock(side_effect=lambda path: path.write_bytes(self.png)),
         )
 
     def test_capture_polls_readonly_then_captures_and_closes(self):
@@ -227,6 +230,9 @@ class ResourceBarTests(unittest.TestCase):
         self.assertEqual(sleep.call_count, 2)
         evidence = json.loads((self.out / "new-game-panel.json").read_text())
         panel.check_bar_settlement(evidence)
+        self.assertEqual(evidence["capture_source"], "X11 game window")
+        self.assertEqual(evidence["native_capture"]["sha256"], evidence["sha256"])
+        session.capture_window.assert_called_once_with(self.stage / "new-game-panel.png")
 
     def test_animation_timeout_records_zero_ore_and_closes_without_screenshot(self):
         session = self.fake_session(stuck=True)

@@ -1244,3 +1244,35 @@ versus distant spill, boundaries, corruption, freeze isolation and legacy mode.
 No native code/cache, game, shared services, writer or website changes. No
 Pittsburgh/Rio acceptance claimed. GPU/VRAM/power/temperature/native wall time:
 not applicable; native build/doctor/run intentionally not performed.
+
+## 2026-11-11 02:59 ET — bar values versus actual pixels, and Rio head rejection
+
+Fresh `settled-panel-asheville-1` usesbf5cb2b7 and records three distinct stable
+native UI frames620/640/660, all five bars at target, no animations. Ore is
+0.41352165, but Unity's PNG still visibly draws it empty. Its visual resource
+approval is withheld; numeric readback does not certify rendered pixels. The
+same CRP's strict vanilla X11 capture shows ore correctly. Foreground-owned
+window capture now preserves both images: primary actual X11 game window and
+separate unchanged Unity capture, with hashes and capture-source identity.
+Named detached sessions retain their exact-stage guard; active runs require
+an open owned Session lock, live game and private non-:0 display. Capturing
+changes no clicks/keys or resource values.76 offline tests, whole Ruff/format
+pass; actual dual-capture comparison remains pending.
+
+Cold-modal native source compiled to private DLL
+`12ee0b2438bb387d837b489b35bee6818dda1469e6cccca74f282422e3775ba3`;
+Charleston had already copiedbf5cb2b7 before that build. No running installed
+DLL was replaced. Native cold-modal pending replies remain not yet exercised.
+
+Rio shallow-head diagnostic `31ff92e5…97851` completed15.0122 minutes with
+exact grids/controls, six paths and empty cleanup, but only244/342 playable
+river points end exactly wet,38 have no nearby water, and mapped-corridor
+spill remains0.094720km², maximum4.015625m. Rejected; no default policy changed.
+Separate read-only mapped-water assessments preserve archived probes/reports/
+verdicts byte-for-byte and report Asheville0, Innsbruck0.0010, Pittsburgh0,
+Rio0.3530km². No newly widened or observed-final-water masks are used.
+
+The next rate-only arm retains R4 targets/intakes/positions/prefill and caps
+bank-limited output at min(existing intake, existing output). Streams remain
+unchanged as a spatial counterexample. Native capacities are ceilings, not
+measured net discharge; the trial does not assume their difference is pumped.

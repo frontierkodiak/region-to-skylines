@@ -22,7 +22,21 @@ class GameWindow:
         state = json.loads(cfg.state_file.read_text())
         if pathlib.Path(state["stage"]).name != expected_stage or state["display"] == ":0":
             raise HarnessError("not the requested private harness session")
-        self.display_name = state["display"]
+        self._open(state["display"])
+
+    @classmethod
+    def from_session(cls, session):
+        """An active foreground Session already owns the private display lock."""
+        if session.lock_fd is None or session.lock_fd.closed or session.cfg.display == ":0":
+            raise HarnessError("window capture requires an owned private Session")
+        if session.alive() is False:
+            raise HarnessError("game process ended before window capture")
+        window = cls.__new__(cls)
+        window._open(session.cfg.display)
+        return window
+
+    def _open(self, display_name):
+        self.display_name = display_name
         self.x = c.CDLL("libX11.so.6")
         self.xt = c.CDLL("libXtst.so.6")
         self.x.XOpenDisplay.argtypes = [c.c_char_p]
