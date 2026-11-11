@@ -7,7 +7,7 @@ should look at that isn't calibrated well enough to fail a run; `skip` means
 the run has no data for that check, with the reason.
 
 Thresholds were calibrated on blade's 2026-11-10 runs (PL-856, PL-857,
-PL-880); JOURNAL.md has the numbers. Change one only with evidence, and say
+PL-880, PL-893); JOURNAL.md has the numbers. Change one only with evidence, and say
 which runs it moves from pass to fail or back.
 """
 
@@ -83,7 +83,7 @@ def harness_commit() -> dict:
         ).stdout.strip()
         dirty = bool(
             subprocess.run(
-                ["git", "-C", str(here), "status", "--porcelain", "--", "."], capture_output=True, text=True
+                ["git", "-C", str(here), "status", "--porcelain", "--", ".."], capture_output=True, text=True
             ).stdout.strip()
         )
         return {"commit": sha, "dirty": dirty}
