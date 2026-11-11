@@ -1521,3 +1521,13 @@ All calls keep --wait-minutes120 / --retry-minutes30, each region separately.
 Portal-drain footprint overlap is an explicit pilot risk, not silently waived.
 Actual New Game/start/Areas PNGs still require genuine hash-bound review.
 Private native DLL remains9940eaf0; shared checkout/cache/services untouched.
+
+Fresh60minute qualification also queues Asheville/Innsbruck/Charleston while
+the two urban pilots are assessed. Each request is a separate fair-slot run;
+ordinary strict starts interleave. Exact complete-river hashes are
+Ashb66c5c6a, Inn3ba5de0a, Charfcea76d8 (full hashes in generation/probes/receipts).
+Rio5b533d62/Pitt78e17efe remain15minute pilots initially. No prior full-package
+qualification is inherited. Original Charleston8f5b completed60.1367min,
+central source geometry2748/2748nearby end wet;0.004608km2 max distant spread,
+max0.859375m. Global terrain correlation remains failed and explicitly retained;
+independent land/wetland subsets are a diagnosis, not a rewritten pass.
