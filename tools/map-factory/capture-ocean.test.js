@@ -25,5 +25,15 @@ async function testOceanCapture() {
   const decoded = oceanPolygons(feature, { x: 1, y: 2, z: 3 });
   assert(decoded.length === 2 && decoded[0].rings.length === 2 && decoded[0].featureId === 7,
     'MultiPolygon decoding preserves holes, feature identity and explicit ocean class');
+  const sq = { lon: 20, lat: 35, rotation: 90, scale: 1 };
+  const rotatedFrame = { ...t, CS1: { px: 9 } };
+  const rotated = { rings: [outer, hole].map(r => r.map(([u, v]) => t.squareToLonLat(sq, u * 2160, v * 2160))) };
+  const rotatedMask = rasterizeOcean([rotated], sq, rotatedFrame);
+  assert(rotatedMask[4 * 9] === 0 && rotatedMask[4 * 9 + 8] === 1 && rotatedMask[4 * 9 + 6] === 0,
+    'clockwise rotated geographic frame preserves ocean, dry coast and island hole');
+  let rejected = false;
+  try { oceanPolygons({ properties: { class: 'ocean' }, toGeoJSON: () => ({ geometry: { type: 'LineString' } }) }, {}); }
+  catch { rejected = true; }
+  assert(rejected, 'explicit ocean with unsupported geometry fails instead of silently classifying');
   return { passed: true, checks };
 }

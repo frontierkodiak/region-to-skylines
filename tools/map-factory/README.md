@@ -32,6 +32,40 @@ browser elevation, smoothing, carving and height-fit code. It also reads OSM
 motorway, trunk, rail and stream geometry from OpenFreeMap vector tiles.
 Finish all three browser downloads before closing the page.
 
+### Experimental explicit-ocean capture
+
+The helper now classifies sea from actual OpenMapTiles `water` features whose
+`class` is exactly `ocean`, not from edge-connected elevations below 3m.
+`capture-ocean.js` preserves polygon holes, unions separately rasterized tile
+polygons, and uses the unchanged terrain module's geographic/canvas frame.
+Missing tiles do not become sea. No in-frame ocean evidence gives `sea=null`.
+This is a capture-helper policy only: live `terrain.js` and its defaults are
+unchanged. See [COAST_EVIDENCE.md](COAST_EVIDENCE.md) for results and limitations.
+
+For a controlled recapture of frozen non-sea vectors on a private localhost
+origin (not the deployed website):
+
+```sh
+uv run python recapture_coast.py FROZEN_CAPTURES COAST_INPUTS --only rio charleston
+```
+
+The runner owns a temporary HTTP server and named headless Playwright CLI
+session and closes both in `finally`. It runs the browser ocean tests first.
+Each case downloads PNG, banks, geometry/provenance, raw sampled DEM and the
+exact sea mask; the runner hashes them into `capture.json`. The original
+square, rivers, lakes, river areas, roads and streams are preserved exactly.
+Derived sources are recomputed by the unchanged browser function; their old
+and new hashes are reported, not silently treated as unchanged.
+
+```sh
+uv run python compare_coast.py BEFORE_PREPARED AFTER_PREPARED landcover.u8.gz inundation.json
+```
+
+This reports initial prepared-depth overlap with WorldCover built-up/forest
+classes over the whole square and central 25 tiles. It uses bilinear sampling
+from native-format 16m south-first nodes to 10m cell centres, with wet >0.1m.
+It introduces no coastal exclusion mask or native acceptance threshold.
+
 The geometry input contains:
 
 - `sq`: `lon`, `lat`, clockwise `rotation`, horizontal `scale`, `name`, `slug`.
