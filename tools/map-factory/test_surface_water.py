@@ -98,6 +98,30 @@ class SurfaceWaterTests(unittest.TestCase):
         self.assertEqual(len(drains), 1)
         self.assertEqual(drains[0]["output_capacity"], 0)
 
+    def test_infeasible_minor_stream_keeps_probes_but_has_no_perennial_forcing(self):
+        def coord(x):
+            return [float(np.rad2deg(x / 6378137)), 0]
+
+        geometry = {
+            "sq": {"lat": 0, "lon": 0, "rotation": 0, "scale": 1},
+            "streams": [
+                {
+                    "name": "infeasible creek",
+                    "class": "stream",
+                    "pts": [coord(-2000), coord(2000)],
+                }
+            ],
+        }
+        ground = np.full((1081, 1081), 100.0)
+        banks = np.full_like(ground, 103.0)
+        banks[:, 530:550] = 90
+        _, report = hydrology(ground, banks, geometry)
+        self.assertTrue(report["rivers"][0]["unforced_infeasible_stream"])
+        self.assertTrue(report["samples"])
+        self.assertTrue(report["sources"])
+        self.assertTrue(all(s["output_capacity"] == 0 for s in report["sources"]))
+        self.assertTrue(all(s["capacity"] > 0 for s in report["sources"]))
+
 
 if __name__ == "__main__":
     unittest.main()

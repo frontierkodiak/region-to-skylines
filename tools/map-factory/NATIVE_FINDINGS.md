@@ -27,6 +27,17 @@ reach omissions are now listed, not silently represented as perennial water.
 Old failing probes/packages remain historical evidence; new surface-only
 packages require new exact-package native qualification and are not yet final.
 
+The first corrected Rio15 trial (`2f9248de…98a00`) has236/244 playable surface
+river probes exactly wet at end and all976 nearby readings wet. Exact grids/
+controls, six paths, north-facing centred opening/actual Areas, actual-window
+New Game review and independent terrain comparison pass. Mapped-corridor
+spread falls to0.037888km², but a small residual pool reaches6.8125m; a passing
+area threshold alone is not a zero-flood claim. Its nearest surface creek has
+an infeasible16.5m overbank profile. Sustained output is now disabled for
+infeasible **minor streams** only, retaining their initial fill, geometry,
+intake and every probe/dry result. New packages require new native receipts;
+the15minute package is not the final reference.
+
 PR27 combines the exact writer, PR24's resource stage and explicit coastal
 ocean evidence. The original committed manifest below remains a historical
 unpainted byte reference; it is not the following full-package inventory.

@@ -212,6 +212,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             ceiling = np.maximum(banks[y, x] - 0.25, sea if sea is not None else 0)
             overbank = float((fitted - ceiling).max())
             bank_limited = kind == "river" and overbank > 1 / 64
+            unforced_stream = kind == "stream" and overbank > 1 / 64
             if bank_limited:
                 fitted = np.minimum(fitted, ceiling)
             line = np.zeros_like(channel)
@@ -339,6 +340,12 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 )
                 if kind == "stream" and role == "downstream":
                     sources[-1]["output_capacity"] = 0
+                if unforced_stream:
+                    # A shallow mapped creek with an infeasible gravity profile
+                    # cannot be kept perennial by pumping water off its valley.
+                    # Retain prefill, intake, geometry and every dry probe.
+                    sources[-1]["output_capacity"] = 0
+                    sources[-1]["unforced_infeasible_stream"] = True
                 if bank_limited:
                     sources[-1]["bank_limited"] = True
                 if portal:
@@ -363,6 +370,11 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     bank_limited=True,
                     rejected_monotone_overbank_m=overbank,
                     control_spacing_m=512,
+                )
+            if unforced_stream:
+                summaries[-1].update(
+                    unforced_infeasible_stream=True,
+                    rejected_monotone_overbank_m=overbank,
                 )
     lake_mask = raster(sq, geometry.get("lakes", []), polygons=True)
     labels, count = ndimage.label(lake_mask)

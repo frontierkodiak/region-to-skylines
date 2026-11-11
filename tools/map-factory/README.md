@@ -215,6 +215,11 @@ silently discarded. Hydrology keeps surface legs separate across underground
 gaps and uses an output-free regulated drain at an entering surface portal.
 This is not a native underground-water network or a promise that every short
 mapped creek is perennial; modeled-reach omissions are explicit in hydrology.
+Minor streams whose bank-bounded gravity profile is infeasible within the
+existing incision limit retain their geometry, shallow startup fill, intake
+and probes, but receive no sustained artificial output. Their dry observations
+remain in the audit. This prevents pumping a creek across uphill terrain;
+it does not reclassify a dry stream as a wet river or remove a failing probe.
 
 Starting-tile selection requires at least256 initial vertices deeper than0.5m
 before a tile receives water priority, not merely eight shallow creek pixels.
