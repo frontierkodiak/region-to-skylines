@@ -1640,3 +1640,38 @@ Queue fresh inlet-throughput-final-60 Rio/Pitt and strict ordinary starts;
 neither inherits earlier full-package qualification. Remaining matched
 short-output-off/sea-only diagnostics still run foreground. Private DLL9940eaf0,
 shared services/cache, source geography and website/installer remain unchanged.
+
+## 2026-11-11 09:18 ET — final five exact packages collected, failures retained
+
+Completed final full-package60min native matrix: Ashb66c5c6a60.1144min,
+Inn3ba5de0a60.0389, Rio997d4d0760.0356, Pitt97f727a760.0619,
+Charfcea76d860.0078. Independent central source-river cells near wet at EVERY
+0/15/30/45/60 grid:1736/1736,910/910,1122/1147,2461/2461,2748/2748.
+All5pass unchanged95% required-probe near-wet-throughout at all13native samples.
+Exact dry subsets remain; nearby never becomes exact wetness. All initial native
+grids/controls match,3full paths each start/end (rail/road-in/road-out), genuine
+actual-window panels/openings/Areas and exact strict ordinary vanilla starts
+are independently visually reviewed and hash-bound; all owned cleanup empty.
+
+Raw Rio no_flooding FAIL remains: worst .050432km2 versus .05 limit (about2cells
+over), max2.8125m; central25only3–5cells,max.84375m. No gate/mask/exemption
+relaxation. Charleston global ground_truth FAIL remains (.7100identity is
+strongest of8orientations). Its .005632km2 shallow spread is not called zero.
+Ash/Inn/Pitt raw verdictPASS and distant spread0. Final curated measurements
+bind every full package and every coverage-source hash; failed predicates are
+retained separately from the recommendation to review the reference/test pack.
+
+Matched5min diagnostics all collected with exact inputs/cleanup: baselinef60
+.106240km2 distant, short-output-off .003072 but544/1558required probes miss
+nearbywater, sea-onlyprefill .103168, restored portalwithdrawal .037376.
+Same baseline footprint for comparison; source output is not cumulative flux.
+Final60 qualification is separate. No field/pump/default or deeper-carve shortcut.
+
+Current private native DLL9940eaf0 unchanged.101harness tests and whole Ruff/
+format passed after wet-throughout change; no native/Python code change since.
+Current main still e971c27, already ancestor. Source fixtures now unify all5
+resource/preview/camera full hashes; writer full region/resource verification
+passes. Source-bank vs browser-cut evidence retains Rio shoreline exceptions
+and Charleston tidal-bed/nonwater differences. These are reference limitations,
+not universal terrain fidelity. Website/installer untouched. All required native
+and diagnostic jobs completed foreground; no session/service left for a wakeup.
