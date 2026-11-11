@@ -273,7 +273,7 @@ Gate on it rather than on the prose report. The thresholds live in code, in
 
 | Check type | Checks that can fail it |
 |:--|:--|
-| `map-soak` (`run`) | `completed`, `probes_wet_end` (≥ 95 % of required probes wet, exactly or within 64 m), `no_flooding` (≤ 0.05 km² deeper than 0.5 m beyond 128 m of expected water), `paths`, `no_terracing`, `screenshots` (none blank), `frame_kinds` (only when Clef flags half the shots), `cleanup` |
+| `map-soak` (`run`) | `completed`, `probes_wet_throughout` (≥95% of required probes wet exactly or natively within64m at every observed sample), `probes_wet_end` (≥ 95 % of required probes wet, exactly or within 64 m), `no_flooding` (≤ 0.05 km² deeper than 0.5 m beyond 128 m of expected water), `paths`, `no_terracing`, `screenshots` (none blank), `frame_kinds` (only when Clef flags half the shots), `cleanup` |
 | `asset-check` (`asset check`) | `loaded`, `triangles`, `has_lod`, `placed`, `survives_reload`, `screenshots`, `cleanup` |
 
 `warn` rows (unexplained log errors, a few Clef flags) don't fail a run; `skip`
@@ -666,3 +666,45 @@ or landmark contract is added or changed by this check.
 Implementation has an installed-assembly build and mocked fixture coverage,
 **not native execution**. The tool transitions, opening/Areas PNGs, headings,
 and cleanup still require a live run; no actual map passes based on these tests.
+
+
+## Persistence at observed native samples
+
+Map-soak verdicts now include `probes_wet_throughout` in addition to the unchanged
+end-only row. A required probe must be wet **exactly OR by the actual native
+`wet_within_64m` flag at every recorded sample**. At least the existing95% of
+required probes must satisfy that persistence test. Rotating failures cannot
+average away; no wetness/flood threshold was changed. The existing required
+cohort/overrides apply, including the existing default stream/edge exclusions.
+
+The row reads actual `kind=sample` timeline rows, not report end booleans or
+aggregate `dry_samples`. Frozen probe identities anchor the cohort where
+available; legacy report identities are used otherwise. It checks unique names,
+finite coordinates (1mm native float32 echo allowance), ordered advancing frames,
+report curve/sample-count agreement and coverage of the declared interval.
+Curve comparisons permit0.01-minute report rounding; the uncovered start margin
+uses the existing1% completion allowance. Final frame identity comes from the
+final sample, as recorded by MapCheck. At least two observations are required.
+Missing/malformed evidence fails, not a fabricated pass or legacy upgrade.
+Only a genuinely empty declared required cohort skips.
+
+`exact_dry` and `native_no_nearby` retain probe/observation counts and capped names;
+`without_water_names` identifies the failing persistence subset. The row also
+reports real native nearby measurement/wet counts, per-sample failures, observed
+span and largest sample gap. Exact-wet legacy observations need no invented
+nearby flag; an exact-dry observation without native nearby evidence fails closed.
+
+**This is sampled persistence, not every-frame wetness.** A sparse but valid
+record states its sample count and largest gap, rather than claiming continuous
+coverage. No configured sample-cadence claim is inferred from old reports.
+Rejudging old evidence may add a failing missing-evidence row; it never rewrites
+its timeline, probes or physical observations.
+
+Offline read-only assessments: current Rio `117b4d16…7555` passes244/244 required
+probes over13 samples (3,172 native nearby-wet observations);97 exact-dry readings
+across9 probes remain explicit. Current Asheville passes28/28 over13 samples,
+all exact-wet. Historical resource-painted Asheville and Innsbruck also pass
+sampled persistence; Innsbruck retains two exact-dry observations at one probe,
+rescued by actual native nearby reads. These assessments do not independently
+certify flooding, visual quality or unsampled intervals. Input report/probes/
+timeline hashes were checked unchanged; no game/build was run for this change.

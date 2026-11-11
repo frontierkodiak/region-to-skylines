@@ -1486,3 +1486,24 @@ routed probes. Source-hashed independent audit remains a separate cross-check.
 Short-river modeling and source-geography startup fill are being corrected in
 an isolated writer worktree. Every changed final package needs new native
 qualification; prior masks/verdicts/requests are not rewritten.
+
+## 2026-11-11 — sampled wet-throughout regression gate (OFFLINE)
+
+`PL-857-wet-throughout`, base `e86f453`: add `probes_wet_throughout` using actual
+native timeline samples, existing required cohort and95% tolerance per probe
+across every observed sample. Exact OR actual native64m-nearby qualifies each
+observation; rotating failures cannot average away. Validate identities, frame/
+curve/count/interval coverage; malformed or absent evidence fails. Preserve
+capped exact-dry/no-nearby/failing subsets, sample counts and biggest gap; no
+continuous/every-frame claim and no legacy-data rewriting.
+
+101 offline tests pass, including dry-most-run/rewet-at-end, nearby rescue,
+rotating95% failures, missing/corrupt/shifted identities and sparse coverage.
+Full harness Ruff check/format and diff check pass. Read-only current Rio
+`117b4d16…7555`:244 required ×13 samples, all3,172 native nearby reads wet;
+97 exact-dry readings across9 probes retained. Current Asheville:28×13 all
+exact-wet. Historical resource Ash28×13 and Inn35×13 also pass (Inn2 exact-dry
+readings rescued natively). Source report/probes/timeline SHA checks unchanged.
+Receipt: scratch `2026-11-11-pl857/wet-throughout/read-only-assessments.json`.
+No native build, game/browser/session/service or game-cache changes. GPU/VRAM/power/
+temperature/native wall time: not applicable; this is verdict-only source work.
