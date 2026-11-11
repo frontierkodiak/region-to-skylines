@@ -48,6 +48,13 @@ def prepare(source, output, arm):
                     control["capacity"],
                     control.get("output_capacity", control["capacity"]),
                 )
+    elif arm in ["river-tenth", "river-fortieth"]:
+        factor = 0.1 if arm == "river-tenth" else 0.025
+        for control in hydro["sources"]:
+            if control.get("bank_limited"):
+                control["output_capacity"] = factor * control.get(
+                    "output_capacity", control["capacity"]
+                )
     elif arm == "nofill":
         terrain = np.fromfile(source / "terrain.u16", dtype="<u2") / 64
         sea = hydro.get("sea_level_m") or 0
@@ -105,7 +112,14 @@ if __name__ == "__main__":
     parser.add_argument("output", type=Path)
     parser.add_argument(
         "--arm",
-        choices=["noemit", "nofill", "shallow-head", "symmetric-footprints"],
+        choices=[
+            "noemit",
+            "nofill",
+            "shallow-head",
+            "symmetric-footprints",
+            "river-tenth",
+            "river-fortieth",
+        ],
         required=True,
     )
     args = parser.parse_args()
