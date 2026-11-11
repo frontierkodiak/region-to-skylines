@@ -668,3 +668,17 @@ PL-857: the frozen absolute-height request now uses `landmark_expectations`,
 leaving PR #22's geographic `ground_truth`/landmark contract unambiguous.
 The two checks are complementary: fixed GNIS/DEM absolute samples and
 independently fetched whole-map orientation. No map or camera is changed.
+
+## 2026-11-10 22:36 ET — PL-857 post-reservation attempt (Steam blocked)
+
+Blade / RTX 2080 Ti 05:00.0 / egl0: the exact Asheville north-camera
+candidate (`3013a635…886b15`) was installed, but Steam reported
+`KickingOtherSession` after 35 s. No prompt was answered and no game started.
+The session receipt confirms empty game, Steam and unit cleanup. Peak sampled
+VRAM was 8,000 MiB total (the pre-existing baseline; no game allocation),
+power 63.17 W and temperature 28 C; the 150 W limit was unchanged. Output:
+`PL-857-sustained-water/native-north-smoke/asheville`. Only this attempt's
+retry-sleep child was terminated after cleanup; its exit 143 was collected by
+the foreground soak driver (exit 1). The next attempt will use a persisted Multica wakeup at least 30 minutes
+after the account conflict, not an orphaned run-owned sleep. Panel, landmarks,
+startup/Area Zoom camera and five-region final-package acceptance remain unrun.
