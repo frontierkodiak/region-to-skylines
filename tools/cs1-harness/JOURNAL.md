@@ -1603,3 +1603,20 @@ mask; keep each native verdict's own original reference as well. No gate,
 probe, source geometry, terrain or default-policy relaxation. Exact inputs
 are frozen in short-flow-factorial-inputs; run outputs short-flow-factorial-5.
 The old zero-output baseline is not silently substituted for either arm.
+
+## 2026-11-11 07:44 ET — isolate the intake/output interaction
+
+Add a fourth matched5minute Rio arm: portal-intake-original, exactSHA
+997d4d07925e26ee07f20e8f82120e2e5785cdf99017d502066e20a3329aefd1.
+Writer35054b5 restores ONLY60short output-free inlet intake rates to their
+frozen pre-guard values; outputs keep the new source-geometry/high-barrier
+bounds. Initial water, positions, targets, counts and every unrelated byte
+remain fixed. This tests whether loss of withdrawal caused the new basins;
+it does not promote a new default or claim a successful result.
+
+Pittd32e51a4 completed60.0636min: all2461central independently rasterized
+river cells near wet through all five grids, all1644native geographic probes
+near wet at each observed sample; exact dry subsets retained. Initial inputs,
+paths, native terrain/camera, reviewed panel/start/Areas and empty cleanup pass;
+no distant spread. Strict start still queues. A changed inlet-policy package
+would need its own complete run, not inherit this certificate.
