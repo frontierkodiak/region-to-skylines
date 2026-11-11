@@ -22,6 +22,32 @@ namespace Cs1Harness
             Host.Register("time_of_day", Needs.City, "day/night on (this session only) and the clock at {hour}", TimeOfDay);
             Host.Register("save_game", Needs.City, "job: save the city as {name} (the game's save panel routine)", SaveGame);
             Host.Register("load_game", Needs.Level, "job: load a saved city: {name}", LoadGame);
+            Host.Register("asset_lod_preview", Needs.City, "inspection only: force a custom building's native LOD at close range, paused city only: {name, enabled}; false restores this process's original distances", LodPreview);
+        }
+
+        static readonly Dictionary<string, Vector2> PreviewDistances = new Dictionary<string, Vector2>();
+
+        static Dictionary<string, object> LodPreview(Dictionary<string, object> q)
+        {
+            if (!Singleton<SimulationManager>.instance.SimulationPaused)
+                throw new Exception("asset_lod_preview requires a paused inspection city");
+            var info = FindBuilding(Json.Str(q, "name", ""));
+            if (!info.name.Contains(".") || info.m_lodObject == null)
+                throw new Exception("asset_lod_preview requires a custom building with its own LOD");
+            bool enabled = Json.Bool(q, "enabled", false);
+            Vector2 original;
+            if (!PreviewDistances.TryGetValue(info.name, out original))
+            {
+                original = new Vector2(info.m_minLodDistance, info.m_maxLodDistance);
+                PreviewDistances.Add(info.name, original);
+            }
+            // RenderMesh selects the LOD when CheckRenderDistance(position, min) is false.
+            // Only these runtime prefab fields change; the CRP and authored mesh stay untouched.
+            info.m_minLodDistance = enabled ? 0 : original.x;
+            info.m_maxLodDistance = enabled ? 0 : original.y;
+            return Host.Obj("name", info.name, "inspection_only", true, "forced_lod", enabled,
+                "original_distance", new object[] { original.x, original.y },
+                "distance", new object[] { info.m_minLodDistance, info.m_maxLodDistance });
         }
 
         static Dictionary<string, object> CustomAssets(Dictionary<string, object> q)
