@@ -1620,3 +1620,23 @@ near wet at each observed sample; exact dry subsets retained. Initial inputs,
 paths, native terrain/camera, reviewed panel/start/Areas and empty cleanup pass;
 no distant spread. Strict start still queues. A changed inlet-policy package
 would need its own complete run, not inherit this certificate.
+
+## 2026-11-11 08:08 ET — advance original-withdrawal candidate to full qualification
+
+Matched5min baselinef60d9f4a spreads0.106240km2,max3.640625m. Restored-intake
+997d4d07 spreads0.037376km2,max2.03125m with EXACT initial terrain/water and
+controls; all six paths and empty cleanup pass. Independent central source
+coverage1126/1147near wet at end (98.17%); native834/849at5min, with six actual
+one-minute samples. Exact dry subsets and84m Joana inlet gap remain explicit.
+This passes existing wet-throughout/flood area checks but is NOT zero flooding
+or a60minute certificate. No masks/thresholds/exemptions changed.
+
+Writerb092ce8 restores full output-free portal withdrawal while keeping all
+new output geometry/high-barrier bounds. Full five-case rebuild/paint/replay
+proves Rio997d4d07/Pitt97f727a7 match the diagnostic packages EXACTLY, and
+Ash/Inn/Char full CRPs remain unchanged. Proposal generatorfb7394be is also
+published so receipts name a reachable exact source, not a substituted one.
+Queue fresh inlet-throughput-final-60 Rio/Pitt and strict ordinary starts;
+neither inherits earlier full-package qualification. Remaining matched
+short-output-off/sea-only diagnostics still run foreground. Private DLL9940eaf0,
+shared services/cache, source geography and website/installer remain unchanged.
