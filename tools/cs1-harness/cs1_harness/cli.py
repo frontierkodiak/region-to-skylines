@@ -43,8 +43,8 @@ SLOT_POLL_SECONDS = 2
 def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     """A Session, waiting up to `wait_minutes` while another user holds the host's harness slot.
 
-    Waiters take turns oldest first: a waiter tries the lock only when no older
-    waiter (registered in the slot's waiting/ directory) is still alive. Runs from
+    Every entrant registers before its first attempt, and tries the lock only
+    when no older registered waiter is still alive. Runs from
     checkouts older than this rule don't register, so they can still take a gap.
     It never ends or takes over the other session. Waits, acquisitions and
     releases go to the contention log, and `cs1-harness queue` shows this process.
@@ -56,12 +56,16 @@ def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     deadline = t0 + wait_minutes * 60
     last = None
     try:
+        slots.mark_waiting(cfg, meta, "queued for the harness slot")
         while True:
-            ahead = slots.older_waiters(cfg) if last else []
+            ahead = slots.older_waiters(cfg)
             if ahead:
                 if time.monotonic() >= deadline:
                     slots.mark_gave_up(cfg, meta, time.monotonic() - t0, f"{len(ahead)} older waiters")
                     raise Blocked(f"{len(ahead)} older waiters are ahead in the slot queue", EX_TEMPFAIL, busy=True)
+                if last is None:
+                    last = "older requests ahead in the slot queue"
+                    log(f"waiting for the harness slot: {last}")
                 time.sleep(SLOT_POLL_SECONDS)
                 continue
             with contextlib.ExitStack() as stack:
@@ -74,8 +78,6 @@ def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
                         raise
                     if str(b) != last:
                         log(f"waiting for the harness slot: {b}")
-                        if last is None:
-                            slots.mark_waiting(cfg, meta, str(b))
                         last = str(b)
                     time.sleep(SLOT_POLL_SECONDS)
                     continue

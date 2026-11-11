@@ -1117,3 +1117,22 @@ coastal input: matched source-on/no-prefill and full `resources-coast-rio-60`
 baseline (same exact `bc1045d2…bd137`) are queued. Both full native path sets
 pass and cleanup is empty; peak10,821 MiB total,139.07 W,52°C. Panel/Areas PNGs
 are not reviewed for this rejected diagnostic, and its verdict correctly fails.
+
+## 2026-11-11 01:48 ET — first-attempt FIFO bypass reproduced and fixed
+
+The strict five-map batch repeatedly acquired a just-free lock before older
+registered waiters reached their next2s poll. This is different from the
+inferred-parent display concern ruled out above. `slot()` consulted older
+tickets only after its own first busy result, so a fresh process could cut in.
+An isolated regression with a free synthetic Session and older live-PID ticket
+failed on8ccb2f4 (`Blocked not raised`), without touching host locks/services.
+All entrants now register before their first attempt; busy reason updates do
+not reset queue age. No-wait entrants cannot jump an older ticket. Three
+isolated tests also cover uncontended acquisition and preflight-failure cleanup.
+All51 tests and whole-harness Ruff pass. Existing processes retain imported
+source; the fix affects fresh invocations, not someone else's current session.
+
+The exact current five-map strict batch finished ordinary New Game/city starts
+with `--disableMods --noWorkshop`, absent control socket, checksum-bound sole
+custom map and empty named-session cleanup. Actual selected/city PNG visual
+reviews remain pending; they are not automatically marked reviewed.
