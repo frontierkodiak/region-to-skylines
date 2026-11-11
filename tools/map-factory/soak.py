@@ -81,6 +81,7 @@ def panel_expectations(crp):
         "map_name": fields["mapName"],
         "author": "",
         "require_resource_bars": True,
+        "require_window_capture": True,
         "buildableArea": fields["buildableArea"],
         "resources": {
             k: fields[k]

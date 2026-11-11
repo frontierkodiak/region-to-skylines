@@ -41,6 +41,13 @@ def prepare(source, output, arm):
     if arm == "noemit":
         for control in hydro["sources"]:
             control["output_capacity"] = 0
+    elif arm == "symmetric-footprints":
+        for control in hydro["sources"]:
+            if control.get("bank_limited"):
+                control["output_capacity"] = min(
+                    control["capacity"],
+                    control.get("output_capacity", control["capacity"]),
+                )
     elif arm == "nofill":
         terrain = np.fromfile(source / "terrain.u16", dtype="<u2") / 64
         sea = hydro.get("sea_level_m") or 0
@@ -97,7 +104,9 @@ if __name__ == "__main__":
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument(
-        "--arm", choices=["noemit", "nofill", "shallow-head"], required=True
+        "--arm",
+        choices=["noemit", "nofill", "shallow-head", "symmetric-footprints"],
+        required=True,
     )
     args = parser.parse_args()
     print(json.dumps(prepare(args.source, args.output, args.arm), indent=2))
