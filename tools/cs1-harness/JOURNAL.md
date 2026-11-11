@@ -1203,3 +1203,28 @@ no-output arm remains0. Sustained forcing, not startup fill, drives this spill.
 limited source targets cap at1m above finished local grid bed; both rates,
 positions, terrain, prefill and frozen resource plan remain exact. Diagnostic,
 not a release policy. All tests/runs remain foreground and fair queued.
+
+## 2026-11-11 02:40 ET — observable bars build and cold-modal protocol
+
+The resource-bar observer at9618f9c independently passes64 tests, whole Ruff,
+format and native compile. Private-cache DLL is
+`bf5cb2b7a41b167d0901dbf659acd76db30deba4141ce33d6db6e79db27e342b`;
+fresh same-package Asheville1 is fair queued, not yet evidence of rendering.
+PL-902 reported its older dfe3e03 probe checking modal visibility on the same
+call that opened it. Selection now returns an explicit pending phase while
+the native modal or Maps tab is not visible. Python polls only that explicit
+state, records every selection reply and times out boundedly; absent maps,
+other errors and dead games are not retried as UI readiness. Two synthetic
+protocol tests bring the suite to66. This additional cold-modal change has
+not yet been compiled into the private cache or exercised live.
+
+Painted Pittsburgh `1acdfbb9…32f8d` completed60.0164 minutes with all79
+playable river probes exactly wet throughout, all216 nonboundary rivers
+exact wet at end and all native nearby observations wet. Inputs/controls,
+six paths, cleanup and independent terrain comparison pass (r=.9992,
+strongest wrong.2436). Original first-water-only flood verdict flags2.165km²;
+the separately defined audit (initial water union actual mapped waterways)
+finds0 deep water beyond128m. These are different references, not equivalent
+results. A hash-bound optional corridor-reference verdict is being prepared;
+the historical frozen probes/verdict are preserved. Actual panel/opening/
+Areas images have been viewed; review receipts are pending transcription.

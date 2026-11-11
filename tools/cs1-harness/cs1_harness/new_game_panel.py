@@ -259,15 +259,29 @@ def check_bar_settlement(evidence: dict) -> None:
         previous = observed
 
 
+def select_map(session, path: str, evidence: dict, timeout: float = 15) -> dict:
+    """Allow the native modal/tab to draw before requiring its selected listing."""
+    deadline = time.monotonic() + timeout
+    evidence["selection_attempts"] = []
+    while True:
+        if session.alive() is False:
+            raise HarnessError("game process ended before native panel selection")
+        observed = session.client.call("new_game_panel", path=path, select=True)
+        evidence["selection_attempts"].append(observed)
+        if observed.get("pending") is not True:
+            return observed
+        if time.monotonic() >= deadline:
+            raise HarnessError("native panel selection timed out: " + str(observed.get("phase")))
+        time.sleep(0.25)
+
+
 def capture(session, out: pathlib.Path, path: str, wanted: dict, bar_timeout: float = 15) -> None:
     """Called only by the mod-enabled map-check driver, before loading a city."""
     expectations(wanted)
     client = session.client
     evidence = {"resource_bar_settlement": {"schema": 1}}
     try:
-        if session.alive() is False:
-            raise HarnessError("game process ended before native panel selection")
-        client.call("new_game_panel", path=path, select=True)
+        evidence["selection"] = select_map(session, path, evidence)
         evidence["resource_bar_settlement"]["samples"] = wait_for_bars(
             session, path, evidence["resource_bar_settlement"], bar_timeout
         )

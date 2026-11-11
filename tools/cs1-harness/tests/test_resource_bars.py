@@ -246,6 +246,33 @@ class ResourceBarTests(unittest.TestCase):
             panel.wait_for_bars(session, "/offline/map.crp", {})
         session.client.call.assert_not_called()
 
+    def test_selection_waits_only_for_explicit_native_pending(self):
+        session = self.fake_session()
+        observed = self.observation(19)
+        session.client.call.side_effect = [
+            {"pending": True, "phase": "opening native New Game modal"},
+            {"pending": True, "phase": "opening native New Game Maps tab"},
+            observed,
+        ]
+        evidence = {}
+        with patch.object(panel.time, "sleep") as sleep:
+            self.assertEqual(panel.select_map(session, "/offline/map.crp", evidence), observed)
+        self.assertEqual(len(evidence["selection_attempts"]), 3)
+        self.assertEqual(sleep.call_count, 2)
+
+    def test_selection_pending_times_out_and_other_errors_are_not_retried(self):
+        session = self.fake_session()
+        session.client.call.side_effect = None
+        session.client.call.return_value = {"pending": True, "phase": "opening"}
+        with patch.object(panel.time, "sleep"), patch.object(panel.time, "monotonic", side_effect=itertools.count()):
+            with self.assertRaisesRegex(HarnessError, "selection timed out"):
+                panel.select_map(session, "/offline/map.crp", {}, timeout=2)
+        session.client.call.reset_mock(side_effect=True)
+        session.client.call.side_effect = HarnessError("map absent")
+        with self.assertRaisesRegex(HarnessError, "map absent"):
+            panel.select_map(session, "/offline/map.crp", {})
+        self.assertEqual(session.client.call.call_count, 1)
+
 
 if __name__ == "__main__":
     unittest.main()
