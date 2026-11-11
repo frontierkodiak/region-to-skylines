@@ -8,7 +8,8 @@ decode the package with the independent survey decoder and check:
 - both rebuilt sections end exactly where the template's own tails begin;
 - forest equals min(60 x trees per cell, 255) and the tree byte matches it;
 - no cell has both ore and oil, or both fertility and forest;
-- every tree uses an original-release prefab and is fully grown;
+- every tree uses an original-release prefab its map theme loads, and is
+  saved fully grown;
 - the New Game amounts equal the 25-tile final sums, and the tile sums equal
   the cell grids binned the way the simulation bins them.
 
@@ -98,8 +99,12 @@ def check(crp):
     if np.any((g["fertility"] > 0) & (g["forest"] > 0)):
         problems.append("fertility on a forest cell")
     names = [trees["names"][i] for i in np.unique(trees["prefab"])] if len(trees["prefab"]) else []
-    if set(names) - set(R.TREE_NAMES):
-        problems.append(f"non-original tree prefabs: {sorted(set(names) - set(R.TREE_NAMES))}")
+    theme = meta["environment"]
+    allowed = {n for pool in R.THEMES.get(theme, {}).values() for n, _ in pool}
+    if set(names) - allowed:
+        problems.append(f"tree prefabs the {theme} theme doesn't load: {sorted(set(names) - allowed)}")
+    if len(trees["prefab"]) and any(n is None for n in trees["names"]):
+        problems.append("tree prefab table has null entries")
     if np.any(trees["flags"] != R.GROWN_TREE):
         problems.append("a tree is not saved as created and fully grown")
     if len(trees["flags"]) > 250_000:
@@ -121,6 +126,7 @@ def check(crp):
     mx = meta["maxResourceAmount"]
     return problems, {
         "trees": int(len(trees["flags"])),
+        "species": {n: int((trees["prefab"] == i).sum()) for i, n in enumerate(trees["names"])},
         "forest_formula_match": round(match, 5),
         "panel_share": {
             k: round(meta[f] / mx, 4)

@@ -34,55 +34,53 @@ TREE_WEIGHT = {10: 1.0, 95: 1.0, 20: 0.35, 90: 0.15, 30: 0.03, 100: 0.05, 60: 0.
 # WorldCover class -> fertile share. Pasture and hay land is farmland too.
 FERTILE_WEIGHT = {40: 1.0, 30: 0.7, 90: 0.3, 20: 0.15}
 
-# Base-game tree prefabs only: the set CO's 2015 maps use (data versions
-# 244-320), so a player without DLC loses no trees. Prefabs are not theme
-# locked: Europe-theme Grand River uses the boreal Pine01low and Conifer2, and
-# Tropical Sandy Beach uses Beech01low. Winter uses its own Snowfall set.
-TREE_NAMES = [
-    "Beech01low",
-    "Tree2variant",
-    "Tree3variant",
-    "Alder01",
-    "Pine01low",
-    "Conifer2",
-    "treeForest",
-    "Conifer",
-    "Bush01",
-    "Bush02",
-    "palm01",
-    "palmplant01",
-]
-# Palettes: role -> (prefab, weight). Shipped maps are dominated by one or
-# two species per role, so weights are uneven on purpose.
-PALETTES = {
-    "temperate": {
+# Original-release tree prefabs only (the set CO's 2015 maps use, data
+# versions 244-320), so a player without DLC loses no trees. What loads
+# depends on the map theme: shipped Sunny maps never use the conifers, which
+# belong to the North and Europe themes; only Tropical has palms; Bush02 is
+# Sunny and Tropical. Winter (Snowfall) has its own set and isn't covered.
+THEMES = {
+    "Sunny": {
         "broadleaf": [("Beech01low", 5), ("Tree2variant", 3), ("Tree3variant", 3)],
         "riparian": [("Alder01", 1)],
-        "conifer": [("Pine01low", 3), ("Conifer2", 1)],
         "scrub": [("Bush01", 1), ("Bush02", 1)],
     },
-    "boreal": {
+    "North": {
         "broadleaf": [("Tree3variant", 2), ("Beech01low", 1)],
         "riparian": [("Alder01", 1)],
         "conifer": [("treeForest", 5), ("Conifer", 3), ("Conifer2", 2), ("Pine01low", 2)],
         "scrub": [("Bush01", 1)],
     },
-    "tropical": {
-        "broadleaf": [("Beech01low", 3), ("Tree2variant", 2), ("palm01", 3)],
+    "Europe": {
+        "broadleaf": [("Tree3variant", 3), ("Tree2variant", 2), ("Beech01low", 1)],
+        "riparian": [("Alder01", 1)],
+        "conifer": [("Pine01low", 4), ("Conifer2", 2), ("treeForest", 1)],
+        "scrub": [("Bush01", 1)],
+    },
+    "Tropical": {
+        "broadleaf": [("Beech01low", 3), ("palm01", 3), ("Tree2variant", 2), ("Tree3variant", 1)],
         "riparian": [("palmplant01", 1), ("palm01", 1)],
-        "conifer": [("Tree3variant", 1)],
         "scrub": [("palmplant01", 2), ("Bush01", 1), ("Bush02", 1)],
     },
 }
+TREE_NAMES = sorted({name for theme in THEMES.values() for pool in theme.values() for name, _ in pool})
 
 
-def palette_for(lat, terrain):
-    """Tropics get palms; high latitudes and alpine relief get conifers."""
-    if abs(lat) < 23.5:
-        return "tropical"
-    if abs(lat) > 55 or np.percentile(terrain, 50) > 900:
-        return "boreal"
-    return "temperate"
+def theme_of(template_bytes):
+    """The template's MapMetaData environment: it decides which trees load."""
+    from crp import Reader, metadata_value, read_package
+
+    _, assets = read_package(template_bytes)
+    r = Reader(next(a["payload"] for a in assets if a["kind"] == 100))
+    r.number("B"), r.string(), r.string()
+    for _ in range(r.number("i")):
+        if r.number("B"):
+            continue
+        typename, name = r.string().split(",")[0], r.string()
+        value = metadata_value(r, typename)
+        if name == "environment":
+            return value
+    raise ValueError("Template metadata has no environment")
 
 
 @dataclass
@@ -161,7 +159,7 @@ def blob(x0, z0, radius, size=RES, step=CELL):
     return np.clip(1.5 - 1.5 * d, 0, 1) ** 0.7  # flat core, soft rim
 
 
-def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="temperate"):
+def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny"):
     """Return resource grids (512², south-first) and the tree list.
 
     terrain, depth: 1081² south-first metres. landcover: 1728² south-first
@@ -195,7 +193,7 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="tem
     # Shipped maps have a few coherent fields (median 0.7 km2), not specks:
     # close gaps, drop pieces under ~0.05 km2, ramp up from a soft rim.
     mask = ndimage.binary_opening(ndimage.binary_closing(suit > 0.22, iterations=2))
-    mask &= ~cell_wet
+    mask &= ~cell_wet & ~network_mask(positions, segments, RES, CELL, 24)
     labels, n = ndimage.label(mask)
     sizes = np.bincount(labels.ravel(), minlength=n + 1)
     mask &= sizes[labels] >= 40
@@ -215,7 +213,9 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="tem
     stands = 0.65 * smooth_noise(lc.shape, 7, rng) + 0.35 * smooth_noise(lc.shape, 25, rng)
     w *= np.clip(0.35 + 0.9 * stands, 0, None)
     fertile_px = resample(fertility.astype(float), CELL, lc.shape[0], LC_STEP, order=0) > 0
-    w[lc_wet | lc_road | fertile_px] = 0
+    # Trees touching water die, and vanilla keeps them off rock faces.
+    w[ndimage.binary_dilation(lc_wet) | lc_road | fertile_px] = 0
+    w *= np.clip((60 - node_grid(slope, lc.shape[0], LC_STEP)) / 15, 0, 1)
     total = w.sum()
     trees = []
     if knobs.trees > 0 and total > 0:
@@ -239,7 +239,7 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="tem
         # counts a tree on a boundary in both cells; keep trees off them.
         px[px % 128 == 0] += 1
         pz[pz % 128 == 0] += 1
-        kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, palette)
+        kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, theme)
         trees = (px, pz, kinds)
 
     forest, tree = forest_cells(trees)
@@ -257,7 +257,10 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="tem
         used.append({**e, "radius_m": r})
     rugged = np.clip(0.7 + cell_slope / 40, 0.7, 1)  # ore reads as hills
     level = np.clip((24 - cell_slope) / 12, 0.7, 1)  # oil reads as plains
-    shape = {"ore": rugged * ~cell_wet, "oil": level * ~cell_wet}
+    # Players punish resources they can't build on: peaks, cliffs, water and
+    # land already under the outside-connection roads.
+    usable = np.clip((40 - cell_slope) / 10, 0, 1) * ~cell_wet * ~network_mask(positions, segments, RES, CELL, 24)
+    shape = {"ore": rugged * usable, "oil": level * usable}
     placed = []
     if knobs.resources == "balanced":
         placed = top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, node_grid(terrain, RES, CELL))
@@ -283,7 +286,8 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, palette="tem
 def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
     """Add patches until ore and oil reach their New Game share targets in the
     25 buildable tiles. Shipped maps put oil on low, flat ground near water and
-    ore on higher, rougher ground; neither top-up patch touches the start tile."""
+    ore at the foot of hills, a tile out from the start; no top-up patch
+    touches the start tile."""
     tiles = tile_index()
     tz, tx = np.meshgrid(tiles, tiles, indexing="ij")
     buildable = (tx >= 2) & (tx <= 6) & (tz >= 2) & (tz <= 6)
@@ -295,7 +299,14 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
     maximum = 25 * 3686400 / 1139.0625 * 255
     for kind, grid, other in [("ore", ore, oil), ("oil", oil, ore)]:
         if kind == "ore":
-            score = np.clip(cell_slope / 25, 0, 1) + np.clip(relief / 50, -0.5, 1)
+            # The foot of hills: a hilly neighbourhood, workable local slope,
+            # and not the peaks.
+            hills = ndimage.uniform_filter(cell_slope, 31)
+            score = (
+                np.clip(hills / 20, 0, 1)
+                + np.clip(1 - np.abs(cell_slope - 12) / 12, 0, 1)
+                - 0.5 * np.clip(relief / 60, 0, 1)
+            )
         else:
             score = (
                 np.clip((10 - cell_slope) / 10, 0, 1)
@@ -304,7 +315,8 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
             )
         score = ndimage.uniform_filter(score, 11)
         score[~buildable | cell_wet] = -np.inf
-        score[ndimage.binary_dilation(start, iterations=57)] = -np.inf  # start tile + ring
+        # Shipped maps put ore and oil a tile out from the start, not in it.
+        score[ndimage.binary_dilation(start, iterations=6)] = -np.inf
         score[other > 0.2] = -np.inf
         for _ in range(10):
             amount = (np.floor(grid * shape[kind] * 255 + 0.5) * buildable).sum()
@@ -324,11 +336,12 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height):
     return placed
 
 
-def species(px, pz, cls, terrain, wet16, slope, rng, palette):
-    """Prefab index per tree. Stands (~160 m) share a dominant species, so the
-    mix is clumped as on shipped maps; conifers favour high, steep ground,
-    alders line water, bushes fill shrubland."""
-    roles = PALETTES[palette]
+def species(px, pz, cls, terrain, wet16, slope, rng, theme):
+    """Prefab index (into TREE_NAMES) per tree. Stands (~100 m) share a
+    dominant species, so the mix clumps as on shipped maps; conifers, where
+    the theme has them, favour high and steep ground; alders line water;
+    bushes fill shrubland."""
+    roles = THEMES[theme]
     x, z = px * TREE_UNIT, pz * TREE_UNIT
     col = np.clip(((x + HALF) / 16).astype(int), 0, 1080)
     row = np.clip(((z + HALF) / 16).astype(int), 0, 1080)
@@ -337,25 +350,26 @@ def species(px, pz, cls, terrain, wet16, slope, rng, palette):
     hn = np.clip((h - lo) / max(1.0, hi - lo), 0, 1)
     near_water = ndimage.binary_dilation(wet16, iterations=2)[row, col]
     conifer_p = np.clip(0.08 + 0.75 * hn**1.5 + slope[row, col] / 200, 0.03, 0.9)
-    stand = (row // 10) * 4096 + (col // 10)
+    stand = (row // 6) * 4096 + (col // 6)
     _, inverse = np.unique(stand, return_inverse=True)
     stand_draw = rng.random(inverse.max() + 1)[inverse]
     stand_pick = rng.random(inverse.max() + 1)[inverse]
     pick, mix = rng.random(len(px)), rng.random(len(px))
     role = np.full(len(px), "broadleaf", dtype=object)
-    role[stand_draw < conifer_p] = "conifer"
+    if "conifer" in roles:
+        role[stand_draw < conifer_p] = "conifer"
     role[near_water & (pick < 0.55)] = "riparian"
     role[(cls == 20) & (pick < 0.7)] = "scrub"
     out = np.empty(len(px), np.uint16)
     index = {n: i for i, n in enumerate(TREE_NAMES)}
-    for name in roles:
-        names, weights = zip(*roles[name])
+    for name, pool in roles.items():
+        names, weights = zip(*pool)
         cum = np.cumsum(weights) / sum(weights)
         sel = role == name
         # 75 % of trees take their stand's species, the rest mix freely.
         u = np.where(mix[sel] < 0.75, stand_pick[sel], pick[sel])
         choice = np.searchsorted(cum, u, side="right").clip(0, len(names) - 1)
-        out[sel] = np.array([index[names[c]] for c in range(len(names))], np.uint16)[choice]
+        out[sel] = np.array([index[n] for n in names], np.uint16)[choice]
     return out
 
 
@@ -487,8 +501,13 @@ def encode_trees(data, span_start, span_end, prefix, trees, names):
     n = len(px)
     if n > TREE_SLOTS:
         raise ValueError("More trees than the vanilla TreeManager holds")
-    order = np.lexsort((px, pz))  # row-major buffer order compresses well
+    # A tree's size and brightness come from its slot number, so neighbours
+    # must not get consecutive slots: shuffle them (deterministically).
+    order = np.random.default_rng(n).permutation(n)
     px, pz, kinds = px[order], pz[order], kinds[order]
+    used = np.unique(kinds)  # write only referenced names, as the game does
+    kinds = np.searchsorted(used, kinds).astype(np.uint16)
+    names = [names[i] for i in used]
     flags = np.zeros(TREE_SLOTS, np.uint16)
     flags[:n] = GROWN_TREE
     body = encode_array(flags, 2) + encode_array(kinds.astype(np.uint16), 2)
@@ -570,4 +589,4 @@ def summary(result, per_tile, knobs):
 
 
 if __name__ == "__main__":
-    print(json.dumps({"tree_names": TREE_NAMES, "palettes": PALETTES}, indent=2))
+    print(json.dumps({"tree_names": TREE_NAMES, "themes": THEMES}, indent=2))

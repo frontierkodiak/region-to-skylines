@@ -88,7 +88,7 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
     terrain = raw.astype(float) / 64
     layout_path = ROOT / "templates/native-corridors.json"
     if plan is not None:
-        result, palette = load_plan(plan), None
+        result, theme = load_plan(plan), None
     else:
         geo = json.loads(load(geometry.parent, geometry.name) if geometry else load(prepared, "geometry.json"))
         lc = np.frombuffer(gzip.decompress(landcover.read_bytes()), np.uint8)
@@ -96,8 +96,8 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
         lc = np.flipud(lc.reshape(side, side))  # landcover.py is north-first
         layout = json.loads(layout_path.read_text())
         found = json.loads(evidence.read_text())["evidence"] if evidence else []
-        palette = R.palette_for(geo["sq"]["lat"], terrain)
-        result = R.plan(terrain, depth, lc, layout, hydro, found, knobs, palette)
+        theme = R.theme_of((ROOT / "templates/native-corridors.crp").read_bytes())
+        result = R.plan(terrain, depth, lc, layout, hydro, found, knobs, theme)
     package = write_map(
         ROOT / "templates/native-corridors.crp",
         layout_path,
@@ -110,7 +110,7 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
     water, _ = R.water_cells(depth, raw)
     _, per_tile = R.area_totals(result, water)
     report = R.summary(result, per_tile, knobs)
-    report.update({"palette": palette, "package": package})
+    report.update({"theme": theme, "package": package})
     preview(result, terrain, depth, out / "resources.png")
     save_plan(result, out / "plan.npz")
     (out / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
@@ -135,7 +135,7 @@ def main():
         parser.error("LANDCOVER is required unless --plan is given")
     knobs = R.Knobs(trees=args.trees, resources=args.resources, fertile=args.fertile, seed=args.seed)
     report = paint(args.prepared, args.landcover, args.output, args.geometry, args.evidence, knobs, args.map_name, args.plan)
-    print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "palette"]}, indent=2))
+    print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "theme"]}, indent=2))
     print(json.dumps(report["package"], indent=2))
 
 
