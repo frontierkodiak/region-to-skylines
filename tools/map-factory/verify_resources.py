@@ -7,7 +7,8 @@ decode the package with the independent survey decoder and check:
 
 - both rebuilt sections end exactly where the template's own tails begin;
 - forest equals min(60 x trees per cell, 255) and the tree byte matches it;
-- no cell has both ore and oil, or both fertility and forest;
+- no cell has both ore and oil; invented ore and oil stay out of the start
+  tile;
 - every tree uses an original-release prefab its map theme loads, and is
   saved fully grown;
 - the New Game amounts equal the 25-tile final sums, and the tile sums equal
@@ -70,7 +71,7 @@ def section_end(data, name, arrays):
     return o + 3 + 5 * int.from_bytes(data[o : o + 3], "big")
 
 
-def check(crp):
+def check(crp, evidence=None):
     pkg, assets = M.read_any(Path(crp).read_bytes())
     data = next(a["payload"] for a in assets if a["kind"] == 52)
     meta = M.parse_metadata(next(a["payload"] for a in assets if a["kind"] == 100))
@@ -96,8 +97,16 @@ def check(crp):
         problems.append("tree byte differs from forest byte for grown trees")
     if np.any((g["ore"] > 0) & (g["oil"] > 0)):
         problems.append("ore and oil share a cell")
-    if np.any((g["fertility"] > 0) & (g["forest"] > 0)):
-        problems.append("fertility on a forest cell")
+    # Only real deposits may put ore or oil in the start tile.
+    tile = (np.arange(512) * 18) >> 10
+    start_index = M.parse_start_tile(data, v)[1]
+    in_start = (tile[:, None] == start_index // 5 + 2) & (tile[None, :] == start_index % 5 + 2)
+    centres = (np.arange(512) + 0.5) * R.CELL - R.HALF
+    near_real = np.zeros((512, 512), bool)
+    for e in evidence or []:
+        near_real |= np.hypot(centres[None, :] - e["x"], centres[:, None] - e["z"]) < 700
+    if np.any(((g["ore"] > 0) | (g["oil"] > 0)) & in_start & ~near_real):
+        problems.append("invented ore or oil inside the start tile")
     names = [trees["names"][i] for i in np.unique(trees["prefab"])] if len(trees["prefab"]) else []
     theme = meta["environment"]
     allowed = {n for pool in R.THEMES.get(theme, {}).values() for n, _ in pool}
@@ -154,7 +163,7 @@ def main():
             crp = next(planned.glob("*.crp"))
             paint(fixture, None, replayed, knobs=knobs, map_name=case["map_name"], plan=planned / "plan.npz")
             digest, replay_digest = sha(crp), sha(next(replayed.glob("*.crp")))
-            problems, facts = check(crp)
+            problems, facts = check(crp, json.loads((fixture / "evidence.json").read_text())["evidence"])
             if args.freeze:
                 case["expected_crp_sha256"] = digest
             if digest != case["expected_crp_sha256"]:

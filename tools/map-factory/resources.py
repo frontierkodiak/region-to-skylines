@@ -241,6 +241,10 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
             rows, cols = rows[np.sort(keep)], cols[np.sort(keep)]
         x = (cols + rng.random(len(cols))) * LC_STEP - HALF
         z = (rows + rng.random(len(rows))) * LC_STEP - HALF
+        # A 10 m pixel can straddle a 33.75 m cell edge: drop trees that land
+        # in a field cell, since one tree would erase that cell's fertility.
+        keep = fertility[(z / CELL + 256).astype(int).clip(0, RES - 1), (x / CELL + 256).astype(int).clip(0, RES - 1)] == 0
+        rows, cols, x, z = rows[keep], cols[keep], x[keep], z[keep]
         px = np.clip(np.round(x / TREE_UNIT), -32767, 32767).astype(np.int16)
         pz = np.clip(np.round(z / TREE_UNIT), -32767, 32767).astype(np.int16)
         # 128 position steps are exactly one 33.75 m cell, and TreesModified
@@ -314,7 +318,7 @@ def top_up_fertile(fertility, cell_slope, cell_wet, positions, segments, sx, sz,
     blocked = cell_wet | built | network_mask(positions, segments, RES, CELL, 24) | (cell_slope > 12)
     score[~buildable | blocked] = -np.inf
     placed = []
-    for _ in range(10):
+    for _ in range(16):
         if (fertility * buildable).sum() >= knobs.targets["fertile"] * maximum or not np.isfinite(score).any():
             break
         r, c = np.unravel_index(np.argmax(score + rng.random(score.shape) * 0.3), score.shape)
@@ -365,7 +369,7 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height, fe
         score[ndimage.binary_dilation(start, iterations=6)] = -np.inf
         score[other > 0.2] = -np.inf
         score[ndimage.binary_dilation(fertility > 0, iterations=4)] = -np.inf  # keep fields clear
-        for _ in range(10):
+        for _ in range(16):
             amount = (np.floor(grid * shape[kind] * 255 + 0.5) * buildable).sum()
             if amount >= knobs.targets[kind] * maximum or not np.isfinite(score).any():
                 break
@@ -376,7 +380,7 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height, fe
             radius = float(rng.uniform(500, 900) if not placed or placed[-1]["kind"] != kind else rng.uniform(420, 700))
             lobes = np.clip(0.8 + 0.35 * smooth_noise((RES, RES), 5, rng), 0.45, 1.1)
             patch = np.clip(blob(x, z, radius) * lobes * 1.3, 0, 1)
-            patch[fertility > 0] = 0
+            patch[(fertility > 0) | start] = 0  # whole patch, not just its centre
             np.maximum(grid, patch, out=grid)
             placed.append({"kind": kind, "x": x, "z": z, "radius_m": round(radius), "source": "convention"})
             d = np.hypot(centres[None, :] - x, centres[:, None] - z)
@@ -536,8 +540,7 @@ def encode_resources(data, span_start, span_end, prefix, grids, water, shore):
         if i == 3:
             old_forest = values
     _, offset = decode_array(data, 81 * 10, offset, 4)
-    body += struct.pack(">8I", *([0] * 8)) + struct.pack(">bb", 0, 0)
-    offset += 8 * 4 + 2
+    # Used-resource counters and pollution-dispose rates: keep the template's.
     return data[span_start : span_start + prefix] + body + data[offset:span_end], per_tile
 
 
