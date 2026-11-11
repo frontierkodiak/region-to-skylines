@@ -265,3 +265,48 @@ sustained wet probes. Instrumented soaks use a disabled local control mod and
 `--noWorkshop`; they are separate from the strict vanilla starts. New previews
 need live validation. No populated-city growth, cross-platform gameplay, stability beyond
 60 minutes or qualification of every possible future region is claimed.
+
+## Resource-painted Asheville · native 60 minutes (2026-11-11)
+
+Exact candidate `be8b24824972463b7724ff8788c61d6fc93e5d011e343ed2190ddfa7ad0f3cc3`
+completed60.0731 game-minutes in932.74 simulation wall seconds on blade,
+`resources-north-asheville-60/asheville`. Native initial terrain/water and all
+source controls match the frozen inputs. All28 playable major-river probes
+and all59 nonboundary river probes stayed exactly wet at all13 five-minute
+samples. Two physical-edge river probes have exact misses; these remain in
+`input-audit.json`. Streams are not all perennial (837/1527 playable stream
+probes end exactly wet); no all-waterway-perennial claim is made.
+
+All five saved grids have0 distant spreading under the definition above.
+All six full native car/train path checks pass; cleanup is empty. The native
+1,600-point world-coordinate sampler and independent whole-grid DEM checks
+both score r=.9999 as-is; the best incorrect sampler transform is.3727.
+Four independent GNIS/DEM landmark errors range−.335 to−1.629m. No grid flip.
+
+The actual native New Game panel was visually reviewed: the map preview is
+present, author hidden, resource bars populated and buildable73%. Resource
+amounts are forest4,128,915; fertile720,270; ore1,086,916; oil572,359;
+water537,588, over max20,631,704. Balanced additions remain labelled map-craft
+conventions, not geological/crop evidence. Air and ship remain honestly absent.
+The stock editable city name remains random (Rockdale in this capture).
+
+Opening and **actual** GameAreaTool/native AreasVisible views both face0°,
+and both PNGs were reviewed/hash-bound. The opening pivot drifted to a corner
+because the X11 pointer was at the game-window edge: this run proves heading,
+not centring. PR8 parks that pointer without aiming the camera and a separate
+same-package short check requires the selected tile centre within64m.
+Peak GPU memory10,821 MiB total /2,821 above baseline8,000;136.59 W and54°C,
+150 W cap unchanged. This is an instrumented map soak, **not** a strict
+`--disableMods` start; the exact-package vanilla batch remains separate.
+
+## Corrected coastal inputs · still experimental
+
+`COAST_EVIDENCE.md` records why elevation-threshold sea classification corrupted
+Charleston's low coastal land and the capture-only explicit-ocean correction.
+The compound resource candidates are Rio `bc1045d2…bd137` and Charleston
+`3d6443ff…56fba`. Old R4 Rio still fails its60-minute native flood check
+(0.377600km² distant spreading); no acceptance is transferred to corrected
+inputs. Matched no-emission and no-land-prefill diagnostics isolate causes
+before another source-policy change. Charleston's independent prepared-grid
+comparison still fails (r=.6893 at reference zoom13); it is retained, not
+masked. No new coastal package is claimed accepted and no goldens are updated.
