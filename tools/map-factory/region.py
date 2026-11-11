@@ -800,13 +800,26 @@ def limit_source_footprints(ground, depth, banks, geometry, summary):
     if not limited:
         return
     sq = geometry["sq"]
-    channels = ndimage.binary_dilation(
-        raster(sq, geometry.get("rivers", []) + geometry.get("streams", [])),
-        iterations=4,
-    )
+    mapped = raster(sq, geometry.get("rivers", []) + geometry.get("streams", []))
+    channels = ndimage.binary_dilation(mapped, iterations=4)
+    source_corridor = channels.copy()
+    visible = mapped.copy()
     channels |= depth > 0.1
     for field in ["lakes", "riverAreas"]:
-        channels |= raster(sq, geometry.get(field, []), polygons=True)
+        body = raster(sq, geometry.get(field, []), polygons=True)
+        channels |= body
+        source_corridor |= body
+        visible |= body
+    forbidden = (
+        ndimage.binary_dilation(
+            raster(sq, geometry.get("undergroundWaterways", [])), iterations=2
+        )
+        & ~visible
+    )
+    # A short supply may use the existing four-cell surface-channel margin or
+    # real mapped bodies, never borrow the global prefill/sea footprint or an
+    # omitted tunnel gap. Ordinary long-reach behavior remains unchanged.
+    source_corridor &= ~forbidden
     ceiling = np.maximum(banks - 0.25, summary["sea_level_m"])
     for source in limited:
         col = round((source["position"][0] + HALF) / SPACING)
@@ -838,25 +851,64 @@ def limit_source_footprints(ground, depth, banks, geometry, summary):
                 int(np.floor((max(0, clearance - 10) / 0.4) ** 2)),
             )
 
+        unsafe_intake = wet_channel & (bed >= target - 0.125)
         intake = (
             maximum
             if source.get("underground_portal") == "surface_inlet_to_tunnel"
-            else safe_rate(wet_channel & (bed >= target - 0.125))
+            and not source.get("short_surface_river")
+            else safe_rate(unsafe_intake)
+        )
+        permitted_output = (
+            source_corridor[region]
+            if source.get("short_surface_river")
+            else wet_channel
+        )
+        unsafe_output = (bed < target) & (
+            (ceiling[region] < target) | ~permitted_output
+        )
+        original_output = int(
+            np.floor(source.get("output_capacity", source["capacity"]) * 65535 + 0.5)
         )
         output = min(
-            safe_rate((bed < target) & ((ceiling[region] < target) | ~wet_channel)),
-            int(
-                np.floor(
-                    source.get("output_capacity", source["capacity"]) * 65535 + 0.5
-                )
-            ),
+            safe_rate(unsafe_output),
+            original_output,
         )
+        if source.get("short_surface_river"):
+            source["short_source_footprint"] = {
+                "intake_rate_before": maximum,
+                "intake_rate_after": intake,
+                "output_rate_before": original_output,
+                "output_rate_after": output,
+                "intake_radius_before_m": float(10 + 0.4 * np.sqrt(maximum)),
+                "intake_radius_after_m": float(10 + 0.4 * np.sqrt(intake)),
+                "output_radius_before_m": float(10 + 0.4 * np.sqrt(original_output)),
+                "output_radius_after_m": float(10 + 0.4 * np.sqrt(output)),
+                "nearest_unsafe_intake_cell_m": float(distance[unsafe_intake].min())
+                if unsafe_intake.any()
+                else None,
+                "nearest_unsafe_output_cell_m": float(distance[unsafe_output].min())
+                if unsafe_output.any()
+                else None,
+                "output_envelope": "retained surface geometry, four-cell margin, no tunnel barrier",
+            }
         source.update(
             target=float(target),
             capacity=intake / 65535,
             output_capacity=output / 65535,
         )
     summary["bank_limited_regulators"] = len(limited)
+    footprints = [
+        s["short_source_footprint"] for s in limited if s.get("short_source_footprint")
+    ]
+    summary["short_source_footprints"] = {
+        "controls": len(footprints),
+        "intake_reduced_controls": sum(
+            f["intake_rate_after"] < f["intake_rate_before"] for f in footprints
+        ),
+        "output_reduced_controls": sum(
+            f["output_rate_after"] < f["output_rate_before"] for f in footprints
+        ),
+    }
 
 
 def prepare(png, geometry, layout, output, banks=None):

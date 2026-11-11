@@ -62,3 +62,58 @@ one-cell omissions, unchanged short-stream modeling, post-corridor shallow
 heads, ocean preservation, source-geographic film without route samples and
 honest unsafe-bank omissions. No game/Steam/GPU/service actions were performed;
 prepared-grid results are not native acceptance.
+
+## Bounded short-source footprint correction
+
+Native full-geography pilots exposed two distinct limits of shallow initial
+water: portal intake can drain higher visible cells within its native footprint,
+and broad prefill can incorrectly authorize a short supply to emit across an
+omitted tunnel or into an adjacent lower valley. A one-metre head bound at the
+source center does not bound the head over every lower cell in its radius.
+
+For short sources only:
+
+- Portal inlet withdrawal now uses the same high-bed clearance rule as other
+  local-stage intake. Keep the original low target and **zero output**; retain
+  a local sink without withdrawing from a neighboring higher visible reach.
+- Output must fit the retained source-geographic channel envelope: the existing
+  four-cell surface-line margin and genuine mapped lake/river-area polygons,
+  excluding the existing explicit tunnel barriers. Global water/sea prefill
+  does not enlarge that envelope. No surface or underground geometry is added.
+- Capacity follows the native radius law, not a chosen rate multiplier:
+  `radius = 10 + 0.4 * sqrt(encoded_rate)`. With nearest unsafe cell distance d,
+  limit encoded rate to `floor((max(0, d-0.01-10)/0.4)^2)`, never above the
+  requested rate. A cell 16 m away therefore bounds the rate to224/65535 and
+  radius below16m. Intake/output remain independent; a zero-output portal
+  remains zero. Existing bank ceilings/head bounds stay in force.
+- Every short source records before/after encoded rates, radii and nearest
+  unsafe intake/output cell distances in `short_source_footprint`. Summary
+  `short_source_footprints` counts controls and intake/output reductions.
+  Report zero rates honestly rather than moving controls or widening geometry.
+
+Endpoint-crest additions are **deferred**, not included in this correction.
+Some real endpoint/remainder cells may still dry; unchanged native probes and
+full geographic cohorts must report them. The guard changes no terrain, initial
+water, target, source position or source count. All five exact-input package
+hashes must nevertheless be compared; any changed package needs a new pilot.
+
+### Guard-only five-case comparison
+
+All five cases were freshly generated from the same frozen source inputs and
+compared against the exact `1c1f747` complete-river unpainted preparations:
+
+| Case | CRP identity | Effective intake/output rate changes |
+| --- | --- | ---: |
+| Rio | changed | 60 / 60 |
+| Pittsburgh | changed | 2 / 3 |
+| Asheville | byte-identical | 0 / 0 |
+| Innsbruck | byte-identical | 0 / 0 |
+| Charleston | byte-identical | 0 / 0 |
+
+In all five, geometry, terrain and initial water grids are byte-identical;
+source counts, positions, targets and roles are identical; every non-short
+source is unchanged. No non-portal short supply lost all output. Rio/Pittsburgh
+simulation and metadata asset hashes changed; their two preview payloads did
+not. Unchanged cases retain their exact CRP bytes, not manually restored hashes.
+These are bounded offline receipts only; new native dry/flood results decide
+whether the correction works. Endpoint crest additions remain deferred.

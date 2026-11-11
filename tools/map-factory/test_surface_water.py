@@ -119,6 +119,83 @@ class SurfaceWaterTests(unittest.TestCase):
         self.assertEqual(report["geographic_river_prefill"]["mapped_cells"], 2)
         self.assertEqual(report["geographic_river_prefill"]["film_added_cells"], 2)
 
+    def test_short_portal_intake_cannot_drain_adjacent_high_bed_supply(self):
+        geometry = self.short_geometry([(0, 160)])
+        ground = np.full((1081, 1081), 100.0)
+        ground[540, 541] = 98.0
+        source = {
+            "position": [16, 0, 0],
+            "target": 98.25,
+            "capacity": 0.8,
+            "output_capacity": 0,
+            "bank_limited": True,
+            "short_surface_river": True,
+            "underground_portal": "surface_inlet_to_tunnel",
+        }
+        report = {"sources": [source], "sea_level_m": 0}
+        limit_source_footprints(
+            ground, np.full_like(ground, 0.25), ground + 3, geometry, report
+        )
+        self.assertEqual(source["target"], 98.25)
+        self.assertEqual(source["output_capacity"], 0)
+        self.assertGreater(source["capacity"], 0)
+        self.assertLess(source["short_source_footprint"]["intake_radius_after_m"], 16)
+        self.assertEqual(
+            report["short_source_footprints"]["intake_reduced_controls"], 1
+        )
+
+    def test_short_output_cannot_borrow_broad_initial_water_footprint(self):
+        geometry = self.short_geometry([(0, 160)])
+        ground = np.full((1081, 1081), 100.0)
+        for short in (True, False):
+            source = {
+                "position": [80, 0, 0],
+                "target": 101.0,
+                "capacity": 0.8,
+                "bank_limited": True,
+                "short_surface_river": short,
+            }
+            report = {"sources": [source], "sea_level_m": 0}
+            limit_source_footprints(
+                ground, np.ones_like(ground), ground + 5, geometry, report
+            )
+            if short:
+                footprint = source["short_source_footprint"]
+                self.assertLess(source["output_capacity"], 0.8)
+                self.assertLess(
+                    footprint["output_radius_after_m"],
+                    footprint["nearest_unsafe_output_cell_m"],
+                )
+                self.assertEqual(
+                    report["short_source_footprints"]["output_reduced_controls"], 1
+                )
+            else:
+                self.assertEqual(source["output_capacity"], 0.8)
+
+    def test_short_output_footprint_cannot_bridge_explicit_tunnel_gap(self):
+        geometry = self.short_geometry([(-320, -16), (16, 320)])
+        tunnel = self.short_geometry([(-16, 16)])["rivers"][0]
+        geometry["undergroundWaterways"] = [{**tunnel, "brunnel": "tunnel"}]
+        ground = np.full((1081, 1081), 100.0)
+        source = {
+            "position": [-32, 0, 0],
+            "target": 101.0,
+            "capacity": 0.8,
+            "bank_limited": True,
+            "short_surface_river": True,
+        }
+        report = {"sources": [source], "sea_level_m": 0}
+        limit_source_footprints(
+            ground, np.ones_like(ground), ground + 5, geometry, report
+        )
+        footprint = source["short_source_footprint"]
+        self.assertGreater(source["output_capacity"], 0)
+        self.assertLessEqual(footprint["nearest_unsafe_output_cell_m"], 32)
+        self.assertLess(
+            footprint["output_radius_after_m"],
+            footprint["nearest_unsafe_output_cell_m"],
+        )
+
     def test_short_coastal_reach_does_not_lower_the_ocean_stage(self):
         geometry = self.short_geometry([(0, 320)]) | {"seaLevel": 110.0}
         ground = np.full((1081, 1081), 100.0)
