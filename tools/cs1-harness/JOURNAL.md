@@ -1018,3 +1018,41 @@ and Caleb-save decoded terrain are byte-identical (`293d639f…ad6b6`); their
 independent DEM comparison at the correct frame scoresr=.9999 as-is. The
 new PL-857 capture isrotation0 and remains unchanged. This correction is not
 a new live sampler/camera operation on the legacy save.
+
+## 2026-11-11 00:29–00:50 ET — resource/coastal qualification queued
+
+Active harness `efd6177` uses the rebased main native sampler and prior real
+New Game/startup/Area Tool checks. DLL SHA-256 is
+`58ae33b2ba9877ba1d38f385b932de94a07f4d6fbda2ed7f52723d51bb859906`.
+Private-cache doctor passed on EGL0 / PCI05:00.0 with baseline8,000 MiB;
+the150 W cap, inference placement, shared checkout and shared cache are unchanged.
+
+Foreground jobs (all pending, **not acceptance**): `resources-north-asheville-60`
+uses resource-painted CRP `be8b2482…f3cc3`; `resources-three-60` queues Innsbruck
+`5859e371…2495b`, Pittsburgh `1acdfbb9…32f8d` and corrected-coast Charleston
+`3d6443ff…56fba` individually for60 game-minutes. Compound writer PR27 preserves
+PR24 resource algorithms/defaults and the current north-facing camera. Its
+capture-only ocean correction is described in `COAST_EVIDENCE.md`; website and
+installer stay unchanged. Frozen plans are replayed, never silently replanned
+at launch. `strict_resource_batch.py` separately queues ordinary New Game starts
+for all five exact packages, with `--disableMods --noWorkshop`, no control
+socket, known UI anchors, actual internal asset names and own-session cleanup.
+No selected/city screenshot has yet been reviewed for these resource packages.
+
+`rio-coast-noemit-15` queues a labelled15-minute diagnostic at `639d6213…82fe3`,
+derived from corrected-coast resource Rio `bc1045d2…bd137`. It changes only
+natural-source output to0 and retains intake/targets/terrain/prefill. Matching
+sea-only-prefill arm `0258cd92…dd6143` is prepared, not yet queued. These test
+initial-fill escape versus continued emission before another capacity/stage
+change. They are not release candidates and inherit no R4 acceptance.
+
+Independent **offline** DEM checks on corrected prepared terrain score Rio
+r=.9978 and Charleston r=.6893; Charleston remains a failure, not a reason to
+lower thresholds. Charleston's captured raw DEM agrees at r=.9988 with the
+independent zoom14 fetch but only r=.8256 with the checker's zoom13 fetch;
+modified game terrain still scores only r=.7503 at zoom14. Restricting the
+check to DEM land also fails. These observations are retained pending native
+sampler/height and terrain-modification diagnosis; no exclusion mask or
+automatic pass was added. All registered jobs wait fairly and answer no Steam
+prompt. Inferred parent-script entries in `queue` are display-only: inspecting
+the actual wait tickets ruled out the suspected parent/child FIFO deadlock.
