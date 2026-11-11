@@ -90,6 +90,39 @@ def manager_tag(name):
     return bytes(result)
 
 
+def saved_camera(data, start_tile_offset):
+    """Locate the native camera after the 25-tile array and guide reference.
+
+    The caller binds the source to a complete template fingerprint. Queued
+    guide objects write only their reference/type here, never their payload.
+    """
+    _, offset = decode_array(data, 25, start_tile_offset + 1, 1)
+    reference = data[offset]
+    offset += 1
+    if reference == 254:
+        shared_type = data[offset]
+        offset += 1
+        if shared_type == 254:
+            length = int.from_bytes(data[offset : offset + 3], "big")
+            if not length & 0x800000:
+                raise ValueError("Expected Latin-1 guide type")
+            offset += 3 + (length & 0x7FFFFF)
+        elif shared_type == 255:
+            raise ValueError("Guide object has a null type")
+        else:
+            offset += 1
+    elif reference != 255:
+        offset += 2
+    buildable = struct.unpack_from(">4f", data, offset)
+    if not all(np.isfinite(v) and -1 <= v <= 1 for v in buildable):
+        raise ValueError("Unexpected native area flatness fields")
+    offset += 16
+    values = struct.unpack_from(">h7f", data, offset)
+    if values[0] not in [-1, 0, 1, 2, 3, 10] or not all(np.isfinite(values[1:])):
+        raise ValueError("Unexpected saved camera fields")
+    return {"offset": offset, "bytes": data[offset : offset + 30].hex()}
+
+
 def describe(template, layout, output):
     from crp import begin_tag_size, read_package
 
@@ -220,6 +253,7 @@ def describe(template, layout, output):
             "routes": routes,
             "start_tile_offset": start + len(tag) + 1,
             "original_start_tile": data[start + len(tag) + 1],
+            "camera": saved_camera(data, start + len(tag) + 1),
         }
     )
     output.write_text(json.dumps(spec, indent=2) + "\n")

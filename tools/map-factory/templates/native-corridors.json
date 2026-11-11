@@ -10377,5 +10377,9 @@
     }
   ],
   "start_tile_offset": 11961,
-  "original_start_tile": 16
+  "original_start_tile": 16,
+  "camera": {
+    "offset": 12068,
+    "bytes": "0001c578fdf84357ef364445386044d4800000000000428943d442d584a5"
+  }
 }

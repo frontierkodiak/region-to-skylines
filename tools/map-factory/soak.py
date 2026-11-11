@@ -17,6 +17,26 @@ from crp import Reader, metadata_value, read_package, write_map
 ROOT = Path(__file__).resolve().parent
 
 
+def world_references(data, geometry, landmarks=None):
+    sq = geometry["sq"]
+    # PR #22 uses Cartesian counterclockwise angles; the browser square uses
+    # clockwise angles. Its independent pyproj frame must represent the same
+    # physical footprint without sharing the writer's pixel conversion.
+    frame = {
+        "lon": sq["lon"],
+        "lat": sq["lat"],
+        "size_m": 17280 * sq["scale"],
+        "rotation": -sq["rotation"],
+    }
+    if landmarks is not None:
+        data["landmark_expectations"] = landmarks
+        frame["landmarks"] = [
+            {k: point[k] for k in ["name", "lat", "lon"]}
+            for point in landmarks["points"]
+        ]
+    data["ground_truth"] = frame
+
+
 def panel_expectations(crp):
     """Require native selection to agree with the exact package being tested."""
     _, assets = read_package(crp.read_bytes())
@@ -117,8 +137,17 @@ def stage(output, slugs):
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
         landmarks = fixtures / slug / "landmarks.json"
-        if landmarks.exists():
-            data["landmarks"] = json.loads(landmarks.read_text())
+        geometry_bytes = (fixtures / slug / "geometry.json.gz").read_bytes()
+        if (
+            hashlib.sha256(geometry_bytes).hexdigest()
+            != case["files_sha256"]["geometry.json.gz"]
+        ):
+            raise ValueError(f"Fixture geometry changed: {slug}")
+        world_references(
+            data,
+            json.loads(gzip.decompress(geometry_bytes)),
+            json.loads(landmarks.read_text()) if landmarks.exists() else None,
+        )
         probes.write_text(json.dumps(data, indent=2) + "\n")
         receipt.update({"slug": slug, "probes": len(data["points"])})
         (folder / "staging.json").write_text(json.dumps(receipt, indent=2) + "\n")
@@ -153,8 +182,14 @@ def stage_prepared(inputs, output, slugs):
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
-        if (source / "landmarks.json").exists():
-            data["landmarks"] = json.loads((source / "landmarks.json").read_text())
+        if (source / "geometry.json").exists():
+            world_references(
+                data,
+                json.loads((source / "geometry.json").read_text()),
+                json.loads((source / "landmarks.json").read_text())
+                if (source / "landmarks.json").exists()
+                else None,
+            )
         if (source / "probes.json").exists():
             data["views"] = json.loads((source / "probes.json").read_text()).get(
                 "views", []

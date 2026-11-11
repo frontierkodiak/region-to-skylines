@@ -26,7 +26,7 @@ from crp import (
 )
 from generate import generate
 from region import prepare
-from template import decode_array, describe, encode_array, manager_tag
+from template import decode_array, describe, encode_array, manager_tag, saved_camera
 
 ROOT = Path(__file__).resolve().parent
 
@@ -233,6 +233,18 @@ def verify(folder):
                 + 1
             )
             assert data[start_offset] == hydro["start_tile"]
+            camera = saved_camera(data, start_offset)
+            mode, x, y, z, size, yaw, pitch, height = struct.unpack_from(
+                ">h7f", data, camera["offset"]
+            )
+            assert (mode, size, yaw, pitch, height) == (2, 1800, 0, 60, 0)
+            assert (x, z) == (
+                (hydro["start_tile"] % 5 - 2) * 1920,
+                (hydro["start_tile"] // 5 - 2) * 1920,
+            )
+            assert (
+                y == raw.reshape(1081, 1081)[int(z / 16 + 540), int(x / 16 + 540)] / 64
+            )
             resource_offset = data.index(manager_tag("NaturalResourceManager")) + len(
                 manager_tag("NaturalResourceManager")
             )

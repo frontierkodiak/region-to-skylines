@@ -5,8 +5,9 @@ draft byte reference, not a five-region playable-map certificate. Asheville
 and Innsbruck completed their prefilled 60-minute soaks; Rio **failed** the
 flooding gate. A bank-bounded candidate awaits native tests for Rio and
 Pittsburgh. Listing previews and recalculated metadata change every CRP hash,
-but Asheville, Innsbruck and Charleston simulation payloads remain exactly
-unchanged. The manifest binds both hashes. New listing assets still need live
+and a mode-2 north-facing camera now changes the simulation payload too.
+Asheville/Innsbruck hydraulic grids, controls and networks remain unchanged,
+but the new camera is not covered by their old package checks. New assets need live
 New Game checks; the website and installer are unchanged.
 
 Runs use CS1 1.21.1-f9 on blade's RTX 2080 Ti at `05:00.0`. Its existing 150 W
@@ -61,13 +62,14 @@ limitation. New offline-rendered preview assets are not yet native-verified.
 ## Native evidence so far
 
 The detailed hashes below identify the **tested pre-listing R3 packages**.
-Their simulation payloads still match current Asheville and Innsbruck exactly;
-their old vanilla starts do not certify the new preview assets.
+Their terrain, initial water, source controls and network inputs still match
+current Asheville and Innsbruck; their old starts do not certify the new
+preview assets or north-facing camera. Whole simulation hashes now differ.
 
 | Package | 60-minute prefilled soak | Ordinary vanilla city start |
 | --- | --- | --- |
-| Asheville | Completed, same simulation payload; details below | Prior package verified; new listing pending |
-| Innsbruck | Completed, same simulation payload; details below | Prior package verified; new listing pending |
+| Asheville | Prior R3 completed; same hydraulic inputs | Prior package verified; new listing/camera pending |
+| Innsbruck | Prior R3 completed; same hydraulic inputs | Prior package verified; new listing/camera pending |
 | Rio de Janeiro | R3 failed; revised candidate pending | Pending |
 | Pittsburgh | Revised candidate pending | Pending |
 | Charleston | Pending | Pending |
@@ -189,7 +191,24 @@ complete native route. Topology preservation alone was not sufficient proof.
 
 ## Evidence definitions and limits
 
-### Orientation is still a native acceptance gate
+### Actual playtest-save orientation and pending camera verification
+
+Caleb's actual carbon t=0 save (SHA-256 `8c2adc33…`) was decoded offline and
+compared with independently fetched AWS DEM data using harness PR #22 at
+`7ec997a`. In the original −0.905° clockwise frame, terrain correlation is
+**0.9999 as-is**, versus at most 0.3906 for a wrong rotation/reflection.
+Median absolute residual after vertical offset/scale fit is 0.6 m, p95 2.7 m.
+The highest interior DEM point is only 1.6 m below that fit; the earlier 58 m
+discrepancy was measured in the wrong geographic frame. No terrain transpose
+or mirror fix is justified. This is actual game-save terrain, not the writer's
+own rendering and not a live mod call.
+
+The same save stores camera yaw 55.7° and pitch 26.32°, rather than a
+north-facing view. A candidate now writes a fingerprint-bound native
+`SavedCameraView` with NewGameFromMap mode 2, yaw 0°, pitch 60°, size 1,800,
+and a terrain-height pivot at the selected tile's centre. Offline verification
+decodes every candidate's fields. The first live start and actual Area Zoom
+heading still need checking; no north-facing game screenshot is claimed.
 
 Caleb's opening/Area Zoom views raised a possible 90° orientation error. The
 writer's own north-up rendering cannot settle it. Four independent landmarks
@@ -216,11 +235,11 @@ be established before reusing an absolute-height reference.
 
 Native-source inspection shows `NewGameFromMap` is mode 2. Normal saved
 game/editor camera modes are 3/1 and are ignored by the camera reset in mode 2.
-A matching serialized mode-2 camera appears structurally possible; no binary
-patch or live north-facing start is claimed yet. Area Zoom selects a cardinal
+A matching mode-2 camera patch is now a byte-verified candidate, not yet a
+live-verified start. Area Zoom selects a cardinal
 heading from the current camera orientation, so its matching sideways view is
-not independent proof of a terrain transpose. No grid or camera was changed
-to make this unverified bug disappear.
+not independent proof of a terrain transpose. The grid remains unchanged;
+only the independently identified camera default is being corrected.
 
 `audit_soak.py` checks native initial terrain, water and source controls against
 the tested inputs. Exact wetness means native depth above 0.1 m. Nearby-water

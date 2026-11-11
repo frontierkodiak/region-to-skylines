@@ -400,6 +400,18 @@ def write_map(template, layout, terrain, water, hydrology, output, preview=None)
         ):
             raise ValueError("Invalid template start-tile descriptor")
         replacements.append((start, start + 1, bytes([hydro["start_tile"]])))
+        camera = spec["camera"]
+        start = camera["offset"]
+        if data[start : start + 30].hex() != camera["bytes"]:
+            raise ValueError("Saved camera does not match the bound template")
+        tile = hydro["start_tile"]
+        x, z = (tile % 5 - 2) * 1920, (tile // 5 - 2) * 1920
+        y = float(raw[(z // 16 + 540) * 1081 + x // 16 + 540] / 64)
+        # NewGameFromMap is mode 2. An ordinary editor-mode (1) camera is
+        # ignored by native Reset; a matching mode restores this actual view.
+        replacements.append(
+            (start, start + 30, struct.pack(">h7f", 2, x, y, z, 1800, 0, 60, 0))
+        )
     for start, end, replacement in sorted(replacements, reverse=True):
         data = data[:start] + replacement + data[end:]
     simulation["payload"] = data
@@ -446,6 +458,7 @@ def write_map(template, layout, terrain, water, hydrology, output, preview=None)
     preserved = ["network_topology", "outside_connections", "lane_ids", "trees"]
     if positions:
         regenerated.extend(["network_geometry", "start_tile", "water_resources"])
+        regenerated.append("north_facing_start_camera")
         preserved.append("other_resources")
     else:
         preserved.extend(["network_geometry", "buildings", "resources"])

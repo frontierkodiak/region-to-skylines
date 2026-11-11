@@ -107,8 +107,12 @@ Asheville also includes four independent GNIS/AWS-DEM landmarks. Staging passes
 them to harness PR #8's `terrain_landmarks` check, which samples native world
 heights before any harness camera override. The harness records startup camera
 heading; `world_observe` can read it again while actual Area Zoom is open.
-This guards the geographic orientation separately from the writer's own grid
-renderer. See the unresolved orientation gate in `NATIVE_FINDINGS.md`.
+This guards geographic orientation separately from the writer's own grid
+renderer. `landmark_expectations` carries the frozen absolute-height reference;
+`ground_truth` also names the region and geographic landmarks for harness
+PR #22's independent whole-map check. Its Cartesian rotation is the negative
+of the browser's clockwise rotation. See `NATIVE_FINDINGS.md` for the actual
+playtest-save comparison and still-pending live camera checks.
 When authoring fixtures, supply `CAPTURE/asheville-landmarks.json` as well;
 `freeze_fixtures.py` refuses to silently reuse an old landmark reference.
 
@@ -201,6 +205,13 @@ The stock `NewGamePanel` generates the proposed **city** name randomly; its
 `MapMetaData` has no suggested-city-name field. Setting `mapName` controls the
 map listing, not that editable city-name text box. An offline map cannot
 override this behavior without changing the game or using a mod.
+
+The writer now supplies a north-facing start camera centred on the starting
+tile. Its native saved-view mode must be **2** (`NewGameFromMap`), rather than
+the editor/load-game modes, which the game ignores on a fresh map start.
+Position, angle and zoom are fingerprint-bound patches, not a UI mod. The
+fields are byte-verified; native startup and actual Area Zoom validation are
+still pending. No geographic grid flip is introduced.
 
 Air availability requires a real `FlightPathAI` network and native outside
 connection buildings. AVL's location alone does not supply those objects.
