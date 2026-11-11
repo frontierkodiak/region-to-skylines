@@ -971,3 +971,50 @@ SHA-256 `58ae33b2ba9877ba1d38f385b932de94a07f4d6fbda2ed7f52723d51bb859906`.
 This is not native validation. Tool transitions, rendered views, combined
 scenario/render behavior and actual geography/heading acceptance still need
 live checks. GPU/VRAM/power/temperature/game-run wall metrics do not apply.
+
+## 2026-11-10 23:33 ET — PL-857 native panel, landmarks and actual Areas proof
+
+On blade's RTX 2080 Ti 05:00.0 / egl0, `native-start-ui-trial/asheville`
+loaded exact CRP `3013a635…886b15` using pre-rebase harness `6027240` and
+DLL `11bc5cd9…`. After genuine hash-bound screenshot review, panel, four
+landmarks and startup_views pass. Both native yaw and render heading are0°
+in the untouched opening and actual GameAreaTool view; AreasVisible changes
+false → true → false. Landmark errors are -1.605, -0.335, -0.925 and -1.629 m
+against the independent GNIS/DEM references (12 m tolerance). The native panel
+resolves both preview sizes, hides the blank author, and shows70% buildable.
+This candidate's resource crosses remain intentional/unpainted, not completion
+of PL-902. Source view has a Hello tutorial overlay; it is not a marketing shot.
+
+The short diagnostic reached1.1314 game-minutes in19.78 simulation wall seconds,
+not60minutes. All28 playable major-river probes stayed exactly wet, all six
+path checks passed, initial terrain/water/source controls matched, distant
+spreading was0 and cleanup was empty. Peak VRAM10,821 MiB total /2,821 above
+baseline, power123.98 W, temperature57 C;150 W cap unchanged. This proves
+the camera correction and panel operation on this exact package, not all five
+regions' final water/resource qualification.
+
+## 2026-11-10 23:40 ET — PL-857 R4 Rio60 remains a rejected policy
+
+`r4-north-rio-60/rio`, exact CRP `e1844ef2…e7bd`, same blade GPU/pre-rebase
+harness, completed60.0289 game-minutes in932.49 simulation wall seconds.
+All initial inputs/controls matched; native full car/train paths passed at
+both ends; cleanup was empty. Playable major rivers ended337/342 exactly wet;
+five had an exact miss and one had a no-water-within64m sample. Distant
+spreading (>0.5m, >128m from initial/mapped water) reached0.377600 km²;
+peak distant depth4.453125m at45minutes. That is an improvement over R3's
+1.651968 km², but still fails flooding acceptance. Normal exit is not a pass.
+Peak VRAM10,821 MiB total /2,821 above baseline, power129.05 W and59 C;
+150 W cap unchanged. Numeric audits retain all failures and native views.
+
+Prepared, not yet executed: matched15-minute no-emission and sea-only-initial-
+water ablations. They separate spill from initial fill versus continued source
+head before another policy change. R4 has175 river regulators (all bank-limited),
+up from51 in R3; summed output/intake capacities are31.24/14.99 versus22.2/22.2.
+This is a diagnostic, not proof that capacity alone caused the spill.
+
+The legacy PL-848 example now uses Cartesian rotation+0.905, from its original
+`water-geometry.json` browser rotation-0.905. The actual native terrain dump
+and Caleb-save decoded terrain are byte-identical (`293d639f…ad6b6`); their
+independent DEM comparison at the correct frame scoresr=.9999 as-is. The
+new PL-857 capture isrotation0 and remains unchanged. This correction is not
+a new live sampler/camera operation on the legacy save.
