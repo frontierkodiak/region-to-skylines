@@ -20,6 +20,7 @@ import sys
 import time
 
 from . import build as build_mod
+from . import mapped_water
 from . import notify as notify_mod
 from . import registry
 from . import report as report_mod
@@ -275,6 +276,7 @@ def cmd_run(cfg, a):
         raise SystemExit(f"no such map: {a.map}")
     if a.probes:
         # Freeze what the verdict reads, so editing the source later can't change it.
+        mapped_water.freeze(a.probes, out)
         shutil.copyfile(a.probes, out / "probes.json")
         ref = json.loads(a.probes.read_text())
         if isinstance(ref, dict) and ref.get("reference_water"):

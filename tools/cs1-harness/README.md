@@ -170,6 +170,58 @@ run takes a single overview screenshot set and no point samples. A point may
 set `"required": true|false` for the verdict, and the file may name a
 `reference_water` grid (relative to the file) that flooding is judged against.
 
+### Optional frozen mapped-water corridor
+
+For a future soak, stage an **unbuffered** geometry-derived water mask next to
+`probes.json`, and add:
+
+```json
+{
+  "mapped_water": {
+    "file": "mapped-water.u8",
+    "format": "cs1-water-mask-u8-v1",
+    "sha256": "64 lowercase hex digits of the exact binary file"
+  }
+}
+```
+
+The file is exactly 1,168,561 bytes (1081 × 1081 unsigned bytes, each 0 or 1),
+C row-major **south-first**: `[iz,ix]` is world
+`x=ix*16-8640, z=iz*16-8640` metres. `1` means mapped water, not a tolerance
+buffer. The staging caller (for example writer `soak.stage_prepared`) must
+rasterize its frozen mapped rivers/streams and lake/river polygons in that
+frame; retain geometry/provenance and its hash in its generation receipt.
+Do not use observed flood extents to construct the mask. No geographic
+inference, mask generation, widening or blanket exclusion happens here.
+`file` must be a basename, relative to the probes file. The SHA binds bytes,
+not the truth or completeness of their geographic classification.
+
+`run` validates format/size/binary values/SHA and copies precisely those bytes
+to run-local `mapped-water.u8` **before acquiring a native session**. Verdicts
+read only that frozen copy; missing/changed/malformed requested evidence fails
+`no_flooding`, never silently reverts to initial-only. An unrequested stray
+mask has no effect. The expected footprint is existing `reference_water`
+(or initial saved water >0.1m) **union** this supplied mask. Existing Euclidean
+128m dilation, >0.5m depth and ≤0.05km² threshold remain unchanged. Only saved
+water grids are assessed, not intervening frames. The row includes per-grid
+areas/failing subset plus a non-gating `initial_only_diagnostic` with the old
+footprint's results. Without the key, legacy behavior/output is unchanged.
+
+Do **not** edit a completed run's frozen probes or replace its verdict to add
+evidence retroactively. A read-only supplemental callable is available:
+
+```python
+from cs1_harness.verdict import adjudicate_flooding
+supplement = adjudicate_flooding(run_dir, external_mask_path, mask_spec)
+# Serialize supplement to a separate review artifact, not verdict.json/probes.json.
+```
+
+`mask_spec` is the object under `mapped_water` above. The result binds the
+report/probes, reference and saved-grid SHA-256 values and mask SHA, retains
+the initial-only diagnostic, and explicitly makes no native-acceptance claim.
+This is supplemental adjudication, not a rerun or an alteration of history.
+
+
 ## Checking against the world
 
 Every other map check is drawn in the map writer's own coordinate frame, so a

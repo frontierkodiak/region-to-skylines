@@ -13,6 +13,7 @@ which runs it moves from pass to fail or back.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
 import re
@@ -21,7 +22,7 @@ import subprocess
 import numpy as np
 from PIL import Image
 
-from . import landmarks, new_game_panel, startup_views
+from . import landmarks, mapped_water, new_game_panel, startup_views
 
 SCHEMA = 1
 
@@ -158,7 +159,15 @@ def dilate(mask: np.ndarray, radius_cells: int) -> np.ndarray:
     return out
 
 
-def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict) -> dict:
+def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict, *, mapped_path: pathlib.Path | None = None) -> dict:
+    corridor = None
+    if "mapped_water" in meta:
+        try:
+            corridor, _ = mapped_water.read_mask(
+                mapped_path if mapped_path is not None else out / mapped_water.FROZEN_FILE, meta["mapped_water"]
+            )
+        except (OSError, ValueError) as exc:
+            return row("no_flooding", "fail", detail=f"requested mapped-water evidence invalid: {exc}")
     grids = out / "grids"
     first = grids / f"{report.get('first_dump', 't000')}-water.u16"
     ref_path, ref_from = None, None
@@ -170,27 +179,87 @@ def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict) -> dict:
     elif first.exists():
         ref_path, ref_from = first, "the run's first water dump"
     if ref_path is None or not ref_path.exists():
-        return row("no_flooding", "skip", detail="no saved water grids")
-    expected = grid(ref_path) > WET_M
+        return row("no_flooding", "fail" if corridor is not None else "skip", detail="no saved water grids")
+    initial = grid(ref_path) > WET_M
+    expected = initial if corridor is None else initial | corridor
     if int(expected.sum()) < t["reference_min_wet_cells"]:
         return row(
             "no_flooding",
-            "skip",
+            "fail" if corridor is not None else "skip",
             int(expected.sum()),
             detail=f"{ref_from} is nearly dry; give the probe file a reference_water grid to judge flooding",
         )
     near = dilate(expected, int(t["flood_distance_m"] // CELL_M))
     per_grid = []
+    initial_grids = []
+    initial_near = dilate(initial, int(t["flood_distance_m"] // CELL_M)) if corridor is not None else None
     for path in sorted(grids.glob("t*-water.u16")):
-        far = (~near) & (grid(path) > t["flood_depth_m"])
+        deep = grid(path) > t["flood_depth_m"]
+        far = (~near) & deep
         per_grid.append({"grid": path.name, "km2": round(float(far.sum()) * CELL_M * CELL_M / 1e6, 4)})
+        if initial_near is not None:
+            initial_grids.append(
+                {"grid": path.name, "km2": round(float(((~initial_near) & deep).sum()) * CELL_M * CELL_M / 1e6, 4)}
+            )
     worst = max((g["km2"] for g in per_grid), default=0.0)
+    value = {"worst_km2": worst, "grids": per_grid, "reference": ref_from}
+    if corridor is not None:
+        if not per_grid:
+            return row("no_flooding", "fail", detail="requested mapped-water check has no saved water grids")
+        initial_worst = max(g["km2"] for g in initial_grids)
+        value.update(
+            reference=ref_from + " union hash-bound mapped_water",
+            reference_sha256=hashlib.sha256(ref_path.read_bytes()).hexdigest(),
+            mapped_water={
+                "file": str(mapped_path) if mapped_path is not None else mapped_water.FROZEN_FILE,
+                "sha256": meta["mapped_water"]["sha256"],
+                "format": mapped_water.FORMAT,
+                "cells": int(corridor.sum()),
+            },
+            failing_grids=[g for g in per_grid if g["km2"] > t["flood_max_km2"]],
+            initial_only_diagnostic={
+                "worst_km2": initial_worst,
+                "grids": initial_grids,
+                "would_fail": int(initial.sum()) >= t["reference_min_wet_cells"] and initial_worst > t["flood_max_km2"],
+                "status": "skip"
+                if int(initial.sum()) < t["reference_min_wet_cells"]
+                else ("fail" if initial_worst > t["flood_max_km2"] else "pass"),
+                "reference_cells": int(initial.sum()),
+                "gating": False,
+            },
+        )
     return row(
         "no_flooding",
         "fail" if worst > t["flood_max_km2"] else "pass",
-        {"worst_km2": worst, "grids": per_grid, "reference": ref_from},
+        value,
         f"<= {t['flood_max_km2']} km² deeper than {t['flood_depth_m']} m beyond {t['flood_distance_m']:.0f} m",
     )
+
+
+def adjudicate_flooding(out: pathlib.Path, mask_path: pathlib.Path, spec: dict) -> dict:
+    """Read-only supplemental assessment; never rewrite a historical frozen request/verdict.
+
+    The caller records this separately. It is not a re-run or native acceptance.
+    """
+    out, mask_path = pathlib.Path(out), pathlib.Path(mask_path)
+    report_path = out / "report.json"
+    report = json.loads(report_path.read_text())
+    meta = probe_meta(out, report)
+    source_probes = pathlib.Path(meta["_path"]) if "_path" in meta else None
+    return {
+        "schema": 1,
+        "kind": "supplemental-mapped-water-flooding",
+        "report_sha256": hashlib.sha256(report_path.read_bytes()).hexdigest(),
+        "probes_sha256": hashlib.sha256(source_probes.read_bytes()).hexdigest() if source_probes else None,
+        "mapped_water": spec,
+        "mask_path": str(mask_path.resolve()),
+        "saved_grid_sha256": {
+            p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((out / "grids").glob("t*-water.u16"))
+        },
+        "thresholds": {k: v for k, v in MAP_SOAK.items() if k.startswith(("flood_", "reference_"))},
+        "assessment": flooding(out, report, {**meta, "mapped_water": spec}, MAP_SOAK, mapped_path=mask_path),
+        "native_acceptance": False,
+    }
 
 
 def map_soak(out: pathlib.Path, report: dict) -> list[dict]:

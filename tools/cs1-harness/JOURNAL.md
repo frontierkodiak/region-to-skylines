@@ -1228,3 +1228,19 @@ finds0 deep water beyond128m. These are different references, not equivalent
 results. A hash-bound optional corridor-reference verdict is being prepared;
 the historical frozen probes/verdict are preserved. Actual panel/opening/
 Areas images have been viewed; review receipts are pending transcription.
+
+## 2026-11-11 — explicit mapped-water flood reference (OFFLINE)
+
+`PL-857-water-corridor`, based on `9618f9c`: optional hash-bound binary mapped
+water footprint is validated/frozen before session acquisition and unioned with
+the legacy initial/reference grid for saved-grid flooding. Existing Euclidean
+128m distance, >0.5m depth and 0.05km² allowance unchanged; legacy initial-only
+result retained as non-gating diagnostic, no automatic mask creation/widening.
+Missing/changed/malformed requested masks fail closed. Read-only supplemental
+adjudication binds historical report/probes/reference/grids and external mask
+without editing frozen artifacts. Synthetic fixtures cover channel extension
+versus distant spill, boundaries, corruption, freeze isolation and legacy mode.
+72 offline unittests pass; full harness Ruff check/format and diff check pass.
+No native code/cache, game, shared services, writer or website changes. No
+Pittsburgh/Rio acceptance claimed. GPU/VRAM/power/temperature/native wall time:
+not applicable; native build/doctor/run intentionally not performed.
