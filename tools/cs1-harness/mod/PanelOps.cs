@@ -35,6 +35,8 @@ namespace Cs1Harness
                 return Host.Obj("name", asset.name, "resolved", texture != null,
                     "width", texture == null ? 0 : texture.width, "height", texture == null ? 0 : texture.height);
             }
+            // Package.Instantiate deserializes into Image.CreateTexture -> new
+            // Texture2D; CacheAsset caches bytes only. This is not the UI snapshot.
             finally { if (texture != null) UnityEngine.Object.Destroy(texture); }
         }
 

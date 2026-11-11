@@ -5,6 +5,8 @@ import json
 import pathlib
 import tempfile
 import unittest
+from types import SimpleNamespace
+from unittest.mock import Mock, patch
 
 from PIL import Image
 
@@ -119,6 +121,37 @@ class NewGamePanelTests(unittest.TestCase):
         self.review["observed"]["connections_match"] = False
         self.write("new-game-panel-review.json", self.review)
         self.assertIn("connections_match", panel.assess(self.out)["detail"])
+
+    def test_dead_process_fails_before_poll_sleep(self):
+        session = SimpleNamespace(alive=Mock(return_value=False))
+        with patch.object(panel.time, "sleep") as sleep:
+            with self.assertRaisesRegex(RuntimeError, "process ended"):
+                panel.wait_for_capture(session, self.out / "not-written.png")
+        sleep.assert_not_called()
+
+    def test_partial_native_file_is_retried_until_complete(self):
+        shot = self.out / "new-game-panel.png"
+        complete = shot.read_bytes()
+        shot.write_bytes(complete[:40])
+        session = SimpleNamespace(alive=Mock(return_value=None))
+        with patch.object(panel.time, "sleep", side_effect=lambda _: shot.write_bytes(complete)) as sleep:
+            self.assertEqual(panel.wait_for_capture(session, shot), self.sha)
+        self.assertEqual(sleep.call_count, 1)
+        self.assertEqual(session.alive.call_count, 2)
+
+    def test_incomplete_capture_times_out(self):
+        session = SimpleNamespace(alive=Mock(return_value=None))
+        with patch.object(panel.time, "monotonic", side_effect=[0, 31]):
+            with self.assertRaisesRegex(RuntimeError, "complete PNG"):
+                panel.wait_for_capture(session, self.out / "not-written.png")
+
+    def test_only_float_denominator_gets_tolerance(self):
+        self.observed["resources"]["maxResourceAmount"] += 0.000005
+        self.write("new-game-panel.json", self.evidence)
+        self.assertEqual(panel.assess(self.out)["status"], "pass")
+        self.observed["resources"]["oilAmount"] = 1
+        self.write("new-game-panel.json", self.evidence)
+        self.assertIn("resources.oilAmount", panel.assess(self.out)["detail"])
 
     def test_blank_capture_fails_even_with_matching_review_hash(self):
         Image.new("RGB", (32, 32), "black").save(self.out / "new-game-panel.png")
