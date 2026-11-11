@@ -353,6 +353,7 @@ intentional empty author hides the label.
 {
   "new_game_panel": {
     "map_name": "Asheville", "author": "", "buildableArea": 37,
+    "require_resource_bars": true,
     "resources": {
       "maxResourceAmount": 1000000.0,
       "oilAmount": 0, "oreAmount": 0, "forestAmount": 0,
@@ -374,6 +375,48 @@ modal. `new-game-panel.json` retains native metadata, resolved `imageRef` and
 `steamPreviewRef` texture dimensions, actual labels and screenshot SHA-256.
 `new-game-panel.png` is game-rendered, never constructed. Package metadata
 alone cannot pass this check.
+
+`require_resource_bars` is an optional boolean, default false for historical
+records. When true, the verdict additionally requires schema-1 native bar
+measurements and settlement proof. Missing, malformed, incorrect or unstable
+measurements fail; adding the flag cannot upgrade an old metadata-only capture.
+The verdict reports `resource_bars_required` and `resource_bars_verified`;
+old frozen requests leave the latter false even if their legacy checks pass.
+The writer must explicitly opt new probe requests into this contract.
+
+New captures require the updated mod's bar readback, replacing the old blind
+three-second delay. Every poll uses `new_game_panel {path,bars_only:true}`,
+which reads the selected map without selecting it again or instantiating
+preview textures. It records actual `UIProgressBar.value`, min/max, current
+native exponent, metadata amount/denominator, normalized target and clamped
+target, no-resource icon state, visibility and named ValueAnimator activity.
+The target is native `Pow(amount / maxResourceAmount, exponent)` (zero when
+the denominator is nonpositive), clamped as UIProgressBar's setter does.
+Float32 target-recompute slack is 1e-5; observed value error must be <=1e-4.
+A positive target with value zero always fails, even below tolerance.
+
+The driver polls for up to 15 seconds at 0.25-second intervals, checking game
+liveness. It needs three distinct, increasing native render frames/times with
+all five animations inactive, values at target, correct zero-resource icons
+and value variation <=1e-5. The screenshot-request and post-PNG readbacks must
+still agree. Bridge calls retain the client's finite socket timeout. The
+capture receipt's `resource_bar_settlement` contains schema, samples and the
+post-capture observation; failures retain the last observation/errors and close
+the modal if the game is alive. Native PNG completion/decode remains bounded.
+
+Only explicit `select:true` can refresh selection. When already selected, it
+uses native clear/reselect because UIListBox emits no event for the same index;
+normal inspection/polling does not restart tweens. The helper never sets bar
+values, exponents, icon flags or animator values. Installed source references:
+`acs.cs:221798–221807` binds controls; `221908–221959` resets/animates them and
+sets resource icons; `cm.cs:22641–22659` suppresses same-index events and
+`25747–25761` clamps progress-bar values. Native exponents are serialized panel
+fields read from the actual instance, not guessed percentages.
+
+This is **offline verified only**. Correct numeric UI readbacks do not prove
+the rendered fill is visible: manual review of the exact screenshot is still
+mandatory below. A short same-package native panel capture/review must verify
+the fix; this UI-only instrumentation does not itself requalify physics.
 
 Initially `new_game_panel` **fails as unreviewed**. Inspect that PNG and record
 what you actually see in `new-game-panel-review.json` in the run directory:

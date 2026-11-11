@@ -1,5 +1,30 @@
 # cs1-harness journal
 
+## 2026-11-11 · PL-857 native resource-bar settlement (OFFLINE)
+
+Instrumented resource-panel PNGs showed an empty ore bar despite correct
+metadata, while the strict native panel showed nonzero ore. Replaced blind
+three-second capture delay with actual UIProgressBar/value/exponent/target,
+zero-icon and animator readback. Three increasing native render frames must
+reach all targets and stabilize before screenshot; capture/post-PNG readbacks
+must agree. Read-only bars_only polls avoid preview texture instantiation and
+never reselect. Explicit same-index select refreshes through native clear/
+reselect only (UIListBox otherwise emits no selection event), never fake values.
+
+Optional frozen require_resource_bars=true adds fail-closed numeric settlement
+to the existing hash-bound visual review. Old requests stay legacy and report
+resource_bars_verified=false; metadata alone cannot satisfy the new contract.
+Timeout records last readings/errors and closes the live modal. Writer probes
+were not edited. Native rendering still requires a short same-package proof.
+
+64 offline tests pass (13 new, including metadata-correct/ore-zero failure,
+native targets/icons/provenance, animation timeout/cleanup and stable capture);
+full Ruff checks pass. Installed-assembly compile writes only own
+panel-bars-build scratch output, SHA bf5cb2b7a41b167d0901dbf659acd76db30deba4141ce33d6db6e79db27e342b.
+Active private DLL58ae33b2… stayed unchanged; no normal build/install, game,
+Steam, doctor, service, GPU/inference/session or platform write occurred.
+No native acceptance claimed; parent retains PR/build/short native verification.
+
 How agents built and improved this harness: raw material for a write-up. One
 entry per change that mattered: the date, the agent and issue, what got in the
 way, what changed, and before/after (boot time, failure rate, what's newly

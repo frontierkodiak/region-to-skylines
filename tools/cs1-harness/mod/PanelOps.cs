@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using ColossalFramework;
 using ColossalFramework.Packaging;
 using ColossalFramework.UI;
 using UnityEngine;
@@ -14,7 +15,7 @@ namespace Cs1Harness
         public static void Register()
         {
             Host.Register("new_game_panel", Needs.MainMenu,
-                "select/inspect native New Game listing: {path, select?, screenshot?}; or {close:true}", Inspect);
+                "select/inspect native New Game listing + actual resource bars: {path, select?, bars_only?, screenshot?}; or {close:true}", Inspect);
         }
 
         static object Listing(NewGamePanel panel, string method, params object[] args)
@@ -38,6 +39,42 @@ namespace Cs1Harness
             // Package.Instantiate deserializes into Image.CreateTexture -> new
             // Texture2D; CacheAsset caches bytes only. This is not the UI snapshot.
             finally { if (texture != null) UnityEngine.Object.Destroy(texture); }
+        }
+
+        static T Field<T>(NewGamePanel panel, string name)
+        {
+            var field = typeof(NewGamePanel).GetField(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (field == null) throw new Exception("native NewGamePanel field missing: " + name);
+            return (T)field.GetValue(panel);
+        }
+
+        static Dictionary<string, object> Bar(NewGamePanel panel, string barField, string iconField,
+            string exponentField, string animation, uint amount, float denominator)
+        {
+            var bar = Field<UIProgressBar>(panel, barField);
+            var icon = Field<UISprite>(panel, iconField);
+            if (bar == null || icon == null) throw new Exception("native resource UI is unavailable: " + barField);
+            float exponent = Field<float>(panel, exponentField);
+            // Same native expression as OnMapSelectionChanged; observe only.
+            float target = denominator > 0f ? Mathf.Pow((float)amount / denominator, exponent) : 0f;
+            return Host.Obj("component", bar.name, "value", bar.value, "min_value", bar.minValue, "max_value", bar.maxValue,
+                "normalized_target", target, "target_value", Mathf.Clamp(target, bar.minValue, bar.maxValue),
+                "amount", amount, "denominator", denominator, "exponent", exponent,
+                "no_resource_visible", icon.isVisible, "expected_no_resource", amount == 0,
+                "visible", bar.isVisible, "animating", ValueAnimator.IsAnimating(animation));
+        }
+
+        static Dictionary<string, object> Bars(NewGamePanel panel, MapMetaData meta)
+        {
+            float max = meta.maxResourceAmount;
+            return Host.Obj("schema", 1, "source", "native UIProgressBar.value / NewGamePanel resource targets",
+                "frame", Time.frameCount, "realtime", Time.realtimeSinceStartup,
+                "bars", Host.Obj(
+                    "oil", Bar(panel, "m_OilResources", "m_OilNoResources", "m_OilExponent", "NewGameOil", meta.oilAmount, max),
+                    "ore", Bar(panel, "m_OreResources", "m_OreNoResources", "m_OreExponent", "NewGameOre", meta.oreAmount, max),
+                    "forest", Bar(panel, "m_ForestryResources", "m_ForestryNoResources", "m_ForestryExponent", "NewGameForest", meta.forestAmount, max),
+                    "fertility", Bar(panel, "m_FertilityResources", "m_FertilityNoResources", "m_FarmingExponent", "NewGameFertility", meta.fertileLandAmount, max),
+                    "water", Bar(panel, "m_WaterResources", "m_WaterNoResources", "m_WaterExponent", "NewGameWater", meta.waterAmount, max)));
         }
 
         static Dictionary<string, object> Inspect(Dictionary<string, object> q)
@@ -73,7 +110,15 @@ namespace Cs1Harness
                 found = i;
             }
             if (found < 0) throw new Exception("map absent from native New Game listing: " + path);
-            if (Json.Bool(q, "select", false)) list.selectedIndex = found;
+            bool refreshed = false;
+            if (Json.Bool(q, "select", false))
+            {
+                // UIListBox's same-index setter emits no selection event. Explicit
+                // selection refreshes via the native event, never by setting bars.
+                refreshed = list.selectedIndex == found;
+                if (refreshed) list.selectedIndex = -1;
+                list.selectedIndex = found;
+            }
             if (list.selectedIndex != found) throw new Exception("requested map is not selected in NewGamePanel");
             var meta = (MapMetaData)Listing(panel, "GetListingMetaData", found);
             var payload = (Package.Asset)Listing(panel, "GetListingData", found);
@@ -81,6 +126,10 @@ namespace Cs1Harness
             var resources = Host.Obj("maxResourceAmount", meta.maxResourceAmount,
                 "oilAmount", meta.oilAmount, "oreAmount", meta.oreAmount, "forestAmount", meta.forestAmount,
                 "fertileLandAmount", meta.fertileLandAmount, "waterAmount", meta.waterAmount);
+            var bars = Bars(panel, meta);
+            if (Json.Bool(q, "bars_only", false))
+                return Host.Obj("source", "native NewGamePanel", "path", path, "selected_index", found,
+                    "map_name", meta.mapName, "resources", resources, "resource_bars", bars);
             var connections = Host.Obj("incomingRoads", meta.incomingRoads, "outgoingRoads", meta.outgoingRoads,
                 "incomingTrainTracks", meta.incomingTrainTracks, "outgoingTrainTracks", meta.outgoingTrainTracks,
                 "incomingShipPath", meta.incomingShipPath, "outgoingShipPath", meta.outgoingShipPath,
@@ -96,6 +145,7 @@ namespace Cs1Harness
             return Host.Obj("source", "native NewGamePanel", "path", path, "selected_index", found,
                 "map_name", meta.mapName, "author", payload.package.packageAuthor,
                 "published", meta.isPublished, "buildableArea", meta.buildableArea,
+                "selection_refreshed", refreshed, "resource_bars", bars,
                 "resources", resources, "connections", connections,
                 "imageRef", TextureRef(meta.imageRef), "steamPreviewRef", TextureRef(meta.steamPreviewRef),
                 "snapshot_texture_present", snapshot.texture != null,

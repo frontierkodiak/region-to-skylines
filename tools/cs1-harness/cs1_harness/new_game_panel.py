@@ -15,7 +15,21 @@ import time
 
 from PIL import Image, ImageStat
 
+from .client import HarnessError
+
 RESOURCE_FIELDS = ("maxResourceAmount", "oilAmount", "oreAmount", "forestAmount", "fertileLandAmount", "waterAmount")
+BAR_FIELDS = {
+    "oil": ("oilAmount", "ResourceBarOil"),
+    "ore": ("oreAmount", "ResourceBarOre"),
+    "forest": ("forestAmount", "ResourceBarForestry"),
+    "fertility": ("fertileLandAmount", "ResourceBarFarming"),
+    "water": ("waterAmount", "ResourceBarWater"),
+}
+BAR_SOURCE = "native UIProgressBar.value / NewGamePanel resource targets"
+BAR_VALUE_TOLERANCE = 1e-4
+BAR_TARGET_TOLERANCE = 1e-5
+BAR_STABILITY_TOLERANCE = 1e-5
+BAR_SAMPLES = 3
 CONNECTION_FIELDS = (
     "incomingRoads",
     "outgoingRoads",
@@ -32,6 +46,8 @@ def expectations(value: dict) -> dict:
     """Require explicit intended values; no guessing what a map should advertise."""
     if not isinstance(value, dict):
         raise ValueError("new_game_panel must be an expectations object")
+    if "require_resource_bars" in value and type(value["require_resource_bars"]) is not bool:
+        raise ValueError("new_game_panel require_resource_bars must be a boolean")
     for field in ("map_name", "author", "buildableArea", "resources", "connections"):
         if field not in value:
             raise ValueError(f"new_game_panel missing expectation: {field}")
@@ -97,20 +113,177 @@ def wait_for_capture(session, shot: pathlib.Path, timeout: float = 30) -> str:
         time.sleep(0.25)
 
 
-def capture(session, out: pathlib.Path, path: str, wanted: dict) -> None:
+def bar_reading(observed: dict) -> tuple[dict, list[str]]:
+    """Validate provenance/targets independently; report actual animation/value errors."""
+    observed = object_value(observed, "panel observation")
+    if observed.get("source") != "native NewGamePanel":
+        raise ValueError("resource bars lack native panel provenance")
+    if (
+        not isinstance(observed.get("path"), str)
+        or not observed["path"]
+        or type(observed.get("selected_index")) is not int
+        or observed["selected_index"] < 0
+    ):
+        raise ValueError("resource bars lack selected map identity")
+    resources = object_value(observed.get("resources"), "native resource metadata")
+    reading = object_value(observed.get("resource_bars"), "native resource bar readback (updated mod required)")
+    if type(reading.get("schema")) is not int or reading["schema"] != 1 or reading.get("source") != BAR_SOURCE:
+        raise ValueError("unsupported resource bar provenance/schema")
+    if (
+        type(reading.get("frame")) is not int
+        or reading["frame"] < 0
+        or not finite(reading.get("realtime"))
+        or reading["realtime"] < 0
+    ):
+        raise ValueError("resource bars lack native render frame/time")
+    bars = object_value(reading.get("bars"), "resource bars")
+    if set(bars) != set(BAR_FIELDS):
+        raise ValueError("resource bars require all five native controls")
+    errors = []
+    for name, (field, component) in BAR_FIELDS.items():
+        bar = object_value(bars[name], f"{name} bar")
+        for key in ["value", "min_value", "max_value", "normalized_target", "target_value", "exponent", "denominator"]:
+            if not finite(bar.get(key)):
+                raise ValueError(f"{name} bar {key} unavailable/nonfinite")
+        amount, denominator = resources.get(field), resources.get("maxResourceAmount")
+        if type(amount) is not int or amount < 0 or not finite(denominator) or denominator < 0:
+            raise ValueError(f"{name} bar metadata unavailable/invalid")
+        if type(bar.get("amount")) is not int or bar["amount"] != amount or bar["denominator"] != denominator:
+            raise ValueError(f"{name} bar is bound to different metadata")
+        if bar.get("component") != component or bar["max_value"] <= bar["min_value"]:
+            raise ValueError(f"{name} bar control/range mismatch")
+        try:
+            target = math.pow(amount / denominator, bar["exponent"]) if denominator > 0 else 0
+        except (ValueError, OverflowError, ZeroDivisionError) as exc:
+            raise ValueError(f"{name} bar target is undefined") from exc
+        if not finite(target) or not math.isclose(
+            target, bar["normalized_target"], rel_tol=1e-5, abs_tol=BAR_TARGET_TOLERANCE
+        ):
+            raise ValueError(f"{name} native normalized target differs from metadata/exponent")
+        clamped = max(bar["min_value"], min(bar["max_value"], target))
+        if not math.isclose(clamped, bar["target_value"], rel_tol=1e-5, abs_tol=BAR_TARGET_TOLERANCE):
+            raise ValueError(f"{name} native target differs from UIProgressBar clamping")
+        for key in ["visible", "animating", "no_resource_visible", "expected_no_resource"]:
+            if type(bar.get(key)) is not bool:
+                raise ValueError(f"{name} bar {key} must be a native boolean")
+        if not bar["visible"] or bar["animating"]:
+            errors.append(f"{name} bar hidden/animating")
+        if bar["expected_no_resource"] != (amount == 0) or bar["no_resource_visible"] != (amount == 0):
+            errors.append(f"{name} no-resource icon mismatch")
+        if abs(bar["value"] - bar["target_value"]) > BAR_VALUE_TOLERANCE or (
+            bar["target_value"] > 0 and bar["value"] <= 0
+        ):
+            errors.append(f"{name} bar value {bar['value']:g} has not reached target {bar['target_value']:g}")
+    return reading, errors
+
+
+def finite(value) -> bool:
+    return type(value) in (int, float) and math.isfinite(value)
+
+
+def measurement(observed: dict) -> dict:
+    return {k: observed[k] for k in ["source", "path", "selected_index", "map_name", "resources", "resource_bars"]}
+
+
+def bars_stable(samples: list[dict]) -> bool:
+    if len(samples) != BAR_SAMPLES:
+        return False
+    readings = [bar_reading(sample) for sample in samples]
+    if any(errors for _, errors in readings):
+        return False
+    first = samples[0]
+    for sample in samples[1:]:
+        if any(sample.get(k) != first.get(k) for k in ["path", "selected_index", "map_name", "resources"]):
+            return False
+    for (a, _), (b, _) in zip(readings, readings[1:]):
+        if b["frame"] <= a["frame"] or b["realtime"] <= a["realtime"]:
+            return False
+    for name in BAR_FIELDS:
+        bars = [r["bars"][name] for r, _ in readings]
+        if max(b["value"] for b in bars) - min(b["value"] for b in bars) > BAR_STABILITY_TOLERANCE:
+            return False
+        if any(
+            any(b[k] != bars[0][k] for k in ["target_value", "exponent", "min_value", "max_value"]) for b in bars[1:]
+        ):
+            return False
+    return True
+
+
+def wait_for_bars(session, path: str, trace: dict, timeout: float = 15) -> list[dict]:
+    deadline = time.monotonic() + timeout
+    samples = []
+    while True:
+        if session.alive() is False:
+            raise HarnessError("game process ended before native resource bars settled")
+        observed = session.client.call("new_game_panel", path=path, bars_only=True)
+        trace["last"] = observed
+        _, errors = bar_reading(observed)
+        trace["last"] = measurement(observed)
+        trace["last_errors"] = errors
+        samples = (samples + [trace["last"]])[-BAR_SAMPLES:] if not errors else []
+        if bars_stable(samples):
+            return samples
+        if time.monotonic() >= deadline:
+            raise HarnessError("native resource bars did not settle: " + "; ".join(errors or ["unstable readings"]))
+        time.sleep(0.25)
+
+
+def check_bar_settlement(evidence: dict) -> None:
+    settled = object_value(evidence.get("resource_bar_settlement"), "native resource bar settlement")
+    if type(settled.get("schema")) is not int or settled["schema"] != 1:
+        raise ValueError("native resource bar settlement schema missing/invalid")
+    for sample in settled["samples"]:
+        _, errors = bar_reading(sample)
+        if errors:
+            raise ValueError("before capture: " + "; ".join(errors))
+    if not bars_stable(settled["samples"]):
+        raise ValueError("resource bars are missing, incorrect or unstable before capture")
+    previous = settled["samples"][-1]
+    for observed in [evidence["observed"], settled["after"]]:
+        reading, errors = bar_reading(observed)
+        if errors:
+            raise ValueError("; ".join(errors))
+        if any(observed.get(k) != previous.get(k) for k in ["path", "selected_index", "map_name", "resources"]):
+            raise ValueError("resource bar selection changed during capture")
+        before = previous["resource_bars"]
+        if reading["frame"] < before["frame"] or reading["realtime"] < before["realtime"]:
+            raise ValueError("resource bar capture frames/time out of order")
+        for name in BAR_FIELDS:
+            a, b = before["bars"][name], reading["bars"][name]
+            if (
+                abs(a["value"] - b["value"]) > BAR_STABILITY_TOLERANCE
+                or a["target_value"] != b["target_value"]
+                or a["exponent"] != b["exponent"]
+            ):
+                raise ValueError(f"{name} resource bar changed during capture")
+        previous = observed
+
+
+def capture(session, out: pathlib.Path, path: str, wanted: dict, bar_timeout: float = 15) -> None:
     """Called only by the mod-enabled map-check driver, before loading a city."""
     expectations(wanted)
     client = session.client
-    client.call("new_game_panel", path=path, select=True)
+    evidence = {"resource_bar_settlement": {"schema": 1}}
     try:
-        # Native progress bars animate on selection. Capture after they settle.
-        time.sleep(3)
+        if session.alive() is False:
+            raise HarnessError("game process ended before native panel selection")
+        client.call("new_game_panel", path=path, select=True)
+        evidence["resource_bar_settlement"]["samples"] = wait_for_bars(
+            session, path, evidence["resource_bar_settlement"], bar_timeout
+        )
         shot = session.stage / "new-game-panel.png"
         observed = client.call("new_game_panel", path=path, screenshot=str(shot))
         sha256 = wait_for_capture(session, shot)
-        (out / "new-game-panel.json").write_text(
-            json.dumps({"observed": observed, "screenshot": shot.name, "sha256": sha256}, indent=2) + "\n"
+        evidence.update(observed=observed, screenshot=shot.name, sha256=sha256)
+        evidence["resource_bar_settlement"]["after"] = measurement(
+            client.call("new_game_panel", path=path, bars_only=True)
         )
+        check_bar_settlement(evidence)
+        (out / "new-game-panel.json").write_text(json.dumps(evidence, indent=2) + "\n")
+    except Exception as exc:
+        evidence["error"] = str(exc)
+        (out / "new-game-panel.json").write_text(json.dumps(evidence, indent=2) + "\n")
+        raise
     finally:
         # Don't wait on a dead bridge just to dismiss a vanished modal.
         if session.alive() is not False:
@@ -132,7 +305,13 @@ def assess(out: pathlib.Path) -> dict:
             return result
         problems = []
         evidence = object_value(json.loads((out / "new-game-panel.json").read_text()), "panel evidence")
+        if evidence.get("error"):
+            raise ValueError(evidence["error"])
         observed = object_value(evidence["observed"], "native observation")
+        require_bars = wanted.get("require_resource_bars", False)
+        if require_bars:
+            result["threshold"] += "; five native bars at target (1e-4) and stable (1e-5) on three distinct frames"
+            check_bar_settlement(evidence)
         if observed.get("source") != "native NewGamePanel" or not observed.get("published"):
             problems.append("not a published native New Game listing")
         for key in ("map_name", "author", "buildableArea", "connections"):
@@ -189,6 +368,8 @@ def assess(out: pathlib.Path) -> dict:
                 "screenshot": filename,
                 "reviewer": review.get("reviewer"),
                 "problems": problems,
+                "resource_bars_required": require_bars,
+                "resource_bars_verified": require_bars,
             },
             detail="; ".join(problems) if problems else "native listing and rendered selection reviewed",
         )
