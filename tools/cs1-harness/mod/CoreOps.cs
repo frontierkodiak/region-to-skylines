@@ -26,6 +26,7 @@ namespace Cs1Harness
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
             Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", q => { UIView.Show(Json.Bool(q, "visible", true)); return Host.Obj("ui_visible", Json.Bool(q, "visible", true)); });
             Host.Register("camera_state", Needs.Level, "where the camera is and which way it faces: position, heading (0 = +z, 90 = +x), pitch, size, max size", q => CameraState());
+            Host.Register("area_zoom", Needs.Level, "open/close the native Areas tool (not camera zoom): {enabled}", AreaZoom);
             Host.Register("screenshot", Needs.Level, "write a PNG at the end of this frame: {path (absolute), supersize}", Screenshot);
             Host.Register("render", Needs.Any, "throttle drawing (the simulation runs on): {fps (0 = unlimited), camera (false: the main camera stops drawing the world)}", Render);
         }
@@ -153,6 +154,21 @@ namespace Cs1Harness
                 "max_size", c.m_maxDistance,
                 "forward", new object[] { fwd.x, fwd.y, fwd.z }
             );
+        }
+
+        static Dictionary<string, object> AreaZoom(Dictionary<string, object> q)
+        {
+            if (!q.ContainsKey("enabled") || !(q["enabled"] is bool))
+                throw new Exception("area_zoom needs a boolean enabled");
+            // Same tool transitions as the normal toolbar. GameAreaTool owns
+            // AreasVisible and the native camera mapping; do not emulate it.
+            if (Json.Bool(q, "enabled", false))
+                ToolsModifierControl.SetTool<GameAreaTool>();
+            else
+                ToolsModifierControl.SetTool<DefaultTool>();
+            var tool = ToolsModifierControl.toolController.CurrentTool;
+            return Host.Obj("source", "native ToolsModifierControl", "tool", tool == null ? null : tool.GetType().Name,
+                "areas_visible", Singleton<GameAreaManager>.instance.AreasVisible);
         }
 
         static Dictionary<string, object> Screenshot(Dictionary<string, object> q)

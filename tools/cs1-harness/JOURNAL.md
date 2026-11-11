@@ -897,3 +897,26 @@ retry-sleep child was terminated after cleanup; its exit 143 was collected by
 the foreground soak driver (exit 1). The next attempt will use a persisted Multica wakeup at least 30 minutes
 after the account conflict, not an orphaned run-owned sleep. Panel, landmarks,
 startup/Area Zoom camera and five-region final-package acceptance remain unrun.
+
+## 2026-11-10 — Sol xhigh · PL-857 actual startup/Areas views (OFFLINE)
+
+Added opt-in frozen `startup_views` expectations for native interpolated yaw
+and render heading. Driver records the un-aimed opening and actual Areas-tool
+PNG/readbacks after startup-world and before harness camera overrides. Core's
+new `area_zoom` op selects GameAreaTool/DefaultTool, matching the normal native
+toolbar; it never writes camera fields. Native AreasVisible is required, not
+maximum camera zoom. Three stable readings, complete decoded PNGs, capture
+identity/frame/dimensions/hashes, initial startup identity and finally-close
+evidence gate the verdict; screenshot-content claims require separate hash-bound
+visual review. WorldOps and geographic/landmark contracts remain unchanged.
+
+Offline: installed-game assembly build succeeded in a private
+`start-view-cache` (no shared active DLL changed); 38 tests passed, including
+14 new mocked cases for wrong native/render headings, fake max-zoom mode,
+failure cleanup, evidence/PNG identity, missing review and valid observations.
+The driver-order test verifies capture follows startup-world before any run or
+camera override.
+Ruff lint/format checks passed. No Steam/game/doctor/session/display/lock
+actions, no GPU use or native captures; VRAM/power/temperature/game-run wall
+metrics do not apply. Actual tool transitions, headings, screenshots and native
+cleanup are **not verified** and await the integration owner's live run.
