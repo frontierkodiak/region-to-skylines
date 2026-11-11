@@ -408,7 +408,7 @@ def cmd_submit(cfg, a):
         raise SystemExit("submit needs run's --out")
     out = pathlib.Path(args[args.index("--out") + 1]).expanduser().resolve()
     out.mkdir(parents=True, exist_ok=True)
-    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if not a.no_wake else [])
+    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if a.wake else [])
     if "--wait-minutes" not in args:
         args += ["--wait-minutes", str(a.wait_minutes)]
     if "--retry-minutes" not in args:
@@ -673,7 +673,12 @@ def main(argv=None):
     n.add_argument("--dry-run", action="store_true", help="print the comment and attachments; post nothing")
     m = sub.add_parser("submit", help="start a run detached; its verdict is commented on --issue when it ends")
     m.add_argument("--issue", required=True, help="where the verdict goes (e.g. PL-857)")
-    m.add_argument("--no-wake", action="store_true", help="comment without @mentioning the assignee")
+    m.add_argument(
+        "--wake",
+        action="store_true",
+        help="also @mention the issue's agent assignee (a Driver comment on an agent's issue already wakes it)",
+    )
+    m.add_argument("--no-wake", action="store_true", help=argparse.SUPPRESS)  # the default now; kept for old callers
     m.add_argument("--wait-minutes", type=float, default=240, help="how long the job waits for the slot")
     m.add_argument("run_args", nargs=argparse.REMAINDER, help="-- run --map … --out … [options]")
     sub.add_parser("mcp", help="serve these commands over MCP (stdio), for agents that prefer tools")

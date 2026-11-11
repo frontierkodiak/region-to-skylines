@@ -571,6 +571,15 @@ Exiting"). The observer bench worked because it was the first run.
 Fix: `-y`. Reproduced with the same output options on a test source: without
 `-y`, a 0-byte MP4; with it, a 8.9 kB MP4 and a fresh frame. The smoke run's
 comment on PL-891 claimed a timelapse attachment it didn't have.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · the comment is the wake
+
+The first `submit` smoke run posted its PASS on PL-891 with `--no-wake`, and
+that comment alone started the assignee's next run: a member's comment on an
+agent's issue wakes the agent. An @mention on top would be redundant and might
+start a second run, so `submit` no longer adds `--wake` by default. It's
+opt-in (`submit --wake`), and the MCP `submit` tool now defaults to
+`wake=False`.
+
 ## 2026-11-10 · Opus 5.5 (blade) · PL-891 · how fast can a soak go
 
 **What got in the way.** One Steam account runs one game at a time, so the
