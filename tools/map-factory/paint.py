@@ -5,8 +5,9 @@
 
 PREPARED holds terrain.u16, water.u16 and hydrology.json (gzipped or not),
 as `region.prepare` or a frozen fixture leaves them. LANDCOVER is
-`landcover.py` output. Writes the .crp, resources.png, resources.json and the grids (resources.npz,
-south-first 512 squared).
+`landcover.py` output. Writes the .crp, resources.png, resources.json and plan.npz: the resource
+grids (south-first, 512 squared) and the trees, which `--plan` replays
+through the encoders without planning.
 """
 
 import argparse
@@ -56,10 +57,70 @@ def preview(result, terrain, depth, path):
     image.resize((1024, 1024), Image.NEAREST).save(path)
 
 
+PLAN_KEYS = ["ore", "oil", "fertility", "forest", "tree"]
+
+
+def save_plan(result, path):
+    px, pz, kinds = result["trees"] if len(result["trees"]) else (np.zeros(0, np.int16),) * 2 + (np.zeros(0, np.uint16),)
+    np.savez_compressed(path, **{k: result[k] for k in PLAN_KEYS}, px=px, pz=pz, kinds=kinds)
+
+
+def load_plan(path):
+    z = np.load(path)
+    result = {k: z[k] for k in PLAN_KEYS}
+    result["trees"] = (z["px"], z["pz"], z["kinds"]) if len(z["px"]) else []
+    result.update({"evidence": [], "placed": []})
+    return result
+
+
+def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, map_name=None, plan=None):
+    """Plan (or replay a frozen plan) and write the map. Returns the report."""
+    knobs = knobs or R.Knobs()
+    out.mkdir(parents=True, exist_ok=True)
+    for name in ["terrain.u16", "water.u16", "hydrology.json"]:
+        (out / name).write_bytes(load(prepared, name))
+    hydro = json.loads((out / "hydrology.json").read_text())
+    if map_name:
+        hydro["map_name"] = map_name
+        (out / "hydrology.json").write_text(json.dumps(hydro, indent=2) + "\n")
+    raw = np.fromfile(out / "terrain.u16", dtype="<u2").reshape(1081, 1081)
+    depth = np.fromfile(out / "water.u16", dtype="<u2").reshape(1081, 1081)
+    terrain = raw.astype(float) / 64
+    layout_path = ROOT / "templates/native-corridors.json"
+    if plan is not None:
+        result, palette = load_plan(plan), None
+    else:
+        geo = json.loads(load(geometry.parent, geometry.name) if geometry else load(prepared, "geometry.json"))
+        lc = np.frombuffer(gzip.decompress(landcover.read_bytes()), np.uint8)
+        side = int(round(np.sqrt(lc.size)))
+        lc = np.flipud(lc.reshape(side, side))  # landcover.py is north-first
+        layout = json.loads(layout_path.read_text())
+        found = json.loads(evidence.read_text())["evidence"] if evidence else []
+        palette = R.palette_for(geo["sq"]["lat"], terrain)
+        result = R.plan(terrain, depth, lc, layout, hydro, found, knobs, palette)
+    package = write_map(
+        ROOT / "templates/native-corridors.crp",
+        layout_path,
+        out / "terrain.u16",
+        out / "water.u16",
+        out / "hydrology.json",
+        out / (hydro["map_id"] + ".crp"),
+        resources=(result, R.TREE_NAMES),
+    )
+    water, _ = R.water_cells(depth, raw)
+    _, per_tile = R.area_totals(result, water)
+    report = R.summary(result, per_tile, knobs)
+    report.update({"palette": palette, "package": package})
+    preview(result, terrain, depth, out / "resources.png")
+    save_plan(result, out / "plan.npz")
+    (out / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("prepared", type=Path)
-    parser.add_argument("landcover", type=Path)
+    parser.add_argument("landcover", type=Path, nargs="?")
     parser.add_argument("output", type=Path)
     parser.add_argument("--geometry", type=Path, help="defaults to PREPARED/geometry.json(.gz)")
     parser.add_argument("--evidence", type=Path)
@@ -68,49 +129,14 @@ def main():
     parser.add_argument("--fertile", type=float, default=R.Knobs.fertile)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--map-name", help="override the New Game name")
+    parser.add_argument("--plan", type=Path, help="replay a frozen plan.npz instead of planning")
     args = parser.parse_args()
-
-    out = args.output
-    out.mkdir(parents=True, exist_ok=True)
-    for name in ["terrain.u16", "water.u16", "hydrology.json"]:
-        (out / name).write_bytes(load(args.prepared, name))
-    hydro = json.loads((out / "hydrology.json").read_text())
-    if args.map_name:
-        hydro["map_name"] = args.map_name
-        (out / "hydrology.json").write_text(json.dumps(hydro, indent=2) + "\n")
-    geometry = json.loads(
-        load(args.geometry.parent, args.geometry.name) if args.geometry else load(args.prepared, "geometry.json")
-    )
-    raw = np.fromfile(out / "terrain.u16", dtype="<u2").reshape(1081, 1081)
-    depth = np.fromfile(out / "water.u16", dtype="<u2").reshape(1081, 1081)
-    terrain = raw.astype(float) / 64
-    lc = np.frombuffer(gzip.decompress(args.landcover.read_bytes()), np.uint8)
-    lc = np.flipud(lc.reshape(R.GRID if hasattr(R, "GRID") else 1728, -1))
-    layout_path = ROOT / "templates/native-corridors.json"
-    layout = json.loads(layout_path.read_text())
-    evidence = json.loads(args.evidence.read_text())["evidence"] if args.evidence else []
+    if args.plan is None and args.landcover is None:
+        parser.error("LANDCOVER is required unless --plan is given")
     knobs = R.Knobs(trees=args.trees, resources=args.resources, fertile=args.fertile, seed=args.seed)
-    palette = R.palette_for(geometry["sq"]["lat"], terrain)
-    result = R.plan(terrain, depth, lc, layout, hydro, evidence, knobs, palette)
-    crp = out / (hydro["map_id"] + ".crp")
-    package = write_map(
-        ROOT / "templates/native-corridors.crp",
-        layout_path,
-        out / "terrain.u16",
-        out / "water.u16",
-        out / "hydrology.json",
-        crp,
-        resources=(result, R.TREE_NAMES),
-    )
-    water, _ = R.water_cells(depth, raw)
-    _, per_tile = R.area_totals(result, water)
-    report = R.summary(result, per_tile, knobs)
-    report.update({"palette": palette, "package": package})
-    preview(result, terrain, depth, out / "resources.png")
-    np.savez_compressed(out / "resources.npz", **{k: result[k] for k in ["ore", "oil", "fertility", "forest"]})
-    (out / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
+    report = paint(args.prepared, args.landcover, args.output, args.geometry, args.evidence, knobs, args.map_name, args.plan)
     print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "palette"]}, indent=2))
-    print(json.dumps(package, indent=2))
+    print(json.dumps(report["package"], indent=2))
 
 
 if __name__ == "__main__":
