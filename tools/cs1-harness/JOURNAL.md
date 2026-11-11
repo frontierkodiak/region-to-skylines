@@ -1413,3 +1413,12 @@ excavation, mapped-mask or probe exclusion. All five offline inputs will be
 compared; only a15minute Rio pilot queues initially. Six constructed geometry/
 portal/head tests and changed-file Ruff/format pass; native success is pending.
 All jobs remain foreground, queue fairly and never answer an account prompt.
+
+The `strict-surface-final-{asheville,innsbruck,rio,pittsburgh,charleston}` batch
+also queues each exact surface-final package separately: actual1920x1080
+window, ordinary New Game, `--disableMods --noWorkshop`, no control socket,
+sole installed hash-bound custom map and named-session cleanup in finally.
+Asheville completed; both selected/city images genuinely reviewed and hash-bound.
+The other four remain pending. No source/log/account image is a deliverable.
+The bounded-head offline comparison leaves Ash/Inn/Char terrain/water/hydrology
+byte-identical; only Rio/Pitt change water/controls, not terrain.
