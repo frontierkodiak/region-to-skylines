@@ -103,6 +103,11 @@ def probes_for(hydro, descriptor):
             "opening": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
             "area_zoom": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
             "tolerance_degrees": 1,
+            "opening_center": {
+                "x": (tile % 5 - 2) * 1920,
+                "z": (tile // 5 - 2) * 1920,
+                "tolerance_m": 64,
+            },
         },
         "views": [
             {
