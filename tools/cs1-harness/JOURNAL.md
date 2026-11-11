@@ -1104,3 +1104,16 @@ request; no extra centring claim is inherited. `resources-neutral-pointer-
 asheville-1` queues the same exact CRP with new64m centre expectation. Matching
 Rio nofill15 arm `rio-coast-nofill-15` is also now queued; both remain foreground.
 Peak memory10,821 MiB /2,821 above8,000 baseline;136.59 W,54°C,150 W unchanged.
+
+## 2026-11-11 01:17 ET — corrected-coast Rio no-output diagnostic
+
+`rio-coast-noemit-15/rio`, CRP `639d6213…82fe3` from `bc1045d2…bd137`, completed
+15.0133 game-minutes. All initial grids and controls match; all natural output
+rates are0, with intake/positions/targets retained. Both saved grids have0
+distant spill, but only94/342 playable river probes end exact wet, with169
+having no water within64m in a sample. Removing supply is not a sustainable
+default. This does not by itself prove the continuing-source cause on the new
+coastal input: matched source-on/no-prefill and full `resources-coast-rio-60`
+baseline (same exact `bc1045d2…bd137`) are queued. Both full native path sets
+pass and cleanup is empty; peak10,821 MiB total,139.07 W,52°C. Panel/Areas PNGs
+are not reviewed for this rejected diagnostic, and its verdict correctly fails.
