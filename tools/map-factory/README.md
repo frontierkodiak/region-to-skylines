@@ -448,3 +448,13 @@ preserved. The writer refuses a mismatched template or descriptor.
 
 Elevation: AWS Terrain Tiles. Geographic features: © OpenStreetMap contributors,
 ODbL, via OpenFreeMap/OpenMapTiles. Capture provenance is frozen with each case.
+
+## Experimental explicit underground-waterway capture
+
+`inspect_surface_water.py FROZEN_GEOMETRY PROVENANCE NEW_OUTPUT --capture`
+recovers exact pinned tile metadata and excludes only explicitly tunnel-tagged
+line pieces from a fresh browser carve, retaining them as `undergroundWaterways`.
+It leaves product terrain/defaults unchanged. See
+[SURFACE_WATER_EVIDENCE.md](SURFACE_WATER_EVIDENCE.md) for source evidence, the
+capture schema, Rio receipts and the mandatory downstream barrier/portal work.
+These inputs are not an accepted ready-to-play map.
