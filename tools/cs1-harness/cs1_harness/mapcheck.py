@@ -108,9 +108,11 @@ class MapCheck:
             self.render_fps = 0
 
     def player_path(self) -> dict | None:
-        """What a player sees first: the opening view with the UI, and Area Zoom (fully zoomed out).
+        """Legacy player-path shots: current view with UI, then maximum camera size.
 
-        Read before the harness moves the camera, so it's the map's own start camera."""
+        This is not GameAreaTool/AreasVisible evidence. Actual startup/Areas
+        capture runs earlier, before this method or scenario construction.
+        The historical player-area-zoom filename is retained for consumers."""
         try:
             cam = self.c.call("camera_state")
         except HarnessError as e:

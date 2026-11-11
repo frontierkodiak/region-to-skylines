@@ -131,12 +131,39 @@ class StartupViewTests(unittest.TestCase):
 
         driver = mapcheck.MapCheck(session, self.out, [], [], log=lambda line: None)
         self.addCleanup(driver.timeline.close)
+        driver.panel_expectations = {"fixture": "panel ordering only"}
+
+        def panel_before_new_game(*args):
+            self.assertEqual([call.args[0] for call in session.client.call.call_args_list], ["maps"])
+
         with (
             patch("cs1_harness.mapcheck.observe.write_context"),
             patch("cs1_harness.mapcheck.startup_views.capture", side_effect=stop_after_capture),
+            patch("cs1_harness.mapcheck.new_game_panel.capture", side_effect=panel_before_new_game) as panel,
         ):
             with self.assertRaisesRegex(RuntimeError, "fixture boundary reached"):
-                driver.execute(artifact, 1, 1, 1, 1, 1, 1)
+                driver.execute(artifact, 1, 1, 1, 1, 1, 1, scenario="test-city")
+        panel.assert_called_once()
+
+    def test_main_ground_truth_samples_native_world_in_40_by_40_grid(self):
+        session = SimpleNamespace(stage=self.stage, client=Mock())
+        session.client.call.side_effect = lambda op, **kw: {
+            "samples": [{"terrain": x + 2 * z} for x, z in kw["points"]]
+        }
+        driver = mapcheck.MapCheck(session, self.out, [], [])
+        self.addCleanup(driver.timeline.close)
+        driver.world_heights()
+        calls = session.client.call.call_args_list
+        self.assertEqual([call.args[0] for call in calls], ["water"] * 4)
+        data = json.loads((self.stage / "grids" / "t000-terrain-points.json").read_text())
+        self.assertIn("TerrainManager.SampleRawHeightSmooth", data["source"])
+        self.assertEqual(len(data["points"]), 1600)
+        self.assertEqual(data["points"][:2], [[-8424, -8424], [-7992, -8424]])
+        self.assertEqual(data["points"][-1], [8424, 8424])
+        self.assertEqual(len({p[0] for p in data["points"]}), 40)
+        self.assertEqual(len({p[1] for p in data["points"]}), 40)
+        self.assertEqual(data["heights"][0], -25272)
+        self.assertEqual(data["heights"][-1], 25272)
 
     def test_wrong_heading_fails_for_each_view_and_readback(self):
         original = self.captured()

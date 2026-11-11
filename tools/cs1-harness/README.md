@@ -186,11 +186,16 @@ that frame:
   and lowest points, and at any named landmarks. The probe file supplies the
   region: `"ground_truth": {"lat", "lon", "size_m", "rotation", "base"?,
   "landmarks"?: [{"name", "lat", "lon"}]}`.
-- `opening_camera` reads the camera the map opens with, before the harness
-  moves it, and fails if it faces more than 45° from north. `run` also saves
-  what a player sees first: `shots/player-opening.png` (UI showing) and
-  `shots/player-area-zoom.png` (fully zoomed out). `--notify` posts both, with
-  the New Game panel and `ground-truth.png`.
+- `opening_camera` retains the legacy camera-state observation at the start of
+  player-path capture, and fails if it faces more than 45° from north. Scenario
+  construction precedes that legacy observation; use `startup_world` and the
+  opt-in `startup_views` check for untouched startup evidence. `run` also saves
+  `shots/player-opening.png` (UI showing) and
+  `shots/player-area-zoom.png` (maximum camera size; historical filename).
+  This legacy max-zoom shot does **not** open the Areas tool and cannot certify
+  `startup_views`. Actual opening/Areas captures run first, before scenario
+  construction, player-path movement, or render overrides. `--notify` posts
+  both legacy shots, with the New Game panel and `ground-truth.png`.
 
 A map soak with no passing `ground_truth` check reports `unverified`, never
 `pass`.

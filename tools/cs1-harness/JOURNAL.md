@@ -747,15 +747,6 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 | 2026-11-10 | Sol xhigh · PL-893 Green Plains first attempt | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 155.29 W / 63 °C | ~1.75 min monitored | no hookup found under planner inset; error verdict; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 Green Plains final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 158.62 W / 63 °C | 5.69 min soak / 8.15 min active | 10 game-min; population 0 → 411; verdict pass; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 Asheville final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.80 W / 63 °C | 6.18 min soak / 8.58 min active | 10 game-min; population 0 → 380; verdict pass; clean teardown |
-
-PL-893 development wall times are the approximate first-to-last GPU sample
-span, including boot and teardown. Game VRAM is card peak minus the 8,000 MiB
-pre-launch baseline, not a process-isolated peak. The existing 150 W limit was
-unchanged; the table reports `nvidia-smi`'s observed transient power peaks.
-Active wall time is slot acquisition through completed cleanup, excluding the
-queue; soak time is only the simulation loop. Green Plains reported 1280×720
-at the menu and the final Asheville run 1920×1080, so these are not controlled
-performance comparisons.
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 161.9 W / 63 °C | 3.9 min sim | original arbitrary-region: 10 min; flooding; cleanup empty |
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 160.3 W / 63 °C | 2.7 min sim | conservative: 10 min; reduced flooding, rail failed; cleanup empty |
@@ -772,6 +763,15 @@ performance comparisons.
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 163.3 W / 63 °C | 120 s sampled | R3 strict Asheville: ordinary city and complete highway, checksum-bound; cleanup empty |
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 8,099 MiB card / ~0.1 GB incremental | 145.6 W / 63 °C | 45 s sampled | R3 strict Innsbruck first attempt: double-query GPU race; cleanup empty |
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 159.3 W / 64 °C | 321 s sampled | R3 strict Innsbruck: real city verified; UI driver falsely expected a different internal asset name; cleanup empty |
+
+PL-893 development wall times are the approximate first-to-last GPU sample
+span, including boot and teardown. Game VRAM is card peak minus the 8,000 MiB
+pre-launch baseline, not a process-isolated peak. The existing 150 W limit was
+unchanged; the table reports `nvidia-smi`'s observed transient power peaks.
+Active wall time is slot acquisition through completed cleanup, excluding the
+queue; soak time is only the simulation loop. Green Plains reported 1280×720
+at the menu and the final Asheville run 1920×1080, so these are not controlled
+performance comparisons.
 
 All runs retained the existing 150 W power limit. Instantaneous telemetry
 occasionally exceeded it; no power setting was changed. About 8,000 MiB on the
@@ -940,3 +940,34 @@ units were gone at cleanup, but its receipt still listed one Steam instance;
 do not call that an empty cleanup or terminate another queued session to fix
 it. The next successful retry must check cleanup again. No city, landmark,
 camera, water or screenshot acceptance came from this failed trial.
+
+## 2026-11-10 — Sol xhigh · PL-857 harness rebase (OFFLINE)
+
+Rebased exact `6027240853e0bcf013e50ae6f5ee24ff832e3b74` onto exact main
+`e971c27d8b5e3a7650d945c43c7081611ceee124` in an isolated worktree. Ten local
+commits were replayed as Polli Agent; no active source/cache, session, Steam,
+game, doctor, slot, Multica or remote GitHub state was changed.
+
+Conflict decisions retain both main's test-city scenario hooks and PR8's
+paths/network snapshots, main's render cap and native camera-state op alongside
+actual Areas controls, and all journal text/rows from both histories. CLI keeps
+both path requests and render-fps configuration. Native panel/root-child
+selection remains before new_game. Immediately after city load, startup-world
+and native landmark sampling run first, actual startup/Areas evidence second,
+then run/daylight, scenario, legacy player-path and render/camera overrides.
+Main's independent groundtruth implementation and 40x40 native-world sampling
+remain intact; frozen landmark_expectations stays separate from geographic
+ground_truth/landmarks. No writer or rotation-sign logic was changed.
+
+Legacy player-area-zoom filename/notifications remain compatible, but docs now
+identify it as maximum camera size, never actual GameAreaTool evidence. The
+actual Areas check still requires native tool/mode receipts and hash-bound
+visual review. Added offline integration coverage for panel-before-new_game,
+startup-before-scenario ordering and the 1600 native world-sample points.
+
+Offline gates: all 47 unittest fixtures pass; full Ruff check and format check
+pass. Installed-game assembly build succeeds in separate `rebase-cache`, DLL
+SHA-256 `58ae33b2ba9877ba1d38f385b932de94a07f4d6fbda2ed7f52723d51bb859906`.
+This is not native validation. Tool transitions, rendered views, combined
+scenario/render behavior and actual geography/heading acceptance still need
+live checks. GPU/VRAM/power/temperature/game-run wall metrics do not apply.
