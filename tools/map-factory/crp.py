@@ -13,6 +13,7 @@ import struct
 from pathlib import Path
 
 import numpy as np
+from PIL import Image
 
 N = 1081 * 1081
 
@@ -180,13 +181,15 @@ def mono_hash(value):
     return result if result < 0x80000000 else result - 0x100000000
 
 
-def patch_metadata(payload, checksum, label=None, water_amount=None):
+def patch_metadata(payload, checksum, label=None, water_amount=None, fields=None):
     r = Reader(payload)
     if r.number("B") != 0 or not r.string().startswith("MapMetaData,"):
         raise ValueError("Expected MapMetaData object")
     r.string()
+    count_at = r.pos
     count = r.number("i")
     result = bytearray(payload[: r.pos])
+    pending = dict(fields or {})
     for _ in range(count):
         start = r.pos
         if r.number("B"):
@@ -196,7 +199,12 @@ def patch_metadata(payload, checksum, label=None, water_amount=None):
         value_start = r.pos
         metadata_value(r, typename)
         result.extend(payload[start:value_start])
-        if name == "assetRef":
+        if name in pending:
+            field_type, value = pending.pop(name)
+            if field_type.split(",")[0] != typename:
+                raise ValueError(f"Metadata type mismatch: {name}")
+            result.extend(metadata_bytes(typename, value))
+        elif name == "assetRef":
             result.extend(string(checksum))
         elif name == "mods":
             result.extend(struct.pack("<i", 0))
@@ -210,7 +218,23 @@ def patch_metadata(payload, checksum, label=None, water_amount=None):
             result.extend(payload[value_start : r.pos])
     if r.pos != len(payload):
         raise ValueError("Metadata not completely consumed")
+    # Null reflection fields have no name in the stream. Append named values;
+    # native deserialization resolves fields by name, not by their array index.
+    for name, (typename, value) in pending.items():
+        result.extend(b"\0" + string(typename) + string(name))
+        result.extend(metadata_bytes(typename.split(",")[0], value))
+    struct.pack_into("<i", result, count_at, count + len(pending))
     return bytes(result)
+
+
+def metadata_bytes(typename, value):
+    if typename in ["System.String", "ColossalFramework.Packaging.Package+Asset"]:
+        return string(value)
+    return struct.pack(
+        "<"
+        + {"System.Int32": "i", "System.UInt32": "I", "System.Single": "f"}[typename],
+        value,
+    )
 
 
 def water_payload(depth, sources, frame, sea_level=35.0):
@@ -251,7 +275,7 @@ def begin_tag_size(data, offset, expected):
     return size + 4
 
 
-def write_map(template, layout, terrain, water, hydrology, output):
+def write_map(template, layout, terrain, water, hydrology, output, preview=None):
     original = template.read_bytes()
     spec = json.loads(layout.read_text())
     hydro = json.loads(hydrology.read_text())
@@ -380,18 +404,45 @@ def write_map(template, layout, terrain, water, hydrology, output):
         data = data[:start] + replacement + data[end:]
     simulation["payload"] = data
     checksum = hashlib.md5(data).hexdigest()
+    from map_metadata import buildable_area, preview_image, texture_payload
+
+    image = preview_image(raw, depth, hydro, spec, preview)
+    image_fields = {}
+    for field, suffix, size in [
+        ("imageRef", "Snapshot", (400, 224)),
+        ("steamPreviewRef", "SteamPreview", (1800, 1008)),
+    ]:
+        name = hydro.get("map_name", package["name"]) + "_" + suffix
+        payload = texture_payload(name, image.resize(size, Image.Resampling.LANCZOS))
+        assets.append({"name": name, "kind": 3, "payload": payload})
+        image_fields[field] = (
+            "ColossalFramework.Packaging.Package+Asset, ColossalManaged, "
+            "Version=0.3.0.0, Culture=neutral, PublicKeyToken=null",
+            hashlib.md5(payload).hexdigest(),
+        )
+    maximum_resources = 25 * (1920 / 33.75) ** 2 * 255
+    if water_amount is not None:
+        image_fields["buildableArea"] = (
+            "System.Int32",
+            buildable_area(raw, water_amount, maximum_resources),
+        )
+        image_fields["maxResourceAmount"] = ("System.Single", maximum_resources)
     for a in assets:
         if a["kind"] == 100:
             a["payload"] = patch_metadata(
-                a["payload"], checksum, hydro.get("map_name"), water_amount
+                a["payload"],
+                checksum,
+                hydro.get("map_name"),
+                water_amount,
+                image_fields,
             )
     if "map_id" in hydro:
         package["name"] = hydro["map_id"]
-        package["author"] = ""
+    package["author"] = ""
     result = write_package(package, assets)
     read_package(result)
     output.write_bytes(result)
-    regenerated = ["terrain", "water", "sources"]
+    regenerated = ["terrain", "water", "sources", "preview_images", "package_author"]
     preserved = ["network_topology", "outside_connections", "lane_ids", "trees"]
     if positions:
         regenerated.extend(["network_geometry", "start_tile", "water_resources"])
@@ -406,6 +457,10 @@ def write_map(template, layout, terrain, water, hydrology, output):
         "bytes": len(result),
         "regenerated": regenerated,
         "preserved": preserved,
+        "preview_kind": "native capture input"
+        if preview
+        else "terrain/water grid rendering",
+        "simulation_sha256": hashlib.sha256(data).hexdigest(),
     }
 
 
@@ -413,5 +468,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ["template", "layout", "terrain", "water", "hydrology", "output"]:
         parser.add_argument(name, type=Path)
+    parser.add_argument("--preview", type=Path, help="Optional genuine map capture")
     args = parser.parse_args()
     print(json.dumps(write_map(**vars(args)), indent=2))

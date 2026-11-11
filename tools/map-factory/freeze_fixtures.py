@@ -57,6 +57,7 @@ def freeze(inputs, output):
                 "slug": slug,
                 "expected_crp_sha256": result["package"]["sha256"],
                 "expected_crp_bytes": result["package"]["bytes"],
+                "expected_simulation_sha256": result["package"]["simulation_sha256"],
                 "prepared_sha256": {
                     name: hashlib.sha256((generated / name).read_bytes()).hexdigest()
                     for name in ["terrain.u16", "water.u16"]

@@ -65,6 +65,8 @@ JavaScript serializer parity test from the hydrology port: the serializer can
 consume the frozen prepared grids directly.
 `prepared_sha256` records the uncompressed terrain and depth checksums;
 `files_sha256` records the distributed fixture-file checksums.
+`expected_simulation_sha256` separately binds the native simulation payload,
+so listing-only changes cannot silently invalidate or inherit hydraulic proof.
 
 Fixture replacement is an explicit authoring operation, not part of the tests:
 
@@ -93,6 +95,13 @@ the shared harness slot, without taking over another session. Steam account
 conflicts retry after 30 minutes; no prompt is answered. This requires the
 harness at `339cfe4` or later. Follow the issue's Steam reservation windows
 before starting any native check.
+
+Staging now also requests the native New Game panel check from harness PR #8.
+It compares the selected listing's metadata and image instantiation with the
+exact package, captures the real panel, and fails until that screenshot has
+an explicit hash-bound visual review. Rejudge after reviewing it; do not
+turn the review flag on automatically. This instrumented panel observation
+does not replace the separate strict vanilla start.
 
 Each map is checked against the committed CRP checksum before launch. The
 harness retains the timeline, native grids, screenshots, GPU measurements and
@@ -161,6 +170,37 @@ reservoir came from OSM. Resource water/shore cells and tile totals are updated
 for the new geography. Other resource types and trees remain the template's
 empty maps.
 
+## New Game listing
+
+Every generated package has a blank author, rather than the template author's
+account hash. It includes a 400 × 224 thumbnail and an 1,800 × 1,008 preview,
+with native texture assets and metadata checksum references. The default is
+a deterministic north-up rendering of the actual prepared terrain, initialized
+water and fitted roads/rail. It is **not a game screenshot**, nor a claim that
+every small creek remains wet. `crp.py --preview CAPTURE.png` can instead embed
+a genuine map capture without changing the simulation payload.
+
+Water amounts describe the central 25 unlockable resource tiles, not the whole
+81-tile simulation. The buildable percentage is recomputed from the final
+terrain with the installed game's weighted-flatness score and water fraction.
+It is not the fraction below a particular slope threshold. CS1's inspected
+flatness API composes two +2 tile offsets; the writer preserves that native
+quirk. The current Asheville candidate scores 70%, not the template's 74%.
+The native panel still needs to verify these new assets and values.
+
+The stock `NewGamePanel` generates the proposed **city** name randomly; its
+`MapMetaData` has no suggested-city-name field. Setting `mapName` controls the
+map listing, not that editable city-name text box. An offline map cannot
+override this behavior without changing the game or using a mod.
+
+Air availability requires a real `FlightPathAI` network and native outside
+connection buildings. AVL's location alone does not supply those objects.
+The fixed topology has road and rail only: plane and ship counts remain
+honestly zero. Adding air needs a freshly authored native template and bound
+descriptor; setting only the metadata flag would advertise a nonexistent
+connection. Resource painting and real tree-cover inputs belong to PL-902;
+they are not fabricated by the listing writer.
+
 ## Water and terrain limits
 
 Water surfaces come from a monotone fit to uncarved elevations, not a running
@@ -181,6 +221,13 @@ capped below the lowest
 surrounding uncarved bank or actual prepared ground, so an interior DEM
 percentile cannot continuously flood an outlet. Some mapped lakes consequently
 receive no inland regulator.
+
+If the monotone profile would rise above local banks, the preparation instead
+caps that reach at uncarved banks minus 0.25 m (or sea level), adds 512 m
+controls and terrain-derived crest/trough controls, then limits input/output
+footprints independently against final ground. Feasible profiles retain the
+2,048 m policy exactly. This bank-bounded revision follows a failed Rio soak;
+it remains a native-test candidate, not a proven buried-waterway simulation.
 
 In `hydrology.json`, `capacity` sets native withdrawal capacity and defaults
 the injection capacity to the same value. Optional `output_capacity` overrides
@@ -205,8 +252,8 @@ depressions, matching the inspected native reset behavior.
 Initialized water does not establish hydraulic equilibrium. Buried waterways,
 DEM artifacts, tidal geometry and disconnected tile fragments still need live
 drainage and flooding checks. Native road admission, ordinary New Game listing,
-population growth, long-duration stability and cross-platform behavior remain
-unverified for these new outputs.
+population growth, five-region stability and cross-platform behavior remain
+unverified. Completed per-region evidence is in `NATIVE_FINDINGS.md`.
 
 ## Binary conventions
 

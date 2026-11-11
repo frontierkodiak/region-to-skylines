@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw
-from scipy import ndimage, optimize
+from scipy import ndimage, optimize, signal
 
 from prepare import pixel, route
 
@@ -64,8 +64,9 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
 
     The old running minimum followed anomalously deep bed pixels forever. A
     least-squares monotone fit to *uncarved* elevations avoids that ratchet.
-    A downstream lower envelope then guarantees at least 1 m of thalweg water
-    without exceeding the explicit additional-incision cap.
+    Feasible monotone profiles retain the bounded-incision lower envelope.
+    Where it would lift water above banks, local stages and extra regulators
+    replace the impossible global fit without raising the floodplain.
     """
     sq = geometry["sq"]
     sea = geometry.get("seaLevel")
@@ -169,6 +170,11 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             )
             if sea is not None:
                 fitted = np.maximum(fitted, sea)
+            ceiling = np.maximum(banks[y, x] - 0.25, sea if sea is not None else 0)
+            overbank = float((fitted - ceiling).max())
+            bank_limited = kind == "river" and overbank > 1 / 64
+            if bank_limited:
+                fitted = np.minimum(fitted, ceiling)
             line = np.zeros_like(channel)
             line[y, x] = True
             distance, nearest = ndimage.distance_transform_edt(
@@ -191,6 +197,11 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 if kind == "stream"
                 else local_surface
             )
+            if bank_limited:
+                initial_surface = np.minimum(
+                    initial_surface,
+                    np.maximum(banks - 0.25, sea if sea is not None else 0),
+                )
             surface[wet] = np.maximum(surface[wet], initial_surface[wet])
             key = f"{name} [{kind}] #{component}"
             samples[key] = [
@@ -212,10 +223,23 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 # Endpoint-only forcing can leave dry gaps on long reaches.
                 # Supply omitted catchment inflow at fixed arc intervals,
                 # independently of the verification sample locations.
+                spacing = 512 if bank_limited else 2048
                 controls[1:1] = [
                     ("interior", int(interior[np.argmin(abs(arc[interior] - at))]))
-                    for at in np.arange(2048, arc[-1] - 1024, 2048)
+                    for at in np.arange(spacing, arc[-1] - spacing / 2, spacing)
                 ]
+                if bank_limited:
+                    levels = ndimage.gaussian_filter1d(fitted, 3)
+                    allowed = set(map(int, interior))
+                    for role, sign in [("crest", 1), ("trough", -1)]:
+                        peaks, _ = signal.find_peaks(
+                            levels * sign, prominence=0.5, distance=8
+                        )
+                        controls += [(role, int(i)) for i in peaks if int(i) in allowed]
+                    controls = [
+                        (role, i)
+                        for i, role in sorted({i: role for role, i in controls}.items())
+                    ]
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
@@ -256,6 +280,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 )
                 if kind == "stream" and role == "downstream":
                     sources[-1]["output_capacity"] = 0
+                if bank_limited:
+                    sources[-1]["bank_limited"] = True
             summaries.append(
                 {
                     "name": name,
@@ -269,6 +295,12 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     "profile_above_uncarved_m": float((fitted - banks[y, x]).max()),
                 }
             )
+            if bank_limited:
+                summaries[-1].update(
+                    bank_limited=True,
+                    rejected_monotone_overbank_m=overbank,
+                    control_spacing_m=512,
+                )
     lake_mask = raster(sq, geometry.get("lakes", []), polygons=True)
     labels, count = ndimage.label(lake_mask)
     for label, region in enumerate(ndimage.find_objects(labels), 1):
@@ -616,6 +648,57 @@ def fit_networks(ground, depth, geometry, spec, start):
     }
 
 
+def limit_source_footprints(ground, depth, banks, geometry, summary):
+    """Bound local-stage regulators after the final corridor earthworks."""
+    limited = [s for s in summary["sources"] if s.get("bank_limited")]
+    if not limited:
+        return
+    sq = geometry["sq"]
+    channels = ndimage.binary_dilation(
+        raster(sq, geometry.get("rivers", []) + geometry.get("streams", [])),
+        iterations=4,
+    )
+    channels |= depth > 0.1
+    for field in ["lakes", "riverAreas"]:
+        channels |= raster(sq, geometry.get(field, []), polygons=True)
+    ceiling = np.maximum(banks - 0.25, summary["sea_level_m"])
+    for source in limited:
+        col = round((source["position"][0] + HALF) / SPACING)
+        row = round((HALF - source["position"][2]) / SPACING)
+        target = np.floor(source["target"] * 64) / 64
+        if target <= ground[row, col] + 0.125:
+            raise ValueError(
+                "Bank-bounded regulator has insufficient local water depth"
+            )
+        maximum = int(np.floor(source["capacity"] * 65535 + 0.5))
+        radius = 10 + 0.4 * np.sqrt(maximum)
+        extent = int(np.ceil(radius / SPACING)) + 1
+        r0, r1 = max(0, row - extent), min(SIZE, row + extent + 1)
+        c0, c1 = max(0, col - extent), min(SIZE, col + extent + 1)
+        region = np.s_[r0:r1, c0:c1]
+        yy, xx = np.mgrid[r0:r1, c0:c1]
+        distance = np.hypot(yy - row, xx - col) * SPACING
+        bed, wet_channel = ground[region], channels[region]
+
+        def safe_rate(unsafe):
+            if not unsafe.any():
+                return maximum
+            clearance = float(distance[unsafe].min()) - 0.01
+            return min(
+                maximum,
+                int(np.floor((max(0, clearance - 10) / 0.4) ** 2)),
+            )
+
+        intake = safe_rate(wet_channel & (bed >= target - 0.125))
+        output = safe_rate((bed < target) & ((ceiling[region] < target) | ~wet_channel))
+        source.update(
+            target=float(target),
+            capacity=intake / 65535,
+            output_capacity=output / 65535,
+        )
+    summary["bank_limited_regulators"] = len(limited)
+
+
 def prepare(png, geometry, layout, output, banks=None):
     data = json.loads(geometry.read_text())
     spec = json.loads(layout.read_text())
@@ -660,6 +743,7 @@ def prepare(png, geometry, layout, output, banks=None):
         summary["starter_reservoir"] = True
         start["has_water"] = True
     network = fit_networks(ground, depth, data, spec, start)
+    limit_source_footprints(ground, depth, bank_grid, data, summary)
     summary.update(network)
     summary.update(
         {

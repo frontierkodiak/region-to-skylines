@@ -12,9 +12,45 @@ from pathlib import Path
 import shutil
 import subprocess
 
-from crp import write_map
+from crp import Reader, metadata_value, read_package, write_map
 
 ROOT = Path(__file__).resolve().parent
+
+
+def panel_expectations(crp):
+    """Require native selection to agree with the exact package being tested."""
+    _, assets = read_package(crp.read_bytes())
+    r = Reader(next(a["payload"] for a in assets if a["kind"] == 100))
+    if r.number("B") or not r.string().startswith("MapMetaData,"):
+        raise ValueError("Expected native map metadata")
+    r.string()
+    fields = {}
+    for _ in range(r.number("i")):
+        if r.number("B"):
+            continue
+        typename, name = r.string().split(",")[0], r.string()
+        fields[name] = metadata_value(r, typename)
+    return {
+        "map_name": fields["mapName"],
+        "author": "",
+        "buildableArea": fields["buildableArea"],
+        "resources": {
+            k: fields[k]
+            for k in [
+                "maxResourceAmount",
+                "oilAmount",
+                "oreAmount",
+                "forestAmount",
+                "fertileLandAmount",
+                "waterAmount",
+            ]
+        },
+        "connections": {
+            direction + kind: fields[direction + kind]
+            for direction in ["incoming", "outgoing"]
+            for kind in ["Roads", "TrainTracks", "ShipPath", "PlanePath"]
+        },
+    }
 
 
 def probes_for(hydro, descriptor):
@@ -79,6 +115,7 @@ def stage(output, slugs):
         hydro = json.loads((folder / "hydrology.json").read_text())
         probes = folder / "probes.json"
         data = probes_for(hydro, json.loads(layout.read_text()))
+        data["new_game_panel"] = panel_expectations(crp)
         probes.write_text(json.dumps(data, indent=2) + "\n")
         receipt.update({"slug": slug, "probes": len(data["points"])})
         (folder / "staging.json").write_text(json.dumps(receipt, indent=2) + "\n")
@@ -112,6 +149,7 @@ def stage_prepared(inputs, output, slugs):
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         data = probes_for(hydro, json.loads(layout.read_text()))
+        data["new_game_panel"] = panel_expectations(crp)
         if (source / "probes.json").exists():
             data["views"] = json.loads((source / "probes.json").read_text()).get(
                 "views", []

@@ -273,7 +273,7 @@ def resource_replacements(data, spec, depth):
         (water_start, water_end, encode_array(water, 1)),
         (shore_start, shore_end, encode_array(shore, 1)),
         (area_start, area_end, encode_array(areas, 4)),
-    ], int(totals.sum())
+    ], int(totals.reshape(9, 9)[2:7, 2:7].sum())
 
 
 if __name__ == "__main__":

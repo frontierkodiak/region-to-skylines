@@ -1,9 +1,13 @@
 # Native qualification · PL-857
 
-**R3 candidate, qualification in progress (2026-11-10).** These fixtures are a
-byte reference, not a five-region playable-map certificate. Only the selected
-Innsbruck package has completed its prefilled 60-minute soak so far. The
-website and installer are unchanged.
+**Qualification in progress (2026-11-10).** The committed R4+listing fixtures are a
+draft byte reference, not a five-region playable-map certificate. Asheville
+and Innsbruck completed their prefilled 60-minute soaks; Rio **failed** the
+flooding gate. A bank-bounded candidate awaits native tests for Rio and
+Pittsburgh. Listing previews and recalculated metadata change every CRP hash,
+but Asheville, Innsbruck and Charleston simulation payloads remain exactly
+unchanged. The manifest binds both hashes. New listing assets still need live
+New Game checks; the website and installer are unchanged.
 
 Runs use CS1 1.21.1-f9 on blade's RTX 2080 Ti at `05:00.0`. Its existing 150 W
 cap and resident inference replica were left unchanged. Harness changes are
@@ -15,6 +19,9 @@ in [PR #8](https://github.com/frontierkodiak/region-to-skylines/pull/8).
   intervals. This represents catchment inflow absent from an endpoint-only
   simulation, independently of verification probe locations. Capacity is 0.8
   for mean gradients at most 0.5%, otherwise 0.2.
+- Infeasible overbank river profiles use local bank-bounded stages with 512 m
+  and terrain-derived controls, plus final-ground intake/output footprint
+  limits. This revision is a pending candidate after the Rio failure below.
 - Streams start at at most 0.25 m depth. Their upstream controls target the
   local bed plus 0.25 m; downstream controls target below the bed and have
   **zero output**, so they withdraw excess without introducing a second spring.
@@ -32,15 +39,63 @@ not use a truthiness fallback. Natural sources affect a radius of
 `10 + 0.4 * sqrt(rate)` metres; a target below the center cell alone does not
 prevent injection into lower neighbouring cells.
 
-## Selected-package evidence so far
+### Terrain and network geometry
+
+All five preparations reach the 3.0 m additional channel-lowering cap and the
+3.0 m corridor cut/fill caps. These are changes relative to the browser export,
+not a claim that total river carving from the original DEM is only 3 m.
+
+| Region | Highway entry | Maximum road deck clearance | Maximum rail deck clearance |
+| --- | --- | --- | --- |
+| Asheville | West | 29.2 m | 62.8 m |
+| Innsbruck | East | 15.9 m | 19.1 m |
+| Rio de Janeiro | North | 23.0 m | 18.5 m |
+| Pittsburgh | East | 62.6 m | 20.7 m |
+| Charleston | North | 28.8 m | 29.3 m |
+
+These are offline geometry measurements. Native path checks and city images
+qualify reachability separately. Charleston's railway uses the straight
+fallback instead of claiming to follow OSM. High bridge decks remain a visual
+limitation. New offline-rendered preview assets are not yet native-verified.
+
+## Native evidence so far
+
+The detailed hashes below identify the **tested pre-listing R3 packages**.
+Their simulation payloads still match current Asheville and Innsbruck exactly;
+their old vanilla starts do not certify the new preview assets.
 
 | Package | 60-minute prefilled soak | Ordinary vanilla city start |
 | --- | --- | --- |
-| Asheville | Pending | Verified |
-| Innsbruck | Completed; details below | Verified |
-| Rio de Janeiro | Pending | Pending |
-| Pittsburgh | Pending | Pending |
+| Asheville | Completed, same simulation payload; details below | Prior package verified; new listing pending |
+| Innsbruck | Completed, same simulation payload; details below | Prior package verified; new listing pending |
+| Rio de Janeiro | R3 failed; revised candidate pending | Pending |
+| Pittsburgh | Revised candidate pending | Pending |
 | Charleston | Pending | Pending |
+
+The latest metadata candidate adds checksum-resolvable 400 × 224 and
+1,800 × 1,008 textures, blanks the package author in every write, and computes
+water totals over central 25 resource tiles. The buildable score is recomputed
+with the installed game's weighted flatness formula (Asheville: 70%). These
+are offline facts, not a successful New Game panel trial. Resource painting is
+separate PL-902 work. Air remains absent until a real flight-path topology is
+authored; no misleading metadata-only connection is introduced. The native
+New Game UI has no metadata field for a suggested city name.
+
+### Asheville
+
+CRP SHA-256:
+`d534a39cbb9c86aa80793b3c4c857c8a31ca1e820b2ab4e48d86320f344c4aad`.
+
+- 60.13 game-minutes. All 28 playable major-river probes are wet exactly at
+  every five-minute sample, including startup and the end. All 59 nonboundary
+  river probes remain wet exactly throughout. Two physical-edge points end dry.
+- Initial native terrain, water and source controls match the prepared inputs.
+  Both highway paths and the full rail path pass at start and end; cleanup is
+  empty. The selected starting tile retains 691 wet native grid cells, including
+  557 deeper than 0.5 m and about 586,000 m³ of water.
+- No distant spreading meets the audit threshold in any saved grid. Reviewed
+  end-of-soak start-tile and overview frames show the main rivers wet and the
+  starter approaches intact. Minor streams are not all perennial.
 
 ### Innsbruck
 
@@ -59,10 +114,15 @@ CRP SHA-256:
   maximum depth 0.703125 m, near a small creek. This is residual shallow
   pooling, **not a zero-flooding result**. No broad inundation appears in the
   reviewed start-tile and overview frames.
-- Some highway mesh disappears in the wide harness view although native paths
-  pass; the ordinary vanilla city view shows complete stubs. A multi-distance
-  render/LOD inspection is pending. Do not infer a broken physical connection
-  from that wide frame, or silently omit the visual issue.
+- Some highway mesh disappears at an intermediate harness zoom although native
+  paths pass. A separate one-minute run confirms complete stubs at size 600,
+  missing portions at size 1,800, and complete stubs again at size 3,000.
+  The ordinary vanilla city view also shows complete stubs. All 285 native
+  segments have matching render parts and LOD data; endpoint bounds are at
+  the expected coordinates, and all six path checks pass. This is a
+  zoom-dependent visual limitation, not evidence of a broken physical route.
+  The underlying renderer/LOD cause is unresolved; it is not silently fixed
+  by changing the map geometry.
 
 The ordinary starts used actual `--disableMods --noWorkshop`, an absent control
 socket, New Game listing/selection, the checksum-bound installed map and the
@@ -79,10 +139,38 @@ every subsequent five-minute sample through minute 60. Final volume is
 16.261 M m³. No distant spreading appears in saved grids against the **same**
 prefilled expected footprint. Native paths and cleanup pass.
 
-The selected prefilled Asheville soak is pending, so a final R3 volume
-comparison is not yet available. Prefill supplies immediate startup water;
-the completed no-prefill run establishes that initialization is not the sole
-source sustaining these river channels.
+The matching prefilled run ends at 16.208 M m³ versus 16.261 M m³ without
+prefill, a 0.33% difference. Their mean volumes over minutes 30–60 differ by
+0.26%; both retain all 28 playable river probes wet throughout that late
+window, with no distant spreading in saved grids. This is a one-region A/B,
+not a no-prefill trial of all five regions.
+
+Prefill supplies immediate startup water instead of waiting five minutes for
+the channels to fill. It is retained for that startup benefit, not credited
+for sustaining the rivers once the sources have settled.
+
+### Rio failure and bank-bounded candidate
+
+The R3 Rio package completed 60.10 minutes with exact input/control matches,
+all native paths passing and empty cleanup, but only 323 of 342 playable
+river probes wet at the end. Distant spreading reaches 1.651968 km² and
+13.765625 m depth. This is a failed default, not a tolerated tiny pond.
+
+The global monotone surface fit could raise water above local uncarved banks
+to cross a terrain obstruction while respecting the incision cap: 16.57 m
+on Desvio do Rio Joana and 11.25 m on Rio Carioca. Flood components lie near
+those forced sources. Real underground drainage also exists here: the city's
+[Joana diversion description](https://prefeitura.rio/rio-faz-noticias/prefeitura-inaugura-maior-tunel-de-drenagem-urbana-do-pais-ao-fazer-desvio-do-rio-joana/)
+documents a tunnel and gallery. The frozen line geometry lacks coverage tags,
+so individual dry probes are not silently reclassified as underground.
+
+The revised candidate caps an infeasible river profile at local banks minus
+0.25 m (or sea level), uses 512 m controls plus terrain-derived crests/troughs
+on those reaches, and bounds independent native intake/output footprints
+against final terrain and mapped water corridors. Feasible profiles retain
+the original 2,048 m policy exactly. No region names or failing probe locations
+are hard-coded. This is a controlled surface-channel approximation, not a
+simulation of buried culverts. Native qualification is still required.
 
 ## What the calibration rejected
 
@@ -115,6 +203,6 @@ native neighbourhood probes are sampled every five game-minutes.
 Minor streams are **not all perennial**. Their failing subsets are retained in
 the audits; the 14,615 initial waterway probes must not be presented as 14,615
 sustained wet probes. Instrumented soaks use a disabled local control mod and
-`--noWorkshop`; they are separate from the strict vanilla starts. Map previews
-are black. No populated-city growth, cross-platform gameplay, stability beyond
+`--noWorkshop`; they are separate from the strict vanilla starts. New previews
+need live validation. No populated-city growth, cross-platform gameplay, stability beyond
 60 minutes or qualification of every possible future region is claimed.

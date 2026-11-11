@@ -3,6 +3,7 @@
 import argparse
 import gzip
 import hashlib
+from io import BytesIO
 import json
 import struct
 import tempfile
@@ -109,6 +110,9 @@ def verify(folder):
             )
             assert receipt["sha256"] == case["expected_crp_sha256"], slug
             assert receipt["bytes"] == case["expected_crp_bytes"], slug
+            assert receipt["simulation_sha256"] == case["expected_simulation_sha256"], (
+                slug
+            )
             generated_package, generated_assets = read_package(output.read_bytes())
             assert generated_package["author"] == ""
             assert (
@@ -131,6 +135,30 @@ def verify(folder):
             assert fields["publishedHash"] == mono_hash(hydro["map_name"])
             assert fields["assetRef"] == hashlib.md5(data).hexdigest()
             assert fields["mods"] == [] and fields["waterAmount"] > 0
+            # Inspect independently through the package's public texture stream:
+            # references must resolve to real, useful PNG images, not just flags.
+            by_checksum = {
+                hashlib.md5(asset["payload"]).hexdigest(): asset
+                for asset in generated_assets
+            }
+            for field, size in [
+                ("imageRef", (400, 224)),
+                ("steamPreviewRef", (1800, 1008)),
+            ]:
+                asset = by_checksum[fields[field]]
+                assert asset["kind"] == 3
+                texture = Reader(asset["payload"])
+                assert texture.number("B") == 0
+                assert texture.string().startswith("ColossalFramework.Importers.Image,")
+                assert texture.string() == asset["name"]
+                assert texture.number("B") == 0 and texture.number("i") == 1
+                png = texture.take(texture.number("i"))
+                assert texture.pos == len(asset["payload"])
+                with Image.open(BytesIO(png)) as image:
+                    assert image.format == "PNG" and image.size == size
+                    assert np.asarray(image).std() > 10, "Blank map preview"
+            assert 0 <= fields["buildableArea"] <= 100
+            assert abs(fields["maxResourceAmount"] - 20631704) < 2
             offset = data.index(manager_tag("TerrainManager")) + len(
                 manager_tag("TerrainManager")
             )
@@ -208,6 +236,9 @@ def verify(folder):
             for _ in range(5):
                 _, resource_offset = decode_array(data, 512 * 512, resource_offset, 1)
             areas, _ = decode_array(data, 81 * 10, resource_offset, 4)
+            assert fields["waterAmount"] == int(
+                areas[9 * 81 : 10 * 81].reshape(9, 9)[2:7, 2:7].sum()
+            ), "Listing resources must describe the 25 unlockable tiles"
             tile = (hydro["start_tile"] // 5 + 2) * 9 + hydro["start_tile"] % 5 + 2
             assert areas[9 * 81 + tile] > 0, (
                 "Serialized start tile has no resource water"

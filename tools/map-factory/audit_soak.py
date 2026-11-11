@@ -139,6 +139,16 @@ def audit(run, prepared, geometry, reference_water=None):
             )
         )
     terrain = run / "grids" / (report["first_dump"] + "-terrain.u16")
+    tile = hydro["start_area"]
+    lo_x, lo_z = -4800 + tile["x"] * 1920, -4800 + tile["z"] * 1920
+    axis = np.arange(1081) * 16 - HALF
+    final_water = grid(run / "grids" / (report["last_dump"] + "-water.u16"))
+    tile_water = final_water[
+        np.ix_(
+            (axis >= lo_z) & (axis < lo_z + 1920),
+            (axis >= lo_x) & (axis < lo_x + 1920),
+        )
+    ]
     return {
         "map": report["map"]["map_name"],
         "game_minutes": report["game_minutes"],
@@ -149,6 +159,14 @@ def audit(run, prepared, geometry, reference_water=None):
         ).read_bytes()
         == (prepared / "water.u16").read_bytes(),
         "source_controls_match": bool(controls_match),
+        "starting_tile_water": {
+            "index": hydro["start_tile"],
+            "bounds_world_m": [lo_x, lo_x + 1920, lo_z, lo_z + 1920],
+            "final_native_grid_cells_above_0_1m": int((tile_water > 0.1).sum()),
+            "final_native_grid_cells_above_0_5m": int((tile_water > 0.5).sum()),
+            "final_volume_m3": float(tile_water.sum() * 256),
+            "final_max_depth_m": float(tile_water.max()),
+        },
         "prepared_terrain_sha256": hashlib.sha256(
             (prepared / "terrain.u16").read_bytes()
         ).hexdigest(),
