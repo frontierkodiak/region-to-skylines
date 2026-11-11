@@ -1,6 +1,6 @@
 """Prepare labelled diagnostics separating source output from initial land fill.
 
-These are not release candidates. Native terrain, source positions/targets and
+These are not release candidates. Native terrain, source positions and
 intake rates stay fixed. The noemit arm sets only output rates to zero; nofill
 retains sources and ocean fill but removes water initially above sea level.
 Shallow-head retains terrain, prefill, placement and both rates, and caps only
