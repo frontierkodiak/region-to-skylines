@@ -7,11 +7,10 @@
 import argparse
 import html
 import json
-from pathlib import Path
 import shutil
+from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont, ImageOps
-
 
 NAMES = {
     "bungalow": "Norwood bungalow",
@@ -179,6 +178,7 @@ figcaption,small{display:block;padding:8px 10px}img{display:block;width:100%;hei
 details{margin:12px 0}summary{cursor:pointer}table{border-collapse:collapse;min-width:700px}td,th{padding:8px 14px;border-bottom:1px solid #ccd7d0;text-align:left}
 .table{overflow:auto}a{color:#125a4b}@media(max-width:800px){body{padding:14px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.references{grid-template-columns:1fr}}
 </style><main><h1>Asheville building bake-off</h1>
+<!-- NATIVE_LINK -->
 <p><strong>Blender proxy, not an in-game verdict.</strong> Same three building types, matched camera, light and lot envelopes. A and C share geometry. B0 is direct-photo TRELLIS.2; B1 adds a clean, AI-interpreted view first. Unseen sides are inferred, not surveyed.</p>
 <p><strong>Provisional choice: C for repeatable neighbourhood stock.</strong> B1 recovers richer details than B0, but still needs topology and window-mask repair. C preserves editable geometry and a predictable footprint at much lower triangle cost. A and C are near-tied at gameplay distance; C's visible improvement is mainly close up. No landmark or prop was tested, so that part of the original hypothesis remains open.</p>
 <div class="controls" role="group" aria-label="View">"""
@@ -196,6 +196,12 @@ details{margin:12px 0}summary{cursor:pointer}table{border-collapse:collapse;min-
 <p>A: no image-generation calls. C: one shared material-atlas call across three assets. B1: one concept call per asset. All 3D inference ran on owned local hardware; electricity, subscription allocation and exact image-generation billing/time were not measured. B has no automatic semantic night-window mask; its illumination and colour-variation maps deliberately disable those effects. Normal maps are neutral in every arm. Scale is a study envelope in metres, not a measured digital twin.</p>
 <p>Reference photos: PSABC; Stilfehler / Wikimedia Commons (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, Lexington photo); Asheville Housing Authority. Aerial imagery: USGS NAIP. Original photo rights remain with their owners. The generated assets are distinct from the reference imagery.</p>
 <script src="app.js"></script></main></html>"""
+    )
+    page = page.replace(
+        "<!-- NATIVE_LINK -->",
+        '<p><a href="cs1/">Native CS1 comparison, game images and QA CRP packs →</a></p>'
+        if (args.destination / "cs1/index.html").exists()
+        else "",
     )
     (args.destination / "index.html").write_text(page)
     (args.destination / "app.js").write_text(

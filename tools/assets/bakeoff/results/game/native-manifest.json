@@ -1,0 +1,3808 @@
+{
+  "renderer": "CS1 1.21.1-f9, native Building/Default shader",
+  "batch_plan": {
+    "batch_sha256": "fb26ea9a7f192a631154e3cc00f6c4effebcee8dcd837f306c9e8ddd81ac1571",
+    "input_manifest_sha256": "f8a2fe2af3451a318bcfa1666142f31ee4a268cb9fca5a7da4a90a58f05670de",
+    "map_sha256": "b8507bf6e4c00f2336eb2051daed8785a6912a56ad594161e1e09a32ef0c94f4",
+    "harness_source": "a1d01a6cddd8cddf069915676a64d779a6f7430e",
+    "driver_sha256": "77a814f5decc244d12f652d023572780447c2088ab5a946c3f480b2c17cdb36b",
+    "screen": "1280x720",
+    "camera": "close 45m/25deg; gameplay 120m/40deg; LOD 1.05*max switch/40deg",
+    "position": [
+      0,
+      300
+    ]
+  },
+  "assets": [
+    {
+      "name": "A-bungalow",
+      "crp_sha256": "41d6534a3268296c06ec906acb709873cb5019c4730415461368147444018491",
+      "input_receipt_sha256": "fe2db3585cf93b90b2596694c885db6e868a89c7ac82e0fd3cefed89b9d0f2ca",
+      "build_receipt_sha256": "95881c3ab78b071add0fc2512639463147d2ccf5d93f950c3a6b1b92db9c3d39",
+      "check_receipt_sha256": "225ca460b037e9acc8f72f9e4ae74761adb3e8897c98047ccba6623fc63b66ca",
+      "asset": {
+        "name": "A-bungalow.A-bungalow_Data",
+        "service": "Residential",
+        "sub_service": "ResidentialLow",
+        "level": 1,
+        "class": "Low Residential - Level1",
+        "ai": "ResidentialBuildingAI",
+        "cells": [
+          2,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "A-bungalow",
+          "vertices": 1438,
+          "triangles": 716,
+          "min": [
+            -5.699999809265137,
+            -1,
+            -6.40000057220459
+          ],
+          "max": [
+            5.699999809265137,
+            6.899999618530273,
+            9.140000343322754
+          ],
+          "size": [
+            11.399999618530273,
+            7.899999618530273,
+            15.540000915527344
+          ],
+          "authored": {
+            "vertices": 1422,
+            "triangles": 708,
+            "min": [
+              -5.699999809265137,
+              0,
+              -6.400000095367432
+            ],
+            "max": [
+              5.699999809265137,
+              6.899999618530273,
+              9.14000129699707
+            ],
+            "size": [
+              11.399999618530273,
+              6.899999618530273,
+              15.540000915527344
+            ]
+          },
+          "generated_basement_triangles": 8
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "A-bungalow_lod",
+            "vertices": 198,
+            "triangles": 96,
+            "min": [
+              -5.699999809265137,
+              0,
+              -6.399999618530273
+            ],
+            "max": [
+              5.699999809265137,
+              6.899999618530273,
+              8.350000381469727
+            ],
+            "size": [
+              11.399999618530273,
+              6.899999618530273,
+              14.75
+            ],
+            "authored": {
+              "vertices": 198,
+              "triangles": 96,
+              "min": [
+                -5.699999809265137,
+                0,
+                -6.400000095367432
+              ],
+              "max": [
+                5.699999809265137,
+                6.899999618530273,
+                8.350000381469727
+              ],
+              "size": [
+                11.399999618530273,
+                6.899999618530273,
+                14.75
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          10.5,
+          6.899999618530273,
+          12
+        ],
+        "lod_distance": [
+          390.53662109375,
+          613.5265502929688
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "A-bungalow.A-bungalow_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "A-bungalow.A-bungalow_Data",
+          "service": "Residential",
+          "sub_service": "ResidentialLow",
+          "level": 1,
+          "class": "Low Residential - Level1",
+          "ai": "ResidentialBuildingAI",
+          "cells": [
+            2,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "A-bungalow",
+            "vertices": 1438,
+            "triangles": 716,
+            "min": [
+              -5.699999809265137,
+              -1,
+              -6.40000057220459
+            ],
+            "max": [
+              5.699999809265137,
+              6.899999618530273,
+              9.140000343322754
+            ],
+            "size": [
+              11.399999618530273,
+              7.899999618530273,
+              15.540000915527344
+            ],
+            "authored": {
+              "vertices": 1422,
+              "triangles": 708,
+              "min": [
+                -5.699999809265137,
+                0,
+                -6.400000095367432
+              ],
+              "max": [
+                5.699999809265137,
+                6.899999618530273,
+                9.14000129699707
+              ],
+              "size": [
+                11.399999618530273,
+                6.899999618530273,
+                15.540000915527344
+              ]
+            },
+            "generated_basement_triangles": 8
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "A-bungalow_lod",
+              "vertices": 198,
+              "triangles": 96,
+              "min": [
+                -5.699999809265137,
+                0,
+                -6.399999618530273
+              ],
+              "max": [
+                5.699999809265137,
+                6.899999618530273,
+                8.350000381469727
+              ],
+              "size": [
+                11.399999618530273,
+                6.899999618530273,
+                14.75
+              ],
+              "authored": {
+                "vertices": 198,
+                "triangles": 96,
+                "min": [
+                  -5.699999809265137,
+                  0,
+                  -6.400000095367432
+                ],
+                "max": [
+                  5.699999809265137,
+                  6.899999618530273,
+                  8.350000381469727
+                ],
+                "size": [
+                  11.399999618530273,
+                  6.899999618530273,
+                  14.75
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            10.5,
+            6.899999618530273,
+            12
+          ]
+        },
+        "lod_distance": [
+          390.53662109375,
+          613.5265502929688
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "A-bungalow.A-bungalow_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "A-bungalow/close.png",
+          "sha256": "4892564ce35df1473d9711caee80f8c60fa10b20e1b0194f3ca4738adfc94a67"
+        },
+        "gameplay": {
+          "path": "A-bungalow/gameplay.png",
+          "sha256": "81c11a5c5a124bdfb12fe55aea4e94ac19594087131513654e1615b1f3b6172e"
+        },
+        "lod": {
+          "path": "A-bungalow/lod.png",
+          "sha256": "3cd1bc0ff382e52a3920a9a7b214b57507d1749303fb5de8d09081ba78b066ca"
+        },
+        "night": {
+          "path": "A-bungalow/night.png",
+          "sha256": "17f642e0691c07236a2cf201c0cecbd0c52fbf07a7a67821acaf2a2bcef36b14"
+        },
+        "reload": {
+          "path": "A-bungalow/reload.png",
+          "sha256": "3cea089944b4d7ccd2dfd6c22d71ee8461876316e6309c813c8f5bb7604c01b4"
+        },
+        "back": {
+          "path": "A-bungalow/back.png",
+          "sha256": "69fdd3cc041409f3dd8b06b147273a02f21ccb265dbb334ca04a986d96e4afea"
+        },
+        "night-lod": {
+          "path": "A-bungalow/night-lod.png",
+          "sha256": "d270d8cf47560135e16298455fe6e6166ff3aacdd04b347f87f55130eb0b4edd"
+        },
+        "high": {
+          "path": "A-bungalow/high.png",
+          "sha256": "59620e6dc17424de4fc79d7864e4a560d5deefc7d703e74ae050cc543d069470"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 110.205,
+          "job_seconds": {
+            "asset_build": 15.69
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2803
+          ],
+          "power_peak_w": 118.87,
+          "temperature_peak_c": 47.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 166.753,
+          "job_seconds": {
+            "place_building": 0.18,
+            "save_game": 2.2
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2816
+          ],
+          "power_peak_w": 122.86,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 830.8666807459667,
+        "check": 170.35932471702108
+      }
+    },
+    {
+      "name": "B-bungalow",
+      "crp_sha256": "bab84793addd7a72deca259f42dd539a6a2127bca030a5a08c423d5e4bd611ac",
+      "input_receipt_sha256": "236effb745b0d03302569e6abf94a0ec462acc186db82fdfda92dbf14b70af91",
+      "build_receipt_sha256": "da738c3f758dad330e4acd91d1887d55f6d3acf221333bb00461110b4f865c16",
+      "check_receipt_sha256": "3c9f14668608e0b970614ac14e56302de7855b6946fe583701b6ee652b2ef62f",
+      "asset": {
+        "name": "B-bungalow.B-bungalow_Data",
+        "service": "Residential",
+        "sub_service": "ResidentialLow",
+        "level": 1,
+        "class": "Low Residential - Level1",
+        "ai": "ResidentialBuildingAI",
+        "cells": [
+          2,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "B-bungalow",
+          "vertices": 6886,
+          "triangles": 5699,
+          "min": [
+            -3.8035056591033936,
+            -1,
+            -5.29583215713501
+          ],
+          "max": [
+            3.8035056591033936,
+            7,
+            5.29583215713501
+          ],
+          "size": [
+            7.607011318206787,
+            8,
+            10.59166431427002
+          ],
+          "authored": {
+            "vertices": 6778,
+            "triangles": 5645,
+            "min": [
+              -3.8035056591033936,
+              0,
+              -5.29583215713501
+            ],
+            "max": [
+              3.8035056591033936,
+              7,
+              5.29583215713501
+            ],
+            "size": [
+              7.607011318206787,
+              7,
+              10.59166431427002
+            ]
+          },
+          "generated_basement_triangles": 54
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "B-bungalow_lod",
+            "vertices": 343,
+            "triangles": 160,
+            "min": [
+              -3.8035056591033936,
+              0,
+              -5.29583215713501
+            ],
+            "max": [
+              3.8035056591033936,
+              7,
+              5.29583215713501
+            ],
+            "size": [
+              7.607011318206787,
+              7,
+              10.59166431427002
+            ],
+            "authored": {
+              "vertices": 343,
+              "triangles": 160,
+              "min": [
+                -3.8035056591033936,
+                0,
+                -5.29583215713501
+              ],
+              "max": [
+                3.8035056591033936,
+                7,
+                5.29583215713501
+              ],
+              "size": [
+                7.607011318206787,
+                7,
+                10.59166431427002
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          6.5473952293396,
+          7,
+          10.394718170166016
+        ],
+        "lod_distance": [
+          344.208740234375,
+          534.3494262695312
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "B-bungalow.B-bungalow_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "B-bungalow.B-bungalow_Data",
+          "service": "Residential",
+          "sub_service": "ResidentialLow",
+          "level": 1,
+          "class": "Low Residential - Level1",
+          "ai": "ResidentialBuildingAI",
+          "cells": [
+            2,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "B-bungalow",
+            "vertices": 6886,
+            "triangles": 5699,
+            "min": [
+              -3.8035056591033936,
+              -1,
+              -5.29583215713501
+            ],
+            "max": [
+              3.8035056591033936,
+              7,
+              5.29583215713501
+            ],
+            "size": [
+              7.607011318206787,
+              8,
+              10.59166431427002
+            ],
+            "authored": {
+              "vertices": 6778,
+              "triangles": 5645,
+              "min": [
+                -3.8035056591033936,
+                0,
+                -5.29583215713501
+              ],
+              "max": [
+                3.8035056591033936,
+                7,
+                5.29583215713501
+              ],
+              "size": [
+                7.607011318206787,
+                7,
+                10.59166431427002
+              ]
+            },
+            "generated_basement_triangles": 54
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "B-bungalow_lod",
+              "vertices": 343,
+              "triangles": 160,
+              "min": [
+                -3.8035056591033936,
+                0,
+                -5.29583215713501
+              ],
+              "max": [
+                3.8035056591033936,
+                7,
+                5.29583215713501
+              ],
+              "size": [
+                7.607011318206787,
+                7,
+                10.59166431427002
+              ],
+              "authored": {
+                "vertices": 343,
+                "triangles": 160,
+                "min": [
+                  -3.8035056591033936,
+                  0,
+                  -5.29583215713501
+                ],
+                "max": [
+                  3.8035056591033936,
+                  7,
+                  5.29583215713501
+                ],
+                "size": [
+                  7.607011318206787,
+                  7,
+                  10.59166431427002
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            6.5473952293396,
+            7,
+            10.394718170166016
+          ]
+        },
+        "lod_distance": [
+          344.208740234375,
+          534.3494262695312
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "B-bungalow.B-bungalow_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "B-bungalow/close.png",
+          "sha256": "d24a76fa16ebfb8597679b2f570b0b66dfa1d0b4443869890640570782219f1d"
+        },
+        "gameplay": {
+          "path": "B-bungalow/gameplay.png",
+          "sha256": "a2576dfc87069257aacb4c663b00983d4e10e0d774a02cdf1ea5bd9fe3059ea2"
+        },
+        "lod": {
+          "path": "B-bungalow/lod.png",
+          "sha256": "35beb0ed5247651de28716619cfe41a8afe6c4132e020e4287ab3fa125b6d87d"
+        },
+        "night": {
+          "path": "B-bungalow/night.png",
+          "sha256": "2e4fe521e735a52b75298fbdc3b4d8b97a688cf5e8f14661cca08bdefdb35ffa"
+        },
+        "reload": {
+          "path": "B-bungalow/reload.png",
+          "sha256": "a4f110531155ee83c670481679587810ff99e225de296e0eeb230ebbe68a9335"
+        },
+        "back": {
+          "path": "B-bungalow/back.png",
+          "sha256": "6108be1020e60e2b6ab3e74ef6fb57102b56f122caf77d3cce5b24398b2a821d"
+        },
+        "night-lod": {
+          "path": "B-bungalow/night-lod.png",
+          "sha256": "c27cceeeef4f5ab24f12653b20142a1b9e23a84fc5587fe9fcf69fdf3a8f2e2a"
+        },
+        "high": {
+          "path": "B-bungalow/high.png",
+          "sha256": "2feebc3e218235ea7a03a52cab5ade58743e6c270839fc03ea8cb45d95d61f1f"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 110.222,
+          "job_seconds": {
+            "asset_build": 15.76
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2799
+          ],
+          "power_peak_w": 118.26,
+          "temperature_peak_c": 47.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 168.652,
+          "job_seconds": {
+            "place_building": 0.21,
+            "save_game": 2.28
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2815
+          ],
+          "power_peak_w": 123.14,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 121.69370192999486,
+        "check": 172.22513733099913
+      }
+    },
+    {
+      "name": "C-bungalow",
+      "crp_sha256": "ee6434d75c778631889b0b5b24023d6d800676bdb33bd213f4ac96913be01b54",
+      "input_receipt_sha256": "411d7b4b2c4806d0598f05355435dd16666014065d03215a756a481cca404b40",
+      "build_receipt_sha256": "80f0885f2965fdf54ac78c11768f76696889eca982248bab3a79ff8b984f6164",
+      "check_receipt_sha256": "dc6ce622cb4a2a973700e1f76dd865a7d06aa6804dee27725a45bbdb62b05838",
+      "asset": {
+        "name": "C-bungalow.C-bungalow_Data",
+        "service": "Residential",
+        "sub_service": "ResidentialLow",
+        "level": 1,
+        "class": "Low Residential - Level1",
+        "ai": "ResidentialBuildingAI",
+        "cells": [
+          2,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "C-bungalow",
+          "vertices": 1438,
+          "triangles": 716,
+          "min": [
+            -5.699999809265137,
+            -1,
+            -6.40000057220459
+          ],
+          "max": [
+            5.699999809265137,
+            6.899999618530273,
+            9.140000343322754
+          ],
+          "size": [
+            11.399999618530273,
+            7.899999618530273,
+            15.540000915527344
+          ],
+          "authored": {
+            "vertices": 1422,
+            "triangles": 708,
+            "min": [
+              -5.699999809265137,
+              0,
+              -6.400000095367432
+            ],
+            "max": [
+              5.699999809265137,
+              6.899999618530273,
+              9.14000129699707
+            ],
+            "size": [
+              11.399999618530273,
+              6.899999618530273,
+              15.540000915527344
+            ]
+          },
+          "generated_basement_triangles": 8
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "C-bungalow_lod",
+            "vertices": 198,
+            "triangles": 96,
+            "min": [
+              -5.699999809265137,
+              0,
+              -6.399999618530273
+            ],
+            "max": [
+              5.699999809265137,
+              6.899999618530273,
+              8.350000381469727
+            ],
+            "size": [
+              11.399999618530273,
+              6.899999618530273,
+              14.75
+            ],
+            "authored": {
+              "vertices": 198,
+              "triangles": 96,
+              "min": [
+                -5.699999809265137,
+                0,
+                -6.400000095367432
+              ],
+              "max": [
+                5.699999809265137,
+                6.899999618530273,
+                8.350000381469727
+              ],
+              "size": [
+                11.399999618530273,
+                6.899999618530273,
+                14.75
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          10.5,
+          6.899999618530273,
+          12
+        ],
+        "lod_distance": [
+          390.53662109375,
+          613.5265502929688
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "C-bungalow.C-bungalow_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "C-bungalow.C-bungalow_Data",
+          "service": "Residential",
+          "sub_service": "ResidentialLow",
+          "level": 1,
+          "class": "Low Residential - Level1",
+          "ai": "ResidentialBuildingAI",
+          "cells": [
+            2,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "C-bungalow",
+            "vertices": 1438,
+            "triangles": 716,
+            "min": [
+              -5.699999809265137,
+              -1,
+              -6.40000057220459
+            ],
+            "max": [
+              5.699999809265137,
+              6.899999618530273,
+              9.140000343322754
+            ],
+            "size": [
+              11.399999618530273,
+              7.899999618530273,
+              15.540000915527344
+            ],
+            "authored": {
+              "vertices": 1422,
+              "triangles": 708,
+              "min": [
+                -5.699999809265137,
+                0,
+                -6.400000095367432
+              ],
+              "max": [
+                5.699999809265137,
+                6.899999618530273,
+                9.14000129699707
+              ],
+              "size": [
+                11.399999618530273,
+                6.899999618530273,
+                15.540000915527344
+              ]
+            },
+            "generated_basement_triangles": 8
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "C-bungalow_lod",
+              "vertices": 198,
+              "triangles": 96,
+              "min": [
+                -5.699999809265137,
+                0,
+                -6.399999618530273
+              ],
+              "max": [
+                5.699999809265137,
+                6.899999618530273,
+                8.350000381469727
+              ],
+              "size": [
+                11.399999618530273,
+                6.899999618530273,
+                14.75
+              ],
+              "authored": {
+                "vertices": 198,
+                "triangles": 96,
+                "min": [
+                  -5.699999809265137,
+                  0,
+                  -6.400000095367432
+                ],
+                "max": [
+                  5.699999809265137,
+                  6.899999618530273,
+                  8.350000381469727
+                ],
+                "size": [
+                  11.399999618530273,
+                  6.899999618530273,
+                  14.75
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            10.5,
+            6.899999618530273,
+            12
+          ]
+        },
+        "lod_distance": [
+          390.53662109375,
+          613.5265502929688
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "C-bungalow.C-bungalow_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "C-bungalow/close.png",
+          "sha256": "eb4dd359e5fc33e757d4d04a077b846802f1bfe9a06d1de56c35a2e8a3b146c9"
+        },
+        "gameplay": {
+          "path": "C-bungalow/gameplay.png",
+          "sha256": "d8a104dd22d142a0a2e0cdf0ac0cd2804a8914706bd5baa49333b6f6368658fc"
+        },
+        "lod": {
+          "path": "C-bungalow/lod.png",
+          "sha256": "85a61118fa4a8f249b77f033e55e4b488b4dfcb649df6f3f49b9b295987837d3"
+        },
+        "night": {
+          "path": "C-bungalow/night.png",
+          "sha256": "ef21842fada9a413e71505fdf8150b59b5af90bcdd76c8c5a624bfb674a9e795"
+        },
+        "reload": {
+          "path": "C-bungalow/reload.png",
+          "sha256": "476797c1750ae56f745c105be26e0fd617a460830d471a69578d068837831c8e"
+        },
+        "back": {
+          "path": "C-bungalow/back.png",
+          "sha256": "9c639fa6d33e398315a44f843673e37cedb5e8f17afe07e1be2e5964d6ae8502"
+        },
+        "night-lod": {
+          "path": "C-bungalow/night-lod.png",
+          "sha256": "728530d261bb6a96e1a715cb47db75bb35436356b6bfc43330466df8a0a9ee0d"
+        },
+        "high": {
+          "path": "C-bungalow/high.png",
+          "sha256": "69f73f1fbbeb238c714a74d47bd50e64686a6a2f24d9a23b477b43a0c2d6ea59"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 120.212,
+          "job_seconds": {
+            "asset_build": 15.78
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2798
+          ],
+          "power_peak_w": 117.74,
+          "temperature_peak_c": 47.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 166.641,
+          "job_seconds": {
+            "place_building": 0.21,
+            "save_game": 2.2
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2817
+          ],
+          "power_peak_w": 122.2,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 122.7834207980195,
+        "check": 169.18856070400216
+      }
+    },
+    {
+      "name": "A-storefront",
+      "crp_sha256": "f4f06e1e15babf6ea633da8cde469d386031bb1706a1a208725bc282b57122f6",
+      "input_receipt_sha256": "82f019f5743ccb2311e246dfa62c0a9ecc66218389e928cbb6b6a28198eb208a",
+      "build_receipt_sha256": "9120eb12e3b3efd4ac53aa6b0e9ee0838f1bfb54e09d32416507ab69e1567935",
+      "check_receipt_sha256": "a9944b22625cb6ea6181eb3838005b2f07ae7bddfa29d5d36ac0bf3f044aef65",
+      "asset": {
+        "name": "A-storefront.A-storefront_Data",
+        "service": "Commercial",
+        "sub_service": "CommercialLow",
+        "level": 1,
+        "class": "Low Commercial - Level1",
+        "ai": "CommercialBuildingAI",
+        "cells": [
+          2,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "A-storefront",
+          "vertices": 1456,
+          "triangles": 728,
+          "min": [
+            -4.191499710083008,
+            -1,
+            -7.499999046325684
+          ],
+          "max": [
+            4.100000381469727,
+            11.399999618530273,
+            8.550000190734863
+          ],
+          "size": [
+            8.291500091552734,
+            12.399999618530273,
+            16.049999237060547
+          ],
+          "authored": {
+            "vertices": 1440,
+            "triangles": 720,
+            "min": [
+              -4.191499710083008,
+              0,
+              -7.499999523162842
+            ],
+            "max": [
+              4.100000381469727,
+              11.399999618530273,
+              8.549999237060547
+            ],
+            "size": [
+              8.291500091552734,
+              11.399999618530273,
+              16.049999237060547
+            ]
+          },
+          "generated_basement_triangles": 8
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "A-storefront_lod",
+            "vertices": 144,
+            "triangles": 72,
+            "min": [
+              -4,
+              0,
+              -7.499999523162842
+            ],
+            "max": [
+              4,
+              11.300000190734863,
+              7.499999523162842
+            ],
+            "size": [
+              8,
+              11.300000190734863,
+              14.999999046325684
+            ],
+            "authored": {
+              "vertices": 144,
+              "triangles": 72,
+              "min": [
+                -4,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                4,
+                11.300000190734863,
+                7.499999523162842
+              ],
+              "size": [
+                8,
+                11.300000190734863,
+                14.999999046325684
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          8,
+          11.399999618530273,
+          14.999999046325684
+        ],
+        "lod_distance": [
+          402.62567138671875,
+          603.4410400390625
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "A-storefront.A-storefront_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "A-storefront.A-storefront_Data",
+          "service": "Commercial",
+          "sub_service": "CommercialLow",
+          "level": 1,
+          "class": "Low Commercial - Level1",
+          "ai": "CommercialBuildingAI",
+          "cells": [
+            2,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "A-storefront",
+            "vertices": 1456,
+            "triangles": 728,
+            "min": [
+              -4.191499710083008,
+              -1,
+              -7.499999046325684
+            ],
+            "max": [
+              4.100000381469727,
+              11.399999618530273,
+              8.550000190734863
+            ],
+            "size": [
+              8.291500091552734,
+              12.399999618530273,
+              16.049999237060547
+            ],
+            "authored": {
+              "vertices": 1440,
+              "triangles": 720,
+              "min": [
+                -4.191499710083008,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                4.100000381469727,
+                11.399999618530273,
+                8.549999237060547
+              ],
+              "size": [
+                8.291500091552734,
+                11.399999618530273,
+                16.049999237060547
+              ]
+            },
+            "generated_basement_triangles": 8
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "A-storefront_lod",
+              "vertices": 144,
+              "triangles": 72,
+              "min": [
+                -4,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                4,
+                11.300000190734863,
+                7.499999523162842
+              ],
+              "size": [
+                8,
+                11.300000190734863,
+                14.999999046325684
+              ],
+              "authored": {
+                "vertices": 144,
+                "triangles": 72,
+                "min": [
+                  -4,
+                  0,
+                  -7.499999523162842
+                ],
+                "max": [
+                  4,
+                  11.300000190734863,
+                  7.499999523162842
+                ],
+                "size": [
+                  8,
+                  11.300000190734863,
+                  14.999999046325684
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            8,
+            11.399999618530273,
+            14.999999046325684
+          ]
+        },
+        "lod_distance": [
+          402.62567138671875,
+          603.4410400390625
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "A-storefront.A-storefront_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "A-storefront/close.png",
+          "sha256": "f45491e996c30a1ff838742901582409830863a53c5890fdcdca50def2e7da73"
+        },
+        "gameplay": {
+          "path": "A-storefront/gameplay.png",
+          "sha256": "bb5af30abf1a8474e2febf32968e6ec118c2385dc0a0c03dd6008bf4629b8197"
+        },
+        "lod": {
+          "path": "A-storefront/lod.png",
+          "sha256": "c62bbc5cd68e34fcde520756e40ad557fe0a8634daf1df7668ff583942b7b669"
+        },
+        "night": {
+          "path": "A-storefront/night.png",
+          "sha256": "f74bb2a6de247b74efd04433f69a5f1092fee46d5374e5670e158f924718017c"
+        },
+        "reload": {
+          "path": "A-storefront/reload.png",
+          "sha256": "8eae92ef0174e584b03a5a375f3ff34dcfca06aef867b6508514654cf19c8be4"
+        },
+        "back": {
+          "path": "A-storefront/back.png",
+          "sha256": "464cbfa4995e5ff9761e1135b03109be1cbeb3c3a3b4dc6536d41f7825cb2455"
+        },
+        "night-lod": {
+          "path": "A-storefront/night-lod.png",
+          "sha256": "f1e1ecfabf899d40b358f8eaaa4271df0a4062e311002ae7d45ee76d90e6685b"
+        },
+        "high": {
+          "path": "A-storefront/high.png",
+          "sha256": "72afc59b55d207ea770c76b687413389d1e4a62dedab73f847b4347d4b1e8675"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 110.188,
+          "job_seconds": {
+            "asset_build": 15.44
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2792
+          ],
+          "power_peak_w": 118.58,
+          "temperature_peak_c": 45.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 165.793,
+          "job_seconds": {
+            "place_building": 0.21,
+            "save_game": 2.21
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2814
+          ],
+          "power_peak_w": 124.08,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 119.99763790803263,
+        "check": 169.32027765898965
+      }
+    },
+    {
+      "name": "B-storefront",
+      "crp_sha256": "04397b1c8731c354471ee0b6d5abacd4a9bc787cfb3d7e40786b9b283ff2445e",
+      "input_receipt_sha256": "535e96922ba2bb866f148d5240608ba60be11dd772baebd165ad975e1b02848f",
+      "build_receipt_sha256": "cd18d0c4a3bf4e77cafbdb5f3c794439445cf5aaf727a08728e9182c08c9223e",
+      "check_receipt_sha256": "3a33a9c51bef7877f70091f4607c03985eccb2850f0dfa37f1426eb2f8557a05",
+      "asset": {
+        "name": "B-storefront.B-storefront_Data",
+        "service": "Commercial",
+        "sub_service": "CommercialLow",
+        "level": 1,
+        "class": "Low Commercial - Level1",
+        "ai": "CommercialBuildingAI",
+        "cells": [
+          2,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "B-storefront",
+          "vertices": 10583,
+          "triangles": 7883,
+          "min": [
+            -2.8433351516723633,
+            -1,
+            -7.499999523162842
+          ],
+          "max": [
+            2.8433351516723633,
+            9.213929176330566,
+            7.499999523162842
+          ],
+          "size": [
+            5.686670303344727,
+            10.213929176330566,
+            14.999999046325684
+          ],
+          "authored": {
+            "vertices": 10383,
+            "triangles": 7783,
+            "min": [
+              -2.8433351516723633,
+              0,
+              -7.499999523162842
+            ],
+            "max": [
+              2.8433351516723633,
+              9.213929176330566,
+              7.500002384185791
+            ],
+            "size": [
+              5.686670303344727,
+              9.213929176330566,
+              15.000001907348633
+            ]
+          },
+          "generated_basement_triangles": 100
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "B-storefront_lod",
+            "vertices": 296,
+            "triangles": 178,
+            "min": [
+              -2.8433351516723633,
+              0,
+              -7.499999523162842
+            ],
+            "max": [
+              2.8433351516723633,
+              9.213929176330566,
+              7.499999523162842
+            ],
+            "size": [
+              5.686670303344727,
+              9.213929176330566,
+              14.999999046325684
+            ],
+            "authored": {
+              "vertices": 296,
+              "triangles": 178,
+              "min": [
+                -2.8433351516723633,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                2.8433351516723633,
+                9.213929176330566,
+                7.500000476837158
+              ],
+              "size": [
+                5.686670303344727,
+                9.213929176330566,
+                15
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          5.675207614898682,
+          9.213929176330566,
+          14.42003059387207
+        ],
+        "lod_distance": [
+          366.10406494140625,
+          561.9722290039062
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "B-storefront.B-storefront_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "B-storefront.B-storefront_Data",
+          "service": "Commercial",
+          "sub_service": "CommercialLow",
+          "level": 1,
+          "class": "Low Commercial - Level1",
+          "ai": "CommercialBuildingAI",
+          "cells": [
+            2,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "B-storefront",
+            "vertices": 10583,
+            "triangles": 7883,
+            "min": [
+              -2.8433351516723633,
+              -1,
+              -7.499999523162842
+            ],
+            "max": [
+              2.8433351516723633,
+              9.213929176330566,
+              7.499999523162842
+            ],
+            "size": [
+              5.686670303344727,
+              10.213929176330566,
+              14.999999046325684
+            ],
+            "authored": {
+              "vertices": 10383,
+              "triangles": 7783,
+              "min": [
+                -2.8433351516723633,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                2.8433351516723633,
+                9.213929176330566,
+                7.500002384185791
+              ],
+              "size": [
+                5.686670303344727,
+                9.213929176330566,
+                15.000001907348633
+              ]
+            },
+            "generated_basement_triangles": 100
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "B-storefront_lod",
+              "vertices": 296,
+              "triangles": 178,
+              "min": [
+                -2.8433351516723633,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                2.8433351516723633,
+                9.213929176330566,
+                7.499999523162842
+              ],
+              "size": [
+                5.686670303344727,
+                9.213929176330566,
+                14.999999046325684
+              ],
+              "authored": {
+                "vertices": 296,
+                "triangles": 178,
+                "min": [
+                  -2.8433351516723633,
+                  0,
+                  -7.499999523162842
+                ],
+                "max": [
+                  2.8433351516723633,
+                  9.213929176330566,
+                  7.500000476837158
+                ],
+                "size": [
+                  5.686670303344727,
+                  9.213929176330566,
+                  15
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            5.675207614898682,
+            9.213929176330566,
+            14.42003059387207
+          ]
+        },
+        "lod_distance": [
+          366.10406494140625,
+          561.9722290039062
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "B-storefront.B-storefront_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "B-storefront/close.png",
+          "sha256": "8f164016240649d2be02229b8e6c19b46ac889b1b98bbd934c3ae37e8366cf1e"
+        },
+        "gameplay": {
+          "path": "B-storefront/gameplay.png",
+          "sha256": "541ba136edad94b073582ea6a9dafeacdfddf4d9836b04795a8e24a4c71a225d"
+        },
+        "lod": {
+          "path": "B-storefront/lod.png",
+          "sha256": "9667c324d38fa52f13ac26edfa4a2102a741ee9b131829564a81c24c54db70ac"
+        },
+        "night": {
+          "path": "B-storefront/night.png",
+          "sha256": "990f71dc18ff717abfe9512b5d1c1eed94d494d755423b553f8796a54b338d90"
+        },
+        "reload": {
+          "path": "B-storefront/reload.png",
+          "sha256": "4ff3619cfdd3108547bb3de54a9220b731fba0e6c61adb2c14ac47b8237762a4"
+        },
+        "back": {
+          "path": "B-storefront/back.png",
+          "sha256": "23b001749311522c2042fa4e08fc4b7f641b7d57b6f35e38036de614ea2a9297"
+        },
+        "night-lod": {
+          "path": "B-storefront/night-lod.png",
+          "sha256": "752268fc46386c33e0320e052c920625a4188942b3b69a8de99c586a221dec6b"
+        },
+        "high": {
+          "path": "B-storefront/high.png",
+          "sha256": "8b585bf73a270e398037409a6c3fa396bb38ffddb623ba9604fe1f77aa597ee4"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 121.38,
+          "job_seconds": {
+            "asset_build": 15.81
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2803
+          ],
+          "power_peak_w": 117.96,
+          "temperature_peak_c": 46.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 166.611,
+          "job_seconds": {
+            "place_building": 0.21,
+            "save_game": 2.26
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2814
+          ],
+          "power_peak_w": 123.35,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 128.07106225099415,
+        "check": 170.15390706801554
+      }
+    },
+    {
+      "name": "C-storefront",
+      "crp_sha256": "ef2ce89cb23034bdbf14b3d871237e8edea688ab1ea666b528797024b4281397",
+      "input_receipt_sha256": "a374aa66bfa22405e30b24ec17c678b8117832b9e42029f882c35ffa9af135a3",
+      "build_receipt_sha256": "81cc8ff64ea295b44a12af4d7d4abe2ece2403dc2ccee232a7d02785b59df2b8",
+      "check_receipt_sha256": "c9ab4bc1f99780c77b6f697f9c9a8b2425732ee105fca34633fdc4611f2d053a",
+      "asset": {
+        "name": "C-storefront.C-storefront_Data",
+        "service": "Commercial",
+        "sub_service": "CommercialLow",
+        "level": 1,
+        "class": "Low Commercial - Level1",
+        "ai": "CommercialBuildingAI",
+        "cells": [
+          2,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "C-storefront",
+          "vertices": 1456,
+          "triangles": 728,
+          "min": [
+            -4.191499710083008,
+            -1,
+            -7.499999046325684
+          ],
+          "max": [
+            4.100000381469727,
+            11.399999618530273,
+            8.550000190734863
+          ],
+          "size": [
+            8.291500091552734,
+            12.399999618530273,
+            16.049999237060547
+          ],
+          "authored": {
+            "vertices": 1440,
+            "triangles": 720,
+            "min": [
+              -4.191499710083008,
+              0,
+              -7.499999523162842
+            ],
+            "max": [
+              4.100000381469727,
+              11.399999618530273,
+              8.549999237060547
+            ],
+            "size": [
+              8.291500091552734,
+              11.399999618530273,
+              16.049999237060547
+            ]
+          },
+          "generated_basement_triangles": 8
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "C-storefront_lod",
+            "vertices": 144,
+            "triangles": 72,
+            "min": [
+              -4,
+              0,
+              -7.499999523162842
+            ],
+            "max": [
+              4,
+              11.300000190734863,
+              7.499999523162842
+            ],
+            "size": [
+              8,
+              11.300000190734863,
+              14.999999046325684
+            ],
+            "authored": {
+              "vertices": 144,
+              "triangles": 72,
+              "min": [
+                -4,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                4,
+                11.300000190734863,
+                7.499999523162842
+              ],
+              "size": [
+                8,
+                11.300000190734863,
+                14.999999046325684
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          8,
+          11.399999618530273,
+          14.999999046325684
+        ],
+        "lod_distance": [
+          402.62567138671875,
+          603.4410400390625
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "C-storefront.C-storefront_Data",
+        "position": [
+          0,
+          90.6507568359375,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "C-storefront.C-storefront_Data",
+          "service": "Commercial",
+          "sub_service": "CommercialLow",
+          "level": 1,
+          "class": "Low Commercial - Level1",
+          "ai": "CommercialBuildingAI",
+          "cells": [
+            2,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "C-storefront",
+            "vertices": 1456,
+            "triangles": 728,
+            "min": [
+              -4.191499710083008,
+              -1,
+              -7.499999046325684
+            ],
+            "max": [
+              4.100000381469727,
+              11.399999618530273,
+              8.550000190734863
+            ],
+            "size": [
+              8.291500091552734,
+              12.399999618530273,
+              16.049999237060547
+            ],
+            "authored": {
+              "vertices": 1440,
+              "triangles": 720,
+              "min": [
+                -4.191499710083008,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                4.100000381469727,
+                11.399999618530273,
+                8.549999237060547
+              ],
+              "size": [
+                8.291500091552734,
+                11.399999618530273,
+                16.049999237060547
+              ]
+            },
+            "generated_basement_triangles": 8
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "C-storefront_lod",
+              "vertices": 144,
+              "triangles": 72,
+              "min": [
+                -4,
+                0,
+                -7.499999523162842
+              ],
+              "max": [
+                4,
+                11.300000190734863,
+                7.499999523162842
+              ],
+              "size": [
+                8,
+                11.300000190734863,
+                14.999999046325684
+              ],
+              "authored": {
+                "vertices": 144,
+                "triangles": 72,
+                "min": [
+                  -4,
+                  0,
+                  -7.499999523162842
+                ],
+                "max": [
+                  4,
+                  11.300000190734863,
+                  7.499999523162842
+                ],
+                "size": [
+                  8,
+                  11.300000190734863,
+                  14.999999046325684
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            8,
+            11.399999618530273,
+            14.999999046325684
+          ]
+        },
+        "lod_distance": [
+          402.62567138671875,
+          603.4410400390625
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "C-storefront.C-storefront_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          2,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.3023681640625,
+        0
+      ],
+      "reload_height_preserved_within_1cm": false,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "C-storefront/close.png",
+          "sha256": "e2b520286182483a6383bec651a49b6e6421f750965fba1bfcf79d447ce6897a"
+        },
+        "gameplay": {
+          "path": "C-storefront/gameplay.png",
+          "sha256": "794472f683160bc10157c3a3bcf675eeb8904c6da67e0c224942119ecbc0b969"
+        },
+        "lod": {
+          "path": "C-storefront/lod.png",
+          "sha256": "889b4f42ded8188e8d073a968870f317269bafb54d9a9f142cf6793c00765dbd"
+        },
+        "night": {
+          "path": "C-storefront/night.png",
+          "sha256": "70f70f5e38134020ed63ce7e1f3584eedba5a62ec522032009c1cb8e16f5fa11"
+        },
+        "reload": {
+          "path": "C-storefront/reload.png",
+          "sha256": "0754fb6f2e0d60e0d7d3a17d6a16920552055387c5c3b6ddc574d4cc031b5e48"
+        },
+        "back": {
+          "path": "C-storefront/back.png",
+          "sha256": "7273f1c798c048408eea08e9c81b2244da05540e8c9913a0e8d91ae458e819f3"
+        },
+        "night-lod": {
+          "path": "C-storefront/night-lod.png",
+          "sha256": "84ede0e6bb4c5c8e5ac0492d1f9c47d844e0c3230a458422fda4de90290decd3"
+        },
+        "high": {
+          "path": "C-storefront/high.png",
+          "sha256": "9495689a9ce3afb95ca662933f8046f18974852824483a7895533bf9c4cacc48"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 119.938,
+          "job_seconds": {
+            "asset_build": 15.76
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2797
+          ],
+          "power_peak_w": 117.62,
+          "temperature_peak_c": 47.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 166.72,
+          "job_seconds": {
+            "place_building": 0.08,
+            "save_game": 2.29
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2816
+          ],
+          "power_peak_w": 123.95,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 123.51275839196751,
+        "check": 170.2870464870357
+      }
+    },
+    {
+      "name": "A-apartment",
+      "crp_sha256": "184828d487a2be263ea8ee596b20f34d1dc47c983b531030247b5dd9db4efc80",
+      "input_receipt_sha256": "c3495160c9a1a00ddec16aa38c87c893d103a9f546cd84118be5837e9c50c3e1",
+      "build_receipt_sha256": "0039092a730e40122c6a94638cb4c2ff3d34c28f260174623f0fd01be58c7152",
+      "check_receipt_sha256": "86c53f80c099f2b9683e6e89706b856390f5825a481716415ca0dd914e0c1c59",
+      "asset": {
+        "name": "A-apartment.A-apartment_Data",
+        "service": "Residential",
+        "sub_service": "ResidentialHigh",
+        "level": 1,
+        "class": "High Residential - Level1",
+        "ai": "ResidentialBuildingAI",
+        "cells": [
+          4,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "A-apartment",
+          "vertices": 2048,
+          "triangles": 1016,
+          "min": [
+            -14.299999237060547,
+            -1,
+            -5.40000057220459
+          ],
+          "max": [
+            14.299999237060547,
+            8.299999237060547,
+            7.050000190734863
+          ],
+          "size": [
+            28.599998474121094,
+            9.299999237060547,
+            12.450000762939453
+          ],
+          "authored": {
+            "vertices": 2016,
+            "triangles": 1000,
+            "min": [
+              -14.299999237060547,
+              0,
+              -5.400000095367432
+            ],
+            "max": [
+              14.299999237060547,
+              8.299999237060547,
+              7.0500006675720215
+            ],
+            "size": [
+              28.599998474121094,
+              8.299999237060547,
+              12.450000762939453
+            ]
+          },
+          "generated_basement_triangles": 16
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "A-apartment_lod",
+            "vertices": 144,
+            "triangles": 68,
+            "min": [
+              -14.299999237060547,
+              0,
+              -5.399999618530273
+            ],
+            "max": [
+              14.299999237060547,
+              8.299999237060547,
+              7
+            ],
+            "size": [
+              28.599998474121094,
+              8.299999237060547,
+              12.399999618530273
+            ],
+            "authored": {
+              "vertices": 144,
+              "triangles": 68,
+              "min": [
+                -14.299999237060547,
+                0,
+                -5.400000095367432
+              ],
+              "max": [
+                14.299999237060547,
+                8.299999237060547,
+                6.999999523162842
+              ],
+              "size": [
+                28.599998474121094,
+                8.299999237060547,
+                12.399999618530273
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          28,
+          8.299999237060547,
+          13.600000381469727
+        ],
+        "lod_distance": [
+          463.96685791015625,
+          724.3362426757812
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "A-apartment.A-apartment_Data",
+        "position": [
+          0,
+          90.6507568359375,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          4,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "A-apartment.A-apartment_Data",
+          "service": "Residential",
+          "sub_service": "ResidentialHigh",
+          "level": 1,
+          "class": "High Residential - Level1",
+          "ai": "ResidentialBuildingAI",
+          "cells": [
+            4,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "A-apartment",
+            "vertices": 2048,
+            "triangles": 1016,
+            "min": [
+              -14.299999237060547,
+              -1,
+              -5.40000057220459
+            ],
+            "max": [
+              14.299999237060547,
+              8.299999237060547,
+              7.050000190734863
+            ],
+            "size": [
+              28.599998474121094,
+              9.299999237060547,
+              12.450000762939453
+            ],
+            "authored": {
+              "vertices": 2016,
+              "triangles": 1000,
+              "min": [
+                -14.299999237060547,
+                0,
+                -5.400000095367432
+              ],
+              "max": [
+                14.299999237060547,
+                8.299999237060547,
+                7.0500006675720215
+              ],
+              "size": [
+                28.599998474121094,
+                8.299999237060547,
+                12.450000762939453
+              ]
+            },
+            "generated_basement_triangles": 16
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "A-apartment_lod",
+              "vertices": 144,
+              "triangles": 68,
+              "min": [
+                -14.299999237060547,
+                0,
+                -5.399999618530273
+              ],
+              "max": [
+                14.299999237060547,
+                8.299999237060547,
+                7
+              ],
+              "size": [
+                28.599998474121094,
+                8.299999237060547,
+                12.399999618530273
+              ],
+              "authored": {
+                "vertices": 144,
+                "triangles": 68,
+                "min": [
+                  -14.299999237060547,
+                  0,
+                  -5.400000095367432
+                ],
+                "max": [
+                  14.299999237060547,
+                  8.299999237060547,
+                  6.999999523162842
+                ],
+                "size": [
+                  28.599998474121094,
+                  8.299999237060547,
+                  12.399999618530273
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            28,
+            8.299999237060547,
+            13.600000381469727
+          ]
+        },
+        "lod_distance": [
+          463.96685791015625,
+          724.3362426757812
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "A-apartment.A-apartment_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          4,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.3023681640625,
+        0
+      ],
+      "reload_height_preserved_within_1cm": false,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "A-apartment/close.png",
+          "sha256": "25dc8311a5f9325156e59047fa36fdfb3210365fe1cc6b8b763a8ec4360c644d"
+        },
+        "gameplay": {
+          "path": "A-apartment/gameplay.png",
+          "sha256": "be97376f9905c618839a37a1a1e7e02666f0797965f2126592c072a01568bedb"
+        },
+        "lod": {
+          "path": "A-apartment/lod.png",
+          "sha256": "64dfc2694f52e7eb20b13f373ea707d5c7729d226df731cdb9652e55119eb4e3"
+        },
+        "night": {
+          "path": "A-apartment/night.png",
+          "sha256": "95e0a3d14dec3a8d45e174fe3e37222e079e37c0511177d186886efcb3f4297a"
+        },
+        "reload": {
+          "path": "A-apartment/reload.png",
+          "sha256": "ba0f72f60b8bbf903e8f4fb945124e1f70d81c834b03727bfeb67cc0a911a9b8"
+        },
+        "back": {
+          "path": "A-apartment/back.png",
+          "sha256": "a0d96dfe9cce548a50f0225df11206c8d13ff205808dd89553e968a4157e4341"
+        },
+        "night-lod": {
+          "path": "A-apartment/night-lod.png",
+          "sha256": "04cee4e1377883bcac95683735c1c508077f996c5f914c76d293de4e68842ad2"
+        },
+        "high": {
+          "path": "A-apartment/high.png",
+          "sha256": "d2fc6ffc47ca7fa20e6c978daa17d068ded512c9bdae17e2a14f6980c4617942"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 110.207,
+          "job_seconds": {
+            "asset_build": 15.96
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2797
+          ],
+          "power_peak_w": 116.85,
+          "temperature_peak_c": 46.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 167.757,
+          "job_seconds": {
+            "place_building": 0.08,
+            "save_game": 2.28
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2818
+          ],
+          "power_peak_w": 122.64,
+          "temperature_peak_c": 55.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 121.78107353701489,
+        "check": 171.36578980798367
+      }
+    },
+    {
+      "name": "B-apartment",
+      "crp_sha256": "5f5964e3ceb9f9d0ae25886d86cceeb8dd03d53c832254b00dd76c8731af9422",
+      "input_receipt_sha256": "a371539f0ae38e25c23926824777ce85878208129b566740c573a5cc8dff79d0",
+      "build_receipt_sha256": "ccf84d302290a23d6555f85518878aee909c70688f0225548fb11ce347497ff0",
+      "check_receipt_sha256": "773726bc7f2eecc01420c05b05ff6d74c0b612183697a7a48b7d331fe05bb3cb",
+      "asset": {
+        "name": "B-apartment.B-apartment_Data",
+        "service": "Residential",
+        "sub_service": "ResidentialHigh",
+        "level": 1,
+        "class": "High Residential - Level1",
+        "ai": "ResidentialBuildingAI",
+        "cells": [
+          4,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "B-apartment",
+          "vertices": 13416,
+          "triangles": 11756,
+          "min": [
+            -8.670268058776855,
+            -1,
+            -5.000000476837158
+          ],
+          "max": [
+            8.670268058776855,
+            5.87452507019043,
+            5.000000476837158
+          ],
+          "size": [
+            17.34053611755371,
+            6.87452507019043,
+            10.000000953674316
+          ],
+          "authored": {
+            "vertices": 13220,
+            "triangles": 11658,
+            "min": [
+              -8.670268058776855,
+              0,
+              -5.000000476837158
+            ],
+            "max": [
+              8.670268058776855,
+              5.87452507019043,
+              5.000000476837158
+            ],
+            "size": [
+              17.34053611755371,
+              5.87452507019043,
+              10.000000953674316
+            ]
+          },
+          "generated_basement_triangles": 98
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "B-apartment_lod",
+            "vertices": 418,
+            "triangles": 222,
+            "min": [
+              -8.670268058776855,
+              0,
+              -5.000000476837158
+            ],
+            "max": [
+              8.670268058776855,
+              5.87452507019043,
+              5.000000476837158
+            ],
+            "size": [
+              17.34053611755371,
+              5.87452507019043,
+              10.000000953674316
+            ],
+            "authored": {
+              "vertices": 418,
+              "triangles": 222,
+              "min": [
+                -8.670268058776855,
+                0,
+                -5.000000476837158
+              ],
+              "max": [
+                8.670266151428223,
+                5.87452507019043,
+                5.000000476837158
+              ],
+              "size": [
+                17.340534210205078,
+                5.87452507019043,
+                10.000000953674316
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          16.625904083251953,
+          5.87452507019043,
+          9.417094230651855
+        ],
+        "lod_distance": [
+          382.7615966796875,
+          612.437255859375
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "B-apartment.B-apartment_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          4,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "B-apartment.B-apartment_Data",
+          "service": "Residential",
+          "sub_service": "ResidentialHigh",
+          "level": 1,
+          "class": "High Residential - Level1",
+          "ai": "ResidentialBuildingAI",
+          "cells": [
+            4,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "B-apartment",
+            "vertices": 13416,
+            "triangles": 11756,
+            "min": [
+              -8.670268058776855,
+              -1,
+              -5.000000476837158
+            ],
+            "max": [
+              8.670268058776855,
+              5.87452507019043,
+              5.000000476837158
+            ],
+            "size": [
+              17.34053611755371,
+              6.87452507019043,
+              10.000000953674316
+            ],
+            "authored": {
+              "vertices": 13220,
+              "triangles": 11658,
+              "min": [
+                -8.670268058776855,
+                0,
+                -5.000000476837158
+              ],
+              "max": [
+                8.670268058776855,
+                5.87452507019043,
+                5.000000476837158
+              ],
+              "size": [
+                17.34053611755371,
+                5.87452507019043,
+                10.000000953674316
+              ]
+            },
+            "generated_basement_triangles": 98
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "B-apartment_lod",
+              "vertices": 418,
+              "triangles": 222,
+              "min": [
+                -8.670268058776855,
+                0,
+                -5.000000476837158
+              ],
+              "max": [
+                8.670268058776855,
+                5.87452507019043,
+                5.000000476837158
+              ],
+              "size": [
+                17.34053611755371,
+                5.87452507019043,
+                10.000000953674316
+              ],
+              "authored": {
+                "vertices": 418,
+                "triangles": 222,
+                "min": [
+                  -8.670268058776855,
+                  0,
+                  -5.000000476837158
+                ],
+                "max": [
+                  8.670266151428223,
+                  5.87452507019043,
+                  5.000000476837158
+                ],
+                "size": [
+                  17.340534210205078,
+                  5.87452507019043,
+                  10.000000953674316
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            16.625904083251953,
+            5.87452507019043,
+            9.417094230651855
+          ]
+        },
+        "lod_distance": [
+          382.7615966796875,
+          612.437255859375
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "B-apartment.B-apartment_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          4,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "B-apartment/close.png",
+          "sha256": "aa1f392b8c8d4552b7cd2b3ea3f9fc72dc731c7ce914cd062bca928dea008dbf"
+        },
+        "gameplay": {
+          "path": "B-apartment/gameplay.png",
+          "sha256": "4b3efde2ac2bd8f92f6894da92cea6a7787e3ce3b1d7f3da2ac2c9d021227300"
+        },
+        "lod": {
+          "path": "B-apartment/lod.png",
+          "sha256": "e5dda192afb6fabc366adefc41e31a3467054b9cc51d031b8b6cf6eeada4a1cd"
+        },
+        "night": {
+          "path": "B-apartment/night.png",
+          "sha256": "e49c21ee5700e228168bec81640b1c1b5d6765b85b244331742d9b8608daa660"
+        },
+        "reload": {
+          "path": "B-apartment/reload.png",
+          "sha256": "8a4e2779e04c83e511e32f1ad3c6b3aacd67a8d8b1ca145ea2245ff6ff70a193"
+        },
+        "back": {
+          "path": "B-apartment/back.png",
+          "sha256": "1e4efe49c77df4196b2cba716e461eed85fa49db4de62fbfeb74b3fe7616cdc4"
+        },
+        "night-lod": {
+          "path": "B-apartment/night-lod.png",
+          "sha256": "a6260d3e4842982237f1e4d74578b0642c05168bab7039e5ab81201449317f58"
+        },
+        "high": {
+          "path": "B-apartment/high.png",
+          "sha256": "c0f228cb38c9f0cf0dd79c0fd0af95061322348dc37709f0af2a8984f377e20f"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 120.925,
+          "job_seconds": {
+            "asset_build": 15.66
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2808
+          ],
+          "power_peak_w": 117.73,
+          "temperature_peak_c": 47.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 169.107,
+          "job_seconds": {
+            "place_building": 0.21,
+            "save_game": 2.24
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2812
+          ],
+          "power_peak_w": 121.79,
+          "temperature_peak_c": 54.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 124.48190676100785,
+        "check": 171.66516272403533
+      }
+    },
+    {
+      "name": "C-apartment",
+      "crp_sha256": "cdf7c1538e565bc44a642ed005b55f8e0af23eb9864264e50867338646d42dbf",
+      "input_receipt_sha256": "48acaedb61c8444d58e18578cd047c2998bb3a1ae9d3433663fd9224c9e34e64",
+      "build_receipt_sha256": "1842f3ce5e8380733215bb5baf573bdc16047231084e1c2a0d93b9c7474f4a30",
+      "check_receipt_sha256": "49a4f723a5e10105d4644d817c43cd1e05610285ef6b66a491b68292fd6c2584",
+      "asset": {
+        "name": "C-apartment.C-apartment_Data",
+        "service": "Residential",
+        "sub_service": "ResidentialHigh",
+        "level": 1,
+        "class": "High Residential - Level1",
+        "ai": "ResidentialBuildingAI",
+        "cells": [
+          4,
+          3
+        ],
+        "placement": "Automatic",
+        "zoning": "Straight",
+        "mesh": {
+          "name": "C-apartment",
+          "vertices": 2048,
+          "triangles": 1016,
+          "min": [
+            -14.299999237060547,
+            -1,
+            -5.40000057220459
+          ],
+          "max": [
+            14.299999237060547,
+            8.299999237060547,
+            7.050000190734863
+          ],
+          "size": [
+            28.599998474121094,
+            9.299999237060547,
+            12.450000762939453
+          ],
+          "authored": {
+            "vertices": 2016,
+            "triangles": 1000,
+            "min": [
+              -14.299999237060547,
+              0,
+              -5.400000095367432
+            ],
+            "max": [
+              14.299999237060547,
+              8.299999237060547,
+              7.0500006675720215
+            ],
+            "size": [
+              28.599998474121094,
+              8.299999237060547,
+              12.450000762939453
+            ]
+          },
+          "generated_basement_triangles": 16
+        },
+        "material": {
+          "shader": "Custom/Buildings/Building/Default",
+          "textures": {
+            "_MainTex": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_XYSMap": [
+              1024,
+              1024,
+              "DXT5"
+            ],
+            "_ACIMap": [
+              1024,
+              1024,
+              "DXT5"
+            ]
+          }
+        },
+        "lod": {
+          "mesh": {
+            "name": "C-apartment_lod",
+            "vertices": 144,
+            "triangles": 68,
+            "min": [
+              -14.299999237060547,
+              0,
+              -5.399999618530273
+            ],
+            "max": [
+              14.299999237060547,
+              8.299999237060547,
+              7
+            ],
+            "size": [
+              28.599998474121094,
+              8.299999237060547,
+              12.399999618530273
+            ],
+            "authored": {
+              "vertices": 144,
+              "triangles": 68,
+              "min": [
+                -14.299999237060547,
+                0,
+                -5.400000095367432
+              ],
+              "max": [
+                14.299999237060547,
+                8.299999237060547,
+                6.999999523162842
+              ],
+              "size": [
+                28.599998474121094,
+                8.299999237060547,
+                12.399999618530273
+              ]
+            },
+            "generated_basement_triangles": 0
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                256,
+                256,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                256,
+                256,
+                "DXT5"
+              ]
+            }
+          }
+        },
+        "generated_size": [
+          28,
+          8.299999237060547,
+          13.600000381469727
+        ],
+        "lod_distance": [
+          463.96685791015625,
+          724.3362426757812
+        ]
+      },
+      "placement": {
+        "id": 2002,
+        "exists": true,
+        "name": "C-apartment.C-apartment_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          4,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "info": {
+          "name": "C-apartment.C-apartment_Data",
+          "service": "Residential",
+          "sub_service": "ResidentialHigh",
+          "level": 1,
+          "class": "High Residential - Level1",
+          "ai": "ResidentialBuildingAI",
+          "cells": [
+            4,
+            3
+          ],
+          "placement": "Automatic",
+          "zoning": "Straight",
+          "mesh": {
+            "name": "C-apartment",
+            "vertices": 2048,
+            "triangles": 1016,
+            "min": [
+              -14.299999237060547,
+              -1,
+              -5.40000057220459
+            ],
+            "max": [
+              14.299999237060547,
+              8.299999237060547,
+              7.050000190734863
+            ],
+            "size": [
+              28.599998474121094,
+              9.299999237060547,
+              12.450000762939453
+            ],
+            "authored": {
+              "vertices": 2016,
+              "triangles": 1000,
+              "min": [
+                -14.299999237060547,
+                0,
+                -5.400000095367432
+              ],
+              "max": [
+                14.299999237060547,
+                8.299999237060547,
+                7.0500006675720215
+              ],
+              "size": [
+                28.599998474121094,
+                8.299999237060547,
+                12.450000762939453
+              ]
+            },
+            "generated_basement_triangles": 16
+          },
+          "material": {
+            "shader": "Custom/Buildings/Building/Default",
+            "textures": {
+              "_MainTex": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_XYSMap": [
+                1024,
+                1024,
+                "DXT5"
+              ],
+              "_ACIMap": [
+                1024,
+                1024,
+                "DXT5"
+              ]
+            }
+          },
+          "lod": {
+            "mesh": {
+              "name": "C-apartment_lod",
+              "vertices": 144,
+              "triangles": 68,
+              "min": [
+                -14.299999237060547,
+                0,
+                -5.399999618530273
+              ],
+              "max": [
+                14.299999237060547,
+                8.299999237060547,
+                7
+              ],
+              "size": [
+                28.599998474121094,
+                8.299999237060547,
+                12.399999618530273
+              ],
+              "authored": {
+                "vertices": 144,
+                "triangles": 68,
+                "min": [
+                  -14.299999237060547,
+                  0,
+                  -5.400000095367432
+                ],
+                "max": [
+                  14.299999237060547,
+                  8.299999237060547,
+                  6.999999523162842
+                ],
+                "size": [
+                  28.599998474121094,
+                  8.299999237060547,
+                  12.399999618530273
+                ]
+              },
+              "generated_basement_triangles": 0
+            },
+            "material": {
+              "shader": "Custom/Buildings/Building/Default",
+              "textures": {
+                "_MainTex": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_XYSMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ],
+                "_ACIMap": [
+                  256,
+                  256,
+                  "DXT5"
+                ]
+              }
+            }
+          },
+          "generated_size": [
+            28,
+            8.299999237060547,
+            13.600000381469727
+          ]
+        },
+        "lod_distance": [
+          463.96685791015625,
+          724.3362426757812
+        ]
+      },
+      "after_reload": {
+        "id": 2002,
+        "exists": true,
+        "name": "C-apartment.C-apartment_Data",
+        "position": [
+          0,
+          90.953125,
+          300
+        ],
+        "angle_deg": 0,
+        "cells": [
+          4,
+          3
+        ],
+        "flags": "Created, Completed",
+        "construct_state": 255,
+        "ok": true
+      },
+      "reload_position_delta_m": [
+        0,
+        0.0,
+        0
+      ],
+      "reload_height_preserved_within_1cm": true,
+      "reported_errors": {
+        "build": [],
+        "check": [
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+          "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+        ]
+      },
+      "images": {
+        "close": {
+          "path": "C-apartment/close.png",
+          "sha256": "cdab3b4c64f6428f802691f05790ab8d6844e0f020186006c059b486ba71087b"
+        },
+        "gameplay": {
+          "path": "C-apartment/gameplay.png",
+          "sha256": "2d8924a0f96e9871eb735a85f075a3efd92f36358617a08f882795d76141b4e6"
+        },
+        "lod": {
+          "path": "C-apartment/lod.png",
+          "sha256": "df9fe553ad9c04f7aec0e501520fb2b2f846d4fefd6b84d589ed3d3a4486fc08"
+        },
+        "night": {
+          "path": "C-apartment/night.png",
+          "sha256": "fa6fb7898192756d12663c1aaf014acc402ea430edb3ea0790ded69d1ffc009d"
+        },
+        "reload": {
+          "path": "C-apartment/reload.png",
+          "sha256": "5c6ea8f6bf64450a9ec87942821595be9c8bae2d65033b18bd71d489788dd370"
+        },
+        "back": {
+          "path": "C-apartment/back.png",
+          "sha256": "eba19faf5996adb3ffdcca7241627eed95430cb4608681f806a816ea31b115b8"
+        },
+        "night-lod": {
+          "path": "C-apartment/night-lod.png",
+          "sha256": "1fd7b597f525f3e067a3ab83c3909e86d90b8c79837f3aff8e9febada0b40272"
+        },
+        "high": {
+          "path": "C-apartment/high.png",
+          "sha256": "cc5bf6d55ff40f0d1672704f42a1faf8403646e48d36c08243f1db239a5bedd3"
+        }
+      },
+      "session_metrics": {
+        "build": {
+          "gpu_logged_session_seconds": 120.629,
+          "job_seconds": {
+            "asset_build": 15.7
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2802
+          ],
+          "power_peak_w": 119.44,
+          "temperature_peak_c": 47.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        },
+        "check": {
+          "gpu_logged_session_seconds": 167.943,
+          "job_seconds": {
+            "place_building": 0.21,
+            "save_game": 2.21
+          },
+          "gpu_peak_mib": 10821.0,
+          "gpu_baseline_mib": 8000,
+          "game_mib_at_end": [
+            2817
+          ],
+          "power_peak_w": 122.37,
+          "temperature_peak_c": 54.0,
+          "timing_note": "GPU-log span excludes queue wait, with 5-second sampling; job time excludes boot/editor loading"
+        }
+      },
+      "seconds_including_queue": {
+        "build": 124.18424705701182,
+        "check": 170.50008006801363
+      }
+    }
+  ],
+  "native_mod_sha256": "08b78db1827f3d7c3701d1aab54047585dbe292d5f59d50dc59c9ed58e133fa8"
+}

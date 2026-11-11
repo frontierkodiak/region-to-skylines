@@ -64,7 +64,7 @@ an apparently identical rerender without checking its exact image hash.
 The playtest hold ended and the older checks cleared. Created the isolated
 `PL-881-harness-native` worktree because PL-900 was using the previous
 `PL-881-game-check` checkout. Integrated main `e971c27` into the pinned bridge
-and scoped-template/gameplay-view extension; asset commands now use FIFO,
+and scoped-template/gameplay-view extension; asset commands now use the registered-waiter helper,
 per-process staging and explicit owning-issue metadata. Compilation, lint,
 format and the real 2080 Ti doctor passed.
 
@@ -81,3 +81,44 @@ separately from renderer bounds and total triangles, and applies the size guard
 to that body. Source geometry and every input texture remain unchanged. Its
 native retry is separate (`game-native`); the failed `game` output is preserved.
 Do not count the diagnostic failure as a successful package or render check.
+
+## 2026-11-11 — actual renderer comparison
+
+Primary harness `a1d01a6cddd8cddf069915676a64d779a6f7430e` completed all nine
+build/check pairs on blade's 2080 Ti at 1280×720, preserving the fixed inputs,
+original PL848 map and (0,300) placement. All body dimensions, lot cells,
+triangle budgets, custom-LOD/material metadata and completed building state
+survived the native save/reload cycle. The final audit additionally found
+A-apartment and C-storefront rising 0.302 m on reload; strict vertical
+preservation is 7/9, not a clean height-placement pass. The cause remains
+unresolved; x/z, lot cells and completed state persisted for all nine. All
+18 cleanup receipts were empty.
+
+The 55.9-minute batch includes 12.0 minutes of recorded slot/preflight wait.
+Editor jobs were 15.4–16.0 s each. Whole-card peak was 10,821 MiB (8,000-MiB
+resident baseline), 124.1 W, 55°C. Game allocation at check end was about
+2,814–2,818 MiB, not a separately measured process peak. SAM/Clef remained.
+
+Inspected eight nine-candidate contact sheets (72 unaltered native frames),
+including rear elevations, natural distant LOD, night and reloaded views.
+Clef scored 18 exact full frames in 13.9 s; image/reference/request/model
+bindings passed a separate audit. All original 192 artifact hashes and 24
+Blender judge bindings still pass. The native audit also reads back all nine
+CRPs from the three delivered QA archives. No image generation was repeated.
+
+Native rendering exposes B1's open/see-through storefront and broken row
+openings. Analysis-only re-import/weld confirms 715 / 2,818 / 3,594 open main
+boundary edges; inputs were not repaired or re-exported. A/C have zero open
+boundary edges but still contain intersections and simplified rear elevations.
+Night captures are dark, not proof of functioning windows in a paused,
+unserviced fixture. The same three missing-panel serialization messages appear
+in every city check and are retained in the manifest.
+
+The result refines the earlier blanket C default: A is the baseline for repeated
+gameplay stock; C is a selective close-view material pass, with no consistent
+gameplay advantage established. B1's bungalow silhouette is a useful positive
+counterexample, not evidence that the unrepaired method wins production stock,
+landmarks or props. `RESULTS.md` keeps the original pre-bridge analysis dated
+and separate. Exact native source, timing, shader, image, package and judge
+receipts are committed under `results/game/`; the private gallery retains all
+original frames and the old authoring packs.

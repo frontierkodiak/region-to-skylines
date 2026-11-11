@@ -1,0 +1,11 @@
+{
+  "lead": "Use procedural A as the baseline for repeated city stock; use hybrid C selectively for close-view material detail. Untreated image-to-3D B1 is not ready for stock buildings.",
+  "findings": [
+    "All nine candidates imported, fit their declared metre/lot contracts and remained completed in the same x/z lot after save/reload. A-apartment and C-storefront rose 0.302m on reload; strict height preservation is 7/9, not a clean placement pass.",
+    "C improves brick/surface detail up close, but its bright roof texture can obscure form. A and C are near-tied at the matched 120m gameplay view; this trial does not establish a general hybrid win.",
+    "B1's bungalow has the more convincing porch/dormer silhouette. Its storefront and apartment have conspicuous holes and distorted openings, with 8\u201312 times A/C's authored triangle count. Import success did not repair the main mesh.",
+    "A/C still need better dormer geometry and rear elevations; grass visibly intrudes through low porch slabs. These are study assets, not finished place-correct reconstructions.",
+    "Night screenshots do not demonstrate working window illumination in these paused, unserviced fixtures. B's illumination map is deliberately zero. No occupied/growth or long-running simulation claim is made.",
+    "Clef scored the exact full close/gameplay frames, advisory only. It understates visible geometry defects; the recommendation is a manual judgment. No landmark or prop was tested."
+  ]
+}

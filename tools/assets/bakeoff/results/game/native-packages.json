@@ -1,0 +1,29 @@
+{
+  "cs1-A-qa-assets.zip": {
+    "sha256": "0befb4443c924c0c91b185f5a57261fdf4a9e9c6408ddda75039aef2785da7f5",
+    "bytes": 3026278,
+    "crps": {
+      "A-bungalow.crp": "41d6534a3268296c06ec906acb709873cb5019c4730415461368147444018491",
+      "A-storefront.crp": "f4f06e1e15babf6ea633da8cde469d386031bb1706a1a208725bc282b57122f6",
+      "A-apartment.crp": "184828d487a2be263ea8ee596b20f34d1dc47c983b531030247b5dd9db4efc80"
+    }
+  },
+  "cs1-B-qa-assets.zip": {
+    "sha256": "79544c31e0db4d8c7c0fff6d7ebb1e510c931548d62dab54d9c5e7c87e543f37",
+    "bytes": 3845430,
+    "crps": {
+      "B-bungalow.crp": "bab84793addd7a72deca259f42dd539a6a2127bca030a5a08c423d5e4bd611ac",
+      "B-storefront.crp": "04397b1c8731c354471ee0b6d5abacd4a9bc787cfb3d7e40786b9b283ff2445e",
+      "B-apartment.crp": "5f5964e3ceb9f9d0ae25886d86cceeb8dd03d53c832254b00dd76c8731af9422"
+    }
+  },
+  "cs1-C-qa-assets.zip": {
+    "sha256": "7d1b40ccc912d238346f49ec17bc1c09b8dda8e84480f02500934b8236e739a5",
+    "bytes": 3537835,
+    "crps": {
+      "C-bungalow.crp": "ee6434d75c778631889b0b5b24023d6d800676bdb33bd213f4ac96913be01b54",
+      "C-storefront.crp": "ef2ce89cb23034bdbf14b3d871237e8edea688ab1ea666b528797024b4281397",
+      "C-apartment.crp": "cdf7c1538e565bc44a642ed005b55f8e0af23eb9864264e50867338646d42dbf"
+    }
+  }
+}

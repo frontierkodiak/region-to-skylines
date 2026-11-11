@@ -27,6 +27,12 @@ PL-880 owns the packaging bridge and the eventual game-renderer gate.
   needs `--yaw-deg -90` to make its street facade face -Y. No inferred depth or
   unseen facade is presented as a measurement.
 
+The type envelopes are authoring assumptions, not footprint surveys. A/C's
+authored porches and roof overhangs can extend beyond the nominal body size;
+B's uniform fit uses that nominal size. Recorded differences in lot occupancy
+therefore describe this conversion policy as well as the inferred shape.
+They are not an accuracy benchmark against measured real-building dimensions.
+
 ## Reproduce the Blender inputs
 
 Blender 5.2.1 LTS and `uv` were used. Keep all run output outside the repository.
@@ -183,10 +189,48 @@ review page includes reference photographs; they are **not** committed here.
 Lexington photo: Stilfehler / Wikimedia Commons, CC BY-SA 4.0. Other photographs:
 PSABC and Asheville Housing Authority. Aerial: USGS NAIP.
 
-## What these files do not establish
+## Native CS1 continuation
 
-- FBX import checks are not a `.crp` import, game renderer, actual shader,
-  LOD-switch, placement, save/reload, service behavior or night validation.
+`bridge_inputs.py` converts the pinned saved scenes into the bridge's FBX All,
+baked-axis contract. It preserves every texture byte and writes explicit
+size/lot/import-scale receipts. Use the shelf's **bridge-*-authoring-inputs.zip**
+files for native imports, not the older Blender authoring ZIPs.
+
+`game_batch.py <harness> <game-inputs> <map.crp> <run-output> --wait-minutes 30`
+runs the fixed nine imports and fresh-city checks, sequentially. It checks all
+126 input hashes first and binds its plan to the script, manifest, map, harness
+revision and camera driver. Completion markers bind CRPs and receipts; changed
+plans require a new output root. Steam prompts are never answered. The exact
+primary native harness source is `a1d01a6cddd8cddf069915676a64d779a6f7430e`.
+
+`uv run --script tools/assets/bakeoff/game_report.py <run-output> <game-inputs>
+<review>/cs1` audits actual package, dimensions, lots, triangles, packed shader
+maps, save/reload and cleanup receipts. It creates the native gallery, matched
+pixel crops and per-arm QA CRP archives. `--conclusions results/game/review.json`
+adds separately authored manual findings. Original frames remain unchanged and
+hash-bound; the judge uses full frames, not enlarged contact-sheet crops.
+
+`audit.py <experiment> --native <review>/cs1` additionally checks all 72 native
+frames, 18 exact judge payload/image/reference/model bindings and all nine CRPs
+read back from the three QA ZIPs, alongside the historical artifact audit.
+
+`main_topology.py`, run through Blender, measures open edges after an
+analysis-only coincident-vertex weld. It never repairs or re-exports a model.
+The prepared-only example `examples/pl881-render-probes.py` on branch
+`PL-881-render-probes` uses
+runtime-only LOD distances for close inspection, then restores them. Forced
+LOD views are explicitly separate from natural gameplay captures and scoring.
+It compiled, but its native attempt timed out on the shared slot; it is not
+passing native evidence and is not part of the verified harness PR.
+
+## What the evidence does not establish
+
+- The historical Blender/FBX checks alone are not native-game evidence. The
+  separate native receipts and manual comparison are in `RESULTS.md` and
+  `results/game/`. A successful import is not a visual-quality pass.
+- Paused, manually completed buildings do not certify zoning/growth, economics,
+  a powered/occupied night state or long-running service behavior. QA CRPs are
+  not production-ready or Workshop-published packs.
 - B deliberately has zero illumination/color-variation masks and low generic
   specularity: PBR outputs do not identify CS1's random night windows. Valid
   channel files do not mean the same night behavior as A/C.
