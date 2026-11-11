@@ -91,12 +91,16 @@ def body(out: pathlib.Path, v: dict, entry: dict) -> str:
 
 def attachments(out: pathlib.Path, v: dict) -> list[pathlib.Path]:
     files = []
+    # What a player sees first, and the check against the real world.
+    for name in ("shots/player-opening.png", "shots/player-area-zoom.png", "new-game-panel.png", "ground-truth.png"):
+        if (out / name).exists():
+            files.append(out / name)
     if (out / "water-change.png").exists():
         files.append(out / "water-change.png")
     shots = sorted((out / "shots").glob("*.png")) if (out / "shots").exists() else []
     if shots:
         last_label = shots[-1].name.split("-")[0]
-        files += [p for p in shots if p.name.startswith(last_label + "-")][:2]
+        files += [p for p in shots if p.name.startswith(last_label + "-") and not p.name.startswith("player-")][:1]
     for extra in ("last-frame.jpg", "timelapse.mp4"):
         p = out / extra
         if p.exists() and p.stat().st_size <= MAX_ATTACH_BYTES:

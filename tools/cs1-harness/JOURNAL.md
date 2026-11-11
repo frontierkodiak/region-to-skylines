@@ -620,6 +620,45 @@ it. That's a separate issue.)
 frames/s. After: the ceiling is the game's own 4× (60 game-minutes ≥ 15 wall
 minutes), reached at 720p with half the CPU. Going faster than 4× would mean
 changing the game's speed table, which the harness doesn't do.
+## 2026-11-10 · Opus 5.5 (blade) · PL-891 · agents check their own frame; the playtest checks the world
+
+**What happened.** Caleb's first playtest of "Asheville - Ready to Play"
+(7:40–8:05 PM) found two problems that every agent review had missed. The New
+Game panel looked broken: no preview, a stranger's name as author, empty
+resources. And the map looked rotated about 90°.
+
+**Why we missed them.** Every check we had compared the game with our own
+code's frame. The writer's coordinate code placed the probes and drew the water
+readback, the terrace check and `water-start.png`. A rotated, mirrored or
+transposed map passes all of them. The lead's first answer to "is it
+rotated?" was "no". That answer rested on `water-start.png`, which the harness
+draws in the writer's frame. None of these checks saw what a player sees.
+
+**What changed.**
+- `ground_truth` checks the map against the world. The harness fetches
+  elevation itself and projects it with its own code into the game's frame
+  (+x east, +z north). It then correlates it with the terrain the game reports,
+  in all eight rotations and mirrors.
+- `opening_camera` reads the camera's real heading at load. `run` saves the
+  opening view and Area Zoom as a player sees them, and `--notify` posts them
+  with the New Game panel (PR #8's capture) and the ground-truth image.
+- A map soak can no longer report PASS from self-consistent checks alone. With
+  no passing `ground_truth` it reports `unverified`.
+
+**First answer.** On the PL-848 Asheville terrain the game reported in
+tonight's smoke run, the heights correlate with the real DEM at r = 0.977 as
+is. Every rotation or mirror scores 0.38 or less. So the heights reach the game
+north-up, and Caleb's sideways view is most likely the opening camera. The
+camera heading needs a live run; it's queued behind the playtest hold. The
+region's highest point is 58 m lower in game than the DEM's trend predicts,
+which looks like smoothing on the peaks. That goes to the writer.
+
+**Before → after.** Before: nine checks, all in our own frame, and a PASS on a
+map a person saw as broken in its first minute. After: a PASS needs the world
+to agree. Re-judged under the new rule, PL-857's best Asheville soak reads
+`unverified` until its probe file names its region. The lesson: an agent's
+check is only as independent as the frame it's drawn in. The playtest checked
+the world, so now the harness does too.
 
 ## Run log
 

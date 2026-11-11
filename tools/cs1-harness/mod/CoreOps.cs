@@ -25,6 +25,7 @@ namespace Cs1Harness
             Host.Register("run", Needs.Level, "pause/unpause and set speed 1-3: {paused, speed}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
             Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", q => { UIView.Show(Json.Bool(q, "visible", true)); return Host.Obj("ui_visible", Json.Bool(q, "visible", true)); });
+            Host.Register("camera_state", Needs.Level, "where the camera is and which way it faces: position, heading (0 = +z, 90 = +x), pitch, size, max size", q => CameraState());
             Host.Register("screenshot", Needs.Level, "write a PNG at the end of this frame: {path (absolute), supersize}", Screenshot);
             Host.Register("render", Needs.Any, "throttle drawing (the simulation runs on): {fps (0 = unlimited), camera (false: the main camera stops drawing the world)}", Render);
         }
@@ -128,6 +129,27 @@ namespace Cs1Harness
             c.m_targetSize = size;
             c.SetOverrideModeOn(pos, angle, size);
             return Host.Obj("camera", new object[] { pos.x, pos.y, pos.z }, "yaw", angle.x, "pitch", angle.y, "size", size);
+        }
+
+        static Dictionary<string, object> CameraState()
+        {
+            var c = ToolsModifierControl.cameraController;
+            if (c == null)
+                throw new Exception("no camera controller in this scene");
+            // Yaw turns about +y, so 0 looks along +z and 90 along +x (Unity's left-handed axes).
+            float yaw = c.m_currentAngle.x;
+            float heading = ((yaw % 360f) + 360f) % 360f;
+            var cam = c.GetComponent<Camera>();
+            var fwd = cam != null ? cam.transform.forward : Vector3.zero;
+            return Host.Obj(
+                "position", new object[] { c.m_currentPosition.x, c.m_currentPosition.y, c.m_currentPosition.z },
+                "yaw", yaw,
+                "heading_deg", heading,
+                "pitch", c.m_currentAngle.y,
+                "size", c.m_currentSize,
+                "max_size", c.m_maxDistance,
+                "forward", new object[] { fwd.x, fwd.y, fwd.z }
+            );
         }
 
         static Dictionary<string, object> Screenshot(Dictionary<string, object> q)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import pathlib
 import shutil
 import time
@@ -76,6 +77,50 @@ class MapCheck:
         except HarnessError as e:
             self.log(f"render cap unavailable ({e}); drawing at full rate")
             self.render_fps = 0
+
+    def player_path(self) -> dict | None:
+        """What a player sees first: the opening view with the UI, and Area Zoom (fully zoomed out).
+
+        Read before the harness moves the camera, so it's the map's own start camera."""
+        try:
+            cam = self.c.call("camera_state")
+        except HarnessError as e:
+            self.log(f"camera_state unavailable ({e}); no player's-path shots")
+            return None
+        # Facing from the camera's own forward vector (independent of how yaw is counted).
+        fx, _, fz = cam.get("forward") or [0, 0, 1]
+        bearing = (math.degrees(math.atan2(fx, fz)) + 360) % 360 if (fx or fz) else cam["heading_deg"]
+        cam["heading_deg"] = round(bearing, 1)
+        cam["facing"] = ["north", "north-east", "east", "south-east", "south", "south-west", "west", "north-west"][
+            int(((bearing + 22.5) % 360) // 45)
+        ]
+        self.record("opening_camera", cam)
+        paused = self.c.call("stats")["paused"]
+        self.c.call("run", paused=True)
+        try:
+            for name, size in (("opening", None), ("area-zoom", cam.get("max_size"))):
+                if size:
+                    self.c.call(
+                        "camera",
+                        position=cam["position"],
+                        size=size,
+                        yaw=cam["yaw"],
+                        pitch=cam["pitch"],
+                    )
+                time.sleep(5)
+                staged = self.s.stage / "shots" / f"player-{name}.png"
+                self.c.call("screenshot", path=str(staged))
+                for _ in range(60):
+                    if staged.exists() and staged.stat().st_size > 0:
+                        break
+                    time.sleep(0.5)
+                time.sleep(0.5)
+                self.shots.append({"label": "player", "view": name, "file": f"shots/{staged.name}"})
+                self.record("screenshot", self.shots[-1])
+        finally:
+            self.c.call("camera", release=True)
+            self.c.call("run", paused=paused)
+        return cam
 
     def screenshots(self, label: str):
         paused = self.c.call("stats")["paused"]
@@ -161,6 +206,7 @@ class MapCheck:
             f"city loaded at frame {start_frame}; {frames_per_minute:.0f} frames per game-minute; "
             f"running to frame {target}"
         )
+        opening = self.player_path()
         self.dump("t000", terrain=True)
         self.sample("t000")
         self.screenshots("t000")
@@ -234,6 +280,7 @@ class MapCheck:
             "scenario": fixture,
             "requested_scenario": scenario,
             "population_observations": population_observations,
+            "opening_camera": opening,
             "final_status": {k: status.get(k) for k in ("error_count", "errors", "population", "game_time")},
         }
 
