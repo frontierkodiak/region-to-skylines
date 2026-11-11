@@ -1422,3 +1422,19 @@ Asheville completed; both selected/city images genuinely reviewed and hash-bound
 The other four remain pending. No source/log/account image is a deliverable.
 The bounded-head offline comparison leaves Ash/Inn/Char terrain/water/hydrology
 byte-identical; only Rio/Pitt change water/controls, not terrain.
+
+## 2026-11-11 05:08 ET — reject blanket shallow-head pilot
+
+Bounded-head Riofb8f66db completed15.1394minutes with zero distant spread,
+but only184/244 playable river probes exact end wet and25with no64m water.
+Inputs/paths/cleanup pass; actual panel/opening/Areas genuinely reviewed.
+This is rejected as a default. The dry subset clusters at small channel-bed
+barriers (Maracanã, Comprido, Macacos), not arbitrary random sample points.
+Regulators were chosen from the smooth fitted surface, so shallow supplies in
+low pools cannot reach actual bed crests left by the3m excavation cap.
+
+The next placement experiment adds regulators at actual carved-bed crests
+(prominence0.5m, minimum128m separation), independent of probes. It retains the
+same1m target/prefill bound and does not excavate farther. First inspect exact
+candidate/control differences offline, then queue one15minute Rio trial. No
+acceptance transfers from either prior candidate; all failure subsets retained.
