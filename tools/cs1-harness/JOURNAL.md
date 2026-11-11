@@ -1438,3 +1438,25 @@ The next placement experiment adds regulators at actual carved-bed crests
 same1m target/prefill bound and does not excavate farther. First inspect exact
 candidate/control differences offline, then queue one15minute Rio trial. No
 acceptance transfers from either prior candidate; all failure subsets retained.
+
+## 2026-11-11 05:35 ET — bed-crest trial restores continuity; qualify two changed maps
+
+Writer21a8798 (integrated asb95c2f4) adds51 actual-bed-crest regulators in Rio,
+92->143controls, independent of probe positions. Terrain is unchanged and the
+1m bank-limited head/prefill bound is retained. Rioa39c2d57 completed15.0133min:
+233/244 playable exact end wet,12ever exact dry, ALL976 native64m observations
+wet; all2,968 whole-map river neighbourhood observations wet. Distant spread is
+three cells,0.000768km², maximum0.703125m. Initial native grids/controls, six full
+paths and empty cleanup pass. Minor streams and exact misses remain explicit.
+This is a promising short result, NOT a60minute certificate.
+
+`bed-crest-final-60` now queues fresh Rio/Pittsburgh separately for60minutes,
+using private DLL9940eaf0 and unchanged fair-slot/Steam guards. Exact packages:
+- Rio `a39c2d57135f32ce8e992865b0ae21494eb92d7e9d1da4840f8727d82ca68142`
+- Pittsburgh `964ef3220715a3c20b75cd5cf20911f59550fd7ef52d943d198c87e361a11da1`
+
+Ash/Inn/Char remain byte-identical to the surface-final matrix; no inherited
+qualification for either changed package. Initial bank-limited shallow fill
+and actual-bed-crest supply are a paired policy: the head-only pilot failed.
+The original five-case baseline continues foreground, retaining the old Rio
+pool and providing comparative Pitt/Char data. No owned job is detached.
