@@ -94,6 +94,7 @@ namespace Cs1Harness
             ScenarioOps.Register();
             PanelOps.Register();
             WorldOps.Register();
+            TemplateOps.Register();
             NetworkOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();

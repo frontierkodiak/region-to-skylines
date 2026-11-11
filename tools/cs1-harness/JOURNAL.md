@@ -25,6 +25,26 @@ Active private DLL58ae33b2… stayed unchanged; no normal build/install, game,
 Steam, doctor, service, GPU/inference/session or platform write occurred.
 No native acceptance claimed; parent retains PR/build/short native verification.
 
+## 2026-11-11 · PL-857 native air-template authoring route (OFFLINE)
+
+Added isolated TemplateOps and an explicit Python authoring helper, based on
+8ccb2f4 without concurrent queue work. Native LoadMap=1 opens the source map
+in MapEditor availability=2. Plane FlightPathAI discovery, MakeControlPoint
+outside snapping and test/apply NetTool.CreateNode use real native allocation;
+no fake air metadata, building flags or binary IDs. Original fingerprints and
+outside counts gate a fresh unpublished SaveMapPanel export. Its SHA binds
+native node/segment/prefab/AI/lane/outside-building inventory; writer_adopted
+and native_new_game_verified remain false. No raw template/identity committed.
+
+59 offline tests (11 new) and full Ruff checks pass. Direct installed-assembly
+compilation writes only own air-template-build scratch output; active
+58ae33b2… cached DLL remained unchanged. Actual prefab selection, placement,
+paused outside-building updates, native save controls and saved counts need a
+disposable native pilot. AIR_TEMPLATE.md records exact source/modes and writer
+adoption blockers: both-outside→rail, ground grading, resource masks and car
+probes. No game, Steam, doctor, GPU harness, shared-service or platform changes;
+GPU/run metrics do not apply. Parent retains PR/build/native/adoption decisions.
+
 How agents built and improved this harness: raw material for a write-up. One
 entry per change that mattered: the date, the agent and issue, what got in the
 way, what changed, and before/after (boot time, failure rate, what's newly

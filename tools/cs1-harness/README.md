@@ -8,6 +8,10 @@ that proof. This supplements actual stable bar readbacks and still requires
 manual hash-bound image review. A numeric ore value at target does not
 override a visibly empty rendered bar.
 
+Experimental native map-editor air-template authoring is documented in
+[AIR_TEMPLATE.md](AIR_TEMPLATE.md). It is offline-verified only and never
+automatically adopts or rewrites the writer's template.
+
 Runs Cities: Skylines 1 on blade's GPU with no screen, so agents can drive it.
 It has two layers. A **session** (`up` / `call` / `down`) holds the game
 running headless and takes ops over a loopback socket from any tool. The **map
