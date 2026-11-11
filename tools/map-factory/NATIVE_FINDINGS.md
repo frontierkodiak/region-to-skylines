@@ -23,11 +23,26 @@ qualification superseded) are:
 
 | Region | Full CRP SHA-256 | New native qualification |
 | --- | --- | --- |
-| Asheville | `b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535` | Strict ordinary start reviewed;60minute run queued |
-| Innsbruck | `3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6` | Queued |
-| Rio | `5b533d623816f753b512e7e98eec49441a2fb004db79ff8372ae46bc4ec0f2f4` |15minute geographic-coverage pilot active |
-| Pittsburgh | `78e17efe8b21b7c337650ca391543aed5f3212ad2b79ac946ae01e813b2ebb26` |15minute pilot queued |
-| Charleston | `fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667` | Queued |
+| Asheville | `b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535` | Native 60-minute PASS and reviewed strict start; 1,736/1,736 central source-river cells near wet through all five grids; no distant spread |
+| Innsbruck | `3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6` | Native 60-minute run active; reviewed strict start |
+| Rio | `f60d9f4a4b2f222ffeb4fe5efb4b40cbbd90f74047f771e34090764f410c869a` | Rejected at 15 minutes: 0.155904 km2 distant spreading, max 3.859375 m; controlled intake/output/prefill diagnostics queued |
+| Pittsburgh | `d32e51a49fa9d65e5a476927696337cf90aae42a202f64f75d6bba4fa9ff1fcd` | Native 60.0636-minute PASS; 2,461/2,461 central source-river cells near wet through all five grids; no distant spread; strict start queued |
+| Charleston | `fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667` | Native soak queued; strict start completed, images await review |
+
+The later short-source footprint guards change only Rio/Pittsburgh; exact
+rebuilds prove all other CRP bytes unchanged. Native geographic probes sample
+every five game-minutes; the independent source-segment raster checks saved
+grids at 0/15/30/45/60. "Near wet" means actual water within 64 m, not an exact
+wetness claim. Pittsburgh's independent raster has 2,159/2,461 exact-wet cells
+through all saved grids; all 2,461 are near wet. Exact dry subsets remain in
+the evidence, along with physical edges and nonperennial minor streams.
+
+The original short-reach Rio `5b533d62` failed too (0.175104 km2, max 4.546875 m).
+Reducing footprint rates changed withdrawal as well as supply and moved some
+flooding. `water_diagnostics.py` exports fingerprint-bound matched factors:
+zero short output; sea-only initial water; and original portal intake with
+bounded output retained. They are causal diagnostics, not qualified defaults.
+No distributed intake field or invisible facility-source pump is adopted.
 
 All five full hashes reproduce from newly frozen scratch fixtures; complete
 region/resource verification and direct-generator/staging-integrity tests
