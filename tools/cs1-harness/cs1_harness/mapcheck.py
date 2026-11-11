@@ -122,6 +122,23 @@ class MapCheck:
             self.c.call("run", paused=paused)
         return cam
 
+    def world_heights(self, n: int = 40):
+        """Terrain heights from the game's own world-coordinate sampler on an n x n grid.
+
+        The ground-truth check uses these, so it doesn't depend on how we read the dump."""
+        step = 17280 / n
+        pts = [[-8640 + step * (i + 0.5), -8640 + step * (j + 0.5)] for j in range(n) for i in range(n)]
+        heights = []
+        for k in range(0, len(pts), 400):
+            heights += [p["terrain"] for p in self.c.call("water", points=pts[k : k + 400])["samples"]]
+        grids = self.s.stage / "grids"
+        grids.mkdir(parents=True, exist_ok=True)
+        (grids / "t000-terrain-points.json").write_text(
+            json.dumps(
+                {"source": "TerrainManager.SampleRawHeightSmooth via the mod", "points": pts, "heights": heights}
+            )
+        )
+
     def screenshots(self, label: str):
         paused = self.c.call("stats")["paused"]
         self.c.call("run", paused=True)
@@ -208,6 +225,7 @@ class MapCheck:
         )
         opening = self.player_path()
         self.dump("t000", terrain=True)
+        self.world_heights()
         self.sample("t000")
         self.screenshots("t000")
 

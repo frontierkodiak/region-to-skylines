@@ -23,6 +23,7 @@ height errors to the landmark rows.
 
 from __future__ import annotations
 
+import json
 import math
 import os
 import pathlib
@@ -52,8 +53,9 @@ TRANSFORMS = {
     "rotated 90° counter-clockwise": lambda a: np.rot90(a, 1),
     "mirrored east-west": lambda a: a[:, ::-1],
     "mirrored north-south": lambda a: a[::-1, :],
-    "transposed (x and z swapped)": lambda a: a.T,
-    "anti-transposed": lambda a: np.rot90(a, 2).T,
+    # On a north-up array (row 0 = north), .T reflects across the anti-diagonal of the world.
+    "transposed (x and z swapped)": lambda a: np.rot90(a, 2).T,
+    "anti-transposed": lambda a: a.T,
 }
 
 
@@ -121,6 +123,20 @@ def projection(region: dict):
     return inverse, forward
 
 
+def _turn(name: str, x: np.ndarray, z: np.ndarray):
+    """World point (x east, z north) -> where the named transform of the world puts it."""
+    return {
+        "as is": (x, z),
+        "rotated 90° clockwise": (-z, x),
+        "rotated 180°": (-x, -z),
+        "rotated 90° counter-clockwise": (z, -x),
+        "mirrored east-west": (-x, z),
+        "mirrored north-south": (x, -z),
+        "transposed (x and z swapped)": (z, x),
+        "anti-transposed": (-z, -x),
+    }[name]
+
+
 def game_terrain(path: pathlib.Path) -> np.ndarray:
     """The game's raw terrain dump, as metres in [row = z index (south first), col = x index]."""
     return np.fromfile(path, dtype="<u2").reshape(N, N) / 64.0
@@ -177,8 +193,31 @@ def check(terrain_path: pathlib.Path, region: dict, out: pathlib.Path | None = N
             if region.get("base") is not None:
                 lm["error_vs_base_m"] = round(lm["game_m"] + float(region["base"]) - lm["dem_m"], 1)
 
+    # The same test on heights from the game's own world-coordinate sampler, when the run saved them:
+    # independent of how the harness reads the terrain dump.
+    pts_file = terrain_path.parent / "t000-terrain-points.json"
+    api = None
+    if pts_file.exists():
+        d = json.loads(pts_file.read_text())
+        px = np.array([p[0] for p in d["points"]])
+        pz = np.array([p[1] for p in d["points"]])
+        h = np.array(d["heights"], dtype=float)
+        k = int(round(math.sqrt(len(h))))
+        api_scores = {}
+        for name, f in TRANSFORMS.items():
+            # Turn the world frame instead of the array: sample the DEM where the transform puts each point.
+            tx, tz = _turn(name, px, pz)
+            lo, la = inverse(tx, tz)
+            api_scores[name] = round(corr(h, dem_at(np.asarray(lo), np.asarray(la))), 4)
+        a_id = api_scores["as is"]
+        a_runner = max(v for n_, v in api_scores.items() if n_ != "as is")
+        api_ok = a_id >= THRESHOLDS["min_correlation"] and a_id - a_runner >= THRESHOLDS["min_margin"]
+        api = {"points": int(len(h)), "grid": k, "correlation": api_scores, "passed": bool(api_ok)}
+        ok = ok and api_ok
+
     result = {
         "passed": bool(ok),
+        "game_sampler": api,
         "orientation": "as is" if ok else best,
         "correlation": scores,
         "best": best,
