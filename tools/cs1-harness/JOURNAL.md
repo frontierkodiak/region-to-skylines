@@ -1572,3 +1572,10 @@ No intermediate guard-only candidate was run in game. Superseded waiting
 Pittpilot54885 was revalidated against its soak.py ancestor, queue entry and
 own Ashholder37656, then interrupted; parent collectedexit1(child130), no
 game started and holder untouched. Native failure subsets remain archived.
+
+Pittsburghd32e51a49fa9d65e5a476927696337cf90aae42a202f64f75d6bba4fa9ff1fcd
+queues its first final60minute run with full geographic probes; actual15minute
+snapshot will also be assessed. Fresh strict --disableMods starts queue for
+Riof60d9f4a/Pittd32e51a4, no control socket and sole exact custom package.
+No native success is inferred from offline receipt/plan replay. These and all
+other requests remain foreground, fair per-region and account-conflict-safe.
