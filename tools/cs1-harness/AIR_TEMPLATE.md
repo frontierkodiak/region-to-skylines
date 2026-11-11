@@ -1,6 +1,6 @@
 # Native air-template authoring · offline-first
 
-**Not executed in game. No new template is adopted or committed.** Based on
+**Native authoring pilot completed; no new writer template adopted or committed.** Based on
 harness `8ccb2f47207f2074836f6c655c2801fcc66e9af5`, without concurrent queue
 changes. This authors an abstract map-edge flight path, not an airport or an
 asserted AVL approach. A real airport outside the footprint need not be placed
@@ -126,7 +126,7 @@ writer `eaabf27`, not modified here:
 Use a new versioned, fingerprint-bound descriptor. Leave the existing three-
 route template, fixtures and expected checksums intact; adoption is separate.
 
-## Offline verification / smallest remaining native uncertainty
+## Offline implementation checkpoint (before native pilot)
 
 59 tests (11 new authoring fixtures), full Ruff lint/format checks and installed-
 assembly compile pass. Direct Roslyn output only:
@@ -143,6 +143,24 @@ paused updates and save controls remain unverified. If they differ, discard
 the editor instead of bypassing checks. A later disposable New Game must prove
 the real icon/connection before adoption. No Steam, game, native authoring,
 template save, service change or platform write ran for this implementation.
+
+## Native authoring pilot · 2026-11-11
+
+PR8's combined implementation (including later alias preflight) compiled and
+completed `air-template-pilot-0310` in an owned foreground blade session.
+The actual prefab relationship selected `Airplane Path`; explicit dry run then
+apply created175 plane-only nodes,174 segments and two real outside buildings.
+Native counts are2incoming/2outgoing; original road/rail/ship inventories and
+fingerprints remain unchanged. Native SaveMapPanel exported a new unpublished
+package with SHA `33871c8a168f0dc8e6db3de6bb19bcfa10e487b4def6495461155ad9943d7938`.
+The original template is unchanged, cleanup is empty and the game-directory
+export was removed after a private exact copy. The export is not committed:
+native author metadata can identify the account.
+
+This proves native template authoring is available. It does not adopt a new
+descriptor, retrofit air into current five-region packages, prove New Game's
+air icon or claim plane pathfinding/airport service. The adoption blockers
+above still apply. A map-edge path is not an asserted AVL airport approach.
 
 ## Offline alias preflight (2026-11-11)
 

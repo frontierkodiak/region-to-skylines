@@ -1342,3 +1342,28 @@ than committing another untested default. New Charleston start selection
 requires256 deep initial vertices, changing only its chosen tile16→21 among
 the five cases; exact resource candidate `b6f27b69…765eb` queues a fresh60minute
 soak. Earlier tile16 lost its usable intake water and is not final acceptance.
+
+## 2026-11-11 03:55 ET — underground-waterway root cause, not another rate default
+
+Exact pinned vector evidence in writer2ee0de5 identifies176 river pieces and24
+stream pieces as underground in Rio, out of462 exact frozen matches; no unknown
+or ambiguous joins. The old capture discarded `brunnel=tunnel`, surface-carving
+and forcing those conduits. DesvioJoana includes both underground and visible
+pieces, so whole-name removal would also be wrong. Corrected capture keeps raw
+DEM, uncarved banks, sea mask/frame/fit byte-identical and retains every excluded
+feature/ID/index/tile/hash. Python97ab5bf blocks short underground gaps from
+surface routing/earthworks and models an entering visible portal as an output-
+free regulated drain. No deep running-min terrain repair adopted.
+
+The10%/2.5% rate-only diagnostics were superseded before acquiring any session.
+Only their exact queued PIDs2969415/2969452 were interrupted, after validating
+own checkout/out paths and non-holder status; both foreground parents collected
+exit130. No game started for either; no foreign session touched. Source/probe
+artifacts remain explicitly cancelled diagnostics, not measured results.
+
+Charleston's tile21 candidate `b6f27b69…765eb` completed60minutes, with271
+starting-tile wet vertices,210 deeper than0.5m and95,848m³, versus the rejected
+tile16's1,080m³/no deep water. This validates meaningful water priority, not a
+final tunnel-aware package certificate. All new surface candidates need exact
+native receipts. `surface-rio-smoke-15` is the first such trial, before all-five
+qualification; required jobs remain foreground, fair slot/Steam guards intact.
