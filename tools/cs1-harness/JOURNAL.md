@@ -1553,3 +1553,22 @@ its actual strict_complete_batch.py ancestor and own activeAshholder37656,
 then SIGINT only waiting63337. Foreground parent collectedexit1(child130);
 no game started, active Ash untouched. Strict Ash/Inn had already completed.
 Resume Charleston separately, then qualify changed urban packages anew.
+
+## 2026-11-11 07:03 ET — independent barrier regression and bounded pilot
+
+Writerbe3a9ec now bounds short portal intake and short output against retained
+surface geometry, without borrowing global prefill. Independent review caught
+a high-barrier hole: bed-conditioned checks could jump across a raised tunnel
+barrier onto lower surface beyond it. Explicit forbidden cells now constrain
+short output unconditionally; visible surface crossings retain precedence.
+Constructed high/low barrier, real crossing, broad prefill and unchanged-long
+tests pass. No endpoint supplies or extra excavation were added.
+
+An exact rebuild proves Ash/Inn/Char full unpainted packages byte-identical,
+preserving those currently running/queued full-package checks. Native Rio
+pilot uses fresh short-footprint-v2, paintedSHA
+f60d9f4a4b2f222ffeb4fe5efb4b40cbbd90f74047f771e34090764f410c869a.
+No intermediate guard-only candidate was run in game. Superseded waiting
+Pittpilot54885 was revalidated against its soak.py ancestor, queue entry and
+own Ashholder37656, then interrupted; parent collectedexit1(child130), no
+game started and holder untouched. Native failure subsets remain archived.
