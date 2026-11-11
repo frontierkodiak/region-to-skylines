@@ -216,7 +216,15 @@ class MapCheck:
 
             self.log(f"loading {self.from_save.name} instead of a New Game")
             observe.write_context(s.cfg, map=f"save {self.from_save.name}")
-            status = saves.load(s, self.from_save, load_timeout)
+            listed = next(
+                (
+                    m["path"]
+                    for m in self.c.call("maps")["maps"]
+                    if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+                ),
+                None,
+            )
+            status = saves.load(s, self.from_save, load_timeout, listed)
             entry = {
                 "map_name": f"save {self.from_save.name}",
                 "published": None,

@@ -43,7 +43,8 @@ def save(session, out: pathlib.Path, label: str, why: str) -> dict:
     if not has_ops(c, "save_game", "job"):
         raise HarnessError("this mod build has no save_game op (it comes with PR #10)")
     paused = c.call("stats")["paused"]
-    c.call("run", paused=True)
+    # The save runs through the simulation thread; give it frames (a paused end-of-run save stalled).
+    c.call("run", paused=False)
     try:
         name = f"cs1h-{out.name}-{label}-{time.strftime('%H%M%S')}"
         reply = c.call("save_game", name=name)
@@ -71,11 +72,24 @@ def save(session, out: pathlib.Path, label: str, why: str) -> dict:
     return entry
 
 
-def load(session, save_file: pathlib.Path, load_timeout: float) -> dict:
-    """Start the game from a save instead of a New Game. Returns the status once the city is up."""
+def load(session, save_file: pathlib.Path, load_timeout: float, map_path: str | None = None) -> dict:
+    """Start the game from a save instead of a New Game. Returns the status once the city is up.
+
+    The mod's load_game works from inside a level, so from the main menu this first starts a
+    New Game on the run's map (about 40 s), then loads the save over it."""
     cfg, c = session.cfg, session.client
     if not has_ops(c, "load_game"):
         raise HarnessError("this mod build has no load_game op (it comes with PR #10)")
+    if not c.call("status").get("in_game"):
+        if not map_path:
+            raise HarnessError("loading a save from the main menu needs the map to start a level first")
+        c.call("new_game", path=map_path)
+        c.wait(
+            lambda st: st.get("in_game") and not st.get("loading"),
+            load_timeout,
+            "the bridging level",
+            alive=session.alive,
+        )
     saves = cfg.data_dir / "Saves"
     saves.mkdir(parents=True, exist_ok=True)
     name = f"cs1h-from-{save_file.stem}"
