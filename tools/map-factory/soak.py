@@ -8,6 +8,7 @@ import argparse
 import gzip
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -226,6 +227,49 @@ def stage(output, slugs):
     return staged
 
 
+def prepared_geometry(source, generation):
+    """Bind acceptance geometry before staging; legacy unpainted inputs stay supported."""
+    resources = generation.get("resources")
+    resource_candidate = (
+        resources is not None
+        or generation.get("resource_plan") is not None
+        or (source / "plan.npz").is_file()
+    )
+    declared = []
+    if resource_candidate:
+        expected = (
+            resources.get("prepared_geometry_sha256")
+            if isinstance(resources, dict)
+            else None
+        )
+        declared.append(("resources.prepared_geometry_sha256", expected))
+    # Enforce an existing declared unpainted input hash too; do not create a
+    # caller-controlled opt-out for a resource candidate's required binding.
+    inputs = generation.get("source", {}).get("inputs_sha256", {})
+    if "geometry.json" in inputs:
+        declared.append(("source.inputs_sha256.geometry.json", inputs["geometry.json"]))
+    for field, expected in declared:
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
+            raise ValueError(f"Missing/malformed prepared geometry binding: {field}")
+    path = source / "geometry.json"
+    if not path.exists() and not declared:
+        return None, None
+    raw = path.read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    for field, expected in declared:
+        if actual != expected:
+            raise ValueError(f"Prepared geometry changed since generation: {field}")
+    json.loads(raw)  # reject unusable geometry before generating/staging the package
+    return raw, {
+        "file": "geometry.json",
+        "sha256": actual,
+        "generation_fields": [field for field, _ in declared],
+        "binding": "generation"
+        if declared
+        else "legacy unpainted (no declared input hash)",
+    }
+
+
 def stage_prepared(inputs, output, slugs):
     """Check candidate bytes against their generation receipt before native testing."""
     staged = []
@@ -235,8 +279,11 @@ def stage_prepared(inputs, output, slugs):
     )
     for slug in slugs:
         source, folder = inputs / slug, output / "maps" / slug
-        folder.mkdir(parents=True, exist_ok=True)
         generation = json.loads((source / "generation.json").read_text())
+        geometry_raw, geometry_binding = prepared_geometry(source, generation)
+        folder.mkdir(parents=True, exist_ok=True)
+        if geometry_raw is not None:
+            (folder / "geometry.json").write_bytes(geometry_raw)
         for name in ["terrain.u16", "water.u16", "hydrology.json"]:
             shutil.copyfile(source / name, folder / name)
         hydro = json.loads((folder / "hydrology.json").read_text())
@@ -275,9 +322,10 @@ def stage_prepared(inputs, output, slugs):
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
-        if (source / "geometry.json").exists():
-            geometry = json.loads((source / "geometry.json").read_text())
+        if geometry_raw is not None:
+            geometry = json.loads(geometry_raw)
             mapped_water_reference(data, geometry, folder)
+            data["mapped_water_provenance"]["source_geometry"] = geometry_binding
             world_references(
                 data,
                 geometry,
@@ -300,6 +348,7 @@ def stage_prepared(inputs, output, slugs):
             slug=slug,
             source_kind="prepared candidate",
             prefill=generation.get("prefill", True),
+            geometry=geometry_binding,
         )
         if resource_plan is not None:
             receipt["resource_plan_sha256"] = plan_sha256

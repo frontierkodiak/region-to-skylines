@@ -470,3 +470,9 @@ metadata-equivalent buffer duplicates retain all provenance as a group, never an
 arbitrary tile choice. `--capture --control` captures all original geometry for
 separating historical PNG recapture drift from tunnel-only effects. The five-region
 ledger and source-assurance distinctions are in `SURFACE_WATER_EVIDENCE.md`.
+
+Prepared resource staging verifies the saved `resources.prepared_geometry_sha256`
+before constructing mapped-water/world references. It archives those exact bytes
+beside `staging.json` and binds them in the frozen probes. Missing or changed
+resource geometry fails closed; legacy unpainted staging stays supported. See
+[STAGING_GEOMETRY.md](STAGING_GEOMETRY.md) for the contract and offline identity tests.
