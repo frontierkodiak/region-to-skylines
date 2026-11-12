@@ -434,7 +434,16 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
     t = MAP_SOAK
     meta = probe_meta(out, report)
     by_name = {p.get("name"): p for p in meta.get("points", []) if isinstance(p, dict)}
-    checks = [new_game_panel.assess(out), landmarks.assess(out), startup_views.assess(out)]
+    if (report.get("map") or {}).get("from_save"):
+        # A run started from a save never opens the New Game panel or the map's own opening view.
+        why = "started from a save, not from the New Game panel and the map's opening view"
+        checks = [
+            row("new_game_panel", "skip", detail=why),
+            landmarks.assess(out),
+            row("startup_views", "skip", detail=why),
+        ]
+    else:
+        checks = [new_game_panel.assess(out), landmarks.assess(out), startup_views.assess(out)]
 
     asked = report.get("requested_game_minutes")
     got = report.get("game_minutes") or 0

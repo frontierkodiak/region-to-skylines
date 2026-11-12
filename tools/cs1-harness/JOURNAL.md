@@ -1755,3 +1755,18 @@ passes. Source-bank vs browser-cut evidence retains Rio shoreline exceptions
 and Charleston tidal-bed/nonwater differences. These are reference limitations,
 not universal terrain fidelity. Website/installer untouched. All required native
 and diagnostic jobs completed foreground; no session/service left for a wakeup.
+
+## 2026-11-11 — PL-910 review: merge main (PL-891 saves, free-camera screenshots) into PR #8 (OFFLINE)
+
+Main split `MapCheck.execute` into a load step and `soak()`; PR #8 added startup
+captures after load and path checks in the soak. Kept both: the New Game path
+still runs panel capture before `new_game`, then startup-world/landmarks and
+startup views, and hands `startup_world` to `soak()`, which pauses with
+`day_night=False`. A `--from-save` run records startup-world (terrain landmarks
+still apply to the save) but takes no New Game panel or opening/Areas capture,
+so the verdict now skips `new_game_panel` and `startup_views` for it, as main
+already skips `opening_camera`. End of soak: path checks, then main's
+`--save-end`, then screenshots. The report keeps `paths_start`, `paths_end` and
+`saves`. Two new offline tests cover the from-save driver and verdict rows.
+Offline only: 103 unittest, Ruff check/format and a private-cache installed-game
+build pass; no Steam, game, slot or session was touched.

@@ -102,6 +102,13 @@ class StartupViewTests(unittest.TestCase):
         )
         self.assertEqual(calls[-1].kwargs, {"paused": False})
 
+    def test_from_save_skips_new_game_only_evidence(self):
+        self.write("probes.json", {"startup_views": self.wanted, "new_game_panel": {"map_name": "fixture"}})
+        for report, status in (({}, "fail"), ({"map": {"from_save": "/saves/t030.crp"}}, "skip")):
+            self.write("report.json", report)
+            rows = {row["name"]: row["status"] for row in verdict.judge(self.out, write=False)["checks"]}
+            self.assertEqual((rows["startup_views"], rows["new_game_panel"]), (status, status), report)
+
     def test_driver_invokes_capture_after_startup_world_before_run_or_camera_override(self):
         artifact = self.out / "fixture.crp"
         artifact.touch()
@@ -144,6 +151,37 @@ class StartupViewTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "fixture boundary reached"):
                 driver.execute(artifact, 1, 1, 1, 1, 1, 1, scenario="test-city")
         panel.assert_called_once()
+
+    def test_from_save_records_startup_world_but_no_new_game_evidence(self):
+        artifact = self.out / "fixture.crp"
+        artifact.touch()
+        session = SimpleNamespace(
+            client=Mock(),
+            install_map=Mock(return_value=artifact),
+            launch=Mock(return_value={}),
+            cfg=SimpleNamespace(),
+            alive=Mock(),
+        )
+        session.client.call.side_effect = lambda op, **kw: (
+            {"maps": [{"path": str(artifact), "map_name": "fixture", "published": True}]}
+            if op == "maps"
+            else copy.deepcopy(self.initial)
+        )
+        driver = mapcheck.MapCheck(session, self.out, [], [], log=lambda line: None)
+        self.addCleanup(driver.timeline.close)
+        driver.from_save = artifact
+        with (
+            patch("cs1_harness.mapcheck.observe.write_context"),
+            patch("cs1_harness.saves.load", return_value={"in_game": True}),
+            patch("cs1_harness.mapcheck.startup_views.capture") as start_views,
+            patch("cs1_harness.mapcheck.new_game_panel.capture") as panel,
+            patch.object(driver, "soak", return_value={}) as soak,
+        ):
+            driver.execute(artifact, 1, 1, 1, 1, 1, 1)
+        panel.assert_not_called()
+        start_views.assert_not_called()
+        self.assertEqual(soak.call_args.args[0]["from_save"], str(artifact))
+        self.assertEqual(soak.call_args.args[-1]["phase"], views.PHASE)
 
     def test_main_ground_truth_samples_native_world_in_40_by_40_grid(self):
         session = SimpleNamespace(stage=self.stage, client=Mock())
