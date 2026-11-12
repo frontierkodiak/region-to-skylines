@@ -1,13 +1,13 @@
 {
   "format": 1,
-  "issue": "PL-918",
+  "issue": "PL-926",
   "scope": "exact native maps; terrain/water/controls identity required for resource-only carryover",
   "cases": [
     {
       "slug": "asheville",
-      "native_crp_sha256": "eb4d2d9d831469beb9e741830e1cb91e18b34397e5b5b30c3ddb7770be9b1375",
-      "harness_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
-      "game_minutes": 60.11555869082609,
+      "native_crp_sha256": "a8d71ca2b3dd7911fea840044255c4815e36a5da09d11041b0b665e9197e899b",
+      "harness_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+      "game_minutes": 60.1377809142073,
       "verdict": "pass",
       "failed_checks": [],
       "prepared_sha256": {
@@ -20,84 +20,84 @@
       "sea_level_m": 0.0,
       "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
       "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
-      "report_sha256": "b3f1e8a8f1e28503ecea86e45d87d6c320f27b5d1c0eeee3310fb0264b7ed7b0",
-      "verdict_sha256": "86f1daacab17e433de4d688949c809fac913c28fbc814b73e90f37f8c7bda82a",
-      "strict_validation_sha256": "dccd7a90fbdb369f9991bfa81903e24d521e71540fed89faeec3d074292e290c",
-      "strict_review_sha256": "4c24d0c51b8f5a046fc478e2e428d61cc95c21c3226315d5d878645a7af61119"
+      "report_sha256": "2d51cccf83cfbb0711285551b1d0c2b81583c77c36fd7cffd47c2d9e26360222",
+      "verdict_sha256": "14dbbd1588f9474eb3b783b8c2704ced6b40441d3b54358054e8e3d4e3fe073d",
+      "strict_validation_sha256": "5166ccc75a04e385914828fb252b50e994146811696f753644275ab37fca0edc",
+      "strict_review_sha256": "497027414bfae24c7c84f8680273227bb100af043ca0699bab4789ed0052577d"
     },
     {
       "slug": "innsbruck",
-      "native_crp_sha256": "6a54f3f24246a41f33351d9af003fad9f62475bac6e9759b8dd3d48d38fd9389",
-      "harness_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
-      "game_minutes": 60.014447574441625,
+      "native_crp_sha256": "4853332e43135cafc3121a9791c14e68a93551e8b63c004fbbeae5fa01f49752",
+      "harness_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+      "game_minutes": 60.126669802516695,
       "verdict": "pass",
       "failed_checks": [],
       "prepared_sha256": {
-        "terrain.u16": "64fa5f27a7e005334b002b63cb695eeb6d16645711690049d2617303722e6f41",
-        "water.u16": "7df5f09d59048988ce73f699b6ee83b8dbbd94e109092400617624a921145c3a"
+        "terrain.u16": "6dfe6f3fa8d997206bf234a351f856ee3fa692ade437005c162c30125f44cc87",
+        "water.u16": "422762406a0acbd005a524e50b8807b362b7d29b66695bae36716df417ff6833"
       },
       "water_sources_sha256": "5c958e92f5c30da38224d725acd578ac99cd4d206281b510a6594ddc4133efa3",
-      "node_positions_sha256": "7fe812ef2d0c07c258576f4ecabb9f38eaf5785a381c1000e4282b0a8109839a",
+      "node_positions_sha256": "bb79b2c33db2d702bfe01df18076d36fe4911ed2c6c7c395e46165980457e556",
       "start_tile": 13,
       "sea_level_m": 0.0,
       "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
       "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
-      "report_sha256": "4c011d54dd642f45816318d8f0a4fe9a6015e0361d562446ba66e150b4438c62",
-      "verdict_sha256": "ca1296644ca2fbcde546856476af7bc855d44c3e098e1378e453653918a57824",
-      "strict_validation_sha256": "0cc89b91d9e64d5702f82d4d127ed90fcd2dbe744eba195883bd19ea02f9cb34",
-      "strict_review_sha256": "26800564d3e47a513d3d43d8d4fe66581e55e38806a315d5088b39d0598b1f9b"
+      "report_sha256": "edc1b65a46f4aeab7ac865b44736982e49c1d2574d481ded8a1ea29718c468c0",
+      "verdict_sha256": "3c0fab78fd46e0cf47065cced99905511730c962a5a97c7f45dcff9d63a93968",
+      "strict_validation_sha256": "6d0b3448de3fa4df0738bc3d7d81b8e0da602a46d6c104a1a5457dcf3f66811a",
+      "strict_review_sha256": "3ecaca36363216bffbe4669870f3ddc3f10ab4805dbfd2c093b08460bc1cd83a"
     },
     {
       "slug": "rio",
-      "native_crp_sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
-      "harness_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
-      "game_minutes": 60.068892021725574,
+      "native_crp_sha256": "d1c6238fd6bf2bc8b152212cb79029f89570b3df7052bd9ab30733ac1d5c7258",
+      "harness_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+      "game_minutes": 60.11555869082609,
       "verdict": "fail",
       "failed_checks": [
         "no_flooding"
       ],
       "prepared_sha256": {
-        "terrain.u16": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
-        "water.u16": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d"
+        "terrain.u16": "e6cc2f49eabfac53526b2bafcc044c4e3b8bf2d1f00e44a5412c57a6f37ff4cd",
+        "water.u16": "99c92e1d8d40f4c4821e93c9d25068a02b54bd8ebb6bafe29cfa4dbf9af3b7fe"
       },
-      "water_sources_sha256": "b355321e5c1157800e201239b3b73d1c0e9fff8f3c91e59c18c853867859de00",
-      "node_positions_sha256": "16fb414416b8b5c6b3c1884e35010c8f04a809ced871ffcafbd389b4311edb1d",
+      "water_sources_sha256": "736c9e225ca705abfa15ddeb49dd57d4a70341677a04e32156ddbd3b55b6292a",
+      "node_positions_sha256": "53850edca5e2ff5e8e67c118368806693da73f90c29f2ecebc152f2b8fcb49e4",
       "start_tile": 21,
       "sea_level_m": 86.7952475957194,
       "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
       "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
-      "report_sha256": "56692a10049c690de879850af086fc76c99b442f052c5bb2581f1d6db89f291f",
-      "verdict_sha256": "59383993cd8fb1fa98334d024342f16a2541513fc0aeba2310e2f4583e5e5eee",
-      "strict_validation_sha256": "45ecd8a0d1389b56d2a47e5d2a3a04ea72cfd1001e92af68a4fc9581b88d9e11",
-      "strict_review_sha256": "ca1f9d848b47c0d85d3cf30b5108cc3b3451080d86a2f28bce9763f1a1563065"
+      "report_sha256": "e8c9c6a06797c01cbb501303b6a1b22ad6f8f2416d2bb56b6e0ad6e7ac878f7b",
+      "verdict_sha256": "1a89d94feaac233c38d8dda807ec839b1411758ee82ccd464af2b18f2e9c3c89",
+      "strict_validation_sha256": "9a6d8e16baa7984479b372a8f1543600c216ffd25de18aa911ebb83ba30ec7bb",
+      "strict_review_sha256": "fe264a1a4bf5659c70e0a44e618c47a18554e88459bac4bd9815b11338ad1edf"
     },
     {
       "slug": "pittsburgh",
-      "native_crp_sha256": "a78a460314da3e56b66f84a85042f800d1bf5d51ac7fd8df46b4034a4c80e790",
-      "harness_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
-      "game_minutes": 60.074725355363135,
+      "native_crp_sha256": "a6fc0e8a5c42afc32a898e8e9549b1c7d4538b8ff130230f7234ad50fb7fade0",
+      "harness_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+      "game_minutes": 60.12166980225592,
       "verdict": "pass",
       "failed_checks": [],
       "prepared_sha256": {
-        "terrain.u16": "23faa0a7e2c30d87f90001e668cfa7388029cebbf55863aa8ad44ae78d04727f",
-        "water.u16": "8bebb243569878f6cc62d277abcad230a588a6e1e748ea26e5e6926fc8b1fb4a"
+        "terrain.u16": "47b908af8ffa7fee0a2906c175df201254d6e916390576b816097127ffa0057f",
+        "water.u16": "5a5648211c463843084c25f6818fa0fb9ab44d1614189e7462da0ffa8de0cf71"
       },
-      "water_sources_sha256": "4ac06c09e5ee4f061ffae5216d8b91fb6505a871923134dab154331f17d87024",
+      "water_sources_sha256": "f784a1fc0fbf97b0a6cb5787cd354f1e8f158499e7a8c34e89d8db3a173c130a",
       "node_positions_sha256": "3dbeb277517e7eecdfccf3d0253eb3847dc0b6ecbaa7556a3de8a86cb604cbe7",
       "start_tile": 12,
       "sea_level_m": 0.0,
       "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
       "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
-      "report_sha256": "8ad3783ade6ea51b7f9329925a8773a9170ad0d7c4725e62d720348f30b98742",
-      "verdict_sha256": "2c73f7eeb02978989f78b60774bac5c28427df3ceaaa298b8d704d36181e0fb7",
-      "strict_validation_sha256": "f0e6462df2b0c623253a9d90728ceacd2d79ea74744b695f1b17a16313b7c946",
-      "strict_review_sha256": "167d18727c043ac4e54b597686a0a9f8611b30aab2e5493357fc1b1cdeef0df1"
+      "report_sha256": "8e5105c5d1315084fd186fca9200196b70ded74213bd11b9e73f63e817c16ff7",
+      "verdict_sha256": "05d0e998c0a251bbc154636c4964ba63e39bca3025af80068ee85c226d6708af",
+      "strict_validation_sha256": "c3daea431dffe3498b61273940c8e8495e5adf90ddffa765f873342e40f510cb",
+      "strict_review_sha256": "253a35e7be4d2bb22353d2d7db429b23fca0b5334817c1265c0414901d81019e"
     },
     {
       "slug": "charleston",
-      "native_crp_sha256": "d5fd2d9973c51b6959a1ddc0d0ea1211050a0c7a64a4390d5262d3820cfdfad8",
-      "harness_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
-      "game_minutes": 60.067780910556515,
+      "native_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+      "harness_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+      "game_minutes": 60.144447581221655,
       "verdict": "fail",
       "failed_checks": [
         "ground_truth"
@@ -112,10 +112,10 @@
       "sea_level_m": 90.0,
       "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
       "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
-      "report_sha256": "c85ce871ed35b1a496ff012c9c2bcbe5401d8e3b732e4c711a6718a389668bdc",
-      "verdict_sha256": "4653464dc03408d61dc4e6fa6d204b86c5cebb7d5f9f6be5e125feff76c01a9a",
-      "strict_validation_sha256": "84d10899c712063aab0161bcd740aedce14036a406002de2c9f9472d2457d0d3",
-      "strict_review_sha256": "fd2bdc13321c7f191837eb45a9c790a9aae3621827e2765eb3eb3f9ecacba385"
+      "report_sha256": "1e6d4c297da66d6d21bd56ddc61433effbbd13a63ce247b031a5d1693717e59b",
+      "verdict_sha256": "ed018047f26dd435500cda595fd6420fff9a75ed43fe963bff46d2ee3c9d09b8",
+      "strict_validation_sha256": "148c1b5765dae625389028e1a52f472aa528c2419f2850243ac9f3f9cfff58ba",
+      "strict_review_sha256": "2a241ddea81a4cb940131a01f06c7e6cb4e4c875cecacfb8f254b68d1eb8e81e"
     }
   ]
 }

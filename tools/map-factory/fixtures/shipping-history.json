@@ -8,6 +8,16 @@
     "prepared_grid_sha256": {
       "terrain.u16": "797b9352348fc4c2cd70801b238e25e4078b6ffb8973baa4302196d8a1dac919",
       "water.u16": "775ee3b7b2cf6bf18ab3bf54b1163079cbd94560a65383d739bdc2cee8691881"
+    },
+    "pl926": {
+      "shipping_crp_sha256": "a8d71ca2b3dd7911fea840044255c4815e36a5da09d11041b0b665e9197e899b",
+      "rich_reference_crp_sha256": "83f9c7f6240fc795669d68b1563c1c0cff573760cb079fba7f9666ee04f6798b",
+      "prepared_grid_sha256": {
+        "terrain.u16": "797b9352348fc4c2cd70801b238e25e4078b6ffb8973baa4302196d8a1dac919",
+        "water.u16": "775ee3b7b2cf6bf18ab3bf54b1163079cbd94560a65383d739bdc2cee8691881"
+      },
+      "native_verdict": "pass",
+      "failed_checks": []
     }
   },
   {
@@ -19,6 +29,16 @@
     "prepared_grid_sha256": {
       "terrain.u16": "64fa5f27a7e005334b002b63cb695eeb6d16645711690049d2617303722e6f41",
       "water.u16": "7df5f09d59048988ce73f699b6ee83b8dbbd94e109092400617624a921145c3a"
+    },
+    "pl926": {
+      "shipping_crp_sha256": "4853332e43135cafc3121a9791c14e68a93551e8b63c004fbbeae5fa01f49752",
+      "rich_reference_crp_sha256": "4853332e43135cafc3121a9791c14e68a93551e8b63c004fbbeae5fa01f49752",
+      "prepared_grid_sha256": {
+        "terrain.u16": "6dfe6f3fa8d997206bf234a351f856ee3fa692ade437005c162c30125f44cc87",
+        "water.u16": "422762406a0acbd005a524e50b8807b362b7d29b66695bae36716df417ff6833"
+      },
+      "native_verdict": "pass",
+      "failed_checks": []
     }
   },
   {
@@ -30,6 +50,18 @@
     "prepared_grid_sha256": {
       "terrain.u16": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
       "water.u16": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d"
+    },
+    "pl926": {
+      "shipping_crp_sha256": "d1c6238fd6bf2bc8b152212cb79029f89570b3df7052bd9ab30733ac1d5c7258",
+      "rich_reference_crp_sha256": "d1c6238fd6bf2bc8b152212cb79029f89570b3df7052bd9ab30733ac1d5c7258",
+      "prepared_grid_sha256": {
+        "terrain.u16": "e6cc2f49eabfac53526b2bafcc044c4e3b8bf2d1f00e44a5412c57a6f37ff4cd",
+        "water.u16": "99c92e1d8d40f4c4821e93c9d25068a02b54bd8ebb6bafe29cfa4dbf9af3b7fe"
+      },
+      "native_verdict": "fail",
+      "failed_checks": [
+        "no_flooding"
+      ]
     }
   },
   {
@@ -41,6 +73,16 @@
     "prepared_grid_sha256": {
       "terrain.u16": "23faa0a7e2c30d87f90001e668cfa7388029cebbf55863aa8ad44ae78d04727f",
       "water.u16": "8bebb243569878f6cc62d277abcad230a588a6e1e748ea26e5e6926fc8b1fb4a"
+    },
+    "pl926": {
+      "shipping_crp_sha256": "a6fc0e8a5c42afc32a898e8e9549b1c7d4538b8ff130230f7234ad50fb7fade0",
+      "rich_reference_crp_sha256": "1227713273746daf25b1d23f75e4c2ee37de92aa34e21b988bdf27625b0449a8",
+      "prepared_grid_sha256": {
+        "terrain.u16": "47b908af8ffa7fee0a2906c175df201254d6e916390576b816097127ffa0057f",
+        "water.u16": "5a5648211c463843084c25f6818fa0fb9ab44d1614189e7462da0ffa8de0cf71"
+      },
+      "native_verdict": "pass",
+      "failed_checks": []
     }
   },
   {
@@ -52,6 +94,18 @@
     "prepared_grid_sha256": {
       "terrain.u16": "000691e79a65783bf785c1423a89e1d0608368d9ffb473ace4825daa2be8cf69",
       "water.u16": "eb10584034d284ccc6ff33b0c0736f3dc33d01512149374a6ad379e4d5d3b124"
+    },
+    "pl926": {
+      "shipping_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+      "rich_reference_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+      "prepared_grid_sha256": {
+        "terrain.u16": "000691e79a65783bf785c1423a89e1d0608368d9ffb473ace4825daa2be8cf69",
+        "water.u16": "eb10584034d284ccc6ff33b0c0736f3dc33d01512149374a6ad379e4d5d3b124"
+      },
+      "native_verdict": "fail",
+      "failed_checks": [
+        "ground_truth"
+      ]
     }
   }
 ]

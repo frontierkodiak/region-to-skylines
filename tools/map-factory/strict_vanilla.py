@@ -20,6 +20,9 @@ from crp import read_package
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("output", type=Path)
+parser.add_argument(
+    "--issue", default="PL-918", help="issue key and evidence prefix (default: PL-918)"
+)
 parser.add_argument("--harness", type=Path, required=True)
 parser.add_argument("--references", type=Path, required=True)
 parser.add_argument(
@@ -61,7 +64,7 @@ def match(path, reference, box):
 
 
 def run(slug):
-    stage = "PL-918-vanilla-" + slug
+    stage = args.issue + "-vanilla-" + slug
     crp = ROOT / "soaks/maps" / slug / ("PL857-" + slug + ".crp")
     if (ROOT / (stage + "-validation.json")).exists():
         raise ValueError("Refusing to replace completed strict vanilla evidence")
@@ -76,7 +79,7 @@ def run(slug):
                 "--map",
                 str(crp),
                 "--label",
-                "PL-918 strict vanilla " + slug,
+                args.issue + " strict vanilla " + slug,
                 "--game-arg=--disableMods",
                 "--game-arg=-screen-width",
                 "--game-arg=1920",

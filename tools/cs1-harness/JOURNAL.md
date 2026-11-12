@@ -1,5 +1,54 @@
 # cs1-harness journal
 
+## 2026-11-12 · Sol xhigh · PL-926 · exclude tunnel excavation before PNG capture
+
+On blade's RTX 2080 Ti, bus 05:00.0, cap 150 W unchanged. Exact source/writer
+bindings are in the PL-926 capture receipts and native fixture record. Own DLL
+85fe55355059afe5c2553e50afe14f7c922bf74d6558303b9dc6c5323390ba12 was built
+in this worktree. No shared service or harness runtime policy changed.
+
+The input pipeline excavated explicit tunnel lines before Python excluded
+them. A five-arm ten-minute matrix holds initial water fixed. Restoring the
+old target worsens the shipping terrain; either target on old terrain keeps
+the Papa-Couve corridor clear. A terrain-only counterfactual keeps the entire
+WaterSimulation byte-identical and removes the escape. Full hashes, native
+input audits and fixed-reference readbacks are in the frozen diagnostic matrix.
+
+All five current shipping packages receive new 60-minute runs, exact initial
+grid/control audits, six native paths, independent DEM comparisons and reviewed
+panel/opening/Areas/end images. Separate ordinary --disableMods --noWorkshop
+New Game starts have no control socket, correct loaded-map checks and reviewed
+selection/city images. Every owned session leaves empty cleanup.
+
+The VRAM column reports whole-GPU peak and its increase over the prelaunch
+baseline. The game itself used 1,574 MiB at the menu; an exact per-process peak
+was not sampled, so the baseline difference is not relabelled as that peak.
+Wall time is the report's simulation interval, excluding launch and queueing.
+
+| Run | Game min | Simulation wall s | Peak total / above baseline MiB | Peak W / °C | Result |
+| --- | ---: | ---: | ---: | ---: | --- |
+| rio | 60.1156 | 933.2 | 10821 / +2817 | 136.55 / 52 | no_flooding |
+| innsbruck | 60.1267 | 934.4 | 10821 / +2817 | 136.27 / 52 | PASS |
+| pittsburgh | 60.1217 | 938.9 | 10821 / +2817 | 137.09 / 55 | PASS |
+| asheville | 60.1378 | 933.5 | 10821 / +2817 | 137.23 / 54 | PASS |
+| charleston | 60.1444 | 933.9 | 10821 / +2817 | 138.14 / 54 | ground_truth |
+| diagnostic: new-remote-new-inlet | 10.0714 | 161.6 | 10821 / +2817 | 130.57 / 49 | matched diagnostic, not acceptance |
+| diagnostic: new-remote-old-inlet | 10.0567 | 161.5 | 10821 / +2817 | 138.64 / 52 | matched diagnostic, not acceptance |
+| diagnostic: old-remote-new-inlet | 10.0397 | 161.3 | 10821 / +2817 | 138.61 / 54 | matched diagnostic, not acceptance |
+| diagnostic: old-remote-old-inlet | 10.0553 | 161.3 | 10821 / +2817 | 136.31 / 54 | matched diagnostic, not acceptance |
+| diagnostic: terrain-only | 10.0567 | 161.3 | 10821 / +2817 | 138.44 / 53 | matched diagnostic, not acceptance |
+
+Rio remains a named no_flooding failure, reduced from 0.120320 to 0.062464 km²
+with maximum depth 2.734375 m, versus the unchanged 0.05 km² gate. Papa-Couve has
+zero distant water in all retained grids; larger western pools remain. The
+site notice changes 7 m to 3 m. Charleston's existing ground_truth failure remains.
+No acceptance mask or threshold was edited. Source-rate and minor-stream
+policies are unchanged; terrain-derived controls were regenerated and audited.
+See tools/map-factory/TUNNEL_INPUTS.md and NATIVE_FINDINGS.md. Raw artifacts are
+in ~/experiments/PL-926-rio-inlet; compact review packs are attached to PL-926.
+No populated growth, other squares/rotations/scales, 81 Tiles 2, other operating
+systems or stability beyond 60 minutes is claimed. macOS bytes remain PL-917.
+
 ## 2026-11-12 · Sol xhigh · PL-918 · live-input five-region qualification
 
 Blade, RTX 2080 Ti at PCI 05:00.0, 150 W cap unchanged. Harness clean at 5f6ef13,

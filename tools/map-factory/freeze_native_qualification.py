@@ -1,4 +1,4 @@
-"""Record native identities for fixtures from completed PL-918 evidence.
+"""Record native identities for fixtures from completed native evidence.
 
 This authoring command reads the actual map, first native grids and reviewed
 strict-vanilla images. It does not turn failed checks into passes.
@@ -29,7 +29,7 @@ def value_digest(value):
     ).hexdigest()
 
 
-def freeze(root, output):
+def freeze(root, output, issue="PL-918"):
     cases = []
     for slug in REGIONS:
         run, captured = root / "soaks" / slug, root / "captures" / slug
@@ -57,7 +57,7 @@ def freeze(root, output):
             grids[name] = digest(native_grid)
             if grids[name] != digest(prepared / name):
                 raise ValueError(f"Native grid mismatch: {slug}/{name}")
-        prefix = root / ("PL-918-vanilla-" + slug)
+        prefix = root / (issue + "-vanilla-" + slug)
         validation_file = prefix.with_name(prefix.name + "-validation.json")
         review_file = prefix.with_name(prefix.name + "-review.json")
         validation, review = read(validation_file), read(review_file)
@@ -124,7 +124,7 @@ def freeze(root, output):
         json.dumps(
             {
                 "format": 1,
-                "issue": "PL-918",
+                "issue": issue,
                 "scope": "exact native maps; terrain/water/controls identity required for resource-only carryover",
                 "cases": cases,
             },
@@ -138,5 +138,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("root", type=Path)
     parser.add_argument("output", type=Path)
+    parser.add_argument(
+        "--issue",
+        default="PL-918",
+        help="issue key and vanilla evidence prefix (default: PL-918)",
+    )
     args = parser.parse_args()
-    freeze(args.root.resolve(), args.output)
+    freeze(args.root.resolve(), args.output, args.issue)

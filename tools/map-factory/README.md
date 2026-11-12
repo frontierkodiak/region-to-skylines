@@ -87,6 +87,8 @@ The frozen five-region surface inputs recover tags by exact source-piece
 matching, including equivalent tile-buffer multiplicities. Missing or conflicting
 classifications fail; names, nearby lines or observed flooding never determine
 exclusion. See [SURFACE_WATER_EVIDENCE.md](SURFACE_WATER_EVIDENCE.md).
+The ready-map inputs exclude explicit river tunnels before the initial PNG is
+carved, not just during later Python preparation. See [TUNNEL_INPUTS.md](TUNNEL_INPUTS.md).
 
 Without `--banks`, preparation estimates bank heights with a local maximum
 filter. The committed real-region fixtures use the actual uncarved elevations.

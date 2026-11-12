@@ -19,7 +19,7 @@
     "oil": 819604,
     "forest": 4937130,
     "fertility": 473681,
-    "water": 1110240
+    "water": 1110279
   },
   "cells": {
     "ore": 12134,
@@ -286,9 +286,9 @@
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/experiments/PL-918-live-inputs/refrozen/.freeze-whwnns56/pittsburgh/PL857-pittsburgh.crp",
-    "sha256": "fec4f4d1999ace6b4a340f5510403dd9a64c557e4ff0dda31fe0d86a560c6dab",
-    "bytes": 6993420,
+    "output": "/home/caleb/experiments/PL-926-rio-inlet/refrozen/.freeze-zdzne2i_/pittsburgh/PL857-pittsburgh.crp",
+    "sha256": "1227713273746daf25b1d23f75e4c2ee37de92aa34e21b988bdf27625b0449a8",
+    "bytes": 6993326,
     "regenerated": [
       "terrain",
       "water",
@@ -310,6 +310,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "bd09d9e6ba7ed8832d815fd9c85894d8c26e1eadf0332f2effd640d71ac52e5b"
+    "simulation_sha256": "230566cc541aca27d46f105520aa88fead4b8e4f355f5eeb5936579301e5d906"
   }
 }

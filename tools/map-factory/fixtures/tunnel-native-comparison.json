@@ -1,0 +1,897 @@
+{
+  "reference": {
+    "initial_water_sha256": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d",
+    "mapped_water_sha256": "a8ad3c31a3c76087ab30c766bce878d5eb317eaccb8995010cce5a32c377d993",
+    "definition": "depth >0.5 m, distance >128 m from original shipping initial water >0.1 m union unchanged mapped water",
+    "diagnostic_window_xz_m": [
+      700,
+      1808,
+      1400,
+      3300
+    ]
+  },
+  "cases": [
+    {
+      "case": "shipping",
+      "map_sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
+      "report_sha256": "56692a10049c690de879850af086fc76c99b442f052c5bb2581f1d6db89f291f",
+      "game_minutes": 60.068892021725574,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "distant_km2": 0.0,
+          "distant_max_depth_m": 0,
+          "central_distant_km2": 0.0,
+          "central_max_depth_m": 0,
+          "papa_couve_distant_km2": 0.0,
+          "largest_components": []
+        },
+        {
+          "grid": "t015-water.u16",
+          "distant_km2": 0.112128,
+          "distant_max_depth_m": 7.0,
+          "central_distant_km2": 0.04352,
+          "central_max_depth_m": 5.390625,
+          "papa_couve_distant_km2": 0.038144,
+          "largest_components": [
+            {
+              "cells": 234,
+              "km2": 0.059904,
+              "bbox_xz_m": [
+                -5856,
+                1504,
+                -4864,
+                1808
+              ],
+              "max_depth_m": 7.0,
+              "central_cells": 0
+            },
+            {
+              "cells": 105,
+              "km2": 0.02688,
+              "bbox_xz_m": [
+                752,
+                1824,
+                1104,
+                2352
+              ],
+              "max_depth_m": 5.390625,
+              "central_cells": 105
+            },
+            {
+              "cells": 36,
+              "km2": 0.009216,
+              "bbox_xz_m": [
+                928,
+                2432,
+                1056,
+                2768
+              ],
+              "max_depth_m": 2.6875,
+              "central_cells": 36
+            },
+            {
+              "cells": 27,
+              "km2": 0.006912,
+              "bbox_xz_m": [
+                -5040,
+                1184,
+                -4976,
+                1472
+              ],
+              "max_depth_m": 2.078125,
+              "central_cells": 0
+            },
+            {
+              "cells": 14,
+              "km2": 0.003584,
+              "bbox_xz_m": [
+                -1728,
+                -4176,
+                -1680,
+                -4112
+              ],
+              "max_depth_m": 1.640625,
+              "central_cells": 14
+            },
+            {
+              "cells": 7,
+              "km2": 0.001792,
+              "bbox_xz_m": [
+                -7536,
+                3184,
+                -7488,
+                3216
+              ],
+              "max_depth_m": 1.828125,
+              "central_cells": 0
+            },
+            {
+              "cells": 6,
+              "km2": 0.001536,
+              "bbox_xz_m": [
+                896,
+                2912,
+                912,
+                2976
+              ],
+              "max_depth_m": 1.09375,
+              "central_cells": 6
+            },
+            {
+              "cells": 4,
+              "km2": 0.001024,
+              "bbox_xz_m": [
+                -3856,
+                1280,
+                -3824,
+                1296
+              ],
+              "max_depth_m": 1.0625,
+              "central_cells": 4
+            }
+          ]
+        },
+        {
+          "grid": "t030-water.u16",
+          "distant_km2": 0.116992,
+          "distant_max_depth_m": 7.140625,
+          "central_distant_km2": 0.048128,
+          "central_max_depth_m": 5.734375,
+          "papa_couve_distant_km2": 0.041728,
+          "largest_components": [
+            {
+              "cells": 234,
+              "km2": 0.059904,
+              "bbox_xz_m": [
+                -5856,
+                1504,
+                -4864,
+                1808
+              ],
+              "max_depth_m": 7.140625,
+              "central_cells": 0
+            },
+            {
+              "cells": 118,
+              "km2": 0.030208,
+              "bbox_xz_m": [
+                768,
+                1824,
+                1104,
+                2496
+              ],
+              "max_depth_m": 5.734375,
+              "central_cells": 118
+            },
+            {
+              "cells": 45,
+              "km2": 0.01152,
+              "bbox_xz_m": [
+                880,
+                2576,
+                1008,
+                2976
+              ],
+              "max_depth_m": 2.15625,
+              "central_cells": 45
+            },
+            {
+              "cells": 28,
+              "km2": 0.007168,
+              "bbox_xz_m": [
+                -5040,
+                1184,
+                -4976,
+                1472
+              ],
+              "max_depth_m": 2.078125,
+              "central_cells": 0
+            },
+            {
+              "cells": 17,
+              "km2": 0.004352,
+              "bbox_xz_m": [
+                -1728,
+                -4176,
+                -1680,
+                -4112
+              ],
+              "max_depth_m": 1.65625,
+              "central_cells": 17
+            },
+            {
+              "cells": 7,
+              "km2": 0.001792,
+              "bbox_xz_m": [
+                -7536,
+                3184,
+                -7488,
+                3216
+              ],
+              "max_depth_m": 1.71875,
+              "central_cells": 0
+            },
+            {
+              "cells": 4,
+              "km2": 0.001024,
+              "bbox_xz_m": [
+                -3856,
+                1280,
+                -3824,
+                1296
+              ],
+              "max_depth_m": 1.109375,
+              "central_cells": 4
+            },
+            {
+              "cells": 1,
+              "km2": 0.000256,
+              "bbox_xz_m": [
+                -2032,
+                -4288,
+                -2032,
+                -4288
+              ],
+              "max_depth_m": 0.515625,
+              "central_cells": 1
+            }
+          ]
+        },
+        {
+          "grid": "t045-water.u16",
+          "distant_km2": 0.11776,
+          "distant_max_depth_m": 7.078125,
+          "central_distant_km2": 0.050176,
+          "central_max_depth_m": 5.5,
+          "papa_couve_distant_km2": 0.04352,
+          "largest_components": [
+            {
+              "cells": 230,
+              "km2": 0.05888,
+              "bbox_xz_m": [
+                -5856,
+                1504,
+                -4864,
+                1808
+              ],
+              "max_depth_m": 7.078125,
+              "central_cells": 0
+            },
+            {
+              "cells": 107,
+              "km2": 0.027392,
+              "bbox_xz_m": [
+                752,
+                1824,
+                1120,
+                2352
+              ],
+              "max_depth_m": 5.5,
+              "central_cells": 107
+            },
+            {
+              "cells": 53,
+              "km2": 0.013568,
+              "bbox_xz_m": [
+                880,
+                2560,
+                1008,
+                2976
+              ],
+              "max_depth_m": 2.390625,
+              "central_cells": 53
+            },
+            {
+              "cells": 27,
+              "km2": 0.006912,
+              "bbox_xz_m": [
+                -5040,
+                1184,
+                -4976,
+                1472
+              ],
+              "max_depth_m": 2.21875,
+              "central_cells": 0
+            },
+            {
+              "cells": 18,
+              "km2": 0.004608,
+              "bbox_xz_m": [
+                -1728,
+                -4176,
+                -1680,
+                -4112
+              ],
+              "max_depth_m": 1.5625,
+              "central_cells": 18
+            },
+            {
+              "cells": 8,
+              "km2": 0.002048,
+              "bbox_xz_m": [
+                1040,
+                2432,
+                1056,
+                2496
+              ],
+              "max_depth_m": 2.765625,
+              "central_cells": 8
+            },
+            {
+              "cells": 7,
+              "km2": 0.001792,
+              "bbox_xz_m": [
+                -7536,
+                3184,
+                -7488,
+                3216
+              ],
+              "max_depth_m": 1.96875,
+              "central_cells": 0
+            },
+            {
+              "cells": 4,
+              "km2": 0.001024,
+              "bbox_xz_m": [
+                -3856,
+                1280,
+                -3824,
+                1296
+              ],
+              "max_depth_m": 1.109375,
+              "central_cells": 4
+            }
+          ]
+        },
+        {
+          "grid": "t060-water.u16",
+          "distant_km2": 0.12032,
+          "distant_max_depth_m": 7.03125,
+          "central_distant_km2": 0.050176,
+          "central_max_depth_m": 5.671875,
+          "papa_couve_distant_km2": 0.044032,
+          "largest_components": [
+            {
+              "cells": 267,
+              "km2": 0.068352,
+              "bbox_xz_m": [
+                -5856,
+                1184,
+                -4864,
+                1808
+              ],
+              "max_depth_m": 7.03125,
+              "central_cells": 0
+            },
+            {
+              "cells": 108,
+              "km2": 0.027648,
+              "bbox_xz_m": [
+                752,
+                1824,
+                1104,
+                2352
+              ],
+              "max_depth_m": 5.671875,
+              "central_cells": 108
+            },
+            {
+              "cells": 54,
+              "km2": 0.013824,
+              "bbox_xz_m": [
+                880,
+                2576,
+                1008,
+                2976
+              ],
+              "max_depth_m": 2.671875,
+              "central_cells": 54
+            },
+            {
+              "cells": 17,
+              "km2": 0.004352,
+              "bbox_xz_m": [
+                -1728,
+                -4176,
+                -1680,
+                -4112
+              ],
+              "max_depth_m": 1.890625,
+              "central_cells": 17
+            },
+            {
+              "cells": 10,
+              "km2": 0.00256,
+              "bbox_xz_m": [
+                1024,
+                2432,
+                1056,
+                2496
+              ],
+              "max_depth_m": 2.765625,
+              "central_cells": 10
+            },
+            {
+              "cells": 7,
+              "km2": 0.001792,
+              "bbox_xz_m": [
+                -7536,
+                3184,
+                -7488,
+                3216
+              ],
+              "max_depth_m": 2.109375,
+              "central_cells": 0
+            },
+            {
+              "cells": 4,
+              "km2": 0.001024,
+              "bbox_xz_m": [
+                -3856,
+                1280,
+                -3824,
+                1296
+              ],
+              "max_depth_m": 1.140625,
+              "central_cells": 4
+            },
+            {
+              "cells": 1,
+              "km2": 0.000256,
+              "bbox_xz_m": [
+                -2768,
+                1824,
+                -2768,
+                1824
+              ],
+              "max_depth_m": 1.25,
+              "central_cells": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "fixed",
+      "map_sha256": "d1c6238fd6bf2bc8b152212cb79029f89570b3df7052bd9ab30733ac1d5c7258",
+      "report_sha256": "e8c9c6a06797c01cbb501303b6a1b22ad6f8f2416d2bb56b6e0ad6e7ac878f7b",
+      "game_minutes": 60.11555869082609,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "distant_km2": 0.0,
+          "distant_max_depth_m": 0,
+          "central_distant_km2": 0.0,
+          "central_max_depth_m": 0,
+          "papa_couve_distant_km2": 0.0,
+          "largest_components": []
+        },
+        {
+          "grid": "t015-water.u16",
+          "distant_km2": 0.054784,
+          "distant_max_depth_m": 2.734375,
+          "central_distant_km2": 0.00128,
+          "central_max_depth_m": 1.171875,
+          "papa_couve_distant_km2": 0.0,
+          "largest_components": [
+            {
+              "cells": 49,
+              "km2": 0.012544,
+              "bbox_xz_m": [
+                -5280,
+                1584,
+                -5136,
+                1680
+              ],
+              "max_depth_m": 2.734375,
+              "central_cells": 0
+            },
+            {
+              "cells": 38,
+              "km2": 0.009728,
+              "bbox_xz_m": [
+                -5808,
+                1616,
+                -5632,
+                1760
+              ],
+              "max_depth_m": 1.921875,
+              "central_cells": 0
+            },
+            {
+              "cells": 34,
+              "km2": 0.008704,
+              "bbox_xz_m": [
+                -5280,
+                1696,
+                -5120,
+                1856
+              ],
+              "max_depth_m": 1.84375,
+              "central_cells": 0
+            },
+            {
+              "cells": 30,
+              "km2": 0.00768,
+              "bbox_xz_m": [
+                -7632,
+                3200,
+                -7520,
+                3296
+              ],
+              "max_depth_m": 2.21875,
+              "central_cells": 0
+            },
+            {
+              "cells": 22,
+              "km2": 0.005632,
+              "bbox_xz_m": [
+                -5504,
+                1792,
+                -5408,
+                1856
+              ],
+              "max_depth_m": 1.328125,
+              "central_cells": 0
+            },
+            {
+              "cells": 21,
+              "km2": 0.005376,
+              "bbox_xz_m": [
+                -7424,
+                3520,
+                -7312,
+                3584
+              ],
+              "max_depth_m": 1.265625,
+              "central_cells": 0
+            },
+            {
+              "cells": 15,
+              "km2": 0.00384,
+              "bbox_xz_m": [
+                -4976,
+                1568,
+                -4928,
+                1632
+              ],
+              "max_depth_m": 1.296875,
+              "central_cells": 0
+            },
+            {
+              "cells": 4,
+              "km2": 0.001024,
+              "bbox_xz_m": [
+                -3856,
+                1280,
+                -3824,
+                1296
+              ],
+              "max_depth_m": 1.171875,
+              "central_cells": 4
+            }
+          ]
+        },
+        {
+          "grid": "t030-water.u16",
+          "distant_km2": 0.0576,
+          "distant_max_depth_m": 2.59375,
+          "central_distant_km2": 0.001536,
+          "central_max_depth_m": 1.171875,
+          "papa_couve_distant_km2": 0.0,
+          "largest_components": [
+            {
+              "cells": 52,
+              "km2": 0.013312,
+              "bbox_xz_m": [
+                -5280,
+                1584,
+                -5136,
+                1680
+              ],
+              "max_depth_m": 2.59375,
+              "central_cells": 0
+            },
+            {
+              "cells": 39,
+              "km2": 0.009984,
+              "bbox_xz_m": [
+                -5808,
+                1616,
+                -5632,
+                1760
+              ],
+              "max_depth_m": 1.9375,
+              "central_cells": 0
+            },
+            {
+              "cells": 29,
+              "km2": 0.007424,
+              "bbox_xz_m": [
+                -7632,
+                3200,
+                -7520,
+                3296
+              ],
+              "max_depth_m": 2.21875,
+              "central_cells": 0
+            },
+            {
+              "cells": 26,
+              "km2": 0.006656,
+              "bbox_xz_m": [
+                -5200,
+                1696,
+                -5120,
+                1824
+              ],
+              "max_depth_m": 2.03125,
+              "central_cells": 0
+            },
+            {
+              "cells": 22,
+              "km2": 0.005632,
+              "bbox_xz_m": [
+                -4992,
+                1568,
+                -4912,
+                1632
+              ],
+              "max_depth_m": 1.6875,
+              "central_cells": 0
+            },
+            {
+              "cells": 22,
+              "km2": 0.005632,
+              "bbox_xz_m": [
+                -5504,
+                1792,
+                -5392,
+                1856
+              ],
+              "max_depth_m": 1.359375,
+              "central_cells": 0
+            },
+            {
+              "cells": 20,
+              "km2": 0.00512,
+              "bbox_xz_m": [
+                -7424,
+                3520,
+                -7312,
+                3584
+              ],
+              "max_depth_m": 1.296875,
+              "central_cells": 0
+            },
+            {
+              "cells": 8,
+              "km2": 0.002048,
+              "bbox_xz_m": [
+                -5296,
+                1840,
+                -5232,
+                1856
+              ],
+              "max_depth_m": 0.796875,
+              "central_cells": 0
+            }
+          ]
+        },
+        {
+          "grid": "t045-water.u16",
+          "distant_km2": 0.055296,
+          "distant_max_depth_m": 2.71875,
+          "central_distant_km2": 0.00128,
+          "central_max_depth_m": 1.109375,
+          "papa_couve_distant_km2": 0.0,
+          "largest_components": [
+            {
+              "cells": 48,
+              "km2": 0.012288,
+              "bbox_xz_m": [
+                -5280,
+                1584,
+                -5120,
+                1680
+              ],
+              "max_depth_m": 2.71875,
+              "central_cells": 0
+            },
+            {
+              "cells": 37,
+              "km2": 0.009472,
+              "bbox_xz_m": [
+                -5808,
+                1632,
+                -5632,
+                1760
+              ],
+              "max_depth_m": 1.953125,
+              "central_cells": 0
+            },
+            {
+              "cells": 31,
+              "km2": 0.007936,
+              "bbox_xz_m": [
+                -5296,
+                1712,
+                -5120,
+                1856
+              ],
+              "max_depth_m": 1.859375,
+              "central_cells": 0
+            },
+            {
+              "cells": 29,
+              "km2": 0.007424,
+              "bbox_xz_m": [
+                -7632,
+                3200,
+                -7520,
+                3280
+              ],
+              "max_depth_m": 2.1875,
+              "central_cells": 0
+            },
+            {
+              "cells": 24,
+              "km2": 0.006144,
+              "bbox_xz_m": [
+                -5504,
+                1792,
+                -5376,
+                1856
+              ],
+              "max_depth_m": 1.359375,
+              "central_cells": 0
+            },
+            {
+              "cells": 22,
+              "km2": 0.005632,
+              "bbox_xz_m": [
+                -4992,
+                1568,
+                -4912,
+                1632
+              ],
+              "max_depth_m": 1.828125,
+              "central_cells": 0
+            },
+            {
+              "cells": 20,
+              "km2": 0.00512,
+              "bbox_xz_m": [
+                -7424,
+                3520,
+                -7312,
+                3584
+              ],
+              "max_depth_m": 1.25,
+              "central_cells": 0
+            },
+            {
+              "cells": 4,
+              "km2": 0.001024,
+              "bbox_xz_m": [
+                -3856,
+                1280,
+                -3824,
+                1296
+              ],
+              "max_depth_m": 1.109375,
+              "central_cells": 4
+            }
+          ]
+        },
+        {
+          "grid": "t060-water.u16",
+          "distant_km2": 0.055808,
+          "distant_max_depth_m": 2.625,
+          "central_distant_km2": 0.00128,
+          "central_max_depth_m": 1.0625,
+          "papa_couve_distant_km2": 0.0,
+          "largest_components": [
+            {
+              "cells": 48,
+              "km2": 0.012288,
+              "bbox_xz_m": [
+                -5280,
+                1584,
+                -5136,
+                1680
+              ],
+              "max_depth_m": 2.625,
+              "central_cells": 0
+            },
+            {
+              "cells": 36,
+              "km2": 0.009216,
+              "bbox_xz_m": [
+                -5808,
+                1632,
+                -5632,
+                1760
+              ],
+              "max_depth_m": 2.03125,
+              "central_cells": 0
+            },
+            {
+              "cells": 28,
+              "km2": 0.007168,
+              "bbox_xz_m": [
+                -7632,
+                3200,
+                -7520,
+                3280
+              ],
+              "max_depth_m": 2.296875,
+              "central_cells": 0
+            },
+            {
+              "cells": 26,
+              "km2": 0.006656,
+              "bbox_xz_m": [
+                -5184,
+                1696,
+                -5120,
+                1824
+              ],
+              "max_depth_m": 2.03125,
+              "central_cells": 0
+            },
+            {
+              "cells": 24,
+              "km2": 0.006144,
+              "bbox_xz_m": [
+                -4992,
+                1552,
+                -4912,
+                1648
+              ],
+              "max_depth_m": 1.75,
+              "central_cells": 0
+            },
+            {
+              "cells": 22,
+              "km2": 0.005632,
+              "bbox_xz_m": [
+                -5504,
+                1792,
+                -5408,
+                1856
+              ],
+              "max_depth_m": 1.25,
+              "central_cells": 0
+            },
+            {
+              "cells": 20,
+              "km2": 0.00512,
+              "bbox_xz_m": [
+                -7424,
+                3520,
+                -7312,
+                3584
+              ],
+              "max_depth_m": 1.203125,
+              "central_cells": 0
+            },
+            {
+              "cells": 8,
+              "km2": 0.002048,
+              "bbox_xz_m": [
+                -5280,
+                1824,
+                -5216,
+                1856
+              ],
+              "max_depth_m": 0.8125,
+              "central_cells": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

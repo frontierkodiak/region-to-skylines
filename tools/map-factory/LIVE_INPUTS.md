@@ -1,9 +1,15 @@
 # Shipping-input qualification
 
-PL-918 replaces the original canvas captures with the shared `inputs.js` path.
-The live pin at the start of qualification is
+PL-918 replaced the original canvas captures with the shared `inputs.js` path.
+Its live pin at the start of qualification was
 `5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7`. All captures and reference bytes are
 built on blade. macOS reproduction remains PL-917.
+
+PL-926 starts from `45c3e53c3c3b40ddf4febc1d513125ca28efa643` and keeps this
+native protocol. Its shared input rule excludes explicit
+river tunnels before the heightmap is carved, while preserving the full
+geographic evidence. The cause and matched diagnostics are in
+[TUNNEL_INPUTS.md](TUNNEL_INPUTS.md).
 
 ## Map identity
 
@@ -12,7 +18,11 @@ build. The capture refuses to archive a different package. Its receipt binds
 the source revision, writer files, heightmap, geographic JSON, uncarved banks,
 resource inputs, prepared grids and full map checksum.
 
-| Region | PL-857 reference | Live-pin CLI |
+The following is the historical PL-918 comparison. Current full identities and
+results are in [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md) and
+[native-qualification.json](fixtures/native-qualification.json).
+
+| Region | PL-857 reference | PL-918 live-pin CLI |
 | --- | --- | --- |
 | Asheville | `b66c5c6a3e15` | `eb4d2d9d8314` |
 | Innsbruck | `3ba5de0a2cd1` | `6a54f3f24246` |
@@ -31,7 +41,7 @@ Run the commands in the source worktree being qualified. Use a fresh output
 directory. The example keeps files outside the checkout.
 
 ```sh
-qualification_out="$HOME/experiments/PL-918-live-inputs"
+qualification_out="$HOME/experiments/PL-926-rio-inlet"
 node cli.mjs charleston --out "$qualification_out/live-pin/charleston" --json
 node tools/map-factory/capture-inputs.mjs "$qualification_out" charleston
 ```
@@ -75,13 +85,16 @@ The native record is authored separately from completed runs, never invented by
 the fixture writer:
 
 ```sh
-uv run python freeze_native_qualification.py RUN_ROOT OUTPUT/native-qualification.json
+uv run python freeze_native_qualification.py RUN_ROOT OUTPUT/native-qualification.json --issue PL-926
 ```
 
 This reads the actual source maps and first native grids, repeats the native
 source-control audit, checks 60 minutes and empty cleanup, and binds reviewed
 strict-vanilla screenshots. Failed checks remain failed. It also records the
 native template, connection layout, sea level, water controls and starting tile.
+`--issue` selects the `ISSUE-vanilla-SLUG` evidence prefix and the recorded issue.
+Its default remains `PL-918` for historical runs. Use the same issue with
+`strict_vanilla.py --issue PL-926` when creating the ordinary New Game evidence.
 
 `npm run test:fixtures` requires that capture contract and reproduces all five
 regions under Pyodide. Each region has a shipping MRDS-evidence golden and a
@@ -97,9 +110,9 @@ contents. The shipping variants also bind `mapgen.js` and `web.py`, so a change 
 resource acquisition needs a fresh capture. `verify_regions.py` independently re-prepares the inputs
 and checks the same grids and packages on blade. Neither verifier writes goldens.
 
-The frozen source contract includes PL-918's copy-only Rio warning update in
-`terrain.js`; the native capture receipts retain the original source hash.
-No terrain or input function changed between those revisions.
+The PL-926 source contract includes the post-capture notice-only change from
+7 m to 3 m in `terrain.js`; the native capture receipts retain their actual
+source hash. No terrain or input function changed after those captures.
 
 Qualification results and unresolved checks belong in `NATIVE_FINDINGS.md`.
 Minor-stream carving remains PL-912. This protocol does not test populated-city
