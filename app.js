@@ -1,10 +1,17 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
+import { captureInputs } from "./inputs.js";
 
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
 let result = null, job = null;
+// What the map is called in the game's New Game list: a name typed into the name field, else
+// the preset's or searched place's name, else the name field.
+let typedTitle = null, searched = null;
+const titleFor = () => typedTitle ?? checkedPreset()?.name ??
+  (searched && Math.abs(searched.lon - state.lon) < 0.05 && Math.abs(searched.lat - state.lat) < 0.05 ? searched.q : null) ??
+  ($("name").value.trim() || "My region");
 
 // ---------------------------------------------------------------- URL state
 
@@ -108,16 +115,20 @@ function renderPresets() {
     b.textContent = p.name;
     const on = Math.abs(p.lon - state.lon) < 0.01 && Math.abs(p.lat - state.lat) < 0.01;
     b.setAttribute("aria-pressed", on);
-    b.onclick = () => {
-      Object.assign(state, { lon: p.lon, lat: p.lat });
-      $("name").value = p.slug;
-      refreshSquare();
-      fitToSquare();
-    };
+    b.onclick = () => usePreset(p);
     return b;
   }));
 }
 renderPresets();
+function usePreset(p) {
+  Object.assign(state, { lon: p.lon, lat: p.lat, rotation: 0 });
+  typedTitle = null;
+  $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
+  $("name").value = p.slug;
+  refreshSquare();
+  fitToSquare();
+  writeHash();
+}
 
 $("rot").oninput = (e) => {
   state.rotation = Number(e.target.value);
@@ -163,7 +174,7 @@ $("vscale").onchange = (e) => {
 $("rivers").onchange = (e) => { state.rivers = e.target.checked; writeHash(); schedule(0); };
 for (const k of Object.keys(DEFAULTS)) $(k).onchange = (e) => { state[k] = Number(e.target.value); writeHash(); if (result) finish(result.raw); };
 $("resetplay").onclick = () => { Object.assign(state, DEFAULTS); for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]); writeHash(); if (result) finish(result.raw); };
-$("name").onchange = () => { writeHash(); finishLabel(); };
+$("name").onchange = () => { typedTitle = $("name").value.trim() || null; writeHash(); finishLabel(); if (result) setDownload(result.raw.water); };
 
 // Nominatim usage policy (read 2026-11-09): searches only when the user submits, never as they
 // type (no autocomplete); at most one request per second; repeated queries answered from a cache.
@@ -191,6 +202,8 @@ $("search").onsubmit = async (e) => {
     if (!hit) return setStatus(`No place called “${q}”`);
     Object.assign(state, { lon: Number(hit.lon), lat: Number(hit.lat) });
     $("name").value = slugify(q) || coordName(state.lat, state.lon);
+    searched = { q, lon: state.lon, lat: state.lat };
+    typedTitle = null;
     refreshSquare();
     fitToSquare();
   } catch {
@@ -210,7 +223,8 @@ const setStatus = (t) => ($("status").textContent = t);
 async function build() {
   job?.abort();
   const ctl = (job = new AbortController());
-  const sq = { ...state };
+  // the square as the link records it (5 decimals), so the page builds what the link and the CLI build
+  const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5) };
   renderPresets();
   setDownload("busy");
   try {
@@ -238,16 +252,29 @@ async function build() {
   }
 }
 
-/** The download button says whether the map it would save has its rivers and lakes. */
-function setDownload(mode) {
-  const dl = $("dl");
-  dl.disabled = $("dljson").disabled = $("dlwater").disabled = mode === "busy";
-  dl.classList.toggle("partial", mode === "loading" || mode === "failed");
-  dl.textContent = {
-    busy: "Download heightmap", basemap: "Download heightmap", off: "Download heightmap",
-    loading: "Download now (rivers still loading)", failed: "Download (no rivers or lakes)",
-  }[mode];
+/**
+ * The download button: the ready-to-play map file, or the heightmap if this browser couldn't
+ * build one. `water` is the build's water state ("busy" while terrain loads); the map file
+ * needs the rivers.
+ */
+function setDownload(water) {
+  const dl = $("dl"), busy = water === "busy" || building;
+  for (const id of ["dlpng", "dljson", "dlwater"]) $(id).disabled = water === "busy";
+  $("dlpng").textContent = { loading: "Heightmap now (rivers still loading)", failed: "Heightmap (no rivers or lakes)" }[water] ?? "Heightmap (.png)";
+  if (building) return;
+  dl.dataset.kind = fallback ? "png" : "crp";
+  dl.disabled = busy || (!fallback && water !== "basemap" && water !== "off");
+  dl.classList.toggle("partial", fallback && (water === "loading" || water === "failed"));
+  dl.textContent = fallback
+    ? ({ loading: "Download heightmap now (rivers still loading)", failed: "Download heightmap (no rivers or lakes)" }[water] ?? "Download heightmap")
+    : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? "Download ready-to-play map");
+  const check = checkedPreset()?.check, note = fallback || check;
+  $("crpnote").hidden = !note;
+  $("crpnote").textContent = fallback ?? check ?? "";
+  $("crpmapname").textContent = `\u201c${titleFor()} - Ready to Play\u201d`;
 }
+/** The preset whose square this is, if any (some carry a note from their game test). */
+const checkedPreset = () => PRESETS.find((p) => Math.abs(p.lon - state.lon) < 1e-6 && Math.abs(p.lat - state.lat) < 1e-6 && state.rotation === 0 && state.scale === 1);
 
 /** Smooth, carve and fit the fetched terrain with the current options; cheap enough to rerun on any change. */
 function finish(raw, status = "") {
@@ -263,7 +290,7 @@ function finish(raw, status = "") {
   showSources(sources, fit);
   setStatus(status);
   setDownload(raw.water);
-  $("mapname").textContent = `${fileName()}.png · ${km(extentOf(sq), sq.scale)} · ${Math.round(fit.gameMin)}–${Math.round(fit.gameMax)} m`;
+  $("mapname").textContent = `${fallback ? `${fileName()}.png` : `${baseName()}.crp`} · ${km(extentOf(sq), sq.scale)} · ${Math.round(fit.gameMin)}–${Math.round(fit.gameMax)} m`;
 }
 
 /** Water source suggestions: dots on the map, pins in the preview, a list in the panel. */
@@ -328,14 +355,63 @@ const baseName = () => ($("name").value.trim().replace(/[^\w.-]+/g, "-") || "map
 // a map saved before (or without) the OSM water says so in its name
 const fileName = () => baseName() + (result && ["loading", "failed"].includes(result.raw.water) ? "-no-rivers" : "");
 
+// ---------------------------------------------------------------- the ready-to-play map file
+
+let worker = null, building = false, fallback = null, nextId = 0;
+/**
+ * The ready-to-play .crp for the current square: capture the writer's inputs here (inputs.js),
+ * then run the reference writer under Pyodide in mapgen-worker.js. `progress(text)` reports.
+ */
+async function crpBytes(progress = () => {}) {
+  const sq = { ...result.sq, name: titleFor(), slug: baseName() };
+  const inputs = await captureInputs(sq, { status: progress, about: { page: location.origin + location.pathname } });
+  const w = (worker ??= new Worker(new URL("mapgen-worker.js", import.meta.url), { type: "module" }));
+  const id = ++nextId;
+  return new Promise((resolve, reject) => {
+    const done = (fn) => (value) => { w.removeEventListener("message", onMessage); w.removeEventListener("error", onError); fn(value); };
+    const onMessage = ({ data }) => {
+      if (data.id !== id) return;
+      if (data.status) progress(data.status);
+      else if (data.error) done(reject)(new Error(data.error));
+      else if (data.done) done(resolve)(data);
+    };
+    // the worker itself died (on a phone, most likely out of memory): start a new one next time
+    const onError = (e) => { e.preventDefault?.(); w.terminate(); if (worker === w) worker = null; done(reject)(new Error(e.message || "the map builder stopped")); };
+    w.addEventListener("message", onMessage);
+    w.addEventListener("error", onError);
+    w.postMessage({ id, sq, inputs }, [inputs.banks.buffer]);
+  });
+}
+async function savePNG() {
+  save(await png16(encode16(result.fit.game), CS1.px, CS1.px), `${fileName()}.png`);
+  if (result.raw.water === "loading") setStatus("Saved without rivers; download again once they load");
+}
 $("dl").onclick = async () => {
   if (!result) return;
-  $("dl").disabled = true;
-  const blob = await png16(encode16(result.fit.game), CS1.px, CS1.px);
-  save(blob, `${fileName()}.png`);
-  $("dl").disabled = false;
-  if (result.raw.water === "loading") setStatus("Saved without rivers; download again once they load");
+  const dl = $("dl");
+  if (dl.dataset.kind !== "crp") return savePNG();
+  building = true;
+  dl.disabled = true;
+  const start = performance.now();
+  let step = "Starting";
+  const tick = () => (dl.textContent = `${step}… ${Math.round((performance.now() - start) / 1000)} s`);
+  const timer = setInterval(tick, 1000);
+  try {
+    const map = await crpBytes((s) => { step = s; tick(); });
+    lastBuild = { seconds: (performance.now() - start) / 1000, memory: map.memory, summary: map.summary };
+    save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
+    setStatus(`Saved ${baseName()}.crp: \u201c${map.mapName}\u201d in New Game`);
+  } catch (err) {
+    lastBuild = { error: err.message };
+    fallback = `This browser couldn't build the map file (${err.message}). Here is the heightmap instead; the Map Editor steps are under Advanced.`;
+  }
+  clearInterval(timer);
+  building = false;
+  setDownload(result.raw.water);
+  finishLabel();
 };
+let lastBuild = null;
+$("dlpng").onclick = () => result && savePNG();
 $("dlwater").onclick = async () => {
   if (!result) return;
   save(await pngRGB(waterMap(result.built), CS1.px, CS1.px), `${fileName()}-water.png`);
@@ -548,8 +624,9 @@ function placeNorth(rotationDeg) {
   north.position.set(-Math.sin(t) * 1.13, -0.15, -Math.cos(t) * 1.13); // scene -z is the map's top edge
 }
 function finishLabel() {
-  if (result) $("mapname").textContent = $("mapname").textContent.replace(/^[^ ]+\.png/, `${fileName()}.png`);
+  if (result) $("mapname").textContent = $("mapname").textContent.replace(/^[^ ]+\.(png|crp)/, fallback ? `${fileName()}.png` : `${baseName()}.crp`);
 }
 
 // for automated checks
-window.__regionmap = { state, get result() { return result; }, details: () => details(), agentPrompt: () => agentPrompt(), png: () => png16(encode16(result.fit.game), CS1.px, CS1.px) };
+window.__regionmap = { state, get result() { return result; }, details: () => details(), agentPrompt: () => agentPrompt(),
+  png: () => png16(encode16(result.fit.game), CS1.px, CS1.px), crp: (progress) => crpBytes(progress), get lastBuild() { return lastBuild; } };

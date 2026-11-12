@@ -81,11 +81,15 @@ input[type="range"] { width: 100%; accent-color: var(--accent); }
   display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; order: 99;
 }
 #mapname { flex: 1 1 100%; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-button#dl, button#dljson {
+button#dl, .dlrow button {
   font: inherit; font-weight: 600; padding: 9px 14px; border-radius: 8px; cursor: pointer;
   border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink);
 }
-button#dl { flex: 1; }
+button#dl { flex: 1; min-height: 40px; }
+#crpnote { flex: 1 1 100%; margin: 0; }
+.dlrow { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
+.dlrow button { padding: 7px 10px; min-height: 40px; }
+#advanced > details { margin-top: 10px; }
 button#dl.partial { background: var(--square); border-color: var(--square); color: #fff; }
 button.secondary { background: transparent !important; color: var(--accent) !important; font-weight: 500 !important; }
 button:disabled { opacity: .45; cursor: default; }
