@@ -1,0 +1,48 @@
+{
+  "slug": "rio",
+  "geometry_sha256": "f37119cfe3ddeeb8e9adb4aba682ccc441f42316ee81d3effb22419c2a0acaf2",
+  "landcover_sha256": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59",
+  "sampler_sha256": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+  "provenance": {
+    "kind": "fresh ESA WorldCover 2021 sample",
+    "tiles": [
+      "S24W045"
+    ],
+    "sampler_revision": "0d3b873a903bca0275fcc90e110fc222e41e5e0f"
+  },
+  "attribution": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "classes": {
+    "10": {
+      "cells": 765455,
+      "share": 0.2563493307398834
+    },
+    "20": {
+      "cells": 40,
+      "share": 1.3395919067215363e-05
+    },
+    "30": {
+      "cells": 56982,
+      "share": 0.019083156507201646
+    },
+    "40": {
+      "cells": 195,
+      "share": 6.53051054526749e-05
+    },
+    "50": {
+      "cells": 822140,
+      "share": 0.27533302254801095
+    },
+    "60": {
+      "cells": 16916,
+      "share": 0.005665134173525377
+    },
+    "80": {
+      "cells": 1320857,
+      "share": 0.44235233678412206
+    },
+    "90": {
+      "cells": 3399,
+      "share": 0.0011383182227366255
+    }
+  }
+}

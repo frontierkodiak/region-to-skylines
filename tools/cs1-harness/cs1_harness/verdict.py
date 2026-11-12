@@ -13,13 +13,17 @@ which runs it moves from pass to fail or back.
 
 from __future__ import annotations
 
+import hashlib
 import json
+import math
 import pathlib
 import re
 import subprocess
 
 import numpy as np
 from PIL import Image
+
+from . import landmarks, mapped_water, new_game_panel, startup_views
 
 SCHEMA = 1
 
@@ -156,7 +160,15 @@ def dilate(mask: np.ndarray, radius_cells: int) -> np.ndarray:
     return out
 
 
-def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict) -> dict:
+def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict, *, mapped_path: pathlib.Path | None = None) -> dict:
+    corridor = None
+    if "mapped_water" in meta:
+        try:
+            corridor, _ = mapped_water.read_mask(
+                mapped_path if mapped_path is not None else out / mapped_water.FROZEN_FILE, meta["mapped_water"]
+            )
+        except (OSError, ValueError) as exc:
+            return row("no_flooding", "fail", detail=f"requested mapped-water evidence invalid: {exc}")
     grids = out / "grids"
     first = grids / f"{report.get('first_dump', 't000')}-water.u16"
     ref_path, ref_from = None, None
@@ -168,34 +180,270 @@ def flooding(out: pathlib.Path, report: dict, meta: dict, t: dict) -> dict:
     elif first.exists():
         ref_path, ref_from = first, "the run's first water dump"
     if ref_path is None or not ref_path.exists():
-        return row("no_flooding", "skip", detail="no saved water grids")
-    expected = grid(ref_path) > WET_M
+        return row("no_flooding", "fail" if corridor is not None else "skip", detail="no saved water grids")
+    initial = grid(ref_path) > WET_M
+    expected = initial if corridor is None else initial | corridor
     if int(expected.sum()) < t["reference_min_wet_cells"]:
         return row(
             "no_flooding",
-            "skip",
+            "fail" if corridor is not None else "skip",
             int(expected.sum()),
             detail=f"{ref_from} is nearly dry; give the probe file a reference_water grid to judge flooding",
         )
     near = dilate(expected, int(t["flood_distance_m"] // CELL_M))
     per_grid = []
+    initial_grids = []
+    initial_near = dilate(initial, int(t["flood_distance_m"] // CELL_M)) if corridor is not None else None
     for path in sorted(grids.glob("t*-water.u16")):
-        far = (~near) & (grid(path) > t["flood_depth_m"])
+        deep = grid(path) > t["flood_depth_m"]
+        far = (~near) & deep
         per_grid.append({"grid": path.name, "km2": round(float(far.sum()) * CELL_M * CELL_M / 1e6, 4)})
+        if initial_near is not None:
+            initial_grids.append(
+                {"grid": path.name, "km2": round(float(((~initial_near) & deep).sum()) * CELL_M * CELL_M / 1e6, 4)}
+            )
     worst = max((g["km2"] for g in per_grid), default=0.0)
+    value = {"worst_km2": worst, "grids": per_grid, "reference": ref_from}
+    if corridor is not None:
+        if not per_grid:
+            return row("no_flooding", "fail", detail="requested mapped-water check has no saved water grids")
+        initial_worst = max(g["km2"] for g in initial_grids)
+        value.update(
+            reference=ref_from + " union hash-bound mapped_water",
+            reference_sha256=hashlib.sha256(ref_path.read_bytes()).hexdigest(),
+            mapped_water={
+                "file": str(mapped_path) if mapped_path is not None else mapped_water.FROZEN_FILE,
+                "sha256": meta["mapped_water"]["sha256"],
+                "format": mapped_water.FORMAT,
+                "cells": int(corridor.sum()),
+            },
+            failing_grids=[g for g in per_grid if g["km2"] > t["flood_max_km2"]],
+            initial_only_diagnostic={
+                "worst_km2": initial_worst,
+                "grids": initial_grids,
+                "would_fail": int(initial.sum()) >= t["reference_min_wet_cells"] and initial_worst > t["flood_max_km2"],
+                "status": "skip"
+                if int(initial.sum()) < t["reference_min_wet_cells"]
+                else ("fail" if initial_worst > t["flood_max_km2"] else "pass"),
+                "reference_cells": int(initial.sum()),
+                "gating": False,
+            },
+        )
     return row(
         "no_flooding",
         "fail" if worst > t["flood_max_km2"] else "pass",
-        {"worst_km2": worst, "grids": per_grid, "reference": ref_from},
+        value,
         f"<= {t['flood_max_km2']} km² deeper than {t['flood_depth_m']} m beyond {t['flood_distance_m']:.0f} m",
     )
+
+
+def adjudicate_flooding(out: pathlib.Path, mask_path: pathlib.Path, spec: dict) -> dict:
+    """Read-only supplemental assessment; never rewrite a historical frozen request/verdict.
+
+    The caller records this separately. It is not a re-run or native acceptance.
+    """
+    out, mask_path = pathlib.Path(out), pathlib.Path(mask_path)
+    report_path = out / "report.json"
+    report = json.loads(report_path.read_text())
+    meta = probe_meta(out, report)
+    source_probes = pathlib.Path(meta["_path"]) if "_path" in meta else None
+    return {
+        "schema": 1,
+        "kind": "supplemental-mapped-water-flooding",
+        "report_sha256": hashlib.sha256(report_path.read_bytes()).hexdigest(),
+        "probes_sha256": hashlib.sha256(source_probes.read_bytes()).hexdigest() if source_probes else None,
+        "mapped_water": spec,
+        "mask_path": str(mask_path.resolve()),
+        "saved_grid_sha256": {
+            p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted((out / "grids").glob("t*-water.u16"))
+        },
+        "thresholds": {k: v for k, v in MAP_SOAK.items() if k.startswith(("flood_", "reference_"))},
+        "assessment": flooding(out, report, {**meta, "mapped_water": spec}, MAP_SOAK, mapped_path=mask_path),
+        "native_acceptance": False,
+    }
+
+
+def probes_wet_throughout(out: pathlib.Path, report: dict, meta: dict, t: dict) -> dict:
+    """Required probes wet at every observed native sample, not every simulation frame."""
+    name = "probes_wet_throughout"
+    limit = 40
+    coord_tolerance = 0.001  # native float32 coordinate echo roundoff, not spatial water tolerance
+
+    def number(value):
+        return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+
+    def identity(point):
+        if not isinstance(point, dict) or not isinstance(point.get("name"), str) or not point["name"]:
+            raise ValueError("missing/malformed probe identity")
+        if not all(number(point.get(k)) for k in ("x", "z")):
+            raise ValueError("missing/nonfinite probe coordinates")
+        return point["name"]
+
+    def same_position(a, b):
+        return all(abs(a[k] - b[k]) <= coord_tolerance for k in ("x", "z"))
+
+    def table(points):
+        if not isinstance(points, list):
+            raise ValueError("missing/malformed point table")
+        result = {}
+        for point in points:
+            key = identity(point)
+            if key in result:
+                raise ValueError(f"duplicate probe identity: {key}")
+            result[key] = point
+        return result
+
+    try:
+        frozen = "points" in meta
+        requested = meta["points"] if frozen else report.get("points")
+        if frozen:
+            if not isinstance(requested, list):
+                raise ValueError("malformed frozen probe table")
+            normalized = []
+            for i, p in enumerate(requested):
+                if isinstance(p, dict):
+                    p = {**p, "name": p.get("name", f"p{i}")}
+                    if "required" in p and type(p["required"]) is not bool:
+                        raise ValueError("required override must be boolean")
+                elif isinstance(p, list) and len(p) >= 2:
+                    p = {"name": f"p{i}", "x": p[0], "z": p[-1]}
+                normalized.append(p)
+            requested = normalized
+        expected = table(requested)
+        cohort = {key: p for key, p in expected.items() if required(p, p if frozen else None, t)}
+        if not cohort:
+            return row(name, "skip", detail="no required probes in the declared cohort")
+        reported = table(report.get("points"))
+        for key, p in cohort.items():
+            if key not in reported or not same_position(p, reported[key]):
+                raise ValueError(f"required report identity missing/changed: {key}")
+        rows = []
+        for line in (out / "timeline.jsonl").read_text().splitlines():
+            record = json.loads(line)
+            if not isinstance(record, dict):
+                raise ValueError("malformed timeline row")
+            if record.get("kind") == "sample":
+                rows.append(record)
+        curve = report.get("curve")
+        if len(rows) < 2 or not isinstance(curve, list) or len(curve) != len(rows):
+            raise ValueError("need at least two real samples and complete report-curve coverage")
+        start, end, fpm = (report.get(k) for k in ("start_frame", "end_frame", "frames_per_game_minute"))
+        if not all(number(v) for v in (start, end, fpm)) or end <= start or fpm <= 0:
+            raise ValueError("missing/malformed run frame interval")
+        exact_dry = {key: 0 for key in cohort}
+        no_nearby = {key: 0 for key in cohort}
+        bad = set()
+        nearby_measured = nearby_wet = 0
+        frames = []
+        per_sample = []
+        for sample, summary in zip(rows, curve):
+            frame = sample["stats"]["frame"]
+            if not number(frame) or (frames and frame <= frames[-1]):
+                raise ValueError("sample frames missing, duplicated or unordered")
+            frames.append(frame)
+            minute = (frame - start) / fpm
+            if (
+                not isinstance(summary, dict)
+                or not number(summary.get("minute"))
+                or abs(summary["minute"] - minute) > 0.011
+            ):
+                raise ValueError("timeline frame differs from report curve (allowing 0.01-minute rounding)")
+            observed = table(sample["water"]["samples"])
+            dry_here = []
+            for key, point in cohort.items():
+                if key not in observed or not same_position(point, observed[key]):
+                    raise ValueError(f"required native sample identity missing/changed: {key}")
+                actual = observed[key]
+                if type(actual.get("wet")) is not bool:
+                    raise ValueError(f"missing/malformed native wet flag: {key}")
+                nearby = actual.get("wet_within_64m")
+                if "wet_within_64m" in actual and type(nearby) is not bool:
+                    raise ValueError(f"malformed native nearby flag: {key}")
+                if nearby is not None:
+                    nearby_measured += 1
+                    nearby_wet += int(nearby)
+                if not actual["wet"]:
+                    exact_dry[key] += 1
+                    if nearby is None:
+                        raise ValueError(f"exact-dry probe has no native nearby evidence: {key}")
+                if nearby is False:
+                    no_nearby[key] += 1
+                if not (actual["wet"] or nearby is True):
+                    bad.add(key)
+                    dry_here.append(key)
+            per_sample.append(
+                {
+                    "frame": frame,
+                    "minute": round(minute, 3),
+                    "label": sample.get("label"),
+                    "without_water": len(dry_here),
+                    "names": dry_here[:limit],
+                }
+            )
+        # Reuse existing 1% completion tolerance for uncovered start margin.
+        # End-frame identity is derived by MapCheck from the final sample itself.
+        if (
+            frames[0] < start
+            or frames[0] - start > (end - start) * (1 - t["min_minutes_fraction"])
+            or frames[-1] != end
+        ):
+            raise ValueError("sample evidence does not cover the declared run interval")
+        for key in cohort:
+            if reported[key].get("samples") != len(rows):
+                raise ValueError(f"native sample count differs from report: {key}")
+        fraction = 1 - len(bad) / len(cohort)
+
+        def subset(counts):
+            names = sorted(key for key, count in counts.items() if count)
+            return {
+                "probes": len(names),
+                "observations": sum(counts.values()),
+                "names": names[:limit],
+                "names_truncated": max(0, len(names) - limit),
+            }
+
+        return row(
+            name,
+            "pass" if fraction >= t["wet_end_min_fraction"] else "fail",
+            {
+                "required": len(cohort),
+                "samples": len(rows),
+                "observations": len(cohort) * len(rows),
+                "wet_throughout": len(cohort) - len(bad),
+                "fraction": round(fraction, 4),
+                "without_water_probes": len(bad),
+                "without_water_names": sorted(bad)[:limit],
+                "without_water_names_truncated": max(0, len(bad) - limit),
+                "exact_dry": subset(exact_dry),
+                "native_no_nearby": subset(no_nearby),
+                "native_nearby_observations": nearby_measured,
+                "native_nearby_wet_observations": nearby_wet,
+                "sampled_minutes": [(frames[0] - start) / fpm, (frames[-1] - start) / fpm],
+                "largest_sample_gap_minutes": max(b - a for a, b in zip(frames, frames[1:])) / fpm,
+                "coordinate_identity_tolerance_m": coord_tolerance,
+                "per_sample": per_sample,
+            },
+            f">= {t['wet_end_min_fraction']:.0%} of required probes wet exactly OR natively within64m at every observed sample",
+            "Sampled evidence only, not continuous/every-frame wetness; no inferred legacy nearby values.",
+        )
+    except (OSError, ValueError, KeyError, TypeError, IndexError) as exc:
+        return row(name, "fail", detail=f"missing/malformed throughout evidence: {exc}")
 
 
 def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
     t = MAP_SOAK
     meta = probe_meta(out, report)
     by_name = {p.get("name"): p for p in meta.get("points", []) if isinstance(p, dict)}
-    checks = []
+    if (report.get("map") or {}).get("from_save"):
+        # A run started from a save never opens the New Game panel or the map's own opening view.
+        why = "started from a save, not from the New Game panel and the map's opening view"
+        checks = [
+            row("new_game_panel", "skip", detail=why),
+            landmarks.assess(out),
+            row("startup_views", "skip", detail=why),
+        ]
+    else:
+        checks = [new_game_panel.assess(out), landmarks.assess(out), startup_views.assess(out)]
 
     asked = report.get("requested_game_minutes")
     got = report.get("game_minutes") or 0
@@ -230,6 +478,7 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
             )
         )
 
+    checks.append(probes_wet_throughout(out, report, meta, t))
     checks.append(flooding(out, report, meta, t))
     checks.extend(scenario_checks(report))
 
@@ -433,6 +682,8 @@ def ground_truth(out: pathlib.Path, report: dict, meta: dict) -> dict:
 
 def opening_camera(report: dict) -> dict:
     cam = report.get("opening_camera")
+    if (report.get("map") or {}).get("from_save"):
+        return row("opening_camera", "skip", detail="started from a save, whose camera is wherever the save left it")
     if not cam:
         return row("opening_camera", "skip", detail="this run didn't read the opening camera")
     heading = float(cam.get("heading_deg", 0.0))

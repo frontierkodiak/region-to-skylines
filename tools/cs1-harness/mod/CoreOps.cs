@@ -22,10 +22,11 @@ namespace Cs1Harness
         {
             Host.Register("status", Needs.Any, "process, scene, GPU, plugins, errors; city stats when a city is loaded", q => Status());
             Host.Register("quit", Needs.Any, "quit the game after this frame", q => { Host.RequestQuit(); return Host.Obj("quitting", true); });
-            Host.Register("run", Needs.Level, "pause/unpause and set speed 1-3: {paused, speed}", Run);
+            Host.Register("run", Needs.Level, "pause/speed and session-only day/night: {paused, speed, day_night}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
-            Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", q => { UIView.Show(Json.Bool(q, "visible", true)); return Host.Obj("ui_visible", Json.Bool(q, "visible", true)); });
+            Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", Ui);
             Host.Register("camera_state", Needs.Level, "where the camera is and which way it faces: position, heading (0 = +z, 90 = +x), pitch, size, max size", q => CameraState());
+            Host.Register("area_zoom", Needs.Level, "open/close the native Areas tool (not camera zoom): {enabled}", AreaZoom);
             Host.Register("screenshot", Needs.Level, "write a PNG at the end of this frame: {path (absolute), supersize}", Screenshot);
             Host.Register("render", Needs.Any, "throttle drawing (the simulation runs on): {fps (0 = unlimited), camera (false: the main camera stops drawing the world)}", Render);
         }
@@ -106,7 +107,10 @@ namespace Cs1Harness
             }
             if (q.ContainsKey("paused"))
                 sm.SimulationPaused = Json.Bool(q, "paused", true);
-            return Host.Obj("paused", sm.SimulationPaused, "speed", sm.SelectedSimulationSpeed, "final_speed", sm.FinalSimulationSpeed);
+            if (q.ContainsKey("day_night"))
+                sm.m_enableDayNight = Json.Bool(q, "day_night", true);
+            return Host.Obj("paused", sm.SimulationPaused, "speed", sm.SelectedSimulationSpeed, "final_speed", sm.FinalSimulationSpeed,
+                "day_night", sm.m_enableDayNight);
         }
 
         static Dictionary<string, object> CameraOp(Dictionary<string, object> q)
@@ -136,6 +140,19 @@ namespace Cs1Harness
             return Host.Obj("camera", new object[] { pos.x, pos.y, pos.z }, "yaw", angle.x, "pitch", angle.y, "size", size);
         }
 
+        static Dictionary<string, object> Ui(Dictionary<string, object> q)
+        {
+            bool visible = Json.Bool(q, "visible", true);
+            // The game's own "hide UI" is free-camera mode: it hides the UI, notifications, borders,
+            // names and markers, and gives the world camera the full screen. Without it the world
+            // stops above a 10.5% menu-bar strip that keeps the toolbar's last pixels.
+            var c = ToolsModifierControl.cameraController;
+            if (c != null)
+                c.m_freeCamera = !visible;
+            UIView.Show(visible);
+            return Host.Obj("ui_visible", visible, "free_camera", c != null && c.m_freeCamera);
+        }
+
         static Dictionary<string, object> CameraState()
         {
             var c = ToolsModifierControl.cameraController;
@@ -155,6 +172,21 @@ namespace Cs1Harness
                 "max_size", c.m_maxDistance,
                 "forward", new object[] { fwd.x, fwd.y, fwd.z }
             );
+        }
+
+        static Dictionary<string, object> AreaZoom(Dictionary<string, object> q)
+        {
+            if (!q.ContainsKey("enabled") || !(q["enabled"] is bool))
+                throw new Exception("area_zoom needs a boolean enabled");
+            // Same tool transitions as the normal toolbar. GameAreaTool owns
+            // AreasVisible and the native camera mapping; do not emulate it.
+            if (Json.Bool(q, "enabled", false))
+                ToolsModifierControl.SetTool<GameAreaTool>();
+            else
+                ToolsModifierControl.SetTool<DefaultTool>();
+            var tool = ToolsModifierControl.toolController.CurrentTool;
+            return Host.Obj("source", "native ToolsModifierControl", "tool", tool == null ? null : tool.GetType().Name,
+                "areas_visible", Singleton<GameAreaManager>.instance.AreasVisible);
         }
 
         static Dictionary<string, object> Screenshot(Dictionary<string, object> q)

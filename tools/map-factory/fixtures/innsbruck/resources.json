@@ -1,0 +1,185 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179769,
+  "unlockable": {
+    "ore": 1139078,
+    "oil": 570479,
+    "forest": 3986655,
+    "fertility": 2673671,
+    "water": 193676
+  },
+  "cells": {
+    "ore": 9050,
+    "oil": 4727,
+    "fertility": 41821,
+    "forest": 74441
+  },
+  "evidence": [],
+  "placed": [
+    {
+      "kind": "ore",
+      "x": 725.625,
+      "z": 2919.375,
+      "radius_m": 724,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -2480.625,
+      "z": 961.875,
+      "radius_m": 585,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2784.375,
+      "z": 3324.375,
+      "radius_m": 698,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -894.375,
+      "z": 2311.875,
+      "radius_m": 611,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4303.125,
+      "z": 354.375,
+      "radius_m": 427,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 3965.625,
+      "z": -4674.375,
+      "radius_m": 662,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -253.125,
+      "z": -3088.125,
+      "radius_m": 688,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3830.625,
+      "z": -2649.375,
+      "radius_m": 462,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4404.375,
+      "z": 3661.875,
+      "radius_m": 635,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -1940.625,
+      "z": -2176.875,
+      "radius_m": 538,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4100.625,
+      "z": -489.375,
+      "radius_m": 798,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 354.375,
+      "z": 995.625,
+      "radius_m": 423,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 961.875,
+      "z": 3898.125,
+      "radius_m": 424,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 2075.625,
+      "z": -1231.875,
+      "radius_m": 514,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4573.125,
+      "z": 4505.625,
+      "radius_m": 688,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 84.375,
+      "z": -1805.625,
+      "radius_m": 660,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -2480.625,
+      "z": -759.375,
+      "radius_m": 443,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -928.125,
+      "z": -4438.125,
+      "radius_m": 424,
+      "source": "convention"
+    }
+  ],
+  "theme": "Sunny",
+  "package": {
+    "output": "/home/caleb/scratch/2026-11-11-pl857-short-rivers/inlet-throughput-fixtures/.freeze-q8nzbz7h/innsbruck/PL857-innsbruck.crp",
+    "sha256": "3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6",
+    "bytes": 6735751,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "c28adff2146f2c54f26f90e0181d135b6931c76169c4bf86ee6103d9e20adcbf"
+  }
+}

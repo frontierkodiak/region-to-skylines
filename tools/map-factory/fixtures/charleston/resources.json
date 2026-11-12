@@ -1,0 +1,234 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179384,
+  "unlockable": {
+    "ore": 657774,
+    "oil": 572758,
+    "forest": 2542335,
+    "fertility": 2254905,
+    "water": 8332572
+  },
+  "cells": {
+    "ore": 7197,
+    "oil": 4158,
+    "fertility": 51685,
+    "forest": 52073
+  },
+  "evidence": [],
+  "placed": [
+    {
+      "kind": "ore",
+      "x": 3729.375,
+      "z": 4809.375,
+      "radius_m": 762,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4775.625,
+      "z": -1333.125,
+      "radius_m": 603,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -1434.375,
+      "z": -2413.125,
+      "radius_m": 481,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4471.875,
+      "z": 2244.375,
+      "radius_m": 618,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -2041.875,
+      "z": -3898.125,
+      "radius_m": 675,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4303.125,
+      "z": 1063.125,
+      "radius_m": 661,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3965.625,
+      "z": -4066.875,
+      "radius_m": 523,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 253.125,
+      "z": -3391.875,
+      "radius_m": 456,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4741.875,
+      "z": 4168.125,
+      "radius_m": 605,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -523.125,
+      "z": 4471.875,
+      "radius_m": 629,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2311.875,
+      "z": 3864.375,
+      "radius_m": 586,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3155.625,
+      "z": -455.625,
+      "radius_m": 663,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 1839.375,
+      "z": -4775.625,
+      "radius_m": 539,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -421.875,
+      "z": 2851.875,
+      "radius_m": 631,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 3391.875,
+      "z": 2413.125,
+      "radius_m": 629,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 421.875,
+      "z": -16.875,
+      "radius_m": 532,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 2784.375,
+      "z": 658.125,
+      "radius_m": 681,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4505.625,
+      "z": -2548.125,
+      "radius_m": 575,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 590.625,
+      "z": 489.375,
+      "radius_m": 495,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4033.125,
+      "z": -3324.375,
+      "radius_m": 641,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -1063.125,
+      "z": -894.375,
+      "radius_m": 617,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4269.375,
+      "z": -286.875,
+      "radius_m": 445,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 1771.875,
+      "z": -725.625,
+      "radius_m": 529,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -1400.625,
+      "z": -4235.625,
+      "radius_m": 619,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4033.125,
+      "z": 3054.375,
+      "radius_m": 569,
+      "source": "convention"
+    }
+  ],
+  "theme": "Sunny",
+  "package": {
+    "output": "/home/caleb/scratch/2026-11-11-pl857-short-rivers/inlet-throughput-fixtures/.freeze-q8nzbz7h/charleston/PL857-charleston.crp",
+    "sha256": "fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667",
+    "bytes": 6607649,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "b77fa978a60a2d0414c7e318c66b12cab62a4be8f8019de52ea028ab06114285"
+  }
+}

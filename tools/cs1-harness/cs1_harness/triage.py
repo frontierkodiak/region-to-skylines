@@ -40,7 +40,7 @@ RULES = [
     ),
     (
         "steam",
-        r"waiting on a prompt|ShowEula|Steam exited before",
+        r"waiting on a prompt|ShowEula|Steam exited before|cloud sync failed",
         "Steam stopped at a prompt or exited before the game",
     ),
     (
@@ -121,10 +121,15 @@ def collect_evidence(out: pathlib.Path, cfg=None) -> list[str]:
             (out / f"triage-{name}.tail.txt").write_text(t + "\n")
             files.append(f"triage-{name}.tail.txt")
     if cfg is not None:
-        steam_log = cfg.steam_root / "logs" / "console-linux.txt"
-        lines = [
-            line for line in tail(steam_log, 400).splitlines() if re.search(r"255710|GameAction|LaunchApp|prompt", line)
-        ]
+        # Launch steps are in webhelper_js.txt on current clients, console-linux.txt on older ones.
+        lines = []
+        for name in ("console-linux.txt", "webhelper_js.txt"):
+            log = cfg.steam_root / "logs" / name
+            lines += [
+                line
+                for line in tail(log, 400).splitlines()
+                if re.search(r"255710|GameAction|LaunchApp|prompt|sync failed", line)
+            ]
         if lines:
             (out / "triage-steam.tail.txt").write_text("\n".join(lines[-60:]) + "\n")
             files.append("triage-steam.tail.txt")
@@ -186,7 +191,7 @@ def classify(out: pathlib.Path, v: dict) -> dict | None:
         if vram:
             return {"class": "gpu-vram", "why": vram}
         steam = out / "triage-steam.tail.txt"
-        if steam.exists() and "waiting for user response" in steam.read_text():
+        if steam.exists() and re.search(r"waiting for user response|syncfailed", steam.read_text()):
             return {"class": "steam", "why": "Steam is waiting on a prompt"}
         return {"class": "unknown-dialog", "why": "the game never got where it should; look at last-frame.jpg"}
     return {"class": "unknown", "why": "no rule matched the reason"}

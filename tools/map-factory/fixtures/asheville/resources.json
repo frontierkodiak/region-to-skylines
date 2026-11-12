@@ -1,0 +1,260 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179799,
+  "unlockable": {
+    "ore": 1091857,
+    "oil": 539001,
+    "forest": 3872505,
+    "fertility": 738260,
+    "water": 503367
+  },
+  "cells": {
+    "ore": 8484,
+    "oil": 4870,
+    "fertility": 16174,
+    "forest": 88585
+  },
+  "evidence": [
+    {
+      "kind": "ore",
+      "x": -1854.5,
+      "z": 4016.4,
+      "weight": 1.0,
+      "source": "USGS MRDS 10126941 Bell Mine (Producer, Surface)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -1573.5,
+      "z": 3461.7,
+      "weight": 1.0,
+      "source": "USGS MRDS 10175589 Harrin's Mine (Producer, Surface)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": 3411.7,
+      "z": 754.5,
+      "weight": 1.0,
+      "source": "USGS MRDS 10272251 Grove Pit (Producer, Surface)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -2452.7,
+      "z": 4537.9,
+      "weight": 1.0,
+      "source": "USGS MRDS 10296801 Harmony Mine (Producer, Surface)",
+      "radius_m": 600.0
+    }
+  ],
+  "placed": [
+    {
+      "kind": "fertile",
+      "x": -793.125,
+      "z": -2041.875,
+      "radius_m": 714,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": -1063.125,
+      "z": -219.375,
+      "radius_m": 721,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": -2176.875,
+      "z": -3256.875,
+      "radius_m": 459,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": 1265.625,
+      "z": -1366.875,
+      "radius_m": 547,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": -2379.375,
+      "z": -1636.875,
+      "radius_m": 703,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": -1771.875,
+      "z": 1940.625,
+      "radius_m": 548,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": 4134.375,
+      "z": -286.875,
+      "radius_m": 491,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": 2750.625,
+      "z": -658.125,
+      "radius_m": 509,
+      "source": "convention"
+    },
+    {
+      "kind": "fertile",
+      "x": -3493.125,
+      "z": 725.625,
+      "radius_m": 784,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2143.125,
+      "z": 2784.375,
+      "radius_m": 871,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4741.875,
+      "z": 4370.625,
+      "radius_m": 454,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 1636.875,
+      "z": 489.375,
+      "radius_m": 470,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 3324.375,
+      "z": 1366.875,
+      "radius_m": 623,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4708.125,
+      "z": -4269.375,
+      "radius_m": 643,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4573.125,
+      "z": 3661.875,
+      "radius_m": 427,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 1096.875,
+      "z": 4775.625,
+      "radius_m": 535,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -556.875,
+      "z": 4336.875,
+      "radius_m": 465,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -2210.625,
+      "z": 2851.875,
+      "radius_m": 760,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 1130.625,
+      "z": -1400.625,
+      "radius_m": 572,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 2649.375,
+      "z": 3459.375,
+      "radius_m": 471,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -860.625,
+      "z": -4269.375,
+      "radius_m": 656,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4303.125,
+      "z": 4269.375,
+      "radius_m": 444,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 3526.875,
+      "z": 2109.375,
+      "radius_m": 548,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 2581.875,
+      "z": -691.875,
+      "radius_m": 633,
+      "source": "convention"
+    }
+  ],
+  "theme": "Sunny",
+  "package": {
+    "output": "/home/caleb/scratch/2026-11-11-pl857-short-rivers/inlet-throughput-fixtures/.freeze-q8nzbz7h/asheville/PL857-asheville.crp",
+    "sha256": "b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535",
+    "bytes": 7607523,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "c0bdca608b7af681be848850d13f7d211926321002c04397a8edf6b1291936ac"
+  }
+}

@@ -81,6 +81,13 @@ def body(out: pathlib.Path, v: dict, entry: dict) -> str:
             for c in v["checks"]
         ]
         lines.append("")
+    if (out / "repro.md").exists():
+        lines += [
+            "**Repro.** The attached `.crp` opens in your own game: copy it to "
+            "`~/Library/Application Support/Colossal Order/Cities_Skylines/Saves/` on carbon, then Load Game. "
+            "Every save from this run is listed in `repro.md` beside it.",
+            "",
+        ]
     lines += [
         f"Run `{entry['id']}` on blade: `{out}`. Map sha256 `{(entry.get('map_sha256') or '?')[:12]}`, "
         f"harness `{(entry.get('harness_commit') or '?')[:7]}`.",
@@ -101,6 +108,9 @@ def attachments(out: pathlib.Path, v: dict) -> list[pathlib.Path]:
     if shots:
         last_label = shots[-1].name.split("-")[0]
         files += [p for p in shots if p.name.startswith(last_label + "-") and not p.name.startswith("player-")][:1]
+    saves = sorted((out / "saves").glob("*.crp"), key=lambda p: p.stat().st_mtime) if (out / "saves").exists() else []
+    if saves and saves[-1].stat().st_size <= MAX_ATTACH_BYTES:
+        files.append(saves[-1])
     for extra in ("last-frame.jpg", "timelapse.mp4"):
         p = out / extra
         if p.exists() and p.stat().st_size <= MAX_ATTACH_BYTES:

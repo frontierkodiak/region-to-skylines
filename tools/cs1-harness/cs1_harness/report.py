@@ -215,6 +215,10 @@ def build(out: pathlib.Path, run: dict) -> dict:
                     "depth_end": round(depths[-1], 2),
                     "depth_min": round(min(depths), 2),
                     "depth_max": round(max(depths), 2),
+                    "wet_within_64m_end": series[-1].get("wet_within_64m"),
+                    "nearby_samples": sum("wet_within_64m" in p for p in series),
+                    "dry_within_64m_samples": sum(p.get("wet_within_64m") is False for p in series),
+                    "nearest_water_m_end": series[-1].get("nearest_water_m"),
                     "grid_depth_start": round(float(first[iz, ix]), 2) if 0 <= iz < N and 0 <= ix < N else None,
                 }
             )
@@ -254,6 +258,10 @@ def build(out: pathlib.Path, run: dict) -> dict:
 
 def markdown(r: dict) -> str:
     w, g, e = r["water"], r["gpu"], r["errors"]
+    dry = r["points_ever_dry"]
+    dry_summary = ", ".join(dry[:8]) or "none"
+    if len(dry) > 8:
+        dry_summary += f"; {len(dry) - 8} more in report.json"
     lines = [
         f"# CS1 harness run: {r['map'].get('map_name')}",
         "",
@@ -266,7 +274,7 @@ def markdown(r: dict) -> str:
         f"{w['newly_wet_km2']} km² newly wet, {w['dried_km2']} km² dried (threshold {w['wet_threshold_m']} m). "
         f"Volume {w['volume_m3_start']:,} → {w['volume_m3_end']:,} m³.",
         f"- Probe points wet: {r['points_wet_start']}/{len(r['points'])} at start, "
-        f"{r['points_wet_end']}/{len(r['points'])} at end; ever dry: {', '.join(r['points_ever_dry']) or 'none'}.",
+        f"{r['points_wet_end']}/{len(r['points'])} at end; ever dry {len(dry)}: {dry_summary}.",
         f"- Population {r['curve'][0]['population'] if r['curve'] else '?'} → "
         f"{r['curve'][-1]['population'] if r['curve'] else '?'}.",
         f"- Log: {e.get('error_lines', 0)} error lines ({e.get('distinct', 0)} distinct); "

@@ -79,7 +79,7 @@ class Driver:
     def shot(self, label: str, ui: bool = False, settle: float = 4) -> str:
         if not ui:
             self.c.call("ui", visible=False)
-        self.s.park_pointer()
+        self.s.park_pointer(40, 40)
         try:
             time.sleep(settle)
             staged = self.s.stage / "shots" / f"{label}.png"

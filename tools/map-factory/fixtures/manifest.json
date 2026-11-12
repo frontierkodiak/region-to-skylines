@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "template": "templates/native-corridors.crp",
+  "layout": "templates/native-corridors.json",
+  "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+  "native_template_origin": "PL-848 editor factory; region-to-skylines PR #1 at 4011a6b717e50bebd92f0b9caf8547a7a16e5c8c",
+  "status": "byte reference; native qualification tracked separately in NATIVE_FINDINGS.md",
+  "cases": [
+    {
+      "slug": "asheville",
+      "expected_crp_sha256": "b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535",
+      "expected_crp_bytes": 7607523,
+      "expected_simulation_sha256": "c0bdca608b7af681be848850d13f7d211926321002c04397a8edf6b1291936ac",
+      "prepared_sha256": {
+        "terrain.u16": "291255a204e4d7fe13042a8cc88a6f7077d2dbf5f8d353b7c2c4115471baa2d2",
+        "water.u16": "ce0a6f266500b74bf4a15446aca56b8ca6ce6045b756a0061142703e2a83d8bd"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "93ef6e3c0eb8b3b026b5f32a8e4d00cc7a179f8dd58de2f2ca42572cd4157e1e",
+        "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+        "geometry.json.gz": "0f12eeec028ce919983ee4230e4e6e9c649e2c448c05bf92b55a82b330370593",
+        "hydrology.json.gz": "6fa3256ddab8fa2593864d6a2a59c78d44d02af66747f02921b521d503c127bf",
+        "input.png": "b6959a092a4e4ada2f05a46d335fe72d1c8b90feb2a7a501155617e056f1602c",
+        "landcover.json": "672a12b37bbbd58c136f33871a606094f4e548d054dbcb4304133ae282bb2814",
+        "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c",
+        "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16",
+        "plan.npz": "bc644888fd5d190de19b2303bfa730b431a533717a922393d9913bf5acac19d1",
+        "resources.json": "af1c24d367785998867f4444ddd67ea9d80d31224b1e879a1b4b875ceada4668",
+        "terrain.u16.gz": "e994e4db7c9f85f04129a3b8c096518e84533ed00d4a71cdba0242ffc8adcd07",
+        "water.u16.gz": "255be7ea1931efc8c82ab428a79c165db7c0685567f4a2c7d932d60e37b77669",
+        "preview-thumbnail.png": "3bbaf520e27e643a819eca0be883338febedf106c115438e1c5afe2dfdc6fd6e",
+        "preview-large.png": "1a7e13fbc3d52ebdb0d1facbef93893ff70cf1ebeea31c6f4202dd6b1ba03710"
+      },
+      "resource_plan": "plan.npz",
+      "resource_knobs": {
+        "trees": 180000,
+        "outer_trees": 0.6,
+        "resources": "balanced",
+        "fertile": 1.0,
+        "seed": 0,
+        "targets": {
+          "ore": 0.052,
+          "oil": 0.027,
+          "fertile": 0.034
+        }
+      },
+      "preview_assets": {
+        "imageRef": {
+          "file": "preview-thumbnail.png",
+          "texture_asset_md5": "0ccf8caa7d68957cab3679151a9c34e1",
+          "png_sha256": "3bbaf520e27e643a819eca0be883338febedf106c115438e1c5afe2dfdc6fd6e"
+        },
+        "steamPreviewRef": {
+          "file": "preview-large.png",
+          "texture_asset_md5": "fee5dbec87afd422dc1c24694a50d6a3",
+          "png_sha256": "1a7e13fbc3d52ebdb0d1facbef93893ff70cf1ebeea31c6f4202dd6b1ba03710"
+        }
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "expected_crp_sha256": "3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6",
+      "expected_crp_bytes": 6735751,
+      "expected_simulation_sha256": "c28adff2146f2c54f26f90e0181d135b6931c76169c4bf86ee6103d9e20adcbf",
+      "prepared_sha256": {
+        "terrain.u16": "6d481a55d5791f468d73b6e4c7038d4e7d26b82cad5127f353b214b36198d00e",
+        "water.u16": "983fd34232d62bbaa0d073c5822697f4093d6b0de843e5535902c06f595ab9cf"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "27924168288117abec58f00bbf298c9a28169ac24908cefadbc00d56760ef5dc",
+        "geometry.json.gz": "616ac73bbfe77ded07ae7b4622b4a249a36071b56203fc965096225827253e24",
+        "hydrology.json.gz": "7b04e92d984a5a2b8eff8065158547a0efeb838bb0a41cae7d66c3f9c98aeb50",
+        "input.png": "1b905a90082f8bb2ce4534e2e8250bbfb4f06bcba45a15dc07f81c3f376e9563",
+        "landcover.json": "f3cbd6b6e336b38c820d5b8f5691a1e24d78ef9a4370d002d87091782f66d1c5",
+        "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646",
+        "plan.npz": "a17ecdfadece63e53ddec007dd31aab2aef930023e28dcf88d3afda4d9372fb6",
+        "resources.json": "a2ad9e5b424cb7c6e70f1452a210271360d8e76190a1a9ff8055ebef50400f87",
+        "terrain.u16.gz": "d9e543591183f75724df1c24d8c37e48b3477d7abd694b52a987f2fd503b94f4",
+        "water.u16.gz": "5849d42bf1c758684f97c4c0faddd9be02487e8bf3ea95ca6ca04e9bc7a42ca4",
+        "preview-thumbnail.png": "f8056b02875c535300c572bf573da17b944a0864b04fbf1b4b13725572fcb2c4",
+        "preview-large.png": "ec0f52e6148cb7492be9bfed66139af5085882b4efbaf55d902725b1e51c5ae9"
+      },
+      "resource_plan": "plan.npz",
+      "resource_knobs": {
+        "trees": 180000,
+        "outer_trees": 0.6,
+        "resources": "balanced",
+        "fertile": 1.0,
+        "seed": 0,
+        "targets": {
+          "ore": 0.052,
+          "oil": 0.027,
+          "fertile": 0.034
+        }
+      },
+      "preview_assets": {
+        "imageRef": {
+          "file": "preview-thumbnail.png",
+          "texture_asset_md5": "9ceabcd43b2afd4bed6c4b236a3d3824",
+          "png_sha256": "f8056b02875c535300c572bf573da17b944a0864b04fbf1b4b13725572fcb2c4"
+        },
+        "steamPreviewRef": {
+          "file": "preview-large.png",
+          "texture_asset_md5": "c75117f5b43dfac781c7250b213db3e4",
+          "png_sha256": "ec0f52e6148cb7492be9bfed66139af5085882b4efbaf55d902725b1e51c5ae9"
+        }
+      }
+    },
+    {
+      "slug": "rio",
+      "expected_crp_sha256": "997d4d07925e26ee07f20e8f82120e2e5785cdf99017d502066e20a3329aefd1",
+      "expected_crp_bytes": 6248085,
+      "expected_simulation_sha256": "d03e74b266e400c4dedeab799fa14df562b7453ed1b15d13376d1abfe7825978",
+      "prepared_sha256": {
+        "terrain.u16": "463d70a7cbb44115c679e2f66fec5f762e0d2bf5e78450743efcd181a96ddbf2",
+        "water.u16": "2ff3f4a58608e41bc1f331d866596f09be2f086a30c56235397ea5a345fe875a"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "2a4520070570a3b38b76ffd624665f3189a55e50f03d6ec9bce1f3877d94dea0",
+        "geometry.json.gz": "f3d97c4404c2013fe86b68ec45749106ebd85314ac73cd674300b15108381333",
+        "hydrology.json.gz": "f1e5dfbef86f5f6cd93d7c030af78d711213d5a8288adba180bf8a66d2c59e71",
+        "input.png": "611e19e2b2721f0215d1436e3073fff100875c8291a521310d39cdc2012135aa",
+        "landcover.json": "9d9b21965ae811d7510db6e6d9f3176d0453e4528b2481063187fe6ba6a9ea42",
+        "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59",
+        "plan.npz": "9fede871cd7e465f4f4485b075ac6edce63070a53f311c539b6a60853b974144",
+        "resources.json": "043a3cb153adb1c30fddb28c73d7f26e0a54ccf1f1dd0f9036179a58b6f3a516",
+        "terrain.u16.gz": "2c128895bd9e29cbfce2e16638af37fa368fdf7be13768ece36786f1284c06fd",
+        "water.u16.gz": "0ea0bab6318643df4511c148e6b2cea6e0ecaabe1f2fd94fd79452ba39953ffd",
+        "preview-thumbnail.png": "483cd04a8cc7624d8200bc22665fcd282d0e1a8a5e06af647b2ec4bfd7358e33",
+        "preview-large.png": "49e085b1984d1c24c75e6ad817f1da177e4515603539f819b6307043517417b1"
+      },
+      "resource_plan": "plan.npz",
+      "resource_knobs": {
+        "trees": 180000,
+        "outer_trees": 0.6,
+        "resources": "balanced",
+        "fertile": 1.0,
+        "seed": 0,
+        "targets": {
+          "ore": 0.052,
+          "oil": 0.027,
+          "fertile": 0.034
+        }
+      },
+      "preview_assets": {
+        "imageRef": {
+          "file": "preview-thumbnail.png",
+          "texture_asset_md5": "2a2700192d7116c5048e700ceec2bbf7",
+          "png_sha256": "483cd04a8cc7624d8200bc22665fcd282d0e1a8a5e06af647b2ec4bfd7358e33"
+        },
+        "steamPreviewRef": {
+          "file": "preview-large.png",
+          "texture_asset_md5": "6e0a00ad38b8fb54dee18303d7e45264",
+          "png_sha256": "49e085b1984d1c24c75e6ad817f1da177e4515603539f819b6307043517417b1"
+        }
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "expected_crp_sha256": "97f727a7c3eba2019b448d49289312199d7d4301c6df3d4d93dec42399b4fffe",
+      "expected_crp_bytes": 6957494,
+      "expected_simulation_sha256": "ceb0733f1dcc06be0180783bfd6831fb3727d9d10b6e7d5c4399ebb7d6b6f1b4",
+      "prepared_sha256": {
+        "terrain.u16": "b6f8547af38a18fa4a0f7ccfd876ecc52b03af47a40b66a8fe82e0078e79a4a4",
+        "water.u16": "bb20d79052504cccc16fc8b75fb7009a64e681b3c6636fb7a9380a3502a4782c"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "4a0cca1073921ae86aff1a88f258ff5cd77aa7cb2551205a94a5613846434494",
+        "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+        "geometry.json.gz": "0accff5a92a698b107f443f4cb53a27d7db205ca966d12e0299b6deb27fcc70a",
+        "hydrology.json.gz": "4ef4a571a9545d29c997bb29d4c0554d4f757d6095c96f241fa0217e9a2348ce",
+        "input.png": "13457e721891a54620f2686b2b5fa3d937975cdd967d0e1ae704ba9b698d9a38",
+        "landcover.json": "7a8e58fb46a0b6327aa46e4232d7a7aebc9c5b060576ccc19a313bbea27084fb",
+        "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f",
+        "plan.npz": "6017bc395d0764633098df7f2a6e831d8dec4f1247d811699d1291c84812ed59",
+        "resources.json": "6e13e77122d9c8bae9523300540985a0454e627ecf28f28820defb31cb7f9a06",
+        "terrain.u16.gz": "6e6ab876cdb053c089271ebee971571e59cc676d7dc1840908789090be896c9b",
+        "water.u16.gz": "45f42c7bb4ae5eed361fb196edffd41f2d3fb6f267d2221645537eec77553c1e",
+        "preview-thumbnail.png": "59b9928b5bff538e74bec12e39d9dc1dd2eaf4159dc00660bb6ead97cb95dff7",
+        "preview-large.png": "2478bf4d42fd17f245256e10bda999aeb39a5ac90829e9c83780fea522388acd"
+      },
+      "resource_plan": "plan.npz",
+      "resource_knobs": {
+        "trees": 180000,
+        "outer_trees": 0.6,
+        "resources": "balanced",
+        "fertile": 1.0,
+        "seed": 0,
+        "targets": {
+          "ore": 0.052,
+          "oil": 0.027,
+          "fertile": 0.034
+        }
+      },
+      "preview_assets": {
+        "imageRef": {
+          "file": "preview-thumbnail.png",
+          "texture_asset_md5": "0789570cecbf8550554856a1e319bc98",
+          "png_sha256": "59b9928b5bff538e74bec12e39d9dc1dd2eaf4159dc00660bb6ead97cb95dff7"
+        },
+        "steamPreviewRef": {
+          "file": "preview-large.png",
+          "texture_asset_md5": "6645f9300b0ac4bfcce14b9eee5972e4",
+          "png_sha256": "2478bf4d42fd17f245256e10bda999aeb39a5ac90829e9c83780fea522388acd"
+        }
+      }
+    },
+    {
+      "slug": "charleston",
+      "expected_crp_sha256": "fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667",
+      "expected_crp_bytes": 6607649,
+      "expected_simulation_sha256": "b77fa978a60a2d0414c7e318c66b12cab62a4be8f8019de52ea028ab06114285",
+      "prepared_sha256": {
+        "terrain.u16": "e0e457a15474ef1958b89f3646c6a572b4330bce36f6873c198e6eedfb2f92da",
+        "water.u16": "ea1486c2ae82bb2ef61d7cc17c129a62dcb6f446f44bbbfdf8a195bcef88380d"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "325987841e76c1802cdb3d16c1c175551070e338d35e97b08d8c6465b4353962",
+        "geometry.json.gz": "af09d419d45cee1971cae0d23ac601ee1a7c7679fc731779de53c8dbd841468e",
+        "hydrology.json.gz": "08266f09b4cabdeee575e9f18e35cf70cfac7c9fb839bcb2a1c05ad231c0cd11",
+        "input.png": "89f2574f4e505fafe62a26cb5ef38aac4784159962da43e30d69893f7e5d8611",
+        "landcover.json": "2d2efddb639d9cef13db283d98d93f5f148d7ed7f9ebc139ffa63067c6c934ee",
+        "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925",
+        "plan.npz": "ea5cc95a72e8ff32ddebe0fd9e983ebf6d8a7eb94cfff1374df20264dd0583ab",
+        "resources.json": "76cb0103033a31bed1e812700b23d724375be675f641a10681173495c05c12af",
+        "terrain.u16.gz": "323d329e46795cc6413eaa2f3345c0860c1e8aa184f4d7af16c696c580648444",
+        "water.u16.gz": "11494493a051ac4247017a7ea92588ac424d95d2d53a96d61b4ddef5eafba9dd",
+        "preview-thumbnail.png": "8937d6c054bf074a81f17e2bb5ecdb61bb03619f013ee7d49d174884c6fb99d2",
+        "preview-large.png": "0759fb6e96b5b89752b5ba1f86f7a45da7e70af6676e34d36fad0a025812e575"
+      },
+      "resource_plan": "plan.npz",
+      "resource_knobs": {
+        "trees": 180000,
+        "outer_trees": 0.6,
+        "resources": "balanced",
+        "fertile": 1.0,
+        "seed": 0,
+        "targets": {
+          "ore": 0.052,
+          "oil": 0.027,
+          "fertile": 0.034
+        }
+      },
+      "preview_assets": {
+        "imageRef": {
+          "file": "preview-thumbnail.png",
+          "texture_asset_md5": "0a4d84753804498fd86a17c074ef85c4",
+          "png_sha256": "8937d6c054bf074a81f17e2bb5ecdb61bb03619f013ee7d49d174884c6fb99d2"
+        },
+        "steamPreviewRef": {
+          "file": "preview-large.png",
+          "texture_asset_md5": "63f4ee8bcc70827548f31c9485b4dec7",
+          "png_sha256": "0759fb6e96b5b89752b5ba1f86f7a45da7e70af6676e34d36fad0a025812e575"
+        }
+      }
+    }
+  ]
+}

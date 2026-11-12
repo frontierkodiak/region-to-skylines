@@ -20,6 +20,7 @@ import sys
 import time
 
 from . import build as build_mod
+from . import mapped_water
 from . import notify as notify_mod
 from . import registry
 from . import report as report_mod
@@ -44,8 +45,8 @@ SLOT_POLL_SECONDS = 2
 def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     """A Session, waiting up to `wait_minutes` while another user holds the host's harness slot.
 
-    Waiters take turns oldest first: a waiter tries the lock only when no older
-    waiter (registered in the slot's waiting/ directory) is still alive. Runs from
+    Every entrant registers before its first attempt, and tries the lock only
+    when no older registered waiter is still alive. Runs from
     checkouts older than this rule don't register, so they can still take a gap.
     It never ends or takes over the other session. Waits, acquisitions and
     releases go to the contention log, and `cs1-harness queue` shows this process.
@@ -57,12 +58,16 @@ def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     deadline = t0 + wait_minutes * 60
     last = None
     try:
+        slots.mark_waiting(cfg, meta, "queued for the harness slot")
         while True:
-            ahead = slots.older_waiters(cfg) if last else []
+            ahead = slots.older_waiters(cfg)
             if ahead:
                 if time.monotonic() >= deadline:
                     slots.mark_gave_up(cfg, meta, time.monotonic() - t0, f"{len(ahead)} older waiters")
                     raise Blocked(f"{len(ahead)} older waiters are ahead in the slot queue", EX_TEMPFAIL, busy=True)
+                if last is None:
+                    last = "older requests ahead in the slot queue"
+                    log(f"waiting for the harness slot: {last}")
                 time.sleep(SLOT_POLL_SECONDS)
                 continue
             with contextlib.ExitStack() as stack:
@@ -75,8 +80,6 @@ def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
                         raise
                     if str(b) != last:
                         log(f"waiting for the harness slot: {b}")
-                        if last is None:
-                            slots.mark_waiting(cfg, meta, str(b))
                         last = str(b)
                     time.sleep(SLOT_POLL_SECONDS)
                     continue
@@ -110,7 +113,7 @@ def cmd_setup(cfg, a):
 
 def cmd_doctor(cfg, a):
     """Check the GPU path without starting Steam: VirtualGL on the harness display, pinned by PCI bus."""
-    with Session(cfg, cfg.harness_home / "runs" / "doctor", log=log) as s:
+    with slot(cfg, cfg.harness_home / "runs" / "doctor", a.wait_minutes) as s:
         print(json.dumps({"host": cfg.host, "steam": cfg.steam, **s.pin_gpu()}, indent=2))
     shutil.rmtree(cfg.harness_home / "runs" / "doctor", ignore_errors=True)
     with contextlib.suppress(OSError):
@@ -274,6 +277,7 @@ def cmd_run(cfg, a):
         raise SystemExit(f"no such map: {a.map}")
     if a.probes:
         # Freeze what the verdict reads, so editing the source later can't change it.
+        mapped_water.freeze(a.probes, out)
         shutil.copyfile(a.probes, out / "probes.json")
         ref = json.loads(a.probes.read_text())
         if isinstance(ref, dict) and ref.get("reference_water"):
@@ -293,8 +297,14 @@ def cmd_run(cfg, a):
             }
             with slot(cfg, stage, a.wait_minutes, meta) as s:
                 observers(s, a, default_label=f"map check: {a.map.name}")
-                r = MapCheck(s, out, points, views, log=log)
+                probe_data = json.loads(a.probes.read_text()) if a.probes else {}
+                paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
+                r = MapCheck(s, out, points, views, log=log, paths=paths)
                 r.render_fps = a.render_fps
+                r.save_at = sorted(x for x in a.save_at if x >= 0)
+                r.save_end = a.save_end
+                r.save_on_dry = a.save_on_dry
+                r.from_save = a.from_save.resolve() if a.from_save else None
                 result = r.execute(
                     a.map.resolve(),
                     a.game_minutes,
@@ -645,7 +655,8 @@ def main(argv=None):
     sub.add_parser("build", help="compile the harness mod against the installed game")
     s = sub.add_parser("setup", help="user-level host setup (VirtualGL, Steam launch wrapper)")
     s.add_argument("--undo", action="store_true", help="remove everything setup added")
-    sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")
+    doctor = sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")
+    doctor.add_argument("--wait-minutes", type=float, default=0, help="wait for the shared harness slot")
     u = sub.add_parser("up", help="start a session and leave it running (ends with `down`)")
     u.add_argument("--map", type=pathlib.Path, help="install this .crp into Maps/ for the session")
     u.add_argument("--name", help="staging directory name")
@@ -714,6 +725,14 @@ def main(argv=None):
         default=10,
         help="cap drawing between screenshot sets (default 10: full sim speed at half the CPU; 0: unlimited)",
     )
+    r.add_argument(
+        "--save-at", type=float, action="append", default=[], help="save the city at this game-minute (repeatable)"
+    )
+    r.add_argument("--save-end", action="store_true", help="save the city when the run ends")
+    r.add_argument(
+        "--save-on-dry", action="store_true", help="save once when required probes first drop below the verdict"
+    )
+    r.add_argument("--from-save", type=pathlib.Path, help="start from this save (.crp) instead of a New Game")
     r.add_argument("--notify", action="store_true", help="comment the verdict, frames and timelapse on the issue")
     r.add_argument("--wake", action="store_true", help="with --notify, @mention the issue's agent assignee")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")

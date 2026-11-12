@@ -8,7 +8,7 @@ import pathlib
 import shutil
 import time
 
-from . import observe
+from . import landmarks, new_game_panel, observe, startup_views
 from .client import HarnessError
 from .session import Session
 
@@ -33,20 +33,75 @@ def load_probe_file(path: pathlib.Path | None) -> tuple[list[dict], list[dict]]:
 
 
 class MapCheck:
-    def __init__(self, session: Session, out: pathlib.Path, points, views, log=print):
+    def __init__(self, session: Session, out: pathlib.Path, points, views, log=print, paths=()):
         self.s = session
         self.c = session.client
         self.out = out
         self.points = points
         self.views = views
+        self.paths = paths
+        self.panel_expectations = new_game_panel.request(out)
+        self.landmark_expectations = landmarks.request(out)
+        self.startup_view_expectations = startup_views.request(out)
         self.log = log
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
         self.render_fps = 0  # cap drawing between screenshot sets (0: unlimited); see `bench-speed`
+        self.save_at: list[float] = []  # game-minutes to save at (a repro or checkpoint)
+        self.save_end = False
+        self.save_on_dry = False  # save once when required probes first fall below the verdict's threshold
+        self.from_save: pathlib.Path | None = None
+        self.saves: list[dict] = []
+
+    def path_checks(self, label):
+        """Use native pathfinding, retaining every returned position and missing segment."""
+        checks = []
+        if self.paths:
+            (self.out / f"networks-{label}.json").write_text(json.dumps(self.c.call("networks"), indent=2) + "\n")
+        for test in self.paths:
+            request = {k: test[k] for k in ("from", "to", "rail")}
+            path = self.c.call("path_start", **request)
+            deadline = time.monotonic() + 60
+            while True:
+                result = self.c.call("path_result", id=path["id"])
+                if result["complete"]:
+                    break
+                if time.monotonic() >= deadline:
+                    raise HarnessError(f"native path {test['name']} did not finish in 60 seconds")
+                time.sleep(0.1)
+            visited = {p[0] for p in result["positions"]}
+            result.update(
+                name=test["name"],
+                missing_segments=sorted(set(test.get("expected_segments", ())) - visited),
+            )
+            checks.append(result)
+        self.record("paths", {"label": label, "checks": checks})
+        return checks
 
     def record(self, kind: str, data: dict):
         self.timeline.write(json.dumps({"kind": kind, "wall": time.time(), **data}) + "\n")
         self.timeline.flush()
+
+    def save(self, label: str, why: str):
+        from . import saves
+
+        try:
+            entry = saves.save(self.s, self.out, label, why)
+        except Exception as e:  # noqa: BLE001 - a failed save is recorded; the soak goes on
+            entry = {"label": label, "why": why, "error": str(e)}
+            self.log(f"save {label} failed: {e}")
+        self.saves.append(entry)
+        self.record("save", entry)
+
+    def dry_now(self, water: dict) -> bool:
+        from . import verdict
+
+        t = verdict.MAP_SOAK
+        req = [s for s in water.get("samples") or [] if verdict.required(s, None, t)]
+        if not req:
+            return False
+        wet = sum(bool(s.get("wet") or s.get("wet_within_64m")) for s in req)
+        return wet / len(req) < t["wet_end_min_fraction"]
 
     def sample(self, label: str) -> dict:
         stats = self.c.call("stats")
@@ -79,9 +134,11 @@ class MapCheck:
             self.render_fps = 0
 
     def player_path(self) -> dict | None:
-        """What a player sees first: the opening view with the UI, and Area Zoom (fully zoomed out).
+        """Legacy player-path shots: current view with UI, then maximum camera size.
 
-        Read before the harness moves the camera, so it's the map's own start camera."""
+        This is not GameAreaTool/AreasVisible evidence. Actual startup/Areas
+        capture runs earlier, before this method or scenario construction.
+        The historical player-area-zoom filename is retained for consumers."""
         try:
             cam = self.c.call("camera_state")
         except HarnessError as e:
@@ -185,6 +242,31 @@ class MapCheck:
         s = self.s
         installed = s.install_map(crp)
         menu = s.launch(["--noWorkshop"])
+        if self.from_save is not None:
+            from . import saves
+
+            self.log(f"loading {self.from_save.name} instead of a New Game")
+            observe.write_context(s.cfg, map=f"save {self.from_save.name}")
+            listed = next(
+                (
+                    m["path"]
+                    for m in self.c.call("maps")["maps"]
+                    if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+                ),
+                None,
+            )
+            status = saves.load(s, self.from_save, load_timeout, listed)
+            entry = {
+                "map_name": f"save {self.from_save.name}",
+                "published": None,
+                "path": None,
+                "from_save": str(self.from_save),
+            }
+            self.record("loaded_save", {"save": str(self.from_save)})
+            startup_world = landmarks.capture(s, self.out, self.landmark_expectations)
+            return self.soak(
+                entry, menu, status, game_minutes, speed, sample_every, shot_every, dump_every, scenario, startup_world
+            )
         maps = self.c.call("maps")["maps"]
         # The game may name the file through an alias (Flatpak's data -> .local/share link).
         entry = next(
@@ -202,11 +284,34 @@ class MapCheck:
             raise HarnessError(f"the game does not list {installed.name} as a map")
         self.log(f"starting New Game on {entry['map_name']} (listed in New Game: {entry['published']})")
         observe.write_context(s.cfg, map=entry["map_name"])
+        if self.panel_expectations is not None:
+            new_game_panel.capture(s, self.out, entry["path"], self.panel_expectations)
         self.c.call("new_game", path=entry["path"])
         status = self.c.wait(
             lambda st: st.get("in_game") and not st.get("loading"), load_timeout, "the city to load", alive=s.alive
         )
-        self.c.call("run", paused=True, speed=speed)
+        startup_world = landmarks.capture(s, self.out, self.landmark_expectations)
+        if self.startup_view_expectations is not None:
+            startup_views.capture(s, self.out, self.startup_view_expectations)
+        return self.soak(
+            entry, menu, status, game_minutes, speed, sample_every, shot_every, dump_every, scenario, startup_world
+        )
+
+    def soak(
+        self,
+        entry,
+        menu,
+        status,
+        game_minutes,
+        speed,
+        sample_every,
+        shot_every,
+        dump_every,
+        scenario=None,
+        startup_world=None,
+    ) -> dict:
+        s = self.s
+        self.c.call("run", paused=True, speed=speed, day_night=False)
         fixture = None
         if scenario:
             from . import scenario as scenario_mod
@@ -227,6 +332,7 @@ class MapCheck:
         self.dump("t000", terrain=True)
         self.world_heights()
         self.sample("t000")
+        paths_start = self.path_checks("t000")
         self.screenshots("t000")
 
         def minute(frame):
@@ -255,8 +361,14 @@ class MapCheck:
                 break
             tag = f"t{int(m):03d}"
             if m >= next_sample:
-                self.sample(tag)
+                row = self.sample(tag)
                 next_sample += sample_every
+                if self.save_on_dry and not any(x.get("why", "").startswith("required") for x in self.saves):
+                    if self.dry_now(row["water"]):
+                        self.save(f"{tag}-dry", "required probes first fell below the verdict's threshold")
+            while self.save_at and m >= self.save_at[0]:
+                self.save_at.pop(0)
+                self.save(tag, f"saved at game-minute {m:.1f} as asked")
             if m >= next_dump:
                 self.dump(tag)
                 next_dump += dump_every
@@ -277,11 +389,15 @@ class MapCheck:
             }
             self.record("scenario_end", fixture)
             (self.out / "scenario.json").write_text(json.dumps(fixture, indent=2) + "\n")
+        paths_end = self.path_checks(end)
+        if self.save_end:
+            self.save(end, "the end of the run")
         self.screenshots(end)
         status = self.c.call("status")
         self.timeline.close()
         return {
             "map": entry,
+            "startup_world": startup_world,
             "menu_status": {
                 k: menu.get(k) for k in ("gpu", "gpu_memory_mb", "screen", "unity", "plugins", "enabled_mod_count")
             },
@@ -299,6 +415,9 @@ class MapCheck:
             "requested_scenario": scenario,
             "population_observations": population_observations,
             "opening_camera": opening,
+            "paths_start": paths_start,
+            "paths_end": paths_end,
+            "saves": self.saves,
             "final_status": {k: status.get(k) for k in ("error_count", "errors", "population", "game_time")},
         }
 
