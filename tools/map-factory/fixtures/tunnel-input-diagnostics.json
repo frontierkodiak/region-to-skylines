@@ -1,0 +1,362 @@
+{
+  "issue": "PL-926",
+  "inputs": {
+    "source_commit": "45c3e53",
+    "old_fixture_commit": "5f6ef13",
+    "inlet_index": 294,
+    "controls_before": {
+      "name": "Rio Papa-Couve",
+      "class": "river",
+      "role": "downstream",
+      "position": [
+        1040,
+        0,
+        1792
+      ],
+      "target": 117.453125,
+      "capacity": 0.2,
+      "bank_limited": true,
+      "short_surface_river": true,
+      "underground_portal": "surface_inlet_to_tunnel",
+      "output_capacity": 0.0,
+      "short_source_footprint": {
+        "intake_rate_before": 13107,
+        "intake_rate_after": 13107,
+        "output_rate_before": 0,
+        "output_rate_after": 0,
+        "intake_radius_before_m": 55.7943227922414,
+        "intake_radius_after_m": 55.7943227922414,
+        "output_radius_before_m": 10.0,
+        "output_radius_after_m": 10.0,
+        "nearest_unsafe_intake_cell_m": 16.0,
+        "nearest_unsafe_output_cell_m": 16.0,
+        "output_envelope": "retained surface geometry, four-cell margin, no tunnel barrier"
+      }
+    },
+    "controls_after": {
+      "name": "Rio Papa-Couve",
+      "class": "river",
+      "role": "downstream",
+      "position": [
+        1040,
+        0,
+        1792
+      ],
+      "target": 116.09375,
+      "capacity": 0.2,
+      "bank_limited": true,
+      "short_surface_river": true,
+      "underground_portal": "surface_inlet_to_tunnel",
+      "output_capacity": 0.0,
+      "short_source_footprint": {
+        "intake_rate_before": 13107,
+        "intake_rate_after": 13107,
+        "output_rate_before": 0,
+        "output_rate_after": 0,
+        "intake_radius_before_m": 55.7943227922414,
+        "intake_radius_after_m": 55.7943227922414,
+        "output_radius_before_m": 10.0,
+        "output_radius_after_m": 10.0,
+        "nearest_unsafe_intake_cell_m": 16.0,
+        "nearest_unsafe_output_cell_m": 16.0,
+        "output_envelope": "retained surface geometry, four-cell margin, no tunnel barrier"
+      }
+    },
+    "arms": [
+      {
+        "arm": "new-remote-new-inlet",
+        "sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
+        "terrain_sha256": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
+        "water_sha256": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d",
+        "inlet": {
+          "index": 294,
+          "position": [
+            1040.0,
+            115.84375,
+            1792.0
+          ],
+          "type": 1,
+          "target_fixed": 7430,
+          "intake_rate": 13107,
+          "output_rate": 0
+        },
+        "source_count": 305
+      },
+      {
+        "arm": "new-remote-old-inlet",
+        "sha256": "5e008fc889b408f390c6b767279b4edf83c2ace507b2b9bbceef688186b1a35c",
+        "terrain_sha256": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
+        "water_sha256": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d",
+        "inlet": {
+          "index": 294,
+          "position": [
+            1040.0,
+            115.84375,
+            1792.0
+          ],
+          "type": 1,
+          "target_fixed": 7517,
+          "intake_rate": 13107,
+          "output_rate": 0
+        },
+        "source_count": 305
+      },
+      {
+        "arm": "old-remote-new-inlet",
+        "sha256": "02bfd6b2472ad43ab0f0afaa7b5bc9b0ba337169c32b11052eab68a0af6b11af",
+        "terrain_sha256": "463d70a7cbb44115c679e2f66fec5f762e0d2bf5e78450743efcd181a96ddbf2",
+        "water_sha256": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d",
+        "inlet": {
+          "index": 292,
+          "position": [
+            1040.0,
+            117.203125,
+            1792.0
+          ],
+          "type": 1,
+          "target_fixed": 7430,
+          "intake_rate": 13107,
+          "output_rate": 0
+        },
+        "source_count": 304
+      },
+      {
+        "arm": "old-remote-old-inlet",
+        "sha256": "e9f388f27859cb7a18bcc849fef61b0edb09dafae49f96a4f8faffe4ba372003",
+        "terrain_sha256": "463d70a7cbb44115c679e2f66fec5f762e0d2bf5e78450743efcd181a96ddbf2",
+        "water_sha256": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d",
+        "inlet": {
+          "index": 292,
+          "position": [
+            1040.0,
+            117.203125,
+            1792.0
+          ],
+          "type": 1,
+          "target_fixed": 7517,
+          "intake_rate": 13107,
+          "output_rate": 0
+        },
+        "source_count": 304
+      }
+    ]
+  },
+  "terrain_only": {
+    "source_sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
+    "variant_sha256": "48419511b9ed2c9f8c1690f6d9e49b72e4b55c8d7dba25eef37817d70fe719c1",
+    "water_manager_byte_identical": true,
+    "only_factor": "terrain regenerated with explicit tunnel lines omitted from upstream surface excavation; all sources, initial water, geometry/probes/mask, networks and listing fields retained"
+  },
+  "results": [
+    {
+      "arm": "new-remote-new-inlet",
+      "map_sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
+      "minutes": 10.071389414152751,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "far_km2": 0.0,
+          "central_far_km2": 0.0,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 1900.0,
+          "far_max_m": 0
+        },
+        {
+          "grid": "t005-water.u16",
+          "far_km2": 0.095744,
+          "central_far_km2": 0.027392,
+          "corridor_far_km2": 0.0256,
+          "corridor_max_m": 5.296875,
+          "corridor_volume_m3": 56868.0,
+          "far_max_m": 7.21875
+        },
+        {
+          "grid": "t010-water.u16",
+          "far_km2": 0.108544,
+          "central_far_km2": 0.03968,
+          "corridor_far_km2": 0.036352,
+          "corridor_max_m": 5.65625,
+          "corridor_volume_m3": 85096.0,
+          "far_max_m": 7.0625
+        }
+      ],
+      "controls_match": true,
+      "terrain_exact": true,
+      "initial_water_exact": true,
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "new-remote-old-inlet",
+      "map_sha256": "5e008fc889b408f390c6b767279b4edf83c2ace507b2b9bbceef688186b1a35c",
+      "minutes": 10.056667191162704,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "far_km2": 0.0,
+          "central_far_km2": 0.0,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 1900.0,
+          "far_max_m": 0
+        },
+        {
+          "grid": "t005-water.u16",
+          "far_km2": 0.13312,
+          "central_far_km2": 0.064768,
+          "corridor_far_km2": 0.06272,
+          "corridor_max_m": 6.859375,
+          "corridor_volume_m3": 179556.0,
+          "far_max_m": 7.203125
+        },
+        {
+          "grid": "t010-water.u16",
+          "far_km2": 0.153088,
+          "central_far_km2": 0.08448,
+          "corridor_far_km2": 0.080896,
+          "corridor_max_m": 6.640625,
+          "corridor_volume_m3": 290248.0,
+          "far_max_m": 7.21875
+        }
+      ],
+      "controls_match": true,
+      "terrain_exact": true,
+      "initial_water_exact": true,
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "old-remote-new-inlet",
+      "map_sha256": "02bfd6b2472ad43ab0f0afaa7b5bc9b0ba337169c32b11052eab68a0af6b11af",
+      "minutes": 10.039722745834538,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "far_km2": 0.0,
+          "central_far_km2": 0.0,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 1900.0,
+          "far_max_m": 0
+        },
+        {
+          "grid": "t005-water.u16",
+          "far_km2": 0.032512,
+          "central_far_km2": 0.000512,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 0.0,
+          "far_max_m": 2.015625
+        },
+        {
+          "grid": "t010-water.u16",
+          "far_km2": 0.041472,
+          "central_far_km2": 0.000512,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 0.0,
+          "far_max_m": 2.59375
+        }
+      ],
+      "controls_match": true,
+      "terrain_exact": true,
+      "initial_water_exact": true,
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "old-remote-old-inlet",
+      "map_sha256": "e9f388f27859cb7a18bcc849fef61b0edb09dafae49f96a4f8faffe4ba372003",
+      "minutes": 10.05527830220138,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "far_km2": 0.0,
+          "central_far_km2": 0.0,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 1900.0,
+          "far_max_m": 0
+        },
+        {
+          "grid": "t005-water.u16",
+          "far_km2": 0.033536,
+          "central_far_km2": 0.000768,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 0.0,
+          "far_max_m": 1.984375
+        },
+        {
+          "grid": "t010-water.u16",
+          "far_km2": 0.041472,
+          "central_far_km2": 0.000512,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 0.0,
+          "far_max_m": 2.515625
+        }
+      ],
+      "controls_match": true,
+      "terrain_exact": true,
+      "initial_water_exact": true,
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "terrain-only",
+      "map_sha256": "48419511b9ed2c9f8c1690f6d9e49b72e4b55c8d7dba25eef37817d70fe719c1",
+      "minutes": 10.056667191162704,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "far_km2": 0.0,
+          "central_far_km2": 0.0,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 1900.0,
+          "far_max_m": 0
+        },
+        {
+          "grid": "t005-water.u16",
+          "far_km2": 0.024064,
+          "central_far_km2": 0.00128,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 20.0,
+          "far_max_m": 1.9375
+        },
+        {
+          "grid": "t010-water.u16",
+          "far_km2": 0.028416,
+          "central_far_km2": 0.00128,
+          "corridor_far_km2": 0.0,
+          "corridor_max_m": 0,
+          "corridor_volume_m3": 24.0,
+          "far_max_m": 1.90625
+        }
+      ],
+      "controls_match": true,
+      "terrain_exact": true,
+      "initial_water_exact": true,
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    }
+  ]
+}

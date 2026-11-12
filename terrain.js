@@ -914,7 +914,7 @@ export const PRESETS = [
   { name: "Asheville", slug: "asheville", lon: -82.555, lat: 35.58 },
   { name: "Yosemite Valley", slug: "yosemite", lon: -119.575, lat: 37.735 },
   { name: "Rio de Janeiro", slug: "rio", lon: -43.205, lat: -22.94,
-    check: "In an hour-long game test, flooding outside the starting tile reached about 7 m deep. A few short river sections weren't wet throughout." },
+    check: "In an hour-long game test, flooding outside the starting tile reached about 3 m deep. A few short river sections weren't wet throughout." },
   { name: "Hong Kong", slug: "hong-kong", lon: 114.17, lat: 22.29 },
   { name: "Innsbruck", slug: "innsbruck", lon: 11.4, lat: 47.27 },
   { name: "Grand Canyon", slug: "grand-canyon", lon: -112.11, lat: 36.08 },

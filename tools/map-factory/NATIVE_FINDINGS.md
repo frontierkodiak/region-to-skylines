@@ -1,4 +1,64 @@
-# Native qualification · PL-918 and PL-857
+# Native qualification · PL-926, PL-918 and PL-857
+
+## Surface tunnel excavation corrected · PL-926 · 2026-11-12
+
+The shared input capture now excludes explicit `brunnel=tunnel` river lines
+before surface excavation. Python's later exclusion had left an already-cut
+surface channel in the input PNG. The inlet target rollback worsens the
+shipping terrain; a matched terrain-only change stops the Papa-Couve escape
+with its entire WaterSimulation byte-identical.
+See [TUNNEL_INPUTS.md](TUNNEL_INPUTS.md) and the
+[frozen diagnostic matrix](fixtures/tunnel-input-diagnostics.json).
+
+All five exact current CLI packages completed new 60-game-minute native soaks
+and separate ordinary New Game starts with `--disableMods --noWorkshop`.
+The actual New Game panel, untouched opening, native Areas view, end frames and
+vanilla selection/city images were viewed and hash-bound. All initial terrain,
+water and source controls match the captures. All six complete car-in, car-out
+and train paths pass, and every owned session leaves empty cleanup.
+
+| Region | Exact native shipping CRP SHA-256 | Game min | Central river cells near water in all saved grids | Max distant spread km² | Remaining native failure |
+| --- | --- | ---: | ---: | ---: | --- |
+| Asheville | `a8d71ca2b3dd7911fea840044255c4815e36a5da09d11041b0b665e9197e899b` | 60.1378 | 1736/1736 | 0.000000 | PASS |
+| Innsbruck | `4853332e43135cafc3121a9791c14e68a93551e8b63c004fbbeae5fa01f49752` | 60.1267 | 910/910 | 0.000000 | PASS |
+| Rio | `d1c6238fd6bf2bc8b152212cb79029f89570b3df7052bd9ab30733ac1d5c7258` | 60.1156 | 1130/1147 | 0.062464 | no_flooding |
+| Pittsburgh | `a6fc0e8a5c42afc32a898e8e9549b1c7d4538b8ff130230f7234ad50fb7fade0` | 60.1217 | 2461/2461 | 0.000000 | PASS |
+| Charleston | `0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74` | 60.1444 | 2748/2748 | 0.005120 | ground_truth |
+
+Near water means depth >0.1 m within 64 m, not exact wetness. Spatial results
+cover grids at 0/15/30/45/60 minutes; native probes sample every five minutes.
+Exact dry sections and minor-channel failures remain in the audits.
+
+Rio's Papa-Couve corridor has no distant water in any retained grid. Its whole
+map still fails `no_flooding`: 0.062464 km² against 0.05, down from 0.120320,
+with maximum depth 2.734375 m instead of 7.140625 m. The original shipping mask
+also shows improvement, 0.120320 to 0.057600 km². The mapped-water mask is
+byte-identical. Central 25 spread falls from 0.050176 to 0.001536 km²; no distant
+starting-tile water appears. Larger residual western pools near the Joana/Jacó
+and Jacaré sectors remain, and their feeding controls were not isolated.
+This does not restore the original PL-857 fixture's 0.050432 km² result.
+The site's Rio warning now says about 3 m, not 7 m.
+
+Charleston's existing independent terrain-fidelity failure remains explicit.
+The input rule leaves its full package unchanged. Asheville is also byte-exact;
+Rio, Innsbruck and Pittsburgh have changed grids and fresh qualification.
+PL-912's dry minor streams were not folded into this work.
+
+The fixtures were re-frozen on blade from current `inputs.js` captures.
+Both exact shipping and richer resource reference packages preserve the new
+qualified terrain, water, source controls and network inputs. Only the shipping
+full packages were freshly game-tested. The source-change guard includes the
+post-capture notice-only `terrain.js` edit; original capture receipts are retained.
+The native record is [native-qualification.json](fixtures/native-qualification.json).
+
+Raw evidence is archived on blade under `~/experiments/PL-926-rio-inlet`.
+Compact review artifacts are attached to PL-926. Not verified: populated-city
+growth, other squares/rotations/scales, 81 Tiles 2, other operating systems or
+stability beyond 60 minutes. macOS byte reproduction remains PL-917.
+
+## Historical PL-918 and PL-857 record
+
+The following is the prior qualification, not the current shipping result.
 
 ## Shipping inputs · 2026-11-12
 
