@@ -1,5 +1,6 @@
 {
  "source": "osm",
+ "attribution": "Dividing lines © OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
  "min_overlap_m2": 40.0,
  "min_part_m2": 30.0,
  "parts": {

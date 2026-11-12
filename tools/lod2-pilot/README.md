@@ -39,9 +39,13 @@ tuned them on PL-900's fifty buildings (all development now), froze them
 | LoD2 over height-only, city view | 70% | first judge 59%, second 80% | first 55%, second 63% |
 | LoD2 over height-only, close view | 70% | first judge 65%, second 82% | first 68%, second 74% |
 
-Ties count as non-wins and are a quarter to a third of the city-view answers; height-only
-was preferred outright on 3 to 6 of the fresh 38. Numbers per building are in
+Ties count as non-wins: 14 and 9 of the fresh 38 city-view answers for the two judges.
+Height-only was preferred outright on 3 to 6 of the 38. Two fresh outlines have no
+measured arm at all; counting them as non-wins gives 53% and 60% at city view. Numbers per building are in
 `results/summary.json` and `results/summary-second.json` in the experiment folder.
+
+`results/round2/parts.json` holds the outlines' dividing lines, which come from
+OpenStreetMap: © OpenStreetMap contributors, ODbL 1.0.
 
 `export_cs1.py` now mutes the wall colours for the game's lighting and adds plain window
 panes so buildings light at night.

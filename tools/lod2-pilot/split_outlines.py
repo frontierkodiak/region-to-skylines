@@ -200,7 +200,9 @@ def main():
             n_split += 1
             print(b["id"], b["hood"], b["set"], f"{outline.area:.0f} m2 ->", len(parts), "parts", sorted((round(p.area) for p in parts), reverse=True),
                   "shift", shift, "covered", round(sum(p.area for p in parts) / outline.area, 3))
-    write_json(EXP / "selection" / args.out, {"source": args.source, "min_overlap_m2": MIN_OVERLAP, "min_part_m2": MIN_PART, "parts": out})
+    attribution = {"osm": "Dividing lines © OpenStreetMap contributors, ODbL 1.0 (https://www.openstreetmap.org/copyright)",
+                   "parcels": "Dividing lines from Buncombe County parcels"}[args.source]
+    write_json(EXP / "selection" / args.out, {"source": args.source, "attribution": attribution, "min_overlap_m2": MIN_OVERLAP, "min_part_m2": MIN_PART, "parts": out})
     print(n_split, "of", len(sel["buildings"]), "outlines split")
 
 
