@@ -1,4 +1,16 @@
 {
   "buildCommand": "node build.mjs",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/worldcover/:tile(ESA_WorldCover_10m_2021_v200_[NS]\\d{2}[EW]\\d{3}_Map\\.tif)",
+      "destination": "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/:tile"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/worldcover/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    }
+  ]
 }

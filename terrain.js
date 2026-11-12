@@ -205,10 +205,38 @@ const tileRange = (box, z) => {
   const [x1, y1] = merc(e, s, z).map((v) => Math.floor(v / 256));
   return { x0, y0, x1, y1, count: (x1 - x0 + 1) * (y1 - y0 + 1) };
 };
-export async function fetchBasemapWater(sq, signal, { zoom } = {}) {
+/** The basemap's TileJSON (OpenFreeMap's current planet build), fetched once. */
+export async function basemapTiles() {
   basemapTileJSON ??= fetch("https://tiles.openfreemap.org/planet").then((r) => r.json())
     .catch((err) => { basemapTileJSON = null; throw err; });
-  const tj = await basemapTileJSON, tmpl = tj.tiles[0];
+  return basemapTileJSON;
+}
+
+/** One basemap vector tile as an ArrayBuffer, or null where there is no data (open sea); cached. */
+export async function basemapTile(z, x, y, signal) {
+  const tmpl = (await basemapTiles()).tiles[0], key = `${tmpl}|${z}/${x}/${y}`;
+  if (vtCache.has(key)) return vtCache.get(key);
+  for (let attempt = 0; ; attempt++) {
+    try {
+      const r = await fetch(tmpl.replace("{z}", z).replace("{x}", x).replace("{y}", y),
+        { signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000) });
+      let buf = null; // 204/404: no data here (open sea)
+      if (r.status !== 204 && r.status !== 404) {
+        if (!r.ok) throw new Error(`basemap HTTP ${r.status}`);
+        buf = await r.arrayBuffer();
+      }
+      if (vtCache.size > 600) vtCache.delete(vtCache.keys().next().value);
+      vtCache.set(key, buf);
+      return buf;
+    } catch (err) {
+      if (signal?.aborted || attempt >= 2) throw err;
+      await sleep(500 * 2 ** attempt, signal);
+    }
+  }
+}
+
+export async function fetchBasemapWater(sq, signal, { zoom } = {}) {
+  const tj = await basemapTiles();
   const box = bbox(sq, 500);
   let z = zoom ?? Math.min(14, tj.maxzoom ?? 14);
   while (!zoom && z > 10 && tileRange(box, z).count > MAX_BASEMAP_TILES) z--;
@@ -219,29 +247,8 @@ export async function fetchBasemapWater(sq, signal, { zoom } = {}) {
   const r5 = (v) => Math.round(v * 1e5) / 1e5;
   const ring = (r) => r.map(([lo, la]) => [r5(lo), r5(la)]);
   const nameOf = (p) => p.name || p["name:latin"] || p.name_en || "";
-  const get = async (x, y) => {
-    const key = `${tmpl}|${z}/${x}/${y}`;
-    if (vtCache.has(key)) return vtCache.get(key);
-    for (let attempt = 0; ; attempt++) {
-      try {
-        const r = await fetch(tmpl.replace("{z}", z).replace("{x}", x).replace("{y}", y),
-          { signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000) });
-        let buf = null; // 204/404: no data here (open sea)
-        if (r.status !== 204 && r.status !== 404) {
-          if (!r.ok) throw new Error(`basemap HTTP ${r.status}`);
-          buf = await r.arrayBuffer();
-        }
-        if (vtCache.size > 600) vtCache.delete(vtCache.keys().next().value);
-        vtCache.set(key, buf);
-        return buf;
-      } catch (err) {
-        if (signal?.aborted || attempt >= 2) throw err;
-        await sleep(500 * 2 ** attempt, signal);
-      }
-    }
-  };
   const one = async ([x, y]) => {
-    const buf = await get(x, y);
+    const buf = await basemapTile(z, x, y, signal);
     if (!buf) return;
     const vt = new VectorTile(new Pbf(buf));
     // river lines are clipped to the tile's own square (tiles also carry a margin of their
@@ -256,7 +263,7 @@ export async function fetchBasemapWater(sq, signal, { zoom } = {}) {
       };
       for (const line of f.loadGeometry())
         for (const piece of clipLine(line.map((p) => [p.x, p.y]), E))
-          rivers.push({ name: nameOf(f.properties), pts: piece.map(toLonLat) });
+          rivers.push({ name: nameOf(f.properties), pts: piece.map(toLonLat), ...waterwayTags(f.properties) });
     }
     const wn = vt.layers.water_name;
     for (let i = 0; wn && i < wn.length; i++) {
@@ -283,6 +290,9 @@ export async function fetchBasemapWater(sq, signal, { zoom } = {}) {
   for (const L of lakes) { const hit = labels.find((p) => inRings(p.at, L.rings)); if (hit) L.name = hit.name; }
   return { rivers, lakes, riverAreas, fragments: true, source: "basemap", zoom: z, tiles: count };
 }
+
+/** A waterway's tunnel and intermittent tags, which the ready-to-play writer reads (tunnels carry no surface water). */
+export const waterwayTags = (p) => Object.fromEntries(["brunnel", "intermittent"].filter((k) => p[k] !== undefined).map((k) => [k, p[k]]));
 
 /** Clip a polyline to the square [0, E] x [0, E]; returns the pieces inside (Liang-Barsky per segment). */
 function clipLine(pts, E) {
@@ -423,7 +433,7 @@ function strokeMask(lines, N, r = 0.6) {
 }
 
 /** Pixels whose centre is inside a shape (even-odd over its rings, so islands stay out), for a list of shapes. */
-function fillMask(shapes, N) {
+export function fillMask(shapes, N) {
   const mask = new Uint8Array(N * N);
   for (const rings of shapes) {
     let y0 = Infinity, y1 = -Infinity;
@@ -899,13 +909,18 @@ export function waterMap({ fit, carved, sources }) {
 
 /** Playability defaults. sm: smoothing sigma in 16 m pixels; rd: river depth m; rw: river half-width m; ld: lake depth m. */
 export const DEFAULTS = { sm: 1, rd: 10, rw: 40, ld: 4 };
+// `check`: what an hour-long game test of a preset's square found, when it didn't all pass (PL-857).
 export const PRESETS = [
   { name: "Asheville", slug: "asheville", lon: -82.555, lat: 35.58 },
   { name: "Yosemite Valley", slug: "yosemite", lon: -119.575, lat: 37.735 },
-  { name: "Rio de Janeiro", slug: "rio", lon: -43.205, lat: -22.94 },
+  { name: "Rio de Janeiro", slug: "rio", lon: -43.205, lat: -22.94,
+    check: "In an hour-long game test of this square, a little water pooled past a few shorelines and two small rivers weren't wet all the way." },
   { name: "Hong Kong", slug: "hong-kong", lon: 114.17, lat: 22.29 },
   { name: "Innsbruck", slug: "innsbruck", lon: 11.4, lat: 47.27 },
   { name: "Grand Canyon", slug: "grand-canyon", lon: -112.11, lat: 36.08 },
+  { name: "Pittsburgh", slug: "pittsburgh", lon: -80, lat: 40.44 },
+  { name: "Charleston", slug: "charleston", lon: -79.93, lat: 32.78,
+    check: "In an hour-long game test of this square, the marsh and tidal creeks came out less true to the real ground than our other maps." },
 ];
 
 /** The height factor an option gives: "auto" and "slopes" (1 / ground scale) are capped so the map fits under 1,024 m. */
