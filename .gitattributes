@@ -1,2 +1,5 @@
 tools/map-factory/fixtures/** linguist-generated
 tools/map-factory/templates/native-corridors.json linguist-generated
+# The site's npx command downloads GitHub's tarball of the deployed commit; keep
+# research tools and their fixtures out of it (the CLI needs only the root files).
+tools/** export-ignore
