@@ -92,6 +92,10 @@ namespace Cs1Harness
             CoreOps.Register();
             CityOps.Register();
             ScenarioOps.Register();
+            PanelOps.Register();
+            WorldOps.Register();
+            TemplateOps.Register();
+            NetworkOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
             acceptThread = new Thread(Accept) { IsBackground = true, Name = "Cs1Harness" };

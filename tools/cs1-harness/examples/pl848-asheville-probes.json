@@ -358,7 +358,7 @@
   "lat": 35.58,
   "lon": -82.555,
   "size_m": 17280,
-  "rotation": 0,
-  "source": "the region the website exported (skylines.clbswrs.co c=-82.555,35.58 r=0 s=1)"
+  "rotation": 0.905,
+  "source": "PL848-Asheville b8507bf6: original water-geometry.json has browser-clockwise rotation -0.905; this checker uses Cartesian counterclockwise rotation +0.905. The newer PL-857 capture is a different, zero-rotation export."
  }
 }

@@ -1,5 +1,17 @@
 # cs1-harness
 
+New Game capture preserves an actual private game-window PNG as
+`new-game-panel.png`, plus Unity's unmodified `new-game-panel-native.png` for
+comparison. Evidence records both hashes and `capture_source`. A request may
+set `new_game_panel.require_window_capture: true`; legacy captures do not gain
+that proof. This supplements actual stable bar readbacks and still requires
+manual hash-bound image review. A numeric ore value at target does not
+override a visibly empty rendered bar.
+
+Experimental native map-editor air-template authoring is documented in
+[AIR_TEMPLATE.md](AIR_TEMPLATE.md). It is offline-verified only and never
+automatically adopts or rewrites the writer's template.
+
 Runs Cities: Skylines 1 on blade's GPU with no screen, so agents can drive it.
 It has two layers. A **session** (`up` / `call` / `down`) holds the game
 running headless and takes ops over a loopback socket from any tool. The **map
@@ -102,6 +114,13 @@ crossing, or usable shoreline; it never bypasses a rejected placement.
   `--disableMods` skips mod loading entirely, which would remove control too. So
   harness runs use `--noWorkshop`, with only the local mods present. The mod is
   installed for the run and removed after it.
+- **Strict vanilla checks.** `up --game-arg=--disableMods` skips control-mod
+  installation and returns when the game renders on the pinned GPU. It does
+  **not** claim that the main menu is ready. `cs1_harness.x11.GameWindow`
+  captures and drives only the exact game window in a caller-named private
+  session; it never targets Steam prompts. Use ordinary New Game, record the
+  listing and loaded city, and `down` promptly. Autosave suppression requires
+  the control mod and therefore does not apply to this mode.
 - **Never saves.** The mod stops the autosave timer once a city loads. Nothing
   writes a save or a map.
 
@@ -163,6 +182,58 @@ run takes a single overview screenshot set and no point samples. A point may
 set `"required": true|false` for the verdict, and the file may name a
 `reference_water` grid (relative to the file) that flooding is judged against.
 
+### Optional frozen mapped-water corridor
+
+For a future soak, stage an **unbuffered** geometry-derived water mask next to
+`probes.json`, and add:
+
+```json
+{
+  "mapped_water": {
+    "file": "mapped-water.u8",
+    "format": "cs1-water-mask-u8-v1",
+    "sha256": "64 lowercase hex digits of the exact binary file"
+  }
+}
+```
+
+The file is exactly 1,168,561 bytes (1081 × 1081 unsigned bytes, each 0 or 1),
+C row-major **south-first**: `[iz,ix]` is world
+`x=ix*16-8640, z=iz*16-8640` metres. `1` means mapped water, not a tolerance
+buffer. The staging caller (for example writer `soak.stage_prepared`) must
+rasterize its frozen mapped rivers/streams and lake/river polygons in that
+frame; retain geometry/provenance and its hash in its generation receipt.
+Do not use observed flood extents to construct the mask. No geographic
+inference, mask generation, widening or blanket exclusion happens here.
+`file` must be a basename, relative to the probes file. The SHA binds bytes,
+not the truth or completeness of their geographic classification.
+
+`run` validates format/size/binary values/SHA and copies precisely those bytes
+to run-local `mapped-water.u8` **before acquiring a native session**. Verdicts
+read only that frozen copy; missing/changed/malformed requested evidence fails
+`no_flooding`, never silently reverts to initial-only. An unrequested stray
+mask has no effect. The expected footprint is existing `reference_water`
+(or initial saved water >0.1m) **union** this supplied mask. Existing Euclidean
+128m dilation, >0.5m depth and ≤0.05km² threshold remain unchanged. Only saved
+water grids are assessed, not intervening frames. The row includes per-grid
+areas/failing subset plus a non-gating `initial_only_diagnostic` with the old
+footprint's results. Without the key, legacy behavior/output is unchanged.
+
+Do **not** edit a completed run's frozen probes or replace its verdict to add
+evidence retroactively. A read-only supplemental callable is available:
+
+```python
+from cs1_harness.verdict import adjudicate_flooding
+supplement = adjudicate_flooding(run_dir, external_mask_path, mask_spec)
+# Serialize supplement to a separate review artifact, not verdict.json/probes.json.
+```
+
+`mask_spec` is the object under `mapped_water` above. The result binds the
+report/probes, reference and saved-grid SHA-256 values and mask SHA, retains
+the initial-only diagnostic, and explicitly makes no native-acceptance claim.
+This is supplemental adjudication, not a rerun or an alteration of history.
+
+
 ## Checking against the world
 
 Every other map check is drawn in the map writer's own coordinate frame, so a
@@ -179,11 +250,16 @@ that frame:
   and lowest points, and at any named landmarks. The probe file supplies the
   region: `"ground_truth": {"lat", "lon", "size_m", "rotation", "base"?,
   "landmarks"?: [{"name", "lat", "lon"}]}`.
-- `opening_camera` reads the camera the map opens with, before the harness
-  moves it, and fails if it faces more than 45° from north. `run` also saves
-  what a player sees first: `shots/player-opening.png` (UI showing) and
-  `shots/player-area-zoom.png` (fully zoomed out). `--notify` posts both, with
-  the New Game panel and `ground-truth.png`.
+- `opening_camera` retains the legacy camera-state observation at the start of
+  player-path capture, and fails if it faces more than 45° from north. Scenario
+  construction precedes that legacy observation; use `startup_world` and the
+  opt-in `startup_views` check for untouched startup evidence. `run` also saves
+  `shots/player-opening.png` (UI showing) and
+  `shots/player-area-zoom.png` (maximum camera size; historical filename).
+  This legacy max-zoom shot does **not** open the Areas tool and cannot certify
+  `startup_views`. Actual opening/Areas captures run first, before scenario
+  construction, player-path movement, or render overrides. `--notify` posts
+  both legacy shots, with the New Game panel and `ground-truth.png`.
 
 A map soak with no passing `ground_truth` check reports `unverified`, never
 `pass`.
@@ -210,7 +286,7 @@ Gate on it rather than on the prose report. The thresholds live in code, in
 
 | Check type | Checks that can fail it |
 |:--|:--|
-| `map-soak` (`run`) | `completed`, `probes_wet_end` (≥ 95 % of required probes wet, exactly or within 64 m), `no_flooding` (≤ 0.05 km² deeper than 0.5 m beyond 128 m of expected water), `paths`, `no_terracing`, `screenshots` (none blank), `frame_kinds` (only when Clef flags half the shots), `cleanup` |
+| `map-soak` (`run`) | `completed`, `probes_wet_throughout` (≥95% of required probes wet exactly or natively within64m at every observed sample), `probes_wet_end` (≥ 95 % of required probes wet, exactly or within 64 m), `no_flooding` (≤ 0.05 km² deeper than 0.5 m beyond 128 m of expected water), `paths`, `no_terracing`, `screenshots` (none blank), `frame_kinds` (only when Clef flags half the shots), `cleanup` |
 | `asset-check` (`asset check`) | `loaded`, `triangles`, `has_lod`, `placed`, `survives_reload`, `screenshots`, `cleanup` |
 
 `warn` rows (unexplained log errors, a few Clef flags) don't fail a run; `skip`
@@ -299,6 +375,23 @@ claude mcp add cs1-harness -- uv run --directory ~/dev/frontierkodiak/region-to-
 Soaks go through `submit`: it returns at once, and the verdict arrives as a
 comment on the issue.
 
+Optional `paths` entries contain `name`, `from` and `to` native
+`[segment,lane,offset]` positions, `rail` (boolean), and `expected_segments`.
+The map check asks the native car/train pathfinder at the start and end,
+retaining success flags, all positions, and missing expected segments. A
+completed run is not a path-pass verdict. `networks` lists native IDs, lanes,
+directions, segment/node flags, bounds and matching render-part/LOD metadata
+to calibrate those probes. Runs with paths retain `networks-t000.json` and
+the final network snapshot alongside path results; these are read-only
+observations, not repairs. `path_start` and `path_result` also work
+interactively. Completed harness-owned paths are released.
+
+Exact water samples remain authoritative point measurements. Supplementary
+`wet_within_64m`, `max_depth_within_64m` and `nearest_water_m` fields describe
+water above 0.1 m in nearby native grid cells; they do not turn an exact dry
+sample into a wet one. Map checks disable day/night for that session only,
+without changing saved user settings, to keep screenshots interpretable.
+
 ## Hosts
 
 `--host blade|worm` picks a profile; the default is this machine's hostname.
@@ -323,3 +416,308 @@ playing on `:0` is unaffected. `setup --undo` removes the launch options,
 wrapper, VirtualGL and mod. Session pieces (`cs1-harness-xvfb`,
 `cs1-harness-dbus`, `cs1-harness-steam`) are transient `systemd --user` units
 that exist only while a session is up; `cs1-harness-gpu` samples the GPU every 5 s into the session's `gpu.csv`.
+
+### Opt-in New Game panel verdict (PL-857)
+
+Add `new_game_panel` to the probe JSON to check the real menu before loading
+the city. Every expectation is required. Use the intended map's actual values,
+**not these illustrative zeros**. Amounts and directional counts are raw
+`MapMetaData` fields; `buildableArea` is the integer percentage. `author` is
+the package author, not the randomly generated suggested city name. An
+intentional empty author hides the label.
+
+```json
+{
+  "new_game_panel": {
+    "map_name": "Asheville", "author": "", "buildableArea": 37,
+    "require_resource_bars": true,
+    "resources": {
+      "maxResourceAmount": 1000000.0,
+      "oilAmount": 0, "oreAmount": 0, "forestAmount": 0,
+      "fertileLandAmount": 0, "waterAmount": 0
+    },
+    "connections": {
+      "incomingRoads": 0, "outgoingRoads": 0,
+      "incomingTrainTracks": 0, "outgoingTrainTracks": 0,
+      "incomingShipPath": 0, "outgoingShipPath": 0,
+      "incomingPlanePath": 0, "outgoingPlanePath": 0
+    }
+  }
+}
+```
+
+The mod opens `NewGamePanel`, finds the exact package path in its native
+listing, selects it, waits for resource animations, and captures the rendered
+modal. `new-game-panel.json` retains native metadata, resolved `imageRef` and
+`steamPreviewRef` texture dimensions, actual labels and screenshot SHA-256.
+`new-game-panel.png` is game-rendered, never constructed. Package metadata
+alone cannot pass this check.
+
+`require_resource_bars` is an optional boolean, default false for historical
+records. When true, the verdict additionally requires schema-1 native bar
+measurements and settlement proof. Missing, malformed, incorrect or unstable
+measurements fail; adding the flag cannot upgrade an old metadata-only capture.
+The verdict reports `resource_bars_required` and `resource_bars_verified`;
+old frozen requests leave the latter false even if their legacy checks pass.
+The writer must explicitly opt new probe requests into this contract.
+
+New captures require the updated mod's bar readback, replacing the old blind
+three-second delay. Every poll uses `new_game_panel {path,bars_only:true}`,
+which reads the selected map without selecting it again or instantiating
+preview textures. It records actual `UIProgressBar.value`, min/max, current
+native exponent, metadata amount/denominator, normalized target and clamped
+target, no-resource icon state, visibility and named ValueAnimator activity.
+The target is native `Pow(amount / maxResourceAmount, exponent)` (zero when
+the denominator is nonpositive), clamped as UIProgressBar's setter does.
+Float32 target-recompute slack is 1e-5; observed value error must be <=1e-4.
+A positive target with value zero always fails, even below tolerance.
+
+The driver polls for up to 15 seconds at 0.25-second intervals, checking game
+liveness. It needs three distinct, increasing native render frames/times with
+all five animations inactive, values at target, correct zero-resource icons
+and value variation <=1e-5. The screenshot-request and post-PNG readbacks must
+still agree. Bridge calls retain the client's finite socket timeout. The
+capture receipt's `resource_bar_settlement` contains schema, samples and the
+post-capture observation; failures retain the last observation/errors and close
+the modal if the game is alive. Native PNG completion/decode remains bounded.
+
+Only explicit `select:true` can refresh selection. When already selected, it
+uses native clear/reselect because UIListBox emits no event for the same index;
+normal inspection/polling does not restart tweens. The helper never sets bar
+values, exponents, icon flags or animator values. Installed source references:
+`acs.cs:221798–221807` binds controls; `221908–221959` resets/animates them and
+sets resource icons; `cm.cs:22641–22659` suppresses same-index events and
+`25747–25761` clamps progress-bar values. Native exponents are serialized panel
+fields read from the actual instance, not guessed percentages.
+
+This is **offline verified only**. Correct numeric UI readbacks do not prove
+the rendered fill is visible: manual review of the exact screenshot is still
+mandatory below. A short same-package native panel capture/review must verify
+the fix; this UI-only instrumentation does not itself requalify physics.
+
+Initially `new_game_panel` **fails as unreviewed**. Inspect that PNG and record
+what you actually see in `new-game-panel-review.json` in the run directory:
+
+```json
+{
+  "sha256": "SHA256_OF_THE_CAPTURE_YOU_REVIEWED",
+  "reviewer": "your name or agent/run identifier",
+  "notes": "Specific observations of the selected map, preview, bars and icons",
+  "observed": {
+    "map_name": "Asheville", "author": "", "buildableArea": 37,
+    "preview_matches_map": true, "resources_match": true,
+    "connections_match": true, "selected_map_visible": true
+  }
+}
+```
+
+Only mark those assertions true after reviewing the panel against expectations:
+preview is the intended map (not template), author/buildable percent are correct,
+resource bars/no-resource marks match amounts, and directional transport icons
+match intended connections. Resource bars use native nonlinear normalization,
+not raw counts or percentages. Then rejudge with
+`uv run cs1-harness verdict RUN_DIR`.
+
+Missing/invalid expectations or evidence, unresolved refs, changed screenshots,
+and absent/stale reviews fail closed. Without a request the row is `skip`.
+Rejudging uses only the frozen run's `probes.json`, not mutable source probes.
+This is mod-enabled instrumentation only: strict `--disableMods` vanilla checks
+are unchanged. Manual vanilla panel captures are a separate workflow and cannot
+silently substitute for these native bridge observations.
+
+### Native landmark orientation and read-only camera receipts (PL-857)
+
+Every mod-enabled map run records `startup-world.json` (also report's
+`startup_world`) immediately after city load and **before any harness camera
+or run overrides**. It contains the native interpolated current camera
+position/angle/size/height, requested target fields, actual render transform
+(position/forward/up/Euler angles), and `areas_visible`. Heading is yaw in
+Unity world axes: `atan2(forward.x, forward.z)` in [0,360), so0faces+Z and90
+faces+X; no geographic north assumption is embedded. At a near-vertical view
+render heading is null; current native yaw/tilt remains available.
+
+To require geographic orientation checks, add this object to the frozen probe
+JSON (numbers shown are **synthetic examples, not Asheville landmarks**):
+
+```json
+{
+  "landmark_expectations": {
+    "reference": "Independent DEM and landmark coordinates, source/hash and vertical-transform provenance",
+    "points": [
+      {"name": "ridge", "x": 103.125, "z": -500.75, "expected_height_m": 612, "tolerance_m": 12},
+      {"name": "river", "x": -1000, "z": 2048, "expected_height_m": 101, "tolerance_m": 12}
+    ]
+  }
+}
+```
+
+Use at least two uniquely named known landmarks with separated x **and** z
+coordinates and expected heights distinguishable beyond combined tolerances.
+Coordinates are native world meters; expected heights are native game-height
+meters **after the documented DEM vertical transform**, not unconverted ASL
+and not sampled back from the prepared game grid. Extra per-point source
+metadata is retained. Choose tolerances for DEM accuracy, quantization and
+native cubic smoothing; do not widen them to hide orientation failures.
+`TerrainManager.SampleRawHeightSmooth(Vector3(x,0,z))` supplies each native
+height. Input coordinates are retained exactly; `sample_position` records the
+actual float32 position passed to the native sampler.
+
+The `terrain_landmarks` verdict row fails on any out-of-tolerance height,
+missing/malformed evidence, wrong point identities, or startup observations
+already in Area Zoom. Without landmark expectations it skips; camera receipts
+are observational, not an assertion that any heading is correct. This detects
+orientation mismatches but does not automatically rotate terrain or override
+the camera. Verify the actual artifact under investigation: a newer package
+cannot certify an older screenshot/package.
+
+For Area Zoom inspection, open the actual area UI through ordinary gameplay
+and call `world_observe` with optional `points` containing `{name,x,z}` objects:
+
+```sh
+uv run cs1-harness call world_observe '{}'
+```
+
+This op is entirely read-only, usable in normal/Area Zoom views. It neither
+opens the UI nor changes terrain, camera or area state. Strict disableMods
+vanilla runs remain a separate workflow; this mod bridge is not available there.
+
+Native source notes (installed game's decompilation):
+
+- `TerrainManager.SampleRawHeightSmooth` maps worldx/16+540 to the contiguous
+  x index and worldz/16+540 to rowz; smoothing indexes `rawHeights2[z*1081+x]`
+  and converts height units by/64. This establishes native axes, not the actual
+  geographic correctness of an untested package.
+- `CameraController.SavedCameraView` serializes mode,position,size,angle,height;
+  `GameAreaManager.Data.Serialize` stores it after the four buildable-area
+  floats. `Reset` restores it only when saved mode matches load UpdateMode.
+  Native enum values are NewGameFromMap=2 and LoadGame=3; ordinary in-game saves
+  use3, map-editor saves use1. Otherwise Reset uses original camera settings
+  plus start-tile offset. Binary patch safety still requires exact version and
+  offset verification; this harness does not patch serialized camera data.
+- `GameAreaManager.UpdateAreaMapping` chooses Area Zoom yaw0/180 or±90 from
+  the current camera right-vector and uses SetOverrideModeOn. An Area Zoom
+  heading alone therefore does not establish that terrain was transposed.
+
+### Opt-in opening and actual Areas-tool views (PL-857; offline verified)
+
+Add `startup_views` to the frozen probe JSON to require native camera headings
+and rendered evidence in the untouched opening view and actual Area Zoom.
+These are **explicit example expectations**, not verified headings for a map:
+
+```json
+{
+  "startup_views": {
+    "opening": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
+    "area_zoom": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
+    "tolerance_degrees": 1,
+    "opening_center": {"x": -1920, "z": 0, "tolerance_m": 64}
+  }
+}
+```
+
+Both headings are required for each view; comparison is circular in degrees.
+Tolerance must be explicitly chosen in `(0,5]`. Native yaw is the interpolated
+`SavedCameraView.m_angle.x`, not the target angle. Render heading is the world
+forward-vector heading described above; a null/vertical heading cannot pass.
+No geographic orientation or pivot expectation is inferred from headings.
+Optional `opening_center` explicitly checks both current and target opening
+pivots after capture against world x/z, with a tolerance in `(0,960]` metres.
+Omitting it makes no centring claim. The launcher parks the pointer at the
+private display centre before New Game to prevent accidental edge scrolling;
+it does not aim or reset the camera.
+
+After the existing `startup-world.json` observation and **before the first
+harness camera override**, the driver pauses simulation, captures the opening
+view without aiming it, and calls `area_zoom {"enabled":true}`. That op uses
+`ToolsModifierControl.SetTool<GameAreaTool>()`, just like the normal toolbar.
+Native `GameAreaTool.OnEnable` sets `AreasVisible`; the game itself performs
+Area Zoom camera mapping. This is not a maximum-zoom camera preset. The helper
+waits up to 15 seconds per mode for three native/render heading samples,
+0.25 seconds apart, stable within 0.1 degrees, and checks again after each
+native PNG capture. PNG completion/decode uses the same bounded reader as the
+New Game panel check. Bridge calls retain the client's socket timeout.
+
+In `finally`, it selects `DefaultTool`, waits for `AreasVisible=false`, and
+restores the previous pause state. It never calls `camera`, purchases a tile,
+changes terrain/package data, or edits any camera field. `world_observe`
+remains unchanged and read-only. Runs without this request do not open Areas
+or capture these additional images; the new verdict row skips.
+
+Evidence files are `startup-views.json`, `startup-opening.png` and
+`startup-area_zoom.png`. The JSON binds the initial startup-world hash, mode
+transitions, stable samples, post-capture observations, native screenshot
+path/frame receipts, image dimensions/hashes and tool cleanup. The
+`startup_views` verdict fails on missing/changed evidence, incorrect phase,
+wrong tool/mode, unstable or out-of-tolerance headings, invalid/blank PNGs,
+or missing visual review. Initial startup headings must also match the opening
+expectations, so a later settled view cannot hide a wrong opening heading.
+
+Inspect both actual game PNGs, then add `startup-views-review.json` to the run:
+
+```json
+{
+  "reviewer": "Who inspected these two exact PNGs",
+  "notes": "What was visibly checked; identify the intended opening and Areas view",
+  "opening": {
+    "sha256": "SHA-256 from the opening capture",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "SHA-256 from the actual Areas capture",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}
+```
+
+Do not generate those assertions from native camera values. They assert actual
+screenshot content; numeric heading comes separately from native readbacks.
+Re-run `cs1-harness verdict RUN_DIR` after review. No geographic `ground_truth`
+or landmark contract is added or changed by this check.
+
+Implementation has an installed-assembly build and mocked fixture coverage,
+**not native execution**. The tool transitions, opening/Areas PNGs, headings,
+and cleanup still require a live run; no actual map passes based on these tests.
+
+
+## Persistence at observed native samples
+
+Map-soak verdicts now include `probes_wet_throughout` in addition to the unchanged
+end-only row. A required probe must be wet **exactly OR by the actual native
+`wet_within_64m` flag at every recorded sample**. At least the existing95% of
+required probes must satisfy that persistence test. Rotating failures cannot
+average away; no wetness/flood threshold was changed. The existing required
+cohort/overrides apply, including the existing default stream/edge exclusions.
+
+The row reads actual `kind=sample` timeline rows, not report end booleans or
+aggregate `dry_samples`. Frozen probe identities anchor the cohort where
+available; legacy report identities are used otherwise. It checks unique names,
+finite coordinates (1mm native float32 echo allowance), ordered advancing frames,
+report curve/sample-count agreement and coverage of the declared interval.
+Curve comparisons permit0.01-minute report rounding; the uncovered start margin
+uses the existing1% completion allowance. Final frame identity comes from the
+final sample, as recorded by MapCheck. At least two observations are required.
+Missing/malformed evidence fails, not a fabricated pass or legacy upgrade.
+Only a genuinely empty declared required cohort skips.
+
+`exact_dry` and `native_no_nearby` retain probe/observation counts and capped names;
+`without_water_names` identifies the failing persistence subset. The row also
+reports real native nearby measurement/wet counts, per-sample failures, observed
+span and largest sample gap. Exact-wet legacy observations need no invented
+nearby flag; an exact-dry observation without native nearby evidence fails closed.
+
+**This is sampled persistence, not every-frame wetness.** A sparse but valid
+record states its sample count and largest gap, rather than claiming continuous
+coverage. No configured sample-cadence claim is inferred from old reports.
+Rejudging old evidence may add a failing missing-evidence row; it never rewrites
+its timeline, probes or physical observations.
+
+Offline read-only assessments: current Rio `117b4d16…7555` passes244/244 required
+probes over13 samples (3,172 native nearby-wet observations);97 exact-dry readings
+across9 probes remain explicit. Current Asheville passes28/28 over13 samples,
+all exact-wet. Historical resource-painted Asheville and Innsbruck also pass
+sampled persistence; Innsbruck retains two exact-dry observations at one probe,
+rescued by actual native nearby reads. These assessments do not independently
+certify flooding, visual quality or unsampled intervals. Input report/probes/
+timeline hashes were checked unchanged; no game/build was run for this change.

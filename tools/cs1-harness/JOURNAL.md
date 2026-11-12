@@ -1,5 +1,50 @@
 # cs1-harness journal
 
+## 2026-11-11 · PL-857 native resource-bar settlement (OFFLINE)
+
+Instrumented resource-panel PNGs showed an empty ore bar despite correct
+metadata, while the strict native panel showed nonzero ore. Replaced blind
+three-second capture delay with actual UIProgressBar/value/exponent/target,
+zero-icon and animator readback. Three increasing native render frames must
+reach all targets and stabilize before screenshot; capture/post-PNG readbacks
+must agree. Read-only bars_only polls avoid preview texture instantiation and
+never reselect. Explicit same-index select refreshes through native clear/
+reselect only (UIListBox otherwise emits no selection event), never fake values.
+
+Optional frozen require_resource_bars=true adds fail-closed numeric settlement
+to the existing hash-bound visual review. Old requests stay legacy and report
+resource_bars_verified=false; metadata alone cannot satisfy the new contract.
+Timeout records last readings/errors and closes the live modal. Writer probes
+were not edited. Native rendering still requires a short same-package proof.
+
+64 offline tests pass (13 new, including metadata-correct/ore-zero failure,
+native targets/icons/provenance, animation timeout/cleanup and stable capture);
+full Ruff checks pass. Installed-assembly compile writes only own
+panel-bars-build scratch output, SHA bf5cb2b7a41b167d0901dbf659acd76db30deba4141ce33d6db6e79db27e342b.
+Active private DLL58ae33b2… stayed unchanged; no normal build/install, game,
+Steam, doctor, service, GPU/inference/session or platform write occurred.
+No native acceptance claimed; parent retains PR/build/short native verification.
+
+## 2026-11-11 · PL-857 native air-template authoring route (OFFLINE)
+
+Added isolated TemplateOps and an explicit Python authoring helper, based on
+8ccb2f4 without concurrent queue work. Native LoadMap=1 opens the source map
+in MapEditor availability=2. Plane FlightPathAI discovery, MakeControlPoint
+outside snapping and test/apply NetTool.CreateNode use real native allocation;
+no fake air metadata, building flags or binary IDs. Original fingerprints and
+outside counts gate a fresh unpublished SaveMapPanel export. Its SHA binds
+native node/segment/prefab/AI/lane/outside-building inventory; writer_adopted
+and native_new_game_verified remain false. No raw template/identity committed.
+
+59 offline tests (11 new) and full Ruff checks pass. Direct installed-assembly
+compilation writes only own air-template-build scratch output; active
+58ae33b2… cached DLL remained unchanged. Actual prefab selection, placement,
+paused outside-building updates, native save controls and saved counts need a
+disposable native pilot. AIR_TEMPLATE.md records exact source/modes and writer
+adoption blockers: both-outside→rail, ground grading, resource masks and car
+probes. No game, Steam, doctor, GPU harness, shared-service or platform changes;
+GPU/run metrics do not apply. Parent retains PR/build/native/adoption decisions.
+
 How agents built and improved this harness: raw material for a write-up. One
 entry per change that mattered: the date, the agent and issue, what got in the
 way, what changed, and before/after (boot time, failure rate, what's newly
@@ -659,6 +704,51 @@ to agree. Re-judged under the new rule, PL-857's best Asheville soak reads
 `unverified` until its probe file names its region. The lesson: an agent's
 check is only as independent as the frame it's drawn in. The playtest checked
 the world, so now the harness does too.
+## 2026-11-10 · Sol xhigh (blade) · PL-857 · hydraulic and native-path evidence
+
+The first arbitrary-region Asheville fixture was not the older two-source
+PL-848 map: its 207 sources flooded 0.522 km² more than 128 m from initial or
+mapped water in just ten game-minutes (depth >0.5 m). Stream initialization and
+lake outlet targets, not just river capacity, mattered. Conservative stream
+rates and lake rim limits reduced that to 0.038 km² in the next diagnostic.
+The R0 trial also controls the downstream ends of mapped reaches;
+its 60-minute saved grids show no water meeting that distant-flood threshold.
+Exact-point dry samples are retained separately from nearby wet-channel
+evidence. Minor streams are not all perennial.
+
+Added native network inspection and owned car/train path requests, with full
+returned lane/segment positions and release on completion. Positive highway
+checks pass all 56 segments per direction; deliberately reversed traffic fails.
+Rail chunks passed but a full rail path failed at one 108.22° turn. Smoothing
+the writer's rail alignment made the complete 173-segment native path pass at
+both ends of the R0 Asheville soak. This was a geometry defect, not a
+generic pathfinder-probe problem.
+
+Added 64 m neighbourhood water measurements alongside unchanged exact samples,
+and session-only daylight for screenshots. Neither changes the exported map.
+
+## 2026-11-10 · Sol xhigh (blade) · PL-857 · ordinary vanilla New Game
+
+`up --game-arg=--disableMods` now skips the mod/socket entirely and returns at
+GPU rendering, explicitly not menu readiness. A named private-window X11 helper
+captures and drives the actual game; bounds checks reject off-window clicks.
+Unity ignored instantaneous button events, so presses now hold for 120 ms.
+No Steam prompt is targeted. The existing account-conflict policy is unchanged.
+
+Verified on the R0 Asheville CRP (SHA-256
+`4b3d3cd31b3c934b0b6d4a44e6b98d3f39d97f01f40170722b6292c3ce32a390`):
+actual arguments `--disableMods --noWorkshop`, absent control socket, main menu
+0/0 mods and Workshop inactive, correct ordinary New Game listing, selection,
+and a loaded city with the city UI and starter approaches. Only that exact map
+was installed. Screenshots and the native load log were retained. The map
+preview is black, a remaining cosmetic template limitation. Optional Paradox
+auto-login was declined; no account or terms were accepted. Vanilla teardown
+terminates its own uninstrumented game instead of waiting for an absent socket;
+the resulting game/Steam/unit cleanup lists are all empty.
+
+The display-only `doctor` check now accepts the same `--wait-minutes` slot
+queue as `run` and `up`, so verifying a harness PR does not require racing a
+long soak. It still starts neither Steam nor the game.
 
 ## 2026-11-11 · Opus 5.5 (blade) · PL-891 · saves: a repro for Caleb, and checkpoints
 
@@ -742,12 +832,29 @@ hidden `.part` name and renames.
 
 ## Run log
 
+Large map checks produced a single Markdown line containing thousands of dry
+probe names. The report now shows the full failing count and the first eight
+names, pointing to `report.json` for the unchanged full list. This limits
+terminal/context output without dropping measurements or changing verdicts.
+Checked by rendering the completed R3 Asheville report and retaining its
+original JSON bytes and full dry-point array.
+
+PL-857's PR was replayed onto the merged harness on `main` (`8fadee3`),
+preserving the observer, verdict, registry and fair queue layers. The older
+two-second polling waiters had repeatedly lost gaps to newer work. Only
+PL-857's still-queued processes were interrupted and collected; no game or
+other user's session was stopped. Their replacements use the registered
+first-come-first-served queue. The same map hashes and water policy are used.
+
 Per run: host, GPU, peak VRAM (total and game share), peak power and
 temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 
 | Date | Agent · issue | Host · GPU | Peak VRAM (game) | Peak W / °C | Wall | Result |
 |:--|:--|:--|:--|:--|:--|:--|
-| 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 165.5 W / 63 °C | 20.3 min sim | R3 Rio60 FAIL: 1.652 km² distant flooding, max13.77m; 323/342 playable river points wet end; inputs/controls/native paths pass, cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 9,748 MiB card / 1,748 MiB incremental | 158.7 W / 62 °C | 130 s sampled | Strict R3 Rio attempt: actual 1920×1080, no control socket; task driver rejected ordinary What's New header; safe exit before New Game, cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 163.1 W / 63 °C | 16.3 min sim | R3 prefilled Asheville60: all28 playable river points wet at every sample; no distant flooding; all native paths/inputs/controls; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 160.0 W / 63 °C | 17.6 s sim / 230 s sampled | R3 Innsbruck render diagnostic, 1.12 game-min: all six native paths pass; render metadata exercised; zoom-dependent mesh gap retained; cleanup empty |
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
 | 2026-11-10 | Sol xhigh · PL-893 trial 1 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.42 W / 63 °C | ~3.0 min | highway elevation rejected; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 trial 2 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.57 W / 63 °C | ~3.9 min | highway elevation rejected; clean teardown |
@@ -765,6 +872,22 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 | 2026-11-10 | Sol xhigh · PL-893 Green Plains first attempt | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 155.29 W / 63 °C | ~1.75 min monitored | no hookup found under planner inset; error verdict; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 Green Plains final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 158.62 W / 63 °C | 5.69 min soak / 8.15 min active | 10 game-min; population 0 → 411; verdict pass; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 Asheville final proof | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.80 W / 63 °C | 6.18 min soak / 8.58 min active | 10 game-min; population 0 → 380; verdict pass; clean teardown |
+| 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 148 W / 60 °C | 27 min sim (31 min total) | 60 game-min Asheville; rivers drain to 20/62 wet probes |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 161.9 W / 63 °C | 3.9 min sim | original arbitrary-region: 10 min; flooding; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 160.3 W / 63 °C | 2.7 min sim | conservative: 10 min; reduced flooding, rail failed; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 159.9 W / 63 °C | 16.2 min sim | gap-joining diagnostic: 60 min; rail failed; abandoned; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 166.4 W / 63 °C | 17.7 min sim | R0 Asheville: 60 min; paths pass; no distant flooding in saved grids; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 163.4 W / 63 °C | 16.6 min sim | R0 no-prefill Asheville A/B: 60 min; all28 playable river probes wet by5min and at end; paths pass; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GiB incremental | 169.7 W / 64 °C | 14.3 min session samples | R0 strict vanilla Asheville: ordinary listing, selection and city; no socket; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 8,259 MiB card / ~0.3 GiB incremental | 145.0 W / 62 °C | 50 s sampled | strict Innsbruck startup attempt: driver grayscale/RGB comparison error; safe exit before menu; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB game | 168.9 W / 63 °C | 16.6 min sim | R0 Innsbruck60: all93 major probes have nearby water throughout; exact92/93end, allpaths pass;0.023km2 shallow stream pooling; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 162.6W / 63°C | 8.6min session sampled | R1 failed drain experiment; stopped aftert020; Sill drawdown, source-radius injection; normalquit, cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 168.9W / 63°C | 15.7min sim | R2 Innsbruck60: true creek drains verified; pooling reduced97%; long Inn has intermittent drygaps; nativepathsallpass; cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 165.9W / 63°C | 16.1min sim | R3 Innsbruck60: all35playable wetend,all455nearbyreadingswet;allpaths;4cellmaxshallowpooling;cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti05:00.0 | 10,821 MiB card / ~2.8GB game | 159.2W / 64°C | 15.7min sim | R3 Ashnofill60: all28playablemajorwetby5minandend;nodistantspreading;allpaths;cleanupempty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 163.3 W / 63 °C | 120 s sampled | R3 strict Asheville: ordinary city and complete highway, checksum-bound; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 8,099 MiB card / ~0.1 GB incremental | 145.6 W / 63 °C | 45 s sampled | R3 strict Innsbruck first attempt: double-query GPU race; cleanup empty |
+| 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 159.3 W / 64 °C | 321 s sampled | R3 strict Innsbruck: real city verified; UI driver falsely expected a different internal asset name; cleanup empty |
 
 PL-893 development wall times are the approximate first-to-last GPU sample
 span, including boot and teardown. Game VRAM is card peak minus the 8,000 MiB
@@ -774,3 +897,876 @@ Active wall time is slot acquisition through completed cleanup, excluding the
 queue; soak time is only the simulation loop. Green Plains reported 1280×720
 at the menu and the final Asheville run 1920×1080, so these are not controlled
 performance comparisons.
+
+All runs retained the existing 150 W power limit. Instantaneous telemetry
+occasionally exceeded it; no power setting was changed. About 8,000 MiB on the
+card belonged to the resident inference replica, which was left untouched.
+
+The R0 A/B used byte-identical terrain and source controls. Final volume was
+18.990 M m³ without prefill versus 18.936 M m³ with it (0.3% apart). Both had
+28/28 playable river probes wet at the end; without prefill they start 0/28
+and reach 28/28 by minute5. Prefill is retained for immediate startup water,
+not credited for equilibrium. Comparing spreading against the SAME prefilled
+expected footprint, neither run has distant flooding in its saved grids.
+Native 64 m neighbourhood fields were exercised live by the no-prefill run.
+
+`doctor --wait-minutes120` acquired a real gap after this soak and passed on
+blade's 2080 Ti05:00.0 / egl0, 8,000 MiB existing use of11,264 MiB. No Steam
+or game was launched by doctor; its transient display/bus were removed.
+
+The task-local UI driver initially assumed RGB screenshots. ImageMagick emits
+grayscale for a black startup frame; normalizing both comparison crops to RGB
+fixed that driver error. The harness capture itself was correct. The obsolete
+R0 Rio and vanilla waiters were explicitly canceled before launch after the
+Innsbruck pooling finding; no other agent/session was touched.
+
+Native source review explained the failed trial: natural sources emit into ALL
+lower cells inside their capacity-dependent radius, not just their center.
+A below-center-bed target is NOT drain-only. The R2 writer therefore supports
+an explicit zero output capacity, keeps small creek withdrawal at0.01, and
+omits creek controls within96m of major mapped rivers. These are writer
+changes, not a change to native simulation or harness measurements.
+
+R3 adds writer-level river stage controls at fixed2,048m arc intervals,
+independent of verification probes: endpoint-only forcing left intermittent
+mid-Inn dry gaps once creek spillover was removed. Initial R3samples retain
+all35 playable Inn/Sill/Ruetz points wet exactly, without extra distant
+spreading beyond the tiny known creek pool. Full five-region qualification
+remains pending. The completed R3 Innsbruck run retained all 35 playable
+major-river probes wet at the end, with nearby water throughout; four shallow
+creek-pooling cells remain.
+
+A staging-camera error was caught before publishing evidence: shallow creek
+initialization changed Asheville's selected tile17to11, but copied camera
+coordinates still aimed at the old start. The writer's soak driver now binds
+that view to the candidate's actual landing. Only the queued old-view run was
+canceled; the replacement uses the SAMECRP bytes and corrected camera.
+
+A live strict Innsbruck startup exposed a placement-check race: launch queried
+GPU processes twice, saw a process first, then an empty transient registration
+on the second query, and incorrectly failed as software rendering. Reusing
+one observed snapshot fixes that inconsistency; wrong-GPU checks remain.
+The failed attempt cleaned up fully and was archived separately before retry.
+The observed GPU processes are also intersected with live game PIDs so stale
+registrations cannot certify a new launch. The retry rendered the complete
+Innsbruck starter highway in an ordinary vanilla city. The task-local UI
+driver then falsely timed out because it expected a region-labelled internal
+asset name. Native names are opaque template identifiers; reading kind 52
+from the installed checksum-bound CRP fixed that assumption. Screenshots and
+the real native load line independently verify the city. Both attempts
+cleaned up. The queued display-only doctor passed on 05:00.0 / egl0.
+
+Added read-only network snapshots at path-check endpoints: native bounds,
+segment/node flags and matching render parts/LOD metadata. This investigates
+highway meshes absent only in a wide harness camera while native paths and
+the normal vanilla view remain intact. It changes no map or simulation state.
+
+## 2026-11-10 — PL-857 opt-in New Game panel check (offline)
+
+Added frozen probe expectations for native NewGamePanel listing, package
+author/buildable/resource/connection values and resolvable snapshot + Steam
+preview textures. Driver selects the native modal and captures its rendered
+selection; verdict requires separate hash-bound visual review and fails while
+unreviewed. No synthetic image or package-only success counts as a panel pass.
+Strict disableMods verification is unchanged. Offline: built against installed
+game assemblies; eleven verdict fixture tests and Ruff lint/format checks passed.
+No game, Steam, doctor, display or GPU session started: Caleb's reservation
+remained held. Native modal operation/rendered capture still need live checks
+after the hold; GPU/VRAM/power/temperature/run-wall metrics are not applicable.
+
+PL-857 offline review follow-up: capture now polls up to30s for a verified,
+decodable native PNG, hashes those exact validated bytes, and fails immediately
+on explicit false liveness (or Session.alive's normal exception); dead bridges
+are not called just to dismiss the modal. Four additional tests cover death,
+partial-to-complete writes, timeout and float-only denominator tolerance (15
+passing total). Only maxResourceAmount gets rel1e-7/abs1e-6 comparison slack.
+Native Package.cs:946-962 deserializes each Instantiate; PackageDeserializer.cs:
+243-257 calls Image.CreateTexture, which constructs a fresh Texture2D at
+Image.cs:279-284. CacheAsset caches bytes, not texture objects; destroying the
+private inspection texture cannot destroy the displayed snapshot. Offline build
+and full Ruff checks passed again; no game/session/Steam actions.
+
+## 2026-11-10 — PL-857 native landmark and camera observations (offline)
+
+Added read-only world_observe op: native SampleRawHeightSmooth heights plus
+interpolated/current target/render camera vectors and AreasVisible. Map runs
+freeze startup-world before any harness camera/run overrides; explicit frozen
+landmark expectations give a fail-closed terrain_landmarks verdict. References
+must be independent DEM/known landmark coordinates, not prepared-grid roundtrips;
+no geography or expected heights were invented and no terrain/camera mutated.
+Native source confirms x contiguous/z rows at[z*1081+x], world/16+540, height/64;
+Area Zoom snaps current right-vector to a cardinal camera override. SavedCamera
+mode2 matches NewGameFromMap; normal mode3 matches LoadGame, not NewGame.
+Offline installed-assembly build and full Ruff lint/format passed; nine new
+meaningful fixture checks (24total) cover height mismatches, swapped probes,
+missing evidence, invalid expectations/camera/phase and read-only capture.
+No Steam/game/doctor/session/lock actions. Actual old/new package orientation,
+startup/Area Zoom headings and any serialized camera change remain unverified
+until live sampling after Caleb's held slot. No GPU/run metrics applicable.
+
+PL-857: the frozen absolute-height request now uses `landmark_expectations`,
+leaving PR #22's geographic `ground_truth`/landmark contract unambiguous.
+The two checks are complementary: fixed GNIS/DEM absolute samples and
+independently fetched whole-map orientation. No map or camera is changed.
+
+## 2026-11-10 22:36 ET — PL-857 post-reservation attempt (Steam blocked)
+
+Blade / RTX 2080 Ti 05:00.0 / egl0: the exact Asheville north-camera
+candidate (`3013a635…886b15`) was installed, but Steam reported
+`KickingOtherSession` after 35 s. No prompt was answered and no game started.
+The session receipt confirms empty game, Steam and unit cleanup. Peak sampled
+VRAM was 8,000 MiB total (the pre-existing baseline; no game allocation),
+power 63.17 W and temperature 28 C; the 150 W limit was unchanged. Output:
+`PL-857-sustained-water/native-north-smoke/asheville`. Only this attempt's
+retry-sleep child was terminated after cleanup; its exit 143 was collected by
+the foreground soak driver (exit 1). The next attempt will use a persisted Multica wakeup at least 30 minutes
+after the account conflict, not an orphaned run-owned sleep. Panel, landmarks,
+startup/Area Zoom camera and five-region final-package acceptance remain unrun.
+
+## 2026-11-10 — Sol xhigh · PL-857 actual startup/Areas views (OFFLINE)
+
+Added opt-in frozen `startup_views` expectations for native interpolated yaw
+and render heading. Driver records the un-aimed opening and actual Areas-tool
+PNG/readbacks after startup-world and before harness camera overrides. Core's
+new `area_zoom` op selects GameAreaTool/DefaultTool, matching the normal native
+toolbar; it never writes camera fields. Native AreasVisible is required, not
+maximum camera zoom. Three stable readings, complete decoded PNGs, capture
+identity/frame/dimensions/hashes, initial startup identity and finally-close
+evidence gate the verdict; screenshot-content claims require separate hash-bound
+visual review. WorldOps and geographic/landmark contracts remain unchanged.
+
+Offline: installed-game assembly build succeeded in a private
+`start-view-cache` (no shared active DLL changed); 38 tests passed, including
+14 new mocked cases for wrong native/render headings, fake max-zoom mode,
+failure cleanup, evidence/PNG identity, missing review and valid observations.
+The driver-order test verifies capture follows startup-world before any run or
+camera override.
+Ruff lint/format checks passed. No Steam/game/doctor/session/display/lock
+actions, no GPU use or native captures; VRAM/power/temperature/game-run wall
+metrics do not apply. Actual tool transitions, headings, screenshots and native
+cleanup are **not verified** and await the integration owner's live run.
+
+## 2026-11-10 23:23 ET — PL-857 first panel trial and native hierarchy fix
+
+Blade / RTX 2080 Ti 05:00.0 / egl0 launched the exact Asheville camera
+candidate (`3013a635…886b15`) after a 15.6-minute fair-queue wait. The map was
+listed, but the panel op failed before city load: it looked for NewGamePanel
+on the library root, which actually has NewGameMainPanel. The map-list
+controller is a child of its Maps tab. Resolve that unique child and activate
+the native TabChooseMap button rather than treating the modal root as the
+listing. Installed-assembly build passes; the corrected native operation still
+needs a live retry. Startup and Areas instrumentation is integrated but remains
+unverified in game.
+
+GPU samples span 55.1 s: peak 9,584 MiB total (1,584 above the 8,000 MiB
+baseline), 83.86 W and 41 C; power limit remained 150 W. Output:
+`PL-857-sustained-water/native-north-smoke-retry-2307/asheville`. Game and
+units were gone at cleanup, but its receipt still listed one Steam instance;
+do not call that an empty cleanup or terminate another queued session to fix
+it. The next successful retry must check cleanup again. No city, landmark,
+camera, water or screenshot acceptance came from this failed trial.
+
+## 2026-11-10 — Sol xhigh · PL-857 harness rebase (OFFLINE)
+
+Rebased exact `6027240853e0bcf013e50ae6f5ee24ff832e3b74` onto exact main
+`e971c27d8b5e3a7650d945c43c7081611ceee124` in an isolated worktree. Ten local
+commits were replayed as Polli Agent; no active source/cache, session, Steam,
+game, doctor, slot, Multica or remote GitHub state was changed.
+
+Conflict decisions retain both main's test-city scenario hooks and PR8's
+paths/network snapshots, main's render cap and native camera-state op alongside
+actual Areas controls, and all journal text/rows from both histories. CLI keeps
+both path requests and render-fps configuration. Native panel/root-child
+selection remains before new_game. Immediately after city load, startup-world
+and native landmark sampling run first, actual startup/Areas evidence second,
+then run/daylight, scenario, legacy player-path and render/camera overrides.
+Main's independent groundtruth implementation and 40x40 native-world sampling
+remain intact; frozen landmark_expectations stays separate from geographic
+ground_truth/landmarks. No writer or rotation-sign logic was changed.
+
+Legacy player-area-zoom filename/notifications remain compatible, but docs now
+identify it as maximum camera size, never actual GameAreaTool evidence. The
+actual Areas check still requires native tool/mode receipts and hash-bound
+visual review. Added offline integration coverage for panel-before-new_game,
+startup-before-scenario ordering and the 1600 native world-sample points.
+
+Offline gates: all 47 unittest fixtures pass; full Ruff check and format check
+pass. Installed-game assembly build succeeds in separate `rebase-cache`, DLL
+SHA-256 `58ae33b2ba9877ba1d38f385b932de94a07f4d6fbda2ed7f52723d51bb859906`.
+This is not native validation. Tool transitions, rendered views, combined
+scenario/render behavior and actual geography/heading acceptance still need
+live checks. GPU/VRAM/power/temperature/game-run wall metrics do not apply.
+
+## 2026-11-10 23:33 ET — PL-857 native panel, landmarks and actual Areas proof
+
+On blade's RTX 2080 Ti 05:00.0 / egl0, `native-start-ui-trial/asheville`
+loaded exact CRP `3013a635…886b15` using pre-rebase harness `6027240` and
+DLL `11bc5cd9…`. After genuine hash-bound screenshot review, panel, four
+landmarks and startup_views pass. Both native yaw and render heading are0°
+in the untouched opening and actual GameAreaTool view; AreasVisible changes
+false → true → false. Landmark errors are -1.605, -0.335, -0.925 and -1.629 m
+against the independent GNIS/DEM references (12 m tolerance). The native panel
+resolves both preview sizes, hides the blank author, and shows70% buildable.
+This candidate's resource crosses remain intentional/unpainted, not completion
+of PL-902. Source view has a Hello tutorial overlay; it is not a marketing shot.
+
+The short diagnostic reached1.1314 game-minutes in19.78 simulation wall seconds,
+not60minutes. All28 playable major-river probes stayed exactly wet, all six
+path checks passed, initial terrain/water/source controls matched, distant
+spreading was0 and cleanup was empty. Peak VRAM10,821 MiB total /2,821 above
+baseline, power123.98 W, temperature57 C;150 W cap unchanged. This proves
+the camera correction and panel operation on this exact package, not all five
+regions' final water/resource qualification.
+
+## 2026-11-10 23:40 ET — PL-857 R4 Rio60 remains a rejected policy
+
+`r4-north-rio-60/rio`, exact CRP `e1844ef2…e7bd`, same blade GPU/pre-rebase
+harness, completed60.0289 game-minutes in932.49 simulation wall seconds.
+All initial inputs/controls matched; native full car/train paths passed at
+both ends; cleanup was empty. Playable major rivers ended337/342 exactly wet;
+five had an exact miss and one had a no-water-within64m sample. Distant
+spreading (>0.5m, >128m from initial/mapped water) reached0.377600 km²;
+peak distant depth4.453125m at45minutes. That is an improvement over R3's
+1.651968 km², but still fails flooding acceptance. Normal exit is not a pass.
+Peak VRAM10,821 MiB total /2,821 above baseline, power129.05 W and59 C;
+150 W cap unchanged. Numeric audits retain all failures and native views.
+
+Prepared, not yet executed: matched15-minute no-emission and sea-only-initial-
+water ablations. They separate spill from initial fill versus continued source
+head before another policy change. R4 has175 river regulators (all bank-limited),
+up from51 in R3; summed output/intake capacities are31.24/14.99 versus22.2/22.2.
+This is a diagnostic, not proof that capacity alone caused the spill.
+
+The legacy PL-848 example now uses Cartesian rotation+0.905, from its original
+`water-geometry.json` browser rotation-0.905. The actual native terrain dump
+and Caleb-save decoded terrain are byte-identical (`293d639f…ad6b6`); their
+independent DEM comparison at the correct frame scoresr=.9999 as-is. The
+new PL-857 capture isrotation0 and remains unchanged. This correction is not
+a new live sampler/camera operation on the legacy save.
+
+## 2026-11-11 00:29–00:50 ET — resource/coastal qualification queued
+
+Active harness `efd6177` uses the rebased main native sampler and prior real
+New Game/startup/Area Tool checks. DLL SHA-256 is
+`58ae33b2ba9877ba1d38f385b932de94a07f4d6fbda2ed7f52723d51bb859906`.
+Private-cache doctor passed on EGL0 / PCI05:00.0 with baseline8,000 MiB;
+the150 W cap, inference placement, shared checkout and shared cache are unchanged.
+
+Foreground jobs (all pending, **not acceptance**): `resources-north-asheville-60`
+uses resource-painted CRP `be8b2482…f3cc3`; `resources-three-60` queues Innsbruck
+`5859e371…2495b`, Pittsburgh `1acdfbb9…32f8d` and corrected-coast Charleston
+`3d6443ff…56fba` individually for60 game-minutes. Compound writer PR27 preserves
+PR24 resource algorithms/defaults and the current north-facing camera. Its
+capture-only ocean correction is described in `COAST_EVIDENCE.md`; website and
+installer stay unchanged. Frozen plans are replayed, never silently replanned
+at launch. `strict_resource_batch.py` separately queues ordinary New Game starts
+for all five exact packages, with `--disableMods --noWorkshop`, no control
+socket, known UI anchors, actual internal asset names and own-session cleanup.
+No selected/city screenshot has yet been reviewed for these resource packages.
+
+`rio-coast-noemit-15` queues a labelled15-minute diagnostic at `639d6213…82fe3`,
+derived from corrected-coast resource Rio `bc1045d2…bd137`. It changes only
+natural-source output to0 and retains intake/targets/terrain/prefill. Matching
+sea-only-prefill arm `0258cd92…dd6143` is prepared, not yet queued. These test
+initial-fill escape versus continued emission before another capacity/stage
+change. They are not release candidates and inherit no R4 acceptance.
+
+Independent **offline** DEM checks on corrected prepared terrain score Rio
+r=.9978 and Charleston r=.6893; Charleston remains a failure, not a reason to
+lower thresholds. Charleston's captured raw DEM agrees at r=.9988 with the
+independent zoom14 fetch but only r=.8256 with the checker's zoom13 fetch;
+modified game terrain still scores only r=.7503 at zoom14. Restricting the
+check to DEM land also fails. These observations are retained pending native
+sampler/height and terrain-modification diagnosis; no exclusion mask or
+automatic pass was added. All registered jobs wait fairly and answer no Steam
+prompt. Inferred parent-script entries in `queue` are display-only: inspecting
+the actual wait tickets ruled out the suspected parent/child FIFO deadlock.
+
+## 2026-11-11 00:57 ET — neutral pointer before native startup observation
+
+Resource Asheville's panel now genuinely shows the two previews, hidden blank
+author and nonempty forest/fertile/ore/oil/water bars (buildable73%). Its
+opening native/render yaw remains0, but position drifts to the start tile's
+north-west corner while paused. Read-only X11 inspection found the pointer at
+root(160,90), exactly the upper-left of the1600×900 Cities window positioned
+at(160,90) in the1920×1080 private root. This triggers ordinary edge panning;
+it is not evidence for a serialized grid/camera rotation.
+
+`Session.launch` now parks the pointer at the private root centre after the
+game is observed, before any New Game operation. It requires the owned slot,
+refuses display:0, sends no key/click, and records the position in the receipt.
+No camera position/heading is forced. Existing queued Python processes retain
+their already imported source; the currently running60-minute water check is
+not altered. A fresh short startup check must verify centring and stable
+position on the same package before that claim is made. All47 unit tests and
+whole-harness Ruff pass; this pointer correction is not yet live-verified.
+
+The frozen startup request also supports explicit `opening_center` world x/z
+and metre tolerance. It checks both observed current and target pivots after
+capture, not just heading. A regression fixture reproduces the actual corner
+drift and must fail despite yaw0. All48 tests pass. Writer PR27 now emits the
+selected start-tile centre with64m tolerance for newly staged runs. Existing
+frozen requests are not edited retroactively and make heading-only claims.
+
+## 2026-11-11 01:11 ET — painted Asheville60 completed
+
+`resources-north-asheville-60/asheville`, exact CRP `be8b2482…f3cc3`, completed
+60.0731 game-minutes /932.74 simulation wall seconds. Native initial grids and
+all source controls match. All28 playable major rivers and59 nonboundary
+rivers are exactly wet in all13 samples. Two physical-edge river misses remain;
+streams are not all perennial (837/1527 playable stream probes end exact wet).
+All saved0/15/30/45/60 grids show0 distant spread. Six full car/train paths and
+empty cleanup pass; its own game ignored graceful quit and was terminated by
+normal owned-session teardown, not by touching another session.
+
+Independent grid and native1,600-point terrain checks both passr=.9999;
+best wrong native transform.3727. Four GNIS/DEM landmark errors are−.335 to
+−1.629m. Actual panel and real Areas/opening images were manually inspected,
+hash-bound and reviewed. Panel has preview/blank author/resources/73% buildable;
+heading0 in opening and actual Areas; the drifted opening is explicitly **not**
+centred-camera acceptance. Native verdict passes its frozen heading-only
+request; no extra centring claim is inherited. `resources-neutral-pointer-
+asheville-1` queues the same exact CRP with new64m centre expectation. Matching
+Rio nofill15 arm `rio-coast-nofill-15` is also now queued; both remain foreground.
+Peak memory10,821 MiB /2,821 above8,000 baseline;136.59 W,54°C,150 W unchanged.
+
+## 2026-11-11 01:17 ET — corrected-coast Rio no-output diagnostic
+
+`rio-coast-noemit-15/rio`, CRP `639d6213…82fe3` from `bc1045d2…bd137`, completed
+15.0133 game-minutes. All initial grids and controls match; all natural output
+rates are0, with intake/positions/targets retained. Both saved grids have0
+distant spill, but only94/342 playable river probes end exact wet, with169
+having no water within64m in a sample. Removing supply is not a sustainable
+default. This does not by itself prove the continuing-source cause on the new
+coastal input: matched source-on/no-prefill and full `resources-coast-rio-60`
+baseline (same exact `bc1045d2…bd137`) are queued. Both full native path sets
+pass and cleanup is empty; peak10,821 MiB total,139.07 W,52°C. Panel/Areas PNGs
+are not reviewed for this rejected diagnostic, and its verdict correctly fails.
+
+## 2026-11-11 01:48 ET — first-attempt FIFO bypass reproduced and fixed
+
+The strict five-map batch repeatedly acquired a just-free lock before older
+registered waiters reached their next2s poll. This is different from the
+inferred-parent display concern ruled out above. `slot()` consulted older
+tickets only after its own first busy result, so a fresh process could cut in.
+An isolated regression with a free synthetic Session and older live-PID ticket
+failed on8ccb2f4 (`Blocked not raised`), without touching host locks/services.
+All entrants now register before their first attempt; busy reason updates do
+not reset queue age. No-wait entrants cannot jump an older ticket. Three
+isolated tests also cover uncontended acquisition and preflight-failure cleanup.
+All51 tests and whole-harness Ruff pass. Existing processes retain imported
+source; the fix affects fresh invocations, not someone else's current session.
+
+The exact current five-map strict batch finished ordinary New Game/city starts
+with `--disableMods --noWorkshop`, absent control socket, checksum-bound sole
+custom map and empty named-session cleanup. Actual selected/city PNG visual
+reviews remain pending; they are not automatically marked reviewed.
+
+## 2026-11-11 02:16 ET — phase-specific outcomes and panel-review correction
+
+All ten strict selected/city PNGs have now been inspected and hash-bound in
+`strict-resources-coast-<slug>-review.json`. All five exact packages show their
+own preview, blank author, populated resources and ordinary city HUD with no
+Map Editor; actual launch flags/socket absence and empty cleanup are checked.
+Buildable scores are73/75/73/79/58 (Asheville/Innsbruck/Rio/Pittsburgh/Charleston).
+The test typed `pl857-<slug>` into the editable city field for identification;
+that is not evidence for a supported metadata city-name default.
+
+Painted Innsbruck60 completed60.0122 game-minutes:34/35 playable major probes
+end exactly wet,35/35 have nearby water in all455 native observations. The
+Sill point(192,-2112) has an exact miss with1m water16m away; it is retained,
+not relabelled exact wet. Nonboundary rivers end89/90 exact wet; all have nearby
+water throughout. Maximum distant extent is0.001024km², maximum depth0.671875m
+(a few shallow cells, not zero). Inputs, six paths, cleanup and native1,600-point
+DEM comparison pass (r=1.0000, strongest wrong.4728). Actual opening/Areas
+images are reviewed; opening pivot(1920,0), headings0.
+
+`resources-neutral-pointer-asheville-1` confirms same-package `be8b2482…f3cc3`
+current/target pivot exactly(-1920,0) before/after opening capture, native/render
+yaw0, actual Areas yaw0 and empty cleanup. Explicit64m centring check passes.
+
+**Review correction:** comparing strict vanilla versus instrumented Asheville
+showed the latter's ore bar captured visually empty despite positive metadata.
+Both instrumented Asheville panel reviews now set `resources_match:false`;
+rejudged verdicts fail only `new_game_panel`, retaining valid physics/geography/
+camera findings. The old3s sleep is not settled-UI proof. A disjoint helper
+change will read actual bar values/targets/animation state and wait boundedly;
+fresh same-package panel proofs are required. No image was replaced/blessed
+and no map bytes changed to conceal this capture problem.
+
+Corrected-coast Rio full baseline `bc1045d2…bd137` still fails:60.1289 minutes,
+336/342 playable exact end wet, all4,446 native nearby readings wet, but0.353024
+km² distant spread (up to4.328125m). Its matching no-land-prefill15 arm reaches
+0.332032km²/4.140625m, identical extent to prefilled baseline at15minutes;
+no-output arm remains0. Sustained forcing, not startup fill, drives this spill.
+`rio-coast-shallow-head-15` is queued at CRP `31ff92e5…97851`: only173 bank-
+limited source targets cap at1m above finished local grid bed; both rates,
+positions, terrain, prefill and frozen resource plan remain exact. Diagnostic,
+not a release policy. All tests/runs remain foreground and fair queued.
+
+## 2026-11-11 02:40 ET — observable bars build and cold-modal protocol
+
+The resource-bar observer at9618f9c independently passes64 tests, whole Ruff,
+format and native compile. Private-cache DLL is
+`bf5cb2b7a41b167d0901dbf659acd76db30deba4141ce33d6db6e79db27e342b`;
+fresh same-package Asheville1 is fair queued, not yet evidence of rendering.
+PL-902 reported its older dfe3e03 probe checking modal visibility on the same
+call that opened it. Selection now returns an explicit pending phase while
+the native modal or Maps tab is not visible. Python polls only that explicit
+state, records every selection reply and times out boundedly; absent maps,
+other errors and dead games are not retried as UI readiness. Two synthetic
+protocol tests bring the suite to66. This additional cold-modal change has
+not yet been compiled into the private cache or exercised live.
+
+Painted Pittsburgh `1acdfbb9…32f8d` completed60.0164 minutes with all79
+playable river probes exactly wet throughout, all216 nonboundary rivers
+exact wet at end and all native nearby observations wet. Inputs/controls,
+six paths, cleanup and independent terrain comparison pass (r=.9992,
+strongest wrong.2436). Original first-water-only flood verdict flags2.165km²;
+the separately defined audit (initial water union actual mapped waterways)
+finds0 deep water beyond128m. These are different references, not equivalent
+results. A hash-bound optional corridor-reference verdict is being prepared;
+the historical frozen probes/verdict are preserved. Actual panel/opening/
+Areas images have been viewed; review receipts are pending transcription.
+
+## 2026-11-11 — explicit mapped-water flood reference (OFFLINE)
+
+`PL-857-water-corridor`, based on `9618f9c`: optional hash-bound binary mapped
+water footprint is validated/frozen before session acquisition and unioned with
+the legacy initial/reference grid for saved-grid flooding. Existing Euclidean
+128m distance, >0.5m depth and 0.05km² allowance unchanged; legacy initial-only
+result retained as non-gating diagnostic, no automatic mask creation/widening.
+Missing/changed/malformed requested masks fail closed. Read-only supplemental
+adjudication binds historical report/probes/reference/grids and external mask
+without editing frozen artifacts. Synthetic fixtures cover channel extension
+versus distant spill, boundaries, corruption, freeze isolation and legacy mode.
+72 offline unittests pass; full harness Ruff check/format and diff check pass.
+No native code/cache, game, shared services, writer or website changes. No
+Pittsburgh/Rio acceptance claimed. GPU/VRAM/power/temperature/native wall time:
+not applicable; native build/doctor/run intentionally not performed.
+
+## 2026-11-11 02:59 ET — bar values versus actual pixels, and Rio head rejection
+
+Fresh `settled-panel-asheville-1` usesbf5cb2b7 and records three distinct stable
+native UI frames620/640/660, all five bars at target, no animations. Ore is
+0.41352165, but Unity's PNG still visibly draws it empty. Its visual resource
+approval is withheld; numeric readback does not certify rendered pixels. The
+same CRP's strict vanilla X11 capture shows ore correctly. Foreground-owned
+window capture now preserves both images: primary actual X11 game window and
+separate unchanged Unity capture, with hashes and capture-source identity.
+Named detached sessions retain their exact-stage guard; active runs require
+an open owned Session lock, live game and private non-:0 display. Capturing
+changes no clicks/keys or resource values.76 offline tests, whole Ruff/format
+pass; actual dual-capture comparison remains pending.
+
+Cold-modal native source compiled to private DLL
+`12ee0b2438bb387d837b489b35bee6818dda1469e6cccca74f282422e3775ba3`;
+Charleston had already copiedbf5cb2b7 before that build. No running installed
+DLL was replaced. Native cold-modal pending replies remain not yet exercised.
+
+Rio shallow-head diagnostic `31ff92e5…97851` completed15.0122 minutes with
+exact grids/controls, six paths and empty cleanup, but only244/342 playable
+river points end exactly wet,38 have no nearby water, and mapped-corridor
+spill remains0.094720km², maximum4.015625m. Rejected; no default policy changed.
+Separate read-only mapped-water assessments preserve archived probes/reports/
+verdicts byte-for-byte and report Asheville0, Innsbruck0.0010, Pittsburgh0,
+Rio0.3530km². No newly widened or observed-final-water masks are used.
+
+The next rate-only arm retains R4 targets/intakes/positions/prefill and caps
+bank-limited output at min(existing intake, existing output). Streams remain
+unchanged as a spatial counterexample. Native capacities are ceilings, not
+measured net discharge; the trial does not assume their difference is pumped.
+
+
+## 2026-11-11 — air-template installed-source alias preflight (OFFLINE)
+
+`PL-857-air-template`: require client source SHA before native editor load;
+permit only unique same-basename/exact-byte installed aliases when exact path
+lookup fails. Return actual installed path/binding mode; Python checks binding
+through export. Added isolated alias/wrong-hash/ambiguity protocol fixtures.
+61 offline unittest fixtures pass; full harness Ruff check/format and diff check
+pass. Confirmed SaveMapPanel fields in installed source. No native run, build/cache
+write, descriptor adoption or topology-guard relaxation. Paused native outside
+updates and live export remain unverified. GPU/VRAM, power, temperature and
+native wall time: not applicable.
+
+## 2026-11-11 03:22 ET — actual-window proof and native air authoring pilot
+
+`window-panel-asheville-1` genuinely shows the ore bar in its1920x1080 X11
+window image; Unity's simultaneous1600x900 image omits it. Both originals are
+preserved. All five actual bars, blank author, preview,73% buildable and correct
+connection icons have now been visually reviewed and hash-bound. Native four
+landmarks, untouched centred north-facing opening and real Areas tool pass;
+the same-package1minute verdict is PASS. Its separate exact-package60minute
+physics receipt remains the hydraulic evidence, not an inferred60minute UI run.
+
+Merged optional air authoring and strict alias binding from0a54f86/bae92d4;
+all89 tests and installed-assembly compile pass. Combined private DLL
+`9940eaf0d639b21feb430d1f25791137f2b4ac80af79333ad9d891e38fa47386`.
+`air-template-pilot-0310` loads the exact native template, chooses actual
+Airplane Path by its connected native outside-prefab relationship, tests and
+authors one explicit opposite-edge route, then exports through native SaveMap.
+Native IDs add175 plane nodes/174 segments and two outside buildings; actual
+air counts2incoming/2outgoing, original graph fingerprints and road/rail/ship
+counts unchanged. ExportSHA `33871c8a…7938`; original source unchanged, named
+cleanup empty, exported game-directory file removed after a private exact copy.
+No writer template/descriptor, package defaults or New Game air acceptance is
+silently adopted. Native export may carry account metadata; keep it private.
+
+Rio symmetric-footprint15 (`46856b98…0917`) preserves all heads/inputs and only
+reduces87 output rates:333/342 playable exact end wet, all nearby wet, but
+0.235264km² spill up to4.328125m. Rejected. Next rate-only diagnostics retain
+R4 targets/intakes/positions and scale bank-limited output ceilings to10% and
+2.5%; streams remain unchanged. This measures wetness/flood tradeoffs rather
+than committing another untested default. New Charleston start selection
+requires256 deep initial vertices, changing only its chosen tile16→21 among
+the five cases; exact resource candidate `b6f27b69…765eb` queues a fresh60minute
+soak. Earlier tile16 lost its usable intake water and is not final acceptance.
+
+## 2026-11-11 03:55 ET — underground-waterway root cause, not another rate default
+
+Exact pinned vector evidence in writer2ee0de5 identifies176 river pieces and24
+stream pieces as underground in Rio, out of462 exact frozen matches; no unknown
+or ambiguous joins. The old capture discarded `brunnel=tunnel`, surface-carving
+and forcing those conduits. DesvioJoana includes both underground and visible
+pieces, so whole-name removal would also be wrong. Corrected capture keeps raw
+DEM, uncarved banks, sea mask/frame/fit byte-identical and retains every excluded
+feature/ID/index/tile/hash. Python97ab5bf blocks short underground gaps from
+surface routing/earthworks and models an entering visible portal as an output-
+free regulated drain. No deep running-min terrain repair adopted.
+
+The10%/2.5% rate-only diagnostics were superseded before acquiring any session.
+Only their exact queued PIDs2969415/2969452 were interrupted, after validating
+own checkout/out paths and non-holder status; both foreground parents collected
+exit130. No game started for either; no foreign session touched. Source/probe
+artifacts remain explicitly cancelled diagnostics, not measured results.
+
+Charleston's tile21 candidate `b6f27b69…765eb` completed60minutes, with271
+starting-tile wet vertices,210 deeper than0.5m and95,848m³, versus the rejected
+tile16's1,080m³/no deep water. This validates meaningful water priority, not a
+final tunnel-aware package certificate. All new surface candidates need exact
+native receipts. `surface-rio-smoke-15` is the first such trial, before all-five
+qualification; required jobs remain foreground, fair slot/Steam guards intact.
+
+## 2026-11-11 04:17 ET — corrected all-five exact-package qualification
+
+Writerf494ff6 integrates all-five exact metadata recovery and controlled tunnel
+captures plus Python surface/portal semantics and unforced infeasible minor
+streams. All five deterministic resource plans, repeats, replays and independent
+decoders pass. They are NEW packages, not inherited R4 acceptance. Native
+`surface-final-five-60` now tests each for60minutes, serial/fair queued, using
+private DLL9940eaf0. The stream update retains geometry/prefill/intake/probes and
+records disabled output explicitly; major river forcing is not globally scaled.
+
+Exact full CRP SHA-256:
+
+- Asheville `4409846c62af4cc336c13261f1590872f0685d0783c48eebae50f93284ed2251`
+- Innsbruck `97833522e5bf06c5f8f508ce49109db229fc941a029cd46f5a819c9c7ba12b66`
+- Rio `117b4d16179853c19527891b55e431ec6559aa47c44add346bd2665024777555`
+- Pittsburgh `0e0673e898c13972b57923cbbb4221dbfc2bd3b745f50911288beb782f5eb8ce`
+- Charleston `8f5b5268f00aa7eb789727ea0f98753b4c90d62d23ddbdb8a9f6fa8c3dc25c2c`
+
+Initial `surface-rio-smoke-15` package2f9248de passes after genuine panel/opening/
+Areas review:236/244 surface river exact end wet, all976 native nearby readings
+wet,0.037888km² off-channel spread. A6.8125m residual minor-creek pool motivated
+the explicit infeasible-stream supply correction above; the15minute map is not
+the final matrix. Historical inland PNG recapture drift is separately recorded
+from fresh original-geometry controls: identical banks/frame/fit, but original
+raw bytes unavailable for those three. Fresh control/candidate raw bytes match;
+only explicit tunnel removal differs between those controls. No grid flip or
+source substitution is claimed. Website/installer and shared services unchanged.
+
+## 2026-11-11 04:43 ET — Rio residual and bounded-head diagnostic
+
+Current surface-only Rio117b4d16 completed60.1100game-minutes:235/244
+playable river points exact end wet, nine ever exact dry; all3172 native64m
+neighbourhood readings wet. Exact native initial grids/controls, six paths,
+independent terrain comparison, reviewed actual panel/opening/Areas and empty
+cleanup pass. Off-channel spread is0.014848km² maximum, up to2.0625m, mostly
+WorldCover built-up cells nearRioComprido. This is NOT a zero-flood claim.
+The nearest upstream tunnel-outlet source has4.34m head above its actual bed;
+local-footprint rate bounds do not stop farther valley spill.
+
+A fresh diagnostic from writer0bed816 caps only bank-limited river source
+head AND matching initial fill at1m above local bed (sea retained). No new
+excavation, mapped-mask or probe exclusion. All five offline inputs will be
+compared; only a15minute Rio pilot queues initially. Six constructed geometry/
+portal/head tests and changed-file Ruff/format pass; native success is pending.
+All jobs remain foreground, queue fairly and never answer an account prompt.
+
+The `strict-surface-final-{asheville,innsbruck,rio,pittsburgh,charleston}` batch
+also queues each exact surface-final package separately: actual1920x1080
+window, ordinary New Game, `--disableMods --noWorkshop`, no control socket,
+sole installed hash-bound custom map and named-session cleanup in finally.
+Asheville completed; both selected/city images genuinely reviewed and hash-bound.
+The other four remain pending. No source/log/account image is a deliverable.
+The bounded-head offline comparison leaves Ash/Inn/Char terrain/water/hydrology
+byte-identical; only Rio/Pitt change water/controls, not terrain.
+
+## 2026-11-11 05:08 ET — reject blanket shallow-head pilot
+
+Bounded-head Riofb8f66db completed15.1394minutes with zero distant spread,
+but only184/244 playable river probes exact end wet and25with no64m water.
+Inputs/paths/cleanup pass; actual panel/opening/Areas genuinely reviewed.
+This is rejected as a default. The dry subset clusters at small channel-bed
+barriers (Maracanã, Comprido, Macacos), not arbitrary random sample points.
+Regulators were chosen from the smooth fitted surface, so shallow supplies in
+low pools cannot reach actual bed crests left by the3m excavation cap.
+
+The next placement experiment adds regulators at actual carved-bed crests
+(prominence0.5m, minimum128m separation), independent of probes. It retains the
+same1m target/prefill bound and does not excavate farther. First inspect exact
+candidate/control differences offline, then queue one15minute Rio trial. No
+acceptance transfers from either prior candidate; all failure subsets retained.
+
+## 2026-11-11 05:35 ET — bed-crest trial restores continuity; qualify two changed maps
+
+Writer21a8798 (integrated asb95c2f4) adds51 actual-bed-crest regulators in Rio,
+92->143controls, independent of probe positions. Terrain is unchanged and the
+1m bank-limited head/prefill bound is retained. Rioa39c2d57 completed15.0133min:
+233/244 playable exact end wet,12ever exact dry, ALL976 native64m observations
+wet; all2,968 whole-map river neighbourhood observations wet. Distant spread is
+three cells,0.000768km², maximum0.703125m. Initial native grids/controls, six full
+paths and empty cleanup pass. Minor streams and exact misses remain explicit.
+This is a promising short result, NOT a60minute certificate.
+
+`bed-crest-final-60` now queues fresh Rio/Pittsburgh separately for60minutes,
+using private DLL9940eaf0 and unchanged fair-slot/Steam guards. Exact packages:
+- Rio `a39c2d57135f32ce8e992865b0ae21494eb92d7e9d1da4840f8727d82ca68142`
+- Pittsburgh `964ef3220715a3c20b75cd5cf20911f59550fd7ef52d943d198c87e361a11da1`
+
+Ash/Inn/Char remain byte-identical to the surface-final matrix; no inherited
+qualification for either changed package. Initial bank-limited shallow fill
+and actual-bed-crest supply are a paired policy: the head-only pilot failed.
+The original five-case baseline continues foreground, retaining the old Rio
+pool and providing comparative Pitt/Char data. No owned job is detached.
+
+## 2026-11-11 06:20 ET — reject fitted-probe-only acceptance; cancel superseded queued Pitt
+
+An independent pyproj/whole-retained-river raster audit of completed native
+surface-final baselines found real gaps hidden by the modeled-route probe plan:
+Rio central25only573/1147rivercells within64m at end (Joana0/184and no named
+probes); Pittsburgh2242/2461, including SawMillRun2/221and a1.74km dry piece.
+All source geometry/CRP/native grid hashes match. Explicit tunnels were already
+excluded; the remaining gaps are visible source features. The45vertex minimum
+omits short surface legs, sometimes routedSawMillRun41/44vertex legs. Existing
+routed-probe green verdicts are NOT complete river acceptance.
+
+Rioa39c2d57 completed its60minute comparison and strict ordinary start. Its
+short-reach omission remains in code and must be fixed; no final acceptance.
+Superseded Pitt964ef322 run/up requests were still queued. Revalidated holder
+4078600 as own baselineCharleston, queueentries4145152/4152995and exactowned
+commands, then SIGINT only those two waiting Python children. No game was
+started for them; both foreground parents collectedexit1(child130), cancellation
+receipt saved. The active Charleston game/other sessions were untouched.
+
+Writer probe staging now adds EVERY retained surface-river raster cell,
+independent of hydraulic routes and without length cuts, while keeping old
+routed probes. Source-hashed independent audit remains a separate cross-check.
+Short-river modeling and source-geography startup fill are being corrected in
+an isolated writer worktree. Every changed final package needs new native
+qualification; prior masks/verdicts/requests are not rewritten.
+
+## 2026-11-11 — sampled wet-throughout regression gate (OFFLINE)
+
+`PL-857-wet-throughout`, base `e86f453`: add `probes_wet_throughout` using actual
+native timeline samples, existing required cohort and95% tolerance per probe
+across every observed sample. Exact OR actual native64m-nearby qualifies each
+observation; rotating failures cannot average away. Validate identities, frame/
+curve/count/interval coverage; malformed or absent evidence fails. Preserve
+capped exact-dry/no-nearby/failing subsets, sample counts and biggest gap; no
+continuous/every-frame claim and no legacy-data rewriting.
+
+101 offline tests pass, including dry-most-run/rewet-at-end, nearby rescue,
+rotating95% failures, missing/corrupt/shifted identities and sparse coverage.
+Full harness Ruff check/format and diff check pass. Read-only current Rio
+`117b4d16…7555`:244 required ×13 samples, all3,172 native nearby reads wet;
+97 exact-dry readings across9 probes retained. Current Asheville:28×13 all
+exact-wet. Historical resource Ash28×13 and Inn35×13 also pass (Inn2 exact-dry
+readings rescued natively). Source report/probes/timeline SHA checks unchanged.
+Receipt: scratch `2026-11-11-pl857/wet-throughout/read-only-assessments.json`.
+No native build, game/browser/session/service or game-cache changes. GPU/VRAM/power/
+temperature/native wall time: not applicable; this is verdict-only source work.
+
+## 2026-11-11 06:36 ET — complete-source river pilots
+
+After the original five-region comparison batch completed, integrated the
+sampled wet-throughout gate; no native DLL or cache replacement. Writer1c1f747
+retains two-vertex surface rivers (streams retain their prior minimum) and
+initializes retained geographic river cells with a bank-bounded shallow film.
+Fresh complete-river candidates are not accepted by earlier routed-probe runs.
+Stage every retained river cell independently of hydraulic routes, then pilot
+Rio/Pittsburgh for15minutes before committing to another all-five60minute run.
+All calls keep --wait-minutes120 / --retry-minutes30, each region separately.
+Portal-drain footprint overlap is an explicit pilot risk, not silently waived.
+Actual New Game/start/Areas PNGs still require genuine hash-bound review.
+Private native DLL remains9940eaf0; shared checkout/cache/services untouched.
+
+Fresh60minute qualification also queues Asheville/Innsbruck/Charleston while
+the two urban pilots are assessed. Each request is a separate fair-slot run;
+ordinary strict starts interleave. Exact complete-river hashes are
+Ashb66c5c6a, Inn3ba5de0a, Charfcea76d8 (full hashes in generation/probes/receipts).
+Rio5b533d62/Pitt78e17efe remain15minute pilots initially. No prior full-package
+qualification is inherited. Original Charleston8f5b completed60.1367min,
+central source geometry2748/2748nearby end wet;0.004608km2 max distant spread,
+max0.859375m. Global terrain correlation remains failed and explicitly retained;
+independent land/wetland subsets are a diagnosis, not a rewritten pass.
+
+## 2026-11-11 06:51 ET — reject short-reach pilot flooding
+
+Rio5b533d62 completed15.0133min with exact initial inputs/controls and empty
+cleanup. Independent central source-river coverage rose from573/1147(old60min)
+to1137/1147nearby end wet; all1147initially near wet. Native required geographic
+reads have7no-nearby misses at10min, including a persistent modeled Joana
+inlet leg inside a101.6m withdrawal footprint. Output0 drains remain required,
+but should not withdraw onto higher upstream channel beds.
+
+The candidate is rejected:0.175104km2 distant spreading at15min,max4.546875m,
+including439cells around outerJacaré. New short outlets still inject at
+0.2/0.8capacity; their envelope borrows prefill and can cross omitted tunnel
+gaps. Next bounded experiment limits short intake by upstream-bed clearance
+and short output to actual retained surface corridor minus tunnel barriers.
+No gate/mapped geometry/failed probes are removed; no new deep excavation.
+
+Avoided superseded strict Rio/Pitt starts: revalidated queued child63337,
+its actual strict_complete_batch.py ancestor and own activeAshholder37656,
+then SIGINT only waiting63337. Foreground parent collectedexit1(child130);
+no game started, active Ash untouched. Strict Ash/Inn had already completed.
+Resume Charleston separately, then qualify changed urban packages anew.
+
+## 2026-11-11 07:03 ET — independent barrier regression and bounded pilot
+
+Writerbe3a9ec now bounds short portal intake and short output against retained
+surface geometry, without borrowing global prefill. Independent review caught
+a high-barrier hole: bed-conditioned checks could jump across a raised tunnel
+barrier onto lower surface beyond it. Explicit forbidden cells now constrain
+short output unconditionally; visible surface crossings retain precedence.
+Constructed high/low barrier, real crossing, broad prefill and unchanged-long
+tests pass. No endpoint supplies or extra excavation were added.
+
+An exact rebuild proves Ash/Inn/Char full unpainted packages byte-identical,
+preserving those currently running/queued full-package checks. Native Rio
+pilot uses fresh short-footprint-v2, paintedSHA
+f60d9f4a4b2f222ffeb4fe5efb4b40cbbd90f74047f771e34090764f410c869a.
+No intermediate guard-only candidate was run in game. Superseded waiting
+Pittpilot54885 was revalidated against its soak.py ancestor, queue entry and
+own Ashholder37656, then interrupted; parent collectedexit1(child130), no
+game started and holder untouched. Native failure subsets remain archived.
+
+Pittsburghd32e51a49fa9d65e5a476927696337cf90aae42a202f64f75d6bba4fa9ff1fcd
+queues its first final60minute run with full geographic probes; actual15minute
+snapshot will also be assessed. Fresh strict --disableMods starts queue for
+Riof60d9f4a/Pittd32e51a4, no control socket and sole exact custom package.
+No native success is inferred from offline receipt/plan replay. These and all
+other requests remain foreground, fair per-region and account-conflict-safe.
+
+## 2026-11-11 07:32 ET — test the failed footprint-containment premise
+
+Riof60d9f4a15 still spreads0.155904km2,max3.859375m. Native source-flow fields
+are last-update OUTPUT only, not net/cumulative. The drain-rate reduction
+also moved flooding: Papa-Couve outlet withdrawal fell13107->224 while its
+upstream supply still reports roughly294 output units. Local footprint
+clearance therefore does not establish settled hydraulic containment.
+
+Queue three matched5minute diagnostic arms, each separately/fair/foreground:
+baselinef60d9f4a; short-output-offea58f17f; sea-only010ab01b. Writer70308dc
+first proves exact full-source replay, then patches only WaterSimulation and
+its metadataassetRef. Short-output-off disables101short positive outputs,
+retaining all initial water/intakes/targets/counts. Sea-only changes initial
+depth alone to max(0,sea-ground), retaining every encoded control. Every other
+manager, resource/listing field and preview remains byte-preserved; sea-only
+is intentionally a frozen-context diagnostic, not a distributable map.
+
+Sample every1minute and dump0/5. Compare all three with the SAME predeclared
+baseline initial-water union source-geometry footprint, not a fitted outcome
+mask; keep each native verdict's own original reference as well. No gate,
+probe, source geometry, terrain or default-policy relaxation. Exact inputs
+are frozen in short-flow-factorial-inputs; run outputs short-flow-factorial-5.
+The old zero-output baseline is not silently substituted for either arm.
+
+## 2026-11-11 07:44 ET — isolate the intake/output interaction
+
+Add a fourth matched5minute Rio arm: portal-intake-original, exactSHA
+997d4d07925e26ee07f20e8f82120e2e5785cdf99017d502066e20a3329aefd1.
+Writer35054b5 restores ONLY60short output-free inlet intake rates to their
+frozen pre-guard values; outputs keep the new source-geometry/high-barrier
+bounds. Initial water, positions, targets, counts and every unrelated byte
+remain fixed. This tests whether loss of withdrawal caused the new basins;
+it does not promote a new default or claim a successful result.
+
+Pittd32e51a4 completed60.0636min: all2461central independently rasterized
+river cells near wet through all five grids, all1644native geographic probes
+near wet at each observed sample; exact dry subsets retained. Initial inputs,
+paths, native terrain/camera, reviewed panel/start/Areas and empty cleanup pass;
+no distant spread. Strict start still queues. A changed inlet-policy package
+would need its own complete run, not inherit this certificate.
+
+## 2026-11-11 08:08 ET — advance original-withdrawal candidate to full qualification
+
+Matched5min baselinef60d9f4a spreads0.106240km2,max3.640625m. Restored-intake
+997d4d07 spreads0.037376km2,max2.03125m with EXACT initial terrain/water and
+controls; all six paths and empty cleanup pass. Independent central source
+coverage1126/1147near wet at end (98.17%); native834/849at5min, with six actual
+one-minute samples. Exact dry subsets and84m Joana inlet gap remain explicit.
+This passes existing wet-throughout/flood area checks but is NOT zero flooding
+or a60minute certificate. No masks/thresholds/exemptions changed.
+
+Writerb092ce8 restores full output-free portal withdrawal while keeping all
+new output geometry/high-barrier bounds. Full five-case rebuild/paint/replay
+proves Rio997d4d07/Pitt97f727a7 match the diagnostic packages EXACTLY, and
+Ash/Inn/Char full CRPs remain unchanged. Proposal generatorfb7394be is also
+published so receipts name a reachable exact source, not a substituted one.
+Queue fresh inlet-throughput-final-60 Rio/Pitt and strict ordinary starts;
+neither inherits earlier full-package qualification. Remaining matched
+short-output-off/sea-only diagnostics still run foreground. Private DLL9940eaf0,
+shared services/cache, source geography and website/installer remain unchanged.
+
+## 2026-11-11 09:18 ET — final five exact packages collected, failures retained
+
+Completed final full-package60min native matrix: Ashb66c5c6a60.1144min,
+Inn3ba5de0a60.0389, Rio997d4d0760.0356, Pitt97f727a760.0619,
+Charfcea76d860.0078. Independent central source-river cells near wet at EVERY
+0/15/30/45/60 grid:1736/1736,910/910,1122/1147,2461/2461,2748/2748.
+All5pass unchanged95% required-probe near-wet-throughout at all13native samples.
+Exact dry subsets remain; nearby never becomes exact wetness. All initial native
+grids/controls match,3full paths each start/end (rail/road-in/road-out), genuine
+actual-window panels/openings/Areas and exact strict ordinary vanilla starts
+are independently visually reviewed and hash-bound; all owned cleanup empty.
+
+Raw Rio no_flooding FAIL remains: worst .050432km2 versus .05 limit (about2cells
+over), max2.8125m; central25only3–5cells,max.84375m. No gate/mask/exemption
+relaxation. Charleston global ground_truth FAIL remains (.7100identity is
+strongest of8orientations). Its .005632km2 shallow spread is not called zero.
+Ash/Inn/Pitt raw verdictPASS and distant spread0. Final curated measurements
+bind every full package and every coverage-source hash; failed predicates are
+retained separately from the recommendation to review the reference/test pack.
+
+Matched5min diagnostics all collected with exact inputs/cleanup: baselinef60
+.106240km2 distant, short-output-off .003072 but544/1558required probes miss
+nearbywater, sea-onlyprefill .103168, restored portalwithdrawal .037376.
+Same baseline footprint for comparison; source output is not cumulative flux.
+Final60 qualification is separate. No field/pump/default or deeper-carve shortcut.
+
+Current private native DLL9940eaf0 unchanged.101harness tests and whole Ruff/
+format passed after wet-throughout change; no native/Python code change since.
+Current main still e971c27, already ancestor. Source fixtures now unify all5
+resource/preview/camera full hashes; writer full region/resource verification
+passes. Source-bank vs browser-cut evidence retains Rio shoreline exceptions
+and Charleston tidal-bed/nonwater differences. These are reference limitations,
+not universal terrain fidelity. Website/installer untouched. All required native
+and diagnostic jobs completed foreground; no session/service left for a wakeup.
+
+## 2026-11-11 — PL-910 review: merge main (PL-891 saves, free-camera screenshots) into PR #8 (OFFLINE)
+
+Main split `MapCheck.execute` into a load step and `soak()`; PR #8 added startup
+captures after load and path checks in the soak. Kept both: the New Game path
+still runs panel capture before `new_game`, then startup-world/landmarks and
+startup views, and hands `startup_world` to `soak()`, which pauses with
+`day_night=False`. A `--from-save` run records startup-world (terrain landmarks
+still apply to the save) but takes no New Game panel or opening/Areas capture,
+so the verdict now skips `new_game_panel` and `startup_views` for it, as main
+already skips `opening_camera`. End of soak: path checks, then main's
+`--save-end`, then screenshots. The report keeps `paths_start`, `paths_end` and
+`saves`. Two new offline tests cover the from-save driver and verdict rows.
+Offline only: 103 unittest, Ruff check/format and a private-cache installed-game
+build pass; no Steam, game, slot or session was touched.
