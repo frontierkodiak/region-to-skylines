@@ -322,20 +322,22 @@ class Session(contextlib.AbstractContextManager):
         self.receipt["display"] = c.display
         self.log(f"display {c.display} and private bus up")
 
-    def park_pointer(self):
-        """Avoid edge-scroll input at the start of this owned private game.
+    def park_pointer(self, x: int | None = None, y: int | None = None):
+        """Move the pointer on this owned private display (default: the screen centre).
 
-        Unity's window can place the pointer at its upper-left when it opens.
+        At launch: Unity's window can place the pointer at its upper-left when it opens,
+        which edge-scrolls. Before asset screenshots, (40, 40): off the centre, so the
+        game's hover highlight doesn't tint what the camera looks at, and not on an edge.
         Moving the pointer is not a camera override and sends no click/key.
         """
         if self.lock_fd is None or self.cfg.display == ":0":
             raise HarnessError("pointer parking requires an owned private slot")
-        x = ctypes.CDLL("libX11.so.6")
-        x.XOpenDisplay.argtypes = [ctypes.c_char_p]
-        x.XOpenDisplay.restype = ctypes.c_void_p
-        x.XDefaultRootWindow.argtypes = [ctypes.c_void_p]
-        x.XDefaultRootWindow.restype = ctypes.c_ulong
-        x.XWarpPointer.argtypes = [
+        xlib = ctypes.CDLL("libX11.so.6")  # not `x`: that is the requested position
+        xlib.XOpenDisplay.argtypes = [ctypes.c_char_p]
+        xlib.XOpenDisplay.restype = ctypes.c_void_p
+        xlib.XDefaultRootWindow.argtypes = [ctypes.c_void_p]
+        xlib.XDefaultRootWindow.restype = ctypes.c_ulong
+        xlib.XWarpPointer.argtypes = [
             ctypes.c_void_p,
             ctypes.c_ulong,
             ctypes.c_ulong,
@@ -346,18 +348,19 @@ class Session(contextlib.AbstractContextManager):
             ctypes.c_int,
             ctypes.c_int,
         ]
-        x.XSync.argtypes = [ctypes.c_void_p, ctypes.c_int]
-        x.XCloseDisplay.argtypes = [ctypes.c_void_p]
-        display = x.XOpenDisplay(self.cfg.display.encode())
+        xlib.XSync.argtypes = [ctypes.c_void_p, ctypes.c_int]
+        xlib.XCloseDisplay.argtypes = [ctypes.c_void_p]
+        display = xlib.XOpenDisplay(self.cfg.display.encode())
         if not display:
             raise HarnessError("cannot open owned private display to park pointer")
-        px, py = self.cfg.width // 2, self.cfg.height // 2
+        px = self.cfg.width // 2 if x is None else x
+        py = self.cfg.height // 2 if y is None else y
         try:
-            root = x.XDefaultRootWindow(display)
-            x.XWarpPointer(display, 0, root, 0, 0, 0, 0, px, py)
-            x.XSync(display, 0)
+            root = xlib.XDefaultRootWindow(display)
+            xlib.XWarpPointer(display, 0, root, 0, 0, 0, 0, px, py)
+            xlib.XSync(display, 0)
         finally:
-            x.XCloseDisplay(display)
+            xlib.XCloseDisplay(display)
         self.receipt["pointer_parked"] = {"display": self.cfg.display, "root_position": [px, py]}
 
     def install_mod(self):
@@ -395,6 +398,7 @@ class Session(contextlib.AbstractContextManager):
         (c.harness_home / "session.env").write_text(
             f"CS1_HARNESS_DISPLAY={c.display}\nCS1_HARNESS_EGL={self.egl}\n"
             f"CS1_HARNESS_PORT={c.port}\nCS1_HARNESS_VGL={c.virtualgl}\n"
+            f"CS1_HARNESS_STDOUT='{self.stage / 'game-stdout.log'}'\n"
         )
         self.log(
             f"rendering on {name} at {target['bus']} ({self.egl}); {target['mem_total'] - target['mem_used']} MiB free"
@@ -413,6 +417,26 @@ class Session(contextlib.AbstractContextManager):
         if not placed:
             raise HarnessError(f"the game is not on any NVIDIA GPU (software rendering?); expected {want}")
         return placed
+
+    def install_file(self, src: pathlib.Path, target_dir: pathlib.Path) -> pathlib.Path:
+        """Copy a file into the game's data (Addons/Import, Addons/Assets, ...); `stop` removes it again.
+
+        A file already there is left alone if identical and refused if not: it isn't the harness's.
+        """
+        target = target_dir / src.name
+        target_dir.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            if sha256(target) != sha256(src):
+                raise HarnessError(f"{target} exists with different contents; it isn't the harness's to replace")
+            return target
+        shutil.copy2(src, target)
+        self.track(target)
+        return target
+
+    def track(self, path: pathlib.Path):
+        """Something the game wrote for this session (a save, an asset); `stop` removes it."""
+        if path not in self.installed:
+            self.installed.append(path)
 
     def install_map(self, crp: pathlib.Path) -> pathlib.Path:
         target = self.cfg.maps_dir / crp.name
@@ -438,7 +462,10 @@ class Session(contextlib.AbstractContextManager):
         before = set(self.steam.instances())
         self.steam_log = SteamLog(c, self.steam.log_path)
         log_file = self.stage / "game.log"
-        args = ["-silent", "-applaunch", c.app_id, *game_args, "-logFile", str(log_file)]
+        # The display's size, explicitly: Unity otherwise reuses the last session's resolution
+        # from its prefs, so one session's screen size leaked into the next.
+        size = ["-screen-width", str(c.width), "-screen-height", str(c.height), "-screen-fullscreen", "1"]
+        args = ["-silent", "-applaunch", c.app_id, *size, *game_args, "-logFile", str(log_file)]
         self.receipt["launch_args"] = args
         props = ["-p", "KillMode=control-group"]
         unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}

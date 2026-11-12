@@ -1,5 +1,90 @@
 # cs1-harness journal
 
+## 2026-11-12 · Opus xhigh · PL-910 · PR #28 (asset bridge) meets PR #8 (OFFLINE)
+
+Merging main (with #8) into #28 brought two `park_pointer` methods: #8's centres the
+pointer at launch (edge-scroll), #28's parks it at (40, 40) before asset shots (hover
+tint). Python keeps the last definition, so #8's slot guard and receipt silently went.
+Now one method: #8's, with optional `x, y`; asset shots pass (40, 40).
+
+The first unified version had a bug no lint or test saw: #8's body named the Xlib
+handle `x`, which overwrote the new `x` parameter, so `XWarpPointer` got the library
+object as a coordinate. Every launch would have stopped with a ctypes ArgumentError. The
+handle is now `xlib`; `tests/test_park_pointer.py` drives the method with a fake Xlib
+and fails on the shadowed version.
+
+Not run in game: launch, asset shots or saves with the merged mod. After this lands,
+each checkout's mod is in its own `.build/` (#10), so a checkout that ran from the old
+shared build needs `uv run cs1-harness build` once.
+
+## 2026-11-11 · Sol xhigh (carbon) · PL-881 · nine native asset pairs
+
+At source `a1d01a6cddd8cddf069915676a64d779a6f7430e`, blade's 2080 Ti
+completed all nine A/B1/C editor builds and fresh-city checks at 1280×720.
+Scoped CommercialLow and ResidentialHigh templates and the 120m gameplay
+camera are now game-tested. All nine custom LODs and native shader/map metadata
+loaded, and all buildings persisted completed in the same x/z and lot after
+save/reload. All 18 cleanup receipts were empty; personal saves were preserved.
+
+The final audit found a real residual: A-apartment and C-storefront rose
+0.302m on reload, while seven other candidates retained height. The cause is
+unresolved; this is not a centimetre-stable placement pass. All city checks
+also retain nine serialization messages (the same ServicePointGroupPanel,
+HotelGroupPanel and RaceGroupPanel resolution messages repeated three times).
+No enabled user mods or embedded asset mods were reported. Dark night
+captures do not establish occupied/powered window illumination.
+
+| Target | A / B1 / C native main tris | A / B1 / C custom LOD tris | A / B1 / C editor job seconds |
+| --- | --- | --- | --- |
+| Bungalow | 716 / 5699 / 716 | 96 / 160 / 96 | 15.69 / 15.76 / 15.78 |
+| Storefront | 728 / 7883 / 728 | 72 / 178 / 72 | 15.44 / 15.81 / 15.76 |
+| Apartment row | 1016 / 11756 / 1016 | 68 / 222 / 68 | 15.96 / 15.66 / 15.70 |
+
+Native triangle counts include the game's generated basement, not a changed
+main mesh. The first diagnostic rejected a correct 6.9m bungalow because
+CS1 expanded renderer bounds down to -16m. `AuthoredBounds` now records the
+alpha-0 source body separately from alpha-255 generated basement vertices;
+the size guard uses body bounds while retaining total/native renderer metrics.
+The unchanged 708 authored bungalow triangles became 716 native triangles.
+
+Whole batch wall time: 3352.4s, including 721.5s recorded slot/preflight wait;
+the remainder includes all boot/load/screens/save/reload/teardown. Whole-card
+peaks: 10821MiB, 124.08W, 55°C, beside 8000MiB resident baseline. Final game
+allocation was 2814–2818MiB; per-process peak was not sampled separately.
+SAM/Clef stayed resident; no power or shared-service settings were changed.
+
+The private review at
+https://blade.tailc29f0.ts.net/shelf/asheville-asset-bakeoff-pl881/cs1/
+contains 72 native frames and QA CRPs. Report/code and exact receipts are in
+PR #6 under `tools/assets/bakeoff/results/game/`. A prepared, separate branch
+`PL-881-render-probes` compiled runtime-only forced-LOD and vanilla-night
+controls, but its one 15-minute attempt exited 75 at 05:57:54 UTC without
+starting a game, behind PL-902/PL-857. Those ops are not part of this verified
+branch or evidence. No waiter was left active.
+
+## 2026-11-11 · Sol xhigh (carbon) · PL-881 · integrate native assets with current queue
+
+Created a new isolated worktree because PL-900 was using the older PL-881
+checkout. Merged main e971c27 into the pinned PL-880 bridge plus the scoped
+template/gameplay-camera extension. Kept both command families and all three
+ops modules at the additive merge conflicts. Asset commands now use the same
+registered-waiter slot helper, per-process staging and issue metadata as map
+checks. Per-process staging prevents collection of another run. The queue is
+not a reservation or a proof of FIFO fairness.
+Python lint/format and compilation pass; native verification is recorded below
+when actual build/check results exist. No other agent checkout was edited.
+
+## 2026-11-10 · Sol xhigh (carbon) · PL-881 · native asset comparison
+
+The nine-asset bake-off includes commercial and high-residential buildings,
+so `auto` cannot silently give every candidate low-residential behavior.
+Added `auto:SERVICE:SUB_SERVICE` selectors while preserving plain `auto`.
+Added a matched 120 m / 40-degree gameplay camera between close and forced
+LOD captures. No session, Steam, GPU-placement or mod changes.
+
+Verification at this commit: Python lint/format pass. Native game verification
+is pending the shared harness slot; no game-render result is claimed here.
+
 ## 2026-11-11 · PL-857 native resource-bar settlement (OFFLINE)
 
 Instrumented resource-panel PNGs showed an empty ore bar despite correct
@@ -312,6 +397,59 @@ never pauses.
 **Noticed.** This session came up at 1280×720, where earlier ones were
 1920×1080. Something changed the game's resolution setting between runs.
 
+## 2026-11-10 · Opus 5.5 (blade) · PL-880 · Asset Editor mode: a kit house to a placeable .crp
+
+**In the way.** The prompt-to-asset pipeline needs the game's Asset Editor,
+which has no API. CSUR RoadImporter drives it for roads from inside the game;
+nothing did it for buildings, or headless.
+
+**What changed.**
+- `EditorOps.cs` opens the editor on a new asset and runs one job: pick the
+  template, select the FBX in the import wizard, wait for the model, set the
+  scale, compare the imported size with the bake receipt, continue, wait for
+  texture compression, set the lot, and save through the save panel after its
+  compulsory snapshots. `CheckOps.cs` loads the `.crp` in a fresh game, places
+  it completed, sets the clock, and saves and reloads the city.
+  `asset build` / `asset check` drive them; `Jobs.cs` steps multi-frame work
+  once a frame so ops stay quick.
+- **The native texture read-back kills the game here.** `Image(Texture)` reads
+  the GL texture through its native pointer; under VirtualGL's EGL back end the
+  process died a few seconds later with no trace, in threaded and direct
+  rendering, for RGB24 and RGBA32. The importer's compression and the package
+  save both use it. Bisected with `image_check` (no debugger: ptrace scope 1,
+  no gdb, no cores). `Readback.cs` redirects that one constructor to a read-back
+  through Unity (the texture's CPU copy, else blit and `ReadPixels`, keeping
+  sRGB colour maps encoded because the game renders in Linear). It is installed
+  for Asset Editor sessions only and lasts for that process.
+- The launch wrapper now keeps the game's stdout and stderr in the run
+  (`game-stdout.log`), where Mono writes native crash traces.
+- `status` reports the modal stack. A Paradox "log in with Steam" panel sits on
+  the main menu; New Game and the editor load past it, and nothing answers it.
+- The pointer is parked off-centre before screenshots: the game's hover
+  highlight tinted the building blue under the centred pointer.
+- The template's colour variations are off by default (they tinted the grey
+  roof blue), and the materials' colours are set to white.
+- The mod builds per checkout (`.build/`). The shared `~/.cache` build let one
+  agent's `build` change the DLL another agent's next `up` installed.
+- `CS1_HARNESS_SCREEN=1280x720` sets the harness screen. It saved little VRAM
+  (10.78 GB vs 10.82 GB on the card), so it is a knob, not a fix.
+
+**Learned in game, not from docs.** Blender's "FBX All" export is read at
+1/100 scale (the asset guide's "scale 100"). The first house rendered inside
+out; I blamed the importer and reversed the triangles with outward custom
+normals, which fixed culling but left the roof black. The real fault was
+upstream: moving the kit's axes onto Blender's is a reflection, so every face
+pointed inward. `cs1-assets` now fixes the winding in the bake and checks it at
+export, and the game imports it like any FBX. Built-in themes load through
+their metadata's `assetRef`, not the metadata asset ("File format version not
+supported"). Custom buildings become prefabs only when a level loads. Flatpak
+shows the data directory through a `data` symlink, so paths compare resolved.
+
+**Before → after.** Before: no way to make a building asset without a person
+in the editor. After: `asset build` turns an FBX import set into a `.crp` in
+about 2 minutes, game start included (17 s from import to save), and `asset
+check` places it in a fresh New Game with day, night, distant and reload views
+in about 4 minutes.
 ## 2026-11-10 · Opus 5.5 (blade) · PL-891 · fixes from the first independent review
 
 Before merging the harness to `main`, GPT-6.1 Sol (xhigh, `codex exec`) read
@@ -856,6 +994,8 @@ temperature, wall time, result. Copy the VRAM and GPU lines from `report.md`.
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 163.1 W / 63 °C | 16.3 min sim | R3 prefilled Asheville60: all28 playable river points wet at every sample; no distant flooding; all native paths/inputs/controls; cleanup empty |
 | 2026-11-10 | Sol xhigh · PL-857 | blade · 2080 Ti 05:00.0 | 10,821 MiB card / ~2.8 GB incremental | 160.0 W / 63 °C | 17.6 s sim / 230 s sampled | R3 Innsbruck render diagnostic, 1.12 game-min: all six native paths pass; render metadata exercised; zoom-dependent mesh gap retained; cleanup empty |
 | 2026-11-10 | Opus 5.5 · PL-856 | blade · 2080 Ti 05:00.0 | 2,414 MiB free before launch | (bench) | 6 min | observer A/B/A: no measurable slowdown; `observe-bench/timelapse.mp4` |
+| 2026-11-10 | Opus 5.5 · PL-880 | blade · 2080 Ti 05:00.0, 1280×720 | 10,821 MiB card / ~2.8 GB game | 154 W / 63 °C | 2 min | `asset build` KudzuCraftsman: .crp saved, 17 s import to save (build-7) |
+| 2026-11-10 | Opus 5.5 · PL-880 | blade · 2080 Ti 05:00.0, 1280×720 | 10,821 MiB card / ~2.8 GB game | 154 W / 63 °C | 3 min | `asset check` on PL-848 Asheville: placed, day/night/distant views, save and reload kept it (check-5) |
 | 2026-11-10 | Sol xhigh · PL-893 trial 1 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 160.42 W / 63 °C | ~3.0 min | highway elevation rejected; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 trial 2 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.57 W / 63 °C | ~3.9 min | highway elevation rejected; clean teardown |
 | 2026-11-10 | Sol xhigh · PL-893 trial 3 | blade · 2080 Ti 05:00.0 | 10,821 MiB (~2,821 MiB game) | 162.66 W / 63 °C | ~4.3 min | water prefab name rejected; clean teardown |

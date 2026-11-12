@@ -14,10 +14,15 @@ automatically adopts or rewrites the writer's template.
 
 Runs Cities: Skylines 1 on blade's GPU with no screen, so agents can drive it.
 It has two layers. A **session** (`up` / `call` / `down`) holds the game
-running headless and takes ops over a loopback socket from any tool. The **map
-check** (`run`) is one tool on that session: it starts a New Game on a `.crp`
-map, lets the simulation run, and reports water, population, log errors and
-GPU load, with screenshots.
+running headless and takes ops over a loopback socket from any tool. Tools sit
+on that session:
+
+- the **map check** (`run`) starts a New Game on a `.crp` map, lets the
+  simulation run, and reports water, population, log errors and GPU load, with
+  screenshots;
+- the **Asset Editor mode** (`asset build`, `asset check`) turns an FBX import
+  set into a building `.crp` through the game's own editor, then loads that
+  `.crp` in a separate game process, places it and checks it.
 
 This is a shared tool: agents who use it improve it. See [AGENTS.md](AGENTS.md)
 for the limits and the layer layout, and [JOURNAL.md](JOURNAL.md) for what
@@ -42,6 +47,65 @@ uv run cs1-harness run --map Asheville.crp --scenario test-city \
     --game-minutes 10 --sample-every 1 --wait-minutes 90 \
     --issue PL-893 --out ~/experiments/PL-893-test-city/asheville
 ```
+
+## Asset Editor mode
+
+```sh
+# An import set: <name>.fbx, <name>_lod.fbx and the _d/_s/_i/_c (and _n/_a) maps,
+# e.g. from ../cs1-assets (`cs1-assets kit-house`), with its <name>.bake.json.
+uv run cs1-harness asset build --src ~/experiments/PL-880-asset-bridge/kit-house \
+    --name KudzuCraftsman --out ~/experiments/PL-880-asset-bridge/build
+uv run cs1-harness asset check --crp ~/experiments/PL-880-asset-bridge/build/KudzuCraftsman.crp \
+    --map Asheville.crp --out ~/experiments/PL-880-asset-bridge/check
+```
+
+`build` copies the set into `Addons/Import`, opens the Asset Editor on a new
+asset (`asset_editor`), and runs the `asset_build` job in the mod. The job
+drives the game's import wizard the way a player does, through its own panels
+and handlers: it picks the template (`--template auto` takes a low-density
+residential level-1 template on the lot), selects the FBX, waits for the model
+and textures, sets the scale, compares the imported size with the bake receipt
+(a unit or axis slip fails here), continues, waits for texture compression,
+sets the lot in 8 m cells, and saves through the save panel after its
+compulsory snapshots. The `.crp` lands in `--out`; the import set and the
+`.crp` leave the game's data at `down`.
+
+`check` starts a fresh game with only that `.crp` added (the harness mod
+present and disabled, as always), starts a New Game on the map, places the
+building completed at a dry, flat spot near the centre (`--at x,z` to choose),
+and takes close, distant (past its LOD distance) and high views at noon and at
+22:00. Then it saves the city, reloads the save and checks the building is
+still there by id and prefab name. The save is deleted at `down`.
+
+Two things the editor needs on blade that a desktop doesn't:
+
+- **Texture read-back.** The game's native `Image(Texture)` read-back kills the
+  process under VirtualGL. `asset_editor` installs `Readback.cs`, which reads
+  textures back through Unity instead, for that game process only
+  (`safe_readback: false` turns it off; `call image_check` reproduces the crash).
+- **Colours.** By default the job turns the template's colour variations off and
+  sets the materials' colours to white, so the model keeps its own colours
+  (`color_variations: true` keeps the template's).
+
+The import set's scale comes from its bake receipt (`import_scale`, 100 for
+`cs1-assets` FBX files), and a size mismatch fails the job before anything is
+saved.
+
+Placing a growable by hand would leave a construction site that the
+simulation abandons without zoning or a road, so `place_building` marks it
+completed and the check keeps the simulation paused.
+
+The ops are usable one by one: `asset_editor`, `templates`, `asset_build`,
+`job`, `custom_assets`, `place_building`, `building`, `time_of_day`,
+`save_game`, `load_game` (`call ops` has a line on each). Long ones run as a
+job in the mod; poll `call job`.
+
+## Files
+
+`--template auto:Commercial:CommercialLow` and
+`--template auto:Residential:ResidentialHigh` select level-1 templates in those
+classes, preferring the requested lot. Plain `auto` remains ResidentialLow.
+The check also captures a 120 m, 40-degree gameplay view between close and LOD.
 
 The game writes files (screenshots, grids, log) only inside the Steam sandbox,
 so paths given to ops must be under
@@ -121,8 +185,9 @@ crossing, or usable shoreline; it never bypasses a rejected placement.
   session; it never targets Steam prompts. Use ordinary New Game, record the
   listing and loaded city, and `down` promptly. Autosave suppression requires
   the control mod and therefore does not apply to this mode.
-- **Never saves.** The mod stops the autosave timer once a city loads. Nothing
-  writes a save or a map.
+- **Saves only on request.** The mod stops the autosave timer once a city or
+  the Asset Editor loads. Only `asset_build` and `save_game` write, and the
+  driver removes what they wrote at `down`.
 
 ## Watching a run
 
@@ -408,7 +473,8 @@ the game.
 | Game data (Flatpak) | `~/.var/app/com.valvesoftware.Steam/.local/share/Colossal Order/Cities_Skylines` |
 | VirtualGL 3.1.5 | `~/.var/app/com.valvesoftware.Steam/opt/virtualgl-3.1.5` |
 | Launch wrapper, staging | `~/.var/app/com.valvesoftware.Steam/opt/cs1-harness` |
-| .NET SDK, built mod | `~/.cache/cs1-harness` |
+| .NET SDK | `~/.cache/cs1-harness` |
+| Built mod | `tools/cs1-harness/.build` in each checkout |
 
 `setup` sets the game's Steam launch options to `<wrapper> %command%`. Without a
 harness session on the current display the wrapper runs the game unchanged, so

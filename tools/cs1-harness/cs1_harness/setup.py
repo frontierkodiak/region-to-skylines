@@ -43,7 +43,9 @@ if [ -f "$S" ]; then
       shift
     done
     echo "$(date -Is) harness exec: $*" >> "$H/launch.log"
-    exec "$@"
+    # Keep the game's stdout and stderr: Mono writes a native crash's backtrace
+    # there, never to -logFile.
+    exec "$@" >> "${CS1_HARNESS_STDOUT:-$H/game-stdout.log}" 2>&1
   fi
 fi
 exec "$@"
