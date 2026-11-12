@@ -707,6 +707,23 @@ screen. Live on PL-848 Asheville the bottom strip of a world screenshot went fro
 toolbar (grey-level std 40) to terrain (std 6). The player's-path opening view
 still shows the UI, on purpose.
 
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · Steam's cloud-sync dialog
+
+A queued `--from-save` run launched at 22:06, a few minutes after Caleb stopped
+playing on carbon. Steam logged `LaunchApp SynchronizingCloud syncfailed` and
+opened its cloud-sync-failed dialog (play anyway, or cancel). The harness
+counted `SynchronizingCloud` as a passing launch step, so it didn't see a
+prompt. It waited 600 s at a black screen and failed with "did not reach the
+main menu", which triage could only call `unknown-dialog`. Steam's launch steps
+are in `webhelper_js.txt`, which triage's Steam evidence didn't read.
+
+Now `syncfailed` is a prompt the harness won't answer, because answering
+could overwrite cloud saves. The run backs off and retries like an
+account-in-use block, and triage calls it `steam`. Triage's Steam evidence
+includes `webhelper_js.txt`. Checked offline: replaying the two log lines, plain
+`SynchronizingCloud` still passes, and `syncfailed` blocks with exit 75.
+Both triage paths say `steam`.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
