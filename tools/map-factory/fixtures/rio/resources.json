@@ -13,19 +13,19 @@
       "fertile": 0.034
     }
   },
-  "trees": 179963,
+  "trees": 176292,
   "unlockable": {
-    "ore": 1134094,
-    "oil": 567892,
-    "forest": 5653830,
+    "ore": 1106798,
+    "oil": 525227,
+    "forest": 4377645,
     "fertility": 307279,
     "water": 3609652
   },
   "cells": {
-    "ore": 9046,
-    "oil": 5197,
+    "ore": 8833,
+    "oil": 4614,
     "fertility": 3220,
-    "forest": 38854
+    "forest": 39880
   },
   "evidence": [],
   "placed": [
@@ -143,199 +143,178 @@
     },
     {
       "kind": "ore",
-      "x": -1704.375,
-      "z": -2446.875,
-      "radius_m": 766,
+      "x": -1873.125,
+      "z": -2413.125,
+      "radius_m": 870,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 1704.375,
-      "z": -3189.375,
-      "radius_m": 519,
+      "x": 1670.625,
+      "z": -3459.375,
+      "radius_m": 694,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 691.875,
-      "z": -1704.375,
-      "radius_m": 549,
+      "x": 556.875,
+      "z": -1771.875,
+      "radius_m": 451,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2244.375,
+      "z": 826.875,
+      "radius_m": 486,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -3020.625,
-      "z": -4303.125,
-      "radius_m": 449,
+      "z": -4370.625,
+      "radius_m": 432,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -4741.875,
-      "z": -84.375,
-      "radius_m": 521,
+      "x": -4775.625,
+      "z": -118.125,
+      "radius_m": 472,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 2683.125,
-      "z": 2143.125,
-      "radius_m": 490,
+      "x": 3020.625,
+      "z": -2548.125,
+      "radius_m": 504,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 894.375,
+      "z": 2311.875,
+      "radius_m": 553,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": 1873.125,
-      "z": 590.625,
-      "radius_m": 427,
+      "z": -826.875,
+      "radius_m": 652,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 2953.125,
-      "z": -1670.625,
-      "radius_m": 544,
+      "x": -2986.875,
+      "z": 894.375,
+      "radius_m": 569,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -3020.625,
-      "z": 928.125,
-      "radius_m": 540,
+      "x": -894.375,
+      "z": 1636.875,
+      "radius_m": 639,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 1198.125,
-      "z": -4775.625,
-      "radius_m": 496,
+      "x": 354.375,
+      "z": -4741.875,
+      "radius_m": 501,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 995.625,
-      "z": 2244.375,
-      "radius_m": 534,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -388.125,
-      "z": 1434.375,
-      "radius_m": 434,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -4606.875,
-      "z": 2919.375,
-      "radius_m": 574,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 4471.875,
-      "z": -590.625,
-      "radius_m": 473,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 2919.375,
-      "z": 4201.875,
-      "radius_m": 681,
+      "x": -3999.375,
+      "z": 3830.625,
+      "radius_m": 512,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 118.125,
-      "z": -2851.875,
-      "radius_m": 818,
+      "x": 489.375,
+      "z": -3999.375,
+      "radius_m": 804,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4269.375,
+      "z": -725.625,
+      "radius_m": 447,
       "source": "convention"
     },
     {
       "kind": "oil",
       "x": 3999.375,
-      "z": -2581.875,
-      "radius_m": 458,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 4066.875,
-      "z": -894.375,
-      "radius_m": 651,
+      "z": -2548.125,
+      "radius_m": 431,
       "source": "convention"
     },
     {
       "kind": "oil",
       "x": 3898.125,
       "z": 2514.375,
-      "radius_m": 641,
+      "radius_m": 483,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 3661.875,
-      "z": 4505.625,
-      "radius_m": 457,
+      "x": -4336.875,
+      "z": 185.625,
+      "radius_m": 675,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -2919.375,
-      "z": 286.875,
-      "radius_m": 636,
+      "x": 3830.625,
+      "z": 4471.875,
+      "radius_m": 612,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -455.625,
-      "z": 691.875,
-      "radius_m": 439,
+      "x": -185.625,
+      "z": -84.375,
+      "radius_m": 589,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -2953.125,
-      "z": -3054.375,
-      "radius_m": 637,
+      "x": 894.375,
+      "z": 1771.875,
+      "radius_m": 656,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 826.875,
-      "z": 1738.125,
-      "radius_m": 490,
+      "x": -3054.375,
+      "z": -2986.875,
+      "radius_m": 522,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -1704.375,
-      "z": 1704.375,
-      "radius_m": 579,
+      "x": -2716.875,
+      "z": 320.625,
+      "radius_m": 606,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 3459.375,
-      "z": 691.875,
-      "radius_m": 681,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 1940.625,
-      "z": -590.625,
-      "radius_m": 508,
+      "x": -1535.625,
+      "z": 1771.875,
+      "radius_m": 601,
       "source": "convention"
     }
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-kzplxxa9/rio/PL857-rio.crp",
-    "sha256": "eb4a092978e5b67fd329aa0f4cbac7028ca3c6eb25a312648b1e7c87b14c330c",
-    "bytes": 6179095,
+    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-w4j3_rni/rio/PL857-rio.crp",
+    "sha256": "7de2cceb16a2ef198ab48b78daeec2fd7377cefc90f40fc67ec2a311f7ff71f0",
+    "bytes": 6174482,
     "regenerated": [
       "terrain",
       "water",
@@ -357,6 +336,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "78c2f8acb6d5f2ab0fc856be97bcfb8f5e557294e351aab43900aa2fc0fd2595"
+    "simulation_sha256": "b7fff985b235b559d40603e09bb667d1199e4c9576bbf8b6bc40d4c29fb65eff"
   }
 }
