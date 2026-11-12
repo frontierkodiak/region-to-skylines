@@ -30,8 +30,8 @@ water, connections and metadata; PL-902 writes resources and trees.
 | 7 | Several district-sized patches spread over the tiles. Renewables in or next to the start tile, ore and oil a tile out. | Medium. | **Done.** Patches are soft-edged blobs of 0.5–2 km², spread at least 1.6 km apart. Fertile land is placed nearest the start first. Invented ore and oil stay out of the start tile and off fields. | PL-902 |
 | 8 | Resource ground tint is a visual choice: no painting resources just for colour. | Medium, and split. | Resources are placed only as resources. | PL-902 |
 | 9 | Tree budget under the 250k editor cap, with headroom stated. | Medium: popular maps median 215k, official 143k. | **Done.** Default 180k, which leaves about 70k to plant. `--trees` sets it. Stating it on a download page belongs to the web app. | PL-902 |
-| 10 | Natural forests: varied density, real edges, along water and valleys, a biome-fit species mix. No trees on cliffs, in water, or clipping roads. | Medium. | **Done.** Trees follow ESA WorldCover tree cover, grouped into stands and glades. Each stand has a dominant species, and alders line water. Trees stay off water, slopes over 60 %, roads and fields. Slots are shuffled so size and brightness vary. | PL-902 |
-| 11 | Forestry needs density: a thin "look" forest yields little. | Low-medium. | Like the shipped maps: forest cells mostly hold 1–2 trees, and dense stands reach the cap. | PL-902 |
+| 10 | Natural forests: varied density, real edges, along water and valleys, a biome-fit species mix. No trees on cliffs, in water, or clipping roads. | Medium. | **Done.** Trees follow ESA WorldCover tree cover. By default (`--forest dense`) they form close-packed stands on summits, steep ridges, slopes and stream corridors, leaving buildable flats open; it beat the evenly spread `open` layout in two blind in-game judgings. Stands are at least ~100 m wide with feathered edges, and trees clump inside them. Each stand has a dominant species, and alders line water. Trees stay off water, roads and fields. Slots are shuffled so size and brightness vary. With 180k trees, many real forested ridges stay bare. | PL-902 |
+| 11 | Forestry needs density: a thin "look" forest yields little. | Low-medium. | **Done.** Stands hold 3–5 trees per cell, so their forest resource sits near the cap. Five forestry woods of ~0.4 km² go on buildable, tree-covered land nearest the start, so forestry industry has somewhere to build. | PL-902 |
 | 12 | Vanilla: no DLC, mods or Workshop assets. | Medium-high: "vanilla" is in 29 % of top descriptions. | **Done.** Only original-release tree prefabs the map's theme loads. No mods are referenced. | PL-857, PL-902 |
 | 13 | The theme fits the place, and European is opt-in. | Medium. | Every map uses the template's Temperate ("Sunny") theme. Boreal and tropical regions need their own template. | PL-857 |
 | 14 | An honest preview: a daylight top-down plus resource, water and height overlays, connection counts, tree headroom and tile mode. | Medium. | No preview image yet. `paint.py` writes a resource overlay PNG and a JSON summary a page could show. | PL-857 (preview), web app |
@@ -63,6 +63,7 @@ Each default should need no touching. The CLI flags are on `paint.py` and
 | Resource mode | `balanced`: real evidence, topped up to the targets | `--resources balanced\|real` |
 | Ore, oil and fertile land targets (New Game share) | official medians: 5.2 %, 2.7 %, 3.4 % | `--ore-share`, `--oil-share`, `--fertile-share` |
 | Fertile land from real crop and pasture | ×1.0 | `--fertile` |
+| Forest layout | `dense`: packed stands on unbuildable land, plus forestry woods | `--forest dense\|open` |
 | Trees outside the 25 tiles | ×0.6 | `--outer-trees` |
 | Random seed | 0 | `--seed` |
 

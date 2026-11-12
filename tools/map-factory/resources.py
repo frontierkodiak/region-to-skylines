@@ -92,7 +92,7 @@ class Knobs:
     # "open": trees spread over all tree cover in stands and glades (1-2 per
     # 33.75 m cell). "dense": close-packed stands (~4 per cell) on forested
     # slopes, ridges and stream corridors, leaving buildable flats open.
-    forest: str = "open"
+    forest: str = "dense"  # won two blind A/B judgings against "open" (PL-902)
     oil_cap: float = 0.07  # well-derived oil stays under this New Game share
     resources: str = "balanced"  # "real": evidence only; "balanced": top up
     fertile: float = 1.0  # scales fertile land from crop and pasture cover

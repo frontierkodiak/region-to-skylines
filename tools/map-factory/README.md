@@ -110,10 +110,12 @@ uv run python paint.py fixtures/asheville fixtures/asheville/landcover.u8.gz OUT
 uv run python verify_resources.py                          # frozen bytes and native rules
 ```
 
-- **Trees** follow WorldCover tree cover, grouped into stands and glades. The
-  default is 180k trees, under the editor's 250k cap. Only original-release
-  prefabs the map theme loads are used, so the Temperate template gets no
-  conifers.
+- **Trees** follow WorldCover tree cover: 180k by default, under the
+  editor's 250k cap. `--forest dense` (the default) packs them into stands on
+  summits, ridges, slopes and stream corridors, leaving buildable flats open,
+  with five forestry woods near the start. `--forest open` spreads them over
+  all tree cover in stands and glades. Only original-release prefabs the map
+  theme loads are used, so the Temperate template gets no conifers.
 - **Forest** bytes are derived from the trees with the game's own formula.
 - **Fertile land** comes from crop and pasture on flat, dry ground.
 - **Ore** comes from USGS MRDS deposits and MSHA mines (coal included).
