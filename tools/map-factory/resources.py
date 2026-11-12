@@ -220,10 +220,13 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     fertile_px = resample(fertility.astype(float), CELL, lc.shape[0], LC_STEP, order=0) > 0
     # Trees touching water die, and vanilla keeps them off rock faces.
     cover[ndimage.binary_dilation(lc_wet) | lc_road | fertile_px] = 0
-    px_slope = node_grid(slope, lc.shape[0], LC_STEP)
-    # Dense stands may climb steeper ground: summits and ridges carry them.
-    cover_dense = cover * np.clip((85 - px_slope) / 15, 0, 1)
-    cover *= np.clip((60 - px_slope) / 15, 0, 1)
+    # Where the game's own tree brush stops (TreeTool, CS1 1.21.1-f9): it keeps
+    # a tree only if the steeper axis gradient is under a uniform draw from
+    # [0, 0.5), so none at 50 % and up. Both layouts taper off from 40 %.
+    gz, gx = np.gradient(terrain, 16.0)
+    axis = node_grid(np.maximum(np.abs(gx), np.abs(gz)), lc.shape[0], LC_STEP)
+    cover *= np.clip((0.5 - axis) / 0.1, 0, 1)
+    cover_dense = cover
     # Makers spend the budget inside the 25 buyable tiles (1920 m each).
     centres = (np.arange(lc.shape[0]) + 0.5) * LC_STEP - HALF
     inner = np.abs(centres) < 2.5 * 1920
@@ -307,13 +310,21 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
 
 
 def finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, theme):
-    """Quantize positions, keep them off cell edges, and pick species."""
+    """Quantize positions, keep them off cell edges, drop trees on ground too
+    steep for them, and pick species. A tree stays only if its own 16 m node
+    passes the game's tree-brush test (steeper axis gradient under 50 %) and
+    is under 60 % overall, so none stand on a rock face."""
     px = np.clip(np.round(x / TREE_UNIT), -32767, 32767).astype(np.int16)
     pz = np.clip(np.round(z / TREE_UNIT), -32767, 32767).astype(np.int16)
     # 128 position steps are exactly one 33.75 m cell, and TreesModified
     # counts a tree on a boundary in both cells; keep trees off them.
     px[px % 128 == 0] += 1
     pz[pz % 128 == 0] += 1
+    gz, gx = np.gradient(terrain, 16.0)
+    node_c = np.clip(np.floor((px * TREE_UNIT + HALF) / 16 + 0.5).astype(int), 0, 1080)
+    node_r = np.clip(np.floor((pz * TREE_UNIT + HALF) / 16 + 0.5).astype(int), 0, 1080)
+    keep = (np.maximum(np.abs(gx), np.abs(gz))[node_r, node_c] < 0.5) & (np.hypot(gx, gz)[node_r, node_c] < 0.6)
+    rows, cols, px, pz = rows[keep], cols[keep], px[keep], pz[keep]
     kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, theme)
     return (px, pz, kinds)
 

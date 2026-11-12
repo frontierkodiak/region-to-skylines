@@ -115,7 +115,9 @@ uv run python verify_resources.py                          # frozen bytes and na
   summits, ridges, slopes and stream corridors, leaving buildable flats open,
   with five forestry woods near the start. `--forest open` spreads them over
   all tree cover in stands and glades. Only original-release prefabs the map
-  theme loads are used, so the Temperate template gets no conifers.
+  theme loads are used, so the Temperate template gets no conifers. No tree
+  stands where the game's tree brush wouldn't place one (steeper axis
+  gradient of 50 % or more) or on ground steeper than 60 %.
 - **Forest** bytes are derived from the trees with the game's own formula.
 - **Fertile land** comes from crop and pasture on flat, dry ground.
 - **Ore** comes from USGS MRDS deposits and MSHA mines (coal included).
