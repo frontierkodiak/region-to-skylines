@@ -624,7 +624,7 @@ function placeNorth(rotationDeg) {
   north.position.set(-Math.sin(t) * 1.13, -0.15, -Math.cos(t) * 1.13); // scene -z is the map's top edge
 }
 function finishLabel() {
-  if (result) $("mapname").textContent = $("mapname").textContent.replace(/^[^ ]+\.(png|crp)/, (_, ext) => `${ext === "crp" ? baseName() : fileName()}.${ext}`);
+  if (result) $("mapname").textContent = $("mapname").textContent.replace(/^[^ ]+\.(png|crp)/, fallback ? `${fileName()}.png` : `${baseName()}.crp`);
 }
 
 // for automated checks
