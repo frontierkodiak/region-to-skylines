@@ -1,0 +1,17 @@
+[project]
+name = "lod2-pilot"
+version = "0.1.0"
+description = "PL-900: measured LoD2 vs height-only vs the current generator, per building"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2",
+  "scipy>=1.13",
+  "shapely>=2.0",
+  "pyproj>=3.6",
+  "laspy[lazrs]>=2.5",
+  "requests>=2.32",
+  "pillow>=10",
+  "mapbox-earcut>=1.0",
+  "pyogrio>=0.9",
+  "geopandas>=1.0",
+]
