@@ -1,0 +1,42 @@
+{
+  "evidence": [
+    {
+      "kind": "ore",
+      "x": 8161.8,
+      "z": 3555.5,
+      "weight": 1.0,
+      "source": "USGS MRDS 10081952 Shell Point (Mt. Pleasant Pit) (Producer, Unknown)"
+    },
+    {
+      "kind": "ore",
+      "x": -3905.7,
+      "z": 4021.3,
+      "weight": 0.8,
+      "source": "USGS MRDS 10089940 Mt Pleasant Pit (Past Producer, Unknown)"
+    },
+    {
+      "kind": "ore",
+      "x": -1179.5,
+      "z": 1315.3,
+      "weight": 1.0,
+      "source": "USGS MRDS 10153677 Charleston County Mine (Producer, Unknown)"
+    },
+    {
+      "kind": "ore",
+      "x": -5760.7,
+      "z": 1315.3,
+      "weight": 1.0,
+      "source": "USGS MRDS 10153842 Cross Country Mine (Producer, Surface)"
+    },
+    {
+      "kind": "ore",
+      "x": -5891.8,
+      "z": 383.7,
+      "weight": 1.0,
+      "source": "USGS MRDS 10275059 Cross Creek Mine (Producer, Surface)"
+    }
+  ],
+  "sources": [
+    "USGS MRDS (public domain)"
+  ]
+}

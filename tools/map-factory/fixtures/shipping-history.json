@@ -1,0 +1,57 @@
+[
+  {
+    "region": "asheville",
+    "accepted_pl857_crp_sha256": "b66c5c6a3e1518797a52d866d5a5a1af35ce7a745bfc7da665afc86e76f03535",
+    "native_live_pin_crp_sha256": "eb4d2d9d831469beb9e741830e1cb91e18b34397e5b5b30c3ddb7770be9b1375",
+    "shipping_after_pr35_crp_sha256": "a8d71ca2b3dd7911fea840044255c4815e36a5da09d11041b0b665e9197e899b",
+    "rich_reference_crp_sha256": "83f9c7f6240fc795669d68b1563c1c0cff573760cb079fba7f9666ee04f6798b",
+    "prepared_grid_sha256": {
+      "terrain.u16": "797b9352348fc4c2cd70801b238e25e4078b6ffb8973baa4302196d8a1dac919",
+      "water.u16": "775ee3b7b2cf6bf18ab3bf54b1163079cbd94560a65383d739bdc2cee8691881"
+    }
+  },
+  {
+    "region": "innsbruck",
+    "accepted_pl857_crp_sha256": "3ba5de0a2cd1477d64aa76bd81d1c3132999674282cc5aff4a24df066fb4a8c6",
+    "native_live_pin_crp_sha256": "6a54f3f24246a41f33351d9af003fad9f62475bac6e9759b8dd3d48d38fd9389",
+    "shipping_after_pr35_crp_sha256": "cae547d9472bcc35a6eb87ac7ff568c733dfc0410948818c946e81b87e557dd9",
+    "rich_reference_crp_sha256": "cae547d9472bcc35a6eb87ac7ff568c733dfc0410948818c946e81b87e557dd9",
+    "prepared_grid_sha256": {
+      "terrain.u16": "64fa5f27a7e005334b002b63cb695eeb6d16645711690049d2617303722e6f41",
+      "water.u16": "7df5f09d59048988ce73f699b6ee83b8dbbd94e109092400617624a921145c3a"
+    }
+  },
+  {
+    "region": "rio",
+    "accepted_pl857_crp_sha256": "997d4d07925e26ee07f20e8f82120e2e5785cdf99017d502066e20a3329aefd1",
+    "native_live_pin_crp_sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
+    "shipping_after_pr35_crp_sha256": "a06d2215568f35c368db29260b0005bc3d35c2fb7b92a9f31befaaccb5bd46d1",
+    "rich_reference_crp_sha256": "a06d2215568f35c368db29260b0005bc3d35c2fb7b92a9f31befaaccb5bd46d1",
+    "prepared_grid_sha256": {
+      "terrain.u16": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
+      "water.u16": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d"
+    }
+  },
+  {
+    "region": "pittsburgh",
+    "accepted_pl857_crp_sha256": "97f727a7c3eba2019b448d49289312199d7d4301c6df3d4d93dec42399b4fffe",
+    "native_live_pin_crp_sha256": "a78a460314da3e56b66f84a85042f800d1bf5d51ac7fd8df46b4034a4c80e790",
+    "shipping_after_pr35_crp_sha256": "06bee2f7833822068643571b1cbe2d51040a593c00c0fc17330c7934cc6f7e9b",
+    "rich_reference_crp_sha256": "fec4f4d1999ace6b4a340f5510403dd9a64c557e4ff0dda31fe0d86a560c6dab",
+    "prepared_grid_sha256": {
+      "terrain.u16": "23faa0a7e2c30d87f90001e668cfa7388029cebbf55863aa8ad44ae78d04727f",
+      "water.u16": "8bebb243569878f6cc62d277abcad230a588a6e1e748ea26e5e6926fc8b1fb4a"
+    }
+  },
+  {
+    "region": "charleston",
+    "accepted_pl857_crp_sha256": "fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667",
+    "native_live_pin_crp_sha256": "d5fd2d9973c51b6959a1ddc0d0ea1211050a0c7a64a4390d5262d3820cfdfad8",
+    "shipping_after_pr35_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+    "rich_reference_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+    "prepared_grid_sha256": {
+      "terrain.u16": "000691e79a65783bf785c1423a89e1d0608368d9ffb473ace4825daa2be8cf69",
+      "water.u16": "eb10584034d284ccc6ff33b0c0736f3dc33d01512149374a6ad379e4d5d3b124"
+    }
+  }
+]

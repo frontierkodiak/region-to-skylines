@@ -37,6 +37,22 @@ def unpack(source, target):
 
 def verify(folder):
     manifest = json.loads((folder / "manifest.json").read_text())
+    if manifest.get("capture_module") == "inputs.js":
+        for name in ["inputs.js", "terrain.js"]:
+            assert (
+                hashlib.sha256((ROOT.parents[1] / name).read_bytes()).hexdigest()
+                == manifest["capture_sources_sha256"][name]
+            ), (name, "changed; recapture and qualify")
+    native_cases = (
+        {
+            c["slug"]: c
+            for c in json.loads((folder / "native-qualification.json").read_text())[
+                "cases"
+            ]
+        }
+        if manifest.get("capture_module") == "inputs.js"
+        else {}
+    )
     template = ROOT / manifest["template"]
     layout = ROOT / manifest["layout"]
     spec = json.loads(layout.read_text())
@@ -75,6 +91,8 @@ def verify(folder):
         assert json.loads(actual_layout.read_text()) == spec
         for case in manifest["cases"]:
             slug = case["slug"]
+            if manifest.get("capture_module") == "inputs.js":
+                assert case.get("input_capture"), (slug, "missing inputs.js capture")
             fixture = folder / slug
             for name, expected_hash in case["files_sha256"].items():
                 assert (
@@ -91,6 +109,41 @@ def verify(folder):
                 "hydrology.json",
             ]:
                 unpack(fixture / (name + ".gz"), work / name)
+            if capture := case.get("input_capture"):
+                native = native_cases[slug]
+                assert capture["cli_sha256"] == native["native_crp_sha256"], (
+                    slug,
+                    "native map changed",
+                )
+                assert capture["prepared_sha256"] == native["prepared_sha256"], (
+                    slug,
+                    "native grids changed",
+                )
+                assert (
+                    hashlib.sha256(template.read_bytes()).hexdigest()
+                    == native["template_sha256"]
+                ), (slug, "native template changed")
+                assert (
+                    hashlib.sha256(layout.read_bytes()).hexdigest()
+                    == native["layout_sha256"]
+                ), (slug, "native layout changed")
+                assert (
+                    hashlib.sha256(
+                        (ROOT.parents[1] / "inputs.js").read_bytes()
+                    ).hexdigest()
+                    == capture["source_files_sha256"]["inputs.js"]
+                ), (slug, "inputs.js changed; recapture and qualify")
+                for name, expected in capture["files_sha256"].items():
+                    path = fixture / name if name == "input.png" else work / name
+                    assert hashlib.sha256(path.read_bytes()).hexdigest() == expected, (
+                        slug,
+                        name,
+                        "inputs.js capture changed",
+                    )
+                assert capture["prepared_sha256"] == case["prepared_sha256"], (
+                    slug,
+                    "native-tested live-pin terrain/water changed",
+                )
             raw = np.fromfile(work / "terrain.u16", dtype="<u2")
             depth = np.fromfile(work / "water.u16", dtype="<u2")
             if (fixture / "landmarks.json").exists():
@@ -112,6 +165,23 @@ def verify(folder):
                 )
             assert len(raw) == len(depth) == N
             hydro = json.loads((work / "hydrology.json").read_text())
+            if slug in native_cases:
+                for field, key in [
+                    ("sources", "water_sources_sha256"),
+                    ("node_positions", "node_positions_sha256"),
+                ]:
+                    value = hashlib.sha256(
+                        json.dumps(
+                            hydro[field], sort_keys=True, separators=(",", ":")
+                        ).encode()
+                    ).hexdigest()
+                    assert value == native_cases[slug][key], (
+                        slug,
+                        field,
+                        "native controls changed",
+                    )
+                assert hydro["start_tile"] == native_cases[slug]["start_tile"], slug
+                assert hydro["sea_level_m"] == native_cases[slug]["sea_level_m"], slug
             output = work / (slug + ".crp")
             resources = None
             if case.get("resource_plan"):
@@ -335,10 +405,86 @@ def verify(folder):
                 assert (painted / "plan.npz").read_bytes() == (
                     fixture / case["resource_plan"]
                 ).read_bytes(), slug
+            shipping_hash = None
+            if shipping := case.get("shipping"):
+                for name in ["mapgen.js", "tools/map-factory/web.py"]:
+                    assert (
+                        hashlib.sha256(
+                            (ROOT.parents[1] / name).read_bytes()
+                        ).hexdigest()
+                        == shipping["source_files_sha256"][name]
+                    ), (slug, name, "shipping path changed; recapture")
+                shipping_work = work / "shipping"
+                shipping_geometry = work / "shipping-geometry.json"
+                unpack(fixture / shipping["geometry_file"], shipping_geometry)
+                for name, path in {
+                    "input.png": fixture / "input.png",
+                    "geometry.json": shipping_geometry,
+                    "banks.f32": work / "banks.f32",
+                }.items():
+                    assert (
+                        hashlib.sha256(path.read_bytes()).hexdigest()
+                        == shipping["input_files_sha256"][name]
+                    ), (slug, name, "shipping capture input changed")
+                evidence_file = (
+                    fixture / shipping["evidence_file"]
+                    if shipping["evidence_file"]
+                    else None
+                )
+                result = generate(
+                    fixture / "input.png",
+                    shipping_geometry,
+                    shipping_work,
+                    work / "banks.f32",
+                    landcover=fixture / "landcover.u8.gz",
+                    evidence=evidence_file,
+                )
+                shipping_hash = result["package"]["sha256"]
+                assert shipping_hash == shipping["expected_crp_sha256"], (
+                    slug,
+                    "shipping CRP",
+                )
+                assert result["package"]["bytes"] == shipping["expected_crp_bytes"], (
+                    slug
+                )
+                assert (
+                    result["package"]["simulation_sha256"]
+                    == shipping["expected_simulation_sha256"]
+                ), slug
+                for name in ["terrain.u16", "water.u16"]:
+                    assert (shipping_work / name).read_bytes() == (
+                        work / name
+                    ).read_bytes(), (
+                        slug,
+                        name,
+                        "shipping differs from native-tested grids",
+                    )
+                shipping_hydro = json.loads(
+                    (shipping_work / "hydrology.json").read_text()
+                )
+                for name in ["sources", "node_positions", "start_tile", "sea_level_m"]:
+                    assert shipping_hydro[name] == hydro[name], (
+                        slug,
+                        name,
+                        "shipping controls changed",
+                    )
+                from verify_resources import check
+
+                evidence = (
+                    json.loads(evidence_file.read_text())["evidence"]
+                    if evidence_file
+                    else []
+                )
+                problems, facts = check(next(shipping_work.glob("*.crp")), evidence)
+                assert not problems and facts["forest_formula_match"] == 1, (
+                    slug,
+                    problems,
+                )
             reports.append(
                 {
                     "region": slug,
                     "crp_sha256": receipt["sha256"],
+                    "shipping_crp_sha256": shipping_hash,
                     "initial_wet_samples": wet,
                     "sample_count": len(points),
                     "native_topology_bytes_preserved": True,

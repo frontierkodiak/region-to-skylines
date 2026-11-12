@@ -1,5 +1,26 @@
 # cs1-harness journal
 
+## 2026-11-12 · Sol xhigh · PL-918 · live-input five-region qualification
+
+Blade, RTX 2080 Ti at PCI 05:00.0, 150 W cap unchanged. Harness clean at 5f6ef13,
+with a checkout-local DLL build. Five exact live-pin maps complete 60 game-min
+soaks and separate strict no-mods/no-Workshop New Game starts. Native panels,
+opening/actual Areas and strict selected/city images were manually reviewed.
+
+| Map | Soak wall min (excludes launch/teardown) | Peak total VRAM MiB | Above baseline MiB | Peak W | Peak °C | Result |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| asheville | 15.55 | 10821 | 2817 | 140.05 | 53 | PASS |
+| innsbruck | 15.54 | 10821 | 2817 | 138.62 | 53 | PASS |
+| rio | 15.54 | 10821 | 2817 | 142.49 | 53 | no_flooding |
+| pittsburgh | 15.62 | 10821 | 2817 | 134.49 | 53 | PASS |
+| charleston | 15.55 | 10821 | 2817 | 134.26 | 50 | ground_truth |
+
+All initial native grids/control audits, six path checks, north-facing views and
+owned-session cleanup pass. Rio flood spread worsens .050432→.120320km²;
+Charleston terrain correlation worsens .7100→.6893. No gate was relaxed.
+Complete source bindings and residuals are in map-factory/NATIVE_FINDINGS.md.
+No populated-city, 81 Tiles, cross-platform or beyond 60 min claim.
+
 ## 2026-11-12 · Opus xhigh · PL-910 · PR #28 (asset bridge) meets PR #8 (OFFLINE)
 
 Merging main (with #8) into #28 brought two `park_pointer` methods: #8's centres the

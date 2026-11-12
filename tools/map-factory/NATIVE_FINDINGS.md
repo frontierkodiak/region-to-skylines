@@ -1,6 +1,89 @@
-# Native qualification · PL-857
+# Native qualification · PL-918 and PL-857
 
-## Current reference delivery · 2026-11-11
+## Shipping inputs · 2026-11-12
+
+Five unmodified CLI maps from the live pin `5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7`
+completed 60-game-minute native soaks and separate ordinary New Game starts with
+`--disableMods --noWorkshop`, no control socket and reviewed screenshots. The
+harness ran on blade's RTX 2080 Ti at the same pin, with its build isolated per
+checkout. No hydrology, terrain-input logic or acceptance threshold changed.
+
+| Region | Exact native CRP SHA-256 | Game min | Central mapped river cells near water at every saved grid | Max distant spread km² | Raw verdict |
+| --- | --- | ---: | ---: | ---: | --- |
+| Asheville | `eb4d2d9d831469beb9e741830e1cb91e18b34397e5b5b30c3ddb7770be9b1375` | 60.1156 | 1736/1736 | 0.000000 | PASS |
+| Innsbruck | `6a54f3f24246a41f33351d9af003fad9f62475bac6e9759b8dd3d48d38fd9389` | 60.0144 | 910/910 | 0.000000 | PASS |
+| Rio | `3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf` | 60.0689 | 1130/1147 | 0.120320 | no_flooding |
+| Pittsburgh | `a78a460314da3e56b66f84a85042f800d1bf5d51ac7fd8df46b4034a4c80e790` | 60.0747 | 2461/2461 | 0.000000 | PASS |
+| Charleston | `d5fd2d9973c51b6959a1ddc0d0ea1211050a0c7a64a4390d5262d3820cfdfad8` | 60.0678 | 2748/2748 | 0.004608 | ground_truth |
+
+Near water means actual depth >0.1 m within 64 m of a mapped river cell.
+This table intersects saved grids at 0/15/30/45/60 minutes, not every simulation
+frame. Native required probes also sample every five minutes. Exact wetness,
+dry subsets, minor streams and boundaries remain in the archived audits.
+
+All five retain exact initial native terrain/water and source controls, all six
+car-in/car-out/train path checks, north-facing opening and actual Areas views,
+genuine New Game panels, and empty owned-session cleanup. No starting tile had
+water deeper than 0.5 m more than 128 m from expected water in the saved grids.
+
+### Coastal regressions remain visible
+
+- Rio's flood check is worse: maximum distant spread rose from 0.050432 to
+  0.120320 km², with pools up to 7.140625 m deep. Inside the central 25 tiles,
+  the maximum is 0.050176 km² and 5.734375 m. The starting tile remains clear
+  by the same definition. A common old/new reference mask still shows the
+  regression, so it is not an artefact of changing the expected footprint.
+  Central river near-water coverage improves from 1122/1147 to 1130/1147
+  through saved grids; short exact-dry sections remain. No clear isolated
+  source/input fix was established, so the writer was not retuned speculatively.
+- Charleston's terrain correlation worsens from 0.7100 to 0.6893 against the
+  unchanged 0.9 threshold. Its spread improves from 0.005632 to 0.004608 km².
+  All 2748 central mapped river cells retain nearby water in saved grids.
+  Six short required-probe nearby misses occur at 35 min; the 95% native gate
+  still passes. These misses and the raw terrain failure are retained.
+- Sandy minor-stream beds remain PL-912. Innsbruck's thin bright mesh artifact
+  at an intermediate zoom and the high template viaducts remain visible.
+
+The site now names the tested default squares rather than implying every
+custom square was tested. Rio's notice states the observed flooding depth.
+
+### Resource-only integration and fixture identity
+
+PR35 landed first as `c3ff106414cbbefcd3ad68f3af7df5996dfcbc80`, after independent
+blade region/resource verification and zero steep-tree counts. Its richer
+offline wells/mines reference is preserved. The live app still acquires MRDS
+only, so each region also has an exact shipping golden from a new unmodified
+CLI build and independent capture at that merge.
+
+The new shipping captures have identical PNGs, banks and geographic feature
+multisets. Some raw feature arrays arrive in a different order; their exact
+shipping JSON is retained separately. Both variants reproduce native-tested
+terrain, water, source controls, sea level, connection positions and start tile.
+The native template and layout are bound too. Full old/native/shipping/reference
+hashes are in [shipping-history.json](fixtures/shipping-history.json).
+
+`npm run test:fixtures` exercises ten Pyodide builds. `verify_regions.py`
+independently re-prepares both variants and checks shipping resources with the
+independent decoder. `verify_resources.py` preserves the richer reference check.
+The [native qualification record](fixtures/native-qualification.json) binds
+actual source-map/grid and reviewed vanilla evidence to this contract.
+
+The post-resource-update full package hashes were not given new 60-minute
+game runs. Only their byte-identical terrain/water/controls inherit these
+findings. The original exact maps, raw reports/grids and untouched PNGs are
+archived on blade under `~/experiments/PL-918-live-inputs`; compact issue packs
+retain exact maps, original panel/Areas PNGs and explicitly hash-labelled JPEG
+review derivatives for other views.
+
+Not verified: populated-city growth, other squares/rotations/scales, 81 Tiles 2,
+cross-platform gameplay, Firefox/Safari/mobile, or stability beyond 60 minutes.
+
+## Historical PL-857 record
+
+The remainder describes the accepted original canvas captures, not the current
+shipping-input fixture contract. Its packages and failed subsets are retained
+for comparison.
+## Original reference delivery · 2026-11-11
 
 **Five exact resource-bearing packages each completed a 60-minute native soak
 and a separate ordinary New Game with `--disableMods --noWorkshop`, no control

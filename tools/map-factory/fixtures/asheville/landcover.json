@@ -1,41 +1,29 @@
 {
-  "slug": "asheville",
-  "geometry_sha256": "e4ffa9390ef01e8fff61b0b327becf76bd21801ecdeefa5ea35a4a63eb93f0d5",
-  "landcover_sha256": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c",
-  "sampler_sha256": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
-  "provenance": {
-    "kind": "exact PL-902 fixture",
-    "source_revision": "0d3b873a903bca0275fcc90e110fc222e41e5e0f"
+  "source": "ESA WorldCover 2021 v200; mapgen.js landCover",
+  "sq": {
+    "lon": -82.555,
+    "lat": 35.58,
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4,
+    "name": "Asheville",
+    "slug": "asheville"
   },
-  "attribution": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "tiles": [
+    "N33W084"
+  ],
   "classes": {
-    "10": {
-      "cells": 2304495,
-      "share": 0.7717707127700617
-    },
-    "30": {
-      "cells": 335766,
-      "share": 0.11244735403806584
-    },
-    "40": {
-      "cells": 23428,
-      "share": 0.007845989797668039
-    },
-    "50": {
-      "cells": 286854,
-      "share": 0.0960668242026749
-    },
-    "60": {
-      "cells": 12963,
-      "share": 0.004341282471707819
-    },
-    "80": {
-      "cells": 22475,
-      "share": 0.007526832025891632
-    },
-    "90": {
-      "cells": 3,
-      "share": 1.0046939300411523e-06
-    }
+    "10": 2304495,
+    "30": 335766,
+    "40": 23428,
+    "50": 286854,
+    "60": 12963,
+    "80": 22475,
+    "90": 3
   }
 }
