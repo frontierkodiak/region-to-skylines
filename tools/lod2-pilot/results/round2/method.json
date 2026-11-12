@@ -1,0 +1,32 @@
+{
+ "frozen_at": "2026-11-11T20:18:01Z",
+ "after": "round 2 development on the 50 PL-900 buildings (both judges read); before the fresh locked set was drawn or any of its lidar cropped",
+ "commit": "ffad41f27e50c93fab956ae31944b22b49592e04",
+ "fit_epoch": "2017 USGS EPT (NC_Phase5_Buncombe_2017)",
+ "roofer": "v1.0.0 (bb2a85a), --lod12 --lod13 --lod22 --no-clear-insufficient --no-clip-terrain, otherwise default",
+ "outlines": "county outline, cut into its buildings where two or more OSM buildings each overlap it by >= 40 m2 (split_outlines.py); parts under 30 m2 join a neighbour",
+ "classes": "delivered class 6; only where an outline (or part) has fewer than 50 class-6 points, also non-ground points >= 2 m above the ground beside it on RANSAC planes (0.12 m, <= 60 deg, >= 6 m2 at >= 3 pts/m2)",
+ "evidence": "an outline or part whose class-6 points fill under 40% of its 1 m cells is left out of both measured arms and counts against usable",
+ "height_only": "outline extruded from the 5th-percentile ground within 4 m to the 70th percentile of roof points, per part",
+ "holdout": "2 m patches, one in five withheld, hash of patch position",
+ "appearance": "PL-881 hybrid atlas at 82336461, walls by recorded wall material, all up-facing faces shingle, no openings or trim in any arm",
+ "tolerances": {
+  "geometry_pass": "arm 3 fitted without the withheld patches: median |error| <= 0.5 m and >= 75% of withheld roof points within 1 m",
+  "ridge_eave": "within 1.0 m of the withheld points' 99th percentile (ridge) and 5th percentile near the outline (eave), where at least 8 edge points exist",
+  "topology": "blind judge, from the 2025 orthoimage and lidar surface: dominant roof form right and ridge within 30 degrees, on >= 80% of judgeable buildings",
+  "preference": "blind A/B, arm 3 preferred over arm 2 on >= 70%, ties counted separately, city and close views scored apart",
+  "usable_lod2": "every part returns standard-mode LoD2.2 with no per-building change and the joined model passes geometry_pass; target >= 80% of attempts"
+ },
+ "judges": "first: Claude Sonnet, A/B (LoD2 vs height-only, city and close) and roof form; second: Claude Opus told to take longer, A/B only; ties count as non-wins",
+ "scripts_sha256": {
+  "common.py": "54e1a546592d1ebb23554266dc7a7f755afc62a873de5c9d705423d1e69a53d6",
+  "crop_points.py": "c5117160e8a5a925b7fa872ce96911b2490aeedf3494ba05e3fa8dde6e1390a3",
+  "split_outlines.py": "688ddc98668e271e3a9dd79abe2e246f0fc07eddd23dc96f3705bc7c46cf8828",
+  "reconstruct.py": "9df504e457912feac92ef99626fb006260c0901d9e3c248ad0849ed64b3af51f",
+  "evaluate.py": "b76c24b5db7b9c4ebf1d1431c7f6e8dc77bf2110786c71e6c3e812a44d1ee686",
+  "build_scene.py": "0b1dc6d409ff22c2a19c076a5cf5c526afa6cbb1e01f769a5d1f1edc6c294052",
+  "select_buildings.py": "24f37b993fc9709787b8f00bdf4a23dab7b2f047a65b5cbe53184ec32ad3022c",
+  "judge_sheets.py": "3979669156651f430edf59dc1a6c4ebe5da757ade3eb21a25b270e6f94341848",
+  "render/render.js": "767360e96642c46aa5847b49e3fd408154b8432634b2d28a5951f1f54a5f2571"
+ }
+}
