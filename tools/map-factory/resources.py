@@ -89,6 +89,11 @@ class Knobs:
 
     trees: int = 180_000  # editor cap 250,000; leaves the player ~70k to plant
     outer_trees: float = 0.6  # tree density outside the 25 buyable tiles
+    # "open": trees spread over all tree cover in stands and glades (1-2 per
+    # 33.75 m cell). "dense": close-packed stands (~4 per cell) on forested
+    # slopes, ridges and stream corridors, leaving buildable flats open.
+    forest: str = "dense"  # won two blind A/B judgings against "open" (PL-902)
+    oil_cap: float = 0.07  # well-derived oil stays under this New Game share
     resources: str = "balanced"  # "real": evidence only; "balanced": top up
     fertile: float = 1.0  # scales fertile land from crop and pasture cover
     seed: int = 0
@@ -209,24 +214,35 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
 
     # Trees: weight by cover, cluster into stands and glades, and keep them out
     # of water, off the networks and off the fields.
-    w = np.zeros(lc.shape, float)
+    cover = np.zeros(lc.shape, float)
     for cls, v in TREE_WEIGHT.items():
-        w[lc == cls] = v
-    # Stands and glades: 262k trees can't carpet a real forest, so put them
-    # where they read as woods (shipped maps: ~2 trees per 33.75 m forest cell).
-    stands = 0.65 * smooth_noise(lc.shape, 7, rng) + 0.35 * smooth_noise(lc.shape, 25, rng)
-    w *= np.clip(0.35 + 0.9 * stands, 0, None)
+        cover[lc == cls] = v
+    fertile_px = resample(fertility.astype(float), CELL, lc.shape[0], LC_STEP, order=0) > 0
+    # Trees touching water die, and vanilla keeps them off rock faces.
+    cover[ndimage.binary_dilation(lc_wet) | lc_road | fertile_px] = 0
+    # Where the game's own tree brush stops (TreeTool, CS1 1.21.1-f9): it keeps
+    # a tree only if the steeper axis gradient is under a uniform draw from
+    # [0, 0.5), so none at 50 % and up. Both layouts taper off from 40 %.
+    gz, gx = np.gradient(terrain, 16.0)
+    axis = node_grid(np.maximum(np.abs(gx), np.abs(gz)), lc.shape[0], LC_STEP)
+    cover *= np.clip((0.5 - axis) / 0.1, 0, 1)
+    cover_dense = cover
     # Makers spend the budget inside the 25 buyable tiles (1920 m each).
     centres = (np.arange(lc.shape[0]) + 0.5) * LC_STEP - HALF
     inner = np.abs(centres) < 2.5 * 1920
-    w[~(inner[:, None] & inner[None, :])] *= knobs.outer_trees
-    fertile_px = resample(fertility.astype(float), CELL, lc.shape[0], LC_STEP, order=0) > 0
-    # Trees touching water die, and vanilla keeps them off rock faces.
-    w[ndimage.binary_dilation(lc_wet) | lc_road | fertile_px] = 0
-    w *= np.clip((60 - node_grid(slope, lc.shape[0], LC_STEP)) / 15, 0, 1)
-    total = w.sum()
+    outer_px = ~(inner[:, None] & inner[None, :])
     trees = []
-    if knobs.trees > 0 and total > 0:
+    if knobs.forest == "dense" and knobs.trees > 0 and cover_dense.sum() > 0:
+        rows, cols, x, z = dense_stands(cover_dense, cell_slope, cell_wet, fertility, positions, segments, terrain, knobs, rng, (sx, sz))
+        trees = finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, theme)
+    # Stands and glades: 262k trees can't carpet a real forest, so put them
+    # where they read as woods (shipped maps: ~2 trees per 33.75 m forest cell).
+    w = cover.copy()
+    stands = 0.65 * smooth_noise(lc.shape, 7, rng) + 0.35 * smooth_noise(lc.shape, 25, rng)
+    w *= np.clip(0.35 + 0.9 * stands, 0, None)
+    w[outer_px] *= knobs.outer_trees
+    total = w.sum()
+    if knobs.forest == "open" and knobs.trees > 0 and total > 0:
         lo, hi = 0.0, 1e6
         for _ in range(60):  # expected count = budget, each pixel at most one tree
             k = (lo + hi) / 2
@@ -244,15 +260,7 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
         # A 10 m pixel can straddle a 33.75 m cell edge: drop trees that land
         # in a field cell, since one tree would erase that cell's fertility.
         keep = fertility[(z / CELL + 256).astype(int).clip(0, RES - 1), (x / CELL + 256).astype(int).clip(0, RES - 1)] == 0
-        rows, cols, x, z = rows[keep], cols[keep], x[keep], z[keep]
-        px = np.clip(np.round(x / TREE_UNIT), -32767, 32767).astype(np.int16)
-        pz = np.clip(np.round(z / TREE_UNIT), -32767, 32767).astype(np.int16)
-        # 128 position steps are exactly one 33.75 m cell, and TreesModified
-        # counts a tree on a boundary in both cells; keep trees off them.
-        px[px % 128 == 0] += 1
-        pz[pz % 128 == 0] += 1
-        kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, theme)
-        trees = (px, pz, kinds)
+        trees = finish_trees(rows[keep], cols[keep], x[keep], z[keep], lc, terrain, wet16, slope, rng, theme)
 
     forest, tree = forest_cells(trees)
     fertility[forest > 0] = 0
@@ -263,6 +271,8 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     oil = np.zeros((RES, RES))
     used = []
     for e in evidence:
+        if e["kind"] == "well":
+            continue
         r = 260 + 340 * min(1.0, e.get("weight", 1.0))
         target = ore if e["kind"] == "ore" else oil
         np.maximum(target, np.clip(1.3 * blob(e["x"], e["z"], r), 0, 1), out=target)
@@ -273,6 +283,11 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     # land already under the outside-connection roads.
     usable = np.clip((40 - cell_slope) / 10, 0, 1) * ~cell_wet * ~network_mask(positions, segments, RES, CELL, 24)
     shape = {"ore": rugged * usable, "oil": level * usable}
+    wells = [(e["x"], e["z"]) for e in evidence if e["kind"] == "well"]
+    if wells:
+        field_, threshold = well_oil(np.array(wells), shape["oil"], knobs)
+        np.maximum(oil, field_, out=oil)
+        used.append({"kind": "oil", "source": f"NETL WELLS: density of {len(wells)} oil and gas wells", "wells_per_km2_threshold": round(threshold, 3)})
     if knobs.resources == "balanced":
         placed += top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, node_grid(terrain, RES, CELL), fertility)
     ore = np.floor(ore * shape["ore"] * 255 + 0.5)
@@ -292,6 +307,144 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
         "evidence": used,
         "placed": placed,
     }
+
+
+def finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, theme):
+    """Quantize positions, keep them off cell edges, drop trees on ground too
+    steep for them, and pick species. A tree stays only if its own 16 m node
+    passes the game's tree-brush test (steeper axis gradient under 50 %) and
+    is under 60 % overall, so none stand on a rock face."""
+    px = np.clip(np.round(x / TREE_UNIT), -32767, 32767).astype(np.int16)
+    pz = np.clip(np.round(z / TREE_UNIT), -32767, 32767).astype(np.int16)
+    # 128 position steps are exactly one 33.75 m cell, and TreesModified
+    # counts a tree on a boundary in both cells; keep trees off them.
+    px[px % 128 == 0] += 1
+    pz[pz % 128 == 0] += 1
+    gz, gx = np.gradient(terrain, 16.0)
+    node_c = np.clip(np.floor((px * TREE_UNIT + HALF) / 16 + 0.5).astype(int), 0, 1080)
+    node_r = np.clip(np.floor((pz * TREE_UNIT + HALF) / 16 + 0.5).astype(int), 0, 1080)
+    keep = (np.maximum(np.abs(gx), np.abs(gz))[node_r, node_c] < 0.5) & (np.hypot(gx, gz)[node_r, node_c] < 0.6)
+    rows, cols, px, pz = rows[keep], cols[keep], px[keep], pz[keep]
+    kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, theme)
+    return (px, pz, kinds)
+
+
+def dense_stands(cover, cell_slope, cell_wet, fertility, positions, segments, terrain, knobs, rng, start=(4, 4), woods=5):
+    """Close-packed stands on tree cover the player can't easily build on, so
+    the buildable flats stay open. Summits and steep ridges fill first, then
+    slopes over ~8 % and stream corridors. A few forestry woods (~0.4 km2 each)
+    go on buildable, tree-covered ground nearest the start: forestry industry
+    needs forest where it can build. Stands are at least ~100 m wide, hold 5
+    trees per 33.75 m cell inside and 2-3 at their edges, and trees clump in
+    twos and threes. Returns tree pixel rows/cols and positions."""
+    step = LC_STEP
+    cell_cover = resample(cover, step, RES, CELL)
+    height = node_grid(terrain, RES, CELL)
+    relief = height - ndimage.uniform_filter(height, 31)
+    water_d = ndimage.distance_transform_edt(~cell_wet) * CELL
+    unbuildable = np.maximum.reduce([
+        np.clip((cell_slope - 8) / 12, 0, 1),
+        0.8 * np.clip(1 - water_d / 90, 0, 1) * (cell_cover > 0.2),
+        np.clip(relief / 30, 0, 1),
+    ])
+    # Highest and steepest ground first: bare summits read as an error.
+    priority = unbuildable + 0.5 * np.clip(relief / 60, 0, 1) + 0.3 * np.clip((cell_slope - 20) / 25, 0, 1)
+    tiles = tile_index()
+    inner = (tiles >= 2) & (tiles <= 6)
+    central = inner[:, None] & inner[None, :]
+    centres = cell_centres()
+    sx_m, sz_m = (start[0] - 4) * 1920, (start[1] - 4) * 1920
+    d_start = np.hypot(centres[None, :] - sx_m, centres[:, None] - sz_m)
+    flat = (cell_slope < 10) & ~cell_wet & (fertility == 0)
+    site = ndimage.uniform_filter(cell_cover * flat, 19) * np.clip(1.4 - d_start / 6000, 0.3, 1.4)
+    site[~central] = 0
+    for _ in range(woods):
+        if site.max() <= 0.05:
+            break
+        r0, c0 = np.unravel_index(np.argmax(site), site.shape)
+        d = np.hypot(centres[None, :] - centres[c0], centres[:, None] - centres[r0])
+        priority[(d < 360) & (cell_cover > 0.1)] = 1.5
+        site[d < 1800] = 0
+    score = cell_cover * (0.04 + priority)
+    score *= np.clip(1 + 0.25 * smooth_noise((RES, RES), 3, rng), 0.5, 1.5)
+    score = ndimage.gaussian_filter(score, 1.0)
+    score[~central] *= knobs.outer_trees
+    blocked = cell_wet | (fertility > 0) | network_mask(positions, segments, RES, CELL, 18) | (cell_cover <= 0.02)
+    score[blocked] = 0
+    order = np.argsort(score.ravel(), kind="stable")[::-1]
+    order = order[score.ravel()[order] > 0]
+
+    def allocate(k):
+        sel = np.zeros(RES * RES, bool)
+        sel[order[:k]] = True
+        sel = ndimage.binary_opening(sel.reshape(RES, RES), np.ones((3, 3))) & ~blocked  # no strips under ~100 m
+        filled = ndimage.uniform_filter(sel.astype(float), 3) * 9  # selected cells in the 3x3 block
+        counts = np.where(sel, np.where(filled >= 8.5, 5, np.where(filled >= 6, 4, 3)), 0)
+        return counts
+
+    lo, hi = 0, len(order)
+    while lo < hi:  # fewest cells whose feathered counts reach the budget
+        mid = (lo + hi) // 2
+        if allocate(mid).sum() >= knobs.trees:
+            hi = mid
+        else:
+            lo = mid + 1
+    counts = allocate(lo).ravel()
+    excess = int(counts.sum()) - knobs.trees
+    if excess > 0:  # trim from the weakest selected cells
+        ranked = [i for i in order[: lo][::-1] if counts[i] > 0]
+        for i in ranked:
+            if excess <= 0:
+                break
+            take = min(excess, int(counts[i]) - 2)
+            if take > 0:
+                counts[i] -= take
+                excess -= take
+    cell = np.repeat(np.arange(RES * RES), counts)
+    r, c = cell // RES, cell % RES
+    found = np.zeros(len(cell), bool)
+    x = np.zeros(len(cell))
+    z = np.zeros(len(cell))
+    side = cover.shape[0]
+    # Clumps: each tree sits ~4 m from one of two clump centres in its cell.
+    group = rng.random(len(cell)) < 0.5
+    for _ in range(8):
+        cx = (c + 0.1 + 0.8 * rng.random((2, len(cell)))) * CELL - HALF
+        cz = (r + 0.1 + 0.8 * rng.random((2, len(cell)))) * CELL - HALF
+        lo_x, lo_z = c * CELL - HALF + 0.5, r * CELL - HALF + 0.5
+        tx = np.clip(np.where(group, cx[0], cx[1]) + rng.normal(0, 4, len(cell)), lo_x, lo_x + CELL - 1)
+        tz = np.clip(np.where(group, cz[0], cz[1]) + rng.normal(0, 4, len(cell)), lo_z, lo_z + CELL - 1)
+        pr = np.clip(((tz + HALF) / step).astype(int), 0, side - 1)
+        pc = np.clip(((tx + HALF) / step).astype(int), 0, side - 1)
+        ok = ~found & (cover[pr, pc] > 0)
+        x[ok], z[ok] = tx[ok], tz[ok]
+        found |= ok
+    x, z = x[found], z[found]
+    rows = np.clip(((z + HALF) / step).astype(int), 0, side - 1)
+    cols = np.clip(((x + HALF) / step).astype(int), 0, side - 1)
+    return rows, cols, x, z
+
+
+def well_oil(wells, shape, knobs):
+    """Oil fields from well density: wells per km2 under a 600 m kernel, ramped
+    from a threshold that rises until the field fits under the oil cap."""
+    counts = np.zeros((RES, RES))
+    c = np.clip(((wells[:, 0] + HALF) / CELL).astype(int), 0, RES - 1)
+    r = np.clip(((wells[:, 1] + HALF) / CELL).astype(int), 0, RES - 1)
+    np.add.at(counts, (r, c), 1)
+    density = ndimage.gaussian_filter(counts, 600 / CELL) * (1e6 / CELL**2)
+    tiles = tile_index()
+    inner = (tiles >= 2) & (tiles <= 6)
+    buildable = inner[:, None] & inner[None, :]
+    maximum = 25 * 3686400 / 1139.0625 * 255
+    threshold = 0.3
+    for _ in range(40):
+        field_ = np.clip((density - threshold) / (2.5 * threshold), 0, 1) ** 0.8
+        amount = (np.floor(field_ * shape * 255 + 0.5) * buildable).sum()
+        if amount <= knobs.oil_cap * maximum:
+            break
+        threshold *= 1.25
+    return field_, threshold
 
 
 def top_up_fertile(fertility, cell_slope, cell_wet, positions, segments, sx, sz, knobs, rng, height, lc):

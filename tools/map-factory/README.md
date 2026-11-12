@@ -101,7 +101,7 @@ review. That does not establish natural deposit accuracy or arbitrary regions.
 
 ```sh
 uv run python landcover.py GEOMETRY_JSON landcover.u8.gz   # ESA WorldCover 10 m, about 3 s
-uv run python evidence.py GEOMETRY_JSON evidence.json      # USGS MRDS deposits (mostly US)
+uv run python evidence.py GEOMETRY_JSON evidence.json      # MRDS, MSHA mines, NETL wells (US)
 uv run python generate.py PNG GEOMETRY_JSON OUTPUT --banks BANKS \
   --landcover landcover.u8.gz --evidence evidence.json
 # or, on an already prepared region or fixture:
@@ -110,15 +110,23 @@ uv run python paint.py fixtures/asheville fixtures/asheville/landcover.u8.gz OUT
 uv run python verify_resources.py                          # frozen bytes and native rules
 ```
 
-- **Trees** follow WorldCover tree cover, grouped into stands and glades. The
-  default is 180k trees, under the editor's 250k cap. Only original-release
-  prefabs the map theme loads are used, so the Temperate template gets no
-  conifers.
+- **Trees** follow WorldCover tree cover: 180k by default, under the
+  editor's 250k cap. `--forest dense` (the default) packs them into stands on
+  summits, ridges, slopes and stream corridors, leaving buildable flats open,
+  with five forestry woods near the start. `--forest open` spreads them over
+  all tree cover in stands and glades. Only original-release prefabs the map
+  theme loads are used, so the Temperate template gets no conifers. No tree
+  stands where the game's tree brush wouldn't place one (steeper axis
+  gradient of 50 % or more) or on ground steeper than 60 %.
 - **Forest** bytes are derived from the trees with the game's own formula.
 - **Fertile land** comes from crop and pasture on flat, dry ground.
-- **Ore and oil** come from MRDS deposits. In `balanced` mode, the default,
-  ore, oil and fertile land are topped up to the official maps' median New
-  Game shares, where shipped maps put them. `real` uses evidence only.
+- **Ore** comes from USGS MRDS deposits and MSHA mines (coal included).
+  **Oil** comes from NETL WELLS: the density of drilled oil and gas wells
+  becomes oil fields, held under a 7 % New Game share. All three sources are
+  keyless and US-only; NETL's service also answers browsers (CORS). In
+  `balanced` mode, the default, ore, oil and fertile land are topped up to
+  the official maps' median New Game shares, where shipped maps put them.
+  `real` uses evidence only.
 
 `paint.py` also writes `resources.png` (an overlay preview),
 `resources.json` (amounts, invented patches, evidence used) and `plan.npz`

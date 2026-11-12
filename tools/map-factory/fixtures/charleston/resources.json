@@ -2,6 +2,8 @@
   "knobs": {
     "trees": 180000,
     "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
     "resources": "balanced",
     "fertile": 1.0,
     "seed": 0,
@@ -11,203 +13,244 @@
       "fertile": 0.034
     }
   },
-  "trees": 179384,
+  "trees": 179863,
   "unlockable": {
-    "ore": 657774,
-    "oil": 572758,
-    "forest": 2542335,
-    "fertility": 2254905,
+    "ore": 683422,
+    "oil": 546835,
+    "forest": 3335085,
+    "fertility": 2254994,
     "water": 8332572
   },
   "cells": {
-    "ore": 7197,
-    "oil": 4158,
-    "fertility": 51685,
-    "forest": 52073
+    "ore": 9974,
+    "oil": 3562,
+    "fertility": 51690,
+    "forest": 40949
   },
-  "evidence": [],
+  "evidence": [
+    {
+      "kind": "ore",
+      "x": 8161.8,
+      "z": 3555.5,
+      "weight": 1.0,
+      "source": "USGS MRDS 10081952 Shell Point (Mt. Pleasant Pit) (Producer, Unknown)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -3905.7,
+      "z": 4021.3,
+      "weight": 0.8,
+      "source": "USGS MRDS 10089940 Mt Pleasant Pit (Past Producer, Unknown)",
+      "radius_m": 532.0
+    },
+    {
+      "kind": "ore",
+      "x": -1179.5,
+      "z": 1315.3,
+      "weight": 1.0,
+      "source": "USGS MRDS 10153677 Charleston County Mine (Producer, Unknown)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -5760.7,
+      "z": 1315.3,
+      "weight": 1.0,
+      "source": "USGS MRDS 10153842 Cross Country Mine (Producer, Surface)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -5891.8,
+      "z": 383.7,
+      "weight": 1.0,
+      "source": "USGS MRDS 10275059 Cross Creek Mine (Producer, Surface)",
+      "radius_m": 600.0
+    }
+  ],
   "placed": [
     {
       "kind": "ore",
-      "x": 3729.375,
-      "z": 4809.375,
-      "radius_m": 762,
+      "x": 3796.875,
+      "z": 4775.625,
+      "radius_m": 562,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -4775.625,
-      "z": -1333.125,
-      "radius_m": 603,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -1434.375,
-      "z": -2413.125,
-      "radius_m": 481,
+      "z": -1299.375,
+      "radius_m": 483,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -4471.875,
-      "z": 2244.375,
-      "radius_m": 618,
+      "z": 2278.125,
+      "radius_m": 583,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -2041.875,
-      "z": -3898.125,
-      "radius_m": 675,
+      "x": -725.625,
+      "z": -3121.875,
+      "radius_m": 434,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 4303.125,
+      "x": -2615.625,
+      "z": -4471.875,
+      "radius_m": 588,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4235.625,
       "z": 1063.125,
-      "radius_m": 661,
+      "radius_m": 576,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -3965.625,
-      "z": -4066.875,
-      "radius_m": 523,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 253.125,
-      "z": -3391.875,
-      "radius_m": 456,
+      "x": -590.625,
+      "z": 4471.875,
+      "radius_m": 646,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -4741.875,
       "z": 4168.125,
-      "radius_m": 605,
+      "radius_m": 536,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -523.125,
-      "z": 4471.875,
-      "radius_m": 629,
+      "x": -4775.625,
+      "z": -2919.375,
+      "radius_m": 441,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 2311.875,
+      "x": 961.875,
+      "z": -3898.125,
+      "radius_m": 436,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3088.125,
+      "z": -388.125,
+      "radius_m": 567,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2345.625,
       "z": 3864.375,
-      "radius_m": 586,
+      "radius_m": 583,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -3155.625,
-      "z": -455.625,
-      "radius_m": 663,
+      "x": -2413.125,
+      "z": -2581.875,
+      "radius_m": 469,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 1839.375,
-      "z": -4775.625,
-      "radius_m": 539,
+      "x": -894.375,
+      "z": 2750.625,
+      "radius_m": 584,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -421.875,
-      "z": 2851.875,
-      "radius_m": 631,
+      "x": -961.875,
+      "z": -4741.875,
+      "radius_m": 601,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 3391.875,
-      "z": 2413.125,
-      "radius_m": 629,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 421.875,
-      "z": -16.875,
-      "radius_m": 532,
+      "x": 2548.125,
+      "z": -3594.375,
+      "radius_m": 513,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 2784.375,
-      "z": 658.125,
-      "radius_m": 681,
+      "x": 3830.625,
+      "z": 556.875,
+      "radius_m": 541,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -4505.625,
-      "z": -2548.125,
-      "radius_m": 575,
+      "x": -1501.875,
+      "z": -4235.625,
+      "radius_m": 691,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4438.125,
+      "z": -2581.875,
+      "radius_m": 559,
       "source": "convention"
     },
     {
       "kind": "oil",
       "x": 590.625,
-      "z": 489.375,
-      "radius_m": 495,
+      "z": 523.125,
+      "radius_m": 440,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 4033.125,
-      "z": -3324.375,
-      "radius_m": 641,
+      "x": 2919.375,
+      "z": -2953.125,
+      "radius_m": 685,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -1063.125,
-      "z": -894.375,
-      "radius_m": 617,
+      "x": -995.625,
+      "z": -928.125,
+      "radius_m": 457,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -4269.375,
-      "z": -286.875,
-      "radius_m": 445,
+      "x": -2345.625,
+      "z": 151.875,
+      "radius_m": 558,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 1771.875,
+      "x": 1805.625,
       "z": -725.625,
+      "radius_m": 568,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4336.875,
+      "z": -286.875,
       "radius_m": 529,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": -1400.625,
-      "z": -4235.625,
-      "radius_m": 619,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 4033.125,
-      "z": 3054.375,
-      "radius_m": 569,
       "source": "convention"
     }
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/scratch/2026-11-11-pl857-short-rivers/inlet-throughput-fixtures/.freeze-q8nzbz7h/charleston/PL857-charleston.crp",
-    "sha256": "fcea76d840f6733b498fae79b82bb3a91324b600c6d1d906587de28dc247b667",
-    "bytes": 6607649,
+    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-w4j3_rni/charleston/PL857-charleston.crp",
+    "sha256": "7b3a58b16d4e3ee60302c40c4c59896941135f9bb477943a322bb990c15de50d",
+    "bytes": 6575425,
     "regenerated": [
       "terrain",
       "water",
@@ -229,6 +272,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "b77fa978a60a2d0414c7e318c66b12cab62a4be8f8019de52ea028ab06114285"
+    "simulation_sha256": "48a5146d4df6d2bf3ad78c876c1c4f7deb1e6d220164fb25479ca4daf58216e2"
   }
 }
