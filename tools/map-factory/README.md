@@ -2,15 +2,15 @@
 
 The Python reference writes terrain, initialized water, natural sources and
 terrain-following connection corridors into a native `.crp` template. It needs
-no game DLLs at export time. **Five exact packages have completed native60min
-and ordinary vanilla starts. Two raw checks remain failed with measured
-limitations; see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). This is a reference/test
-pack, not a universal website default.**
+no game DLLs at export time. **Five exact shipping-input packages completed
+60-game-minute soaks and ordinary vanilla starts. Two raw checks remain failed with measured
+limitations; see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). This does not qualify
+arbitrary squares or populated-city growth.** The website and CLI run this writer
+under Pyodide; [LIVE_INPUTS.md](LIVE_INPUTS.md) describes their capture contract.
 
 The original PL-848 Asheville template passed ordinary **New Game** and city
 play with `--disableMods --noWorkshop` on CS1 1.21.1-f9. That result does not
-validate the new geographic transformations. The website and installer are
-unchanged by this work.
+validate the new geographic transformations.
 
 ## Generate a map
 
@@ -30,13 +30,12 @@ and any resource plan so direct exports can be staged without a separate helper.
 The generation receipt explicitly
 records `in_game_verified: false`. It is not a playable-map certificate.
 
-The matching geometry and uncarved elevations come from `capture.js`, evaluated
-in a Playwright page on the application's origin. That function uses the real
-browser elevation, smoothing, carving and height-fit code. It also reads OSM
-motorway, trunk, rail and stream geometry from OpenFreeMap vector tiles.
-Finish all three browser downloads before closing the page.
+The matching geometry and uncarved elevations now come from the shared
+`inputs.js` module. `capture-inputs.mjs` archives them and refuses a map that
+differs from the unmodified CLI output. The older `capture.js` browser/canvas
+capture remains available for reproducing historical experiments.
 
-### Experimental explicit-ocean capture
+### Historical explicit-ocean capture experiment
 
 The helper now classifies sea from actual OpenMapTiles `water` features whose
 `class` is exactly `ocean`, not from edge-connected elevations below 3m.
@@ -96,8 +95,10 @@ filter. The committed real-region fixtures use the actual uncarved elevations.
 
 The resource stage writes trees, forest, fertile land, ore and oil, and the
 New Game panel amounts. Supply explicit land-cover inputs to opt in; all five
-current resource-bearing reference packages have actual panel/start/Areas
-review. That does not establish natural deposit accuracy or arbitrary regions.
+native-tested packages have actual panel/start/Areas review. Resource-only
+updates inherit terrain/water findings only when grids and controls match;
+they do not inherit a full-package or resource-panel game test. Neither result
+establishes natural deposit accuracy or arbitrary-region quality.
 
 ```sh
 uv run python landcover.py GEOMETRY_JSON landcover.u8.gz   # ESA WorldCover 10 m, about 3 s
@@ -209,11 +210,16 @@ with the native template. It also checks initial sample wetness, start tiles,
 earthwork limits and node-to-node grades. **It does not run CS1, simulate water,
 query its pathfinder or prove New Game visibility.**
 
-Each case includes the original browser heightmap and geometry, uncarved
+Each case includes the shared `inputs.js` heightmap and geometry, uncarved
 elevations, prepared terrain and water, source and corridor parameters, and an
 expected `.crp` checksum in `fixtures/manifest.json`. This separates the
 JavaScript serializer parity test from the hydrology port: the serializer can
 consume the frozen prepared grids directly.
+Each region also retains a separate exact shipping golden alongside the richer
+offline resource reference. Both reproduce the native-tested grids and controls.
+Source guards cover `inputs.js`, its `terrain.js` dependency and the shipping
+resource path. The independent `native-qualification.json` records actual game
+evidence; a new golden alone is not a qualification.
 `prepared_sha256` records the uncompressed terrain and depth checksums;
 `files_sha256` records the distributed fixture-file checksums.
 Each case also freezes `preview-thumbnail.png` and `preview-large.png` as exact
@@ -228,7 +234,10 @@ so listing-only changes cannot silently invalidate or inherit hydraulic proof.
 Fixture replacement is an explicit authoring operation, not part of the tests:
 
 ```sh
-uv run python freeze_fixtures.py CAPTURE
+uv run python freeze_fixtures.py FLAT_INPUTS OUTPUT \
+  --captures NATIVE_RUN/captures --shipping-captures SHIPPING_RUN/captures \
+  --resource-inputs RESOURCE_INPUTS
+uv run python freeze_native_qualification.py NATIVE_RUN OUTPUT/native-qualification.json
 ```
 
 Review changed bytes and the native-game result before accepting a new contract.

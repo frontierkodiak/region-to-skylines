@@ -1,48 +1,30 @@
 {
-  "slug": "innsbruck",
-  "geometry_sha256": "76f5ce6d123275290b242aa715f70f60f63492305f8a7880c3d1dc5ebf697f99",
-  "landcover_sha256": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646",
-  "sampler_sha256": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
-  "provenance": {
-    "kind": "fresh ESA WorldCover 2021 sample",
-    "tiles": [
-      "N45E009"
-    ],
-    "sampler_revision": "0d3b873a903bca0275fcc90e110fc222e41e5e0f"
+  "source": "ESA WorldCover 2021 v200; mapgen.js landCover",
+  "sq": {
+    "lon": 11.4,
+    "lat": 47.27,
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4,
+    "name": "Innsbruck",
+    "slug": "innsbruck"
   },
-  "attribution": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "tiles": [
+    "N45E009"
+  ],
   "classes": {
-    "10": {
-      "cells": 1693551,
-      "share": 0.5671668033050411
-    },
-    "30": {
-      "cells": 664365,
-      "share": 0.22249449427726337
-    },
-    "40": {
-      "cells": 130053,
-      "share": 0.04355448656121399
-    },
-    "50": {
-      "cells": 269374,
-      "share": 0.09021280757030178
-    },
-    "60": {
-      "cells": 195848,
-      "share": 0.06558909893689986
-    },
-    "70": {
-      "cells": 4026,
-      "share": 0.0013482992541152263
-    },
-    "80": {
-      "cells": 19943,
-      "share": 0.0066788703489369
-    },
-    "100": {
-      "cells": 8824,
-      "share": 0.0029551397462277093
-    }
+    "10": 1693551,
+    "30": 664365,
+    "40": 130053,
+    "50": 269374,
+    "60": 195848,
+    "70": 4026,
+    "80": 19943,
+    "100": 8824
   }
 }

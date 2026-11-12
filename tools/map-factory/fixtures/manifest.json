@@ -8,40 +8,42 @@
   "cases": [
     {
       "slug": "asheville",
-      "expected_crp_sha256": "979cb46de1c98e839d7dac3daf2e7c26a9be4f81277e298dd83ab4dc831e918b",
-      "expected_crp_bytes": 7495613,
-      "expected_simulation_sha256": "7ceee4371d93f21e76043d44c98ebc6d648b8b0c401859c620770aad43bbafdf",
+      "expected_crp_sha256": "83f9c7f6240fc795669d68b1563c1c0cff573760cb079fba7f9666ee04f6798b",
+      "expected_crp_bytes": 7492325,
+      "expected_simulation_sha256": "7d2f465062a99121fc91561385e40b144a548ac7f74150933a34ebc8974a9302",
       "preview_assets": {
         "imageRef": {
           "file": "preview-thumbnail.png",
-          "texture_asset_md5": "0ccf8caa7d68957cab3679151a9c34e1",
-          "png_sha256": "3bbaf520e27e643a819eca0be883338febedf106c115438e1c5afe2dfdc6fd6e"
+          "texture_asset_md5": "5eed08142d02949189cb4c300f4bd8ea",
+          "png_sha256": "9ce4ecce39a19e6d0617681c4df91a6b40e31fa0fbdc48464c0def25800edd01"
         },
         "steamPreviewRef": {
           "file": "preview-large.png",
-          "texture_asset_md5": "fee5dbec87afd422dc1c24694a50d6a3",
-          "png_sha256": "1a7e13fbc3d52ebdb0d1facbef93893ff70cf1ebeea31c6f4202dd6b1ba03710"
+          "texture_asset_md5": "ae7d824a041c1755c7145af1518456ad",
+          "png_sha256": "32589a74ebacec83afb07abd982bcb1235cfc2cbaa6e78a95570fc47655676af"
         }
       },
       "prepared_sha256": {
-        "terrain.u16": "291255a204e4d7fe13042a8cc88a6f7077d2dbf5f8d353b7c2c4115471baa2d2",
-        "water.u16": "ce0a6f266500b74bf4a15446aca56b8ca6ce6045b756a0061142703e2a83d8bd"
+        "terrain.u16": "797b9352348fc4c2cd70801b238e25e4078b6ffb8973baa4302196d8a1dac919",
+        "water.u16": "775ee3b7b2cf6bf18ab3bf54b1163079cbd94560a65383d739bdc2cee8691881"
       },
       "files_sha256": {
         "banks.f32.gz": "93ef6e3c0eb8b3b026b5f32a8e4d00cc7a179f8dd58de2f2ca42572cd4157e1e",
         "evidence.json": "2af201f890bd9365b7c787d7a421816599aecc1ddc9d43308afd30dd466fbae6",
-        "geometry.json.gz": "0f12eeec028ce919983ee4230e4e6e9c649e2c448c05bf92b55a82b330370593",
-        "hydrology.json.gz": "6fa3256ddab8fa2593864d6a2a59c78d44d02af66747f02921b521d503c127bf",
-        "input.png": "b6959a092a4e4ada2f05a46d335fe72d1c8b90feb2a7a501155617e056f1602c",
-        "landcover.json": "672a12b37bbbd58c136f33871a606094f4e548d054dbcb4304133ae282bb2814",
+        "geometry.json.gz": "8f3b4a401d986c4382ae207b337e2b03c56313350e799518ab11398be9a38d05",
+        "hydrology.json.gz": "035c5e6a6dc2befc52ae653959bc8a50da0a47929c0515cc7a63a3f240212247",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "landcover.json": "6c308a00e4665c22e12b145ac89f5fc7ec25db12ebfd6fb47fcf456b3a45fa53",
         "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c",
         "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16",
-        "plan.npz": "ee79a52dcbe89067e4ff125bcea1a7af9a5503d8df3fd6f2183263b4ae41f3bd",
-        "preview-large.png": "1a7e13fbc3d52ebdb0d1facbef93893ff70cf1ebeea31c6f4202dd6b1ba03710",
-        "preview-thumbnail.png": "3bbaf520e27e643a819eca0be883338febedf106c115438e1c5afe2dfdc6fd6e",
-        "resources.json": "fd1c4e581da25fbcf77d2f7a516c363672d8d6e65577ce6bd2998a3d229eca40",
-        "terrain.u16.gz": "e994e4db7c9f85f04129a3b8c096518e84533ed00d4a71cdba0242ffc8adcd07",
-        "water.u16.gz": "255be7ea1931efc8c82ab428a79c165db7c0685567f4a2c7d932d60e37b77669"
+        "plan.npz": "c09ccccd1e23ba83d3db82f8fe189a87004a51ec79446c2c3ccfa16a0ec59cd3",
+        "preview-large.png": "32589a74ebacec83afb07abd982bcb1235cfc2cbaa6e78a95570fc47655676af",
+        "preview-thumbnail.png": "9ce4ecce39a19e6d0617681c4df91a6b40e31fa0fbdc48464c0def25800edd01",
+        "resources.json": "6ff909bce164126b720136e44ff2c535372d1c5554f8e9f9cb35f587de52a401",
+        "shipping-evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+        "shipping-geometry.json.gz": "9102ea4208e7af3d750fc7cd057d8a46da6b8ce2d05e08e730c43e6cd9461553",
+        "terrain.u16.gz": "617d2593419fccbc9fcd916a82165648eb5d9ccd7583bb16e104146ccf1f1e6a",
+        "water.u16.gz": "8050a2ed7f12a447fb329af1a9b357a9cf218cc8cbf9ac410af47edb03704a97"
       },
       "resource_plan": "plan.npz",
       "resource_knobs": {
@@ -57,43 +59,109 @@
           "oil": 0.027,
           "fertile": 0.034
         }
+      },
+      "input_capture": {
+        "source_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "85c30e1d8338f5b252c99267805d9c06251c57e05f1efb97ddfeba8539fa2336",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "44bf0b7bc29ea641b39f295831b4172dfde19631e11cf6d7cd7074178d9add32",
+          "tools/map-factory/resources.py": "0854eec7debda5b0b6db774ad08277cb72031011933729b0241c059adf809af4",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "5aa974bd254380a0da971ad97ca9c6e594aa9bfea51eaa2b314950f2a5812299",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "cli_sha256": "eb4d2d9d831469beb9e741830e1cb91e18b34397e5b5b30c3ddb7770be9b1375",
+        "files_sha256": {
+          "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+          "geometry.json": "112ad333ee2f689c20c6fb47901f4df5eadcedf1086543055a20fbad8e42ee6d",
+          "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff"
+        },
+        "prepared_sha256": {
+          "terrain.u16": "797b9352348fc4c2cd70801b238e25e4078b6ffb8973baa4302196d8a1dac919",
+          "water.u16": "775ee3b7b2cf6bf18ab3bf54b1163079cbd94560a65383d739bdc2cee8691881"
+        }
+      },
+      "shipping": {
+        "source_commit": "c3ff106414cbbefcd3ad68f3af7df5996dfcbc80",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "cc7fb3e43fcb7265e1ec3d17931fb97adb2517bd2781e7de473559a3247975e7",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+          "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+          "geometry.json": "b8667414fc3cbd34185b8df3c7daad268f8bafde06804800f8cb4d127531e6e6",
+          "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff"
+        },
+        "expected_crp_sha256": "a8d71ca2b3dd7911fea840044255c4815e36a5da09d11041b0b665e9197e899b",
+        "expected_crp_bytes": 7489355,
+        "expected_simulation_sha256": "43184bb7a05ba78c87d38752e2220bae213557b75da7daec81bfd183bd25adf7"
       }
     },
     {
       "slug": "innsbruck",
-      "expected_crp_sha256": "38259f5227cefe2cf9e43b466d16f1de73b1df8e281ad5f257ae63326422f83f",
-      "expected_crp_bytes": 6631059,
-      "expected_simulation_sha256": "6ba6b525e9ee94e7577590dc4334c5f882dcffda8f55fa5035cb141a547ea27a",
+      "expected_crp_sha256": "cae547d9472bcc35a6eb87ac7ff568c733dfc0410948818c946e81b87e557dd9",
+      "expected_crp_bytes": 6633618,
+      "expected_simulation_sha256": "676604959f521584fe21c38ea31706b97d6795554cb389068158b2661ce5969d",
       "preview_assets": {
         "imageRef": {
           "file": "preview-thumbnail.png",
-          "texture_asset_md5": "9ceabcd43b2afd4bed6c4b236a3d3824",
-          "png_sha256": "f8056b02875c535300c572bf573da17b944a0864b04fbf1b4b13725572fcb2c4"
+          "texture_asset_md5": "cde819b08c42c4d4ac7a0316b83d82b4",
+          "png_sha256": "eaed7cdd9064860cd741d4e00bec2512c8760ca3d0237ecd10ca511b32367c22"
         },
         "steamPreviewRef": {
           "file": "preview-large.png",
-          "texture_asset_md5": "c75117f5b43dfac781c7250b213db3e4",
-          "png_sha256": "ec0f52e6148cb7492be9bfed66139af5085882b4efbaf55d902725b1e51c5ae9"
+          "texture_asset_md5": "d16f57123d8c1d110a3a6bd0d73e0178",
+          "png_sha256": "aab1e28f54183df0869610e8ee12c233237f57eedb36f8470799bfcc39bc768e"
         }
       },
       "prepared_sha256": {
-        "terrain.u16": "6d481a55d5791f468d73b6e4c7038d4e7d26b82cad5127f353b214b36198d00e",
-        "water.u16": "983fd34232d62bbaa0d073c5822697f4093d6b0de843e5535902c06f595ab9cf"
+        "terrain.u16": "64fa5f27a7e005334b002b63cb695eeb6d16645711690049d2617303722e6f41",
+        "water.u16": "7df5f09d59048988ce73f699b6ee83b8dbbd94e109092400617624a921145c3a"
       },
       "files_sha256": {
         "banks.f32.gz": "27924168288117abec58f00bbf298c9a28169ac24908cefadbc00d56760ef5dc",
         "evidence.json": "5bafec020e6a2376ac3699b70acc66bbfb3868f05fdc91a87566adad7d790fad",
-        "geometry.json.gz": "616ac73bbfe77ded07ae7b4622b4a249a36071b56203fc965096225827253e24",
-        "hydrology.json.gz": "7b04e92d984a5a2b8eff8065158547a0efeb838bb0a41cae7d66c3f9c98aeb50",
-        "input.png": "1b905a90082f8bb2ce4534e2e8250bbfb4f06bcba45a15dc07f81c3f376e9563",
-        "landcover.json": "f3cbd6b6e336b38c820d5b8f5691a1e24d78ef9a4370d002d87091782f66d1c5",
+        "geometry.json.gz": "d5ed92bb9d9a51953719b3eed3c602d7f6f07461cf136daa176142b461ee6678",
+        "hydrology.json.gz": "0af91bc87a65e4f958e3cffed226fa067675cddb6dce0559e7a50b6e5f690451",
+        "input.png": "e34c7ba4eaa1969cdd89deb1f04140a7ede6696fef19c90c69ea35d38aef9aed",
+        "landcover.json": "cb4ca4c603d73632c55fda55d467145e570ecab1e17d539cf06cfaa8a7babbc0",
         "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646",
-        "plan.npz": "5b5b5cff6f848e80347454cae9e8686cffb87dfb489dfc12d62f4d306f469c7f",
-        "preview-large.png": "ec0f52e6148cb7492be9bfed66139af5085882b4efbaf55d902725b1e51c5ae9",
-        "preview-thumbnail.png": "f8056b02875c535300c572bf573da17b944a0864b04fbf1b4b13725572fcb2c4",
-        "resources.json": "e8ce3b75219635d868ec07a8b8c90a2c15ecfb9834f2decc4a725e693c450cf7",
-        "terrain.u16.gz": "d9e543591183f75724df1c24d8c37e48b3477d7abd694b52a987f2fd503b94f4",
-        "water.u16.gz": "5849d42bf1c758684f97c4c0faddd9be02487e8bf3ea95ca6ca04e9bc7a42ca4"
+        "plan.npz": "5fd6d618375b7b2842a3e663d8d327005465e68ff7cd7d2d6ac5c9d15ce99034",
+        "preview-large.png": "aab1e28f54183df0869610e8ee12c233237f57eedb36f8470799bfcc39bc768e",
+        "preview-thumbnail.png": "eaed7cdd9064860cd741d4e00bec2512c8760ca3d0237ecd10ca511b32367c22",
+        "resources.json": "a35c98366a20ca2179a8238247d57c47db9ad1592fc77d786de94dc5664aa86e",
+        "shipping-evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "shipping-geometry.json.gz": "91f0dc114e39229f2d06231e422686da32df80d8272a5dc3397d3bb21e1a2609",
+        "terrain.u16.gz": "a713a2119153e94480936962a78f2395bcd07cbb8e739b875ca9c9b01b382722",
+        "water.u16.gz": "be87e2a176d99b14778446441dd5116e18005ab0afd9aadc1c2fe7968297d5fa"
       },
       "resource_plan": "plan.npz",
       "resource_knobs": {
@@ -109,43 +177,109 @@
           "oil": 0.027,
           "fertile": 0.034
         }
+      },
+      "input_capture": {
+        "source_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "85c30e1d8338f5b252c99267805d9c06251c57e05f1efb97ddfeba8539fa2336",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "44bf0b7bc29ea641b39f295831b4172dfde19631e11cf6d7cd7074178d9add32",
+          "tools/map-factory/resources.py": "0854eec7debda5b0b6db774ad08277cb72031011933729b0241c059adf809af4",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "5aa974bd254380a0da971ad97ca9c6e594aa9bfea51eaa2b314950f2a5812299",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "cli_sha256": "6a54f3f24246a41f33351d9af003fad9f62475bac6e9759b8dd3d48d38fd9389",
+        "files_sha256": {
+          "input.png": "e34c7ba4eaa1969cdd89deb1f04140a7ede6696fef19c90c69ea35d38aef9aed",
+          "geometry.json": "f4d9114a530167ca35a631746ab25d33428c041ee8d55730c017cb1247e32563",
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b"
+        },
+        "prepared_sha256": {
+          "terrain.u16": "64fa5f27a7e005334b002b63cb695eeb6d16645711690049d2617303722e6f41",
+          "water.u16": "7df5f09d59048988ce73f699b6ee83b8dbbd94e109092400617624a921145c3a"
+        }
+      },
+      "shipping": {
+        "source_commit": "c3ff106414cbbefcd3ad68f3af7df5996dfcbc80",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "cc7fb3e43fcb7265e1ec3d17931fb97adb2517bd2781e7de473559a3247975e7",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+          "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "e34c7ba4eaa1969cdd89deb1f04140a7ede6696fef19c90c69ea35d38aef9aed",
+          "geometry.json": "f71c1d73d3e4eae3f7d513c67c519c4dca6e64efadf29fb59f591340ffda9152",
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b"
+        },
+        "expected_crp_sha256": "cae547d9472bcc35a6eb87ac7ff568c733dfc0410948818c946e81b87e557dd9",
+        "expected_crp_bytes": 6633618,
+        "expected_simulation_sha256": "676604959f521584fe21c38ea31706b97d6795554cb389068158b2661ce5969d"
       }
     },
     {
       "slug": "rio",
-      "expected_crp_sha256": "7de2cceb16a2ef198ab48b78daeec2fd7377cefc90f40fc67ec2a311f7ff71f0",
-      "expected_crp_bytes": 6174482,
-      "expected_simulation_sha256": "b7fff985b235b559d40603e09bb667d1199e4c9576bbf8b6bc40d4c29fb65eff",
+      "expected_crp_sha256": "a06d2215568f35c368db29260b0005bc3d35c2fb7b92a9f31befaaccb5bd46d1",
+      "expected_crp_bytes": 6186154,
+      "expected_simulation_sha256": "0f150b400b52a0570d9c3e7ce464bd9a8f18751361d08462a494b90623fdee04",
       "preview_assets": {
         "imageRef": {
           "file": "preview-thumbnail.png",
-          "texture_asset_md5": "2a2700192d7116c5048e700ceec2bbf7",
-          "png_sha256": "483cd04a8cc7624d8200bc22665fcd282d0e1a8a5e06af647b2ec4bfd7358e33"
+          "texture_asset_md5": "f6c0813b9a9a9c445ebbacb00d42cb5b",
+          "png_sha256": "8a0e177c9cc2a32ea007006ea118b73de777a7c567785e0b84aace1909553832"
         },
         "steamPreviewRef": {
           "file": "preview-large.png",
-          "texture_asset_md5": "6e0a00ad38b8fb54dee18303d7e45264",
-          "png_sha256": "49e085b1984d1c24c75e6ad817f1da177e4515603539f819b6307043517417b1"
+          "texture_asset_md5": "fb98c0bae57de5f91cbea88aefe879d9",
+          "png_sha256": "e130b08f3501d947cb3c154a2acbc8a424b74093e70da6639cd47b6105a15d06"
         }
       },
       "prepared_sha256": {
-        "terrain.u16": "463d70a7cbb44115c679e2f66fec5f762e0d2bf5e78450743efcd181a96ddbf2",
-        "water.u16": "2ff3f4a58608e41bc1f331d866596f09be2f086a30c56235397ea5a345fe875a"
+        "terrain.u16": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
+        "water.u16": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d"
       },
       "files_sha256": {
-        "banks.f32.gz": "2a4520070570a3b38b76ffd624665f3189a55e50f03d6ec9bce1f3877d94dea0",
+        "banks.f32.gz": "079896629b5b9d440317c4963faf6ed623efe5110e1a387fe2858e66a45d8871",
         "evidence.json": "5bafec020e6a2376ac3699b70acc66bbfb3868f05fdc91a87566adad7d790fad",
-        "geometry.json.gz": "f3d97c4404c2013fe86b68ec45749106ebd85314ac73cd674300b15108381333",
-        "hydrology.json.gz": "f1e5dfbef86f5f6cd93d7c030af78d711213d5a8288adba180bf8a66d2c59e71",
-        "input.png": "611e19e2b2721f0215d1436e3073fff100875c8291a521310d39cdc2012135aa",
-        "landcover.json": "9d9b21965ae811d7510db6e6d9f3176d0453e4528b2481063187fe6ba6a9ea42",
+        "geometry.json.gz": "e215b5e5680c746ae6f9c3c9af3dd205a8bb6be809037ca72b74cc5a1c88ae46",
+        "hydrology.json.gz": "4418d1e2b5075dbbb4bdec2990bbcec914868dfea634519e75c7f292147817a9",
+        "input.png": "30181ba38baa58f021d0637a27e11d040ddb213309dc84dbdbc15ad260c2db4b",
+        "landcover.json": "30b0502a874c7316feb1ceaf6e7e985ce85f91dbce7714653d71bacafe65fc15",
         "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59",
-        "plan.npz": "aeb6743d8f5956189efe652db7aca22c6fdd5cdfb9170ce1e9d5edc36d1f285f",
-        "preview-large.png": "49e085b1984d1c24c75e6ad817f1da177e4515603539f819b6307043517417b1",
-        "preview-thumbnail.png": "483cd04a8cc7624d8200bc22665fcd282d0e1a8a5e06af647b2ec4bfd7358e33",
-        "resources.json": "442876cefa54e070cba165de4314a432764a30609419d5f3e20a80b2c85702e9",
-        "terrain.u16.gz": "2c128895bd9e29cbfce2e16638af37fa368fdf7be13768ece36786f1284c06fd",
-        "water.u16.gz": "0ea0bab6318643df4511c148e6b2cea6e0ecaabe1f2fd94fd79452ba39953ffd"
+        "plan.npz": "32d552abba878a62163ae25c782e95cd42357b6b67316400365bdf28a97387de",
+        "preview-large.png": "e130b08f3501d947cb3c154a2acbc8a424b74093e70da6639cd47b6105a15d06",
+        "preview-thumbnail.png": "8a0e177c9cc2a32ea007006ea118b73de777a7c567785e0b84aace1909553832",
+        "resources.json": "32a2cbb6e3f80fcc45e777b0332b635b6c6de0fc077a6fee665e602d25069849",
+        "shipping-evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "shipping-geometry.json.gz": "e2f49efb944d57c7c359116766c44de83409d9926145d5663343f16371825064",
+        "terrain.u16.gz": "9b4e06d3d5a36aa843ce2e0c3ec499ebd488f3334860c384a3d6aaf9bee91507",
+        "water.u16.gz": "b82bef0335a1204b2683bc37b5aee2e48a17eb84a69c3d4d5ceb2c035445b8d9"
       },
       "resource_plan": "plan.npz",
       "resource_knobs": {
@@ -161,43 +295,109 @@
           "oil": 0.027,
           "fertile": 0.034
         }
+      },
+      "input_capture": {
+        "source_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "85c30e1d8338f5b252c99267805d9c06251c57e05f1efb97ddfeba8539fa2336",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "44bf0b7bc29ea641b39f295831b4172dfde19631e11cf6d7cd7074178d9add32",
+          "tools/map-factory/resources.py": "0854eec7debda5b0b6db774ad08277cb72031011933729b0241c059adf809af4",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "5aa974bd254380a0da971ad97ca9c6e594aa9bfea51eaa2b314950f2a5812299",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "cli_sha256": "3bf4326d2ee56afb0cb3dced12d3c272260c84674d639617458debd28e4a17cf",
+        "files_sha256": {
+          "input.png": "30181ba38baa58f021d0637a27e11d040ddb213309dc84dbdbc15ad260c2db4b",
+          "geometry.json": "223e36156732f41f2db5d6142a29525df6c19b8e271ce0a1020b2cba23ff867b",
+          "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af"
+        },
+        "prepared_sha256": {
+          "terrain.u16": "2bd5a0313d0fd8b23fa3b76d454dac0877ff5dcdcd2b166a390f1a2b2f7e9659",
+          "water.u16": "93b08ca05a2755b3693683ef8d0f48d27be5af8a25f819677599c85ff4ea982d"
+        }
+      },
+      "shipping": {
+        "source_commit": "c3ff106414cbbefcd3ad68f3af7df5996dfcbc80",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "cc7fb3e43fcb7265e1ec3d17931fb97adb2517bd2781e7de473559a3247975e7",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+          "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "30181ba38baa58f021d0637a27e11d040ddb213309dc84dbdbc15ad260c2db4b",
+          "geometry.json": "e0a6887f7d9fc8d4137ff51b593361e39268c9104bbe4e873597b6ebf60d9d2d",
+          "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af"
+        },
+        "expected_crp_sha256": "a06d2215568f35c368db29260b0005bc3d35c2fb7b92a9f31befaaccb5bd46d1",
+        "expected_crp_bytes": 6186154,
+        "expected_simulation_sha256": "0f150b400b52a0570d9c3e7ce464bd9a8f18751361d08462a494b90623fdee04"
       }
     },
     {
       "slug": "pittsburgh",
-      "expected_crp_sha256": "09fa8e71c1fc36269e550f0383713455c1b9322596b198ba16632cd8faf87fa7",
-      "expected_crp_bytes": 6987093,
-      "expected_simulation_sha256": "a6641392e1ae003151c065794fe20c41095b3ea57634c6383b2bbf44c0bd6272",
+      "expected_crp_sha256": "fec4f4d1999ace6b4a340f5510403dd9a64c557e4ff0dda31fe0d86a560c6dab",
+      "expected_crp_bytes": 6993420,
+      "expected_simulation_sha256": "bd09d9e6ba7ed8832d815fd9c85894d8c26e1eadf0332f2effd640d71ac52e5b",
       "preview_assets": {
         "imageRef": {
           "file": "preview-thumbnail.png",
-          "texture_asset_md5": "0789570cecbf8550554856a1e319bc98",
-          "png_sha256": "59b9928b5bff538e74bec12e39d9dc1dd2eaf4159dc00660bb6ead97cb95dff7"
+          "texture_asset_md5": "3136d75d0b919704bb6978df3b0595c2",
+          "png_sha256": "da4255a941be39d023725a93cdb6e556156463625bf7957aa9cf2df76559a555"
         },
         "steamPreviewRef": {
           "file": "preview-large.png",
-          "texture_asset_md5": "6645f9300b0ac4bfcce14b9eee5972e4",
-          "png_sha256": "2478bf4d42fd17f245256e10bda999aeb39a5ac90829e9c83780fea522388acd"
+          "texture_asset_md5": "3e103dfd5dad7df6172adb85e5b4cc5b",
+          "png_sha256": "774fd4f0ba1e9dc644df46f8b3de9813237c5c0115a8634a58645e089c00c603"
         }
       },
       "prepared_sha256": {
-        "terrain.u16": "b6f8547af38a18fa4a0f7ccfd876ecc52b03af47a40b66a8fe82e0078e79a4a4",
-        "water.u16": "bb20d79052504cccc16fc8b75fb7009a64e681b3c6636fb7a9380a3502a4782c"
+        "terrain.u16": "23faa0a7e2c30d87f90001e668cfa7388029cebbf55863aa8ad44ae78d04727f",
+        "water.u16": "8bebb243569878f6cc62d277abcad230a588a6e1e748ea26e5e6926fc8b1fb4a"
       },
       "files_sha256": {
-        "banks.f32.gz": "4a0cca1073921ae86aff1a88f258ff5cd77aa7cb2551205a94a5613846434494",
+        "banks.f32.gz": "4683b18deef176cae68265d9f3bbeca76e8b58eda515c589f89e65b167b864d2",
         "evidence.json": "9d2e59007c3cad540d1c91dddc0721d0f31cd2e93c6b937a2c71127e9ef92db4",
-        "geometry.json.gz": "0accff5a92a698b107f443f4cb53a27d7db205ca966d12e0299b6deb27fcc70a",
-        "hydrology.json.gz": "4ef4a571a9545d29c997bb29d4c0554d4f757d6095c96f241fa0217e9a2348ce",
-        "input.png": "13457e721891a54620f2686b2b5fa3d937975cdd967d0e1ae704ba9b698d9a38",
-        "landcover.json": "7a8e58fb46a0b6327aa46e4232d7a7aebc9c5b060576ccc19a313bbea27084fb",
+        "geometry.json.gz": "9e49e84b751891731d2e16841cccef6ec33e8ffb2b25ad9632316070eac6a038",
+        "hydrology.json.gz": "53dbc337b2ed4c59dcb6ef7d5eb3178132baae9ead08d85bfaf87902102ab48c",
+        "input.png": "8721f6dd69d672a4b5893fd0b72d465a2b20b265790b486893a8a229a3b72385",
+        "landcover.json": "63ddab85e79f63c73b684c5dc89fc8a7df1bbaa9b0a28cb9e02cb588f24af6fe",
         "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f",
-        "plan.npz": "54c80bf210d4134e75c97c56d60a8fbfd327f155ee7f79f329a071f34b433c03",
-        "preview-large.png": "2478bf4d42fd17f245256e10bda999aeb39a5ac90829e9c83780fea522388acd",
-        "preview-thumbnail.png": "59b9928b5bff538e74bec12e39d9dc1dd2eaf4159dc00660bb6ead97cb95dff7",
-        "resources.json": "88d947e84bae3fa5b4890c9c48f248976d0789be21e6f0f97706594b492a0688",
-        "terrain.u16.gz": "6e6ab876cdb053c089271ebee971571e59cc676d7dc1840908789090be896c9b",
-        "water.u16.gz": "45f42c7bb4ae5eed361fb196edffd41f2d3fb6f267d2221645537eec77553c1e"
+        "plan.npz": "863e944ccfa18729f5c0e176c609dfee848665bdd3211062530140d6c944572b",
+        "preview-large.png": "774fd4f0ba1e9dc644df46f8b3de9813237c5c0115a8634a58645e089c00c603",
+        "preview-thumbnail.png": "da4255a941be39d023725a93cdb6e556156463625bf7957aa9cf2df76559a555",
+        "resources.json": "00f70cc51ecd7b46d5c6f3cda6d9938c52d7d91592fb3400dd10686f3cc763bb",
+        "shipping-evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+        "shipping-geometry.json.gz": "1231a8dfa7f7e531728e5443b09f70ca20f9df111ae67c7f2c8114ef6e582ac7",
+        "terrain.u16.gz": "a33e892c9edad286381b1d6e2e744d2eee2583d6a68f3c69ec012bb425673ac9",
+        "water.u16.gz": "2b9efff22c402b265f65be859659702718deb4f30db6b6715f5cf0b17fcdffc6"
       },
       "resource_plan": "plan.npz",
       "resource_knobs": {
@@ -213,43 +413,109 @@
           "oil": 0.027,
           "fertile": 0.034
         }
+      },
+      "input_capture": {
+        "source_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "85c30e1d8338f5b252c99267805d9c06251c57e05f1efb97ddfeba8539fa2336",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "44bf0b7bc29ea641b39f295831b4172dfde19631e11cf6d7cd7074178d9add32",
+          "tools/map-factory/resources.py": "0854eec7debda5b0b6db774ad08277cb72031011933729b0241c059adf809af4",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "5aa974bd254380a0da971ad97ca9c6e594aa9bfea51eaa2b314950f2a5812299",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "cli_sha256": "a78a460314da3e56b66f84a85042f800d1bf5d51ac7fd8df46b4034a4c80e790",
+        "files_sha256": {
+          "input.png": "8721f6dd69d672a4b5893fd0b72d465a2b20b265790b486893a8a229a3b72385",
+          "geometry.json": "13cad6c09a19049e35091b8660f29dbbd0c5273667b55a3a0ed116aa70759b67",
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70"
+        },
+        "prepared_sha256": {
+          "terrain.u16": "23faa0a7e2c30d87f90001e668cfa7388029cebbf55863aa8ad44ae78d04727f",
+          "water.u16": "8bebb243569878f6cc62d277abcad230a588a6e1e748ea26e5e6926fc8b1fb4a"
+        }
+      },
+      "shipping": {
+        "source_commit": "c3ff106414cbbefcd3ad68f3af7df5996dfcbc80",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "cc7fb3e43fcb7265e1ec3d17931fb97adb2517bd2781e7de473559a3247975e7",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+          "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "8721f6dd69d672a4b5893fd0b72d465a2b20b265790b486893a8a229a3b72385",
+          "geometry.json": "168876e1b72462b4b4e8ba2eb48f8f4cf3822044d1a3206127975b6eb2f741c8",
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70"
+        },
+        "expected_crp_sha256": "06bee2f7833822068643571b1cbe2d51040a593c00c0fc17330c7934cc6f7e9b",
+        "expected_crp_bytes": 6873715,
+        "expected_simulation_sha256": "4e00107bf1707253873383a200fa1867744ff6f2c3c04dd0b25a284b4942db48"
       }
     },
     {
       "slug": "charleston",
-      "expected_crp_sha256": "7b3a58b16d4e3ee60302c40c4c59896941135f9bb477943a322bb990c15de50d",
-      "expected_crp_bytes": 6575425,
-      "expected_simulation_sha256": "48a5146d4df6d2bf3ad78c876c1c4f7deb1e6d220164fb25479ca4daf58216e2",
+      "expected_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+      "expected_crp_bytes": 6589377,
+      "expected_simulation_sha256": "0b30e5c7c49eabdcbe9ced7a5199a9d448d60f0d543540b9c9b5ae8f6c59e70d",
       "preview_assets": {
         "imageRef": {
           "file": "preview-thumbnail.png",
-          "texture_asset_md5": "0a4d84753804498fd86a17c074ef85c4",
-          "png_sha256": "8937d6c054bf074a81f17e2bb5ecdb61bb03619f013ee7d49d174884c6fb99d2"
+          "texture_asset_md5": "226e353263b4b48d4242773d761ca0f7",
+          "png_sha256": "caae3f3da28d515eb63421282906be64d9171af2496e28cd83979043c0ee193f"
         },
         "steamPreviewRef": {
           "file": "preview-large.png",
-          "texture_asset_md5": "63f4ee8bcc70827548f31c9485b4dec7",
-          "png_sha256": "0759fb6e96b5b89752b5ba1f86f7a45da7e70af6676e34d36fad0a025812e575"
+          "texture_asset_md5": "208c65e51b6d69c840bad136053667a7",
+          "png_sha256": "3039078ba92cbdb32d2313a99f6211177cd389336071d1e3bfb9cbddaf008f8c"
         }
       },
       "prepared_sha256": {
-        "terrain.u16": "e0e457a15474ef1958b89f3646c6a572b4330bce36f6873c198e6eedfb2f92da",
-        "water.u16": "ea1486c2ae82bb2ef61d7cc17c129a62dcb6f446f44bbbfdf8a195bcef88380d"
+        "terrain.u16": "000691e79a65783bf785c1423a89e1d0608368d9ffb473ace4825daa2be8cf69",
+        "water.u16": "eb10584034d284ccc6ff33b0c0736f3dc33d01512149374a6ad379e4d5d3b124"
       },
       "files_sha256": {
-        "banks.f32.gz": "325987841e76c1802cdb3d16c1c175551070e338d35e97b08d8c6465b4353962",
+        "banks.f32.gz": "fabbafd353cbdaefd0025e623e1d781d743363c15cd40196b88f0db1b98184b2",
         "evidence.json": "ffd177979398796ebc8610d18ab221860fe0258b20a03fa44c6527648edf166c",
-        "geometry.json.gz": "af09d419d45cee1971cae0d23ac601ee1a7c7679fc731779de53c8dbd841468e",
-        "hydrology.json.gz": "08266f09b4cabdeee575e9f18e35cf70cfac7c9fb839bcb2a1c05ad231c0cd11",
-        "input.png": "89f2574f4e505fafe62a26cb5ef38aac4784159962da43e30d69893f7e5d8611",
-        "landcover.json": "2d2efddb639d9cef13db283d98d93f5f148d7ed7f9ebc139ffa63067c6c934ee",
+        "geometry.json.gz": "8768e8d57bb2b80ced9c6d2a1da7d971041539848037f9b622752f5557560a68",
+        "hydrology.json.gz": "41d596113afe1fa9ea6bb6a6482ba71e428edc7ddfbc6fbf146c7b733b503bf5",
+        "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+        "landcover.json": "666ae070c84a9a2a1ef4d909bb9c51f50be407c27ab3687cbbc63b7e12d8110f",
         "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925",
-        "plan.npz": "bfc64005985553ede0229f5eddd8d71d7cb427c4dfa1da46aa2cac78f8f1e4d3",
-        "preview-large.png": "0759fb6e96b5b89752b5ba1f86f7a45da7e70af6676e34d36fad0a025812e575",
-        "preview-thumbnail.png": "8937d6c054bf074a81f17e2bb5ecdb61bb03619f013ee7d49d174884c6fb99d2",
-        "resources.json": "9ba5458591176d2775ed45536e1edc2b3213910a2883d5a32553bc6f4d5ac108",
-        "terrain.u16.gz": "323d329e46795cc6413eaa2f3345c0860c1e8aa184f4d7af16c696c580648444",
-        "water.u16.gz": "11494493a051ac4247017a7ea92588ac424d95d2d53a96d61b4ddef5eafba9dd"
+        "plan.npz": "18b5b7ec7e8deaa002c9a3fc9c44d48b0da6cc050fa657e66239174f0bca762e",
+        "preview-large.png": "3039078ba92cbdb32d2313a99f6211177cd389336071d1e3bfb9cbddaf008f8c",
+        "preview-thumbnail.png": "caae3f3da28d515eb63421282906be64d9171af2496e28cd83979043c0ee193f",
+        "resources.json": "3adcfff853eb091bdb5fad5e999137a6afca810755ff596d3d67d7e11764e3db",
+        "shipping-evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+        "shipping-geometry.json.gz": "c469fbcf520d981b6e578f7a251c0cae1c678b294f8b80629294a0c06c15b64b",
+        "terrain.u16.gz": "8c68ec352a96fc53759183eec55f296e51689bfb470b622f14657501a6091182",
+        "water.u16.gz": "105e3479bfaba92db3fc3ee81c5ad7fe1e30a3bf1a2f9b11e1b903b3d7b75b33"
       },
       "resource_plan": "plan.npz",
       "resource_knobs": {
@@ -265,7 +531,76 @@
           "oil": 0.027,
           "fertile": 0.034
         }
+      },
+      "input_capture": {
+        "source_commit": "5f6ef13d82ae5bbe4265ef4c60c508751e3d14f7",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "85c30e1d8338f5b252c99267805d9c06251c57e05f1efb97ddfeba8539fa2336",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "44bf0b7bc29ea641b39f295831b4172dfde19631e11cf6d7cd7074178d9add32",
+          "tools/map-factory/resources.py": "0854eec7debda5b0b6db774ad08277cb72031011933729b0241c059adf809af4",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "5aa974bd254380a0da971ad97ca9c6e594aa9bfea51eaa2b314950f2a5812299",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "cli_sha256": "d5fd2d9973c51b6959a1ddc0d0ea1211050a0c7a64a4390d5262d3820cfdfad8",
+        "files_sha256": {
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "geometry.json": "2fda9e292fb0a176c4202e4e790aee0a9f0dee097765fcb5d1a3292cbc8e9354",
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed"
+        },
+        "prepared_sha256": {
+          "terrain.u16": "000691e79a65783bf785c1423a89e1d0608368d9ffb473ace4825daa2be8cf69",
+          "water.u16": "eb10584034d284ccc6ff33b0c0736f3dc33d01512149374a6ad379e4d5d3b124"
+        }
+      },
+      "shipping": {
+        "source_commit": "c3ff106414cbbefcd3ad68f3af7df5996dfcbc80",
+        "source_files_sha256": {
+          "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+          "terrain.js": "de06f185952f925983ea45cc38db7626d1c950e4b72c0f19af9a95f5b6d252c4",
+          "mapgen.js": "703d94b64c93f00cfe95fa43729ad48a9b617e4dde1007b67ef3167856d028e3",
+          "tools/map-factory/generate.py": "cc7fb3e43fcb7265e1ec3d17931fb97adb2517bd2781e7de473559a3247975e7",
+          "tools/map-factory/region.py": "3ee4e3b358a1d6d94f4dab9d1e32b5d318d466733667e9072bbd6594a19e351b",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+          "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "geometry.json": "592154f19f5399d8b27673181deaa220e5cb6edb600683243f338be59bee2c65",
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed"
+        },
+        "expected_crp_sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+        "expected_crp_bytes": 6589377,
+        "expected_simulation_sha256": "0b30e5c7c49eabdcbe9ced7a5199a9d448d60f0d543540b9c9b5ae8f6c59e70d"
       }
     }
-  ]
+  ],
+  "capture_module": "inputs.js",
+  "capture_sources_sha256": {
+    "inputs.js": "e8c7840d803cdf91b8c4e21b00a350b285edb64abe20f25569615d785c2ae457",
+    "terrain.js": "b3858fe559be24937095a93adac3b7d3bea292b23057751bfaf1aa5a33026aa7"
+  }
 }

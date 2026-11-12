@@ -13,19 +13,19 @@
       "fertile": 0.034
     }
   },
-  "trees": 179863,
+  "trees": 179840,
   "unlockable": {
-    "ore": 683422,
-    "oil": 546835,
-    "forest": 3335085,
-    "fertility": 2254994,
-    "water": 8332572
+    "ore": 866945,
+    "oil": 706243,
+    "forest": 3354390,
+    "fertility": 2245765,
+    "water": 8335000
   },
   "cells": {
-    "ore": 9974,
-    "oil": 3562,
-    "fertility": 51690,
-    "forest": 40949
+    "ore": 11508,
+    "oil": 5250,
+    "fertility": 51641,
+    "forest": 40959
   },
   "evidence": [
     {
@@ -72,185 +72,185 @@
   "placed": [
     {
       "kind": "ore",
-      "x": 3796.875,
-      "z": 4775.625,
-      "radius_m": 562,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -4775.625,
-      "z": -1299.375,
-      "radius_m": 483,
+      "x": 3763.125,
+      "z": 4809.375,
+      "radius_m": 634,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -4471.875,
-      "z": 2278.125,
-      "radius_m": 583,
+      "z": 2244.375,
+      "radius_m": 635,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -725.625,
       "z": -3121.875,
-      "radius_m": 434,
+      "radius_m": 533,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -2615.625,
-      "z": -4471.875,
-      "radius_m": 588,
+      "x": -4741.875,
+      "z": -1603.125,
+      "radius_m": 558,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 4235.625,
-      "z": 1063.125,
-      "radius_m": 576,
+      "x": -2649.375,
+      "z": -4404.375,
+      "radius_m": 676,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -590.625,
-      "z": 4471.875,
-      "radius_m": 646,
+      "x": 4539.375,
+      "z": 1299.375,
+      "radius_m": 464,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -4741.875,
       "z": 4168.125,
-      "radius_m": 536,
+      "radius_m": 595,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -4775.625,
-      "z": -2919.375,
-      "radius_m": 441,
+      "x": -590.625,
+      "z": 4471.875,
+      "radius_m": 548,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": 961.875,
-      "z": -3898.125,
-      "radius_m": 436,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -3088.125,
-      "z": -388.125,
-      "radius_m": 567,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 2345.625,
-      "z": 3864.375,
-      "radius_m": 583,
+      "z": -3864.375,
+      "radius_m": 670,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -2413.125,
       "z": -2581.875,
-      "radius_m": 469,
+      "radius_m": 450,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -894.375,
-      "z": 2750.625,
-      "radius_m": 584,
+      "x": 2345.625,
+      "z": 3999.375,
+      "radius_m": 611,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -961.875,
-      "z": -4741.875,
-      "radius_m": 601,
+      "x": -455.625,
+      "z": 2818.125,
+      "radius_m": 652,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 2548.125,
-      "z": -3594.375,
-      "radius_m": 513,
+      "x": -3088.125,
+      "z": -388.125,
+      "radius_m": 423,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4235.625,
+      "z": -4168.125,
+      "radius_m": 531,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2581.875,
+      "z": -3628.125,
+      "radius_m": 603,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 3358.125,
+      "z": 2480.625,
+      "radius_m": 497,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 3830.625,
-      "z": 556.875,
-      "radius_m": 541,
+      "x": -4404.375,
+      "z": -2514.375,
+      "radius_m": 787,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -1501.875,
-      "z": -4235.625,
-      "radius_m": 691,
+      "x": -2379.375,
+      "z": 151.875,
+      "radius_m": 624,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -4438.125,
-      "z": -2581.875,
+      "x": 3796.875,
+      "z": 523.125,
+      "radius_m": 430,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -1738.125,
+      "z": -1636.875,
       "radius_m": 559,
       "source": "convention"
     },
     {
       "kind": "oil",
+      "x": 4100.625,
+      "z": -3324.375,
+      "radius_m": 619,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -1501.875,
+      "z": -4269.375,
+      "radius_m": 688,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
       "x": 590.625,
-      "z": 523.125,
-      "radius_m": 440,
+      "z": 421.875,
+      "radius_m": 448,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 2919.375,
-      "z": -2953.125,
-      "radius_m": 685,
+      "x": -185.625,
+      "z": -1164.375,
+      "radius_m": 687,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -995.625,
-      "z": -928.125,
-      "radius_m": 457,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": -2345.625,
-      "z": 151.875,
-      "radius_m": 558,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 1805.625,
-      "z": -725.625,
-      "radius_m": 568,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": -4336.875,
-      "z": -286.875,
-      "radius_m": 529,
+      "x": 4404.375,
+      "z": 3121.875,
+      "radius_m": 659,
       "source": "convention"
     }
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-w4j3_rni/charleston/PL857-charleston.crp",
-    "sha256": "7b3a58b16d4e3ee60302c40c4c59896941135f9bb477943a322bb990c15de50d",
-    "bytes": 6575425,
+    "output": "/home/caleb/experiments/PL-918-live-inputs/refrozen/.freeze-whwnns56/charleston/PL857-charleston.crp",
+    "sha256": "0933440c685e65b1aeba723a40d4a04a866fb52aff0bc6ea7215cd4238feca74",
+    "bytes": 6589377,
     "regenerated": [
       "terrain",
       "water",
@@ -272,6 +272,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "48a5146d4df6d2bf3ad78c876c1c4f7deb1e6d220164fb25479ca4daf58216e2"
+    "simulation_sha256": "0b30e5c7c49eabdcbe9ced7a5199a9d448d60f0d543540b9c9b5ae8f6c59e70d"
   }
 }

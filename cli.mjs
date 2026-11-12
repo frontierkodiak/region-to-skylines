@@ -225,7 +225,7 @@ if (crp) {
   steps = [
     `Start Cities: Skylines (the first game), choose New Game and pick "${mapName}".`,
     "That's all: the rivers already have water in them, a highway and a railway connect the starting tile to the outside, and there are forests, farmland, ore and oil. No Map Editor step.",
-    "It was tested with no mods; the 81 Tiles 2 mod hasn't been tried with it.",
+    "The 81 Tiles 2 mod hasn't been tried with these maps.",
   ];
 } else {
   const { fit, sources } = map;

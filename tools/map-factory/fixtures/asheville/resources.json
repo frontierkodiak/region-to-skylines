@@ -13,19 +13,19 @@
       "fertile": 0.034
     }
   },
-  "trees": 179623,
+  "trees": 179620,
   "unlockable": {
-    "ore": 1114997,
-    "oil": 565343,
-    "forest": 3946065,
-    "fertility": 738465,
-    "water": 503367
+    "ore": 1072721,
+    "oil": 521730,
+    "forest": 3947430,
+    "fertility": 737299,
+    "water": 506406
   },
   "cells": {
-    "ore": 8840,
-    "oil": 5411,
-    "fertility": 16177,
-    "forest": 40310
+    "ore": 7703,
+    "oil": 5135,
+    "fertility": 16171,
+    "forest": 40316
   },
   "evidence": [
     {
@@ -137,113 +137,85 @@
       "kind": "ore",
       "x": 2143.125,
       "z": 2784.375,
-      "radius_m": 536,
+      "radius_m": 562,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 4775.625,
-      "z": 4404.375,
-      "radius_m": 640,
+      "x": 4708.125,
+      "z": 4370.625,
+      "radius_m": 678,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": 1636.875,
-      "z": 489.375,
-      "radius_m": 531,
+      "z": 556.875,
+      "radius_m": 674,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 3358.125,
+      "x": 3324.375,
       "z": 1434.375,
-      "radius_m": 613,
+      "radius_m": 597,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 4674.375,
-      "z": -4269.375,
-      "radius_m": 428,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 1096.875,
-      "z": 4809.375,
-      "radius_m": 675,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -4606.875,
-      "z": 3898.125,
-      "radius_m": 675,
+      "x": 4708.125,
+      "z": -4235.625,
+      "radius_m": 632,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 2514.375,
-      "z": 3290.625,
-      "radius_m": 753,
+      "x": 2548.125,
+      "z": 3459.375,
+      "radius_m": 884,
       "source": "convention"
     },
     {
       "kind": "oil",
       "x": -2210.625,
-      "z": 2919.375,
-      "radius_m": 601,
+      "z": 2885.625,
+      "radius_m": 693,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 219.375,
-      "z": -1636.875,
-      "radius_m": 672,
+      "x": -894.375,
+      "z": -4269.375,
+      "radius_m": 564,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 3290.625,
-      "z": 4708.125,
-      "radius_m": 553,
+      "x": 253.125,
+      "z": -1670.625,
+      "radius_m": 490,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": -826.875,
-      "z": -4303.125,
-      "radius_m": 473,
+      "x": 3493.125,
+      "z": 2143.125,
+      "radius_m": 625,
       "source": "convention"
     },
     {
       "kind": "oil",
-      "x": 3560.625,
-      "z": 2075.625,
-      "radius_m": 480,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 1906.875,
-      "z": -928.125,
-      "radius_m": 513,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 3560.625,
-      "z": -253.125,
-      "radius_m": 613,
+      "x": 3628.125,
+      "z": -320.625,
+      "radius_m": 641,
       "source": "convention"
     }
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-w4j3_rni/asheville/PL857-asheville.crp",
-    "sha256": "979cb46de1c98e839d7dac3daf2e7c26a9be4f81277e298dd83ab4dc831e918b",
-    "bytes": 7495613,
+    "output": "/home/caleb/experiments/PL-918-live-inputs/refrozen/.freeze-whwnns56/asheville/PL857-asheville.crp",
+    "sha256": "83f9c7f6240fc795669d68b1563c1c0cff573760cb079fba7f9666ee04f6798b",
+    "bytes": 7492325,
     "regenerated": [
       "terrain",
       "water",
@@ -265,6 +237,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "7ceee4371d93f21e76043d44c98ebc6d648b8b0c401859c620770aad43bbafdf"
+    "simulation_sha256": "7d2f465062a99121fc91561385e40b144a548ac7f74150933a34ebc8974a9302"
   }
 }

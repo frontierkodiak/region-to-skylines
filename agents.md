@@ -71,8 +71,12 @@ The command prints the steps. For a **ready-to-play map**:
 1. Start Cities: Skylines, choose **New Game** and pick the map by the name the command
    printed (for Asheville, "Asheville - Ready to Play").
 2. That's all: water already flows, the highway and railway are connected, and the
-   forests and fields are in place. It was tested with no mods; the 81 Tiles 2 mod hasn't
-   been tried with it yet.
+   forests and fields are in place.
+
+Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
+Charleston squares, including separate no-mods city starts. Other squares, rotations,
+scales and the 81 Tiles 2 mod haven't been tested. Pass on any region-specific finding
+the command prints.
 
 For a **heightmap** (`--heightmap`), pass on the Map Editor steps:
 

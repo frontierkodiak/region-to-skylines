@@ -13,19 +13,19 @@
       "fertile": 0.034
     }
   },
-  "trees": 179345,
+  "trees": 179379,
   "unlockable": {
-    "ore": 1167052,
-    "oil": 812210,
-    "forest": 4949730,
-    "fertility": 468225,
-    "water": 1098051
+    "ore": 1077643,
+    "oil": 819604,
+    "forest": 4937130,
+    "fertility": 473681,
+    "water": 1110240
   },
   "cells": {
-    "ore": 12828,
-    "oil": 79382,
-    "fertility": 9430,
-    "forest": 41174
+    "ore": 12134,
+    "oil": 79556,
+    "fertility": 9519,
+    "forest": 41181
   },
   "evidence": [
     {
@@ -152,29 +152,29 @@
     },
     {
       "kind": "fertile",
-      "x": 2446.875,
-      "z": 2615.625,
+      "x": -658.125,
+      "z": 1569.375,
       "radius_m": 548,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": 2986.875,
-      "z": -1434.375,
+      "x": 2548.125,
+      "z": 2581.875,
       "radius_m": 491,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": -151.875,
-      "z": 1096.875,
+      "x": -4168.125,
+      "z": 4438.125,
       "radius_m": 509,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": -4100.625,
-      "z": 4269.375,
+      "x": 2446.875,
+      "z": -624.375,
       "radius_m": 784,
       "source": "convention"
     },
@@ -187,36 +187,36 @@
     },
     {
       "kind": "fertile",
-      "x": -4235.625,
-      "z": 2683.125,
+      "x": -4775.625,
+      "z": 3054.375,
       "radius_m": 540,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": 4505.625,
-      "z": -3189.375,
+      "x": -3358.125,
+      "z": 3290.625,
       "radius_m": 516,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": -1434.375,
-      "z": 1873.125,
+      "x": 3763.125,
+      "z": -2278.125,
       "radius_m": 526,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": -1704.375,
-      "z": -1704.375,
+      "x": 4606.875,
+      "z": -4033.125,
       "radius_m": 504,
       "source": "convention"
     },
     {
       "kind": "fertile",
-      "x": -2851.875,
-      "z": 118.125,
+      "x": -1738.125,
+      "z": -1738.125,
       "radius_m": 457,
       "source": "convention"
     },
@@ -230,65 +230,65 @@
     {
       "kind": "ore",
       "x": 2109.375,
-      "z": -4606.875,
-      "radius_m": 768,
+      "z": -4674.375,
+      "radius_m": 566,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -1468.125,
-      "z": -928.125,
-      "radius_m": 562,
+      "x": -1265.625,
+      "z": -860.625,
+      "radius_m": 621,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -961.875,
-      "z": 2784.375,
-      "radius_m": 688,
+      "x": -1063.125,
+      "z": 2885.625,
+      "radius_m": 656,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -2143.125,
-      "z": -2413.125,
-      "radius_m": 643,
+      "z": -2480.625,
+      "radius_m": 574,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": 4809.375,
-      "z": -1738.125,
-      "radius_m": 572,
+      "z": -1636.875,
+      "radius_m": 626,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": 860.625,
       "z": 2986.875,
-      "radius_m": 583,
+      "radius_m": 573,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -523.125,
-      "z": -2548.125,
-      "radius_m": 596,
+      "x": 118.125,
+      "z": -1805.625,
+      "radius_m": 546,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 1940.625,
+      "x": 1974.375,
       "z": -2581.875,
-      "radius_m": 571,
+      "radius_m": 622,
       "source": "convention"
     }
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-w4j3_rni/pittsburgh/PL857-pittsburgh.crp",
-    "sha256": "09fa8e71c1fc36269e550f0383713455c1b9322596b198ba16632cd8faf87fa7",
-    "bytes": 6987093,
+    "output": "/home/caleb/experiments/PL-918-live-inputs/refrozen/.freeze-whwnns56/pittsburgh/PL857-pittsburgh.crp",
+    "sha256": "fec4f4d1999ace6b4a340f5510403dd9a64c557e4ff0dda31fe0d86a560c6dab",
+    "bytes": 6993420,
     "regenerated": [
       "terrain",
       "water",
@@ -310,6 +310,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "a6641392e1ae003151c065794fe20c41095b3ea57634c6383b2bbf44c0bd6272"
+    "simulation_sha256": "bd09d9e6ba7ed8832d815fd9c85894d8c26e1eadf0332f2effd640d71ac52e5b"
   }
 }

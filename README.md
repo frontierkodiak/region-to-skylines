@@ -67,8 +67,10 @@ The map file is written by the map writer in [`tools/map-factory`](tools/map-fac
 `cs1-harness`. The page doesn't port it: it runs it, under [Pyodide](https://pyodide.org)
 (Python compiled to WebAssembly) in a Web Worker, and the CLI runs it under Pyodide in
 Node. So the page, the CLI and the reference give the same bytes for the same inputs;
-`npm run test:fixtures` checks the five reference maps (`tools/map-factory/fixtures`) byte
-for byte. The first map downloads about 30 MB (cached afterwards); a map takes about a
+`npm run test:fixtures` checks all five presets byte for byte, with both the shipping
+MRDS resource inputs and the richer offline wells/mines reference. Both use the same
+`inputs.js` captures and native-tested terrain and water grids. The first map downloads
+about 30 MB (cached afterwards); a map takes about a
 minute and half a gigabyte of memory, so a phone may run out, in which case the page offers
 the heightmap instead.
 
@@ -85,9 +87,13 @@ the heightmap instead.
   grid for the reference squares.
 - `mapgen-worker.js` is the page's worker; `cli.mjs` calls the same functions.
 
-Maps are not yet tested in the game for every square: the reference's hour-long game tests
-cover the Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and Charleston presets, and the
-page shows one quiet line for the two whose checks failed (Rio, Charleston). Put the `.crp`
+Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
+Charleston squares, not arbitrary locations, rotations or scales. PL-918 repeats the
+hour-long tests and separate no-mods city starts on the inputs the site captures.
+Rio's flood check and Charleston's terrain check remain failed; the page names those
+limitations. [Shipping-input qualification](tools/map-factory/LIVE_INPUTS.md) records
+the source pins and protocol; [native findings](tools/map-factory/NATIVE_FINDINGS.md)
+separate the exact tested packages from resource-only updates. Put the `.crp`
 in the game's Maps folder (`%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Maps`,
 `~/Library/Application Support/Colossal Order/Cities_Skylines/Maps` or
 `~/.local/share/Colossal Order/Cities_Skylines/Maps`) and choose it under New Game.
