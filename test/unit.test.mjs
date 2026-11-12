@@ -4,8 +4,8 @@ import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { FACTORY_FILES, worldCoverFile } from "../mapgen.js";
-import { oceanMask } from "../inputs.js";
-import { CS1, PRESETS, waterwayTags } from "../terrain.js";
+import { oceanMask, carveSurfaceWater, CAPTURE } from "../inputs.js";
+import { CS1, PRESETS, waterwayTags, carveWater } from "../terrain.js";
 
 const root = new URL("../", import.meta.url).pathname;
 
@@ -48,6 +48,25 @@ test("ocean polygons fill by pixel centre, with holes", () => {
 test("waterway tags keep tunnels and intermittent streams, nothing else", () => {
   assert.deepEqual(waterwayTags({ class: "river", brunnel: "tunnel", intermittent: 0, name: "x" }), { brunnel: "tunnel", intermittent: 0 });
   assert.deepEqual(waterwayTags({ class: "river" }), {});
+});
+
+test("surface inputs never excavate a buried river, but retain bridges and surface crossings", () => {
+  const sq = { lon: 0, lat: 0, rotation: 0, scale: 1 };
+  const ground = new Float32Array(CS1.px ** 2).fill(100);
+  const tunnel = { name: "buried", brunnel: "tunnel", pts: [[0, -0.02], [0, 0.02]] };
+  const visible = { name: "crossing", brunnel: "bridge", intermittent: 1, pts: [[-0.02, 0], [0.02, 0]] };
+  const water = { rivers: [tunnel, visible], lakes: [], riverAreas: [] };
+  const before = structuredClone(water);
+  const actual = carveSurfaceWater(ground, sq, water);
+  const expected = carveWater(ground, sq, { ...water, rivers: [visible] },
+    { depth: CAPTURE.riverDepth, halfWidth: CAPTURE.riverHalfWidth, lakeDepth: CAPTURE.lakeDepth });
+  assert.deepEqual(actual, expected);
+  assert.deepEqual(water, before);
+  const at = (r, c) => actual.heights[r * CS1.px + c];
+  assert.equal(at(470, 540), 100); // buried reach, away from the crossing
+  assert.ok(at(540, 540) < 100); // actual surface crossing still carved
+  const unfiltered = carveWater(ground, sq, water);
+  assert.ok(unfiltered.heights[470 * CS1.px + 540] < 100); // original bug is exercised
 });
 
 test("presets with a failed game check say so; the others don't", () => {

@@ -13,6 +13,12 @@ import { CS1, sampleElevation, smooth, fetchBasemapWater, basemapTile, carveWate
 /** The capture's own settings, which the reference maps were made with (the page's defaults). */
 export const CAPTURE = { smoothing: 1, riverDepth: 10, riverHalfWidth: 40, lakeDepth: 4 };
 
+/** Surface earthworks only; keep the full source geometry for the writer and its audits. */
+export function carveSurfaceWater(ground, sq, water) {
+  return carveWater(ground, sq, { ...water, rivers: water.rivers.filter((r) => r.brunnel !== "tunnel") },
+    { depth: CAPTURE.riverDepth, halfWidth: CAPTURE.riverHalfWidth, lakeDepth: CAPTURE.lakeDepth });
+}
+
 /** Ocean polygons of one vector tile's water layer (capture-ocean.js oceanPolygons). */
 function oceanPolygons(feature, tile) {
   if (feature.properties.class !== "ocean") return [];
@@ -72,7 +78,7 @@ export async function captureInputs(sq, { signal, status = () => {}, about = {} 
   });
   status("Shaping the terrain");
   const sea = oceanMask(oceans, sq);
-  const carved = carveWater(ground, sq, water, { depth: CAPTURE.riverDepth, halfWidth: CAPTURE.riverHalfWidth, lakeDepth: CAPTURE.lakeDepth });
+  const carved = carveSurfaceWater(ground, sq, water);
   const fit = fitHeights(ground, carved.heights, { sea });
   const sources = waterSources(sq, water, carved, fit);
   const uncarved = fitHeights(ground, ground, { sea, verticalScale: fit.verticalScale });
