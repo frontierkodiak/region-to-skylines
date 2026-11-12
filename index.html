@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Region to Skylines</title>
-  <meta name="description" content="Pick any square of real terrain and download it as a Cities: Skylines 1 heightmap. Runs in your browser, no account or key.">
+  <meta name="description" content="Pick a square of real terrain and download it as a ready-to-play Cities: Skylines 1 map, with rivers already flowing, roads to the outside and real forests and farmland. Runs in your browser, no account or key.">
   <link rel="alternate" type="text/markdown" href="/agents.md" title="Instructions for AI agents">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="style.css">
@@ -71,88 +71,114 @@
         <span class="sw g25"></span> The base game lets you build on the middle 25 (<span id="t25">9.6 km</span> square), unlocked one at a time as the city grows;
         <span class="sw st"></span> you start on the centre tile.
         The <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a> mod opens all 81 (<span id="t81">17.28 km</span>), and can unlock them all at once.
-        The heightmap always covers all 81.
+        The map always covers all 81.
       </p>
 
       <dl id="stats"></dl>
 
-      <details id="play" open>
-        <summary>Make it buildable</summary>
-        <div class="playgrid">
-          <label>Smooth terrain
-            <select id="sm">
-              <option value="0">Off: raw elevation</option>
-              <option value="1">Light (16 m)</option>
-              <option value="2">Medium (32 m)</option>
-              <option value="4">Strong (64 m)</option>
-            </select>
-            <small>Removes survey and tile-seam noise that makes jagged slopes roads can't follow.</small>
-          </label>
-          <label>River depth
-            <select id="rd">
-              <option value="5">5 m</option>
-              <option value="10">10 m</option>
-              <option value="15">15 m</option>
-              <option value="20">20 m</option>
-            </select>
-            <small>Deeper beds hold water and keep it from spilling into the valley.</small>
-          </label>
-          <label>River width
-            <select id="rw">
-              <option value="24">~50 m</option>
-              <option value="40">~80 m</option>
-              <option value="64">~130 m</option>
-              <option value="96">~190 m</option>
-            </select>
-            <small>Wider channels flow more steadily; the game's water needs room to spread.</small>
-          </label>
-          <label>Lake depth
-            <select id="ld">
-              <option value="2">2 m</option>
-              <option value="4">4 m</option>
-              <option value="8">8 m</option>
-            </select>
-            <small>Lakes are sunk flat below their shore so a water source can fill them.</small>
-          </label>
-        </div>
-        <button id="resetplay" type="button" class="linkish">Reset to defaults</button>
-      </details>
-
-      <details id="water">
-        <summary>Water sources for the Map Editor</summary>
-        <p class="note">The heightmap carves the river and lake beds; for now the Map Editor adds the water. Suggested spots, numbered as on the <button id="dlwater" type="button" class="linkish" disabled>water map</button> (a picture of this map with the spots pinned); “left” and “top” are the heightmap's own sides as imported. Which way each river flows is read from the ground.</p>
-        <ol id="sources"><li>Waiting for rivers and lakes…</li></ol>
-      </details>
 
       <label class="namefield">Map name <input id="name" value="asheville" spellcheck="false"></label>
 
       <section id="agent">
         <button id="agentcopy" type="button">Copy instructions for your AI agent</button>
-        <p class="note">Have Claude Code, Codex or another agent with a terminal do the setup: paste what this copies. It links this square and the <a href="agents.md">agent instructions</a>; the agent runs one command that builds the same heightmap and puts it in the game's folder.</p>
+        <p class="note">Have Claude Code, Codex or another agent with a terminal do the setup: paste what this copies. It links this square and the <a href="agents.md">agent instructions</a>; the agent runs one command that builds the same map file this page does and puts it in the game's folder.</p>
         <textarea id="agentprompt" rows="6" readonly hidden aria-label="Instructions for your AI agent"></textarea>
       </section>
 
       <details id="howto" open>
         <summary>Put it in the game</summary>
         <ol>
-          <li>Save the PNG into the game's heightmap folder:
+          <li>Save the <code>.crp</code> map file into the game's Maps folder:
             <ul>
-              <li>Windows: <code>%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\MapEditor\Heightmaps</code></li>
-              <li>macOS: <code>~/Library/Application Support/Colossal Order/Cities_Skylines/Addons/MapEditor/Heightmaps</code></li>
-              <li>Linux: <code>~/.local/share/Colossal Order/Cities_Skylines/Addons/MapEditor/Heightmaps</code></li>
+              <li>Windows: <code>%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Maps</code></li>
+              <li>macOS: <code>~/Library/Application Support/Colossal Order/Cities_Skylines/Maps</code></li>
+              <li>Linux: <code>~/.local/share/Colossal Order/Cities_Skylines/Maps</code></li>
             </ul>
           </li>
-          <li>Start Cities: Skylines, open <b>Tools → Map Editor</b>, make a new map, and pick your file under <b>Import heightmap</b>.</li>
-          <li><b>Sea level.</b> Coastal maps: set it to the value under “Sea level in game” above. Inland maps: drag it below the lowest riverbed (under “In game” above) so the valleys stay dry.</li>
-          <li><b>Water sources.</b> Under Water, place one source on each dark blue pin (where a river enters or starts) and one in the middle of each lake (light blue pins); the numbered spots are listed under “Water sources for the Map Editor”, with a water map to download. Grey pins mark where a river leaves: put nothing there.</li>
-          <li><b>Starting tile.</b> It must have water and a highway in and out (Map Settings → Start Area moves it). Draw highways from the map edge along the real ones.</li>
-          <li>Playing with <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a>? Disable it before opening the Map Editor; the mod turns the editor off because it breaks saved maps.</li>
+          <li>Start Cities: Skylines, choose <b>New Game</b> and pick <b id="crpmapname">the map</b>.</li>
+          <li>That's all: the rivers already have water in them, a highway and a railway connect the starting tile to the outside, and there are trees, farmland, ore and oil. No Map Editor step.</li>
         </ol>
-        <p class="note">The file is 1081 x 1081 px, 16-bit greyscale, 17.28 km across, with black = 0 m and white = 1024 m. The lowest ground sits at 50 m so water has room below the land; when the relief is too tall for 1024 m, heights are squeezed to fit (shown under “Height”).</p>
+        <p class="note">Your browser builds the map file with the same map writer we test in the game. The first time, it downloads about 30 MB and takes about a minute. Trees and farmland come from <a href="https://esa-worldcover.org">ESA WorldCover</a> (CC BY 4.0), ore and oil from USGS mineral deposits where it has them. Tested with no mods; the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a> mod hasn't been tried.</p>
+      </details>
+
+      <details id="advanced">
+        <summary>Advanced: heightmap for the Map Editor</summary>
+        <p class="note">The heightmap is the terrain alone: a 1081 x 1081 px, 16-bit greyscale PNG, 17.28 km across, with black = 0 m and white = 1024 m. Use it to build your own map in the game's Map Editor, where you add the water, highways and start area yourself. The lowest ground sits at 50 m so water has room below the land; when the relief is too tall for 1024 m, heights are squeezed to fit (shown under &ldquo;Height&rdquo;).</p>
+        <div class="dlrow">
+          <button id="dlpng" type="button" class="secondary" disabled>Heightmap (.png)</button>
+          <button id="dljson" type="button" class="secondary" disabled title="Centre, rotation, scale, heights and water sources of this square">Details (.json)</button>
+          <button id="dlwater" type="button" class="secondary" disabled>Water map (.png)</button>
+        </div>
+        <details id="play">
+          <summary>Make it buildable</summary>
+          <p class="note">These shape the heightmap only. The ready-to-play map always uses the defaults.</p>
+          <div class="playgrid">
+            <label>Smooth terrain
+              <select id="sm">
+                <option value="0">Off: raw elevation</option>
+                <option value="1">Light (16 m)</option>
+                <option value="2">Medium (32 m)</option>
+                <option value="4">Strong (64 m)</option>
+              </select>
+              <small>Removes survey and tile-seam noise that makes jagged slopes roads can't follow.</small>
+            </label>
+            <label>River depth
+              <select id="rd">
+                <option value="5">5 m</option>
+                <option value="10">10 m</option>
+                <option value="15">15 m</option>
+                <option value="20">20 m</option>
+              </select>
+              <small>Deeper beds hold water and keep it from spilling into the valley.</small>
+            </label>
+            <label>River width
+              <select id="rw">
+                <option value="24">~50 m</option>
+                <option value="40">~80 m</option>
+                <option value="64">~130 m</option>
+                <option value="96">~190 m</option>
+              </select>
+              <small>Wider channels flow more steadily; the game's water needs room to spread.</small>
+            </label>
+            <label>Lake depth
+              <select id="ld">
+                <option value="2">2 m</option>
+                <option value="4">4 m</option>
+                <option value="8">8 m</option>
+              </select>
+              <small>Lakes are sunk flat below their shore so a water source can fill them.</small>
+            </label>
+          </div>
+          <button id="resetplay" type="button" class="linkish">Reset to defaults</button>
+        </details>
+
+        <details id="water">
+          <summary>Water sources for the Map Editor</summary>
+          <p class="note">The heightmap carves the river and lake beds, and in the Map Editor you add the water. Suggested spots, numbered as on the water map (a picture of this map with the spots pinned); “left” and “top” are the heightmap's own sides as imported. Which way each river flows is read from the ground.</p>
+          <ol id="sources"><li>Waiting for rivers and lakes…</li></ol>
+        </details>
+        <details id="editorhowto">
+          <summary>Put the heightmap in the game</summary>
+          <ol>
+            <li>Save the PNG into the game's heightmap folder:
+              <ul>
+                <li>Windows: <code>%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\MapEditor\Heightmaps</code></li>
+                <li>macOS: <code>~/Library/Application Support/Colossal Order/Cities_Skylines/Addons/MapEditor/Heightmaps</code></li>
+                <li>Linux: <code>~/.local/share/Colossal Order/Cities_Skylines/Addons/MapEditor/Heightmaps</code></li>
+              </ul>
+            </li>
+            <li>Start Cities: Skylines, open <b>Tools → Map Editor</b>, make a new map, and pick your file under <b>Import heightmap</b>.</li>
+            <li><b>Sea level.</b> Coastal maps: set it to the value under “Sea level in game” above. Inland maps: drag it below the lowest riverbed (under “In game” above) so the valleys stay dry.</li>
+            <li><b>Water sources.</b> Under Water, place one source on each dark blue pin (where a river enters or starts) and one in the middle of each lake (light blue pins); the numbered spots are listed under “Water sources for the Map Editor”, with a water map to download. Grey pins mark where a river leaves: put nothing there.</li>
+            <li><b>Starting tile.</b> It must have water and a highway in and out (Map Settings → Start Area moves it). Draw highways from the map edge along the real ones.</li>
+            <li>Playing with <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a>? Disable it before opening the Map Editor; the mod turns the editor off because it breaks saved maps.</li>
+          </ol>
+        </details>
       </details>
 
       <footer>
         Elevation: <a href="https://registry.opendata.aws/terrain-tiles/">Terrain Tiles</a> on AWS Open Data (Mapzen/Tilezen).
+        Land cover in the map file: ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium (<a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>). Ore and oil: <a href="https://mrdata.usgs.gov/mrds/">USGS MRDS</a> (public domain). The map writer runs on <a href="https://pyodide.org">Pyodide</a>.
         Rivers, lakes and basemap: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors (ODbL), served by <a href="https://openfreemap.org">OpenFreeMap</a> in the <a href="https://openmaptiles.org">OpenMapTiles</a> schema (© OpenMapTiles).
         Search: <a href="https://nominatim.org">Nominatim</a>, © OpenStreetMap contributors, used within the <a href="https://operations.osmfoundation.org/policies/nominatim/">usage policy</a> (search on Enter only, at most one per second).
         <details>
@@ -177,8 +203,8 @@
 
       <div class="download" id="dlbar">
         <div id="mapname">Loading…</div>
-        <button id="dl" disabled>Download heightmap</button>
-        <button id="dljson" class="secondary" disabled title="Centre, rotation, scale and heights of this square">.json</button>
+        <button id="dl" disabled>Download ready-to-play map</button>
+        <p id="crpnote" class="note" hidden></p>
       </div>
     </aside>
   </main>
