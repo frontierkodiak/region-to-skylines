@@ -47,6 +47,7 @@ export async function landCover({ py, web }, sq, { fromUrl, tileUrl, path = "/wo
   const headers = [], images = new Map();
   for (const tile of tiles) {
     const url = tileUrl(tile), probe = await fetch(url, { headers: { Range: "bytes=0-0" } });
+    await probe.body?.cancel(); // only the status matters; never stream a whole tile if a proxy ignores Range
     if (absent(probe.status)) { headers.push({ tile, missing: true }); continue; }
     if (!probe.ok) throw new Error(`land cover ${tile}: HTTP ${probe.status}`);
     const image = await (await fromUrl(url, { allowFullFile: false })).getImage();

@@ -1,10 +1,10 @@
 # Region to Cities: Skylines
 
 Pick a square of real terrain anywhere and download it as a ready-to-play Cities: Skylines
-(CS1) map: rivers already flowing, a highway and a railway to the outside, real forests,
-farmland, ore and oil, listed under New Game with no Map Editor step. The game's heightmap
-is there too, under "Advanced", for anyone who wants to build their own map in the Map
-Editor. It runs in your browser from open data, with no account or key, or from the command
+(CS1) map: rivers already flowing, a highway and a railway to the outside, real forests
+and farmland, plus ore and oil, listed under New Game with no Map Editor step. The game's
+heightmap is there too, under "Advanced", for anyone who wants to build their own map in
+the Map Editor. It runs in your browser from open data, with no account or key, or from the command
 line, where it can put the map straight into the game's folder.
 
 Live at <https://region-to-skylines.vercel.app>.

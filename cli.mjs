@@ -268,7 +268,7 @@ else {
   }
   console.log(`\nSame square on the web: ${link}`);
   console.log(crp
-    ? "Data: elevation from AWS Terrain Tiles (Mapzen); rivers, coast and roads © OpenStreetMap contributors (ODbL), via OpenFreeMap; land cover ESA WorldCover 2021 (CC BY 4.0); ore and oil USGS MRDS."
+    ? "Data: elevation from AWS Terrain Tiles (Mapzen); rivers, coast and roads © OpenStreetMap contributors (ODbL), via OpenFreeMap; land cover ESA WorldCover 2021 (CC BY 4.0); ore and oil from USGS MRDS where it has records, topped up to the game's usual share."
     : "Data: elevation from AWS Terrain Tiles (Mapzen); rivers and lakes © OpenStreetMap contributors (ODbL), via OpenFreeMap.");
 }
 // Pyodide can leave handles open; the work is done

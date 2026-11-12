@@ -18,8 +18,6 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-import numpy as np
-
 from prepare import pixel
 
 MRDS = "https://mrdata.usgs.gov/mrds/search-bbox.php?xmin={w}&ymin={s}&xmax={e}&ymax={n}&format=xml"
