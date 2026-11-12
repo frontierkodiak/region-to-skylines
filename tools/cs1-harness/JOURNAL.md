@@ -968,6 +968,29 @@ the save while the harness was still copying it in, and logged "failed to load
 (EndOfStreamException)" before loading it properly. The harness now copies to a
 hidden `.part` name and renames.
 
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · first live smoke of the merged harness
+
+After #8 and #28 (with #10) landed on `main`, a smoke from `main` through the
+queue (22:54–23:11 ET) ran three steps, all ending with empty cleanup:
+- a 3-minute soak of PL-848 Asheville with `--save-end`, which passed, with
+  ground truth and the opening camera passing and save `t003` written;
+- `--from-save` on that save, which passed, resuming at frame 213,264 with
+  `opening_camera`, `new_game_panel` and `startup_views` skipped;
+- `asset check` on PL-880's kit house: loaded, placed, saved and reloaded.
+
+Pointer parking ran on a real display for the first time: the centre
+(960, 540) at launch, and (40, 40) before the asset shots.
+
+The asset check's night-distant frame was judged blank, a false fail.
+`main`'s free-camera UI hide removed the toolbar that had lent every frame
+contrast, and a dark night view scored a grey std of 1.45, under the old
+threshold of 3. PL-880's identical frames had scored about 14. The blank test now
+uses the grey-level spread from the 0.1st to the 99.9th percentile, which is
+near 0 only for a frame with no content. A black hung-launch frame spans 1,
+this night view 12, and day frames 44–176. The nine earlier calibration runs
+still pass. `asset check` also writes `verdict.json`, triage and a registry
+line now, as `run` does; before, it wrote only `asset-check.json`.
+
 ## Run log
 
 Large map checks produced a single Markdown line containing thousands of dry

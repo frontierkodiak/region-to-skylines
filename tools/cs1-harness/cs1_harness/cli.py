@@ -643,9 +643,17 @@ def cmd_asset(cfg, a):
             ),
         )
     at = tuple(float(v) for v in a.at.split(",")) if a.at else None
-    return _session_tool(
+    rc = _session_tool(
         cfg, a, "asset-check", lambda d: d.check(a.crp.resolve(), a.map.resolve(), at, a.angle, a.load_timeout)
     )
+    out = a.out.resolve()
+    if (out / "asset-check.json").exists():
+        # Judge it like a map run: verdict.json, triage, and a registry line.
+        v = verdict_mod.judge(out)
+        log(verdict_mod.summary(v))
+        triage_mod.attach(out, cfg)
+        registry.add(out)
+    return rc
 
 
 def main(argv=None):

@@ -49,8 +49,11 @@ MAP_SOAK = {
     "reference_min_wet_cells": 100,
     # The run reached the minutes it asked for.
     "min_minutes_fraction": 0.99,
-    # A screenshot whose grey-level standard deviation is below this is blank.
-    "blank_shot_std": 3.0,
+    # A screenshot whose grey levels span less than this (0.1st to 99.9th percentile) is blank.
+    # Calibrated 2026-11-11: a black hung-launch frame spans 1; a dark night view with the UI
+    # hidden spans 12; day frames 44-176. (Grey std failed the night view at 1.45 once the
+    # toolbar, which had lent every frame contrast, was hidden.)
+    "blank_shot_spread": 6.0,
     # Clef frame-kind flags fail the run only when at least this share of shots
     # is flagged (systematic); fewer is a warning. Clef misread 1 of 19 frames.
     "clef_fail_fraction": 0.5,
@@ -61,7 +64,7 @@ MAP_SOAK = {
 
 # Asset placement (`cs1-harness asset check`).
 ASSET_CHECK = {
-    "blank_shot_std": 3.0,
+    "blank_shot_spread": 6.0,
     "max_triangles": 20000,  # far above PL-880's 420-triangle kit house; catches a runaway mesh
 }
 
@@ -99,10 +102,12 @@ def unexplained_errors(lines: list[str]) -> list[str]:
     return [line for line in lines if not any(p.search(line) for p in BENIGN_ERRORS)]
 
 
-def shot_std(path: pathlib.Path) -> float | None:
+def shot_spread(path: pathlib.Path) -> float | None:
+    """Grey-level spread, 0.1st to 99.9th percentile: near 0 only when the frame has no content."""
     try:
         with Image.open(path) as im:
-            return float(np.asarray(im.convert("L").resize((320, 180)), dtype=np.float32).std())
+            a = np.asarray(im.convert("L"), dtype=np.float32)
+        return float(np.percentile(a, 99.9) - np.percentile(a, 0.1))
     except (OSError, ValueError):
         return None
 
@@ -112,14 +117,14 @@ def shots_check(out: pathlib.Path, shots: list[dict], threshold: float) -> dict:
         return row("screenshots", "fail", 0, threshold, "the run took no screenshots")
     bad = []
     for s in shots:
-        std = shot_std(out / s["file"])
-        if std is None or std < threshold:
-            bad.append({"file": s["file"], "std": None if std is None else round(std, 2)})
+        spread = shot_spread(out / s["file"])
+        if spread is None or spread < threshold:
+            bad.append({"file": s["file"], "spread": None if spread is None else round(spread, 1)})
     return row(
         "screenshots",
         "fail" if bad else "pass",
         {"shots": len(shots), "blank_or_missing": bad},
-        f"grey std >= {threshold}",
+        f"grey-level spread >= {threshold}",
         "" if not bad else f"{len(bad)} blank or unreadable",
     )
 
@@ -529,7 +534,7 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
             )
         )
 
-    checks.append(shots_check(out, report.get("shots") or [], t["blank_shot_std"]))
+    checks.append(shots_check(out, report.get("shots") or [], t["blank_shot_spread"]))
 
     clef = report.get("clef")
     if clef and clef.get("available"):
@@ -726,7 +731,7 @@ def asset_check(out: pathlib.Path, doc: dict) -> list[dict]:
             after.get("name"),
         )
     )
-    checks.append(shots_check(out, r.get("shots") or [], t["blank_shot_std"]))
+    checks.append(shots_check(out, r.get("shots") or [], t["blank_shot_spread"]))
     checks += common(doc.get("session") or {}, r.get("errors") or [])
     return checks
 
