@@ -1,0 +1,101 @@
+{
+  "format": 1,
+  "template": "templates/native-corridors.crp",
+  "layout": "templates/native-corridors.json",
+  "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+  "native_template_origin": "PL-848 editor factory; region-to-skylines PR #1 at 4011a6b717e50bebd92f0b9caf8547a7a16e5c8c",
+  "status": "byte reference; native qualification tracked separately in NATIVE_FINDINGS.md",
+  "cases": [
+    {
+      "slug": "asheville",
+      "expected_crp_sha256": "3013a635f7a1de8ff4bbe437a801f61cbaef7bedf16bf8ffee9945ec1e886b15",
+      "expected_crp_bytes": 6234037,
+      "prepared_sha256": {
+        "terrain.u16": "47157796329c8e6ab0c279a26ce06729492ec6221e0bb081aa892bdd09bec8b1",
+        "water.u16": "124873aa5e44576ce05bfaa0f9ae035c0f12620d9c0ec93adbc4cc9543f352e9"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "966dfeae9c4e2a0e07d66a33fee61e447a6d8eba3927d501cfc4638b7d930759",
+        "geometry.json.gz": "0ccfa008590ebd1f023bce86dd5a84a1ac9038a06db8d1a829bf7de943b423af",
+        "hydrology.json.gz": "0a00547a6915481ff8f4ce9e6e2529544d32d3002ced456fbaefeb7430e34c93",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "terrain.u16.gz": "ddf79eecef80c25b0fdd2f3d53a5e7187cc9857471f71d9270718cab51a4fa53",
+        "water.u16.gz": "7f5a0edc3361a6f5fa3f55dbdb95a6f288ac4aa585412d0df2ca6bb6032f0696",
+        "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16"
+      },
+      "expected_simulation_sha256": "44b6108da92655978601a567e2f830ebcffb2a535db5e3120ffdd66cac646a74"
+    },
+    {
+      "slug": "innsbruck",
+      "expected_crp_sha256": "e0aabe7d0de9195ce0b8af9205fe6c5d8b257abf3330fe1ebeff9c2372f519e3",
+      "expected_crp_bytes": 5449042,
+      "prepared_sha256": {
+        "terrain.u16": "30ba2875fa7553f9a6e4413e16a7e00e5ef92cfc7e027da1fd1d468d5b7b3b0f",
+        "water.u16": "655fb67cf219bb29404850cb632a80a667a06e60835caaccc581fe81f5ce77fd"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "5d059f367290ae30c7f01930899dcdff634d2bf4b766507522dd882c9df25180",
+        "geometry.json.gz": "af09d9b6d0a9a3b0ce1a5289f71885a46224248f4ac1b1153582217119962841",
+        "hydrology.json.gz": "eb13b373c7b8fbdfc5700974f031c3b1e0cbdfaf2883eb1ed439b4f5d83345d0",
+        "input.png": "e34c7ba4eaa1969cdd89deb1f04140a7ede6696fef19c90c69ea35d38aef9aed",
+        "terrain.u16.gz": "20d14aba48fa39acef82b6aa6728454f86fe34f33b78a0754ae9735ff6c0927a",
+        "water.u16.gz": "fc32c65f501e7863b54228630f30800c2b08fa524ff10cddcf0a8e255ac394f0"
+      },
+      "expected_simulation_sha256": "4cd09ddf40eb069f5bedc42e191839be61a19db85042c7d1cf0d86e389911e79"
+    },
+    {
+      "slug": "rio",
+      "expected_crp_sha256": "e1844ef2fc5bffb240eea860739c18f93d8e176aa1eacf345ba63b249e24e7bd",
+      "expected_crp_bytes": 5035065,
+      "prepared_sha256": {
+        "terrain.u16": "76bc7dd41f787b0cad816de49b134a5ae1fabf4e8d8bff710a0a927ed193b65a",
+        "water.u16": "c5aa15753c6a408f7f5b6869e1b65ae9d832b691976a66b3f8ca6139ce2de7f5"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "fc0e9e25c7d30bbc203f9609c48869684fe7ad31efc9b0c1f7d333071fe170a5",
+        "geometry.json.gz": "a89d5161f212847338646db53777d8a8e0b82ab0d746c69d6f95511f6c73d874",
+        "hydrology.json.gz": "c392b7e2f6d1ecfbb141abd859880b491f5bd0a2f8e77a6e6b9098d7bdc9ff81",
+        "input.png": "c9aa38db952dc0032da692516bdf5f427bc5bfab2d77abdf315a3a488f43a861",
+        "terrain.u16.gz": "2892a2ac58ecbf133afffc84a1405651547d2b8c59e0bac36ffc74a50bc8dd9c",
+        "water.u16.gz": "cdd4f834453a2ea78af70b3610c318de01e77fe21787a6278a909b8ecb15b218"
+      },
+      "expected_simulation_sha256": "e7ef165ffa237c24459923090f3aca0413259475b658fe41eb9ab73202028f16"
+    },
+    {
+      "slug": "pittsburgh",
+      "expected_crp_sha256": "977417101adaeb20e81eae502cf314997c45aa5e6a0d7478bfea6b814cfc28ce",
+      "expected_crp_bytes": 5533372,
+      "prepared_sha256": {
+        "terrain.u16": "cddada60d40c9781d54d50911d51d5bd0822edd3fcbf446e615d620bc685157c",
+        "water.u16": "fa02ae845361076bb6ae80734760b1b3aa703912496c76a75377265672ecb682"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "0a9ee248b8257dd27d38843746c0fd4b52e044587cdbc2f124ad0de393f1b4d2",
+        "geometry.json.gz": "eb79d1197fedae3e51bceb232b89233e529c09125ae29327e3563112d83d9215",
+        "hydrology.json.gz": "0be686ed2ef37d08f118c26ea99f2aa21bb79564aa03251ded28b96c41a8391d",
+        "input.png": "8721f6dd69d672a4b5893fd0b72d465a2b20b265790b486893a8a229a3b72385",
+        "terrain.u16.gz": "5ec7c57009c2c2ddef785ec8fd5904fd78c40ead9f83eada83f56b51aa7c2fd2",
+        "water.u16.gz": "73ae8466698eea955f5e7727d87e049f6879ddc67a41d05cda18502ec5061fd9"
+      },
+      "expected_simulation_sha256": "e5519a92dea13c35c6d95ddbd306e7e85a6b4d387f0c23e1a57ac2b8a1556bd9"
+    },
+    {
+      "slug": "charleston",
+      "expected_crp_sha256": "8c4993bfbf0b6f8b91e455634c0c804b99875d306dac12d3556cc56308163aa8",
+      "expected_crp_bytes": 4231230,
+      "prepared_sha256": {
+        "terrain.u16": "bcc22e5a96f1509548047c46b496c2995d89c8528acedac5f9fc16391d775302",
+        "water.u16": "fee3a17c6d204cf09c60ad975254848c2536dbbf242526b9c73abb65c00e29c4"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "934d85fc00eac42d297c020f664ed56c53da57d9c89ddabec83881400d7dbad5",
+        "geometry.json.gz": "b0cc1feabd085f3b4beb2880828a4e23d2328bf9bae10ea729901b55ff950c0f",
+        "hydrology.json.gz": "83d3a4fa35cbc2c0ed366be931cd05a934ae66571f9d15e94df57654dfe9ec08",
+        "input.png": "03a5eea8a8c14c0de7fc8416ad1630421da3735892467c3740d79b241b92479b",
+        "terrain.u16.gz": "f3fb5f1bb1218034ff0bcff04e1d1cd99ccde8728e70cd8735ee642a03df6136",
+        "water.u16.gz": "56327c36fbfc618e18bac3d4f89537467a21717f48086bb7d01e0aa549255676"
+      },
+      "expected_simulation_sha256": "919c9390c9d9a71eb35beffc4f0c1e25f4c093198153d1c24165bd3f130035c8"
+    }
+  ]
+}
