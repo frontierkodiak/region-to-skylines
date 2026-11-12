@@ -152,6 +152,12 @@ and [pbf](https://github.com/mapbox/pbf) (BSD-3-Clause), loaded from unpkg and j
 Cities: Skylines is a trademark of Paradox Interactive; this project is not
 affiliated with Paradox Interactive or Colossal Order.
 
+## Experimental building assets
+
+The [Asheville building bake-off](tools/assets/bakeoff/README.md) compares
+procedural, image-to-3D and hybrid authoring inputs. It is a separate pre-bridge
+experiment: Blender previews and FBX checks are not a game-tested asset pack.
+
 ## Licence
 
 The code is MIT licensed; see [LICENSE](LICENSE). The data it fetches keeps its

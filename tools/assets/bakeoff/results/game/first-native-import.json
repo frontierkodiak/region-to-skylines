@@ -1,0 +1,38 @@
+{
+  "harness_revision": "95c3206",
+  "input": "A-bungalow (original study unchanged)",
+  "status": "failed before save",
+  "error": "asset_build failed: Exception: imported mesh is 11.40 x 22.90 x 15.54 m (x, y up, z); expected 11.40 x 6.90 x 15.54",
+  "imported_mesh": {
+    "name": "A-bungalow",
+    "vertices": 1438,
+    "triangles": 716,
+    "min": [
+      -5.699999809265137,
+      -16,
+      -6.40000057220459
+    ],
+    "max": [
+      5.699999809265137,
+      6.899999618530273,
+      9.140000343322754
+    ],
+    "size": [
+      11.399999618530273,
+      22.899999618530273,
+      15.540000915527344
+    ]
+  },
+  "source_main_triangles": 708,
+  "source_size_blender_m": [
+    11.4,
+    15.54,
+    6.9
+  ],
+  "receipt_sha256": "1f0f09b0e4cc9d45bfad6a208669f55393a31ab3654a00ffcea862e9f9bb2e30",
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  }
+}

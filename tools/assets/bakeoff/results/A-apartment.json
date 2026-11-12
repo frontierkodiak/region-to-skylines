@@ -1,0 +1,90 @@
+{
+  "method": "A",
+  "target": "apartment",
+  "main": {
+    "triangles": 1000,
+    "vertices": 672,
+    "bounds_m": [
+      [
+        -14.300000190734863,
+        -7.050000190734863,
+        0.0
+      ],
+      [
+        14.300000190734863,
+        5.400000095367432,
+        8.300000190734863
+      ]
+    ],
+    "uv_range": [
+      0.009398269467055798,
+      0.9906018376350403
+    ],
+    "dimensions_m": [
+      28.600000381469727,
+      12.450000286102295,
+      8.300000190734863
+    ]
+  },
+  "lod": {
+    "triangles": 68,
+    "vertices": 48,
+    "bounds_m": [
+      [
+        -14.300000190734863,
+        -7.0,
+        0.0
+      ],
+      [
+        14.300000190734863,
+        5.400000095367432,
+        8.300000190734863
+      ]
+    ],
+    "uv_range": [
+      0.005918060429394245,
+      0.9940819144248962
+    ],
+    "dimensions_m": [
+      28.600000381469727,
+      12.400000095367432,
+      8.300000190734863
+    ]
+  },
+  "spec": {
+    "size": [
+      28.0,
+      10.0,
+      8.3
+    ],
+    "lot": [
+      4,
+      3
+    ],
+    "budget": 12000,
+    "lod": 240
+  },
+  "generation_seconds": 0.8339242080110125,
+  "normalization": null,
+  "normal_map": "flat neutral tangent-space +X +Y; no invented relief",
+  "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
+  "render_seconds": 8.449989082990214,
+  "files": {
+    "A-apartment_lod.fbx": "10f98ab943f3e526be3e747523743d2bb997ea81a39a99317eecfa8f12662064",
+    "A-apartment.fbx": "17c155d05024f8ab1b9ddace50d75413c34b80ae481ba6eea011d26c5b346d18",
+    "A-apartment_i.png": "219c150d707c9e764a35d354d53b0c05730b08fd9b3c4ea838232bb2f7ae6c02",
+    "A-apartment_lod_c.png": "b49e4dfc01c6b24517e3f130a580faecb86406c9445201936958935018302a28",
+    "A-apartment_lod_d.png": "02015c88bcae97eaea14d0c9d9b848c3977771af8c41af41b303248856fd9721",
+    "A-apartment_lod_s.png": "bc05ceedd2e30ce944b88ba1bd4ecd628de5c81c43453760d8dd8c06193b6c20",
+    "gameplay.png": "82ab400160f989552f60a38df387421ba6f591630e1de35856b54c8020a1b751",
+    "A-apartment_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "A-apartment_c.png": "6292e1159aedcdde18656d9b3fa18134ae242932a873b1a756ca75461c0aee05",
+    "A-apartment_lod_i.png": "54459b622d39e847594c7fce7c957fa2fbc5d1e81341477a5454189ec1b410cd",
+    "A-apartment_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+    "A-apartment_d.png": "08609c2737d88c22cf4f7e35647e99220c69a5729e0ea830f1bf411c155595d0",
+    "A-apartment_s.png": "e3813513421850628d4a467837dd48eb660f64b7f6ae8606e2fda7717448571b",
+    "lod.png": "02e7c19897530f4d59e602d90d06efe6c212bbf08e476c815175cd41b7d64846",
+    "night.png": "8be483e6143ccd48a99cfd750d9eae75345837122e926275b614b375b6360cc4",
+    "close.png": "1b33a1c89889d3243b5489d850b5d865668571634bb72d947f982b413772120f"
+  }
+}

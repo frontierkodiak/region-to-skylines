@@ -1,0 +1,47 @@
+[project]
+name = "trellis-runtime"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "cumesh",
+    "easydict>=1.14",
+    "flex-gemm",
+    "huggingface-hub<1",
+    "imageio>=2.38.1",
+    "imageio-ffmpeg>=0.8.1",
+    "kornia>=0.9.0",
+    "lpips>=0.1.4",
+    "ninja>=1.13.2",
+    "numpy<2",
+    "nvdiffrast",
+    "o-voxel",
+    "opencv-python-headless>=4.11.0.86",
+    "pandas>=2.3.3",
+    "pillow>=13.0.0",
+    "pybind11>=3.1.0",
+    "safetensors>=0.8.0",
+    "scipy>=1.17.1",
+    "setuptools>=84.2.1",
+    "tensorboard>=2.21.0",
+    "timm>=1.0.31",
+    "torch==2.6.0",
+    "torchvision==0.21.0",
+    "transformers==4.57.3",
+    "utils3d",
+    "wheel>=0.48.0",
+    "xformers==0.0.29.post3",
+    "zstandard>=0.25.0",
+]
+
+[tool.uv.sources]
+utils3d = { git = "https://github.com/EasternJournalist/utils3d.git", rev = "9a4eb15e4021b67b12c460c7057d642626897ec8" }
+cumesh = { path = "../CuMesh" }
+nvdiffrast = { path = "../nvdiffrast" }
+flex-gemm = { path = "../FlexGEMM" }
+o-voxel = { path = "../TRELLIS.2/o-voxel" }
+
+[tool.uv]
+override-dependencies = [
+  "cumesh @ file:///mango/training/experiments/PL-881-assets/CuMesh",
+  "flex-gemm @ file:///mango/training/experiments/PL-881-assets/FlexGEMM",
+]

@@ -1,0 +1,90 @@
+{
+  "method": "A",
+  "target": "bungalow",
+  "main": {
+    "triangles": 708,
+    "vertices": 474,
+    "bounds_m": [
+      [
+        -5.699999809265137,
+        -9.140000343322754,
+        0.0
+      ],
+      [
+        5.699999809265137,
+        6.400000095367432,
+        6.900000095367432
+      ]
+    ],
+    "uv_range": [
+      0.009172795340418816,
+      0.990827202796936
+    ],
+    "dimensions_m": [
+      11.399999618530273,
+      15.540000438690186,
+      6.900000095367432
+    ]
+  },
+  "lod": {
+    "triangles": 96,
+    "vertices": 66,
+    "bounds_m": [
+      [
+        -5.699999809265137,
+        -8.350000381469727,
+        0.0
+      ],
+      [
+        5.699999809265137,
+        6.400000095367432,
+        6.900000095367432
+      ]
+    ],
+    "uv_range": [
+      0.006951638497412205,
+      0.9930483102798462
+    ],
+    "dimensions_m": [
+      11.399999618530273,
+      14.750000476837158,
+      6.900000095367432
+    ]
+  },
+  "spec": {
+    "size": [
+      10.5,
+      12.0,
+      7.0
+    ],
+    "lot": [
+      2,
+      3
+    ],
+    "budget": 6000,
+    "lod": 180
+  },
+  "generation_seconds": 0.9028971660300158,
+  "normalization": null,
+  "normal_map": "flat neutral tangent-space +X +Y; no invented relief",
+  "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
+  "render_seconds": 10.107128708972596,
+  "files": {
+    "A-bungalow_lod_c.png": "c0a08baf49d8537f09a8d4a710287ec6e495da8bbb1de422f8a93906e398f39b",
+    "A-bungalow_lod_s.png": "ebb1e1a6a1c91b4f467fb8dca9ea057edd11f186bd2535a39a04959188edca87",
+    "A-bungalow_lod_d.png": "a5b573d50e40a71129787527a6db35556468402c9b202a3bf3e4935d0cda0637",
+    "A-bungalow.fbx": "dfcb91c53dc88b78ed39e8adbffbce737fa1273e66462b2e2f2b5621eef61ca8",
+    "A-bungalow_c.png": "03f72c58baa7c13fa1e682500e2a8ec18dea78a38d1fd06d4e170bee711ef5fc",
+    "gameplay.png": "e2cf9e9ccb73d57c8a7581ba671996c1db8b37d12f0d4114864e21fe7454a21c",
+    "A-bungalow_d.png": "e5dd86b9baf86b3247615c168ba9276532be8a9d32c9ddcb6cb69bb175a9b8aa",
+    "A-bungalow_s.png": "3bc9aef3c2b9336a1f511a533b7bf23c907954fef3c19d4e3546bcb8e9d9ca98",
+    "A-bungalow_i.png": "086872c48dcc85735e978f253b1a0ca66c05f48309f81246e14c725cda2d09f9",
+    "A-bungalow_lod.fbx": "2eedac8af8faba146c0b8af9c1bc217251b3c6eed0ce9c5ec8b54b3f31576ef1",
+    "A-bungalow_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "A-bungalow_lod_i.png": "144aa4ef33f342c26642246febeebac25e81957712330462452d28d4e0dd80a8",
+    "lod.png": "31b0524d0eb94e01d4bca34fc733e9ccd48326a820de7cfc0ded1637bf236331",
+    "night.png": "b96c57f4c1e968cf645ab12660a5c3e9b07ec654d81d3d4eccede3ef828bea61",
+    "A-bungalow_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+    "close.png": "df467dcf0c651d77a94da8c2b33672319841f23fb67d7eb0333bc0b7c16382a7"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "method": "C",
+  "target": "storefront",
+  "main": {
+    "triangles": 720,
+    "vertices": 480,
+    "bounds_m": [
+      [
+        -4.099999904632568,
+        -8.550000190734863,
+        0.0
+      ],
+      [
+        4.191500186920166,
+        7.5,
+        11.399999618530273
+      ]
+    ],
+    "uv_range": [
+      0.009276455268263817,
+      0.9907236099243164
+    ],
+    "dimensions_m": [
+      8.291500091552734,
+      16.050000190734863,
+      11.399999618530273
+    ]
+  },
+  "lod": {
+    "triangles": 72,
+    "vertices": 48,
+    "bounds_m": [
+      [
+        -4.0,
+        -7.5,
+        0.0
+      ],
+      [
+        4.0,
+        7.5,
+        11.300000190734863
+      ]
+    ],
+    "uv_range": [
+      0.004929861519485712,
+      0.995070219039917
+    ],
+    "dimensions_m": [
+      8.0,
+      15.0,
+      11.300000190734863
+    ]
+  },
+  "spec": {
+    "size": [
+      8.0,
+      15.0,
+      11.3
+    ],
+    "lot": [
+      2,
+      3
+    ],
+    "budget": 8000,
+    "lod": 180
+  },
+  "generation_seconds": 0.8939549999777228,
+  "normalization": null,
+  "normal_map": "flat neutral tangent-space +X +Y; no invented relief",
+  "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
+  "render_seconds": 9.819151790987235,
+  "files": {
+    "C-storefront_c.png": "9ad1e6308238c87e0e741dee3ebf0577fb066ef2328d90c2356357afbad68b16",
+    "C-storefront_lod_i.png": "676b078068d57dd265c476701503ca3718d8cc3be68682d835668b68991b93fa",
+    "C-storefront_s.png": "94d69c906960a101f9ceeec0fe6c928fc2764f106578bc06de8b1cf1236267e8",
+    "C-storefront_d.png": "de72067f9e353094fb5c816732c376a40fa44a599c624a5edfe093b8329d997e",
+    "C-storefront_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+    "C-storefront_lod.fbx": "8a643d910679478c1a65eb8fd15e6666d4c5af5f21b388443bb9a69a39bb9acf",
+    "gameplay.png": "a11c11e34f917c3d09e6d5650a7770f14614b58ecb0a54ed77e1ce36ed65e869",
+    "C-storefront_lod_c.png": "0a31e97c3e0454fb31e04dbfb530690431831c57ffc7c6c9a2a72caf90f3d545",
+    "lod.png": "3202c1c3b6d903f7f3bc366f0653d5254507d9d6e12fee46e2d5bf1be40b4b6f",
+    "C-storefront_i.png": "b1ddbf8114552ebae6df762df2c4d6eef2e643e0229979c2a5552df9e1bd3d19",
+    "night.png": "3350558d74cd6ecb86efded0272f59b26d089c6f4043df9187b49bdf3dc7d5c7",
+    "C-storefront.fbx": "dd14a2c352a0ffaa9c198df1fbd096d46b9c50044d715d881b41adb094dcaaee",
+    "C-storefront_lod_d.png": "3e5721cf36e33e334c4ea3308b5052eab09516c371a90cb8164ac363b19dfd70",
+    "C-storefront_lod_s.png": "c85b11525737945abf930e7975eace7ca606e4fb86915edefe3aa644016913f3",
+    "C-storefront_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "close.png": "a53bb70df9eea8cfa7cb5ef1ebaedfd8b4b553c6596ce486af5cc7eaeb61d3d4"
+  }
+}

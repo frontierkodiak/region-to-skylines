@@ -1,0 +1,176 @@
+{
+  "source_revision": "82336461fec711a70e3fbba40987e1805af668d4",
+  "assets": [
+    {
+      "name": "A-bungalow",
+      "files": {
+        "A-bungalow.bake.json": "279e577748f875f232715e04086d728287131c9b6fe3391be64fd94abdec8c1e",
+        "A-bungalow.fbx": "721160d0b6309357db0e2107e6651a2b1b2826722efa7060d1625f12d77991af",
+        "A-bungalow_c.png": "03f72c58baa7c13fa1e682500e2a8ec18dea78a38d1fd06d4e170bee711ef5fc",
+        "A-bungalow_d.png": "e5dd86b9baf86b3247615c168ba9276532be8a9d32c9ddcb6cb69bb175a9b8aa",
+        "A-bungalow_i.png": "086872c48dcc85735e978f253b1a0ca66c05f48309f81246e14c725cda2d09f9",
+        "A-bungalow_lod.fbx": "8a31b88ccd6dedb4ffea58bea40fef75d607b2f456761dbe39454f55b66ba92f",
+        "A-bungalow_lod_c.png": "c0a08baf49d8537f09a8d4a710287ec6e495da8bbb1de422f8a93906e398f39b",
+        "A-bungalow_lod_d.png": "a5b573d50e40a71129787527a6db35556468402c9b202a3bf3e4935d0cda0637",
+        "A-bungalow_lod_i.png": "144aa4ef33f342c26642246febeebac25e81957712330462452d28d4e0dd80a8",
+        "A-bungalow_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "A-bungalow_lod_s.png": "ebb1e1a6a1c91b4f467fb8dca9ea057edd11f186bd2535a39a04959188edca87",
+        "A-bungalow_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "A-bungalow_s.png": "3bc9aef3c2b9336a1f511a533b7bf23c907954fef3c19d4e3546bcb8e9d9ca98",
+        "receipt.json": "fe2db3585cf93b90b2596694c885db6e868a89c7ac82e0fd3cefed89b9d0f2ca"
+      }
+    },
+    {
+      "name": "A-storefront",
+      "files": {
+        "A-storefront.bake.json": "a0ecf60c3ffced9ca9138dd23a26305829b73d105b7180ff9033681daca43e69",
+        "A-storefront.fbx": "f067f471282e934662c4b22c9387991c47b88dc759f7bfe6bd88100066f7d189",
+        "A-storefront_c.png": "9ad1e6308238c87e0e741dee3ebf0577fb066ef2328d90c2356357afbad68b16",
+        "A-storefront_d.png": "fdee33c0509d7e6ef6da6236c6d1462492989347d7b9b85e09077e9f69d22523",
+        "A-storefront_i.png": "b1ddbf8114552ebae6df762df2c4d6eef2e643e0229979c2a5552df9e1bd3d19",
+        "A-storefront_lod.fbx": "22d212f53654393768a844e908662787a82a95fe04312cc6fc1ebea6db051044",
+        "A-storefront_lod_c.png": "0a31e97c3e0454fb31e04dbfb530690431831c57ffc7c6c9a2a72caf90f3d545",
+        "A-storefront_lod_d.png": "73182f0affd59d5918f3df17d019b6e34d62a8455f51996dc290e2b411eaa784",
+        "A-storefront_lod_i.png": "676b078068d57dd265c476701503ca3718d8cc3be68682d835668b68991b93fa",
+        "A-storefront_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "A-storefront_lod_s.png": "c85b11525737945abf930e7975eace7ca606e4fb86915edefe3aa644016913f3",
+        "A-storefront_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "A-storefront_s.png": "94d69c906960a101f9ceeec0fe6c928fc2764f106578bc06de8b1cf1236267e8",
+        "receipt.json": "82f019f5743ccb2311e246dfa62c0a9ecc66218389e928cbb6b6a28198eb208a"
+      }
+    },
+    {
+      "name": "A-apartment",
+      "files": {
+        "A-apartment.bake.json": "1ed38485515a5e05c047180cc06b333e00aa19af767c59d3111a88cf8796a977",
+        "A-apartment.fbx": "2bedf76bb4f4137e1a38fa8fe5f7fc30d4482333802e78dfaf2ff5ad0a74b2fa",
+        "A-apartment_c.png": "6292e1159aedcdde18656d9b3fa18134ae242932a873b1a756ca75461c0aee05",
+        "A-apartment_d.png": "08609c2737d88c22cf4f7e35647e99220c69a5729e0ea830f1bf411c155595d0",
+        "A-apartment_i.png": "219c150d707c9e764a35d354d53b0c05730b08fd9b3c4ea838232bb2f7ae6c02",
+        "A-apartment_lod.fbx": "bfdfd539fdd085f522c295da59c70ef8497de05958d6d8b36b76c4a48c84a000",
+        "A-apartment_lod_c.png": "b49e4dfc01c6b24517e3f130a580faecb86406c9445201936958935018302a28",
+        "A-apartment_lod_d.png": "02015c88bcae97eaea14d0c9d9b848c3977771af8c41af41b303248856fd9721",
+        "A-apartment_lod_i.png": "54459b622d39e847594c7fce7c957fa2fbc5d1e81341477a5454189ec1b410cd",
+        "A-apartment_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "A-apartment_lod_s.png": "bc05ceedd2e30ce944b88ba1bd4ecd628de5c81c43453760d8dd8c06193b6c20",
+        "A-apartment_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "A-apartment_s.png": "e3813513421850628d4a467837dd48eb660f64b7f6ae8606e2fda7717448571b",
+        "receipt.json": "c3495160c9a1a00ddec16aa38c87c893d103a9f546cd84118be5837e9c50c3e1"
+      }
+    },
+    {
+      "name": "B-bungalow",
+      "files": {
+        "B-bungalow.bake.json": "652b5fc475895746638c3b064a96e62b623987fea4bd0fcc18a5bf4faa58ca9f",
+        "B-bungalow.fbx": "c30b1b61e85c3b4f1275570e0c62480c1f00da1dce7801411c2ad3137fe390cb",
+        "B-bungalow_c.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+        "B-bungalow_d.png": "737048627d73c8abd735cddd13b27026a5a8f0a2ca61aa61ac4fa27735a9f801",
+        "B-bungalow_i.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+        "B-bungalow_lod.fbx": "a4809e3de7d9d01ce212a78b9b1e9de0d9497db6b90dc71d5303bb4cad6acc78",
+        "B-bungalow_lod_c.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+        "B-bungalow_lod_d.png": "3dda5efb77217c997a9f3713a8c15a3ba935c922b88db38e6434e2f560e6c66e",
+        "B-bungalow_lod_i.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+        "B-bungalow_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "B-bungalow_lod_s.png": "9f6fc281f2005430a502efd4016520c9bbf5f1d7f5fab6ed17490fc869dde566",
+        "B-bungalow_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "B-bungalow_s.png": "629f42c476adbf07a5623cf4f2aaf1983592966080dca74ca77fcb9096d4c783",
+        "receipt.json": "236effb745b0d03302569e6abf94a0ec462acc186db82fdfda92dbf14b70af91"
+      }
+    },
+    {
+      "name": "B-storefront",
+      "files": {
+        "B-storefront.bake.json": "d8d565f72ca11ef8f0be4b8bf79ba6fc4e4de564b048a8bb8b555bcc7884f4bf",
+        "B-storefront.fbx": "786c0ac2047f088836139d2b428f288aba3583c6022bee64b42aa4678cef03c2",
+        "B-storefront_c.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+        "B-storefront_d.png": "fc541cb8e053c2709ced50956d3e1ae7ba0a0aeaaaacc0012c00560b69536cf6",
+        "B-storefront_i.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+        "B-storefront_lod.fbx": "de8a45b4d319c6ed68208419cbeb8aea7bb720d171b08455f0ad01a1c7bb3d0f",
+        "B-storefront_lod_c.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+        "B-storefront_lod_d.png": "da16de12d24ff9f59eab6c1d938b6db1ca40e874b195577e070870fde0bb187a",
+        "B-storefront_lod_i.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+        "B-storefront_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "B-storefront_lod_s.png": "88cf39aff3a14806b194e39d749d385acb7c9aede04b6c10392597b8b7219f08",
+        "B-storefront_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "B-storefront_s.png": "945ec2a5ef46761cca3285d8da0d68db6f0ed872ad05ba608f8f0cf173d5aec2",
+        "receipt.json": "535e96922ba2bb866f148d5240608ba60be11dd772baebd165ad975e1b02848f"
+      }
+    },
+    {
+      "name": "B-apartment",
+      "files": {
+        "B-apartment.bake.json": "10dff9bd5d68b73917fd3983b8e5fd8887a51ea34891e30713a5dae28fb59a4e",
+        "B-apartment.fbx": "012721e8311c8a1c0548aeec972e38434c684ac1a450f80a7026d31ef6b470e7",
+        "B-apartment_c.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+        "B-apartment_d.png": "32b0f2bec05d6ad546071f940b58a05f653075c3f89c9022049f30615e744eaa",
+        "B-apartment_i.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+        "B-apartment_lod.fbx": "8a48c1562022f45c2a15a2be20cf8a3816dc680fdd92f3b913fcc84e8441e9ee",
+        "B-apartment_lod_c.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+        "B-apartment_lod_d.png": "e609ea09d35592f5bdb78448333a5d39b011e42a163360116fec39f5d7cc7d25",
+        "B-apartment_lod_i.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+        "B-apartment_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "B-apartment_lod_s.png": "8817134d8f92dad3000880924c28f8db480f09619ad3682cf1fcfa8572f7fa9b",
+        "B-apartment_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "B-apartment_s.png": "5bddc8a2bc781e91ed2ad32963e44e1e834236366ea3360476c1a592479d3179",
+        "receipt.json": "a371539f0ae38e25c23926824777ce85878208129b566740c573a5cc8dff79d0"
+      }
+    },
+    {
+      "name": "C-bungalow",
+      "files": {
+        "C-bungalow.bake.json": "279e577748f875f232715e04086d728287131c9b6fe3391be64fd94abdec8c1e",
+        "C-bungalow.fbx": "2ef70a57d6b103c98eba09ce682167db4d8ddeac1b717a511c8c9d814fd02b0c",
+        "C-bungalow_c.png": "03f72c58baa7c13fa1e682500e2a8ec18dea78a38d1fd06d4e170bee711ef5fc",
+        "C-bungalow_d.png": "23e4e6274eefade11326be24ae9117863d803a36a60d2089b0bc4b1c75d21020",
+        "C-bungalow_i.png": "086872c48dcc85735e978f253b1a0ca66c05f48309f81246e14c725cda2d09f9",
+        "C-bungalow_lod.fbx": "e236d8463602f57de505baf66ed72acc780827502e29fb016b4ca2efd90ea999",
+        "C-bungalow_lod_c.png": "c0a08baf49d8537f09a8d4a710287ec6e495da8bbb1de422f8a93906e398f39b",
+        "C-bungalow_lod_d.png": "2df790583e62e78327dee27f79869f46476029c38b256d4631051567060b9995",
+        "C-bungalow_lod_i.png": "144aa4ef33f342c26642246febeebac25e81957712330462452d28d4e0dd80a8",
+        "C-bungalow_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "C-bungalow_lod_s.png": "ebb1e1a6a1c91b4f467fb8dca9ea057edd11f186bd2535a39a04959188edca87",
+        "C-bungalow_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "C-bungalow_s.png": "3bc9aef3c2b9336a1f511a533b7bf23c907954fef3c19d4e3546bcb8e9d9ca98",
+        "receipt.json": "411d7b4b2c4806d0598f05355435dd16666014065d03215a756a481cca404b40"
+      }
+    },
+    {
+      "name": "C-storefront",
+      "files": {
+        "C-storefront.bake.json": "a0ecf60c3ffced9ca9138dd23a26305829b73d105b7180ff9033681daca43e69",
+        "C-storefront.fbx": "75ef57d280debc74f7cff08e7627c1a664f89dfc12878b4c43c678799c460e2b",
+        "C-storefront_c.png": "9ad1e6308238c87e0e741dee3ebf0577fb066ef2328d90c2356357afbad68b16",
+        "C-storefront_d.png": "de72067f9e353094fb5c816732c376a40fa44a599c624a5edfe093b8329d997e",
+        "C-storefront_i.png": "b1ddbf8114552ebae6df762df2c4d6eef2e643e0229979c2a5552df9e1bd3d19",
+        "C-storefront_lod.fbx": "cb1d67f5978026b4a79534580c9e8e86f4c04b3a1a6613d20a33a6c8ced7965b",
+        "C-storefront_lod_c.png": "0a31e97c3e0454fb31e04dbfb530690431831c57ffc7c6c9a2a72caf90f3d545",
+        "C-storefront_lod_d.png": "3e5721cf36e33e334c4ea3308b5052eab09516c371a90cb8164ac363b19dfd70",
+        "C-storefront_lod_i.png": "676b078068d57dd265c476701503ca3718d8cc3be68682d835668b68991b93fa",
+        "C-storefront_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "C-storefront_lod_s.png": "c85b11525737945abf930e7975eace7ca606e4fb86915edefe3aa644016913f3",
+        "C-storefront_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "C-storefront_s.png": "94d69c906960a101f9ceeec0fe6c928fc2764f106578bc06de8b1cf1236267e8",
+        "receipt.json": "a374aa66bfa22405e30b24ec17c678b8117832b9e42029f882c35ffa9af135a3"
+      }
+    },
+    {
+      "name": "C-apartment",
+      "files": {
+        "C-apartment.bake.json": "1ed38485515a5e05c047180cc06b333e00aa19af767c59d3111a88cf8796a977",
+        "C-apartment.fbx": "6f0b9790ed655e201ace747bbad1a6104f330c3c2dae1220550087a36dd9bd69",
+        "C-apartment_c.png": "6292e1159aedcdde18656d9b3fa18134ae242932a873b1a756ca75461c0aee05",
+        "C-apartment_d.png": "3742c6d3122e2465bbb4e56fc228f0db6a13e1b2ccf968e92271db97284f158e",
+        "C-apartment_i.png": "219c150d707c9e764a35d354d53b0c05730b08fd9b3c4ea838232bb2f7ae6c02",
+        "C-apartment_lod.fbx": "2deeebf32b646535ce46461c749642d1454fe3c06cc38e7bb34b7581d90d7466",
+        "C-apartment_lod_c.png": "b49e4dfc01c6b24517e3f130a580faecb86406c9445201936958935018302a28",
+        "C-apartment_lod_d.png": "72c6c72afa0f86e13688d4fe89479daab014347550fa62886612980f72baf4dd",
+        "C-apartment_lod_i.png": "54459b622d39e847594c7fce7c957fa2fbc5d1e81341477a5454189ec1b410cd",
+        "C-apartment_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+        "C-apartment_lod_s.png": "bc05ceedd2e30ce944b88ba1bd4ecd628de5c81c43453760d8dd8c06193b6c20",
+        "C-apartment_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+        "C-apartment_s.png": "e3813513421850628d4a467837dd48eb660f64b7f6ae8606e2fda7717448571b",
+        "receipt.json": "48acaedb61c8444d58e18578cd047c2998bb3a1ae9d3433663fd9224c9e34e64"
+      }
+    }
+  ]
+}

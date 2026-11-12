@@ -1,0 +1,20 @@
+{
+  "bungalow": {
+    "concept_sha256": "7f34723454f8fbbbabdb7d61c2182c5a6df35fb4d09e81c98abc011abdd549ab",
+    "input_sha256": "2ccd92a9a8d66b914913ab2727b3d64cc6402c6256a0aadfc226608d460ace46",
+    "background_rule": "RGB >245 and connected to an image corner",
+    "source": "AI-generated photo-informed interpretation, NOT a real photo or survey"
+  },
+  "storefront": {
+    "concept_sha256": "54ea3fd4649c5b46228fe9a76ae5d2d6a6ae678d3cb4712d0892d33e37fbb766",
+    "input_sha256": "e140814bcf743825d55b052329b909d021e394ce0af06d335d560aa0a135b08f",
+    "background_rule": "RGB >245 and connected to an image corner",
+    "source": "AI-generated photo-informed interpretation, NOT a real photo or survey"
+  },
+  "apartment": {
+    "concept_sha256": "d760571ade938b5b568af92c0c58f5684ffc942996f3fbf033b48d8db6ea11e5",
+    "input_sha256": "31f6ab50589a1fc46f59001f87ac8ace951b347c124e8ea0c2b5e8732d1e1354",
+    "background_rule": "RGB >245 and connected to an image corner",
+    "source": "AI-generated photo-informed interpretation, NOT a real photo or survey"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "dll": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-881-harness-native/tools/cs1-harness/.build/Cs1Harness.dll",
+  "dll_sha256": "08b78db1827f3d7c3701d1aab54047585dbe292d5f59d50dc59c9ed58e133fa8",
+  "sources": {
+    "CheckOps.cs": "46c0d07ed929db9e5408cc7d96cb9f6395528ace63b8cb82c06ce9b2dd797828",
+    "CityOps.cs": "67b9f84cc776ce75d4409ca3505d3e55c061949c590cffcaecae5de11fec7fdc",
+    "CoreOps.cs": "f3322fa4dbd171f19560e40ca774ade78eef11a7c42668dfb47d1c5973d80b2b",
+    "EditorOps.cs": "8d2f030a69a2eed15247a7c42ab00557b4d902cd8ee65c05fc705f094b35f536",
+    "Harness.cs": "ed99bcf33b4e27fd2fc22345716f72a6165b2c2e63f927ef24538e7da405af85",
+    "Jobs.cs": "02285b8d553d9857feb1b4e400e78b11ea4ff2c299b80bbbd98c8a9002cbf113",
+    "Json.cs": "3f05ed8308976e26de590d83e36a3660a3c8ac1105fd3f9b5167cd1018381884",
+    "Readback.cs": "c8793d06360f01b32accd6ffd0c2f9b9834e3bfcb24f5de47b7c1b07c7d1471e",
+    "ScenarioOps.cs": "d36aace7c92c4af38751107310cf8b840f1eb4ec68a93d49432076b2a3fe43a4"
+  },
+  "game_assemblies": {
+    "mscorlib.dll": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+    "System.dll": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+    "System.Core.dll": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+    "UnityEngine.dll": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+    "UnityEngine.UI.dll": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+    "ColossalManaged.dll": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+    "ICities.dll": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+    "Assembly-CSharp.dll": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+  }
+}
