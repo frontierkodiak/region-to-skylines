@@ -724,6 +724,22 @@ includes `webhelper_js.txt`. Checked offline: replaying the two log lines, plain
 `SynchronizingCloud` still passes, and `syncfailed` blocks with exit 75.
 Both triage paths say `steam`.
 
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · Caleb's start camera, and an atomic save copy
+
+Loading Caleb's t=0 save of "Asheville - Ready to Play" (`--from-save`, 22:18 ET)
+restored his camera at heading 55.7°, north-east, pitch 45°. From there the
+Area Zoom view shows the river through the start tile running left to right
+with the rail beside it, as he described. The terrain in his save matches the
+real DEM north-up (r = 0.976 on the game's own sampler). So the map was
+north-up; his view faced about 56° off north. A fresh New Game from the same
+file opened at 332° in the harness. PL-857 has since made the opening camera
+face north.
+
+The same run logged one unexplained error. The game's Saves folder watcher read
+the save while the harness was still copying it in, and logged "failed to load
+(EndOfStreamException)" before loading it properly. The harness now copies to a
+hidden `.part` name and renames.
+
 ## Run log
 
 Per run: host, GPU, peak VRAM (total and game share), peak power and
