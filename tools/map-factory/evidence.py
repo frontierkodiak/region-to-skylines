@@ -43,7 +43,12 @@ def mrds(sq):
     s, w, n, e = bbox(sq)
     request = urllib.request.Request(MRDS.format(s=s, w=w, n=n, e=e), headers={"User-Agent": "map-factory"})
     with urllib.request.urlopen(request, timeout=60) as response:
-        root = ET.fromstring(response.read())
+        return parse(sq, response.read())
+
+
+def parse(sq, xml):
+    """Deposits from an MRDS search-bbox XML response (the website fetches it itself)."""
+    root = ET.fromstring(xml)
     out = []
     for record in root.iter("record"):
         status = record.get("dev_stat", "")
