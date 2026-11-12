@@ -1,0 +1,44 @@
+{
+  "slug": "charleston",
+  "geometry_sha256": "f2c275ce048b2e0a74f00580c00594fa672723969f61356b27a35a87eddae723",
+  "landcover_sha256": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925",
+  "sampler_sha256": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+  "provenance": {
+    "kind": "fresh ESA WorldCover 2021 sample",
+    "tiles": [
+      "N30W081"
+    ],
+    "sampler_revision": "0d3b873a903bca0275fcc90e110fc222e41e5e0f"
+  },
+  "attribution": "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+  "classes": {
+    "10": {
+      "cells": 956279,
+      "share": 0.320255902241941
+    },
+    "30": {
+      "cells": 180743,
+      "share": 0.060530464999142664
+    },
+    "40": {
+      "cells": 2338,
+      "share": 0.000782991469478738
+    },
+    "50": {
+      "cells": 379566,
+      "share": 0.12711588541666666
+    },
+    "60": {
+      "cells": 29831,
+      "share": 0.009990341542352538
+    },
+    "80": {
+      "cells": 911067,
+      "share": 0.3051144949202675
+    },
+    "90": {
+      "cells": 526160,
+      "share": 0.17620991941015088
+    }
+  }
+}

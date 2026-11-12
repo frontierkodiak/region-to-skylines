@@ -14,6 +14,7 @@ import numpy as np
 from scipy import ndimage
 
 from region import HALF, raster
+from surface_water import surface_geometry
 
 
 def grid(path):
@@ -23,7 +24,7 @@ def grid(path):
 def audit(run, prepared, geometry, reference_water=None):
     report = json.loads((run / "report.json").read_text())
     hydro = json.loads((prepared / "hydrology.json").read_text())
-    geo = json.loads(geometry.read_text())
+    geo, _ = surface_geometry(json.loads(geometry.read_text()))
     samples = [
         row
         for line in (run / "timeline.jsonl").read_text().splitlines()

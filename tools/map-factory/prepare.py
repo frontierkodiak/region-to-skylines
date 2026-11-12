@@ -31,9 +31,13 @@ def pixel(sq, lonlat):
     return (u / sq["scale"] / SPACING + 540, 540 - v / sq["scale"] / SPACING)
 
 
-def route(mask, start, end, ground=None):
+def route(mask, start, end, ground=None, forbidden=None):
     distance = ndimage.distance_transform_edt(~mask)
     corridor = distance < 10
+    if forbidden is not None:
+        corridor &= ~forbidden
+    if not corridor.any():
+        raise ValueError("No surface routing corridor remains")
     ids = np.full(mask.shape, -1, dtype=np.int32)
     ids[corridor] = np.arange(corridor.sum())
     ys, xs = np.nonzero(corridor)

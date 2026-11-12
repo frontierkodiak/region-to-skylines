@@ -113,6 +113,12 @@ def verify(folder):
             assert len(raw) == len(depth) == N
             hydro = json.loads((work / "hydrology.json").read_text())
             output = work / (slug + ".crp")
+            resources = None
+            if case.get("resource_plan"):
+                from paint import load_plan
+                from resources import TREE_NAMES
+
+                resources = (load_plan(fixture / case["resource_plan"]), TREE_NAMES)
             receipt = write_map(
                 template,
                 layout,
@@ -120,6 +126,7 @@ def verify(folder):
                 work / "water.u16",
                 work / "hydrology.json",
                 output,
+                resources=resources,
             )
             assert receipt["sha256"] == case["expected_crp_sha256"], slug
             assert receipt["bytes"] == case["expected_crp_bytes"], slug
@@ -292,6 +299,42 @@ def verify(folder):
                     name,
                 )
             assert json.loads((prepared / "hydrology.json").read_text()) == hydro
+            if resources:
+                from paint import paint
+                from resources import Knobs
+                from verify_resources import check
+
+                evidence_file = fixture / "evidence.json"
+                evidence = (
+                    json.loads(evidence_file.read_text())["evidence"]
+                    if evidence_file.exists()
+                    else []
+                )
+                problems, facts = check(output, evidence)
+                assert not problems and facts["forest_formula_match"] == 1, (
+                    slug,
+                    problems,
+                )
+                assert (
+                    json.loads((fixture / "resources.json").read_text())["knobs"]
+                    == case["resource_knobs"]
+                )
+                painted = work / "repainted"
+                result = paint(
+                    prepared,
+                    fixture / "landcover.u8.gz",
+                    painted,
+                    work / "geometry.json",
+                    evidence_file if evidence_file.exists() else None,
+                    Knobs(**case["resource_knobs"]),
+                )
+                assert result["package"]["sha256"] == receipt["sha256"], (
+                    slug,
+                    "resource planning replay",
+                )
+                assert (painted / "plan.npz").read_bytes() == (
+                    fixture / case["resource_plan"]
+                ).read_bytes(), slug
             reports.append(
                 {
                     "region": slug,

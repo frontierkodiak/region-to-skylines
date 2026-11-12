@@ -8,13 +8,82 @@ import argparse
 import gzip
 import hashlib
 import json
+import re
 from pathlib import Path
 import shutil
 import subprocess
 
+import numpy as np
+
 from crp import Reader, metadata_value, read_package, write_map
+from region import raster
+from surface_water import surface_geometry
 
 ROOT = Path(__file__).resolve().parent
+
+
+def geographic_river_probes(data, geometry):
+    """Probe every retained river cell, independently of modeled hydraulic paths."""
+    geometry, _ = surface_geometry(geometry)
+    grouped = {}
+    for feature in geometry.get("rivers", []):
+        name = feature.get("name") or "unnamed waterway"
+        grouped.setdefault(name, []).append(feature)
+    added, counts = [], {}
+    for name, features in sorted(grouped.items()):
+        mask = raster(geometry["sq"], features)
+        rows, cols = np.nonzero(mask)
+        counts[name] = int(mask.sum())
+        added.extend(
+            {
+                "name": f"geography:{name} [river] @{int(col)},{int(row)}",
+                "x": int(col) * 16 - 8640,
+                "z": 8640 - int(row) * 16,
+                "required": max(abs(int(col) * 16 - 8640), abs(8640 - int(row) * 16))
+                <= 4800,
+            }
+            for row, col in zip(rows, cols)
+        )
+    existing = data.setdefault("points", [])
+    names = {p["name"] for p in existing}
+    if names.intersection(p["name"] for p in added):
+        raise ValueError("Geographic river probes already present")
+    existing.extend(added)
+    data["geographic_river_probes"] = {
+        "source": "retained surface geometry.rivers, not hydraulic routes or water",
+        "geometry_sha256": hashlib.sha256(
+            json.dumps(geometry, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "frame": "16m native nodes; x=col*16-8640,z=8640-row*16",
+        "minimum_reach_length_m": 0,
+        "counts_by_name": counts,
+        "points": len(added),
+    }
+
+
+def mapped_water_reference(data, geometry, folder):
+    """Freeze unbuffered geographic channels, not water observed after a run."""
+    geometry, _ = surface_geometry(geometry)
+    mask = np.zeros((1081, 1081), dtype=bool)
+    for field in ["rivers", "streams"]:
+        mask |= raster(geometry["sq"], geometry.get(field, []))
+    for field in ["lakes", "riverAreas"]:
+        mask |= raster(geometry["sq"], geometry.get(field, []), polygons=True)
+    raw = np.flipud(mask).astype(np.uint8).tobytes()
+    (folder / "mapped-water.u8").write_bytes(raw)
+    data["mapped_water"] = {
+        "file": "mapped-water.u8",
+        "format": "cs1-water-mask-u8-v1",
+        "sha256": hashlib.sha256(raw).hexdigest(),
+    }
+    data["mapped_water_provenance"] = {
+        "geometry_sha256": hashlib.sha256(
+            json.dumps(geometry, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest(),
+        "fields": ["rivers", "streams", "lakes", "riverAreas"],
+        "buffer_m": 0,
+        "frame": "1081-square uint8 south-first; x=ix*16-8640,z=iz*16-8640",
+    }
 
 
 def world_references(data, geometry, landmarks=None):
@@ -53,6 +122,8 @@ def panel_expectations(crp):
     return {
         "map_name": fields["mapName"],
         "author": "",
+        "require_resource_bars": True,
+        "require_window_capture": True,
         "buildableArea": fields["buildableArea"],
         "resources": {
             k: fields[k]
@@ -103,6 +174,11 @@ def probes_for(hydro, descriptor):
             "opening": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
             "area_zoom": {"native_yaw_degrees": 0, "render_heading_degrees": 0},
             "tolerance_degrees": 1,
+            "opening_center": {
+                "x": (tile % 5 - 2) * 1920,
+                "z": (tile // 5 - 2) * 1920,
+                "tolerance_m": 64,
+            },
         },
         "views": [
             {
@@ -142,6 +218,18 @@ def stage(output, slugs):
                 raise ValueError(f"Fixture checksum changed: {slug}/{name}.gz")
             (folder / name).write_bytes(gzip.decompress(encoded))
         crp = folder / f"PL857-{slug}.crp"
+        resource_plan = None
+        if case.get("resource_plan"):
+            from paint import load_plan
+            from resources import TREE_NAMES
+
+            plan = fixtures / slug / case["resource_plan"]
+            if (
+                hashlib.sha256(plan.read_bytes()).hexdigest()
+                != case["files_sha256"][plan.name]
+            ):
+                raise ValueError(f"Fixture resource plan changed: {slug}")
+            resource_plan = (load_plan(plan), TREE_NAMES)
         receipt = write_map(
             template,
             layout,
@@ -149,6 +237,7 @@ def stage(output, slugs):
             folder / "water.u16",
             folder / "hydrology.json",
             crp,
+            resources=resource_plan,
         )
         if receipt["sha256"] != case["expected_crp_sha256"]:
             raise ValueError(f"CRP reference mismatch: {slug}")
@@ -163,9 +252,12 @@ def stage(output, slugs):
             != case["files_sha256"]["geometry.json.gz"]
         ):
             raise ValueError(f"Fixture geometry changed: {slug}")
+        geometry = json.loads(gzip.decompress(geometry_bytes))
+        geographic_river_probes(data, geometry)
+        mapped_water_reference(data, geometry, folder)
         world_references(
             data,
-            json.loads(gzip.decompress(geometry_bytes)),
+            geometry,
             json.loads(landmarks.read_text()) if landmarks.exists() else None,
         )
         probes.write_text(json.dumps(data, indent=2) + "\n")
@@ -173,6 +265,49 @@ def stage(output, slugs):
         (folder / "staging.json").write_text(json.dumps(receipt, indent=2) + "\n")
         staged.append((slug, crp, probes))
     return staged
+
+
+def prepared_geometry(source, generation):
+    """Bind acceptance geometry before staging; legacy unpainted inputs stay supported."""
+    resources = generation.get("resources")
+    resource_candidate = (
+        resources is not None
+        or generation.get("resource_plan") is not None
+        or (source / "plan.npz").is_file()
+    )
+    declared = []
+    if resource_candidate:
+        expected = (
+            resources.get("prepared_geometry_sha256")
+            if isinstance(resources, dict)
+            else None
+        )
+        declared.append(("resources.prepared_geometry_sha256", expected))
+    # Enforce an existing declared unpainted input hash too; do not create a
+    # caller-controlled opt-out for a resource candidate's required binding.
+    inputs = generation.get("source", {}).get("inputs_sha256", {})
+    if "geometry.json" in inputs:
+        declared.append(("source.inputs_sha256.geometry.json", inputs["geometry.json"]))
+    for field, expected in declared:
+        if not isinstance(expected, str) or not re.fullmatch(r"[0-9a-f]{64}", expected):
+            raise ValueError(f"Missing/malformed prepared geometry binding: {field}")
+    path = source / "geometry.json"
+    if not path.exists() and not declared:
+        return None, None
+    raw = path.read_bytes()
+    actual = hashlib.sha256(raw).hexdigest()
+    for field, expected in declared:
+        if actual != expected:
+            raise ValueError(f"Prepared geometry changed since generation: {field}")
+    json.loads(raw)  # reject unusable geometry before generating/staging the package
+    return raw, {
+        "file": "geometry.json",
+        "sha256": actual,
+        "generation_fields": [field for field, _ in declared],
+        "binding": "generation"
+        if declared
+        else "legacy unpainted (no declared input hash)",
+    }
 
 
 def stage_prepared(inputs, output, slugs):
@@ -184,12 +319,36 @@ def stage_prepared(inputs, output, slugs):
     )
     for slug in slugs:
         source, folder = inputs / slug, output / "maps" / slug
-        folder.mkdir(parents=True, exist_ok=True)
         generation = json.loads((source / "generation.json").read_text())
+        geometry_raw, geometry_binding = prepared_geometry(source, generation)
+        folder.mkdir(parents=True, exist_ok=True)
+        if geometry_raw is not None:
+            (folder / "geometry.json").write_bytes(geometry_raw)
         for name in ["terrain.u16", "water.u16", "hydrology.json"]:
             shutil.copyfile(source / name, folder / name)
         hydro = json.loads((folder / "hydrology.json").read_text())
         crp = folder / (hydro["map_id"] + ".crp")
+        resource_plan = None
+        plan_path = source / "plan.npz"
+        plan_binding = generation.get("resource_plan")
+        if (
+            plan_binding is not None or generation.get("resources")
+        ) and not plan_path.is_file():
+            raise ValueError(f"Prepared resource candidate is missing plan.npz: {slug}")
+        if plan_path.is_file():
+            from paint import load_plan
+            from resources import TREE_NAMES
+
+            plan_sha256 = hashlib.sha256(plan_path.read_bytes()).hexdigest()
+            if plan_binding is not None and (
+                plan_binding.get("file") != "plan.npz"
+                or plan_binding.get("sha256") != plan_sha256
+            ):
+                raise ValueError(
+                    f"Prepared resource plan changed since generation: {slug}"
+                )
+            shutil.copyfile(plan_path, folder / "plan.npz")
+            resource_plan = (load_plan(folder / "plan.npz"), TREE_NAMES)
         receipt = write_map(
             template,
             layout,
@@ -197,15 +356,20 @@ def stage_prepared(inputs, output, slugs):
             folder / "water.u16",
             folder / "hydrology.json",
             crp,
+            resources=resource_plan,
         )
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         data = probes_for(hydro, json.loads(layout.read_text()))
         data["new_game_panel"] = panel_expectations(crp)
-        if (source / "geometry.json").exists():
+        if geometry_raw is not None:
+            geometry = json.loads(geometry_raw)
+            geographic_river_probes(data, geometry)
+            mapped_water_reference(data, geometry, folder)
+            data["mapped_water_provenance"]["source_geometry"] = geometry_binding
             world_references(
                 data,
-                json.loads((source / "geometry.json").read_text()),
+                geometry,
                 json.loads((source / "landmarks.json").read_text())
                 if (source / "landmarks.json").exists()
                 else None,
@@ -225,7 +389,21 @@ def stage_prepared(inputs, output, slugs):
             slug=slug,
             source_kind="prepared candidate",
             prefill=generation.get("prefill", True),
+            geometry=geometry_binding,
         )
+        if resource_plan is not None:
+            receipt["resource_plan_sha256"] = plan_sha256
+            receipt["generation"] = {
+                "path": str(source / "generation.json"),
+                "sha256": hashlib.sha256(
+                    (source / "generation.json").read_bytes()
+                ).hexdigest(),
+            }
+            source_crp = source / crp.name
+            if hashlib.sha256(source_crp.read_bytes()).hexdigest() != receipt["sha256"]:
+                raise ValueError(
+                    f"Prepared resource package differs from its receipt: {slug}"
+                )
         (folder / "staging.json").write_text(json.dumps(receipt, indent=2) + "\n")
         staged.append((slug, crp, probes))
     return staged

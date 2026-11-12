@@ -275,7 +275,11 @@ def begin_tag_size(data, offset, expected):
     return size + 4
 
 
-def write_map(template, layout, terrain, water, hydrology, output, preview=None):
+def write_map(
+    template, layout, terrain, water, hydrology, output, preview=None, resources=None
+):
+    """`resources`: optional (plan, tree prefab names) from resources.plan;
+    it regenerates natural resources, trees and the New Game amounts."""
     original = template.read_bytes()
     spec = json.loads(layout.read_text())
     hydro = json.loads(hydrology.read_text())
@@ -387,12 +391,21 @@ def write_map(template, layout, terrain, water, hydrology, output, preview=None)
         )
         angle = (building["angle"] + turn) % (2 * math.pi)
         replacements.append((start, start + 16, struct.pack(">4f", *position, angle)))
-    water_amount = None
-    if positions:
-        from template import resource_replacements
+    water_amount = amounts = None
+    if resources is not None:
+        from resources import apply
 
-        resources, water_amount = resource_replacements(data, spec, depth)
-        replacements.extend(resources)
+        regenerated_resources, amounts, _ = apply(data, spec, depth, raw, *resources)
+        water_amount = amounts["waterAmount"]
+        replacements.extend(regenerated_resources)
+    if positions:
+        if resources is None:
+            from template import resource_replacements
+
+            regenerated_resources, water_amount = resource_replacements(
+                data, spec, depth
+            )
+            replacements.extend(regenerated_resources)
         start = spec["start_tile_offset"]
         if (
             data[start] != spec["original_start_tile"]
@@ -420,6 +433,10 @@ def write_map(template, layout, terrain, water, hydrology, output, preview=None)
 
     image = preview_image(raw, depth, hydro, spec, preview)
     image_fields = {}
+    if amounts is not None:
+        image_fields.update(
+            {name: ("System.UInt32", value) for name, value in amounts.items()}
+        )
     for field, suffix, size in [
         ("imageRef", "Snapshot", (400, 224)),
         ("steamPreviewRef", "SteamPreview", (1800, 1008)),
@@ -462,6 +479,13 @@ def write_map(template, layout, terrain, water, hydrology, output, preview=None)
         preserved.append("other_resources")
     else:
         preserved.extend(["network_geometry", "buildings", "resources"])
+    if resources is not None:
+        regenerated.extend(["natural_resources", "trees", "resource_amounts"])
+        if "water_resources" not in regenerated:
+            regenerated.append("water_resources")
+        preserved = [
+            p for p in preserved if p not in ("trees", "other_resources", "resources")
+        ]
     if "map_id" in hydro or "map_name" in hydro:
         regenerated.append("map_identity")
     return {
