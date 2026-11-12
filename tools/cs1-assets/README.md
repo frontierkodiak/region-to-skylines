@@ -52,16 +52,18 @@ Seen in the game on blade (PL-880, 2026-11-10), not just read from settings:
 - **Front.** The game's building frame has the road side at +Z. Blender's FBX
   export with -Z forward and Y up turns Blender -Y into FBX +Z, so a model whose
   front faces Blender's front view (-Y) faces the road. In game the garden walls
-  and porch sit on the lot's road side and the chimney stays on the left seen
-  from the street.
+  and porch sit on the lot's road side.
 - **Scale.** "FBX All" writes metres with `UnitScaleFactor` 100. The game's
   importer reads that as centimetres: the house came in at 0.13 m wide. The
   Asset Editor's scale field must be 100, the value the creators' guide calls
   common. `<name>.bake.json` records `import_scale: 100`, and `cs1-harness asset
   build` uses it and fails if the imported size differs from the bake's.
-- **Winding.** Moving the kit's frame (u, y up, w) onto Blender's (x, y, z up)
-  swaps two axes, which is a reflection and turns every triangle inside out.
-  `kit_bake.py` reverses the order back, and `blender_fbx.py` fails the export
+- **Handedness and winding.** The kit's frame (u, y up, w) is a rotation of
+  pixel-asheville's right-handed one (x east, y up, z south). `kit_bake.py` maps
+  it onto Blender's (x, y, z up) as (-u, w, y), a rotation, so nothing is
+  mirrored and the kit's outward winding stays outward. Mapping u to +x instead
+  is a reflection: the house comes out as its mirror image (the PL-880 bungalow's
+  chimney on the wrong side) and inside out. `blender_fbx.py` fails the export
   if the faces point inward on balance. Inward faces showed in game as an
   inside-out house, then as a black roof once culling was patched over: the
   game's importer itself behaves like any FBX importer.

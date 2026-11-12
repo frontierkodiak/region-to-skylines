@@ -194,12 +194,12 @@ def bake(src: pathlib.Path, out: pathlib.Path, name: str, lot: tuple[int, int], 
     p = np.array(data["position"], float).reshape(-1, 3, 3)  # kit-local (u, y, w)
     ramp = np.array(data["ramp"]).reshape(-1, 3)[:, 0]
 
-    # Kit (u, y, w) -> Blender (x, y, z) = (u, w + offset, y): front wall faces -Y.
+    # Kit (u, y, w) -> Blender (x, y, z) = (-u, w + offset, y): front wall faces -Y. The kit
+    # frame is a rotation of pixel-asheville's right-handed (x east, y up, z south), so this is
+    # a rotation too: no mirror, and the kit's outward winding stays outward. (Mapping u to +x
+    # is a reflection: the building came out as its mirror image, with the winding reversed.)
     width_m, depth_m = lot[0] * 8.0, lot[1] * 8.0
-    tri = np.stack([p[..., 0], p[..., 2], p[..., 1]], axis=-1)
-    # Swapping two axes is a reflection, so it turns every kit triangle inside out; restore
-    # outward winding (the kit's own normals agree with its winding in its frame).
-    tri = tri[:, [0, 2, 1]]
+    tri = np.stack([-p[..., 0], p[..., 2], p[..., 1]], axis=-1)
     tri[..., 1] += -depth_m / 2 + margin - tri[..., 1].min()
     tri[..., 2] = np.where(tri[..., 2] < 0.05, 0.05, tri[..., 2])  # lift ground pieces off the lot
     lo, hi = tri.reshape(-1, 3).min(axis=0), tri.reshape(-1, 3).max(axis=0)
