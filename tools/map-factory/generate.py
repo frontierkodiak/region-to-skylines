@@ -111,12 +111,20 @@ if __name__ == "__main__":
         default=1.0,
         help="scale fertile land from crop and pasture",
     )
+    parser.add_argument(
+        "--forest",
+        choices=["open", "dense"],
+        default=None,
+        help="open: stands over all tree cover; dense: packed stands on unbuildable slopes",
+    )
     args = vars(parser.parse_args())
     from resources import Knobs
 
+    forest = args.pop("forest")
     args["knobs"] = Knobs(
         trees=args.pop("trees"),
         resources=args.pop("resources"),
         fertile=args.pop("fertile"),
+        **({"forest": forest} if forest else {}),
     )
     print(json.dumps(generate(**args), indent=2))

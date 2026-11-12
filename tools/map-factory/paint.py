@@ -126,6 +126,8 @@ def main():
     parser.add_argument("--evidence", type=Path)
     parser.add_argument("--trees", type=int, default=R.Knobs.trees)
     parser.add_argument("--resources", choices=["balanced", "real"], default=R.Knobs.resources)
+    parser.add_argument("--forest", choices=["open", "dense"], default=R.Knobs.forest,
+                        help="open: stands over all tree cover; dense: packed stands on unbuildable slopes")
     parser.add_argument("--fertile", type=float, default=R.Knobs.fertile, help="scale fertile land from crop and pasture")
     defaults = R.Knobs().targets
     for kind in ["ore", "oil", "fertile"]:
@@ -139,7 +141,7 @@ def main():
     if args.plan is None and args.landcover is None:
         parser.error("LANDCOVER is required unless --plan is given")
     knobs = R.Knobs(trees=args.trees, resources=args.resources, fertile=args.fertile, seed=args.seed,
-                    outer_trees=args.outer_trees,
+                    outer_trees=args.outer_trees, forest=args.forest,
                     targets={"ore": args.ore_share, "oil": args.oil_share, "fertile": args.fertile_share})
     report = paint(args.prepared, args.landcover, args.output, args.geometry, args.evidence, knobs, args.map_name, args.plan)
     print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "theme"]}, indent=2))

@@ -106,8 +106,9 @@ def check(crp, evidence=None):
     centres = (np.arange(512) + 0.5) * R.CELL - R.HALF
     near_real = np.zeros((512, 512), bool)
     for e in evidence or []:
+        reach = 1500 if e["kind"] == "well" else 700  # well fields are a density
         near_real |= (
-            np.hypot(centres[None, :] - e["x"], centres[:, None] - e["z"]) < 700
+            np.hypot(centres[None, :] - e["x"], centres[:, None] - e["z"]) < reach
         )
     if np.any(((g["ore"] > 0) | (g["oil"] > 0)) & in_start & ~near_real):
         problems.append("invented ore or oil inside the start tile")
