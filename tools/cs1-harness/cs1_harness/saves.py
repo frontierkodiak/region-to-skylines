@@ -94,7 +94,11 @@ def load(session, save_file: pathlib.Path, load_timeout: float, map_path: str | 
     saves.mkdir(parents=True, exist_ok=True)
     name = f"cs1h-from-{save_file.stem}"
     target = saves / f"{name}.crp"
-    shutil.copy2(save_file, target)
+    # Copy under another name and rename: the game's folder watcher otherwise reads a half-copied
+    # package and logs "failed to load (EndOfStreamException)" before loading it properly.
+    partial = saves / f".{name}.crp.part"
+    shutil.copy2(save_file, partial)
+    partial.replace(target)
     session.installed.append(target)
     c.call("load_game", name=name)
     time.sleep(5)
