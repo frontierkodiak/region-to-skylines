@@ -1,21 +1,1234 @@
 {
-  "evidence": [
-    {
-      "kind": "ore",
-      "x": -922.2,
-      "z": -4595.0,
-      "weight": 1.0,
-      "source": "USGS MRDS 10128762 Walkers Mill Quarry (Producer, Surface)"
-    },
-    {
-      "kind": "ore",
-      "x": -7047.9,
-      "z": -1352.5,
-      "weight": 0.8,
-      "source": "USGS MRDS 10153623 Fleck Quarry (Past Producer, Surface)"
-    }
-  ],
-  "sources": [
-    "USGS MRDS (public domain)"
-  ]
+ "evidence": [
+  {
+   "kind": "ore",
+   "x": -922.2,
+   "z": -4595.0,
+   "weight": 1.0,
+   "source": "USGS MRDS 10128762 Walkers Mill Quarry (Producer, Surface)"
+  },
+  {
+   "kind": "ore",
+   "x": -7047.9,
+   "z": -1352.5,
+   "weight": 0.8,
+   "source": "USGS MRDS 10153623 Fleck Quarry (Past Producer, Surface)"
+  },
+  {
+   "kind": "ore",
+   "x": 7542.6,
+   "z": -8605.8,
+   "weight": 0.7,
+   "source": "MSHA 3606206 Duquesne Strip (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": 5608.1,
+   "z": -7062.3,
+   "weight": 0.7,
+   "source": "MSHA 3606441 West Mifflin (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": -8484.3,
+   "z": -3520.1,
+   "weight": 0.7,
+   "source": "MSHA 3606578 Maceral No 7 (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": -5659.0,
+   "z": 188.8,
+   "weight": 0.7,
+   "source": "MSHA 3607357 Mine No 5 (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": -118.8,
+   "z": 5274.5,
+   "weight": 0.7,
+   "source": "MSHA 3607643 Robert W Schowmaker (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": 7423.8,
+   "z": 6851.4,
+   "weight": 0.7,
+   "source": "MSHA 3608215 Approved Mine No 1 (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": -8034.7,
+   "z": 3209.1,
+   "weight": 0.7,
+   "source": "MSHA 3608285 Kennedy Center (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "ore",
+   "x": 1374.8,
+   "z": 142.6,
+   "weight": 0.7,
+   "source": "MSHA 3609160 Pittsburgh Project (coal, Surface, Abandoned)"
+  },
+  {
+   "kind": "well",
+   "x": -4069.3,
+   "z": 6571.0,
+   "type": "Oil",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -2726.4,
+   "z": 8426.0,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -8637.3,
+   "z": 8441.5,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 3359.5,
+   "z": 7728.9,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7280.0,
+   "z": -7956.0,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": 3704.8,
+   "z": -5594.1,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 3342.0,
+   "z": -8373.8,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7410.4,
+   "z": -5674.0,
+   "type": "Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -7996.1,
+   "z": 5018.8,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5956.8,
+   "z": 8396.0,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7939.9,
+   "z": 4626.2,
+   "type": "Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5925.6,
+   "z": -6770.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5083.4,
+   "z": -8282.4,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5620.9,
+   "z": 6405.7,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7629.7,
+   "z": -308.9,
+   "type": "Oil",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 6593.1,
+   "z": -6265.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5194.1,
+   "z": 8624.5,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -7752.1,
+   "z": 4973.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -8637.0,
+   "z": 8441.5,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7111.6,
+   "z": -7291.6,
+   "type": "Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7932.8,
+   "z": 4380.7,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6316.3,
+   "z": -8572.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -8368.4,
+   "z": -6139.7,
+   "type": "Gas | Oil",
+   "status": ""
+  },
+  {
+   "kind": "well",
+   "x": -5403.0,
+   "z": -8389.2,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7939.9,
+   "z": 4626.2,
+   "type": "Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5421.9,
+   "z": 6237.8,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5993.5,
+   "z": -6344.0,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": 3495.0,
+   "z": -6810.6,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7953.0,
+   "z": 5073.3,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6275.3,
+   "z": -5851.1,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -8073.5,
+   "z": 8396.9,
+   "type": "Gas | Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -4002.9,
+   "z": -2695.3,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 2763.4,
+   "z": -7160.8,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7327.1,
+   "z": -5900.1,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 6515.1,
+   "z": -5989.7,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 8050.9,
+   "z": -2244.8,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -8576.3,
+   "z": 8411.1,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5071.9,
+   "z": 8030.1,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -7176.9,
+   "z": 8511.5,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5083.7,
+   "z": -6490.4,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7843.5,
+   "z": 4523.6,
+   "type": "Oil",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -3458.5,
+   "z": 7877.1,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -8576.0,
+   "z": 7252.9,
+   "type": "Gas",
+   "status": ""
+  },
+  {
+   "kind": "well",
+   "x": -5421.9,
+   "z": 6237.8,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 3342.0,
+   "z": -8373.8,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 4653.9,
+   "z": -5972.5,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7629.7,
+   "z": -308.9,
+   "type": "Oil",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 6515.3,
+   "z": -5989.3,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7992.0,
+   "z": 118.1,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -4232.4,
+   "z": 8228.3,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6165.3,
+   "z": -6357.2,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7843.8,
+   "z": 4524.4,
+   "type": "Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -8368.7,
+   "z": -6138.8,
+   "type": "Gas | Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -8073.2,
+   "z": 8396.0,
+   "type": "Gas | Oil",
+   "status": ""
+  },
+  {
+   "kind": "well",
+   "x": -6243.4,
+   "z": 132.6,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5194.1,
+   "z": 8624.5,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": 2800.0,
+   "z": -4545.8,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 693.0,
+   "z": -8008.5,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -8576.3,
+   "z": 8411.1,
+   "type": "Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3458.5,
+   "z": 7877.1,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 3494.7,
+   "z": -6810.3,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -3215.2,
+   "z": -7871.5,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7355.5,
+   "z": 1474.2,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 4959.0,
+   "z": -7794.9,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -4002.9,
+   "z": -2695.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -4071.3,
+   "z": 6567.2,
+   "type": "Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -7327.1,
+   "z": -5802.0,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7953.0,
+   "z": 5073.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7932.8,
+   "z": 4380.7,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -8637.3,
+   "z": 8441.5,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -6210.5,
+   "z": 5829.8,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -5995.4,
+   "z": -6342.2,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 8050.9,
+   "z": -2244.8,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 3139.3,
+   "z": -7278.8,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7233.6,
+   "z": -8464.3,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -7233.3,
+   "z": -8465.1,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": 3311.4,
+   "z": -3533.6,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7355.8,
+   "z": -8086.4,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": 8185.1,
+   "z": 2062.3,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -5632.9,
+   "z": 8218.1,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -3993.6,
+   "z": 6672.7,
+   "type": "Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -4552.8,
+   "z": 7786.3,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6165.3,
+   "z": -6357.2,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 6593.2,
+   "z": -6265.1,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 8184.8,
+   "z": 2063.2,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": 5519.6,
+   "z": -7671.9,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -5406.6,
+   "z": 6055.0,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 693.0,
+   "z": -8008.5,
+   "type": "Gas",
+   "status": "Unknown"
+  },
+  {
+   "kind": "well",
+   "x": -7234.1,
+   "z": -7636.9,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -3215.2,
+   "z": -7871.5,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5862.4,
+   "z": 208.9,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5407.1,
+   "z": 6055.2,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 3495.0,
+   "z": -6810.6,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 2184.8,
+   "z": -6977.9,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7943.0,
+   "z": 4364.4,
+   "type": "Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -6172.3,
+   "z": -6326.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5102.4,
+   "z": -4069.4,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3997.5,
+   "z": 6704.2,
+   "type": "Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6316.3,
+   "z": -8572.3,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 8050.8,
+   "z": -2245.3,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 3342.0,
+   "z": -8373.8,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 4653.9,
+   "z": -5972.5,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5102.4,
+   "z": -4069.4,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3911.2,
+   "z": -8404.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -6804.3,
+   "z": -8277.6,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -7410.1,
+   "z": -5674.9,
+   "type": "Oil",
+   "status": ""
+  },
+  {
+   "kind": "well",
+   "x": -2726.4,
+   "z": 8426.0,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 4959.0,
+   "z": -7794.9,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5083.4,
+   "z": -8282.4,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5975.8,
+   "z": 8413.1,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 2763.4,
+   "z": -7160.8,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7492.4,
+   "z": -6238.7,
+   "type": "Gas | Oil",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -5239.1,
+   "z": 5872.0,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 2184.8,
+   "z": -6977.9,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7996.1,
+   "z": 5018.8,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7735.8,
+   "z": -7550.7,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -2460.5,
+   "z": -7939.6,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7279.7,
+   "z": -7956.9,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -7111.6,
+   "z": -7291.6,
+   "type": "Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 3311.4,
+   "z": -3533.6,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 4959.1,
+   "z": -7795.2,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -2207.1,
+   "z": 6344.8,
+   "type": "Gas | Oil",
+   "status": ""
+  },
+  {
+   "kind": "well",
+   "x": -5951.4,
+   "z": -7276.8,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -8078.5,
+   "z": -72.6,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": 3359.5,
+   "z": 7728.9,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7798.0,
+   "z": 6704.3,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7798.0,
+   "z": 6704.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5862.4,
+   "z": 208.9,
+   "type": "Gas | Oil",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6219.5,
+   "z": 7239.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5403.0,
+   "z": -8389.2,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3605.6,
+   "z": -1500.6,
+   "type": "Gas",
+   "status": ""
+  },
+  {
+   "kind": "well",
+   "x": -5620.9,
+   "z": 6405.7,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3179.8,
+   "z": -1684.3,
+   "type": "Gas | Oil",
+   "status": "Dry | Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7416.4,
+   "z": 1245.6,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": 2773.9,
+   "z": -8086.6,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6210.5,
+   "z": 5829.8,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": 6515.3,
+   "z": -5989.3,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -6347.7,
+   "z": -6352.9,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3880.2,
+   "z": 6665.7,
+   "type": "Oil",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -6275.3,
+   "z": -5851.1,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -2207.4,
+   "z": 6345.7,
+   "type": "Gas | Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -5925.6,
+   "z": -6770.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7492.7,
+   "z": -6237.9,
+   "type": "Gas | Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -6219.5,
+   "z": 7239.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5951.4,
+   "z": -7276.8,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5654.2,
+   "z": 8401.1,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -7356.1,
+   "z": -8085.5,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -6172.3,
+   "z": -6326.3,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -5636.6,
+   "z": 8220.2,
+   "type": "Gas",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -3059.4,
+   "z": -1650.7,
+   "type": "Gas | Oil",
+   "status": "Dry | Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -7942.7,
+   "z": 4363.5,
+   "type": "Oil",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7752.1,
+   "z": 4973.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -7234.4,
+   "z": -7636.0,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -5823.8,
+   "z": 8474.1,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": 4653.7,
+   "z": -5971.9,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": 6593.1,
+   "z": -6265.2,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5406.6,
+   "z": 6055.0,
+   "type": "Gas",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -5071.9,
+   "z": 8030.1,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -5649.4,
+   "z": 8400.1,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -5823.6,
+   "z": 8473.3,
+   "type": "Gas",
+   "status": "Abandoned"
+  },
+  {
+   "kind": "well",
+   "x": -7294.5,
+   "z": 1367.5,
+   "type": "Gas | Oil | Unknown",
+   "status": "Plugged"
+  },
+  {
+   "kind": "well",
+   "x": -6804.6,
+   "z": -8276.7,
+   "type": "Gas",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -2415.5,
+   "z": -7947.4,
+   "type": "Production | Unknown",
+   "status": "Active"
+  },
+  {
+   "kind": "well",
+   "x": -3864.9,
+   "z": 6635.7,
+   "type": "Oil",
+   "status": "Orphaned"
+  },
+  {
+   "kind": "well",
+   "x": -3911.2,
+   "z": -8404.2,
+   "type": "Gas",
+   "status": "Active"
+  }
+ ],
+ "sources": [
+  "USGS MRDS (public domain)",
+  "MSHA Mines dataset (public domain)",
+  "NETL WELLS / Integrated Public Wells, 2025-08 (CC-BY 4.0, DOI 10.18141/1964068)"
+ ]
 }

@@ -2,6 +2,8 @@
   "knobs": {
     "trees": 180000,
     "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
     "resources": "balanced",
     "fertile": 1.0,
     "seed": 0,
@@ -11,19 +13,19 @@
       "fertile": 0.034
     }
   },
-  "trees": 179444,
+  "trees": 179917,
   "unlockable": {
-    "ore": 1129933,
-    "oil": 570823,
-    "forest": 3364725,
-    "fertility": 468178,
+    "ore": 1094648,
+    "oil": 817546,
+    "forest": 5069040,
+    "fertility": 468225,
     "water": 1098051
   },
   "cells": {
-    "ore": 9544,
-    "oil": 4772,
-    "fertility": 9429,
-    "forest": 80446
+    "ore": 12888,
+    "oil": 79468,
+    "fertility": 9430,
+    "forest": 40970
   },
   "evidence": [
     {
@@ -41,6 +43,75 @@
       "weight": 0.8,
       "source": "USGS MRDS 10153623 Fleck Quarry (Past Producer, Surface)",
       "radius_m": 532.0
+    },
+    {
+      "kind": "ore",
+      "x": 7542.6,
+      "z": -8605.8,
+      "weight": 0.7,
+      "source": "MSHA 3606206 Duquesne Strip (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": 5608.1,
+      "z": -7062.3,
+      "weight": 0.7,
+      "source": "MSHA 3606441 West Mifflin (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": -8484.3,
+      "z": -3520.1,
+      "weight": 0.7,
+      "source": "MSHA 3606578 Maceral No 7 (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": -5659.0,
+      "z": 188.8,
+      "weight": 0.7,
+      "source": "MSHA 3607357 Mine No 5 (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": -118.8,
+      "z": 5274.5,
+      "weight": 0.7,
+      "source": "MSHA 3607643 Robert W Schowmaker (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": 7423.8,
+      "z": 6851.4,
+      "weight": 0.7,
+      "source": "MSHA 3608215 Approved Mine No 1 (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": -8034.7,
+      "z": 3209.1,
+      "weight": 0.7,
+      "source": "MSHA 3608285 Kennedy Center (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "ore",
+      "x": 1374.8,
+      "z": 142.6,
+      "weight": 0.7,
+      "source": "MSHA 3609160 Pittsburgh Project (coal, Surface, Abandoned)",
+      "radius_m": 498.0
+    },
+    {
+      "kind": "oil",
+      "source": "NETL WELLS: density of 165 oil and gas wells",
+      "wells_per_km2_threshold": 0.3
     }
   ],
   "placed": [
@@ -158,122 +229,80 @@
     },
     {
       "kind": "ore",
-      "x": 2109.375,
-      "z": -4640.625,
-      "radius_m": 673,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": -1333.125,
+      "x": -1265.625,
       "z": -928.125,
-      "radius_m": 609,
+      "radius_m": 708,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -2210.625,
-      "z": -2345.625,
-      "radius_m": 597,
+      "x": 2109.375,
+      "z": -4674.375,
+      "radius_m": 572,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -1063.125,
+      "x": -2176.875,
+      "z": -2446.875,
+      "radius_m": 656,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -1029.375,
       "z": 2851.875,
-      "radius_m": 521,
+      "radius_m": 441,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": -590.625,
-      "z": -2548.125,
-      "radius_m": 618,
-      "source": "convention"
-    },
-    {
-      "kind": "ore",
-      "x": 826.875,
-      "z": 2986.875,
-      "radius_m": 617,
+      "x": -556.875,
+      "z": -2615.625,
+      "radius_m": 441,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": 4809.375,
-      "z": -1636.875,
-      "radius_m": 444,
+      "z": -1670.625,
+      "radius_m": 610,
       "source": "convention"
     },
     {
       "kind": "ore",
-      "x": 2041.875,
-      "z": -2548.125,
-      "radius_m": 635,
+      "x": 860.625,
+      "z": 2953.125,
+      "radius_m": 536,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2446.875,
+      "z": -2750.625,
+      "radius_m": 540,
       "source": "convention"
     },
     {
       "kind": "ore",
       "x": -4303.125,
-      "z": 219.375,
-      "radius_m": 590,
+      "z": 185.625,
+      "radius_m": 453,
       "source": "convention"
     },
     {
-      "kind": "oil",
-      "x": -2649.375,
-      "z": 995.625,
-      "radius_m": 812,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 3796.875,
-      "z": -2311.875,
-      "radius_m": 576,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 4606.875,
-      "z": -4404.375,
-      "radius_m": 638,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": -3796.875,
-      "z": 2143.125,
-      "radius_m": 650,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": -1231.875,
-      "z": -84.375,
-      "radius_m": 478,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 2818.125,
-      "z": -793.125,
-      "radius_m": 660,
-      "source": "convention"
-    },
-    {
-      "kind": "oil",
-      "x": 1434.375,
-      "z": 1333.125,
-      "radius_m": 689,
+      "kind": "ore",
+      "x": 421.875,
+      "z": -4505.625,
+      "radius_m": 634,
       "source": "convention"
     }
   ],
   "theme": "Sunny",
   "package": {
-    "output": "/home/caleb/scratch/2026-11-11-pl857-short-rivers/inlet-throughput-fixtures/.freeze-q8nzbz7h/pittsburgh/PL857-pittsburgh.crp",
-    "sha256": "97f727a7c3eba2019b448d49289312199d7d4301c6df3d4d93dec42399b4fffe",
-    "bytes": 6957494,
+    "output": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-902-resources-r2/tools/map-factory/fixtures/.freeze-kzplxxa9/pittsburgh/PL857-pittsburgh.crp",
+    "sha256": "105e9de1d603a547e8b39e82b2bf289e19f30163418098b6dd3b9086221443f6",
+    "bytes": 6984236,
     "regenerated": [
       "terrain",
       "water",
@@ -295,6 +324,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "ceb0733f1dcc06be0180783bfd6831fb3727d9d10b6e7d5c4399ebb7d6b6f1b4"
+    "simulation_sha256": "03f2026f49b0ff09fd88ee1544194a4db1d3de3d4e573d083ea7cc9b026e2007"
   }
 }

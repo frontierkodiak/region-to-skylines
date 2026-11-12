@@ -1,35 +1,44 @@
 {
-  "evidence": [
-    {
-      "kind": "ore",
-      "x": -1854.5,
-      "z": 4016.4,
-      "weight": 1.0,
-      "source": "USGS MRDS 10126941 Bell Mine (Producer, Surface)"
-    },
-    {
-      "kind": "ore",
-      "x": -1573.5,
-      "z": 3461.7,
-      "weight": 1.0,
-      "source": "USGS MRDS 10175589 Harrin's Mine (Producer, Surface)"
-    },
-    {
-      "kind": "ore",
-      "x": 3411.7,
-      "z": 754.5,
-      "weight": 1.0,
-      "source": "USGS MRDS 10272251 Grove Pit (Producer, Surface)"
-    },
-    {
-      "kind": "ore",
-      "x": -2452.7,
-      "z": 4537.9,
-      "weight": 1.0,
-      "source": "USGS MRDS 10296801 Harmony Mine (Producer, Surface)"
-    }
-  ],
-  "sources": [
-    "USGS MRDS (public domain)"
-  ]
+ "evidence": [
+  {
+   "kind": "ore",
+   "x": -1854.5,
+   "z": 4016.4,
+   "weight": 1.0,
+   "source": "USGS MRDS 10126941 Bell Mine (Producer, Surface)"
+  },
+  {
+   "kind": "ore",
+   "x": -1573.5,
+   "z": 3461.7,
+   "weight": 1.0,
+   "source": "USGS MRDS 10175589 Harrin's Mine (Producer, Surface)"
+  },
+  {
+   "kind": "ore",
+   "x": 3411.7,
+   "z": 754.5,
+   "weight": 1.0,
+   "source": "USGS MRDS 10272251 Grove Pit (Producer, Surface)"
+  },
+  {
+   "kind": "ore",
+   "x": -2452.7,
+   "z": 4537.9,
+   "weight": 1.0,
+   "source": "USGS MRDS 10296801 Harmony Mine (Producer, Surface)"
+  },
+  {
+   "kind": "ore",
+   "x": -2190.5,
+   "z": -1633.4,
+   "weight": 0.9,
+   "source": "MSHA 3100425 Harrins Sand and Gravel LLC (SandAndGravel, Surface, Intermittent)"
+  }
+ ],
+ "sources": [
+  "USGS MRDS (public domain)",
+  "MSHA Mines dataset (public domain)",
+  "NETL WELLS / Integrated Public Wells, 2025-08 (CC-BY 4.0, DOI 10.18141/1964068)"
+ ]
 }
