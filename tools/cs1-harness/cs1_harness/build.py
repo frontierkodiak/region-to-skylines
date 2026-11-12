@@ -58,6 +58,7 @@ def build(cfg: Config) -> dict:
         "-target:library",
         "-langversion:7.3",
         "-optimize+",
+        "-unsafe+",  # Readback.cs writes a jump over one game method (see there)
         "-deterministic+",
         "-nologo",
         f"-out:{out}",

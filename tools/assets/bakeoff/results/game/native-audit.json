@@ -1,0 +1,16 @@
+{
+  "files": 192,
+  "judged_views": 24,
+  "assets": 12,
+  "native": {
+    "assets": 9,
+    "native_frames": 72,
+    "judged_views": 18,
+    "packaged_crps": 9,
+    "auditor_sha256": "c45dbdb479b9bb1fa0571eaa2338d1cc58a13fd02c0b13739df5865e7324268e",
+    "manifest_sha256": "b96ffe337a7fce824d90a4c36f28f9db31eac2b5450e3333908c96ab5b814ad6",
+    "scores_sha256": "3e3dbb5a4d5006de94304690a9ff3c1fd4b0ce5f67b02a77f2dfcc19e04e5127",
+    "identity_sha256": "0d8b5d4c256c8ac290ba09a72859b29db90b93d8b6adcbcad8770209592ccdc0",
+    "packages_manifest_sha256": "8a2ac838bb8657bab1e21a99338705313f49d5f66c2c579c6e9ff531e7a6e1d5"
+  }
+}

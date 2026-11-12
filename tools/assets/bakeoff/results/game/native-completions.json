@@ -1,0 +1,101 @@
+{
+  "C-bungalow.complete.json": {
+    "seconds_including_queue": {
+      "build": 122.7834207980195,
+      "check": 169.18856070400216
+    },
+    "files": {
+      "build/C-bungalow/C-bungalow.crp": "ee6434d75c778631889b0b5b24023d6d800676bdb33bd213f4ac96913be01b54",
+      "build/C-bungalow/asset-build.json": "80f0885f2965fdf54ac78c11768f76696889eca982248bab3a79ff8b984f6164",
+      "check/C-bungalow/asset-check.json": "dc6ce622cb4a2a973700e1f76dd865a7d06aa6804dee27725a45bbdb62b05838"
+    }
+  },
+  "A-storefront.complete.json": {
+    "seconds_including_queue": {
+      "build": 119.99763790803263,
+      "check": 169.32027765898965
+    },
+    "files": {
+      "build/A-storefront/A-storefront.crp": "f4f06e1e15babf6ea633da8cde469d386031bb1706a1a208725bc282b57122f6",
+      "build/A-storefront/asset-build.json": "9120eb12e3b3efd4ac53aa6b0e9ee0838f1bfb54e09d32416507ab69e1567935",
+      "check/A-storefront/asset-check.json": "a9944b22625cb6ea6181eb3838005b2f07ae7bddfa29d5d36ac0bf3f044aef65"
+    }
+  },
+  "B-apartment.complete.json": {
+    "seconds_including_queue": {
+      "build": 124.48190676100785,
+      "check": 171.66516272403533
+    },
+    "files": {
+      "build/B-apartment/B-apartment.crp": "5f5964e3ceb9f9d0ae25886d86cceeb8dd03d53c832254b00dd76c8731af9422",
+      "build/B-apartment/asset-build.json": "ccf84d302290a23d6555f85518878aee909c70688f0225548fb11ce347497ff0",
+      "check/B-apartment/asset-check.json": "773726bc7f2eecc01420c05b05ff6d74c0b612183697a7a48b7d331fe05bb3cb"
+    }
+  },
+  "A-apartment.complete.json": {
+    "seconds_including_queue": {
+      "build": 121.78107353701489,
+      "check": 171.36578980798367
+    },
+    "files": {
+      "build/A-apartment/A-apartment.crp": "184828d487a2be263ea8ee596b20f34d1dc47c983b531030247b5dd9db4efc80",
+      "build/A-apartment/asset-build.json": "0039092a730e40122c6a94638cb4c2ff3d34c28f260174623f0fd01be58c7152",
+      "check/A-apartment/asset-check.json": "86c53f80c099f2b9683e6e89706b856390f5825a481716415ca0dd914e0c1c59"
+    }
+  },
+  "A-bungalow.complete.json": {
+    "seconds_including_queue": {
+      "build": 830.8666807459667,
+      "check": 170.35932471702108
+    },
+    "files": {
+      "build/A-bungalow/A-bungalow.crp": "41d6534a3268296c06ec906acb709873cb5019c4730415461368147444018491",
+      "build/A-bungalow/asset-build.json": "95881c3ab78b071add0fc2512639463147d2ccf5d93f950c3a6b1b92db9c3d39",
+      "check/A-bungalow/asset-check.json": "225ca460b037e9acc8f72f9e4ae74761adb3e8897c98047ccba6623fc63b66ca"
+    }
+  },
+  "B-bungalow.complete.json": {
+    "seconds_including_queue": {
+      "build": 121.69370192999486,
+      "check": 172.22513733099913
+    },
+    "files": {
+      "build/B-bungalow/B-bungalow.crp": "bab84793addd7a72deca259f42dd539a6a2127bca030a5a08c423d5e4bd611ac",
+      "build/B-bungalow/asset-build.json": "da738c3f758dad330e4acd91d1887d55f6d3acf221333bb00461110b4f865c16",
+      "check/B-bungalow/asset-check.json": "3c9f14668608e0b970614ac14e56302de7855b6946fe583701b6ee652b2ef62f"
+    }
+  },
+  "C-apartment.complete.json": {
+    "seconds_including_queue": {
+      "build": 124.18424705701182,
+      "check": 170.50008006801363
+    },
+    "files": {
+      "build/C-apartment/C-apartment.crp": "cdf7c1538e565bc44a642ed005b55f8e0af23eb9864264e50867338646d42dbf",
+      "build/C-apartment/asset-build.json": "1842f3ce5e8380733215bb5baf573bdc16047231084e1c2a0d93b9c7474f4a30",
+      "check/C-apartment/asset-check.json": "49a4f723a5e10105d4644d817c43cd1e05610285ef6b66a491b68292fd6c2584"
+    }
+  },
+  "B-storefront.complete.json": {
+    "seconds_including_queue": {
+      "build": 128.07106225099415,
+      "check": 170.15390706801554
+    },
+    "files": {
+      "build/B-storefront/B-storefront.crp": "04397b1c8731c354471ee0b6d5abacd4a9bc787cfb3d7e40786b9b283ff2445e",
+      "build/B-storefront/asset-build.json": "cd18d0c4a3bf4e77cafbdb5f3c794439445cf5aaf727a08728e9182c08c9223e",
+      "check/B-storefront/asset-check.json": "3a33a9c51bef7877f70091f4607c03985eccb2850f0dfa37f1426eb2f8557a05"
+    }
+  },
+  "C-storefront.complete.json": {
+    "seconds_including_queue": {
+      "build": 123.51275839196751,
+      "check": 170.2870464870357
+    },
+    "files": {
+      "build/C-storefront/C-storefront.crp": "ef2ce89cb23034bdbf14b3d871237e8edea688ab1ea666b528797024b4281397",
+      "build/C-storefront/asset-build.json": "81cc8ff64ea295b44a12af4d7d4abe2ece2403dc2ccee232a7d02785b59df2b8",
+      "check/C-storefront/asset-check.json": "c9ab4bc1f99780c77b6f697f9c9a8b2425732ee105fca34633fdc4611f2d053a"
+    }
+  }
+}

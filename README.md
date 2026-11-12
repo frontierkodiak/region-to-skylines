@@ -1,8 +1,11 @@
 # Region to Cities: Skylines
 
-Pick any square of real terrain and download it as a Cities: Skylines (CS1)
-heightmap. It runs in your browser from open data, with no account or key, or from
-the command line, where it can put the map straight into the game's folder.
+Pick a square of real terrain anywhere and download it as a ready-to-play Cities: Skylines
+(CS1) map: rivers already flowing, a highway and a railway to the outside, real forests
+and farmland, plus ore and oil, listed under New Game with no Map Editor step. The game's
+heightmap is there too, under "Advanced", for anyone who wants to build their own map in
+the Map Editor. It runs in your browser from open data, with no account or key, or from the command
+line, where it can put the map straight into the game's folder.
 
 Live at <https://region-to-skylines.vercel.app>.
 
@@ -14,24 +17,26 @@ agent at [agents.md](https://region-to-skylines.vercel.app/agents.md) (also list
 [llms.txt](https://region-to-skylines.vercel.app/llms.txt)). The agent runs:
 
 ```sh
-npx -y https://region-to-skylines.vercel.app/cli.tgz "<link | lat,lon | place>" --install
+npx -y https://region-to-skylines.vercel.app/cli.tgz "<link | preset | lat,lon | place>" --install
 ```
 
-That builds the same heightmap pixels as the page, puts the PNG into the game's heightmap
-folder (below) without replacing an existing file unless you pass `--force`, writes a water
-map (the map with numbered water-source pins) and a JSON of details to a cache folder, and
-prints the in-game steps with this map's numbers. `--help` lists the options (rotation,
-scale, height, name, output folder, game folder, JSON output). It needs Node.js 20.3 or
-newer, not git. The copied prompt and agents.md pin the command to the page's commit
+That builds the same file as the page and puts the ready-to-play `<name>.crp` into the
+game's `Maps` folder, without replacing an existing file unless you pass `--force`. A JSON
+of details goes to a cache folder, and it prints what to do in the game. `--heightmap`
+makes the heightmap PNG for the Map Editor instead (into its heightmap folder, below, with a
+water map of numbered water-source pins); `--help` lists the other options (rotation,
+scale, height, name, in-game title, output folder, game folder, JSON output). It needs
+Node.js 20.3 or newer, not git or Python; the first run downloads about 30 MB of Pyodide. The copied prompt and agents.md pin the command to the page's commit
 (GitHub's tarball of it, via `build.mjs`); `/cli.tgz` is the latest.
 
 ## What it does
 
 Pan the map and the square stays in the middle. Rotate it, choose how much real
-ground it covers, and watch a 3D preview. The download is the 1081 x 1081 px,
-16-bit greyscale PNG the CS1 map editor imports, plus an optional JSON with the
-square's centre, rotation, scale, height mapping and suggested water sources.
-The URL keeps the square, so a link reproduces it.
+ground it covers, and watch a 3D preview. The download is the ready-to-play map file;
+under "Advanced" are the 1081 x 1081 px, 16-bit
+greyscale PNG the CS1 map editor imports, a JSON with the square's centre, rotation,
+scale, height mapping and suggested water sources, and a water map. The URL keeps the
+square, so a link reproduces it.
 
 How it is built:
 
@@ -55,7 +60,39 @@ How it is built:
   2.4 km and checks whether it runs downhill (an entry or a start) or uphill (an
   exit or a mouth). That places the suggested water sources.
 
-## Using the heightmap in Cities: Skylines
+## The ready-to-play map file
+
+The map file is written by the map writer in [`tools/map-factory`](tools/map-factory)
+(Python: NumPy, SciPy, Pillow), the same code whose maps are tested in the game with the
+`cs1-harness`. The page doesn't port it: it runs it, under [Pyodide](https://pyodide.org)
+(Python compiled to WebAssembly) in a Web Worker, and the CLI runs it under Pyodide in
+Node. So the page, the CLI and the reference give the same bytes for the same inputs;
+`npm run test:fixtures` checks the five reference maps (`tools/map-factory/fixtures`) byte
+for byte. The first map downloads about 30 MB (cached afterwards); a map takes about a
+minute and half a gigabyte of memory, so a phone may run out, in which case the page offers
+the heightmap instead.
+
+- `inputs.js` captures what the writer reads, for any square: the heightmap (the page's
+  defaults, with sea from OpenStreetMap's mapped ocean), the uncarved ground, and the
+  rivers, streams, lakes, coast and motorway, trunk and rail lines from the basemap's
+  vector tiles, with their tunnel tags. It follows `tools/map-factory/capture.js`, reading
+  tiles in a fixed order and filling ocean polygons by pixel centre, so every browser and
+  Node agree.
+- `mapgen.js` starts Pyodide with the writer, reads [ESA WorldCover](https://esa-worldcover.org)
+  land cover (GeoTIFF byte ranges) and USGS MRDS mineral deposits, and runs `generate.py`.
+  Python does no network reads (Pyodide has no sockets); `tools/map-factory/web.py` does the
+  arithmetic `landcover.py` and `evidence.py` do around theirs, and gives the same land cover
+  grid for the reference squares.
+- `mapgen-worker.js` is the page's worker; `cli.mjs` calls the same functions.
+
+Maps are not yet tested in the game for every square: the reference's hour-long game tests
+cover the Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and Charleston presets, and the
+page shows one quiet line for the two whose checks failed (Rio, Charleston). Put the `.crp`
+in the game's Maps folder (`%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Maps`,
+`~/Library/Application Support/Colossal Order/Cities_Skylines/Maps` or
+`~/.local/share/Colossal Order/Cities_Skylines/Maps`) and choose it under New Game.
+
+## Advanced: the heightmap in the Map Editor
 
 1. Save the PNG into the game's heightmap folder:
    - Windows: `%LOCALAPPDATA%\Colossal Order\Cities_Skylines\Addons\MapEditor\Heightmaps`
@@ -65,8 +102,7 @@ How it is built:
    under **Import heightmap**.
 3. **Sea level.** Coastal maps: set it to the "Sea level in game" value the app
    shows. Inland maps: drag it below the lowest riverbed so the valleys stay dry.
-4. **Water sources.** The heightmap carves the beds; for now the Map Editor adds
-   the water (a ready-to-play map file that skips this step is in the works).
+4. **Water sources.** The heightmap carves the beds; the Map Editor adds the water.
    Place a source on each dark blue pin, where a river enters the map or starts,
    and raise it until the bed fills to its banks. Grey pins mark where a river
    leaves; put nothing there. Put one in the middle of each lake (light blue
@@ -90,29 +126,45 @@ real distances and how steep slopes come out for the settings you chose.
 
 ## Run it locally
 
-It is a static page with no build step:
+It is a static page with no build step. `dev.mjs` serves the checkout like the deployed
+site, including the `/worldcover/` rewrite below, which the map file needs and a plain
+static server lacks:
 
 ```sh
-python3 -m http.server -d . 8000   # then open http://localhost:8000
+node dev.mjs 8000   # then open http://localhost:8000
 ```
 
-`terrain.js` holds the data fetching, carving and PNG encoding, with no DOM or canvas,
-so the page and the CLI share it; `app.js` is the map, controls and 3D preview (MapLibre
-GL JS and three.js from CDNs); `cli.mjs` is the command line. The page's import map loads
+`terrain.js` holds the data fetching, carving and PNG encoding, `inputs.js` the map
+writer's inputs and `mapgen.js` running the writer, all with no DOM or canvas, so the page
+and the CLI share them; `app.js` is the map, controls and 3D preview (MapLibre GL JS and
+three.js from CDNs); `cli.mjs` is the command line. `npm test` runs the quick checks;
+`npm run test:fixtures` builds the five reference maps under Pyodide and compares bytes
+(about a minute each). The page's import map loads
 `@mapbox/vector-tile` and `pbf` from jsDelivr; Node takes the same versions from
 `package.json`. To run the CLI from a checkout: `npm install`, then
 `node cli.mjs "35.58,-82.555" --name asheville`.
 
 ## Deploying
 
-The site is a static Vercel project (no framework, no build command, served
-from the repository root), connected to this repository: every push to `main`
-deploys to production, and other branches get preview deployments. To deploy by
+The site is a static Vercel project (no framework; `node build.mjs` copies the page, the
+map writer's files and a packed CLI into `dist/`), connected to this repository: every push
+to `main` deploys to production, and other branches get preview deployments. To deploy by
 hand from a checkout with the Vercel CLI and a token that can reach the project:
 
 ```sh
 vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope <team>
 ```
+
+**The WorldCover rewrite.** ESA's WorldCover bucket serves byte ranges but no CORS headers,
+so the page reads it through its own origin: `vercel.json` rewrites
+`/worldcover/ESA_WorldCover_10m_2021_v200_<tile>_Map.tif` (that file pattern only, nothing
+else in the bucket) to
+`https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/<tile file>`, with an
+immutable cache header. The page asks only for the tiles its square covers, and within them
+for the byte ranges it needs: about 0.7 MB for Asheville. It runs on the project's existing
+plan. **To remove it,** delete the `rewrites` and `headers` entries for `/worldcover/` from
+`vercel.json` and push; maps built in the browser then fail at the land-cover step and the
+page offers the heightmap (the CLI reads ESA's bucket directly and is unaffected).
 
 ## Data sources and licences
 
@@ -122,6 +174,9 @@ vercel deploy --prod --yes --token "$VERCEL_TOKEN" --scope <team>
 | Elevation | [Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) on AWS Open Data (Mapzen/Tilezen) | Credits below, as the [attribution page](https://github.com/tilezen/joerd/blob/master/docs/attribution.md) requires. |
 | Place search | [Nominatim](https://nominatim.org) at nominatim.openstreetmap.org | OSM data, ODbL. Used within the [usage policy](https://operations.osmfoundation.org/policies/nominatim/): only when you press Enter, at most one request a second, answers cached, attribution shown. The CLI sends one request per run, only for a place name, with its own User-Agent. |
 | Map hillshade | Terrain Tiles, as above | As above. |
+| Land cover (map file) | [ESA WorldCover](https://esa-worldcover.org) 2021 v200, 10 m | ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium. [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). |
+| Ore and oil (map file) | [USGS MRDS](https://mrdata.usgs.gov/mrds/) | Public domain. |
+| Map file template | Saved by Cities: Skylines itself in the map factory (`tools/map-factory/templates`) | Holds the game's own data layout and references to its built-in roads and buildings; no game code or assets. |
 
 Terrain Tiles source credits:
 
@@ -151,6 +206,12 @@ and [pbf](https://github.com/mapbox/pbf) (BSD-3-Clause), loaded from unpkg and j
 
 Cities: Skylines is a trademark of Paradox Interactive; this project is not
 affiliated with Paradox Interactive or Colossal Order.
+
+## Experimental building assets
+
+The [Asheville building bake-off](tools/assets/bakeoff/README.md) compares
+procedural, image-to-3D and hybrid authoring inputs. It is a separate pre-bridge
+experiment: Blender previews and FBX checks are not a game-tested asset pack.
 
 ## Licence
 

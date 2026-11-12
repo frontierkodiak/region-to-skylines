@@ -1,0 +1,43 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "weights_revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+  "source_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "ss_decoder_revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+  "setup_seconds": 53.30700465198606,
+  "seed": 881,
+  "pipeline_type": "512",
+  "steps": {
+    "sparse_structure_sampler": 12,
+    "shape_slat_sampler": 12,
+    "tex_slat_sampler": 12
+  },
+  "torch": "2.6.0+cu124",
+  "device": "NVIDIA GeForce RTX 3090",
+  "background_removal": "explicit frozen input alpha, no synthesized cleanup",
+  "assets": {
+    "bungalow": {
+      "inference_seconds": 26.32963709998876,
+      "total_seconds": 30.754296003025956,
+      "raw_triangles": 2294290,
+      "triangles": 5645,
+      "peak_allocated_bytes": 2815540224,
+      "sha256": "7f3879115f897e69afd5547617796575c7728e31b919e1deb10967dd865a32ee"
+    },
+    "storefront": {
+      "inference_seconds": 19.237057038990315,
+      "total_seconds": 23.44252466899343,
+      "raw_triangles": 1403728,
+      "triangles": 7783,
+      "peak_allocated_bytes": 2815542784,
+      "sha256": "024e7b21e2db3d658d3348b5aadce33071a8b769fb459e17cb6d01241c4b54f6"
+    },
+    "apartment": {
+      "inference_seconds": 17.490865009021945,
+      "total_seconds": 22.438628464005888,
+      "raw_triangles": 1285856,
+      "triangles": 11658,
+      "peak_allocated_bytes": 2815542784,
+      "sha256": "7fbfb9a0df30a6bfed8da349597f26a36c7a8ebca3f12f383a6975a8e4b493ff"
+    }
+  }
+}

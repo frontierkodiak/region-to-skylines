@@ -1,0 +1,108 @@
+{
+  "method": "B",
+  "target": "storefront",
+  "main": {
+    "triangles": 7998,
+    "vertices": 8020,
+    "bounds_m": [
+      [
+        -4.0,
+        -1.3338003158569336,
+        0.0
+      ],
+      [
+        4.0,
+        1.3338003158569336,
+        7.030177116394043
+      ]
+    ],
+    "uv_range": [
+      0.008814522996544838,
+      0.9911853671073914
+    ],
+    "dimensions_m": [
+      8.0,
+      2.667600631713867,
+      7.030177116394043
+    ]
+  },
+  "lod": {
+    "triangles": 178,
+    "vertices": 91,
+    "bounds_m": [
+      [
+        -4.0,
+        -1.3338003158569336,
+        0.0
+      ],
+      [
+        4.0,
+        1.3338003158569336,
+        7.030177116394043
+      ]
+    ],
+    "uv_range": [
+      0.0025590872392058372,
+      0.9974408745765686
+    ],
+    "dimensions_m": [
+      8.0,
+      2.667600631713867,
+      7.030177116394043
+    ]
+  },
+  "spec": {
+    "size": [
+      8.0,
+      15.0,
+      11.3
+    ],
+    "lot": [
+      2,
+      3
+    ],
+    "budget": 8000,
+    "lod": 180
+  },
+  "generation_seconds": 1.5312772920005955,
+  "normalization": {
+    "raw_bounds": [
+      [
+        -0.4980490803718567,
+        -0.18242928385734558,
+        -0.4394640326499939
+      ],
+      [
+        0.49947434663772583,
+        0.15019497275352478,
+        0.4371316730976105
+      ]
+    ],
+    "uniform_scale": 8.019861773054027,
+    "yaw_degrees": 0,
+    "rule": "Uniform fit inside the shared metre envelope; inferred aspect ratios preserved",
+    "window_semantics": "No inferred illumination or color-variation mask; disabled, not guessed"
+  },
+  "normal_map": "flat neutral tangent-space +X +Y; no invented relief",
+  "lod_strategy": "B: closed convex-envelope retopology and source baking; A/C: authored low-poly shell",
+  "renderer": "Blender 5.2.1 Cycles; CS1-like orthographic proxy, NOT Unity/CS1",
+  "render_seconds": 12.709957499988377,
+  "files": {
+    "B-storefront_c.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+    "B-storefront_lod_i.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+    "B-storefront_lod_n.png": "44da437029c7d4f5d146ca74521d3494a7244d9031b18a7d0205f846f7fcdf7e",
+    "B-storefront_d.png": "39e4a941ba9212c17c4fd70bf6af8fce1ef34ac702e0f5ece5062a350e6ce5ef",
+    "B-storefront_s.png": "98a2a13c47a130b8a2ec39e25cac3ae1d7f0277837ab29c539093dc31b713528",
+    "gameplay.png": "eb723bfd05ac1d3b67c304d80634c6a69ff00cbac6d759439e7599da092d9b85",
+    "B-storefront_i.png": "1a5e57350822bcd0cdb03f4dc88a26b4a281ba170756106cf0e2df2b298a2cd2",
+    "B-storefront_lod_c.png": "ab5140637b7f6192e92fac400e32e957c8a7b1682cddd128e96e0bfbaef50639",
+    "B-storefront_lod.fbx": "f012f37bbbc63714c248f0b2c5669db6506828a6037c45519b5e596bdfd30697",
+    "B-storefront_lod_d.png": "cb73d1dbb03a6cab9ac8fbb817e64788a2ee943d0c91ebaee4c8d985b4a2d878",
+    "B-storefront_lod_s.png": "1bdec007e7346322bc3e0b68a71276d85f16cf4ab7d06a027ee5d817a98166b9",
+    "B-storefront_n.png": "9d635534e475c7dc60f869767dbd9b0f37a94ddd7aa9a7b98642a6bd4febe8bc",
+    "lod.png": "03beeb64df34e3016cc10c2c512c166c453e6f3ff82b3c15fde5639734b0df91",
+    "B-storefront.fbx": "f0632c506c80cd7af195d72639e285b2ed70099a3452f91ffe603761ee4ffbbf",
+    "night.png": "16e65e495dc40469303146ed258746fbcc1e2400d991c969cd1eb79ccf7f6f41",
+    "close.png": "e1adbf73f65dd6db9952520a522285bdd8ee6ac7cc9ad5ddb8bd903463a1a153"
+  }
+}

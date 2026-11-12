@@ -1,0 +1,22 @@
+tools/map-factory/fixtures/** linguist-generated
+tools/map-factory/templates/native-corridors.json linguist-generated
+# The site's npx command downloads GitHub's tarball of the deployed commit; keep
+# research tools and their fixtures out of it (the CLI needs only the root files).
+tools/** export-ignore
+# ...except the map writer the CLI runs under Pyodide (mapgen.js FACTORY_FILES)
+tools/map-factory -export-ignore
+tools/map-factory/templates -export-ignore
+tools/map-factory/generate.py -export-ignore
+tools/map-factory/region.py -export-ignore
+tools/map-factory/prepare.py -export-ignore
+tools/map-factory/surface_water.py -export-ignore
+tools/map-factory/crp.py -export-ignore
+tools/map-factory/template.py -export-ignore
+tools/map-factory/map_metadata.py -export-ignore
+tools/map-factory/paint.py -export-ignore
+tools/map-factory/resources.py -export-ignore
+tools/map-factory/landcover.py -export-ignore
+tools/map-factory/evidence.py -export-ignore
+tools/map-factory/web.py -export-ignore
+tools/map-factory/templates/native-corridors.crp -export-ignore
+tools/map-factory/templates/native-corridors.json -export-ignore

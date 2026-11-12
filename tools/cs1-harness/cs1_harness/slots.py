@@ -191,7 +191,9 @@ def holder(cfg) -> dict | None:
     info = None
     if holder_file(cfg).exists():
         with_file = json.loads(holder_file(cfg).read_text())
-        if alive(with_file.get("pid", -1)) and (pid is None or pid == with_file["pid"]):
+        # /proc/locks names the process that took the flock; a script that holds the slot (a hold
+        # for Caleb's playtest, say) may have taken it in a child that has since exited.
+        if alive(with_file.get("pid", -1)) and (pid is None or pid == with_file["pid"] or not alive(pid)):
             info = with_file
     if info is None and pid is not None:
         proc = next((p for p in harness_processes() if p["pid"] == pid), {"pid": pid})

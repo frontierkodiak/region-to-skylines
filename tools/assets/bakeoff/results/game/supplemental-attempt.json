@@ -1,0 +1,12 @@
+{
+  "source": "8b87d60",
+  "compiled_mod_sha256": "6092d781290dd113fb1188207a71855278a89b82e25402e449da8c587aae5e20",
+  "intent": "vanilla night control, then forced-LOD inspection, planned on 3090",
+  "started_utc": "2026-11-11T05:42:54Z",
+  "ended_utc": "2026-11-11T05:57:54Z",
+  "exit": 75,
+  "launched_game": false,
+  "native_evidence": false,
+  "blocker": "Shared harness session: PL-902 first, then older PL-857 waiter acquired; no process stopped or lock bypassed",
+  "run_owned_work_remaining": false
+}

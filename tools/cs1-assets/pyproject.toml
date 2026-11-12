@@ -1,0 +1,16 @@
+[project]
+name = "cs1-assets"
+version = "0.1.0"
+description = "Building assets for Cities: Skylines 1: kit models to importable FBX and textures"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "pillow>=10", "scipy>=1.11"]
+
+[project.scripts]
+cs1-assets = "cs1_assets.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.ruff]
+line-length = 120

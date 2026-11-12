@@ -1,0 +1,142 @@
+{
+  "assets": [
+    {
+      "name": "A-bungalow",
+      "model_and_original_prepare_seconds": 0.9028971660300158,
+      "native_editor_job_seconds": 15.69,
+      "native_build_wall_seconds_including_wait": 830.8666807459667,
+      "native_check_wall_seconds_including_wait": 170.35932471702108,
+      "slot_preflight_wait_seconds": {
+        "build": 708.7,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 122.16668074596669,
+        "check": 169.85932471702108
+      }
+    },
+    {
+      "name": "B-bungalow",
+      "model_and_original_prepare_seconds": 32.418092253035866,
+      "native_editor_job_seconds": 15.76,
+      "native_build_wall_seconds_including_wait": 121.69370192999486,
+      "native_check_wall_seconds_including_wait": 172.22513733099913,
+      "slot_preflight_wait_seconds": {
+        "build": 0.5,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 121.19370192999486,
+        "check": 171.72513733099913
+      }
+    },
+    {
+      "name": "C-bungalow",
+      "model_and_original_prepare_seconds": 0.9514437090256251,
+      "native_editor_job_seconds": 15.78,
+      "native_build_wall_seconds_including_wait": 122.7834207980195,
+      "native_check_wall_seconds_including_wait": 169.18856070400216,
+      "slot_preflight_wait_seconds": {
+        "build": 0.5,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 122.2834207980195,
+        "check": 168.68856070400216
+      }
+    },
+    {
+      "name": "A-storefront",
+      "model_and_original_prepare_seconds": 0.8479198749992065,
+      "native_editor_job_seconds": 15.44,
+      "native_build_wall_seconds_including_wait": 119.99763790803263,
+      "native_check_wall_seconds_including_wait": 169.32027765898965,
+      "slot_preflight_wait_seconds": {
+        "build": 0.5,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 119.49763790803263,
+        "check": 168.82027765898965
+      }
+    },
+    {
+      "name": "B-storefront",
+      "model_and_original_prepare_seconds": 25.055848585965578,
+      "native_editor_job_seconds": 15.81,
+      "native_build_wall_seconds_including_wait": 128.07106225099415,
+      "native_check_wall_seconds_including_wait": 170.15390706801554,
+      "slot_preflight_wait_seconds": {
+        "build": 4.7,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 123.37106225099414,
+        "check": 169.65390706801554
+      }
+    },
+    {
+      "name": "C-storefront",
+      "model_and_original_prepare_seconds": 0.8939549999777228,
+      "native_editor_job_seconds": 15.76,
+      "native_build_wall_seconds_including_wait": 123.51275839196751,
+      "native_check_wall_seconds_including_wait": 170.2870464870357,
+      "slot_preflight_wait_seconds": {
+        "build": 0.5,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 123.01275839196751,
+        "check": 169.7870464870357
+      }
+    },
+    {
+      "name": "A-apartment",
+      "model_and_original_prepare_seconds": 0.8339242080110125,
+      "native_editor_job_seconds": 15.96,
+      "native_build_wall_seconds_including_wait": 121.78107353701489,
+      "native_check_wall_seconds_including_wait": 171.36578980798367,
+      "slot_preflight_wait_seconds": {
+        "build": 0.6,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 121.1810735370149,
+        "check": 170.86578980798367
+      }
+    },
+    {
+      "name": "B-apartment",
+      "model_and_original_prepare_seconds": 24.122778923017904,
+      "native_editor_job_seconds": 15.66,
+      "native_build_wall_seconds_including_wait": 124.48190676100785,
+      "native_check_wall_seconds_including_wait": 171.66516272403533,
+      "slot_preflight_wait_seconds": {
+        "build": 0.5,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 123.98190676100785,
+        "check": 171.16516272403533
+      }
+    },
+    {
+      "name": "C-apartment",
+      "model_and_original_prepare_seconds": 0.8788552500191145,
+      "native_editor_job_seconds": 15.7,
+      "native_build_wall_seconds_including_wait": 124.18424705701182,
+      "native_check_wall_seconds_including_wait": 170.50008006801363,
+      "slot_preflight_wait_seconds": {
+        "build": 0.5,
+        "check": 0.5
+      },
+      "native_wall_seconds_excluding_slot_preflight_wait": {
+        "build": 123.68424705701182,
+        "check": 170.00008006801363
+      }
+    }
+  ],
+  "total_wall_seconds_including_wait": 3352.437775946106,
+  "total_slot_preflight_wait_seconds": 721.5,
+  "scope": "The model/prepare column excludes image generation, native bridge re-export, setup, previews and native packaging. Native wall times include boot/load/screens/save/reload/cleanup; slot/preflight wait is recorded separately. Electricity, subscription allocation and exact image-generation billing/time unknown."
+}

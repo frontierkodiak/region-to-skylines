@@ -1,0 +1,13 @@
+{
+  "batch_sha256": "fb26ea9a7f192a631154e3cc00f6c4effebcee8dcd837f306c9e8ddd81ac1571",
+  "input_manifest_sha256": "f8a2fe2af3451a318bcfa1666142f31ee4a268cb9fca5a7da4a90a58f05670de",
+  "map_sha256": "b8507bf6e4c00f2336eb2051daed8785a6912a56ad594161e1e09a32ef0c94f4",
+  "harness_source": "a1d01a6cddd8cddf069915676a64d779a6f7430e",
+  "driver_sha256": "77a814f5decc244d12f652d023572780447c2088ab5a946c3f480b2c17cdb36b",
+  "screen": "1280x720",
+  "camera": "close 45m/25deg; gameplay 120m/40deg; LOD 1.05*max switch/40deg",
+  "position": [
+    0,
+    300
+  ]
+}

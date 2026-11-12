@@ -1,0 +1,304 @@
+[
+  {
+    "t": 1794372368.600561,
+    "event": "wait",
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-bungalow"
+  },
+  {
+    "t": 1794373077.2862725,
+    "event": "acquire",
+    "waited_s": 708.7,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-bungalow"
+  },
+  {
+    "t": 1794373179.301585,
+    "event": "release",
+    "held_s": 102.0,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-bungalow"
+  },
+  {
+    "t": 1794373199.9893084,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/A-bungalow"
+  },
+  {
+    "t": 1794373342.8144536,
+    "event": "release",
+    "held_s": 142.8,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/A-bungalow"
+  },
+  {
+    "t": 1794373370.318366,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-bungalow"
+  },
+  {
+    "t": 1794373471.26682,
+    "event": "release",
+    "held_s": 100.9,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-bungalow"
+  },
+  {
+    "t": 1794373492.0196078,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/B-bungalow"
+  },
+  {
+    "t": 1794373636.5511444,
+    "event": "release",
+    "held_s": 144.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/B-bungalow"
+  },
+  {
+    "t": 1794373664.27835,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/C-bungalow"
+  },
+  {
+    "t": 1794373765.0888171,
+    "event": "release",
+    "held_s": 100.8,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/C-bungalow"
+  },
+  {
+    "t": 1794373787.036312,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/C-bungalow"
+  },
+  {
+    "t": 1794373929.892811,
+    "event": "release",
+    "held_s": 142.9,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/C-bungalow"
+  },
+  {
+    "t": 1794373956.219341,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-storefront"
+  },
+  {
+    "t": 1794374055.5518641,
+    "event": "release",
+    "held_s": 99.3,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-storefront"
+  },
+  {
+    "t": 1794374076.2202334,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/A-storefront"
+  },
+  {
+    "t": 1794374218.6722827,
+    "event": "release",
+    "held_s": 142.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/A-storefront"
+  },
+  {
+    "t": 1794374245.0732815,
+    "event": "wait",
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-storefront"
+  },
+  {
+    "t": 1794374249.7113976,
+    "event": "acquire",
+    "waited_s": 4.7,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-storefront"
+  },
+  {
+    "t": 1794374351.5893106,
+    "event": "release",
+    "held_s": 101.9,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-storefront"
+  },
+  {
+    "t": 1794374373.6122942,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/B-storefront"
+  },
+  {
+    "t": 1794374516.2618017,
+    "event": "release",
+    "held_s": 142.6,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/B-storefront"
+  },
+  {
+    "t": 1794374543.8083665,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/C-storefront"
+  },
+  {
+    "t": 1794374644.473454,
+    "event": "release",
+    "held_s": 100.7,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/C-storefront"
+  },
+  {
+    "t": 1794374667.321325,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/C-storefront"
+  },
+  {
+    "t": 1794374809.952124,
+    "event": "release",
+    "held_s": 142.6,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/C-storefront"
+  },
+  {
+    "t": 1794374837.6053803,
+    "event": "acquire",
+    "waited_s": 0.6,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-apartment"
+  },
+  {
+    "t": 1794374938.4367747,
+    "event": "release",
+    "held_s": 100.8,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/A-apartment"
+  },
+  {
+    "t": 1794374959.405409,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/A-apartment"
+  },
+  {
+    "t": 1794375103.1913795,
+    "event": "release",
+    "held_s": 143.8,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/A-apartment"
+  },
+  {
+    "t": 1794375130.7492971,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-apartment"
+  },
+  {
+    "t": 1794375232.3113296,
+    "event": "release",
+    "held_s": 101.6,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/B-apartment"
+  },
+  {
+    "t": 1794375255.224486,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/B-apartment"
+  },
+  {
+    "t": 1794375400.4615695,
+    "event": "release",
+    "held_s": 145.2,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/B-apartment"
+  },
+  {
+    "t": 1794375426.8972692,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/C-apartment"
+  },
+  {
+    "t": 1794375528.4892151,
+    "event": "release",
+    "held_s": 101.6,
+    "command": "asset-build",
+    "issue": "PL-881",
+    "out": "build/C-apartment"
+  },
+  {
+    "t": 1794375551.0723953,
+    "event": "acquire",
+    "waited_s": 0.5,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/C-apartment"
+  },
+  {
+    "t": 1794375695.1759348,
+    "event": "release",
+    "held_s": 144.1,
+    "command": "asset-check",
+    "issue": "PL-881",
+    "out": "check/C-apartment"
+  }
+]

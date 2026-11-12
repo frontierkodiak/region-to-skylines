@@ -9,6 +9,7 @@ prompt and stops instead.
 from __future__ import annotations
 
 import contextlib
+import ctypes
 import fcntl
 import hashlib
 import json
@@ -136,6 +137,10 @@ class SteamLog:
             m = re.search(r"waiting for user response to (\w+)", line) or re.search(
                 rf"OnGameActionUserRequest: {self.app_id} LaunchApp (\w+)", line
             )
+            # "SynchronizingCloud syncfailed" opens Steam's cloud-sync-failed dialog (Play anyway /
+            # Cancel). It follows the account playing elsewhere; answering could clobber cloud saves.
+            if m and m.group(1) == "SynchronizingCloud" and re.search(r"SynchronizingCloud\s+syncfailed", line):
+                raise Blocked("Steam's cloud sync failed and it is asking what to do; not answering", EX_TEMPFAIL)
             if m and m.group(1) not in self.PASSING:
                 self.prompt(m.group(1))
             m = re.search(rf"launch error \d+ {self.app_id} LaunchApp (\w+)", line)
@@ -229,6 +234,12 @@ class Session(contextlib.AbstractContextManager):
         }
         self.cfg.state_file.write_text(json.dumps(state, indent=2, default=str) + "\n")
 
+    def capture_window(self, path):
+        from .x11 import GameWindow
+
+        with GameWindow.from_session(self) as window:
+            window.capture(path)
+
     @classmethod
     def attach(cls, cfg: Config, log=print) -> "Session":
         state = json.loads(cfg.state_file.read_text())
@@ -311,6 +322,47 @@ class Session(contextlib.AbstractContextManager):
         self.receipt["display"] = c.display
         self.log(f"display {c.display} and private bus up")
 
+    def park_pointer(self, x: int | None = None, y: int | None = None):
+        """Move the pointer on this owned private display (default: the screen centre).
+
+        At launch: Unity's window can place the pointer at its upper-left when it opens,
+        which edge-scrolls. Before asset screenshots, (40, 40): off the centre, so the
+        game's hover highlight doesn't tint what the camera looks at, and not on an edge.
+        Moving the pointer is not a camera override and sends no click/key.
+        """
+        if self.lock_fd is None or self.cfg.display == ":0":
+            raise HarnessError("pointer parking requires an owned private slot")
+        xlib = ctypes.CDLL("libX11.so.6")  # not `x`: that is the requested position
+        xlib.XOpenDisplay.argtypes = [ctypes.c_char_p]
+        xlib.XOpenDisplay.restype = ctypes.c_void_p
+        xlib.XDefaultRootWindow.argtypes = [ctypes.c_void_p]
+        xlib.XDefaultRootWindow.restype = ctypes.c_ulong
+        xlib.XWarpPointer.argtypes = [
+            ctypes.c_void_p,
+            ctypes.c_ulong,
+            ctypes.c_ulong,
+            ctypes.c_int,
+            ctypes.c_int,
+            ctypes.c_uint,
+            ctypes.c_uint,
+            ctypes.c_int,
+            ctypes.c_int,
+        ]
+        xlib.XSync.argtypes = [ctypes.c_void_p, ctypes.c_int]
+        xlib.XCloseDisplay.argtypes = [ctypes.c_void_p]
+        display = xlib.XOpenDisplay(self.cfg.display.encode())
+        if not display:
+            raise HarnessError("cannot open owned private display to park pointer")
+        px = self.cfg.width // 2 if x is None else x
+        py = self.cfg.height // 2 if y is None else y
+        try:
+            root = xlib.XDefaultRootWindow(display)
+            xlib.XWarpPointer(display, 0, root, 0, 0, 0, 0, px, py)
+            xlib.XSync(display, 0)
+        finally:
+            xlib.XCloseDisplay(display)
+        self.receipt["pointer_parked"] = {"display": self.cfg.display, "root_position": [px, py]}
+
     def install_mod(self):
         c = self.cfg
         dll = c.build_dir / "Cs1Harness.dll"
@@ -346,15 +398,17 @@ class Session(contextlib.AbstractContextManager):
         (c.harness_home / "session.env").write_text(
             f"CS1_HARNESS_DISPLAY={c.display}\nCS1_HARNESS_EGL={self.egl}\n"
             f"CS1_HARNESS_PORT={c.port}\nCS1_HARNESS_VGL={c.virtualgl}\n"
+            f"CS1_HARNESS_STDOUT='{self.stage / 'game-stdout.log'}'\n"
         )
         self.log(
             f"rendering on {name} at {target['bus']} ({self.egl}); {target['mem_total'] - target['mem_used']} MiB free"
         )
         return self.receipt["gpu"]
 
-    def check_placement(self) -> list[dict]:
+    def check_placement(self, placed: list[dict] | None = None) -> list[dict]:
         """The game must be on the pinned GPU and nowhere else."""
-        placed = gpu.game_placement()
+        if placed is None:
+            placed = gpu.game_placement()
         want = gpu.norm_bus(self.cfg.gpu_bus)
         self.receipt["game_gpu"] = placed
         wrong = [p for p in placed if p["bus"] != want]
@@ -363,6 +417,26 @@ class Session(contextlib.AbstractContextManager):
         if not placed:
             raise HarnessError(f"the game is not on any NVIDIA GPU (software rendering?); expected {want}")
         return placed
+
+    def install_file(self, src: pathlib.Path, target_dir: pathlib.Path) -> pathlib.Path:
+        """Copy a file into the game's data (Addons/Import, Addons/Assets, ...); `stop` removes it again.
+
+        A file already there is left alone if identical and refused if not: it isn't the harness's.
+        """
+        target = target_dir / src.name
+        target_dir.mkdir(parents=True, exist_ok=True)
+        if target.exists():
+            if sha256(target) != sha256(src):
+                raise HarnessError(f"{target} exists with different contents; it isn't the harness's to replace")
+            return target
+        shutil.copy2(src, target)
+        self.track(target)
+        return target
+
+    def track(self, path: pathlib.Path):
+        """Something the game wrote for this session (a save, an asset); `stop` removes it."""
+        if path not in self.installed:
+            self.installed.append(path)
 
     def install_map(self, crp: pathlib.Path) -> pathlib.Path:
         target = self.cfg.maps_dir / crp.name
@@ -376,16 +450,22 @@ class Session(contextlib.AbstractContextManager):
         return target
 
     def launch(self, game_args: list[str], timeout: float = 600):
-        """Start Steam on the harness display with -applaunch; wait for the mod's socket."""
+        """Launch through Steam; strict vanilla returns at rendering, not menu readiness."""
         c = self.cfg
         if self.egl is None:
             self.pin_gpu()
-        self.install_mod()
+        control = "--disableMods" not in game_args
+        self.receipt["control"] = control
+        if control:
+            self.install_mod()
         env = self.steam.base_env()
         before = set(self.steam.instances())
         self.steam_log = SteamLog(c, self.steam.log_path)
         log_file = self.stage / "game.log"
-        args = ["-silent", "-applaunch", c.app_id, *game_args, "-logFile", str(log_file)]
+        # The display's size, explicitly: Unity otherwise reuses the last session's resolution
+        # from its prefs, so one session's screen size leaked into the next.
+        size = ["-screen-width", str(c.width), "-screen-height", str(c.height), "-screen-fullscreen", "1"]
+        args = ["-silent", "-applaunch", c.app_id, *size, *game_args, "-logFile", str(log_file)]
         self.receipt["launch_args"] = args
         props = ["-p", "KillMode=control-group"]
         unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}
@@ -407,11 +487,19 @@ class Session(contextlib.AbstractContextManager):
         while time.monotonic() < deadline:
             self.our_instances |= set(self.steam.instances()) - before
             self.steam_log.check()
-            status = self.client.try_status()
+            live_games = set(game_pids(self.cfg.display)) if not control else set()
+            observed = [p for p in gpu.game_placement() if p["pid"] in live_games] if not control else []
+            if observed:
+                placed = self.check_placement(observed)
+                self.park_pointer()
+                self.log("strict --disableMods game rendering; observe menu readiness through the private X display")
+                return {"control": False, "menu_ready": None, "game_gpu": placed}
+            status = self.client.try_status() if control else None
             # CS1's main menu lives in the IntroScreen scene; it is ready once nothing is loading.
             if status and not status.get("loading") and not status.get("in_game"):
                 self.receipt["menu_status"] = status
                 placed = self.check_placement()
+                self.park_pointer()
                 self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}; GPU processes {placed}")
                 return status
             if not self.steam_alive():
@@ -442,14 +530,19 @@ class Session(contextlib.AbstractContextManager):
         env = self.steam.base_env()
         pids = game_pids(c.display)
         if pids:
-            with contextlib.suppress(Exception):
-                self.client.call("quit")
-            for _ in range(60):
-                if not game_pids(c.display):
-                    break
-                time.sleep(1)
+            if self.receipt.get("control", True):
+                with contextlib.suppress(Exception):
+                    self.client.call("quit")
+                for _ in range(60):
+                    if not game_pids(c.display):
+                        break
+                    time.sleep(1)
             for pid in game_pids(c.display):
-                self.log(f"game {pid} ignored quit; terminating it")
+                self.log(
+                    f"game {pid} ignored quit; terminating it"
+                    if self.receipt.get("control", True)
+                    else f"closing uninstrumented game {pid}"
+                )
                 with contextlib.suppress(ProcessLookupError):
                     os.kill(pid, 15)
         if self.steam_alive() and (self.cfg.runtime_dir / "bus").exists():

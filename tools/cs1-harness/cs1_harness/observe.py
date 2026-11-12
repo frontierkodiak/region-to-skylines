@@ -85,6 +85,7 @@ def ffmpeg_argv(cfg: Config, stage: pathlib.Path, record: bool, live: bool) -> l
         "-loglevel",
         "warning",
         "-nostdin",
+        "-y",  # overwrite: the live page keeps its last frame.jpg between runs
         "-f",
         "x11grab",
         "-draw_mouse",

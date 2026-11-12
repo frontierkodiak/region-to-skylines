@@ -1,0 +1,65 @@
+{
+  "reference": "USGS GNIS landform coordinates + independent fresh AWS Terrarium13 samples, 2026-11-10; game height=(DEM_ASL-572.4373168945312)+50; original input sq -82.555,35.58,r0,s1. Not sampled from prepared terrain.",
+  "coordinate_source": "https://carto.nationalmap.gov/arcgis/rest/services/geonames/MapServer/5/query?where=state_alpha%3D%27NC%27+AND+county_name%3D%27Buncombe%27+AND+gaz_featureclass%3D%27Summit%27&geometry=-82.65%2C35.502%2C-82.46%2C35.658&geometryType=esriGeometryEnvelope&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=gaz_id%2Cgaz_name&outSR=4326&returnGeometry=true&f=json",
+  "dem_url_pattern": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/13/{x}/{y}.png",
+  "dem_decode": "R*256+G+B/256-32768; Mercator pixel-centre bilinear sample",
+  "frame": {
+    "name": "Asheville",
+    "slug": "asheville",
+    "lon": -82.555,
+    "lat": 35.58,
+    "rotation": 0,
+    "scale": 1
+  },
+  "fit": {
+    "base": 572.4373168945312,
+    "verticalScale": 1
+  },
+  "expected_height_transform": "(DEM_ASL-fit.base)*fit.verticalScale+50",
+  "points": [
+    {
+      "name": "Sunset Mountain",
+      "gnis_id": 1022849,
+      "lon": -82.53260339253322,
+      "lat": 35.61913935558249,
+      "x": 2030.0137894945817,
+      "z": 4342.559806068036,
+      "dem_height_asl_m": 939.8808851907509,
+      "expected_height_m": 417.4435682962196,
+      "tolerance_m": 12
+    },
+    {
+      "name": "Richmond Hill",
+      "gnis_id": 1022281,
+      "lon": -82.58454949252696,
+      "lat": 35.61715986023446,
+      "x": -2678.346592948732,
+      "z": 4122.932354191818,
+      "dem_height_asl_m": 692.3081333475228,
+      "expected_height_m": 169.87081645299156,
+      "tolerance_m": 12
+    },
+    {
+      "name": "Beaucatcher Mountain",
+      "gnis_id": 1019023,
+      "lon": -82.5337609193875,
+      "lat": 35.61379856609152,
+      "x": 1925.0963157479648,
+      "z": 3749.992620660865,
+      "dem_height_asl_m": 875.0758417619336,
+      "expected_height_m": 352.63852486740234,
+      "tolerance_m": 12
+    },
+    {
+      "name": "Busbee Mountain",
+      "gnis_id": 1019438,
+      "lon": -82.49461183984228,
+      "lat": 35.52848700620322,
+      "x": 5473.543170508335,
+      "z": -5715.430236980767,
+      "dem_height_asl_m": 1064.0861020297125,
+      "expected_height_m": 541.6487851351812,
+      "tolerance_m": 12
+    }
+  ]
+}

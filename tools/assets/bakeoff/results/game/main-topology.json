@@ -1,0 +1,92 @@
+[
+  {
+    "name": "A-apartment",
+    "fbx_sha256": "2bedf76bb4f4137e1a38fa8fe5f7fc30d4482333802e78dfaf2ff5ad0a74b2fa",
+    "weld_distance": 1e-05,
+    "original_vertices": 672,
+    "welded_vertices": 670,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 1,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "A-bungalow",
+    "fbx_sha256": "721160d0b6309357db0e2107e6651a2b1b2826722efa7060d1625f12d77991af",
+    "weld_distance": 1e-05,
+    "original_vertices": 474,
+    "welded_vertices": 466,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 8,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "A-storefront",
+    "fbx_sha256": "f067f471282e934662c4b22c9387991c47b88dc759f7bfe6bd88100066f7d189",
+    "weld_distance": 1e-05,
+    "original_vertices": 480,
+    "welded_vertices": 468,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 8,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "B-apartment",
+    "fbx_sha256": "012721e8311c8a1c0548aeec972e38434c684ac1a450f80a7026d31ef6b470e7",
+    "weld_distance": 1e-05,
+    "original_vertices": 12395,
+    "welded_vertices": 7609,
+    "boundary_edges": 3594,
+    "nonmanifold_edges": 3623,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "B-bungalow",
+    "fbx_sha256": "c30b1b61e85c3b4f1275570e0c62480c1f00da1dce7801411c2ad3137fe390cb",
+    "weld_distance": 1e-05,
+    "original_vertices": 5889,
+    "welded_vertices": 3043,
+    "boundary_edges": 715,
+    "nonmanifold_edges": 731,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "B-storefront",
+    "fbx_sha256": "786c0ac2047f088836139d2b428f288aba3583c6022bee64b42aa4678cef03c2",
+    "weld_distance": 1e-05,
+    "original_vertices": 9935,
+    "welded_vertices": 5325,
+    "boundary_edges": 2818,
+    "nonmanifold_edges": 2845,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "C-apartment",
+    "fbx_sha256": "6f0b9790ed655e201ace747bbad1a6104f330c3c2dae1220550087a36dd9bd69",
+    "weld_distance": 1e-05,
+    "original_vertices": 672,
+    "welded_vertices": 670,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 1,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "C-bungalow",
+    "fbx_sha256": "2ef70a57d6b103c98eba09ce682167db4d8ddeac1b717a511c8c9d814fd02b0c",
+    "weld_distance": 1e-05,
+    "original_vertices": 474,
+    "welded_vertices": 466,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 8,
+    "analysis_only_no_export": true
+  },
+  {
+    "name": "C-storefront",
+    "fbx_sha256": "75ef57d280debc74f7cff08e7627c1a664f89dfc12878b4c43c678799c460e2b",
+    "weld_distance": 1e-05,
+    "original_vertices": 480,
+    "welded_vertices": 468,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 8,
+    "analysis_only_no_export": true
+  }
+]

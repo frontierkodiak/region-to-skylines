@@ -70,8 +70,10 @@ class Config:
     )
     # The harness's own X server. Never :0, a person's desktop.
     display: str = os.environ.get("CS1_HARNESS_DISPLAY", ":57")
-    width: int = 1920
-    height: int = 1080
+    # The game renders at the harness screen's size. Smaller screens need less VRAM
+    # beside blade's resident decisions replica: CS1_HARNESS_SCREEN=1280x720.
+    width: int = int(os.environ.get("CS1_HARNESS_SCREEN", "1920x1080").split("x")[0])
+    height: int = int(os.environ.get("CS1_HARNESS_SCREEN", "1920x1080").split("x")[1])
     port: int = int(os.environ.get("CS1_HARNESS_PORT", "8779"))
     steam_unit: str = "cs1-harness-steam"
     xvfb_unit: str = "cs1-harness-xvfb"
@@ -111,7 +113,9 @@ class Config:
 
     @property
     def build_dir(self) -> pathlib.Path:
-        return self.cache_dir / "build"
+        # Per checkout: agents build from their own worktrees, and a shared build directory
+        # let one agent's `build` change the DLL another agent's next `up` installed.
+        return pathlib.Path(__file__).resolve().parents[1] / ".build"
 
     @property
     def mod_dir(self) -> pathlib.Path:

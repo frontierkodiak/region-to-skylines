@@ -1,8 +1,8 @@
-"""cs1-harness: run Cities: Skylines 1 headless on a GPU, control it, and check maps.
+"""cs1-harness: run Cities: Skylines 1 headless on a GPU, control it, and check maps and assets.
 
 Two layers. `up` / `call` / `down` hold a game session that any tool can drive
-through the mod's ops (`call ops` lists them). `run` is one tool built on it: a
-timed map check with a report.
+through the mod's ops (`call ops` lists them). `run` (a timed map check) and
+`asset build` / `asset check` (Asset Editor mode) are tools built on it.
 """
 
 from __future__ import annotations
@@ -20,6 +20,7 @@ import sys
 import time
 
 from . import build as build_mod
+from . import mapped_water
 from . import notify as notify_mod
 from . import registry
 from . import report as report_mod
@@ -28,6 +29,7 @@ from . import triage as triage_mod
 from . import verdict as verdict_mod
 from .client import Client, HarnessError
 from .config import Config
+from .assets import Driver as AssetDriver
 from .mapcheck import MapCheck, collect, load_probe_file
 from .session import EX_TEMPFAIL, Blocked, Session
 
@@ -43,8 +45,8 @@ SLOT_POLL_SECONDS = 2
 def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     """A Session, waiting up to `wait_minutes` while another user holds the host's harness slot.
 
-    Waiters take turns oldest first: a waiter tries the lock only when no older
-    waiter (registered in the slot's waiting/ directory) is still alive. Runs from
+    Every entrant registers before its first attempt, and tries the lock only
+    when no older registered waiter is still alive. Runs from
     checkouts older than this rule don't register, so they can still take a gap.
     It never ends or takes over the other session. Waits, acquisitions and
     releases go to the contention log, and `cs1-harness queue` shows this process.
@@ -56,12 +58,16 @@ def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
     deadline = t0 + wait_minutes * 60
     last = None
     try:
+        slots.mark_waiting(cfg, meta, "queued for the harness slot")
         while True:
-            ahead = slots.older_waiters(cfg) if last else []
+            ahead = slots.older_waiters(cfg)
             if ahead:
                 if time.monotonic() >= deadline:
                     slots.mark_gave_up(cfg, meta, time.monotonic() - t0, f"{len(ahead)} older waiters")
                     raise Blocked(f"{len(ahead)} older waiters are ahead in the slot queue", EX_TEMPFAIL, busy=True)
+                if last is None:
+                    last = "older requests ahead in the slot queue"
+                    log(f"waiting for the harness slot: {last}")
                 time.sleep(SLOT_POLL_SECONDS)
                 continue
             with contextlib.ExitStack() as stack:
@@ -74,8 +80,6 @@ def slot(cfg, stage, wait_minutes: float, meta: dict | None = None):
                         raise
                     if str(b) != last:
                         log(f"waiting for the harness slot: {b}")
-                        if last is None:
-                            slots.mark_waiting(cfg, meta, str(b))
                         last = str(b)
                     time.sleep(SLOT_POLL_SECONDS)
                     continue
@@ -109,7 +113,7 @@ def cmd_setup(cfg, a):
 
 def cmd_doctor(cfg, a):
     """Check the GPU path without starting Steam: VirtualGL on the harness display, pinned by PCI bus."""
-    with Session(cfg, cfg.harness_home / "runs" / "doctor", log=log) as s:
+    with slot(cfg, cfg.harness_home / "runs" / "doctor", a.wait_minutes) as s:
         print(json.dumps({"host": cfg.host, "steam": cfg.steam, **s.pin_gpu()}, indent=2))
     shutil.rmtree(cfg.harness_home / "runs" / "doctor", ignore_errors=True)
     with contextlib.suppress(OSError):
@@ -208,6 +212,32 @@ def cmd_bench_observe(cfg, a):
     print(json.dumps(result, indent=2))
 
 
+def cmd_bench_speed(cfg, a):
+    """How fast does the simulation run when drawing is throttled?"""
+    from . import bench
+
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    stage = staging(cfg, out)
+    with slot(cfg, stage, a.wait_minutes, {"command": "bench-speed", "out": str(out)}) as s:
+        s.record, s.live, s.label = False, False, "sim speed bench"
+        installed = s.install_map(a.map.resolve())
+        s.launch(["--noWorkshop"])
+        entry = next(
+            m
+            for m in s.client.call("maps")["maps"]
+            if m["path"] and pathlib.Path(m["path"]).exists() and pathlib.Path(m["path"]).samefile(installed)
+        )
+        s.client.call("new_game", path=entry["path"])
+        s.client.wait(lambda st: st.get("in_game") and not st.get("loading"), 900, "the city to load", alive=s.alive)
+        s.client.call("run", paused=False, speed=3)
+        time.sleep(20)
+        result = bench.speed(s, a.seconds)
+    collect(stage, out)
+    (out / "bench-speed.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result, indent=2))
+
+
 def cmd_see(cfg, a):
     """Score screenshots with Clef-Flash (advisory)."""
     from . import vision
@@ -247,6 +277,7 @@ def cmd_run(cfg, a):
         raise SystemExit(f"no such map: {a.map}")
     if a.probes:
         # Freeze what the verdict reads, so editing the source later can't change it.
+        mapped_water.freeze(a.probes, out)
         shutil.copyfile(a.probes, out / "probes.json")
         ref = json.loads(a.probes.read_text())
         if isinstance(ref, dict) and ref.get("reference_water"):
@@ -266,7 +297,14 @@ def cmd_run(cfg, a):
             }
             with slot(cfg, stage, a.wait_minutes, meta) as s:
                 observers(s, a, default_label=f"map check: {a.map.name}")
-                r = MapCheck(s, out, points, views, log=log)
+                probe_data = json.loads(a.probes.read_text()) if a.probes else {}
+                paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
+                r = MapCheck(s, out, points, views, log=log, paths=paths)
+                r.render_fps = a.render_fps
+                r.save_at = sorted(x for x in a.save_at if x >= 0)
+                r.save_end = a.save_end
+                r.save_on_dry = a.save_on_dry
+                r.from_save = a.from_save.resolve() if a.from_save else None
                 result = r.execute(
                     a.map.resolve(),
                     a.game_minutes,
@@ -275,6 +313,7 @@ def cmd_run(cfg, a):
                     a.screenshot_every,
                     a.dump_every,
                     a.load_timeout,
+                    a.scenario,
                 )
                 result["probes"] = str(a.probes.resolve()) if a.probes else None
                 result["requested_game_minutes"] = a.game_minutes
@@ -380,7 +419,7 @@ def cmd_submit(cfg, a):
         raise SystemExit("submit needs run's --out")
     out = pathlib.Path(args[args.index("--out") + 1]).expanduser().resolve()
     out.mkdir(parents=True, exist_ok=True)
-    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if not a.no_wake else [])
+    args = [*args, "--issue", a.issue, "--notify"] + (["--wake"] if a.wake else [])
     if "--wait-minutes" not in args:
         args += ["--wait-minutes", str(a.wait_minutes)]
     if "--retry-minutes" not in args:
@@ -396,6 +435,7 @@ def cmd_submit(cfg, a):
         f"--working-directory={tool}",
         f"--setenv=PATH={os.environ.get('PATH', '')}",
         f"--setenv=HOME={pathlib.Path.home()}",
+        *[f"--setenv={k}={v}" for k, v in os.environ.items() if k.startswith("CS1_")],
         # `systemctl stop` must let the run tear the game down (quit waits up to 60 s, Steam 90 s):
         # SIGTERM to uv, which forwards it to the harness, then up to 5 min before anything is killed.
         "--property=KillMode=mixed",
@@ -533,6 +573,89 @@ def cmd_compare(cfg, a):
     return 0
 
 
+def _session_tool(cfg, a, label: str, body) -> int:
+    """Run body(driver) in a fresh session, collect its files into --out, write a receipt."""
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    stage = staging(cfg, out)
+    attempt = 0
+    while True:
+        attempt += 1
+        result, rc = None, 0
+        try:
+            with slot(cfg, stage, a.wait_minutes, {"command": label, "issue": a.issue, "out": str(out)}) as s:
+                result = body(AssetDriver(s, out, log=log))
+                result["gpu_processes"] = s.gpu_processes()
+        except Blocked as b:
+            log(f"blocked: {b}")
+            if stage.exists():
+                collect(stage, out)
+            if b.code == EX_TEMPFAIL and a.retry_minutes and (a.max_attempts == 0 or attempt < a.max_attempts):
+                log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
+                time.sleep(a.retry_minutes * 60)
+                continue
+            return b.code
+        except HarnessError as e:
+            log(f"failed: {e}")
+            result, rc = {"error": str(e)}, 1
+        if stage.exists():
+            collect(stage, out)
+        receipt = {"tool": label, "result": result}
+        session = out / "session-receipt.json"
+        if session.exists():
+            receipt["session"] = json.loads(session.read_text())
+            if receipt["session"].get("cleanup") != {"game": [], "steam_instances": [], "units_active": []}:
+                log(f"cleanup left something running: {receipt['session'].get('cleanup')}")
+                rc = rc or 1
+        (out / f"{label}.json").write_text(json.dumps(receipt, indent=2, default=str) + "\n")
+        print(json.dumps({"out": str(out), "ok": rc == 0, **({"error": result["error"]} if rc else {})}))
+        return rc
+
+
+def cmd_asset(cfg, a):
+    if a.action == "build":
+        bake = (
+            json.loads((a.src / f"{a.name}.bake.json").read_text()) if (a.src / f"{a.name}.bake.json").exists() else {}
+        )
+        cells = (
+            tuple(int(v) for v in a.cells.lower().split("x")) if a.cells else tuple(bake.get("lot_cells", ())) or None
+        )
+        scale = a.scale if a.scale is not None else float(bake.get("import_scale", 1))
+        expect = None
+        if bake.get("size_m") and not a.no_size_check:
+            sx, sy, sz = bake["size_m"]  # Blender x across, y deep, z up -> game x, y up, z deep
+            expect = [sx, sz, sy]
+        return _session_tool(
+            cfg,
+            a,
+            "asset-build",
+            lambda d: d.build(
+                a.src.resolve(),
+                a.name,
+                a.template,
+                cells,
+                scale,
+                expect,
+                a.asset_name or a.name,
+                a.save_name or a.name,
+                a.theme,
+                a.load_timeout,
+            ),
+        )
+    at = tuple(float(v) for v in a.at.split(",")) if a.at else None
+    rc = _session_tool(
+        cfg, a, "asset-check", lambda d: d.check(a.crp.resolve(), a.map.resolve(), at, a.angle, a.load_timeout)
+    )
+    out = a.out.resolve()
+    if (out / "asset-check.json").exists():
+        # Judge it like a map run: verdict.json, triage, and a registry line.
+        v = verdict_mod.judge(out)
+        log(verdict_mod.summary(v))
+        triage_mod.attach(out, cfg)
+        registry.add(out)
+    return rc
+
+
 def main(argv=None):
     p = argparse.ArgumentParser(prog="cs1-harness", description=__doc__)
     p.add_argument("--host", help="host profile (blade, worm); default: this machine's hostname")
@@ -540,7 +663,8 @@ def main(argv=None):
     sub.add_parser("build", help="compile the harness mod against the installed game")
     s = sub.add_parser("setup", help="user-level host setup (VirtualGL, Steam launch wrapper)")
     s.add_argument("--undo", action="store_true", help="remove everything setup added")
-    sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")
+    doctor = sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")
+    doctor.add_argument("--wait-minutes", type=float, default=0, help="wait for the shared harness slot")
     u = sub.add_parser("up", help="start a session and leave it running (ends with `down`)")
     u.add_argument("--map", type=pathlib.Path, help="install this .crp into Maps/ for the session")
     u.add_argument("--name", help="staging directory name")
@@ -560,6 +684,11 @@ def main(argv=None):
     b.add_argument("--out", type=pathlib.Path, required=True)
     b.add_argument("--seconds", type=float, default=60)
     b.add_argument("--wait-minutes", type=float, default=0)
+    bs = sub.add_parser("bench-speed", help="simulation speed with drawing throttled in steps")
+    bs.add_argument("--map", type=pathlib.Path, required=True)
+    bs.add_argument("--out", type=pathlib.Path, required=True)
+    bs.add_argument("--seconds", type=float, default=45)
+    bs.add_argument("--wait-minutes", type=float, default=0)
     w = sub.add_parser("watch", help="view-only VNC of the running session (localhost; reach it over ssh)")
     w.add_argument("--hold", type=float, default=0, help="keep it this many minutes, then stop (0: until down)")
     w.add_argument("--stop", action="store_true", help="stop the VNC server")
@@ -572,6 +701,9 @@ def main(argv=None):
     d.add_argument("--out", type=pathlib.Path, help="move the session's files (log, GPU samples, shots) here")
     r = sub.add_parser("run", help="New Game on a map, simulate, report")
     r.add_argument("--map", type=pathlib.Path, required=True, help="the .crp map file")
+    r.add_argument(
+        "--scenario", choices=("test-city",), help="build a standard city before the soak; check growth and car paths"
+    )
     r.add_argument(
         "--game-minutes", type=float, default=60, help="simulated minutes, counted as play at 1x speed (default 60)"
     )
@@ -595,6 +727,20 @@ def main(argv=None):
     )
     r.add_argument("--label", help="what the live page calls this run (e.g. 'PL-857 Asheville soak')")
     r.add_argument("--issue", help="the issue this run is for (e.g. PL-857); default: from --label or --out")
+    r.add_argument(
+        "--render-fps",
+        type=int,
+        default=10,
+        help="cap drawing between screenshot sets (default 10: full sim speed at half the CPU; 0: unlimited)",
+    )
+    r.add_argument(
+        "--save-at", type=float, action="append", default=[], help="save the city at this game-minute (repeatable)"
+    )
+    r.add_argument("--save-end", action="store_true", help="save the city when the run ends")
+    r.add_argument(
+        "--save-on-dry", action="store_true", help="save once when required probes first drop below the verdict"
+    )
+    r.add_argument("--from-save", type=pathlib.Path, help="start from this save (.crp) instead of a New Game")
     r.add_argument("--notify", action="store_true", help="comment the verdict, frames and timelapse on the issue")
     r.add_argument("--wake", action="store_true", help="with --notify, @mention the issue's agent assignee")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
@@ -606,6 +752,41 @@ def main(argv=None):
         default=0,
         help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
     )
+    ab = sub.add_parser("asset", help="Asset Editor mode: build a .crp from an import set, or check one in game")
+    asub = ab.add_subparsers(dest="action", required=True)
+    b = asub.add_parser("build", help="import <name>.fbx (+ _lod and maps) onto a template and save a .crp")
+    b.add_argument("--src", type=pathlib.Path, required=True, help="directory with <name>.fbx, <name>_lod.fbx, maps")
+    b.add_argument("--name", required=True, help="mesh base name (the FBX's file name without extension)")
+    b.add_argument(
+        "--template",
+        default="auto",
+        help="building template prefab name (`call templates` lists them); auto (default): low-density "
+        "residential level 1 on the lot",
+    )
+    b.add_argument("--cells", help="lot in 8 m cells, WxL (default: the bake receipt's)")
+    b.add_argument("--scale", type=float, help="import scale (default: the bake receipt's import_scale, else 1)")
+    b.add_argument("--no-size-check", action="store_true", help="skip comparing the imported size with the bake's")
+    b.add_argument("--asset-name", help="asset name in game menus (default: --name)")
+    b.add_argument("--save-name", help=".crp file name without extension (default: --name)")
+    b.add_argument("--theme", default="Sunny", help="Asset Editor environment")
+    b.add_argument("--out", type=pathlib.Path, required=True)
+    k = asub.add_parser("check", help="fresh game: New Game on a map, place the asset, views, save and reload")
+    k.add_argument("--crp", type=pathlib.Path, required=True, help="the asset .crp")
+    k.add_argument("--map", type=pathlib.Path, required=True, help="map .crp for the New Game")
+    k.add_argument("--at", help="x,z world metres to place it (default: a dry, flat spot near the centre)")
+    k.add_argument("--angle", type=float, default=0, help="building angle, degrees")
+    k.add_argument("--out", type=pathlib.Path, required=True)
+    for x in (b, k):
+        x.add_argument("--issue", help="owning issue key for the shared slot queue")
+        x.add_argument("--load-timeout", type=float, default=900, help="seconds to wait for a level to load")
+        x.add_argument("--retry-minutes", type=float, default=0, help="if the account is in use, wait and retry")
+        x.add_argument("--max-attempts", type=int, default=0, help="retry limit with --retry-minutes (0: no limit)")
+        x.add_argument(
+            "--wait-minutes",
+            type=float,
+            default=0,
+            help="if another agent or person holds this host's harness, wait up to this long for it (0: exit 75)",
+        )
     q = sub.add_parser("runs", help="list registered runs (filters AND together), or --index run directories")
     q.add_argument("--issue")
     q.add_argument("--check-type", choices=("map-soak", "asset-check"))
@@ -630,7 +811,12 @@ def main(argv=None):
     n.add_argument("--dry-run", action="store_true", help="print the comment and attachments; post nothing")
     m = sub.add_parser("submit", help="start a run detached; its verdict is commented on --issue when it ends")
     m.add_argument("--issue", required=True, help="where the verdict goes (e.g. PL-857)")
-    m.add_argument("--no-wake", action="store_true", help="comment without @mentioning the assignee")
+    m.add_argument(
+        "--wake",
+        action="store_true",
+        help="also @mention the issue's agent assignee (a Driver comment on an agent's issue already wakes it)",
+    )
+    m.add_argument("--no-wake", action="store_true", help=argparse.SUPPRESS)  # the default now; kept for old callers
     m.add_argument("--wait-minutes", type=float, default=240, help="how long the job waits for the slot")
     m.add_argument("run_args", nargs=argparse.REMAINDER, help="-- run --map … --out … [options]")
     sub.add_parser("mcp", help="serve these commands over MCP (stdio), for agents that prefer tools")
@@ -657,8 +843,10 @@ def main(argv=None):
             "down": cmd_down,
             "watch": cmd_watch,
             "bench-observe": cmd_bench_observe,
+            "bench-speed": cmd_bench_speed,
             "see": cmd_see,
             "run": cmd_run,
+            "asset": cmd_asset,
             "verdict": cmd_verdict,
             "mcp": cmd_mcp,
             "runs": cmd_runs,

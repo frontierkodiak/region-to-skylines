@@ -1,6 +1,6 @@
 # Region to Cities: Skylines
 
-> Turns any square of real terrain into a Cities: Skylines 1 heightmap (1081 x 1081 px, 16-bit PNG) with OpenStreetMap rivers and lakes carved in. Runs in the browser, or from the command line with `npx -y __CLI_TGZ__ "<link | lat,lon | place>" --install`, which also copies the map into the game's folder.
+> Turns a square of real terrain anywhere into a ready-to-play Cities: Skylines 1 map file (.crp): rivers already flowing, a highway and railway to the outside, real forests and farmland, plus ore and oil, listed under New Game with no Map Editor step. The map writer (Python) runs in the browser or the CLI with Pyodide. A 1081 x 1081 px, 16-bit heightmap for the Map Editor is available too. Command line: `npx -y __CLI_TGZ__ "<link | preset | lat,lon | place>" --install`, which also copies the map into the game's folder.
 
 ## For agents
 
