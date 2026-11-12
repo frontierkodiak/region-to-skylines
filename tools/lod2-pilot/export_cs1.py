@@ -23,9 +23,11 @@ from shapely.geometry import Polygon
 
 from common import EXP, read_json
 
-# The game's lighting brightens and saturates: PL-900's #8a4c35 brick came out salmon and
-# its #dfd39a siding bright yellow. These are the same hues at about half the saturation.
-WALL_HEX = {"brick": "#7d5a4e", "stone": "#7c776b", "siding": "#d6d0bd"}
+# The game's lighting brightens and saturates. Measured on blade (PL-909): after the bake's
+# x0.58, a texture value comes out about 2.5 times brighter, and its red-minus-blue spread
+# over three times wider (brick texture 72,55,49 showed as 182,119,96, salmon). These are
+# chosen backwards from the colour wanted on screen.
+WALL_HEX = {"brick": "#67564c", "stone": "#7c7872", "siding": "#8d8881"}
 GLASS_HEX = "#2f3b56"
 STOREY = 3.0  # m between window rows
 WINDOW = (1.0, 1.4)  # m wide, tall
@@ -39,8 +41,9 @@ def windows(tri: np.ndarray, kinds: list[str]) -> np.ndarray:
 
     Wall triangles are grouped by the vertical plane they lie in. Each plane gets rows of
     panes at fixed storey heights from the ground and a fixed spacing along the wall,
-    wherever a whole pane with its margin fits inside the wall. Panes sit 3 cm off the
-    wall and wind like it. This is a regular fill, not a reading of the real facade.
+    wherever a whole pane with its margin fits inside the wall. Panes sit 3 cm outside the
+    wall and wind like it. Scene triangles wind clockwise seen from outside, so a wall's
+    right-hand normal points into the building. This is a regular fill, not a reading of the real facade.
     """
     from shapely.geometry import Polygon, box
     from shapely.ops import unary_union
@@ -77,7 +80,7 @@ def windows(tri: np.ndarray, kinds: list[str]) -> np.ndarray:
                 pane = box(c - WINDOW[0] / 2, y0, c + WINDOW[0] / 2, y0 + WINDOW[1])
                 if not face.contains(pane.buffer(EDGE * 0.5)):
                     continue
-                q = [origin + along * a + np.array([0, y - origin[1], 0]) + n * 0.03
+                q = [origin + along * a + np.array([0, y - origin[1], 0]) - n * 0.03
                      for a, y in ((c - WINDOW[0] / 2, y0), (c + WINDOW[0] / 2, y0), (c + WINDOW[0] / 2, y0 + WINDOW[1]), (c - WINDOW[0] / 2, y0 + WINDOW[1]))]
                 for t in ([q[0], q[1], q[2]], [q[0], q[2], q[3]]):
                     t = np.array(t)
