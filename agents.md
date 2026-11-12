@@ -3,7 +3,7 @@
 Your person wants a real place as a Cities: Skylines (CS1, the first game) map. This tool
 turns a square of real terrain anywhere into a **ready-to-play map file** (`.crp`): the
 rivers already have water in them, a highway and a railway connect it to the outside, and
-it has real forests, farmland, ore and oil, so the game's **New Game** screen lists it and
+it has real forests and farmland, plus ore and oil, so the game's **New Game** screen lists it and
 nobody opens the Map Editor. It copies the file into the game's folder. Do the setup for
 them; leave only the playing to them.
 
@@ -95,6 +95,7 @@ For a **heightmap** (`--heightmap`), pass on the Map Editor steps:
 - Same code as the web page: a square gives the same file here as in the browser.
 - Data: elevation from AWS Terrain Tiles (Mapzen and its sources); rivers, lakes, coast and
   roads © OpenStreetMap contributors (ODbL), via OpenFreeMap tiles; land cover from ESA
-  WorldCover 2021 (CC BY 4.0); ore and oil from USGS MRDS; place search by Nominatim.
+  WorldCover 2021 (CC BY 4.0); ore and oil from USGS MRDS deposits where it has records,
+  topped up to the share the game's own maps have; place search by Nominatim.
   If your person shares the map, credit "© OpenStreetMap contributors".
 - Source and issues: <https://github.com/frontierkodiak/region-to-skylines>.
