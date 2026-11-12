@@ -137,6 +137,10 @@ class SteamLog:
             m = re.search(r"waiting for user response to (\w+)", line) or re.search(
                 rf"OnGameActionUserRequest: {self.app_id} LaunchApp (\w+)", line
             )
+            # "SynchronizingCloud syncfailed" opens Steam's cloud-sync-failed dialog (Play anyway /
+            # Cancel). It follows the account playing elsewhere; answering could clobber cloud saves.
+            if m and m.group(1) == "SynchronizingCloud" and re.search(r"SynchronizingCloud\s+syncfailed", line):
+                raise Blocked("Steam's cloud sync failed and it is asking what to do; not answering", EX_TEMPFAIL)
             if m and m.group(1) not in self.PASSING:
                 self.prompt(m.group(1))
             m = re.search(rf"launch error \d+ {self.app_id} LaunchApp (\w+)", line)

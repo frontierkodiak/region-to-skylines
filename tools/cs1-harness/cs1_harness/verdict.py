@@ -673,6 +673,8 @@ def ground_truth(out: pathlib.Path, report: dict, meta: dict) -> dict:
 
 def opening_camera(report: dict) -> dict:
     cam = report.get("opening_camera")
+    if (report.get("map") or {}).get("from_save"):
+        return row("opening_camera", "skip", detail="started from a save, whose camera is wherever the save left it")
     if not cam:
         return row("opening_camera", "skip", detail="this run didn't read the opening camera")
     heading = float(cam.get("heading_deg", 0.0))

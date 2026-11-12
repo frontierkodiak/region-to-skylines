@@ -300,6 +300,10 @@ def cmd_run(cfg, a):
                 paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
                 r = MapCheck(s, out, points, views, log=log, paths=paths)
                 r.render_fps = a.render_fps
+                r.save_at = sorted(x for x in a.save_at if x >= 0)
+                r.save_end = a.save_end
+                r.save_on_dry = a.save_on_dry
+                r.from_save = a.from_save.resolve() if a.from_save else None
                 result = r.execute(
                     a.map.resolve(),
                     a.game_minutes,
@@ -645,6 +649,14 @@ def main(argv=None):
         default=10,
         help="cap drawing between screenshot sets (default 10: full sim speed at half the CPU; 0: unlimited)",
     )
+    r.add_argument(
+        "--save-at", type=float, action="append", default=[], help="save the city at this game-minute (repeatable)"
+    )
+    r.add_argument("--save-end", action="store_true", help="save the city when the run ends")
+    r.add_argument(
+        "--save-on-dry", action="store_true", help="save once when required probes first drop below the verdict"
+    )
+    r.add_argument("--from-save", type=pathlib.Path, help="start from this save (.crp) instead of a New Game")
     r.add_argument("--notify", action="store_true", help="comment the verdict, frames and timelapse on the issue")
     r.add_argument("--wake", action="store_true", help="with --notify, @mention the issue's agent assignee")
     r.add_argument("--no-record", action="store_true", help="skip the timelapse recording")

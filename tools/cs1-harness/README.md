@@ -264,6 +264,19 @@ that frame:
 A map soak with no passing `ground_truth` check reports `unverified`, never
 `pass`.
 
+## Saves: repros and checkpoints
+
+`run --save-at 25 --save-at 40` saves the city at those game-minutes,
+`--save-end` at the end, and `--save-on-dry` once, when required probes first
+fall below the verdict's threshold. Saves land in `--out`/`saves/`, and
+`repro.md` says how to open them. On carbon, copy one to
+`~/Library/Application Support/Colossal Order/Cities_Skylines/Saves/` and use
+Load Game; no mods are needed. `--notify` attaches the latest save.
+`run --from-save X.crp` starts from a save instead of a New Game, so a soak can
+resume or branch from minute N. Saving and loading use the mod's `save_game`
+and `load_game` ops from PR #10; without them `run` logs that the save failed
+and carries on.
+
 ## Verdict
 
 Every `run` ends with `verdict.json`: `pass`, `fail` or `error`, one row per

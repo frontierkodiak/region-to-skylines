@@ -750,6 +750,86 @@ The display-only `doctor` check now accepts the same `--wait-minutes` slot
 queue as `run` and `up`, so verifying a harness PR does not require racing a
 long soak. It still starts neither Steam nor the game.
 
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · saves: a repro for Caleb, and checkpoints
+
+**What got in the way.** When a run found something, nobody could open the
+city it was looking at. Every soak also started from a fresh New Game, even
+when the question was about minute 40.
+
+**What changed.**
+- `run --save-at N` (repeatable), `--save-end` and `--save-on-dry` save the
+  city with the game's own save routine. The last one saves once, when
+  required probes first fall below the verdict's threshold.
+- Saves land in `saves/`, `repro.md` says how to open one on carbon, and
+  `--notify` attaches the latest.
+- `run --from-save X.crp` starts from a save, so a soak can resume or branch
+  from minute N. The mod's `load_game` only works inside a level, so from the
+  main menu the harness first starts a New Game on the run's map (about
+  40 s), then loads the save over it.
+- The opening-camera check skips on runs started from a save.
+
+**What the first live runs found.** Saving and loading come from PL-880's
+`save_game` and `load_game` ops (PR #10), tested here on a local merge of
+PR #28 on 2026-11-11. The first attempt saved at minute 1, but the
+end-of-run save never finished in 300 s, and loading from the menu was
+refused. Two fixes: the harness lets the simulation run while a save
+writes, because the end save had been asked for with the simulation paused,
+and loading bridges through a New Game.
+
+**Before → after.** Before: no saves, no resume. After, on PL-848 Asheville,
+both saves were written (t001 2.06 MB, t002 2.38 MB), and a second run
+resumed from t001 at its own frame (206,456) and soaked on. Until PR #10
+lands on `main`, a save logs "no save_game op" and the run carries on;
+`--from-save` stops with a clear error.
+
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · screenshots without the toolbar
+
+Every harness screenshot since the first run showed the game's toolbar. The
+`ui` op called `UIView.Show(false)`, which only disables the views' updates.
+The game's world camera draws into `kFullScreenWithoutMenuBarRect`, everything
+above a 10.5 % menu-bar strip, unless free-camera mode is on, so nothing ever
+redrew the toolbar's last pixels (decompiled `CameraController.UpdateFreeCamera`,
+1.21.1-f9). Turning the UI camera off made no difference, as a live run showed.
+
+The `ui` op now uses the game's own hide-UI mode, `m_freeCamera`. It also hides
+notifications, area borders, names and markers, and gives the world the full
+screen. Live on PL-848 Asheville the bottom strip of a world screenshot went from
+toolbar (grey-level std 40) to terrain (std 6). The player's-path opening view
+still shows the UI, on purpose.
+
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · Steam's cloud-sync dialog
+
+A queued `--from-save` run launched at 22:06, a few minutes after Caleb stopped
+playing on carbon. Steam logged `LaunchApp SynchronizingCloud syncfailed` and
+opened its cloud-sync-failed dialog (play anyway, or cancel). The harness
+counted `SynchronizingCloud` as a passing launch step, so it didn't see a
+prompt. It waited 600 s at a black screen and failed with "did not reach the
+main menu", which triage could only call `unknown-dialog`. Steam's launch steps
+are in `webhelper_js.txt`, which triage's Steam evidence didn't read.
+
+Now `syncfailed` is a prompt the harness won't answer, because answering
+could overwrite cloud saves. The run backs off and retries like an
+account-in-use block, and triage calls it `steam`. Triage's Steam evidence
+includes `webhelper_js.txt`. Checked offline: replaying the two log lines, plain
+`SynchronizingCloud` still passes, and `syncfailed` blocks with exit 75.
+Both triage paths say `steam`.
+
+## 2026-11-11 · Opus 5.5 (blade) · PL-891 · Caleb's start camera, and an atomic save copy
+
+Loading Caleb's t=0 save of "Asheville - Ready to Play" (`--from-save`, 22:18 ET)
+restored his camera at heading 55.7°, north-east, pitch 45°. From there the
+Area Zoom view shows the river through the start tile running left to right
+with the rail beside it, as he described. The terrain in his save matches the
+real DEM north-up (r = 0.976 on the game's own sampler). So the map was
+north-up; his view faced about 56° off north. A fresh New Game from the same
+file opened at 332° in the harness. PL-857 has since made the opening camera
+face north.
+
+The same run logged one unexplained error. The game's Saves folder watcher read
+the save while the harness was still copying it in, and logged "failed to load
+(EndOfStreamException)" before loading it properly. The harness now copies to a
+hidden `.part` name and renames.
+
 ## Run log
 
 Large map checks produced a single Markdown line containing thousands of dry
