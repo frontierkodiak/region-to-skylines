@@ -2018,3 +2018,28 @@ as a waiter; an external post-exit queue read was free. Raw evidence,
 including the failed pregame attempts, is attached to PL-933. This entry and
 the README are documentation-only changes after the tested code commit.
 Independent PM acceptance remains required; PR #40 is not self-merged.
+
+
+## 2026-11-13 — PL-932 independent acceptance of PL-933 silence
+
+PM review ran on exact head `c1ad985d2c8871d99b75824e7c3d0342bf99ed2b`: 112 unittest checks, Ruff
+check/format and the installed-game build passed. A foreground slot-owned
+smoke on Blade's 2080 Ti (`05:00.0`), private Xvfb `:57`, reached the menu
+and returned native status, then held the menu for 40 seconds. Its
+292 process samples covered 69 PIDs with no routing violations.
+Both Steam processes, eight late webhelpers and Cities resolved to the
+session-owned null Pulse socket; 24 namespace socket connections succeeded
+without sending audio. The private graph had one null sink and no Device
+objects. Host Pulse inputs were empty and physical ALSA playback was closed.
+
+Wall time was 159.86 s; sampled peak total GPU VRAM was
+9578 MiB including existing workloads, power 63.65 W,
+and temperature 32 C. The game's readiness share was 1,574 MiB;
+its per-process peak was not sampled. The 150 W limit was unchanged.
+Teardown left no game, Steam, private display/bus/audio process, display
+socket, session state or audio config; the queue was free. Raw proof is in
+`experiments/PL-932-silence-review-r2` on Blade. No shared service, permission,
+mixer, vendor wrapper or physical display setting changed. No tone or prompt
+bypass was used. The PM accepts this implementation for bounded Blade game
+work; PL-912 still requires its own visible diagnostics and fresh native
+qualification. This entry is documentation-only after the reviewed head.
