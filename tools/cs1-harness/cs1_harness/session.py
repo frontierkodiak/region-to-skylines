@@ -310,6 +310,7 @@ class Session(contextlib.AbstractContextManager):
         bus.unlink(missing_ok=True)
         env = {
             "DISPLAY": c.display,
+            **audio.environment(c),
             "XDG_RUNTIME_DIR": os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}"),
             "XDG_DATA_DIRS": f"{pathlib.Path.home()}/.local/share/flatpak/exports/share:"
             "/var/lib/flatpak/exports/share:/usr/local/share:/usr/share",
@@ -494,6 +495,7 @@ class Session(contextlib.AbstractContextManager):
         while time.monotonic() < deadline:
             self.our_instances |= set(self.steam.instances()) - before
             self.steam_log.check()
+            self.check_audio(require_game=False)
             live_games = set(game_pids(self.cfg.display)) if not control else set()
             observed = [p for p in gpu.game_placement() if p["pid"] in live_games] if not control else []
             if observed:
@@ -516,15 +518,12 @@ class Session(contextlib.AbstractContextManager):
             time.sleep(3)
         raise HarnessError(f"game did not reach the main menu within {timeout:.0f} s")
 
-    def check_audio(self):
+    def check_audio(self, require_game: bool = True):
         rows = audio.processes(self.cfg)
         self.receipt["audio_processes"] = rows
-        games = [row for row in rows if row["name"] == "Cities.x64"]
-        expected = audio.environment(self.cfg)
-        if not games or any(row["audio_environment"] != expected for row in games):
-            raise HarnessError("game did not inherit the silent audio environment")
-        if any(row["physical_audio_fds"] for row in rows):
-            raise HarnessError("a private-display process has a physical audio device open")
+        errors = audio.violations(self.cfg, rows, require_game=require_game)
+        if errors:
+            raise HarnessError("silent audio check failed: " + "; ".join(errors))
 
     def steam_alive(self) -> bool:
         return sh(
@@ -539,6 +538,7 @@ class Session(contextlib.AbstractContextManager):
             raise Blocked(
                 "the game process ended unexpectedly (crash, or the account started playing elsewhere)", EX_TEMPFAIL
             )
+        self.check_audio()
 
     def gpu_processes(self) -> str:
         return sh("nvidia-smi", check=False).stdout

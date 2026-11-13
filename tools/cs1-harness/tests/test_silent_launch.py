@@ -3,6 +3,8 @@
 import json
 import os
 import pathlib
+import socket
+import stat
 import subprocess
 import tempfile
 import unittest
@@ -28,7 +30,7 @@ class SilentLaunchTests(unittest.TestCase):
     def test_alsa_config_has_only_null_endpoints(self):
         self.assertEqual((self.root / "run-audio/alsa.conf").read_text(), audio.ALSA_CONFIG)
         self.assertEqual(audio.ALSA_CONFIG, "pcm.default { type null }\npcm.null { type null }\n")
-        (self.root / "run-audio/no-pulse").touch()
+        self.assertTrue(stat.S_ISREG((self.root / "run-audio/no-pulse").stat().st_mode))
         with self.assertRaises(RuntimeError):
             audio.prepare(self.cfg)
 
@@ -46,6 +48,18 @@ class SilentLaunchTests(unittest.TestCase):
         self.assertIn("--command=sh", steam_cmd)
         self.assertIn('exec /app/bin/steam "$@"', steam_cmd[steam_cmd.index("-c") + 1])
         self.assertEqual(steam_cmd[-3:], ["-silent", "-applaunch", "255710"])
+
+    def test_private_bus_activation_carries_audio_route_to_nested_portal(self):
+        session = Session(self.cfg, self.root / "stage")
+        with (
+            patch.dict(os.environ, XDG_RUNTIME_DIR=str(self.root)),
+            patch.object(session, "unit") as start,
+            patch.object(pathlib.Path, "exists", return_value=True),
+        ):
+            session.start_display()
+        bus_call = next(call for call in start.call_args_list if call.args[0] == self.cfg.dbus_unit)
+        for key, value in audio.environment(self.cfg).items():
+            self.assertEqual(bus_call.kwargs["env"][key], value)
 
     def test_nested_game_shell_reapplies_environment_and_preserves_arguments(self):
         wrapper = self.root / "launch.sh"
@@ -105,6 +119,8 @@ class SilentLaunchTests(unittest.TestCase):
             "name": "Cities.x64",
             "audio_environment": audio.environment(self.cfg),
             "physical_audio_fds": [],
+            "pulse_endpoint": {"kind": "regular", "run_owned": True},
+            "flatpak_pulse_endpoint": {"kind": "absent", "run_owned": False},
         }
         with patch("cs1_harness.audio.processes", return_value=[good]):
             session.check_audio()
@@ -112,6 +128,44 @@ class SilentLaunchTests(unittest.TestCase):
             with patch("cs1_harness.audio.processes", return_value=rows):
                 with self.assertRaises(HarnessError):
                     session.check_audio()
+
+    def test_late_webhelper_host_socket_is_rejected_but_run_file_alias_is_allowed(self):
+        namespace = self.root / "nested-root"
+        alias = namespace / "run/flatpak/pulse/native"
+        alias.parent.mkdir(parents=True)
+        # Reproduce the exact PM finding, with a real reachable Unix socket.
+        with socket.socket(socket.AF_UNIX) as server:
+            server.bind(str(alias))
+            server.listen()
+            bad = audio.pulse_endpoint(namespace, "unix:/run/flatpak/pulse/native", self.cfg)
+            self.assertEqual(bad["kind"], "socket")
+            self.assertFalse(bad["run_owned"])
+        alias.unlink()
+        os.link(self.root / "run-audio/no-pulse", alias)
+        good = audio.pulse_endpoint(namespace, "unix:/run/flatpak/pulse/native", self.cfg)
+        self.assertEqual(good["kind"], "regular")
+        self.assertTrue(good["run_owned"])
+        row = {
+            "pid": 456,
+            "name": "steamwebhelper",
+            "physical_audio_fds": [],
+            "audio_environment": dict(
+                audio.environment(self.cfg),
+                PULSE_SERVER="unix:/run/flatpak/pulse/native",
+                PULSE_CLIENTCONFIG="/run/flatpak/pulse/config",
+            ),
+            "pulse_endpoint": bad,
+            "flatpak_pulse_endpoint": bad,
+        }
+        self.assertTrue(audio.violations(self.cfg, [row], require_game=False))
+        row.update(pulse_endpoint=good, flatpak_pulse_endpoint=good)
+        self.assertEqual(audio.violations(self.cfg, [row], require_game=False), [])
+        # A different regular file is not proof of our run-local endpoint.
+        alias.unlink()
+        alias.touch()
+        other = audio.pulse_endpoint(namespace, "unix:/run/flatpak/pulse/native", self.cfg)
+        row.update(pulse_endpoint=other)
+        self.assertTrue(audio.violations(self.cfg, [row], require_game=False))
 
     def test_stale_wrapper_fails_before_starting_steam(self):
         session = Session(self.cfg, self.root / "stage")
