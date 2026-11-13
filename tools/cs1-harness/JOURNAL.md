@@ -2009,7 +2009,8 @@ job ran.
 
 112 unittest checks, Ruff check/format, installed-game build and null-server
 GPU doctor pass. Sampled GPU peak total VRAM was 9,578 MiB including the
-existing workload, peak power 63.22 W and temperature 31 C. The 150 W limit
+existing workload. Game VRAM was 1,574 MiB at readiness; its per-process peak
+was not sampled. Peak power was 63.22 W and temperature 31 C. The 150 W limit
 was unchanged. Cleanup left no game, Steam, display, private bus, null audio
 process, active harness unit, audio config/socket or held queue slot. The
 report's in-process queue snapshot still inferred the finishing smoke script
