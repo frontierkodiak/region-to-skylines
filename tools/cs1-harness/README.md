@@ -845,3 +845,12 @@ References: [ALSA configuration](https://github.com/alsa-project/alsa-lib/blob/m
 [Pulse client routing](https://www.freedesktop.org/wiki/Software/PulseAudio/FAQ/),
 [PipeWire configuration](https://pipewire.pages.freedesktop.org/pipewire/page_man_pipewire_conf_5.html),
 and [Flatpak 1.14.6 endpoint selection](https://github.com/flatpak/flatpak/blob/1.14.6/common/flatpak-run.c#L821).
+
+### Ordinary tutorial guides
+
+`call guide_controls` reads visible close buttons and their native transform/type
+ancestry. `call guide_controls '{"id":123}'` invokes the exact button's normal
+handler only when it belongs to `TutorialPanel` or `TutorialAdvisorPanel`. It
+requires a loaded city, refuses any modal, and cannot close Steam/account/cloud
+prompts. This is not the UI-hide/free-camera operation. Capture drivers should
+check again after the screenshot: a guide can appear during view settling.

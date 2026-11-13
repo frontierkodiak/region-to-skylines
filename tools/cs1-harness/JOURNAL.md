@@ -2162,3 +2162,52 @@ The slot is free. Evidence: `~/experiments/PL-912-native-diagnostic` on Blade;
 compact native figures, original view archives and raw readbacks are delivered
 on PL-912. The three-region remainder and all five 60-minute receipts remain
 future work under PM authority.
+
+## 2026-11-13 — PL-912 bank restoration rejected; continuous native support
+
+Blade, 2080 Ti at 05:00.0, private Xvfb :57, unchanged 150 W cap. Source started
+at PR41 690d2b1 with accepted silence e5b21f2 integrated. Five-minute hydraulic
+cases tested debf9abe9874764183d54abd37fbc0806cfe9671; the final paused Rio review
+replacement tested driver head 109dee334660299e2bba417b7d45e97ef26baf39 with the
+same CRP. No camera override, physical display, host audio/service/security or
+account-prompt action occurred.
+
+| Owned attempt | Game minutes | Package-copy to cleanup, s | Peak total VRAM, MiB | Peak W | Peak C |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rio input-EOF attempt | paused | 176.9 | 10821 | 114.33 | 40 |
+| Rio guide-obstructed capture | 5.077222 | 586.6 | 10821 | 130.12 | 61 |
+| Rio hydraulic/review capture | 5.093611 | 492.4 | 10821 | 130.56 | 61 |
+| Asheville hydraulic/review capture | 5.090556 | 493.0 | 10821 | 133.46 | 61 |
+| Rio paused zero-view replacement | paused | 182.6 | 10821 | 117.60 | 44 |
+
+These are observed run spans, not speed benchmarks; interactive review time is
+included. Total VRAM includes resident work. The successful cases' game share
+at the menu was 1574 MiB, not a measured per-game peak.
+
+The generic dry-vertex restoration passed initial-water/WaterSimulation byte
+identity and unchanged-wet-vertex checks, but failed native continuous support.
+At a fixed Rio elbow-bank world position, startup ground rose 86.9375→87.890625 m
+and depth fell 0.75→0 m. The sandy opening persisted with steeper banks. Offline
+installed-assembly IL inspection confirms four-vertex fixed-point interpolation;
+CPU replay matches all 44 native ground values in 22 old/new pairs exactly.
+The failed rule is quarantined outside default generation. No 60-minute or new
+path qualification was started. Asheville's opening gain persists, with the
+French Broad centre 2.890625 m deep at the endpoint.
+
+Added `guide_controls`: native tutorial-only close-button handling, with a modal
+refusal and exact button id. The actual ordinary advisor button is named
+`Close`, not `CloseButton`. Closing via the native handler and rechecking after
+capture produces clear Areas/opening review views without hiding UI. The first
+interactive attempt received EOF because it lacked a retained input channel;
+normal teardown succeeded. A subsequent guide-obstructed capture was retained,
+not used as unobstructed proof. The final Rio zero view was recaptured paused,
+without another hydraulic trial. The driver supports `--minutes 0` for this.
+
+All five attempts returned empty game/Steam/unit cleanup receipts. Some used
+the existing exact-owned-PID termination after the quit grace. Independent
+final inspection finds no game, Steam, marked audio process, private display or
+bus socket, session environment/state/audio directory, active unit, holder or
+waiter. Whole-tree audio snapshots include late webhelpers with no route
+violations. Evidence and full before/after review PNGs are attached to PL-912;
+source report: tools/map-factory/BANK_RESTORATION.md. Native artifacts are in
+~/experiments/PL-912-bank-restoration on Blade.

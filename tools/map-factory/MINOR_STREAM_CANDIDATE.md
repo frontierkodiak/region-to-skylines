@@ -106,3 +106,11 @@ before retuning any controls. Rio's accepted 0.062464 km² flood failure and
 Charleston's terrain-correlation failure remain in `NATIVE_FINDINGS.md`.
 No CPU result here changes either finding. Verify complete owned-session
 cleanup and leave no game, Steam, display or bus process behind.
+
+## Bank-restoration follow-up
+
+The post-diagnostic bank-restoration arm was rejected after native interpolation
+raised a previously wet off-grid bed. It is quarantined, not a new default.
+See [the failure and next correction](BANK_RESTORATION.md). Default candidate
+writer/grids remain the `690d2b1` candidate; all five still need fresh full
+qualification.

@@ -12,10 +12,11 @@ from surface_water import surface_geometry
 
 
 def restore_unsupported_banks(ground, depth, banks, geometry, summary):
-    """Restore dry excavation, never the modeled wet floor or source headroom.
+    """Rejected hypothesis: retains wet vertices, not the continuous wet bed.
 
     The input heightmap already contains buffered browser incision. Its dry
-    shoulders have no support from the feasible stage computed by hydrology.
+    shoulders were treated as unsupported by hydrology's stage. Native sampling
+    falsified that assumption: dry neighbouring vertices support wet patches.
     The uncarved DEM supplies their elevation, not a guessed channel width.
     Native observations are deliberately not inputs to this rule.
     """

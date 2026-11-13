@@ -207,8 +207,7 @@ def run(source, output, interactive, minutes, requests_file=None):
                     if command.get("continue"):
                         break
                     if (
-                        "click" in command
-                        or command.get("views")
+                        command.get("views")
                         or command.get("guides")
                         or "guide_close" in command
                     ):
