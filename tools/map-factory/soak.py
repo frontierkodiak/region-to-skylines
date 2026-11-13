@@ -168,6 +168,7 @@ def probes_for(hydro, descriptor):
         )
     tile = hydro["start_tile"]
     return {
+        "retain_opening_until_five": True,
         "points": points,
         "paths": paths,
         "startup_views": {

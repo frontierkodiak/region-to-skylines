@@ -47,6 +47,7 @@ class MapCheck:
         self.timeline = open(out / "timeline.jsonl", "w")
         self.shots: list[dict] = []
         self.render_fps = 0  # cap drawing between screenshot sets (0: unlimited); see `bench-speed`
+        self.retain_opening_until_five = False
         self.save_at: list[float] = []  # game-minutes to save at (a repro or checkpoint)
         self.save_end = False
         self.save_on_dry = False  # save once when required probes first fall below the verdict's threshold
@@ -328,12 +329,14 @@ class MapCheck:
             f"city loaded at frame {start_frame}; {frames_per_minute:.0f} frames per game-minute; "
             f"running to frame {target}"
         )
-        opening = self.player_path()
+        opening = None if self.retain_opening_until_five else self.player_path()
         self.dump("t000", terrain=True)
         self.world_heights()
         self.sample("t000")
         paths_start = self.path_checks("t000")
-        self.screenshots("t000")
+        if not self.retain_opening_until_five:
+            self.screenshots("t000")
+        opening_followup = None
 
         def minute(frame):
             return (frame - start_frame) / frames_per_minute
@@ -360,6 +363,20 @@ class MapCheck:
             if m >= game_minutes:
                 break
             tag = f"t{int(m):03d}"
+            if self.retain_opening_until_five and opening_followup is None and m >= 5:
+                self.c.call("run", paused=True)
+                self.dump("t005", terrain=True)
+                opening_followup = {"game_minutes": m, "views": {}}
+                try:
+                    for name in ["opening", "area_zoom"]:
+                        self.c.call("area_zoom", enabled=name == "area_zoom")
+                        opening_followup["views"][name] = startup_views.capture_view(s, name, 20, prefix="opening-t005")
+                finally:
+                    self.c.call("area_zoom", enabled=False)
+                    startup_views.settle(s, False, 20)
+                    (s.stage / "opening-t005-views.json").write_text(json.dumps(opening_followup, indent=2) + "\n")
+                self.screenshots("t005")
+                self.c.call("run", paused=False, speed=speed)
             if m >= next_sample:
                 row = self.sample(tag)
                 next_sample += sample_every
@@ -398,6 +415,7 @@ class MapCheck:
         return {
             "map": entry,
             "startup_world": startup_world,
+            "opening_followup": opening_followup,
             "menu_status": {
                 k: menu.get(k) for k in ("gpu", "gpu_memory_mb", "screen", "unity", "plugins", "enabled_mod_count")
             },

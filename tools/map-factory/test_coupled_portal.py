@@ -2,7 +2,8 @@
 
 import unittest
 import numpy as np
-from region import portal_gravity_status, raster
+from region import raster
+from coupled_portal_experiment import portal_gravity_status
 
 
 class CoupledPortalTests(unittest.TestCase):

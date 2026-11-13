@@ -103,12 +103,28 @@ def settle(session, visible: bool, timeout: float) -> list[dict]:
         time.sleep(0.25)
 
 
-def capture_view(session, name: str, timeout: float) -> dict:
+def capture_view(session, name: str, timeout: float, prefix: str = "startup") -> dict:
     visible = name == "area_zoom"
     samples = settle(session, visible, timeout)
-    shot = session.stage / f"startup-{name}.png"
-    capture = session.client.call("screenshot", path=str(shot))
-    sha256 = wait_for_capture(session, shot, timeout=timeout)
+    shot = session.stage / f"{prefix}-{name}.png"
+    guide_controls = []
+    for _ in range(3):
+        if getattr(session, "dismiss_ordinary_guides", False):
+            before = session.client.call("guide_controls")
+            guide_controls.append(before)
+            for button in before["controls"]:
+                if button["tutorial"]:
+                    session.client.call("guide_controls", id=button["id"])
+        capture = session.client.call("screenshot", path=str(shot))
+        sha256 = wait_for_capture(session, shot, timeout=timeout)
+        if not getattr(session, "dismiss_ordinary_guides", False):
+            break
+        after_guides = session.client.call("guide_controls")
+        guide_controls.append(after_guides)
+        if not any(button["tutorial"] for button in after_guides["controls"]):
+            break
+    else:
+        raise HarnessError("ordinary tutorial obscured the startup review capture")
     after = session.client.call("world_observe")
     headings(after, visible)
     if not stable(samples[-2:] + [after], visible):
@@ -122,6 +138,7 @@ def capture_view(session, name: str, timeout: float) -> dict:
         "sha256": sha256,
         "size": size,
         "capture": capture,
+        **({"guide_controls": guide_controls} if guide_controls else {}),
     }
 
 

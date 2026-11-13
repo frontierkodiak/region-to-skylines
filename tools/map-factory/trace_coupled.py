@@ -8,6 +8,8 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 import region
+from coupled_portal_experiment import portal_gravity_status
+from verify_bank_restoration import native_water_ground
 
 
 def trace(source, output):
@@ -39,7 +41,7 @@ def trace(source, output):
             and frame.f_lineno == line
         ):
             v = frame.f_locals
-            status = region.portal_gravity_status(
+            status = portal_gravity_status(
                 v["path"],
                 banks,
                 v["geometry"],
@@ -89,6 +91,20 @@ def trace(source, output):
         for s in hydro["sources"]
         if (s["position"][0] + 1200) ** 2 + (s["position"][2] - 3632) ** 2 < 500**2
     ]
+    prepared = np.fromfile(source / "terrain.u16", dtype="<u2")
+    stencil = {}
+    for label, field in [
+        ("uncarved", banks),
+        ("browser", browser),
+        ("hydrology", ground),
+    ]:
+        raw = np.floor(np.flipud(field) * 64 + 0.5).clip(0, 65535).astype("<u2")
+        stencil[label] = native_water_ground(
+            raw, [[-1200, 3632], [-1299.890380859375, 3617.747802734375]]
+        )
+    stencil["prepared"] = native_water_ground(
+        prepared, [[-1200, 3632], [-1299.890380859375, 3617.747802734375]]
+    )
     result = {
         "input_sha256": {
             p.name: hashlib.sha256(p.read_bytes()).hexdigest()
@@ -99,6 +115,7 @@ def trace(source, output):
             ]
         },
         "control_world_xz": [-1200, 3632],
+        "continuous_native_ground_stages": stencil,
         "control_node": {
             "uncarved_m": banks[row, col],
             "browser_m": browser[row, col],

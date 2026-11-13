@@ -60,38 +60,7 @@ def sample(grid, positions):
     )
 
 
-def portal_gravity_status(path, banks, geometry, features, channel, max_lowering=3.0):
-    """Physical/profile evidence for an infeasible finite daylighted connector."""
-    from collections import Counter
-
-    ends = Counter()
-    selected = []
-    for feature in features:
-        if (raster(geometry["sq"], [feature]) & channel).any():
-            selected.append(feature)
-            ends.update([tuple(feature["pts"][0]), tuple(feature["pts"][-1])])
-    open_ends = [p for p, count in ends.items() if count == 1]
-    tunnels = {
-        tuple(point)
-        for feature in geometry.get("undergroundWaterways", [])
-        for point in [feature["pts"][0], feature["pts"][-1]]
-    }
-    linked = len(open_ends) == 2 and all(p in tunnels for p in open_ends)
-    y, x = path.T
-    # Existing incision bound and minimum modeled metre of supply headroom.
-    lower = banks[y, x] - max_lowering + 1.0
-    ceiling = banks[y, x] - 0.25
-    required = np.maximum.accumulate(lower[::-1])[::-1]
-    excess = float((required - ceiling).max())
-    return {
-        "explicit_tunnel_bounded": linked,
-        "minimum_gravity_profile_above_bank_ceiling_m": excess,
-        "defer_browser_cut": linked and excess > 1 / 64,
-        "source_features": selected,
-    }
-
-
-def hydrology(ground, banks, geometry, max_lowering=3.0, coupled_portals=False):
+def hydrology(ground, banks, geometry, max_lowering=3.0):
     """Bank-referenced monotone profiles, bounded incision and initialized water.
 
     The old running minimum followed anomalously deep bed pixels forever. A
@@ -229,16 +198,6 @@ def hydrology(ground, banks, geometry, max_lowering=3.0, coupled_portals=False):
                 )
                 continue
             arc = np.r_[0, np.cumsum(np.hypot(np.diff(x), np.diff(y)) * SPACING)]
-            portal_profile = (
-                portal_gravity_status(
-                    path, banks, geometry, grouped[(name, kind)], channel, max_lowering
-                )
-                if coupled_portals
-                else None
-            )
-            unforced_portal = bool(
-                portal_profile and portal_profile["defer_browser_cut"]
-            )
             wanted = (
                 ndimage.gaussian_filter1d(
                     ndimage.median_filter(banks[y, x], size=13), 5
@@ -287,11 +246,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0, coupled_portals=False):
             # A rejected gravity profile has no sustained supply. Do not dig
             # a bed for startup water that will drain away. Keep the path and
             # geographic probes, but leave terrain and water to other features.
-            corridor = (
-                (distance <= 3)
-                & ~forbidden
-                & (not (unforced_stream or unforced_portal))
-            )
+            corridor = (distance <= 3) & ~forbidden & (not unforced_stream)
             ground[corridor] = np.maximum(
                 original[corridor] - max_lowering,
                 np.minimum(ground[corridor], desired_bed[corridor]),
@@ -300,7 +255,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0, coupled_portals=False):
                 ((distance <= 4) | (areas & (distance <= 32)))
                 & (ground < local_surface)
                 & ~forbidden
-                & (not (unforced_stream or unforced_portal))
+                & (not unforced_stream)
             )
             initial_surface = (
                 np.minimum(local_surface, ground + 0.25)
@@ -370,9 +325,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0, coupled_portals=False):
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
-            for role, source_i in (
-                [] if unforced_stream or unforced_portal else controls
-            ):
+            for role, source_i in ([] if unforced_stream else controls):
                 if sea is not None and fitted[source_i] <= sea + 0.5:
                     continue
                 if kind == "stream" and major_distance[y[source_i], x[source_i]] <= 96:
@@ -465,10 +418,6 @@ def hydrology(ground, banks, geometry, max_lowering=3.0, coupled_portals=False):
                     uncarved_infeasible_stream=True,
                     rejected_monotone_overbank_m=overbank,
                 )
-            if unforced_portal:
-                summaries[-1]["uncarved_infeasible_portal_connector"] = {
-                    k: v for k, v in portal_profile.items() if k != "source_features"
-                }
     lake_mask = raster(sq, geometry.get("lakes", []), polygons=True)
     labels, count = ndimage.label(lake_mask)
     for label, region in enumerate(ndimage.find_objects(labels), 1):

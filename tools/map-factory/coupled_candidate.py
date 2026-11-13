@@ -9,12 +9,17 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 import region
+import inspect
 from generate import generate
 
 ROOT = Path(__file__).resolve().parent
 
 
 def build(source, trace, output):
+    if "coupled_portals" not in inspect.signature(region.hydrology).parameters:
+        raise RuntimeError(
+            "Rejected arm: full replay requires experimental commit 2182494, not default generation"
+        )
     output.mkdir(parents=True, exist_ok=False)
     command = subprocess.run(
         [

@@ -8,6 +8,24 @@
     -1200,
     3632
   ],
+  "continuous_native_ground_stages": {
+    "uncarved": [
+      93.3125,
+      92.1875
+    ],
+    "browser": [
+      86.953125,
+      86.984375
+    ],
+    "hydrology": [
+      86.953125,
+      86.9375
+    ],
+    "prepared": [
+      86.953125,
+      86.9375
+    ]
+  },
   "control_node": {
     "uncarved_m": 93.30989074707031,
     "browser_m": 86.95445181963836,
