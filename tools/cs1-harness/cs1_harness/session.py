@@ -20,7 +20,7 @@ import shutil
 import subprocess
 import time
 
-from . import gpu, observe
+from . import audio, gpu, observe
 from .client import Client, HarnessError
 from .config import Config
 from .steam import backend
@@ -196,6 +196,9 @@ class Session(contextlib.AbstractContextManager):
             raise
         self.stage.mkdir(parents=True, exist_ok=True)
         try:
+            audio.prepare(self.cfg)
+            self.receipt["audio_environment"] = audio.environment(self.cfg)
+            self.start_audio()
             self.start_display()
         except BaseException:
             self.__exit__(None, None, None)
@@ -265,6 +268,7 @@ class Session(contextlib.AbstractContextManager):
         if (pathlib.Path("/tmp/.X11-unix") / f"X{self.cfg.display.lstrip(':')}").exists():
             raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL, busy=True)
         for unit in (
+            self.cfg.audio_unit,
             self.cfg.vnc_unit,
             self.cfg.live_unit,
             self.cfg.rec_unit,
@@ -280,6 +284,39 @@ class Session(contextlib.AbstractContextManager):
         for k, v in (env or {}).items():
             args.append(f"--setenv={k}={v}")
         sh(*args, *cmd)
+
+    def start_audio(self):
+        c = self.cfg
+        root = c.harness_home / "run-audio"
+        env = dict(
+            audio.environment(c), PIPEWIRE_CONFIG_DIR=str(root), PIPEWIRE_RUNTIME_DIR=str(root), DISPLAY=c.display
+        )
+        self.unit(
+            c.audio_unit,
+            "/usr/bin/pipewire",
+            "-c",
+            "cs1-null.conf",
+            env=env,
+            props=["-p", f"StandardOutput=file:{self.stage / 'audio.log'}"],
+        )
+        for _ in range(50):
+            if (root / "pulse").is_socket() and (root / "cs1-null").is_socket():
+                break
+            time.sleep(0.1)
+        else:
+            raise HarnessError("private null audio server did not start")
+        env = self.steam.base_env()
+        sinks = json.loads(sh("pactl", "-f", "json", "list", "sinks", env=env, timeout=5).stdout)
+        if len(sinks) != 1 or sinks[0]["name"] != "cs1-null":
+            raise HarnessError("private audio server does not expose exactly the null sink")
+        self.receipt["audio_sinks"] = sinks
+        graph = json.loads(sh("pw-dump", env=env, timeout=5).stdout)
+        if any(item["type"] == "PipeWire:Interface:Device" for item in graph):
+            raise HarnessError("private audio server has a physical device")
+        nodes = [item["info"]["props"]["node.name"] for item in graph if item["type"] == "PipeWire:Interface:Node"]
+        if set(nodes) != {"Dummy-Driver", "cs1-null"}:
+            raise HarnessError(f"private audio server has unexpected nodes: {nodes}")
+        self.receipt["audio_graph"] = graph
 
     def start_display(self):
         c = self.cfg
@@ -308,6 +345,7 @@ class Session(contextlib.AbstractContextManager):
         bus.unlink(missing_ok=True)
         env = {
             "DISPLAY": c.display,
+            **audio.environment(c),
             "XDG_RUNTIME_DIR": os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}"),
             "XDG_DATA_DIRS": f"{pathlib.Path.home()}/.local/share/flatpak/exports/share:"
             "/var/lib/flatpak/exports/share:/usr/local/share:/usr/share",
@@ -451,7 +489,12 @@ class Session(contextlib.AbstractContextManager):
 
     def launch(self, game_args: list[str], timeout: float = 600):
         """Launch through Steam; strict vanilla returns at rendering, not menu readiness."""
+        from .setup import LAUNCH_SH
+
         c = self.cfg
+        wrapper = c.harness_home / "launch.sh"
+        if not wrapper.exists() or wrapper.read_text() != LAUNCH_SH:
+            raise HarnessError("launch wrapper is out of date; run `cs1-harness setup` before launching")
         if self.egl is None:
             self.pin_gpu()
         control = "--disableMods" not in game_args
@@ -468,7 +511,7 @@ class Session(contextlib.AbstractContextManager):
         args = ["-silent", "-applaunch", c.app_id, *size, *game_args, "-logFile", str(log_file)]
         self.receipt["launch_args"] = args
         props = ["-p", "KillMode=control-group"]
-        unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}
+        unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS", *audio.environment(c))}
         self.unit(c.steam_unit, *self.steam.steam_argv(args), env=unit_env, props=props)
         self.unit(
             c.gpu_unit,
@@ -487,10 +530,12 @@ class Session(contextlib.AbstractContextManager):
         while time.monotonic() < deadline:
             self.our_instances |= set(self.steam.instances()) - before
             self.steam_log.check()
+            self.check_audio(require_game=False)
             live_games = set(game_pids(self.cfg.display)) if not control else set()
             observed = [p for p in gpu.game_placement() if p["pid"] in live_games] if not control else []
             if observed:
                 placed = self.check_placement(observed)
+                self.check_audio()
                 self.park_pointer()
                 self.log("strict --disableMods game rendering; observe menu readiness through the private X display")
                 return {"control": False, "menu_ready": None, "game_gpu": placed}
@@ -499,6 +544,7 @@ class Session(contextlib.AbstractContextManager):
             if status and not status.get("loading") and not status.get("in_game"):
                 self.receipt["menu_status"] = status
                 placed = self.check_placement()
+                self.check_audio()
                 self.park_pointer()
                 self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}; GPU processes {placed}")
                 return status
@@ -506,6 +552,13 @@ class Session(contextlib.AbstractContextManager):
                 raise HarnessError(f"Steam exited before the game started; see the journal for {c.steam_unit}")
             time.sleep(3)
         raise HarnessError(f"game did not reach the main menu within {timeout:.0f} s")
+
+    def check_audio(self, require_game: bool = True):
+        rows = audio.processes(self.cfg)
+        self.receipt["audio_processes"] = rows
+        errors = audio.violations(self.cfg, rows, require_game=require_game)
+        if errors:
+            raise HarnessError("silent audio check failed: " + "; ".join(errors))
 
     def steam_alive(self) -> bool:
         return sh(
@@ -520,6 +573,7 @@ class Session(contextlib.AbstractContextManager):
             raise Blocked(
                 "the game process ended unexpectedly (crash, or the account started playing elsewhere)", EX_TEMPFAIL
             )
+        self.check_audio()
 
     def gpu_processes(self) -> str:
         return sh("nvidia-smi", check=False).stdout
@@ -558,7 +612,16 @@ class Session(contextlib.AbstractContextManager):
             else:
                 with contextlib.suppress(ProcessLookupError, ValueError):
                     os.kill(int(inst), 15)
-        for unit in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
+        for unit in (
+            c.vnc_unit,
+            c.live_unit,
+            c.rec_unit,
+            c.steam_unit,
+            c.gpu_unit,
+            c.dbus_unit,
+            c.xvfb_unit,
+            c.audio_unit,
+        ):
             sh("systemctl", "--user", "stop", unit, check=False)
         for path in reversed(self.installed):
             if path.is_dir():
@@ -568,13 +631,23 @@ class Session(contextlib.AbstractContextManager):
         with contextlib.suppress(OSError):
             observe.mark_idle(c, "run ended")
         (c.harness_home / "session.env").unlink(missing_ok=True)
+        shutil.rmtree(c.harness_home / "run-audio", ignore_errors=True)
         c.state_file.unlink(missing_ok=True)
         leftovers = {
             "game": game_pids(c.display),
             "steam_instances": self.steam.instances(),
             "units_active": [
                 u
-                for u in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)
+                for u in (
+                    c.vnc_unit,
+                    c.live_unit,
+                    c.rec_unit,
+                    c.steam_unit,
+                    c.gpu_unit,
+                    c.dbus_unit,
+                    c.xvfb_unit,
+                    c.audio_unit,
+                )
                 if sh("systemctl", "--user", "is-active", "--quiet", u, check=False).returncode == 0
             ],
         }

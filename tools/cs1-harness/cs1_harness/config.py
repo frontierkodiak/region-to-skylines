@@ -75,6 +75,7 @@ class Config:
     width: int = int(os.environ.get("CS1_HARNESS_SCREEN", "1920x1080").split("x")[0])
     height: int = int(os.environ.get("CS1_HARNESS_SCREEN", "1920x1080").split("x")[1])
     port: int = int(os.environ.get("CS1_HARNESS_PORT", "8779"))
+    audio_unit: str = "cs1-harness-audio"
     steam_unit: str = "cs1-harness-steam"
     xvfb_unit: str = "cs1-harness-xvfb"
     dbus_unit: str = "cs1-harness-dbus"
