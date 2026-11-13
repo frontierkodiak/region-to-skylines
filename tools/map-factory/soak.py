@@ -385,12 +385,16 @@ def stage_prepared(inputs, output, slugs):
             geographic_river_probes(data, geometry)
             mapped_water_reference(data, geometry, folder)
             data["mapped_water_provenance"]["source_geometry"] = geometry_binding
+            landmarks = None
+            if expected_sha := references[slug]["files_sha256"].get("landmarks.json"):
+                raw = (ROOT / "fixtures" / slug / "landmarks.json").read_bytes()
+                if hashlib.sha256(raw).hexdigest() != expected_sha:
+                    raise ValueError(f"Frozen landmark fixture changed: {slug}")
+                landmarks = json.loads(raw)
             world_references(
                 data,
                 geometry,
-                json.loads((source / "landmarks.json").read_text())
-                if (source / "landmarks.json").exists()
-                else None,
+                landmarks,
             )
         if (source / "probes.json").exists():
             data["views"] = json.loads((source / "probes.json").read_text()).get(

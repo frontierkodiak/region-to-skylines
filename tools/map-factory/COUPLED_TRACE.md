@@ -22,7 +22,7 @@ The next defensible correction must decide whether a source-visible connector ha
 
 Run `uv run --project tools/map-factory python tools/map-factory/trace_coupled.py INPUTS/rio OUT.json`. The rejected builder fails closed on the current default; replay its exact historical experimental head if needed. `fixtures/coupled-rejected/` retains causal arrays, package receipt and CPU rejection. Current default `region.py` is restored byte-for-byte; accepted fixture history, failure subsets, probes, masks, thresholds, PL926 policy and networks are not rewritten.
 
-Fresh regeneration of all five default packages matches the archived stream-only candidate identities. Fresh Python/shipping-JS/Pyodide agreement includes complete CRPs, terrain and water grids. 44 writer tests pass (2 skips); 112 harness tests pass; installed-game build/doctor and scoped lint/format pass. The short coupled arm is a rejected experiment, not a product fix.
+Fresh regeneration of all five default packages matches the archived stream-only candidate identities. Fresh Python/shipping-JS/Pyodide agreement includes complete CRPs, terrain and water grids. 44 writer tests pass (2 skips); 113 harness tests pass; installed-game build/doctor and scoped lint/format pass. The short coupled arm is a rejected experiment, not a product fix.
 
 ### Qualification probe preservation
 
@@ -31,3 +31,7 @@ The first native cohort exposed inherited terrain-route probe drift versus the a
 ![Held-input coupled causal profile](fixtures/coupled-rejected/profile.png)
 
 The plotted bank ceiling is the existing model ceiling derived from held uncarved DEM minus 0.25 m, not an independently surveyed bank elevation. Native water/velocity observations remain separate from this CPU profile.
+
+The expanded coverage audit also found prepared-input staging omitted Asheville’s accepted independent summit landmarks, and the new hold-opening mode skipped the legacy camera-state check. Both are repaired: accepted landmark coordinates/heights/tolerances and ground-truth definitions remain exact; hold mode reads the original native camera state and applies the unchanged heading gate without camera mutation. The final complete native cohort retains these gates. A CPU regression checks that north still passes and south still fails in hold mode.
+
+The profile contradiction does not determine whether an alternative geometry-supported raster path avoids the crest or the held DEM needs channel conditioning. Those remain competing follow-up hypotheses; neither justifies a guessed width, arbitrary head increase, or another bank-only repair.

@@ -153,6 +153,8 @@ class MapCheck:
             int(((bearing + 22.5) % 360) // 45)
         ]
         self.record("opening_camera", cam)
+        if self.retain_opening_until_five:
+            return cam
         paused = self.c.call("stats")["paused"]
         self.c.call("run", paused=True)
         try:
@@ -329,7 +331,7 @@ class MapCheck:
             f"city loaded at frame {start_frame}; {frames_per_minute:.0f} frames per game-minute; "
             f"running to frame {target}"
         )
-        opening = None if self.retain_opening_until_five else self.player_path()
+        opening = self.player_path()
         self.dump("t000", terrain=True)
         self.world_heights()
         self.sample("t000")

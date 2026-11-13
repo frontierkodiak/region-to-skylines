@@ -18,6 +18,19 @@ from cs1_harness.new_game_panel import digest
 
 
 class StartupViewTests(unittest.TestCase):
+    def test_retaining_opening_keeps_camera_gate_without_camera_mutation(self):
+        for forward, expected in [([0, -1, 1], "pass"), ([0, -1, -1], "fail")]:
+            with self.subTest(forward=forward):
+                client = Mock()
+                client.call.return_value = {"forward": forward, "heading_deg": 0}
+                driver = object.__new__(mapcheck.MapCheck)
+                driver.c = client
+                driver.record = Mock()
+                driver.retain_opening_until_five = True
+                camera = driver.player_path()
+                client.call.assert_called_once_with("camera_state")
+                self.assertEqual(verdict.opening_camera({"opening_camera": camera})["status"], expected)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
