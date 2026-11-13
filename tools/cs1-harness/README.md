@@ -787,3 +787,50 @@ sampled persistence; Innsbruck retains two exact-dry observations at one probe,
 rescued by actual native nearby reads. These assessments do not independently
 certify flooding, visual quality or unsampled intervals. Input report/probes/
 timeline hashes were checked unchanged; no game/build was run for this change.
+
+## Silent session audio
+
+`-silent` hides Steam's UI; it does not mute audio. Sessions start a private
+PipeWire process with one `support.null-audio-sink` and a Pulse protocol
+endpoint beneath `run-audio/`. Its configuration has no hardware discovery,
+ALSA backend, session manager, or connection to the shared PipeWire graph.
+`PIPEWIRE_CONFIG_DIR` restricts configuration and drop-ins to this run's
+folder. Startup verifies exactly the null sink and dummy driver, with no
+Device objects. No host mixer, shared audio service, Flatpak permission, or
+persistent audio configuration changes.
+
+Steam, its private D-Bus activation environment, and Cities receive this
+private Pulse endpoint. Direct ALSA clients load a null-only configuration;
+SDL uses its dummy audio driver. The Flatpak entry shell applies the client
+environment after metadata clears `ALSA_CONFIG_PATH`. The game wrapper
+reapplies it immediately before `Cities.x64`, inside Steam's nested runtime.
+An unexpected game target fails rather than bypassing the wrapper. Run
+`uv run cs1-harness setup` after updating the tool; a stale installed wrapper
+fails before Steam starts.
+
+Nested Flatpak runtimes can rewrite `PULSE_SERVER` and `PULSE_CLIENTCONFIG`
+to `/run/flatpak/pulse/native` and `/run/flatpak/pulse/config`. The private
+bus's portal receives the same client environment, so its standard endpoint
+mapping uses the private null server, not the host server. Verification
+compares device and inode through each process's `/proc/PID/root`; matching
+strings alone do not prove isolation. A host Pulse socket, even when no
+stream is active, fails the check.
+
+`session-receipt.json` records the private server graph and client routes.
+Startup, readiness, and `alive()` checks inspect processes on the private
+display, marked audio clients, and their descendants, including helpers that
+remove `DISPLAY`. Steam, steamwebhelper, and Cities must retain null ALSA,
+private PipeWire, SDL dummy, and a Pulse route to the owned socket. Any
+observed physical audio descriptor fails the session. Teardown stops the
+private audio process after Steam and removes its configuration and sockets.
+The virtual display remains Xvfb, with GPU rendering through EGL. These are
+application-level audio controls, not isolation from hostile code.
+
+[JOURNAL.md](JOURNAL.md) records the live proof and failed alternatives.
+Independent PM acceptance is required before overnight game jobs resume.
+No test tones or playback samples are needed to verify routing.
+
+References: [ALSA configuration](https://github.com/alsa-project/alsa-lib/blob/master/doc/asoundrc.txt),
+[Pulse client routing](https://www.freedesktop.org/wiki/Software/PulseAudio/FAQ/),
+[PipeWire configuration](https://pipewire.pages.freedesktop.org/pipewire/page_man_pipewire_conf_5.html),
+and [Flatpak 1.14.6 endpoint selection](https://github.com/flatpak/flatpak/blob/1.14.6/common/flatpak-run.c#L821).

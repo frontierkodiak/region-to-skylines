@@ -10,7 +10,9 @@ from __future__ import annotations
 import os
 import pathlib
 import subprocess
+import shlex
 
+from . import audio
 from .config import FLATPAK_ID, Config
 
 
@@ -28,7 +30,13 @@ class Steam:
 
     def base_env(self) -> dict:
         c = self.cfg
-        return dict(os.environ, DISPLAY=c.display, XAUTHORITY="/dev/null", DBUS_SESSION_BUS_ADDRESS=c.bus_address)
+        return dict(
+            os.environ,
+            DISPLAY=c.display,
+            XAUTHORITY="/dev/null",
+            DBUS_SESSION_BUS_ADDRESS=c.bus_address,
+            **audio.environment(c),
+        )
 
     def instances(self) -> list[str]:
         raise NotImplementedError
@@ -60,10 +68,14 @@ class FlatpakSteam(Steam):
         ]
 
     def steam_argv(self, args):
-        return ["/usr/bin/flatpak", "run", *self.opts(), FLATPAK_ID, *args]
+        # Metadata clears ALSA_CONFIG_PATH. Apply after Flatpak's filtering,
+        # before even the installed Steam wrapper or Steam's startup UI runs.
+        script = f'. {shlex.quote(str(self.cfg.harness_home / "run-audio/env.sh"))} || exit; exec /app/bin/steam "$@"'
+        return ["/usr/bin/flatpak", "run", *self.opts(), "--command=sh", FLATPAK_ID, "-c", script, "sh", *args]
 
     def shell_argv(self, script):
-        return ["/usr/bin/flatpak", "run", *self.opts(), "--command=sh", FLATPAK_ID, "-c", script]
+        prefix = f". {shlex.quote(str(self.cfg.harness_home / 'run-audio/env.sh'))} || exit; "
+        return ["/usr/bin/flatpak", "run", *self.opts(), "--command=sh", FLATPAK_ID, "-c", prefix + script]
 
 
 class NativeSteam(Steam):

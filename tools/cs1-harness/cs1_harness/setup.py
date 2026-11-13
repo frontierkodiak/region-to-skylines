@@ -25,6 +25,7 @@ echo "$(date -Is) DISPLAY=$DISPLAY $*" >> "$H/launch.log"
 if [ -f "$S" ]; then
   . "$S"
   if [ "${CS1_HARNESS_DISPLAY:-}" = "$DISPLAY" ]; then
+    . "$H/run-audio/env.sh" || exit
     export CS1_HARNESS_PORT
     # Steam's target is Paradox's launcher bootstrap (dowser). A harness run
     # starts the game binary itself, keeping Steam's reaper and runtime, so no
@@ -32,16 +33,23 @@ if [ -f "$S" ]; then
     # VirtualGL goes on the game itself, inside Steam's runtime container: an
     # LD_PRELOAD set outside it does not survive pressure-vessel.
     V="$CS1_HARNESS_VGL/usr/lib"
+    found=
     for a in "$@"; do
       case "$a" in
         */Cities_Skylines/dowser)
+          found=1
           set -- "$@" /bin/sh -c 'export LD_LIBRARY_PATH="$0${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \\
-            LD_PRELOAD="$0/libdlfaker.so:$0/libvglfaker.so${LD_PRELOAD:+:$LD_PRELOAD}" VGL_DISPLAY="$1"; shift; exec "$@"' \\
-            "$V" "$CS1_HARNESS_EGL" "${a%/dowser}/Cities.x64" ;;
+            LD_PRELOAD="$0/libdlfaker.so:$0/libvglfaker.so${LD_PRELOAD:+:$LD_PRELOAD}" VGL_DISPLAY="$1"; \\
+            . "$2" || exit; shift 2; exec "$@"' \\
+            "$V" "$CS1_HARNESS_EGL" "$H/run-audio/env.sh" "${a%/dowser}/Cities.x64" ;;
         *) set -- "$@" "$a" ;;
       esac
       shift
     done
+    if [ "$found" != 1 ]; then
+      echo "cs1-harness: unknown Steam launch target; refusing an unwrapped game" >&2
+      exit 1
+    fi
     echo "$(date -Is) harness exec: $*" >> "$H/launch.log"
     # Keep the game's stdout and stderr: Mono writes a native crash's backtrace
     # there, never to -logFile.
