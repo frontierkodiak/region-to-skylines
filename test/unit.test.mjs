@@ -1,5 +1,6 @@
 // Quick checks (no network): what ships, what the rewrite admits, and the ocean fill.
 import { test } from "node:test";
+import { loadFixtureContract } from "./fixture-contract.mjs";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -72,4 +73,38 @@ test("surface inputs never excavate a buried river, but retain bridges and surfa
 test("presets with a failed game check say so; the others don't", () => {
   assert.deepEqual(PRESETS.filter((p) => p.check).map((p) => p.slug).sort(), ["charleston", "rio"]);
   for (const slug of ["asheville", "innsbruck", "rio", "pittsburgh", "charleston"]) assert.ok(PRESETS.find((p) => p.slug === slug), slug);
+});
+
+
+const readFixture = async (name) => readFileSync(root + "tools/map-factory/" + name);
+const readContractSource = async (name) => readFileSync(root + name);
+
+test("current partial fixture contract binds all five native packages without claiming acceptance", async () => {
+  const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource);
+  assert.equal(manifest.cases.length, 5);
+  assert.equal(current.status, "partial_not_accepted");
+  assert.equal(nativeCases.asheville.harness_commit, "022d795fb05a4c93ede04f78cce210773f23e58f");
+  assert.notEqual(nativeCases.asheville.native_crp_sha256, historicalNativeCases.asheville.native_crp_sha256);
+  assert.deepEqual(nativeCases.rio.failed_checks, ["no_flooding"]);
+  assert.deepEqual(nativeCases.charleston.failed_checks, ["ground_truth"]);
+  assert.notEqual(manifest.cases[0].expected_crp_sha256, manifest.cases[0].shipping.expected_crp_sha256);
+});
+
+test("current fixture contract refuses stale writers, missing regions and fabricated qualification", async () => {
+  await assert.rejects(loadFixtureContract(readFixture, async (name) => name.endsWith("region.py") ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
+  await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/asheville/terrain.u16.gz" ? new Uint8Array([0]) : readFixture(name), readContractSource), /historical fixture terrain.u16.gz changed/);
+  const original = JSON.parse(await readFixture("fixtures/current.json"));
+  for (const mutate of [
+    (c) => c.cases.pop(),
+    (c) => { c.cases[0].native.strict_vanilla_verified = true; },
+    (c) => { c.cases[2].native.failed_checks = []; },
+    (c) => { c.cases[0].native.harness_commit = "later-metadata-head"; },
+    (c) => { c.cases[0].shipping.writer_source_commit = c.cases[0].shipping.historical_capture_source_commit; },
+    (c) => { c.cases[0].shipping.expected_crp_sha256 = c.cases[0].reference.expected_crp_sha256; },
+    (c) => { c.cases[0].reference.prepared_sha256["terrain.u16"] = "stale-grid"; },
+  ]) {
+    const candidate = structuredClone(original);
+    mutate(candidate);
+    await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/current.json" ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
+  }
 });

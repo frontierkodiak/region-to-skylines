@@ -1,5 +1,10 @@
 # PL-912 CPU candidate
 
+Historical CPU-stage notes below. Current byte conformance uses the explicit
+[partial contract](CURRENT_FIXTURE_CONTRACT.md); fresh native evaluation is in
+[PARTIAL_NATIVE_QUALIFICATION.md](PARTIAL_NATIVE_QUALIFICATION.md). The old accepted
+files below remain history, not the current expected default bytes.
+
 This candidate starts from `c6ab58a`, the accepted PL-926 main. It has no native
 qualification. Do not merge or publish it as an accepted default yet.
 

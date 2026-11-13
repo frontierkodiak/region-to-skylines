@@ -1,0 +1,194 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179911,
+  "unlockable": {
+    "ore": 1156708,
+    "oil": 579415,
+    "forest": 5119905,
+    "fertility": 2841596,
+    "water": 153313
+  },
+  "cells": {
+    "ore": 8888,
+    "oil": 4846,
+    "fertility": 43767,
+    "forest": 40014
+  },
+  "evidence": [],
+  "placed": [
+    {
+      "kind": "ore",
+      "x": 793.125,
+      "z": 2885.625,
+      "radius_m": 796,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -2514.375,
+      "z": 928.125,
+      "radius_m": 665,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -894.375,
+      "z": 2311.875,
+      "radius_m": 638,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4066.875,
+      "z": 354.375,
+      "radius_m": 536,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2818.125,
+      "z": 3459.375,
+      "radius_m": 608,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 3898.125,
+      "z": -4674.375,
+      "radius_m": 437,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -286.875,
+      "z": -3121.875,
+      "radius_m": 507,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3830.625,
+      "z": -2784.375,
+      "radius_m": 496,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -1906.875,
+      "z": -2143.125,
+      "radius_m": 497,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -1569.375,
+      "z": 4066.875,
+      "radius_m": 639,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4303.125,
+      "z": -388.125,
+      "radius_m": 809,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -2514.375,
+      "z": -793.125,
+      "radius_m": 464,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 50.625,
+      "z": -1771.875,
+      "radius_m": 449,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 556.875,
+      "z": 860.625,
+      "radius_m": 561,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 3594.375,
+      "z": -759.375,
+      "radius_m": 627,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -725.625,
+      "z": -4303.125,
+      "radius_m": 433,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4775.625,
+      "z": -2143.125,
+      "radius_m": 644,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4235.625,
+      "z": 894.375,
+      "radius_m": 464,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 1501.875,
+      "z": -4674.375,
+      "radius_m": 445,
+      "source": "convention"
+    }
+  ],
+  "theme": "Sunny",
+  "package": {
+    "output": "/tmp/multica-task-2757410989/partial-contract-u_yznlyp/reference/.freeze-r55donv5/innsbruck/PL857-innsbruck.crp",
+    "sha256": "3ef11496c97f164e5e36623b252ab1ad47142b6a0e876f9adbf9b86d17d0a6da",
+    "bytes": 5823668,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "91c245654277de8f2eb594afc0cbe699820db829271798665d580b55068cafb7"
+  }
+}
