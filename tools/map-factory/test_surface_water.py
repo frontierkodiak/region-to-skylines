@@ -365,7 +365,7 @@ class SurfaceWaterTests(unittest.TestCase):
         self.assertEqual(len(drains), 1)
         self.assertEqual(drains[0]["output_capacity"], 0)
 
-    def test_infeasible_minor_stream_keeps_probes_but_has_no_perennial_forcing(self):
+    def test_infeasible_minor_stream_keeps_probes_without_earthworks_or_controls(self):
         def coord(x):
             return [float(np.rad2deg(x / 6378137)), 0]
 
@@ -382,12 +382,15 @@ class SurfaceWaterTests(unittest.TestCase):
         ground = np.full((1081, 1081), 100.0)
         banks = np.full_like(ground, 103.0)
         banks[:, 530:550] = 90
-        _, report = hydrology(ground, banks, geometry)
+        original = ground.copy()
+        depth, report = hydrology(ground, banks, geometry)
+        np.testing.assert_array_equal(ground, original)
+        self.assertFalse(depth.any())
         self.assertTrue(report["rivers"][0]["unforced_infeasible_stream"])
+        self.assertTrue(report["rivers"][0]["uncarved_infeasible_stream"])
         self.assertTrue(report["samples"])
-        self.assertTrue(report["sources"])
-        self.assertTrue(all(s["output_capacity"] == 0 for s in report["sources"]))
-        self.assertTrue(all(s["capacity"] > 0 for s in report["sources"]))
+        self.assertFalse(report["sources"])
+        self.assertEqual(report["mapped_waterway_coverage"][0]["initial_wet_fraction"], 0)
 
     def test_bank_limited_river_bounds_prefill_and_source_head_together(self):
         def coord(x):
