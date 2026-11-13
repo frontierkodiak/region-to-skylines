@@ -788,6 +788,17 @@ rescued by actual native nearby reads. These assessments do not independently
 certify flooding, visual quality or unsampled intervals. Input report/probes/
 timeline hashes were checked unchanged; no game/build was run for this change.
 
+## Native screen-to-terrain readback
+
+`world_observe` also accepts `screen_points: [{name, x, y}]` in full screenshot
+pixels with a top-left origin. It reports the actual camera field of view,
+viewport rectangle and screen dimensions, plus native camera rays and terrain
+hits from `TerrainManager.SampleRawHeightSmooth` ray marching and bisection.
+Hits include native water depth/velocity and a world-to-screen round trip.
+This is read-only, not a camera override. Use the viewport offset when mapping
+the world camera into a screenshot containing the toolbar. Pixel sampling and
+native floating-point precision do not justify a sub-hundredth-pixel gate.
+
 ## Silent session audio
 
 `-silent` hides Steam's UI; it does not mute audio. Sessions start a private
@@ -834,3 +845,12 @@ References: [ALSA configuration](https://github.com/alsa-project/alsa-lib/blob/m
 [Pulse client routing](https://www.freedesktop.org/wiki/Software/PulseAudio/FAQ/),
 [PipeWire configuration](https://pipewire.pages.freedesktop.org/pipewire/page_man_pipewire_conf_5.html),
 and [Flatpak 1.14.6 endpoint selection](https://github.com/flatpak/flatpak/blob/1.14.6/common/flatpak-run.c#L821).
+
+### Ordinary tutorial guides
+
+`call guide_controls` reads visible close buttons and their native transform/type
+ancestry. `call guide_controls '{"id":123}'` invokes the exact button's normal
+handler only when it belongs to `TutorialPanel` or `TutorialAdvisorPanel`. It
+requires a loaded city, refuses any modal, and cannot close Steam/account/cloud
+prompts. This is not the UI-hide/free-camera operation. Capture drivers should
+check again after the screenshot: a guide can appear during view settling.

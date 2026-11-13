@@ -1,0 +1,1393 @@
+{
+  "scope": "Bounded native diagnostic only; no 60-minute/default qualification",
+  "cases": {
+    "asheville-five": {
+      "tested_head": "da50f4e06ab659077dc82f283f96a4935b751feb",
+      "crp_sha256": "745b043a0b92e0f733705f8f2597074b6b8c2f37a053ebb7f63986ca0c8aeb00",
+      "elapsed_game_minutes": 5.053055819092939,
+      "initial_terrain_sha256": "1ce72c887d5d43933814db2ffaea55b0de9d2ad4653dcfb8a91f11627663aee5",
+      "initial_water_sha256": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b",
+      "final_grid_sha256": {
+        "terrain": "1ce72c887d5d43933814db2ffaea55b0de9d2ad4653dcfb8a91f11627663aee5",
+        "water": "5066fef2f505127c2b2f687fe208339286e1120d030c29a874d4cbba7bf91ac1"
+      },
+      "native_mod_sha256": "b8ffb378a57c0e5303b5207f28601eeef0b8b9d6e3ae10b0caa0242f120221f6",
+      "camera": {
+        "current_position": [
+          -1920,
+          187.767822265625,
+          0
+        ],
+        "current_size": 1000,
+        "current_height": 119.828125,
+        "current_angle_degrees": [
+          0,
+          68.57142639160156
+        ],
+        "target_position": [
+          -1920,
+          187.767822265625,
+          0
+        ],
+        "target_size": 1000,
+        "target_angle_degrees": [
+          0,
+          60
+        ],
+        "render_position": [
+          -1920,
+          1098.695068359375,
+          -354.39654541015625
+        ],
+        "render_forward": [
+          0,
+          -0.9308737516403198,
+          0.36534106731414795
+        ],
+        "render_up": [
+          0,
+          0.36534106731414795,
+          0.9308737516403198
+        ],
+        "render_euler_degrees": [
+          68.5714340209961,
+          0,
+          0
+        ],
+        "field_of_view_degrees": 45,
+        "aspect": 1.9863439798355103,
+        "pixel_width": 1920,
+        "pixel_height": 967,
+        "screen_width": 1920,
+        "screen_height": 1080,
+        "pixel_rect": [
+          0,
+          113.39999389648438,
+          1920,
+          966.5999755859375
+        ],
+        "render_heading_degrees": 0,
+        "areas_visible": false
+      },
+      "max_pixel_roundtrip_error": 0.0130615234375,
+      "depths": [
+        {
+          "name": "former-western-cut-grass-a",
+          "screen_top_left": [
+            850,
+            430
+          ],
+          "world_t000": [
+            -2020.30908203125,
+            125.9510498046875,
+            79.76950073242188
+          ],
+          "world_t005": [
+            -2020.30908203125,
+            125.9510498046875,
+            79.76950073242188
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "former-western-cut-grass-b",
+          "screen_top_left": [
+            1020,
+            430
+          ],
+          "world_t000": [
+            -1864.67919921875,
+            115.35076904296875,
+            84.50070190429688
+          ],
+          "world_t005": [
+            -1864.67919921875,
+            115.35076904296875,
+            84.50070190429688
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "former-western-cut-grass-c",
+          "screen_top_left": [
+            1180,
+            430
+          ],
+          "world_t000": [
+            -1718.526123046875,
+            121.95074462890625,
+            81.55499267578125
+          ],
+          "world_t005": [
+            -1718.526123046875,
+            121.95074462890625,
+            81.55499267578125
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "French-Broad-centre",
+          "screen_top_left": [
+            1710,
+            500
+          ],
+          "world_t000": [
+            -1214.95947265625,
+            72.01800537109375,
+            31.88873291015625
+          ],
+          "world_t005": [
+            -1214.95947265625,
+            72.01800537109375,
+            31.88873291015625
+          ],
+          "depth_t000_m": 2.484375,
+          "depth_t005_m": 2.640625,
+          "velocity_t005": [
+            1.459970235824585,
+            -0.08290810137987137,
+            4.181801795959473
+          ]
+        },
+        {
+          "name": "French-Broad-east-bank",
+          "screen_top_left": [
+            1770,
+            500
+          ],
+          "world_t000": [
+            -1158.607666015625,
+            72.0855712890625,
+            31.86334228515625
+          ],
+          "world_t005": [
+            -1158.607666015625,
+            72.0855712890625,
+            31.86334228515625
+          ],
+          "depth_t000_m": 2.359375,
+          "depth_t005_m": 2.484375,
+          "velocity_t005": [
+            1.5664223432540894,
+            -0.1092764288187027,
+            10.866806983947754
+          ]
+        },
+        {
+          "name": "French-Broad-west-bank",
+          "screen_top_left": [
+            1650,
+            500
+          ],
+          "world_t000": [
+            -1283.502197265625,
+            91.23602294921875,
+            24.657958984375
+          ],
+          "world_t005": [
+            -1283.502197265625,
+            91.23602294921875,
+            24.657958984375
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "image_sha256": {
+        "t000-opening.png": "56e9bc2a257b19e144c2a5ed3d72b97e4cc333a7334ce505db897b0212a77d88",
+        "t000-area_zoom.png": "78d9fcd2062168282879d8c2a70685c5965edae01c4a0c2adbb6daabea363a93",
+        "t005-opening.png": "5ce89c9dec801c08262a345ea1b4b14aeff6fc2e60648e5697f00d8a8ae74ebf",
+        "t005-area_zoom.png": "350b74cc701ba8fd9f8c093e9d3ec6db720fefb30b68be84f40165c9eaac765e"
+      },
+      "receipt_sha256": {
+        "audio-menu.json": "2a1c24eb176ea23482136c375dc20def79f9c2b3282261d5e4ee11fcf7e7a9bf",
+        "t005-views.json": "86598c2a61f7bf2545bab4397a7129fee8b0bdc1e27e200a42b8b1c4d0709d33",
+        "measurement-requests.json": "b5d4d3963f24bcd5184ce8ebac171bbcdc079074ad5db9e2335c21c8514a83d8",
+        "t000-world-water.json": "ab08a90d1f7bf4530e1760b50483238ad7398347ac2f21341de456ea4aba1651",
+        "t005-screen-hits.json": "b500ac2261674b6e7d2d9c3dcee3d174646feaafea06497de54f5b24ac3aa19a",
+        "t005-sections.json": "cf48ec8537bf5fa996f16116094be0e510aa8c33ab8d9df5516a898176d73cec",
+        "t000-sections.json": "1da403dab2b408c8a4b990ef263f2862854e14977fe8b19ea33d934608794a09",
+        "startup-world.json": "c2d80290f771077d54fef78655a00fc8322505b0c549baaa0bd7c38ab8964461",
+        "t000-views.json": "9b9bebf2b0099c44756094f640348ea07e10031ff1b966dd079fbe25dedf7ce3",
+        "t005-world-water.json": "d1001d868177d9edc4e9a9304bc33fc6947ed14ab2a16256dabb9a068cc146b3",
+        "t000-screen-hits.json": "e94b153f24c7bfd92ff3e631fc283506a2fff4e79f390422e461445fb181b773",
+        "session-receipt.json": "896428ec58a36832ddffd6e53c1ae12723bc556c22e5a5f3f9450ab58134fecc",
+        "audio-t005.json": "2a1c24eb176ea23482136c375dc20def79f9c2b3282261d5e4ee11fcf7e7a9bf",
+        "diagnostic.json": "35eea9d1f9b8e7a9ee1f46abc81634fdeb689e02f5a6179da9c5c5d8c8d7adf4",
+        "listed-map.json": "e1956bef53bb74fa167173a0617e791c481fdfd865c0df1d981a1dbfcfbebc2c",
+        "audio-t000.json": "2a1c24eb176ea23482136c375dc20def79f9c2b3282261d5e4ee11fcf7e7a9bf"
+      },
+      "audio_snapshots": [
+        {
+          "file": "audio-menu.json",
+          "processes": 44,
+          "violations": []
+        },
+        {
+          "file": "audio-t005.json",
+          "processes": 44,
+          "violations": []
+        },
+        {
+          "file": "audio-t000.json",
+          "processes": 44,
+          "violations": []
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu_samples": {
+        "sampled_peak_total_vram_MiB": 10821.0,
+        "sampled_peak_gpu_power_W": 130.53,
+        "sampled_peak_temperature_C": 60.0
+      },
+      "gpu_menu": [
+        {
+          "bus": "05:00.0",
+          "pid": 480531,
+          "type": "G",
+          "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+          "mib": 1620
+        }
+      ],
+      "pixel_pose_matches_opening": {
+        "t000": {
+          "current_position": 0.0,
+          "current_size": 0.0,
+          "render_position": 0.0,
+          "render_forward": 0.0,
+          "render_up": 0.0,
+          "pixel_rect": 0.0
+        },
+        "t005": {
+          "current_position": 0.0,
+          "current_size": 0.0,
+          "render_position": 0.0,
+          "render_forward": 0.0,
+          "render_up": 0.0,
+          "pixel_rect": 0.0
+        }
+      },
+      "wall_seconds_package_to_cleanup": 330.0397779941559
+    },
+    "rio-40-measured": {
+      "tested_head": "a73aa18f8c4894e6c879cbc303fd9d0a92c3ba13",
+      "crp_sha256": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+      "elapsed_game_minutes": 5.013889150383571,
+      "initial_terrain_sha256": "f3ffe6d002dcc0a226567ce2ca3f8733cfca572fc45b0f4eb0041c3225f9bec7",
+      "initial_water_sha256": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+      "final_grid_sha256": {
+        "terrain": "f3ffe6d002dcc0a226567ce2ca3f8733cfca572fc45b0f4eb0041c3225f9bec7",
+        "water": "8d8e3f837c0d6721b6ecd351bf30509371fc60ed7363cf8682488c706eaed68a"
+      },
+      "native_mod_sha256": "b8ffb378a57c0e5303b5207f28601eeef0b8b9d6e3ae10b0caa0242f120221f6",
+      "camera": {
+        "current_position": [
+          -1920,
+          169.4876708984375,
+          3840
+        ],
+        "current_size": 1000,
+        "current_height": 101.5,
+        "current_angle_degrees": [
+          0,
+          68.57142639160156
+        ],
+        "target_position": [
+          -1920,
+          169.4876708984375,
+          3840
+        ],
+        "target_size": 1000,
+        "target_angle_degrees": [
+          0,
+          60
+        ],
+        "render_position": [
+          -1920,
+          1084.7281494140625,
+          3483.929443359375
+        ],
+        "render_forward": [
+          0,
+          -0.9308737516403198,
+          0.36534106731414795
+        ],
+        "render_up": [
+          0,
+          0.36534106731414795,
+          0.9308737516403198
+        ],
+        "render_euler_degrees": [
+          68.5714340209961,
+          0,
+          0
+        ],
+        "field_of_view_degrees": 45,
+        "aspect": 1.9863439798355103,
+        "pixel_width": 1920,
+        "pixel_height": 967,
+        "screen_width": 1920,
+        "screen_height": 1080,
+        "pixel_rect": [
+          0,
+          113.39999389648438,
+          1920,
+          966.5999755859375
+        ],
+        "render_heading_degrees": 0,
+        "areas_visible": false
+      },
+      "max_pixel_roundtrip_error": 0.023193359375,
+      "depths": [
+        {
+          "name": "horizontal-centre",
+          "screen_top_left": [
+            1840,
+            760
+          ],
+          "world_t000": [
+            -1180.0035400390625,
+            86.48846435546875,
+            3626.057373046875
+          ],
+          "world_t005": [
+            -1180.0035400390625,
+            86.48846435546875,
+            3626.057373046875
+          ],
+          "depth_t000_m": 1,
+          "depth_t005_m": 1.703125,
+          "velocity_t005": [
+            6.975106716156006,
+            -0.02295580878853798,
+            0.6453571319580078
+          ]
+        },
+        {
+          "name": "horizontal-north-bank",
+          "screen_top_left": [
+            1840,
+            710
+          ],
+          "world_t000": [
+            -1171.964111328125,
+            91.163330078125,
+            3667.1318359375
+          ],
+          "world_t005": [
+            -1171.964111328125,
+            91.163330078125,
+            3667.1318359375
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "horizontal-south-bank",
+          "screen_top_left": [
+            1840,
+            815
+          ],
+          "world_t000": [
+            -1196.625244140625,
+            92.4024658203125,
+            3580.774169921875
+          ],
+          "world_t005": [
+            -1196.625244140625,
+            92.4024658203125,
+            3580.774169921875
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "elbow-centre",
+          "screen_top_left": [
+            1700,
+            815
+          ],
+          "world_t000": [
+            -1309.276123046875,
+            88.42242431640625,
+            3581.16259765625
+          ],
+          "world_t005": [
+            -1309.276123046875,
+            88.42242431640625,
+            3581.16259765625
+          ],
+          "depth_t000_m": 0.921875,
+          "depth_t005_m": 0.984375,
+          "velocity_t005": [
+            5.253504753112793,
+            0.010260751470923424,
+            0
+          ]
+        },
+        {
+          "name": "elbow-north-bank",
+          "screen_top_left": [
+            1700,
+            770
+          ],
+          "world_t000": [
+            -1299.890380859375,
+            86.88214111328125,
+            3617.747802734375
+          ],
+          "world_t005": [
+            -1299.890380859375,
+            86.88214111328125,
+            3617.747802734375
+          ],
+          "depth_t000_m": 0.75,
+          "depth_t005_m": 1.875,
+          "velocity_t005": [
+            8.768111228942871,
+            -0.33374911546707153,
+            0.09861327707767487
+          ]
+        },
+        {
+          "name": "elbow-south-bank",
+          "screen_top_left": [
+            1700,
+            860
+          ],
+          "world_t000": [
+            -1318.716796875,
+            90.47076416015625,
+            3545.634033203125
+          ],
+          "world_t005": [
+            -1318.716796875,
+            90.47076416015625,
+            3545.634033203125
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "diagonal-centre",
+          "screen_top_left": [
+            1600,
+            915
+          ],
+          "world_t000": [
+            -1408.146728515625,
+            90.02484130859375,
+            3503.740478515625
+          ],
+          "world_t005": [
+            -1408.146728515625,
+            90.02484130859375,
+            3503.740478515625
+          ],
+          "depth_t000_m": 0.96875,
+          "depth_t005_m": 0.9375,
+          "velocity_t005": [
+            5.44728422164917,
+            -0.04255690425634384,
+            8.4320068359375
+          ]
+        },
+        {
+          "name": "diagonal-west-bank",
+          "screen_top_left": [
+            1560,
+            915
+          ],
+          "world_t000": [
+            -1439.7735595703125,
+            89.28973388671875,
+            3503.755126953125
+          ],
+          "world_t005": [
+            -1439.7735595703125,
+            89.28973388671875,
+            3503.755126953125
+          ],
+          "depth_t000_m": 0.765625,
+          "depth_t005_m": 1.59375,
+          "velocity_t005": [
+            1.127219796180725,
+            0.021510127931833267,
+            -0.7727028727531433
+          ]
+        },
+        {
+          "name": "diagonal-east-bank",
+          "screen_top_left": [
+            1640,
+            915
+          ],
+          "world_t000": [
+            -1376.501220703125,
+            90.66558837890625,
+            3503.727783203125
+          ],
+          "world_t005": [
+            -1376.501220703125,
+            90.66558837890625,
+            3503.727783203125
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0.265625,
+          "velocity_t005": [
+            -0.9189651608467102,
+            -0.014355325140058994,
+            0.00022430195531342179
+          ]
+        },
+        {
+          "name": "visible-round-gap",
+          "screen_top_left": [
+            1620,
+            760
+          ],
+          "world_t000": [
+            -1366.0452880859375,
+            88.35943603515625,
+            3625.791015625
+          ],
+          "world_t005": [
+            -1366.0452880859375,
+            88.35943603515625,
+            3625.791015625
+          ],
+          "depth_t000_m": 2.0625,
+          "depth_t005_m": 0.78125,
+          "velocity_t005": [
+            0.9578704833984375,
+            0.003638641443103552,
+            -0.46574610471725464
+          ]
+        },
+        {
+          "name": "elbow-throat",
+          "screen_top_left": [
+            1660,
+            810
+          ],
+          "world_t000": [
+            -1339.6248779296875,
+            85.33489990234375,
+            3585.479736328125
+          ],
+          "world_t005": [
+            -1339.6248779296875,
+            85.33489990234375,
+            3585.479736328125
+          ],
+          "depth_t000_m": 1.328125,
+          "depth_t005_m": 4.015625,
+          "velocity_t005": [
+            3.11142635345459,
+            -0.006818452849984169,
+            2.018704414367676
+          ]
+        }
+      ],
+      "image_sha256": {
+        "t000-opening.png": "78a5c434023a252ad2860b20c5912a4c330acf0d393f9f3400d6acd172458c59",
+        "t000-area_zoom.png": "6975600b9a78eb73bcaecae6dc0eae0e174d98922513a1d1c0f6295c161868f3",
+        "t005-opening.png": "d80b6f98c81e650977d906b2bcb6f4f1a9c3074ec9089d7a5265fb5b089efd32",
+        "t005-area_zoom.png": "25ff1a2b99ee82a6ca597b4047e98af4b2c9e1a0784789aee546deddbc7a33b4"
+      },
+      "receipt_sha256": {
+        "audio-t005.json": "717a520aaaaf10e34509f873667c5e7062184b87f4502732878498aa0d393083",
+        "t005-sections.json": "23fc3090b5e2c968e8862b4c227bd183cc31e744daae6b6e1fee73c9d61fdb70",
+        "t000-sections.json": "a35e90db3847f32a58c5d416c79fd76d4d9598775b0db603022ddab7e8bfa70a",
+        "startup-world.json": "4f2f7a01ca0b5224ecc5da313806fd58d83b6ad8aef6d3b1f2ad53e3d955356d",
+        "session-receipt.json": "4826515e2a3ae0c48888f01da34e409cb29df5df7fecc5c69a2a816c91869f9d",
+        "listed-map.json": "a5e57bdda29ea0083baaf22fa566f0be086e2f236037b3a0f1ac2125df4a13e9",
+        "diagnostic.json": "9b7b786343a11fd7cc75b0ca063be0f4fae7d051f124fe95647424f50ea8d6df",
+        "audio-t000.json": "717a520aaaaf10e34509f873667c5e7062184b87f4502732878498aa0d393083",
+        "t005-views.json": "a6ea0bdf2f29528636c39365e8fff1d3807e17e3cf7e37489f4825f88f42f684",
+        "audio-menu.json": "717a520aaaaf10e34509f873667c5e7062184b87f4502732878498aa0d393083",
+        "t005-screen-hits.json": "800afe4bc5cb0735f2a947eda0cd1b2d3598486973bc6dcbe9505a8947a39765",
+        "t000-screen-hits.json": "06a9c65fe7ca87813601085bca5060b7823053ec54f57d458200e7c7b24fd751",
+        "t000-views.json": "2d8f81abca92047cf5cedd838ec1f816e55f085b4ecb2b0ab4c26eeb3e6a08f7"
+      },
+      "audio_snapshots": [
+        {
+          "file": "audio-t005.json",
+          "processes": 44,
+          "violations": []
+        },
+        {
+          "file": "audio-t000.json",
+          "processes": 44,
+          "violations": []
+        },
+        {
+          "file": "audio-menu.json",
+          "processes": 44,
+          "violations": []
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu_samples": {
+        "sampled_peak_total_vram_MiB": 10821.0,
+        "sampled_peak_gpu_power_W": 132.4,
+        "sampled_peak_temperature_C": 60.0
+      },
+      "gpu_menu": [
+        {
+          "bus": "05:00.0",
+          "pid": 407518,
+          "type": "G",
+          "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+          "mib": 1574
+        }
+      ],
+      "pixel_pose_matches_opening": {
+        "t000": {
+          "current_position": 0.0,
+          "current_size": 0.0,
+          "render_position": 0.0,
+          "render_forward": 0.0,
+          "render_up": 0.0,
+          "pixel_rect": 0.0
+        },
+        "t005": {
+          "current_position": 0.0,
+          "current_size": 0.0,
+          "render_position": 0.0,
+          "render_forward": 0.0,
+          "render_up": 0.0,
+          "pixel_rect": 0.0
+        }
+      },
+      "wall_seconds_package_to_cleanup": 476.3420145511627
+    },
+    "rio-24": {
+      "tested_head": "da50f4e06ab659077dc82f283f96a4935b751feb",
+      "crp_sha256": "1dc38d543645c4ee8d0c4167cb3ed3e535d48bdf525fa506d22d45043d9464de",
+      "elapsed_game_minutes": 5.082222487280766,
+      "initial_terrain_sha256": "89125bf693767d827119a672cc1e3646392ce81b022db67a8f496e9e0e65abc0",
+      "initial_water_sha256": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+      "final_grid_sha256": {
+        "terrain": "89125bf693767d827119a672cc1e3646392ce81b022db67a8f496e9e0e65abc0",
+        "water": "97363c91b03233d32058321c90eee127688fe6170ce4f0db387b8cecc9edad79"
+      },
+      "native_mod_sha256": "b8ffb378a57c0e5303b5207f28601eeef0b8b9d6e3ae10b0caa0242f120221f6",
+      "camera": {
+        "current_position": [
+          -1920,
+          169.4876708984375,
+          3840
+        ],
+        "current_size": 1000,
+        "current_height": 101.5,
+        "current_angle_degrees": [
+          0,
+          68.57142639160156
+        ],
+        "target_position": [
+          -1920,
+          169.4876708984375,
+          3840
+        ],
+        "target_size": 1000,
+        "target_angle_degrees": [
+          0,
+          60
+        ],
+        "render_position": [
+          -1920,
+          1084.7281494140625,
+          3483.929443359375
+        ],
+        "render_forward": [
+          0,
+          -0.9308737516403198,
+          0.36534106731414795
+        ],
+        "render_up": [
+          0,
+          0.36534106731414795,
+          0.9308737516403198
+        ],
+        "render_euler_degrees": [
+          68.5714340209961,
+          0,
+          0
+        ],
+        "field_of_view_degrees": 45,
+        "aspect": 1.9863439798355103,
+        "pixel_width": 1920,
+        "pixel_height": 967,
+        "screen_width": 1920,
+        "screen_height": 1080,
+        "pixel_rect": [
+          0,
+          113.39999389648438,
+          1920,
+          966.5999755859375
+        ],
+        "render_heading_degrees": 0,
+        "areas_visible": false
+      },
+      "max_pixel_roundtrip_error": 0.023193359375,
+      "depths": [
+        {
+          "name": "horizontal-centre",
+          "screen_top_left": [
+            1840,
+            760
+          ],
+          "world_t000": [
+            -1181.4532470703125,
+            88.44403076171875,
+            3625.779052734375
+          ],
+          "world_t005": [
+            -1181.4532470703125,
+            88.44403076171875,
+            3625.779052734375
+          ],
+          "depth_t000_m": 1,
+          "depth_t005_m": 0.34375,
+          "velocity_t005": [
+            -1.21284019947052,
+            0.002368819434195757,
+            -4.626600457413588e-06
+          ]
+        },
+        {
+          "name": "horizontal-north-bank",
+          "screen_top_left": [
+            1840,
+            710
+          ],
+          "world_t000": [
+            -1172.8272705078125,
+            92.30987548828125,
+            3666.92041015625
+          ],
+          "world_t005": [
+            -1172.8272705078125,
+            92.30987548828125,
+            3666.92041015625
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "horizontal-south-bank",
+          "screen_top_left": [
+            1840,
+            815
+          ],
+          "world_t000": [
+            -1197.0159912109375,
+            92.93841552734375,
+            3580.721923828125
+          ],
+          "world_t005": [
+            -1197.0159912109375,
+            92.93841552734375,
+            3580.721923828125
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "elbow-centre",
+          "screen_top_left": [
+            1700,
+            815
+          ],
+          "world_t000": [
+            -1310.375244140625,
+            90.2156982421875,
+            3580.987548828125
+          ],
+          "world_t005": [
+            -1310.375244140625,
+            90.2156982421875,
+            3580.987548828125
+          ],
+          "depth_t000_m": 0.96875,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "elbow-north-bank",
+          "screen_top_left": [
+            1700,
+            770
+          ],
+          "world_t000": [
+            -1301.3565673828125,
+            89.24139404296875,
+            3617.431640625
+          ],
+          "world_t005": [
+            -1301.3565673828125,
+            89.24139404296875,
+            3617.431640625
+          ],
+          "depth_t000_m": 0.609375,
+          "depth_t005_m": 0.125,
+          "velocity_t005": [
+            13.650675773620605,
+            -0.9074733853340149,
+            1.006880521774292
+          ]
+        },
+        {
+          "name": "elbow-south-bank",
+          "screen_top_left": [
+            1700,
+            860
+          ],
+          "world_t000": [
+            -1319.1300048828125,
+            91.15399169921875,
+            3545.591552734375
+          ],
+          "world_t005": [
+            -1319.1300048828125,
+            91.15399169921875,
+            3545.591552734375
+          ],
+          "depth_t000_m": 0,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "diagonal-centre",
+          "screen_top_left": [
+            1600,
+            915
+          ],
+          "world_t000": [
+            -1409.1617431640625,
+            91.99737548828125,
+            3503.701171875
+          ],
+          "world_t005": [
+            -1409.1617431640625,
+            91.99737548828125,
+            3503.701171875
+          ],
+          "depth_t000_m": 0.953125,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "diagonal-west-bank",
+          "screen_top_left": [
+            1560,
+            915
+          ],
+          "world_t000": [
+            -1440.67236328125,
+            91.15277099609375,
+            3503.718017578125
+          ],
+          "world_t005": [
+            -1440.67236328125,
+            91.15277099609375,
+            3503.718017578125
+          ],
+          "depth_t000_m": 0.765625,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "diagonal-east-bank",
+          "screen_top_left": [
+            1640,
+            915
+          ],
+          "world_t000": [
+            -1377.251220703125,
+            92.0372314453125,
+            3503.700439453125
+          ],
+          "world_t005": [
+            -1377.251220703125,
+            92.0372314453125,
+            3503.700439453125
+          ],
+          "depth_t000_m": 0.28125,
+          "depth_t005_m": 0,
+          "velocity_t005": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "visible-round-gap",
+          "screen_top_left": [
+            1620,
+            760
+          ],
+          "world_t000": [
+            -1366.475341796875,
+            89.1329345703125,
+            3625.680908203125
+          ],
+          "world_t005": [
+            -1366.475341796875,
+            89.1329345703125,
+            3625.680908203125
+          ],
+          "depth_t000_m": 1.84375,
+          "depth_t005_m": 0.65625,
+          "velocity_t005": [
+            0.046226657927036285,
+            0.001530597684904933,
+            -0.44539958238601685
+          ]
+        },
+        {
+          "name": "elbow-throat",
+          "screen_top_left": [
+            1660,
+            810
+          ],
+          "world_t000": [
+            -1340.8671875,
+            87.47418212890625,
+            3585.262451171875
+          ],
+          "world_t005": [
+            -1340.8671875,
+            87.47418212890625,
+            3585.262451171875
+          ],
+          "depth_t000_m": 1.4375,
+          "depth_t005_m": 2.5625,
+          "velocity_t005": [
+            0.5811095833778381,
+            0.021917352452874184,
+            1.5615899562835693
+          ]
+        }
+      ],
+      "image_sha256": {
+        "t000-opening.png": "ae5557a03a6e3bffbab9da72a9c7e1d90aa59fb249acef45096d6281903e4378",
+        "t000-area_zoom.png": "2e3d08df5f1950d8868507731aee6dc4d98a5f92a41919bc2e6e593aae74ad2b",
+        "t005-opening.png": "40b66065432fe9b332f89b1ebb52ba8ac86497c207acf938ecaefcd0419ea2f8",
+        "t005-area_zoom.png": "1f0c720090e5d325cb7fbb00b8da7054512020c6d7ff9f4d798c1fdb6eac480b"
+      },
+      "receipt_sha256": {
+        "t000-world-water.json": "040fc8135435efc7228e1f0a1936c5625102204087e7d6895312b5175e9cae26",
+        "t005-sections.json": "14864804115a244c80ac1c49ff372bc048df3225bcfaa776a0c7323515df3555",
+        "t005-screen-hits.json": "f48ba37de879408db1f9e19775c8e976511e0859e6e45dafa35842d34837b5ad",
+        "t000-sections.json": "261c04627347499415fb10f238a946f8bbc202c649a4c6ce30a973ea73e26d17",
+        "startup-world.json": "4f2f7a01ca0b5224ecc5da313806fd58d83b6ad8aef6d3b1f2ad53e3d955356d",
+        "audio-t005.json": "73df46f2981c121dd5d7743caaa8887e470530ec9a923c1726cdbd52a952bfca",
+        "audio-t000.json": "73df46f2981c121dd5d7743caaa8887e470530ec9a923c1726cdbd52a952bfca",
+        "t005-world-water.json": "6cf9525505cab993133b5ff128cb4f7f577019d8ff3338fde04126db62628abf",
+        "t000-screen-hits.json": "5857909a5793fb839b7212481d2ad171976da19aef44db26eecf2d3b52e64481",
+        "listed-map.json": "4bf83007d3c6de90541a04ae293f87da8ce5544ea0a67cb0a52694ee0de52d69",
+        "diagnostic.json": "e1a73116a41209f0eefe34ae7e5864c89e1fdd1ca8ffaeabba3c1305572a53f8",
+        "session-receipt.json": "16508b7c24a37189420fbf14dfeeaf6d43a9a2b86fc8e3944e75b03826d7d7ee",
+        "measurement-requests.json": "fe43ec23ffaada0918092278e12c1683659d777ef254a776a7fe3a88c5b4f7d6",
+        "t005-views.json": "e1dc386aa1e575b62d6e7ae311bba26dbae12bd951f4ef98947968f675381f9b",
+        "audio-menu.json": "73df46f2981c121dd5d7743caaa8887e470530ec9a923c1726cdbd52a952bfca",
+        "t000-views.json": "10aff8896033688e57ddc7f5057e5665239d7bc813324ccb70bb0795ddbe8f3f"
+      },
+      "audio_snapshots": [
+        {
+          "file": "audio-t005.json",
+          "processes": 44,
+          "violations": []
+        },
+        {
+          "file": "audio-t000.json",
+          "processes": 44,
+          "violations": []
+        },
+        {
+          "file": "audio-menu.json",
+          "processes": 44,
+          "violations": []
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu_samples": {
+        "sampled_peak_total_vram_MiB": 10821.0,
+        "sampled_peak_gpu_power_W": 130.96,
+        "sampled_peak_temperature_C": 59.0
+      },
+      "gpu_menu": [
+        {
+          "bus": "05:00.0",
+          "pid": 452781,
+          "type": "G",
+          "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+          "mib": 1620
+        }
+      ],
+      "pixel_pose_matches_opening": {
+        "t000": {
+          "current_position": 0.0,
+          "current_size": 0.0,
+          "render_position": 0.0,
+          "render_forward": 0.0,
+          "render_up": 0.0,
+          "pixel_rect": 0.0
+        },
+        "t005": {
+          "current_position": 0.0,
+          "current_size": 0.0,
+          "render_position": 0.0,
+          "render_forward": 0.0,
+          "render_up": 0.0,
+          "pixel_rect": 0.0
+        }
+      },
+      "wall_seconds_package_to_cleanup": 332.0127627849579
+    }
+  },
+  "all_session_cleanup": {
+    "asheville-five": {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "receipt_sha256": "896428ec58a36832ddffd6e53c1ae12723bc556c22e5a5f3f9450ab58134fecc"
+    },
+    "asheville-measured": {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "receipt_sha256": "53a3ee99df96f7a7aaa2b40e791e1c788ceec9e826df8cab5d826ef8896ed812"
+    },
+    "rio-40": {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "receipt_sha256": "4fc252300d5df0f8fa0191ac6f2ba88c0b7533612ecc2bbee4bde64f28889359"
+    },
+    "asheville-current": {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "receipt_sha256": "9c2cd56df47a955b32944fe36deac0145718f66a38befa321ec2b3a22dde41f2"
+    },
+    "rio-24": {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "receipt_sha256": "16508b7c24a37189420fbf14dfeeaf6d43a9a2b86fc8e3944e75b03826d7d7ee"
+    },
+    "rio-40-measured": {
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "receipt_sha256": "4826515e2a3ae0c48888f01da34e409cb29df5df7fecc5c69a2a816c91869f9d"
+    }
+  },
+  "rio_comparison": [
+    {
+      "name": "horizontal-centre",
+      "same_world_xz": [
+        -1180.0035400390625,
+        3626.057373046875
+      ],
+      "baseline_depth_t000_m": 1,
+      "baseline_depth_t005_m": 1.703125,
+      "narrow_depth_t005_same_world_m": 0.390625,
+      "narrow_velocity_t005_same_world": [
+        -1.4087623357772827,
+        0.002751478459686041,
+        -5.373981366574299e-06
+      ]
+    },
+    {
+      "name": "horizontal-north-bank",
+      "same_world_xz": [
+        -1171.964111328125,
+        3667.1318359375
+      ],
+      "baseline_depth_t000_m": 0,
+      "baseline_depth_t005_m": 0,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "horizontal-south-bank",
+      "same_world_xz": [
+        -1196.625244140625,
+        3580.774169921875
+      ],
+      "baseline_depth_t000_m": 0,
+      "baseline_depth_t005_m": 0,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "elbow-centre",
+      "same_world_xz": [
+        -1309.276123046875,
+        3581.16259765625
+      ],
+      "baseline_depth_t000_m": 0.921875,
+      "baseline_depth_t005_m": 0.984375,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "elbow-north-bank",
+      "same_world_xz": [
+        -1299.890380859375,
+        3617.747802734375
+      ],
+      "baseline_depth_t000_m": 0.75,
+      "baseline_depth_t005_m": 1.875,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "elbow-south-bank",
+      "same_world_xz": [
+        -1318.716796875,
+        3545.634033203125
+      ],
+      "baseline_depth_t000_m": 0,
+      "baseline_depth_t005_m": 0,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "diagonal-centre",
+      "same_world_xz": [
+        -1408.146728515625,
+        3503.740478515625
+      ],
+      "baseline_depth_t000_m": 0.96875,
+      "baseline_depth_t005_m": 0.9375,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "diagonal-west-bank",
+      "same_world_xz": [
+        -1439.7735595703125,
+        3503.755126953125
+      ],
+      "baseline_depth_t000_m": 0.765625,
+      "baseline_depth_t005_m": 1.59375,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "diagonal-east-bank",
+      "same_world_xz": [
+        -1376.501220703125,
+        3503.727783203125
+      ],
+      "baseline_depth_t000_m": 0,
+      "baseline_depth_t005_m": 0.265625,
+      "narrow_depth_t005_same_world_m": 0,
+      "narrow_velocity_t005_same_world": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "visible-round-gap",
+      "same_world_xz": [
+        -1366.0452880859375,
+        3625.791015625
+      ],
+      "baseline_depth_t000_m": 2.0625,
+      "baseline_depth_t005_m": 0.78125,
+      "narrow_depth_t005_same_world_m": 0.703125,
+      "narrow_velocity_t005_same_world": [
+        0.0453108586370945,
+        0.0015858046244829893,
+        -0.46576988697052
+      ]
+    },
+    {
+      "name": "elbow-throat",
+      "same_world_xz": [
+        -1339.6248779296875,
+        3585.479736328125
+      ],
+      "baseline_depth_t000_m": 1.328125,
+      "baseline_depth_t005_m": 4.015625,
+      "narrow_depth_t005_same_world_m": 2.421875,
+      "narrow_velocity_t005_same_world": [
+        0.5957593321800232,
+        0.020558256655931473,
+        1.5735305547714233
+      ]
+    }
+  ],
+  "width_recipe": {
+    "diagnostic_only": true,
+    "half_widths_m": [
+      40,
+      24
+    ],
+    "method": "positive browser-carve delta on the same game-fitted uncarved DEM; retain later preparation",
+    "production_source_sha256": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "diagnostic_source_sha256": "e40c199b854e7c51879d90f6dc31359bfb79003df4d1e3231974c6f9107b09d1",
+    "replaced_expression": "const w = Math.max(halfWidth, 2.5 * sp);",
+    "banks_sha256": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af",
+    "geometry_sha256": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+    "depth_game_m": 9.19881189892985,
+    "lake_depth_game_m": 3.6795247595719403,
+    "forty_copy_byte_identical": true,
+    "delta_sha256": "b077f57ed2e70a3da6080d5ce1a1911ba6d4e392e06c19754117869c1a1ad691",
+    "base_crp_sha256": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+    "crp_sha256": "1dc38d543645c4ee8d0c4167cb3ed3e535d48bdf525fa506d22d45043d9464de",
+    "preserved_files_sha256": {
+      "water.u16": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+      "hydrology.json": "cef524935391d0a54823d30b0c9534bba6c98706a524f9be55feff18e47391de",
+      "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+      "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af",
+      "plan.npz": "7191a3ea52efa29de082004d88fd7da2bfeab64bb8de6bbceef6182c18f9c2e9"
+    },
+    "unchanged_simulation_suffix_sha256": "ed95fee562e6aa19162d6117f2ca85e75ec2b86a7747b0446ae295157206d2c4",
+    "changed_terrain_cells": 29538,
+    "changed_terrain_bytes": 36655,
+    "max_raise_m": 2.828125,
+    "lowered_cells": 0
+  },
+  "final_cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "audio_processes": [],
+    "x57_socket_exists": false,
+    "session_state_exists": false,
+    "private_bus_exists": false,
+    "session_env_exists": false,
+    "audio_dir_exists": false,
+    "active_units": []
+  },
+  "buried_control_example": {
+    "x": -1200,
+    "z": 3632,
+    "native_target_m": 87.953125,
+    "baseline_bed_m": 86.953125,
+    "narrow_bed_m": 88.890625
+  }
+}

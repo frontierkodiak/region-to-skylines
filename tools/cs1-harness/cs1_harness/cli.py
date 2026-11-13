@@ -300,6 +300,10 @@ def cmd_run(cfg, a):
                 probe_data = json.loads(a.probes.read_text()) if a.probes else {}
                 paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
                 r = MapCheck(s, out, points, views, log=log, paths=paths)
+                r.retain_opening_until_five = isinstance(probe_data, dict) and bool(
+                    probe_data.get("retain_opening_until_five", False)
+                )
+                s.dismiss_ordinary_guides = r.retain_opening_until_five
                 r.render_fps = a.render_fps
                 r.save_at = sorted(x for x in a.save_at if x >= 0)
                 r.save_end = a.save_end

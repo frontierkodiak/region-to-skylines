@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "asheville",
+    "passed": false,
+    "failure": "Continuous wet-floor guard: 13971 neighboring terrain vertices changed"
+  },
+  {
+    "slug": "charleston",
+    "passed": false,
+    "failure": "Continuous wet-floor guard: 27449 neighboring terrain vertices changed"
+  },
+  {
+    "slug": "innsbruck",
+    "passed": false,
+    "failure": "Continuous wet-floor guard: 5402 neighboring terrain vertices changed"
+  },
+  {
+    "slug": "pittsburgh",
+    "passed": false,
+    "failure": "Continuous wet-floor guard: 9402 neighboring terrain vertices changed"
+  },
+  {
+    "slug": "rio",
+    "passed": false,
+    "failure": "Continuous wet-floor guard: 7641 neighboring terrain vertices changed"
+  }
+]

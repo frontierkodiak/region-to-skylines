@@ -2113,3 +2113,120 @@ mixer, vendor wrapper or physical display setting changed. No tone or prompt
 bypass was used. The PM accepts this implementation for bounded Blade game
 work; PL-912 still requires its own visible diagnostics and fresh native
 qualification. This entry is documentation-only after the reviewed head.
+
+## 2026-11-13 · PL-912 bounded opening diagnostic · Blade
+
+Integrated accepted silence PR #40 (`e5b21f2`) into PL-912. Added read-only native
+camera projection and screenshot-pixel terrain/water hits to `world_observe`.
+Installed-game build, doctor, 112 unit tests, harness lint and format passed.
+The native DLL was `b8ffb378a57c0e5303b5207f28601eeef0b8b9d6e3ae10b0caa0242f120221f6`.
+
+Three completed slot-owned cases used the 2080 Ti at `05:00.0`, private Xvfb
+`:57`: Asheville current at 5.053056 game minutes, Rio current/40 m at
+5.013889, and one terrain-only 24 m width contrast at 5.082222. Zero/five-minute
+opening, actual Areas views, grids, depth/velocity and native screen hits were
+retained. All bindings round-trip within 0.024 pixel; screenshot/readback camera
+poses match. The source 24 m package copies all simulation bytes after the
+terrain arrays verbatim, including WaterSimulation, networks and resources.
+It raises 29,538 terrain cells and lowers none.
+
+Asheville's opening western cut is grassy; its French Broad centre is 2.64 m
+deep at the endpoint. Rio's initial brown centre is wet, but its startup
+appearance remains poor. The 24 m arm is rejected: the elbow and diagonal
+centres dry at five minutes while the 40 m baseline remains wet. Its raised
+floor buries at least one unchanged source target. This is not 60-minute
+qualification and does not promote a new width/default or erase prior failures.
+
+Package-creation-to-cleanup receipt spans were about 330 s (Asheville), 476 s
+(Rio baseline, including the interactive measurement hold), and 332 s (24 m).
+Sampled peak total VRAM was 10,821 MiB including resident workloads. Menu game
+shares were 1,620/1,574/1,620 MiB; per-game VRAM peaks were not sampled.
+Sampled peak GPU power was 132.40 W and temperature 60 C. The 150 W limit was
+unchanged. These are operational samples, not performance comparisons.
+
+Whole-tree audio checks passed before city work and throughout the sessions,
+including Steam, late webhelpers and Cities namespace socket identities and
+physical audio descriptors. The first independent snapshot covered 44
+processes with no violations. No host mixer/service, permissions, physical
+display, :0, power setting, tone or play-here action changed.
+
+Three preliminary attempts stopped on driver bugs (Flatpak map alias, clock
+field, and an overly strict 0.02-pixel assertion). Each cleaned up. The driver
+now uses the game-listed alias, reads fixed delta from native status, and
+retains raw hits with per-point errors instead of losing the sample set.
+All six attempts ended with no game, Steam instance or active unit. Some games
+required the existing exact-owned-PID SIGTERM fallback after the quit grace
+period. Independent final inspection also found no marked audio client,
+private display/bus socket, session state/environment or audio directory.
+The slot is free. Evidence: `~/experiments/PL-912-native-diagnostic` on Blade;
+compact native figures, original view archives and raw readbacks are delivered
+on PL-912. The three-region remainder and all five 60-minute receipts remain
+future work under PM authority.
+
+## 2026-11-13 — PL-912 bank restoration rejected; continuous native support
+
+Blade, 2080 Ti at 05:00.0, private Xvfb :57, unchanged 150 W cap. Source started
+at PR41 690d2b1 with accepted silence e5b21f2 integrated. Five-minute hydraulic
+cases tested debf9abe9874764183d54abd37fbc0806cfe9671; the final paused Rio review
+replacement tested driver head 109dee334660299e2bba417b7d45e97ef26baf39 with the
+same CRP. No camera override, physical display, host audio/service/security or
+account-prompt action occurred.
+
+| Owned attempt | Game minutes | Package-copy to cleanup, s | Peak total VRAM, MiB | Peak W | Peak C |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rio input-EOF attempt | paused | 176.9 | 10821 | 114.33 | 40 |
+| Rio guide-obstructed capture | 5.077222 | 586.6 | 10821 | 130.12 | 61 |
+| Rio hydraulic/review capture | 5.093611 | 492.4 | 10821 | 130.56 | 61 |
+| Asheville hydraulic/review capture | 5.090556 | 493.0 | 10821 | 133.46 | 61 |
+| Rio paused zero-view replacement | paused | 182.6 | 10821 | 117.60 | 44 |
+
+These are observed run spans, not speed benchmarks; interactive review time is
+included. Total VRAM includes resident work. The successful cases' game share
+at the menu was 1574 MiB, not a measured per-game peak.
+
+The generic dry-vertex restoration passed initial-water/WaterSimulation byte
+identity and unchanged-wet-vertex checks, but failed native continuous support.
+At a fixed Rio elbow-bank world position, startup ground rose 86.9375→87.890625 m
+and depth fell 0.75→0 m. The sandy opening persisted with steeper banks. Offline
+installed-assembly IL inspection confirms four-vertex fixed-point interpolation;
+CPU replay matches all 44 native ground values in 22 old/new pairs exactly.
+The failed rule is quarantined outside default generation. No 60-minute or new
+path qualification was started. Asheville's opening gain persists, with the
+French Broad centre 2.890625 m deep at the endpoint.
+
+Added `guide_controls`: native tutorial-only close-button handling, with a modal
+refusal and exact button id. The actual ordinary advisor button is named
+`Close`, not `CloseButton`. Closing via the native handler and rechecking after
+capture produces clear Areas/opening review views without hiding UI. The first
+interactive attempt received EOF because it lacked a retained input channel;
+normal teardown succeeded. A subsequent guide-obstructed capture was retained,
+not used as unobstructed proof. The final Rio zero view was recaptured paused,
+without another hydraulic trial. The driver supports `--minutes 0` for this.
+
+All five attempts returned empty game/Steam/unit cleanup receipts. Some used
+the existing exact-owned-PID termination after the quit grace. Independent
+final inspection finds no game, Steam, marked audio process, private display or
+bus socket, session environment/state/audio directory, active unit, holder or
+waiter. Whole-tree audio snapshots include late webhelpers with no route
+violations. Evidence and full before/after review PNGs are attached to PL-912;
+source report: tools/map-factory/BANK_RESTORATION.md. Native artifacts are in
+~/experiments/PL-912-bank-restoration on Blade.
+
+## 2026-11-13 — PL-912 coupled premise rejected; original stream-only partial evaluation
+
+Blade 2080 Ti PCI05:00.0/private :57; unchanged 150 W cap and accepted e5b21f2 null-audio whole-tree endpoint checks. No physical display, host audio, account or shared-service changes. One coupled arm rejected on CPU; no native coupled launch.
+
+| Cohort / map | Clean native source | Game min | Wall s | Peak total VRAM MiB | Menu game MiB | Peak W | Peak °C | Result |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Preliminary / asheville | d594b02 | 60.007 | 949.5 | 10821 | 1620 | 141.70 | 56 | pass: applicable gates |
+| Preliminary / innsbruck | d594b02 | 60.027 | 949.6 | 10821 | 1574 | 143.79 | 58 | pass: applicable gates |
+| Preliminary / rio | d594b02 | 60.122 | 952.8 | 10821 | 1574 | 139.13 | 59 | fail: no_flooding |
+| Preliminary / pittsburgh | d594b02 | 60.146 | 959.5 | 10821 | 1574 | 138.70 | 56 | pass: applicable gates |
+| Preliminary / charleston | 7dbef02 | 60.011 | 955.2 | 10821 | 1574 | 143.12 | 58 | fail: ground_truth |
+| Final / asheville | 022d795 | 60.090 | 952.1 | 10821 | 1574 | 137.49 | 57 | pass: applicable gates |
+| Final / innsbruck | 022d795 | 60.013 | 950.9 | 10821 | 1574 | 138.47 | 58 | pass: applicable gates |
+| Final / rio | 022d795 | 60.040 | 950.2 | 10821 | 1574 | 143.93 | 58 | fail: no_flooding |
+| Final / pittsburgh | 022d795 | 60.133 | 966.7 | 10821 | 1574 | 133.16 | 54 | pass: applicable gates |
+| Final / charleston | 022d795 | 60.060 | 949.5 | 10821 | 1574 | 143.87 | 58 | fail: ground_truth |
+
+Total VRAM includes an 8004 MiB resident baseline; menu game share is not a per-game peak. Wall time includes review and cleanup, not a speed benchmark. All ten cleanup receipts empty. Preliminary probe drift/omission, missing independent landmarks and skipped camera gate were repaired without changing acceptance: final cohort freezes all original probe names/coordinates/order/flags, restores independent references and retains legacy camera checks. Rio adds only 11 supplementary observations. All five final runs use clean 022d795, original 690d2b1 default package bytes, 60+ game minutes, native paths, unchanged thresholds/masks and exact initial grid/control audits. Rio no_flooding and Charleston ground_truth still fail. Other mapped dry subsets remain in raw audits. Actual zero/five/end views retained; Asheville improves, Rio does not. Pittsburgh normal quit fallback terminated only its owned game PID after grace. Independent final 11:54:28 UTC proof: no owned processes/state/sockets/active units; queue slot free. See map-factory/PARTIAL_NATIVE_QUALIFICATION.md and fixtures/minor-stream-candidate/native-evaluation.json. PR41 stays draft; PM owns partial acceptance and remaining Rio.

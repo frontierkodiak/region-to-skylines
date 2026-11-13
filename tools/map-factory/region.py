@@ -243,7 +243,10 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 - channel_depth
                 + (distance * SPACING / 32) ** 2 * channel_depth
             )
-            corridor = (distance <= 3) & ~forbidden
+            # A rejected gravity profile has no sustained supply. Do not dig
+            # a bed for startup water that will drain away. Keep the path and
+            # geographic probes, but leave terrain and water to other features.
+            corridor = (distance <= 3) & ~forbidden & (not unforced_stream)
             ground[corridor] = np.maximum(
                 original[corridor] - max_lowering,
                 np.minimum(ground[corridor], desired_bed[corridor]),
@@ -252,6 +255,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 ((distance <= 4) | (areas & (distance <= 32)))
                 & (ground < local_surface)
                 & ~forbidden
+                & (not unforced_stream)
             )
             initial_surface = (
                 np.minimum(local_surface, ground + 0.25)
@@ -321,7 +325,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
-            for role, source_i in controls:
+            for role, source_i in ([] if unforced_stream else controls):
                 if sea is not None and fitted[source_i] <= sea + 0.5:
                     continue
                 if kind == "stream" and major_distance[y[source_i], x[source_i]] <= 96:
@@ -378,12 +382,6 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 )
                 if kind == "stream" and role == "downstream":
                     sources[-1]["output_capacity"] = 0
-                if unforced_stream:
-                    # A shallow mapped creek with an infeasible gravity profile
-                    # cannot be kept perennial by pumping water off its valley.
-                    # Retain prefill, intake, geometry and every dry probe.
-                    sources[-1]["output_capacity"] = 0
-                    sources[-1]["unforced_infeasible_stream"] = True
                 if bank_limited:
                     sources[-1]["bank_limited"] = True
                 if short_river:
@@ -417,6 +415,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             if unforced_stream:
                 summaries[-1].update(
                     unforced_infeasible_stream=True,
+                    uncarved_infeasible_stream=True,
                     rejected_monotone_overbank_m=overbank,
                 )
     lake_mask = raster(sq, geometry.get("lakes", []), polygons=True)

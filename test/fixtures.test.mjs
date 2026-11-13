@@ -1,4 +1,5 @@
-// Acceptance: the shipping MRDS path and the richer offline resource reference both
+// Byte conformance, not full native acceptance: shipping MRDS and the richer
+// offline resource reference both
 // reproduce their maps from inputs.js captures. Slow (about 40 s a build on an idle
 // machine, plus the first Pyodide download): run with `npm run test:fixtures`.
 import { test } from "node:test";
@@ -8,15 +9,15 @@ import { gunzipSync } from "node:zlib";
 import { createHash } from "node:crypto";
 import { loadPyodide } from "pyodide";
 import { startFactory, buildMap, clearWork } from "../mapgen.js";
+import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const root = new URL("../tools/map-factory/", import.meta.url);
 const read = async (f) => new Uint8Array(await readFile(new URL(f, root)));
-const manifest = JSON.parse(new TextDecoder().decode(await read("fixtures/manifest.json")));
+const { manifest, nativeCases, historicalNativeCases } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
 assert.equal(manifest.capture_module, "inputs.js", "shipping fixtures must use the shared page/CLI capture");
 for (const name of ["inputs.js", "terrain.js"])
   assert.equal(createHash("sha256").update(await readFile(new URL("../" + name, import.meta.url))).digest("hex"),
     manifest.capture_sources_sha256[name], `${name} changed; recapture and qualify`);
-const nativeCases = Object.fromEntries(JSON.parse(new TextDecoder().decode(await read("fixtures/native-qualification.json"))).cases.map((c) => [c.slug, c]));
 const only = process.env.FIXTURES ? process.env.FIXTURES.split(",") : null;
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const captureModuleSha = sha(await readFile(new URL("../inputs.js", import.meta.url)));
@@ -30,12 +31,14 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     ["shipping", c.shipping, c.shipping?.evidence_file],
   ]) test(`${c.slug} ${kind}: exact .crp`, { timeout: 15 * 60 * 1000 }, async () => {
     const dir = `fixtures/${c.slug}/`, has = (f) => c.files_sha256[f] !== undefined;
+    for (const [name, digest] of Object.entries(c.files_sha256))
+      assert.equal(sha(await read("fixtures/" + (c.fixture_files[name] ?? `${c.slug}/${name}`))), digest, `${c.slug}: fixture ${name}`);
     assert.ok(expected, `${c.slug}: ${kind} golden is required`);
     assert.ok(c.input_capture, `${c.slug}: inputs.js capture receipt is required`);
     const native = nativeCases[c.slug];
-    assert.ok(native, `${c.slug}: native qualification is required`);
-    assert.equal(c.input_capture.cli_sha256, native.native_crp_sha256, `${c.slug}: captured map differs from native run`);
-    assert.deepEqual(c.input_capture.prepared_sha256, native.prepared_sha256, `${c.slug}: native grids changed`);
+    assert.ok(native, `${c.slug}: fresh native evaluation is required`);
+    assert.equal(c.input_capture.cli_sha256, historicalNativeCases[c.slug].native_crp_sha256, `${c.slug}: historical capture differs from historical native run`);
+    assert.deepEqual(c.input_capture.prepared_sha256, historicalNativeCases[c.slug].prepared_sha256, `${c.slug}: historical native grids changed`);
     assert.equal(sha(await read("templates/native-corridors.crp")), native.template_sha256, `${c.slug}: native template changed`);
     assert.equal(sha(await read("templates/native-corridors.json")), native.layout_sha256, `${c.slug}: native layout changed`);
     assert.equal(captureModuleSha, c.input_capture.source_files_sha256["inputs.js"], `${c.slug}: inputs.js changed; recapture and qualify`);
@@ -56,7 +59,7 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     const inputHashes = kind === "shipping" ? expected.input_files_sha256 : c.input_capture.files_sha256;
     for (const [name, bytes] of Object.entries({ "input.png": png, "geometry.json": geometry, "banks.f32": banks }))
       assert.equal(sha(bytes), inputHashes[name], `${c.slug} ${kind}: frozen inputs.js ${name}`);
-    assert.deepEqual(c.prepared_sha256, c.input_capture.prepared_sha256, `${c.slug}: native-tested live-pin grids`);
+    assert.deepEqual(c.prepared_sha256, native.prepared_sha256, `${c.slug}: native-tested live-pin grids`);
     const t = performance.now();
     const { bytes, mapName } = await buildMap(factory, {
       png,
@@ -69,7 +72,7 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     assert.equal(bytes.length, expected.expected_crp_bytes);
     assert.equal(sha(bytes), expected.expected_crp_sha256);
     for (const name of ["terrain.u16", "water.u16"])
-      assert.equal(sha(factory.py.FS.readFile("/work/out/" + name)), c.input_capture.prepared_sha256[name], `${c.slug} ${kind}: native-tested ${name}`);
+      assert.equal(sha(factory.py.FS.readFile("/work/out/" + name)), native.prepared_sha256[name], `${c.slug} ${kind}: native-tested ${name}`);
     const controls = JSON.parse(factory.py.runPython(`
 import hashlib, json
 from pathlib import Path

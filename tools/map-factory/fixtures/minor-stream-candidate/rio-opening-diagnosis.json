@@ -1,0 +1,1052 @@
+{
+  "scope": "archived accepted baseline only; no candidate native qualification",
+  "slug": "rio",
+  "source_waterway": "Rio Maracan\u00e3",
+  "source_class": "river",
+  "native_crp_sha256": "d1c6238fd6bf2bc8b152212cb79029f89570b3df7052bd9ab30733ac1d5c7258",
+  "camera": {
+    "current_position": [
+      -1920,
+      169.4876708984375,
+      3840
+    ],
+    "current_size": 1000,
+    "current_height": 101.5,
+    "current_angle_degrees": [
+      0,
+      68.57142639160156
+    ],
+    "target_position": [
+      -1920,
+      169.4876708984375,
+      3840
+    ],
+    "target_size": 1000,
+    "target_angle_degrees": [
+      0,
+      60
+    ],
+    "render_position": [
+      -1920,
+      1084.7281494140625,
+      3483.929443359375
+    ],
+    "render_forward": [
+      0,
+      -0.9308737516403198,
+      0.36534106731414795
+    ],
+    "render_up": [
+      0,
+      0.36534106731414795,
+      0.9308737516403198
+    ],
+    "render_euler_degrees": [
+      68.5714340209961,
+      0,
+      0
+    ],
+    "render_heading_degrees": 0,
+    "areas_visible": false
+  },
+  "evidence_sha256": {
+    "startup-opening.png": "88350927cc66155ba6dd77449917fb38538fd1b4212c5bcbe46a21517c95f6e5",
+    "startup-world.json": "fc1c5f24d2718b95bb78f3efadce0bb31d69a83e2ded08b6774d532d31ae288b",
+    "grids/t000-terrain.u16": "e6cc2f49eabfac53526b2bafcc044c4e3b8bf2d1f00e44a5412c57a6f37ff4cd",
+    "grids/t000-water.u16": "99c92e1d8d40f4c4821e93c9d25068a02b54bd8ebb6bafe29cfa4dbf9af3b7fe",
+    "grids/t015-water.u16": "92cf0a62455d55e243e51ff1670fb0342bd397005cb8ce057b72a665d84a6512",
+    "grids/t030-water.u16": "763050cba7fb34deb1cf95e96242eeda7f6b32cc3c20b22fb61fe1d122ae2c68",
+    "grids/t045-water.u16": "068344ff9d6484b498905d7904ae18b31f22586cf2ff10385d3ddf6c5a76b4d2",
+    "grids/t060-water.u16": "0e530791a9bd70b72de56ba021356b58d9ac600a9edc75bde1ecadd14c0e18d7"
+  },
+  "opening_source_bounds_world_m": {
+    "x": [
+      -2192,
+      -496
+    ],
+    "z": [
+      3088,
+      3696
+    ]
+  },
+  "source_polygon_overlap_fraction": 0.12418300653594772,
+  "polygon_support_catalog": [
+    {
+      "slug": "asheville",
+      "name": "French Broad River",
+      "mapped_cells": 1542,
+      "polygon_overlap_fraction": 0.9941634241245136
+    },
+    {
+      "slug": "asheville",
+      "name": "Swannanoa River",
+      "mapped_cells": 1059,
+      "polygon_overlap_fraction": 0.9707271010387157
+    },
+    {
+      "slug": "asheville",
+      "name": "unnamed waterway",
+      "mapped_cells": 9,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "innsbruck",
+      "name": "Inn",
+      "mapped_cells": 456,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "innsbruck",
+      "name": "Ruetz",
+      "mapped_cells": 170,
+      "polygon_overlap_fraction": 0.9529411764705882
+    },
+    {
+      "slug": "innsbruck",
+      "name": "Sill",
+      "mapped_cells": 781,
+      "polygon_overlap_fraction": 0.971830985915493
+    },
+    {
+      "slug": "rio",
+      "name": "Desvio do Rio Joana",
+      "mapped_cells": 9,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Andara\u00ed",
+      "mapped_cells": 76,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Carioca",
+      "mapped_cells": 7,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Comprido",
+      "mapped_cells": 132,
+      "polygon_overlap_fraction": 0.007575757575757576
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Dom Carlos",
+      "mapped_cells": 85,
+      "polygon_overlap_fraction": 0.047058823529411764
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Faleiro",
+      "mapped_cells": 14,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Faria",
+      "mapped_cells": 148,
+      "polygon_overlap_fraction": 0.22297297297297297
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Faria-Timb\u00f3",
+      "mapped_cells": 164,
+      "polygon_overlap_fraction": 0.9024390243902439
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Jacar\u00e9",
+      "mapped_cells": 338,
+      "polygon_overlap_fraction": 0.07692307692307693
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Jac\u00f3",
+      "mapped_cells": 61,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Joana",
+      "mapped_cells": 128,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Maracan\u00e3",
+      "mapped_cells": 306,
+      "polygon_overlap_fraction": 0.12418300653594772
+    },
+    {
+      "slug": "rio",
+      "name": "Rio M\u00e9ier",
+      "mapped_cells": 54,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Papa-Couve",
+      "mapped_cells": 8,
+      "polygon_overlap_fraction": 0.125
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Rainha",
+      "mapped_cells": 8,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Salgado",
+      "mapped_cells": 123,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Tijuca",
+      "mapped_cells": 7,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Timb\u00f3",
+      "mapped_cells": 153,
+      "polygon_overlap_fraction": 0.006535947712418301
+    },
+    {
+      "slug": "rio",
+      "name": "Rio Trapicheiros",
+      "mapped_cells": 178,
+      "polygon_overlap_fraction": 0.0056179775280898875
+    },
+    {
+      "slug": "rio",
+      "name": "Rio da Cachoeira",
+      "mapped_cells": 77,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio da G\u00e1vea Pequena",
+      "mapped_cells": 35,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio do Pires",
+      "mapped_cells": 11,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio dos Cachorros",
+      "mapped_cells": 4,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "Rio dos Macacos",
+      "mapped_cells": 86,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "rio",
+      "name": "unnamed waterway",
+      "mapped_cells": 53,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Allegheny River",
+      "mapped_cells": 837,
+      "polygon_overlap_fraction": 0.978494623655914
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Chartiers Creek",
+      "mapped_cells": 1115,
+      "polygon_overlap_fraction": 0.9775784753363229
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Monongahela River",
+      "mapped_cells": 785,
+      "polygon_overlap_fraction": 0.9808917197452229
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Nine Mile Run",
+      "mapped_cells": 143,
+      "polygon_overlap_fraction": 0.9230769230769231
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Ohio River",
+      "mapped_cells": 991,
+      "polygon_overlap_fraction": 0.06659939455095863
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Pine Creek",
+      "mapped_cells": 285,
+      "polygon_overlap_fraction": 0.20701754385964913
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "Saw Mill Run",
+      "mapped_cells": 153,
+      "polygon_overlap_fraction": 0.9281045751633987
+    },
+    {
+      "slug": "pittsburgh",
+      "name": "unnamed waterway",
+      "mapped_cells": 32,
+      "polygon_overlap_fraction": 0.375
+    },
+    {
+      "slug": "charleston",
+      "name": "Ashley River",
+      "mapped_cells": 1206,
+      "polygon_overlap_fraction": 0.5472636815920398
+    },
+    {
+      "slug": "charleston",
+      "name": "Atlantic Intracoastal Waterway",
+      "mapped_cells": 254,
+      "polygon_overlap_fraction": 0.6023622047244095
+    },
+    {
+      "slug": "charleston",
+      "name": "Clouter Creek",
+      "mapped_cells": 29,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "charleston",
+      "name": "Cooper River",
+      "mapped_cells": 557,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "charleston",
+      "name": "Hobcaw Creek",
+      "mapped_cells": 189,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "charleston",
+      "name": "Lighthouse Creek",
+      "mapped_cells": 61,
+      "polygon_overlap_fraction": 0.0
+    },
+    {
+      "slug": "charleston",
+      "name": "Molasses Creek",
+      "mapped_cells": 171,
+      "polygon_overlap_fraction": 0.9649122807017544
+    },
+    {
+      "slug": "charleston",
+      "name": "Newmarket Creek",
+      "mapped_cells": 46,
+      "polygon_overlap_fraction": 0.32608695652173914
+    },
+    {
+      "slug": "charleston",
+      "name": "Rathall Creek",
+      "mapped_cells": 27,
+      "polygon_overlap_fraction": 0.037037037037037035
+    },
+    {
+      "slug": "charleston",
+      "name": "Stono River",
+      "mapped_cells": 612,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "charleston",
+      "name": "Wando River",
+      "mapped_cells": 285,
+      "polygon_overlap_fraction": 1.0
+    },
+    {
+      "slug": "charleston",
+      "name": "Wappoo Creek",
+      "mapped_cells": 194,
+      "polygon_overlap_fraction": 0.8092783505154639
+    },
+    {
+      "slug": "charleston",
+      "name": "unnamed waterway",
+      "mapped_cells": 1412,
+      "polygon_overlap_fraction": 0.2577903682719547
+    }
+  ],
+  "profile_summaries": [
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 791.7645019878171,
+      "upstream": [
+        458,
+        313
+      ],
+      "downstream": [
+        505,
+        309
+      ],
+      "max_surface_above_uncarved_m": -2.8508324213704412,
+      "profile_above_uncarved_m": -0.25,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 1.1652752581987897
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 16.0,
+      "upstream": [
+        508,
+        309
+      ],
+      "downstream": [
+        509,
+        309
+      ],
+      "max_surface_above_uncarved_m": -1.9563469477376287,
+      "profile_above_uncarved_m": -1.9563469477376287,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 206.39191898578667,
+      "upstream": [
+        446,
+        324
+      ],
+      "downstream": [
+        455,
+        316
+      ],
+      "max_surface_above_uncarved_m": -3.999969223626664,
+      "profile_above_uncarved_m": -3.999969223626664,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 0.951513159289604,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 16.0,
+      "upstream": [
+        437,
+        332
+      ],
+      "downstream": [
+        437,
+        333
+      ],
+      "max_surface_above_uncarved_m": -3.06660030181925,
+      "profile_above_uncarved_m": -3.06660030181925,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 221.25483399593907,
+      "upstream": [
+        421,
+        338
+      ],
+      "downstream": [
+        434,
+        336
+      ],
+      "max_surface_above_uncarved_m": -2.6966876766233696,
+      "profile_above_uncarved_m": -2.6966876766233696,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 0.2721653384046192,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 261.0193359837562,
+      "upstream": [
+        416,
+        339
+      ],
+      "downstream": [
+        403,
+        347
+      ],
+      "max_surface_above_uncarved_m": -3.2255966447297766,
+      "profile_above_uncarved_m": -3.2255966447297766,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 1.0260429424783837,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 525.9209229614211,
+      "upstream": [
+        381,
+        374
+      ],
+      "downstream": [
+        401,
+        350
+      ],
+      "max_surface_above_uncarved_m": -3.4197101359310267,
+      "profile_above_uncarved_m": -3.4197101359310267,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 2.427670533310902,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 154.50966799187808,
+      "upstream": [
+        364,
+        391
+      ],
+      "downstream": [
+        357,
+        396
+      ],
+      "max_surface_above_uncarved_m": -4.0531658896430685,
+      "profile_above_uncarved_m": -4.0531658896430685,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 2.6916024801153213,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 402.27416997969533,
+      "upstream": [
+        341,
+        417
+      ],
+      "downstream": [
+        353,
+        398
+      ],
+      "max_surface_above_uncarved_m": -3.287663434937329,
+      "profile_above_uncarved_m": -3.287663434937329,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 0.5382745131637705,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 80.0,
+      "upstream": [
+        340,
+        427
+      ],
+      "downstream": [
+        340,
+        422
+      ],
+      "max_surface_above_uncarved_m": -2.046916459388356,
+      "profile_above_uncarved_m": -2.046916459388356,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 965.2144289248718,
+      "upstream": [
+        302,
+        475
+      ],
+      "downstream": [
+        339,
+        430
+      ],
+      "max_surface_above_uncarved_m": -2.8899380916223834,
+      "profile_above_uncarved_m": -0.25,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 1.1780234402141616
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 138.50966799187808,
+      "upstream": [
+        301,
+        477
+      ],
+      "downstream": [
+        297,
+        484
+      ],
+      "max_surface_above_uncarved_m": -3.7912657002194123,
+      "profile_above_uncarved_m": -3.7912657002194123,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 0.13461257400568627,
+      "short_surface_river": true,
+      "local_stage_profile": true
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "class": "river",
+      "length_m": 1815.488598904566,
+      "upstream": [
+        225,
+        555
+      ],
+      "downstream": [
+        297,
+        486
+      ],
+      "max_surface_above_uncarved_m": -4.084430190319424,
+      "profile_above_uncarved_m": -0.25,
+      "bank_limited": true,
+      "control_spacing_m": 512,
+      "rejected_monotone_overbank_m": 1.8150035139448448
+    }
+  ],
+  "sample_points": [
+    {
+      "node_north_first": [
+        460,
+        313
+      ],
+      "world_xz_m": [
+        -1280,
+        3632
+      ],
+      "uncarved_m": 92.87847900390625,
+      "browser_m": 86.93882658121615,
+      "prepared_m": 86.9375,
+      "exact_native_depth_m": {
+        "0": 1.0,
+        "15": 1.453125,
+        "30": 1.609375,
+        "45": 1.578125,
+        "60": 1.59375
+      },
+      "maximum_depth_within_32m_m": {
+        "0": 1.640625,
+        "15": 3.359375,
+        "30": 3.4375,
+        "45": 3.40625,
+        "60": 3.359375
+      }
+    },
+    {
+      "node_north_first": [
+        465,
+        313
+      ],
+      "world_xz_m": [
+        -1200,
+        3632
+      ],
+      "uncarved_m": 93.30989074707031,
+      "browser_m": 86.95445181963836,
+      "prepared_m": 86.953125,
+      "exact_native_depth_m": {
+        "0": 1.0,
+        "15": 1.484375,
+        "30": 1.484375,
+        "45": 1.515625,
+        "60": 1.46875
+      },
+      "maximum_depth_within_32m_m": {
+        "0": 1.0,
+        "15": 2.25,
+        "30": 2.0625,
+        "45": 2.25,
+        "60": 2.09375
+      }
+    }
+  ],
+  "cross_sections": [
+    {
+      "x_m": -1280,
+      "z_m": [
+        3824,
+        3808,
+        3792,
+        3776,
+        3760,
+        3744,
+        3728,
+        3712,
+        3696,
+        3680,
+        3664,
+        3648,
+        3632,
+        3616,
+        3600,
+        3584,
+        3568,
+        3552,
+        3536,
+        3520,
+        3504,
+        3488,
+        3472,
+        3456,
+        3440,
+        3424,
+        3408
+      ],
+      "uncarved_m": [
+        93.660888671875,
+        93.79769134521484,
+        94.10563659667969,
+        94.36830139160156,
+        94.5684814453125,
+        94.89095306396484,
+        95.40599822998047,
+        95.92648315429688,
+        96.18775177001953,
+        95.98310852050781,
+        95.2290267944336,
+        94.07213592529297,
+        92.87847900390625,
+        92.0503158569336,
+        91.75906372070312,
+        91.98155975341797,
+        92.62594604492188,
+        93.4254150390625,
+        93.98320007324219,
+        94.13815307617188,
+        94.07402801513672,
+        94.01776123046875,
+        94.03229522705078,
+        94.08133697509766,
+        94.10016632080078,
+        94.0679702758789,
+        94.01090240478516
+      ],
+      "browser_m": [
+        93.6576791027695,
+        93.79830624856946,
+        94.11081101701382,
+        94.36081483176929,
+        94.56394293125811,
+        94.89207293812467,
+        95.40770580605783,
+        95.923338673991,
+        96.09521629663539,
+        95.43895628290227,
+        93.42330052643625,
+        90.15762569619288,
+        86.93882658121615,
+        85.5325551232166,
+        86.64194705119402,
+        89.23573662928206,
+        91.6420233463035,
+        93.20454718852521,
+        93.95455863279163,
+        94.14206149385825,
+        94.07956054016938,
+        94.01705958648051,
+        94.03268482490273,
+        94.07956054016938,
+        94.0951857785916,
+        94.06393530174716,
+        94.01705958648051
+      ],
+      "prepared_m": [
+        93.65625,
+        93.796875,
+        94.109375,
+        94.359375,
+        94.5625,
+        94.890625,
+        95.40625,
+        95.921875,
+        96.09375,
+        95.4375,
+        93.421875,
+        90.15625,
+        86.9375,
+        85.53125,
+        86.640625,
+        89.234375,
+        91.640625,
+        93.203125,
+        93.953125,
+        94.140625,
+        94.078125,
+        94.015625,
+        94.03125,
+        94.078125,
+        94.09375,
+        94.0625,
+        94.015625
+      ],
+      "initial_depth_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.546875,
+        1.0,
+        1.265625,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_60_depth_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.59375,
+        2.953125,
+        1.734375,
+        0.125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "x_m": -1200,
+      "z_m": [
+        3824,
+        3808,
+        3792,
+        3776,
+        3760,
+        3744,
+        3728,
+        3712,
+        3696,
+        3680,
+        3664,
+        3648,
+        3632,
+        3616,
+        3600,
+        3584,
+        3568,
+        3552,
+        3536,
+        3520,
+        3504,
+        3488,
+        3472,
+        3456,
+        3440,
+        3424,
+        3408
+      ],
+      "uncarved_m": [
+        93.29816436767578,
+        93.34033203125,
+        93.60645294189453,
+        94.19023895263672,
+        94.99722290039062,
+        95.73973846435547,
+        96.16814422607422,
+        96.25347137451172,
+        96.08915710449219,
+        95.6900405883789,
+        95.03980255126953,
+        94.20101928710938,
+        93.30989074707031,
+        92.67194366455078,
+        92.64556121826172,
+        93.18608093261719,
+        93.74850463867188,
+        93.82025146484375,
+        93.41889953613281,
+        92.94881439208984,
+        92.68998718261719,
+        92.61702728271484,
+        92.63606262207031,
+        92.72978210449219,
+        92.90122985839844,
+        93.1009292602539,
+        93.24589538574219
+      ],
+      "browser_m": [
+        93.29829861905851,
+        93.34517433432516,
+        93.61080338750286,
+        94.1889372091249,
+        95.00144960708019,
+        95.73583581292439,
+        96.17334248874647,
+        96.23584344243534,
+        95.89208819714656,
+        94.7358205539025,
+        92.25140764476997,
+        89.01698329137102,
+        86.95445181963836,
+        87.40758373388266,
+        89.735744258793,
+        92.12640573739223,
+        93.51705195696955,
+        93.79830624856946,
+        93.42330052643625,
+        92.95454337376974,
+        92.68891432059205,
+        92.61078812848096,
+        92.6420386053254,
+        92.7357900358587,
+        92.90766765850309,
+        93.09517051956969,
+        93.25142290379186
+      ],
+      "prepared_m": [
+        93.296875,
+        93.34375,
+        93.609375,
+        94.1875,
+        95.0,
+        95.734375,
+        96.171875,
+        96.234375,
+        95.890625,
+        94.3125,
+        90.5625,
+        88.3125,
+        86.953125,
+        87.40625,
+        89.734375,
+        92.125,
+        93.515625,
+        93.796875,
+        93.421875,
+        92.953125,
+        92.6875,
+        92.609375,
+        92.640625,
+        92.734375,
+        92.90625,
+        93.09375,
+        93.25
+      ],
+      "initial_depth_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        1.0,
+        0.828125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "native_60_depth_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.015625,
+        1.46875,
+        0.953125,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

@@ -200,7 +200,25 @@ The harness keeps its original initial-footprint-only metric as a diagnostic;
 the depth/distance/area tolerances are unchanged. Mask provenance records the
 geometry hash and fields, never a footprint inferred from the final wet grid.
 
+### Current default byte contract
+
+From the repository root, `npm run test:fixtures` reads `fixtures/current.json`
+and rebuilds all five regions in both reference and shipping modes. The
+[versioned current contract](CURRENT_FIXTURE_CONTRACT.md) binds exact packages,
+grids, controls, writer sources and fresh native evidence. It records **partial,
+not accepted** status: Rio flooding and Charleston terrain correlation still
+fail, Rio's opening remains unresolved, and strict-disableMods/macOS/populated
+behavior is not newly verified. Historical accepted files remain unchanged.
+
+### Historical fixture-v1 verifier and authoring
+
+The following describes `fixtures/manifest.json` and its matching historical
+writer, not the current partial contract. `verify_regions.py` remains unchanged;
+its old expected packages and all-samples-wet assertion are not waived or
+claimed to pass with the new stream-only writer.
+
 ```sh
+# At the matching historical writer (e5b21f2), not current PL-912:
 uv run python verify_regions.py
 ```
 
@@ -258,9 +276,9 @@ gaps and uses an output-free regulated drain at an entering surface portal.
 This is not a native underground-water network or a promise that every short
 mapped creek is perennial; modeled-reach omissions are explicit in hydrology.
 Minor streams whose bank-bounded gravity profile is infeasible within the
-existing incision limit retain their geometry, shallow startup fill, intake
-and probes, but receive no sustained artificial output. Their dry observations
-remain in the audit. This prevents pumping a creek across uphill terrain;
+existing incision limit retain their geometry and probes, but receive no
+excavation, startup fill or source/drain controls. Their dry observations
+remain in the audit. This avoids digging a bed that cannot stay wet;
 it does not reclassify a dry stream as a wet river or remove a failing probe.
 
 Starting-tile selection requires at least256 initial vertices deeper than0.5m

@@ -1,0 +1,2633 @@
+{
+  "experimental_coupled": true,
+  "browser": {
+    "deferred_pieces": 16,
+    "control_node": {
+      "uncarved": 93.30989074707031,
+      "browser_carve": 86.94977569580078,
+      "deferred_carve": 91.79914855957031
+    },
+    "production_options": {
+      "depth": 9.19881189892985,
+      "halfWidth": 40,
+      "lakeDepth": 3.6795247595719403
+    }
+  },
+  "generation": {
+    "preparation": {
+      "sea_level_m": 86.7952475957194,
+      "max_channel_lowering_m": 3.0,
+      "channel_lowering_cap_m": 3.0,
+      "river_control_spacing_m": 2048,
+      "mapped_waterway_coverage": [
+        {
+          "name": "C\u00f3rrego Pluvial \u00c1guas de Mar\u00e7o",
+          "class": "stream",
+          "mapped_cells": 5,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Desvio do Rio Joana",
+          "class": "river",
+          "mapped_cells": 9,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Riacho Cupertino",
+          "class": "stream",
+          "mapped_cells": 45,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Riacho da Cascata",
+          "class": "stream",
+          "mapped_cells": 51,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Andara\u00ed",
+          "class": "river",
+          "mapped_cells": 76,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Cabe\u00e7a",
+          "class": "stream",
+          "mapped_cells": 4,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "river",
+          "mapped_cells": 7,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "stream",
+          "mapped_cells": 67,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Caveira",
+          "class": "stream",
+          "mapped_cells": 37,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Choror\u00f3",
+          "class": "stream",
+          "mapped_cells": 47,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Comprido",
+          "class": "river",
+          "mapped_cells": 132,
+          "initial_wet_fraction": 0.6893939393939394
+        },
+        {
+          "name": "Rio Dom Carlos",
+          "class": "river",
+          "mapped_cells": 85,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Faleiro",
+          "class": "river",
+          "mapped_cells": 14,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Faria",
+          "class": "river",
+          "mapped_cells": 148,
+          "initial_wet_fraction": 0.6486486486486487
+        },
+        {
+          "name": "Rio Faria-Timb\u00f3",
+          "class": "river",
+          "mapped_cells": 164,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Humait\u00e1",
+          "class": "stream",
+          "mapped_cells": 13,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Jacar\u00e9",
+          "class": "river",
+          "mapped_cells": 338,
+          "initial_wet_fraction": 0.5680473372781065
+        },
+        {
+          "name": "Rio Jac\u00f3",
+          "class": "river",
+          "mapped_cells": 61,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Joana",
+          "class": "river",
+          "mapped_cells": 128,
+          "initial_wet_fraction": 0.9296875
+        },
+        {
+          "name": "Rio Maracan\u00e3",
+          "class": "river",
+          "mapped_cells": 306,
+          "initial_wet_fraction": 0.9150326797385621
+        },
+        {
+          "name": "Rio M\u00e9ier",
+          "class": "river",
+          "mapped_cells": 54,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Paineiras",
+          "class": "stream",
+          "mapped_cells": 100,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Papa-Couve",
+          "class": "river",
+          "mapped_cells": 8,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Rainha",
+          "class": "river",
+          "mapped_cells": 8,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Salgado",
+          "class": "river",
+          "mapped_cells": 123,
+          "initial_wet_fraction": 0.959349593495935
+        },
+        {
+          "name": "Rio Silvestre",
+          "class": "stream",
+          "mapped_cells": 20,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Solid\u00e3o",
+          "class": "stream",
+          "mapped_cells": 26,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Tijuca",
+          "class": "river",
+          "mapped_cells": 7,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Tijuca",
+          "class": "stream",
+          "mapped_cells": 87,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio Timb\u00f3",
+          "class": "river",
+          "mapped_cells": 153,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio Trapicheiros",
+          "class": "river",
+          "mapped_cells": 178,
+          "initial_wet_fraction": 0.9101123595505618
+        },
+        {
+          "name": "Rio da Cachoeira",
+          "class": "river",
+          "mapped_cells": 77,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio da G\u00e1vea Pequena",
+          "class": "river",
+          "mapped_cells": 35,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio das Almas",
+          "class": "stream",
+          "mapped_cells": 64,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio das Velhas",
+          "class": "stream",
+          "mapped_cells": 11,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio do Archer",
+          "class": "stream",
+          "mapped_cells": 59,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio do Conde",
+          "class": "stream",
+          "mapped_cells": 40,
+          "initial_wet_fraction": 0.0
+        },
+        {
+          "name": "Rio do Pires",
+          "class": "river",
+          "mapped_cells": 11,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio dos Cachorros",
+          "class": "river",
+          "mapped_cells": 4,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "Rio dos Macacos",
+          "class": "river",
+          "mapped_cells": 86,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "river",
+          "mapped_cells": 53,
+          "initial_wet_fraction": 1.0
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "mapped_cells": 468,
+          "initial_wet_fraction": 0.21794871794871795
+        }
+      ],
+      "surface_water_classification": {
+        "policy": "explicit brunnel=tunnel only; intermittent and bridge tags retained",
+        "surface_river_pieces": 183,
+        "surface_stream_pieces": 79,
+        "underground_pieces": 200,
+        "underground_sha256": "89d52c24efc0a97400a49d97d8d18d9bb69274da1af7e556fdc8209ff860da84"
+      },
+      "unmodeled_short_surface_reaches": [
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 1,
+          "mapped_vertices": 20,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 2,
+          "mapped_vertices": 9,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 3,
+          "mapped_vertices": 41,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 4,
+          "mapped_vertices": 8,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 5,
+          "mapped_vertices": 15,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 6,
+          "mapped_vertices": 7,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 7,
+          "routed_vertices": 25,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 8,
+          "mapped_vertices": 11,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 9,
+          "mapped_vertices": 19,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 10,
+          "mapped_vertices": 18,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 11,
+          "mapped_vertices": 31,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 12,
+          "mapped_vertices": 8,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 13,
+          "mapped_vertices": 14,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 14,
+          "mapped_vertices": 12,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 15,
+          "mapped_vertices": 15,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 16,
+          "mapped_vertices": 11,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 18,
+          "mapped_vertices": 8,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 19,
+          "mapped_vertices": 34,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 20,
+          "mapped_vertices": 7,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "unnamed waterway",
+          "class": "stream",
+          "component": 21,
+          "mapped_vertices": 8,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Jacar\u00e9",
+          "class": "river",
+          "component": 7,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Jacar\u00e9",
+          "class": "river",
+          "component": 8,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Jacar\u00e9",
+          "class": "river",
+          "component": 10,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Jacar\u00e9",
+          "class": "river",
+          "component": 11,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Maracan\u00e3",
+          "class": "river",
+          "component": 10,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Maracan\u00e3",
+          "class": "river",
+          "component": 13,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Maracan\u00e3",
+          "class": "river",
+          "component": 16,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Maracan\u00e3",
+          "class": "river",
+          "component": 17,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Trapicheiros",
+          "class": "river",
+          "component": 2,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Trapicheiros",
+          "class": "river",
+          "component": 7,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Trapicheiros",
+          "class": "river",
+          "component": 9,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Trapicheiros",
+          "class": "river",
+          "component": 11,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Trapicheiros",
+          "class": "river",
+          "component": 12,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Faria",
+          "class": "river",
+          "component": 7,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Joana",
+          "class": "river",
+          "component": 3,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Joana",
+          "class": "river",
+          "component": 5,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Joana",
+          "class": "river",
+          "component": 13,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio dos Macacos",
+          "class": "river",
+          "component": 3,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Andara\u00ed",
+          "class": "river",
+          "component": 3,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Andara\u00ed",
+          "class": "river",
+          "component": 5,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "stream",
+          "component": 1,
+          "mapped_vertices": 16,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "stream",
+          "component": 2,
+          "mapped_vertices": 20,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "stream",
+          "component": 3,
+          "mapped_vertices": 0,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "stream",
+          "component": 4,
+          "mapped_vertices": 13,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "stream",
+          "component": 5,
+          "mapped_vertices": 18,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio M\u00e9ier",
+          "class": "river",
+          "component": 3,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio M\u00e9ier",
+          "class": "river",
+          "component": 4,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio M\u00e9ier",
+          "class": "river",
+          "component": 7,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio M\u00e9ier",
+          "class": "river",
+          "component": 9,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio M\u00e9ier",
+          "class": "river",
+          "component": 10,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Riacho da Cascata",
+          "class": "stream",
+          "component": 1,
+          "routed_vertices": 40,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio do Conde",
+          "class": "stream",
+          "mapped_vertices": 40,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Caveira",
+          "class": "stream",
+          "mapped_vertices": 37,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Solid\u00e3o",
+          "class": "stream",
+          "mapped_vertices": 26,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Silvestre",
+          "class": "stream",
+          "mapped_vertices": 20,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Faleiro",
+          "class": "river",
+          "component": 3,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Humait\u00e1",
+          "class": "stream",
+          "mapped_vertices": 13,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio das Velhas",
+          "class": "stream",
+          "mapped_vertices": 11,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Papa-Couve",
+          "class": "river",
+          "component": 1,
+          "mapped_vertices": 1,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio Carioca",
+          "class": "river",
+          "component": 2,
+          "mapped_vertices": 1,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "C\u00f3rrego Pluvial \u00c1guas de Mar\u00e7o",
+          "class": "stream",
+          "mapped_vertices": 5,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio Cabe\u00e7a",
+          "class": "stream",
+          "mapped_vertices": 4,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio dos Cachorros",
+          "class": "river",
+          "component": 2,
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Canal Gilberto Amado",
+          "class": "stream",
+          "mapped_vertices": 0,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Riacho Pedra Bonita",
+          "class": "river",
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        },
+        {
+          "name": "Rio da Barra",
+          "class": "stream",
+          "mapped_vertices": 0,
+          "reason": "below existing 45-vertex modeled-reach minimum"
+        },
+        {
+          "name": "Rio dos Frangos",
+          "class": "river",
+          "mapped_vertices": 0,
+          "reason": "below native two-vertex river resolution"
+        }
+      ],
+      "geographic_river_prefill": {
+        "mapped_cells": 2254,
+        "film_depth_cap_m": 0.25,
+        "film_added_cells": 111,
+        "unseeded_cells": 295,
+        "insufficient_bank_clearance_cells": 295,
+        "unseeded_world_positions": [
+          [
+            -7008,
+            0,
+            7152
+          ],
+          [
+            -7152,
+            0,
+            7120
+          ],
+          [
+            -7136,
+            0,
+            7120
+          ],
+          [
+            -7392,
+            0,
+            6912
+          ],
+          [
+            -7408,
+            0,
+            6896
+          ],
+          [
+            -7408,
+            0,
+            6880
+          ],
+          [
+            -7424,
+            0,
+            6864
+          ],
+          [
+            -7424,
+            0,
+            6848
+          ],
+          [
+            -7440,
+            0,
+            6832
+          ],
+          [
+            -7440,
+            0,
+            6816
+          ],
+          [
+            -7456,
+            0,
+            6800
+          ],
+          [
+            -7472,
+            0,
+            6784
+          ],
+          [
+            -7488,
+            0,
+            6768
+          ],
+          [
+            -7504,
+            0,
+            6752
+          ],
+          [
+            -7520,
+            0,
+            6736
+          ],
+          [
+            -7536,
+            0,
+            6720
+          ],
+          [
+            -7552,
+            0,
+            6704
+          ],
+          [
+            -7568,
+            0,
+            6688
+          ],
+          [
+            -7584,
+            0,
+            6672
+          ],
+          [
+            -7600,
+            0,
+            6656
+          ],
+          [
+            -7632,
+            0,
+            6640
+          ],
+          [
+            -7616,
+            0,
+            6640
+          ],
+          [
+            -7664,
+            0,
+            6624
+          ],
+          [
+            -7648,
+            0,
+            6624
+          ],
+          [
+            -7696,
+            0,
+            6608
+          ],
+          [
+            -7680,
+            0,
+            6608
+          ],
+          [
+            -7712,
+            0,
+            6592
+          ],
+          [
+            -7744,
+            0,
+            6576
+          ],
+          [
+            -7728,
+            0,
+            6576
+          ],
+          [
+            -7776,
+            0,
+            6560
+          ],
+          [
+            -7760,
+            0,
+            6560
+          ],
+          [
+            -7808,
+            0,
+            6544
+          ],
+          [
+            -7792,
+            0,
+            6544
+          ],
+          [
+            -7840,
+            0,
+            6528
+          ],
+          [
+            -7824,
+            0,
+            6528
+          ],
+          [
+            -7888,
+            0,
+            6512
+          ],
+          [
+            -7872,
+            0,
+            6512
+          ],
+          [
+            -7856,
+            0,
+            6512
+          ],
+          [
+            -7936,
+            0,
+            6496
+          ],
+          [
+            -7920,
+            0,
+            6496
+          ],
+          [
+            -7904,
+            0,
+            6496
+          ],
+          [
+            -7984,
+            0,
+            6480
+          ],
+          [
+            -7968,
+            0,
+            6480
+          ],
+          [
+            -7952,
+            0,
+            6480
+          ],
+          [
+            -8032,
+            0,
+            6464
+          ],
+          [
+            -8016,
+            0,
+            6464
+          ],
+          [
+            -8000,
+            0,
+            6464
+          ],
+          [
+            -8080,
+            0,
+            6448
+          ],
+          [
+            -8064,
+            0,
+            6448
+          ],
+          [
+            -8048,
+            0,
+            6448
+          ],
+          [
+            -8112,
+            0,
+            6432
+          ],
+          [
+            -8096,
+            0,
+            6432
+          ],
+          [
+            -4672,
+            0,
+            6368
+          ],
+          [
+            -4656,
+            0,
+            6368
+          ],
+          [
+            -4704,
+            0,
+            6352
+          ],
+          [
+            -4688,
+            0,
+            6352
+          ],
+          [
+            -4736,
+            0,
+            6336
+          ],
+          [
+            -4720,
+            0,
+            6336
+          ],
+          [
+            -4784,
+            0,
+            6320
+          ],
+          [
+            -4768,
+            0,
+            6320
+          ],
+          [
+            -4752,
+            0,
+            6320
+          ],
+          [
+            -4816,
+            0,
+            6304
+          ],
+          [
+            -4800,
+            0,
+            6304
+          ],
+          [
+            -4848,
+            0,
+            6288
+          ],
+          [
+            -4832,
+            0,
+            6288
+          ],
+          [
+            -4864,
+            0,
+            6272
+          ],
+          [
+            -4880,
+            0,
+            6256
+          ],
+          [
+            -4880,
+            0,
+            6240
+          ],
+          [
+            -4896,
+            0,
+            6224
+          ],
+          [
+            -4912,
+            0,
+            6208
+          ],
+          [
+            -4928,
+            0,
+            6192
+          ],
+          [
+            -4960,
+            0,
+            6176
+          ],
+          [
+            -4944,
+            0,
+            6176
+          ],
+          [
+            -4976,
+            0,
+            6160
+          ],
+          [
+            -4976,
+            0,
+            6144
+          ],
+          [
+            -4992,
+            0,
+            6128
+          ],
+          [
+            -4992,
+            0,
+            6112
+          ],
+          [
+            -4992,
+            0,
+            6096
+          ],
+          [
+            -4992,
+            0,
+            6080
+          ],
+          [
+            -4992,
+            0,
+            6064
+          ],
+          [
+            -4992,
+            0,
+            6048
+          ],
+          [
+            -5008,
+            0,
+            6032
+          ],
+          [
+            -5008,
+            0,
+            6016
+          ],
+          [
+            -5008,
+            0,
+            6000
+          ],
+          [
+            -5008,
+            0,
+            5984
+          ],
+          [
+            -5008,
+            0,
+            5968
+          ],
+          [
+            -5008,
+            0,
+            5952
+          ],
+          [
+            -5024,
+            0,
+            5936
+          ],
+          [
+            -5056,
+            0,
+            5920
+          ],
+          [
+            -5040,
+            0,
+            5920
+          ],
+          [
+            -5088,
+            0,
+            5904
+          ],
+          [
+            -5072,
+            0,
+            5904
+          ],
+          [
+            -5120,
+            0,
+            5888
+          ],
+          [
+            -5104,
+            0,
+            5888
+          ],
+          [
+            -5152,
+            0,
+            5872
+          ],
+          [
+            -5136,
+            0,
+            5872
+          ],
+          [
+            -5184,
+            0,
+            5856
+          ],
+          [
+            -5168,
+            0,
+            5856
+          ],
+          [
+            -5216,
+            0,
+            5840
+          ],
+          [
+            -5200,
+            0,
+            5840
+          ],
+          [
+            -5248,
+            0,
+            5824
+          ],
+          [
+            -5232,
+            0,
+            5824
+          ],
+          [
+            -5280,
+            0,
+            5808
+          ],
+          [
+            -5264,
+            0,
+            5808
+          ],
+          [
+            -5312,
+            0,
+            5792
+          ],
+          [
+            -5296,
+            0,
+            5792
+          ],
+          [
+            -5344,
+            0,
+            5776
+          ],
+          [
+            -5328,
+            0,
+            5776
+          ],
+          [
+            -5376,
+            0,
+            5760
+          ],
+          [
+            -5360,
+            0,
+            5760
+          ],
+          [
+            -5408,
+            0,
+            5744
+          ],
+          [
+            -5392,
+            0,
+            5744
+          ],
+          [
+            -5440,
+            0,
+            5728
+          ],
+          [
+            -5424,
+            0,
+            5728
+          ],
+          [
+            -5472,
+            0,
+            5712
+          ],
+          [
+            -5456,
+            0,
+            5712
+          ],
+          [
+            -5504,
+            0,
+            5696
+          ],
+          [
+            -5488,
+            0,
+            5696
+          ],
+          [
+            -5520,
+            0,
+            5680
+          ],
+          [
+            -5552,
+            0,
+            5664
+          ],
+          [
+            -5536,
+            0,
+            5664
+          ],
+          [
+            -5568,
+            0,
+            5648
+          ],
+          [
+            -5584,
+            0,
+            5632
+          ],
+          [
+            -5616,
+            0,
+            5616
+          ],
+          [
+            -5600,
+            0,
+            5616
+          ],
+          [
+            -5632,
+            0,
+            5600
+          ],
+          [
+            -5664,
+            0,
+            5584
+          ],
+          [
+            -5648,
+            0,
+            5584
+          ],
+          [
+            -5680,
+            0,
+            5568
+          ],
+          [
+            -5696,
+            0,
+            5552
+          ],
+          [
+            -5728,
+            0,
+            5536
+          ],
+          [
+            -5712,
+            0,
+            5536
+          ],
+          [
+            -5744,
+            0,
+            5520
+          ],
+          [
+            -5760,
+            0,
+            5504
+          ],
+          [
+            -5760,
+            0,
+            5488
+          ],
+          [
+            -6704,
+            0,
+            5472
+          ],
+          [
+            -5776,
+            0,
+            5472
+          ],
+          [
+            -6704,
+            0,
+            5456
+          ],
+          [
+            -5776,
+            0,
+            5456
+          ],
+          [
+            -6704,
+            0,
+            5440
+          ],
+          [
+            -5792,
+            0,
+            5440
+          ],
+          [
+            -6704,
+            0,
+            5424
+          ],
+          [
+            -5792,
+            0,
+            5424
+          ],
+          [
+            -6688,
+            0,
+            5408
+          ],
+          [
+            -5808,
+            0,
+            5408
+          ],
+          [
+            -5808,
+            0,
+            5392
+          ],
+          [
+            -5824,
+            0,
+            5008
+          ],
+          [
+            -5824,
+            0,
+            4992
+          ],
+          [
+            -5824,
+            0,
+            4976
+          ],
+          [
+            -5824,
+            0,
+            4960
+          ],
+          [
+            -5824,
+            0,
+            4944
+          ],
+          [
+            -5824,
+            0,
+            4928
+          ],
+          [
+            -5824,
+            0,
+            4912
+          ],
+          [
+            -5824,
+            0,
+            4896
+          ],
+          [
+            -5840,
+            0,
+            4880
+          ],
+          [
+            -5840,
+            0,
+            4864
+          ],
+          [
+            -5840,
+            0,
+            4848
+          ],
+          [
+            -5840,
+            0,
+            4832
+          ],
+          [
+            -5840,
+            0,
+            4816
+          ],
+          [
+            -5840,
+            0,
+            4800
+          ],
+          [
+            -5840,
+            0,
+            4784
+          ],
+          [
+            -5856,
+            0,
+            4768
+          ],
+          [
+            -5856,
+            0,
+            4752
+          ],
+          [
+            -5856,
+            0,
+            4736
+          ],
+          [
+            -5856,
+            0,
+            4720
+          ],
+          [
+            -5856,
+            0,
+            4704
+          ],
+          [
+            -5872,
+            0,
+            4688
+          ],
+          [
+            -5888,
+            0,
+            4672
+          ],
+          [
+            -5888,
+            0,
+            4656
+          ],
+          [
+            -5904,
+            0,
+            4640
+          ],
+          [
+            -5920,
+            0,
+            4624
+          ],
+          [
+            -5936,
+            0,
+            4608
+          ],
+          [
+            -5952,
+            0,
+            4592
+          ],
+          [
+            -6032,
+            0,
+            4576
+          ],
+          [
+            -6016,
+            0,
+            4576
+          ],
+          [
+            -6000,
+            0,
+            4576
+          ],
+          [
+            -5984,
+            0,
+            4576
+          ],
+          [
+            -5968,
+            0,
+            4576
+          ],
+          [
+            -6112,
+            0,
+            4560
+          ],
+          [
+            -6096,
+            0,
+            4560
+          ],
+          [
+            -6080,
+            0,
+            4560
+          ],
+          [
+            -6064,
+            0,
+            4560
+          ],
+          [
+            -6048,
+            0,
+            4560
+          ],
+          [
+            -6160,
+            0,
+            4544
+          ],
+          [
+            -6144,
+            0,
+            4544
+          ],
+          [
+            -6128,
+            0,
+            4544
+          ],
+          [
+            -6192,
+            0,
+            4528
+          ],
+          [
+            -6176,
+            0,
+            4528
+          ],
+          [
+            -6224,
+            0,
+            4512
+          ],
+          [
+            -6208,
+            0,
+            4512
+          ],
+          [
+            -6256,
+            0,
+            4496
+          ],
+          [
+            -6240,
+            0,
+            4496
+          ],
+          [
+            -6288,
+            0,
+            4480
+          ],
+          [
+            -6272,
+            0,
+            4480
+          ],
+          [
+            -6320,
+            0,
+            4464
+          ],
+          [
+            -6304,
+            0,
+            4464
+          ],
+          [
+            -6336,
+            0,
+            4448
+          ],
+          [
+            -6352,
+            0,
+            4432
+          ],
+          [
+            -6352,
+            0,
+            4416
+          ],
+          [
+            -6368,
+            0,
+            4400
+          ],
+          [
+            -6368,
+            0,
+            4384
+          ],
+          [
+            -6384,
+            0,
+            4368
+          ],
+          [
+            -6384,
+            0,
+            4352
+          ],
+          [
+            -1312,
+            0,
+            3632
+          ],
+          [
+            -1296,
+            0,
+            3632
+          ],
+          [
+            -1360,
+            0,
+            3584
+          ],
+          [
+            -1376,
+            0,
+            3568
+          ],
+          [
+            -1392,
+            0,
+            3552
+          ],
+          [
+            -1408,
+            0,
+            3536
+          ],
+          [
+            -1440,
+            0,
+            3520
+          ],
+          [
+            -1424,
+            0,
+            3520
+          ],
+          [
+            -1456,
+            0,
+            3504
+          ],
+          [
+            -1472,
+            0,
+            3488
+          ],
+          [
+            -1488,
+            0,
+            3472
+          ],
+          [
+            -1504,
+            0,
+            3456
+          ],
+          [
+            -2784,
+            0,
+            3280
+          ],
+          [
+            -2768,
+            0,
+            3280
+          ],
+          [
+            -2752,
+            0,
+            3280
+          ],
+          [
+            -2736,
+            0,
+            3280
+          ],
+          [
+            -2864,
+            0,
+            3264
+          ],
+          [
+            -2848,
+            0,
+            3264
+          ],
+          [
+            -2832,
+            0,
+            3264
+          ],
+          [
+            -2816,
+            0,
+            3264
+          ],
+          [
+            -2800,
+            0,
+            3264
+          ],
+          [
+            -2128,
+            0,
+            3120
+          ],
+          [
+            -2816,
+            0,
+            2384
+          ],
+          [
+            -2832,
+            0,
+            2368
+          ],
+          [
+            -2848,
+            0,
+            2352
+          ],
+          [
+            -2864,
+            0,
+            2336
+          ],
+          [
+            -2912,
+            0,
+            2320
+          ],
+          [
+            -2896,
+            0,
+            2320
+          ],
+          [
+            -2880,
+            0,
+            2320
+          ],
+          [
+            -2928,
+            0,
+            2304
+          ],
+          [
+            -2592,
+            0,
+            1856
+          ],
+          [
+            -2592,
+            0,
+            1840
+          ],
+          [
+            -2608,
+            0,
+            1824
+          ],
+          [
+            -2608,
+            0,
+            1808
+          ],
+          [
+            -2624,
+            0,
+            1792
+          ],
+          [
+            -2624,
+            0,
+            1776
+          ],
+          [
+            -2640,
+            0,
+            1760
+          ],
+          [
+            -2656,
+            0,
+            1744
+          ],
+          [
+            -2656,
+            0,
+            1728
+          ],
+          [
+            -2672,
+            0,
+            1712
+          ],
+          [
+            -2688,
+            0,
+            1696
+          ],
+          [
+            -2688,
+            0,
+            1680
+          ],
+          [
+            -480,
+            0,
+            1680
+          ],
+          [
+            -2704,
+            0,
+            1664
+          ],
+          [
+            -480,
+            0,
+            1664
+          ],
+          [
+            -2704,
+            0,
+            1648
+          ],
+          [
+            -480,
+            0,
+            1648
+          ],
+          [
+            -2736,
+            0,
+            1632
+          ],
+          [
+            -2720,
+            0,
+            1632
+          ],
+          [
+            -480,
+            0,
+            1632
+          ],
+          [
+            -480,
+            0,
+            1616
+          ],
+          [
+            -480,
+            0,
+            1600
+          ],
+          [
+            -480,
+            0,
+            1584
+          ],
+          [
+            -480,
+            0,
+            1568
+          ],
+          [
+            -480,
+            0,
+            1552
+          ],
+          [
+            -480,
+            0,
+            1536
+          ],
+          [
+            -480,
+            0,
+            1520
+          ],
+          [
+            -464,
+            0,
+            1504
+          ],
+          [
+            -464,
+            0,
+            1488
+          ],
+          [
+            -464,
+            0,
+            1472
+          ],
+          [
+            -464,
+            0,
+            1456
+          ],
+          [
+            -464,
+            0,
+            1440
+          ],
+          [
+            -464,
+            0,
+            1424
+          ],
+          [
+            -464,
+            0,
+            1408
+          ],
+          [
+            -464,
+            0,
+            1392
+          ],
+          [
+            -464,
+            0,
+            1376
+          ],
+          [
+            -464,
+            0,
+            1360
+          ],
+          [
+            -464,
+            0,
+            1344
+          ],
+          [
+            -464,
+            0,
+            1328
+          ],
+          [
+            -464,
+            0,
+            1312
+          ],
+          [
+            -464,
+            0,
+            1296
+          ],
+          [
+            -464,
+            0,
+            1280
+          ],
+          [
+            -448,
+            0,
+            1264
+          ],
+          [
+            -448,
+            0,
+            1248
+          ],
+          [
+            -448,
+            0,
+            1232
+          ],
+          [
+            -448,
+            0,
+            1216
+          ],
+          [
+            -448,
+            0,
+            1200
+          ],
+          [
+            -432,
+            0,
+            1184
+          ],
+          [
+            -432,
+            0,
+            1168
+          ],
+          [
+            -432,
+            0,
+            1152
+          ],
+          [
+            -432,
+            0,
+            1136
+          ],
+          [
+            -416,
+            0,
+            1120
+          ],
+          [
+            -416,
+            0,
+            1104
+          ],
+          [
+            -416,
+            0,
+            1088
+          ],
+          [
+            -416,
+            0,
+            1072
+          ],
+          [
+            -400,
+            0,
+            1056
+          ],
+          [
+            -400,
+            0,
+            1040
+          ],
+          [
+            -3840,
+            0,
+            976
+          ],
+          [
+            -3856,
+            0,
+            960
+          ],
+          [
+            -3856,
+            0,
+            944
+          ],
+          [
+            -3872,
+            0,
+            928
+          ],
+          [
+            -3872,
+            0,
+            912
+          ]
+        ]
+      },
+      "bank_limited_regulators": 238,
+      "short_source_footprints": {
+        "controls": 138,
+        "intake_reduced_controls": 86,
+        "output_reduced_controls": 69
+      },
+      "road_entry": {
+        "point": [
+          -2821.868894336848,
+          8640.0
+        ],
+        "edge": "north",
+        "class": "motorway"
+      },
+      "rail_real_crossings": 3,
+      "corridors": [
+        {
+          "kind": "rail",
+          "nodes": 174,
+          "follows_osm": true,
+          "maximum_grade": 0.040000000000000174,
+          "maximum_turn_degrees": 27.462526647470195,
+          "maximum_deck_height_above_ground_m": 17.355148091742237
+        },
+        {
+          "kind": "road_out",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.10547903461803591,
+          "maximum_turn_degrees": 36.61966547656594,
+          "maximum_deck_height_above_ground_m": 28.007944394518972
+        },
+        {
+          "kind": "road_in",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.09439339008706486,
+          "maximum_turn_degrees": 34.84947374931139,
+          "maximum_deck_height_above_ground_m": 28.63831350262933
+        }
+      ],
+      "max_corridor_cut_m": 3.0,
+      "max_corridor_fill_m": 3.0,
+      "start_tile": 22,
+      "start_area": {
+        "index": 22,
+        "x": 2,
+        "z": 4,
+        "has_water": true,
+        "initial_deep_water_vertices": 338,
+        "landing": [
+          -448,
+          3888
+        ],
+        "buildable_fraction": 0.8252777777777778
+      },
+      "map_id": "PL857-rio",
+      "map_name": "Rio de Janeiro - Ready to Play",
+      "wet_cells": 525457,
+      "bank_input": "uncarved browser elevations"
+    },
+    "package": {
+      "output": "/home/caleb/experiments/PL-912-coupled/rio-arm/PL857-rio.crp",
+      "sha256": "c7a5a17b81891f8f1afb04cb5aa1a1df0725d6e365612aab8b5baf7af8ac8c26",
+      "bytes": 6095551,
+      "regenerated": [
+        "terrain",
+        "water",
+        "sources",
+        "preview_images",
+        "package_author",
+        "network_geometry",
+        "start_tile",
+        "water_resources",
+        "north_facing_start_camera",
+        "natural_resources",
+        "trees",
+        "resource_amounts",
+        "map_identity"
+      ],
+      "preserved": [
+        "network_topology",
+        "outside_connections",
+        "lane_ids"
+      ],
+      "preview_kind": "terrain/water grid rendering",
+      "simulation_sha256": "ab9ea333cbad948ba83107c2ea30b3f4d52f054fa824368c5adda5d17d892f8d"
+    },
+    "resources": {
+      "knobs": {
+        "trees": 180000,
+        "outer_trees": 0.6,
+        "forest": "dense",
+        "oil_cap": 0.07,
+        "resources": "balanced",
+        "fertile": 1.0,
+        "seed": 0,
+        "targets": {
+          "ore": 0.052,
+          "oil": 0.027,
+          "fertile": 0.034
+        }
+      },
+      "trees": 176443,
+      "unlockable": {
+        "ore": 1132974,
+        "oil": 535247,
+        "forest": 4417065,
+        "fertility": 333928,
+        "water": 3590853
+      },
+      "placed": [
+        {
+          "kind": "fertile",
+          "x": -860.625,
+          "z": 3864.375,
+          "radius_m": 714,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 3661.875,
+          "z": 2514.375,
+          "radius_m": 721,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 455.625,
+          "z": 3358.125,
+          "radius_m": 459,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": -624.375,
+          "z": 2109.375,
+          "radius_m": 547,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": -2311.875,
+          "z": 3223.125,
+          "radius_m": 703,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 3560.625,
+          "z": 3965.625,
+          "radius_m": 548,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 4471.875,
+          "z": -388.125,
+          "radius_m": 491,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": -3898.125,
+          "z": 2041.875,
+          "radius_m": 509,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 3425.625,
+          "z": 590.625,
+          "radius_m": 784,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 3560.625,
+          "z": -1501.875,
+          "radius_m": 548,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": -1636.875,
+          "z": -4066.875,
+          "radius_m": 540,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": -961.875,
+          "z": -2446.875,
+          "radius_m": 516,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 4708.125,
+          "z": -2514.375,
+          "radius_m": 526,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": -4201.875,
+          "z": 590.625,
+          "radius_m": 504,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 1636.875,
+          "z": 4269.375,
+          "radius_m": 457,
+          "source": "convention"
+        },
+        {
+          "kind": "fertile",
+          "x": 3121.875,
+          "z": -2986.875,
+          "radius_m": 460,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": -1771.875,
+          "z": -2446.875,
+          "radius_m": 891,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 1670.625,
+          "z": -3493.125,
+          "radius_m": 672,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 759.375,
+          "z": -1636.875,
+          "radius_m": 570,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 2210.625,
+          "z": 860.625,
+          "radius_m": 640,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": -2986.875,
+          "z": -4336.875,
+          "radius_m": 596,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": -4775.625,
+          "z": -118.125,
+          "radius_m": 471,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 3054.375,
+          "z": -2581.875,
+          "radius_m": 557,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": -1771.875,
+          "z": 1704.375,
+          "radius_m": 427,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 995.625,
+          "z": 2311.875,
+          "radius_m": 489,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": -3088.125,
+          "z": 793.125,
+          "radius_m": 563,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 421.875,
+          "z": -4741.875,
+          "radius_m": 534,
+          "source": "convention"
+        },
+        {
+          "kind": "ore",
+          "x": 725.625,
+          "z": -16.875,
+          "radius_m": 672,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 4235.625,
+          "z": -691.875,
+          "radius_m": 505,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 118.125,
+          "z": -2818.125,
+          "radius_m": 678,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 3965.625,
+          "z": -2581.875,
+          "radius_m": 532,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": -2413.125,
+          "z": -2919.375,
+          "radius_m": 581,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": -2885.625,
+          "z": 253.125,
+          "radius_m": 473,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 3830.625,
+          "z": 4471.875,
+          "radius_m": 640,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 894.375,
+          "z": 1839.375,
+          "radius_m": 499,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": -421.875,
+          "z": 860.625,
+          "radius_m": 525,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 3931.875,
+          "z": 2581.875,
+          "radius_m": 423,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": -4505.625,
+          "z": 185.625,
+          "radius_m": 679,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": 2514.375,
+          "z": -725.625,
+          "radius_m": 453,
+          "source": "convention"
+        },
+        {
+          "kind": "oil",
+          "x": -2818.125,
+          "z": 3459.375,
+          "radius_m": 567,
+          "source": "convention"
+        }
+      ],
+      "prepared_geometry_sha256": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6"
+    },
+    "source": {
+      "inputs_sha256": {
+        "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6"
+      }
+    },
+    "prefill": true,
+    "in_game_verified": false,
+    "resource_plan": {
+      "file": "plan.npz",
+      "sha256": "c26da9cd4d67e87c9e6a25e9340be76138b25dec477e4217f4df031258b48122"
+    }
+  }
+}

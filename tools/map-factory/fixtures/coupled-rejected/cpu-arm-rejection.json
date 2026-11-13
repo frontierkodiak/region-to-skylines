@@ -1,0 +1,26 @@
+{
+  "decision": "REJECTED at CPU gate; no native launch of this coupled arm",
+  "tested_source_head": "2182494683fbe0505939c0bbe4ae23d4418208b7",
+  "candidate_crp_sha256": "c7a5a17b81891f8f1afb04cb5aa1a1df0725d6e365612aab8b5baf7af8ac8c26",
+  "old_sources": 290,
+  "new_sources": 244,
+  "same_geographic_geometry": true,
+  "probe_group_keys_unchanged": true,
+  "probe_positions_unchanged": false,
+  "old_probe_count": 1980,
+  "new_probe_count": 1986,
+  "old_start_tile": 21,
+  "new_start_tile": 22,
+  "horizontal_network_nodes_changed": 112,
+  "terrain_changed_cells": 10466,
+  "terrain_lowered_cells": 1938,
+  "initial_water_changed_cells": 1845,
+  "visible_control_point": {
+    "uncarved_m": 93.30989074707031,
+    "old_bed_m": 86.953125,
+    "new_bed_m": 91.796875,
+    "old_depth_m": 1.0,
+    "new_depth_m": 0.25
+  },
+  "failure": "Residual polygon incision plus startup film, starting-tile/network movement, routing/probe changes and lower terrain cells; no supported visible fix established."
+}

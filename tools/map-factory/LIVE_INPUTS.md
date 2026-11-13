@@ -96,7 +96,13 @@ native template, connection layout, sea level, water controls and starting tile.
 Its default remains `PL-918` for historical runs. Use the same issue with
 `strict_vanilla.py --issue PL-926` when creating the ordinary New Game evidence.
 
-`npm run test:fixtures` requires that capture contract and reproduces all five
+The historical capture/qualification contract below is preserved unchanged.
+Current `npm run test:fixtures` instead consumes the explicit
+[PL-912 partial contract](CURRENT_FIXTURE_CONTRACT.md), retaining these source
+inputs and both resource paths while binding fresh native shipping evidence.
+It does not inherit historical strict receipts or erase failed checks.
+
+The historical gate required that capture contract and reproduced all five
 regions under Pyodide. Each region has a shipping MRDS-evidence golden and a
 richer offline wells/mines reference golden. The latter preserves PL-902's
 resource coverage; it is not labelled as the browser's current input data.
@@ -104,7 +110,7 @@ resource coverage; it is not labelled as the browser's current input data.
 Both variants must retain the exact native-tested terrain and water grids.
 The separate native record guards the water controls and connections too.
 
-Both verifiers reject changed `inputs.js` or `terrain.js` until the capture
+The historical verifiers reject changed `inputs.js` or `terrain.js` until the capture
 contract is updated. This binds the capture modules, not live upstream tile
 contents. The shipping variants also bind `mapgen.js` and `web.py`, so a change to
 resource acquisition needs a fresh capture. `verify_regions.py` independently re-prepares the inputs

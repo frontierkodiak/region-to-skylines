@@ -1,0 +1,291 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179868,
+  "unlockable": {
+    "ore": 789159,
+    "oil": 560522,
+    "forest": 3365250,
+    "fertility": 2328804,
+    "water": 8320669
+  },
+  "cells": {
+    "ore": 10791,
+    "oil": 4105,
+    "fertility": 52738,
+    "forest": 40858
+  },
+  "evidence": [
+    {
+      "kind": "ore",
+      "x": 8161.8,
+      "z": 3555.5,
+      "weight": 1.0,
+      "source": "USGS MRDS 10081952 Shell Point (Mt. Pleasant Pit) (Producer, Unknown)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -3905.7,
+      "z": 4021.3,
+      "weight": 0.8,
+      "source": "USGS MRDS 10089940 Mt Pleasant Pit (Past Producer, Unknown)",
+      "radius_m": 532.0
+    },
+    {
+      "kind": "ore",
+      "x": -1179.5,
+      "z": 1315.3,
+      "weight": 1.0,
+      "source": "USGS MRDS 10153677 Charleston County Mine (Producer, Unknown)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -5760.7,
+      "z": 1315.3,
+      "weight": 1.0,
+      "source": "USGS MRDS 10153842 Cross Country Mine (Producer, Surface)",
+      "radius_m": 600.0
+    },
+    {
+      "kind": "ore",
+      "x": -5891.8,
+      "z": 383.7,
+      "weight": 1.0,
+      "source": "USGS MRDS 10275059 Cross Creek Mine (Producer, Surface)",
+      "radius_m": 600.0
+    }
+  ],
+  "placed": [
+    {
+      "kind": "ore",
+      "x": 3628.125,
+      "z": 4809.375,
+      "radius_m": 629,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4775.625,
+      "z": -1366.875,
+      "radius_m": 665,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4471.875,
+      "z": 2278.125,
+      "radius_m": 600,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -1434.375,
+      "z": -2379.375,
+      "radius_m": 487,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -2041.875,
+      "z": -3965.625,
+      "radius_m": 474,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4471.875,
+      "z": 1400.625,
+      "radius_m": 693,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3763.125,
+      "z": -3999.375,
+      "radius_m": 451,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -4775.625,
+      "z": 4134.375,
+      "radius_m": 596,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -489.375,
+      "z": 4471.875,
+      "radius_m": 492,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 253.125,
+      "z": -3391.875,
+      "radius_m": 669,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 2278.125,
+      "z": 3830.625,
+      "radius_m": 499,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -421.875,
+      "z": 2818.125,
+      "radius_m": 459,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": -3088.125,
+      "z": -388.125,
+      "radius_m": 435,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 4809.375,
+      "z": 3729.375,
+      "radius_m": 503,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 1738.125,
+      "z": -4708.125,
+      "radius_m": 531,
+      "source": "convention"
+    },
+    {
+      "kind": "ore",
+      "x": 388.125,
+      "z": -16.875,
+      "radius_m": 467,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 84.375,
+      "z": -1198.125,
+      "radius_m": 519,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 3931.875,
+      "z": 253.125,
+      "radius_m": 646,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4505.625,
+      "z": -2514.375,
+      "radius_m": 447,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -1738.125,
+      "z": -1636.875,
+      "radius_m": 534,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -1096.875,
+      "z": -4606.875,
+      "radius_m": 456,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 590.625,
+      "z": 489.375,
+      "radius_m": 449,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 4336.875,
+      "z": 3054.375,
+      "radius_m": 694,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -2311.875,
+      "z": 118.125,
+      "radius_m": 507,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 2548.125,
+      "z": 1096.875,
+      "radius_m": 613,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": 3999.375,
+      "z": -3324.375,
+      "radius_m": 509,
+      "source": "convention"
+    },
+    {
+      "kind": "oil",
+      "x": -4303.125,
+      "z": -286.875,
+      "radius_m": 444,
+      "source": "convention"
+    }
+  ],
+  "theme": "Sunny",
+  "package": {
+    "output": "/tmp/multica-task-2757410989/partial-contract-u_yznlyp/reference/.freeze-r55donv5/charleston/PL857-charleston.crp",
+    "sha256": "a5f3f283885a62c8373a7832390c88a2b20603fb046a3efccd1578b497d0edcc",
+    "bytes": 6544398,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "46f5824351eeb53ca9d670239f95816ac28fe2494621bef34d7c11797ea6adb6"
+  }
+}

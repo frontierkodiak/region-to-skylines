@@ -9,12 +9,11 @@ import gzip
 import hashlib
 import json
 import re
-from pathlib import Path
 import shutil
 import subprocess
+from pathlib import Path
 
 import numpy as np
-
 from crp import Reader, metadata_value, read_package, write_map
 from region import raster
 from surface_water import surface_geometry
@@ -168,6 +167,7 @@ def probes_for(hydro, descriptor):
         )
     tile = hydro["start_tile"]
     return {
+        "retain_opening_until_five": True,
         "points": points,
         "paths": paths,
         "startup_views": {
@@ -313,6 +313,10 @@ def prepared_geometry(source, generation):
 def stage_prepared(inputs, output, slugs):
     """Check candidate bytes against their generation receipt before native testing."""
     staged = []
+    references = {
+        case["slug"]: case
+        for case in json.loads((ROOT / "fixtures/manifest.json").read_text())["cases"]
+    }
     template, layout = (
         ROOT / "templates/native-corridors.crp",
         ROOT / "templates/native-corridors.json",
@@ -360,19 +364,37 @@ def stage_prepared(inputs, output, slugs):
         )
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
-        data = probes_for(hydro, json.loads(layout.read_text()))
+        # Candidate routing must not move or omit accepted observations.
+        reference = ROOT / "fixtures" / slug / "hydrology.json.gz"
+        encoded = reference.read_bytes()
+        reference_sha = hashlib.sha256(encoded).hexdigest()
+        if reference_sha != references[slug]["files_sha256"]["hydrology.json.gz"]:
+            raise ValueError(f"Frozen probe fixture changed: {slug}")
+        frozen = json.loads(gzip.decompress(encoded))
+        data = probes_for(
+            {**hydro, "samples": frozen["samples"]}, json.loads(layout.read_text())
+        )
+        data["hydraulic_probe_reference"] = {
+            "file": str(reference.relative_to(ROOT)),
+            "sha256": reference_sha,
+            "policy": "accepted names and coordinates, independent of candidate routing",
+        }
         data["new_game_panel"] = panel_expectations(crp)
         if geometry_raw is not None:
             geometry = json.loads(geometry_raw)
             geographic_river_probes(data, geometry)
             mapped_water_reference(data, geometry, folder)
             data["mapped_water_provenance"]["source_geometry"] = geometry_binding
+            landmarks = None
+            if expected_sha := references[slug]["files_sha256"].get("landmarks.json"):
+                raw = (ROOT / "fixtures" / slug / "landmarks.json").read_bytes()
+                if hashlib.sha256(raw).hexdigest() != expected_sha:
+                    raise ValueError(f"Frozen landmark fixture changed: {slug}")
+                landmarks = json.loads(raw)
             world_references(
                 data,
                 geometry,
-                json.loads((source / "landmarks.json").read_text())
-                if (source / "landmarks.json").exists()
-                else None,
+                landmarks,
             )
         if (source / "probes.json").exists():
             data["views"] = json.loads((source / "probes.json").read_text()).get(
