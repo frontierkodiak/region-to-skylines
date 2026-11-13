@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy import ndimage
 
 from crp import read_package
 from template import manager_tag
@@ -13,6 +14,44 @@ from template import manager_tag
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def require_continuous_floor(before, after, water):
+    """Conservative CPU guard, not a production carve or acceptance mask.
+
+    A wet vertex alone does not fix the terrain sampled between vertices.
+    Keep its adjacent bilinear patches unchanged. Installed SampleWaterData IL
+    reads four m_blockHeights vertices, then interpolates with 8-bit fractions.
+    This is not a claim about the renderer's separate smooth-height/shader path.
+    """
+    wet = np.asarray(water).reshape(1081, 1081) > 0
+    support = ndimage.maximum_filter(wet, size=3, mode="constant").ravel()
+    changed = support & (np.asarray(before).ravel() != np.asarray(after).ravel())
+    if changed.any():
+        raise ValueError(
+            f"Continuous wet-floor guard: {int(changed.sum())} neighboring terrain vertices changed"
+        )
+
+
+def native_water_ground(terrain, positions):
+    """CPU replay of SampleWaterData's fixed-point ground interpolation only.
+
+    Installed Assembly-CSharp SHA-256  c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1.
+    IL 0000-00A2 selects the four vertices; 02B1-033A interpolates ground.
+    This does not reconstruct water surface, velocity or the renderer.
+    """
+    ground = np.asarray(terrain).reshape(1081, 1081).astype(np.int64)
+    result = []
+    for x, z in positions:
+        ix, iz = np.floor(
+            (np.asarray([x, z], dtype=np.float32) + np.float32(8640)) * np.float32(16)
+        ).astype(np.int64)
+        x0, x1 = np.clip([ix >> 8, (ix >> 8) + 1], 0, 1080)
+        z0, z1 = np.clip([iz >> 8, (iz >> 8) + 1], 0, 1080)
+        a = ground[z0, x0] + ((ground[z1, x0] - ground[z0, x0]) * (iz & 255) >> 8)
+        b = ground[z0, x1] + ((ground[z1, x1] - ground[z0, x1]) * (iz & 255) >> 8)
+        result.append(float(a + ((b - a) * (ix & 255) >> 8)) / 64)
+    return result
 
 
 def verify(before, after):
@@ -29,6 +68,7 @@ def verify(before, after):
         )
         assert np.all(candidate >= terrain), work.name
         np.testing.assert_array_equal(candidate[water > 0], terrain[water > 0])
+        require_continuous_floor(terrain, candidate, water)
         for name in ["geometry.json", "banks.f32", "source-geometry.json"]:
             assert sha(old / name) == sha(work / name), (work.name, name)
         for name in ["samples", "start_tile", "surface_water_classification"]:

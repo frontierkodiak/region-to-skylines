@@ -1,0 +1,299 @@
+{
+  "status": "REJECTED: native continuous wet-floor loss and no adequate visible scar fix",
+  "baseline": "c6ab58a",
+  "writer_sha256": "f989c8cadc94152282ca69548ce402f6156d465af9add401aa4d39f4e09360d1",
+  "cases": [
+    {
+      "slug": "asheville",
+      "crp_sha256": "3d82ece0d6db0b4fe77de719b1bbb5ba8ef6dfb7eee63620ac7509f76b2861a1",
+      "crp_bytes": 6683900,
+      "start_tile": 11,
+      "horizontal_network_unchanged": true,
+      "corridors": [
+        {
+          "kind": "rail",
+          "nodes": 174,
+          "follows_osm": true,
+          "maximum_grade": 0.040000000000000216,
+          "maximum_turn_degrees": 39.76508584152041,
+          "maximum_deck_height_above_ground_m": 56.801177809636926
+        },
+        {
+          "kind": "road_out",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.10302209043319081,
+          "maximum_turn_degrees": 34.61396838334856,
+          "maximum_deck_height_above_ground_m": 25.7465970219168
+        },
+        {
+          "kind": "road_in",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.0998125088062862,
+          "maximum_turn_degrees": 34.53813414729507,
+          "maximum_deck_height_above_ground_m": 27.09091241782437
+        }
+      ],
+      "uncarved_reaches": 93,
+      "grids": {
+        "terrain.u16": {
+          "before_sha256": "797b9352348fc4c2cd70801b238e25e4078b6ffb8973baa4302196d8a1dac919",
+          "after_sha256": "23b9ac0d8581f2fa3e451579381d049090fe222990637b4cacb4920aff2bea7b",
+          "changed_bytes": 157196,
+          "changed_cells": 98149,
+          "min_delta_m": -3.0,
+          "max_delta_m": 9.328125,
+          "major_line_changed_cells": 0
+        },
+        "water.u16": {
+          "before_sha256": "775ee3b7b2cf6bf18ab3bf54b1163079cbd94560a65383d739bdc2cee8691881",
+          "after_sha256": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b",
+          "changed_bytes": 29601,
+          "changed_cells": 29601,
+          "min_delta_m": -3.25,
+          "max_delta_m": 2.0625,
+          "major_line_changed_cells": 0
+        }
+      },
+      "major_initial_wet_cells": [
+        2608,
+        2608
+      ]
+    },
+    {
+      "slug": "innsbruck",
+      "crp_sha256": "4230453d9e1d7ce7b4ef6b3a37c43afa841a954d9896de147cc185c5aeda7f8e",
+      "crp_bytes": 5826219,
+      "start_tile": 13,
+      "horizontal_network_unchanged": true,
+      "corridors": [
+        {
+          "kind": "rail",
+          "nodes": 174,
+          "follows_osm": true,
+          "maximum_grade": 0.039580684200836325,
+          "maximum_turn_degrees": 19.920406876145503,
+          "maximum_deck_height_above_ground_m": 16.760801407305046
+        },
+        {
+          "kind": "road_out",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.027474582762666268,
+          "maximum_turn_degrees": 18.786934332479625,
+          "maximum_deck_height_above_ground_m": 14.165556615680238
+        },
+        {
+          "kind": "road_in",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.030862294904649153,
+          "maximum_turn_degrees": 19.409273209265322,
+          "maximum_deck_height_above_ground_m": 16.512432021091783
+        }
+      ],
+      "uncarved_reaches": 59,
+      "grids": {
+        "terrain.u16": {
+          "before_sha256": "6dfe6f3fa8d997206bf234a351f856ee3fa692ade437005c162c30125f44cc87",
+          "after_sha256": "2334749a101da46cdf41482566f695133e31677f872a8f936998a0916c4543bc",
+          "changed_bytes": 96904,
+          "changed_cells": 61553,
+          "min_delta_m": -2.75,
+          "max_delta_m": 5.765625,
+          "major_line_changed_cells": 0
+        },
+        "water.u16": {
+          "before_sha256": "422762406a0acbd005a524e50b8807b362b7d29b66695bae36716df417ff6833",
+          "after_sha256": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577",
+          "changed_bytes": 21871,
+          "changed_cells": 21871,
+          "min_delta_m": -3.25,
+          "max_delta_m": 0.0,
+          "major_line_changed_cells": 36
+        }
+      },
+      "major_initial_wet_cells": [
+        1405,
+        1405
+      ]
+    },
+    {
+      "slug": "rio",
+      "crp_sha256": "31c5013d10e5a5ffecf3997ade34b1c4c0b22e3c20d6fb4671ec049bda3a7478",
+      "crp_bytes": 6133377,
+      "start_tile": 21,
+      "horizontal_network_unchanged": true,
+      "corridors": [
+        {
+          "kind": "rail",
+          "nodes": 174,
+          "follows_osm": true,
+          "maximum_grade": 0.040000000000000174,
+          "maximum_turn_degrees": 27.462526647470195,
+          "maximum_deck_height_above_ground_m": 18.60906827983014
+        },
+        {
+          "kind": "road_out",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.12000000000000004,
+          "maximum_turn_degrees": 35.809020844064676,
+          "maximum_deck_height_above_ground_m": 26.968053597436764
+        },
+        {
+          "kind": "road_in",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.09650243003686357,
+          "maximum_turn_degrees": 34.46496549981812,
+          "maximum_deck_height_above_ground_m": 27.553416522985273
+        }
+      ],
+      "uncarved_reaches": 6,
+      "grids": {
+        "terrain.u16": {
+          "before_sha256": "e6cc2f49eabfac53526b2bafcc044c4e3b8bf2d1f00e44a5412c57a6f37ff4cd",
+          "after_sha256": "a6695dc62e4fd5803d52d606c1f3e29c04ecff8a9fefc81911ef738e2cdf1868",
+          "changed_bytes": 34326,
+          "changed_cells": 25586,
+          "min_delta_m": 0.0,
+          "max_delta_m": 58.234375,
+          "major_line_changed_cells": 0
+        },
+        "water.u16": {
+          "before_sha256": "99c92e1d8d40f4c4821e93c9d25068a02b54bd8ebb6bafe29cfa4dbf9af3b7fe",
+          "after_sha256": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+          "changed_bytes": 1367,
+          "changed_cells": 1367,
+          "min_delta_m": -3.0625,
+          "max_delta_m": 0.0,
+          "major_line_changed_cells": 0
+        }
+      },
+      "major_initial_wet_cells": [
+        2254,
+        2254
+      ]
+    },
+    {
+      "slug": "pittsburgh",
+      "crp_sha256": "536dc6956230e02d52ff01b16036e117891f9fefd4898dc240765e2355974843",
+      "crp_bytes": 6593705,
+      "start_tile": 12,
+      "horizontal_network_unchanged": true,
+      "corridors": [
+        {
+          "kind": "rail",
+          "nodes": 174,
+          "follows_osm": true,
+          "maximum_grade": 0.04000000000000008,
+          "maximum_turn_degrees": 8.025325161453008,
+          "maximum_deck_height_above_ground_m": 20.705505302407815
+        },
+        {
+          "kind": "road_out",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.12000000000000015,
+          "maximum_turn_degrees": 57.827151959730415,
+          "maximum_deck_height_above_ground_m": 62.61853189195358
+        },
+        {
+          "kind": "road_in",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.12000000000000006,
+          "maximum_turn_degrees": 41.603159593748835,
+          "maximum_deck_height_above_ground_m": 59.84123470281199
+        }
+      ],
+      "uncarved_reaches": 37,
+      "grids": {
+        "terrain.u16": {
+          "before_sha256": "47b908af8ffa7fee0a2906c175df201254d6e916390576b816097127ffa0057f",
+          "after_sha256": "57ba329cfab8888e9dc4cb7d9057f26873f7372eed2289cada0d07a810d6b428",
+          "changed_bytes": 78483,
+          "changed_cells": 53146,
+          "min_delta_m": -2.796875,
+          "max_delta_m": 9.6875,
+          "major_line_changed_cells": 0
+        },
+        "water.u16": {
+          "before_sha256": "5a5648211c463843084c25f6818fa0fb9ab44d1614189e7462da0ffa8de0cf71",
+          "after_sha256": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29",
+          "changed_bytes": 7228,
+          "changed_cells": 7228,
+          "min_delta_m": -3.25,
+          "max_delta_m": 0.0,
+          "major_line_changed_cells": 3
+        }
+      },
+      "major_initial_wet_cells": [
+        4334,
+        4334
+      ]
+    },
+    {
+      "slug": "charleston",
+      "crp_sha256": "02d9bf90eb5792d4f485938748799a14fa7b0805e4b149c1382b965e993f6328",
+      "crp_bytes": 6526883,
+      "start_tile": 21,
+      "horizontal_network_unchanged": true,
+      "corridors": [
+        {
+          "kind": "rail",
+          "nodes": 174,
+          "follows_osm": false,
+          "maximum_grade": 0.04000000000000053,
+          "maximum_turn_degrees": 0.0,
+          "maximum_deck_height_above_ground_m": 16.778221619039016
+        },
+        {
+          "kind": "road_out",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.04703672174493228,
+          "maximum_turn_degrees": 43.9435647310223,
+          "maximum_deck_height_above_ground_m": 17.70954322939967
+        },
+        {
+          "kind": "road_in",
+          "nodes": 57,
+          "follows_osm": true,
+          "maximum_grade": 0.044479943310674175,
+          "maximum_turn_degrees": 41.56783985883921,
+          "maximum_deck_height_above_ground_m": 17.508697734629322
+        }
+      ],
+      "uncarved_reaches": 11,
+      "grids": {
+        "terrain.u16": {
+          "before_sha256": "000691e79a65783bf785c1423a89e1d0608368d9ffb473ace4825daa2be8cf69",
+          "after_sha256": "3664e16b05352dc1c75f0ae03f56c0c14fc20a73f6d065f89d8970f8ee53ff26",
+          "changed_bytes": 63640,
+          "changed_cells": 56816,
+          "min_delta_m": 0.0,
+          "max_delta_m": 12.109375,
+          "major_line_changed_cells": 0
+        },
+        "water.u16": {
+          "before_sha256": "eb10584034d284ccc6ff33b0c0736f3dc33d01512149374a6ad379e4d5d3b124",
+          "after_sha256": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f",
+          "changed_bytes": 5828,
+          "changed_cells": 5828,
+          "min_delta_m": -2.921875,
+          "max_delta_m": 0.0,
+          "major_line_changed_cells": 0
+        }
+      },
+      "major_initial_wet_cells": [
+        5035,
+        5035
+      ]
+    }
+  ],
+  "tested_head": "debf9abe9874764183d54abd37fbc0806cfe9671",
+  "grid_history": "At tested_head, tools/map-factory/fixtures/minor-stream-candidate; current default fixtures restored to 690d2b1"
+}

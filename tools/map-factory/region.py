@@ -325,7 +325,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
-            for role, source_i in [] if unforced_stream else controls:
+            for role, source_i in ([] if unforced_stream else controls):
                 if sea is not None and fitted[source_i] <= sea + 0.5:
                     continue
                 if kind == "stream" and major_distance[y[source_i], x[source_i]] <= 96:
@@ -496,51 +496,6 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 for y, x in zip(unseeded_y, unseeded_x)
             ],
         },
-    }
-
-
-def restore_unsupported_banks(ground, depth, banks, geometry, summary):
-    """Restore dry excavation, never the modeled wet floor or source headroom.
-
-    The input heightmap already contains buffered browser incision. Its dry
-    shoulders have no support from the feasible stage computed by hydrology.
-    The uncarved DEM supplies their elevation, not a guessed channel width.
-    Native observations are deliberately not inputs to this rule.
-    """
-    geometry, _ = surface_geometry(geometry)
-    sq = geometry["sq"]
-    supported = (depth > 0) | raster(
-        sq, geometry.get("rivers", []) + geometry.get("streams", [])
-    )
-    for field in ["riverAreas", "lakes"]:
-        supported |= raster(sq, geometry.get(field, []), polygons=True)
-    # A source acts on an area, not only its centre vertex. Retain every
-    # below-target bed cell in that existing physical footprint, including
-    # unseeded cells; raising these was the rejected width experiment's bug.
-    for source in summary["sources"]:
-        x, _, z = source["position"]
-        col, row = round(540 + x / SPACING), round(540 - z / SPACING)
-        rate = max(source["capacity"], source.get("output_capacity", 0))
-        radius = 10 + 0.4 * np.sqrt(np.floor(rate * 65535 + 0.5))
-        extent = int(np.ceil(radius / SPACING))
-        r0, r1 = max(0, row - extent), min(SIZE, row + extent + 1)
-        c0, c1 = max(0, col - extent), min(SIZE, col + extent + 1)
-        yy, xx = np.mgrid[r0:r1, c0:c1]
-        region = np.s_[r0:r1, c0:c1]
-        supported[region] |= (np.hypot(yy - row, xx - col) * SPACING <= radius) & (
-            np.floor(ground[region] * 64 + 0.5) <= np.ceil(source["target"] * 64)
-        )
-        supported[row, col] = True
-    # One native height quantum separates actual excavation from PNG rounding.
-    restored = ~supported & (banks - ground > 1 / 64)
-    delta = banks[restored] - ground[restored]
-    ground[restored] = banks[restored]
-    summary["bank_restoration"] = {
-        "policy": "dry excavated margins outside modeled wet floor, visible geometry and source headroom",
-        "restored_cells": int(restored.sum()),
-        "max_raise_m": float(delta.max()) if len(delta) else 0,
-        "wet_floor_changed_cells": 0,
-        "source_headroom_changed_cells": 0,
     }
 
 
@@ -973,8 +928,6 @@ def prepare(png, geometry, layout, output, banks=None):
     if not np.all(np.isfinite(bank_grid)):
         raise ValueError("Uncarved elevation grid contains non-finite values")
     depth, summary = hydrology(ground, bank_grid, data)
-    if banks:
-        restore_unsupported_banks(ground, depth, bank_grid, data, summary)
     start = start_area(ground, depth, data)
     if not start["has_water"]:
         # A dry region still needs starting water. This is explicitly constructed

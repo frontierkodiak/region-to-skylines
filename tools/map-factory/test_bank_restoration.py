@@ -5,7 +5,7 @@ import unittest
 
 import numpy as np
 
-from region import restore_unsupported_banks
+from bank_restoration_experiment import restore_unsupported_banks
 
 
 class BankRestorationTests(unittest.TestCase):

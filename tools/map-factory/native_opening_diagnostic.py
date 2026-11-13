@@ -20,7 +20,6 @@ from cs1_harness.cli import slot, staging
 from cs1_harness.config import Config
 from cs1_harness.mapcheck import collect
 from cs1_harness.session import sha256
-from cs1_harness.x11 import GameWindow
 
 
 def write(path, value):
@@ -43,7 +42,17 @@ def capture_views(session, prefix):
                     result["guide_controls"][name].append(
                         session.client.call("guide_controls", id=button["id"])
                     )
-            view = startup_views.capture_view(session, name, 20)
+            for attempt in range(3):
+                view = startup_views.capture_view(session, name, 20)
+                after = session.client.call("guide_controls")
+                result["guide_controls"][name].append(after)
+                pending = [button for button in after["controls"] if button["tutorial"]]
+                if not pending:
+                    break
+                for button in pending:
+                    session.client.call("guide_controls", id=button["id"])
+            else:
+                raise ValueError("ordinary guide kept obscuring the review capture")
             target = stage / f"{prefix}-{name}.png"
             (stage / view["screenshot"]).rename(target)
             view["screenshot"] = target.name
@@ -68,17 +77,6 @@ def review_control(session, command, prefix, report):
             {"phase": prefix, "result": result}
         )
         write(session.stage / f"{prefix}-guide-controls.json", result)
-    if "click" in command:
-        status = session.client.call("status")
-        if not status["in_game"] or status["modal"]["count"]:
-            raise ValueError("refusing review click outside an unblocked city")
-        with GameWindow.from_session(session) as window:
-            window.click(*command["click"])
-            # Let Unity consume mouse-up while the pointer is still over the
-            # observed control, before parking it away from the terrain.
-            time.sleep(0.5)
-        report.setdefault("review_clicks", []).append({"phase": prefix, **command})
-        session.park_pointer()
     if command.get("views"):
         report["zero_views" if prefix == "t000" else "five_views"] = capture_views(
             session, prefix
@@ -251,73 +249,79 @@ def run(source, output, interactive, minutes, requests_file=None):
                         ),
                         flush=True,
                     )
-            # Fixed delta belongs to CoreOps.status, not CityOps.stats.
-            start = session.client.call("status")
-            start_frame = start["frame"]
-            frames = 60 / start["fixed_delta_time"]
-            session.client.call("run", paused=False, speed=3, day_night=False)
-            last_log = 0
-            deadline = time.monotonic() + 1200
-            while True:
-                session.alive()
-                if time.monotonic() >= deadline:
-                    raise TimeoutError(
-                        "five-minute diagnostic exceeded foreground wall bound"
-                    )
-                stats = session.client.call("stats")
-                elapsed = (stats["frame"] - start_frame) / frames
-                if elapsed >= minutes:
-                    break
-                if elapsed - last_log >= 1:
-                    print(f"game minutes {elapsed:.2f}/{minutes}", flush=True)
-                    last_log = elapsed
-                time.sleep(2)
-            session.client.call("run", paused=True)
-            session.client.call(
-                "dump", dir=str(stage / "grids"), prefix="t005", terrain=True
-            )
-            report["elapsed_game_minutes"] = elapsed
-            report["five_views"] = capture_views(session, "t005")
-            if interactive:
-                print(json.dumps({"review": "t005", "stage": str(stage)}), flush=True)
-                deadline = time.monotonic() + 300
+            if minutes:
+                # Fixed delta belongs to CoreOps.status, not CityOps.stats.
+                start = session.client.call("status")
+                start_frame = start["frame"]
+                frames = 60 / start["fixed_delta_time"]
+                session.client.call("run", paused=False, speed=3, day_night=False)
+                last_log = 0
+                deadline = time.monotonic() + 1200
                 while True:
                     session.alive()
                     if time.monotonic() >= deadline:
-                        raise TimeoutError("final-view review deadline expired")
-                    if not select.select([sys.stdin], [], [], 1)[0]:
-                        continue
-                    line = sys.stdin.readline()
-                    if not line:
-                        raise EOFError("final-view review stdin closed")
-                    command = json.loads(line)
-                    if command.get("continue"):
+                        raise TimeoutError(
+                            "five-minute diagnostic exceeded foreground wall bound"
+                        )
+                    stats = session.client.call("stats")
+                    elapsed = (stats["frame"] - start_frame) / frames
+                    if elapsed >= minutes:
                         break
-                    review_control(session, command, "t005", report)
-                    print(
-                        json.dumps({"reviewed": "t005", "stage": str(stage)}),
-                        flush=True,
-                    )
-            write(
-                stage / "t005-sections.json",
-                session.client.call("water", points=water_points()),
-            )
-            write(
-                stage / "t005-screen-hits.json",
-                session.client.call("world_observe", screen_points=screen_requests),
-            )
-            if world_requests:
-                write(
-                    stage / "t005-world-water.json",
-                    session.client.call("water", points=world_requests),
+                    if elapsed - last_log >= 1:
+                        print(f"game minutes {elapsed:.2f}/{minutes}", flush=True)
+                        last_log = elapsed
+                    time.sleep(2)
+                session.client.call("run", paused=True)
+                session.client.call(
+                    "dump", dir=str(stage / "grids"), prefix="t005", terrain=True
                 )
-            session.check_audio()
-            write(stage / "audio-t005.json", session.receipt["audio_processes"])
-            report["final_grid_sha256"] = {
-                name: sha256(stage / f"grids/t005-{name}.u16")
-                for name in ["terrain", "water"]
-            }
-            write(stage / "diagnostic.json", report)
+                report["elapsed_game_minutes"] = elapsed
+                report["five_views"] = capture_views(session, "t005")
+                if interactive:
+                    print(
+                        json.dumps({"review": "t005", "stage": str(stage)}), flush=True
+                    )
+                    deadline = time.monotonic() + 300
+                    while True:
+                        session.alive()
+                        if time.monotonic() >= deadline:
+                            raise TimeoutError("final-view review deadline expired")
+                        if not select.select([sys.stdin], [], [], 1)[0]:
+                            continue
+                        line = sys.stdin.readline()
+                        if not line:
+                            raise EOFError("final-view review stdin closed")
+                        command = json.loads(line)
+                        if command.get("continue"):
+                            break
+                        review_control(session, command, "t005", report)
+                        print(
+                            json.dumps({"reviewed": "t005", "stage": str(stage)}),
+                            flush=True,
+                        )
+                write(
+                    stage / "t005-sections.json",
+                    session.client.call("water", points=water_points()),
+                )
+                write(
+                    stage / "t005-screen-hits.json",
+                    session.client.call("world_observe", screen_points=screen_requests),
+                )
+                if world_requests:
+                    write(
+                        stage / "t005-world-water.json",
+                        session.client.call("water", points=world_requests),
+                    )
+                session.check_audio()
+                write(stage / "audio-t005.json", session.receipt["audio_processes"])
+                report["final_grid_sha256"] = {
+                    name: sha256(stage / f"grids/t005-{name}.u16")
+                    for name in ["terrain", "water"]
+                }
+                write(stage / "diagnostic.json", report)
+            else:
+                report["capture_only"] = True
+                write(stage / "diagnostic.json", report)
     finally:
         if stage.exists():
             collect(stage, output)
@@ -338,8 +342,8 @@ if __name__ == "__main__":
         help="Fixed screen_points and world_points for matched arms",
     )
     args = parser.parse_args()
-    if not 0 < args.minutes <= 5:
-        parser.error("this release is bounded to at most five game minutes")
+    if not 0 <= args.minutes <= 5:
+        parser.error("use zero for paused capture-only, or at most five game minutes")
     run(
         args.source.resolve(),
         args.output.resolve(),

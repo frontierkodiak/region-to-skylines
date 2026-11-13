@@ -1,0 +1,3120 @@
+{
+  "expected_failure": true,
+  "tested_package": "previous rejected 24m terrain-only arm",
+  "failure": "\nArrays are not equal\n\nMismatched elements: 9346 / 527082 (1.77%)\nFirst 5 mismatches are at indices:\n [143275]: 6393 (ACTUAL), 6331 (DESIRED)\n [143276]: 6309 (ACTUAL), 6275 (DESIRED)\n [144020]: 6424 (ACTUAL), 6307 (DESIRED)\n [144021]: 6417 (ACTUAL), 6291 (DESIRED)\n [144022]: 6413 (ACTUAL), 6307 (DESIRED)\nMax absolute difference among violations: 172\nMax relative difference among violations: 0.02979716\n ACTUAL: array([4135, 4129, 4122, ..., 4966, 4966, 4966],\n      shape=(527082,), dtype=uint16)\n DESIRED: array([4135, 4129, 4122, ..., 4966, 4966, 4966],\n      shape=(527082,), dtype=uint16)",
+  "newly_buried_source_centres": [
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -4544,
+        0,
+        6400
+      ],
+      "target": 87.96875,
+      "bed_before": 86.96875,
+      "bed_after": 88.9375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -4272,
+        0,
+        6432
+      ],
+      "target": 88.453125,
+      "bed_before": 87.453125,
+      "bed_after": 89.390625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5792,
+        0,
+        5408
+      ],
+      "target": 92.171875,
+      "bed_before": 91.171875,
+      "bed_after": 93.09375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5632,
+        0,
+        5600
+      ],
+      "target": 94.296875,
+      "bed_before": 93.3125,
+      "bed_after": 95.21875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5472,
+        0,
+        5696
+      ],
+      "target": 91.40625,
+      "bed_before": 90.40625,
+      "bed_after": 92.328125
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5312,
+        0,
+        5776
+      ],
+      "target": 92.96875,
+      "bed_before": 91.96875,
+      "bed_after": 93.890625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5104,
+        0,
+        5872
+      ],
+      "target": 91.40625,
+      "bed_before": 90.40625,
+      "bed_after": 92.296875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5056,
+        0,
+        5904
+      ],
+      "target": 89.78125,
+      "bed_before": 88.78125,
+      "bed_after": 90.703125
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -4992,
+        0,
+        6064
+      ],
+      "target": 89.578125,
+      "bed_before": 88.578125,
+      "bed_after": 90.515625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -4816,
+        0,
+        6288
+      ],
+      "target": 90.4375,
+      "bed_before": 89.453125,
+      "bed_after": 91.453125
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -4688,
+        0,
+        6352
+      ],
+      "target": 86.453125,
+      "bed_before": 86.203125,
+      "bed_after": 88.109375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5824,
+        0,
+        5104
+      ],
+      "target": 94.640625,
+      "bed_before": 93.640625,
+      "bed_after": 95.546875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5840,
+        0,
+        5248
+      ],
+      "target": 93.375,
+      "bed_before": 92.375,
+      "bed_after": 94.296875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5840,
+        0,
+        5264
+      ],
+      "target": 92.46875,
+      "bed_before": 92.21875,
+      "bed_after": 94.15625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6368,
+        0,
+        4384
+      ],
+      "target": 98.703125,
+      "bed_before": 97.71875,
+      "bed_after": 99.890625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6096,
+        0,
+        4544
+      ],
+      "target": 96.59375,
+      "bed_before": 95.59375,
+      "bed_after": 97.5625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5984,
+        0,
+        4576
+      ],
+      "target": 95.203125,
+      "bed_before": 94.203125,
+      "bed_after": 96.140625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5840,
+        0,
+        4768
+      ],
+      "target": 95.015625,
+      "bed_before": 94.015625,
+      "bed_after": 95.953125
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -5808,
+        0,
+        4976
+      ],
+      "target": 91.703125,
+      "bed_before": 91.453125,
+      "bed_after": 93.421875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6528,
+        0,
+        4064
+      ],
+      "target": 99.6875,
+      "bed_before": 98.6875,
+      "bed_after": 100.8125
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6512,
+        0,
+        4096
+      ],
+      "target": 97.046875,
+      "bed_before": 96.796875,
+      "bed_after": 98.921875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6752,
+        0,
+        3456
+      ],
+      "target": 106.65625,
+      "bed_before": 105.65625,
+      "bed_after": 107.65625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6576,
+        0,
+        3536
+      ],
+      "target": 103.96875,
+      "bed_before": 102.984375,
+      "bed_after": 104.828125
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6576,
+        0,
+        3744
+      ],
+      "target": 103.46875,
+      "bed_before": 102.46875,
+      "bed_after": 104.390625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6560,
+        0,
+        3968
+      ],
+      "target": 102.4375,
+      "bed_before": 102.1875,
+      "bed_after": 104.109375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -7232,
+        0,
+        3392
+      ],
+      "target": 108.5,
+      "bed_before": 107.5,
+      "bed_after": 109.390625
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6960,
+        0,
+        3488
+      ],
+      "target": 104.703125,
+      "bed_before": 103.703125,
+      "bed_after": 105.71875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -6896,
+        0,
+        3504
+      ],
+      "target": 105.265625,
+      "bed_before": 105.015625,
+      "bed_after": 106.984375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -7344,
+        0,
+        3344
+      ],
+      "target": 113.765625,
+      "bed_before": 112.765625,
+      "bed_after": 114.84375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -7312,
+        0,
+        3360
+      ],
+      "target": 112.625,
+      "bed_before": 112.375,
+      "bed_after": 114.46875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -7904,
+        0,
+        2928
+      ],
+      "target": 139.09375,
+      "bed_before": 138.09375,
+      "bed_after": 140.0
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -7712,
+        0,
+        3072
+      ],
+      "target": 128.640625,
+      "bed_before": 128.390625,
+      "bed_after": 130.359375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -7696,
+        0,
+        3088
+      ],
+      "target": 128.46875,
+      "bed_before": 127.46875,
+      "bed_after": 129.34375
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -8288,
+        0,
+        2176
+      ],
+      "target": 238.0,
+      "bed_before": 237.0,
+      "bed_after": 238.921875
+    },
+    {
+      "name": "Rio Jacar\u00e9",
+      "position": [
+        -8192,
+        0,
+        2736
+      ],
+      "target": 154.609375,
+      "bed_before": 154.359375,
+      "bed_after": 156.265625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1280,
+        0,
+        3616
+      ],
+      "target": 86.53125,
+      "bed_before": 85.53125,
+      "bed_after": 87.453125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1200,
+        0,
+        3632
+      ],
+      "target": 87.953125,
+      "bed_before": 86.953125,
+      "bed_after": 88.890625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -928,
+        0,
+        3648
+      ],
+      "target": 88.0625,
+      "bed_before": 87.0625,
+      "bed_after": 88.875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -832,
+        0,
+        3664
+      ],
+      "target": 86.65625,
+      "bed_before": 85.65625,
+      "bed_after": 87.4375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -640,
+        0,
+        3680
+      ],
+      "target": 88.53125,
+      "bed_before": 87.546875,
+      "bed_after": 89.46875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -592,
+        0,
+        3696
+      ],
+      "target": 86.5625,
+      "bed_before": 86.3125,
+      "bed_after": 88.21875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1472,
+        0,
+        3472
+      ],
+      "target": 88.21875,
+      "bed_before": 87.21875,
+      "bed_after": 89.390625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1424,
+        0,
+        3504
+      ],
+      "target": 90.984375,
+      "bed_before": 89.984375,
+      "bed_after": 91.859375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1648,
+        0,
+        3328
+      ],
+      "target": 90.78125,
+      "bed_before": 89.78125,
+      "bed_after": 91.71875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1648,
+        0,
+        3312
+      ],
+      "target": 88.671875,
+      "bed_before": 88.421875,
+      "bed_after": 90.640625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1872,
+        0,
+        3232
+      ],
+      "target": 90.046875,
+      "bed_before": 89.046875,
+      "bed_after": 91.0625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1760,
+        0,
+        3232
+      ],
+      "target": 89.890625,
+      "bed_before": 88.890625,
+      "bed_after": 90.984375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -1728,
+        0,
+        3248
+      ],
+      "target": 87.75,
+      "bed_before": 87.5,
+      "bed_after": 89.515625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2016,
+        0,
+        3200
+      ],
+      "target": 92.984375,
+      "bed_before": 91.984375,
+      "bed_after": 93.9375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2080,
+        0,
+        3152
+      ],
+      "target": 95.0,
+      "bed_before": 94.0,
+      "bed_after": 96.0
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2160,
+        0,
+        3104
+      ],
+      "target": 92.5625,
+      "bed_before": 92.3125,
+      "bed_after": 94.390625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2512,
+        0,
+        2672
+      ],
+      "target": 98.625,
+      "bed_before": 97.625,
+      "bed_after": 99.578125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2368,
+        0,
+        2848
+      ],
+      "target": 92.875,
+      "bed_before": 91.875,
+      "bed_after": 93.75
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2304,
+        0,
+        2928
+      ],
+      "target": 96.984375,
+      "bed_before": 95.984375,
+      "bed_after": 97.9375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2288,
+        0,
+        2944
+      ],
+      "target": 97.1875,
+      "bed_before": 96.1875,
+      "bed_after": 98.296875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2256,
+        0,
+        3008
+      ],
+      "target": 92.390625,
+      "bed_before": 92.140625,
+      "bed_after": 94.21875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2832,
+        0,
+        2352
+      ],
+      "target": 104.546875,
+      "bed_before": 103.546875,
+      "bed_after": 105.71875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -2896,
+        0,
+        2320
+      ],
+      "target": 98.703125,
+      "bed_before": 98.453125,
+      "bed_after": 100.421875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3168,
+        0,
+        2000
+      ],
+      "target": 107.140625,
+      "bed_before": 106.140625,
+      "bed_after": 108.09375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3104,
+        0,
+        2160
+      ],
+      "target": 105.515625,
+      "bed_before": 104.515625,
+      "bed_after": 106.765625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3024,
+        0,
+        2256
+      ],
+      "target": 99.546875,
+      "bed_before": 99.296875,
+      "bed_after": 101.296875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3200,
+        0,
+        1840
+      ],
+      "target": 107.71875,
+      "bed_before": 106.71875,
+      "bed_after": 108.4375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3200,
+        0,
+        1856
+      ],
+      "target": 107.765625,
+      "bed_before": 107.515625,
+      "bed_after": 109.453125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3776,
+        0,
+        1072
+      ],
+      "target": 110.703125,
+      "bed_before": 109.703125,
+      "bed_after": 111.578125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3728,
+        0,
+        1136
+      ],
+      "target": 113.6875,
+      "bed_before": 112.6875,
+      "bed_after": 114.765625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3472,
+        0,
+        1424
+      ],
+      "target": 106.546875,
+      "bed_before": 105.546875,
+      "bed_after": 107.8125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3376,
+        0,
+        1552
+      ],
+      "target": 106.296875,
+      "bed_before": 105.296875,
+      "bed_after": 107.21875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3216,
+        0,
+        1728
+      ],
+      "target": 105.53125,
+      "bed_before": 105.28125,
+      "bed_after": 107.234375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3840,
+        0,
+        976
+      ],
+      "target": 112.390625,
+      "bed_before": 111.390625,
+      "bed_after": 113.53125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3856,
+        0,
+        960
+      ],
+      "target": 112.75,
+      "bed_before": 111.75,
+      "bed_after": 113.71875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3856,
+        0,
+        928
+      ],
+      "target": 111.28125,
+      "bed_before": 111.03125,
+      "bed_after": 112.96875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -5024,
+        0,
+        -208
+      ],
+      "target": 136.625,
+      "bed_before": 135.625,
+      "bed_after": 137.53125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4736,
+        0,
+        32
+      ],
+      "target": 128.375,
+      "bed_before": 127.375,
+      "bed_after": 129.3125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4688,
+        0,
+        32
+      ],
+      "target": 126.828125,
+      "bed_before": 125.828125,
+      "bed_after": 127.796875
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4368,
+        0,
+        176
+      ],
+      "target": 113.453125,
+      "bed_before": 112.453125,
+      "bed_after": 114.328125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4304,
+        0,
+        272
+      ],
+      "target": 117.65625,
+      "bed_before": 116.65625,
+      "bed_after": 118.5625
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4256,
+        0,
+        336
+      ],
+      "target": 118.015625,
+      "bed_before": 117.015625,
+      "bed_after": 119.09375
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4224,
+        0,
+        368
+      ],
+      "target": 118.015625,
+      "bed_before": 117.015625,
+      "bed_after": 119.078125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4048,
+        0,
+        576
+      ],
+      "target": 115.15625,
+      "bed_before": 114.15625,
+      "bed_after": 116.328125
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -4000,
+        0,
+        656
+      ],
+      "target": 111.78125,
+      "bed_before": 110.78125,
+      "bed_after": 112.75
+    },
+    {
+      "name": "Rio Maracan\u00e3",
+      "position": [
+        -3888,
+        0,
+        832
+      ],
+      "target": 107.5625,
+      "bed_before": 107.3125,
+      "bed_after": 109.296875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1024,
+        0,
+        3328
+      ],
+      "target": 89.21875,
+      "bed_before": 88.21875,
+      "bed_after": 90.15625
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -912,
+        0,
+        3504
+      ],
+      "target": 87.40625,
+      "bed_before": 86.40625,
+      "bed_after": 88.375
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1568,
+        0,
+        2400
+      ],
+      "target": 96.109375,
+      "bed_before": 95.109375,
+      "bed_after": 97.046875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1744,
+        0,
+        2224
+      ],
+      "target": 93.265625,
+      "bed_before": 93.015625,
+      "bed_after": 94.890625
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1792,
+        0,
+        2176
+      ],
+      "target": 94.21875,
+      "bed_before": 93.21875,
+      "bed_after": 95.421875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1808,
+        0,
+        2176
+      ],
+      "target": 95.015625,
+      "bed_before": 94.765625,
+      "bed_after": 96.71875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2400,
+        0,
+        2128
+      ],
+      "target": 98.0625,
+      "bed_before": 97.0625,
+      "bed_after": 98.75
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2384,
+        0,
+        2128
+      ],
+      "target": 96.65625,
+      "bed_before": 96.40625,
+      "bed_after": 97.84375
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1984,
+        0,
+        2112
+      ],
+      "target": 95.90625,
+      "bed_before": 94.90625,
+      "bed_after": 96.296875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2048,
+        0,
+        2112
+      ],
+      "target": 98.203125,
+      "bed_before": 97.203125,
+      "bed_after": 99.140625
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2160,
+        0,
+        2112
+      ],
+      "target": 93.671875,
+      "bed_before": 93.421875,
+      "bed_after": 95.09375
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1888,
+        0,
+        2112
+      ],
+      "target": 98.4375,
+      "bed_before": 97.4375,
+      "bed_after": 99.203125
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -1920,
+        0,
+        2112
+      ],
+      "target": 96.765625,
+      "bed_before": 96.515625,
+      "bed_after": 98.328125
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2464,
+        0,
+        1872
+      ],
+      "target": 101.90625,
+      "bed_before": 100.90625,
+      "bed_after": 102.90625
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2464,
+        0,
+        1984
+      ],
+      "target": 96.296875,
+      "bed_before": 96.046875,
+      "bed_after": 97.921875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2704,
+        0,
+        1648
+      ],
+      "target": 107.578125,
+      "bed_before": 106.578125,
+      "bed_after": 108.703125
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2608,
+        0,
+        1824
+      ],
+      "target": 104.0625,
+      "bed_before": 103.8125,
+      "bed_after": 105.796875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2896,
+        0,
+        1584
+      ],
+      "target": 107.46875,
+      "bed_before": 106.46875,
+      "bed_after": 108.421875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -2976,
+        0,
+        1520
+      ],
+      "target": 102.375,
+      "bed_before": 102.125,
+      "bed_after": 104.25
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -3056,
+        0,
+        1040
+      ],
+      "target": 122.234375,
+      "bed_before": 121.234375,
+      "bed_after": 123.359375
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -3120,
+        0,
+        1232
+      ],
+      "target": 111.734375,
+      "bed_before": 111.484375,
+      "bed_after": 113.28125
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -3040,
+        0,
+        208
+      ],
+      "target": 196.828125,
+      "bed_before": 195.828125,
+      "bed_after": 198.0
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -3056,
+        0,
+        656
+      ],
+      "target": 142.3125,
+      "bed_before": 141.3125,
+      "bed_after": 142.875
+    },
+    {
+      "name": "Rio Trapicheiros",
+      "position": [
+        -3056,
+        0,
+        912
+      ],
+      "target": 124.625,
+      "bed_before": 124.375,
+      "bed_after": 126.484375
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -6176,
+        0,
+        7584
+      ],
+      "target": 88.8125,
+      "bed_before": 87.8125,
+      "bed_after": 89.734375
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5968,
+        0,
+        7584
+      ],
+      "target": 89.703125,
+      "bed_before": 88.703125,
+      "bed_after": 90.625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5872,
+        0,
+        7600
+      ],
+      "target": 85.1875,
+      "bed_before": 84.1875,
+      "bed_after": 85.828125
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5776,
+        0,
+        7600
+      ],
+      "target": 90.34375,
+      "bed_before": 89.34375,
+      "bed_after": 91.265625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5760,
+        0,
+        7600
+      ],
+      "target": 90.34375,
+      "bed_before": 89.34375,
+      "bed_after": 91.265625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5712,
+        0,
+        7600
+      ],
+      "target": 87.59375,
+      "bed_before": 86.59375,
+      "bed_after": 88.515625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5664,
+        0,
+        7600
+      ],
+      "target": 85.296875,
+      "bed_before": 84.296875,
+      "bed_after": 86.21875
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5584,
+        0,
+        7600
+      ],
+      "target": 89.046875,
+      "bed_before": 88.046875,
+      "bed_after": 89.96875
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5392,
+        0,
+        7600
+      ],
+      "target": 90.5,
+      "bed_before": 89.5,
+      "bed_after": 91.421875
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5328,
+        0,
+        7600
+      ],
+      "target": 90.171875,
+      "bed_before": 89.171875,
+      "bed_after": 90.75
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -5216,
+        0,
+        7600
+      ],
+      "target": 90.3125,
+      "bed_before": 89.3125,
+      "bed_after": 91.125
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4992,
+        0,
+        7424
+      ],
+      "target": 90.296875,
+      "bed_before": 89.296875,
+      "bed_after": 91.265625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4944,
+        0,
+        7248
+      ],
+      "target": 88.96875,
+      "bed_before": 87.96875,
+      "bed_after": 89.890625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4928,
+        0,
+        7152
+      ],
+      "target": 89.953125,
+      "bed_before": 88.953125,
+      "bed_after": 90.859375
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4816,
+        0,
+        6800
+      ],
+      "target": 88.5625,
+      "bed_before": 87.5625,
+      "bed_after": 89.515625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4768,
+        0,
+        6768
+      ],
+      "target": 89.296875,
+      "bed_before": 88.3125,
+      "bed_after": 90.4375
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4672,
+        0,
+        6720
+      ],
+      "target": 83.625,
+      "bed_before": 82.625,
+      "bed_after": 84.515625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4480,
+        0,
+        6624
+      ],
+      "target": 88.859375,
+      "bed_before": 87.859375,
+      "bed_after": 89.78125
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4464,
+        0,
+        6624
+      ],
+      "target": 88.90625,
+      "bed_before": 87.90625,
+      "bed_after": 89.796875
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4384,
+        0,
+        6592
+      ],
+      "target": 87.71875,
+      "bed_before": 86.71875,
+      "bed_after": 88.390625
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4224,
+        0,
+        6496
+      ],
+      "target": 87.65625,
+      "bed_before": 86.65625,
+      "bed_after": 88.984375
+    },
+    {
+      "name": "Rio Faria-Timb\u00f3",
+      "position": [
+        -4160,
+        0,
+        6464
+      ],
+      "target": 84.046875,
+      "bed_before": 83.046875,
+      "bed_after": 84.40625
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -8512,
+        0,
+        8128
+      ],
+      "target": 96.5,
+      "bed_before": 95.5,
+      "bed_after": 97.453125
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -8320,
+        0,
+        8128
+      ],
+      "target": 98.859375,
+      "bed_before": 97.859375,
+      "bed_after": 99.765625
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -8160,
+        0,
+        8048
+      ],
+      "target": 96.109375,
+      "bed_before": 95.109375,
+      "bed_after": 97.03125
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -8096,
+        0,
+        8000
+      ],
+      "target": 97.765625,
+      "bed_before": 96.765625,
+      "bed_after": 98.890625
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -7888,
+        0,
+        7872
+      ],
+      "target": 97.96875,
+      "bed_before": 96.96875,
+      "bed_after": 99.09375
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -7760,
+        0,
+        7776
+      ],
+      "target": 95.28125,
+      "bed_before": 94.28125,
+      "bed_after": 96.234375
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -7456,
+        0,
+        7664
+      ],
+      "target": 96.359375,
+      "bed_before": 95.359375,
+      "bed_after": 97.1875
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -7312,
+        0,
+        7632
+      ],
+      "target": 94.609375,
+      "bed_before": 93.609375,
+      "bed_after": 95.421875
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -7184,
+        0,
+        7616
+      ],
+      "target": 96.34375,
+      "bed_before": 95.34375,
+      "bed_after": 97.28125
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -6848,
+        0,
+        7680
+      ],
+      "target": 93.234375,
+      "bed_before": 92.234375,
+      "bed_after": 94.203125
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -6832,
+        0,
+        7680
+      ],
+      "target": 92.671875,
+      "bed_before": 91.671875,
+      "bed_after": 93.625
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -6688,
+        0,
+        7680
+      ],
+      "target": 93.3125,
+      "bed_before": 92.3125,
+      "bed_after": 94.21875
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -6528,
+        0,
+        7632
+      ],
+      "target": 93.03125,
+      "bed_before": 92.03125,
+      "bed_after": 94.078125
+    },
+    {
+      "name": "Rio Timb\u00f3",
+      "position": [
+        -6288,
+        0,
+        7584
+      ],
+      "target": 89.34375,
+      "bed_before": 88.34375,
+      "bed_after": 90.375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6896,
+        0,
+        7184
+      ],
+      "target": 93.484375,
+      "bed_before": 92.484375,
+      "bed_after": 94.46875
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6720,
+        0,
+        7280
+      ],
+      "target": 90.09375,
+      "bed_before": 89.09375,
+      "bed_after": 91.0625
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6624,
+        0,
+        7328
+      ],
+      "target": 92.578125,
+      "bed_before": 91.578125,
+      "bed_after": 93.484375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6608,
+        0,
+        7344
+      ],
+      "target": 92.484375,
+      "bed_before": 91.484375,
+      "bed_after": 93.484375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6512,
+        0,
+        7392
+      ],
+      "target": 91.90625,
+      "bed_before": 90.90625,
+      "bed_after": 93.03125
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6320,
+        0,
+        7520
+      ],
+      "target": 89.640625,
+      "bed_before": 88.640625,
+      "bed_after": 90.890625
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -6288,
+        0,
+        7552
+      ],
+      "target": 88.75,
+      "bed_before": 87.75,
+      "bed_after": 90.109375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7120,
+        0,
+        7120
+      ],
+      "target": 97.328125,
+      "bed_before": 96.328125,
+      "bed_after": 98.25
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7072,
+        0,
+        7120
+      ],
+      "target": 95.3125,
+      "bed_before": 94.3125,
+      "bed_after": 96.21875
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7040,
+        0,
+        7136
+      ],
+      "target": 96.671875,
+      "bed_before": 96.421875,
+      "bed_after": 98.34375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8080,
+        0,
+        6448
+      ],
+      "target": 99.03125,
+      "bed_before": 98.03125,
+      "bed_after": 100.0
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7744,
+        0,
+        6576
+      ],
+      "target": 96.03125,
+      "bed_before": 95.046875,
+      "bed_after": 97.03125
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7680,
+        0,
+        6608
+      ],
+      "target": 93.71875,
+      "bed_before": 92.71875,
+      "bed_after": 94.78125
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7488,
+        0,
+        6752
+      ],
+      "target": 93.21875,
+      "bed_before": 92.21875,
+      "bed_after": 94.09375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -7408,
+        0,
+        6880
+      ],
+      "target": 92.46875,
+      "bed_before": 92.21875,
+      "bed_after": 94.390625
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8368,
+        0,
+        6448
+      ],
+      "target": 98.484375,
+      "bed_before": 97.484375,
+      "bed_after": 99.6875
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8352,
+        0,
+        6448
+      ],
+      "target": 97.15625,
+      "bed_before": 96.90625,
+      "bed_after": 98.8125
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8528,
+        0,
+        6320
+      ],
+      "target": 100.546875,
+      "bed_before": 99.546875,
+      "bed_after": 101.609375
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8432,
+        0,
+        6400
+      ],
+      "target": 98.53125,
+      "bed_before": 98.28125,
+      "bed_after": 100.171875
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8272,
+        0,
+        6416
+      ],
+      "target": 100.984375,
+      "bed_before": 99.984375,
+      "bed_after": 102.296875
+    },
+    {
+      "name": "Rio Faria",
+      "position": [
+        -8304,
+        0,
+        6432
+      ],
+      "target": 99.109375,
+      "bed_before": 98.859375,
+      "bed_after": 101.3125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -400,
+        0,
+        3280
+      ],
+      "target": 91.046875,
+      "bed_before": 90.046875,
+      "bed_after": 91.875
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -416,
+        0,
+        3296
+      ],
+      "target": 91.65625,
+      "bed_before": 91.40625,
+      "bed_after": 93.046875
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -480,
+        0,
+        1792
+      ],
+      "target": 100.640625,
+      "bed_before": 99.640625,
+      "bed_after": 101.5625
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -480,
+        0,
+        1840
+      ],
+      "target": 102.015625,
+      "bed_before": 101.015625,
+      "bed_after": 102.9375
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -512,
+        0,
+        2080
+      ],
+      "target": 103.140625,
+      "bed_before": 102.140625,
+      "bed_after": 103.953125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -512,
+        0,
+        2240
+      ],
+      "target": 97.40625,
+      "bed_before": 96.40625,
+      "bed_after": 98.03125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -528,
+        0,
+        2448
+      ],
+      "target": 94.515625,
+      "bed_before": 93.515625,
+      "bed_after": 95.328125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -528,
+        0,
+        2592
+      ],
+      "target": 98.359375,
+      "bed_before": 97.359375,
+      "bed_after": 99.28125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -528,
+        0,
+        2624
+      ],
+      "target": 97.96875,
+      "bed_before": 96.96875,
+      "bed_after": 98.890625
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -512,
+        0,
+        2960
+      ],
+      "target": 92.15625,
+      "bed_before": 91.90625,
+      "bed_after": 93.84375
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -384,
+        0,
+        1072
+      ],
+      "target": 115.59375,
+      "bed_before": 114.59375,
+      "bed_after": 116.421875
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -432,
+        0,
+        1232
+      ],
+      "target": 110.9375,
+      "bed_before": 109.9375,
+      "bed_after": 111.90625
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -448,
+        0,
+        1328
+      ],
+      "target": 105.640625,
+      "bed_before": 104.640625,
+      "bed_after": 106.21875
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -464,
+        0,
+        1456
+      ],
+      "target": 112.796875,
+      "bed_before": 111.796875,
+      "bed_after": 113.71875
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -480,
+        0,
+        1664
+      ],
+      "target": 99.921875,
+      "bed_before": 99.671875,
+      "bed_after": 101.3125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -448,
+        0,
+        864
+      ],
+      "target": 124.6875,
+      "bed_before": 123.6875,
+      "bed_after": 125.953125
+    },
+    {
+      "name": "Rio Comprido",
+      "position": [
+        -416,
+        0,
+        944
+      ],
+      "target": 120.4375,
+      "bed_before": 120.1875,
+      "bed_after": 122.125
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2864,
+        0,
+        3264
+      ],
+      "target": 92.5,
+      "bed_before": 91.5,
+      "bed_after": 93.46875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2768,
+        0,
+        3280
+      ],
+      "target": 91.015625,
+      "bed_before": 90.765625,
+      "bed_after": 92.734375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2944,
+        0,
+        3200
+      ],
+      "target": 95.71875,
+      "bed_before": 94.71875,
+      "bed_after": 96.359375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2944,
+        0,
+        3168
+      ],
+      "target": 93.859375,
+      "bed_before": 93.609375,
+      "bed_after": 95.453125
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2992,
+        0,
+        2960
+      ],
+      "target": 96.859375,
+      "bed_before": 95.859375,
+      "bed_after": 98.1875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2976,
+        0,
+        2976
+      ],
+      "target": 95.15625,
+      "bed_before": 94.90625,
+      "bed_after": 96.796875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -2992,
+        0,
+        2848
+      ],
+      "target": 99.046875,
+      "bed_before": 98.046875,
+      "bed_after": 99.734375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3184,
+        0,
+        2688
+      ],
+      "target": 96.375,
+      "bed_before": 95.375,
+      "bed_after": 97.28125
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3296,
+        0,
+        2656
+      ],
+      "target": 99.140625,
+      "bed_before": 98.140625,
+      "bed_after": 100.078125
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3360,
+        0,
+        2640
+      ],
+      "target": 97.15625,
+      "bed_before": 96.90625,
+      "bed_after": 98.859375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3600,
+        0,
+        2608
+      ],
+      "target": 103.9375,
+      "bed_before": 102.9375,
+      "bed_after": 104.5625
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3584,
+        0,
+        2608
+      ],
+      "target": 101.703125,
+      "bed_before": 101.453125,
+      "bed_after": 103.390625
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3696,
+        0,
+        2528
+      ],
+      "target": 97.0,
+      "bed_before": 96.0,
+      "bed_after": 97.984375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3696,
+        0,
+        2512
+      ],
+      "target": 95.71875,
+      "bed_before": 95.46875,
+      "bed_after": 97.484375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3792,
+        0,
+        2400
+      ],
+      "target": 102.28125,
+      "bed_before": 101.28125,
+      "bed_after": 103.75
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3824,
+        0,
+        2368
+      ],
+      "target": 103.578125,
+      "bed_before": 102.578125,
+      "bed_after": 105.046875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -3936,
+        0,
+        2256
+      ],
+      "target": 97.640625,
+      "bed_before": 97.390625,
+      "bed_after": 99.328125
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4032,
+        0,
+        2176
+      ],
+      "target": 101.125,
+      "bed_before": 100.125,
+      "bed_after": 102.140625
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4128,
+        0,
+        2112
+      ],
+      "target": 97.59375,
+      "bed_before": 97.34375,
+      "bed_after": 99.5625
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4672,
+        0,
+        1808
+      ],
+      "target": 102.546875,
+      "bed_before": 101.546875,
+      "bed_after": 103.46875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4560,
+        0,
+        1872
+      ],
+      "target": 100.578125,
+      "bed_before": 99.578125,
+      "bed_after": 101.546875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4400,
+        0,
+        1968
+      ],
+      "target": 107.21875,
+      "bed_before": 106.21875,
+      "bed_after": 108.421875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4384,
+        0,
+        1968
+      ],
+      "target": 106.265625,
+      "bed_before": 105.265625,
+      "bed_after": 107.671875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4272,
+        0,
+        2032
+      ],
+      "target": 104.453125,
+      "bed_before": 103.453125,
+      "bed_after": 105.421875
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4224,
+        0,
+        2064
+      ],
+      "target": 101.703125,
+      "bed_before": 101.453125,
+      "bed_after": 103.40625
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4768,
+        0,
+        1760
+      ],
+      "target": 106.359375,
+      "bed_before": 105.359375,
+      "bed_after": 107.59375
+    },
+    {
+      "name": "Rio Joana",
+      "position": [
+        -4752,
+        0,
+        1760
+      ],
+      "target": 105.421875,
+      "bed_before": 105.171875,
+      "bed_after": 107.4375
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6672,
+        0,
+        5552
+      ],
+      "target": 98.125,
+      "bed_before": 97.125,
+      "bed_after": 99.0625
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6464,
+        0,
+        5600
+      ],
+      "target": 97.59375,
+      "bed_before": 96.59375,
+      "bed_after": 98.515625
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6288,
+        0,
+        5552
+      ],
+      "target": 97.015625,
+      "bed_before": 96.015625,
+      "bed_after": 98.078125
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6256,
+        0,
+        5520
+      ],
+      "target": 96.640625,
+      "bed_before": 95.65625,
+      "bed_after": 97.65625
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6208,
+        0,
+        5440
+      ],
+      "target": 91.28125,
+      "bed_before": 90.28125,
+      "bed_after": 92.296875
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6080,
+        0,
+        5328
+      ],
+      "target": 96.3125,
+      "bed_before": 95.328125,
+      "bed_after": 97.265625
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -5920,
+        0,
+        5344
+      ],
+      "target": 96.3125,
+      "bed_before": 95.3125,
+      "bed_after": 97.40625
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -5872,
+        0,
+        5344
+      ],
+      "target": 92.90625,
+      "bed_before": 92.65625,
+      "bed_after": 94.640625
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6704,
+        0,
+        5440
+      ],
+      "target": 105.78125,
+      "bed_before": 104.78125,
+      "bed_after": 106.703125
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6704,
+        0,
+        5472
+      ],
+      "target": 102.171875,
+      "bed_before": 101.921875,
+      "bed_after": 104.0
+    },
+    {
+      "name": "Rio Salgado",
+      "position": [
+        -6736,
+        0,
+        5216
+      ],
+      "target": 100.23590066376745,
+      "bed_before": 99.984375,
+      "bed_after": 101.921875
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -2640,
+        0,
+        -2992
+      ],
+      "target": 99.859375,
+      "bed_before": 98.859375,
+      "bed_after": 100.828125
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -2512,
+        0,
+        -2944
+      ],
+      "target": 95.296875,
+      "bed_before": 94.296875,
+      "bed_after": 96.28125
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -2320,
+        0,
+        -3024
+      ],
+      "target": 100.734375,
+      "bed_before": 99.75,
+      "bed_after": 101.671875
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -2256,
+        0,
+        -3024
+      ],
+      "target": 100.671875,
+      "bed_before": 99.671875,
+      "bed_after": 101.578125
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -2224,
+        0,
+        -3008
+      ],
+      "target": 98.0625,
+      "bed_before": 97.0625,
+      "bed_after": 98.953125
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -2080,
+        0,
+        -2896
+      ],
+      "target": 99.109375,
+      "bed_before": 98.109375,
+      "bed_after": 99.9375
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -1888,
+        0,
+        -2896
+      ],
+      "target": 93.734375,
+      "bed_before": 92.734375,
+      "bed_after": 94.859375
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -1792,
+        0,
+        -2864
+      ],
+      "target": 100.390625,
+      "bed_before": 99.390625,
+      "bed_after": 101.421875
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -1568,
+        0,
+        -2944
+      ],
+      "target": 100.875,
+      "bed_before": 99.875,
+      "bed_after": 101.796875
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -1536,
+        0,
+        -2944
+      ],
+      "target": 99.9375,
+      "bed_before": 99.703125,
+      "bed_after": 101.53125
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -1392,
+        0,
+        -2976
+      ],
+      "target": 94.046875,
+      "bed_before": 93.046875,
+      "bed_after": 95.03125
+    },
+    {
+      "name": "Rio dos Macacos",
+      "position": [
+        -1424,
+        0,
+        -2976
+      ],
+      "target": 94.953125,
+      "bed_before": 94.703125,
+      "bed_after": 96.671875
+    },
+    {
+      "name": "Rio Dom Carlos",
+      "position": [
+        -2128,
+        0,
+        6352
+      ],
+      "target": 87.953125,
+      "bed_before": 86.953125,
+      "bed_after": 89.078125
+    },
+    {
+      "name": "Rio Dom Carlos",
+      "position": [
+        -2448,
+        0,
+        6480
+      ],
+      "target": 88.296875,
+      "bed_before": 87.296875,
+      "bed_after": 89.234375
+    },
+    {
+      "name": "Rio Dom Carlos",
+      "position": [
+        -2544,
+        0,
+        6496
+      ],
+      "target": 86.859375,
+      "bed_before": 85.859375,
+      "bed_after": 87.671875
+    },
+    {
+      "name": "Rio Dom Carlos",
+      "position": [
+        -2784,
+        0,
+        6720
+      ],
+      "target": 89.15625,
+      "bed_before": 88.15625,
+      "bed_after": 90.421875
+    },
+    {
+      "name": "Rio Dom Carlos",
+      "position": [
+        -2928,
+        0,
+        6768
+      ],
+      "target": 86.5,
+      "bed_before": 85.5,
+      "bed_after": 87.421875
+    },
+    {
+      "name": "Rio Dom Carlos",
+      "position": [
+        -3056,
+        0,
+        6864
+      ],
+      "target": 87.78125,
+      "bed_before": 86.796875,
+      "bed_after": 88.96875
+    },
+    {
+      "name": "Rio da Cachoeira",
+      "position": [
+        -8080,
+        0,
+        -3408
+      ],
+      "target": 322.234375,
+      "bed_before": 321.25,
+      "bed_after": 323.296875
+    },
+    {
+      "name": "Rio da Cachoeira",
+      "position": [
+        -8400,
+        0,
+        -3952
+      ],
+      "target": 307.75,
+      "bed_before": 306.75,
+      "bed_after": 308.546875
+    },
+    {
+      "name": "Rio da Cachoeira",
+      "position": [
+        -8512,
+        0,
+        -4048
+      ],
+      "target": 302.65625,
+      "bed_before": 301.65625,
+      "bed_after": 303.59375
+    },
+    {
+      "name": "Rio Andara\u00ed",
+      "position": [
+        -5312,
+        0,
+        816
+      ],
+      "target": 137.0,
+      "bed_before": 136.0,
+      "bed_after": 137.875
+    },
+    {
+      "name": "Rio Andara\u00ed",
+      "position": [
+        -5136,
+        0,
+        1040
+      ],
+      "target": 115.78125,
+      "bed_before": 115.53125,
+      "bed_after": 117.515625
+    },
+    {
+      "name": "Rio Andara\u00ed",
+      "position": [
+        -5520,
+        0,
+        624
+      ],
+      "target": 173.0625,
+      "bed_before": 172.0625,
+      "bed_after": 174.140625
+    },
+    {
+      "name": "Rio Andara\u00ed",
+      "position": [
+        -5392,
+        0,
+        736
+      ],
+      "target": 147.671875,
+      "bed_before": 147.421875,
+      "bed_after": 149.34375
+    },
+    {
+      "name": "Rio Andara\u00ed",
+      "position": [
+        -5904,
+        0,
+        384
+      ],
+      "target": 284.578125,
+      "bed_before": 283.578125,
+      "bed_after": 285.65625
+    },
+    {
+      "name": "Rio Andara\u00ed",
+      "position": [
+        -5616,
+        0,
+        592
+      ],
+      "target": 202.5625,
+      "bed_before": 202.3125,
+      "bed_after": 204.28125
+    },
+    {
+      "name": "Rio Jac\u00f3",
+      "position": [
+        -6192,
+        0,
+        1408
+      ],
+      "target": 141.640625,
+      "bed_before": 140.640625,
+      "bed_after": 142.59375
+    },
+    {
+      "name": "Rio Jac\u00f3",
+      "position": [
+        -6016,
+        0,
+        1584
+      ],
+      "target": 130.03125,
+      "bed_before": 129.78125,
+      "bed_after": 131.609375
+    },
+    {
+      "name": "Rio Jac\u00f3",
+      "position": [
+        -6400,
+        0,
+        848
+      ],
+      "target": 234.109375,
+      "bed_before": 233.109375,
+      "bed_after": 235.046875
+    },
+    {
+      "name": "Rio Jac\u00f3",
+      "position": [
+        -6224,
+        0,
+        1296
+      ],
+      "target": 154.09375,
+      "bed_before": 153.84375,
+      "bed_after": 155.875
+    },
+    {
+      "name": "Rio M\u00e9ier",
+      "position": [
+        -8544,
+        0,
+        5536
+      ],
+      "target": 102.671875,
+      "bed_before": 101.671875,
+      "bed_after": 103.59375
+    },
+    {
+      "name": "Rio M\u00e9ier",
+      "position": [
+        -8544,
+        0,
+        5552
+      ],
+      "target": 101.515625,
+      "bed_before": 101.265625,
+      "bed_after": 103.140625
+    },
+    {
+      "name": "Rio M\u00e9ier",
+      "position": [
+        -8528,
+        0,
+        5216
+      ],
+      "target": 101.828125,
+      "bed_before": 100.828125,
+      "bed_after": 102.75
+    },
+    {
+      "name": "Rio M\u00e9ier",
+      "position": [
+        -8528,
+        0,
+        5232
+      ],
+      "target": 102.09375,
+      "bed_before": 101.09375,
+      "bed_after": 102.78125
+    },
+    {
+      "name": "Rio M\u00e9ier",
+      "position": [
+        -8544,
+        0,
+        5424
+      ],
+      "target": 109.171875,
+      "bed_before": 108.171875,
+      "bed_after": 109.984375
+    },
+    {
+      "name": "Rio M\u00e9ier",
+      "position": [
+        -8528,
+        0,
+        5472
+      ],
+      "target": 105.90625,
+      "bed_before": 105.65625,
+      "bed_after": 107.578125
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -2784,
+        0,
+        6096
+      ],
+      "target": 85.90625,
+      "bed_before": 84.90625,
+      "bed_after": 87.15625
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -2864,
+        0,
+        6240
+      ],
+      "target": 89.203125,
+      "bed_before": 88.203125,
+      "bed_after": 90.328125
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -2992,
+        0,
+        6480
+      ],
+      "target": 87.453125,
+      "bed_before": 86.453125,
+      "bed_after": 88.375
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -3008,
+        0,
+        6512
+      ],
+      "target": 87.90625,
+      "bed_before": 86.921875,
+      "bed_after": 88.828125
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -3024,
+        0,
+        6752
+      ],
+      "target": 85.90625,
+      "bed_before": 84.90625,
+      "bed_after": 86.8125
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -2032,
+        0,
+        -4048
+      ],
+      "target": 91.40625,
+      "bed_before": 90.40625,
+      "bed_after": 92.4375
+    },
+    {
+      "name": "unnamed waterway",
+      "position": [
+        -2016,
+        0,
+        -4016
+      ],
+      "target": 92.0,
+      "bed_before": 91.75,
+      "bed_after": 93.796875
+    },
+    {
+      "name": "Rio da G\u00e1vea Pequena",
+      "position": [
+        -7840,
+        0,
+        -4048
+      ],
+      "target": 334.8125,
+      "bed_before": 333.8125,
+      "bed_after": 335.671875
+    },
+    {
+      "name": "Rio da G\u00e1vea Pequena",
+      "position": [
+        -8256,
+        0,
+        -3840
+      ],
+      "target": 303.109375,
+      "bed_before": 302.859375,
+      "bed_after": 304.828125
+    },
+    {
+      "name": "Rio Faleiro",
+      "position": [
+        -8544,
+        0,
+        6496
+      ],
+      "target": 101.015625,
+      "bed_before": 100.015625,
+      "bed_after": 102.0
+    },
+    {
+      "name": "Rio Faleiro",
+      "position": [
+        -8528,
+        0,
+        6512
+      ],
+      "target": 102.0,
+      "bed_before": 101.75,
+      "bed_after": 103.625
+    },
+    {
+      "name": "Rio Faleiro",
+      "position": [
+        -8464,
+        0,
+        6512
+      ],
+      "target": 101.828125,
+      "bed_before": 100.828125,
+      "bed_after": 102.78125
+    },
+    {
+      "name": "Rio Faleiro",
+      "position": [
+        -8432,
+        0,
+        6496
+      ],
+      "target": 99.65625,
+      "bed_before": 99.40625,
+      "bed_after": 101.578125
+    },
+    {
+      "name": "Rio Faleiro",
+      "position": [
+        -8368,
+        0,
+        6464
+      ],
+      "target": 98.734375,
+      "bed_before": 97.734375,
+      "bed_after": 100.03125
+    },
+    {
+      "name": "Rio Faleiro",
+      "position": [
+        -8352,
+        0,
+        6448
+      ],
+      "target": 97.15625,
+      "bed_before": 96.90625,
+      "bed_after": 98.8125
+    },
+    {
+      "name": "Rio do Pires",
+      "position": [
+        -5408,
+        0,
+        -6288
+      ],
+      "target": 95.59375,
+      "bed_before": 94.59375,
+      "bed_after": 96.765625
+    },
+    {
+      "name": "Rio do Pires",
+      "position": [
+        -5488,
+        0,
+        -6192
+      ],
+      "target": 89.046875,
+      "bed_before": 88.046875,
+      "bed_after": 90.21875
+    },
+    {
+      "name": "Desvio do Rio Joana",
+      "position": [
+        -2800,
+        0,
+        3440
+      ],
+      "target": 96.40625,
+      "bed_before": 95.40625,
+      "bed_after": 97.453125
+    },
+    {
+      "name": "Desvio do Rio Joana",
+      "position": [
+        -2784,
+        0,
+        3456
+      ],
+      "target": 95.84375,
+      "bed_before": 95.59375,
+      "bed_after": 97.640625
+    },
+    {
+      "name": "Desvio do Rio Joana",
+      "position": [
+        -2944,
+        0,
+        3248
+      ],
+      "target": 97.5,
+      "bed_before": 96.5,
+      "bed_after": 98.71875
+    },
+    {
+      "name": "Desvio do Rio Joana",
+      "position": [
+        -2960,
+        0,
+        3216
+      ],
+      "target": 95.46875,
+      "bed_before": 95.21875,
+      "bed_after": 97.234375
+    },
+    {
+      "name": "Rio Papa-Couve",
+      "position": [
+        1072,
+        0,
+        1760
+      ],
+      "target": 122.125,
+      "bed_before": 121.125,
+      "bed_after": 123.09375
+    },
+    {
+      "name": "Rio Papa-Couve",
+      "position": [
+        1040,
+        0,
+        1792
+      ],
+      "target": 116.234375,
+      "bed_before": 115.984375,
+      "bed_after": 117.921875
+    },
+    {
+      "name": "Rio Rainha",
+      "position": [
+        -2144,
+        0,
+        -4176
+      ],
+      "target": 97.546875,
+      "bed_before": 96.546875,
+      "bed_after": 98.8125
+    },
+    {
+      "name": "Rio Rainha",
+      "position": [
+        -2112,
+        0,
+        -4128
+      ],
+      "target": 92.625,
+      "bed_before": 92.375,
+      "bed_after": 94.359375
+    },
+    {
+      "name": "Rio Tijuca",
+      "position": [
+        -8032,
+        0,
+        -3360
+      ],
+      "target": 331.140625,
+      "bed_before": 330.140625,
+      "bed_after": 332.359375
+    },
+    {
+      "name": "Rio Tijuca",
+      "position": [
+        -8064,
+        0,
+        -3360
+      ],
+      "target": 326.5625,
+      "bed_before": 325.5625,
+      "bed_after": 327.640625
+    },
+    {
+      "name": "Rio dos Cachorros",
+      "position": [
+        -3040,
+        0,
+        2960
+      ],
+      "target": 98.859375,
+      "bed_before": 97.859375,
+      "bed_after": 100.140625
+    },
+    {
+      "name": "Rio dos Cachorros",
+      "position": [
+        -3024,
+        0,
+        2992
+      ],
+      "target": 98.109375,
+      "bed_before": 97.859375,
+      "bed_after": 100.125
+    }
+  ]
+}

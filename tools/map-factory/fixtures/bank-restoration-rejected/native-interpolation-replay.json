@@ -1,0 +1,423 @@
+{
+  "all_22_native_ground_pairs_exact": true,
+  "samples": [
+    {
+      "phase": "t000",
+      "name": "horizontal-centre",
+      "world_xz": [
+        -1180.0035400390625,
+        3626.057373046875
+      ],
+      "baseline_depth_m": 1,
+      "candidate_depth_m": 1,
+      "baseline_ground_m": 86.71875,
+      "candidate_ground_m": 86.71875,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 86.71875,
+      "cpu_candidate_ground_m": 86.71875
+    },
+    {
+      "phase": "t000",
+      "name": "horizontal-north-bank",
+      "world_xz": [
+        -1171.964111328125,
+        3667.1318359375
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 91.1875,
+      "candidate_ground_m": 94.40625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 91.1875,
+      "cpu_candidate_ground_m": 94.40625
+    },
+    {
+      "phase": "t000",
+      "name": "horizontal-south-bank",
+      "world_xz": [
+        -1196.625244140625,
+        3580.774169921875
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 92.28125,
+      "candidate_ground_m": 93.15625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 92.28125,
+      "cpu_candidate_ground_m": 93.15625
+    },
+    {
+      "phase": "t000",
+      "name": "elbow-centre",
+      "world_xz": [
+        -1309.276123046875,
+        3581.16259765625
+      ],
+      "baseline_depth_m": 0.921875,
+      "candidate_depth_m": 0.875,
+      "baseline_ground_m": 88.390625,
+      "candidate_ground_m": 88.4375,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 88.390625,
+      "cpu_candidate_ground_m": 88.4375
+    },
+    {
+      "phase": "t000",
+      "name": "elbow-north-bank",
+      "world_xz": [
+        -1299.890380859375,
+        3617.747802734375
+      ],
+      "baseline_depth_m": 0.75,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 86.9375,
+      "candidate_ground_m": 87.890625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 86.9375,
+      "cpu_candidate_ground_m": 87.890625
+    },
+    {
+      "phase": "t000",
+      "name": "elbow-south-bank",
+      "world_xz": [
+        -1318.716796875,
+        3545.634033203125
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 90.40625,
+      "candidate_ground_m": 91.921875,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 90.40625,
+      "cpu_candidate_ground_m": 91.921875
+    },
+    {
+      "phase": "t000",
+      "name": "diagonal-centre",
+      "world_xz": [
+        -1408.146728515625,
+        3503.740478515625
+      ],
+      "baseline_depth_m": 0.96875,
+      "candidate_depth_m": 0.96875,
+      "baseline_ground_m": 90,
+      "candidate_ground_m": 90,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 90.0,
+      "cpu_candidate_ground_m": 90.0
+    },
+    {
+      "phase": "t000",
+      "name": "diagonal-west-bank",
+      "world_xz": [
+        -1439.7735595703125,
+        3503.755126953125
+      ],
+      "baseline_depth_m": 0.765625,
+      "candidate_depth_m": 0.765625,
+      "baseline_ground_m": 89.28125,
+      "candidate_ground_m": 89.28125,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 89.28125,
+      "cpu_candidate_ground_m": 89.28125
+    },
+    {
+      "phase": "t000",
+      "name": "diagonal-east-bank",
+      "world_xz": [
+        -1376.501220703125,
+        3503.727783203125
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 90.609375,
+      "candidate_ground_m": 90.671875,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 90.609375,
+      "cpu_candidate_ground_m": 90.671875
+    },
+    {
+      "phase": "t000",
+      "name": "visible-round-gap",
+      "world_xz": [
+        -1366.0452880859375,
+        3625.791015625
+      ],
+      "baseline_depth_m": 2.0625,
+      "candidate_depth_m": 0.796875,
+      "baseline_ground_m": 88.671875,
+      "candidate_ground_m": 89.9375,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 88.671875,
+      "cpu_candidate_ground_m": 89.9375
+    },
+    {
+      "phase": "t000",
+      "name": "elbow-throat",
+      "world_xz": [
+        -1339.6248779296875,
+        3585.479736328125
+      ],
+      "baseline_depth_m": 1.328125,
+      "candidate_depth_m": 1.234375,
+      "baseline_ground_m": 85.46875,
+      "candidate_ground_m": 85.5625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 85.46875,
+      "cpu_candidate_ground_m": 85.5625
+    },
+    {
+      "phase": "t005",
+      "name": "horizontal-centre",
+      "world_xz": [
+        -1180.0035400390625,
+        3626.057373046875
+      ],
+      "baseline_depth_m": 1.703125,
+      "candidate_depth_m": 1.484375,
+      "baseline_ground_m": 86.71875,
+      "candidate_ground_m": 86.71875,
+      "candidate_velocity": [
+        3.3568419894436374e-05,
+        0.006874811835587025,
+        0.8799969553947449
+      ],
+      "cpu_baseline_ground_m": 86.71875,
+      "cpu_candidate_ground_m": 86.71875
+    },
+    {
+      "phase": "t005",
+      "name": "horizontal-north-bank",
+      "world_xz": [
+        -1171.964111328125,
+        3667.1318359375
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 91.1875,
+      "candidate_ground_m": 94.40625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 91.1875,
+      "cpu_candidate_ground_m": 94.40625
+    },
+    {
+      "phase": "t005",
+      "name": "horizontal-south-bank",
+      "world_xz": [
+        -1196.625244140625,
+        3580.774169921875
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 92.28125,
+      "candidate_ground_m": 93.15625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 92.28125,
+      "cpu_candidate_ground_m": 93.15625
+    },
+    {
+      "phase": "t005",
+      "name": "elbow-centre",
+      "world_xz": [
+        -1309.276123046875,
+        3581.16259765625
+      ],
+      "baseline_depth_m": 0.984375,
+      "candidate_depth_m": 2.375,
+      "baseline_ground_m": 88.390625,
+      "candidate_ground_m": 88.4375,
+      "candidate_velocity": [
+        8.361236572265625,
+        -0.07026974856853485,
+        5.501610279083252
+      ],
+      "cpu_baseline_ground_m": 88.390625,
+      "cpu_candidate_ground_m": 88.4375
+    },
+    {
+      "phase": "t005",
+      "name": "elbow-north-bank",
+      "world_xz": [
+        -1299.890380859375,
+        3617.747802734375
+      ],
+      "baseline_depth_m": 1.875,
+      "candidate_depth_m": 0.265625,
+      "baseline_ground_m": 86.9375,
+      "candidate_ground_m": 87.890625,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 86.9375,
+      "cpu_candidate_ground_m": 87.890625
+    },
+    {
+      "phase": "t005",
+      "name": "elbow-south-bank",
+      "world_xz": [
+        -1318.716796875,
+        3545.634033203125
+      ],
+      "baseline_depth_m": 0,
+      "candidate_depth_m": 0,
+      "baseline_ground_m": 90.40625,
+      "candidate_ground_m": 91.921875,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 90.40625,
+      "cpu_candidate_ground_m": 91.921875
+    },
+    {
+      "phase": "t005",
+      "name": "diagonal-centre",
+      "world_xz": [
+        -1408.146728515625,
+        3503.740478515625
+      ],
+      "baseline_depth_m": 0.9375,
+      "candidate_depth_m": 0.8125,
+      "baseline_ground_m": 90,
+      "candidate_ground_m": 90,
+      "candidate_velocity": [
+        -1.755774974822998,
+        0.005733313038945198,
+        1.8420017957687378
+      ],
+      "cpu_baseline_ground_m": 90.0,
+      "cpu_candidate_ground_m": 90.0
+    },
+    {
+      "phase": "t005",
+      "name": "diagonal-west-bank",
+      "world_xz": [
+        -1439.7735595703125,
+        3503.755126953125
+      ],
+      "baseline_depth_m": 1.59375,
+      "candidate_depth_m": 1.546875,
+      "baseline_ground_m": 89.28125,
+      "candidate_ground_m": 89.28125,
+      "candidate_velocity": [
+        -1.6908237934112549,
+        0.03179224207997322,
+        -1.60674250125885
+      ],
+      "cpu_baseline_ground_m": 89.28125,
+      "cpu_candidate_ground_m": 89.28125
+    },
+    {
+      "phase": "t005",
+      "name": "diagonal-east-bank",
+      "world_xz": [
+        -1376.501220703125,
+        3503.727783203125
+      ],
+      "baseline_depth_m": 0.265625,
+      "candidate_depth_m": 0.15625,
+      "baseline_ground_m": 90.609375,
+      "candidate_ground_m": 90.671875,
+      "candidate_velocity": [
+        -0.7003757357597351,
+        0.0013679214753210545,
+        0
+      ],
+      "cpu_baseline_ground_m": 90.609375,
+      "cpu_candidate_ground_m": 90.671875
+    },
+    {
+      "phase": "t005",
+      "name": "visible-round-gap",
+      "world_xz": [
+        -1366.0452880859375,
+        3625.791015625
+      ],
+      "baseline_depth_m": 0.78125,
+      "candidate_depth_m": 0.65625,
+      "baseline_ground_m": 88.671875,
+      "candidate_ground_m": 89.9375,
+      "candidate_velocity": [
+        0,
+        0,
+        0
+      ],
+      "cpu_baseline_ground_m": 88.671875,
+      "cpu_candidate_ground_m": 89.9375
+    },
+    {
+      "phase": "t005",
+      "name": "elbow-throat",
+      "world_xz": [
+        -1339.6248779296875,
+        3585.479736328125
+      ],
+      "baseline_depth_m": 4.015625,
+      "candidate_depth_m": 5.234375,
+      "baseline_ground_m": 85.46875,
+      "candidate_ground_m": 85.5625,
+      "candidate_velocity": [
+        2.7744665145874023,
+        0.027440600097179413,
+        -0.35451117157936096
+      ],
+      "cpu_baseline_ground_m": 85.46875,
+      "cpu_candidate_ground_m": 85.5625
+    }
+  ]
+}
