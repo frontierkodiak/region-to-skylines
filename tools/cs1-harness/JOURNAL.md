@@ -2211,3 +2211,22 @@ waiter. Whole-tree audio snapshots include late webhelpers with no route
 violations. Evidence and full before/after review PNGs are attached to PL-912;
 source report: tools/map-factory/BANK_RESTORATION.md. Native artifacts are in
 ~/experiments/PL-912-bank-restoration on Blade.
+
+## 2026-11-13 — PL-912 coupled premise rejected; original stream-only partial evaluation
+
+Blade 2080 Ti PCI05:00.0/private :57; unchanged 150 W cap and accepted e5b21f2 null-audio whole-tree endpoint checks. No physical display, host audio, account or shared-service changes. One coupled arm rejected on CPU; no native coupled launch.
+
+| Cohort / map | Clean native source | Game min | Wall s | Peak total VRAM MiB | Menu game MiB | Peak W | Peak °C | Result |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Preliminary / asheville | d594b02 | 60.007 | 949.5 | 10821 | 1620 | 141.70 | 56 | pass: applicable gates |
+| Preliminary / innsbruck | d594b02 | 60.027 | 949.6 | 10821 | 1574 | 143.79 | 58 | pass: applicable gates |
+| Preliminary / rio | d594b02 | 60.122 | 952.8 | 10821 | 1574 | 139.13 | 59 | fail: no_flooding |
+| Preliminary / pittsburgh | d594b02 | 60.146 | 959.5 | 10821 | 1574 | 138.70 | 56 | pass: applicable gates |
+| Preliminary / charleston | 7dbef02 | 60.011 | 955.2 | 10821 | 1574 | 143.12 | 58 | fail: ground_truth |
+| Final / asheville | 022d795 | 60.090 | 952.1 | 10821 | 1574 | 137.49 | 57 | pass: applicable gates |
+| Final / innsbruck | 022d795 | 60.013 | 950.9 | 10821 | 1574 | 138.47 | 58 | pass: applicable gates |
+| Final / rio | 022d795 | 60.040 | 950.2 | 10821 | 1574 | 143.93 | 58 | fail: no_flooding |
+| Final / pittsburgh | 022d795 | 60.133 | 966.7 | 10821 | 1574 | 133.16 | 54 | pass: applicable gates |
+| Final / charleston | 022d795 | 60.060 | 949.5 | 10821 | 1574 | 143.87 | 58 | fail: ground_truth |
+
+Total VRAM includes an 8004 MiB resident baseline; menu game share is not a per-game peak. Wall time includes review and cleanup, not a speed benchmark. All ten cleanup receipts empty. Preliminary probe drift/omission, missing independent landmarks and skipped camera gate were repaired without changing acceptance: final cohort freezes all original probe names/coordinates/order/flags, restores independent references and retains legacy camera checks. Rio adds only 11 supplementary observations. All five final runs use clean 022d795, original 690d2b1 default package bytes, 60+ game minutes, native paths, unchanged thresholds/masks and exact initial grid/control audits. Rio no_flooding and Charleston ground_truth still fail. Other mapped dry subsets remain in raw audits. Actual zero/five/end views retained; Asheville improves, Rio does not. Pittsburgh normal quit fallback terminated only its owned game PID after grace. Independent final 11:54:28 UTC proof: no owned processes/state/sockets/active units; queue slot free. See map-factory/PARTIAL_NATIVE_QUALIFICATION.md and fixtures/minor-stream-candidate/native-evaluation.json. PR41 stays draft; PM owns partial acceptance and remaining Rio.

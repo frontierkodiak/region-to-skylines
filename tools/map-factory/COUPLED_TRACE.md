@@ -22,7 +22,7 @@ The next defensible correction must decide whether a source-visible connector ha
 
 Run `uv run --project tools/map-factory python tools/map-factory/trace_coupled.py INPUTS/rio OUT.json`. The rejected builder fails closed on the current default; replay its exact historical experimental head if needed. `fixtures/coupled-rejected/` retains causal arrays, package receipt and CPU rejection. Current default `region.py` is restored byte-for-byte; accepted fixture history, failure subsets, probes, masks, thresholds, PL926 policy and networks are not rewritten.
 
-Fresh regeneration of all five default packages matches the archived stream-only candidate identities. Fresh Python/shipping-JS/Pyodide agreement includes complete CRPs, terrain and water grids. 44 writer tests pass (2 skips); 113 harness tests pass; installed-game build/doctor and scoped lint/format pass. The short coupled arm is a rejected experiment, not a product fix.
+Fresh regeneration of all five default packages matches the archived stream-only candidate identities. Fresh Python/shipping-JS/Pyodide agreement includes complete CRPs, terrain and water grids. 44 writer tests run (2 skipped); 113 harness tests pass; installed-game build/doctor and scoped lint/format pass. The short coupled arm is a rejected experiment, not a product fix.
 
 ### Qualification probe preservation
 
