@@ -20,6 +20,7 @@ from cs1_harness.cli import slot, staging
 from cs1_harness.config import Config
 from cs1_harness.mapcheck import collect
 from cs1_harness.session import sha256
+from cs1_harness.x11 import GameWindow
 
 
 def write(path, value):
@@ -29,7 +30,6 @@ def write(path, value):
 def capture_views(session, prefix):
     stage = session.stage
     result = {"phase": prefix, "views": {}}
-    result["guide_dismissals"] = session.client.call("dismiss_guides", apply=True)
     try:
         for name in ["opening", "area_zoom"]:
             session.alive()
@@ -49,6 +49,23 @@ def capture_views(session, prefix):
 
 def water_points():
     return [[x, z] for x in [-1280, -1200] for z in [3600, 3616, 3632, 3648, 3664]]
+
+
+def review_control(session, command, prefix, report):
+    """Operate only an observed ordinary guide in this owned, loaded city."""
+    if "click" in command:
+        status = session.client.call("status")
+        if not status["in_game"] or status["modal"]["count"]:
+            raise ValueError("refusing review click outside an unblocked city")
+        with GameWindow.from_session(session) as window:
+            window.click(*command["click"])
+        report.setdefault("review_clicks", []).append({"phase": prefix, **command})
+        session.park_pointer()
+    if command.get("views"):
+        report["zero_views" if prefix == "t000" else "five_views"] = capture_views(
+            session, prefix
+        )
+    write(session.stage / "diagnostic.json", report)
 
 
 def run(source, output, interactive, minutes, requests_file=None):
@@ -173,6 +190,13 @@ def run(source, output, interactive, minutes, requests_file=None):
                     command = json.loads(line)
                     if command.get("continue"):
                         break
+                    if "click" in command or command.get("views"):
+                        review_control(session, command, "t000", report)
+                        print(
+                            json.dumps({"reviewed": "t000", "stage": str(stage)}),
+                            flush=True,
+                        )
+                        continue
                     request = command["screen_points"]
                     observed = session.client.call(
                         "world_observe", screen_points=request
@@ -231,6 +255,26 @@ def run(source, output, interactive, minutes, requests_file=None):
             )
             report["elapsed_game_minutes"] = elapsed
             report["five_views"] = capture_views(session, "t005")
+            if interactive:
+                print(json.dumps({"review": "t005", "stage": str(stage)}), flush=True)
+                deadline = time.monotonic() + 300
+                while True:
+                    session.alive()
+                    if time.monotonic() >= deadline:
+                        raise TimeoutError("final-view review deadline expired")
+                    if not select.select([sys.stdin], [], [], 1)[0]:
+                        continue
+                    line = sys.stdin.readline()
+                    if not line:
+                        raise EOFError("final-view review stdin closed")
+                    command = json.loads(line)
+                    if command.get("continue"):
+                        break
+                    review_control(session, command, "t005", report)
+                    print(
+                        json.dumps({"reviewed": "t005", "stage": str(stage)}),
+                        flush=True,
+                    )
             write(
                 stage / "t005-sections.json",
                 session.client.call("water", points=water_points()),

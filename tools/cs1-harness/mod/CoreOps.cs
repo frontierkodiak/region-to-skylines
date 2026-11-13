@@ -25,7 +25,6 @@ namespace Cs1Harness
             Host.Register("run", Needs.Level, "pause/speed and session-only day/night: {paused, speed, day_night}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
             Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", Ui);
-            Host.Register("dismiss_guides", Needs.City, "close ordinary TutorialPanel/TutorialAdvisorPanel guides through their native close buttons: {apply:false}", DismissGuides);
             Host.Register("camera_state", Needs.Level, "where the camera is and which way it faces: position, heading (0 = +z, 90 = +x), pitch, size, max size", q => CameraState());
             Host.Register("area_zoom", Needs.Level, "open/close the native Areas tool (not camera zoom): {enabled}", AreaZoom);
             Host.Register("screenshot", Needs.Level, "write a PNG at the end of this frame: {path (absolute), supersize}", Screenshot);
@@ -33,28 +32,6 @@ namespace Cs1Harness
         }
 
         static Camera s_mainCamera;
-
-        static Dictionary<string, object> DismissGuides(Dictionary<string, object> q)
-        {
-            if (UIView.ModalInputCount() != 0) throw new Exception("refusing guide dismissal while a modal is open");
-            bool apply = Json.Bool(q, "apply", false);
-            var controls = new List<object>();
-            foreach (var button in UIView.GetAView().GetComponentsInChildren<UIButton>(true))
-            {
-                if (!button.isVisible || !button.isEnabled || button.name != "CloseButton") continue;
-                string guide = null;
-                for (UIComponent node = button.parent; node != null && guide == null; node = node.parent)
-                    foreach (var component in node.GetComponents<Component>())
-                    {
-                        string type = component.GetType().Name;
-                        if (type == "TutorialPanel" || type == "TutorialAdvisorPanel") guide = type;
-                    }
-                if (guide == null) continue;
-                controls.Add(Host.Obj("panel_type", guide, "button", button.name, "applied", apply));
-                if (apply) button.SimulateClick();
-            }
-            return Host.Obj("source", "native tutorial close buttons only", "controls", controls);
-        }
 
         static Dictionary<string, object> Render(Dictionary<string, object> q)
         {
