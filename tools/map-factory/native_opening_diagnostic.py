@@ -100,7 +100,16 @@ def run(source, output, interactive, minutes):
             session.launch(["--noWorkshop"])
             session.check_audio()
             write(stage / "audio-menu.json", session.receipt["audio_processes"])
-            session.client.call("new_game", path=str(installed))
+            maps = session.client.call("maps")["maps"]
+            entry = next(
+                m
+                for m in maps
+                if m["path"]
+                and Path(m["path"]).exists()
+                and Path(m["path"]).samefile(installed)
+            )
+            write(stage / "listed-map.json", entry)
+            session.client.call("new_game", path=entry["path"])
             session.client.wait(
                 lambda s: s.get("in_game") and not s.get("loading"),
                 300,
