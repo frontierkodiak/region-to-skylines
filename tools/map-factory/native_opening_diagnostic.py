@@ -29,6 +29,7 @@ def write(path, value):
 def capture_views(session, prefix):
     stage = session.stage
     result = {"phase": prefix, "views": {}}
+    result["guide_dismissals"] = session.client.call("dismiss_guides", apply=True)
     try:
         for name in ["opening", "area_zoom"]:
             session.alive()
