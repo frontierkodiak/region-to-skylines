@@ -1,17 +1,58 @@
 """Run-local silent audio clients; no host mixer, server or permission changes.
 
 ALSA loads only our null PCM (no includes, hardware or server plugins). Pulse
-targets a regular file, never a socket; native PipeWire targets an absent socket.
+and PipeWire target a private, null-only server owned by this session.
 These are application settings, not a security boundary against hostile code.
 """
 
 from __future__ import annotations
 
+import json
 import pathlib
 import shlex
 import stat
 
 from .config import Config
+
+NULL_SERVER = """context.properties = {
+ core.daemon = true
+ core.name = cs1-null
+ support.dbus = false
+}
+context.spa-libs = {
+ audio.convert.* = audioconvert/libspa-audioconvert
+ support.* = support/libspa-support
+}
+context.modules = [
+ { name = libpipewire-module-protocol-native }
+ { name = libpipewire-module-spa-node-factory }
+ { name = libpipewire-module-client-node }
+ { name = libpipewire-module-adapter }
+ { name = libpipewire-module-link-factory }
+ { name = libpipewire-module-metadata }
+ { name = libpipewire-module-access }
+ { name = libpipewire-module-protocol-pulse }
+]
+context.objects = [
+ { factory = spa-node-factory args = {
+     factory.name = support.node.driver
+     node.name = Dummy-Driver
+     node.group = pipewire.dummy
+     priority.driver = 20000
+ } }
+ { factory = adapter args = {
+     factory.name = support.null-audio-sink
+     node.name = cs1-null
+     node.description = "CS1 silent sink"
+     media.class = Audio/Sink
+     audio.position = [ FL FR ]
+ } }
+]
+pulse.properties = {
+ server.address = [ @PULSE@ ]
+}
+"""
+
 
 ALSA_CONFIG = "pcm.default { type null }\npcm.null { type null }\n"
 
@@ -21,8 +62,8 @@ def environment(cfg: Config) -> dict[str, str]:
     return {
         "ALSA_CONFIG_PATH": str(root / "alsa.conf"),
         "PULSE_CLIENTCONFIG": str(root / "pulse.conf"),
-        "PULSE_SERVER": f"unix:{root / 'no-pulse'}",
-        "PIPEWIRE_REMOTE": str(root / "no-pipewire"),
+        "PULSE_SERVER": f"unix:{root / 'pulse'}",
+        "PIPEWIRE_REMOTE": str(root / "cs1-null"),
         "SDL_AUDIODRIVER": "dummy",
     }
 
@@ -30,13 +71,11 @@ def environment(cfg: Config) -> dict[str, str]:
 def prepare(cfg: Config) -> pathlib.Path:
     root = cfg.harness_home / "run-audio"
     root.mkdir(parents=True, exist_ok=True)
-    # Never reuse a real endpoint, even if a prior run left an unexpected file.
-    for name in ("no-pulse", "no-pipewire"):
+    # Never reuse endpoints left by another process.
+    for name in ("pulse", "cs1-null"):
         if (root / name).exists():
             raise RuntimeError(f"silent audio endpoint unexpectedly exists: {root / name}")
-    # Flatpak remaps existing Pulse endpoints into nested runtimes. A regular
-    # file survives that remapping but connect(2) cannot use it as a socket.
-    (root / "no-pulse").touch()
+    (root / "cs1-null.conf").write_text(NULL_SERVER.replace("@PULSE@", json.dumps("unix:" + str(root / "pulse"))))
     (root / "alsa.conf").write_text(ALSA_CONFIG)
     (root / "pulse.conf").write_text("autospawn = no\nenable-shm = no\n")
     script = root / "env.sh"
@@ -109,7 +148,7 @@ def pulse_endpoint(root: pathlib.Path, server: str | None, cfg: Config) -> dict:
         return {"server": server, "kind": "unsupported", "run_owned": False}
     try:
         target = (root / server.removeprefix("unix:/")).stat()
-        owned = (cfg.harness_home / "run-audio/no-pulse").stat()
+        owned = (cfg.harness_home / "run-audio/pulse").stat()
     except FileNotFoundError:
         return {"server": server, "kind": "absent", "run_owned": False}
     except OSError as exc:
@@ -136,9 +175,9 @@ def violations(cfg: Config, rows: list[dict], require_game: bool = True) -> list
         for key in ("pulse_endpoint", "flatpak_pulse_endpoint"):
             endpoint = row[key]
             if endpoint["kind"] not in ("unset", "absent") and not (
-                endpoint["kind"] == "regular" and endpoint["run_owned"]
+                endpoint["kind"] == "socket" and endpoint["run_owned"]
             ):
-                errors.append(f"{label}: {key} is not the run-owned non-socket")
+                errors.append(f"{label}: {key} is not the run-owned null server")
         if row["name"] not in ("Cities.x64", "steam", "steamwebhelper"):
             continue
         env = row["audio_environment"]
@@ -146,6 +185,6 @@ def violations(cfg: Config, rows: list[dict], require_game: bool = True) -> list
             if env.get(key) != expected[key]:
                 errors.append(f"{label}: unexpected {key}")
         endpoint = row["pulse_endpoint"]
-        if endpoint["kind"] != "regular" or not endpoint["run_owned"]:
-            errors.append(f"{label}: Pulse does not target the run-owned non-socket")
+        if endpoint["kind"] != "socket" or not endpoint["run_owned"]:
+            errors.append(f"{label}: Pulse does not target the run-owned null server")
     return errors

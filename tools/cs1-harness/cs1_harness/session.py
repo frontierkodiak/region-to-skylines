@@ -198,6 +198,7 @@ class Session(contextlib.AbstractContextManager):
         try:
             audio.prepare(self.cfg)
             self.receipt["audio_environment"] = audio.environment(self.cfg)
+            self.start_audio()
             self.start_display()
         except BaseException:
             self.__exit__(None, None, None)
@@ -267,6 +268,7 @@ class Session(contextlib.AbstractContextManager):
         if (pathlib.Path("/tmp/.X11-unix") / f"X{self.cfg.display.lstrip(':')}").exists():
             raise Blocked(f"display {self.cfg.display} is already in use", EX_TEMPFAIL, busy=True)
         for unit in (
+            self.cfg.audio_unit,
             self.cfg.vnc_unit,
             self.cfg.live_unit,
             self.cfg.rec_unit,
@@ -282,6 +284,39 @@ class Session(contextlib.AbstractContextManager):
         for k, v in (env or {}).items():
             args.append(f"--setenv={k}={v}")
         sh(*args, *cmd)
+
+    def start_audio(self):
+        c = self.cfg
+        root = c.harness_home / "run-audio"
+        env = dict(
+            audio.environment(c), PIPEWIRE_CONFIG_DIR=str(root), PIPEWIRE_RUNTIME_DIR=str(root), DISPLAY=c.display
+        )
+        self.unit(
+            c.audio_unit,
+            "/usr/bin/pipewire",
+            "-c",
+            "cs1-null.conf",
+            env=env,
+            props=["-p", f"StandardOutput=file:{self.stage / 'audio.log'}"],
+        )
+        for _ in range(50):
+            if (root / "pulse").is_socket() and (root / "cs1-null").is_socket():
+                break
+            time.sleep(0.1)
+        else:
+            raise HarnessError("private null audio server did not start")
+        env = self.steam.base_env()
+        sinks = json.loads(sh("pactl", "-f", "json", "list", "sinks", env=env, timeout=5).stdout)
+        if len(sinks) != 1 or sinks[0]["name"] != "cs1-null":
+            raise HarnessError("private audio server does not expose exactly the null sink")
+        self.receipt["audio_sinks"] = sinks
+        graph = json.loads(sh("pw-dump", env=env, timeout=5).stdout)
+        if any(item["type"] == "PipeWire:Interface:Device" for item in graph):
+            raise HarnessError("private audio server has a physical device")
+        nodes = [item["info"]["props"]["node.name"] for item in graph if item["type"] == "PipeWire:Interface:Node"]
+        if set(nodes) != {"Dummy-Driver", "cs1-null"}:
+            raise HarnessError(f"private audio server has unexpected nodes: {nodes}")
+        self.receipt["audio_graph"] = graph
 
     def start_display(self):
         c = self.cfg
@@ -577,7 +612,16 @@ class Session(contextlib.AbstractContextManager):
             else:
                 with contextlib.suppress(ProcessLookupError, ValueError):
                     os.kill(int(inst), 15)
-        for unit in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit):
+        for unit in (
+            c.vnc_unit,
+            c.live_unit,
+            c.rec_unit,
+            c.steam_unit,
+            c.gpu_unit,
+            c.dbus_unit,
+            c.xvfb_unit,
+            c.audio_unit,
+        ):
             sh("systemctl", "--user", "stop", unit, check=False)
         for path in reversed(self.installed):
             if path.is_dir():
@@ -594,7 +638,16 @@ class Session(contextlib.AbstractContextManager):
             "steam_instances": self.steam.instances(),
             "units_active": [
                 u
-                for u in (c.vnc_unit, c.live_unit, c.rec_unit, c.steam_unit, c.gpu_unit, c.dbus_unit, c.xvfb_unit)
+                for u in (
+                    c.vnc_unit,
+                    c.live_unit,
+                    c.rec_unit,
+                    c.steam_unit,
+                    c.gpu_unit,
+                    c.dbus_unit,
+                    c.xvfb_unit,
+                    c.audio_unit,
+                )
                 if sh("systemctl", "--user", "is-active", "--quiet", u, check=False).returncode == 0
             ],
         }

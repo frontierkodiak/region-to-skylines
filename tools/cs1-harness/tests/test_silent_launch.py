@@ -26,11 +26,14 @@ class SilentLaunchTests(unittest.TestCase):
         self.cfg = Config.for_host()
         self.cfg.harness_home = self.root
         audio.prepare(self.cfg)
+        self.pulse = socket.socket(socket.AF_UNIX)
+        self.pulse.bind(str(self.root / "run-audio/pulse"))
+        self.addCleanup(self.pulse.close)
 
     def test_alsa_config_has_only_null_endpoints(self):
         self.assertEqual((self.root / "run-audio/alsa.conf").read_text(), audio.ALSA_CONFIG)
         self.assertEqual(audio.ALSA_CONFIG, "pcm.default { type null }\npcm.null { type null }\n")
-        self.assertTrue(stat.S_ISREG((self.root / "run-audio/no-pulse").stat().st_mode))
+        self.assertTrue(stat.S_ISSOCK((self.root / "run-audio/pulse").stat().st_mode))
         with self.assertRaises(RuntimeError):
             audio.prepare(self.cfg)
 
@@ -119,7 +122,7 @@ class SilentLaunchTests(unittest.TestCase):
             "name": "Cities.x64",
             "audio_environment": audio.environment(self.cfg),
             "physical_audio_fds": [],
-            "pulse_endpoint": {"kind": "regular", "run_owned": True},
+            "pulse_endpoint": {"kind": "socket", "run_owned": True},
             "flatpak_pulse_endpoint": {"kind": "absent", "run_owned": False},
         }
         with patch("cs1_harness.audio.processes", return_value=[good]):
@@ -129,7 +132,7 @@ class SilentLaunchTests(unittest.TestCase):
                 with self.assertRaises(HarnessError):
                     session.check_audio()
 
-    def test_late_webhelper_host_socket_is_rejected_but_run_file_alias_is_allowed(self):
+    def test_late_webhelper_host_socket_is_rejected_but_private_socket_alias_is_allowed(self):
         namespace = self.root / "nested-root"
         alias = namespace / "run/flatpak/pulse/native"
         alias.parent.mkdir(parents=True)
@@ -141,9 +144,9 @@ class SilentLaunchTests(unittest.TestCase):
             self.assertEqual(bad["kind"], "socket")
             self.assertFalse(bad["run_owned"])
         alias.unlink()
-        os.link(self.root / "run-audio/no-pulse", alias)
+        os.link(self.root / "run-audio/pulse", alias)
         good = audio.pulse_endpoint(namespace, "unix:/run/flatpak/pulse/native", self.cfg)
-        self.assertEqual(good["kind"], "regular")
+        self.assertEqual(good["kind"], "socket")
         self.assertTrue(good["run_owned"])
         row = {
             "pid": 456,
