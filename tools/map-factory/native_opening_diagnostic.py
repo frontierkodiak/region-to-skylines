@@ -186,7 +186,8 @@ def run(source, output, interactive, minutes):
                         ),
                         flush=True,
                     )
-            start = session.client.call("stats")
+            # Fixed delta belongs to CoreOps.status, not CityOps.stats.
+            start = session.client.call("status")
             start_frame = start["frame"]
             frames = 60 / start["fixed_delta_time"]
             session.client.call("run", paused=False, speed=3, day_night=False)
