@@ -1933,3 +1933,35 @@ already skips `opening_camera`. End of soak: path checks, then main's
 `saves`. Two new offline tests cover the from-save driver and verdict rows.
 Offline only: 103 unittest, Ruff check/format and a private-cache installed-game
 build pass; no Steam, game, slot or session was touched.
+
+## 2026-11-12 — PL-933 run-local silent launch, game smoke blocked
+
+Blade, RTX 2080 Ti `05:00.0`, private Xvfb `:57`. Previously Steam inherited
+host audio defaults; `-silent` only hid its UI. Now a post-Flatpak entry shell
+and the innermost game wrapper apply null-only ALSA, unreachable Pulse and
+PipeWire sockets, Pulse autospawn off, and SDL dummy audio. No shared service,
+mixer, permission, display-power or Steam-account policy changes. Startup
+refuses stale wrappers and unexpected Steam launch targets. Session receipts
+include audio env and game-readiness process/device checks; teardown removes
+the run-local configs.
+
+Build, Ruff check/format, 110 unittest checks, and GPU doctor pass. The actual
+Flatpak and installed SteamLinuxRuntime_4 pressure-vessel library probes open
+`default` and `null` as ALSA NULL, while `hw:0`, `plughw:0`, `hdmi:0`, `pulse`
+and `pipewire` fail. No samples or test tones were written. Host client probes
+with the same configuration fail Pulse/PipeWire connection as intended.
+
+One bounded `up --no-live --no-record` attempt took about 36 seconds and
+returned 75 on Steam's cloud-sync conflict prompt. It did not answer or retry.
+68 audio samples observed 63 process IDs, including Steam and steamwebhelper
+with every configured audio variable present. No physical audio descriptors,
+Pulse sink inputs or nonclosed ALSA playback streams were observed. Activated
+portal/bus helpers are included in the receipt, not claimed to carry every
+audio variable. No game launched, so game VRAM, in-game status and actual
+game environment propagation are **not verified**. Peak GPU total VRAM was
+8,006 MiB, mostly the pre-existing workload; game share was zero. Sampled
+peak GPU power was 63.49 W and temperature 29 C, with the 150 W limit unchanged.
+Cleanup receipt has no game, Steam instance or active harness unit. A later
+non-game runtime probe also tore down its display and bus. Raw probe,
+startup/audio samples and cleanup evidence accompany PL-933. Independent PM
+acceptance and a conflict-free game smoke are still required before game jobs.

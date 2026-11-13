@@ -787,3 +787,40 @@ sampled persistence; Innsbruck retains two exact-dry observations at one probe,
 rescued by actual native nearby reads. These assessments do not independently
 certify flooding, visual quality or unsampled intervals. Input report/probes/
 timeline hashes were checked unchanged; no game/build was run for this change.
+
+## Silent session audio
+
+`-silent` hides Steam's UI; it does not mute audio. Sessions create
+`run-audio/` beneath the harness home, with a null-only ALSA configuration,
+a Pulse client configuration with autospawn disabled, and an exported client
+environment. Pulse and native PipeWire clients target nonexistent sockets in
+that directory. SDL uses its dummy audio driver. No host mixer, server,
+Flatpak permission, or persistent audio configuration changes.
+
+The Flatpak entry shell applies this environment **after** Flatpak clears
+`ALSA_CONFIG_PATH`, before starting `/app/bin/steam`. The launch wrapper
+reapplies it immediately before `Cities.x64`, inside Steam's nested runtime.
+An unexpected Steam game target fails rather than bypassing that wrapper.
+Run `uv run cs1-harness setup` after updating the tool; launching with a stale
+installed wrapper fails before Steam starts.
+
+`session-receipt.json` records the client environment. At game readiness it
+also records audio variables and physical audio descriptors for processes on
+the private display. A missing game environment or an open physical audio
+device fails the session. Teardown removes `run-audio/` after Steam exits.
+These are application-level audio controls, not isolation from hostile code.
+The virtual display remains Xvfb, with GPU rendering through EGL.
+
+PL-933 verification on Blade exercised Steam startup and the installed
+pressure-vessel runtime with a library probe that wrote no audio samples.
+ALSA opened only NULL endpoints; hardware and server PCM names failed. Pulse
+and PipeWire client connections failed at the selected nonexistent endpoints.
+The one game attempt stopped at Steam's cloud-sync conflict prompt, exit 75,
+without answering it. Actual `Cities.x64` propagation and `call status` remain
+unverified. Do not treat this implementation as accepted for overnight game
+jobs until that smoke test and independent PM review pass.
+
+References: [ALSA configuration](https://github.com/alsa-project/alsa-lib/blob/master/doc/asoundrc.txt),
+[Pulse client routing](https://www.freedesktop.org/wiki/Software/PulseAudio/FAQ/),
+[PipeWire native protocol](https://pipewire.pages.freedesktop.org/pipewire/page_module_protocol_native.html),
+and [Flatpak command reference](https://docs.flatpak.org/en/latest/flatpak-command-reference.html).

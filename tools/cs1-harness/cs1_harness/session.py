@@ -20,7 +20,7 @@ import shutil
 import subprocess
 import time
 
-from . import gpu, observe
+from . import audio, gpu, observe
 from .client import Client, HarnessError
 from .config import Config
 from .steam import backend
@@ -196,6 +196,8 @@ class Session(contextlib.AbstractContextManager):
             raise
         self.stage.mkdir(parents=True, exist_ok=True)
         try:
+            audio.prepare(self.cfg)
+            self.receipt["audio_environment"] = audio.environment(self.cfg)
             self.start_display()
         except BaseException:
             self.__exit__(None, None, None)
@@ -451,7 +453,12 @@ class Session(contextlib.AbstractContextManager):
 
     def launch(self, game_args: list[str], timeout: float = 600):
         """Launch through Steam; strict vanilla returns at rendering, not menu readiness."""
+        from .setup import LAUNCH_SH
+
         c = self.cfg
+        wrapper = c.harness_home / "launch.sh"
+        if not wrapper.exists() or wrapper.read_text() != LAUNCH_SH:
+            raise HarnessError("launch wrapper is out of date; run `cs1-harness setup` before launching")
         if self.egl is None:
             self.pin_gpu()
         control = "--disableMods" not in game_args
@@ -468,7 +475,7 @@ class Session(contextlib.AbstractContextManager):
         args = ["-silent", "-applaunch", c.app_id, *size, *game_args, "-logFile", str(log_file)]
         self.receipt["launch_args"] = args
         props = ["-p", "KillMode=control-group"]
-        unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS")}
+        unit_env = {k: env[k] for k in ("DISPLAY", "XAUTHORITY", "DBUS_SESSION_BUS_ADDRESS", *audio.environment(c))}
         self.unit(c.steam_unit, *self.steam.steam_argv(args), env=unit_env, props=props)
         self.unit(
             c.gpu_unit,
@@ -491,6 +498,7 @@ class Session(contextlib.AbstractContextManager):
             observed = [p for p in gpu.game_placement() if p["pid"] in live_games] if not control else []
             if observed:
                 placed = self.check_placement(observed)
+                self.check_audio()
                 self.park_pointer()
                 self.log("strict --disableMods game rendering; observe menu readiness through the private X display")
                 return {"control": False, "menu_ready": None, "game_gpu": placed}
@@ -499,6 +507,7 @@ class Session(contextlib.AbstractContextManager):
             if status and not status.get("loading") and not status.get("in_game"):
                 self.receipt["menu_status"] = status
                 placed = self.check_placement()
+                self.check_audio()
                 self.park_pointer()
                 self.log(f"game at main menu: {status.get('gpu')}, {status.get('screen')}; GPU processes {placed}")
                 return status
@@ -506,6 +515,16 @@ class Session(contextlib.AbstractContextManager):
                 raise HarnessError(f"Steam exited before the game started; see the journal for {c.steam_unit}")
             time.sleep(3)
         raise HarnessError(f"game did not reach the main menu within {timeout:.0f} s")
+
+    def check_audio(self):
+        rows = audio.processes(self.cfg)
+        self.receipt["audio_processes"] = rows
+        games = [row for row in rows if row["name"] == "Cities.x64"]
+        expected = audio.environment(self.cfg)
+        if not games or any(row["audio_environment"] != expected for row in games):
+            raise HarnessError("game did not inherit the silent audio environment")
+        if any(row["physical_audio_fds"] for row in rows):
+            raise HarnessError("a private-display process has a physical audio device open")
 
     def steam_alive(self) -> bool:
         return sh(
@@ -568,6 +587,7 @@ class Session(contextlib.AbstractContextManager):
         with contextlib.suppress(OSError):
             observe.mark_idle(c, "run ended")
         (c.harness_home / "session.env").unlink(missing_ok=True)
+        shutil.rmtree(c.harness_home / "run-audio", ignore_errors=True)
         c.state_file.unlink(missing_ok=True)
         leftovers = {
             "game": game_pids(c.display),
