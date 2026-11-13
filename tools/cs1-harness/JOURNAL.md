@@ -1965,3 +1965,55 @@ Cleanup receipt has no game, Steam instance or active harness unit. A later
 non-game runtime probe also tore down its display and bus. Raw probe,
 startup/audio samples and cleanup evidence accompany PL-933. Independent PM
 acceptance and a conflict-free game smoke are still required before game jobs.
+
+## 2026-11-13 — PL-933 late-webhelper correction and whole-tree proof
+
+The PM found a result-changing gap at `b451581`: late webhelpers restored
+`PULSE_SERVER=unix:/run/flatpak/pulse/native` and the generated Flatpak client
+configuration. The old game-only environment check missed the reachable host
+route. Its startup snapshot was not whole-tree silence proof.
+
+The corrected implementation gives the private bus activation environment the
+same audio route as Steam. Its portal therefore maps the run-owned endpoint
+into nested clients. Verification resolves each client's mount namespace via
+`/proc/PID/root`, checking endpoint device/inode against the owned server,
+not merely comparing environment strings. It includes display-marked clients
+and their descendants, even without DISPLAY, and runs during startup,
+readiness and `alive()`. Regression tests reproduce a late webhelper pointing
+to an actual host-like Unix socket and prove it is rejected.
+
+A run-owned regular-file endpoint verified the mapping without any audio
+samples, but two bounded attempts ended with Steam exit 139 before a game
+started. All sampled routes were safe and each attempt cleaned up. The final
+implementation instead starts one temporary harness-owned PipeWire process,
+with a Pulse endpoint, one null sink, and a dummy driver. It loads no hardware
+backend/discovery or session manager and cannot join the shared audio graph.
+Its run-only config directory excludes shared config/drop-ins. Startup checks
+the graph and sink list. Direct ALSA remains null-only and SDL remains dummy.
+No shared services, vendor scripts, permissions, mixer or monitor settings
+were changed. The new audio unit is transient and stops with the session.
+
+Foreground proof ran on exact code commit
+`f8f765f9b90f6eca3eff6378b0e34b6cc532402d`, Blade 2080 Ti `05:00.0`, Xvfb
+`:57`, for 173.47 s. Cities reached IntroScreen; native `status` had no errors
+or visible modal. After a 40-second menu hold, all eight live webhelpers,
+both Steam processes and Cities passed the route checks. The actual installed
+webhelper runtime mapped its Pulse path to the private server's socket with
+the same device/inode; 24 namespace endpoint connections reached that server
+without producing samples. The private graph had no Device objects, one null
+sink, and no sink inputs. Across 313 samples and 126 distinct process IDs,
+there were zero routing violations, host Pulse sink inputs, active physical
+ALSA playback states, physical audio descriptors, or sampling errors. The
+vendor wrapper hashes were unchanged. No test tone, prompt bypass or bulk
+job ran.
+
+112 unittest checks, Ruff check/format, installed-game build and null-server
+GPU doctor pass. Sampled GPU peak total VRAM was 9,578 MiB including the
+existing workload, peak power 63.22 W and temperature 31 C. The 150 W limit
+was unchanged. Cleanup left no game, Steam, display, private bus, null audio
+process, active harness unit, audio config/socket or held queue slot. The
+report's in-process queue snapshot still inferred the finishing smoke script
+as a waiter; an external post-exit queue read was free. Raw evidence,
+including the failed pregame attempts, is attached to PL-933. This entry and
+the README are documentation-only changes after the tested code commit.
+Independent PM acceptance remains required; PR #40 is not self-merged.
