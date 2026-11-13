@@ -50,7 +50,7 @@ def water_points():
     return [[x, z] for x in [-1280, -1200] for z in [3600, 3616, 3632, 3648, 3664]]
 
 
-def run(source, output, interactive, minutes):
+def run(source, output, interactive, minutes, requests_file=None):
     cfg = Config.for_host()
     if cfg.host != "blade" or cfg.display != ":57":
         raise ValueError("This release authorizes only Blade's private :57 session")
@@ -81,7 +81,9 @@ def run(source, output, interactive, minutes):
             ]
         },
     }
-    screen_requests = []
+    requests = json.loads(requests_file.read_text()) if requests_file else {}
+    screen_requests = requests.get("screen_points", [])
+    world_requests = requests.get("world_points", [])
     samples = []
     try:
         with slot(
@@ -133,6 +135,18 @@ def run(source, output, interactive, minutes):
                 session.client.call("water", points=water_points()),
             )
             write(stage / "audio-t000.json", session.receipt["audio_processes"])
+            write(stage / "measurement-requests.json", requests)
+            if screen_requests:
+                observed = session.client.call(
+                    "world_observe", screen_points=screen_requests
+                )
+                samples.append(observed)
+                write(stage / "t000-screen-hits.json", samples)
+            if world_requests:
+                write(
+                    stage / "t000-world-water.json",
+                    session.client.call("water", points=world_requests),
+                )
             write(stage / "diagnostic.json", report)
             print(
                 json.dumps(
@@ -224,6 +238,11 @@ def run(source, output, interactive, minutes):
                 stage / "t005-screen-hits.json",
                 session.client.call("world_observe", screen_points=screen_requests),
             )
+            if world_requests:
+                write(
+                    stage / "t005-world-water.json",
+                    session.client.call("water", points=world_requests),
+                )
             session.check_audio()
             write(stage / "audio-t005.json", session.receipt["audio_processes"])
             report["final_grid_sha256"] = {
@@ -245,7 +264,18 @@ if __name__ == "__main__":
     parser.add_argument("output", type=Path)
     parser.add_argument("--interactive", action="store_true")
     parser.add_argument("--minutes", type=float, default=5)
+    parser.add_argument(
+        "--requests",
+        type=Path,
+        help="Fixed screen_points and world_points for matched arms",
+    )
     args = parser.parse_args()
     if not 0 < args.minutes <= 5:
         parser.error("this release is bounded to at most five game minutes")
-    run(args.source.resolve(), args.output.resolve(), args.interactive, args.minutes)
+    run(
+        args.source.resolve(),
+        args.output.resolve(),
+        args.interactive,
+        args.minutes,
+        args.requests,
+    )
