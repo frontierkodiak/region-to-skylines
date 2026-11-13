@@ -25,6 +25,7 @@ namespace Cs1Harness
             Host.Register("run", Needs.Level, "pause/speed and session-only day/night: {paused, speed, day_night}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);
             Host.Register("ui", Needs.Level, "show or hide the game UI: {visible}", Ui);
+            Host.Register("guide_controls", Needs.City, "inspect visible native close buttons; click an exact tutorial-only button with {id}; refuses modals", GuideControls);
             Host.Register("camera_state", Needs.Level, "where the camera is and which way it faces: position, heading (0 = +z, 90 = +x), pitch, size, max size", q => CameraState());
             Host.Register("area_zoom", Needs.Level, "open/close the native Areas tool (not camera zoom): {enabled}", AreaZoom);
             Host.Register("screenshot", Needs.Level, "write a PNG at the end of this frame: {path (absolute), supersize}", Screenshot);
@@ -32,6 +33,41 @@ namespace Cs1Harness
         }
 
         static Camera s_mainCamera;
+
+        static Dictionary<string, object> GuideControls(Dictionary<string, object> q)
+        {
+            if (UIView.ModalInputCount() != 0) throw new Exception("refusing guide controls while a modal is open");
+            int requested = (int)Json.Num(q, "id", 0);
+            bool applied = false;
+            var controls = new List<object>();
+            foreach (var button in UIView.GetAView().GetComponentsInChildren<UIButton>(true))
+            {
+                if (!button.gameObject.activeInHierarchy || !button.isVisible || !button.isEnabled || button.name.IndexOf("close", StringComparison.OrdinalIgnoreCase) < 0) continue;
+                bool tutorial = false;
+                var ancestors = new List<object>();
+                for (var node = button.transform; node != null; node = node.parent)
+                {
+                    var types = new List<object>();
+                    foreach (var component in node.GetComponents<Component>())
+                    {
+                        string type = component.GetType().Name;
+                        types.Add(type);
+                        if (type == "TutorialPanel" || type == "TutorialAdvisorPanel") tutorial = true;
+                    }
+                    ancestors.Add(Host.Obj("name", node.name, "types", types));
+                }
+                int id = button.GetInstanceID();
+                controls.Add(Host.Obj("id", id, "name", button.name, "tutorial", tutorial, "ancestors", ancestors));
+                if (id == requested)
+                {
+                    if (!tutorial) throw new Exception("requested close button is not an ordinary tutorial guide");
+                    button.SimulateClick();
+                    applied = true;
+                }
+            }
+            if (requested != 0 && !applied) throw new Exception("requested tutorial close button is not visible");
+            return Host.Obj("source", "native UI close buttons and transform ancestors", "controls", controls, "applied", applied);
+        }
 
         static Dictionary<string, object> Render(Dictionary<string, object> q)
         {

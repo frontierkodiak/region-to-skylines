@@ -35,6 +35,14 @@ def capture_views(session, prefix):
             session.alive()
             if name == "area_zoom":
                 session.client.call("area_zoom", enabled=True)
+            startup_views.settle(session, name == "area_zoom", 20)
+            controls = session.client.call("guide_controls")
+            result.setdefault("guide_controls", {})[name] = [controls]
+            for button in controls["controls"]:
+                if button["tutorial"]:
+                    result["guide_controls"][name].append(
+                        session.client.call("guide_controls", id=button["id"])
+                    )
             view = startup_views.capture_view(session, name, 20)
             target = stage / f"{prefix}-{name}.png"
             (stage / view["screenshot"]).rename(target)
@@ -53,6 +61,13 @@ def water_points():
 
 def review_control(session, command, prefix, report):
     """Operate only an observed ordinary guide in this owned, loaded city."""
+    if command.get("guides") or "guide_close" in command:
+        args = {"id": command["guide_close"]} if "guide_close" in command else {}
+        result = session.client.call("guide_controls", **args)
+        report.setdefault("guide_controls", []).append(
+            {"phase": prefix, "result": result}
+        )
+        write(session.stage / f"{prefix}-guide-controls.json", result)
     if "click" in command:
         status = session.client.call("status")
         if not status["in_game"] or status["modal"]["count"]:
@@ -193,7 +208,12 @@ def run(source, output, interactive, minutes, requests_file=None):
                     command = json.loads(line)
                     if command.get("continue"):
                         break
-                    if "click" in command or command.get("views"):
+                    if (
+                        "click" in command
+                        or command.get("views")
+                        or command.get("guides")
+                        or "guide_close" in command
+                    ):
                         review_control(session, command, "t000", report)
                         print(
                             json.dumps({"reviewed": "t000", "stage": str(stage)}),
