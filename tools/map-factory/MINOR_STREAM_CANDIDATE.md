@@ -85,6 +85,11 @@ not run; candidate byte parity covers all five regions separately.
 
 ## Native work remains gated
 
+The [bounded native diagnostic](NATIVE_OPENING_DIAGNOSTIC.md) is now complete
+under a specific PM release. That release did not authorize the five-map
+qualification sweep. The full soak command below still requires a future
+explicit release; none of the candidate defaults is newly qualified.
+
 Do not launch Steam or CS1 until PL-933 isolation is independently accepted and
 the PL-932 PM explicitly releases the game work. Use the accepted silent harness
 revision and the one harness queue slot, not an arbitrary checkout's launcher.

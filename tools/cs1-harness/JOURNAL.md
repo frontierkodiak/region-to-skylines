@@ -2113,3 +2113,52 @@ mixer, vendor wrapper or physical display setting changed. No tone or prompt
 bypass was used. The PM accepts this implementation for bounded Blade game
 work; PL-912 still requires its own visible diagnostics and fresh native
 qualification. This entry is documentation-only after the reviewed head.
+
+## 2026-11-13 · PL-912 bounded opening diagnostic · Blade
+
+Integrated accepted silence PR #40 (`e5b21f2`) into PL-912. Added read-only native
+camera projection and screenshot-pixel terrain/water hits to `world_observe`.
+Installed-game build, doctor, 112 unit tests, harness lint and format passed.
+The native DLL was `b8ffb378a57c0e5303b5207f28601eeef0b8b9d6e3ae10b0caa0242f120221f6`.
+
+Three completed slot-owned cases used the 2080 Ti at `05:00.0`, private Xvfb
+`:57`: Asheville current at 5.053056 game minutes, Rio current/40 m at
+5.013889, and one terrain-only 24 m width contrast at 5.082222. Zero/five-minute
+opening, actual Areas views, grids, depth/velocity and native screen hits were
+retained. All bindings round-trip within 0.024 pixel; screenshot/readback camera
+poses match. The source 24 m package copies all simulation bytes after the
+terrain arrays verbatim, including WaterSimulation, networks and resources.
+It raises 29,538 terrain cells and lowers none.
+
+Asheville's opening western cut is grassy; its French Broad centre is 2.64 m
+deep at the endpoint. Rio's initial brown centre is wet, but its startup
+appearance remains poor. The 24 m arm is rejected: the elbow and diagonal
+centres dry at five minutes while the 40 m baseline remains wet. Its raised
+floor buries at least one unchanged source target. This is not 60-minute
+qualification and does not promote a new width/default or erase prior failures.
+
+Package-creation-to-cleanup receipt spans were about 330 s (Asheville), 476 s
+(Rio baseline, including the interactive measurement hold), and 332 s (24 m).
+Sampled peak total VRAM was 10,821 MiB including resident workloads. Menu game
+shares were 1,620/1,574/1,620 MiB; per-game VRAM peaks were not sampled.
+Sampled peak GPU power was 132.40 W and temperature 60 C. The 150 W limit was
+unchanged. These are operational samples, not performance comparisons.
+
+Whole-tree audio checks passed before city work and throughout the sessions,
+including Steam, late webhelpers and Cities namespace socket identities and
+physical audio descriptors. The first independent snapshot covered 44
+processes with no violations. No host mixer/service, permissions, physical
+display, :0, power setting, tone or play-here action changed.
+
+Three preliminary attempts stopped on driver bugs (Flatpak map alias, clock
+field, and an overly strict 0.02-pixel assertion). Each cleaned up. The driver
+now uses the game-listed alias, reads fixed delta from native status, and
+retains raw hits with per-point errors instead of losing the sample set.
+All six attempts ended with no game, Steam instance or active unit. Some games
+required the existing exact-owned-PID SIGTERM fallback after the quit grace
+period. Independent final inspection also found no marked audio client,
+private display/bus socket, session state/environment or audio directory.
+The slot is free. Evidence: `~/experiments/PL-912-native-diagnostic` on Blade;
+compact native figures, original view archives and raw readbacks are delivered
+on PL-912. The three-region remainder and all five 60-minute receipts remain
+future work under PM authority.

@@ -1,5 +1,9 @@
 # Rio opening channel diagnosis
 
+This is the historical CPU analysis. The
+[bounded native follow-up](NATIVE_OPENING_DIAGNOSTIC.md) now supplies the real
+45-degree projection and terrain hits, and rejects the 24 m width-only arm.
+
 This is a CPU-only analysis of the accepted PL-926 archive, not a new native
 run or qualification of PR #41. The source match is Rio Maracanã's short
 surface leg near `x=-1504 to -1360 m, z=3456 to 3584 m` and the adjacent leg
