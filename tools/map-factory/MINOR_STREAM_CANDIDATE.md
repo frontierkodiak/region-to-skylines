@@ -18,6 +18,10 @@ Rio's opening neighborhood does not change. Its nearby canals are source
 `rivers`, not the rejected `streams` this rule handles. This candidate therefore
 does **not** establish a fix for Rio's opening scar. Diagnose that remaining
 river-class channel rather than calling the stream-only rule a complete fix.
+The [Rio opening diagnosis](RIO_OPENING_DIAGNOSIS.md) records the continuation:
+two sampled source-line sections are already wet in the accepted native run,
+and polygon absence cannot safely classify physical channel size. No further
+production rule was selected without the matched native diagnostic.
 
 ## Candidate bytes
 
