@@ -59,6 +59,9 @@ def review_control(session, command, prefix, report):
             raise ValueError("refusing review click outside an unblocked city")
         with GameWindow.from_session(session) as window:
             window.click(*command["click"])
+            # Let Unity consume mouse-up while the pointer is still over the
+            # observed control, before parking it away from the terrain.
+            time.sleep(0.5)
         report.setdefault("review_clicks", []).append({"phase": prefix, **command})
         session.park_pointer()
     if command.get("views"):
