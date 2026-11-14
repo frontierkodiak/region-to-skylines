@@ -1,6 +1,6 @@
 # Held-DEM local-stage experiment
 
-Experimental, not the default and not native qualification. The first generic
+**Rejected after the native short run.** Not the default or native qualification. The first generic
 omission proposal remains rejected at `76baf94`; its reviewed quarantine is
 `3db3a0f` (PR #42). This experiment tests Opus's PL-973 recommendation to retain
 waterways while correcting the datum from which their floors are excavated.
@@ -39,12 +39,51 @@ unsupported that the original planning field supported. Another 310 required
 points were already outside the original estimate, despite the prior native
 run passing. Neither group is removed, exempted or called a native failure.
 The 59 newly unsupported positions block the full five-map sweep.
+Freezing the original routes did not remove this loss, so route movement alone
+does not explain it. Full source-branch coverage and the new stage/floor field
+still need diagnosis; the planner's warning is not an observed native failure.
 
-Only a bounded Rio zero/five-minute diagnostic is being prepared. It retains
-all 4,256 frozen native observations, including 1,556 required points, and the
-actual untouched opening/Areas cameras. No full soak or other map is authorized
-by passing that short diagnostic alone. No acceptance contract, historical
-fixture or old qualification has been rewritten for this experiment.
+The bounded Rio diagnostic ran **5.087222 game minutes** at source `a4b9653`,
+package `0c08958566c656f21f575211e4a965c6d03e6cfd96b68cb8d9ed1e3c1360075b`.
+All **4,256** frozen observations were retained. Required wet-or-within-64m
+coverage was **1,556/1,556** at zero and **1,535/1,556 (98.65%)** at five minutes,
+above the unchanged 95% gate. This is only two samples, not wet-throughout or
+60-minute qualification. The matched baseline had **1,545/1,556** at five;
+there are 10 shared, 11 new and 1 old-only dry positions.
+
+**The player-visible requirement fails.** The actual opening still shows a
+broad sandy channel, with only part of its width visibly wet. Areas retains
+large dry-looking cuts. The opening control at `(-1200,3632)` rose from
+86.953125 to **90.3125 m**, but native five-minute water is only **0.84375 m**
+deep there. A bounded raised floor and one-metre nominal regulator depth did
+not make the channel read as a wet stream. No full soak or other native map
+was launched.
+
+Every source control (337) matches the package; initial grids match exactly;
+final terrain is unchanged. The camera position, size, angles and render basis
+match the frozen baseline in opening and Areas at both epochs. These are raw
+native captures, not a wetness inference. Cleanup is empty and the slot is free.
+
+The corrected plan raises 32,883 Rio vertices but also lowers 87 (up to
+1.53125 m versus the prior map); it is not a pointwise floor-raising operation.
+Its additional channel incision is bounded by the existing 3m limit relative
+to its input, but these changes must not be described as "beds only rise".
+The same limitation affects 5 Asheville and 28 Pittsburgh vertices.
+
+The experiment remains quarantined. Production `region.py` is restored exactly
+to the accepted default. Its proposal is archived in
+`fixtures/held-dem-rejected/production-proposal.patch`; replay immutable
+`a4b9653` in a separate worktree. The experimental builders refuse the restored
+writer. No historical fixture, acceptance threshold or qualification changed.
+
+Before another game run, independently review the relationship between the
+fitted stage and the later `bed + 1m` cap, the width of retained native
+interpolation support, and full mapped-branch coverage (Saw Mill Run). Do not
+assume that raising heads further will solve the image, or silently trade away
+freeboard/flooding. The source's water/shore resource calculation also depends
+on water surface and surrounding ground; its contribution to the visible sand
+is not established by this run. It needs source-bound attribution, not a shader
+or mask exemption.
 
 ## Reproduction
 
@@ -58,10 +97,8 @@ preflight for the selected maps. Its default selects all five, so the current
 Pittsburgh result prevents a full-cohort package build. `--only rio` is an
 explicit diagnostic subset, not qualification of the remaining maps.
 
-The experimental writer changes source fingerprints. The two source-contract
-JS tests correctly reject the old default contract while these hooks are
-present; the other six JS tests and 44 writer tests (two opt-in skips) pass.
-Do not update the accepted source hashes merely to make this prototype green.
-It must either earn new qualification and a reviewed contract or be quarantined
-with the default source restored. Charleston's corrected, diagnostic-only
-reference attribution is in `PROFILE_ADMISSION.md`.
+The intermediate experimental writer changes source fingerprints, so two JS
+source-contract tests correctly rejected it; they were not waived or rewritten.
+The final quarantine restores the exact default source and re-runs all eight
+JS tests and 44 writer tests (two opt-in skips). Charleston's corrected,
+diagnostic-only reference attribution is in `PROFILE_ADMISSION.md`.

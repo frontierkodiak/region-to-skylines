@@ -11,7 +11,7 @@ import numpy as np
 
 from minor_stream_candidate import inspect_package, SLUGS
 from paint import paint
-from probe_held_dem_design import q
+from probe_held_dem_design import q, require_experimental_writer
 
 ROOT = Path(__file__).resolve().parent
 
@@ -21,6 +21,7 @@ def sha(path):
 
 
 def package(plans, output, only):
+    require_experimental_writer()
     manifest = json.loads((ROOT / "fixtures/manifest.json").read_text())
     # Fail before writing ANY package when any map lacks its complete preflight.
     for slug in only:

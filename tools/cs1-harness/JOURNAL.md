@@ -2251,3 +2251,29 @@ No 60-minute run completed; no other map was launched. The experiment is
 quarantined and shipping/default source and historical fixtures are restored.
 Actual opening/Areas sheets, native grids, full probe observations and a
 rerunnable startup audit accompany `map-factory/PROFILE_ADMISSION.md` on PL-912.
+
+### 2026-11-14 — PL-912 held-DEM local stages, rejected visually
+
+Blade, private :57, silent process-local audio, queued normal Steam launch;
+2080 Ti 05:00.0, unchanged 150W cap, pre-existing 8004MiB resident load untouched.
+Source `a4b9653`; Rio package `0c08958566c656f21f575211e4a965c6d03e6cfd96b68cb8d9ed1e3c1360075b`.
+One bounded 5.087222-minute game diagnostic, 331.194s sampled wall window.
+Peak total VRAM 10821MiB, peak power 129.17W, peak temperature 58C. Per-game
+peak VRAM was not recorded separately; the 1620MiB menu readback is not a peak.
+This is not a performance benchmark.
+
+All 4256 frozen observations were retained. Required wet-or-near coverage:
+1556/1556 at zero, 1535/1556 at five (98.65%, above the unchanged 95% gate).
+Both initial grids and all 337 native source controls match the package; final
+terrain is unchanged. Camera position, size, angles and render basis match the
+frozen opening/Areas baseline at both epochs. **The broad sandy opening scar
+remains visible**, and Areas retains dry-looking cuts. No full soak and no
+other native map was launched. The generic five-map CPU check also finds 59
+newly unsupported Saw Mill Run positions in Pittsburgh; that is a model warning,
+not a newly qualified native verdict. No points, masks or thresholds changed.
+
+Normal cleanup stopped only its owned game and Steam/session units; receipt
+has empty game, steam_instances and units_active arrays. Final queue is free.
+The experiment is quarantined with the default writer restored exactly. See
+`map-factory/HELD_DEM_ADMISSION.md`; actual raw views and short receipts are on
+PL-912. This does not qualify Rio flooding or repair Charleston's original gate.

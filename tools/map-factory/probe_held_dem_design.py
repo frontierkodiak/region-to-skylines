@@ -8,6 +8,7 @@ Frozen observations are read only after terrain planning, to test that plan.
 import argparse
 import gzip
 import hashlib
+import inspect
 import json
 from pathlib import Path
 import sys
@@ -32,6 +33,13 @@ def q(grid):
 
 def read(path):
     return json.loads(path.read_text())
+
+
+def require_experimental_writer():
+    if "fixed_paths" not in inspect.signature(hydrology).parameters:
+        raise RuntimeError(
+            "Rejected held-DEM experiment: replay a4b9653 in a separate worktree; the default writer is unchanged"
+        )
 
 
 def near_grid(terrain, stage_grid, positions):
@@ -62,6 +70,7 @@ def native_ground_batch(terrain, positions):
 
 
 def probe(slug, reference, output):
+    require_experimental_writer()
     fixture = ROOT / "fixtures" / slug
     geometry, _ = surface_geometry(
         json.loads(
