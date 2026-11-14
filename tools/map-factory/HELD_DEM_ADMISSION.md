@@ -102,3 +102,25 @@ source-contract tests correctly rejected it; they were not waived or rewritten.
 The final quarantine restores the exact default source and re-runs all eight
 JS tests and 44 writer tests (two opt-in skips). Charleston's corrected,
 diagnostic-only reference attribution is in `PROFILE_ADMISSION.md`.
+
+## Independent review disposition (PL-974)
+
+The native-resource code and frame measurements now separate the visible shore
+band from excavation. Sand occurs on uncut ground inside that band; dry cut
+ground outside it often renders as grass. The field is coarse and decays
+slowly, so a five-minute sandy image is not itself proof of a currently dry
+bed. The compiled terrain shader was not read; this is source/measurement
+evidence, not a universal impossibility theorem. See `NATIVE_FINDINGS.md`.
+
+The proposed floor reset narrowed the real water while leaving that band,
+making it worse than the default. It remains closed. Further head increases
+or shore-resource overrides are not authorized by this finding.
+
+Saw Mill Run's losses are explained by a scope mismatch: inherited cuts were
+removed from whole source features/polygons, but re-excavation covered only a
+three-cell routed corridor. Retaining routes does not repair that mismatch.
+
+PL-912 is blocked on the steward's visual interpretation: retain a genuinely
+wet stream with its native sandy shore (recommended, existing gates intact),
+or require a grassy opening and explicitly reconsider the conflicting required
+water cohort. No requirement has been changed by the agent.

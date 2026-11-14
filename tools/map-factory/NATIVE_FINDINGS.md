@@ -717,3 +717,85 @@ inputs. Matched no-emission and no-land-prefill diagnostics isolate causes
 before another source-policy change. Charleston's independent prepared-grid
 comparison still fails (r=.6893 at reference zoom13); it is retained, not
 masked. No new coastal package is claimed accepted and no goldens are updated.
+
+## Rio minor channels: native shore is not an excavation mask (2026-11-14)
+
+PL-974 reviewed quarantine `23c3787` and native experiment `a4b9653` against
+the accepted default. The held-DEM experiment remains rejected: its opening
+water is narrower and less continuous, and it does not remove the sandy band.
+This corrects the earlier premise that visible sand directly measures
+unsupported terrain excavation.
+
+### Native mechanism and evidence
+
+The installed `Assembly-CSharp.dll` remains SHA-256
+`c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1`.
+The retained native decompilation identifies these separate mechanisms:
+
+- `TerrainManager.CountWaterCoverage` derives a **shore** byte from wet cells
+  within 20 m of each resource-cell centre. It uses water depth at least
+  0.125 m and the wet cells' mean capped surface plus 4 m, relative to the
+  surrounding mean ground. These are native resource calculations, not new
+  water-acceptance thresholds.
+- `NaturalResourceManager.UpdateTexture` feeds `_NaturalResources` from the
+  33.75 m resource grid using a weighted 3×3 neighborhood. Its blue channel
+  depends on shore minus a forest contribution. The separate sand resource
+  feeds a different channel and is **zero everywhere** in the tested package.
+- In normal game simulation, each resource cell updates once per 1,024
+  simulation frames; a shore byte falls by at most two per update. The short
+  run spans 18,336 frames, allowing at most 36 byte levels of decline. Thus a
+  five-minute image can retain a starting-water shoreline after water drains.
+  Clearing a fully saturated byte takes roughly 36 game minutes under this
+  update schedule; this is an extrapolation, not a newly run long soak.
+
+The package's initial shore and water-resource bytes exactly match
+`resources.water_cells()` on its actual native initial grids. No game run or
+package build was needed for the independent replay of PL-974's finding.
+
+Projecting those fields into the actual five-minute Areas frames gives this
+diagnostic cross-tabulation. Each arm uses its **own decoded forest field**.
+The pixel-color classification and the 0.70 high-shore split are empirical
+analysis tools, **not acceptance masks or proposed runtime selectors**.
+
+| Dry, classified vertices | Candidate | Default |
+| --- | ---: | ---: |
+| High shore, uncut terrain | 85% sand / 1,576 vertices | 80% / 155 |
+| High shore, cut at least 0.5 m | 95% sand / 1,052 | 92% / 2,129 |
+| Low shore, cut at least 0.5 m | 0% sand / 324 | 0% / 1,596 |
+
+Sand therefore appears on ground that was never cut; conversely, much dry cut
+ground outside the shore field renders as grass. The roughly 100 m band seen
+at this location follows the coarse native shore field better than the cut
+edge. Narrowing or raising an excavation cannot be assumed to remove it.
+The shader itself is compiled and was **not** read. The five-minute shore
+field is an endpoint/update-rate estimate, not a native texture readback.
+These observations do not prove an impossibility theorem for every terrain
+or theme, or qualify the behavior of untested maps.
+
+### Consequence for the next unit
+
+The acceptance interpretation needs the steward: **does a genuinely wet stream
+with CS1's native sandy shore count as kept wet?** Recommendation: yes, judge
+visible water continuity and unsupported dry excavation separately from that
+native material. Keep the default over the rejected held-DEM arm. Only then
+qualify a generic rule that uncarves reaches proven dry in the native short
+run, retaining the complete existing observations and gates.
+
+If the actual opening must instead be grassy with no stream, removing this
+connector conflicts with the unchanged required-water cohort: the previous
+review calculated 94.34% versus the 95% gate. Reclassifying those observations
+or changing native rendering/theme would be a scope decision, not an agent
+implementation detail. No gate or rendering override has been introduced.
+
+### Separate defect: Saw Mill Run's 59 model losses
+
+The inherited cut was removed from whole source features and their associated
+polygons, while the replacement plan excavated only within three terrain cells
+(48 m) of routed paths. Of the 59 newly unsupported mapped positions, 56 lie in
+the river polygon; the removed browser cut averages 6.42 m. They lie outside
+the remodeled corridor. Freezing routes does not fix this **scope mismatch**.
+
+Any future cut-removal arm must preserve inherited cut and supported water
+outside the area it actually re-models, then prove zero newly unsupported
+positions before native testing. This is not a probe exemption. The present
+arm stays closed, so no repair or new qualification is claimed here.
