@@ -31,7 +31,12 @@ def evaluate(inputs, reference, output, harness, only):
     for slug, package, probes in stage_prepared(inputs, output, only):
         prior = read(reference / slug / "probes.json")
         data = read(probes)
-        for key in ["points", "ground_truth", "landmark_expectations", "startup_views"]:
+        # The previous evaluated cohort may include additional fixed diagnostic
+        # observations. Keep those too, without deleting or changing any point
+        # emitted by the frozen geographic/probe staging contract.
+        assert all(point in prior["points"] for point in data["points"]), slug
+        data["points"] = prior["points"]
+        for key in ["ground_truth", "landmark_expectations", "startup_views"]:
             assert data.get(key) == prior.get(key), (slug, key, "observation drift")
         assert (probes.parent / "mapped-water.u8").read_bytes() == (
             reference / slug / "mapped-water.u8"
