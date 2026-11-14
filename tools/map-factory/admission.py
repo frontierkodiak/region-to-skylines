@@ -18,6 +18,8 @@ def feature_id(feature):
 
 
 def connector_status(path, banks, geometry, features, channel, raster, lowering):
+    if not geometry.get("undergroundWaterways"):
+        return None
     ends = Counter()
     selected = []
     for feature in features:

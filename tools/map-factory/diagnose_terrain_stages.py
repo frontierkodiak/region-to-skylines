@@ -39,6 +39,10 @@ def diagnose(slug, prepared, output):
     zz, xx = np.meshgrid(idx * 16 - 8640, idx * 16 - 8640, indexing="ij")
     lon, lat = inverse(xx, zz)
     dem = gt.dem_at(np.asarray(lon), np.asarray(lat))
+    # Diagnostic source-resolution contrast, not a change to the check's zoom.
+    checker_zoom = gt.ZOOM
+    source_zoom = geometry["provenance"]["elevation"]["zoom"]
+    source_dem = gt.dem_at(np.asarray(lon), np.asarray(lat), zoom=source_zoom)
     banks = np.frombuffer(
         gzip.decompress((fixture / "banks.f32.gz").read_bytes()), "<f4"
     ).reshape(1081, 1081)
@@ -61,9 +65,28 @@ def diagnose(slug, prepared, output):
         name: {"all_points_correlation": gt.corr(a, dem), "points": int(a.size)}
         for name, a in sampled.items()
     }
+    ocean = np.flipud(polygons(sq, geometry.get("oceans", [])))[:: gt.STEP, :: gt.STEP]
+    fit = geometry["fit"]
+    reference_contrasts = {}
+    for label, reference in [("checker_zoom", dem), ("capture_zoom", source_dem)]:
+        # fitHeights deliberately substitutes ocean beds and clamps land to 1m.
+        # Correlating those beds directly with a surface DEM changes the object
+        # being measured. Match that domain only as an explanatory contrast.
+        modeled = np.where(
+            ocean, np.minimum(np.maximum(reference, -40), -10), np.maximum(reference, 1)
+        )
+        modeled = (modeled - fit["base"]) * fit["verticalScale"] + 50
+        reference_contrasts[label] = {
+            "zoom": checker_zoom if label == "checker_zoom" else source_zoom,
+            "prepared_vs_raw_surface_dem": gt.corr(sampled["prepared"], reference),
+            "banks_vs_raw_surface_dem": gt.corr(sampled["uncarved_banks"], reference),
+            "banks_vs_same_ocean_model_dem": gt.corr(
+                sampled["uncarved_banks"], modeled
+            ),
+            "prepared_vs_same_ocean_model_dem": gt.corr(sampled["prepared"], modeled),
+        }
     # Compare fitting/carving in the writer's own physical frame as well as the
     # independent check. This separates checker variation from actual edits.
-    fit = geometry["fit"]
     fitted_dem = (dem - fit["base"]) * fit["verticalScale"] + 50
     subsets = {}
     for label, mask in {
@@ -80,7 +103,11 @@ def diagnose(slug, prepared, output):
                 "p95_abs_m": float(np.percentile(np.abs(error), 95)),
                 "max_abs_m": float(np.abs(error).max()),
             }
-    raw = {"dem": dem, "sampled_stages": np.stack(list(sampled.values()))}
+    raw = {
+        "dem": dem,
+        "source_zoom_dem": source_dem,
+        "sampled_stages": np.stack(list(sampled.values())),
+    }
     output.parent.mkdir(parents=True, exist_ok=True)
     np.savez_compressed(output.with_suffix(".npz"), **raw)
     report = {
@@ -91,6 +118,7 @@ def diagnose(slug, prepared, output):
         "grid_step_m": gt.STEP * 16,
         "fit": fit,
         "stages": stats,
+        "reference_contrasts_not_gates": reference_contrasts,
         "subsets_not_acceptance_masks": subsets,
         "source_sha256": {
             str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
