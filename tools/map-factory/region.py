@@ -60,7 +60,18 @@ def sample(grid, positions):
     )
 
 
-def hydrology(ground, banks, geometry, max_lowering=3.0):
+def hydrology(
+    ground,
+    banks,
+    geometry,
+    max_lowering=3.0,
+    *,
+    surveys=None,
+    stages=None,
+    admission_mask=None,
+    paths=None,
+    fixed_paths=None,
+):
     """Bank-referenced monotone profiles, bounded incision and initialized water.
 
     The old running minimum followed anomalously deep bed pixels forever. A
@@ -92,6 +103,9 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
         else np.full_like(ground, np.inf)
     )
     areas = raster(sq, geometry.get("riverAreas", []), polygons=True)
+    mapped_distance = (
+        ndimage.distance_transform_edt(~union) if stages is not None else None
+    )
     underground = raster(sq, geometry.get("undergroundWaterways", []))
     # A visible crossing/body takes precedence over a different underground
     # waterway below it. Otherwise prevent routing/earthworks around a short
@@ -184,7 +198,14 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                 )
                 if smooth_banks[start[1], start[0]] < smooth_banks[end[1], end[0]]:
                     start, end = end, start
-            path = route(channel, start, end, ground=ground, forbidden=forbidden)
+            path_key = (name, kind, component)
+            path = (
+                fixed_paths[path_key].copy()
+                if fixed_paths is not None
+                else route(channel, start, end, ground=ground, forbidden=forbidden)
+            )
+            if paths is not None:
+                paths[path_key] = path.copy()
             y, x = path.T
             if len(path) < minimum:
                 short_reaches.append(
@@ -219,6 +240,16 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             overbank = float((fitted - ceiling).max())
             short_river = kind == "river" and len(path) < 45
             bank_limited = kind == "river" and (overbank > 1 / 64 or short_river)
+            if bank_limited and surveys is not None:
+                surveys.append(
+                    {
+                        "features": [
+                            f
+                            for f in grouped[(name, kind)]
+                            if (raster(sq, [f]) & channel).any()
+                        ]
+                    }
+                )
             unforced_stream = kind == "stream" and overbank > 1 / 64
             if bank_limited:
                 fitted = np.minimum(fitted, ceiling)
@@ -247,6 +278,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             # a bed for startup water that will drain away. Keep the path and
             # geographic probes, but leave terrain and water to other features.
             corridor = (distance <= 3) & ~forbidden & (not unforced_stream)
+            if bank_limited and admission_mask is not None:
+                admission_mask |= corridor
             ground[corridor] = np.maximum(
                 original[corridor] - max_lowering,
                 np.minimum(ground[corridor], desired_bed[corridor]),
@@ -270,6 +303,20 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                         np.maximum(ground + 1.0, sea if sea is not None else 0),
                     ),
                 )
+            if stages is not None and not unforced_stream:
+                # The initial fill has a 32-cell radius limit; the physical
+                # mapped river body does not. Attribute polygons to the nearest
+                # source line, as in the browser-cut replay. This is a potential
+                # regulator stage field, not an assertion of native wetness.
+                own_body = areas & (
+                    ndimage.distance_transform_edt(~channel) <= mapped_distance
+                )
+                modeled = (
+                    ((distance <= 4) | own_body)
+                    & ~forbidden
+                    & (ground < initial_surface)
+                )
+                stages[modeled] = np.maximum(stages[modeled], initial_surface[modeled])
             surface[wet] = np.maximum(surface[wet], initial_surface[wet])
             key = f"{name} [{kind}] #{component}"
             samples[key] = [
@@ -325,7 +372,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
-            for role, source_i in ([] if unforced_stream else controls):
+            for role, source_i in [] if unforced_stream else controls:
                 if sea is not None and fitted[source_i] <= sea + 0.5:
                     continue
                 if kind == "stream" and major_distance[y[source_i], x[source_i]] <= 96:
@@ -437,6 +484,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             level = max(sea, level)
         values = surface[region]
         values[component] = np.maximum(values[component], level)
+        if stages is not None:
+            stages[region][component] = np.maximum(stages[region][component], level)
         ys, xs = np.nonzero(component)
         deepest = int(np.argmax(level - bed))
         if level > (sea if sea is not None else 0) + 0.5 and level - bed[deepest] > 0.5:
@@ -591,7 +640,7 @@ def crossings(geometry, classes):
     return sorted(result, key=lambda c: (c["class"], c["edge"], c["point"]))
 
 
-def fit_networks(ground, depth, geometry, spec, start):
+def fit_networks(ground, depth, geometry, spec, start, fixed_positions=None):
     landing = np.asarray(start["landing"], dtype=float)
     entries = crossings(geometry, {"motorway", "trunk"})
     if entries:
@@ -711,6 +760,10 @@ def fit_networks(ground, depth, geometry, spec, start):
             if kind == "road_out":
                 xy = xy[::-1]
             max_grade = 0.12
+        if fixed_positions is not None:
+            xy = np.array(
+                [np.asarray(fixed_positions[str(node)])[[0, 2]] for node in ids]
+            )
         arc = np.r_[0, np.cumsum(np.linalg.norm(np.diff(xy, axis=0), axis=1))]
         required = sample(ground + depth, xy) + 12
         # A crest between nodes must clear the deck too. Native lane curves

@@ -77,7 +77,7 @@ not applied source. The builder refuses the restored default writer rather than
 silently regenerating another implementation. Reproduce the experiment in a
 separate worktree at immutable source `76baf94`, not by editing main.
 
-## Charleston: bed modeling and reference resolution, not orientation
+## Charleston: corrected after independent review
 
 The separate diagnostic replays **73,441 identical 64 m sample positions**.
 It does not change the original global check, its threshold or any mask.
@@ -91,20 +91,46 @@ It does not change the original global check, its threshold or any mask.
 | Uncarved banks vs zoom-13 DEM with the same explicit ocean-bed model | **0.938942** |
 | Uncarved banks vs capture's zoom-14 DEM with the same ocean-bed model | **0.998551** |
 | Prepared bed vs raw zoom-14 DEM | **0.750050** |
+| Prepared bed vs zoom-13 DEM with the same ocean-bed model | **0.751659** |
+| Prepared bed vs zoom-14 DEM with the same ocean-bed model | **0.774100** |
 
-Thus tidal-lake excavation is a substantial local error, but restoring it alone
-does not fix the global correlation. The checker compares a deliberately
-modeled underwater bed (including ocean fitting) with a surface DEM, at a
-different resolution from capture. The same-ocean, same-resolution contrast
-strongly supports correct source-frame alignment; it is **not** a replacement
-acceptance score or proof of natural bathymetry. The earlier Charleston extreme
-points and outside-water errors remain recorded in `TERRAIN_LIMITATIONS.md`.
+Opus's PL-973 review correctly identified an overstatement in the original
+attribution. The **0.998551** contrast compares the uncarved input with the
+source from which that input was built. It supports frame alignment, but is
+close to circular; it does not establish prepared-map fidelity. Matching the
+ocean model does not rescue the prepared map, as the two added rows show.
 
-Recommended follow-up: model tidal/coastal beds explicitly instead of using a
-connected lake's minimum DEM height, and separately validate terrestrial
-elevations against a matched-resolution independent reference. Keep the current
-0.9 global failure visible until any replacement measurement contract is
-explicitly reviewed; do not recast the diagnostic contrasts as passes.
+`audit_terrain_reference.py` independently replays the delivered stage arrays.
+Outside source lake, river-area and ocean polygons, **51,614 of 73,441** sample
+positions (70.28%) give these diagnostics, not replacement acceptance gates:
+
+| Land-only contrast | Correlation |
+| --- | ---: |
+| Uncarved banks vs checker's zoom-13 DEM | **0.698642** |
+| Prepared terrain vs checker's zoom-13 DEM | **0.683716** |
+| Uncarved banks vs capture's zoom-14 DEM | **0.948388** |
+| Prepared terrain vs capture's zoom-14 DEM | **0.911422** |
+| Zoom-13 vs zoom-14 DEM at the same positions | **0.756205** |
+
+The fifth percentile of capture-minus-checker elevation on land is **−7.04 m**.
+The primary diagnostic is therefore **reference-product/resolution disagreement
+on land**, not just tidal-bed synthesis. The held source and its frame are
+internally consistent; independent accuracy of either DEM is not established.
+Different underlying elevation products at the two zooms remain an inference,
+not verified provenance. Changing water beds cannot fix that land disagreement.
+
+Carving is a real secondary error. Against the matched fitted capture DEM,
+lake-polygon mean absolute error rises from **1.10 to 13.08 m**, and river-area
+error from **4.28 to 9.29 m**. These matched-reference numbers differ from the
+review's checker-reference errors; neither is an independent bathymetry check.
+
+Recommendation for steward review: use the capture-resolution product for
+terrestrial source-fidelity measurement, retain rotation/mirror checks and the
+independent landmark references, and report underwater-bed modeling separately.
+An explicit tidal/coastal bed model remains warranted. **No acceptance contract
+was changed.** The original **0.6890 against 0.9** failure and extreme-point
+failures in `TERRAIN_LIMITATIONS.md` remain on record. The diagnostic **0.9114**
+is not a newly passing qualification.
 
 ## Reproduction and review evidence
 
