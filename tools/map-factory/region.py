@@ -11,6 +11,7 @@ from scipy import ndimage, optimize, signal
 
 from prepare import pixel, route
 from surface_water import surface_geometry
+from admission import connector_status, feature_id, remove_connector_cuts
 
 SIZE, SPACING, HALF = 1081, 16, 8640
 
@@ -60,7 +61,7 @@ def sample(grid, positions):
     )
 
 
-def hydrology(ground, banks, geometry, max_lowering=3.0):
+def hydrology(ground, banks, geometry, max_lowering=3.0, surveys=None, deferred=None):
     """Bank-referenced monotone profiles, bounded incision and initialized water.
 
     The old running minimum followed anomalously deep bed pixels forever. A
@@ -70,6 +71,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
     replace the impossible global fit without raising the floodplain.
     """
     geometry, visibility = surface_geometry(geometry)
+    deferred = set() if deferred is None else deferred
     sq = geometry["sq"]
     sea = geometry.get("seaLevel")
     surface = np.full_like(ground, sea if sea is not None else 0)
@@ -197,6 +199,22 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     }
                 )
                 continue
+            if surveys is not None:
+                status = connector_status(
+                    path,
+                    banks,
+                    geometry,
+                    grouped[(name, kind)],
+                    channel,
+                    raster,
+                    max_lowering,
+                )
+                if status is not None:
+                    surveys.append(status)
+            omitted_connector = any(
+                feature_id(f) in deferred and (raster(sq, [f]) & channel).any()
+                for f in grouped[(name, kind)]
+            )
             arc = np.r_[0, np.cumsum(np.hypot(np.diff(x), np.diff(y)) * SPACING)]
             wanted = (
                 ndimage.gaussian_filter1d(
@@ -219,7 +237,9 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             overbank = float((fitted - ceiling).max())
             short_river = kind == "river" and len(path) < 45
             bank_limited = kind == "river" and (overbank > 1 / 64 or short_river)
-            unforced_stream = kind == "stream" and overbank > 1 / 64
+            unforced_stream = (
+                kind == "stream" and overbank > 1 / 64
+            ) or omitted_connector
             if bank_limited:
                 fitted = np.minimum(fitted, ceiling)
             if short_river:
@@ -325,7 +345,7 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
             # A missing continuation in OSM is an open hydraulic boundary, not
             # a closed basin. Natural sources regulate both excess and deficit;
             # a downstream control supplies tailwater and drains blocked ends.
-            for role, source_i in ([] if unforced_stream else controls):
+            for role, source_i in [] if unforced_stream else controls:
                 if sea is not None and fitted[source_i] <= sea + 0.5:
                     continue
                 if kind == "stream" and major_distance[y[source_i], x[source_i]] <= 96:
@@ -418,6 +438,8 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
                     uncarved_infeasible_stream=True,
                     rejected_monotone_overbank_m=overbank,
                 )
+            if omitted_connector:
+                summaries[-1]["uncarved_unsupported_connector"] = True
     lake_mask = raster(sq, geometry.get("lakes", []), polygons=True)
     labels, count = ndimage.label(lake_mask)
     for label, region in enumerate(ndimage.find_objects(labels), 1):
@@ -455,7 +477,10 @@ def hydrology(ground, banks, geometry, max_lowering=3.0):
     # native flow must still prove that every visible branch stays wet.
     film_ceiling = np.maximum(banks - 0.25, sea if sea is not None else 0)
     film = np.minimum(ground + 0.25, film_ceiling)
-    film_cells = major_rivers & ~forbidden & (film > ground)
+    omitted_lines = raster(
+        sq, [f for f in geometry.get("rivers", []) if feature_id(f) in deferred]
+    )
+    film_cells = major_rivers & ~omitted_lines & ~forbidden & (film > ground)
     film_added = film_cells & (film > surface)
     surface[film_cells] = np.maximum(surface[film_cells], film[film_cells])
     depth = np.maximum(0, surface - ground)
@@ -591,7 +616,7 @@ def crossings(geometry, classes):
     return sorted(result, key=lambda c: (c["class"], c["edge"], c["point"]))
 
 
-def fit_networks(ground, depth, geometry, spec, start):
+def fit_networks(ground, depth, geometry, spec, start, fixed_positions=None):
     landing = np.asarray(start["landing"], dtype=float)
     entries = crossings(geometry, {"motorway", "trunk"})
     if entries:
@@ -711,6 +736,10 @@ def fit_networks(ground, depth, geometry, spec, start):
             if kind == "road_out":
                 xy = xy[::-1]
             max_grade = 0.12
+        if fixed_positions is not None:
+            xy = np.array(
+                [np.asarray(fixed_positions[str(node)])[[0, 2]] for node in ids]
+            )
         arc = np.r_[0, np.cumsum(np.linalg.norm(np.diff(xy, axis=0), axis=1))]
         required = sample(ground + depth, xy) + 12
         # A crest between nodes must clear the deck too. Native lane curves
@@ -927,8 +956,26 @@ def prepare(png, geometry, layout, output, banks=None):
     )
     if not np.all(np.isfinite(bank_grid)):
         raise ValueError("Uncarved elevation grid contains non-finite values")
-    depth, summary = hydrology(ground, bank_grid, data)
+    browser_ground = ground.copy()
+    surveys = []
+    depth, summary = hydrology(
+        ground, bank_grid, data, surveys=surveys if banks else None
+    )
     start = start_area(ground, depth, data)
+    fixed_positions = None
+    if surveys:
+        # Plan layout on the unchanged input so a hydrology correction cannot
+        # silently choose another starting tile or horizontal connection route.
+        layout_ground = ground.copy()
+        fixed_positions = fit_networks(layout_ground, depth, data, spec, start)[
+            "node_positions"
+        ]
+        ground, admission = remove_connector_cuts(
+            browser_ground, bank_grid, data, surveys
+        )
+        deferred = {feature_id(f) for s in surveys for f in s["features"]}
+        depth, summary = hydrology(ground, bank_grid, data, deferred=deferred)
+        summary["channel_admission"] = admission
     if not start["has_water"]:
         # A dry region still needs starting water. This is explicitly constructed
         # infrastructure, never mislabeled as an OSM lake or river.
@@ -956,7 +1003,7 @@ def prepare(png, geometry, layout, output, banks=None):
         )
         summary["starter_reservoir"] = True
         start["has_water"] = True
-    network = fit_networks(ground, depth, data, spec, start)
+    network = fit_networks(ground, depth, data, spec, start, fixed_positions)
     limit_source_footprints(ground, depth, bank_grid, data, summary)
     summary.update(network)
     summary.update(
