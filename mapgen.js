@@ -14,7 +14,7 @@ export const worldCoverFile = (tile) => `ESA_WorldCover_10m_2021_v200_${tile}_Ma
 
 /** tools/map-factory files the writer needs: generate.py's imports, the land cover and deposit helpers, and the template. */
 export const FACTORY_FILES = [
-  "generate.py", "region.py", "prepare.py", "surface_water.py", "admission.py", "crp.py", "template.py", "map_metadata.py",
+  "generate.py", "region.py", "prepare.py", "surface_water.py", "crp.py", "template.py", "map_metadata.py",
   "paint.py", "resources.py", "landcover.py", "evidence.py", "web.py",
   "templates/native-corridors.crp", "templates/native-corridors.json",
 ];

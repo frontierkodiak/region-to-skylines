@@ -2230,3 +2230,24 @@ Blade 2080 Ti PCI05:00.0/private :57; unchanged 150 W cap and accepted e5b21f2 n
 | Final / charleston | 022d795 | 60.060 | 949.5 | 10821 | 1574 | 143.87 | 58 | fail: ground_truth |
 
 Total VRAM includes an 8004 MiB resident baseline; menu game share is not a per-game peak. Wall time includes review and cleanup, not a speed benchmark. All ten cleanup receipts empty. Preliminary probe drift/omission, missing independent landmarks and skipped camera gate were repaired without changing acceptance: final cohort freezes all original probe names/coordinates/order/flags, restores independent references and retains legacy camera checks. Rio adds only 11 supplementary observations. All five final runs use clean 022d795, original 690d2b1 default package bytes, 60+ game minutes, native paths, unchanged thresholds/masks and exact initial grid/control audits. Rio no_flooding and Charleston ground_truth still fail. Other mapped dry subsets remain in raw audits. Actual zero/five/end views retained; Asheville improves, Rio does not. Pittsburgh normal quit fallback terminated only its owned game PID after grace. Independent final 11:54:28 UTC proof: no owned processes/state/sockets/active units; queue slot free. See map-factory/PARTIAL_NATIVE_QUALIFICATION.md and fixtures/minor-stream-candidate/native-evaluation.json. PR41 stays draft; PM owns partial acceptance and remaining Rio.
+
+## 2026-11-14 — PL-912 rejected profile-admission experiment
+
+Blade, private `:57`, 2080 Ti `05:00.0`, run-local silent audio; 150 W cap unchanged.
+Candidate `8d0828ea8351`; implementation checkpoint `76baf94`. Three owned attempts:
+
+| Attempt | Observed wall window | Peak total VRAM MiB | Game share observed at menu MiB | Peak W | Peak °C | Result |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Initial short launch | 65 s | 8852 | no game loaded | 77.73 | 32 | Steam cloud-sync prompt; not answered; cleaned up |
+| Short retry | 347 s | 10821 | 1574 | 128.70 | 58 | 5.033056 game min; opening scar absent at zero/five; cleaned up |
+| Qualification startup | 314 s | 10821 | 1592 | 131.08 | 54 | 1301/1556 required probes wet/near at t000 (83.6% vs 95%); operator quit; cleaned up |
+
+Wall windows are first/last GPU CSV observations, not performance measurements.
+The 8004 MiB resident workload was untouched. Per-game peak VRAM was not recorded;
+the menu readings are not peaks. All three cleanup receipts are empty, and the
+queue is free. The final attempt's generic game-crash triage reflects deliberate
+`call quit` after the irreversible startup regression, not a spontaneous crash.
+No 60-minute run completed; no other map was launched. The experiment is
+quarantined and shipping/default source and historical fixtures are restored.
+Actual opening/Areas sheets, native grids, full probe observations and a
+rerunnable startup audit accompany `map-factory/PROFILE_ADMISSION.md` on PL-912.

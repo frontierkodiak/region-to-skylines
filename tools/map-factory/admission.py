@@ -1,6 +1,7 @@
-"""Omit unsupported daylight connectors, including their inherited polygon cut.
+"""Rejected daylight-connector admission experiment; not a default writer rule.
 
-Source geometry remains intact. Admission uses the uncarved DEM and explicit
+Its native startup wetness regressed to 83.6% against 95%. Source geometry
+remains intact. Admission uses the uncarved DEM and explicit
 portal connectivity, never a region name, observation or acceptance mask.
 """
 

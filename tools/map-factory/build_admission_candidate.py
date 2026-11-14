@@ -14,6 +14,7 @@ import numpy as np
 
 from generate import generate, ROOT
 from minor_stream_candidate import SLUGS, inspect_package
+import region
 
 
 def sha(raw):
@@ -21,6 +22,10 @@ def sha(raw):
 
 
 def build(output):
+    if not hasattr(region, "remove_connector_cuts"):
+        raise RuntimeError(
+            "Rejected admission experiment: replay clean commit 76baf94; the default writer is unchanged"
+        )
     historical = json.loads((ROOT / "fixtures/manifest.json").read_text())
     report = {
         "writer_sha256": sha((ROOT / "region.py").read_bytes()),
