@@ -774,6 +774,12 @@ or theme, or qualify the behavior of untested maps.
 
 ### Consequence for the next unit
 
+**Resolved by the lead November 15:** a genuinely wet stream may retain native
+sandy shore. Every existing gate stays intact; only native-proven dry reaches
+are candidates for uncarving. See `NATIVE_ADMISSION.md` for the unqualified
+next unit and reserved-slot execution order. The following recommendation was
+the question answered by that decision, not a continuing blocker.
+
 The acceptance interpretation needs the steward: **does a genuinely wet stream
 with CS1's native sandy shore count as kept wet?** Recommendation: yes, judge
 visible water continuity and unsupported dry excavation separately from that

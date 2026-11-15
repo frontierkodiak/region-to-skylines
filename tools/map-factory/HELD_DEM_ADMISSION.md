@@ -120,7 +120,7 @@ Saw Mill Run's losses are explained by a scope mismatch: inherited cuts were
 removed from whole source features/polygons, but re-excavation covered only a
 three-cell routed corridor. Retaining routes does not repair that mismatch.
 
-PL-912 is blocked on the steward's visual interpretation: retain a genuinely
-wet stream with its native sandy shore (recommended, existing gates intact),
-or require a grassy opening and explicitly reconsider the conflicting required
-water cohort. No requirement has been changed by the agent.
+The lead resolved the visual interpretation November 15: a genuinely wet stream
+may retain native sandy shore, with every existing gate intact. The held-DEM
+arm stays rejected. `NATIVE_ADMISSION.md` describes the next source-bound dry
+reach unit; no fresh native success or acceptance is implied by that decision.
