@@ -6,6 +6,10 @@ tile, then joined by endpoints. Two-way pieces become two right-hand one-way
 carriageways. Ways are clipped to the 17.28 km square (outside nodes sit exactly
 on the edge), resampled to 60-110 m segments with one shared tangent per middle
 node, given a grade-limited profile and graded into the terrain. Pure numpy/scipy.
+
+With `rail=True`, main-line rail (no service tag) is added as a separate two-way
+network: parallel tracks collapse to one centreline, short dead-end spurs drop,
+and it is held to 3.5 % with 20 degree turns per segment.
 """
 
 import json
@@ -19,8 +23,12 @@ from prepare import pixel
 
 HALF, SIZE, SPACING = 8640.0, 1081, 16.0
 OFFSET = {"highway": 12.0, "ramp": 6.0}
-GRADE = {"highway": 0.06, "ramp": 0.08}
-TURN = {"highway": 30.0, "ramp": 45.0}
+GRADE = {"highway": 0.06, "ramp": 0.08, "rail": 0.035}
+TURN = {"highway": 30.0, "ramp": 45.0, "rail": 20.0}
+SMOOTH = {"highway": 4, "ramp": 3, "rail": 6}  # Gaussian sigma in 5 m samples
+# Earthwork corridor: full grading within the first distance, blended to the second.
+CORRIDOR = {"road": (16.0, 40.0), "rail": (12.0, 30.0)}
+TRACKS_MERGE, SPUR_MIN = 25.0, 800.0
 CUT_FILL, CLEARANCE, LAYER_CLEARANCE = 15.0, 8.0, 7.0
 
 
@@ -108,14 +116,26 @@ def source_tile(merc, buffer=64 / 4096):
     return best
 
 
-def fragments(geometry):
+def is_main_rail(road):
+    """Main-line heavy rail: no service tag (yard, siding, spur, crossover)."""
+    return (
+        road.get("class") == "rail"
+        and road.get("subclass", "rail") == "rail"
+        and not road.get("service")
+    )
+
+
+def fragments(geometry, rail=False):
     """Tile-clipped fragments in game metres with per-segment attributes."""
     sq, z = geometry["sq"], geometry.get("zoom", 14)
     n = 2**z
     result, tunnels = [], 0
     for road in geometry.get("roads", []):
         cls = road.get("class")
-        if cls not in ("motorway", "trunk", "motorway_link", "trunk_link"):
+        if rail:
+            if not is_main_rail(road):
+                continue
+        elif cls not in ("motorway", "trunk", "motorway_link", "trunk_link"):
             continue
         ll = np.asarray(road["pts"], float)
         if len(ll) < 2:
@@ -141,16 +161,18 @@ def fragments(geometry):
             xz = xz[keep]
             if len(xz) < 2:
                 continue
-            if road.get("oneway") == -1:
+            if not rail and road.get("oneway") == -1:
                 xz = xz[::-1]
             m = len(xz) - 1
             result.append(
                 {
                     "pts": xz,
-                    "kind": "ramp"
+                    "kind": "rail"
+                    if rail
+                    else "ramp"
                     if road.get("ramp") == 1 or cls.endswith("_link")
                     else "highway",
-                    "oneway": road.get("oneway") in (1, -1),
+                    "oneway": not rail and road.get("oneway") in (1, -1),
                     "bridge": np.full(m, road.get("brunnel") == "bridge"),
                     "tunnel": np.full(m, road.get("brunnel") == "tunnel"),
                     "layer": np.full(m, int(road.get("layer") or 0)),
@@ -446,6 +468,113 @@ def components(ways):
     return list(groups.values())
 
 
+def collapse_tracks(ways, width=TRACKS_MERGE):
+    """Parallel OSM tracks within `width` become one centreline (CS1 Train Track
+    is double track). Longest ways win; a branch keeps its own course and
+    attaches to the kept track where it first comes within `width`."""
+    kept, out = [], []
+    for w in sorted(ways, key=lambda w: -arc(w["pts"])[-1]):
+        s = arc(w["pts"])
+        t = np.linspace(0, s[-1], max(2, int(np.ceil(s[-1] / 5)) + 1))
+        dense = np.column_stack([np.interp(t, s, w["pts"][:, k]) for k in range(2)])
+        seg = np.clip(np.searchsorted(s, t, side="right") - 1, 0, len(s) - 2)
+        if kept:
+            tree = cKDTree(np.vstack(kept))
+            near = tree.query(dense)[0] < width
+        else:
+            tree, near = None, np.zeros(len(t), bool)
+        edges = np.flatnonzero(np.diff(np.r_[0, (~near).astype(int), 0]))
+        for i0, i1 in zip(edges[::2], edges[1::2] - 1):
+            if t[i1] - t[i0] < 50:
+                continue
+            pts, idx = [dense[i0 : i1 + 1]], seg[i0:i1]
+            if i0 > 0:
+                pts.insert(0, tree.data[tree.query(dense[i0])[1]][None])
+                idx = np.r_[seg[i0 - 1], idx]
+            if i1 < len(t) - 1:
+                pts.append(tree.data[tree.query(dense[i1])[1]][None])
+                idx = np.r_[idx, seg[i1]]
+            pts = np.vstack(pts)
+            piece = dict(w, pts=pts)
+            for k in ("bridge", "tunnel", "layer"):
+                piece[k] = w[k][idx[: len(pts) - 1]]
+            out.append(piece)
+            kept.append(dense[i0 : i1 + 1])
+    return out
+
+
+def prune_spurs(ways, minimum=SPUR_MIN):
+    """Drop dead-end rail ways shorter than `minimum` (yards, sidings, stubs)
+    unless their dead end leaves the square."""
+    while True:
+        degree = {}
+        for w in ways:
+            for c in w["ends"]:
+                degree[c] = degree.get(c, 0) + 1
+
+        def spur(w):
+            if arc(w["pts"])[-1] >= minimum:
+                return False
+            return any(
+                degree[c] == 1 and np.abs(w["pts"][0 if i == 0 else -1]).max() < HALF
+                for i, c in enumerate(w["ends"])
+            )
+
+        keep = [w for w in ways if not spur(w)]
+        if len(keep) == len(ways):
+            return keep
+        ways = keep
+
+
+def rail_portals(ways, near=150.0, trim=200.0):
+    """Keep one rail outside connection per 150 m of edge: a shorter line
+    reaching the edge beside a kept portal stops `trim` metres short of it."""
+    portals, out = [], []
+    for w in sorted(ways, key=lambda w: -arc(w["pts"])[-1]):
+        for i in (0, 1):
+            if not w["outside"][i]:
+                continue
+            end = w["pts"][0 if i == 0 else -1]
+            if not portals or min(np.linalg.norm(p - end) for p in portals) > near:
+                portals.append(end)
+                continue
+            s = arc(w["pts"])
+            if s[-1] <= trim + 50:
+                w = None
+                break
+            cut = trim if i == 0 else s[-1] - trim
+            keep = (s > cut) if i == 0 else (s < cut)
+            point = np.array([np.interp(cut, s, w["pts"][:, k]) for k in range(2)])
+            pts = (
+                np.vstack([point, w["pts"][keep]])
+                if i == 0
+                else np.vstack([w["pts"][keep], point])
+            )
+            idx = _project(w["pts"], pts)
+            w = dict(
+                w, pts=pts, **{k: w[k][idx] for k in ("bridge", "tunnel", "layer")}
+            )
+            w["outside"] = [None if j == i else w["outside"][j] for j in (0, 1)]
+            w["ends"] = [
+                -(10**12 + 2 * (id(w) % 10**9) + j) if j == i else w["ends"][j]
+                for j in (0, 1)
+            ]
+        if w is not None:
+            out.append(w)
+    return out
+
+
+def rail_ways(frags):
+    ways, positions = chain(join_touching(frags))
+    ways = collapse_tracks(contract(ways, positions))
+    if not ways:
+        return [], {}
+    ways, positions = chain(join_touching(ways))
+    ways = prune_spurs(contract(ways, positions))
+    ways, positions = chain(ways)
+    return contract(ways, positions), positions
+
+
 def resample(w):
     """Dense smoothed 5 m curve, then node arcs with the turn limit."""
     s = arc(w["pts"])
@@ -455,7 +584,7 @@ def resample(w):
     if len(t) > 8:
         raw, f = dense.copy(), t / t[-1]
         dense = ndimage.gaussian_filter1d(
-            raw, 4 if w["kind"] == "highway" else 3, axis=0, mode="nearest"
+            raw, SMOOTH[w["kind"]], axis=0, mode="nearest"
         )
         dense += (raw[0] - dense[0]) * (1 - f)[:, None] + (raw[-1] - dense[-1]) * f[
             :, None
@@ -477,14 +606,77 @@ def resample(w):
     return dense, tangent, cut, seg, max(turns)
 
 
-def build_highway_graph(geometry, ground, depth):
-    original = ground.copy()
+def build_highway_graph(geometry, ground, depth, rail=False):
+    """Motorways and trunks; with `rail`, also main-line rail as kind "rail".
+
+    Rail is a separate two-way network: it shares no nodes with roads, and its
+    earthworks are laid after the roads' and leave road corridors alone.
+    """
     frags, tunnels = fragments(geometry)
+    graph = _network(frags, tunnels, ground, depth)
+    if not rail:
+        return graph
+    road_cells = np.zeros((SIZE, SIZE), bool)
+    for e in graph["edges"]:
+        pa, pb = graph["nodes"][e["a"]]["xyz"], graph["nodes"][e["b"]]["xyz"]
+        f = np.linspace(0, 1, max(2, int(e["length"] / 8) + 1))[:, None]
+        xz = np.array([pa[0], pa[2]]) * (1 - f) + np.array([pb[0], pb[2]]) * f
+        rows = np.clip(np.round(540 - xz[:, 1] / SPACING).astype(int), 0, SIZE - 1)
+        cols = np.clip(np.round(540 + xz[:, 0] / SPACING).astype(int), 0, SIZE - 1)
+        road_cells[rows, cols] = True
+    avoid = ndimage.binary_dilation(road_cells, iterations=2)
+    rail_frags, rail_tunnels = fragments(geometry, rail=True)
+    tracks = _network(rail_frags, rail_tunnels, ground, depth, rail=True, avoid=avoid)
+    offset = len(graph["nodes"])
+    graph["nodes"] = graph["nodes"] + tracks["nodes"]
+    graph["edges"] = graph["edges"] + [
+        dict(e, a=e["a"] + offset, b=e["b"] + offset) for e in tracks["edges"]
+    ]
+    tracks["report"]["road_crossings"] = crossings(graph, offset)
+    graph["report"]["rail"] = tracks["report"]
+    return graph
+
+
+def crossings(graph, first_rail_node):
+    """Rail chords crossing road chords, and whether either side is a structure."""
+    nodes, edges = graph["nodes"], graph["edges"]
+    road = [e for e in edges if e["a"] < first_rail_node]
+    rail = [e for e in edges if e["a"] >= first_rail_node]
+    if not road or not rail:
+        return {"count": 0, "separated": 0, "at_grade": 0}
+
+    def chords(es):
+        a = np.array([[nodes[e["a"]]["xyz"][0], nodes[e["a"]]["xyz"][2]] for e in es])
+        b = np.array([[nodes[e["b"]]["xyz"][0], nodes[e["b"]]["xyz"][2]] for e in es])
+        return a, b - a, np.array([e["structure"] != "ground" for e in es])
+
+    pa, da, sa = chords(road)
+    count = separated = 0
+    for e in rail:
+        q, dq, sq = chords([e])
+        cross = da[:, 0] * dq[0, 1] - da[:, 1] * dq[0, 0]
+        ok = np.abs(cross) > 1e-9
+        rel = q[0] - pa
+        with np.errstate(divide="ignore", invalid="ignore"):
+            t = (rel[:, 0] * dq[0, 1] - rel[:, 1] * dq[0, 0]) / cross
+            u = (rel[:, 0] * da[:, 1] - rel[:, 1] * da[:, 0]) / cross
+        hit = ok & (t >= 0) & (t <= 1) & (u >= 0) & (u <= 1)
+        count += int(hit.sum())
+        separated += int((hit & (sa | sq[0])).sum())
+    return {"count": count, "separated": separated, "at_grade": count - separated}
+
+
+def _network(frags, tunnels, ground, depth, rail=False, avoid=None):
+    original = ground.copy()
     report = {"osm_fragments": len(frags), "osm_tunnel_fragments": int(tunnels)}
     if not frags:
         return {"nodes": [], "edges": [], "report": dict(report, edges=0)}
-    ways, positions = chain(join_touching(frags))
-    ways = clip_square(carriageways(contract(ways, positions)), positions)
+    if rail:
+        ways, positions = rail_ways(frags)
+        ways = rail_portals(clip_square(ways, positions))
+    else:
+        ways, positions = chain(join_touching(frags))
+        ways = clip_square(carriageways(contract(ways, positions)), positions)
     kept, dropped = [], 0
     for group in components(ways):
         if (
@@ -551,6 +743,19 @@ def build_highway_graph(geometry, ground, depth):
         for key, end in (("ta", "a"), ("tb", "b")):
             if "shared" in nodes[e[end]]:
                 e[key] = nodes[e[end]]["shared"]
+    if rail:
+        # Two-way track: a pass-through node's two outward directions are opposite.
+        for n in nodes:
+            if len(n["tangents"]) == 2:
+                (t1, e1), (t2, e2) = n["tangents"]
+                d = (t1 if e1 == 0 else -t1) - (t2 if e2 == 0 else -t2)
+                n["outward"] = d / max(np.linalg.norm(d), 1e-9)
+        for e in edges:
+            for key, end, sign in (("ta", "a", 1), ("tb", "b", -1)):
+                d = nodes[e[end]].get("outward")
+                if d is not None:
+                    out = sign * e[key]
+                    e[key] = sign * (d if np.dot(out, d) > 0 else -d)
     # Vertical profile: smoothed terrain, water clearance, OSM layers, grade-limited.
     surface = original + np.maximum(depth, 0)
     req = np.full(len(nodes), -1e9)
@@ -629,9 +834,12 @@ def build_highway_graph(geometry, ground, depth):
         is_bridge[rows, cols] |= e["structure"] != "ground"
     distance, (ri, ci) = ndimage.distance_transform_edt(~mask, return_indices=True)
     distance *= SPACING
-    t = np.clip((40 - distance) / 24, 0, 1)
-    weight = np.where(distance <= 16, 1.0, t * t * (3 - 2 * t))
+    full, reach = CORRIDOR["rail" if rail else "road"]
+    t = np.clip((reach - distance) / (reach - full), 0, 1)
+    weight = np.where(distance <= full, 1.0, t * t * (3 - 2 * t))
     weight[is_bridge[ri, ci]] = 0
+    if avoid is not None:
+        weight[avoid] = 0
     weight[ndimage.binary_dilation(depth > 0.1, iterations=6)] = 0
     target = np.clip(value[ri, ci], original - CUT_FILL, original + CUT_FILL)
     ground += (target - ground) * weight
@@ -643,7 +851,8 @@ def build_highway_graph(geometry, ground, depth):
         }
         for i, n in enumerate(nodes)
     ]
-    out_edges, grades, km = [], [], {"highway": 0.0, "ramp": 0.0}
+    out_edges, grades = [], []
+    km = {"rail": 0.0} if rail else {"highway": 0.0, "ramp": 0.0}
     for e in edges:
         length = float(e["s"][-1])
         grades.append(abs(h[e["b"]] - h[e["a"]]) / max(length, 1e-9))
@@ -686,7 +895,11 @@ def build_highway_graph(geometry, ground, depth):
             "outside": [
                 {
                     "edge": n["outside"],
-                    "direction": "in" if any(e["a"] == i for e in edges) else "out",
+                    "direction": "both"
+                    if rail
+                    else "in"
+                    if any(e["a"] == i for e in edges)
+                    else "out",
                     "kind": next(e["kind"] for e in edges if i in (e["a"], e["b"])),
                     "at": [round(n["xz"][0]), round(n["xz"][1])],
                 }
@@ -747,6 +960,9 @@ def plot(graph, ground, path):
         ("ramp", "bridge"): (90, 170, 255),
         ("highway", "tunnel"): (150, 0, 180),
         ("ramp", "tunnel"): (200, 90, 220),
+        ("rail", "ground"): (20, 20, 20),
+        ("rail", "bridge"): (0, 200, 200),
+        ("rail", "tunnel"): (120, 120, 120),
     }
     for e in graph["edges"]:
         draw.line(

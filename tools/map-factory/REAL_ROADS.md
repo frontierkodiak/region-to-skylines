@@ -1,0 +1,85 @@
+# Real roads, rail, flight and ship paths (PL-982)
+
+`real_roads.py` replaces the template's corridor highway with the square's
+real OpenStreetMap motorways, trunks and their ramps, adds a flight path on the
+region's runway axis, and a ship lane on coastal squares. It runs as its own
+stage after the standard preparation and map write, so the shipping writer and
+`fixtures/current.json` are unchanged; the stage is opt-in until it is
+qualified in game.
+
+```sh
+uv run python real_roads.py PNG GEOMETRY OUTPUT --banks BANKS \
+  --landcover landcover.u8.gz --evidence evidence.json
+uv run python soak.py STAGE --prepared OUTPUT_PARENT --only REGION   # probes, no game
+```
+
+## What a map gets
+
+- **Highways** (`osm_highways.py`): OSM `motorway` and `trunk` ways from the
+  same OpenMapTiles z14 tiles the website already reads, joined across tiles,
+  split into native one-way carriageways (`Highway`) and ramps (`HighwayRamp`,
+  from `ramp=1`), resampled to 60–110 m segments with one shared tangent per
+  through node. Profiles follow 150 m-smoothed terrain at no more than 6 %
+  (ramps 8 %); the terrain is cut or filled within 40 m of the road, capped at
+  ±15 m and never in mapped water. A segment over water, needing more than 20 m
+  of fill, or on an OSM bridge becomes `Highway Bridge` / `HighwayRampElevated`
+  with the template's native pillar. OSM tunnels currently cross the ridge at
+  ground level. Each carriageway that leaves the square ends in an outside
+  connection exactly on the edge. Ramps to local roads we don't import stay as
+  stubs: they're where the player joins the highway.
+- **Start tile**: the standard choice is kept when it holds both an exit-ramp
+  stub and an on-ramp stub; otherwise the most central buildable tile that does.
+- **Flight path** (`transport_paths.air_path`): an edge-to-edge two-way
+  `Airplane Path` on the extended centreline of the region's main runway (OSM
+  `aeroway=runway`), cruising 300 m above the highest ground under it. Planes
+  arrive on the real approach track; the player's airport joins it.
+- **Ship lane** (`transport_paths.ship_path`): a two-way `Ship Path` through
+  edge-connected water at least 6 m deep, from the most open edge, past the
+  start tile's shore, to a second edge.
+- **New Game panel**: incoming/outgoing road, plane and ship counts match the
+  written connections.
+
+## How the map is written
+
+`netcodec.py` decodes and re-encodes `NetManager.Data` and
+`BuildingManager.Data` exactly as CS1 1.21.1-f9 serializes them
+(`Assembly-CSharp` SHA-256 `c7f0e723…11a1`, decompiled `acs.cs`
+`NetManager.Data.Serialize` and `BuildingManager.Data.Serialize`). Re-encoding
+an unchanged section decodes to the same records (`test_real_roads.py`); the
+run-length choices differ from the game's, which the format allows.
+
+Facts the writer relies on, each checked in the game source:
+
+- **Lanes are optional on disk.** `NetManager.Data.AfterDeserialize` calls
+  `NetSegment.UpdateLanes(loading: true)` for every segment, and
+  `NetAI.UpdateLanes` allocates a missing lane chain (`CreateLanes`) before
+  computing its curves. New segments are written with `m_lanes = 0`.
+- **Prefabs bind by name.** Each `PrefabCollection<T>` block is an index array
+  followed by the collection's name table; names absent from the template are
+  appended. The vanilla names come from a workshop map with pre-built networks
+  (7th Island Enhanced): `Highway`, `HighwayRamp`, `Highway Bridge`,
+  `HighwayRampElevated`, `Train Track`, `Train Track Elevated`,
+  `Airplane Path`, `Ship Path`, and the outside-node prefabs
+  `Train Connection Track`, `Airplane Connection Path`, `Ship Connection Path`.
+  A ground highway's outside node is a plain `Highway` node.
+- **Node flags are not recomputed on load.** They are written as
+  `NetNode.CalculateNode` would set them: `End|Moveable` for one segment,
+  `Middle|Moveable` for two opposite directions, `Bend` otherwise, `Junction`
+  for three or more, `Outside` alone at the edge; `OnGround` for ground
+  networks; `OneWayOut` where a one-way segment starts and `OneWayIn` where one
+  ends. The results match 7th Island's highways exactly (`0x1404121` through
+  node, `0x404401` entry, `0x1004401` exit).
+- **Outside connections are buildings.** An outside node's `m_building` is an
+  outside-connection building (`Road Connection`, `Train Connection`,
+  `Airplane Connection`, `Ship Connection`); the game never creates one on
+  load. The writer clones the template's native records, moves them and, for
+  two-way paths, sets `Incoming|Outgoing` (`0xC0`).
+
+## Not done or not verified
+
+- Tunnels (`Highway Tunnel` with `Highway Slope` portals) are not written.
+- Airports for squares outside the five fixtures must be passed as
+  `geometry["airport"]`; the website capture doesn't read runways yet.
+- The website and `cli.mjs` don't run this stage; adopting it means requalifying
+  the shipping contract.
+- In-game results live on PL-982.

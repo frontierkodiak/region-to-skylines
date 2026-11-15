@@ -24,12 +24,13 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy import ndimage
 
 import resources as R
 from crp import patch_metadata, read_package, write_map, write_package
 from network_writer import apply_highways
 from osm_highways import build_highway_graph
-from region import prepare, sample
+from region import prepare
 from surface_water import surface_geometry
 from transport_paths import air_path, merge, ship_path
 
@@ -113,28 +114,69 @@ def choose_start(graph, ground, depth, current):
     return min(options)[1], "moved to the most central tile with exit and on-ramp stubs"
 
 
+def seat(ground, depth, graph, bed=14.0, reach=40.0):
+    """Shape the terrain onto the graded road profiles, in place.
+
+    Within `bed` metres of a ground road or rail the terrain equals the road's
+    height; it blends back to the land by `reach`. The nearest road wins where
+    corridors overlap. Mapped water and a two-cell margin stay untouched, which
+    is where the graph already uses bridges."""
+    nodes, edges = graph["nodes"], graph["edges"]
+    open_ends = {}
+    for e in edges:
+        if e["structure"] != "tunnel":
+            for end in ("a", "b"):
+                open_ends.setdefault(e[end], set()).add(e["kind"])
+    target = np.zeros_like(ground)
+    centre = np.zeros(ground.shape, bool)
+    for e in edges:
+        if e["kind"] not in ("highway", "ramp", "rail") or e["structure"] == "bridge":
+            continue
+        # A tunnel's portal (slope) segment cuts its approach; its interior doesn't.
+        if e["structure"] == "tunnel" and not any(
+            e["kind"] in open_ends.get(e[end], ()) for end in ("a", "b")
+        ):
+            continue
+        a, b = np.asarray(nodes[e["a"]]["xyz"]), np.asarray(nodes[e["b"]]["xyz"])
+        steps = int(np.ceil(np.hypot(*(b - a)[[0, 2]]) / 4)) + 1
+        for t in np.linspace(0, 1, steps):
+            x, y, z = a + (b - a) * t
+            col, row = int(round((x + 8640) / 16)), int(round((8640 - z) / 16))
+            if 0 <= row < GRID and 0 <= col < GRID:
+                target[row, col] = y
+                centre[row, col] = True
+    if not centre.any():
+        return {"cells": 0}
+    distance, (rows, cols) = ndimage.distance_transform_edt(
+        ~centre, return_indices=True
+    )
+    distance *= 16
+    weight = np.clip((reach - distance) / (reach - bed), 0, 1)
+    weight = weight * weight * (3 - 2 * weight)
+    weight[ndimage.binary_dilation(depth > 0.1, iterations=2)] = 0
+    change = (target[rows, cols] - ground) * weight
+    ground += change
+    return {
+        "cells": int((weight > 0).sum()),
+        "max_cut_m": float(max(0.0, -change.min())),
+        "max_fill_m": float(max(0.0, change.max())),
+        "bed_m": bed,
+        "reach_m": reach,
+    }
+
+
 def prepare_roads(output, geometry):
     """Add the road graph to an already prepared region directory."""
     data, _ = surface_geometry(json.loads(Path(geometry).read_text()))
     hydro = json.loads((output / "hydrology.json").read_text())
     ground, depth = _grid(output / "terrain.u16"), _grid(output / "water.u16")
-    graph = build_highway_graph(data, ground, depth)
+    graph = build_highway_graph(data, ground, depth, rail=True)
     start, why = choose_start(graph, ground, depth, hydro["start_tile"])
     air, air_report = air_path(data, ground)
     ship, ship_report = ship_path(data, ground, depth, start, hydro["sea_level_m"])
     merge(graph, air, ship)
     report = {**graph["report"], **air_report, **ship_report}
-    kinds = [set() for _ in graph["nodes"]]
-    structures = [set() for _ in graph["nodes"]]
-    for e in graph["edges"]:
-        for end in ("a", "b"):
-            kinds[e[end]].add(e["kind"])
-            structures[e[end]].add(e["structure"])
-    # Ground road nodes sit on the final graded terrain.
-    for node, kind, structure in zip(graph["nodes"], kinds, structures):
-        if kind & {"highway", "ramp"} and structure != {"bridge"}:
-            x, _, z = node["xyz"]
-            node["xyz"][1] = float(sample(ground, [[x, z]])[0])
+    report["seat"] = seat(ground, depth, graph)
     if start != hydro["start_tile"]:
         hydro["start_tile"] = start
         hydro["start_area"] = {
@@ -196,6 +238,7 @@ def finish(crp, hydro):
     for kind, count in [
         ("PlanePath", report["plane_paths"]),
         ("ShipPath", report["ship_paths"]),
+        ("TrainTracks", report["train_tracks"]),
     ]:
         if count:
             fields["incoming" + kind] = ("System.Int32", count)

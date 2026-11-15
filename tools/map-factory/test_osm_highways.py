@@ -128,6 +128,57 @@ class HighwayGraphTests(unittest.TestCase):
         self.assertLessEqual(np.abs(ground - before).max(), oh.CUT_FILL + 1e-9)
         self.assertTrue(any(e["structure"] == "bridge" for e in graph["edges"]))
 
+    def test_two_way_rail_reaches_two_edges(self):
+        def track(points, **tags):
+            return {
+                "class": "rail",
+                "subclass": "rail",
+                "pts": [lonlat(x, z) for x, z in points],
+                **tags,
+            }
+
+        curve = [(x, 1500 * math.sin(x / 4000)) for x in np.linspace(-9300, 9300, 150)]
+        twin = [(x, z + 12) for x, z in curve]  # a parallel OSM track 12 m away
+        yard = [(500, 60), (700, 300), (900, 400)]
+        rows = np.arange(1081)[:, None] * np.ones(1081)
+        ground = 100 + 0.2 * np.clip(rows - 540, 0, None) ** 1.5
+        roads = [
+            track(curve),
+            track(twin),
+            track(yard, service="yard"),
+            road(line(-9500, 3000, 9500, 3000)),
+        ]
+        geometry = {"sq": SQ, "zoom": 14, "roads": roads}
+        depth = np.zeros((1081, 1081))
+        plain = oh.build_highway_graph(geometry, ground.copy(), depth)
+        self.assertFalse(any(e["kind"] == "rail" for e in plain["edges"]))
+        graph = oh.build_highway_graph(geometry, ground.copy(), depth, rail=True)
+        rail = [e for e in graph["edges"] if e["kind"] == "rail"]
+        ids = {e["a"] for e in rail} | {e["b"] for e in rail}
+        outside = sorted(
+            graph["nodes"][i]["outside"] for i in ids if graph["nodes"][i]["outside"]
+        )
+        self.assertEqual(outside, ["east", "west"])  # twin collapsed, yard dropped
+        for i in ids:
+            n = graph["nodes"][i]
+            if n["outside"]:
+                self.assertAlmostEqual(abs(n["xyz"][0]), oh.HALF, places=3)
+        self.assertFalse(ids & {e["a"] for e in graph["edges"] if e["kind"] != "rail"})
+        outward = {}
+        for e in rail:
+            outward.setdefault(e["a"], []).append(e["start_dir"])
+            outward.setdefault(e["b"], []).append(e["end_dir"])
+            a, b = graph["nodes"][e["a"]]["xyz"], graph["nodes"][e["b"]]["xyz"]
+            self.assertLessEqual(
+                abs(b[1] - a[1]) / e["length"], oh.GRADE["rail"] + 1e-9
+            )
+            self.assertLessEqual(e["length"], 115)
+        middles = [d for d in outward.values() if len(d) == 2]
+        self.assertGreater(len(middles), 100)
+        for d0, d1 in middles:
+            self.assertAlmostEqual(np.dot(d0, d1), -1, places=5)
+        self.assertAlmostEqual(graph["report"]["rail"]["km"]["rail"], 18.6, delta=1.0)
+
 
 if __name__ == "__main__":
     unittest.main()
