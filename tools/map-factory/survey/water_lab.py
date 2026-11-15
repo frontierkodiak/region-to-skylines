@@ -19,7 +19,7 @@ import numpy as np
 
 FACTORY = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(FACTORY))
-from crp import write_map  # noqa: E402
+from crp import read_package, write_map  # noqa: E402
 
 
 def digest(path: Path) -> str:
@@ -172,11 +172,14 @@ def build(out: Path) -> dict:
             target / "hydrology.json",
             package,
         )
+        _, assets = read_package(package.read_bytes())
+        simulation = next(a["payload"] for a in assets if a["kind"] == 52)
         arms.append(
             {
                 "arm": arm,
                 "crp": str(package),
                 "sha256": digest(package),
+                "simulation_sha256": hashlib.sha256(simulation).hexdigest(),
                 "grids": {
                     p.name: digest(p)
                     for p in [target / "terrain.u16", target / "water.u16"]

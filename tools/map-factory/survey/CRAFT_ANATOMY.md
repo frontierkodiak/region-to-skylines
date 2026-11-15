@@ -204,3 +204,25 @@ What stands out:
   decoded.
 - The network classes depend on prefab names; a modded network with an unusual
   name falls in `other`.
+
+## Matched headwater laboratory
+
+`survey/water_lab.py OUT` prepares 48 straight channels per arm (direct source
+and headwater basin), not a production map. Both arms use the same source x/z,
+targets, input/output rates, 0.1% slope and absorbing outlets. Source Y follows
+the changed floor and is not used in the natural-source footprint calculation.
+The basin radius is 80 m and its floor is 2 m deeper than the paired channel.
+Floor counts 1–4 mean 1–4 flat-floor nodes, not a claim of 16–64 m physical
+wet width; exact flat-floor, bank-to-bank and nominal wet widths are recorded.
+
+Native zero/five-minute opening and Areas runs remain pending. Prepared water
+is not persistence evidence. Interpret a future minimum only under this setup;
+confirm the candidate on real terrain before recommending an export default.
+
+A carbon/blade replay with NumPy 2.5.4 and Pillow 13.0.0 produced identical
+terrain, initial water, hydrology, probes and complete serialized simulation
+payloads in both arms. Complete CRPs differed in preview texture payloads and
+the metadata referring to those textures. The rendering cause was not
+diagnosed. The manifest therefore binds both full package and simulation
+SHA256; never transfer qualification between different package hashes.
+This is separate from PL-917's production cross-platform byte work.
