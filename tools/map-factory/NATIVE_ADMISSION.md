@@ -73,6 +73,26 @@ changed package.
 
 ## Execution order
 
+Committed planner snapshot `7786d4f` produced this **CPU-only** preflight. The
+same rule also handles already-uncarved dry stream pieces; piece counts are not
+counts of newly repaired channels. Detailed residuals and package hashes are in
+`fixtures/native-admission-preflight.json`.
+
+| Map | Raised terrain vertices | Startup-water cells cleared | Required points with initial nearby water, CPU replay |
+| --- | ---: | ---: | ---: |
+| Asheville | 14 | 3 | 1,261 / 1,261 |
+| Innsbruck | 0 | 1 | 694 / 694 |
+| Rio | 192 | 37 | 1,556 / 1,556 |
+| Pittsburgh | 1 | 0 | 1,799 / 1,799 |
+| Charleston | 1 | 33 | 2,214 / 2,214 |
+
+No existing floor is lowered. All encoded source controls, original resource
+plans and hydrology/layout records remain exact. The independent saved-state
+audit preserves all recorded five-through-sixty-minute wet interpolation
+patches and all retained startup patches. This still does **not** predict a
+fresh native run. In Rio, two river pieces are restored and three candidates
+remain deferred; the original wet opening connector is retained.
+
 Caleb reserves the shared Steam account until about **8 PM ET November 15**.
 Do not launch during that reservation or override the queue holder. After the
 reservation, recheck `cs1-harness queue`, `holder.json` and Steam, then use the
