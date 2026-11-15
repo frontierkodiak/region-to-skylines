@@ -315,8 +315,9 @@ def apply_highways(data, graph, ground_height):
             if n.get("outside") and edges[touching[i][0]]["kind"] == kind
         ]
 
-    entries = sum(1 for i in outside("highway") if edges[touching[i][0]]["a"] == i)
-    exits = len(outside("highway")) - entries
+    roads = outside("highway") + outside("ramp")
+    entries = sum(1 for i in roads if edges[touching[i][0]]["a"] == i)
+    exits = len(roads) - entries
     net_bytes, building_bytes = net.encode(), buildings.encode()
     payload = (
         (

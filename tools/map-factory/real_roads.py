@@ -171,6 +171,16 @@ def prepare_roads(output, geometry):
     hydro = json.loads((output / "hydrology.json").read_text())
     ground, depth = _grid(output / "terrain.u16"), _grid(output / "water.u16")
     graph = build_highway_graph(data, ground, depth, rail=True)
+    # Overlapping OSM pieces can leave two segments between the same nodes,
+    # which the game's tools never build; keep the first.
+    seen, edges = set(), []
+    for e in graph["edges"]:
+        key = frozenset((e["a"], e["b"]))
+        if key not in seen:
+            seen.add(key)
+            edges.append(e)
+    graph["report"]["duplicate_segments_dropped"] = len(graph["edges"]) - len(edges)
+    graph["edges"] = edges
     start, why = choose_start(graph, ground, depth, hydro["start_tile"])
     air, air_report = air_path(data, ground)
     ship, ship_report = ship_path(data, ground, depth, start, hydro["sea_level_m"])

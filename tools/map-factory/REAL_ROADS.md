@@ -23,10 +23,18 @@ uv run python soak.py STAGE --prepared OUTPUT_PARENT --only REGION   # probes, n
   (ramps 8 %); the terrain is cut or filled within 40 m of the road, capped at
   ±15 m and never in mapped water. A segment over water, needing more than 20 m
   of fill, or on an OSM bridge becomes `Highway Bridge` / `HighwayRampElevated`
-  with the template's native pillar. OSM tunnels currently cross the ridge at
-  ground level. Each carriageway that leaves the square ends in an outside
-  connection exactly on the edge. Ramps to local roads we don't import stay as
+  with the template's native pillar. An OSM tunnel becomes `Highway Tunnel`
+  segments behind a `Highway Slope` portal at each end, as the game builds
+  them. Each carriageway that leaves the square ends in an outside connection
+  exactly on the edge. Ramps to local roads we don't import stay as
   stubs: they're where the player joins the highway.
+- **Rail**: OSM main-line `rail` (no yards, sidings or service spurs), parallel
+  tracks within 25 m merged into one double-track `Train Track` centreline, at
+  most 3.5 % grade, with `Train Track Elevated` bridges, `Train Track Tunnel`
+  behind `Train Track Slope` portals, and a two-way `Train Connection` at each
+  edge. It replaces the template's elevated corridor railway.
+- **Terrain** is shaped onto the graded profiles: flat within 14 m of a road or
+  track, blending back to the land by 40 m, never in mapped water.
 - **Start tile**: the standard choice is kept when it holds both an exit-ramp
   stub and an on-ramp stub; otherwise the most central buildable tile that does.
 - **Flight path** (`transport_paths.air_path`): an edge-to-edge two-way
@@ -77,7 +85,10 @@ Facts the writer relies on, each checked in the game source:
 
 ## Not done or not verified
 
-- Tunnels (`Highway Tunnel` with `Highway Slope` portals) are not written.
+- Ramp tunnels stay ground segments inside the hillside: the vanilla ramp
+  tunnel and slope prefab names aren't confirmed.
+- Rail crosses roads where OSM does; where neither side is a bridge (one in
+  Asheville) the two overlap without a level crossing.
 - Airports for squares outside the five fixtures must be passed as
   `geometry["airport"]`; the website capture doesn't read runways yet.
 - The website and `cli.mjs` don't run this stage; adopting it means requalifying
