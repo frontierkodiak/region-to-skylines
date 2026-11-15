@@ -143,8 +143,11 @@ def panel_expectations(crp):
     }
 
 
-def probes_for(hydro, descriptor):
-    """Native water probes and complete authored network routes for one map."""
+def probes_for(hydro, descriptor, highways=None):
+    """Native water probes and complete authored network routes for one map.
+
+    `highways`: the writer's report for a real-highway map (PL-982); its road
+    paths replace the template's removed corridor routes."""
     points = [
         {"name": f"{name}:{i:02d}", "x": point[0], "z": point[2]}
         for name, positions in hydro["samples"].items()
@@ -153,6 +156,8 @@ def probes_for(hydro, descriptor):
     pairs = {frozenset((s["from"], s["to"])): s["id"] for s in descriptor["segments"]}
     paths = []
     for route in descriptor["routes"]:
+        if highways is not None and route["kind"] != "rail":
+            continue
         nodes = route["nodes"]
         segments = [pairs[frozenset(pair)] for pair in zip(nodes, nodes[1:])]
         lane = 1 if route["kind"] == "rail" else 0
@@ -166,6 +171,10 @@ def probes_for(hydro, descriptor):
             }
         )
     tile = hydro["start_tile"]
+    if highways is not None:
+        from network_writer import highway_paths
+
+        paths.extend(highway_paths(hydro["highways"], highways["segment_ids"], tile))
     return {
         "retain_opening_until_five": True,
         "points": points,
@@ -368,6 +377,10 @@ def stage_prepared(inputs, output, slugs):
             resources=resource_plan,
             environment=environment,
         )
+        if hydro.get("highways"):
+            from real_roads import finish
+
+            receipt.update(finish(crp, hydro))
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         # Candidate routing must not move or omit accepted observations.
@@ -378,7 +391,9 @@ def stage_prepared(inputs, output, slugs):
             raise ValueError(f"Frozen probe fixture changed: {slug}")
         frozen = json.loads(gzip.decompress(encoded))
         data = probes_for(
-            {**hydro, "samples": frozen["samples"]}, json.loads(layout.read_text())
+            {**hydro, "samples": frozen["samples"]},
+            json.loads(layout.read_text()),
+            receipt.get("highways"),
         )
         data["hydraulic_probe_reference"] = {
             "file": str(reference.relative_to(ROOT)),

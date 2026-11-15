@@ -75,6 +75,21 @@ namespace Cs1Harness
             chosen.Sort((a, b) => net.m_nodes.m_buffer[a].m_position.sqrMagnitude.CompareTo(net.m_nodes.m_buffer[b].m_position.sqrMagnitude));
             if (chosen.Count == 0)
                 throw new Exception("no road hookup node in the start tile; map needs an accessible highway connection");
+            // Real interchanges leave one-way ramp stubs: join the nearest stub that
+            // traffic arrives on and the nearest it leaves by, so both directions work.
+            if (ends.Count > 2)
+            {
+                ushort arrive = 0, leave = 0;
+                foreach (ushort id in chosen)
+                {
+                    bool oneWayIn = (net.m_nodes.m_buffer[id].m_flags & NetNode.Flags.OneWayIn) != 0;
+                    bool oneWayOut = (net.m_nodes.m_buffer[id].m_flags & NetNode.Flags.OneWayOut) != 0;
+                    if (oneWayIn && !oneWayOut && arrive == 0) arrive = id;
+                    if (oneWayOut && !oneWayIn && leave == 0) leave = id;
+                }
+                if (arrive != 0 && leave != 0)
+                    return new List<ushort> { arrive, leave };
+            }
             // A vanilla interchange has two one-way ends. A through-road map can
             // instead be joined at existing nodes, without replacing its network.
             if (chosen.Count > 2)
