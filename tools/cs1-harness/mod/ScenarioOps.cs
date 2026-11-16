@@ -202,6 +202,17 @@ namespace Cs1Harness
                 foreach (var a in starts)
                 {
                     var corner = Ground(center.x + (a.x < center.x ? -Half : Half), center.z + (a.z < center.z ? -Half : Half));
+                    // The hook links don't exist yet, so the native test can't see
+                    // the corner link doubling back over them: check the angle.
+                    if (joined)
+                    {
+                        var toCorner = corner - join; toCorner.y = 0;
+                        foreach (ushort hook in hooks)
+                        {
+                            var toHook = net.m_nodes.m_buffer[hook].m_position - join; toHook.y = 0;
+                            if (Vector3.Dot(toCorner.normalized, toHook.normalized) > 0.64f) return false;
+                        }
+                    }
                     Link(road, Ground(a.x, a.z), corner, testOnly: true);
                 }
             }
