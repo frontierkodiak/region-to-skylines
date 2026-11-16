@@ -102,6 +102,7 @@ def run(
     sample_every=0,
     atomic_trace=False,
     frozen_probes=None,
+    trace_config=None,
 ):
     cfg = Config.for_host()
     if cfg.host != "blade" or cfg.display != ":57":
@@ -111,6 +112,16 @@ def run(
     crp = source / (hydro["map_id"] + ".crp")
     assert sha256(crp) == receipt["package"]["sha256"]
     if atomic_trace:
+        if trace_config is None:
+            raise ValueError(
+                "Prepare the source-bound trace configuration before acquiring a game slot"
+            )
+        trace_request = json.loads(trace_config.read_text())
+        if (
+            trace_request["binding"]["package_sha256"] != sha256(crp)
+            or not trace_request["controls"]
+        ):
+            raise ValueError("Trace configuration does not bind this package")
         if (
             minutes != 5
             or interactive
@@ -201,39 +212,25 @@ def run(
             )
             write(stage / "listed-map.json", entry)
             if atomic_trace:
-                from crp import read_package
-                from water_diagnostics import decode_water
-
-                _, assets = read_package(crp)
-                decoded = decode_water(
-                    next(a["payload"] for a in assets if a["kind"] == 52)
-                )
-                controls = [
+                binding = dict(trace_request["binding"])
+                binding.update(
                     {
-                        "type": s["type"],
-                        "target": s["target_fixed"],
-                        "input": s["position"],
-                        "output": s["position"],
-                        "input_rate": s["intake_rate"],
-                        "output_rate": s["output_rate"],
-                    }
-                    for s in decoded["sources"]
-                ]
-                report["atomic_trace_arm"] = session.client.call(
-                    "trace_arm",
-                    sources=[92, 163, 164],
-                    cells=[],
-                    controls=controls,
-                    max_steps=512,
-                    dependency_path=str(cfg.mod_dir / "0Harmony.dll"),
-                    binding={
-                        "package_sha256": sha256(crp),
                         "observer_head": report["tested_head"],
                         "observer_sha256": build["dll_sha256"],
                         "requests_sha256": sha256(requests_file),
                         "probes_sha256": sha256(frozen_probes),
                         "inputs": report["source_sha256"],
-                    },
+                        "trace_config_sha256": sha256(trace_config),
+                    }
+                )
+                arm = dict(trace_request)
+                arm.update(
+                    binding=binding, dependency_path=str(cfg.mod_dir / "0Harmony.dll")
+                )
+                write(stage / "trace-request.json", arm)
+                report["atomic_trace_arm"] = session.client.call(
+                    "trace_arm",
+                    **arm,
                 )
                 write(stage / "trace-arm.json", report["atomic_trace_arm"])
             session.client.call("new_game", path=entry["path"])
@@ -484,6 +481,9 @@ if __name__ == "__main__":
         type=Path,
         help="exact original Rio probes for the atomic trace",
     )
+    parser.add_argument(
+        "--trace-config", type=Path, help="prepared, package-bound observer request"
+    )
     parser.add_argument("--minutes", type=float, default=5)
     parser.add_argument(
         "--wait-minutes",
@@ -521,4 +521,5 @@ if __name__ == "__main__":
         args.sample_every,
         args.atomic_trace,
         args.frozen_probes.resolve() if args.frozen_probes else None,
+        args.trace_config.resolve() if args.trace_config else None,
     )
