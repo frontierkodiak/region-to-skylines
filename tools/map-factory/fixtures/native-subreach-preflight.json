@@ -1,0 +1,595 @@
+{
+  "status": "prepared-not-native-qualified",
+  "source_checkpoint": "74e0e29d56fba04bbbccf37c8ddcbc204e9f7871",
+  "reviewed_prior_head": "a0ff875ed0b7c0787237110e9156f26a0d1cf998",
+  "review": "PL-990",
+  "integrity": {
+    "accepted_default": "cb5e2a171841137c7942909c4c058342bc3e4331",
+    "old_fixture_contract_files_unchanged": 147,
+    "production_closure_files_unchanged": 17
+  },
+  "packages": [
+    {
+      "case": "asheville",
+      "changed": true,
+      "package_sha256": "f0f3b6c3669aaa803db87de01309e9ffe5e608c87112f73c1744d9b375a4cfcc",
+      "grids_sha256": {
+        "terrain.u16": "cd1c36a447ab38fafa2c58ffb15d1a45b0cd44a1a411242f2310707ac3164f41",
+        "water.u16": "604713475ba16d49f8c90b0c233feaf7f43d77c383e3db1a757ad52748be0928"
+      },
+      "resource_plan_byte_exact": true,
+      "hydrology_byte_exact": true,
+      "native_qualification": false
+    },
+    {
+      "case": "charleston",
+      "changed": true,
+      "package_sha256": "9c712dc9286f0f1a1f9c37cca8f3b0ec290baacf6121eec52a544eb059d4b188",
+      "grids_sha256": {
+        "terrain.u16": "d60707d3364c0fb097f960cf2ec3c865152f9bfb76130ff082dbb945b49241b8",
+        "water.u16": "b02440518c42cf7222f4c48fe54ce8f6d9ab8440700932dc2126704256961c4a"
+      },
+      "resource_plan_byte_exact": true,
+      "hydrology_byte_exact": true,
+      "native_qualification": false
+    },
+    {
+      "case": "innsbruck",
+      "changed": true,
+      "package_sha256": "152cf3806e59a913e5e8cae4f151e99510fed308721fb7d2f351c99026bdb197",
+      "grids_sha256": {
+        "terrain.u16": "1427a9e78f0a8a78e3241e61ef36794d158d3d38c45f6dcc81a93992583d878e",
+        "water.u16": "14dc5cb1671842522ad0fc91ba56a25575db48ba95b5102028709c07a49aeb42"
+      },
+      "resource_plan_byte_exact": true,
+      "hydrology_byte_exact": true,
+      "native_qualification": false
+    },
+    {
+      "case": "pittsburgh",
+      "changed": true,
+      "package_sha256": "07ad3cf37b46d6a69227db61e51839cd314de3cfbe120bc19856ff6c6b800a4b",
+      "grids_sha256": {
+        "terrain.u16": "e714bfd9e90ff8ab44cb71631843ba960710da85e259c79db57bc60dd342c9e2",
+        "water.u16": "5a241cc32dcb73d1f7af287bd79b7fb8ce004d74ba8fdc4fb76c2404a0bb3148"
+      },
+      "resource_plan_byte_exact": true,
+      "hydrology_byte_exact": true,
+      "native_qualification": false
+    },
+    {
+      "case": "rio",
+      "changed": true,
+      "package_sha256": "f08d8793896a43a64a263f73aff47561136be8a7b547a76a7a1215279a6e2107",
+      "grids_sha256": {
+        "terrain.u16": "31609c53d3ce2589eba4ea4dca2831ba46ac3b9e647e603060a10e9632bbeed8",
+        "water.u16": "a2168ce0fbe8f8514d5c8dee6c62825e6ad41c1c5c32e43b64af5893d1ef9af0"
+      },
+      "resource_plan_byte_exact": true,
+      "hydrology_byte_exact": true,
+      "native_qualification": false
+    }
+  ],
+  "independent_cohort_audit": [
+    {
+      "case": "rio",
+      "all_observations": 4256,
+      "required": 1556,
+      "initial_before_wet_or_near": 1556,
+      "initial_projected_wet_or_near": 1556,
+      "initial_new_dry_required": [],
+      "new_reference_throughout_losses": 0,
+      "floor_basis": "actual reference BlockHeights; candidate retains its network offsets (fresh native must verify)",
+      "native_qualification": false,
+      "terrain_raised": 1100,
+      "terrain_lowered": 0,
+      "film_cleared": 1066,
+      "source_radius_floor_water_exact": true
+    },
+    {
+      "case": "asheville",
+      "all_observations": 7745,
+      "required": 1261,
+      "initial_before_wet_or_near": 1261,
+      "initial_projected_wet_or_near": 1261,
+      "initial_new_dry_required": [],
+      "new_reference_throughout_losses": 0,
+      "floor_basis": "raw grid; exact at all frozen native t000 ground/surface/wet observations",
+      "native_qualification": false,
+      "terrain_raised": 7244,
+      "terrain_lowered": 0,
+      "film_cleared": 5428,
+      "source_radius_floor_water_exact": true
+    },
+    {
+      "case": "innsbruck",
+      "all_observations": 4281,
+      "required": 694,
+      "initial_before_wet_or_near": 694,
+      "initial_projected_wet_or_near": 694,
+      "initial_new_dry_required": [],
+      "new_reference_throughout_losses": 0,
+      "floor_basis": "raw grid; exact at all frozen native t000 ground/surface/wet observations",
+      "native_qualification": false,
+      "terrain_raised": 2850,
+      "terrain_lowered": 0,
+      "film_cleared": 2965,
+      "source_radius_floor_water_exact": true
+    },
+    {
+      "case": "pittsburgh",
+      "all_observations": 6458,
+      "required": 1799,
+      "initial_before_wet_or_near": 1799,
+      "initial_projected_wet_or_near": 1799,
+      "initial_new_dry_required": [],
+      "new_reference_throughout_losses": 0,
+      "floor_basis": "raw grid; exact at all frozen native t000 ground/surface/wet observations",
+      "native_qualification": false,
+      "terrain_raised": 3010,
+      "terrain_lowered": 0,
+      "film_cleared": 1996,
+      "source_radius_floor_water_exact": true
+    },
+    {
+      "case": "charleston",
+      "all_observations": 8242,
+      "required": 2214,
+      "initial_before_wet_or_near": 2214,
+      "initial_projected_wet_or_near": 2214,
+      "initial_new_dry_required": [],
+      "new_reference_throughout_losses": 0,
+      "floor_basis": "raw grid; exact at all frozen native t000 ground/surface/wet observations",
+      "native_qualification": false,
+      "terrain_raised": 1249,
+      "terrain_lowered": 0,
+      "film_cleared": 8731,
+      "source_radius_floor_water_exact": true
+    }
+  ],
+  "predictions": [
+    {
+      "case": "rio",
+      "candidate_crp_sha256": "f08d8793896a43a64a263f73aff47561136be8a7b547a76a7a1215279a6e2107",
+      "model": "PL-974 empirical 0.7 texture cutpoint, 18 shore-update sweeps; no shader readback",
+      "assumption": "later water field remains reference-like; no native claim",
+      "predicted_sand_to_non_sand_resource_cells": 285,
+      "predicted_non_sand_to_sand_resource_cells": 3,
+      "views": {
+        "opening": {
+          "projected_cells": 0,
+          "prediction_sha256": "7565d80ee3f3176a90849d107c2183d4f9059c8899a0c6e2611dee55e4ebb784",
+          "reference_sha256": "9b381d4d0cb4a2ae0547d0d332c56532bf97f7e129f352adadd357c784938edb"
+        },
+        "area_zoom": {
+          "projected_cells": 240,
+          "prediction_sha256": "9d0014496910e87f8cb36b5ad7a04aafe0be8fecd7a9e30a84691d160a067d68",
+          "reference_sha256": "70b2f3d0053055d5c93731fc4263ebe4da1a314cc11e8ae7f5a7300ab88b988a"
+        }
+      }
+    },
+    {
+      "case": "asheville",
+      "candidate_crp_sha256": "f0f3b6c3669aaa803db87de01309e9ffe5e608c87112f73c1744d9b375a4cfcc",
+      "model": "PL-974 empirical 0.7 texture cutpoint, 18 shore-update sweeps; no shader readback",
+      "assumption": "later water field remains reference-like; no native claim",
+      "predicted_sand_to_non_sand_resource_cells": 1079,
+      "predicted_non_sand_to_sand_resource_cells": 2,
+      "views": {
+        "opening": {
+          "projected_cells": 1,
+          "prediction_sha256": "4d04e5d09f59f4a1d0b870413ff0ce2612f53a15abfb25e5bcca5a9a1f3fed88",
+          "reference_sha256": "2565a032d2a9629a2ecff2c1cd09eed0114c96f2f853ac84ea19523a08d60159"
+        },
+        "area_zoom": {
+          "projected_cells": 237,
+          "prediction_sha256": "41944c87084d0be3ec7ea8ba55827795fde1b9070d2620e81fda9efa4aa5fa80",
+          "reference_sha256": "f40614361d2a5c29a71e45526e4a9986113cf80d3c4b02e4eb4d8828807e08b6"
+        }
+      }
+    },
+    {
+      "case": "innsbruck",
+      "candidate_crp_sha256": "152cf3806e59a913e5e8cae4f151e99510fed308721fb7d2f351c99026bdb197",
+      "model": "PL-974 empirical 0.7 texture cutpoint, 18 shore-update sweeps; no shader readback",
+      "assumption": "later water field remains reference-like; no native claim",
+      "predicted_sand_to_non_sand_resource_cells": 897,
+      "predicted_non_sand_to_sand_resource_cells": 0,
+      "views": {
+        "opening": {
+          "projected_cells": 0,
+          "prediction_sha256": "67ffa9ad76aed81706307b87db47297fb8bcb9c511c502600994e69bede72400",
+          "reference_sha256": "9a4ae1e702583d209b71621035965001777306181e94096b07bf55a57145fa48"
+        },
+        "area_zoom": {
+          "projected_cells": 45,
+          "prediction_sha256": "ce32fd7dabf4407923495790a26cd86d1bccf65ddad004992406385e51a23925",
+          "reference_sha256": "7824e856ef84208854cb46010c8c10c6fce2f185520fc61c46aba2c1b03a2cba"
+        }
+      }
+    },
+    {
+      "case": "pittsburgh",
+      "candidate_crp_sha256": "07ad3cf37b46d6a69227db61e51839cd314de3cfbe120bc19856ff6c6b800a4b",
+      "model": "PL-974 empirical 0.7 texture cutpoint, 18 shore-update sweeps; no shader readback",
+      "assumption": "later water field remains reference-like; no native claim",
+      "predicted_sand_to_non_sand_resource_cells": 271,
+      "predicted_non_sand_to_sand_resource_cells": 0,
+      "views": {
+        "opening": {
+          "projected_cells": 0,
+          "prediction_sha256": "0eaa32b393b830c0a3182e25622fd70abc23beb30b645a2d4c6f7bd3a7701de9",
+          "reference_sha256": "6007dc134cef2b5b733f924b559691ff560d9e701c990f2647251e526fcbd2a6"
+        },
+        "area_zoom": {
+          "projected_cells": 0,
+          "prediction_sha256": "662095077ab3250692c4a6f0a197cf529fca267044beb9f9cd54753259a69a75",
+          "reference_sha256": "3c1df043a27d67b6aab9e72da13abed154725215c5159ecc6f5e479f115a4ad0"
+        }
+      }
+    },
+    {
+      "case": "charleston",
+      "candidate_crp_sha256": "9c712dc9286f0f1a1f9c37cca8f3b0ec290baacf6121eec52a544eb059d4b188",
+      "model": "PL-974 empirical 0.7 texture cutpoint, 18 shore-update sweeps; no shader readback",
+      "assumption": "later water field remains reference-like; no native claim",
+      "predicted_sand_to_non_sand_resource_cells": 1701,
+      "predicted_non_sand_to_sand_resource_cells": 0,
+      "views": {
+        "opening": {
+          "projected_cells": 0,
+          "prediction_sha256": "78b2f918a96ae5c90de15ee21f956ff1d4391f29e34f5482f3bc04d878a85f50",
+          "reference_sha256": "f2284fa52a6b8fcc0b7cd874958679dbe3f6fddaf1c2457483a95d516e9beb14"
+        },
+        "area_zoom": {
+          "projected_cells": 709,
+          "prediction_sha256": "b5010aa97a1581e674e44bdd2d4983710c22eff843ffb94b6ec0e0617d32cd9f",
+          "reference_sha256": "c5b744d919596c5400b268aa4ce5bbcdf1487ff993126da0e78eb273e7c2baa7"
+        }
+      }
+    }
+  ],
+  "plans": {
+    "innsbruck": {
+      "planner_source_commit": "74e0e29d56fba04bbbccf37c8ddcbc204e9f7871",
+      "planner_files_sha256": {
+        "native_subreaches.py": "6ad5f0671d73ae0326089c11131472f8ff3d5f6e086c81960e10cdcbbfc07ee0",
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+        "admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      },
+      "status": "CPU experiment; no native or shipping qualification",
+      "rule": "native dry line pixels and never-rewetted startup film; physical source radii and later wet patches unchanged",
+      "binding": {
+        "package_sha256": "3ef11496c97f164e5e36623b252ab1ad47142b6a0e876f9adbf9b86d17d0a6da",
+        "native_files_sha256": {
+          "session-receipt.json": "5310d5285092d5a30bb85a3e8b32e3c0d40a21367d7be12097882976c2856b3c",
+          "report.json": "32316cabe6132653b9ce4c78f243cbc66bc9459fb351cb96c93f2e9a042a98e2",
+          "grids/t005-water.u16": "d0ef250d132c5d0c8208d513a384773368602d8520d06c6705f839e4ff050971",
+          "grids/t015-water.u16": "13209b0c1dc0bd9bf64c59c5d551dc8edae5ea22ac5dac8c0817eb47af4a575f",
+          "grids/t030-water.u16": "fd4d7437a7ffe5708505d8aaa889f1d72fc62fdf86348010cb8ec4e6a6e8155c",
+          "grids/t045-water.u16": "67e1c30e2ae4111586497617f4a529f6c28f2b590411f4e5e715210859e63162",
+          "grids/t060-water.u16": "33d2ae266cca0f13ac6766c70a4c6f1ce7986ada9936d0888ee7fab0eb45e07c"
+        },
+        "epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ]
+      },
+      "prepared_files_sha256": {
+        "terrain.u16": "7a99263074a4b24ffef734a2c679017a6d279ba2d33fa43a6bfcd72dbec6a4dc",
+        "water.u16": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577",
+        "hydrology.json": "e1dffc37bf77bca9707ae12124f0a3cbfea0a59b1718914fee39a1f1abf78da6",
+        "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+        "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b"
+      },
+      "frozen_probes_sha256": "5edcb53f2e2675521893c77c910535e57d4c933903214e064752b9829261b8eb",
+      "frozen_observations": 4281,
+      "eligible_line_pixels": 1942,
+      "dry_line_pixels": 1173,
+      "dry_line_components": 37,
+      "incision_territory_pixels": 5412,
+      "terrain_raised_vertices": 2850,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 3.0,
+      "startup_water_removed_vertices": 2965,
+      "source_controls_unchanged": true,
+      "source_radius_floor_and_water_unchanged": true,
+      "native_wet_interpolation_support_unchanged": true,
+      "retained_startup_interpolation_support_unchanged": true,
+      "browser_replay": {
+        "restored_vertices": 0,
+        "deferred_polygon_vertices": 0,
+        "maximum_restoration_m": 0.0
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "1427a9e78f0a8a78e3241e61ef36794d158d3d38c45f6dcc81a93992583d878e",
+        "water.u16": "14dc5cb1671842522ad0fc91ba56a25575db48ba95b5102028709c07a49aeb42",
+        "hydrology.json": "e1dffc37bf77bca9707ae12124f0a3cbfea0a59b1718914fee39a1f1abf78da6",
+        "masks.npz": "e385466acb4949c66c91988909770f465b46d6738f94c3db6179975e39f16b53"
+      }
+    },
+    "rio": {
+      "planner_source_commit": "74e0e29d56fba04bbbccf37c8ddcbc204e9f7871",
+      "planner_files_sha256": {
+        "native_subreaches.py": "6ad5f0671d73ae0326089c11131472f8ff3d5f6e086c81960e10cdcbbfc07ee0",
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+        "admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      },
+      "status": "CPU experiment; no native or shipping qualification",
+      "rule": "native dry line pixels and never-rewetted startup film; physical source radii and later wet patches unchanged",
+      "binding": {
+        "package_sha256": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+        "native_files_sha256": {
+          "session-receipt.json": "7c02b3ab7a0bd3ac2e63a56b2cd8bbe1bf1266563f83b691cc46a792d7243fc5",
+          "report.json": "f35b5d33b28f98350d6251f3e9bd4b400615cd1290495969640c8e1a857bb9d4",
+          "grids/t005-water.u16": "bca8e5412eb316f480d7da56f27dac301d0aab575c9798f422542b9c6fac78e8",
+          "grids/t015-water.u16": "370644f76944b8d9902196113654ae97512caec6bcdf03b195ca05f51a80244a",
+          "grids/t030-water.u16": "0343eb487947b771db22cf1a3892c080a5c295b1b146ffb8e02868f541545d75",
+          "grids/t045-water.u16": "5dfed35e89c1eb9845d2f5ef46c95152673bd99550ccab1711ed9eddeee73bfe",
+          "grids/t060-water.u16": "3aa57909619c7488ec9202b514f577f56a234136188708246f75eb5ee317fc07",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/diagnostic.json": "57a9460d9308a15f4a21c4e48cb9d364ca6177e1a77d7d40feb97f06a075e30f",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/session-receipt.json": "c8847a4c6a5d80ae40f828a2a210ba565d92bb220615c19d6f4e0cf0aacd04f7",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t000-terrain.u16": "f3ffe6d002dcc0a226567ce2ca3f8733cfca572fc45b0f4eb0041c3225f9bec7",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t000-water-ground.u16": "980094e132050c8dfd85278703de56f76fe826a20b619b34d4271ae8ae787b2e",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t000-water-ground-target.u16": "980094e132050c8dfd85278703de56f76fe826a20b619b34d4271ae8ae787b2e",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t005-terrain.u16": "f3ffe6d002dcc0a226567ce2ca3f8733cfca572fc45b0f4eb0041c3225f9bec7",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t005-water-ground.u16": "980094e132050c8dfd85278703de56f76fe826a20b619b34d4271ae8ae787b2e",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t005-water-ground-target.u16": "980094e132050c8dfd85278703de56f76fe826a20b619b34d4271ae8ae787b2e",
+          "/home/caleb/experiments/PL-912-native-admission/rio-reference-hydraulic-floor/grids/t005-water.u16": "17b3c7a6fbb195461b7560df96fdd7996c5b0189fcf354e2950fcb977d9bf87e"
+        },
+        "epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ]
+      },
+      "prepared_files_sha256": {
+        "terrain.u16": "f3ffe6d002dcc0a226567ce2ca3f8733cfca572fc45b0f4eb0041c3225f9bec7",
+        "water.u16": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+        "hydrology.json": "cef524935391d0a54823d30b0c9534bba6c98706a524f9be55feff18e47391de",
+        "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+        "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af"
+      },
+      "frozen_probes_sha256": "5a9bb1e42b5d47841a4bc89426c8240ab2902bb7211d004311896332690a7f62",
+      "frozen_observations": 4256,
+      "eligible_line_pixels": 3958,
+      "dry_line_pixels": 141,
+      "dry_line_components": 27,
+      "incision_territory_pixels": 787,
+      "terrain_raised_vertices": 1100,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 7.421875,
+      "startup_water_removed_vertices": 1066,
+      "source_controls_unchanged": true,
+      "source_radius_floor_and_water_unchanged": true,
+      "native_wet_interpolation_support_unchanged": true,
+      "retained_startup_interpolation_support_unchanged": true,
+      "browser_replay": {
+        "restored_vertices": 1907,
+        "deferred_polygon_vertices": 0,
+        "maximum_restoration_m": 7.427012659190609
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "31609c53d3ce2589eba4ea4dca2831ba46ac3b9e647e603060a10e9632bbeed8",
+        "water.u16": "a2168ce0fbe8f8514d5c8dee6c62825e6ad41c1c5c32e43b64af5893d1ef9af0",
+        "hydrology.json": "cef524935391d0a54823d30b0c9534bba6c98706a524f9be55feff18e47391de",
+        "masks.npz": "5f570f07523201ea2855dc3f4900813d19a9a9008284433b143b473a8f104152"
+      }
+    },
+    "charleston": {
+      "planner_source_commit": "74e0e29d56fba04bbbccf37c8ddcbc204e9f7871",
+      "planner_files_sha256": {
+        "native_subreaches.py": "6ad5f0671d73ae0326089c11131472f8ff3d5f6e086c81960e10cdcbbfc07ee0",
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+        "admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      },
+      "status": "CPU experiment; no native or shipping qualification",
+      "rule": "native dry line pixels and never-rewetted startup film; physical source radii and later wet patches unchanged",
+      "binding": {
+        "package_sha256": "a5f3f283885a62c8373a7832390c88a2b20603fb046a3efccd1578b497d0edcc",
+        "native_files_sha256": {
+          "session-receipt.json": "565f902a4d3be7ccd9eea61f62cdd33554d3c9688f43cbcd8f5739dad3bd7184",
+          "report.json": "993ab548f8fdeb9d9f32406ad7acc1a283ab7c2eb032191860184b2761463d0d",
+          "grids/t005-water.u16": "6c1a7896a07138dad4813b67e5cfa52762efc374fe87c4b57e4f6d02c20bce95",
+          "grids/t015-water.u16": "f1160822892f2ecad1de32e8f1f47dc53a780fb678ce3b3862bf947090fc8659",
+          "grids/t030-water.u16": "3c16b49f1eb49c550c2d9e3e6f4e97924ca82105356325162ec020138b67ff11",
+          "grids/t045-water.u16": "c1f544dd30514042218cb1997a5ba7ba1176e13fcfa3c149ef648de4f5539979",
+          "grids/t060-water.u16": "f012c0f0bbe257791a2edb795c712d2c65425e097767d13fe6cea75ad8f7363e"
+        },
+        "epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ]
+      },
+      "prepared_files_sha256": {
+        "terrain.u16": "b68f31bfa36276c01a97abc9b898edb43d2a78ac9d81fed45fa1059e6dbb227b",
+        "water.u16": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f",
+        "hydrology.json": "fdf557b4740ce20aadfaa2d099ca98490f7e78dfa23dcdc4b1f5d80878743816",
+        "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+        "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed"
+      },
+      "frozen_probes_sha256": "e139af740b55f60b8c4acdaab248a839d920bd44ddb1e64757c7577ea782d3c8",
+      "frozen_observations": 8242,
+      "eligible_line_pixels": 12686,
+      "dry_line_pixels": 4351,
+      "dry_line_components": 146,
+      "incision_territory_pixels": 16504,
+      "terrain_raised_vertices": 1249,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 3.0,
+      "startup_water_removed_vertices": 8731,
+      "source_controls_unchanged": true,
+      "source_radius_floor_and_water_unchanged": true,
+      "native_wet_interpolation_support_unchanged": true,
+      "retained_startup_interpolation_support_unchanged": true,
+      "browser_replay": {
+        "restored_vertices": 0,
+        "deferred_polygon_vertices": 0,
+        "maximum_restoration_m": 0.0
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "d60707d3364c0fb097f960cf2ec3c865152f9bfb76130ff082dbb945b49241b8",
+        "water.u16": "b02440518c42cf7222f4c48fe54ce8f6d9ab8440700932dc2126704256961c4a",
+        "hydrology.json": "fdf557b4740ce20aadfaa2d099ca98490f7e78dfa23dcdc4b1f5d80878743816",
+        "masks.npz": "01338d0626c040ffc685b182e3a0717ff578f832c27f4100955369d49c09714f"
+      }
+    },
+    "pittsburgh": {
+      "planner_source_commit": "74e0e29d56fba04bbbccf37c8ddcbc204e9f7871",
+      "planner_files_sha256": {
+        "native_subreaches.py": "6ad5f0671d73ae0326089c11131472f8ff3d5f6e086c81960e10cdcbbfc07ee0",
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+        "admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      },
+      "status": "CPU experiment; no native or shipping qualification",
+      "rule": "native dry line pixels and never-rewetted startup film; physical source radii and later wet patches unchanged",
+      "binding": {
+        "package_sha256": "48537d2de41b074eb06168b407f2be1fc5ed3d85698c1fa86acf6ed2f892c665",
+        "native_files_sha256": {
+          "session-receipt.json": "0154d233f7fc843b6df940cc809c2f73c6d75db2e112a1de782c2a050f515bf9",
+          "report.json": "4638a87ece6c3703b413c268abb5d9a76a0db2cb0f2a40398988a514b09502a4",
+          "grids/t005-water.u16": "333a73048f410f982f8a8d429e9c62a42d4d5b3affe8667e45aea5880a19a3df",
+          "grids/t015-water.u16": "5d1989da096a821e49de2913ecea4691a82a4ab8621a90318f1da67a8ec7cd1a",
+          "grids/t030-water.u16": "19681807cfeb234182fd5c095f475e93b04f911d85c04e4b7b99f7d2c739eb2f",
+          "grids/t045-water.u16": "f989a3719719429aaa8f40d93a023724de0462791ddac4f4533158b90f0fe6c9",
+          "grids/t060-water.u16": "87c81d156fb25aa04a85f53b707b6965313c3029a88dbf243d45e3810227d158"
+        },
+        "epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ]
+      },
+      "prepared_files_sha256": {
+        "terrain.u16": "90fdac57a57c313acb99a627bfef68cd449c2cf6fddc34413a78b45c5079f634",
+        "water.u16": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29",
+        "hydrology.json": "07eb8cb9321cbeb600b693b7980d7d99db36884d736e7b73ed12cf5d7600d0e1",
+        "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+        "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70"
+      },
+      "frozen_probes_sha256": "28f6a6054a975004bb3da16d4e662b5f16e6221d75d4c6935d89190c905f6164",
+      "frozen_observations": 6458,
+      "eligible_line_pixels": 2769,
+      "dry_line_pixels": 1613,
+      "dry_line_components": 50,
+      "incision_territory_pixels": 7680,
+      "terrain_raised_vertices": 3010,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 7.84375,
+      "startup_water_removed_vertices": 1996,
+      "source_controls_unchanged": true,
+      "source_radius_floor_and_water_unchanged": true,
+      "native_wet_interpolation_support_unchanged": true,
+      "retained_startup_interpolation_support_unchanged": true,
+      "browser_replay": {
+        "restored_vertices": 135,
+        "deferred_polygon_vertices": 5,
+        "maximum_restoration_m": 6.565096437931054
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "e714bfd9e90ff8ab44cb71631843ba960710da85e259c79db57bc60dd342c9e2",
+        "water.u16": "5a241cc32dcb73d1f7af287bd79b7fb8ce004d74ba8fdc4fb76c2404a0bb3148",
+        "hydrology.json": "07eb8cb9321cbeb600b693b7980d7d99db36884d736e7b73ed12cf5d7600d0e1",
+        "masks.npz": "bb7445fe02c91e093f3fd277d4f25e87aae0ac97db06ab3d2e85077418534df7"
+      }
+    },
+    "asheville": {
+      "planner_source_commit": "74e0e29d56fba04bbbccf37c8ddcbc204e9f7871",
+      "planner_files_sha256": {
+        "native_subreaches.py": "6ad5f0671d73ae0326089c11131472f8ff3d5f6e086c81960e10cdcbbfc07ee0",
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+        "admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      },
+      "status": "CPU experiment; no native or shipping qualification",
+      "rule": "native dry line pixels and never-rewetted startup film; physical source radii and later wet patches unchanged",
+      "binding": {
+        "package_sha256": "745b043a0b92e0f733705f8f2597074b6b8c2f37a053ebb7f63986ca0c8aeb00",
+        "native_files_sha256": {
+          "session-receipt.json": "f374f850b8ffe07db03a71596ec0fa18292eed4cc8ef36ade6381f92444b0cbc",
+          "report.json": "d7f469f40d3ca161dd0282922c9fcd08560ad73536e27a71a66117daeb07757c",
+          "grids/t005-water.u16": "374cedad5cf0a6ac5a1bf720070f26bebf331ec7611dea6ecdca7a48fed48115",
+          "grids/t015-water.u16": "3508e05fbf71ff9aad53fd98ded3ba6b460ff84e3b43508a4565a0dc09958524",
+          "grids/t030-water.u16": "924effdbf53fc2d5fdbf01e75b9f4d7a1e1f161448cb39a71eb10c7c96da080f",
+          "grids/t045-water.u16": "3b447a44b87c309c23ea1520f6a8f4d6b1d743474584ce374a8b1c2a2c80260f",
+          "grids/t060-water.u16": "c2430947162696d16397e16c435cbf9f240441957c33770a3240b66e36a874eb"
+        },
+        "epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ]
+      },
+      "prepared_files_sha256": {
+        "terrain.u16": "1ce72c887d5d43933814db2ffaea55b0de9d2ad4653dcfb8a91f11627663aee5",
+        "water.u16": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b",
+        "hydrology.json": "cbd0036ddc6c071bd140c02ae7d325efd7e1a2a591d0d26bbbb758f6752b6772",
+        "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+        "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff"
+      },
+      "frozen_probes_sha256": "7eb76250bfb2a16220f96ac1b95b69d4c8c28038df97f37b53ebf7066313fcdc",
+      "frozen_observations": 7745,
+      "eligible_line_pixels": 7468,
+      "dry_line_pixels": 3750,
+      "dry_line_components": 144,
+      "incision_territory_pixels": 17702,
+      "terrain_raised_vertices": 7244,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 3.0,
+      "startup_water_removed_vertices": 5428,
+      "source_controls_unchanged": true,
+      "source_radius_floor_and_water_unchanged": true,
+      "native_wet_interpolation_support_unchanged": true,
+      "retained_startup_interpolation_support_unchanged": true,
+      "browser_replay": {
+        "restored_vertices": 0,
+        "deferred_polygon_vertices": 0,
+        "maximum_restoration_m": 0.0
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "cd1c36a447ab38fafa2c58ffb15d1a45b0cd44a1a411242f2310707ac3164f41",
+        "water.u16": "604713475ba16d49f8c90b0c233feaf7f43d77c383e3db1a757ad52748be0928",
+        "hydrology.json": "cbd0036ddc6c071bd140c02ae7d325efd7e1a2a591d0d26bbbb758f6752b6772",
+        "masks.npz": "9ab1d1affc4e0cb0662b65c6f9d78eeeb4fc8e39f3b078349a48db9556db5268"
+      }
+    }
+  },
+  "fresh_native_qualification": false,
+  "shipping_js_pyodide_integration": false
+}

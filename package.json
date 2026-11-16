@@ -10,7 +10,7 @@
   "files": [
     "cli.mjs", "terrain.js", "inputs.js", "mapgen.js",
     "tools/map-factory/generate.py", "tools/map-factory/region.py", "tools/map-factory/prepare.py", "tools/map-factory/surface_water.py", "tools/map-factory/crp.py", "tools/map-factory/template.py", "tools/map-factory/map_metadata.py",
-    "tools/map-factory/paint.py", "tools/map-factory/resources.py", "tools/map-factory/landcover.py", "tools/map-factory/evidence.py", "tools/map-factory/web.py", "tools/map-factory/templates/native-corridors.crp", "tools/map-factory/templates/native-corridors.json"
+    "tools/map-factory/paint.py", "tools/map-factory/resources.py", "tools/map-factory/landcover.py", "tools/map-factory/evidence.py", "tools/map-factory/web.py", "tools/map-factory/wet_reach_admission.py", "tools/map-factory/native-water-admission.json", "tools/map-factory/templates/native-corridors.crp", "tools/map-factory/templates/native-corridors.json"
   ],
   "scripts": {
     "test": "node --test test/unit.test.mjs",

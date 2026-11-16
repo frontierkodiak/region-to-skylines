@@ -2305,3 +2305,63 @@ source water-buffer readback. These do not write simulation fields or alter
 gates. Build, doctor, 113 harness tests and Ruff pass. Writer tests: 57 run,
 two opt-in skips; eight JS tests pass. See `map-factory/NATIVE_ADMISSION.md` and
 `fixtures/native-admission-short-rejected.json` for exact packages and limits.
+
+## 2026-11-15 — PL-912 dry subreaches, transient-storage counterexample
+
+Blade, silent private :57, normal FIFO; RTX2080Ti05:00.0, unchanged150Wcap,
+existing8004MiB workload untouched. Candidate package
+`f08d8793896a43a64a263f73aff47561136be8a7b547a76a7a1215279a6e2107`,
+diagnostic source30686b5, planner74e0e29. Actual5.072778game minutes,
+336.162s GPU-sampled wall window. Peak total10821MiB, own-game sampled peak
+2790MiB (menu/during play, not continuous loading peak), peak129.27W/58C.
+
+All4256frozen observations retained; required0=1556/1556,5=1544/1556=99.2288%
+against unchanged95%. Eleven shared/one new dry at5; the new Papa-Couve pool
+was already dry from10through60 in the reference. Removing six neighbouring
+startup-water cells made it dry earlier. Partial visible Areas improvement,
+not acceptance; no Asheville or60minute run followed. Both initial grids,
+290controls, cameras, final terrain and54native floor-offset pattern match.
+All8512native ground/surface/wet observations replay exactly. Cleanup empty;
+normal quit grace required exact-owned-game termination, not spontaneous crash.
+
+An earlier queued invocation exited143 after about10minutes, before any
+Session/game. A signal-cleanup fix now mirrors the harness CLI. A deliberate
+3s queued SIGTERM test returns124 as expected, removes its own waiter and
+launches no game. The foreground PTY retry waited normally, then completed.
+Other holders were untouched. The corrected3ad8f3d planner preserves water as
+well as floor on the native wet-patch boundary; five-map CPU audit and62writer
+tests(two opt-in skips) pass. It still requires fresh actual shorts.
+
+## 2026-11-16 — PL-912 corrected Rio wet-boundary short
+
+Blade/private:57/silent, normal FIFO. Source3ad8f3d, package
+`3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c`.
+Actual5.093333game minutes;331.206s GPU-sampled wall window (queue excluded).
+RTX2080Ti05:00.0,150Wcap unchanged, existing8004MiB workload untouched.
+Peak total10821MiB; own-game sampled peak2790MiB (menu/play, not continuous
+loading peak);131.26W/58C. Foreground queue wait about40minutes, no preemption.
+
+All4256points retained. Required0=1556/1556,5=1545/1556=99.2931%, unchanged95%
+gate. Exactly11shared dry, zero new-only/old-only. Papa-Couve retains0.484375m
+water at5. Initial grids,290controls, cameras, final terrain and54hydraulic-floor
+offsets exact. All8512ground/surface/wet readings replay exactly. Actual Areas
+dry-neck reduction; native wet opening shore retained. Protected dry inlet
+basins remain visible and unmodified, not claimed wet or repaired.
+
+Cleanup empty. Exact owned game1680809 needed normal quit-grace termination,
+not spontaneous failure. The first short checkpoint passes; no full60minute
+qualification or shipping-JS parity is claimed. See DRY_SUBREACHES.md.
+
+## 2026-11-16 — PL-912 corrected Asheville wet-boundary short
+
+Blade/private :57/silent, FIFO. Source `3ad8f3d`, package
+`43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f`.
+Actual 5.078889 game minutes; 331.172 s GPU-sampled wall window, queue excluded.
+RTX 2080 Ti 05:00.0, unchanged 150 W cap and existing 8,004 MiB workload.
+Peak total 10,821 MiB; own-game sampled peak 2,785 MiB (menu/play, not continuous
+loading peak); 129.22 W / 58 C. All 7,745 observations retained; required
+zero/five both 1,261/1,261. Initial grids, 110 controls, final terrain and cameras
+exact. All 15,490 ground/surface/wet observations replay exactly using measured
+hydraulic floor; 49 offsets are guarded. Actual opening and Areas viewed.
+Cleanup empty. Owned game 1755686 needed normal quit-grace termination, not a
+spontaneous crash. No full 60-minute qualification is implied by this short.

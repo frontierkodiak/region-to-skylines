@@ -1,0 +1,2325 @@
+{
+  "status": "Rio-and-Asheville-short-checkpoints-only",
+  "accepted": false,
+  "source_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+  "cases": {
+    "rio": {
+      "cohort": {
+        "native_observed": true,
+        "full_60_minute_qualification": false,
+        "source_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+        "crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+        "elapsed_game_minutes": 5.093333598971366,
+        "frozen_probes_sha256": "5a9bb1e42b5d47841a4bc89426c8240ab2902bb7211d004311896332690a7f62",
+        "points_unchanged": true,
+        "initial_grids_exact": true,
+        "final_terrain_exact": true,
+        "threshold": 0.95,
+        "samples": {
+          "t000": {
+            "observed": 4256,
+            "required": 1556,
+            "wet_or_near": 1556,
+            "fraction": 1.0,
+            "dry": []
+          },
+          "t005": {
+            "observed": 4256,
+            "required": 1556,
+            "wet_or_near": 1545,
+            "fraction": 0.9929305912596401,
+            "dry": [
+              {
+                "x": -2128,
+                "z": 2112,
+                "terrain": 94.421875,
+                "ground": 94.421875,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0.0625,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "Rio Trapicheiros [river] #8:11"
+              },
+              {
+                "x": -2144,
+                "z": 2112,
+                "terrain": 93.6875,
+                "ground": 93.6875,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0.03125,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "Rio Trapicheiros [river] #8:12"
+              },
+              {
+                "x": -2160,
+                "z": 2112,
+                "terrain": 93.421875,
+                "ground": 93.421875,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0.015625,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "Rio Trapicheiros [river] #8:13"
+              },
+              {
+                "x": -2176,
+                "z": 2112,
+                "terrain": 94.15625,
+                "ground": 94.15625,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "Rio Trapicheiros [river] #8:14"
+              },
+              {
+                "x": -2192,
+                "z": 2112,
+                "terrain": 96.03125,
+                "ground": 96.03125,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "Rio Trapicheiros [river] #8:15"
+              },
+              {
+                "x": -2192,
+                "z": 2112,
+                "terrain": 96.03125,
+                "ground": 96.03125,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "geography:Rio Trapicheiros [river] @403,408"
+              },
+              {
+                "x": -2176,
+                "z": 2112,
+                "terrain": 94.15625,
+                "ground": 94.15625,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "geography:Rio Trapicheiros [river] @404,408"
+              },
+              {
+                "x": -2160,
+                "z": 2112,
+                "terrain": 93.421875,
+                "ground": 93.421875,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0.015625,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "geography:Rio Trapicheiros [river] @405,408"
+              },
+              {
+                "x": -2144,
+                "z": 2112,
+                "terrain": 93.6875,
+                "ground": 93.6875,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0.03125,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "geography:Rio Trapicheiros [river] @406,408"
+              },
+              {
+                "x": -2128,
+                "z": 2112,
+                "terrain": 94.421875,
+                "ground": 94.421875,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0.0625,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "geography:Rio Trapicheiros [river] @407,408"
+              },
+              {
+                "x": -1312,
+                "z": -3040,
+                "terrain": 99.328125,
+                "ground": 99.328125,
+                "surface": 0,
+                "depth": 0,
+                "wet": false,
+                "velocity": [
+                  0,
+                  0,
+                  0
+                ],
+                "max_depth_within_64m": 0,
+                "wet_within_64m": false,
+                "nearest_water_m": null,
+                "name": "geography:Rio dos Macacos [river] @458,730"
+              }
+            ]
+          }
+        },
+        "cleanup": {
+          "game": [],
+          "steam_instances": [],
+          "units_active": []
+        },
+        "receipt_sha256": {
+          "diagnostic.json": "ed237c2946b2d1d2090186b353eac03fdc1da96442fcbc023b8ab268b63d26ac",
+          "measurement-requests.json": "2d9fdd1f6495a70f7061393c5faabbcc9c13ac66dcc9339de68ec02bb05fd48a",
+          "session-receipt.json": "45ff699d7293c3d5232c4d45448875c101e50dcedd657e961cee2a587bcd76cd",
+          "t000-world-water.json": "458f9b99276d1354f69d825b8443ed80ba50df6faf43e9daea56898f5db6ca75",
+          "t005-world-water.json": "9405a8495efaae66ad9bce88051f23c1a2cd3b324527f2d5106258645724abf3"
+        },
+        "short_required_gate_passes": true,
+        "zero_new_dry_from_all_wet_baseline_t000": false
+      },
+      "native_bindings": {
+        "case": "rio",
+        "candidate_crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+        "source_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+        "game_minutes": 5.093333598971366,
+        "dry_subset_at_five": {
+          "shared": [
+            "Rio Trapicheiros [river] #8:11",
+            "Rio Trapicheiros [river] #8:12",
+            "Rio Trapicheiros [river] #8:13",
+            "Rio Trapicheiros [river] #8:14",
+            "Rio Trapicheiros [river] #8:15",
+            "geography:Rio Trapicheiros [river] @403,408",
+            "geography:Rio Trapicheiros [river] @404,408",
+            "geography:Rio Trapicheiros [river] @405,408",
+            "geography:Rio Trapicheiros [river] @406,408",
+            "geography:Rio Trapicheiros [river] @407,408",
+            "geography:Rio dos Macacos [river] @458,730"
+          ],
+          "new_only": [],
+          "old_only": []
+        },
+        "no_new_required_misses": true,
+        "controls": {
+          "t000": {
+            "exact_controls": 290,
+            "nonzero_flow": 0,
+            "nonzero_buffer": 0,
+            "source91_if_present": {
+              "id": 92,
+              "type": 1,
+              "x": -2160,
+              "z": 2112,
+              "target": 93.671875,
+              "input_rate": 52428,
+              "output_rate": 0,
+              "flow": 0,
+              "buffered_water": 0
+            }
+          },
+          "t005": {
+            "exact_controls": 290,
+            "nonzero_flow": 126,
+            "nonzero_buffer": 132,
+            "source91_if_present": {
+              "id": 92,
+              "type": 1,
+              "x": -2160,
+              "z": 2112,
+              "target": 93.671875,
+              "input_rate": 52428,
+              "output_rate": 0,
+              "flow": 0,
+              "buffered_water": 13
+            }
+          }
+        },
+        "floor": {
+          "t000": {
+            "raw_to_floor_offsets": 54,
+            "replay_points": 4256,
+            "replay_mismatches": 0,
+            "all_offsets_guarded": true,
+            "floor_equals_target": true,
+            "reference_offset_pattern_exact": true
+          },
+          "t005": {
+            "raw_to_floor_offsets": 54,
+            "replay_points": 4256,
+            "replay_mismatches": 0,
+            "all_offsets_guarded": true,
+            "floor_equals_target": true,
+            "reference_offset_pattern_exact": true
+          }
+        },
+        "camera": {
+          "t000": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          },
+          "t005": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          }
+        },
+        "native_60_minute_qualification": false,
+        "gpu": {
+          "sampled_wall_seconds": 331.206,
+          "peak_total_vram_mib": 10821,
+          "sampled_game_peak_mib": 2790,
+          "peak_power_w": 131.26,
+          "peak_temperature_c": 58,
+          "note": "Own-PID samples at menu/during play, not continuous loading peak; 150W cap unchanged."
+        },
+        "cleanup": {
+          "game": [],
+          "steam_instances": [],
+          "units_active": []
+        },
+        "numeric_short_checkpoint_passes": true
+      },
+      "visual_binding": {
+        "case": "rio",
+        "reference_package_sha256": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+        "reference_receipt_sha256": "7c02b3ab7a0bd3ac2e63a56b2cd8bbe1bf1266563f83b691cc46a792d7243fc5",
+        "crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+        "tested_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+        "edits": "Identical crop/resize and text labels only. No retouching. Uncropped native originals retained.",
+        "panels": [
+          {
+            "sheet": "opening",
+            "label": "Before 4bc5628 \u00b7 zero",
+            "source_file": "startup-opening.png",
+            "source_sha256": "c396ab07c5f0120bb1254d5b954582c87bb38fc76ac8c688c9321ddede54cd13",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening",
+            "label": "After 3b53842 \u00b7 zero",
+            "source_file": "t000-opening.png",
+            "source_sha256": "02e84d48489ae0caec90c4b84c1bcd8bbd657b5a16a670d80cf3330c8e1f5950",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening",
+            "label": "Before 4bc5628 \u00b7 five",
+            "source_file": "opening-t005-opening.png",
+            "source_sha256": "9b381d4d0cb4a2ae0547d0d332c56532bf97f7e129f352adadd357c784938edb",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening",
+            "label": "After 3b53842 \u00b7 five",
+            "source_file": "t005-opening.png",
+            "source_sha256": "e2257df0a02be316b70797fdf55cbed89e692ca5ba57c3cddf3d989f139a91d3",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "Before 4bc5628 \u00b7 zero",
+            "source_file": "startup-area_zoom.png",
+            "source_sha256": "18557b8a8cba56e10d75d0eeec05d36018ccbdcef1726f0dd8c75f8fb30a6647",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "After 3b53842 \u00b7 zero",
+            "source_file": "t000-area_zoom.png",
+            "source_sha256": "30d15a52f592814faeece04611c23a8fa72c075bf4d4c526e52d010c0da83613",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "Before 4bc5628 \u00b7 five",
+            "source_file": "opening-t005-area_zoom.png",
+            "source_sha256": "70b2f3d0053055d5c93731fc4263ebe4da1a314cc11e8ae7f5a7300ab88b988a",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "After 3b53842 \u00b7 five",
+            "source_file": "t005-area_zoom.png",
+            "source_sha256": "198b3eab7591f7f205e1958bb7fe0b58ac2c996f164b9ab853300c2a4187d8d4",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "opening-detail",
+            "label": "Before 4bc5628 \u00b7 zero",
+            "source_file": "startup-opening.png",
+            "source_sha256": "c396ab07c5f0120bb1254d5b954582c87bb38fc76ac8c688c9321ddede54cd13",
+            "crop": [
+              1280,
+              540,
+              1920,
+              965
+            ],
+            "output_width": 640,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening-detail",
+            "label": "After 3b53842 \u00b7 zero",
+            "source_file": "t000-opening.png",
+            "source_sha256": "02e84d48489ae0caec90c4b84c1bcd8bbd657b5a16a670d80cf3330c8e1f5950",
+            "crop": [
+              1280,
+              540,
+              1920,
+              965
+            ],
+            "output_width": 640,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening-detail",
+            "label": "Before 4bc5628 \u00b7 five",
+            "source_file": "opening-t005-opening.png",
+            "source_sha256": "9b381d4d0cb4a2ae0547d0d332c56532bf97f7e129f352adadd357c784938edb",
+            "crop": [
+              1280,
+              540,
+              1920,
+              965
+            ],
+            "output_width": 640,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening-detail",
+            "label": "After 3b53842 \u00b7 five",
+            "source_file": "t005-opening.png",
+            "source_sha256": "e2257df0a02be316b70797fdf55cbed89e692ca5ba57c3cddf3d989f139a91d3",
+            "crop": [
+              1280,
+              540,
+              1920,
+              965
+            ],
+            "output_width": 640,
+            "camera": {
+              "current_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "current_size": 1000,
+              "current_height": 101.5,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1084.7281494140625,
+                3483.929443359375
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "areas-dry-reach-detail",
+            "label": "Before 4bc5628 \u00b7 zero",
+            "source_file": "startup-area_zoom.png",
+            "source_sha256": "18557b8a8cba56e10d75d0eeec05d36018ccbdcef1726f0dd8c75f8fb30a6647",
+            "crop": [
+              980,
+              320,
+              1440,
+              750
+            ],
+            "output_width": 460,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas-dry-reach-detail",
+            "label": "After 3b53842 \u00b7 zero",
+            "source_file": "t000-area_zoom.png",
+            "source_sha256": "30d15a52f592814faeece04611c23a8fa72c075bf4d4c526e52d010c0da83613",
+            "crop": [
+              980,
+              320,
+              1440,
+              750
+            ],
+            "output_width": 460,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas-dry-reach-detail",
+            "label": "Before 4bc5628 \u00b7 five",
+            "source_file": "opening-t005-area_zoom.png",
+            "source_sha256": "70b2f3d0053055d5c93731fc4263ebe4da1a314cc11e8ae7f5a7300ab88b988a",
+            "crop": [
+              980,
+              320,
+              1440,
+              750
+            ],
+            "output_width": 460,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas-dry-reach-detail",
+            "label": "After 3b53842 \u00b7 five",
+            "source_file": "t005-area_zoom.png",
+            "source_sha256": "198b3eab7591f7f205e1958bb7fe0b58ac2c996f164b9ab853300c2a4187d8d4",
+            "crop": [
+              980,
+              320,
+              1440,
+              750
+            ],
+            "output_width": 460,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                2488
+              ],
+              "current_size": 6720,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                169.4876708984375,
+                3840
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                6389.70068359375,
+                -872
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          }
+        ],
+        "cameras": {
+          "opening": {
+            "current_position": true,
+            "current_size": true,
+            "current_angle_degrees": true,
+            "render_position": true,
+            "render_forward": true,
+            "render_up": true,
+            "field_of_view_degrees": true,
+            "pixel_rect": true,
+            "screen_width": true,
+            "screen_height": true
+          },
+          "area_zoom": {
+            "current_position": true,
+            "current_size": true,
+            "current_angle_degrees": true,
+            "render_position": true,
+            "render_forward": true,
+            "render_up": true,
+            "field_of_view_degrees": true,
+            "pixel_rect": true,
+            "screen_width": true,
+            "screen_height": true
+          }
+        }
+      }
+    },
+    "asheville": {
+      "cohort": {
+        "native_observed": true,
+        "full_60_minute_qualification": false,
+        "source_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+        "crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+        "elapsed_game_minutes": 5.078889153773586,
+        "frozen_probes_sha256": "7eb76250bfb2a16220f96ac1b95b69d4c8c28038df97f37b53ebf7066313fcdc",
+        "points_unchanged": true,
+        "initial_grids_exact": true,
+        "final_terrain_exact": true,
+        "threshold": 0.95,
+        "samples": {
+          "t000": {
+            "observed": 7745,
+            "required": 1261,
+            "wet_or_near": 1261,
+            "fraction": 1.0,
+            "dry": []
+          },
+          "t005": {
+            "observed": 7745,
+            "required": 1261,
+            "wet_or_near": 1261,
+            "fraction": 1.0,
+            "dry": []
+          }
+        },
+        "cleanup": {
+          "game": [],
+          "steam_instances": [],
+          "units_active": []
+        },
+        "receipt_sha256": {
+          "diagnostic.json": "32d031007c4f034359e309acfa06a6e6f974efe7e5fe77bbee9bfa795ff33824",
+          "measurement-requests.json": "18e833c61e4c2cbe13742036ecbc75054b75834ab5ee98bfd8ce11c1cb915c9a",
+          "session-receipt.json": "26b6919f43cd512fc7781d188f263cd618b6b5b3f4f11c6254652bbbede20e02",
+          "t000-world-water.json": "c343cc34f949324ae013aaf0883be522b85db8d325ac800f0998b1eff9a470fd",
+          "t005-world-water.json": "70557542e4f78cc4fea75fd95d6bd5af5fd61d957e03f34fa9d6aad5ac8663f6"
+        },
+        "short_required_gate_passes": true,
+        "zero_new_dry_from_all_wet_baseline_t000": true
+      },
+      "native_bindings": {
+        "case": "asheville",
+        "candidate_crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+        "source_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+        "game_minutes": 5.078889153773586,
+        "dry_subset_at_five": {
+          "shared": [],
+          "new_only": [],
+          "old_only": []
+        },
+        "no_new_required_misses": true,
+        "controls": {
+          "t000": {
+            "exact_controls": 110,
+            "nonzero_flow": 0,
+            "nonzero_buffer": 0,
+            "source91_if_present": {
+              "id": 92,
+              "type": 1,
+              "x": -4128,
+              "z": 7936,
+              "target": 49.734375,
+              "input_rate": 4149,
+              "output_rate": 13107,
+              "flow": 0,
+              "buffered_water": 0
+            }
+          },
+          "t005": {
+            "exact_controls": 110,
+            "nonzero_flow": 64,
+            "nonzero_buffer": 11,
+            "source91_if_present": {
+              "id": 92,
+              "type": 1,
+              "x": -4128,
+              "z": 7936,
+              "target": 49.734375,
+              "input_rate": 4149,
+              "output_rate": 13107,
+              "flow": 0,
+              "buffered_water": 1654
+            }
+          }
+        },
+        "floor": {
+          "t000": {
+            "raw_to_floor_offsets": 49,
+            "replay_points": 7745,
+            "replay_mismatches": 0,
+            "all_offsets_guarded": true,
+            "floor_equals_target": true
+          },
+          "t005": {
+            "raw_to_floor_offsets": 49,
+            "replay_points": 7745,
+            "replay_mismatches": 0,
+            "all_offsets_guarded": true,
+            "floor_equals_target": true
+          }
+        },
+        "camera": {
+          "t000": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          },
+          "t005": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          }
+        },
+        "native_60_minute_qualification": false,
+        "gpu": {
+          "sampled_wall_seconds": 331.172,
+          "peak_total_vram_mib": 10821,
+          "sampled_game_peak_mib": 2785,
+          "peak_power_w": 129.22,
+          "peak_temperature_c": 58,
+          "note": "Own-PID samples at menu/during play, not continuous loading peak; 150W cap unchanged."
+        },
+        "cleanup": {
+          "game": [],
+          "steam_instances": [],
+          "units_active": []
+        },
+        "numeric_short_checkpoint_passes": true
+      },
+      "visual_binding": {
+        "case": "asheville",
+        "reference_package_sha256": "745b043a0b92e0f733705f8f2597074b6b8c2f37a053ebb7f63986ca0c8aeb00",
+        "reference_receipt_sha256": "f374f850b8ffe07db03a71596ec0fa18292eed4cc8ef36ade6381f92444b0cbc",
+        "crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+        "tested_head": "3ad8f3df04034186ddb2fe411786e6e0bc342164",
+        "edits": "Identical crop/resize and text labels only. No retouching. Uncropped native originals retained.",
+        "panels": [
+          {
+            "sheet": "opening",
+            "label": "Before 745b043 \u00b7 zero",
+            "source_file": "startup-opening.png",
+            "source_sha256": "139ad543734a366a53b93c44eabb3952532dadbc3faf9abaf0474621c0be754d",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "current_size": 1000,
+              "current_height": 119.828125,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1098.695068359375,
+                -354.39654541015625
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening",
+            "label": "After 43a67e3 \u00b7 zero",
+            "source_file": "t000-opening.png",
+            "source_sha256": "448a65577c66fa529c2bd7fe6aad1269ea06dd480ba1689675760729adec4380",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "current_size": 1000,
+              "current_height": 119.828125,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1098.695068359375,
+                -354.39654541015625
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening",
+            "label": "Before 745b043 \u00b7 five",
+            "source_file": "opening-t005-opening.png",
+            "source_sha256": "2565a032d2a9629a2ecff2c1cd09eed0114c96f2f853ac84ea19523a08d60159",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "current_size": 1000,
+              "current_height": 119.828125,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1098.695068359375,
+                -354.39654541015625
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "opening",
+            "label": "After 43a67e3 \u00b7 five",
+            "source_file": "t005-opening.png",
+            "source_sha256": "93c4fd06a85b1b5fe05aa059ad1849f9a60cffa580032d0416c688832db69300",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "current_size": 1000,
+              "current_height": 119.828125,
+              "current_angle_degrees": [
+                0,
+                68.57142639160156
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                1098.695068359375,
+                -354.39654541015625
+              ],
+              "render_forward": [
+                0,
+                -0.9308737516403198,
+                0.36534106731414795
+              ],
+              "render_up": [
+                0,
+                0.36534106731414795,
+                0.9308737516403198
+              ],
+              "render_euler_degrees": [
+                68.5714340209961,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": false
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "Before 745b043 \u00b7 zero",
+            "source_file": "startup-area_zoom.png",
+            "source_sha256": "8c666b503979009f02e34314890ba1d5190a0d74a1a94e3cdcb34e5ad5efb172",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                -776
+              ],
+              "current_size": 5760,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                5549.6845703125,
+                -3656
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "After 43a67e3 \u00b7 zero",
+            "source_file": "t000-area_zoom.png",
+            "source_sha256": "e281d4717ba3278a80fde1c03ea1f7475728b349579288047c33af78209a869f",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                -776
+              ],
+              "current_size": 5760,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                5549.6845703125,
+                -3656
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "Before 745b043 \u00b7 five",
+            "source_file": "opening-t005-area_zoom.png",
+            "source_sha256": "f40614361d2a5c29a71e45526e4a9986113cf80d3c4b02e4eb4d8828807e08b6",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                -776
+              ],
+              "current_size": 5760,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                5549.6845703125,
+                -3656
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          },
+          {
+            "sheet": "areas",
+            "label": "After 43a67e3 \u00b7 five",
+            "source_file": "t005-area_zoom.png",
+            "source_sha256": "bd35e4f717634a4f326b53a684bd00d8a16776df7383b9763cf2cdf16ca6989a",
+            "crop": [
+              0,
+              0,
+              1920,
+              965
+            ],
+            "output_width": 960,
+            "camera": {
+              "current_position": [
+                -1920,
+                512,
+                -776
+              ],
+              "current_size": 5760,
+              "current_height": 0,
+              "current_angle_degrees": [
+                0,
+                60
+              ],
+              "target_position": [
+                -1920,
+                187.767822265625,
+                0
+              ],
+              "target_size": 1000,
+              "target_angle_degrees": [
+                0,
+                60
+              ],
+              "render_position": [
+                -1920,
+                5549.6845703125,
+                -3656
+              ],
+              "render_forward": [
+                0,
+                -0.8660253882408142,
+                0.5
+              ],
+              "render_up": [
+                0,
+                0.5,
+                0.8660253882408142
+              ],
+              "render_euler_degrees": [
+                59.999996185302734,
+                0,
+                0
+              ],
+              "field_of_view_degrees": 45,
+              "aspect": 1.9863439798355103,
+              "pixel_width": 1920,
+              "pixel_height": 967,
+              "screen_width": 1920,
+              "screen_height": 1080,
+              "pixel_rect": [
+                0,
+                113.39999389648438,
+                1920,
+                966.5999755859375
+              ],
+              "render_heading_degrees": 0,
+              "areas_visible": true
+            }
+          }
+        ],
+        "cameras": {
+          "opening": {
+            "current_position": true,
+            "current_size": true,
+            "current_angle_degrees": true,
+            "render_position": true,
+            "render_forward": true,
+            "render_up": true,
+            "field_of_view_degrees": true,
+            "pixel_rect": true,
+            "screen_width": true,
+            "screen_height": true
+          },
+          "area_zoom": {
+            "current_position": true,
+            "current_size": true,
+            "current_angle_degrees": true,
+            "render_position": true,
+            "render_forward": true,
+            "render_up": true,
+            "field_of_view_degrees": true,
+            "pixel_rect": true,
+            "screen_width": true,
+            "screen_height": true
+          }
+        }
+      }
+    }
+  },
+  "full_60_minute_qualification": false,
+  "shipping_js_pyodide_integration": "in progress; no full native qualification",
+  "retained_source_basins": "Physical source footprints remain unmodified; dry inlet ground is not declared wet."
+}

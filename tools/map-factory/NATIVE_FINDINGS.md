@@ -8,9 +8,18 @@ with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
 the separate selection-versus-hydraulics/workshop/reservoir question and can use
 this evidence without treating a rejected arm as a baseline fix.
 
-- [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): current whole-piece dry-only arm;
-  fresh Rio zero/five opening+Areas, unchanged required wetness, three deferred
-  dry residuals. The short visible checkpoint is not passed; no full sweep.
+- [DRY_SUBREACHES.md](DRY_SUBREACHES.md): PL-990's source-grounded next unit,
+  dry line pixels plus startup film never rewetted in recorded native states.
+  Both water and floor inside every physical source radius stay exact. Five-map
+  CPU preparation is not shipping integration or qualification. The first real
+  short improves Areas but exposes a transient-storage loss: a Papa-Couve pool
+  dries earlier when its neighbouring startup film is removed. The corrected
+  unit preserves startup water throughout the existing native wet-patch guard.
+  A short-lived initial pool is not proof of sustained stream supply.
+- [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): earlier whole-piece dry-only arm;
+  fresh Rio zero/five opening+Areas, unchanged required wetness, no visible
+  central Areas improvement. PL-990 corrected Sol's attribution: three deferred
+  fragments do not cause that central result. No full sweep followed.
   A read-only reference run establishes actual hydraulic floor versus raw
   terrain, exact paused native sampler replay, and a nonzero intake buffer
   despite zero output. Precise support/dry-subreach design remains unproved.

@@ -127,8 +127,11 @@ Initial terrain/water match the candidate exactly; final terrain is unchanged.
 All 290 controls' positions, targets, intake/output rates match at both epochs.
 Actual opening and Areas cameras match the reference in all ten compared
 position/render fields. Actual before/after sheets retain the genuinely wet
-opening stream and its native shore. **Three dry candidates remain carved;
-the Areas result does not earn promotion.** No Asheville short, other candidate
+opening stream and its native shore. **The central Areas result is effectively
+unchanged and does not earn promotion.** Three dry candidates remain carved,
+but PL-990 corrects their attribution: two are at the far western tile edge;
+the third is the intake's own bed. They are not the cause of the central image.
+No Asheville short, other candidate
 native map or 60-minute evaluation followed this failed visible checkpoint.
 
 The whole-piece guard restores surface-filtered pieces 21 (Rio Faria) and 33
@@ -184,12 +187,16 @@ and one on 151. Its intake omission is **not admissible evidence of safety**.
 The remaining cut ownership/startup interactions need source-grounded review;
 do not narrow a selector or call these vertices exempt.
 
-The next design question is a generic connected dry-subreach/cut-contribution
-unit rather than all-or-nothing OSM/tile pieces, while preserving actual wet
-interpolation and active intake semantics. That design is not implemented or
-proved. Review must establish one bounded next unit before another package.
-All old gates, fixtures and the accepted default remain unchanged. PL-979 owns
-reservoir/new-supply research; this baseline does not wait for or absorb it.
+PL-990 independently reproduced the sampler and intake constraint. It found
+that the 64 m whole-piece selector also misses genuinely dry line vertices near
+water, and that the slow-decaying initial shore stamp can outlive startup film
+which never returns. A new generic dry-subreach/startup-film unit is documented
+in [DRY_SUBREACHES.md](DRY_SUBREACHES.md). It is not a shipped or qualified rule.
+All old gates and fixture bytes remain unchanged. The accepted default on main
+is unchanged; the proposed branch now has an input-bound shipping integration
+under verification, described in `DRY_SUBREACHES.md`. It is not acceptance.
+PL-979 owns reservoir/new-supply research; this baseline does not wait for or
+absorb it.
 
 Both native attempts completed foreground with empty owned cleanup receipts.
 Normal quit required exact-owned-game termination after its grace period;
