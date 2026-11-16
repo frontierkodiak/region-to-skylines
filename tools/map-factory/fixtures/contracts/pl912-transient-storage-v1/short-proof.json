@@ -1,0 +1,3665 @@
+{
+  "status": "complete_shorts_not_sixty_minute_qualification",
+  "review_issue": "PL-1002",
+  "review_comment": "01a1e449-ffe2-7864-a2c4-613900d60fd0",
+  "scope": "Original gates unchanged; auxiliary single-cell check replaced by reference-calibrated pool stage.",
+  "material_files_sha256": {
+    "tools/map-factory/native_transient.py": "675d77679cbe708bba885a5815f24934c7346e61f871f3e52027b8181c2c94f2",
+    "tools/map-factory/native_subreaches.py": "81111616922f1f94de411109471e44689b1340f5589fa543b9c3c51a957b0b1c",
+    "tools/map-factory/native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+    "tools/map-factory/native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+    "tools/map-factory/admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39",
+    "tools/map-factory/native_opening_diagnostic.py": "c122cdec684bfc4cc0ad3a3d47b845d4cfdae27b0aabeabd9b0b44958aad60c7"
+  },
+  "cases": [
+    {
+      "case": "rio",
+      "audit": {
+        "case": "rio",
+        "source_head": "58de2bd655d6dda041bb66f56d47faa29ea1013f",
+        "package_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+        "elapsed_game_minutes": 5.129166934173554,
+        "complete_observations": 4256,
+        "required_zero": 1556,
+        "required_five": 1545,
+        "new_required_five_misses": [],
+        "shared_five_misses": [
+          "Rio Trapicheiros [river] #8:11",
+          "Rio Trapicheiros [river] #8:12",
+          "Rio Trapicheiros [river] #8:13",
+          "Rio Trapicheiros [river] #8:14",
+          "Rio Trapicheiros [river] #8:15",
+          "geography:Rio Trapicheiros [river] @403,408",
+          "geography:Rio Trapicheiros [river] @404,408",
+          "geography:Rio Trapicheiros [river] @405,408",
+          "geography:Rio Trapicheiros [river] @406,408",
+          "geography:Rio Trapicheiros [river] @407,408",
+          "geography:Rio dos Macacos [river] @458,730"
+        ],
+        "old_only_five_misses": [],
+        "sustained_near_released_ring": {
+          "reference_cells": 1332,
+          "missing_at_five": 10,
+          "missing_world": [
+            [
+              -8624,
+              -4096
+            ],
+            [
+              -8608,
+              -4096
+            ],
+            [
+              -8592,
+              -4096
+            ],
+            [
+              -3328,
+              1568
+            ],
+            [
+              -2960,
+              2960
+            ],
+            [
+              -6720,
+              5424
+            ],
+            [
+              -2256,
+              6448
+            ],
+            [
+              -2336,
+              6480
+            ],
+            [
+              -7040,
+              7600
+            ],
+            [
+              -6416,
+              7632
+            ]
+          ]
+        },
+        "intake_violations": [],
+        "minute_readings": [
+          {
+            "label": "t000",
+            "file": "t000-world-water.json",
+            "sha256": "e8c3717e9f372e7d689907cf33bb32806823be56144f973b61178876a305b7c8",
+            "released_intakes_checked": 20
+          },
+          {
+            "label": "1.108055613345156",
+            "file": "minute-1-water.json",
+            "sha256": "e025aa06e7a555670d8eeaf68ff9a643183e50b1bb00815cf80c735c12dceae6",
+            "released_intakes_checked": 20
+          },
+          {
+            "label": "2.0713889969202377",
+            "file": "minute-2-water.json",
+            "sha256": "ead1ae92b40551b166bc1cf882656bdeb171b70d1457ce12fc85a28b7f527465",
+            "released_intakes_checked": 20
+          },
+          {
+            "label": "3.04305571426327",
+            "file": "minute-3-water.json",
+            "sha256": "cc75fbd3dffb53e0bc0f5caa2554e6c48fbcef7e881fbdeb0794dae09c8f0361",
+            "released_intakes_checked": 20
+          },
+          {
+            "label": "4.0269446544659635",
+            "file": "minute-4-water.json",
+            "sha256": "c87bf16b65255d4b2063b3bbfdc51f43ffde86f148c1516688bb0cc1fa93f3db",
+            "released_intakes_checked": 20
+          },
+          {
+            "label": "t005",
+            "file": "t005-world-water.json",
+            "sha256": "d26bc1c26a49be9f1425939f78ff808c61ec8ca1d998870189003b81e602b4e6",
+            "released_intakes_checked": 20
+          }
+        ],
+        "floor": {
+          "t000": {
+            "offsets": 54,
+            "offset_pattern_exact": true,
+            "floor_equals_target": true,
+            "native_replay_mismatches": 0
+          },
+          "t005": {
+            "offsets": 54,
+            "offset_pattern_exact": true,
+            "floor_equals_target": true,
+            "native_replay_mismatches": 0
+          }
+        },
+        "camera": {
+          "t000": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          },
+          "t005": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          }
+        },
+        "native_60_minute_qualification": false,
+        "gpu": {
+          "peak_total_vram_mib": 10821,
+          "sampled_game_peak_mib": 2792,
+          "peak_power_w": 130.17,
+          "peak_temperature_c": 57,
+          "note": "Own-PID samples, not a continuous loading peak; shared cap unchanged."
+        },
+        "cleanup": {
+          "game": [],
+          "steam_instances": [],
+          "units_active": []
+        },
+        "support_disposition": {
+          "review": "PL-1002",
+          "single_cell_count_report_only": true,
+          "pool_audit_sha256": "ac164c72e3c2cb1ba8697e68d5a8898c0a447ad6d31751056ed746e6a3a7c42d"
+        },
+        "numeric_short_pass": true
+      },
+      "pool": {
+        "case": "rio",
+        "calibration_sha256": "eda9ad7dd1716549a77ca3617be7ab7a0b7c95f24ba4516ab2d468b563595c37",
+        "pools": [
+          {
+            "id": 2,
+            "cells": 62,
+            "reference_means_units": [
+              211.6290322580645,
+              212.3548387096774,
+              211.93548387096774,
+              212.80645161290323,
+              213.70967741935485
+            ],
+            "minimum_units": 211.6290322580645,
+            "range_units": 2.0806451612903345,
+            "lower_bound_units": 209.54838709677418,
+            "candidate_mean_units": 210.59677419354838,
+            "margin_units": 1.0483870967742064
+          },
+          {
+            "id": 5,
+            "cells": 55,
+            "reference_means_units": [
+              46.872727272727275,
+              46.63636363636363,
+              49.63636363636363,
+              46.654545454545456,
+              50.90909090909091
+            ],
+            "minimum_units": 46.63636363636363,
+            "range_units": 4.272727272727273,
+            "lower_bound_units": 42.36363636363636,
+            "candidate_mean_units": 46.836363636363636,
+            "margin_units": 4.472727272727276
+          },
+          {
+            "id": 6,
+            "cells": 368,
+            "reference_means_units": [
+              92.70652173913044,
+              92.125,
+              92.4211956521739,
+              92.41847826086956,
+              92.34510869565217
+            ],
+            "minimum_units": 92.125,
+            "range_units": 0.5815217391304373,
+            "lower_bound_units": 91.48214285714286,
+            "candidate_mean_units": 91.99184782608695,
+            "margin_units": 0.5097049689440922
+          },
+          {
+            "id": 7,
+            "cells": 379,
+            "reference_means_units": [
+              118.65699208443272,
+              118.78364116094987,
+              118.18469656992085,
+              119.56992084432717,
+              118.3060686015831
+            ],
+            "minimum_units": 118.18469656992085,
+            "range_units": 1.3852242744063261,
+            "lower_bound_units": 116.79947229551452,
+            "candidate_mean_units": 118.78100263852242,
+            "margin_units": 1.981530343007904
+          },
+          {
+            "id": 8,
+            "cells": 217,
+            "reference_means_units": [
+              104.963133640553,
+              103.88018433179724,
+              103.98617511520737,
+              104.16589861751152,
+              103.89400921658986
+            ],
+            "minimum_units": 103.88018433179724,
+            "range_units": 1.082949308755758,
+            "lower_bound_units": 102.79723502304148,
+            "candidate_mean_units": 104.35483870967742,
+            "margin_units": 1.557603686635943
+          },
+          {
+            "id": 9,
+            "cells": 184,
+            "reference_means_units": [
+              105.72282608695652,
+              105.13586956521739,
+              105.40760869565217,
+              105.57608695652173,
+              105.34239130434783
+            ],
+            "minimum_units": 105.13586956521739,
+            "range_units": 0.5869565217391255,
+            "lower_bound_units": 104.49301242236025,
+            "candidate_mean_units": 105.06521739130434,
+            "margin_units": 0.5722049689440922
+          },
+          {
+            "id": 10,
+            "cells": 215,
+            "reference_means_units": [
+              23.46511627906977,
+              22.693023255813955,
+              22.990697674418605,
+              23.195348837209302,
+              23.023255813953487
+            ],
+            "minimum_units": 22.693023255813955,
+            "range_units": 0.7720930232558132,
+            "lower_bound_units": 21.920930232558142,
+            "candidate_mean_units": 22.693023255813955,
+            "margin_units": 0.7720930232558132
+          },
+          {
+            "id": 12,
+            "cells": 463,
+            "reference_means_units": [
+              79.85961123110151,
+              79.18574514038878,
+              79.28077753779698,
+              79.77969762419006,
+              79.21382289416847
+            ],
+            "minimum_units": 79.18574514038878,
+            "range_units": 0.6738660907127354,
+            "lower_bound_units": 78.51187904967604,
+            "candidate_mean_units": 79.1987041036717,
+            "margin_units": 0.686825053995662
+          },
+          {
+            "id": 13,
+            "cells": 610,
+            "reference_means_units": [
+              40.08360655737705,
+              43.52622950819672,
+              43.74590163934426,
+              44.02459016393443,
+              43.752459016393445
+            ],
+            "minimum_units": 40.08360655737705,
+            "range_units": 3.9409836065573742,
+            "lower_bound_units": 36.14262295081968,
+            "candidate_mean_units": 39.34754098360656,
+            "margin_units": 3.2049180327868783
+          },
+          {
+            "id": 15,
+            "cells": 52,
+            "reference_means_units": [
+              44.13461538461539,
+              43.69230769230769,
+              43.73076923076923,
+              44.07692307692308,
+              43.96153846153846
+            ],
+            "minimum_units": 43.69230769230769,
+            "range_units": 0.4423076923076934,
+            "lower_bound_units": 43.04945054945055,
+            "candidate_mean_units": 43.69230769230769,
+            "margin_units": 0.6428571428571459
+          },
+          {
+            "id": 16,
+            "cells": 35,
+            "reference_means_units": [
+              23.685714285714287,
+              22.942857142857143,
+              23.257142857142856,
+              23.542857142857144,
+              23.257142857142856
+            ],
+            "minimum_units": 22.942857142857143,
+            "range_units": 0.7428571428571438,
+            "lower_bound_units": 22.2,
+            "candidate_mean_units": 23.02857142857143,
+            "margin_units": 0.8285714285714292
+          },
+          {
+            "id": 17,
+            "cells": 64,
+            "reference_means_units": [
+              54.28125,
+              53.234375,
+              53.6875,
+              53.90625,
+              53.328125
+            ],
+            "minimum_units": 53.234375,
+            "range_units": 1.046875,
+            "lower_bound_units": 52.1875,
+            "candidate_mean_units": 53.65625,
+            "margin_units": 1.46875
+          },
+          {
+            "id": 18,
+            "cells": 282,
+            "reference_means_units": [
+              51.4645390070922,
+              51.769503546099294,
+              52.00354609929078,
+              51.226950354609926,
+              51.166666666666664
+            ],
+            "minimum_units": 51.166666666666664,
+            "range_units": 0.8368794326241158,
+            "lower_bound_units": 50.32978723404255,
+            "candidate_mean_units": 51.86524822695036,
+            "margin_units": 1.535460992907808
+          },
+          {
+            "id": 19,
+            "cells": 287,
+            "reference_means_units": [
+              97.02090592334494,
+              96.30662020905923,
+              96.87108013937282,
+              96.70034843205575,
+              96.58536585365853
+            ],
+            "minimum_units": 96.30662020905923,
+            "range_units": 0.7142857142857082,
+            "lower_bound_units": 95.59233449477352,
+            "candidate_mean_units": 96.3170731707317,
+            "margin_units": 0.7247386759581786
+          },
+          {
+            "id": 20,
+            "cells": 16,
+            "reference_means_units": [
+              46.6875,
+              46.375,
+              46.625,
+              46.5625,
+              46.4375
+            ],
+            "minimum_units": 46.375,
+            "range_units": 0.3125,
+            "lower_bound_units": 45.732142857142854,
+            "candidate_mean_units": 46.4375,
+            "margin_units": 0.7053571428571459
+          },
+          {
+            "id": 21,
+            "cells": 27,
+            "reference_means_units": [
+              24.703703703703702,
+              24.11111111111111,
+              24.37037037037037,
+              24.48148148148148,
+              24.40740740740741
+            ],
+            "minimum_units": 24.11111111111111,
+            "range_units": 0.5925925925925917,
+            "lower_bound_units": 23.46825396825397,
+            "candidate_mean_units": 24.185185185185187,
+            "margin_units": 0.7169312169312185
+          },
+          {
+            "id": 22,
+            "cells": 166,
+            "reference_means_units": [
+              70.08433734939759,
+              69.32530120481928,
+              69.63855421686748,
+              70.00602409638554,
+              69.51807228915662
+            ],
+            "minimum_units": 69.32530120481928,
+            "range_units": 0.7590361445783032,
+            "lower_bound_units": 68.56626506024098,
+            "candidate_mean_units": 69.23493975903614,
+            "margin_units": 0.668674698795158
+          },
+          {
+            "id": 25,
+            "cells": 149,
+            "reference_means_units": [
+              86.81208053691275,
+              86.10738255033557,
+              86.40939597315436,
+              86.61744966442953,
+              86.3489932885906
+            ],
+            "minimum_units": 86.10738255033557,
+            "range_units": 0.7046979865771732,
+            "lower_bound_units": 85.4026845637584,
+            "candidate_mean_units": 86.11409395973155,
+            "margin_units": 0.7114093959731491
+          },
+          {
+            "id": 26,
+            "cells": 44,
+            "reference_means_units": [
+              19.59090909090909,
+              19.113636363636363,
+              19.477272727272727,
+              19.613636363636363,
+              19.295454545454547
+            ],
+            "minimum_units": 19.113636363636363,
+            "range_units": 0.5,
+            "lower_bound_units": 18.47077922077922,
+            "candidate_mean_units": 19.068181818181817,
+            "margin_units": 0.5974025974025956
+          },
+          {
+            "id": 27,
+            "cells": 11,
+            "reference_means_units": [
+              50.36363636363637,
+              49.90909090909091,
+              50.09090909090909,
+              50.09090909090909,
+              50.18181818181818
+            ],
+            "minimum_units": 49.90909090909091,
+            "range_units": 0.45454545454546036,
+            "lower_bound_units": 49.26623376623376,
+            "candidate_mean_units": 49.90909090909091,
+            "margin_units": 0.6428571428571459
+          },
+          {
+            "id": 28,
+            "cells": 113,
+            "reference_means_units": [
+              50.39823008849557,
+              49.982300884955755,
+              50.02654867256637,
+              50.14159292035398,
+              50.14159292035398
+            ],
+            "minimum_units": 49.982300884955755,
+            "range_units": 0.4159292035398181,
+            "lower_bound_units": 49.33944374209861,
+            "candidate_mean_units": 49.60176991150443,
+            "margin_units": 0.2623261694058172
+          },
+          {
+            "id": 29,
+            "cells": 208,
+            "reference_means_units": [
+              101.5048076923077,
+              104.15865384615384,
+              104.55288461538461,
+              104.48076923076923,
+              104.15384615384616
+            ],
+            "minimum_units": 101.5048076923077,
+            "range_units": 3.04807692307692,
+            "lower_bound_units": 98.45673076923077,
+            "candidate_mean_units": 101.40384615384616,
+            "margin_units": 2.947115384615387
+          },
+          {
+            "id": 30,
+            "cells": 228,
+            "reference_means_units": [
+              31.912280701754387,
+              32.8421052631579,
+              33.04824561403509,
+              33.25,
+              32.89035087719298
+            ],
+            "minimum_units": 31.912280701754387,
+            "range_units": 1.337719298245613,
+            "lower_bound_units": 30.574561403508774,
+            "candidate_mean_units": 31.157894736842106,
+            "margin_units": 0.5833333333333321
+          },
+          {
+            "id": 31,
+            "cells": 23,
+            "reference_means_units": [
+              36.0,
+              35.608695652173914,
+              36.08695652173913,
+              35.65217391304348,
+              36.04347826086956
+            ],
+            "minimum_units": 35.608695652173914,
+            "range_units": 0.4782608695652186,
+            "lower_bound_units": 34.96583850931677,
+            "candidate_mean_units": 35.608695652173914,
+            "margin_units": 0.6428571428571459
+          },
+          {
+            "id": 32,
+            "cells": 46,
+            "reference_means_units": [
+              21.891304347826086,
+              21.565217391304348,
+              21.782608695652176,
+              22.130434782608695,
+              21.73913043478261
+            ],
+            "minimum_units": 21.565217391304348,
+            "range_units": 0.5652173913043477,
+            "lower_bound_units": 20.922360248447205,
+            "candidate_mean_units": 21.5,
+            "margin_units": 0.5776397515527947
+          },
+          {
+            "id": 33,
+            "cells": 33,
+            "reference_means_units": [
+              109.60606060606061,
+              108.63636363636364,
+              109.03030303030303,
+              109.18181818181819,
+              109.36363636363636
+            ],
+            "minimum_units": 108.63636363636364,
+            "range_units": 0.9696969696969688,
+            "lower_bound_units": 107.66666666666667,
+            "candidate_mean_units": 109.3030303030303,
+            "margin_units": 1.636363636363626
+          },
+          {
+            "id": 34,
+            "cells": 8,
+            "reference_means_units": [
+              33.75,
+              32.75,
+              33.375,
+              32.875,
+              33.375
+            ],
+            "minimum_units": 32.75,
+            "range_units": 1.0,
+            "lower_bound_units": 31.75,
+            "candidate_mean_units": 32.5,
+            "margin_units": 0.75
+          },
+          {
+            "id": 36,
+            "cells": 378,
+            "reference_means_units": [
+              108.55291005291005,
+              107.52116402116403,
+              108.04497354497354,
+              108.31216931216932,
+              107.93915343915344
+            ],
+            "minimum_units": 107.52116402116403,
+            "range_units": 1.0317460317460245,
+            "lower_bound_units": 106.489417989418,
+            "candidate_mean_units": 107.76190476190476,
+            "margin_units": 1.272486772486758
+          },
+          {
+            "id": 37,
+            "cells": 94,
+            "reference_means_units": [
+              33.755319148936174,
+              32.90425531914894,
+              33.276595744680854,
+              33.319148936170215,
+              32.98936170212766
+            ],
+            "minimum_units": 32.90425531914894,
+            "range_units": 0.8510638297872362,
+            "lower_bound_units": 32.0531914893617,
+            "candidate_mean_units": 32.702127659574465,
+            "margin_units": 0.6489361702127638
+          },
+          {
+            "id": 38,
+            "cells": 190,
+            "reference_means_units": [
+              110.62631578947368,
+              110.4421052631579,
+              109.1421052631579,
+              110.51578947368421,
+              110.66315789473684
+            ],
+            "minimum_units": 109.1421052631579,
+            "range_units": 1.5210526315789394,
+            "lower_bound_units": 107.62105263157896,
+            "candidate_mean_units": 109.5578947368421,
+            "margin_units": 1.936842105263139
+          },
+          {
+            "id": 39,
+            "cells": 10,
+            "reference_means_units": [
+              74.7,
+              74.3,
+              74.2,
+              74.6,
+              74.4
+            ],
+            "minimum_units": 74.2,
+            "range_units": 0.5,
+            "lower_bound_units": 73.55714285714286,
+            "candidate_mean_units": 74.2,
+            "margin_units": 0.6428571428571388
+          },
+          {
+            "id": 40,
+            "cells": 181,
+            "reference_means_units": [
+              92.68508287292818,
+              92.28729281767956,
+              92.2707182320442,
+              92.56353591160222,
+              92.5303867403315
+            ],
+            "minimum_units": 92.2707182320442,
+            "range_units": 0.4143646408839743,
+            "lower_bound_units": 91.62786108918706,
+            "candidate_mean_units": 92.22651933701657,
+            "margin_units": 0.5986582478295048
+          },
+          {
+            "id": 42,
+            "cells": 652,
+            "reference_means_units": [
+              102.94171779141104,
+              102.62269938650307,
+              102.79447852760737,
+              102.920245398773,
+              102.79754601226993
+            ],
+            "minimum_units": 102.62269938650307,
+            "range_units": 0.31901840490796474,
+            "lower_bound_units": 101.97984224364593,
+            "candidate_mean_units": 102.61503067484662,
+            "margin_units": 0.6351884312006888
+          },
+          {
+            "id": 43,
+            "cells": 37,
+            "reference_means_units": [
+              19.72972972972973,
+              19.35135135135135,
+              19.324324324324323,
+              19.43243243243243,
+              19.54054054054054
+            ],
+            "minimum_units": 19.324324324324323,
+            "range_units": 0.40540540540540704,
+            "lower_bound_units": 18.68146718146718,
+            "candidate_mean_units": 19.08108108108108,
+            "margin_units": 0.39961389961390026
+          },
+          {
+            "id": 45,
+            "cells": 140,
+            "reference_means_units": [
+              50.82142857142857,
+              50.378571428571426,
+              50.51428571428571,
+              50.77857142857143,
+              50.042857142857144
+            ],
+            "minimum_units": 50.042857142857144,
+            "range_units": 0.7785714285714249,
+            "lower_bound_units": 49.26428571428572,
+            "candidate_mean_units": 49.957142857142856,
+            "margin_units": 0.692857142857136
+          },
+          {
+            "id": 46,
+            "cells": 435,
+            "reference_means_units": [
+              98.35172413793103,
+              97.46666666666667,
+              97.76551724137931,
+              98.06436781609196,
+              97.6712643678161
+            ],
+            "minimum_units": 97.46666666666667,
+            "range_units": 0.8850574712643606,
+            "lower_bound_units": 96.58160919540231,
+            "candidate_mean_units": 97.63448275862069,
+            "margin_units": 1.0528735632183839
+          },
+          {
+            "id": 47,
+            "cells": 1437,
+            "reference_means_units": [
+              103.2901878914405,
+              102.63395963813501,
+              102.8830897703549,
+              103.12317327766179,
+              102.83646485734168
+            ],
+            "minimum_units": 102.63395963813501,
+            "range_units": 0.6562282533054855,
+            "lower_bound_units": 101.97773138482953,
+            "candidate_mean_units": 102.4892136395268,
+            "margin_units": 0.5114822546972704
+          },
+          {
+            "id": 49,
+            "cells": 155,
+            "reference_means_units": [
+              91.03870967741935,
+              90.45161290322581,
+              90.65806451612903,
+              90.84516129032258,
+              90.58709677419355
+            ],
+            "minimum_units": 90.45161290322581,
+            "range_units": 0.5870967741935402,
+            "lower_bound_units": 89.80875576036867,
+            "candidate_mean_units": 90.63870967741936,
+            "margin_units": 0.8299539170506876
+          },
+          {
+            "id": 51,
+            "cells": 16,
+            "reference_means_units": [
+              22.75,
+              22.3125,
+              22.3125,
+              22.5,
+              22.375
+            ],
+            "minimum_units": 22.3125,
+            "range_units": 0.4375,
+            "lower_bound_units": 21.669642857142858,
+            "candidate_mean_units": 22.1875,
+            "margin_units": 0.5178571428571423
+          },
+          {
+            "id": 54,
+            "cells": 24,
+            "reference_means_units": [
+              52.541666666666664,
+              51.958333333333336,
+              51.916666666666664,
+              52.166666666666664,
+              51.958333333333336
+            ],
+            "minimum_units": 51.916666666666664,
+            "range_units": 0.625,
+            "lower_bound_units": 51.27380952380952,
+            "candidate_mean_units": 51.541666666666664,
+            "margin_units": 0.2678571428571459
+          }
+        ],
+        "pool_stage_pass": true,
+        "minimum_margin_units": 0.2623261694058172,
+        "single_cell_report_only": {
+          "nearby_reference_cells": 1332,
+          "zero_at_five": 10
+        },
+        "minute_probe_levels_report_only": [
+          {
+            "file": "t000-world-water.json",
+            "frame": 202252,
+            "pool_mean_probe_depth_units": {
+              "47": 77.6949806949807,
+              "42": 63.93700787401575,
+              "40": 64.0,
+              "38": 64.0,
+              "37": 62.0,
+              "30": 64.0,
+              "25": 60.10526315789474,
+              "36": 91.41317365269461,
+              "33": 64.9,
+              "29": 62.56716417910448,
+              "22": 62.666666666666664,
+              "12": 64.97902097902097,
+              "8": 64.0,
+              "26": 61.44,
+              "23": 64.0,
+              "21": 63.875,
+              "17": 61.241379310344826,
+              "16": 61.09090909090909,
+              "15": 62.19230769230769,
+              "9": 62.92134831460674,
+              "54": 84.0,
+              "49": 64.0,
+              "45": 61.886792452830186,
+              "48": 64.0,
+              "34": 64.0,
+              "19": 64.0,
+              "14": 58.903225806451616,
+              "32": 64.0,
+              "31": 62.22222222222222,
+              "28": 63.42857142857143,
+              "27": 64.0,
+              "18": 62.413223140495866,
+              "7": 64.0,
+              "46": 100.00467289719626,
+              "6": 68.02312138728324,
+              "10": 60.80898876404494,
+              "13": 58.55789473684211,
+              "43": 64.0,
+              "5": 64.0,
+              "51": 62.93333333333333,
+              "52": 64.0,
+              "2": 60.63157894736842,
+              "39": 64.0,
+              "20": 52.0
+            }
+          },
+          {
+            "file": "minute-1-water.json",
+            "frame": 206317,
+            "pool_mean_probe_depth_units": {
+              "47": 138.15830115830116,
+              "42": 127.60629921259843,
+              "40": 117.10377358490567,
+              "38": 146.19,
+              "37": 37.333333333333336,
+              "30": 25.476190476190474,
+              "25": 112.40789473684211,
+              "36": 141.2754491017964,
+              "33": 106.8,
+              "29": 136.8955223880597,
+              "22": 107.66666666666667,
+              "12": 102.43356643356644,
+              "8": 137.09756097560975,
+              "26": 25.32,
+              "23": 37.8,
+              "21": 28.0,
+              "17": 54.58620689655172,
+              "16": 29.5,
+              "15": 58.88461538461539,
+              "9": 154.59550561797752,
+              "54": 61.8,
+              "49": 125.23655913978494,
+              "45": 75.43396226415095,
+              "48": 24.666666666666668,
+              "34": 61.0,
+              "19": 136.01869158878506,
+              "14": 128.68817204301075,
+              "32": 29.52,
+              "31": 46.44444444444444,
+              "28": 60.67857142857143,
+              "27": 16.0,
+              "18": 62.62809917355372,
+              "7": 156.20535714285714,
+              "46": 135.23831775700936,
+              "6": 121.02312138728324,
+              "10": 39.20224719101124,
+              "13": 68.09473684210526,
+              "43": 26.153846153846153,
+              "5": 73.77777777777777,
+              "51": 22.533333333333335,
+              "52": 26.0,
+              "2": 269.63157894736844,
+              "39": 32.333333333333336,
+              "20": 31.125
+            }
+          },
+          {
+            "file": "minute-2-water.json",
+            "frame": 209787,
+            "pool_mean_probe_depth_units": {
+              "47": 134.43629343629343,
+              "42": 129.58267716535434,
+              "40": 117.33018867924528,
+              "38": 136.09,
+              "37": 38.25,
+              "30": 25.476190476190474,
+              "25": 112.13157894736842,
+              "36": 133.36526946107784,
+              "33": 107.7,
+              "29": 120.08955223880596,
+              "22": 107.95833333333333,
+              "12": 103.73426573426573,
+              "8": 132.78048780487805,
+              "26": 24.92,
+              "23": 36.7,
+              "21": 27.625,
+              "17": 56.241379310344826,
+              "16": 29.636363636363637,
+              "15": 58.73076923076923,
+              "9": 152.9438202247191,
+              "54": 61.4,
+              "49": 113.3010752688172,
+              "45": 70.20754716981132,
+              "48": 24.333333333333332,
+              "34": 63.0,
+              "19": 134.02803738317758,
+              "14": 122.33333333333333,
+              "32": 28.16,
+              "31": 45.77777777777778,
+              "28": 58.57142857142857,
+              "27": 16.0,
+              "18": 62.85123966942149,
+              "7": 154.82142857142858,
+              "46": 137.24766355140187,
+              "6": 120.0693641618497,
+              "10": 34.89887640449438,
+              "13": 62.915789473684214,
+              "43": 26.153846153846153,
+              "5": 73.33333333333333,
+              "51": 21.933333333333334,
+              "52": 25.5,
+              "2": 234.73684210526315,
+              "39": 32.666666666666664,
+              "20": 31.25
+            }
+          },
+          {
+            "file": "minute-3-water.json",
+            "frame": 213282,
+            "pool_mean_probe_depth_units": {
+              "47": 134.27799227799227,
+              "42": 128.17322834645668,
+              "40": 116.61320754716981,
+              "38": 134.69,
+              "37": 39.479166666666664,
+              "30": 26.952380952380953,
+              "25": 113.17105263157895,
+              "36": 134.437125748503,
+              "33": 109.1,
+              "29": 123.50746268656717,
+              "22": 106.89583333333333,
+              "12": 102.44055944055944,
+              "8": 130.5731707317073,
+              "26": 26.24,
+              "23": 37.6,
+              "21": 28.125,
+              "17": 57.62068965517241,
+              "16": 29.681818181818183,
+              "15": 58.80769230769231,
+              "9": 153.5505617977528,
+              "54": 61.7,
+              "49": 114.36559139784946,
+              "45": 73.56603773584905,
+              "48": 24.666666666666668,
+              "34": 64.0,
+              "19": 132.89719626168224,
+              "14": 124.87096774193549,
+              "32": 29.36,
+              "31": 46.55555555555556,
+              "28": 59.92857142857143,
+              "27": 16.5,
+              "18": 63.15702479338843,
+              "7": 158.04464285714286,
+              "46": 138.82242990654206,
+              "6": 120.96531791907515,
+              "10": 35.53932584269663,
+              "13": 63.98947368421052,
+              "43": 27.76923076923077,
+              "5": 71.22222222222223,
+              "51": 23.6,
+              "52": 24.5,
+              "2": 238.6315789473684,
+              "39": 32.666666666666664,
+              "20": 31.5
+            }
+          },
+          {
+            "file": "minute-4-water.json",
+            "frame": 216827,
+            "pool_mean_probe_depth_units": {
+              "47": 133.85135135135135,
+              "42": 127.09055118110236,
+              "40": 115.74528301886792,
+              "38": 131.19,
+              "37": 37.895833333333336,
+              "30": 26.19047619047619,
+              "25": 112.67105263157895,
+              "36": 134.1317365269461,
+              "33": 107.5,
+              "29": 128.40298507462686,
+              "22": 106.72916666666667,
+              "12": 103.04195804195804,
+              "8": 129.7439024390244,
+              "26": 25.76,
+              "23": 37.5,
+              "21": 28.125,
+              "17": 56.793103448275865,
+              "16": 29.863636363636363,
+              "15": 59.0,
+              "9": 153.86516853932585,
+              "54": 62.1,
+              "49": 115.41935483870968,
+              "45": 73.73584905660377,
+              "48": 24.666666666666668,
+              "34": 62.0,
+              "19": 134.0467289719626,
+              "14": 124.0,
+              "32": 29.8,
+              "31": 46.888888888888886,
+              "28": 60.339285714285715,
+              "27": 16.5,
+              "18": 62.30578512396694,
+              "7": 158.41071428571428,
+              "46": 137.39719626168224,
+              "6": 120.71098265895954,
+              "10": 35.26966292134831,
+              "13": 63.49473684210526,
+              "43": 27.53846153846154,
+              "5": 71.0,
+              "51": 22.466666666666665,
+              "52": 26.0,
+              "2": 247.73684210526315,
+              "39": 32.333333333333336,
+              "20": 31.125
+            }
+          },
+          {
+            "file": "t005-world-water.json",
+            "frame": 220795,
+            "pool_mean_probe_depth_units": {
+              "47": 133.12355212355212,
+              "42": 128.05905511811022,
+              "40": 116.58490566037736,
+              "38": 131.17,
+              "37": 38.166666666666664,
+              "30": 25.857142857142858,
+              "25": 112.25,
+              "36": 133.89221556886227,
+              "33": 109.0,
+              "29": 122.83582089552239,
+              "22": 107.16666666666667,
+              "12": 102.2867132867133,
+              "8": 128.9268292682927,
+              "26": 24.72,
+              "23": 37.0,
+              "21": 27.625,
+              "17": 57.310344827586206,
+              "16": 29.363636363636363,
+              "15": 58.53846153846154,
+              "9": 152.8876404494382,
+              "54": 61.9,
+              "49": 114.56989247311827,
+              "45": 73.0377358490566,
+              "48": 24.333333333333332,
+              "34": 61.0,
+              "19": 133.33644859813083,
+              "14": 123.6774193548387,
+              "32": 28.48,
+              "31": 45.111111111111114,
+              "28": 58.964285714285715,
+              "27": 16.0,
+              "18": 62.892561983471076,
+              "7": 157.20535714285714,
+              "46": 137.6448598130841,
+              "6": 122.08092485549133,
+              "10": 34.59550561797753,
+              "13": 63.17894736842105,
+              "43": 26.846153846153847,
+              "5": 68.22222222222223,
+              "51": 22.8,
+              "52": 26.0,
+              "2": 239.94736842105263,
+              "39": 32.0,
+              "20": 31.0
+            }
+          }
+        ],
+        "candidate_grid_sha256": "9adb1ed2482f102ed1df9ca0ed38000a8fc61de716039f7c9a4e42e3ffe669b8",
+        "note": "Auxiliary stage tolerance from reference, not a change to any original gate or every-frame proof."
+      },
+      "calibration": {
+        "case": "rio",
+        "review": "PL-1002",
+        "original_gates_changed": false,
+        "rule": "candidate pool mean >= reference minimum - max(reference range, map grid/live swing)",
+        "units": "1/64 metre",
+        "reference_epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ],
+        "swing_definition": "PL-1002 coh.py: absolute median per-pool grid/live shift; sustained pools <50000 cells, <=2 Euclidean cells from any raise, >=5 probes wet in both",
+        "reference_grid_live_swing_units": 0.6428571428571429,
+        "reference_pool_shifts_units": {
+          "47": -0.5463320463320464,
+          "42": -0.7480314960629921,
+          "40": -1.3962264150943395,
+          "38": -1.19,
+          "37": -0.3125,
+          "30": -0.5714285714285714,
+          "25": -0.9868421052631579,
+          "36": -1.5209580838323353,
+          "33": -1.1,
+          "29": -1.3582089552238805,
+          "22": -0.020833333333333332,
+          "12": -1.7062937062937062,
+          "8": -1.1341463414634145,
+          "26": -1.32,
+          "23": -0.4,
+          "21": -0.5,
+          "17": -0.06896551724137931,
+          "16": -0.9090909090909091,
+          "15": -0.4230769230769231,
+          "9": -0.8651685393258427,
+          "54": 0.1,
+          "49": -1.4838709677419355,
+          "45": 0.09433962264150944,
+          "48": -0.3333333333333333,
+          "19": -1.233644859813084,
+          "14": -0.40860215053763443,
+          "32": -0.04,
+          "31": 0.0,
+          "28": -0.6428571428571429,
+          "18": -0.14049586776859505,
+          "7": -0.1875,
+          "46": -1.47196261682243,
+          "6": -0.8497109826589595,
+          "10": -0.6741573033707865,
+          "13": -1.063157894736842,
+          "43": -1.0,
+          "5": 2.5555555555555554,
+          "51": -1.4,
+          "2": 0.21052631578947367,
+          "39": -0.3333333333333333,
+          "20": -0.25
+        },
+        "reference_live_frame": 220750,
+        "inputs_sha256": {
+          "/mango/training/experiments/PL-912-transient-supported/preflight/rio/masks.npz": "c4c7d49b889dd55f6c38ee26a5b9f40d88a2d3f1e878ab8d881ef0d95e8cb731",
+          "/mango/training/experiments/PL-912-transient-supported/preflight/rio/admission.json": "454d76e0f437e42048908e93c107177976d03c4f6a3454e339435718dc225314",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/timeline.jsonl": "608de33af65b5fdefc729741e314f2a4f9d08a65b56bcd298d6e4b97719c6063",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/grids/t005-water.u16": "d14b6d985a078d5aadd0c5cf16c890cad8c426a6ff18a27d4a03d74917cbe077",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/grids/t015-water.u16": "edbf5cecb67b8059f1da16060e31c3d7e406927f35c4fe3ac85075e5bec03557",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/grids/t030-water.u16": "59c8027fa909e653d3186af2dfc5a8efac5717ed72581f845fd36ee0a7d82322",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/grids/t045-water.u16": "be7036a5a98158211d3e41d83aa9a00d457e6adad8f10061304a4292f860278e",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/grids/t060-water.u16": "5000187bfe59752e3c36bae3872cd2ed09656149495f4db77bfb091347dd42b9",
+          "/home/caleb/experiments/PL-912-native-export/full-native/rio/grids/t005-water-ground.u16": "d7226937c8ce0b81f49a5a58ee5aacf3857e26e58e0433725caf07ce3b1cdba3"
+        },
+        "pools": [
+          {
+            "id": 2,
+            "cells": 62,
+            "reference_means_units": [
+              211.6290322580645,
+              212.3548387096774,
+              211.93548387096774,
+              212.80645161290323,
+              213.70967741935485
+            ],
+            "minimum_units": 211.6290322580645,
+            "range_units": 2.0806451612903345,
+            "lower_bound_units": 209.54838709677418
+          },
+          {
+            "id": 5,
+            "cells": 55,
+            "reference_means_units": [
+              46.872727272727275,
+              46.63636363636363,
+              49.63636363636363,
+              46.654545454545456,
+              50.90909090909091
+            ],
+            "minimum_units": 46.63636363636363,
+            "range_units": 4.272727272727273,
+            "lower_bound_units": 42.36363636363636
+          },
+          {
+            "id": 6,
+            "cells": 368,
+            "reference_means_units": [
+              92.70652173913044,
+              92.125,
+              92.4211956521739,
+              92.41847826086956,
+              92.34510869565217
+            ],
+            "minimum_units": 92.125,
+            "range_units": 0.5815217391304373,
+            "lower_bound_units": 91.48214285714286
+          },
+          {
+            "id": 7,
+            "cells": 379,
+            "reference_means_units": [
+              118.65699208443272,
+              118.78364116094987,
+              118.18469656992085,
+              119.56992084432717,
+              118.3060686015831
+            ],
+            "minimum_units": 118.18469656992085,
+            "range_units": 1.3852242744063261,
+            "lower_bound_units": 116.79947229551452
+          },
+          {
+            "id": 8,
+            "cells": 217,
+            "reference_means_units": [
+              104.963133640553,
+              103.88018433179724,
+              103.98617511520737,
+              104.16589861751152,
+              103.89400921658986
+            ],
+            "minimum_units": 103.88018433179724,
+            "range_units": 1.082949308755758,
+            "lower_bound_units": 102.79723502304148
+          },
+          {
+            "id": 9,
+            "cells": 184,
+            "reference_means_units": [
+              105.72282608695652,
+              105.13586956521739,
+              105.40760869565217,
+              105.57608695652173,
+              105.34239130434783
+            ],
+            "minimum_units": 105.13586956521739,
+            "range_units": 0.5869565217391255,
+            "lower_bound_units": 104.49301242236025
+          },
+          {
+            "id": 10,
+            "cells": 215,
+            "reference_means_units": [
+              23.46511627906977,
+              22.693023255813955,
+              22.990697674418605,
+              23.195348837209302,
+              23.023255813953487
+            ],
+            "minimum_units": 22.693023255813955,
+            "range_units": 0.7720930232558132,
+            "lower_bound_units": 21.920930232558142
+          },
+          {
+            "id": 12,
+            "cells": 463,
+            "reference_means_units": [
+              79.85961123110151,
+              79.18574514038878,
+              79.28077753779698,
+              79.77969762419006,
+              79.21382289416847
+            ],
+            "minimum_units": 79.18574514038878,
+            "range_units": 0.6738660907127354,
+            "lower_bound_units": 78.51187904967604
+          },
+          {
+            "id": 13,
+            "cells": 610,
+            "reference_means_units": [
+              40.08360655737705,
+              43.52622950819672,
+              43.74590163934426,
+              44.02459016393443,
+              43.752459016393445
+            ],
+            "minimum_units": 40.08360655737705,
+            "range_units": 3.9409836065573742,
+            "lower_bound_units": 36.14262295081968
+          },
+          {
+            "id": 15,
+            "cells": 52,
+            "reference_means_units": [
+              44.13461538461539,
+              43.69230769230769,
+              43.73076923076923,
+              44.07692307692308,
+              43.96153846153846
+            ],
+            "minimum_units": 43.69230769230769,
+            "range_units": 0.4423076923076934,
+            "lower_bound_units": 43.04945054945055
+          },
+          {
+            "id": 16,
+            "cells": 35,
+            "reference_means_units": [
+              23.685714285714287,
+              22.942857142857143,
+              23.257142857142856,
+              23.542857142857144,
+              23.257142857142856
+            ],
+            "minimum_units": 22.942857142857143,
+            "range_units": 0.7428571428571438,
+            "lower_bound_units": 22.2
+          },
+          {
+            "id": 17,
+            "cells": 64,
+            "reference_means_units": [
+              54.28125,
+              53.234375,
+              53.6875,
+              53.90625,
+              53.328125
+            ],
+            "minimum_units": 53.234375,
+            "range_units": 1.046875,
+            "lower_bound_units": 52.1875
+          },
+          {
+            "id": 18,
+            "cells": 282,
+            "reference_means_units": [
+              51.4645390070922,
+              51.769503546099294,
+              52.00354609929078,
+              51.226950354609926,
+              51.166666666666664
+            ],
+            "minimum_units": 51.166666666666664,
+            "range_units": 0.8368794326241158,
+            "lower_bound_units": 50.32978723404255
+          },
+          {
+            "id": 19,
+            "cells": 287,
+            "reference_means_units": [
+              97.02090592334494,
+              96.30662020905923,
+              96.87108013937282,
+              96.70034843205575,
+              96.58536585365853
+            ],
+            "minimum_units": 96.30662020905923,
+            "range_units": 0.7142857142857082,
+            "lower_bound_units": 95.59233449477352
+          },
+          {
+            "id": 20,
+            "cells": 16,
+            "reference_means_units": [
+              46.6875,
+              46.375,
+              46.625,
+              46.5625,
+              46.4375
+            ],
+            "minimum_units": 46.375,
+            "range_units": 0.3125,
+            "lower_bound_units": 45.732142857142854
+          },
+          {
+            "id": 21,
+            "cells": 27,
+            "reference_means_units": [
+              24.703703703703702,
+              24.11111111111111,
+              24.37037037037037,
+              24.48148148148148,
+              24.40740740740741
+            ],
+            "minimum_units": 24.11111111111111,
+            "range_units": 0.5925925925925917,
+            "lower_bound_units": 23.46825396825397
+          },
+          {
+            "id": 22,
+            "cells": 166,
+            "reference_means_units": [
+              70.08433734939759,
+              69.32530120481928,
+              69.63855421686748,
+              70.00602409638554,
+              69.51807228915662
+            ],
+            "minimum_units": 69.32530120481928,
+            "range_units": 0.7590361445783032,
+            "lower_bound_units": 68.56626506024098
+          },
+          {
+            "id": 25,
+            "cells": 149,
+            "reference_means_units": [
+              86.81208053691275,
+              86.10738255033557,
+              86.40939597315436,
+              86.61744966442953,
+              86.3489932885906
+            ],
+            "minimum_units": 86.10738255033557,
+            "range_units": 0.7046979865771732,
+            "lower_bound_units": 85.4026845637584
+          },
+          {
+            "id": 26,
+            "cells": 44,
+            "reference_means_units": [
+              19.59090909090909,
+              19.113636363636363,
+              19.477272727272727,
+              19.613636363636363,
+              19.295454545454547
+            ],
+            "minimum_units": 19.113636363636363,
+            "range_units": 0.5,
+            "lower_bound_units": 18.47077922077922
+          },
+          {
+            "id": 27,
+            "cells": 11,
+            "reference_means_units": [
+              50.36363636363637,
+              49.90909090909091,
+              50.09090909090909,
+              50.09090909090909,
+              50.18181818181818
+            ],
+            "minimum_units": 49.90909090909091,
+            "range_units": 0.45454545454546036,
+            "lower_bound_units": 49.26623376623376
+          },
+          {
+            "id": 28,
+            "cells": 113,
+            "reference_means_units": [
+              50.39823008849557,
+              49.982300884955755,
+              50.02654867256637,
+              50.14159292035398,
+              50.14159292035398
+            ],
+            "minimum_units": 49.982300884955755,
+            "range_units": 0.4159292035398181,
+            "lower_bound_units": 49.33944374209861
+          },
+          {
+            "id": 29,
+            "cells": 208,
+            "reference_means_units": [
+              101.5048076923077,
+              104.15865384615384,
+              104.55288461538461,
+              104.48076923076923,
+              104.15384615384616
+            ],
+            "minimum_units": 101.5048076923077,
+            "range_units": 3.04807692307692,
+            "lower_bound_units": 98.45673076923077
+          },
+          {
+            "id": 30,
+            "cells": 228,
+            "reference_means_units": [
+              31.912280701754387,
+              32.8421052631579,
+              33.04824561403509,
+              33.25,
+              32.89035087719298
+            ],
+            "minimum_units": 31.912280701754387,
+            "range_units": 1.337719298245613,
+            "lower_bound_units": 30.574561403508774
+          },
+          {
+            "id": 31,
+            "cells": 23,
+            "reference_means_units": [
+              36.0,
+              35.608695652173914,
+              36.08695652173913,
+              35.65217391304348,
+              36.04347826086956
+            ],
+            "minimum_units": 35.608695652173914,
+            "range_units": 0.4782608695652186,
+            "lower_bound_units": 34.96583850931677
+          },
+          {
+            "id": 32,
+            "cells": 46,
+            "reference_means_units": [
+              21.891304347826086,
+              21.565217391304348,
+              21.782608695652176,
+              22.130434782608695,
+              21.73913043478261
+            ],
+            "minimum_units": 21.565217391304348,
+            "range_units": 0.5652173913043477,
+            "lower_bound_units": 20.922360248447205
+          },
+          {
+            "id": 33,
+            "cells": 33,
+            "reference_means_units": [
+              109.60606060606061,
+              108.63636363636364,
+              109.03030303030303,
+              109.18181818181819,
+              109.36363636363636
+            ],
+            "minimum_units": 108.63636363636364,
+            "range_units": 0.9696969696969688,
+            "lower_bound_units": 107.66666666666667
+          },
+          {
+            "id": 34,
+            "cells": 8,
+            "reference_means_units": [
+              33.75,
+              32.75,
+              33.375,
+              32.875,
+              33.375
+            ],
+            "minimum_units": 32.75,
+            "range_units": 1.0,
+            "lower_bound_units": 31.75
+          },
+          {
+            "id": 36,
+            "cells": 378,
+            "reference_means_units": [
+              108.55291005291005,
+              107.52116402116403,
+              108.04497354497354,
+              108.31216931216932,
+              107.93915343915344
+            ],
+            "minimum_units": 107.52116402116403,
+            "range_units": 1.0317460317460245,
+            "lower_bound_units": 106.489417989418
+          },
+          {
+            "id": 37,
+            "cells": 94,
+            "reference_means_units": [
+              33.755319148936174,
+              32.90425531914894,
+              33.276595744680854,
+              33.319148936170215,
+              32.98936170212766
+            ],
+            "minimum_units": 32.90425531914894,
+            "range_units": 0.8510638297872362,
+            "lower_bound_units": 32.0531914893617
+          },
+          {
+            "id": 38,
+            "cells": 190,
+            "reference_means_units": [
+              110.62631578947368,
+              110.4421052631579,
+              109.1421052631579,
+              110.51578947368421,
+              110.66315789473684
+            ],
+            "minimum_units": 109.1421052631579,
+            "range_units": 1.5210526315789394,
+            "lower_bound_units": 107.62105263157896
+          },
+          {
+            "id": 39,
+            "cells": 10,
+            "reference_means_units": [
+              74.7,
+              74.3,
+              74.2,
+              74.6,
+              74.4
+            ],
+            "minimum_units": 74.2,
+            "range_units": 0.5,
+            "lower_bound_units": 73.55714285714286
+          },
+          {
+            "id": 40,
+            "cells": 181,
+            "reference_means_units": [
+              92.68508287292818,
+              92.28729281767956,
+              92.2707182320442,
+              92.56353591160222,
+              92.5303867403315
+            ],
+            "minimum_units": 92.2707182320442,
+            "range_units": 0.4143646408839743,
+            "lower_bound_units": 91.62786108918706
+          },
+          {
+            "id": 42,
+            "cells": 652,
+            "reference_means_units": [
+              102.94171779141104,
+              102.62269938650307,
+              102.79447852760737,
+              102.920245398773,
+              102.79754601226993
+            ],
+            "minimum_units": 102.62269938650307,
+            "range_units": 0.31901840490796474,
+            "lower_bound_units": 101.97984224364593
+          },
+          {
+            "id": 43,
+            "cells": 37,
+            "reference_means_units": [
+              19.72972972972973,
+              19.35135135135135,
+              19.324324324324323,
+              19.43243243243243,
+              19.54054054054054
+            ],
+            "minimum_units": 19.324324324324323,
+            "range_units": 0.40540540540540704,
+            "lower_bound_units": 18.68146718146718
+          },
+          {
+            "id": 45,
+            "cells": 140,
+            "reference_means_units": [
+              50.82142857142857,
+              50.378571428571426,
+              50.51428571428571,
+              50.77857142857143,
+              50.042857142857144
+            ],
+            "minimum_units": 50.042857142857144,
+            "range_units": 0.7785714285714249,
+            "lower_bound_units": 49.26428571428572
+          },
+          {
+            "id": 46,
+            "cells": 435,
+            "reference_means_units": [
+              98.35172413793103,
+              97.46666666666667,
+              97.76551724137931,
+              98.06436781609196,
+              97.6712643678161
+            ],
+            "minimum_units": 97.46666666666667,
+            "range_units": 0.8850574712643606,
+            "lower_bound_units": 96.58160919540231
+          },
+          {
+            "id": 47,
+            "cells": 1437,
+            "reference_means_units": [
+              103.2901878914405,
+              102.63395963813501,
+              102.8830897703549,
+              103.12317327766179,
+              102.83646485734168
+            ],
+            "minimum_units": 102.63395963813501,
+            "range_units": 0.6562282533054855,
+            "lower_bound_units": 101.97773138482953
+          },
+          {
+            "id": 49,
+            "cells": 155,
+            "reference_means_units": [
+              91.03870967741935,
+              90.45161290322581,
+              90.65806451612903,
+              90.84516129032258,
+              90.58709677419355
+            ],
+            "minimum_units": 90.45161290322581,
+            "range_units": 0.5870967741935402,
+            "lower_bound_units": 89.80875576036867
+          },
+          {
+            "id": 51,
+            "cells": 16,
+            "reference_means_units": [
+              22.75,
+              22.3125,
+              22.3125,
+              22.5,
+              22.375
+            ],
+            "minimum_units": 22.3125,
+            "range_units": 0.4375,
+            "lower_bound_units": 21.669642857142858
+          },
+          {
+            "id": 54,
+            "cells": 24,
+            "reference_means_units": [
+              52.541666666666664,
+              51.958333333333336,
+              51.916666666666664,
+              52.166666666666664,
+              51.958333333333336
+            ],
+            "minimum_units": 51.916666666666664,
+            "range_units": 0.625,
+            "lower_bound_units": 51.27380952380952
+          }
+        ]
+      }
+    },
+    {
+      "case": "asheville",
+      "audit": {
+        "case": "asheville",
+        "source_head": "80bdedad0d3af6dd54f3786064bd752449c68fd5",
+        "package_sha256": "f09410b048f99c7e521c04a7e9c43f4d2f98a8bbfbd3f577bc28ac6d5114f7fe",
+        "elapsed_game_minutes": 5.132222489888469,
+        "complete_observations": 7745,
+        "required_zero": 1261,
+        "required_five": 1261,
+        "new_required_five_misses": [],
+        "shared_five_misses": [],
+        "old_only_five_misses": [],
+        "sustained_near_released_ring": {
+          "reference_cells": 1226,
+          "missing_at_five": 13,
+          "missing_world": [
+            [
+              2112,
+              -7216
+            ],
+            [
+              1600,
+              -7088
+            ],
+            [
+              1280,
+              -6592
+            ],
+            [
+              1184,
+              -3328
+            ],
+            [
+              2240,
+              -1792
+            ],
+            [
+              -8192,
+              -1584
+            ],
+            [
+              -4000,
+              -1184
+            ],
+            [
+              -5264,
+              1920
+            ],
+            [
+              -5264,
+              1936
+            ],
+            [
+              -5264,
+              1952
+            ],
+            [
+              7536,
+              5600
+            ],
+            [
+              -4112,
+              8016
+            ],
+            [
+              -2960,
+              8512
+            ]
+          ]
+        },
+        "intake_violations": [],
+        "minute_readings": [
+          {
+            "label": "t000",
+            "file": "t000-world-water.json",
+            "sha256": "ad7cf68deb428036a55a8daf99e4777849f6a7fbe758d0b5dc873654d99987f9",
+            "released_intakes_checked": 19
+          },
+          {
+            "label": "1.1319445034799476",
+            "file": "minute-1-water.json",
+            "sha256": "78ee7052e653aa5b1e2d5179d4eac34a2a913cef9231ad23181c167021adbfae",
+            "released_intakes_checked": 19
+          },
+          {
+            "label": "2.1455556674549974",
+            "file": "minute-2-water.json",
+            "sha256": "d56e8ace1bb392e42d989150fcd978bc6dcd9b4b5a9de269a8300836de414116",
+            "released_intakes_checked": 19
+          },
+          {
+            "label": "3.0016668232157824",
+            "file": "minute-3-water.json",
+            "sha256": "11b2e0f1a51f465cba9f04c5fa22835f046975c53dc40d03cbab34123e66d830",
+            "released_intakes_checked": 19
+          },
+          {
+            "label": "4.1305557709808145",
+            "file": "minute-4-water.json",
+            "sha256": "55a13b1eb88dda90561c2a6c95f9e8aff7a75179d9ac0b0645f9b0732131b91d",
+            "released_intakes_checked": 19
+          },
+          {
+            "label": "t005",
+            "file": "t005-world-water.json",
+            "sha256": "3d3524e98862c0eefa96df194e0d1f29e361d5e82fbccd35c0926d8fbfe8d215",
+            "released_intakes_checked": 19
+          }
+        ],
+        "floor": {
+          "t000": {
+            "offsets": 49,
+            "offset_pattern_exact": true,
+            "floor_equals_target": true,
+            "native_replay_mismatches": 0
+          },
+          "t005": {
+            "offsets": 49,
+            "offset_pattern_exact": true,
+            "floor_equals_target": true,
+            "native_replay_mismatches": 0
+          }
+        },
+        "camera": {
+          "t000": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          },
+          "t005": {
+            "opening": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            },
+            "area_zoom": {
+              "current_position": true,
+              "current_size": true,
+              "current_angle_degrees": true,
+              "render_position": true,
+              "render_forward": true,
+              "render_up": true,
+              "field_of_view_degrees": true,
+              "pixel_rect": true,
+              "screen_width": true,
+              "screen_height": true
+            }
+          }
+        },
+        "native_60_minute_qualification": false,
+        "gpu": {
+          "peak_total_vram_mib": 10821,
+          "sampled_game_peak_mib": 2785,
+          "peak_power_w": 128.79,
+          "peak_temperature_c": 57,
+          "note": "Own-PID samples, not a continuous loading peak; shared cap unchanged."
+        },
+        "cleanup": {
+          "game": [],
+          "steam_instances": [],
+          "units_active": []
+        },
+        "support_disposition": {
+          "review": "PL-1002",
+          "single_cell_count_report_only": true,
+          "pool_audit_sha256": "f694a1411b82365c272af5ea48069dcb103c30661657be212432e65df40cf3c2"
+        },
+        "numeric_short_pass": true
+      },
+      "pool": {
+        "case": "asheville",
+        "calibration_sha256": "fc0f62275afcf1d70f1b1a216316dc573d9a82ff3d64cee9f820687fc7f85efb",
+        "pools": [
+          {
+            "id": 1,
+            "cells": 12352,
+            "reference_means_units": [
+              267.96785945595855,
+              259.54460816062175,
+              264.75696243523316,
+              264.02841645077723,
+              260.28141191709847
+            ],
+            "minimum_units": 259.54460816062175,
+            "range_units": 8.423251295336797,
+            "lower_bound_units": 251.12135686528495,
+            "candidate_mean_units": 268.235103626943,
+            "margin_units": 17.113746761658035
+          },
+          {
+            "id": 4,
+            "cells": 89,
+            "reference_means_units": [
+              8.157303370786517,
+              8.235955056179776,
+              8.741573033707866,
+              8.112359550561798,
+              8.247191011235955
+            ],
+            "minimum_units": 8.112359550561798,
+            "range_units": 0.6292134831460672,
+            "lower_bound_units": 7.483146067415731,
+            "candidate_mean_units": 8.438202247191011,
+            "margin_units": 0.9550561797752799
+          },
+          {
+            "id": 5,
+            "cells": 1,
+            "reference_means_units": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              2.0
+            ],
+            "minimum_units": 1.0,
+            "range_units": 1.0,
+            "lower_bound_units": 0.0,
+            "candidate_mean_units": 0.0,
+            "margin_units": 0.0
+          },
+          {
+            "id": 8,
+            "cells": 3,
+            "reference_means_units": [
+              3.0,
+              1.6666666666666667,
+              4.0,
+              1.0,
+              2.3333333333333335
+            ],
+            "minimum_units": 1.0,
+            "range_units": 3.0,
+            "lower_bound_units": -2.0,
+            "candidate_mean_units": 2.0,
+            "margin_units": 4.0
+          },
+          {
+            "id": 9,
+            "cells": 168,
+            "reference_means_units": [
+              17.273809523809526,
+              17.24404761904762,
+              17.660714285714285,
+              17.30952380952381,
+              17.232142857142858
+            ],
+            "minimum_units": 17.232142857142858,
+            "range_units": 0.42857142857142705,
+            "lower_bound_units": 16.80357142857143,
+            "candidate_mean_units": 17.452380952380953,
+            "margin_units": 0.648809523809522
+          },
+          {
+            "id": 12,
+            "cells": 415,
+            "reference_means_units": [
+              31.749397590361447,
+              32.207228915662654,
+              32.628915662650606,
+              32.142168674698794,
+              32.13253012048193
+            ],
+            "minimum_units": 31.749397590361447,
+            "range_units": 0.8795180722891587,
+            "lower_bound_units": 30.86987951807229,
+            "candidate_mean_units": 31.997590361445784,
+            "margin_units": 1.127710843373496
+          },
+          {
+            "id": 14,
+            "cells": 99,
+            "reference_means_units": [
+              26.1010101010101,
+              28.595959595959595,
+              29.09090909090909,
+              28.585858585858585,
+              28.7979797979798
+            ],
+            "minimum_units": 26.1010101010101,
+            "range_units": 2.9898989898989896,
+            "lower_bound_units": 23.11111111111111,
+            "candidate_mean_units": 26.232323232323232,
+            "margin_units": 3.121212121212121
+          },
+          {
+            "id": 15,
+            "cells": 179,
+            "reference_means_units": [
+              13.111731843575418,
+              13.005586592178771,
+              13.541899441340782,
+              13.29050279329609,
+              13.11731843575419
+            ],
+            "minimum_units": 13.005586592178771,
+            "range_units": 0.5363128491620106,
+            "lower_bound_units": 12.46927374301676,
+            "candidate_mean_units": 13.29050279329609,
+            "margin_units": 0.8212290502793298
+          },
+          {
+            "id": 16,
+            "cells": 87,
+            "reference_means_units": [
+              18.183908045977013,
+              18.402298850574713,
+              19.149425287356323,
+              18.49425287356322,
+              18.49425287356322
+            ],
+            "minimum_units": 18.183908045977013,
+            "range_units": 0.9655172413793096,
+            "lower_bound_units": 17.218390804597703,
+            "candidate_mean_units": 18.264367816091955,
+            "margin_units": 1.0459770114942515
+          },
+          {
+            "id": 17,
+            "cells": 226,
+            "reference_means_units": [
+              26.86725663716814,
+              26.805309734513273,
+              27.349557522123895,
+              26.81858407079646,
+              26.82300884955752
+            ],
+            "minimum_units": 26.805309734513273,
+            "range_units": 0.5442477876106224,
+            "lower_bound_units": 26.26106194690265,
+            "candidate_mean_units": 27.0929203539823,
+            "margin_units": 0.8318584070796504
+          },
+          {
+            "id": 19,
+            "cells": 504,
+            "reference_means_units": [
+              35.861111111111114,
+              34.392857142857146,
+              35.78769841269841,
+              34.839285714285715,
+              35.33134920634921
+            ],
+            "minimum_units": 34.392857142857146,
+            "range_units": 1.4682539682539684,
+            "lower_bound_units": 32.92460317460318,
+            "candidate_mean_units": 36.12301587301587,
+            "margin_units": 3.198412698412696
+          },
+          {
+            "id": 20,
+            "cells": 193,
+            "reference_means_units": [
+              34.07253886010363,
+              34.818652849740936,
+              35.35233160621762,
+              34.93782383419689,
+              34.78238341968912
+            ],
+            "minimum_units": 34.07253886010363,
+            "range_units": 1.2797927461139906,
+            "lower_bound_units": 32.79274611398964,
+            "candidate_mean_units": 34.248704663212436,
+            "margin_units": 1.4559585492227995
+          },
+          {
+            "id": 24,
+            "cells": 119,
+            "reference_means_units": [
+              31.66386554621849,
+              31.672268907563026,
+              32.33613445378151,
+              31.722689075630253,
+              31.58823529411765
+            ],
+            "minimum_units": 31.58823529411765,
+            "range_units": 0.7478991596638629,
+            "lower_bound_units": 30.840336134453786,
+            "candidate_mean_units": 31.92436974789916,
+            "margin_units": 1.0840336134453743
+          },
+          {
+            "id": 27,
+            "cells": 71,
+            "reference_means_units": [
+              7.338028169014085,
+              7.323943661971831,
+              7.859154929577465,
+              7.366197183098592,
+              7.380281690140845
+            ],
+            "minimum_units": 7.323943661971831,
+            "range_units": 0.535211267605634,
+            "lower_bound_units": 6.788732394366197,
+            "candidate_mean_units": 7.563380281690141,
+            "margin_units": 0.774647887323944
+          },
+          {
+            "id": 28,
+            "cells": 1,
+            "reference_means_units": [
+              8.0,
+              10.0,
+              4.0,
+              7.0,
+              7.0
+            ],
+            "minimum_units": 4.0,
+            "range_units": 6.0,
+            "lower_bound_units": -2.0,
+            "candidate_mean_units": 7.0,
+            "margin_units": 9.0
+          },
+          {
+            "id": 31,
+            "cells": 67,
+            "reference_means_units": [
+              17.80597014925373,
+              17.149253731343283,
+              17.98507462686567,
+              17.16417910447761,
+              51.23880597014925
+            ],
+            "minimum_units": 17.149253731343283,
+            "range_units": 34.089552238805965,
+            "lower_bound_units": -16.940298507462682,
+            "candidate_mean_units": 17.761194029850746,
+            "margin_units": 34.70149253731343
+          },
+          {
+            "id": 34,
+            "cells": 109,
+            "reference_means_units": [
+              11.027522935779816,
+              10.678899082568808,
+              11.339449541284404,
+              10.926605504587156,
+              10.825688073394495
+            ],
+            "minimum_units": 10.678899082568808,
+            "range_units": 0.6605504587155959,
+            "lower_bound_units": 10.018348623853212,
+            "candidate_mean_units": 11.036697247706423,
+            "margin_units": 1.0183486238532105
+          },
+          {
+            "id": 37,
+            "cells": 21,
+            "reference_means_units": [
+              31.238095238095237,
+              30.714285714285715,
+              30.095238095238095,
+              31.80952380952381,
+              30.142857142857142
+            ],
+            "minimum_units": 30.095238095238095,
+            "range_units": 1.7142857142857153,
+            "lower_bound_units": 28.38095238095238,
+            "candidate_mean_units": 30.523809523809526,
+            "margin_units": 2.142857142857146
+          },
+          {
+            "id": 39,
+            "cells": 3,
+            "reference_means_units": [
+              3.0,
+              4.0,
+              3.0,
+              3.3333333333333335,
+              2.6666666666666665
+            ],
+            "minimum_units": 2.6666666666666665,
+            "range_units": 1.3333333333333335,
+            "lower_bound_units": 1.333333333333333,
+            "candidate_mean_units": 1.6666666666666667,
+            "margin_units": 0.3333333333333337
+          },
+          {
+            "id": 40,
+            "cells": 76,
+            "reference_means_units": [
+              11.223684210526315,
+              11.18421052631579,
+              11.828947368421053,
+              11.355263157894736,
+              11.328947368421053
+            ],
+            "minimum_units": 11.18421052631579,
+            "range_units": 0.6447368421052637,
+            "lower_bound_units": 10.539473684210526,
+            "candidate_mean_units": 11.697368421052632,
+            "margin_units": 1.1578947368421062
+          },
+          {
+            "id": 42,
+            "cells": 2,
+            "reference_means_units": [
+              10.0,
+              6.5,
+              9.5,
+              3.0,
+              12.5
+            ],
+            "minimum_units": 3.0,
+            "range_units": 9.5,
+            "lower_bound_units": -6.5,
+            "candidate_mean_units": 3.5,
+            "margin_units": 10.0
+          },
+          {
+            "id": 43,
+            "cells": 42,
+            "reference_means_units": [
+              8.19047619047619,
+              7.642857142857143,
+              8.547619047619047,
+              7.714285714285714,
+              8.119047619047619
+            ],
+            "minimum_units": 7.642857142857143,
+            "range_units": 0.9047619047619042,
+            "lower_bound_units": 6.738095238095239,
+            "candidate_mean_units": 8.071428571428571,
+            "margin_units": 1.3333333333333321
+          },
+          {
+            "id": 44,
+            "cells": 2,
+            "reference_means_units": [
+              18.0,
+              17.5,
+              17.5,
+              17.5,
+              17.5
+            ],
+            "minimum_units": 17.5,
+            "range_units": 0.5,
+            "lower_bound_units": 17.0,
+            "candidate_mean_units": 17.5,
+            "margin_units": 0.5
+          },
+          {
+            "id": 45,
+            "cells": 1,
+            "reference_means_units": [
+              16.0,
+              16.0,
+              16.0,
+              16.0,
+              16.0
+            ],
+            "minimum_units": 16.0,
+            "range_units": 0.0,
+            "lower_bound_units": 15.683333333333334,
+            "candidate_mean_units": 16.0,
+            "margin_units": 0.31666666666666643
+          },
+          {
+            "id": 47,
+            "cells": 88,
+            "reference_means_units": [
+              36.84090909090909,
+              36.98863636363637,
+              37.35227272727273,
+              37.05681818181818,
+              36.67045454545455
+            ],
+            "minimum_units": 36.67045454545455,
+            "range_units": 0.6818181818181799,
+            "lower_bound_units": 35.98863636363637,
+            "candidate_mean_units": 36.875,
+            "margin_units": 0.8863636363636331
+          },
+          {
+            "id": 49,
+            "cells": 48,
+            "reference_means_units": [
+              71.75,
+              73.1875,
+              73.5625,
+              73.0625,
+              73.39583333333333
+            ],
+            "minimum_units": 71.75,
+            "range_units": 1.8125,
+            "lower_bound_units": 69.9375,
+            "candidate_mean_units": 72.3125,
+            "margin_units": 2.375
+          },
+          {
+            "id": 50,
+            "cells": 102,
+            "reference_means_units": [
+              11.245098039215685,
+              11.343137254901961,
+              11.696078431372548,
+              11.372549019607844,
+              11.313725490196079
+            ],
+            "minimum_units": 11.245098039215685,
+            "range_units": 0.4509803921568629,
+            "lower_bound_units": 10.794117647058822,
+            "candidate_mean_units": 11.5,
+            "margin_units": 0.7058823529411775
+          },
+          {
+            "id": 52,
+            "cells": 342,
+            "reference_means_units": [
+              32.134502923976605,
+              32.207602339181285,
+              32.654970760233915,
+              32.058479532163744,
+              32.16374269005848
+            ],
+            "minimum_units": 32.058479532163744,
+            "range_units": 0.5964912280701711,
+            "lower_bound_units": 31.461988304093573,
+            "candidate_mean_units": 32.48830409356725,
+            "margin_units": 1.0263157894736779
+          },
+          {
+            "id": 54,
+            "cells": 108,
+            "reference_means_units": [
+              43.101851851851855,
+              45.0,
+              45.56481481481482,
+              45.22222222222222,
+              45.120370370370374
+            ],
+            "minimum_units": 43.101851851851855,
+            "range_units": 2.462962962962962,
+            "lower_bound_units": 40.63888888888889,
+            "candidate_mean_units": 43.583333333333336,
+            "margin_units": 2.944444444444443
+          },
+          {
+            "id": 57,
+            "cells": 7,
+            "reference_means_units": [
+              74.0,
+              75.85714285714286,
+              76.71428571428571,
+              73.0,
+              72.57142857142857
+            ],
+            "minimum_units": 72.57142857142857,
+            "range_units": 4.142857142857139,
+            "lower_bound_units": 68.42857142857143,
+            "candidate_mean_units": 74.14285714285714,
+            "margin_units": 5.714285714285708
+          },
+          {
+            "id": 58,
+            "cells": 50,
+            "reference_means_units": [
+              7.92,
+              7.64,
+              8.42,
+              7.72,
+              7.8
+            ],
+            "minimum_units": 7.64,
+            "range_units": 0.7800000000000002,
+            "lower_bound_units": 6.859999999999999,
+            "candidate_mean_units": 7.86,
+            "margin_units": 1.0000000000000009
+          },
+          {
+            "id": 59,
+            "cells": 142,
+            "reference_means_units": [
+              45.971830985915496,
+              46.59154929577465,
+              47.74647887323944,
+              46.852112676056336,
+              47.140845070422536
+            ],
+            "minimum_units": 45.971830985915496,
+            "range_units": 1.774647887323944,
+            "lower_bound_units": 44.19718309859155,
+            "candidate_mean_units": 46.61267605633803,
+            "margin_units": 2.41549295774648
+          },
+          {
+            "id": 60,
+            "cells": 3,
+            "reference_means_units": [
+              53.0,
+              41.0,
+              29.666666666666668,
+              35.333333333333336,
+              27.333333333333332
+            ],
+            "minimum_units": 27.333333333333332,
+            "range_units": 25.666666666666668,
+            "lower_bound_units": 1.6666666666666643,
+            "candidate_mean_units": 61.666666666666664,
+            "margin_units": 60.0
+          },
+          {
+            "id": 61,
+            "cells": 1,
+            "reference_means_units": [
+              1.0,
+              4.0,
+              7.0,
+              1.0,
+              2.0
+            ],
+            "minimum_units": 1.0,
+            "range_units": 6.0,
+            "lower_bound_units": -5.0,
+            "candidate_mean_units": 1.0,
+            "margin_units": 6.0
+          },
+          {
+            "id": 63,
+            "cells": 6,
+            "reference_means_units": [
+              28.0,
+              28.333333333333332,
+              28.333333333333332,
+              27.166666666666668,
+              29.0
+            ],
+            "minimum_units": 27.166666666666668,
+            "range_units": 1.8333333333333321,
+            "lower_bound_units": 25.333333333333336,
+            "candidate_mean_units": 27.166666666666668,
+            "margin_units": 1.8333333333333321
+          },
+          {
+            "id": 64,
+            "cells": 75,
+            "reference_means_units": [
+              46.17333333333333,
+              46.21333333333333,
+              46.46666666666667,
+              46.266666666666666,
+              46.2
+            ],
+            "minimum_units": 46.17333333333333,
+            "range_units": 0.29333333333333655,
+            "lower_bound_units": 45.85666666666666,
+            "candidate_mean_units": 46.52,
+            "margin_units": 0.6633333333333411
+          },
+          {
+            "id": 66,
+            "cells": 37,
+            "reference_means_units": [
+              13.72972972972973,
+              13.72972972972973,
+              14.027027027027026,
+              13.64864864864865,
+              13.513513513513514
+            ],
+            "minimum_units": 13.513513513513514,
+            "range_units": 0.5135135135135123,
+            "lower_bound_units": 13.000000000000002,
+            "candidate_mean_units": 13.91891891891892,
+            "margin_units": 0.9189189189189175
+          },
+          {
+            "id": 69,
+            "cells": 117,
+            "reference_means_units": [
+              9.042735042735043,
+              8.991452991452991,
+              9.504273504273504,
+              9.017094017094017,
+              9.051282051282051
+            ],
+            "minimum_units": 8.991452991452991,
+            "range_units": 0.5128205128205128,
+            "lower_bound_units": 8.478632478632479,
+            "candidate_mean_units": 9.324786324786325,
+            "margin_units": 0.8461538461538467
+          },
+          {
+            "id": 70,
+            "cells": 27,
+            "reference_means_units": [
+              29.333333333333332,
+              29.296296296296298,
+              29.296296296296298,
+              28.85185185185185,
+              29.22222222222222
+            ],
+            "minimum_units": 28.85185185185185,
+            "range_units": 0.48148148148148096,
+            "lower_bound_units": 28.37037037037037,
+            "candidate_mean_units": 29.14814814814815,
+            "margin_units": 0.7777777777777786
+          },
+          {
+            "id": 71,
+            "cells": 43,
+            "reference_means_units": [
+              7.255813953488372,
+              7.232558139534884,
+              7.813953488372093,
+              7.348837209302325,
+              7.255813953488372
+            ],
+            "minimum_units": 7.232558139534884,
+            "range_units": 0.5813953488372086,
+            "lower_bound_units": 6.651162790697676,
+            "candidate_mean_units": 7.488372093023256,
+            "margin_units": 0.8372093023255802
+          },
+          {
+            "id": 76,
+            "cells": 48,
+            "reference_means_units": [
+              61.229166666666664,
+              62.5625,
+              63.520833333333336,
+              62.916666666666664,
+              62.854166666666664
+            ],
+            "minimum_units": 61.229166666666664,
+            "range_units": 2.2916666666666714,
+            "lower_bound_units": 58.93749999999999,
+            "candidate_mean_units": 61.833333333333336,
+            "margin_units": 2.895833333333343
+          },
+          {
+            "id": 79,
+            "cells": 108,
+            "reference_means_units": [
+              30.65740740740741,
+              30.40740740740741,
+              30.84259259259259,
+              30.38888888888889,
+              30.314814814814813
+            ],
+            "minimum_units": 30.314814814814813,
+            "range_units": 0.5277777777777786,
+            "lower_bound_units": 29.787037037037035,
+            "candidate_mean_units": 30.51851851851852,
+            "margin_units": 0.7314814814814845
+          },
+          {
+            "id": 80,
+            "cells": 1,
+            "reference_means_units": [
+              8.0,
+              5.0,
+              1.0,
+              4.0,
+              5.0
+            ],
+            "minimum_units": 1.0,
+            "range_units": 7.0,
+            "lower_bound_units": -6.0,
+            "candidate_mean_units": 8.0,
+            "margin_units": 14.0
+          },
+          {
+            "id": 81,
+            "cells": 3,
+            "reference_means_units": [
+              6.333333333333333,
+              6.333333333333333,
+              6.0,
+              7.333333333333333,
+              6.0
+            ],
+            "minimum_units": 6.0,
+            "range_units": 1.333333333333333,
+            "lower_bound_units": 4.666666666666667,
+            "candidate_mean_units": 6.0,
+            "margin_units": 1.333333333333333
+          }
+        ],
+        "pool_stage_pass": true,
+        "minimum_margin_units": 0.0,
+        "single_cell_report_only": {
+          "nearby_reference_cells": 1226,
+          "zero_at_five": 13
+        },
+        "minute_probe_levels_report_only": [
+          {
+            "file": "t000-world-water.json",
+            "frame": 202252,
+            "pool_mean_probe_depth_units": {
+              "81": 16.0,
+              "1": 360.0828594638505,
+              "71": 16.0,
+              "70": 16.0,
+              "59": 16.0,
+              "52": 16.0,
+              "58": 16.0,
+              "57": 16.0,
+              "54": 16.0,
+              "50": 16.0,
+              "49": 16.0,
+              "31": 16.0,
+              "15": 16.0,
+              "27": 16.0,
+              "28": 16.0,
+              "19": 48.30769230769231,
+              "20": 16.0,
+              "17": 16.0,
+              "12": 16.0,
+              "9": 16.0,
+              "66": 16.0,
+              "63": 16.0,
+              "79": 16.0,
+              "69": 16.0,
+              "37": 16.0,
+              "4": 16.0,
+              "64": 16.0,
+              "60": 16.0,
+              "40": 16.0,
+              "34": 16.0,
+              "44": 16.0,
+              "24": 16.0,
+              "76": 16.0,
+              "47": 16.0,
+              "43": 40.0,
+              "14": 16.0,
+              "16": 16.0
+            }
+          },
+          {
+            "file": "minute-1-water.json",
+            "frame": 206391,
+            "pool_mean_probe_depth_units": {
+              "81": 16.0,
+              "1": 341.2761982128351,
+              "71": 9.5,
+              "70": 74.71428571428571,
+              "59": 42.810810810810814,
+              "52": 29.689655172413794,
+              "58": 11.555555555555555,
+              "57": 45.0,
+              "54": 33.43589743589744,
+              "50": 17.0,
+              "49": 50.375,
+              "31": 14.5,
+              "15": 26.666666666666668,
+              "27": 12.6,
+              "28": 0.0,
+              "19": 36.48076923076923,
+              "20": 36.67857142857143,
+              "17": 32.351351351351354,
+              "12": 29.056603773584907,
+              "9": 24.133333333333333,
+              "66": 24.0,
+              "63": 16.0,
+              "79": 52.0,
+              "69": 14.2,
+              "37": 32.5,
+              "4": 16.0,
+              "64": 34.56,
+              "60": 95.66666666666667,
+              "40": 14.8,
+              "34": 15.588235294117647,
+              "44": 17.0,
+              "24": 33.857142857142854,
+              "76": 32.666666666666664,
+              "47": 29.482758620689655,
+              "43": 8.875,
+              "14": 24.0,
+              "16": 25.357142857142858
+            }
+          },
+          {
+            "file": "minute-2-water.json",
+            "frame": 210082,
+            "pool_mean_probe_depth_units": {
+              "81": 16.0,
+              "1": 339.4687246141348,
+              "71": 8.5,
+              "70": 78.71428571428571,
+              "59": 52.054054054054056,
+              "52": 45.62068965517241,
+              "58": 10.222222222222221,
+              "57": 49.5,
+              "54": 40.30769230769231,
+              "50": 15.8,
+              "49": 66.1875,
+              "31": 13.166666666666666,
+              "15": 26.22222222222222,
+              "27": 11.5,
+              "28": 0.0,
+              "19": 32.98076923076923,
+              "20": 34.25,
+              "17": 39.0,
+              "12": 32.886792452830186,
+              "9": 24.933333333333334,
+              "66": 27.0,
+              "63": 17.0,
+              "79": 43.666666666666664,
+              "69": 10.8,
+              "37": 28.9,
+              "4": 13.0,
+              "64": 43.44,
+              "60": 89.0,
+              "40": 17.3,
+              "34": 14.352941176470589,
+              "44": 17.0,
+              "24": 40.857142857142854,
+              "76": 40.666666666666664,
+              "47": 48.275862068965516,
+              "43": 11.625,
+              "14": 23.8,
+              "16": 25.214285714285715
+            }
+          },
+          {
+            "file": "minute-3-water.json",
+            "frame": 213127,
+            "pool_mean_probe_depth_units": {
+              "81": 17.0,
+              "1": 343.55239642567017,
+              "71": 8.666666666666666,
+              "70": 83.14285714285714,
+              "59": 57.270270270270274,
+              "52": 47.6551724137931,
+              "58": 11.11111111111111,
+              "57": 46.5,
+              "54": 44.666666666666664,
+              "50": 16.2,
+              "49": 77.125,
+              "31": 8.666666666666666,
+              "15": 26.22222222222222,
+              "27": 11.5,
+              "28": 0.0,
+              "19": 30.692307692307693,
+              "20": 40.82142857142857,
+              "17": 36.4054054054054,
+              "12": 33.905660377358494,
+              "9": 24.866666666666667,
+              "66": 23.0,
+              "63": 14.0,
+              "79": 45.5,
+              "69": 12.8,
+              "37": 31.3,
+              "4": 13.0,
+              "64": 50.24,
+              "60": 78.66666666666667,
+              "40": 16.5,
+              "34": 14.941176470588236,
+              "44": 18.0,
+              "24": 40.57142857142857,
+              "76": 58.666666666666664,
+              "47": 52.51724137931034,
+              "43": 10.25,
+              "14": 25.466666666666665,
+              "16": 25.428571428571427
+            }
+          },
+          {
+            "file": "minute-4-water.json",
+            "frame": 217195,
+            "pool_mean_probe_depth_units": {
+              "81": 15.0,
+              "1": 349.04874086108856,
+              "71": 8.666666666666666,
+              "70": 78.42857142857143,
+              "59": 64.29729729729729,
+              "52": 47.62068965517241,
+              "58": 11.88888888888889,
+              "57": 45.5,
+              "54": 50.1025641025641,
+              "50": 16.333333333333332,
+              "49": 78.9375,
+              "31": 12.333333333333334,
+              "15": 26.0,
+              "27": 14.1,
+              "28": 9.0,
+              "19": 33.05769230769231,
+              "20": 46.0,
+              "17": 36.891891891891895,
+              "12": 34.20754716981132,
+              "9": 23.833333333333332,
+              "66": 26.0,
+              "63": 15.0,
+              "79": 49.0,
+              "69": 13.0,
+              "37": 32.0,
+              "4": 11.0,
+              "64": 67.48,
+              "60": 51.333333333333336,
+              "40": 18.0,
+              "34": 14.529411764705882,
+              "44": 17.0,
+              "24": 43.714285714285715,
+              "76": 67.0,
+              "47": 51.03448275862069,
+              "43": 8.5,
+              "14": 26.133333333333333,
+              "16": 24.214285714285715
+            }
+          },
+          {
+            "file": "t005-world-water.json",
+            "frame": 220834,
+            "pool_mean_probe_depth_units": {
+              "81": 17.0,
+              "1": 354.3399675060926,
+              "71": 8.666666666666666,
+              "70": 81.57142857142857,
+              "59": 66.32432432432432,
+              "52": 48.58620689655172,
+              "58": 9.777777777777779,
+              "57": 40.5,
+              "54": 56.69230769230769,
+              "50": 16.6,
+              "49": 103.5625,
+              "31": 11.333333333333334,
+              "15": 26.0,
+              "27": 15.1,
+              "28": 0.0,
+              "19": 34.76923076923077,
+              "20": 48.5,
+              "17": 36.891891891891895,
+              "12": 35.79245283018868,
+              "9": 25.066666666666666,
+              "66": 21.0,
+              "63": 17.0,
+              "79": 45.5,
+              "69": 13.2,
+              "37": 29.6,
+              "4": 13.0,
+              "64": 67.12,
+              "60": 54.333333333333336,
+              "40": 16.6,
+              "34": 13.588235294117647,
+              "44": 14.0,
+              "24": 40.857142857142854,
+              "76": 72.66666666666667,
+              "47": 53.172413793103445,
+              "43": 11.375,
+              "14": 27.933333333333334,
+              "16": 26.071428571428573
+            }
+          }
+        ],
+        "candidate_grid_sha256": "293c2fe80ea9371ecbe81816edbf4578e858d8bd7ae44ba2d9c6731e6a16af55",
+        "note": "Auxiliary stage tolerance from reference, not a change to any original gate or every-frame proof."
+      },
+      "calibration": {
+        "case": "asheville",
+        "review": "PL-1002",
+        "original_gates_changed": false,
+        "rule": "candidate pool mean >= reference minimum - max(reference range, map grid/live swing)",
+        "units": "1/64 metre",
+        "reference_epochs": [
+          "t005",
+          "t015",
+          "t030",
+          "t045",
+          "t060"
+        ],
+        "swing_definition": "PL-1002 coh.py: absolute median per-pool grid/live shift; sustained pools <50000 cells, <=2 Euclidean cells from any raise, >=5 probes wet in both",
+        "reference_grid_live_swing_units": 0.31666666666666665,
+        "reference_pool_shifts_units": {
+          "1": 0.22908204711616573,
+          "71": 0.0,
+          "70": 0.0,
+          "59": -0.2972972972972973,
+          "52": 0.7931034482758621,
+          "58": 0.3333333333333333,
+          "54": 0.6153846153846154,
+          "50": 0.13333333333333333,
+          "49": 1.5625,
+          "31": 0.16666666666666666,
+          "15": 1.0,
+          "27": 0.2,
+          "19": 0.09615384615384616,
+          "20": 0.10714285714285714,
+          "17": -0.08108108108108109,
+          "12": 0.8301886792452831,
+          "9": 0.3,
+          "79": -2.3333333333333335,
+          "69": 1.0,
+          "37": 0.4,
+          "64": 0.72,
+          "40": -1.3,
+          "34": 0.4117647058823529,
+          "24": -1.0,
+          "47": 0.5862068965517241,
+          "43": 0.625,
+          "14": 1.8666666666666667,
+          "16": 0.8571428571428571
+        },
+        "reference_live_frame": 220817,
+        "inputs_sha256": {
+          "/mango/training/experiments/PL-912-transient-supported/preflight/asheville/masks.npz": "70a2f3bf3a80b5ec27fd67f188ef7f021d4afaabb7dbd30c9daeefb702517ae5",
+          "/mango/training/experiments/PL-912-transient-supported/preflight/asheville/admission.json": "87b3832197f02dcc9d7e483725d5b662ba026f2424628f58f407b81a51bd534f",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/timeline.jsonl": "e576375ab5c0b61620319386bf4b160de56ac726cfc23d7c88d8d005325f103a",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/grids/t005-water.u16": "f61d0dfe87e952988f7e7bae4c1e175d83ace1112d8010bd6f3092d2a80bccce",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/grids/t015-water.u16": "0306b27575c4a41d2e71994abc9144071799aee290ae89af840fbbe4e99a63de",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/grids/t030-water.u16": "33b5c77a83c5994094bd33a67dcf1dcc63f76095d3aa7484c1434e41ba2f9709",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/grids/t045-water.u16": "c3abca412b4f488e1655bef2611326648d809e46cf7ac1687bde7e2417813945",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/grids/t060-water.u16": "facbbe21b1b8ca53264c36ed88f126f2c9e4cef6735847ea3803dc9338a198eb",
+          "/home/caleb/experiments/PL-912-native-export/full-native/asheville/grids/t005-water-ground.u16": "27f11f979002ea53ef1381dd5cb58931226abf5831dae86640ffb4fd09ee70fb"
+        },
+        "pools": [
+          {
+            "id": 1,
+            "cells": 12352,
+            "reference_means_units": [
+              267.96785945595855,
+              259.54460816062175,
+              264.75696243523316,
+              264.02841645077723,
+              260.28141191709847
+            ],
+            "minimum_units": 259.54460816062175,
+            "range_units": 8.423251295336797,
+            "lower_bound_units": 251.12135686528495
+          },
+          {
+            "id": 4,
+            "cells": 89,
+            "reference_means_units": [
+              8.157303370786517,
+              8.235955056179776,
+              8.741573033707866,
+              8.112359550561798,
+              8.247191011235955
+            ],
+            "minimum_units": 8.112359550561798,
+            "range_units": 0.6292134831460672,
+            "lower_bound_units": 7.483146067415731
+          },
+          {
+            "id": 5,
+            "cells": 1,
+            "reference_means_units": [
+              1.0,
+              1.0,
+              1.0,
+              1.0,
+              2.0
+            ],
+            "minimum_units": 1.0,
+            "range_units": 1.0,
+            "lower_bound_units": 0.0
+          },
+          {
+            "id": 8,
+            "cells": 3,
+            "reference_means_units": [
+              3.0,
+              1.6666666666666667,
+              4.0,
+              1.0,
+              2.3333333333333335
+            ],
+            "minimum_units": 1.0,
+            "range_units": 3.0,
+            "lower_bound_units": -2.0
+          },
+          {
+            "id": 9,
+            "cells": 168,
+            "reference_means_units": [
+              17.273809523809526,
+              17.24404761904762,
+              17.660714285714285,
+              17.30952380952381,
+              17.232142857142858
+            ],
+            "minimum_units": 17.232142857142858,
+            "range_units": 0.42857142857142705,
+            "lower_bound_units": 16.80357142857143
+          },
+          {
+            "id": 12,
+            "cells": 415,
+            "reference_means_units": [
+              31.749397590361447,
+              32.207228915662654,
+              32.628915662650606,
+              32.142168674698794,
+              32.13253012048193
+            ],
+            "minimum_units": 31.749397590361447,
+            "range_units": 0.8795180722891587,
+            "lower_bound_units": 30.86987951807229
+          },
+          {
+            "id": 14,
+            "cells": 99,
+            "reference_means_units": [
+              26.1010101010101,
+              28.595959595959595,
+              29.09090909090909,
+              28.585858585858585,
+              28.7979797979798
+            ],
+            "minimum_units": 26.1010101010101,
+            "range_units": 2.9898989898989896,
+            "lower_bound_units": 23.11111111111111
+          },
+          {
+            "id": 15,
+            "cells": 179,
+            "reference_means_units": [
+              13.111731843575418,
+              13.005586592178771,
+              13.541899441340782,
+              13.29050279329609,
+              13.11731843575419
+            ],
+            "minimum_units": 13.005586592178771,
+            "range_units": 0.5363128491620106,
+            "lower_bound_units": 12.46927374301676
+          },
+          {
+            "id": 16,
+            "cells": 87,
+            "reference_means_units": [
+              18.183908045977013,
+              18.402298850574713,
+              19.149425287356323,
+              18.49425287356322,
+              18.49425287356322
+            ],
+            "minimum_units": 18.183908045977013,
+            "range_units": 0.9655172413793096,
+            "lower_bound_units": 17.218390804597703
+          },
+          {
+            "id": 17,
+            "cells": 226,
+            "reference_means_units": [
+              26.86725663716814,
+              26.805309734513273,
+              27.349557522123895,
+              26.81858407079646,
+              26.82300884955752
+            ],
+            "minimum_units": 26.805309734513273,
+            "range_units": 0.5442477876106224,
+            "lower_bound_units": 26.26106194690265
+          },
+          {
+            "id": 19,
+            "cells": 504,
+            "reference_means_units": [
+              35.861111111111114,
+              34.392857142857146,
+              35.78769841269841,
+              34.839285714285715,
+              35.33134920634921
+            ],
+            "minimum_units": 34.392857142857146,
+            "range_units": 1.4682539682539684,
+            "lower_bound_units": 32.92460317460318
+          },
+          {
+            "id": 20,
+            "cells": 193,
+            "reference_means_units": [
+              34.07253886010363,
+              34.818652849740936,
+              35.35233160621762,
+              34.93782383419689,
+              34.78238341968912
+            ],
+            "minimum_units": 34.07253886010363,
+            "range_units": 1.2797927461139906,
+            "lower_bound_units": 32.79274611398964
+          },
+          {
+            "id": 24,
+            "cells": 119,
+            "reference_means_units": [
+              31.66386554621849,
+              31.672268907563026,
+              32.33613445378151,
+              31.722689075630253,
+              31.58823529411765
+            ],
+            "minimum_units": 31.58823529411765,
+            "range_units": 0.7478991596638629,
+            "lower_bound_units": 30.840336134453786
+          },
+          {
+            "id": 27,
+            "cells": 71,
+            "reference_means_units": [
+              7.338028169014085,
+              7.323943661971831,
+              7.859154929577465,
+              7.366197183098592,
+              7.380281690140845
+            ],
+            "minimum_units": 7.323943661971831,
+            "range_units": 0.535211267605634,
+            "lower_bound_units": 6.788732394366197
+          },
+          {
+            "id": 28,
+            "cells": 1,
+            "reference_means_units": [
+              8.0,
+              10.0,
+              4.0,
+              7.0,
+              7.0
+            ],
+            "minimum_units": 4.0,
+            "range_units": 6.0,
+            "lower_bound_units": -2.0
+          },
+          {
+            "id": 31,
+            "cells": 67,
+            "reference_means_units": [
+              17.80597014925373,
+              17.149253731343283,
+              17.98507462686567,
+              17.16417910447761,
+              51.23880597014925
+            ],
+            "minimum_units": 17.149253731343283,
+            "range_units": 34.089552238805965,
+            "lower_bound_units": -16.940298507462682
+          },
+          {
+            "id": 34,
+            "cells": 109,
+            "reference_means_units": [
+              11.027522935779816,
+              10.678899082568808,
+              11.339449541284404,
+              10.926605504587156,
+              10.825688073394495
+            ],
+            "minimum_units": 10.678899082568808,
+            "range_units": 0.6605504587155959,
+            "lower_bound_units": 10.018348623853212
+          },
+          {
+            "id": 37,
+            "cells": 21,
+            "reference_means_units": [
+              31.238095238095237,
+              30.714285714285715,
+              30.095238095238095,
+              31.80952380952381,
+              30.142857142857142
+            ],
+            "minimum_units": 30.095238095238095,
+            "range_units": 1.7142857142857153,
+            "lower_bound_units": 28.38095238095238
+          },
+          {
+            "id": 39,
+            "cells": 3,
+            "reference_means_units": [
+              3.0,
+              4.0,
+              3.0,
+              3.3333333333333335,
+              2.6666666666666665
+            ],
+            "minimum_units": 2.6666666666666665,
+            "range_units": 1.3333333333333335,
+            "lower_bound_units": 1.333333333333333
+          },
+          {
+            "id": 40,
+            "cells": 76,
+            "reference_means_units": [
+              11.223684210526315,
+              11.18421052631579,
+              11.828947368421053,
+              11.355263157894736,
+              11.328947368421053
+            ],
+            "minimum_units": 11.18421052631579,
+            "range_units": 0.6447368421052637,
+            "lower_bound_units": 10.539473684210526
+          },
+          {
+            "id": 42,
+            "cells": 2,
+            "reference_means_units": [
+              10.0,
+              6.5,
+              9.5,
+              3.0,
+              12.5
+            ],
+            "minimum_units": 3.0,
+            "range_units": 9.5,
+            "lower_bound_units": -6.5
+          },
+          {
+            "id": 43,
+            "cells": 42,
+            "reference_means_units": [
+              8.19047619047619,
+              7.642857142857143,
+              8.547619047619047,
+              7.714285714285714,
+              8.119047619047619
+            ],
+            "minimum_units": 7.642857142857143,
+            "range_units": 0.9047619047619042,
+            "lower_bound_units": 6.738095238095239
+          },
+          {
+            "id": 44,
+            "cells": 2,
+            "reference_means_units": [
+              18.0,
+              17.5,
+              17.5,
+              17.5,
+              17.5
+            ],
+            "minimum_units": 17.5,
+            "range_units": 0.5,
+            "lower_bound_units": 17.0
+          },
+          {
+            "id": 45,
+            "cells": 1,
+            "reference_means_units": [
+              16.0,
+              16.0,
+              16.0,
+              16.0,
+              16.0
+            ],
+            "minimum_units": 16.0,
+            "range_units": 0.0,
+            "lower_bound_units": 15.683333333333334
+          },
+          {
+            "id": 47,
+            "cells": 88,
+            "reference_means_units": [
+              36.84090909090909,
+              36.98863636363637,
+              37.35227272727273,
+              37.05681818181818,
+              36.67045454545455
+            ],
+            "minimum_units": 36.67045454545455,
+            "range_units": 0.6818181818181799,
+            "lower_bound_units": 35.98863636363637
+          },
+          {
+            "id": 49,
+            "cells": 48,
+            "reference_means_units": [
+              71.75,
+              73.1875,
+              73.5625,
+              73.0625,
+              73.39583333333333
+            ],
+            "minimum_units": 71.75,
+            "range_units": 1.8125,
+            "lower_bound_units": 69.9375
+          },
+          {
+            "id": 50,
+            "cells": 102,
+            "reference_means_units": [
+              11.245098039215685,
+              11.343137254901961,
+              11.696078431372548,
+              11.372549019607844,
+              11.313725490196079
+            ],
+            "minimum_units": 11.245098039215685,
+            "range_units": 0.4509803921568629,
+            "lower_bound_units": 10.794117647058822
+          },
+          {
+            "id": 52,
+            "cells": 342,
+            "reference_means_units": [
+              32.134502923976605,
+              32.207602339181285,
+              32.654970760233915,
+              32.058479532163744,
+              32.16374269005848
+            ],
+            "minimum_units": 32.058479532163744,
+            "range_units": 0.5964912280701711,
+            "lower_bound_units": 31.461988304093573
+          },
+          {
+            "id": 54,
+            "cells": 108,
+            "reference_means_units": [
+              43.101851851851855,
+              45.0,
+              45.56481481481482,
+              45.22222222222222,
+              45.120370370370374
+            ],
+            "minimum_units": 43.101851851851855,
+            "range_units": 2.462962962962962,
+            "lower_bound_units": 40.63888888888889
+          },
+          {
+            "id": 57,
+            "cells": 7,
+            "reference_means_units": [
+              74.0,
+              75.85714285714286,
+              76.71428571428571,
+              73.0,
+              72.57142857142857
+            ],
+            "minimum_units": 72.57142857142857,
+            "range_units": 4.142857142857139,
+            "lower_bound_units": 68.42857142857143
+          },
+          {
+            "id": 58,
+            "cells": 50,
+            "reference_means_units": [
+              7.92,
+              7.64,
+              8.42,
+              7.72,
+              7.8
+            ],
+            "minimum_units": 7.64,
+            "range_units": 0.7800000000000002,
+            "lower_bound_units": 6.859999999999999
+          },
+          {
+            "id": 59,
+            "cells": 142,
+            "reference_means_units": [
+              45.971830985915496,
+              46.59154929577465,
+              47.74647887323944,
+              46.852112676056336,
+              47.140845070422536
+            ],
+            "minimum_units": 45.971830985915496,
+            "range_units": 1.774647887323944,
+            "lower_bound_units": 44.19718309859155
+          },
+          {
+            "id": 60,
+            "cells": 3,
+            "reference_means_units": [
+              53.0,
+              41.0,
+              29.666666666666668,
+              35.333333333333336,
+              27.333333333333332
+            ],
+            "minimum_units": 27.333333333333332,
+            "range_units": 25.666666666666668,
+            "lower_bound_units": 1.6666666666666643
+          },
+          {
+            "id": 61,
+            "cells": 1,
+            "reference_means_units": [
+              1.0,
+              4.0,
+              7.0,
+              1.0,
+              2.0
+            ],
+            "minimum_units": 1.0,
+            "range_units": 6.0,
+            "lower_bound_units": -5.0
+          },
+          {
+            "id": 63,
+            "cells": 6,
+            "reference_means_units": [
+              28.0,
+              28.333333333333332,
+              28.333333333333332,
+              27.166666666666668,
+              29.0
+            ],
+            "minimum_units": 27.166666666666668,
+            "range_units": 1.8333333333333321,
+            "lower_bound_units": 25.333333333333336
+          },
+          {
+            "id": 64,
+            "cells": 75,
+            "reference_means_units": [
+              46.17333333333333,
+              46.21333333333333,
+              46.46666666666667,
+              46.266666666666666,
+              46.2
+            ],
+            "minimum_units": 46.17333333333333,
+            "range_units": 0.29333333333333655,
+            "lower_bound_units": 45.85666666666666
+          },
+          {
+            "id": 66,
+            "cells": 37,
+            "reference_means_units": [
+              13.72972972972973,
+              13.72972972972973,
+              14.027027027027026,
+              13.64864864864865,
+              13.513513513513514
+            ],
+            "minimum_units": 13.513513513513514,
+            "range_units": 0.5135135135135123,
+            "lower_bound_units": 13.000000000000002
+          },
+          {
+            "id": 69,
+            "cells": 117,
+            "reference_means_units": [
+              9.042735042735043,
+              8.991452991452991,
+              9.504273504273504,
+              9.017094017094017,
+              9.051282051282051
+            ],
+            "minimum_units": 8.991452991452991,
+            "range_units": 0.5128205128205128,
+            "lower_bound_units": 8.478632478632479
+          },
+          {
+            "id": 70,
+            "cells": 27,
+            "reference_means_units": [
+              29.333333333333332,
+              29.296296296296298,
+              29.296296296296298,
+              28.85185185185185,
+              29.22222222222222
+            ],
+            "minimum_units": 28.85185185185185,
+            "range_units": 0.48148148148148096,
+            "lower_bound_units": 28.37037037037037
+          },
+          {
+            "id": 71,
+            "cells": 43,
+            "reference_means_units": [
+              7.255813953488372,
+              7.232558139534884,
+              7.813953488372093,
+              7.348837209302325,
+              7.255813953488372
+            ],
+            "minimum_units": 7.232558139534884,
+            "range_units": 0.5813953488372086,
+            "lower_bound_units": 6.651162790697676
+          },
+          {
+            "id": 76,
+            "cells": 48,
+            "reference_means_units": [
+              61.229166666666664,
+              62.5625,
+              63.520833333333336,
+              62.916666666666664,
+              62.854166666666664
+            ],
+            "minimum_units": 61.229166666666664,
+            "range_units": 2.2916666666666714,
+            "lower_bound_units": 58.93749999999999
+          },
+          {
+            "id": 79,
+            "cells": 108,
+            "reference_means_units": [
+              30.65740740740741,
+              30.40740740740741,
+              30.84259259259259,
+              30.38888888888889,
+              30.314814814814813
+            ],
+            "minimum_units": 30.314814814814813,
+            "range_units": 0.5277777777777786,
+            "lower_bound_units": 29.787037037037035
+          },
+          {
+            "id": 80,
+            "cells": 1,
+            "reference_means_units": [
+              8.0,
+              5.0,
+              1.0,
+              4.0,
+              5.0
+            ],
+            "minimum_units": 1.0,
+            "range_units": 7.0,
+            "lower_bound_units": -6.0
+          },
+          {
+            "id": 81,
+            "cells": 3,
+            "reference_means_units": [
+              6.333333333333333,
+              6.333333333333333,
+              6.0,
+              7.333333333333333,
+              6.0
+            ],
+            "minimum_units": 6.0,
+            "range_units": 1.333333333333333,
+            "lower_bound_units": 4.666666666666667
+          }
+        ]
+      }
+    }
+  ]
+}

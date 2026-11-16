@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "asheville",
+    "post_network_floor_guard": true,
+    "start_and_horizontal_layout_exact": true,
+    "all_waterway_samples_exact": true,
+    "raised_vertices": 258,
+    "lowered_vertices": 5,
+    "max_additional_lowering_m": 3.0,
+    "model_regressions": 0
+  },
+  {
+    "slug": "charleston",
+    "post_network_floor_guard": true,
+    "start_and_horizontal_layout_exact": true,
+    "all_waterway_samples_exact": true,
+    "raised_vertices": 7943,
+    "lowered_vertices": 0,
+    "max_additional_lowering_m": 0.0,
+    "model_regressions": 0
+  },
+  {
+    "slug": "innsbruck",
+    "post_network_floor_guard": true,
+    "start_and_horizontal_layout_exact": true,
+    "all_waterway_samples_exact": true,
+    "raised_vertices": 0,
+    "lowered_vertices": 0,
+    "max_additional_lowering_m": 0.0,
+    "model_regressions": 0
+  },
+  {
+    "slug": "pittsburgh",
+    "post_network_floor_guard": true,
+    "start_and_horizontal_layout_exact": true,
+    "all_waterway_samples_exact": true,
+    "raised_vertices": 3845,
+    "lowered_vertices": 28,
+    "max_additional_lowering_m": 3.0,
+    "model_regressions": 59
+  },
+  {
+    "slug": "rio",
+    "post_network_floor_guard": true,
+    "start_and_horizontal_layout_exact": true,
+    "all_waterway_samples_exact": true,
+    "raised_vertices": 32883,
+    "lowered_vertices": 87,
+    "max_additional_lowering_m": 1.53125,
+    "model_regressions": 0
+  }
+]

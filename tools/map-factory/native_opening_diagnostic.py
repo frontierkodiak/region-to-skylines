@@ -10,12 +10,13 @@ import argparse
 import json
 from pathlib import Path
 import select
+import signal
 import shutil
 import subprocess
 import sys
 import time
 
-from cs1_harness import landmarks, startup_views
+from cs1_harness import gpu, landmarks, startup_views
 from cs1_harness.cli import slot, staging
 from cs1_harness.config import Config
 from cs1_harness.mapcheck import collect
@@ -24,6 +25,13 @@ from cs1_harness.session import sha256
 
 def write(path, value):
     path.write_text(json.dumps(value, indent=2, default=str) + "\n")
+
+
+def sample_game_gpu(session):
+    owned = {p["pid"] for p in session.receipt.get("game_gpu", [])}
+    rows = [p for p in gpu.game_placement() if p["pid"] in owned]
+    with (session.stage / "game-gpu-samples.jsonl").open("a") as stream:
+        stream.write(json.dumps({"wall": time.time(), "processes": rows}) + "\n")
 
 
 def capture_views(session, prefix):
@@ -84,7 +92,15 @@ def review_control(session, command, prefix, report):
     write(session.stage / "diagnostic.json", report)
 
 
-def run(source, output, interactive, minutes, requests_file=None):
+def run(
+    source,
+    output,
+    interactive,
+    minutes,
+    requests_file=None,
+    wait_minutes=0,
+    sample_every=0,
+):
     cfg = Config.for_host()
     if cfg.host != "blade" or cfg.display != ":57":
         raise ValueError("This release authorizes only Blade's private :57 session")
@@ -99,6 +115,8 @@ def run(source, output, interactive, minutes, requests_file=None):
     report = {
         "native_qualification": False,
         "requested_minutes": minutes,
+        "sample_every_game_minutes": sample_every,
+        "minute_samples": [],
         "tested_head": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], text=True
         ).strip(),
@@ -118,12 +136,13 @@ def run(source, output, interactive, minutes, requests_file=None):
     requests = json.loads(requests_file.read_text()) if requests_file else {}
     screen_requests = requests.get("screen_points", [])
     world_requests = requests.get("world_points", [])
+    extra_requests = requests.get("supplementary_world_points", [])
     samples = []
     try:
         with slot(
             cfg,
             stage,
-            0,
+            wait_minutes,
             {
                 "command": "PL-912 bounded opening diagnostic",
                 "issue": "PL-912",
@@ -136,6 +155,7 @@ def run(source, output, interactive, minutes, requests_file=None):
             session.launch(["--noWorkshop"])
             session.check_audio()
             write(stage / "audio-menu.json", session.receipt["audio_processes"])
+            sample_game_gpu(session)
             maps = session.client.call("maps")["maps"]
             entry = next(
                 m
@@ -170,6 +190,7 @@ def run(source, output, interactive, minutes, requests_file=None):
             )
             write(stage / "audio-t000.json", session.receipt["audio_processes"])
             write(stage / "measurement-requests.json", requests)
+            sample_game_gpu(session)
             if screen_requests:
                 observed = session.client.call(
                     "world_observe", screen_points=screen_requests
@@ -180,6 +201,11 @@ def run(source, output, interactive, minutes, requests_file=None):
                 write(
                     stage / "t000-world-water.json",
                     session.client.call("water", points=world_requests),
+                )
+            if extra_requests:
+                write(
+                    stage / "t000-extra-water.json",
+                    session.client.call("water", points=extra_requests),
                 )
             write(stage / "diagnostic.json", report)
             print(
@@ -255,6 +281,7 @@ def run(source, output, interactive, minutes, requests_file=None):
                 frames = 60 / start["fixed_delta_time"]
                 session.client.call("run", paused=False, speed=3, day_night=False)
                 last_log = 0
+                next_sample = sample_every
                 deadline = time.monotonic() + 1200
                 while True:
                     session.alive()
@@ -263,9 +290,21 @@ def run(source, output, interactive, minutes, requests_file=None):
                             "five-minute diagnostic exceeded foreground wall bound"
                         )
                     stats = session.client.call("stats")
+                    sample_game_gpu(session)
                     elapsed = (stats["frame"] - start_frame) / frames
                     if elapsed >= minutes:
                         break
+                    if sample_every and elapsed >= next_sample:
+                        label = f"minute-{next_sample:g}-water.json"
+                        write(
+                            stage / label,
+                            session.client.call("water", points=world_requests),
+                        )
+                        report["minute_samples"].append(
+                            {"game_minutes": elapsed, "file": label}
+                        )
+                        write(stage / "diagnostic.json", report)
+                        next_sample += sample_every
                     if elapsed - last_log >= 1:
                         print(f"game minutes {elapsed:.2f}/{minutes}", flush=True)
                         last_log = elapsed
@@ -311,6 +350,11 @@ def run(source, output, interactive, minutes, requests_file=None):
                         stage / "t005-world-water.json",
                         session.client.call("water", points=world_requests),
                     )
+                if extra_requests:
+                    write(
+                        stage / "t005-extra-water.json",
+                        session.client.call("water", points=extra_requests),
+                    )
                 session.check_audio()
                 write(stage / "audio-t005.json", session.receipt["audio_processes"])
                 report["final_grid_sha256"] = {
@@ -330,11 +374,30 @@ def run(source, output, interactive, minutes, requests_file=None):
 
 
 if __name__ == "__main__":
+    # Match the harness CLI: a supervisor ending this foreground process must
+    # unwind slot/session contexts, collect receipts and release owned state.
+    def terminate(signum, _frame):
+        raise SystemExit(128 + signum)
+
+    for sig in (signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, terminate)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--interactive", action="store_true")
     parser.add_argument("--minutes", type=float, default=5)
+    parser.add_argument(
+        "--wait-minutes",
+        type=float,
+        default=0,
+        help="Foreground wait behind existing harness holders and older waiters",
+    )
+    parser.add_argument(
+        "--sample-every",
+        type=float,
+        default=0,
+        help="Game-minutes between complete water/source readings (zero disables)",
+    )
     parser.add_argument(
         "--requests",
         type=Path,
@@ -343,10 +406,18 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if not 0 <= args.minutes <= 5:
         parser.error("use zero for paused capture-only, or at most five game minutes")
+    if not 0 <= args.wait_minutes <= 60:
+        parser.error("foreground queue wait must be between zero and 60 minutes")
+    if args.sample_every < 0 or (
+        args.sample_every and not 0 < args.sample_every <= args.minutes
+    ):
+        parser.error("sampling interval must be zero or positive and within the run")
     run(
         args.source.resolve(),
         args.output.resolve(),
         args.interactive,
         args.minutes,
         args.requests,
+        args.wait_minutes,
+        args.sample_every,
     )

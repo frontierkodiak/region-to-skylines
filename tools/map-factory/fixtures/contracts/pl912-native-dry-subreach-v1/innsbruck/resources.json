@@ -1,0 +1,60 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179911,
+  "unlockable": {
+    "ore": 1156708,
+    "oil": 579415,
+    "forest": 5119905,
+    "fertility": 2841596,
+    "water": 148873
+  },
+  "cells": {
+    "ore": 8888,
+    "oil": 4846,
+    "fertility": 43767,
+    "forest": 40014
+  },
+  "evidence": [],
+  "placed": [],
+  "theme": null,
+  "package": {
+    "output": "/home/caleb/experiments/PL-912-native-export/python/reference/innsbruck/PL857-innsbruck.crp",
+    "sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+    "bytes": 5764543,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "ea9206865a54555f2d0813d0a4591a52cf5bcaedb411475cb4c1ef7d1fdf9d1e"
+  }
+}

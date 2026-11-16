@@ -1,0 +1,93 @@
+{
+  "diagnostic_only": true,
+  "native_game_launched_this_turn": false,
+  "thresholds_and_maps_unchanged": true,
+  "installed_game_assembly_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1",
+  "reviewed_source": "23c3787f139509d3b5b95b35e0888f22b1603b32",
+  "native_candidate_source": "a4b96532fd9f5d2fcce1a88bccd1f09baaeb91dc",
+  "initial_resource_stamp": {
+    "water_matches_encoder": true,
+    "shore_matches_encoder": true,
+    "maximum_shore_byte_difference": 0,
+    "separate_sand_resource_nonzero_cells": 0
+  },
+  "areas_t005_heuristic": {
+    "candidate": {
+      "high_shore_uncut": {
+        "vertices": 1576,
+        "sand_fraction_rounded": 0.85
+      },
+      "high_shore_cut": {
+        "vertices": 1052,
+        "sand_fraction_rounded": 0.95
+      },
+      "low_shore_cut": {
+        "vertices": 324,
+        "sand_fraction_rounded": 0
+      }
+    },
+    "baseline": {
+      "high_shore_uncut": {
+        "vertices": 155,
+        "sand_fraction_rounded": 0.8
+      },
+      "high_shore_cut": {
+        "vertices": 2129,
+        "sand_fraction_rounded": 0.92
+      },
+      "low_shore_cut": {
+        "vertices": 1596,
+        "sand_fraction_rounded": 0
+      }
+    }
+  },
+  "physical_texture_model": {
+    "resource_cell_spacing_m": 33.75,
+    "kernel": [
+      [
+        5,
+        7,
+        5
+      ],
+      [
+        7,
+        14,
+        7
+      ],
+      [
+        5,
+        7,
+        5
+      ]
+    ],
+    "shore_sampling_radius_m": 20,
+    "shore_water_depth_threshold_m": 0.125,
+    "shore_surface_offset_m": 4,
+    "empirical_high_shore_cutpoint_not_acceptance_threshold": 0.7
+  },
+  "limitations": [
+    "Compiled terrain shader was not read.",
+    "Five-minute shore texture is an endpoint/update-rate estimate, not a native texture readback.",
+    "Color labels are empirical and exclude blue overlay/open water; they are not acceptance masks.",
+    "Replayed each package with its own decoded forest field, correcting the shared-forest simplification in the reviewers scratch script.",
+    "These two runs do not prove a universal impossibility theorem or qualify every possible terrain design."
+  ],
+  "source_sha256": {
+    "load.py": "1e13eae98e27faeebefed6cf09f276cb9427dacf006783d24ca1847eec4e3076",
+    "shore.py": "a6d876cf1b0cb8aabbc5387123a85fb8f60bf2ae11943eea710cf5afb20d1e0d",
+    "proj2.py": "1d572620c620bf769e593c046e78c92944938302c97df2fd94d865658da2796f",
+    "xtab_area.py": "5ab9b7f61b78ec20437856c691fc0eef3762dfadfe9ff1561d303a36d39e3736",
+    "shore-stamp-replay.log": "44b26b3916a3226226a0b9327c9c17217228e4595131bf78fa33fab0545fc0ef",
+    "shore-vs-excavation-replay.log": "e7b2254acdbc876c9ca2822c73f51bf6de74dddef4791ad15ae27b23ab7cd738",
+    "baseline_package": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+    "candidate_package": "0c08958566c656f21f575211e4a965c6d03e6cfd96b68cb8d9ed1e3c1360075b"
+  },
+  "scope_replay": {
+    "model_points": 59,
+    "inside_river_polygon": 56,
+    "mean_removed_browser_cut_m": 6.418903350576526,
+    "source": "a4b9653 frozen routed samples; reviewer independently replayed complete paths; this supplemental audit is not a new native verdict",
+    "minimum_distance_to_recorded_route_samples_m": 81.58431221748455,
+    "recorded_route_samples": 88
+  }
+}

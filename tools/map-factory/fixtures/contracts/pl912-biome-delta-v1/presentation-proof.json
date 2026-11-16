@@ -1,0 +1,587 @@
+{
+  "source_head": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+  "source_files_sha256": {
+    "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+    "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+    "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+  },
+  "status": "complete",
+  "cases": [
+    {
+      "case": "rio",
+      "kind": "shipping",
+      "base_crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/shipping/rio/PL857-rio.crp",
+        "sha256": "944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e",
+        "bytes": 6134022,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "8918c2e08304b274de01a22b006b561d097cde6ba54345619d6b7fa608214277"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "ccb2a7b36c80fc1bd9db183464341c0806a583375a87caae89950d2e84333084",
+        "terrain_raised": 1032,
+        "startup_water_removed": 336,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "934da280656166d8930a595cc3d4ac064eb7e0c8a517c7e0e784f6d8dcdf9b92",
+        "water.u16": "83f5f8b01098a0f91d9cce4481b394d1f07549560ba24c12947cacd27325c6cf"
+      },
+      "environment": "Tropical",
+      "previous_environment": "Sunny",
+      "environment_changed": true,
+      "tree_species_changed": true,
+      "tree_positions_sha256": "bf9ea1008267c0dc8397e5575b6346538bb2f1a6a91c4c1980023ddc9b2ab4c6",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "2e151afa4ea30826f0b9758b49176d66f267e52f1abd819061367dcde171cf9c",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "60bf1c138e119923c202dce8ebf561e443bd3880ca79db3821d686faf23c4a97",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "rio",
+      "kind": "reference",
+      "base_crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/rio/PL857-rio.crp",
+        "sha256": "944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e",
+        "bytes": 6134022,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "8918c2e08304b274de01a22b006b561d097cde6ba54345619d6b7fa608214277"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "ccb2a7b36c80fc1bd9db183464341c0806a583375a87caae89950d2e84333084",
+        "terrain_raised": 1032,
+        "startup_water_removed": 336,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "934da280656166d8930a595cc3d4ac064eb7e0c8a517c7e0e784f6d8dcdf9b92",
+        "water.u16": "83f5f8b01098a0f91d9cce4481b394d1f07549560ba24c12947cacd27325c6cf"
+      },
+      "environment": "Tropical",
+      "previous_environment": "Sunny",
+      "environment_changed": true,
+      "tree_species_changed": true,
+      "tree_positions_sha256": "bf9ea1008267c0dc8397e5575b6346538bb2f1a6a91c4c1980023ddc9b2ab4c6",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "2e151afa4ea30826f0b9758b49176d66f267e52f1abd819061367dcde171cf9c",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "60bf1c138e119923c202dce8ebf561e443bd3880ca79db3821d686faf23c4a97",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "asheville",
+      "kind": "shipping",
+      "base_crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/shipping/asheville/PL857-asheville.crp",
+        "sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+        "bytes": 6548426,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "e947b470d1dd9e9e7445a4d5144088c7b9b53f46f0ae06ee2b05b4b1fbbe4452"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "642e55d926b3e877500f3e23f4d827c9238a32cf55101b83b9be89f6c36761d8",
+        "terrain_raised": 6953,
+        "startup_water_removed": 3786,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "9aef2d084a814a1dd49b7393cfa2d9245e35e736d6f9af24cff137e64debf000",
+        "water.u16": "31ea2baa620f49794b0d7f106071b1124949e0ffea7017e90035ec95a6bcf97e"
+      },
+      "environment": "Sunny",
+      "previous_environment": "Sunny",
+      "environment_changed": false,
+      "tree_species_changed": false,
+      "tree_positions_sha256": "801bf882640fbca626664944f006a2e77a77fc3a4e5b5b204ff3185e9a78d52f",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "62e545bd25bdf606ad50a25cf9682c8a22f922310cf3b42c7c2303441aaf905c",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "6df38a56078f4d6c108fb2ceb465267b759fc6b375105d8806b49d2d152024f5",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "asheville",
+      "kind": "reference",
+      "base_crp_sha256": "0191694965ac1875301f37d44a56a0f891eae653905d42657f7cc4967bad65e0",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/asheville/PL857-asheville.crp",
+        "sha256": "0191694965ac1875301f37d44a56a0f891eae653905d42657f7cc4967bad65e0",
+        "bytes": 6548471,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "4820e76e8c904b7a069e8059f8fc8355de3f00c7074016a59ee816c145c30790"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "642e55d926b3e877500f3e23f4d827c9238a32cf55101b83b9be89f6c36761d8",
+        "terrain_raised": 6953,
+        "startup_water_removed": 3786,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "9aef2d084a814a1dd49b7393cfa2d9245e35e736d6f9af24cff137e64debf000",
+        "water.u16": "31ea2baa620f49794b0d7f106071b1124949e0ffea7017e90035ec95a6bcf97e"
+      },
+      "environment": "Sunny",
+      "previous_environment": "Sunny",
+      "environment_changed": false,
+      "tree_species_changed": false,
+      "tree_positions_sha256": "801bf882640fbca626664944f006a2e77a77fc3a4e5b5b204ff3185e9a78d52f",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "62e545bd25bdf606ad50a25cf9682c8a22f922310cf3b42c7c2303441aaf905c",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "ef2304e6374a7aabb9db39d875c67dba56e1afd730d30c329bc97a048219ad64",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "innsbruck",
+      "kind": "shipping",
+      "base_crp_sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/shipping/innsbruck/PL857-innsbruck.crp",
+        "sha256": "9bc58d4ca7e83088d5ebf84c48359039511bfde3db6c425808c10c0cae433595",
+        "bytes": 5765247,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "b5eac6b99ae7a2930b24b985abde4419d0cffd068a5385c8380f78ca7e8b9c69"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "c8a677cddf6d8f7eb7ec8e1c7c910c16c48cbf4fc7c6e3cf4bc456da68c5db9b",
+        "terrain_raised": 2789,
+        "startup_water_removed": 2500,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "cd9dee2dfce1c13e0c82f1563484a11cb8c989f4665f84650d6354bfbc29b093",
+        "water.u16": "9aca12fd34d2050e5c1108369cb6f50c8bc754a2424e10ca0f8e266a7229342c"
+      },
+      "environment": "North",
+      "previous_environment": "Sunny",
+      "environment_changed": true,
+      "tree_species_changed": true,
+      "tree_positions_sha256": "5cfa559b51cf0a01742a9c3807a09127dc83921dab3eceddc38df5554cabe949",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "e9764b2a92561d5c0de107fbebd8b4183c486486087baf8f50899580904f218f",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "ccdfaa145c64cc695300a35b2f5a86e5cc52b64939f4134fb3271dcaed83e957",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "innsbruck",
+      "kind": "reference",
+      "base_crp_sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/innsbruck/PL857-innsbruck.crp",
+        "sha256": "9bc58d4ca7e83088d5ebf84c48359039511bfde3db6c425808c10c0cae433595",
+        "bytes": 5765247,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "b5eac6b99ae7a2930b24b985abde4419d0cffd068a5385c8380f78ca7e8b9c69"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "c8a677cddf6d8f7eb7ec8e1c7c910c16c48cbf4fc7c6e3cf4bc456da68c5db9b",
+        "terrain_raised": 2789,
+        "startup_water_removed": 2500,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "cd9dee2dfce1c13e0c82f1563484a11cb8c989f4665f84650d6354bfbc29b093",
+        "water.u16": "9aca12fd34d2050e5c1108369cb6f50c8bc754a2424e10ca0f8e266a7229342c"
+      },
+      "environment": "North",
+      "previous_environment": "Sunny",
+      "environment_changed": true,
+      "tree_species_changed": true,
+      "tree_positions_sha256": "5cfa559b51cf0a01742a9c3807a09127dc83921dab3eceddc38df5554cabe949",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "e9764b2a92561d5c0de107fbebd8b4183c486486087baf8f50899580904f218f",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "ccdfaa145c64cc695300a35b2f5a86e5cc52b64939f4134fb3271dcaed83e957",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "pittsburgh",
+      "kind": "shipping",
+      "base_crp_sha256": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/shipping/pittsburgh/PL857-pittsburgh.crp",
+        "sha256": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+        "bytes": 6528198,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "104acb4956c9c2cd7d52a04e4957b863a96a5d770fcd3c1ecd57e47f7692312d"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "03b6b58c6f7da63c6b9e303a7f218968d0ff18eb7d475c00a2120ec1a621d1d4",
+        "terrain_raised": 2897,
+        "startup_water_removed": 1274,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "da4cc41c1ac57d1f4c089d59aaf160efc5832d0f70c80385d20e7dcdc94c0352",
+        "water.u16": "7b1c60fa16d7ce5a0b664fe5479900a6c0f9b7dba7f5f0b7a21e6dcbc762421f"
+      },
+      "environment": "Sunny",
+      "previous_environment": "Sunny",
+      "environment_changed": false,
+      "tree_species_changed": false,
+      "tree_positions_sha256": "0342f5fafb0150e5e60fcdd391dbc9b9fe1325967515557e1352fac59a6b192a",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "f81c5382c0f9c816f0af977177d12092d6f9e2f24d5b819891c481dfab6c7c76",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "c65c15703ba1a2a45f8fe02febffaab4ec93e7dc0725b2f09d93c949fbe4ef5b",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "pittsburgh",
+      "kind": "reference",
+      "base_crp_sha256": "3fe6c17c026403201452d4262d875a61958e6887ea62919f08611a52dce88398",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/pittsburgh/PL857-pittsburgh.crp",
+        "sha256": "3fe6c17c026403201452d4262d875a61958e6887ea62919f08611a52dce88398",
+        "bytes": 6644827,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "02c3b68b1e24f988d311f035d1037f64d6580fa9c85275a380ef41e4563c36de"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "03b6b58c6f7da63c6b9e303a7f218968d0ff18eb7d475c00a2120ec1a621d1d4",
+        "terrain_raised": 2897,
+        "startup_water_removed": 1274,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "da4cc41c1ac57d1f4c089d59aaf160efc5832d0f70c80385d20e7dcdc94c0352",
+        "water.u16": "7b1c60fa16d7ce5a0b664fe5479900a6c0f9b7dba7f5f0b7a21e6dcbc762421f"
+      },
+      "environment": "Sunny",
+      "previous_environment": "Sunny",
+      "environment_changed": false,
+      "tree_species_changed": false,
+      "tree_positions_sha256": "0342f5fafb0150e5e60fcdd391dbc9b9fe1325967515557e1352fac59a6b192a",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "f81c5382c0f9c816f0af977177d12092d6f9e2f24d5b819891c481dfab6c7c76",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "2542f0e33066a11c0f96afd7644db9546b46626a58e0cce357de84c125ccc2b5",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "charleston",
+      "kind": "shipping",
+      "base_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/shipping/charleston/PL857-charleston.crp",
+        "sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+        "bytes": 6513994,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "e6768c789f6f9f1fabcebb246041fe72b5ded6f663ee51a4a3bdb65aa2bf1db1"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "78f10cdbfa9aaf01f3a2b98d25db3df5220b2b5a9b958a502813f63b6d5f2161",
+        "terrain_raised": 1156,
+        "startup_water_removed": 2335,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "1530cbb9a39d61147660d0881675d541af42db5fd7dfe6b22c803c40899ce802",
+        "water.u16": "e5ad937ca389807ddaec76e7df54743096675897c3ad750b55c29b7abfc4146c"
+      },
+      "environment": "Sunny",
+      "previous_environment": "Sunny",
+      "environment_changed": false,
+      "tree_species_changed": false,
+      "tree_positions_sha256": "6653e9147ca77f503f2466a09fd6cccc9cd33fed590cb58a1cb3ea91a7eb0c50",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "cda98b7ae80cec99131922ac0f55c5a07b81c52820724fa941103dbfb3707d4c",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "8a35aaa8a4e656317f2d32b9d88b807747098d5c11c916cf358183373d8c977f",
+      "native_qualification_transferred": false
+    },
+    {
+      "case": "charleston",
+      "kind": "reference",
+      "base_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+      "package": {
+        "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/charleston/PL857-charleston.crp",
+        "sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+        "bytes": 6513994,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "e6768c789f6f9f1fabcebb246041fe72b5ded6f663ee51a4a3bdb65aa2bf1db1"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "78f10cdbfa9aaf01f3a2b98d25db3df5220b2b5a9b958a502813f63b6d5f2161",
+        "terrain_raised": 1156,
+        "startup_water_removed": 2335,
+        "native_qualified": false
+      },
+      "prepared_sha256": {
+        "terrain.u16": "1530cbb9a39d61147660d0881675d541af42db5fd7dfe6b22c803c40899ce802",
+        "water.u16": "e5ad937ca389807ddaec76e7df54743096675897c3ad750b55c29b7abfc4146c"
+      },
+      "environment": "Sunny",
+      "previous_environment": "Sunny",
+      "environment_changed": false,
+      "tree_species_changed": false,
+      "tree_positions_sha256": "6653e9147ca77f503f2466a09fd6cccc9cd33fed590cb58a1cb3ea91a7eb0c50",
+      "resource_grids_and_tree_positions_exact": true,
+      "hydrology_byte_exact": true,
+      "water_simulation_sha256": "cda98b7ae80cec99131922ac0f55c5a07b81c52820724fa941103dbfb3707d4c",
+      "water_simulation_byte_exact": true,
+      "simulation_before_tree_after_environment_normalization_exact": true,
+      "normalized_non_tree_sha256": "8a35aaa8a4e656317f2d32b9d88b807747098d5c11c916cf358183373d8c977f",
+      "native_qualification_transferred": false
+    }
+  ]
+}

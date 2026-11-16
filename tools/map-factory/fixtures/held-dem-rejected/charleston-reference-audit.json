@@ -1,0 +1,38 @@
+{
+  "slug": "charleston",
+  "diagnostic_only": true,
+  "acceptance_unchanged": true,
+  "all_points": 73441,
+  "land_points": 51614,
+  "land_fraction": 0.7027954412385452,
+  "land_definition_not_acceptance_mask": "outside source lake, river-area and ocean polygons",
+  "land_correlation": {
+    "banks_vs_checker_zoom13": 0.6986416109390082,
+    "prepared_vs_checker_zoom13": 0.6837157894107792,
+    "banks_vs_capture_zoom14": 0.9483880899802474,
+    "prepared_vs_capture_zoom14": 0.911422124546693,
+    "checker_vs_capture_dem": 0.7562054119967339
+  },
+  "capture_minus_checker_dem_land_m": {
+    "p05": -7.035705686133447,
+    "median": -0.001357091038940883,
+    "p95": 0.2052441185623488
+  },
+  "water_polygon_errors_against_matched_fitted_capture_dem_m": {
+    "lakes": {
+      "points": 2361,
+      "banks_mae": 1.0952682761358126,
+      "prepared_mae": 13.081999514412164
+    },
+    "riverAreas": {
+      "points": 7805,
+      "banks_mae": 4.284515351303339,
+      "prepared_mae": 9.292745944142943
+    }
+  },
+  "sha256": {
+    "stage_arrays": "d9814ef5a069f9d27c8627ba6505907ef647c4db87c703dcf64568398dd1100e",
+    "geometry_gzip": "beec1a0905993bddd2ad95fe63b54028add1a4a1d77f273c29788f11b4968909"
+  },
+  "limitations": "Matching the held source tests internal fidelity, not independent real-world DEM accuracy. Different underlying elevation products at the two zooms are an inference, not established provenance. Land-only correlations are diagnostics, not passes."
+}

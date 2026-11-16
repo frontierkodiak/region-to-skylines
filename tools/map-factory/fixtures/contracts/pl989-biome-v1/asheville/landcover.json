@@ -1,0 +1,29 @@
+{
+  "source": "ESA WorldCover 2021 v200; mapgen.js landCover",
+  "sq": {
+    "lon": -82.555,
+    "lat": 35.58,
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4,
+    "name": "Asheville",
+    "slug": "asheville"
+  },
+  "tiles": [
+    "N33W084"
+  ],
+  "classes": {
+    "10": 2304495,
+    "30": 335766,
+    "40": 23428,
+    "50": 286854,
+    "60": 12963,
+    "80": 22475,
+    "90": 3
+  }
+}

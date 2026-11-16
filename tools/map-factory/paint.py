@@ -60,17 +60,30 @@ def preview(result, terrain, depth, path):
 PLAN_KEYS = ["ore", "oil", "fertility", "forest", "tree"]
 
 
-def save_plan(result, path):
+def save_plan(result, path, environment=None, biome=None):
     px, pz, kinds = result["trees"] if len(result["trees"]) else (np.zeros(0, np.int16),) * 2 + (np.zeros(0, np.uint16),)
-    np.savez_compressed(path, **{k: result[k] for k in PLAN_KEYS}, px=px, pz=pz, kinds=kinds)
+    np.savez_compressed(
+        path,
+        **{k: result[k] for k in PLAN_KEYS},
+        px=px,
+        pz=pz,
+        kinds=kinds,
+        environment=np.array(environment or "Sunny"),
+        biome=np.array(json.dumps(biome or {})),
+    )
 
 
 def load_plan(path):
+    """Replay a frozen plan: the grids, the trees and the environment they were
+    planned for. Plans written before PL-989 carry no environment and were all
+    Sunny."""
     z = np.load(path)
     result = {k: z[k] for k in PLAN_KEYS}
     result["trees"] = (z["px"], z["pz"], z["kinds"]) if len(z["px"]) else []
     result.update({"evidence": [], "placed": []})
-    return result
+    environment = str(z["environment"]) if "environment" in z else "Sunny"
+    biome = json.loads(str(z["biome"])) if "biome" in z else None
+    return result, environment, biome
 
 
 def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, map_name=None, plan=None):
@@ -88,7 +101,7 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
     terrain = raw.astype(float) / 64
     layout_path = ROOT / "templates/native-corridors.json"
     if plan is not None:
-        result, theme = load_plan(plan), None
+        result, environment, biome = load_plan(plan)
     else:
         geo = json.loads(load(geometry.parent, geometry.name) if geometry else load(prepared, "geometry.json"))
         lc = np.frombuffer(gzip.decompress(landcover.read_bytes()), np.uint8)
@@ -96,8 +109,10 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
         lc = np.flipud(lc.reshape(side, side))  # landcover.py is north-first
         layout = json.loads(layout_path.read_text())
         found = json.loads(evidence.read_text())["evidence"] if evidence else []
-        theme = R.theme_of((ROOT / "templates/native-corridors.crp").read_bytes())
-        result = R.plan(terrain, depth, lc, layout, hydro, found, knobs, theme)
+        environment, biome = R.choose_environment(
+            geo["sq"], terrain, depth, knobs, geo.get("fit")
+        )
+        result = R.plan(terrain, depth, lc, layout, hydro, found, knobs, environment)
     package = write_map(
         ROOT / "templates/native-corridors.crp",
         layout_path,
@@ -106,13 +121,14 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
         out / "hydrology.json",
         out / (hydro["map_id"] + ".crp"),
         resources=(result, R.TREE_NAMES),
+        environment=environment,
     )
     water, _ = R.water_cells(depth, raw)
     _, per_tile = R.area_totals(result, water)
     report = R.summary(result, per_tile, knobs)
-    report.update({"theme": theme, "package": package})
+    report.update({"environment": environment, "biome": biome, "package": package})
     preview(result, terrain, depth, out / "resources.png")
-    save_plan(result, out / "plan.npz")
+    save_plan(result, out / "plan.npz", environment, biome)
     (out / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
     return report
 
@@ -136,15 +152,16 @@ def main():
     parser.add_argument("--outer-trees", type=float, default=R.Knobs.outer_trees, help="tree density outside the 25 tiles")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--map-name", help="override the New Game name")
+    parser.add_argument("--environment", default="auto", help="map environment (theme): auto, Sunny, North, Europe or Tropical")
     parser.add_argument("--plan", type=Path, help="replay a frozen plan.npz instead of planning")
     args = parser.parse_args()
     if args.plan is None and args.landcover is None:
         parser.error("LANDCOVER is required unless --plan is given")
     knobs = R.Knobs(trees=args.trees, resources=args.resources, fertile=args.fertile, seed=args.seed,
-                    outer_trees=args.outer_trees, forest=args.forest,
+                    outer_trees=args.outer_trees, forest=args.forest, environment=args.environment,
                     targets={"ore": args.ore_share, "oil": args.oil_share, "fertile": args.fertile_share})
     report = paint(args.prepared, args.landcover, args.output, args.geometry, args.evidence, knobs, args.map_name, args.plan)
-    print(json.dumps({k: report[k] for k in ["trees", "unlockable", "cells", "placed", "theme"]}, indent=2))
+    print(json.dumps({k: report[k] for k in ["trees", "tree_budget", "environment", "biome", "unlockable", "cells", "placed"]}, indent=2))
     print(json.dumps(report["package"], indent=2))
 
 

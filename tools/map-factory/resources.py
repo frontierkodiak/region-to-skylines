@@ -34,11 +34,85 @@ TREE_WEIGHT = {10: 1.0, 95: 1.0, 20: 0.35, 90: 0.15, 30: 0.03, 100: 0.05, 60: 0.
 # WorldCover class -> fertile share. Pasture and hay land is farmland too.
 FERTILE_WEIGHT = {40: 1.0, 30: 0.7, 90: 0.3, 20: 0.15}
 
-# Original-release tree prefabs only (the set CO's 2015 maps use, data
-# versions 244-320), so a player without DLC loses no trees. What loads
-# depends on the map theme: shipped Sunny maps never use the conifers, which
-# belong to the North and Europe themes; only Tropical has palms; Bush02 is
-# Sunny and Tropical. Winter (Snowfall) has its own set and isn't covered.
+# The map's `environment` names one of the game's built-in environments, and
+# that string is how the game picks what to load: `LoadingManager` adds the
+# `<environment>Prefabs` scene plus `<environment>Properties`, and the map
+# theme is the environment when no Workshop theme is referenced. So it decides
+# the ground and water textures, the architecture style and which tree prefabs
+# exist at all — not a cosmetic label.
+#
+# VANILLA_TREES is the set of original-release tree prefabs each environment
+# scene actually loads. Read from the installed CS1 1.21.1-f9
+# `Cities_Data/globalgamemanagers` scene list and the dependency externals of
+# `level11` (Sunny), `level14` (North), `level17` (Tropical) and `level28`
+# (Europe), then the tree GameObjects inside those bundles:
+#   Sunny  = level11 + sharedassets{7,9,11}
+#   North  = Sunny's bundles + sharedassets14   (Pine01low, treeForest)
+#   Europe = North's bundles + sharedassets28   (no extra tree prefabs)
+#   Tropical = Sunny's bundles + sharedassets17 (palm01, palmplant01)
+# A prefab outside its environment's set is a missing-prefab tree, not a
+# palette choice. Winter (Snowfall) needs the DLC and is deliberately unused:
+# with Snowfall absent the game rewrites `Winter` to `Sunny` and every winter
+# tree would be missing.
+VANILLA_TREES = {
+    "Sunny": [
+        "Alder01",
+        "Beech01low",
+        "Bush01",
+        "Bush02",
+        "Conifer",
+        "Conifer2",
+        "Tree2",
+        "Tree2variant",
+        "Tree3variant",
+    ],
+    "North": [
+        "Alder01",
+        "Beech01low",
+        "Bush01",
+        "Bush02",
+        "Conifer",
+        "Conifer2",
+        "Pine01low",
+        "Tree2",
+        "Tree2variant",
+        "Tree3variant",
+        "treeForest",
+    ],
+    "Europe": [
+        "Alder01",
+        "Beech01low",
+        "Bush01",
+        "Bush02",
+        "Conifer",
+        "Conifer2",
+        "Pine01low",
+        "Tree2",
+        "Tree2variant",
+        "Tree3variant",
+        "treeForest",
+    ],
+    "Tropical": [
+        "Alder01",
+        "Beech01low",
+        "Bush01",
+        "Bush02",
+        "Conifer",
+        "Conifer2",
+        "Tree2",
+        "Tree2variant",
+        "Tree3variant",
+        "palm01",
+        "palmplant01",
+    ],
+}
+ENVIRONMENTS = tuple(VANILLA_TREES)
+
+# Palettes stay inside the narrower set CO's own 2015 maps authored for each
+# environment (21 original-release maps, decoded): Sunny never plants its
+# conifers, Tropical never plants them either, and Europe/North lead with
+# conifers. Roles drive species() by ground height, water and cover, so the
+# stand/glade structure and the planting budget are unchanged.
 THEMES = {
     "Sunny": {
         "broadleaf": [("Beech01low", 5), ("Tree2variant", 3), ("Tree3variant", 3)],
@@ -46,41 +120,117 @@ THEMES = {
         "scrub": [("Bush01", 1), ("Bush02", 1)],
     },
     "North": {
-        "broadleaf": [("Tree3variant", 2), ("Beech01low", 1)],
-        "riparian": [("Alder01", 1)],
         "conifer": [("treeForest", 5), ("Conifer", 3), ("Conifer2", 2), ("Pine01low", 2)],
+        "broadleaf": [("Tree3variant", 2), ("Beech01low", 1), ("Tree2variant", 1)],
+        "riparian": [("Alder01", 1)],
         "scrub": [("Bush01", 1)],
     },
     "Europe": {
-        "broadleaf": [("Tree3variant", 3), ("Tree2variant", 2), ("Beech01low", 1)],
+        "conifer": [("Pine01low", 5), ("Conifer2", 2), ("treeForest", 1)],
+        "broadleaf": [("Tree3variant", 2), ("Beech01low", 1), ("Tree2variant", 1)],
         "riparian": [("Alder01", 1)],
-        "conifer": [("Pine01low", 4), ("Conifer2", 2), ("treeForest", 1)],
         "scrub": [("Bush01", 1)],
     },
     "Tropical": {
-        "broadleaf": [("Beech01low", 3), ("palm01", 3), ("Tree2variant", 2), ("Tree3variant", 1)],
-        "riparian": [("palmplant01", 1), ("palm01", 1)],
+        "palm": [("palm01", 4), ("palmplant01", 1)],
+        "broadleaf": [("Beech01low", 3), ("Tree2variant", 2), ("Tree3variant", 1)],
+        "riparian": [("palmplant01", 2), ("palm01", 1)],
         "scrub": [("palmplant01", 2), ("Bush01", 1), ("Bush02", 1)],
     },
 }
+for _environment, _pools in THEMES.items():
+    _outside = {n for pool in _pools.values() for n, _ in pool} - set(
+        VANILLA_TREES[_environment]
+    )
+    if _outside:
+        raise ValueError(f"{_environment} palette has unloadable trees: {sorted(_outside)}")
 TREE_NAMES = sorted({name for theme in THEMES.values() for pool in theme.values() for name, _ in pool})
 
+# Coarse biome -> environment. The game has no alpine environment: North is the
+# boreal/alpine conifer one, and it loads every tree Europe does, so the
+# woodland is the same under either. Europe is left as an explicit choice: its
+# environment also replaces the zoned and service buildings with Central
+# European ones, which players want to choose rather than receive. The
+# classifier reads latitude, real elevation and how much of the ground is high
+# above the map floor, so it is a hint, not a climate model; a caller can set
+# Knobs.environment to any environment name.
+TROPIC_LAT = 23.44  # the tropics; a warm lowland is Tropical
+BOREAL_LAT = 55.0  # north of this, North whatever the ground
+TROPICAL_P75_REAL_M = 1200.0  # a warm lowland this low is Tropical
+# Mountains are how much of the square is high, not whether one peak is: a
+# p1-p99 range only needs the top 1 % of ground, so a single massif in an
+# otherwise low city would read as boreal. Height is above the map floor.
+MOUNTAIN_P75_ABOVE_FLOOR_M = 400.0  # upper-quartile ground this high
+MOUNTAIN_HIGH_ABOVE_FLOOR_M = 450.0  # "high" ground for the share
+MOUNTAIN_HIGH_SHARE = 0.20  # this much dry ground high reads as mountains
+# fitHeights puts the lowest ground at floor=50: game = (real - base) * vs + 50.
+FIT_FLOOR_M = 50.0
 
-def theme_of(template_bytes):
-    """The template's MapMetaData environment: it decides which trees load."""
-    from crp import Reader, metadata_value, read_package
 
-    _, assets = read_package(template_bytes)
-    r = Reader(next(a["payload"] for a in assets if a["kind"] == 100))
-    r.number("B"), r.string(), r.string()
-    for _ in range(r.number("i")):
-        if r.number("B"):
-            continue
-        typename, name = r.string().split(",")[0], r.string()
-        value = metadata_value(r, typename)
-        if name == "environment":
-            return value
-    raise ValueError("Template metadata has no environment")
+def choose_environment(sq, terrain, depth, knobs=None, fit=None):
+    """Pick the environment for a square from its latitude and its own ground.
+
+    Returns (environment, receipt). terrain/depth are the south-first 1081²
+    grids in game metres; dry ground only is used. Tropical needs a warm
+    *real* lowland: game heights are shifted and squeezed into CS1's 0..1024 m,
+    so a high flat city sits near the map floor and would otherwise read as
+    lowland. Real elevation comes from the geometry's fit:
+    `real = (game - 50) / verticalScale + base`. Mountains are measured as
+    height above the map floor (game 50 m), by the upper quartile or by the
+    share of high ground, so one massif in a low city does not flip it.
+    """
+    requested = getattr(knobs, "environment", "auto")
+    if requested != "auto":
+        if requested not in ENVIRONMENTS:
+            raise ValueError(
+                f"environment must be auto or one of {', '.join(ENVIRONMENTS)}"
+            )
+        return requested, {"environment": requested, "rule": "explicit"}
+    land = np.asarray(terrain, dtype=float)
+    wet = np.asarray(depth) > 0
+    ground = land[~wet] if (~wet).sum() > 4096 else land
+    p75 = float(np.percentile(ground, 75))
+    p75_above_floor = p75 - FIT_FLOOR_M
+    high_share = float(np.mean(ground - FIT_FLOOR_M >= MOUNTAIN_HIGH_ABOVE_FLOOR_M))
+    fit = fit or {}
+    base = float(fit.get("base", 0.0))
+    vertical_scale = float(fit.get("verticalScale", 1.0)) or 1.0
+    real_p75 = p75_above_floor / vertical_scale + base
+    lat, lon = float(sq["lat"]), float(sq["lon"])
+    receipt = {
+        "latitude": round(lat, 4),
+        "longitude": round(lon, 4),
+        "p75_ground_m": round(p75, 1),
+        "p75_above_floor_m": round(p75_above_floor, 1),
+        "high_ground_share": round(high_share, 4),
+        "p75_real_m": round(real_p75, 1),
+        "fit": {"base": base, "verticalScale": vertical_scale},
+    }
+    if abs(lat) <= TROPIC_LAT and real_p75 < TROPICAL_P75_REAL_M:
+        environment, rule = "Tropical", "tropical lowland"
+    elif abs(lat) >= BOREAL_LAT:
+        environment, rule = "North", "high latitude"
+    elif (
+        p75_above_floor >= MOUNTAIN_P75_ABOVE_FLOOR_M
+        or high_share >= MOUNTAIN_HIGH_SHARE
+    ):
+        environment, rule = "North", "mountain ground"
+    else:
+        environment, rule = "Sunny", "temperate lowland"
+    receipt.update({"environment": environment, "rule": rule})
+    return environment, receipt
+
+
+def tree_budget(result):
+    """Planted trees against both caps: the editor's and the manager's slots."""
+    planted = int(len(result["trees"][0])) if len(result["trees"]) else 0
+    return {
+        "planted": planted,
+        "editor_cap": 250_000,
+        "planting_headroom": max(0, 250_000 - planted),
+        "manager_slots": TREE_SLOTS,
+        "free_slots": TREE_SLOTS - planted,
+    }
 
 
 @dataclass
@@ -97,6 +247,10 @@ class Knobs:
     resources: str = "balanced"  # "real": evidence only; "balanced": top up
     fertile: float = 1.0  # scales fertile land from crop and pasture cover
     seed: int = 0
+    # "auto" picks the environment from the square's latitude and its own
+    # ground (see choose_environment); a name forces one. It is the map's
+    # built-in theme, so it fixes textures, tree prefabs and building style.
+    environment: str = "auto"
     # "balanced" tops each resource up to its New Game share (amount over
     # maxResourceAmount). Defaults are the official maps' medians, as the
     # community reads them: ore 5.2 %, oil 2.7 %, fertile land 3.4 %.
@@ -165,7 +319,7 @@ def blob(x0, z0, radius, size=RES, step=CELL):
     return np.clip(1.5 - 1.5 * d, 0, 1) ** 0.7  # flat core, soft rim
 
 
-def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny"):
+def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, environment="Sunny"):
     """Return resource grids (512², south-first) and the tree list.
 
     terrain, depth: 1081² south-first metres. landcover: 1728² south-first
@@ -174,6 +328,7 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     "x", "z", "weight", "source"} in game metres.
     """
     rng = np.random.default_rng(knobs.seed)
+    palm_rng = np.random.default_rng([knobs.seed, 989])
     wet16 = depth > 0
     slope = slope_percent(terrain)
     positions = hydro.get("node_positions", {})
@@ -234,7 +389,9 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     trees = []
     if knobs.forest == "dense" and knobs.trees > 0 and cover_dense.sum() > 0:
         rows, cols, x, z = dense_stands(cover_dense, cell_slope, cell_wet, fertility, positions, segments, terrain, knobs, rng, (sx, sz))
-        trees = finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, theme)
+        trees = finish_trees(
+            rows, cols, x, z, lc, terrain, wet16, slope, rng, environment, palm_rng
+        )
     # Stands and glades: 262k trees can't carpet a real forest, so put them
     # where they read as woods (shipped maps: ~2 trees per 33.75 m forest cell).
     w = cover.copy()
@@ -260,7 +417,10 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
         # A 10 m pixel can straddle a 33.75 m cell edge: drop trees that land
         # in a field cell, since one tree would erase that cell's fertility.
         keep = fertility[(z / CELL + 256).astype(int).clip(0, RES - 1), (x / CELL + 256).astype(int).clip(0, RES - 1)] == 0
-        trees = finish_trees(rows[keep], cols[keep], x[keep], z[keep], lc, terrain, wet16, slope, rng, theme)
+        trees = finish_trees(
+            rows[keep], cols[keep], x[keep], z[keep], lc, terrain, wet16, slope, rng,
+            environment, palm_rng,
+        )
 
     forest, tree = forest_cells(trees)
     fertility[forest > 0] = 0
@@ -309,7 +469,7 @@ def plan(terrain, depth, landcover, layout, hydro, evidence, knobs, theme="Sunny
     }
 
 
-def finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, theme):
+def finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, environment, palm_rng=None):
     """Quantize positions, keep them off cell edges, drop trees on ground too
     steep for them, and pick species. A tree stays only if its own 16 m node
     passes the game's tree-brush test (steeper axis gradient under 50 %) and
@@ -325,7 +485,9 @@ def finish_trees(rows, cols, x, z, lc, terrain, wet16, slope, rng, theme):
     node_r = np.clip(np.floor((pz * TREE_UNIT + HALF) / 16 + 0.5).astype(int), 0, 1080)
     keep = (np.maximum(np.abs(gx), np.abs(gz))[node_r, node_c] < 0.5) & (np.hypot(gx, gz)[node_r, node_c] < 0.6)
     rows, cols, px, pz = rows[keep], cols[keep], px[keep], pz[keep]
-    kinds = species(px, pz, lc[rows, cols], terrain, wet16, slope, rng, theme)
+    kinds = species(
+        px, pz, lc[rows, cols], terrain, wet16, slope, rng, environment, palm_rng
+    )
     return (px, pz, kinds)
 
 
@@ -541,12 +703,13 @@ def top_up(ore, oil, cell_slope, cell_wet, shape, sx, sz, knobs, rng, height, fe
     return placed
 
 
-def species(px, pz, cls, terrain, wet16, slope, rng, theme):
+def species(px, pz, cls, terrain, wet16, slope, rng, environment, palm_rng=None):
     """Prefab index (into TREE_NAMES) per tree. Stands (~100 m) share a
     dominant species, so the mix clumps as on shipped maps; conifers, where
-    the theme has them, favour high and steep ground; alders line water;
-    bushes fill shrubland."""
-    roles = THEMES[theme]
+    the theme has them, favour high and steep ground; palms, where the theme
+    has them, the warm low ground; alders line water; bushes fill shrubland.
+    Species never move a tree: positions and the forest grid come first."""
+    roles = THEMES[environment]
     x, z = px * TREE_UNIT, pz * TREE_UNIT
     col = np.clip(((x + HALF) / 16).astype(int), 0, 1080)
     row = np.clip(((z + HALF) / 16).astype(int), 0, 1080)
@@ -555,6 +718,11 @@ def species(px, pz, cls, terrain, wet16, slope, rng, theme):
     hn = np.clip((h - lo) / max(1.0, hi - lo), 0, 1)
     near_water = ndimage.binary_dilation(wet16, iterations=2)[row, col]
     conifer_p = np.clip(0.08 + 0.75 * hn**1.5 + slope[row, col] / 200, 0.03, 0.9)
+    # The conifer environments are forests of spruce and pine: their stands
+    # take conifers more often than the same ground would under Sunny, whose
+    # palette has none of them (so this never touches a Sunny or Tropical map).
+    if "conifer" in roles:
+        conifer_p = np.clip(1.3 * conifer_p, 0.03, 0.95)
     stand = (row // 6) * 4096 + (col // 6)
     _, inverse = np.unique(stand, return_inverse=True)
     stand_draw = rng.random(inverse.max() + 1)[inverse]
@@ -563,6 +731,14 @@ def species(px, pz, cls, terrain, wet16, slope, rng, theme):
     role = np.full(len(px), "broadleaf", dtype=object)
     if "conifer" in roles:
         role[stand_draw < conifer_p] = "conifer"
+    if "palm" in roles:
+        # Palms own the coast and lower slopes; higher stands stay broadleaf.
+        # Their draw has its own stream so resource placement (which continues
+        # the shared stream after the trees) does not depend on the palette.
+        palm_rng = palm_rng or np.random.default_rng(0)
+        palm_p = np.clip(0.92 - 1.15 * hn, 0.02, 0.92)
+        stand_palm = palm_rng.random(inverse.max() + 1)[inverse]
+        role[stand_palm < palm_p] = "palm"
     role[near_water & (pick < 0.55)] = "riparian"
     role[(cls == 20) & (pick < 0.7)] = "scrub"
     out = np.empty(len(px), np.uint16)
@@ -785,6 +961,7 @@ def summary(result, per_tile, knobs):
     return {
         "knobs": asdict(knobs),
         "trees": int(len(trees[0])) if len(trees) else 0,
+        "tree_budget": tree_budget(result),
         "unlockable": {k: unlockable(v) for k, v in per_tile.items()},
         "cells": {k: int(np.count_nonzero(result[k])) for k in ["ore", "oil", "fertility", "forest"]},
         "evidence": result["evidence"],
