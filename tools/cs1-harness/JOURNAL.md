@@ -1,5 +1,37 @@
 # cs1-harness journal
 
+## 2026-11-15 · Opus xhigh · PL-984 · city and prefab dumps for the offline save reader
+
+New mod module `DumpOps.cs`: `dump_city {path}` writes every created node,
+segment, building, zone block and tree from the live buffers as columns keyed
+by buffer id (positions, flags, saved prefab names and whether each bound to a
+loaded prefab, building level and size, zone masks as decimal strings, raw tree
+position shorts), plus district-0 population and cash. `dump_prefabs {path}`
+writes the loaded building, net and tree catalog: item class name, service,
+sub-service, level, AI type, building cell size and placement, net half-width
+and vehicle lanes. New command `dump-save SAVE --map MAP --out DIR` starts a
+session, bridges through a New Game on MAP, loads SAVE paused, and runs both
+ops; `tools/save-reader/validate_dump.py` compares the result with the offline
+reader.
+
+**Runs (blade, RTX 2080 Ti 05:00.0, 150 W cap unchanged).**
+
+| Run | Result | Peak VRAM MiB | Peak W | Peak °C | Wall |
+| --- | --- | ---: | ---: | ---: | --- |
+| `dump-save` of a player save | exit 75: Steam's cloud-sync-failed dialog; not answered | – | – | – | 1 min |
+| `dump-save` of the same save | exit 1: "Loaded simulation data" logged, then `loading` stayed true with `in_game` false for 900 s; game terminated by owned PID | – | – | – | 19 min |
+| `up`/`call` session: Green Plains, `scenario_build`, 5 wall-min at speed 3, pause, `save_game`, `dump_city`, `dump_prefabs` | pass: the reader matched the game on every node, segment, building, zone block and tree (2,266 / 2,286 / 599 / 108 / 226,289), position error 0, population 409 both | 10,821 total | 127.7 | 58 | 8 min |
+
+The stalled load was a player save made with mods and Workshop content, loaded
+with `--noWorkshop`. The cause is not established; a harness-built city on a
+stock map is the dependable fixture for reader checks.
+
+The game runs in Steam's Flatpak sandbox, where `$HOME` is
+`~/.var/app/com.valvesoftware.Steam`. A `call dump_city` with a host path under
+`~/experiments` writes to `~/.var/app/com.valvesoftware.Steam/experiments/…`;
+`dump-save` avoids this by writing into its staging directory. Cleanup
+receipts were empty after every run.
+
 ## 2026-11-12 · Sol xhigh · PL-926 · exclude tunnel excavation before PNG capture
 
 On blade's RTX 2080 Ti, bus 05:00.0, cap 150 W unchanged. Exact source/writer
