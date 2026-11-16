@@ -131,11 +131,124 @@ supported local-stage channels, continuous interpolation/startup supply and
 all original observations. If that premise is false, discard it; do not force
 an omission or another rate sweep.
 
-A real implementation still needs source-bound five-map CPU falsification,
+The CPU result below tests this question. A real implementation still needs source-bound five-map CPU falsification,
 actual complete Rio/Asheville zero/five opening and Areas proof, justified
 changed-package qualification, shipping Python/JS/Pyodide/contract integration,
 then lead and steward review. No new supply, arbitrary heads, deeper floors,
 probe/mask/threshold exemptions or issue acceptance follows here.
+
+## Completed topology/profile falsification · November 16
+
+**Raster topology collapse is real; splitting it is not, by itself, a repair.**
+The read-only replay uses source `1a03070de3122ceae12d9de580b7781406ccfbdc`,
+whose delta from native runtime `5a1e045d` is documentation/journal only.
+Main remains `5a1e045d`, including PL-982. No native game, generation/road
+writer, candidate grid/package, active admission record or fixture is changed.
+
+### Original execution is reproduced, not approximated from proximity
+
+`PL-912-topology-profile/replay.py` calls the unchanged `region.hydrology`
+on each original shipping geometry, browser input PNG and held-bank Float32
+grid. A Python observer captures paths/stages before excavation. All original
+river summaries and sample routes match exactly, as do every source's
+position, role, order, class, bank-limited/short flag and portal assignment.
+The later footprint limiter's target/rate changes are not re-labelled as a
+fresh exact forcing replay. No `prepare`, network fitter, painter or CRP writer
+is invoked.
+
+The prototype groups visible pieces by exact vector endpoint connectivity
+before rasterization, preserving a distinct logical component across an
+explicit tunnel. A 0.1 mm projection tolerance only absorbs floating-point
+roundoff; an independent original-coordinate BFS verifies every reported
+distinct-component link without that tolerance. Missing/ambiguous endpoints
+and off-frame endpoints remain unresolved, not inferred connected. This is
+provenance, not a physical wall or an omission policy.
+
+| Map | Original routes | Exact-endpoint tunnel breaks joined by raster | Of these, under 16 m | Joined breaks with both sides on an original route |
+| --- | ---: | ---: | ---: | ---: |
+| Rio | 97 | 44 | 26 | 40 |
+| Asheville | 131 | 456 | 325 | 256 |
+| Innsbruck | 71 | 144 | 120 | 85 |
+| Pittsburgh | 57 | 105 | 51 | 35 |
+| Charleston | 80 | 51 | 34 | 29 |
+
+The joined-break count uses exact native raster component membership.
+The last column additionally requires routed vertices within one native
+half-diagonal (11.314 m) of each connected visible piece; actual distances
+are retained. It is a geometric coverage diagnostic, not exact vector
+intersection, a count of dry beds or a new native acceptance gate.
+
+`region.hydrology` first groups visible lines by name/class, then dilates the
+mask two cells before connected-component labeling. Rasterized visible
+lines/bodies override the dilated tunnel exclusion. Thus short tunnels can
+have no exclusively underground native vertex at all. Blindly imposing a
+gap or deleting these components would also affect currently positive-depth
+water on every map; recorded five/later water is audited after topology, never
+used to choose the graph. Existing independently supported channels must not
+be rejected solely because a component contains a tunnel.
+
+### Trapicheiros confirms the mechanism but falsifies the shortcut
+
+The 15.425 m tunnel 151 and 9.231 m tunnel 152 each rasterize to two nodes,
+both overridden by visible endpoints. The original component is a single
+16-node route from `(-1952,2112)` to `(-2192,2112)`, carrying controls 90/91/92.
+Both surface sides are traversed. In contrast, downstream tunnel 137
+(165.744 m) has nine forbidden nodes and correctly separates raster components
+6 and 8. The earlier association with tunnel 137 was correct; tunnel 151 is
+not the downstream mouth.
+
+The critical distinction: this 16-node route already uses **pointwise short
+local stages**, `min(bank - 0.25, original + 1)` above sea level, not a shared
+monotone water head propagated through the two short tunnels. Separating its
+three actual visible pieces (134, 151, 152) and running the original hydrology
+on each changes none of the 16 overlapping fitted stages. The CPU bed on
+the isolated lower leg stays at the browser floor; it does not repair the
+landed native low point/uphill tail:
+
+| World x at z=2112 | Landed native floor m | Isolated lower-leg CPU bed m |
+| --- | ---: | ---: |
+| -2192 | 96.031250 | 96.032715 |
+| -2176 | 94.156250 | 94.157687 |
+| -2160 | 93.421875 | 93.423301 |
+| -2144 | 93.687500 | 93.688930 |
+
+The small difference is encoding, not a new safe hydraulic-floor prediction
+under an edit. The existing intake target is 93.671875 m. The isolated-leg
+heuristic actually reverses this leg, places a new upstream output at
+`(-2176,2112)` with target 95.157687 m and keeps a downstream input at
+`(-2160,2112)`. These are diagnostic in-memory controls before the footprint
+limiter, **not a proposed new supply/head or a generated candidate**. Each
+isolated piece gets two controls rather than the merged route's three total.
+This violates the premise that simply splitting topology preserves forcing.
+
+Papa-Couve supplies the other falsification: its actual seven-node
+source-to-receiver route (279/280) crosses **no** uniquely linked tunnel break
+of this class. Its measured source–sink overlap and the rejected rate arm's
+drainage loss cannot be attributed to a short internal tunnel in that route.
+
+### Disposition
+
+Discard **“split at tunnels, then rerun the existing stage/control heuristic”**
+as the next native arm. It neither fixes the observed lower-leg floor nor
+preserves the existing controls, and it does not address Papa-Couve's case.
+Do not turn every collapsed tunnel into an uncarve selector or reinstate a
+blanket gravity rejection.
+
+Retain the explicit vector graph as the input contract for a genuinely joint
+boundary/profile design: it must distinguish a sub-grid logical tunnel from
+a native physical gap, retain supported local stages and startup interpolation,
+and account for actual source/removal/storage at both mouths before changing
+earthworks or forcing. The present results establish no such safe repair or
+new package. They narrow the cause; they are not a forward impossibility
+theorem or a reason to change a gate. No further game, rate sweep or duplicate
+review is justified by this topology-only prototype.
+
+Artifacts in `PL-912-topology-profile`: `replay.py`, `check.py`, five complete
+geometry/route reports, `independent-check.json` and the inspected phone CPU
+figure. All 30,982 observations / 7,524 flags, nineteen runtime files and 351
+predecessor fixtures remain exact. Independent endpoint/BFS/PIL checks, the
+isolated execution and scoped Ruff/format pass. No full writer, browser,
+harness or native suite is newly claimed; the shipping default is unchanged.
 
 ## Reproduction and limits
 

@@ -2,10 +2,11 @@
 
 ## PL-912 evidence index · updated November 16
 
-Last verified main is `2abbafa`, including PL-989's biome presentation and the
-partially landed PR42/PR48 dry-reach rules. Those are not issue acceptance.
-PR49 proposes the reusable, opt-in [native source observer](ATOMIC_TRACE.md),
-with no new map-generation default or gate change.
+Last verified main is `5a1e045d`, including PL-989's biome presentation,
+the partially landed PR42/PR48 dry-reach rules, PR49's instrument and PL-982's
+road/transport tools. Those are not issue acceptance. The reusable, opt-in
+[native source observer](ATOMIC_TRACE.md) changes no map-generation default
+or gate. The CPU topology replay invokes no generation/road writer.
 The lead accepts genuinely wet streams
 with native sandy shore; dry broken-looking beds remain the defect. The November16
 lead decision expands tracing on PL-912 from the oval into flooding, minimum
@@ -54,12 +55,21 @@ use this evidence without treating a rejected arm as a baseline fix.
   water at startup; rejected. Corrected Charleston diagnosis attributes land
   reference/resolution disagreement first, bed carving second. No mask or
   acceptance change; original correlation/extreme failures remain.
+- [INLET_BOUNDARY.md](INLET_BOUNDARY.md#completed-topologyprofile-falsification--november-16):
+  five original hydrology executions reproduce all routes and control
+  positions/roles/portals. Explicit short tunnels really collapse in the raster,
+  including Trapicheiros' 15.4 m / 9.2 m breaks. But isolating its three surface
+  legs leaves all shared pointwise stages unchanged and regenerates/reverses
+  controls; Papa-Couve's measured source-to-inlet route has no such crossed
+  break. A topology-only split is not a safe next native candidate. The
+  vector graph is a provenance prototype, not an uncarve selector or a gate.
 - PL-974's reviewed native shore mechanism and its limits are preserved in
   `HELD_DEM_ADMISSION.md` and `fixtures/held-dem-rejected/shore-evidence.json`.
   Sand alone is neither proof of a dry bed nor a sand-free rendering mandate.
 
 No smallest sustainable stream size or headwater-reservoir benefit was
-established here. Fresh native evidence for those questions belongs to PL-979.
+established here. PL-979's separate workshop research and PL-912's newly
+authorized tracing research must distinguish measured results from hypotheses.
 
 ## Surface tunnel excavation corrected · PL-926 · 2026-11-12
 
