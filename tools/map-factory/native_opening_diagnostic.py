@@ -84,7 +84,7 @@ def review_control(session, command, prefix, report):
     write(session.stage / "diagnostic.json", report)
 
 
-def run(source, output, interactive, minutes, requests_file=None):
+def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0):
     cfg = Config.for_host()
     if cfg.host != "blade" or cfg.display != ":57":
         raise ValueError("This release authorizes only Blade's private :57 session")
@@ -123,7 +123,7 @@ def run(source, output, interactive, minutes, requests_file=None):
         with slot(
             cfg,
             stage,
-            0,
+            wait_minutes,
             {
                 "command": "PL-912 bounded opening diagnostic",
                 "issue": "PL-912",
@@ -336,6 +336,12 @@ if __name__ == "__main__":
     parser.add_argument("--interactive", action="store_true")
     parser.add_argument("--minutes", type=float, default=5)
     parser.add_argument(
+        "--wait-minutes",
+        type=float,
+        default=0,
+        help="Foreground wait behind existing harness holders and older waiters",
+    )
+    parser.add_argument(
         "--requests",
         type=Path,
         help="Fixed screen_points and world_points for matched arms",
@@ -343,10 +349,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if not 0 <= args.minutes <= 5:
         parser.error("use zero for paused capture-only, or at most five game minutes")
+    if not 0 <= args.wait_minutes <= 60:
+        parser.error("foreground queue wait must be between zero and 60 minutes")
     run(
         args.source.resolve(),
         args.output.resolve(),
         args.interactive,
         args.minutes,
         args.requests,
+        args.wait_minutes,
     )
