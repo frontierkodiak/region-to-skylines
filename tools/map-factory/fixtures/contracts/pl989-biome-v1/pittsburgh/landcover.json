@@ -1,0 +1,29 @@
+{
+  "source": "ESA WorldCover 2021 v200; mapgen.js landCover",
+  "sq": {
+    "lon": -80,
+    "lat": 40.44,
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4,
+    "name": "Pittsburgh",
+    "slug": "pittsburgh"
+  },
+  "tiles": [
+    "N39W081"
+  ],
+  "classes": {
+    "10": 1660688,
+    "30": 191821,
+    "40": 2206,
+    "50": 1001179,
+    "60": 12133,
+    "80": 117949,
+    "90": 8
+  }
+}
