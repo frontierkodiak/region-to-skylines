@@ -109,7 +109,9 @@ def paint(prepared, landcover, out, geometry=None, evidence=None, knobs=None, ma
         lc = np.flipud(lc.reshape(side, side))  # landcover.py is north-first
         layout = json.loads(layout_path.read_text())
         found = json.loads(evidence.read_text())["evidence"] if evidence else []
-        environment, biome = R.choose_environment(geo["sq"], terrain, depth, knobs)
+        environment, biome = R.choose_environment(
+            geo["sq"], terrain, depth, knobs, geo.get("fit")
+        )
         result = R.plan(terrain, depth, lc, layout, hydro, found, knobs, environment)
     package = write_map(
         ROOT / "templates/native-corridors.crp",

@@ -171,19 +171,24 @@
       "source": "convention"
     }
   ],
-  "environment": "Europe",
+  "environment": "North",
   "biome": {
     "latitude": 47.27,
     "longitude": 11.4,
     "p75_ground_m": 572.5,
-    "high_ground_share": 0.3335,
-    "environment": "Europe",
-    "rule": "temperate high ground, Europe"
+    "p75_real_m": 1723.4,
+    "relief_m": 831.0,
+    "fit": {
+      "base": 554.3947143554688,
+      "verticalScale": 0.4469348561033608
+    },
+    "environment": "North",
+    "rule": "mountain relief"
   },
   "package": {
     "output": "/home/caleb/scratch/2026-11-16-pl989-biomes/refreeze/innsbruck/reference/PL857-innsbruck.crp",
-    "sha256": "f1e5e53f290e8be4c0e570b23453d2c0bbc3044283e766f18e4da90a5638b365",
-    "bytes": 5824211,
+    "sha256": "926308dd6cd9a3c7f0e111935798ca772a63e525f07896e0140120e11707416f",
+    "bytes": 5824372,
     "regenerated": [
       "terrain",
       "water",
@@ -206,6 +211,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "bd07c295acf42ccaba861e08e678844013f51ffcd6560138c831c0325e7b34e8"
+    "simulation_sha256": "10ffa49a5dd5e18667e4492d364d4743dfc7ef2abf24baaccf3835924368e414"
   }
 }

@@ -273,7 +273,12 @@
     "latitude": 32.78,
     "longitude": -79.93,
     "p75_ground_m": 94.5,
-    "high_ground_share": 0.0,
+    "p75_real_m": 4.5,
+    "relief_m": 12.3,
+    "fit": {
+      "base": -40.0,
+      "verticalScale": 1.0
+    },
     "environment": "Sunny",
     "rule": "temperate lowland"
   },

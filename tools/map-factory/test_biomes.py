@@ -23,24 +23,60 @@ def flat_water(size=400):
 class EnvironmentChoiceTests(unittest.TestCase):
     def test_tropical_lowland(self):
         sq = {"lat": -22.94, "lon": -43.205}
-        environment, receipt = R.choose_environment(sq, ground(95), flat_water())
+        fit = {"base": -40.0, "verticalScale": 0.9198811898929851}
+        environment, receipt = R.choose_environment(
+            sq, ground(95), flat_water(), fit=fit
+        )
         self.assertEqual(environment, "Tropical", receipt)
         self.assertEqual(receipt["rule"], "tropical lowland")
 
+    def test_tropical_rule_reads_real_elevation_not_game_height(self):
+        """Bogotá sits near the map floor because the fit shifts 2,600 m down.
+
+        Its game heights look like lowland; its real elevation is highland.
+        """
+        sq = {"lat": 4.71, "lon": -74.07}
+        fit = {"base": 2600.0, "verticalScale": 1.0}
+        terrain = np.linspace(60, 860, 400)[None, :] * np.ones((400, 1))
+        environment, receipt = R.choose_environment(
+            sq, terrain, flat_water(), fit=fit
+        )
+        self.assertGreater(receipt["p75_real_m"], 2000.0)
+        self.assertNotEqual(environment, "Tropical", receipt)
+        self.assertEqual(environment, "North", receipt)
+
+    def test_bogota_on_flat_ground_is_not_tropical_either(self):
+        sq = {"lat": 4.71, "lon": -74.07}
+        fit = {"base": 2600.0, "verticalScale": 1.0}
+        environment, receipt = R.choose_environment(
+            sq, ground(80), flat_water(), fit=fit
+        )
+        self.assertNotEqual(environment, "Tropical", receipt)
+
     def test_temperate_lowland_stays_sunny(self):
         sq = {"lat": 35.58, "lon": -82.555}
+        fit = {"base": 572.4373168945312, "verticalScale": 1.0}
         terrain = np.linspace(80, 480, 400)[None, :] * np.ones((400, 1))
-        environment, receipt = R.choose_environment(sq, terrain, flat_water())
+        environment, receipt = R.choose_environment(
+            sq, terrain, flat_water(), fit=fit
+        )
         self.assertEqual(environment, "Sunny", receipt)
+        self.assertEqual(receipt["rule"], "temperate lowland")
 
-    def test_alpine_in_europe_gets_the_european_palette(self):
+    def test_mountains_are_north_not_europe(self):
+        """Innsbruck's 2 km of real relief fills CS1's height range."""
         sq = {"lat": 47.27, "lon": 11.4}
+        fit = {"base": 554.3947143554688, "verticalScale": 0.4469348561033608}
         terrain = np.linspace(60, 1000, 400)[None, :] * np.ones((400, 1))
-        environment, receipt = R.choose_environment(sq, terrain, flat_water())
-        self.assertEqual(environment, "Europe", receipt)
-        self.assertGreaterEqual(receipt["high_ground_share"], R.ALPINE_HIGH_SHARE)
+        environment, receipt = R.choose_environment(
+            sq, terrain, flat_water(), fit=fit
+        )
+        self.assertEqual(environment, "North", receipt)
+        self.assertEqual(receipt["rule"], "mountain relief")
+        self.assertGreaterEqual(receipt["relief_m"], R.MOUNTAIN_RELIEF_M)
+        self.assertGreater(receipt["p75_real_m"], R.TROPICAL_P75_REAL_M)
 
-    def test_alpine_outside_europe_keeps_north_american_architecture(self):
+    def test_a_rocky_mountain_town_is_north_too(self):
         sq = {"lat": 39.74, "lon": -104.99}
         terrain = np.linspace(60, 1000, 400)[None, :] * np.ones((400, 1))
         environment, _ = R.choose_environment(sq, terrain, flat_water())
@@ -54,8 +90,11 @@ class EnvironmentChoiceTests(unittest.TestCase):
 
     def test_tropical_highland_is_not_the_palm_theme(self):
         sq = {"lat": -13.5, "lon": -71.97}
-        terrain = np.linspace(1200, 1800, 400)[None, :] * np.ones((400, 1))
-        environment, _ = R.choose_environment(sq, terrain, flat_water())
+        fit = {"base": 3000.0, "verticalScale": 0.6}
+        terrain = np.linspace(800, 2000, 400)[None, :] * np.ones((400, 1))
+        environment, _ = R.choose_environment(
+            sq, terrain, flat_water(), fit=fit
+        )
         self.assertEqual(environment, "North")
 
     def test_water_is_ignored_and_explicit_choice_wins(self):

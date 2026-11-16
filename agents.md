@@ -72,7 +72,7 @@ The command prints the steps. For a **ready-to-play map**:
    printed (for Asheville, "Asheville - Ready to Play").
 2. That's all: water already flows, the highway and railway are connected, and the
    forests and fields are in place. The map's theme follows the place — temperate,
-   tropical, boreal or European — so its trees and buildings suit the region.
+   tropical or boreal — so its trees suit the region.
 
 Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
 Charleston squares, including separate no-mods city starts. Other squares, rotations,

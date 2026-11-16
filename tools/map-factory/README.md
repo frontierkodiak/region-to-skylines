@@ -121,15 +121,19 @@ uv run python verify_resources.py                          # frozen bytes and na
   and glades. No tree stands where the game's tree brush wouldn't place one
   (steeper axis gradient of 50 % or more) or on ground steeper than 60 %.
 - **Environment (theme) and species** travel together. The map's environment
-  is picked from the square's latitude and its own ground: tropical lowland →
-  `Tropical` (palms on the coast and lower slopes, broadleaf above them);
-  high ground → `Europe` in Europe (pine with valley broadleaf) and `North`
-  elsewhere (spruce and pine forest); high latitude → `North`; otherwise
-  `Sunny` (temperate broadleaf). Only tree prefabs that environment's scenes
-  load are used (`resources.VANILLA_TREES`), so no map asks for a prefab it
-  cannot render. Each palette is drawn from CO's own 2015 maps for that
-  environment. `--environment Sunny|North|Europe|Tropical` overrides the
-  choice.
+  is picked from the square's latitude, its *real* elevation and its relief:
+  tropical lowland → `Tropical` (palms on the coast and lower slopes,
+  broadleaf above them); mountains and high latitude → `North` (spruce and
+  pine forest); otherwise `Sunny` (temperate broadleaf). Real elevation comes
+  from the geometry's `fit`, because game heights are shifted and squeezed
+  into CS1's 0..1024 m: Bogotá sits near the map floor and must not read as
+  lowland. Only tree prefabs that environment's scenes load are used
+  (`resources.VANILLA_TREES`), so no map asks for a prefab it cannot render.
+  Each palette is drawn from CO's own 2015 maps for that environment.
+  `Europe` is never chosen automatically: its environment also replaces the
+  zoned and service buildings with Central European ones, which players want
+  to choose. It loads no tree `North` doesn't, so the woodland is the same.
+  `--environment Sunny|North|Europe|Tropical` overrides the choice.
 - **Forest** bytes are derived from the trees with the game's own formula.
 - **Fertile land** comes from crop and pasture on flat, dry ground.
 - **Ore** comes from USGS MRDS deposits and MSHA mines (coal included).

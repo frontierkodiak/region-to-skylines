@@ -337,7 +337,12 @@
     "latitude": -22.94,
     "longitude": -43.205,
     "p75_ground_m": 284.4,
-    "high_ground_share": 0.1064,
+    "p75_real_m": 214.8,
+    "relief_m": 631.2,
+    "fit": {
+      "base": -40.0,
+      "verticalScale": 0.9198811898929851
+    },
     "environment": "Tropical",
     "rule": "tropical lowland"
   },
