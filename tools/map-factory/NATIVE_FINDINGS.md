@@ -2,10 +2,11 @@
 
 ## PL-912 evidence index · updated November 16
 
-Last verified main is `2abbafa`, including PL-989's biome presentation and the
-partially landed PR42/PR48 dry-reach rules. Those are not issue acceptance.
-PR49 proposes the reusable, opt-in [native source observer](ATOMIC_TRACE.md),
-with no new map-generation default or gate change.
+Last verified main is `e03442d`, including partial PR42/PR48 and PR49's reusable,
+opt-in [native source observer](ATOMIC_TRACE.md). Polli Agent merged exact reviewed
+head064dde0 as e03442d with the identical tree, after actual PL-1014/1015 approval.
+That instrument-only landing changes no generation default or gate and does not
+accept PL-912.
 The lead accepts genuinely wet streams
 with native sandy shore; dry broken-looking beds remain the defect. The November16
 lead decision expands tracing on PL-912 from the oval into flooding, minimum
@@ -58,8 +59,20 @@ use this evidence without treating a rejected arm as a baseline fix.
   `HELD_DEM_ADMISSION.md` and `fixtures/held-dem-rejected/shore-evidence.json`.
   Sand alone is neither proof of a dry bed nor a sand-free rendering mandate.
 
+- [INLET_SUPPLY.md](INLET_SUPPLY.md): first source-step-informed inlet arm,
+  nativee49de7d/package947d3123, rejected at5.054722minutes. Seventy Rio input-rate
+  changes recover ten required wet-or-near misses (five unique nodes), but only
+  two nodes are natively wet. Original-mask five-minute flooding rises179→474
+  cells (.045824→.121344km² vs.05); two frozen pool means fall below bounds.
+  No Asheville, other candidate native or full run follows. Heads, grids,
+  outputs and all30,982 observations/7,524 flags remain exact; no shipping
+  generator/JS/Pyodide/active contract change. A narrower footprint also removes
+  distributed drainage, not merely a nominal cap. The actual source/model
+  counterfactual and all failed observations remain available for PL-979.
+
 No smallest sustainable stream size or headwater-reservoir benefit was
-established here. Fresh native evidence for those questions belongs to PL-979.
+established here. Further tracing on those questions is now authorized on PL-912;
+PL-979's existing workshop evidence remains separately useful.
 
 ## Surface tunnel excavation corrected · PL-926 · 2026-11-12
 

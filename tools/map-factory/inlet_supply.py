@@ -1,4 +1,4 @@
-"""Source-bound inlet hypotheses on existing inputs; not forward hydraulics."""
+"""Replay a rejected inlet hypothesis; never a production admission rule."""
 
 import argparse
 import hashlib
@@ -159,8 +159,12 @@ def plans(repo, inputs, native):
     return result
 
 
-def build_packages(repo, inputs, native, cases, destination):
+def build_packages(repo, inputs, native, cases, destination, *, replay_rejected=False):
     """Patch only UInt24 input rates, never regenerate other simulation fields."""
+    if not replay_rejected:
+        raise ValueError(
+            "Known native flood/pool failure: reproduction requires explicit replay_rejected"
+        )
     sys.path.insert(0, str(repo / "tools/map-factory"))
     from crp import read_package, write_package
     from survey.craft_anatomy import Cursor, parse_water, section
@@ -397,11 +401,18 @@ def main():
         help="new experimental output directory; never production fixtures",
     )
     p.add_argument(
+        "--replay-rejected",
+        action="store_true",
+        help="reproduce the native-rejected arm, never qualification",
+    )
+    p.add_argument(
         "--trace-case",
         required=True,
         help="case name only for fixed-preimage diagnostic replay",
     )
     args = p.parse_args()
+    if args.build and not args.replay_rejected:
+        p.error("Known native flood/pool failure; --build requires --replay-rejected")
     all_cases = plans(args.repo, args.inputs, args.native)
     result = {
         "policy": "input-only bank-limited portal: min(old input, sum of that source-chain's encoded output rates, existing upper-channel footprint limit); no heads, grids, output rates or selectors by probe/camera/region",
@@ -415,7 +426,12 @@ def main():
     }
     if args.build:
         result["builds"] = build_packages(
-            args.repo, args.inputs, args.native, all_cases, args.build
+            args.repo,
+            args.inputs,
+            args.native,
+            all_cases,
+            args.build,
+            replay_rejected=args.replay_rejected,
         )
         result["candidate_produced"] = True
     args.out.write_text(json.dumps(result, indent=2) + "\n")
