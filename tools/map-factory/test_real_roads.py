@@ -1,5 +1,7 @@
 """Network codec and real-road writer checks against the native template."""
 
+import hashlib
+import json
 import unittest
 from pathlib import Path
 
@@ -148,6 +150,103 @@ class Paths(unittest.TestCase):
         t0, t1 = _clip_line(np.array([0.0, -20000.0]), np.array([0.0, 1.0]))
         self.assertAlmostEqual(-20000 + t0, -8640, delta=1e-6)
         self.assertAlmostEqual(-20000 + t1, 8640, delta=1e-6)
+
+
+class Grades(unittest.TestCase):
+    def test_through_node_directions_carry_the_grade(self):
+        from real_roads import grade_directions
+
+        nodes = [{"xyz": [0.0, 100.0 + 6.0 * i, 100.0 * i]} for i in range(3)]
+        edges = [
+            {
+                "a": i,
+                "b": i + 1,
+                "kind": "highway",
+                "start_dir": [0, 0, 1],
+                "end_dir": [0, 0, -1],
+            }
+            for i in range(2)
+        ]
+        grade_directions({"nodes": nodes, "edges": edges})
+        self.assertAlmostEqual(edges[0]["start_dir"][1], 0.06)
+        self.assertAlmostEqual(edges[0]["end_dir"][1], -0.06)
+        self.assertEqual(edges[0]["end_dir"], [-v for v in edges[1]["start_dir"]])
+
+
+class LandCoverPath(unittest.TestCase):
+    """The full stage with land cover, on main's generation path (Asheville)."""
+
+    @classmethod
+    def setUpClass(cls):
+        import gzip
+        import tempfile
+
+        import real_roads
+
+        cls.tmp = tempfile.TemporaryDirectory()
+        tmp = Path(cls.tmp.name)
+        fixture = ROOT / "fixtures/asheville"
+        (tmp / "geometry.json").write_bytes(
+            gzip.decompress((fixture / "shipping-geometry.json.gz").read_bytes())
+        )
+        (tmp / "banks.f32").write_bytes(
+            gzip.decompress((fixture / "banks.f32.gz").read_bytes())
+        )
+        cls.out = tmp / "maps/asheville"
+        cls.receipt = real_roads.generate(
+            fixture / "input.png",
+            tmp / "geometry.json",
+            cls.out,
+            banks=tmp / "banks.f32",
+            landcover=fixture / "landcover.u8.gz",
+            evidence=fixture / "shipping-evidence.json",
+        )
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def test_map_has_real_networks_and_resources(self):
+        package = self.receipt["package"]
+        self.assertTrue(
+            {"Highway", "HighwayRamp", "Train Track"}
+            <= set(package["highways"]["network_prefabs"])
+        )
+        self.assertEqual(package["highways"]["incoming_roads"], 4)
+        self.assertIn("environment", self.receipt["resources"])
+        self.assertIn("native_admission", self.receipt)
+
+    def test_no_trees_on_roads_or_rail(self):
+        from paint import load_plan
+        from resources import TREE_UNIT
+
+        result, _, _ = load_plan(self.out / "plan.npz")
+        px, pz, _ = result["trees"]
+        trees = np.column_stack([px * TREE_UNIT, pz * TREE_UNIT]).astype(float)
+        graph = json.loads((self.out / "hydrology.json").read_text())["highways"]
+        nodes = graph["nodes"]
+        for e in graph["edges"]:
+            if e["kind"] not in ("highway", "ramp", "rail"):
+                continue
+            a = np.asarray(nodes[e["a"]]["xyz"])[[0, 2]]
+            b = np.asarray(nodes[e["b"]]["xyz"])[[0, 2]]
+            d = b - a
+            t = np.clip(((trees - a) @ d) / max(d @ d, 1e-9), 0, 1)
+            gap = np.hypot(*(trees - (a + t[:, None] * d)).T).min()
+            self.assertGreater(gap, 8.0, f"tree {gap:.1f} m from a {e['kind']} segment")
+
+    def test_staging_reproduces_the_package(self):
+        import tempfile
+
+        from soak import stage_prepared
+
+        with tempfile.TemporaryDirectory() as stage:
+            staged = stage_prepared(self.out.parent, Path(stage), ["asheville"])
+            crp = staged[0][1]
+            self.assertEqual(
+                hashlib.sha256(crp.read_bytes()).hexdigest(),
+                self.receipt["package"]["sha256"],
+            )
 
 
 if __name__ == "__main__":

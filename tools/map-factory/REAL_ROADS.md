@@ -1,11 +1,14 @@
 # Real roads, rail, flight and ship paths (PL-982)
 
 `real_roads.py` replaces the template's corridor highway with the square's
-real OpenStreetMap motorways, trunks and their ramps, adds a flight path on the
-region's runway axis, and a ship lane on coastal squares. It runs as its own
-stage after the standard preparation and map write, so the shipping writer and
-`fixtures/current.json` are unchanged; the stage is opt-in until it is
-qualified in game.
+real OpenStreetMap motorways, trunks, ramps and main-line rail, adds a flight
+path on the region's runway axis, and a ship lane on coastal squares. It runs
+main's own `generate.generate` unchanged (preparation, resources and the native
+water admission), then adds the roads to the final terrain, replans resources
+around them and rewrites the map. `generate.py`, `paint.py` and
+`fixtures/current.json` are untouched, so the shipping maps don't change. The
+website and CLI stay opt-in until Rio and Pittsburgh pass the same in-game
+checks.
 
 ```sh
 uv run python real_roads.py PNG GEOMETRY OUTPUT --banks BANKS \
@@ -20,7 +23,7 @@ uv run python soak.py STAGE --prepared OUTPUT_PARENT --only REGION   # probes, n
   split into native one-way carriageways (`Highway`) and ramps (`HighwayRamp`,
   from `ramp=1`), resampled to 60–110 m segments with one shared tangent per
   through node. Profiles follow 150 m-smoothed terrain at no more than 6 %
-  (ramps 8 %); the terrain is cut or filled within 40 m of the road, capped at
+  (ramps 8 %); planning grades the terrain within 40 m of the road, capped at
   ±15 m and never in mapped water. A segment over water, needing more than 20 m
   of fill, or on an OSM bridge becomes `Highway Bridge` / `HighwayRampElevated`
   with the template's native pillar. An OSM tunnel becomes `Highway Tunnel`
@@ -33,10 +36,20 @@ uv run python soak.py STAGE --prepared OUTPUT_PARENT --only REGION   # probes, n
   most 3.5 % grade, with `Train Track Elevated` bridges, `Train Track Tunnel`
   behind `Train Track Slope` portals, and a two-way `Train Connection` at each
   edge. It replaces the template's elevated corridor railway.
-- **Terrain** is shaped onto the graded profiles: flat within 14 m of a road or
-  track, blending back to the land by 40 m, never in mapped water.
-- **Start tile**: the standard choice is kept when it holds both an exit-ramp
-  stub and an on-ramp stub; otherwise the most central buildable tile that does.
+- **Terrain** is then shaped exactly onto the graded profiles (`seat`): flat
+  within 14 m of a road or track, blending back to the land by 40 m, never in
+  mapped water or its two-cell margin. This pass has no cap, so it removes the
+  gaps the planning cap leaves; the receipt reports its largest cut and fill
+  (Asheville 18.6 m and 17.8 m). Tunnel interiors are not seated; their portal
+  segments are.
+- **Grades in the curve**: each segment's end directions carry the grade at
+  that node (the mean of the two segments at a through node), so CS1's curve
+  follows the profile instead of easing level at every node.
+- **Start tile**: one interchange's exit-ramp stub and on-ramp stub within
+  400 m, with no bridge or railway within 250 m of them, and water in the tile.
+  The standard tile stays when its interchange qualifies; otherwise the most
+  central tile that does. Ramp ends that wait for local roads sit on a 60 m
+  level pad at their height.
 - **Flight path** (`transport_paths.air_path`): an edge-to-edge two-way
   `Airplane Path` on the extended centreline of the region's main runway (OSM
   `aeroway=runway`), cruising 300 m above the highest ground under it. Planes

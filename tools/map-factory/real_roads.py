@@ -1,16 +1,20 @@
-"""Real roads stage (PL-982): OSM highways, flight and ship paths in a ready map.
+"""Real roads stage (PL-982): OSM highways, rail, flight and ship paths in a map.
 
-Runs between the standard preparation and the map write, without changing
-either, so the shipping writer and its fixture contract stay byte-identical:
+`generate` runs main's own `generate.generate` (preparation, resources and the
+native water admission) unchanged, then adds the roads:
 
-1. `prepare_roads` builds the motorway/trunk graph from the square's OSM roads
-   (`osm_highways`), grades the prepared terrain under it, picks a start tile
-   the highways reach, and adds an air path on the region's runway axis and a
-   ship lane for coastal squares (`transport_paths`). The graph goes into
-   `hydrology.json`.
-2. `write` plans resources around the new roads, writes the map with the
-   standard writer, then `finish` swaps the template's corridor highway for the
-   graph (`network_writer`) and updates the New Game connection counts.
+1. `prepare_roads` builds the motorway, trunk and rail graph from the square's
+   OSM data (`osm_highways`), shapes the final terrain onto it, picks a start
+   tile at an open interchange, and adds a flight path on the region's runway
+   axis and a ship lane for coastal squares (`transport_paths`). The graph goes
+   into `hydrology.json`.
+2. `write` replans resources with the roads and rail masked out, for the
+   environment the main path chose, and writes the map through `paint`'s plan
+   replay. `finish` then swaps the template's corridor network for the graph
+   (`network_writer`) and updates the New Game connection counts and previews.
+
+Off by default: the shipping writer, `generate.py` and the fixture contract
+are unchanged.
 
 ```sh
 uv run python real_roads.py PNG GEOMETRY OUTPUT --banks BANKS \
@@ -31,7 +35,6 @@ import resources as R
 from crp import patch_metadata, read_package, write_map, write_package
 from network_writer import apply_highways
 from osm_highways import build_highway_graph
-from region import prepare
 from surface_water import surface_geometry
 from transport_paths import air_path, merge, ship_path
 
@@ -214,6 +217,44 @@ def seat(ground, depth, graph, bed=14.0, reach=40.0):
     }
 
 
+def grade_directions(graph):
+    """Give road and rail end directions their grade (dy per horizontal metre).
+
+    CS1 builds a segment's curve from its end directions; level directions
+    flatten every node and steepen the middle of the segment to about 1.5 times
+    its average grade. A through node takes the mean of its two segments'
+    grades, so the directions on either side stay exactly opposite."""
+    nodes, edges = graph["nodes"], graph["edges"]
+
+    def slope(e):
+        a, b = np.asarray(nodes[e["a"]]["xyz"]), np.asarray(nodes[e["b"]]["xyz"])
+        run = float(np.hypot(*(b - a)[[0, 2]]))
+        return (b[1] - a[1]) / run if run > 0 else 0.0
+
+    touching = {}
+    for k, e in enumerate(edges):
+        if e["kind"] in ("highway", "ramp", "rail"):
+            for end in ("a", "b"):
+                touching.setdefault(e[end], []).append(k)
+    for k, e in enumerate(edges):
+        if e["kind"] not in ("highway", "ramp", "rail"):
+            continue
+        own = slope(e)
+        for end, key, sign in (("a", "start_dir", 1), ("b", "end_dir", -1)):
+            near = touching[e[end]]
+            grade = own
+            if len(near) == 2 and edges[near[0]]["kind"] == edges[near[1]]["kind"]:
+                other = edges[near[1] if near[0] == k else near[0]]
+                # The other segment's grade in this segment's travel direction.
+                along = (
+                    slope(other)
+                    if (other["a"] == e[end]) == (end == "b")
+                    else -slope(other)
+                )
+                grade = (own + along) / 2
+            e[key] = [e[key][0], float(sign * grade), e[key][2]]
+
+
 def prepare_roads(output, geometry, air=True, ship=True):
     """Add the road graph to an already prepared region directory."""
     data, _ = surface_geometry(json.loads(Path(geometry).read_text()))
@@ -240,6 +281,7 @@ def prepare_roads(output, geometry, air=True, ship=True):
     merge(graph, air, ship)
     report = {**graph["report"], **air_report, **ship_report}
     report["seat"] = seat(ground, depth, graph)
+    grade_directions(graph)
     if start != hydro["start_tile"]:
         hydro["start_tile"] = start
         hydro["start_area"] = {
@@ -361,13 +403,13 @@ def finish(crp, hydro):
 
 
 def road_layout(hydro):
-    """The template layout plus the graph's road segments, for resource masks."""
+    """The template layout plus the graph's road and rail segments, for resource masks."""
     layout = json.loads(LAYOUT.read_text())
     positions = {f"h{i}": n["xyz"] for i, n in enumerate(hydro["highways"]["nodes"])}
     segments = [
         {"from": f"h{e['a']}", "to": f"h{e['b']}"}
         for e in hydro["highways"]["edges"]
-        if e["kind"] in ("highway", "ramp")
+        if e["kind"] in ("highway", "ramp", "rail")
     ]
     layout["segments"] = layout["segments"] + segments
     return layout, {
@@ -376,11 +418,17 @@ def road_layout(hydro):
     }
 
 
-def write(output, landcover=None, evidence=None, knobs=None, geometry=None):
-    """Write the map (with resources when land cover is given), then finish it."""
+def write(
+    output, landcover=None, evidence=None, knobs=None, environment=None, biome=None
+):
+    """Write the map around the roads, then finish it.
+
+    With land cover, resources are planned with the roads and rail masked out
+    (no trees or fields on them), for the environment the main path chose, and
+    written by main's own `paint` plan replay. Returns (package, report)."""
     import gzip
 
-    from paint import preview, save_plan
+    from paint import paint, save_plan
 
     hydro = json.loads((output / "hydrology.json").read_text())
     crp = output / (hydro["map_id"] + ".crp")
@@ -398,29 +446,17 @@ def write(output, landcover=None, evidence=None, knobs=None, geometry=None):
         knobs = knobs or R.Knobs()
         raw = np.fromfile(output / "terrain.u16", dtype="<u2").reshape(GRID, GRID)
         depth = np.fromfile(output / "water.u16", dtype="<u2").reshape(GRID, GRID)
-        terrain = raw.astype(float) / 64
         lc = np.frombuffer(gzip.decompress(Path(landcover).read_bytes()), np.uint8)
         side = int(round(np.sqrt(lc.size)))
-        lc = np.flipud(lc.reshape(side, side))
+        lc = np.flipud(lc.reshape(side, side))  # landcover.py is north-first
         layout, masked = road_layout(hydro)
         found = json.loads(Path(evidence).read_text())["evidence"] if evidence else []
-        theme = R.theme_of(TEMPLATE.read_bytes())
-        result = R.plan(terrain, depth, lc, layout, masked, found, knobs, theme)
-        package = write_map(
-            TEMPLATE,
-            LAYOUT,
-            output / "terrain.u16",
-            output / "water.u16",
-            output / "hydrology.json",
-            crp,
-            resources=(result, R.TREE_NAMES),
+        result = R.plan(
+            raw.astype(float) / 64, depth, lc, layout, masked, found, knobs, environment
         )
-        water, _ = R.water_cells(depth, raw)
-        _, per_tile = R.area_totals(result, water)
-        report = R.summary(result, per_tile, knobs)
-        report.update({"theme": theme, "package": package})
-        preview(result, terrain, depth, output / "resources.png")
-        save_plan(result, output / "plan.npz")
+        save_plan(result, output / "plan.npz", environment, biome)
+        report = paint(output, None, output, knobs=knobs, plan=output / "plan.npz")
+        report.update({"environment": environment, "biome": biome})
         (output / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
     return finish(crp, hydro), report
 
@@ -436,31 +472,38 @@ def generate(
     air=True,
     ship=True,
 ):
-    output.mkdir(parents=True, exist_ok=True)
-    geometry_bytes = Path(geometry).read_bytes()
-    snapshot = output / "geometry.json"
-    snapshot.write_bytes(geometry_bytes)
-    summary = prepare(png, snapshot, LAYOUT, output, banks)
-    roads = prepare_roads(output, snapshot, air, ship)
-    package, report = write(output, landcover, evidence, knobs)
-    receipt = {
-        "preparation": summary,
-        "real_roads": roads,
-        "package": package,
-        "resources": None
-        if report is None
-        else {
-            **{k: report[k] for k in ["knobs", "trees", "unlockable", "placed"]},
-            "prepared_geometry_sha256": hashlib.sha256(geometry_bytes).hexdigest(),
-        },
-        "source": {
-            "inputs_sha256": {
-                "geometry.json": hashlib.sha256(geometry_bytes).hexdigest()
-            }
-        },
-        "in_game_verified": False,
-    }
+    """Main's generation (preparation, resources, native admission), then roads.
+
+    The road stage works on the final admitted terrain: admission evidence is
+    bound to the exact shipping grids, so it is applied first and roads never
+    seat into its water or margins. Resources are then replanned around the
+    roads and the map rewritten and finished."""
+    from generate import generate as generate_shipping
+
+    receipt = generate_shipping(
+        png,
+        Path(geometry),
+        output,
+        banks,
+        landcover=landcover,
+        evidence=evidence,
+        knobs=knobs,
+    )
+    roads = prepare_roads(output, output / "geometry.json", air, ship)
+    resources = receipt.get("resources") or {}
+    package, report = write(
+        output,
+        landcover,
+        evidence,
+        knobs,
+        resources.get("environment"),
+        resources.get("biome"),
+    )
+    receipt.update({"real_roads": roads, "package": package})
     if report is not None:
+        receipt["resources"].update(
+            {k: report[k] for k in ["knobs", "trees", "tree_budget", "unlockable"]}
+        )
         receipt["resource_plan"] = {
             "file": "plan.npz",
             "sha256": hashlib.sha256((output / "plan.npz").read_bytes()).hexdigest(),
