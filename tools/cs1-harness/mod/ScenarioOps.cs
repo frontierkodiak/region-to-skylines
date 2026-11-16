@@ -79,13 +79,21 @@ namespace Cs1Harness
             // traffic arrives on and the nearest it leaves by, so both directions work.
             if (ends.Count > 2)
             {
+                // The closest pair of one exit stub and one on-ramp stub: one
+                // interchange, so the hookup doesn't run between interchanges.
                 ushort arrive = 0, leave = 0;
-                foreach (ushort id in chosen)
+                float best = float.MaxValue;
+                foreach (ushort a in chosen)
                 {
-                    bool oneWayIn = (net.m_nodes.m_buffer[id].m_flags & NetNode.Flags.OneWayIn) != 0;
-                    bool oneWayOut = (net.m_nodes.m_buffer[id].m_flags & NetNode.Flags.OneWayOut) != 0;
-                    if (oneWayIn && !oneWayOut && arrive == 0) arrive = id;
-                    if (oneWayOut && !oneWayIn && leave == 0) leave = id;
+                    var fa = net.m_nodes.m_buffer[a].m_flags;
+                    if ((fa & NetNode.Flags.OneWayIn) == 0 || (fa & NetNode.Flags.OneWayOut) != 0) continue;
+                    foreach (ushort b in chosen)
+                    {
+                        var fb = net.m_nodes.m_buffer[b].m_flags;
+                        if ((fb & NetNode.Flags.OneWayOut) == 0 || (fb & NetNode.Flags.OneWayIn) != 0) continue;
+                        float d = VectorUtils.LengthXZ(net.m_nodes.m_buffer[a].m_position - net.m_nodes.m_buffer[b].m_position);
+                        if (d < best) { best = d; arrive = a; leave = b; }
+                    }
                 }
                 if (arrive != 0 && leave != 0)
                     return new List<ushort> { arrive, leave };
@@ -250,6 +258,7 @@ namespace Cs1Harness
                     candidates.Add(new KeyValuePair<float, Vector3>(score, Ground(p.x, p.z)));
                 }
             candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
+            Vector3? fallback = null;
             foreach (var candidate in candidates)
             {
                 var p = candidate.Value;
@@ -264,11 +273,16 @@ namespace Cs1Harness
                             a = Ground(p.x - Half + i * Spacing, p.z - Half + j * Spacing);
                             Link(road, a, Ground(a.x, a.z + Spacing), testOnly: true);
                         }
-                    if (!HookupClear(hooks, p)) continue;
+                    if (!HookupClear(hooks, p))
+                    {
+                        if (fallback == null) fallback = p;
+                        continue;
+                    }
                     return p;
                 }
                 catch (PlacementRejected) { }
             }
+            if (fallback != null) return fallback.Value;
             throw new Exception("no dry start-tile site whose grid passes native road placement checks");
         }
 
