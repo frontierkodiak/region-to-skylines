@@ -86,5 +86,23 @@ json.dumps({
 `));
     for (const name of ["water_sources_sha256", "node_positions_sha256", "start_tile", "sea_level_m"])
       assert.deepEqual(controls[name], native[name], `${c.slug} ${kind}: native-tested ${name}`);
+    if (kind === "reference" && c.presentation_delta) {
+      // The delta's claim, executed: same resource grids and tree positions,
+      // only the map environment and tree species moved.
+      factory.py.FS.writeFile("/work/base-plan.npz", await read("fixtures/" + c.presentation_delta.base_plan));
+      const delta = JSON.parse(factory.py.runPython(`
+import json, numpy as np
+old = np.load('/work/base-plan.npz')
+new = np.load('/work/out/plan.npz')
+json.dumps({
+    'grids_equal': bool(all(np.array_equal(old[k], new[k]) for k in ('ore', 'oil', 'fertility', 'forest', 'tree'))),
+    'positions_equal': bool(np.array_equal(old['px'], new['px']) and np.array_equal(old['pz'], new['pz'])),
+    'species_equal': bool(np.array_equal(old['kinds'], new['kinds'])),
+})
+`));
+      assert.ok(delta.grids_equal, `${c.slug}: resources changed in a presentation-only delta`);
+      assert.ok(delta.positions_equal, `${c.slug}: tree positions changed in a presentation-only delta`);
+      assert.equal(delta.species_equal, !c.presentation_delta.tree_species_changed, `${c.slug}: tree species flag`);
+    }
   });
 }

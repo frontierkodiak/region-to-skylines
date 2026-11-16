@@ -1,0 +1,30 @@
+{
+  "source": "ESA WorldCover 2021 v200; mapgen.js landCover",
+  "sq": {
+    "lon": -43.205,
+    "lat": -22.94,
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4,
+    "name": "Rio de Janeiro",
+    "slug": "rio"
+  },
+  "tiles": [
+    "S24W045"
+  ],
+  "classes": {
+    "10": 765455,
+    "20": 40,
+    "30": 56982,
+    "40": 195,
+    "50": 822140,
+    "60": 16916,
+    "80": 1320857,
+    "90": 3399
+  }
+}

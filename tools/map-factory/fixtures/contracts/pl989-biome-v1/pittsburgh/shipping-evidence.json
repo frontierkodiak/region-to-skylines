@@ -1,0 +1,21 @@
+{
+  "evidence": [
+    {
+      "kind": "ore",
+      "x": -922.2,
+      "z": -4595.0,
+      "weight": 1.0,
+      "source": "USGS MRDS 10128762 Walkers Mill Quarry (Producer, Surface)"
+    },
+    {
+      "kind": "ore",
+      "x": -7047.9,
+      "z": -1352.5,
+      "weight": 0.8,
+      "source": "USGS MRDS 10153623 Fleck Quarry (Past Producer, Surface)"
+    }
+  ],
+  "sources": [
+    "USGS MRDS (public domain)"
+  ]
+}
