@@ -152,7 +152,8 @@ namespace Cs1Harness
                     "target", s.m_target / 64f,
                     "input_rate", s.m_inputRate,
                     "output_rate", s.m_outputRate,
-                    "flow", s.m_flow
+                    "flow", s.m_flow,
+                    "buffered_water", s.m_water
                 ));
             }
             var cells = water.BeginRead();
