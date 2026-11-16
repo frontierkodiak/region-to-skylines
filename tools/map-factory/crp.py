@@ -259,6 +259,76 @@ def water_payload(depth, sources, frame, sea_level=35.0):
     return data + struct.pack(">HfbbI", 0, sea_level, 0, 0, frame)
 
 
+def read_unique_string(data, offset):
+    """DataSerializer.WriteUniqueString: 0xFF is null, else a 24-bit header.
+
+    With bit 23 set the length is a byte count and each character is a delta
+    from the previous one (starting at 0x80); without it the length is a
+    character count of 16-bit deltas. The simulation payload starts with the
+    type name, the game-instance GUID and the map environment this way.
+    """
+    if data[offset] == 255:
+        return None, offset + 1
+    head = int.from_bytes(data[offset : offset + 3], "big")
+    offset += 3
+    c, chars = 0x80, []
+    if head & 0x800000:
+        for _ in range(head & 0x7FFFFF):
+            c = (c + data[offset]) & 0xFF
+            chars.append(chr(c))
+            offset += 1
+    else:
+        for _ in range(head):
+            c = (c + int.from_bytes(data[offset : offset + 2], "big")) & 0xFFFF
+            chars.append(chr(c))
+            offset += 2
+    return "".join(chars), offset
+
+
+def unique_string(value):
+    """Encode one WriteUniqueString: latin-1 bytes as deltas from 0x80."""
+    raw = value.encode("latin1")
+    out = bytearray((0x800000 | len(raw)).to_bytes(3, "big"))
+    previous = 0x80
+    for ch in raw:
+        out.append((ch - previous) & 255)
+        previous = ch
+    return bytes(out)
+
+
+def metadata_header(data):
+    """Type name, game-instance id and environment at the payload's start.
+
+    The payload opens with a 4-byte data version and a 2-byte type marker, then
+    DataSerializer's unique strings for SimulationMetaData.
+    """
+    typename, offset = read_unique_string(data, 6)
+    if "SimulationMetaData" not in (typename or ""):
+        raise ValueError(f"Payload does not start with SimulationMetaData: {typename!r}")
+    instance, offset = read_unique_string(data, offset)
+    environment, end = read_unique_string(data, offset)
+    return {"typename": typename, "instance": instance, "environment": environment}, offset, end
+
+
+def payload_environment(data):
+    """The SimulationMetaData environment stored in the simulation payload."""
+    return metadata_header(data)[0]["environment"]
+
+
+def patch_payload_environment(data, environment):
+    """Rewrite SimulationMetaData.m_environment in the simulation payload.
+
+    The listing's MapMetaData environment is only the menu label: the game
+    deserializes this SimulationMetaData and loads `<environment>Prefabs`, so
+    both have to say the same thing. Done after every other patch, because a
+    longer or shorter name shifts the rest of the stream.
+    """
+    header, offset, end = metadata_header(data)
+    if header["environment"] != environment:
+        data = data[:offset] + unique_string(environment) + data[end:]
+    return data
+
+
 def begin_tag_size(data, offset, expected):
     if data[offset] != 254:
         raise ValueError("Expected a new shared manager-name tag")
@@ -439,6 +509,8 @@ def write_map(
         )
     for start, end, replacement in sorted(replacements, reverse=True):
         data = data[:start] + replacement + data[end:]
+    if environment is not None:
+        data = patch_payload_environment(data, environment)
     simulation["payload"] = data
     checksum = hashlib.md5(data).hexdigest()
     from map_metadata import buildable_area, preview_image, texture_payload

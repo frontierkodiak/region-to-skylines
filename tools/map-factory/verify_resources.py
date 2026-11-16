@@ -82,6 +82,14 @@ def check(crp, evidence=None):
     _, tassets = M.read_any(template)
     tdata = next(a["payload"] for a in tassets if a["kind"] == 52)
     problems = []
+    from crp import payload_environment
+
+    payload_environment_value = payload_environment(data)
+    if payload_environment_value != meta["environment"]:
+        problems.append(
+            f"listing environment {meta['environment']} but the simulation payload "
+            f"says {payload_environment_value}"
+        )
     for name in ["NaturalResourceManager", "TreeManager"]:
         tail = tdata[section_end(tdata, name, None) :][:64]
         if data[section_end(data, name, None) :][:64] != tail:

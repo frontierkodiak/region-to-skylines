@@ -343,8 +343,8 @@
   },
   "package": {
     "output": "/home/caleb/scratch/2026-11-16-pl989-biomes/refreeze/rio/reference/PL857-rio.crp",
-    "sha256": "462232a7e337c6f8d60947d62a1b4e7c3367487bbd37f4cf40519301d36bb34a",
-    "bytes": 6144435,
+    "sha256": "967ca9acc854e4161f2576ffa3a55a1d1db59f754768b55cf879bd336c880317",
+    "bytes": 6144438,
     "regenerated": [
       "terrain",
       "water",
@@ -367,6 +367,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "ed39b739ea1ce7ef6081013616e165efd804bfdaf47ab9f499bcff2a3f71cfc5"
+    "simulation_sha256": "90d30a455ed3345f808ce3d62710ff8bcc3ed9bb03360b7af73ee6755ae22ae4"
   }
 }

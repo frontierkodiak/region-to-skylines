@@ -182,8 +182,8 @@
   },
   "package": {
     "output": "/home/caleb/scratch/2026-11-16-pl989-biomes/refreeze/innsbruck/reference/PL857-innsbruck.crp",
-    "sha256": "9f4206878b93ed6105c3067d8f986d5609654e3b628c168cfcb44d814977549f",
-    "bytes": 5824210,
+    "sha256": "f1e5e53f290e8be4c0e570b23453d2c0bbc3044283e766f18e4da90a5638b365",
+    "bytes": 5824211,
     "regenerated": [
       "terrain",
       "water",
@@ -206,6 +206,6 @@
       "lane_ids"
     ],
     "preview_kind": "terrain/water grid rendering",
-    "simulation_sha256": "15f13e0db5646cd77ae61cf7322e18fae6651b64e8560e293f75ba4a3a3323bf"
+    "simulation_sha256": "bd07c295acf42ccaba861e08e678844013f51ffcd6560138c831c0325e7b34e8"
   }
 }
