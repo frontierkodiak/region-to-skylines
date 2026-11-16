@@ -1,0 +1,207 @@
+{
+  "status": "complete",
+  "source_head": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+  "source_files_sha256": {
+    "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+    "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+    "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2"
+  },
+  "cases": [
+    {
+      "case": "asheville",
+      "kind": "reference",
+      "package_sha256": "3d377ef636ec0a8b83467c367cd89f9d1c031f698557b0f6a99cf464d90773d1",
+      "grids": {
+        "terrain.u16": "f88fa5c239dc3b0abcf392a129139a2895d5451bdf260b9626855d47aa1c301d",
+        "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "7897cf81ace7f698cc6074ab8aaddc913d282f8e5ccd1d7112e70981995a0633",
+        "terrain_raised": 10648,
+        "startup_water_removed": 4020,
+        "native_qualified": false
+      },
+      "seconds": 61.978999265000006,
+      "full_native_qualification": false
+    },
+    {
+      "case": "asheville",
+      "kind": "shipping",
+      "package_sha256": "f09410b048f99c7e521c04a7e9c43f4d2f98a8bbfbd3f577bc28ac6d5114f7fe",
+      "grids": {
+        "terrain.u16": "f88fa5c239dc3b0abcf392a129139a2895d5451bdf260b9626855d47aa1c301d",
+        "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "7897cf81ace7f698cc6074ab8aaddc913d282f8e5ccd1d7112e70981995a0633",
+        "terrain_raised": 10648,
+        "startup_water_removed": 4020,
+        "native_qualified": false
+      },
+      "seconds": 59.250297252,
+      "full_native_qualification": false
+    },
+    {
+      "case": "innsbruck",
+      "kind": "reference",
+      "package_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+      "grids": {
+        "terrain.u16": "cb532cb2702cc8017351c689a5678e2dfa6f65e930e99829350e60d2a538ecd5",
+        "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "b1a2faaca6085628c98702286f4e086754d5ad3deb50877bac39d2ae11297ea5",
+        "terrain_raised": 3291,
+        "startup_water_removed": 2580,
+        "native_qualified": false
+      },
+      "seconds": 42.192574809000014,
+      "full_native_qualification": false
+    },
+    {
+      "case": "innsbruck",
+      "kind": "shipping",
+      "package_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+      "grids": {
+        "terrain.u16": "cb532cb2702cc8017351c689a5678e2dfa6f65e930e99829350e60d2a538ecd5",
+        "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "b1a2faaca6085628c98702286f4e086754d5ad3deb50877bac39d2ae11297ea5",
+        "terrain_raised": 3291,
+        "startup_water_removed": 2580,
+        "native_qualified": false
+      },
+      "seconds": 42.23493076799999,
+      "full_native_qualification": false
+    },
+    {
+      "case": "rio",
+      "kind": "reference",
+      "package_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+      "grids": {
+        "terrain.u16": "8682920254c5bef7883fda7f6fe85c08ab81782e11992ebb0b865246a5d3777a",
+        "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "cd2c63f727b5eab2cf698c129eb4da164fee4bd26c4cb3be8aff348466057366",
+        "terrain_raised": 12199,
+        "startup_water_removed": 462,
+        "native_qualified": false
+      },
+      "seconds": 44.73316180899998,
+      "full_native_qualification": false
+    },
+    {
+      "case": "rio",
+      "kind": "shipping",
+      "package_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+      "grids": {
+        "terrain.u16": "8682920254c5bef7883fda7f6fe85c08ab81782e11992ebb0b865246a5d3777a",
+        "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "cd2c63f727b5eab2cf698c129eb4da164fee4bd26c4cb3be8aff348466057366",
+        "terrain_raised": 12199,
+        "startup_water_removed": 462,
+        "native_qualified": false
+      },
+      "seconds": 44.793856807000004,
+      "full_native_qualification": false
+    },
+    {
+      "case": "pittsburgh",
+      "kind": "reference",
+      "package_sha256": "55f68d7ff51effc8eb7b559d7f9769e615d2a0fb53ff63832e346d97ca1c8bed",
+      "grids": {
+        "terrain.u16": "5675e9f8c17529ae71dfec1ad790e2c0c390cfad7baddf7d0edc979265c0e0e2",
+        "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "873a519d5486d995312313094df2c5c110075f506347278a6da0c935651ed5bd",
+        "terrain_raised": 5314,
+        "startup_water_removed": 1379,
+        "native_qualified": false
+      },
+      "seconds": 41.989319363999996,
+      "full_native_qualification": false
+    },
+    {
+      "case": "pittsburgh",
+      "kind": "shipping",
+      "package_sha256": "2b899e38b859d78816925131002c2ee48877e43a2c47f8ab9d174d47376fbba2",
+      "grids": {
+        "terrain.u16": "5675e9f8c17529ae71dfec1ad790e2c0c390cfad7baddf7d0edc979265c0e0e2",
+        "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "873a519d5486d995312313094df2c5c110075f506347278a6da0c935651ed5bd",
+        "terrain_raised": 5314,
+        "startup_water_removed": 1379,
+        "native_qualified": false
+      },
+      "seconds": 42.346691467,
+      "full_native_qualification": false
+    },
+    {
+      "case": "charleston",
+      "kind": "reference",
+      "package_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+      "grids": {
+        "terrain.u16": "a6be1e75efbfef2d72481563efa62cc03e4f03c7f76759c6b59c74cabfbeeee6",
+        "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "b97693d33449d2c20759a8bea8e2daa31a89a38b9c94827e9dd11e20d51abf7c",
+        "terrain_raised": 2682,
+        "startup_water_removed": 2709,
+        "native_qualified": false
+      },
+      "seconds": 50.567573378,
+      "full_native_qualification": false
+    },
+    {
+      "case": "charleston",
+      "kind": "shipping",
+      "package_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+      "grids": {
+        "terrain.u16": "a6be1e75efbfef2d72481563efa62cc03e4f03c7f76759c6b59c74cabfbeeee6",
+        "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+      },
+      "admission": {
+        "applied": true,
+        "fingerprint": "b97693d33449d2c20759a8bea8e2daa31a89a38b9c94827e9dd11e20d51abf7c",
+        "terrain_raised": 2682,
+        "startup_water_removed": 2709,
+        "native_qualified": false
+      },
+      "seconds": 50.515790133,
+      "full_native_qualification": false
+    }
+  ]
+}

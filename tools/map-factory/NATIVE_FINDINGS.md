@@ -864,3 +864,43 @@ Any future cut-removal arm must preserve inherited cut and supported water
 outside the area it actually re-models, then prove zero newly unsupported
 positions before native testing. This is not a probe exemption. The present
 arm stays closed, so no repair or new qualification is claimed here.
+
+### November 16 · supplied-patch boundary, actual partial result
+
+[TRANSIENT_MARGIN.md](TRANSIENT_MARGIN.md) and
+`fixtures/native-transient-short.json` bind the next PL-912 native result on
+[draft PR48](https://github.com/frontierkodiak/region-to-skylines/pull/48).
+The tested source is `58de2bd`, after PL-1001's narrower boundary design and
+the intake-capacity correction. Current accepted main remains PR42's partial
+baseline `896f6dd`; none of this experimental admission is a shipping default.
+
+Actual Rio zero/five opening and Areas restore the oval's northwest dry lobe.
+All 4,256 observations remain, required zero/five are 1,556/1,545 with eleven
+shared and no new misses, and twenty released intakes remain inactive at all
+six readings. But ten of 1,332 nearby sustained reference cells are dry at five,
+falsifying the proposed support argument. The complete native readbacks and
+both successful and failed obligations are retained, not inferred from photos.
+No Asheville or full run followed. This does not establish a minimum sustainable
+stream size, reservoir benefit or a new passing flood/correlation result.
+PL-979 can build on the mechanism/counterexample evidence without inheriting
+an unqualified candidate or unagreed remaining PL-912 work.
+
+### PL-1002 disposition and fresh five-map evidence
+
+The first-short failure above is preserved, not retroactively marked passed.
+PL-1002 independently found that unchanged baseline reruns also fail its
+single-positive-cell auxiliary test. Its calibrated per-pool stage replacement
+and the actual subsequent Asheville short are in [TRANSIENT_MARGIN.md](TRANSIENT_MARGIN.md).
+No original observation, required flag, mask or threshold changed.
+
+The proposed shipping records at clean `21a0a52` reproduce ten complete Python
+and ten browser exports. Five fresh shipping sixty-minute games retain the
+same required endpoint/throughout cohort as PR42, with no previously passing
+gate failure; all 116 calibrated pools pass at five and later dumped epochs.
+The versioned `pl912-transient-storage-v1` contract binds those actual new
+packages, not PR42's hashes. Actual raw views and phone sheets show the Rio
+oval lobe restored, a genuinely wet smaller pool, and remaining dry flanks
+without declaring all excavation fixed. Rio flood area increases to
+0.062464 km² (limit 0.05); Charleston r=0.6891/extreme failures remain.
+These are unwaived partial-baseline results, not issue acceptance, a minimum
+sustainable stream size, a reservoir benefit or an every-frame hydraulic proof.

@@ -2419,3 +2419,84 @@ Tropical native shore retained, residual dry oval not declared fixed.
 Empty cleanup; owned game 2579316 required normal quit-grace termination, not
 a spontaneous crash. No new sixty-minute run. Later source-pin canonical binding
 normalization changes receipts only; the complete package remains byte-exact.
+
+## 2026-11-16 · PL-912 supplied-patch boundary counterexample · blade
+
+Foreground Rio zero/five opening and Areas at `58de2bd`, exact package
+`4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40`.
+FIFO waited behind PL-982; silent private :57 / Steam prompt guards retained.
+Actual 5.129167 game minutes, 331.18 s sampled GPU window (queue excluded).
+RTX 2080 Ti 05:00.0; total peak 10,821 MiB / 130.17 W / 57°C; own-game
+sampled peak 2,792 MiB, not continuous/loading peak. Shared 150 W cap and
+other workload untouched. All 4,256 points remain; required zero 1,556/1,556,
+five 1,545/1,556, eleven shared/zero new/zero old-only misses. Twenty released
+intakes have zero buffer/flow at all six readings, including four per-minute
+samples. Controls, grids, terrain, native floor/targets/offsets and cameras
+match; all four raw PNGs inspected. Actual oval lobe is restored, native shore
+remains. **Support checkpoint fails:** 10/1,332 nearby sustained reference cells
+are dry at five; no Asheville or full run followed. Empty native cleanup;
+owned game 3034385 required normal quit-grace termination, not spontaneous
+crash. No new shipping qualification or default; diagnosis remains on PL-912.
+
+## 2026-11-16 — PL-912 reviewed Asheville transient-margin short
+
+PL-1002 replaced the overstrong single-cell auxiliary diagnostic with a
+reference-calibrated pool-stage test; no original gate or observation changed.
+Blade/private :57/silent/FIFO, source `80bdeda` with fourteen material files
+identical to `58de2bd`; exact package `f09410b0…`. Actual 5.132222 game minutes,
+325.843 s sampled GPU window, queue excluded. RTX 2080 Ti 05:00.0: card peak
+10,821 MiB / 128.79 W / 57°C; owned-game sampled peak 2,785 MiB across 39
+samples, not continuous/loading peak. The 150 W cap and other 8,004 MiB workload
+were unchanged. All 7,745 observations retained; 1,261 required wet-or-near at
+zero/five. All 44 pool checks pass; 13/1,226 single-cell zeros remain reported.
+Nineteen released intakes have zero buffer/flow at six readings. Controls,
+grids, terrain, native floor/targets/offsets and cameras match; 15,490 native
+sampler readings replay exactly. Actual zero/five opening and Areas viewed,
+empty cleanup. Owned game 3211576 needed normal quit-grace termination, not a
+spontaneous crash.
+
+## 2026-11-16 — PL-912 five fresh transient-margin shipping evaluations
+
+Clean source `21a0a52`, after actual Rio/Asheville shorts and complete ten-case
+Python/browser byte agreement. Blade/RTX 2080 Ti 05:00.0, silent private :57;
+actual queue/holder/Steam rechecked before each game. FIFO and prompts honoured.
+The shared 150 W cap and existing 8,004 MiB workload were untouched. GPU values
+below are card-wide sampled peaks, not exclusively the game's consumption.
+
+| Map | Game min | Sim wall s | Card peak MiB | Owned-game sampled MiB / samples | Card W / °C | Original failures |
+| --- | ---: | ---: | ---: | --- | --- | --- |
+| Rio | 60.097781 | 964.163 | 10,821 | 2,774 / 3 | 142.74 / 54 | flooding |
+| Asheville | 60.021114 | 953.611 | 10,821 | 2,732 / 2 | 137.63 / 54 | none |
+| Innsbruck | 60.103336 | 954.881 | 10,821 | 2,591 / 2 | 132.11 / 54 | none |
+| Pittsburgh | 60.139448 | 961.149 | 10,821 | 2,592 / 1 | 133.13 / 51 | none |
+| Charleston | 60.131114 | 954.022 | 10,821 | not measured | 137.31 / 55 | ground truth |
+
+Wall times exclude queue/boot/teardown. These sparse owned-PID readings are
+not continuous or loading peaks. Charleston had no owned-PID observer;
+its 1,574 MiB menu reading is not a peak. No repeat game for missing GPU metadata.
+Card sample windows were 1,162.774 / 1,147.506 / 1,148.156 / 1,197.507 /
+1,146.098 seconds.
+
+All 30,982 original observations / 7,524 required flags, masks and thresholds
+remain. Required sampled-throughout: Rio 1,531/1,556; Asheville 1,261/1,261;
+Innsbruck 694/694; Pittsburgh 1,799/1,799; Charleston 2,208/2,214. No new
+required endpoint/throughout loss or previously passing gate failure. Thirteen
+epochs, not every frame. All 116 calibrated pools pass at five and later dumped
+grids. Released intakes have zero buffer/flow at 13 readings. Actual panels,
+zero/five opening+Areas and end tile/overview viewed. Initial grids/controls
+match; all collected raw terrain at zero/five is exact, native floors monotone
+with original offset patterns. All 402,766 recorded ground readings replay
+exactly; no full sixty-minute raw terrain/hydraulic-floor dump.
+
+Rio flood worsens 0.061440 → 0.062464 km² against 0.05, unchanged mask; at thirty
+minutes: 229 shared / 15 new / 9 old-only cells; at forty-five: 225 / 17 / 15.
+Charleston r=0.6891 versus 0.9 and extreme failures remain diagnosis-only.
+Actual Rio oval northwest lobe is at held terrain; a smaller genuinely wet
+pool and dry flanks remain. Not every dry bed is claimed repaired. New physical
+packages have their own versioned partial evidence, not inherited PR42
+qualification or issue acceptance.
+
+All five collected foreground, all cleanup empty. Pittsburgh game 3565765
+needed normal quit-grace termination; the other four full games quit without
+that forced-termination message. None is reported as a spontaneous crash.
+No owned game, waiter, Steam, service or observer is left by these runs.

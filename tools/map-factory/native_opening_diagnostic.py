@@ -92,7 +92,15 @@ def review_control(session, command, prefix, report):
     write(session.stage / "diagnostic.json", report)
 
 
-def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0):
+def run(
+    source,
+    output,
+    interactive,
+    minutes,
+    requests_file=None,
+    wait_minutes=0,
+    sample_every=0,
+):
     cfg = Config.for_host()
     if cfg.host != "blade" or cfg.display != ":57":
         raise ValueError("This release authorizes only Blade's private :57 session")
@@ -107,6 +115,8 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
     report = {
         "native_qualification": False,
         "requested_minutes": minutes,
+        "sample_every_game_minutes": sample_every,
+        "minute_samples": [],
         "tested_head": subprocess.check_output(
             ["git", "rev-parse", "HEAD"], text=True
         ).strip(),
@@ -271,6 +281,7 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
                 frames = 60 / start["fixed_delta_time"]
                 session.client.call("run", paused=False, speed=3, day_night=False)
                 last_log = 0
+                next_sample = sample_every
                 deadline = time.monotonic() + 1200
                 while True:
                     session.alive()
@@ -283,6 +294,17 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
                     elapsed = (stats["frame"] - start_frame) / frames
                     if elapsed >= minutes:
                         break
+                    if sample_every and elapsed >= next_sample:
+                        label = f"minute-{next_sample:g}-water.json"
+                        write(
+                            stage / label,
+                            session.client.call("water", points=world_requests),
+                        )
+                        report["minute_samples"].append(
+                            {"game_minutes": elapsed, "file": label}
+                        )
+                        write(stage / "diagnostic.json", report)
+                        next_sample += sample_every
                     if elapsed - last_log >= 1:
                         print(f"game minutes {elapsed:.2f}/{minutes}", flush=True)
                         last_log = elapsed
@@ -371,6 +393,12 @@ if __name__ == "__main__":
         help="Foreground wait behind existing harness holders and older waiters",
     )
     parser.add_argument(
+        "--sample-every",
+        type=float,
+        default=0,
+        help="Game-minutes between complete water/source readings (zero disables)",
+    )
+    parser.add_argument(
         "--requests",
         type=Path,
         help="Fixed screen_points and world_points for matched arms",
@@ -380,6 +408,10 @@ if __name__ == "__main__":
         parser.error("use zero for paused capture-only, or at most five game minutes")
     if not 0 <= args.wait_minutes <= 60:
         parser.error("foreground queue wait must be between zero and 60 minutes")
+    if args.sample_every < 0 or (
+        args.sample_every and not 0 < args.sample_every <= args.minutes
+    ):
+        parser.error("sampling interval must be zero or positive and within the run")
     run(
         args.source.resolve(),
         args.output.resolve(),
@@ -387,4 +419,5 @@ if __name__ == "__main__":
         args.minutes,
         args.requests,
         args.wait_minutes,
+        args.sample_every,
     )

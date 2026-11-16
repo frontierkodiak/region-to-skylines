@@ -106,7 +106,11 @@ test("current fixture contract refuses stale writers, missing regions and fabric
     (c) => { c.cases[0].shipping.writer_source_commit = c.cases[0].shipping.historical_capture_source_commit; },
     (c) => { c.cases[0].shipping.expected_crp_sha256 = c.cases[0].reference.expected_crp_sha256; },
     (c) => { c.cases[0].reference.prepared_sha256["terrain.u16"] = "stale-grid"; },
-    (c) => { c.cases[0].shipping.presentation_delta.water_simulation_sha256 = "stale-water"; },
+    (c) => {
+      if (c.cases[0].shipping.presentation_delta)
+        c.cases[0].shipping.presentation_delta.water_simulation_sha256 = "stale-water";
+      else c.byte_build_proof_sha256 = "stale-byte-proof";
+    },
     (c) => { c.previous_contracts.accepted_presentation.sha256 = "stale-parent"; },
   ]) {
     const candidate = structuredClone(original);

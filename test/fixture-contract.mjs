@@ -1,5 +1,6 @@
 // Current byte conformance is distinct from historical or full native acceptance.
 import assert from "node:assert/strict";
+import { loadTransientContract } from "./transient-fixture-contract.mjs";
 import { FACTORY_FILES } from "../mapgen.js";
 import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
@@ -14,6 +15,8 @@ export async function loadFixtureContract(read, readSource) {
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const current = parse(await read("fixtures/" + active.current));
+  if (current.version === "pl912-transient-storage-v1")
+    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
   assert.equal(current.previous_contracts.accepted_presentation.file, "current.json");
   assert.equal(current.previous_contracts.native_baseline.file, "contracts/pl912-native-dry-subreach-v1/current.json");
   for (const parent of Object.values(current.previous_contracts))
