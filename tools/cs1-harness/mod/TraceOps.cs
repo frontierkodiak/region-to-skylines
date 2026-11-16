@@ -28,7 +28,7 @@ namespace Cs1Harness
             if (harmony != null) throw new Exception("one atomic trace per disposable process");
             if (Environment.MachineName != "blade" || Environment.GetEnvironmentVariable("DISPLAY") != ":57")
                 throw new Exception("trace is authorized only on blade's private :57");
-            string enginePath = "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Assembly-CSharp.dll";
+            string enginePath = "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Assembly-CSharp.dll";
             string dependencyPath = Json.Str(request, "dependency_path", "");
             if (!Path.IsPathRooted(dependencyPath) ||
                 TraceIL.Hash(File.ReadAllBytes(enginePath)) != TraceIL.Engine ||
