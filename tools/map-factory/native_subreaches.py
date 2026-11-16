@@ -138,7 +138,10 @@ def restore(
 ):
     """Clear never-rewetted startup film; replay only each dry line's own cut."""
     initial = water.copy()
-    clear = (water > 0) & ~later_water & ~hard_guard
+    # A neighbour that is dry in saved late states can still supply transient
+    # storage to an occupied patch. Freeze its initial water as well as floor;
+    # otherwise even an unchanged central pool can drain earlier.
+    clear = (water > 0) & ~later_water & ~guard
     initial[clear] = 0
     browser = stroke(geometry["sq"], geometry.get("rivers", []))
     restored, replay = restore_line_cuts(
@@ -157,6 +160,7 @@ def restore(
     assert not (candidate < terrain).any()
     assert np.array_equal(candidate[hard_guard], terrain[hard_guard])
     assert np.array_equal(initial[hard_guard], water[hard_guard])
+    assert np.array_equal(initial[guard], water[guard])
     require_continuous_floor(terrain, candidate, later_water)
     require_continuous_floor(terrain, candidate, initial)
     return candidate, initial, clear, replay
@@ -293,6 +297,7 @@ def plan(prepared, observed, fixture, output, supplemental=()):
         "startup_water_removed_vertices": int(clear.sum()),
         "source_controls_unchanged": True,
         "source_radius_floor_and_water_unchanged": True,
+        "native_wet_boundary_startup_water_unchanged": True,
         "native_wet_interpolation_support_unchanged": True,
         "retained_startup_interpolation_support_unchanged": True,
         "browser_replay": replay,

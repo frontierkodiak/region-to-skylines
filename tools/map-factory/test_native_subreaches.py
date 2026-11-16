@@ -40,6 +40,35 @@ class DrySubreachTests(unittest.TestCase):
         self.assertTrue(guard[540, 546])  # 96 m, inside native output radius.
         self.assertFalse(guard[540, 547])  # 112 m, outside it.
 
+    def test_startup_storage_beside_a_later_pool_is_kept(self):
+        shape = (1081, 1081)
+        terrain = np.full(shape, 6400, np.uint16)
+        water = np.zeros(shape, np.uint16)
+        water[539:542, 539:542] = [[0, 14, 0], [42, 103, 69], [29, 57, 2]]
+        water[540, 560] = 64  # Independent never-rewetted film can still clear.
+        later = np.zeros(shape, bool)
+        later[540, 540] = True
+        empty = np.zeros(shape, bool)
+        dry, zone, guard = dry_domain(empty, empty, later, empty)
+        banks = np.full(shape, 100.0)
+        geometry = {"sq": {"scale": 1}, "fit": {"verticalScale": 1}, "rivers": []}
+        _, initial, _, _ = restore(
+            terrain,
+            water,
+            later,
+            empty,
+            dry,
+            zone,
+            guard,
+            banks,
+            banks,
+            geometry,
+        )
+        np.testing.assert_array_equal(
+            initial[539:542, 539:542], water[539:542, 539:542]
+        )
+        self.assertEqual(initial[540, 560], 0)
+
     def test_dry_intake_cell_is_not_restored_or_drained(self):
         shape = (1081, 1081)
         terrain = np.full(shape, 6400, dtype=np.uint16)
