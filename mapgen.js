@@ -16,6 +16,7 @@ export const worldCoverFile = (tile) => `ESA_WorldCover_10m_2021_v200_${tile}_Ma
 export const FACTORY_FILES = [
   "generate.py", "region.py", "prepare.py", "surface_water.py", "crp.py", "template.py", "map_metadata.py",
   "paint.py", "resources.py", "landcover.py", "evidence.py", "web.py",
+  "wet_reach_admission.py", "native-water-admission.json",
   "templates/native-corridors.crp", "templates/native-corridors.json",
 ];
 

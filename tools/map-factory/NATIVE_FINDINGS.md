@@ -1,5 +1,64 @@
 # Native qualification · PL-926, PL-918 and PL-857
 
+## PL-912 evidence index · updated November 16
+
+Main is now `3b5b4c9`, including PL-989's accepted biome presentation.
+PR42 proposes an input-bound dry-reach
+replay in the Python and shipping JS/Pyodide path; it is not landed or accepted.
+The lead accepts genuinely wet streams
+with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
+the separate selection-versus-hydraulics/workshop/reservoir question and can use
+this evidence without treating a rejected arm as a baseline fix.
+
+- [DRY_SUBREACHES.md](DRY_SUBREACHES.md): PL-990's source-grounded next unit,
+  dry line pixels plus startup film never rewetted in recorded native states.
+  Both water and floor inside every physical source radius stay exact. The first real
+  short improves Areas but exposes a transient-storage loss: a Papa-Couve pool
+  dries earlier when its neighbouring startup film is removed. The corrected
+  unit preserves startup water throughout the existing native wet-patch guard.
+  A short-lived initial pool is not proof of sustained stream supply.
+  Corrected actual Rio/Asheville zero/five opening+Areas precede shipping
+  integration at `d5b4a8d`, ten complete Python/Pyodide parity cases and five
+  fresh sixty-minute games. No passing gate or required point regresses.
+  Rio flooding remains failed (0.061440 km² versus prior 0.060928); Charleston
+  ground truth remains failed (0.6891 versus 0.9). A dry protected Rio inlet
+  basin remains visible, not declared repaired. The new versioned fixture
+  contract is partial evidence, not issue acceptance or a gate waiver.
+  PL-996 independently verified it and found a current-main integration crash.
+  The repaired integration chains the PL-989 and PL-912 contracts; ten fresh
+  Python builds preserve native WaterSimulation and all grids exactly. Only
+  Rio/Innsbruck presentation packages change (Tropical/North), not their old
+  full-run identities. The wet-at-five startup-storage guard, rather than an
+  active-intake requirement, independently retains the small Rio dry oval.
+  Source163 has no sampled withdrawal; source91's separate intake counterexample
+  remains. See the correction and the unqualified presentation-delta boundary
+  in DRY_SUBREACHES.md.
+  The merged Rio package has a fresh actual zero/five opening+Areas short with
+  all 4,256 observations, no new required miss and empty cleanup. Source-pin
+  order canonicalization now keeps Charleston's identical live input bound;
+  pin values and actual native forcing remain strict. Ten final fixture tests
+  execute eleven complete browser builds, including the captured permutation.
+  True future basemap changes still fall back unqualified, not silently accepted.
+- [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): earlier whole-piece dry-only arm;
+  fresh Rio zero/five opening+Areas, unchanged required wetness, no visible
+  central Areas improvement. PL-990 corrected Sol's attribution: three deferred
+  fragments do not cause that central result. No full sweep followed.
+  A read-only reference run establishes actual hydraulic floor versus raw
+  terrain, exact paused native sampler replay, and a nonzero intake buffer
+  despite zero output. Precise support/dry-subreach design remains unproved.
+- [HELD_DEM_ADMISSION.md](HELD_DEM_ADMISSION.md): floor-reset counterexample,
+  lower vertices and Pittsburgh shared-polygon support loss. Rejected.
+- [PROFILE_ADMISSION.md](PROFILE_ADMISSION.md): broad omission loses required
+  water at startup; rejected. Corrected Charleston diagnosis attributes land
+  reference/resolution disagreement first, bed carving second. No mask or
+  acceptance change; original correlation/extreme failures remain.
+- PL-974's reviewed native shore mechanism and its limits are preserved in
+  `HELD_DEM_ADMISSION.md` and `fixtures/held-dem-rejected/shore-evidence.json`.
+  Sand alone is neither proof of a dry bed nor a sand-free rendering mandate.
+
+No smallest sustainable stream size or headwater-reservoir benefit was
+established here. Fresh native evidence for those questions belongs to PL-979.
+
 ## Surface tunnel excavation corrected · PL-926 · 2026-11-12
 
 The shared input capture now excludes explicit `brunnel=tunnel` river lines
@@ -717,3 +776,131 @@ inputs. Matched no-emission and no-land-prefill diagnostics isolate causes
 before another source-policy change. Charleston's independent prepared-grid
 comparison still fails (r=.6893 at reference zoom13); it is retained, not
 masked. No new coastal package is claimed accepted and no goldens are updated.
+
+## Rio minor channels: native shore is not an excavation mask (2026-11-14)
+
+PL-974 reviewed quarantine `23c3787` and native experiment `a4b9653` against
+the accepted default. The held-DEM experiment remains rejected: its opening
+water is narrower and less continuous, and it does not remove the sandy band.
+This corrects the earlier premise that visible sand directly measures
+unsupported terrain excavation.
+
+### Native mechanism and evidence
+
+The installed `Assembly-CSharp.dll` remains SHA-256
+`c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1`.
+The retained native decompilation identifies these separate mechanisms:
+
+- `TerrainManager.CountWaterCoverage` derives a **shore** byte from wet cells
+  within 20 m of each resource-cell centre. It uses water depth at least
+  0.125 m and the wet cells' mean capped surface plus 4 m, relative to the
+  surrounding mean ground. These are native resource calculations, not new
+  water-acceptance thresholds.
+- `NaturalResourceManager.UpdateTexture` feeds `_NaturalResources` from the
+  33.75 m resource grid using a weighted 3×3 neighborhood. Its blue channel
+  depends on shore minus a forest contribution. The separate sand resource
+  feeds a different channel and is **zero everywhere** in the tested package.
+- In normal game simulation, each resource cell updates once per 1,024
+  simulation frames; a shore byte falls by at most two per update. The short
+  run spans 18,336 frames, allowing at most 36 byte levels of decline. Thus a
+  five-minute image can retain a starting-water shoreline after water drains.
+  Clearing a fully saturated byte takes roughly 36 game minutes under this
+  update schedule; this is an extrapolation, not a newly run long soak.
+
+The package's initial shore and water-resource bytes exactly match
+`resources.water_cells()` on its actual native initial grids. No game run or
+package build was needed for the independent replay of PL-974's finding.
+
+Projecting those fields into the actual five-minute Areas frames gives this
+diagnostic cross-tabulation. Each arm uses its **own decoded forest field**.
+The pixel-color classification and the 0.70 high-shore split are empirical
+analysis tools, **not acceptance masks or proposed runtime selectors**.
+
+| Dry, classified vertices | Candidate | Default |
+| --- | ---: | ---: |
+| High shore, uncut terrain | 85% sand / 1,576 vertices | 80% / 155 |
+| High shore, cut at least 0.5 m | 95% sand / 1,052 | 92% / 2,129 |
+| Low shore, cut at least 0.5 m | 0% sand / 324 | 0% / 1,596 |
+
+Sand therefore appears on ground that was never cut; conversely, much dry cut
+ground outside the shore field renders as grass. The roughly 100 m band seen
+at this location follows the coarse native shore field better than the cut
+edge. Narrowing or raising an excavation cannot be assumed to remove it.
+The shader itself is compiled and was **not** read. The five-minute shore
+field is an endpoint/update-rate estimate, not a native texture readback.
+These observations do not prove an impossibility theorem for every terrain
+or theme, or qualify the behavior of untested maps.
+
+### Consequence for the next unit
+
+**Resolved by the lead November 15:** a genuinely wet stream may retain native
+sandy shore. Every existing gate stays intact; only native-proven dry reaches
+are candidates for uncarving. See `NATIVE_ADMISSION.md` for the unqualified
+next unit and reserved-slot execution order. The following recommendation was
+the question answered by that decision, not a continuing blocker.
+
+The acceptance interpretation needs the steward: **does a genuinely wet stream
+with CS1's native sandy shore count as kept wet?** Recommendation: yes, judge
+visible water continuity and unsupported dry excavation separately from that
+native material. Keep the default over the rejected held-DEM arm. Only then
+qualify a generic rule that uncarves reaches proven dry in the native short
+run, retaining the complete existing observations and gates.
+
+If the actual opening must instead be grassy with no stream, removing this
+connector conflicts with the unchanged required-water cohort: the previous
+review calculated 94.34% versus the 95% gate. Reclassifying those observations
+or changing native rendering/theme would be a scope decision, not an agent
+implementation detail. No gate or rendering override has been introduced.
+
+### Separate defect: Saw Mill Run's 59 model losses
+
+The inherited cut was removed from whole source features and their associated
+polygons, while the replacement plan excavated only within three terrain cells
+(48 m) of routed paths. Of the 59 newly unsupported mapped positions, 56 lie in
+the river polygon; the removed browser cut averages 6.42 m. They lie outside
+the remodeled corridor. Freezing routes does not fix this **scope mismatch**.
+
+Any future cut-removal arm must preserve inherited cut and supported water
+outside the area it actually re-models, then prove zero newly unsupported
+positions before native testing. This is not a probe exemption. The present
+arm stays closed, so no repair or new qualification is claimed here.
+
+### November 16 · supplied-patch boundary, actual partial result
+
+[TRANSIENT_MARGIN.md](TRANSIENT_MARGIN.md) and
+`fixtures/native-transient-short.json` bind the next PL-912 native result on
+[draft PR48](https://github.com/frontierkodiak/region-to-skylines/pull/48).
+The tested source is `58de2bd`, after PL-1001's narrower boundary design and
+the intake-capacity correction. Current accepted main remains PR42's partial
+baseline `896f6dd`; none of this experimental admission is a shipping default.
+
+Actual Rio zero/five opening and Areas restore the oval's northwest dry lobe.
+All 4,256 observations remain, required zero/five are 1,556/1,545 with eleven
+shared and no new misses, and twenty released intakes remain inactive at all
+six readings. But ten of 1,332 nearby sustained reference cells are dry at five,
+falsifying the proposed support argument. The complete native readbacks and
+both successful and failed obligations are retained, not inferred from photos.
+No Asheville or full run followed. This does not establish a minimum sustainable
+stream size, reservoir benefit or a new passing flood/correlation result.
+PL-979 can build on the mechanism/counterexample evidence without inheriting
+an unqualified candidate or unagreed remaining PL-912 work.
+
+### PL-1002 disposition and fresh five-map evidence
+
+The first-short failure above is preserved, not retroactively marked passed.
+PL-1002 independently found that unchanged baseline reruns also fail its
+single-positive-cell auxiliary test. Its calibrated per-pool stage replacement
+and the actual subsequent Asheville short are in [TRANSIENT_MARGIN.md](TRANSIENT_MARGIN.md).
+No original observation, required flag, mask or threshold changed.
+
+The proposed shipping records at clean `21a0a52` reproduce ten complete Python
+and ten browser exports. Five fresh shipping sixty-minute games retain the
+same required endpoint/throughout cohort as PR42, with no previously passing
+gate failure; all 116 calibrated pools pass at five and later dumped epochs.
+The versioned `pl912-transient-storage-v1` contract binds those actual new
+packages, not PR42's hashes. Actual raw views and phone sheets show the Rio
+oval lobe restored, a genuinely wet smaller pool, and remaining dry flanks
+without declaring all excavation fixed. Rio flood area increases to
+0.062464 km² (limit 0.05); Charleston r=0.6891/extreme failures remain.
+These are unwaived partial-baseline results, not issue acceptance, a minimum
+sustainable stream size, a reservoir benefit or an every-frame hydraulic proof.

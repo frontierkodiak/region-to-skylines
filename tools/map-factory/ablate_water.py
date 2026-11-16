@@ -76,10 +76,12 @@ def prepare(source, output, arm):
     (output / "hydrology.json").write_text(json.dumps(hydro, indent=2) + "\n")
     plan = receipt.get("resource_plan")
     resources = None
+    environment = None
     if plan:
         assert digest(source / plan["file"]) == plan["sha256"]
         shutil.copyfile(source / plan["file"], output / "plan.npz")
-        resources = (load_plan(output / "plan.npz"), TREE_NAMES)
+        grids, environment, _ = load_plan(output / "plan.npz")
+        resources = (grids, TREE_NAMES)
     package = write_map(
         ROOT / "templates/native-corridors.crp",
         ROOT / "templates/native-corridors.json",
@@ -88,6 +90,7 @@ def prepare(source, output, arm):
         output / "hydrology.json",
         output / (hydro["map_id"] + ".crp"),
         resources=resources,
+        environment=environment,
     )
     result = {
         "package": package,

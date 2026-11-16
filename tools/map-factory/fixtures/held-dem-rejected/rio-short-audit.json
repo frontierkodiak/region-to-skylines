@@ -1,0 +1,421 @@
+{
+  "native_observed": true,
+  "full_60_minute_qualification": false,
+  "source_head": "a4b96532fd9f5d2fcce1a88bccd1f09baaeb91dc",
+  "crp_sha256": "0c08958566c656f21f575211e4a965c6d03e6cfd96b68cb8d9ed1e3c1360075b",
+  "elapsed_game_minutes": 5.087222487541537,
+  "frozen_probes_sha256": "5a9bb1e42b5d47841a4bc89426c8240ab2902bb7211d004311896332690a7f62",
+  "points_unchanged": true,
+  "initial_grids_exact": true,
+  "final_terrain_exact": true,
+  "threshold": 0.95,
+  "samples": {
+    "t000": {
+      "observed": 4256,
+      "required": 1556,
+      "wet_or_near": 1556,
+      "fraction": 1.0,
+      "dry": []
+    },
+    "t005": {
+      "observed": 4256,
+      "required": 1556,
+      "wet_or_near": 1535,
+      "fraction": 0.9865038560411311,
+      "dry": [
+        {
+          "x": -3664,
+          "z": 1200,
+          "terrain": 115.03125,
+          "ground": 115.03125,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Maracan\u00e3 [river] #12:10"
+        },
+        {
+          "x": -3648,
+          "z": 1216,
+          "terrain": 114.265625,
+          "ground": 114.265625,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Maracan\u00e3 [river] #12:11"
+        },
+        {
+          "x": -1632,
+          "z": 2336,
+          "terrain": 100.359375,
+          "ground": 100.359375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #4:06"
+        },
+        {
+          "x": -1744,
+          "z": 2224,
+          "terrain": 98.546875,
+          "ground": 98.546875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #4:13"
+        },
+        {
+          "x": -2128,
+          "z": 2112,
+          "terrain": 99.671875,
+          "ground": 99.671875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.09375,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:11"
+        },
+        {
+          "x": -2144,
+          "z": 2112,
+          "terrain": 99.1875,
+          "ground": 99.1875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.03125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:12"
+        },
+        {
+          "x": -2160,
+          "z": 2112,
+          "terrain": 99.09375,
+          "ground": 99.09375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.015625,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:13"
+        },
+        {
+          "x": -2176,
+          "z": 2112,
+          "terrain": 99.4375,
+          "ground": 99.4375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:14"
+        },
+        {
+          "x": -2192,
+          "z": 2112,
+          "terrain": 100.046875,
+          "ground": 100.046875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.015625,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:15"
+        },
+        {
+          "x": -3376,
+          "z": 2640,
+          "terrain": 102.09375,
+          "ground": 102.09375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.046875,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Joana [river] #6:30"
+        },
+        {
+          "x": -3392,
+          "z": 2640,
+          "terrain": 102.328125,
+          "ground": 102.328125,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.03125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Joana [river] #6:31"
+        },
+        {
+          "x": -3392,
+          "z": 2640,
+          "terrain": 102.328125,
+          "ground": 102.328125,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.03125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Joana [river] @328,375"
+        },
+        {
+          "x": -3376,
+          "z": 2640,
+          "terrain": 102.09375,
+          "ground": 102.09375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.046875,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Joana [river] @329,375"
+        },
+        {
+          "x": -3648,
+          "z": 1216,
+          "terrain": 114.265625,
+          "ground": 114.265625,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Maracan\u00e3 [river] @312,464"
+        },
+        {
+          "x": -3664,
+          "z": 1200,
+          "terrain": 115.03125,
+          "ground": 115.03125,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Maracan\u00e3 [river] @311,465"
+        },
+        {
+          "x": -1632,
+          "z": 2336,
+          "terrain": 100.359375,
+          "ground": 100.359375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @438,394"
+        },
+        {
+          "x": -2192,
+          "z": 2112,
+          "terrain": 100.046875,
+          "ground": 100.046875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.015625,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @403,408"
+        },
+        {
+          "x": -2176,
+          "z": 2112,
+          "terrain": 99.4375,
+          "ground": 99.4375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @404,408"
+        },
+        {
+          "x": -2160,
+          "z": 2112,
+          "terrain": 99.09375,
+          "ground": 99.09375,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.015625,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @405,408"
+        },
+        {
+          "x": -2144,
+          "z": 2112,
+          "terrain": 99.1875,
+          "ground": 99.1875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.03125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @406,408"
+        },
+        {
+          "x": -2128,
+          "z": 2112,
+          "terrain": 99.671875,
+          "ground": 99.671875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.09375,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @407,408"
+        }
+      ]
+    }
+  },
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "receipt_sha256": {
+    "diagnostic.json": "6643a8ca844691629f0863c7c58a3546e12cfd56e97ebbc9c0d0d6899a382335",
+    "measurement-requests.json": "e2d8accae80618a34bcc7bae9486c80b3ed585a7a029b2558b38ccf02a43070c",
+    "session-receipt.json": "656d7b35ce34ef63067782dabb10d226c87462d079eacba2ee7cf37bcfd36451",
+    "t000-world-water.json": "5adfccdc72be0359744841afbaa5eb70db03cca4724800a96dc46364e1c12b9f",
+    "t005-world-water.json": "084705ab9c5c1e171daffee2e068c33d7de14d9ba2e08f6f0796d4c65824610e"
+  },
+  "short_required_gate_passes": true,
+  "zero_new_dry_from_all_wet_baseline_t000": false
+}

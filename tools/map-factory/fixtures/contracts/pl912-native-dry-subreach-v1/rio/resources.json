@@ -1,0 +1,60 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 176290,
+  "unlockable": {
+    "ore": 1071881,
+    "oil": 577872,
+    "forest": 4402950,
+    "fertility": 317066,
+    "water": 3601437
+  },
+  "cells": {
+    "ore": 9203,
+    "oil": 5249,
+    "fertility": 3245,
+    "forest": 39802
+  },
+  "evidence": [],
+  "placed": [],
+  "theme": null,
+  "package": {
+    "output": "/home/caleb/experiments/PL-912-native-export/python/reference/rio/PL857-rio.crp",
+    "sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+    "bytes": 6133503,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "e6684c8dcc132e39c651d9828a6b30a84f2fc68de90a9bed60ad7390e689f74e"
+  }
+}

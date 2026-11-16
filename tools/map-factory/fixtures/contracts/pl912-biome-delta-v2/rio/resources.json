@@ -1,0 +1,83 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "environment": "auto",
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 176290,
+  "tree_budget": {
+    "planted": 176290,
+    "editor_cap": 250000,
+    "planting_headroom": 73710,
+    "manager_slots": 262143,
+    "free_slots": 85853
+  },
+  "unlockable": {
+    "ore": 1071881,
+    "oil": 577872,
+    "forest": 4402950,
+    "fertility": 317066,
+    "water": 3601437
+  },
+  "cells": {
+    "ore": 9203,
+    "oil": 5249,
+    "fertility": 3245,
+    "forest": 39802
+  },
+  "evidence": [],
+  "placed": [],
+  "environment": "Tropical",
+  "biome": {
+    "latitude": -22.94,
+    "longitude": -43.205,
+    "p75_ground_m": 284.4,
+    "p75_above_floor_m": 234.4,
+    "high_ground_share": 0.1064,
+    "p75_real_m": 214.8,
+    "fit": {
+      "base": -40.0,
+      "verticalScale": 0.9198811898929851
+    },
+    "environment": "Tropical",
+    "rule": "tropical lowland"
+  },
+  "package": {
+    "output": "/mango/training/experiments/PL-912-biome-integration/canonical-order/python/reference/rio/PL857-rio.crp",
+    "sha256": "944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e",
+    "bytes": 6134022,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "environment",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "8918c2e08304b274de01a22b006b561d097cde6ba54345619d6b7fa608214277"
+  }
+}

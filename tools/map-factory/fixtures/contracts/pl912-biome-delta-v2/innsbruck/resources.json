@@ -1,0 +1,83 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "environment": "auto",
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179911,
+  "tree_budget": {
+    "planted": 179911,
+    "editor_cap": 250000,
+    "planting_headroom": 70089,
+    "manager_slots": 262143,
+    "free_slots": 82232
+  },
+  "unlockable": {
+    "ore": 1156708,
+    "oil": 579415,
+    "forest": 5119905,
+    "fertility": 2841596,
+    "water": 148873
+  },
+  "cells": {
+    "ore": 8888,
+    "oil": 4846,
+    "fertility": 43767,
+    "forest": 40014
+  },
+  "evidence": [],
+  "placed": [],
+  "environment": "North",
+  "biome": {
+    "latitude": 47.27,
+    "longitude": 11.4,
+    "p75_ground_m": 572.5,
+    "p75_above_floor_m": 522.5,
+    "high_ground_share": 0.3335,
+    "p75_real_m": 1723.4,
+    "fit": {
+      "base": 554.3947143554688,
+      "verticalScale": 0.4469348561033608
+    },
+    "environment": "North",
+    "rule": "mountain ground"
+  },
+  "package": {
+    "output": "/mango/training/experiments/PL-912-biome-integration/canonical-order/python/reference/innsbruck/PL857-innsbruck.crp",
+    "sha256": "9bc58d4ca7e83088d5ebf84c48359039511bfde3db6c425808c10c0cae433595",
+    "bytes": 5765247,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "environment",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "b5eac6b99ae7a2930b24b985abde4419d0cffd068a5385c8380f78ca7e8b9c69"
+  }
+}

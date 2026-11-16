@@ -1,0 +1,435 @@
+{
+  "format": 1,
+  "status": "visible_partial_short_support_check_failed_not_accepted",
+  "shipping_default_changed": false,
+  "native_60_minute_qualification": false,
+  "native_tested_head": "58de2bd655d6dda041bb66f56d47faa29ea1013f",
+  "baseline_merge": "896f6ddb318b2d7bbe712ec5fdf4919415d296f1",
+  "source_files_sha256": {
+    "tools/map-factory/native_transient.py": "675d77679cbe708bba885a5815f24934c7346e61f871f3e52027b8181c2c94f2",
+    "tools/map-factory/native_subreaches.py": "81111616922f1f94de411109471e44689b1340f5589fa543b9c3c51a957b0b1c",
+    "tools/map-factory/native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+    "tools/map-factory/native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+    "tools/map-factory/admission.py": "9714c7c1325c0c290cc0c6707f40ceb5a06c129f900d48fd5ebca423809df6f7",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39",
+    "tools/map-factory/native_opening_diagnostic.py": "c122cdec684bfc4cc0ad3a3d47b845d4cfdae27b0aabeabd9b0b44958aad60c7"
+  },
+  "case": {
+    "case": "rio",
+    "source_head": "58de2bd655d6dda041bb66f56d47faa29ea1013f",
+    "package_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+    "elapsed_game_minutes": 5.129166934173554,
+    "complete_observations": 4256,
+    "required_zero": 1556,
+    "required_five": 1545,
+    "new_required_five_misses": [],
+    "shared_five_misses": [
+      "Rio Trapicheiros [river] #8:11",
+      "Rio Trapicheiros [river] #8:12",
+      "Rio Trapicheiros [river] #8:13",
+      "Rio Trapicheiros [river] #8:14",
+      "Rio Trapicheiros [river] #8:15",
+      "geography:Rio Trapicheiros [river] @403,408",
+      "geography:Rio Trapicheiros [river] @404,408",
+      "geography:Rio Trapicheiros [river] @405,408",
+      "geography:Rio Trapicheiros [river] @406,408",
+      "geography:Rio Trapicheiros [river] @407,408",
+      "geography:Rio dos Macacos [river] @458,730"
+    ],
+    "old_only_five_misses": [],
+    "sustained_near_released_ring": {
+      "reference_cells": 1332,
+      "missing_at_five": 10,
+      "missing_world": [
+        [
+          -8624,
+          -4096
+        ],
+        [
+          -8608,
+          -4096
+        ],
+        [
+          -8592,
+          -4096
+        ],
+        [
+          -3328,
+          1568
+        ],
+        [
+          -2960,
+          2960
+        ],
+        [
+          -6720,
+          5424
+        ],
+        [
+          -2256,
+          6448
+        ],
+        [
+          -2336,
+          6480
+        ],
+        [
+          -7040,
+          7600
+        ],
+        [
+          -6416,
+          7632
+        ]
+      ]
+    },
+    "intake_violations": [],
+    "minute_readings": [
+      {
+        "label": "t000",
+        "file": "t000-world-water.json",
+        "sha256": "e8c3717e9f372e7d689907cf33bb32806823be56144f973b61178876a305b7c8",
+        "released_intakes_checked": 20
+      },
+      {
+        "label": "1.108055613345156",
+        "file": "minute-1-water.json",
+        "sha256": "e025aa06e7a555670d8eeaf68ff9a643183e50b1bb00815cf80c735c12dceae6",
+        "released_intakes_checked": 20
+      },
+      {
+        "label": "2.0713889969202377",
+        "file": "minute-2-water.json",
+        "sha256": "ead1ae92b40551b166bc1cf882656bdeb171b70d1457ce12fc85a28b7f527465",
+        "released_intakes_checked": 20
+      },
+      {
+        "label": "3.04305571426327",
+        "file": "minute-3-water.json",
+        "sha256": "cc75fbd3dffb53e0bc0f5caa2554e6c48fbcef7e881fbdeb0794dae09c8f0361",
+        "released_intakes_checked": 20
+      },
+      {
+        "label": "4.0269446544659635",
+        "file": "minute-4-water.json",
+        "sha256": "c87bf16b65255d4b2063b3bbfdc51f43ffde86f148c1516688bb0cc1fa93f3db",
+        "released_intakes_checked": 20
+      },
+      {
+        "label": "t005",
+        "file": "t005-world-water.json",
+        "sha256": "d26bc1c26a49be9f1425939f78ff808c61ec8ca1d998870189003b81e602b4e6",
+        "released_intakes_checked": 20
+      }
+    ],
+    "floor": {
+      "t000": {
+        "offsets": 54,
+        "offset_pattern_exact": true,
+        "floor_equals_target": true,
+        "native_replay_mismatches": 0
+      },
+      "t005": {
+        "offsets": 54,
+        "offset_pattern_exact": true,
+        "floor_equals_target": true,
+        "native_replay_mismatches": 0
+      }
+    },
+    "camera": {
+      "t000": {
+        "opening": {
+          "current_position": true,
+          "current_size": true,
+          "current_angle_degrees": true,
+          "render_position": true,
+          "render_forward": true,
+          "render_up": true,
+          "field_of_view_degrees": true,
+          "pixel_rect": true,
+          "screen_width": true,
+          "screen_height": true
+        },
+        "area_zoom": {
+          "current_position": true,
+          "current_size": true,
+          "current_angle_degrees": true,
+          "render_position": true,
+          "render_forward": true,
+          "render_up": true,
+          "field_of_view_degrees": true,
+          "pixel_rect": true,
+          "screen_width": true,
+          "screen_height": true
+        }
+      },
+      "t005": {
+        "opening": {
+          "current_position": true,
+          "current_size": true,
+          "current_angle_degrees": true,
+          "render_position": true,
+          "render_forward": true,
+          "render_up": true,
+          "field_of_view_degrees": true,
+          "pixel_rect": true,
+          "screen_width": true,
+          "screen_height": true
+        },
+        "area_zoom": {
+          "current_position": true,
+          "current_size": true,
+          "current_angle_degrees": true,
+          "render_position": true,
+          "render_forward": true,
+          "render_up": true,
+          "field_of_view_degrees": true,
+          "pixel_rect": true,
+          "screen_width": true,
+          "screen_height": true
+        }
+      }
+    },
+    "native_60_minute_qualification": false,
+    "gpu": {
+      "peak_total_vram_mib": 10821,
+      "sampled_game_peak_mib": 2792,
+      "peak_power_w": 130.17,
+      "peak_temperature_c": 57,
+      "note": "Own-PID samples, not a continuous loading peak; shared cap unchanged."
+    },
+    "cleanup": {
+      "game": [],
+      "steam_instances": [],
+      "units_active": []
+    },
+    "numeric_short_pass": false
+  },
+  "depth_diagnosis": {
+    "units_per_m": 64,
+    "cells": [
+      {
+        "world": [
+          -8624,
+          -4096
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 4,
+          "reft015": 2,
+          "reft030": 1,
+          "reft045": 9,
+          "reft060": 1,
+          "merged_tropical_621": 5,
+          "same_sunny_short_3ad": 3,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 19281,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -8608,
+          -4096
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 3,
+          "reft015": 2,
+          "reft030": 1,
+          "reft045": 6,
+          "reft060": 3,
+          "merged_tropical_621": 2,
+          "same_sunny_short_3ad": 3,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 19382,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -8592,
+          -4096
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 2,
+          "reft015": 2,
+          "reft030": 1,
+          "reft045": 2,
+          "reft060": 2,
+          "merged_tropical_621": 1,
+          "same_sunny_short_3ad": 2,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 19486,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -3328,
+          1568
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 6,
+          "reft015": 1,
+          "reft030": 5,
+          "reft045": 4,
+          "reft060": 3,
+          "merged_tropical_621": 4,
+          "same_sunny_short_3ad": 2,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 6806,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -2960,
+          2960
+        ],
+        "depth_units": {
+          "reft000": 32,
+          "reft005": 1,
+          "reft015": 1,
+          "reft030": 1,
+          "reft045": 1,
+          "reft060": 1,
+          "merged_tropical_621": 1,
+          "same_sunny_short_3ad": 0,
+          "candidate0": 32,
+          "candidate5": 0
+        },
+        "floor_units": 6106,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -6720,
+          5424
+        ],
+        "depth_units": {
+          "reft000": 48,
+          "reft005": 1,
+          "reft015": 1,
+          "reft030": 2,
+          "reft045": 1,
+          "reft060": 2,
+          "merged_tropical_621": 1,
+          "same_sunny_short_3ad": 2,
+          "candidate0": 48,
+          "candidate5": 0
+        },
+        "floor_units": 6711,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -2256,
+          6448
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 7,
+          "reft015": 7,
+          "reft030": 9,
+          "reft045": 8,
+          "reft060": 4,
+          "merged_tropical_621": 4,
+          "same_sunny_short_3ad": 7,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 5636,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -2336,
+          6480
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 4,
+          "reft015": 13,
+          "reft030": 3,
+          "reft045": 1,
+          "reft060": 3,
+          "merged_tropical_621": 10,
+          "same_sunny_short_3ad": 3,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 5639,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -7040,
+          7600
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 1,
+          "reft015": 1,
+          "reft030": 1,
+          "reft045": 1,
+          "reft060": 1,
+          "merged_tropical_621": 1,
+          "same_sunny_short_3ad": 1,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 6061,
+        "raw_terrain_exact": true
+      },
+      {
+        "world": [
+          -6416,
+          7632
+        ],
+        "depth_units": {
+          "reft000": 64,
+          "reft005": 4,
+          "reft015": 4,
+          "reft030": 4,
+          "reft045": 4,
+          "reft060": 2,
+          "merged_tropical_621": 5,
+          "same_sunny_short_3ad": 5,
+          "candidate0": 64,
+          "candidate5": 0
+        },
+        "floor_units": 5877,
+        "raw_terrain_exact": true
+      }
+    ],
+    "note": "Read-only same-input prior short comparison; no acceptance mask changed."
+  },
+  "receipt_sha256": {
+    "diagnostic.json": "645c0a79149b91b258d8598c0503803e89b4723555dfdda5616a106bdc78e3ca",
+    "session-receipt.json": "a09657d285d436e1ad81bdc4c2f438e9d9f9c30a7b673619446e27335968d329",
+    "measurement-requests.json": "2d9fdd1f6495a70f7061393c5faabbcc9c13ac66dcc9339de68ec02bb05fd48a",
+    "t000-world-water.json": "e8c3717e9f372e7d689907cf33bb32806823be56144f973b61178876a305b7c8",
+    "t005-world-water.json": "d26bc1c26a49be9f1425939f78ff808c61ec8ca1d998870189003b81e602b4e6"
+  },
+  "native_images_sha256": {
+    "t000-opening.png": "a2a1816f1ce879709bd2d59a82584da32a5e00c41e0459d08d6a056504d3e362",
+    "t005-area_zoom.png": "2f6c3864398d91d85c79d90c0ef7ce413723af1a1eb3bec10f9379ef27fe100e",
+    "t000-area_zoom.png": "18b9c61e11f028e95294cd3c13201ce80c70323e29b345d0cc3a9a5be95bcd2d",
+    "t005-opening.png": "a2294a4440a342f83d1dffe35863289a66d7b324a729424f6f8a70bffa3c2222"
+  },
+  "next": "Source-bound actual-result disposition before any next map or sweep."
+}
