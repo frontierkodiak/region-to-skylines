@@ -50,8 +50,8 @@ Papa-Couve and Trapicheiros must remain intact and the oval reach held banks.
 
 Then actual Rio and Asheville zero/five opening **and Areas**, with complete
 cohorts and per-minute water/source readings, must test the hypothesis. Every
-sustained reference cell within two cells of a raised released-ring vertex
-must remain positive at five; every released intake must have zero buffer and
+sustained reference pool within two cells of a raised released-ring vertex
+must retain its stage under the calibrated PL-1002 test below; every released intake must have zero buffer and
 flow at every per-minute reading. Controls/grids/floors/cameras and cleanup
 must be bound, and actual phone sheets inspected. No visual or hydraulic
 success is implied by planning. Only visibly successful shorts justify
@@ -103,3 +103,43 @@ so component source connectivity alone cannot repair the classification.
 Neither diagnostic generated another package or game; neither is a selector
 promoted to hide the exposed subset. Actual momentum/initial-storage dependence
 and the significance of this thin wet fringe need a source-bound disposition.
+
+## PL-1002 disposition and Asheville short
+
+Opus independently reproduced the ten-cell observation and found that the
+unchanged baseline fails the same single-cell test (two/three zero cells in
+two reruns). Its zero-tolerance obligation selected positive cells from one
+reference frame, below the native eight-unit wet threshold, without measuring
+baseline timing variation. It is an auxiliary diagnostic, not an original
+acceptance gate. The original observations, flags, masks and thresholds stay.
+
+The replacement tests each eight-connected reference-sustained pool within two
+cells of a released raise. Candidate mean depth at five must be at least the
+lowest reference mean over five/fifteen/thirty/forty-five/sixty, minus the larger
+of that pool's reference range and the map's reference grid/live timing swing.
+The swing is the absolute median of per-pool mean surface shifts between the
+reference five-minute grid and its subsequent live probe sample, for inland
+pools within two cells of a raise and with at least five probes wet in both.
+Rio's independently reproduced swing is 0.642857 native units (1/64 m each).
+The candidate passes all forty pools, worst margin 0.262326 units. Single-cell
+zeros remain reported, not hidden. This disposition permits the next short,
+not shipping or issue acceptance; it is not a waiver of any original gate.
+
+Asheville's swing was fixed from its reference before launch: 0.316667 units.
+The unchanged candidate package `f09410b048f99c7e521c04a7e9c43f4d2f98a8bbfbd3f577bc28ac6d5114f7fe`
+ran 5.132222 game minutes at `80bdeda`, whose material code is the tested
+`58de2bd` snapshot. All 7,745 observations remain; all 1,261 required points
+are wet-or-near at zero and five, with no new miss. All forty-four pool checks
+pass (minimum margin zero); thirteen of 1,226 nearby single cells are zero at
+five and remain in the report. Nineteen released intakes have zero buffer/flow
+at six readings. Initial grids, final terrain, native floor/target/offsets,
+controls and cameras match; native sampler replay is exact for 15,490 readings.
+Actual zero/five opening and Areas images and matched phone sheets were viewed.
+The grassy western opening is retained beside genuine water/native shore.
+Cleanup is empty; normal quit-grace owned termination is not a game crash.
+
+Shipping replay composes these monotone targets with the existing input-bound
+ordinary-to-PR42 edits; it does not run the planner or consult probes at export.
+Exact input/forcing bindings and unmatched-input fallback remain unchanged.
+New package byte agreement and fresh full evaluations are separate obligations,
+not inherited from PR42's native receipts.
