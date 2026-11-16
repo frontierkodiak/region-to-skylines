@@ -2519,7 +2519,10 @@ engine remains`c7f0e723…`, Linux runtime`4cfea7a0…`. No proprietary code or
 assemblies are redistributed. All child processes finish in the foreground.
 GPU/VRAM/power/temperature and game wall time are not applicable.
 
-Build and full harness Ruff checks pass. Doctor was attempted once and exited75
-because PL-982 holds the shared slot; its holder was not touched and no waiter
-remains owned. Session/mod/generator/fixture source is unchanged. No game is
-justified by this failed observer premise.
+Build and full harness Ruff checks pass. Initial doctor exited75 behind PL-982;
+a bounded FIFO wait then acquired the slot at16:48:31UTC and doctor passed on
+the RTX2080Ti/05:00.0 with8,004MiB pre-existing use. Its display/bus lifecycle
+completed and no waiter remains owned. The holder was not touched. No game or
+Steam started, and no game-only GPU peak is inferred from doctor. Session/mod,
+all19 shipping-runtime files and all351 fixture files remain exact to PR48's
+merge2e1cf1f. No game is justified by this failed observer premise.
