@@ -72,6 +72,24 @@ def ring_release(retained, sustained, initial):
     return release, transient_near, (high > 0) & (high != low)
 
 
+def initial_storage(water, retained, sustained, guard):
+    """Freeze water as well as floor on every unreleased startup ring.
+
+    Restoring one stored cell can extend an unreleased ring. Reach the finite
+    monotone closure instead of clearing that newly retained supply neighbour.
+    Independent drained components with no retained neighbour can still clear.
+    """
+    initial = water.copy()
+    initial[(water > 0) & ~retained & ~guard] = 0
+    while True:
+        release, transient_near, bridge = ring_release(retained, sustained, initial)
+        startup_ring = dilate(initial > 0)
+        refill = startup_ring & ~release & (initial != water)
+        if not refill.any():
+            return initial, release, startup_ring, transient_near, bridge
+        initial[refill] = water[refill]
+
+
 def footprint(source, rate, shape=(1081, 1081)):
     yy, xx = np.mgrid[: shape[0], : shape[1]]
     dx = np.asarray(xx * 16 - 8640 - np.float32(source["x"]), dtype=np.float32)
@@ -119,8 +137,9 @@ def restore(
     terrain, water, original, banks, geometry, eligible, retained, sustained, hard
 ):
     guard = hard | dilate(retained)
-    initial = water.copy()
-    initial[(water > 0) & ~retained & ~guard] = 0
+    initial, release, startup_ring, transient_near, bridge = initial_storage(
+        water, retained, sustained, guard
+    )
     browser = stroke(geometry["sq"], geometry.get("rivers", []))
     restored, cuts = restore_line_cuts(
         original, banks, geometry, browser & eligible, browser & ~eligible
@@ -136,13 +155,14 @@ def restore(
     zone = (near <= 3) & (near < distance(lines & ~eligible))
     proposed[zone] = np.maximum(proposed[zone], restored[zone])
     candidate = np.maximum(terrain, quantize(proposed))
-    release, transient_near, bridge = ring_release(retained, sustained, initial)
-    startup_ring = dilate(initial > 0)
     frozen = guard | (startup_ring & ~release)
     candidate[frozen] = terrain[frozen]
     assert np.all(candidate >= terrain) and np.all(initial <= water)
     assert np.array_equal(candidate[hard], terrain[hard])
     assert np.array_equal(initial[guard], water[guard])
+    assert np.array_equal(
+        initial[startup_ring & ~release], water[startup_ring & ~release]
+    )
     assert not ((candidate != terrain) & startup_ring & ~release).any()
     released_raises = (candidate > terrain) & startup_ring
     assert not (released_raises & (transient_near | bridge)).any()

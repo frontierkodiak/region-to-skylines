@@ -20,6 +20,8 @@ exact d5 full-native grids. No current registry, default or fixture changes.
   reach is one sustained patch, every retained vertex nearby is positive at
   every dumped epoch from five through sixty, and no adjacent startup film
   loses its route to retained water. Transient pools and two-patch bridges win.
+  Floor and water both stay exact on unreleased rings; water retention reaches
+  a monotone closure when a retained neighbour extends such a ring.
 - An input-only source needs zero actual buffer and flow at every recorded
   sample, not merely zero output. In footprints containing water above target,
   freeze every below-target floor, keeping dry capacity exactly invariant for

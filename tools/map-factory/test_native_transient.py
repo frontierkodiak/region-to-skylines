@@ -4,10 +4,31 @@ import unittest
 
 import numpy as np
 
-from native_transient import availability, dry_capacity, intake_constraint, ring_release
+from native_transient import (
+    availability,
+    dry_capacity,
+    initial_storage,
+    intake_constraint,
+    ring_release,
+)
 
 
 class TransientTests(unittest.TestCase):
+    def test_unreleased_ring_retains_the_complete_connected_startup_supply(self):
+        retained = np.zeros((15, 15), bool)
+        retained[7, 7] = True
+        water = np.zeros((15, 15), np.uint16)
+        water[7, 3:8] = 64
+        water[2, 2] = 64  # Independent drained film, not supply to the pool.
+        guard = np.zeros_like(retained)
+        guard[6:9, 6:9] = True
+        initial, release, ring, _, _ = initial_storage(
+            water, retained, np.zeros_like(retained), guard
+        )
+        np.testing.assert_array_equal(initial[7, 3:8], water[7, 3:8])
+        np.testing.assert_array_equal(initial[ring & ~release], water[ring & ~release])
+        self.assertEqual(initial[2, 2], 0)
+
     def test_single_sustained_patch_can_release_outer_ring(self):
         retained = np.zeros((15, 15), bool)
         retained[7, 7] = True
