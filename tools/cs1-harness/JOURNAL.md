@@ -2602,3 +2602,33 @@ run is invented for this explicitly recorded scheduling/reporting delta. The ord
 types or0Harmony reference/dependency. All19 generation runtime files and351
 old factory fixtures remain byte-exact. No proprietary DLL/decompiled code
 is delivered. See TRACE.md and map-factory/ATOMIC_TRACE.md.
+
+## 2026-11-16 · blade · PL-912 inlet-supply short rejected
+
+After verified instrument-only PR49 mergee03442d, an experimental helper at clean
+e49de7d patches only encoded natural-input rates:70 Rio/1 Pittsburgh controls;
+other three prepared packages remain exact. No production writer or mod/session
+code changed. Source-bound five-case CPU byte checks and91 writer tests (one
+opt-in skip) pass. One wrapper preflight incorrectly pre-created the output
+directory and failed before any lease/Steam/game; its empty output/log is kept.
+
+One actual silent FIFO private:57 Rio run, package947d3123, completes
+5.054722game minutes on GPU05:00.0. All4256 observations/1556 flags retained:
+1556required atzero,1555 atfive, ten recovered/zero new misses. Only two of the
+five unique Trapicheiros nodes are natively wet; one is7/64m film, two empty.
+Flooding atfive is.121344km²vs.05 (prior same-mask179cells/.045824, now474),
+with351new-only/56old-only cells. Two of40 calibrated Rio pool means are below
+bounds. This arm is rejected before another map/full run; no original gate is
+changed. All initial grids, rawterrain0/5, native floors/targets, cameras and8512
+sampled native ground/surface/wet readings match; only70 intended input-rate
+fields differ among290 controls. Oval centre remains.953125m deep.
+
+Card peak10821MiB/132.74W/57°C over350.548s of telemetry. Game-only sampled
+peak2794MiB over40 sparse PID readings, not continuous/loading peak.150W cap
+and the other8004MiB workload remain unchanged. Exact owned game1911201 needed
+normal quit-grace termination, not spontaneous crash recovery. Cleanup game[],
+Steam[],units_active[]; GPU observer collected. Final queue was free at that
+check, not a future reservation. No native trace observer/Harmony was installed
+for this arm; the ordinary mod was rebuilt. Evidence lives under PL-912
+inlet-supply; source-bound numerical rejection is in the additive fixture and
+INLET_SUPPLY.md. No new shipping JS/Pyodide or sixty-minute qualification.

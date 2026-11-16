@@ -71,16 +71,26 @@ surface heights or continuous native support invariant after a terrain change.
 
 Restoring the never-rewetted held-bank family in source92's footprint removes its
 16-unit dry capacity. On recorded pre-input vectors this changes total removal
-in164/286 updates, by485 units in aggregate, at most9 in one update. Source164's
+in164/286 updates: **all changes increase withdrawal**, by485 units in aggregate,
+at most9 in one update and none lower. Source164's
 fixed-state removal remainszero; source163's footprint is unaffected. Clearing
 water on those vectors is a separate mathematical counterfactual, not a proposal
 to clear arriving water every step. No candidate grid or CRP was produced.
 
-The next baseline question is whether dry bank contributions can be restored
-without severing the retained pool's native interpolation/startup support. The
-next hydraulics question is how grid alignment, configured footprint and
-target-limited actual output affect sustainable channel width. Neither a minimum
-stream size nor a reservoir benefit has been established by this observation.
+PL-1014's independent review redirects the next test to the inlet. Native92's
+101.6m drain disk spans nearly the whole112m approach from native91;97.5% of its
+withdrawal comes from above-target incoming-stream cells. Ten of the eleven shared
+five-minute misses coincide with five terminal nodes. A smaller inlet footprint
+is a testable hypothesis, not yet a qualified repair. The experimental
+[inlet supply audit](INLET_SUPPLY.md) separates rate caps from footprint changes.
+
+The recorded oval has eight still-carved pool nodes and eighteen shared-cell ring
+vertices. Every ring vertex is above the regulated surface and shares a native
+interpolation cell with the pool. Raising the ring invokes the already-observed
+interpolation counterexample; no further oval trace is required to establish
+that coupling. Genuinely wet native shore remains within the lead's accepted
+visual criterion. Neither a minimum sustainable stream size nor a reservoir
+benefit has been established by this observation.
 
 ## Tool validation history and limits
 
