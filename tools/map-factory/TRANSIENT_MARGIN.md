@@ -9,7 +9,8 @@ water by construction. Those arrays remain rejected, never defaults.
 The review endorses one bounded hypothesis for fresh native falsification.
 `native_transient.py` is an offline experimental planner, not imported by
 `generate.py` or the shipping JS/Pyodide dependency list. It starts from the
-exact d5 full-native grids. No current registry, default or fixture changes.
+exact d5 full-native grids. The first checkpoint changed no shipping registry
+or default. The proposed integration and its fresh evidence are recorded below.
 
 - Retain every later recorded water vertex and five-minute mapped-water
   components. Isolated off-line five-only remnants may be removed.
@@ -143,3 +144,61 @@ ordinary-to-PR42 edits; it does not run the planner or consult probes at export.
 Exact input/forcing bindings and unmatched-input fallback remain unchanged.
 New package byte agreement and fresh full evaluations are separate obligations,
 not inherited from PR42's native receipts.
+
+## Proposed shipping replay and five fresh full evaluations
+
+Clean `21a0a52` composes the offline planner's targets into the existing sparse
+admission records. Every old input/forcing binding remains exact, every prior
+restoration survives, no floor lowers and no startup water is added. Export
+does not run the planner or read qualification observations. Ten complete
+public Python builds and ten actual shipping JS/Pyodide builds agree exactly;
+each shipping package is the complete package used by its new native run.
+Reference resource variants are not five extra native games.
+
+After the actual Rio/Asheville shorts, one fresh sixty-minute game per map ran
+at that clean source, with all 30,982 observations and 7,524 required flags,
+original masks and thresholds. Actual selection, zero/five opening and Areas,
+and end tile/overview PNGs were inspected for all five.
+
+| Map | Game minutes | Required sampled-throughout | Failed original checks |
+| --- | ---: | --- | --- |
+| Rio | 60.097781 | 1,531 / 1,556 | flooding |
+| Asheville | 60.021114 | 1,261 / 1,261 | none |
+| Innsbruck | 60.103336 | 694 / 694 | none |
+| Pittsburgh | 60.139448 | 1,799 / 1,799 | none |
+| Charleston | 60.131114 | 2,208 / 2,214 | terrain ground truth |
+
+No required endpoint/throughout point is newly lost and no previously passing
+gate fails. All 116 reference-calibrated pools pass at five, with no later
+stage finding at fifteen/thirty/forty-five/sixty. Released intakes have zero
+actual buffer/flow at all thirteen recorded epochs. These are sampled results,
+not every-frame or all-time inactivity proofs. Single-cell zeros remain in
+the reports; the original failed short fixture is preserved unchanged.
+
+Initial grids and encoded controls match. Every collected raw terrain dump
+(zero/five) is exact; native hydraulic floor never lowers and retains the
+reference floor-minus-raw offset pattern. Ground replay matches all 402,766
+scalar observations over thirteen epochs. There is no full sixty-minute raw
+terrain/hydraulic-floor dump or compiled-shader proof. All five clean up fully.
+
+The Tropical before/after sheets show the oval's northwest lobe restored to
+held terrain, not merely inferred wet. The remaining pool centre at
+(-400,3280) has 0.953125 m actual depth at five and stays positive at each
+later dumped epoch. Nearby dry flanks remain labelled dry, not declared wet
+because they are near this pool. The opening retains genuine water/native
+shore. This is not a claim that every dry bed across the maps is repaired.
+
+Rio flooding **worsens numerically** from 0.061440 to **0.062464 km²**, against
+the unchanged 0.05 limit. At thirty minutes: 229 shared / 15 new-only / 9
+old-only flood cells; at forty-five: 225 / 17 / 15. It is not passing or
+unchanged. Charleston remains r=0.6891 against 0.9, with its extreme-point
+failures. Its primary reference/source land-resolution disagreement and
+secondary synthetic-bed error remain diagnosis-only; no check/mask is changed.
+
+`contracts/pl912-transient-storage-v1` separately binds the byte builds,
+short disposition, complete new native packages and measured obligations.
+It chains PR42's partial contract; all 306 other predecessor fixture files
+remain byte-exact in place and the old active pointer is archived byte-exact.
+The contract stays **partial_not_accepted**. Draft PR48 still requires actual
+Opus and steward dispositions before landing; the producer does not merge or
+accept PL-912. Remaining flood/visual work stays here, not on PL-979.

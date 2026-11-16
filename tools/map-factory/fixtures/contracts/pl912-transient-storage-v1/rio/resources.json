@@ -1,0 +1,83 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "environment": "auto",
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 176290,
+  "tree_budget": {
+    "planted": 176290,
+    "editor_cap": 250000,
+    "planting_headroom": 73710,
+    "manager_slots": 262143,
+    "free_slots": 85853
+  },
+  "unlockable": {
+    "ore": 1071881,
+    "oil": 577872,
+    "forest": 4402950,
+    "fertility": 317066,
+    "water": 3600343
+  },
+  "cells": {
+    "ore": 9203,
+    "oil": 5249,
+    "fertility": 3245,
+    "forest": 39802
+  },
+  "evidence": [],
+  "placed": [],
+  "environment": "Tropical",
+  "biome": {
+    "latitude": -22.94,
+    "longitude": -43.205,
+    "p75_ground_m": 284.4,
+    "p75_above_floor_m": 234.4,
+    "high_ground_share": 0.1064,
+    "p75_real_m": 214.8,
+    "fit": {
+      "base": -40.0,
+      "verticalScale": 0.9198811898929851
+    },
+    "environment": "Tropical",
+    "rule": "tropical lowland"
+  },
+  "package": {
+    "output": "/mango/training/experiments/PL-912-transient-supported/python/reference/rio/PL857-rio.crp",
+    "sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+    "bytes": 6131949,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "environment",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "fb0c6e5e24c9dac0d9de7a29e84a94437d1b4ce5ca0c09cb879529b607efc402"
+  }
+}

@@ -1,4 +1,5 @@
 {
   "format": 2,
-  "current": "contracts/pl912-biome-delta-v2/current.json"
+  "current": "contracts/pl912-transient-storage-v1/current.json",
+  "historical_current": "current.json"
 }

@@ -884,3 +884,23 @@ No Asheville or full run followed. This does not establish a minimum sustainable
 stream size, reservoir benefit or a new passing flood/correlation result.
 PL-979 can build on the mechanism/counterexample evidence without inheriting
 an unqualified candidate or unagreed remaining PL-912 work.
+
+### PL-1002 disposition and fresh five-map evidence
+
+The first-short failure above is preserved, not retroactively marked passed.
+PL-1002 independently found that unchanged baseline reruns also fail its
+single-positive-cell auxiliary test. Its calibrated per-pool stage replacement
+and the actual subsequent Asheville short are in [TRANSIENT_MARGIN.md](TRANSIENT_MARGIN.md).
+No original observation, required flag, mask or threshold changed.
+
+The proposed shipping records at clean `21a0a52` reproduce ten complete Python
+and ten browser exports. Five fresh shipping sixty-minute games retain the
+same required endpoint/throughout cohort as PR42, with no previously passing
+gate failure; all 116 calibrated pools pass at five and later dumped epochs.
+The versioned `pl912-transient-storage-v1` contract binds those actual new
+packages, not PR42's hashes. Actual raw views and phone sheets show the Rio
+oval lobe restored, a genuinely wet smaller pool, and remaining dry flanks
+without declaring all excavation fixed. Rio flood area increases to
+0.062464 km² (limit 0.05); Charleston r=0.6891/extreme failures remain.
+These are unwaived partial-baseline results, not issue acceptance, a minimum
+sustainable stream size, a reservoir benefit or an every-frame hydraulic proof.
