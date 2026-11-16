@@ -15,7 +15,7 @@ import subprocess
 import sys
 import time
 
-from cs1_harness import landmarks, startup_views
+from cs1_harness import gpu, landmarks, startup_views
 from cs1_harness.cli import slot, staging
 from cs1_harness.config import Config
 from cs1_harness.mapcheck import collect
@@ -24,6 +24,13 @@ from cs1_harness.session import sha256
 
 def write(path, value):
     path.write_text(json.dumps(value, indent=2, default=str) + "\n")
+
+
+def sample_game_gpu(session):
+    owned = {p["pid"] for p in session.receipt.get("game_gpu", [])}
+    rows = [p for p in gpu.game_placement() if p["pid"] in owned]
+    with (session.stage / "game-gpu-samples.jsonl").open("a") as stream:
+        stream.write(json.dumps({"wall": time.time(), "processes": rows}) + "\n")
 
 
 def capture_views(session, prefix):
@@ -137,6 +144,7 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
             session.launch(["--noWorkshop"])
             session.check_audio()
             write(stage / "audio-menu.json", session.receipt["audio_processes"])
+            sample_game_gpu(session)
             maps = session.client.call("maps")["maps"]
             entry = next(
                 m
@@ -171,6 +179,7 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
             )
             write(stage / "audio-t000.json", session.receipt["audio_processes"])
             write(stage / "measurement-requests.json", requests)
+            sample_game_gpu(session)
             if screen_requests:
                 observed = session.client.call(
                     "world_observe", screen_points=screen_requests
@@ -269,6 +278,7 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
                             "five-minute diagnostic exceeded foreground wall bound"
                         )
                     stats = session.client.call("stats")
+                    sample_game_gpu(session)
                     elapsed = (stats["frame"] - start_frame) / frames
                     if elapsed >= minutes:
                         break
