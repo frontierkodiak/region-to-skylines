@@ -8,6 +8,7 @@ buffer indices (index 0 is the unused null item).
 
 import numpy as np
 
+from . import codec
 from .stream import FormatError
 
 GRID = 1081
@@ -197,136 +198,44 @@ def instance(s):
 
 
 # NetManager --------------------------------------------------------------------
-
-NODE_TAIL = [
-    ("build_index", ">u4"),
-    ("building", ">u2"),
-    ("next_building_node", ">u2"),
-    ("lane", ">u4"),
-    ("lane_offset", "u1"),
-    ("elevation", "u1"),
-    ("height_offset", "u1"),
-    ("connect_count", "u1"),
-    ("event_route", ">u2"),
-]
-
-SEGMENT = np.dtype(
-    [
-        ("build_index", ">u4"),
-        ("modified_index", ">u4"),
-        ("lanes", "V3"),
-        ("path", "V3"),
-        ("start_direction", ">f4", 3),
-        ("end_direction", ">f4", 3),
-        ("start_node", ">u2"),
-        ("end_node", ">u2"),
-        ("block_start_left", ">u2"),
-        ("block_start_right", ">u2"),
-        ("block_end_left", ">u2"),
-        ("block_end_right", ">u2"),
-        ("traffic_buffer", ">u2"),
-        ("traffic_density", "u1"),
-        ("name_seed", ">u2"),
-        ("override_direction", "u1"),
-        ("has_tree", "u1"),
-        ("has_left_fence", "u1"),
-        ("has_right_fence", "u1"),
-        ("event_route", ">u2"),
-        ("next_event_route_segment", ">u2"),
-    ]
-)
+# Decoded by the shared codec (tools/map-factory/netcodec.py), which the map
+# writer also encodes with; this function only shapes its records for the city.
 
 
 def net(s):
-    lane_flags = s.encoded("u16", LANES - 1)
-    live_lanes = int(np.count_nonzero(lane_flags))
-    s.take(3 * live_lanes)  # m_nextLane
-    for _ in range(3):
-        s.encoded("u8", live_lanes)  # reserved prev / next / frame
-    s.encoded("u16", live_lanes)  # last reserve id
-
-    node_flags = s.encoded("u32", 2 * (NODES - 1)).reshape(-1, 2)
-    node_ids = np.flatnonzero(node_flags[:, 0]) + 1
-    nn = len(node_ids)
-    s.encoded("u64", 2 * nn)  # problems
-    s.encoded("u8", nn)  # max wait time
-    s.encoded("u16", 2 * nn)  # temp / final counters
-    positions = np.empty((nn, 3), dtype=np.float32)
-    node_segments = []
-    building = np.empty(nn, dtype=np.uint16)
-    elevation = np.empty(nn, dtype=np.uint8)
-    build_index = np.empty(nn, dtype=np.uint32)
-    for i in range(nn):
-        positions[i] = s.vec3()
-        node_segments.append([s.u16() for _ in range(s.u8())])
-        build_index[i] = s.u32()
-        building[i] = s.u16()
-        s.u16(), s.u24(), s.u8()
-        elevation[i] = s.u8()
-        s.u8(), s.u8(), s.u16()
-
-    seg_flags = s.encoded("u32", SEGMENTS - 1)
-    seg_flags2 = s.encoded("u32", SEGMENTS - 1)
-    segment_ids = np.flatnonzero(seg_flags) + 1
-    ns = len(segment_ids)
-    s.encoded("u64", 2 * ns)  # problems
-    s.encoded("i32", 2 * ns)  # traffic light states
-    s.encoded("u8", ns)  # fire coverage
-    s.encoded("u8", ns)  # wetness
-    condition = s.encoded("u8", ns)
-    s.encoded("u16", ns)  # noise buffer
-    s.encoded("u8", ns)  # noise density
-    s.encoded("u8", ns)  # attractiveness
-    seg = records(s, SEGMENT, ns)
-
-    guides, milestones = s.u16(), s.u16()
-    info, info_names = prefab_block(s, nn + ns + guides + milestones)
-    has_tree = seg["has_tree"] != 0
-    tree_info, tree_names = prefab_block(s, int(has_tree.sum()))
-    left = seg["has_left_fence"] != 0
-    left_info, left_names = prefab_block(s, int(left.sum()))
-    right = seg["has_right_fence"] != 0
-    right_info, right_names = prefab_block(s, int(right.sum()))
-    objects(s, guides + milestones + 18)
-    s.u8(), s.u8()
-    name_modified = s.u24()
-    adjusted = s.u24()
-    s.encoded("u64", adjusted)
-
-    node_info = info[:nn]
-    seg_info = info[nn : nn + ns]
+    section = codec.netcodec.NetSection(s.data, s.pos, objects=codec.StreamObjects(s))
+    s.pos = section.end
+    node_ids = np.array(sorted(section.nodes), dtype=np.int64)
+    segment_ids = np.array(sorted(section.segments), dtype=np.int64)
+    nodes = [section.nodes[i] for i in node_ids]
+    segs = [section.segments[i] for i in segment_ids]
+    names = section.prefabs.names
+    trees = iter(section.trees.indices)
     return {
         "node_ids": node_ids,
-        "node_flags": node_flags[node_ids - 1, 0],
-        "node_flags2": node_flags[node_ids - 1, 1],
-        "node_position": positions,
-        "node_segments": node_segments,
-        "node_building": building,
-        "node_elevation": elevation,
-        "node_build_index": build_index,
-        "node_prefab": [info_names[i] for i in node_info],
+        "node_flags": section.node_flags[node_ids - 1],
+        "node_flags2": section.node_flags2[node_ids - 1],
+        "node_position": np.array([r["position"] for r in nodes], dtype=np.float32).reshape(-1, 3),
+        "node_segments": [r["segments"] for r in nodes],
+        "node_building": np.array([r["building"] for r in nodes], dtype=np.uint16),
+        "node_elevation": np.array([r["elevation"] for r in nodes], dtype=np.uint8),
+        "node_build_index": np.array([r["build_index"] for r in nodes], dtype=np.uint32),
+        "node_prefab": [names[section.node_prefab[i]] for i in node_ids],
         "segment_ids": segment_ids,
-        "segment_flags": seg_flags[segment_ids - 1],
-        "segment_flags2": seg_flags2[segment_ids - 1],
-        "segment_start_node": seg["start_node"].astype(np.int64),
-        "segment_end_node": seg["end_node"].astype(np.int64),
-        "segment_start_direction": seg["start_direction"].astype(np.float32),
-        "segment_end_direction": seg["end_direction"].astype(np.float32),
-        "segment_build_index": seg["build_index"].astype(np.int64),
-        "segment_name_seed": seg["name_seed"].astype(np.int64),
-        "segment_condition": condition,
-        "segment_prefab": [info_names[i] for i in seg_info],
-        "segment_tree_prefab": tree_names_for(has_tree, tree_info, tree_names),
-        "live_lanes": live_lanes,
-        "name_modified_count": name_modified,
+        "segment_flags": section.segment_flags[segment_ids - 1],
+        "segment_flags2": section.segment_flags2[segment_ids - 1],
+        "segment_start_node": np.array([r["start_node"] for r in segs], dtype=np.int64),
+        "segment_end_node": np.array([r["end_node"] for r in segs], dtype=np.int64),
+        "segment_start_direction": np.array([r["start_direction"] for r in segs], dtype=np.float32).reshape(-1, 3),
+        "segment_end_direction": np.array([r["end_direction"] for r in segs], dtype=np.float32).reshape(-1, 3),
+        "segment_build_index": np.array([r["build_index"] for r in segs], dtype=np.int64),
+        "segment_name_seed": np.array([r["name_seed"] for r in segs], dtype=np.int64),
+        "segment_condition": np.array([r["condition"] for r in segs], dtype=np.uint8),
+        "segment_prefab": [names[section.segment_prefab[i]] for i in segment_ids],
+        "segment_tree_prefab": [section.trees.names[next(trees)] if r["tree"] else None for r in segs],
+        "live_lanes": section.live_lanes,
+        "name_modified_count": section.name_modified_count,
     }
-
-
-def tree_names_for(mask, indices, names):
-    out = [None] * len(mask)
-    for j, i in zip(np.flatnonzero(mask), indices):
-        out[j] = names[i]
-    return out
 
 
 # ZoneManager --------------------------------------------------------------------
@@ -447,69 +356,8 @@ def tree(s):
 
 
 # BuildingManager --------------------------------------------------------------
+# Decoded by the shared codec as well; these are the columns the city keeps.
 
-# Per-building encoded arrays after the flags, in Serialize order, for buildings
-# whose m_flags != 0. (kind, field, values per building)
-BUILDING_ARRAYS = [
-    ("u64", "problems", 2),
-    ("u16", "net_node", 1),
-    ("u16", "sub_building", 1),
-    ("u16", "water_source", 1),
-    ("u16", "electricity_buffer", 1),
-    ("u16", "water_buffer", 1),
-    ("u16", "sewage_buffer", 1),
-    ("u16", "heating_buffer", 1),
-    ("u16", "garbage_buffer", 1),
-    ("u16", "crime_buffer", 1),
-    ("u16", "mail_buffer", 1),
-    ("u16", "custom_buffer1", 1),
-    ("u16", "custom_buffer2", 1),
-    ("u16", "build_water_height", 1),
-    ("u8", "production_rate", 1),
-    ("u8", "water_pollution", 1),
-    ("u8", "construct_state", 1),
-    ("u8", "fire_intensity", 1),
-    ("u8", "fire_damage", 1),
-    ("u8", "production_state", 1),
-    ("u8", "health", 1),
-    ("u8", "child_health", 1),
-    ("u8", "senior_health", 1),
-    ("u8", "happiness", 1),
-    ("u8", "citizen_count", 1),
-    ("u8", "temp_import", 1),
-    ("u8", "temp_export", 1),
-    ("u8", "final_import", 1),
-    ("u8", "final_export", 1),
-    ("u8", "problem_timers", 11),
-    ("u8", "level_up_progress", 1),
-    ("u8", "width", 1),
-    ("u8", "length", 1),
-    ("u8", "education1", 1),
-    ("u8", "education2", 1),
-    ("u8", "education3", 1),
-    ("u8", "children", 1),
-    ("u8", "teens", 1),
-    ("u8", "youngs", 1),
-    ("u8", "adults", 1),
-    ("u8", "seniors", 1),
-    ("u8", "fire_hazard", 1),
-    ("u8", "level", 1),
-    ("u32", "cargo_traffic_rate", 1),
-    ("u32", "garbage_traffic_rate", 1),
-    ("u16", "access_segment", 1),
-    ("u16", "event_access_segment", 1),
-    ("i32", "cash_buffer", 1),
-    ("u16", "room_cost", 1),
-    ("u16", "room_cost_target", 1),
-    ("u16", "room_max", 1),
-    ("u16", "room_used", 1),
-    ("u8", "educated0_unemployed", 1),
-    ("u8", "educated1_unemployed", 1),
-    ("u8", "educated2_unemployed", 1),
-    ("u8", "educated3_unemployed", 1),
-    ("u8", "all_unemployed", 1),
-    ("u16", "event_route_index", 1),
-]
 KEEP_BUILDING = {
     "net_node",
     "sub_building",
@@ -525,42 +373,29 @@ KEEP_BUILDING = {
     "fire_damage",
 }
 
-BUILDING_PLACE = np.dtype(
-    [("build_index", ">u4"), ("position", ">f4", 3), ("angle", ">f4"), ("base_height", "u1"), ("citizen_units", "V3")]
-)
-
 
 def building(s):
-    flags = s.encoded("u32", BUILDINGS - 1)
-    flags2 = s.encoded("u32", BUILDINGS - 1)
-    ids = np.flatnonzero(flags) + 1
-    nb = len(ids)
-    guides, milestones = s.u16(), s.u16()
-    info, names = prefab_block(s, nb + guides + milestones)
-    objects(s, guides + milestones + 71)
-    s.take(32)  # last/current building problems
-    out = {"ids": ids, "flags": flags[ids - 1], "flags2": flags2[ids - 1]}
-    for kind, name, per in BUILDING_ARRAYS:
-        values = s.encoded(kind, per * nb)
-        if name in KEEP_BUILDING:
-            out[name] = values
-    vehicle_selection = []
-    for _ in range(2):
-        for _ in range(s.i16()):
-            vehicle_selection.append((s.u16(), s.shared_string()))
-    place = records(s, BUILDING_PLACE, nb)
-    s.take(16 * 2 * 16 * 2)  # monument effects and faculty bonuses: (i32, vec3) x 64
-    race = np.frombuffer(s.take(nb), dtype=np.uint8) != 0
-    prefab_block(s, int(race.sum()))
+    section = codec.netcodec.BuildingSection(s.data, s.pos, objects=codec.StreamObjects(s))
+    s.pos = section.end
+    ids = np.array(section.ids, dtype=np.int64)
+    out = {"ids": ids, "flags": section.flags[ids - 1], "flags2": section.flags2[ids - 1]}
+    for name in KEEP_BUILDING:
+        out[name] = section.column(name)
+    place = np.frombuffer(b"".join(section.records), dtype=BUILDING_PLACE, count=len(ids))
     out.update(
         position=place["position"].astype(np.float32),
         angle=place["angle"].astype(np.float32),
         build_index=place["build_index"].astype(np.int64),
         base_height=place["base_height"],
-        prefab=[names[i] for i in info[:nb]],
-        vehicle_selection=vehicle_selection,
+        prefab=[section.prefabs.names[i] for i in section.prefabs.indices],
+        vehicle_selection=[(key, value) for rows in section.selections for key, value, _ in rows],
     )
     return out
+
+
+BUILDING_PLACE = np.dtype(
+    [("build_index", ">u4"), ("position", ">f4", 3), ("angle", ">f4"), ("base_height", "u1"), ("citizen_units", "V3")]
+)
 
 
 PARSERS = {

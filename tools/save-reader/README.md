@@ -37,7 +37,11 @@ The formats are transcribed from the game's own serializers
   a reference to it.
 - `managers.py`, `districts.py`: one decoder per manager, each a transcription of
   that manager's `Data.Serialize`. A decoder must end exactly on its block's
-  closing tag or the read fails. Managers without a decoder (citizens, vehicles,
+  closing tag or the read fails. NetManager and BuildingManager are decoded by
+  the codec the map writer encodes with, `tools/map-factory/netcodec.py`
+  (`codec.py` loads exactly that file); there is no second decoder for them, and
+  a game save re-encodes through it to the game's own bytes
+  (`tests/test_shared_codec.py`). Managers without a decoder (citizens, vehicles,
   paths and the like) are passed over by finding the next manager's opening tag,
   which has one exact byte form.
 

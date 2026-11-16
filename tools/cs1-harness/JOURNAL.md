@@ -32,6 +32,44 @@ The game runs in Steam's Flatpak sandbox, where `$HOME` is
 `dump-save` avoids this by writing into its staging directory. Cleanup
 receipts were empty after every run.
 
+## 2026-11-15 · Opus (blade) · PL-982 · test city on real highway interchanges
+
+On blade's RTX 2080 Ti, bus 05:00.0, cap 150 W unchanged. Own DLLs were
+built in the `PL-982-real-highways` worktree.
+
+Maps with real OSM highways have many one-way ramp stubs in the start tile,
+not the template's two highway ends. The test city now joins one interchange:
+an exit-ramp stub (`OneWayIn`) and an on-ramp stub (`OneWayOut`), closest
+pairs first. It takes the first pair whose site passes the native placement
+test for the grid and the whole hookup: stub links, the join, the
+join-to-corner link and the angle back over the hook links. The join is pushed
+out until each hook link is at least 40 m long. With no clear pair it falls
+back to the old choice. Template maps have only two road ends, so they keep
+their old behaviour.
+
+A reloaded city that passes a milestone (440 residents for the second) opens
+the game's modal `UnlockingPanel`, which stops the simulation: `run
+--from-save` then failed "simulation made no progress", looking like a hang.
+The test city already suppressed the panel in New Game; `run --from-save` now
+calls the new `quiet_milestones` op after loading. Milestones and rewards still
+apply. The read-only `sim_profile` op (per-manager step stopwatches) showed no
+manager in a step during the freeze, and `status` showed the modal. Charleston's
+save reloaded with 397 → 457 residents after the fix; three earlier reloads of
+it froze.
+
+Lesson: stopping a `run`'s systemd unit mid-run orphans the game, Steam and
+the harness's transient units (`cs1-harness-*`). Stop them by name only when
+`holder.json` names the dead run, and before the next waiter starts. Next
+time, let the run finish or add a SIGTERM teardown.
+
+| Run | Game min | Peak W / °C | Result |
+| --- | ---: | ---: | --- |
+| asheville city (real highways) | 10.1 | 146 / 58 | population 239, outside connection both ways; sewage outlet unpowered |
+| asheville reload r2 | 5.0 | 141 / 56 | pass |
+| asheville soak | 60.1 | 145 / 56 | water and highway paths pass; old rail probe lane |
+| innsbruck soak | 60.1 | 131 / 56 | map checks pass, rail through tunnels |
+| charleston soak | 60.1 | 131 / 56 | paths and water pass; ground_truth 0.688 as on the shipping map |
+
 ## 2026-11-12 · Sol xhigh · PL-926 · exclude tunnel excavation before PNG capture
 
 On blade's RTX 2080 Ti, bus 05:00.0, cap 150 W unchanged. Exact source/writer

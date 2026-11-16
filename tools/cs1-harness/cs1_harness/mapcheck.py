@@ -265,6 +265,9 @@ class MapCheck:
                 "path": None,
                 "from_save": str(self.from_save),
             }
+            # A reloaded city keeps growing; a milestone's modal panel would stop
+            # the simulation mid-soak (PL-982: Charleston passing 440 residents).
+            self.c.call("quiet_milestones")
             self.record("loaded_save", {"save": str(self.from_save)})
             startup_world = landmarks.capture(s, self.out, self.landmark_expectations)
             return self.soak(
