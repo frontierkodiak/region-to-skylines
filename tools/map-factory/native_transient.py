@@ -134,7 +134,16 @@ def intake_constraint(source, actual, floor, epochs, mask):
 
 
 def restore(
-    terrain, water, original, banks, geometry, eligible, retained, sustained, hard
+    terrain,
+    water,
+    original,
+    banks,
+    geometry,
+    eligible,
+    retained,
+    sustained,
+    hard,
+    centres,
 ):
     guard = hard | dilate(retained)
     initial, release, startup_ring, transient_near, bridge = initial_storage(
@@ -156,7 +165,7 @@ def restore(
     proposed[zone] = np.maximum(proposed[zone], restored[zone])
     candidate = np.maximum(terrain, quantize(proposed))
     frozen = guard | (startup_ring & ~release)
-    candidate[frozen] = terrain[frozen]
+    candidate[frozen | centres] = terrain[frozen | centres]
     assert np.all(candidate >= terrain) and np.all(initial <= water)
     assert np.array_equal(candidate[hard], terrain[hard])
     assert np.array_equal(initial[guard], water[guard])
@@ -172,6 +181,7 @@ def restore(
         {
             "hard_guard": hard,
             "wet_guard": guard,
+            "source_centres": centres,
             "retained": retained,
             "sustained": sustained,
             "startup_ring": startup_ring,
@@ -225,9 +235,13 @@ def plan(prepared, observed, fixture, output):
         bodies | (floor != terrain)
     )
     controls = []
+    centres = np.zeros_like(retained)
     for i, source in enumerate(samples[0]["water"]["sources"]):
         actual = [s["water"]["sources"][i] for s in samples]
         assert source["id"] == i + 1
+        col = int(np.floor((source["x"] + 8640) / 16 + 0.5))
+        row = 1080 - int(np.floor((source["z"] + 8640) / 16 + 0.5))
+        centres[row, col] = True
         for s in actual:
             assert all(
                 s[k] == source[k]
@@ -266,6 +280,7 @@ def plan(prepared, observed, fixture, output):
             retained,
             sustained,
             hard,
+            centres,
         )
         new_floor = floor + candidate.astype(np.int64) - terrain
         invalid = []
