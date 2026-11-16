@@ -83,36 +83,68 @@ def _tile_of(xyz):
 
 
 def choose_start(graph, ground, depth, current):
-    """Keep the standard start tile if a player can join the highways there.
+    """The start tile where a player can most easily join the highways.
 
-    Otherwise take the most central buildable tile holding both an exit-ramp
-    stub (traffic in) and an on-ramp stub (traffic out)."""
+    Candidates hold an exit-ramp stub (traffic in) and an on-ramp stub (traffic
+    out) within 400 m of each other: one interchange. They are ranked by how
+    open the land is where those stubs end (no bridge or railway within 250 m,
+    buildable ground around), then by centrality. A standard tile whose
+    interchange is reasonably open stays."""
     arrive, leave = _stubs(graph)
-    nodes = graph["nodes"]
-    has = {}
-    for kind, ids in [("arrive", arrive), ("leave", leave)]:
-        for i in ids:
-            tile = _tile_of(nodes[i]["xyz"])
-            if tile is not None:
-                has.setdefault(tile, set()).add(kind)
-    usable = {t for t, kinds in has.items() if kinds == {"arrive", "leave"}}
-    if current in usable:
-        return current, "standard start tile reaches the highways"
+    nodes, edges = graph["nodes"], graph["edges"]
     dy, dx = np.gradient(ground, 16)
     buildable = (np.hypot(dx, dy) < 0.15) & (depth < 0.25)
-    options = []
-    for tile in usable:
-        x, z = tile % 5, tile // 5
-        col, row = 540 + (x - 2) * 120, 540 - (z - 2) * 120
-        land = float(buildable[row - 60 : row + 60, col - 60 : col + 60].mean())
-        if land > 0.15:
-            options.append((np.hypot(x - 2, z - 2) - land, tile))
-    if not options:
+    blockers = np.array(
+        [
+            (np.asarray(nodes[e["a"]]["xyz"]) + nodes[e["b"]]["xyz"])[[0, 2]] / 2
+            for e in edges
+            if e["kind"] == "rail" or e["structure"] == "bridge"
+        ]
+        or [[1e9, 1e9]]
+    )
+    best = {}
+    for a in arrive:
+        for b in leave:
+            pa, pb = np.asarray(nodes[a]["xyz"]), np.asarray(nodes[b]["xyz"])
+            tile = _tile_of(pa)
+            if (
+                tile is None
+                or tile != _tile_of(pb)
+                or np.hypot(*(pa - pb)[[0, 2]]) > 400
+            ):
+                continue
+            mid = (pa + pb)[[0, 2]] / 2
+            crowd = int((np.hypot(*(blockers - mid).T) < 250).sum())
+            col, row = int((mid[0] + 8640) / 16), int((8640 - mid[1]) / 16)
+            land = float(
+                buildable[
+                    max(0, row - 25) : row + 26, max(0, col - 25) : col + 26
+                ].mean()
+            )
+            x, z = tile % 5, tile // 5
+            score = (
+                crowd > 1,
+                land < 0.5,
+                tile != current,
+                np.hypot(x - 2, z - 2),
+                crowd,
+            )
+            if tile not in best or score < best[tile][0]:
+                best[tile] = (score, a, b)
+    if not best:
         return (
             current,
-            "no buildable start tile holds both ramp directions; standard tile kept",
+            "no start tile holds an interchange's exit and on-ramp; standard tile kept",
         )
-    return min(options)[1], "moved to the most central tile with exit and on-ramp stubs"
+    # A standard tile whose interchange is reasonably open stays: the player
+    # starts where the shipping writer would put them.
+    if current in best and best[current][0][4] <= 3:
+        tile = current
+    else:
+        tile = min(best, key=lambda t: best[t][0])
+    score = best[tile][0]
+    reason = f"interchange with {score[4]} bridge or rail pieces within 250 m"
+    return tile, ("standard tile: " if tile == current else "moved: ") + reason
 
 
 def seat(ground, depth, graph, bed=14.0, reach=40.0):
@@ -146,6 +178,19 @@ def seat(ground, depth, graph, bed=14.0, reach=40.0):
             if 0 <= row < GRID and 0 <= col < GRID:
                 target[row, col] = y
                 centre[row, col] = True
+    # Ramp ends that wait for local roads open onto level ground at their height.
+    arrive, leave = _stubs(graph)
+    yy, xx = np.mgrid[-4:5, -4:5]
+    disk = np.hypot(yy, xx) * 16 <= 60
+    for i in arrive + leave:
+        x, y, z = nodes[i]["xyz"]
+        col, row = int(round((x + 8640) / 16)), int(round((8640 - z) / 16))
+        rows, cols = row + yy[disk], col + xx[disk]
+        keep = (rows >= 0) & (rows < GRID) & (cols >= 0) & (cols < GRID)
+        rows, cols = rows[keep], cols[keep]
+        free = ~centre[rows, cols]
+        target[rows[free], cols[free]] = y
+        centre[rows[free], cols[free]] = True
     if not centre.any():
         return {"cells": 0}
     distance, (rows, cols) = ndimage.distance_transform_edt(
