@@ -201,7 +201,40 @@ def run(
             )
             write(stage / "listed-map.json", entry)
             if atomic_trace:
-                report["atomic_trace_arm"] = session.client.call("trace_arm")
+                from crp import read_package
+                from water_diagnostics import decode_water
+
+                _, assets = read_package(crp)
+                decoded = decode_water(
+                    next(a["payload"] for a in assets if a["kind"] == 52)
+                )
+                controls = [
+                    {
+                        "type": s["type"],
+                        "target": s["target_fixed"],
+                        "input": s["position"],
+                        "output": s["position"],
+                        "input_rate": s["intake_rate"],
+                        "output_rate": s["output_rate"],
+                    }
+                    for s in decoded["sources"]
+                ]
+                report["atomic_trace_arm"] = session.client.call(
+                    "trace_arm",
+                    sources=[92, 163, 164],
+                    cells=[],
+                    controls=controls,
+                    max_steps=512,
+                    dependency_path=str(cfg.mod_dir / "0Harmony.dll"),
+                    binding={
+                        "package_sha256": sha256(crp),
+                        "observer_head": report["tested_head"],
+                        "observer_sha256": build["dll_sha256"],
+                        "requests_sha256": sha256(requests_file),
+                        "probes_sha256": sha256(frozen_probes),
+                        "inputs": report["source_sha256"],
+                    },
+                )
                 write(stage / "trace-arm.json", report["atomic_trace_arm"])
             session.client.call("new_game", path=entry["path"])
             session.client.wait(

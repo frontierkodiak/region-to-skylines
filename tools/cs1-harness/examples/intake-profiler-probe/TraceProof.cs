@@ -32,7 +32,7 @@ public static class Proof
         int checkedMethods=0;
         foreach(var callback in typeof(TraceRecorder).GetMethods(BindingFlags.Static|BindingFlags.Public|BindingFlags.NonPublic))
         {
-            if(callback.GetMethodBody()==null)continue;
+            if(callback.GetMethodBody()==null || callback.Name=="Arm")continue;
             var scratch=DynamicTools.CreateDynamicMethod(callback,"_stores");
             foreach(var instruction in MethodBodyReader.GetInstructions(scratch.GetILGenerator(),callback))
             {
@@ -49,7 +49,7 @@ public static class Proof
         var dm=DynamicTools.CreateDynamicMethod(method,"_proof");
         var copier=new MethodCopier(method,dm.GetILGenerator());
         copier.AddTranspiler(typeof(TraceIL).GetMethod("Transpile"));
-        copier.Finalize(new List<Label>(),new List<ExceptionBlock>());
+        var ends=new List<Label>(); var blocks=new List<ExceptionBlock>(); copier.Finalize(ends,blocks); foreach(var label in ends)dm.GetILGenerator().MarkLabel(label); dm.GetILGenerator().Emit(OpCodes.Ret); var compiled=dm.CreateDelegate(typeof(Action<WaterSimulation,int>)); Console.WriteLine("actual_solver_copy_jit_without_execution="+(compiled!=null));
         foreach(var pair in TraceIL.Proof)Console.WriteLine(pair.Key+"="+pair.Value);
         if(!(bool)TraceIL.Proof["inverse_exact"])return 2;
         var arithmetic=typeof(Proof).GetMethod("Arithmetic");

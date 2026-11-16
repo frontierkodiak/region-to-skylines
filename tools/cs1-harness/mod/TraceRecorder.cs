@@ -11,8 +11,10 @@ namespace Cs1Harness
     // Every write here targets this observer's preallocated storage, never game data.
     public static class TraceRecorder
     {
-        const int MaxSteps = 512, MaxNodes = 512, MaxTouched = 32, SourceCount = 290;
-        static readonly int[] TargetIds = { 92, 163, 164 };
+        const int MaxSteps = 512, MaxNodes = 512, MaxTouched = 32;
+        static int SourceCount, stepLimit;
+        static int[] TargetIds, ExtraPositions;
+        public static Dictionary<string, object> Configuration;
         static readonly FieldInfo Buffers = Field("m_waterBuffers"), Floors = Field("m_heightBuffer"),
             WaterFrame = Field("m_waterFrameIndex"), WaterFrame2 = Field("m_waterFrameIndex2"),
             SimFrame = Field("m_simulationFrameIndex"), Step = Field("m_stepIndex");
@@ -20,8 +22,8 @@ namespace Cs1Harness
         [ThreadStatic] static Transaction current;
         static bool capturing, initialized;
         static int active, count, nodes, touched;
-        static int[] positions = new int[MaxNodes], slots = new int[SourceCount];
-        static WaterSource[] controls = new WaterSource[SourceCount];
+        static int[] positions = new int[MaxNodes], slots;
+        static WaterSource[] controls, expected;
         static WaterSimulation owner;
         public static string Error;
         public static bool HitBound;
@@ -53,11 +55,50 @@ namespace Cs1Harness
         static uint U(FieldInfo field, WaterSimulation water) { return Convert.ToUInt32(field.GetValue(water)); }
         static void Fail(Exception error) { if (Error == null) Error = error.GetType().Name + ": " + error.Message; capturing = false; }
 
-        public static void Arm()
+        static UnityEngine.Vector3 Vector(object value)
+        {
+            var a = (List<object>)value;
+            if (a.Count != 3) throw new Exception("source vector must have three components");
+            return new UnityEngine.Vector3(Convert.ToSingle(a[0]), Convert.ToSingle(a[1]), Convert.ToSingle(a[2]));
+        }
+        public static void Arm(Dictionary<string, object> request)
         {
             if (records != null) throw new Exception("one trace only per disposable process");
-            records = new Transaction[MaxSteps];
-            for (int i = 0; i < MaxSteps; i++) records[i] = new Transaction();
+            var catalog = (List<object>)request["controls"];
+            SourceCount = catalog.Count;
+            if (SourceCount < 1 || SourceCount > 4096) throw new Exception("trace source count must be 1..4096");
+            expected = new WaterSource[SourceCount]; controls = new WaterSource[SourceCount]; slots = new int[SourceCount];
+            for (int i = 0; i < SourceCount; i++)
+            {
+                var row = (Dictionary<string, object>)catalog[i];
+                expected[i].m_type = Convert.ToUInt16(row["type"]); expected[i].m_target = Convert.ToUInt16(row["target"]);
+                expected[i].m_inputPosition = Vector(row["input"]); expected[i].m_outputPosition = Vector(row["output"]);
+                expected[i].m_inputRate = Convert.ToUInt32(row["input_rate"]); expected[i].m_outputRate = Convert.ToUInt32(row["output_rate"]);
+                if (expected[i].m_type != 1) throw new Exception("this observer version accepts natural type1 catalogs only");
+            }
+            var targets = (List<object>)request["sources"]; TargetIds = new int[targets.Count];
+            for (int i = 0; i < targets.Count; i++)
+            {
+                TargetIds[i] = Convert.ToInt32(targets[i]);
+                if (TargetIds[i] < 1 || TargetIds[i] > SourceCount) throw new Exception("trace source ID out of range");
+            }
+            var cells = (List<object>)request["cells"]; ExtraPositions = new int[cells.Count];
+            for (int i = 0; i < cells.Count; i++)
+            {
+                var pair = (List<object>)cells[i];
+                if (pair.Count != 2) throw new Exception("trace cell requires x,z");
+                double x = Convert.ToDouble(pair[0]), z = Convert.ToDouble(pair[1]);
+                if (x < -8640 || x > 8640 || z < -8640 || z > 8640 || x % 16 != 0 || z % 16 != 0)
+                    throw new Exception("trace cells must be native 16m grid nodes");
+                ExtraPositions[i] = ((int)z + 8640) / 16 * 1081 + ((int)x + 8640) / 16;
+            }
+            if (TargetIds.Length + ExtraPositions.Length == 0 || TargetIds.Length > MaxTouched || ExtraPositions.Length > MaxNodes)
+                throw new Exception("empty or oversized trace region");
+            stepLimit = (int)Json.Num(request, "max_steps", MaxSteps);
+            if (stepLimit < 1 || stepLimit > MaxSteps) throw new Exception("trace max_steps must be 1..512");
+            Configuration = Obj("sources", TargetIds, "cells", cells, "max_steps", stepLimit, "binding", request["binding"]);
+            records = new Transaction[stepLimit];
+            for (int i = 0; i < stepLimit; i++) records[i] = new Transaction();
             for (int i = 0; i < SourceCount; i++) slots[i] = -1;
             capturing = true;
         }
@@ -81,6 +122,7 @@ namespace Cs1Harness
         static void Initialize(WaterSimulation water)
         {
             var set = new HashSet<int>();
+            foreach (int p in ExtraPositions) set.Add(p);
             foreach (int id in TargetIds)
             {
                 var s = water.m_waterSources.m_buffer[id - 1];
@@ -97,7 +139,10 @@ namespace Cs1Harness
                             if (Inside(z * 1081 + x, p, rate))
                                 for (int dz = -1; dz <= 1; dz++) for (int dx = -1; dx <= 1; dx++)
                                     if (x + dx >= 0 && x + dx <= 1080 && z + dz >= 0 && z + dz <= 1080)
+                                    {
                                         set.Add((z + dz) * 1081 + x + dx);
+                                        if (set.Count > MaxNodes) throw new Exception("trace node bound exceeded");
+                                    }
                 }
             }
             if (set.Count > MaxNodes) throw new Exception("trace node bound exceeded");
@@ -136,12 +181,11 @@ namespace Cs1Harness
             {
                 current = null;
                 if (!capturing || water.m_waterSources.m_size != SourceCount) return;
-                var target = water.m_waterSources.m_buffer[91];
-                if (target.m_inputPosition.x != -2160 || target.m_inputPosition.z != 2112 ||
-                    target.m_target != 5995 || target.m_inputRate != 52428 || target.m_outputRate != 0) return;
+                for (int i = 0; i < SourceCount; i++)
+                    if (!SameControl(expected[i], water.m_waterSources.m_buffer[i])) throw new Exception("loaded source catalog differs from explicit trace binding");
                 if (!initialized) Initialize(water);
                 if (!ReferenceEquals(owner, water)) throw new Exception("water instance changed");
-                if (count >= MaxSteps) { HitBound = true; capturing = false; return; }
+                if (count >= stepLimit) { HitBound = true; capturing = false; return; }
                 current = records[count++];
                 current.Water = U(WaterFrame, water); current.Water2 = U(WaterFrame2, water);
                 current.Sim = U(SimFrame, water); current.Step = U(Step, water);
@@ -234,7 +278,8 @@ namespace Cs1Harness
             var header = Obj("kind", "header", "engine", TraceIL.Engine, "proof", TraceIL.Proof, "nodes", nodeRows,
                 "source_count", SourceCount, "sources", sourceRows, "targets", TargetIds,
                 "packing", new[] {"depth_u16", "native_floor_u16", "velocity_x_i16_reinterpreted_u16", "velocity_z_i16_reinterpreted_u16"},
-                "steps", count, "max_steps", MaxSteps, "error", Error, "hit_bound", HitBound, "unpatched", unpatched);
+                "steps", count, "max_steps", stepLimit, "error", Error, "hit_bound", HitBound, "unpatched", unpatched,
+                "configuration", Configuration);
             int complete = 0;
             string path = Path.Combine(directory, "trace.jsonl");
             using (var writer = new StreamWriter(path, false, new UTF8Encoding(false)))
