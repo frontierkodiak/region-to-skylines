@@ -100,6 +100,9 @@ def run(
     requests_file=None,
     wait_minutes=0,
     sample_every=0,
+    atomic_trace=False,
+    frozen_probes=None,
+    trace_config=None,
 ):
     cfg = Config.for_host()
     if cfg.host != "blade" or cfg.display != ":57":
@@ -108,6 +111,39 @@ def run(
     hydro = json.loads((source / "hydrology.json").read_text())
     crp = source / (hydro["map_id"] + ".crp")
     assert sha256(crp) == receipt["package"]["sha256"]
+    if atomic_trace:
+        if trace_config is None:
+            raise ValueError(
+                "Prepare the source-bound trace configuration before acquiring a game slot"
+            )
+        trace_request = json.loads(trace_config.read_text())
+        if (
+            trace_request["binding"]["package_sha256"] != sha256(crp)
+            or not trace_request["controls"]
+        ):
+            raise ValueError("Trace configuration does not bind this package")
+        if (
+            minutes != 5
+            or interactive
+            or sha256(crp)
+            != "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40"
+        ):
+            raise ValueError(
+                "The bounded atomic trace permits only unchanged landed Rio for five minutes"
+            )
+        build = json.loads((cfg.build_dir / "build-receipt.json").read_text())
+        if not (build.get("trace") or {}).get("disposable_only"):
+            raise ValueError(
+                "Atomic trace requires the explicitly pinned disposable build"
+            )
+        if (
+            frozen_probes is None
+            or sha256(frozen_probes)
+            != "5a9bb1e42b5d47841a4bc89426c8240ab2902bb7211d004311896332690a7f62"
+        ):
+            raise ValueError(
+                "Atomic trace requires the unchanged complete frozen Rio observations"
+            )
     output.mkdir(parents=True, exist_ok=False)
     package = output / f"PL912-{source.name}-{output.name}.crp"
     shutil.copyfile(crp, package)
@@ -138,6 +174,14 @@ def run(
     world_requests = requests.get("world_points", [])
     extra_requests = requests.get("supplementary_world_points", [])
     samples = []
+    if atomic_trace:
+        metadata = json.loads(frozen_probes.read_text())["points"]
+        if len(metadata) != 4256 or world_requests != [
+            [p["x"], p["z"]] for p in metadata
+        ]:
+            raise ValueError(
+                "Atomic trace requests must retain every frozen Rio position in order"
+            )
     try:
         with slot(
             cfg,
@@ -151,6 +195,8 @@ def run(
         ) as session:
             session.label = "PL-912 " + output.name
             session.live = False
+            if atomic_trace:
+                shutil.copyfile(frozen_probes, stage / "probes.json")
             installed = session.install_map(package)
             session.launch(["--noWorkshop"])
             session.check_audio()
@@ -165,6 +211,28 @@ def run(
                 and Path(m["path"]).samefile(installed)
             )
             write(stage / "listed-map.json", entry)
+            if atomic_trace:
+                binding = dict(trace_request["binding"])
+                binding.update(
+                    {
+                        "observer_head": report["tested_head"],
+                        "observer_sha256": build["dll_sha256"],
+                        "requests_sha256": sha256(requests_file),
+                        "probes_sha256": sha256(frozen_probes),
+                        "inputs": report["source_sha256"],
+                        "trace_config_sha256": sha256(trace_config),
+                    }
+                )
+                arm = dict(trace_request)
+                arm.update(
+                    binding=binding, dependency_path=str(cfg.mod_dir / "0Harmony.dll")
+                )
+                write(stage / "trace-request.json", arm)
+                report["atomic_trace_arm"] = session.client.call(
+                    "trace_arm",
+                    **arm,
+                )
+                write(stage / "trace-arm.json", report["atomic_trace_arm"])
             session.client.call("new_game", path=entry["path"])
             session.client.wait(
                 lambda s: s.get("in_game") and not s.get("loading"),
@@ -362,12 +430,45 @@ def run(
                     for name in ["terrain", "water"]
                 }
                 write(stage / "diagnostic.json", report)
+                if atomic_trace:
+                    deadline = time.monotonic() + 30
+                    while True:
+                        result = session.client.call(
+                            "trace_finish", dir=str(stage / "atomic-trace")
+                        )
+                        write(stage / "trace-finish-progress.json", result)
+                        if not result.get("pending"):
+                            break
+                        if time.monotonic() >= deadline:
+                            raise TimeoutError("atomic observer did not become idle")
+                        time.sleep(0.1)
+                    report["atomic_trace"] = result
+                    write(stage / "trace-result.json", result)
+                    write(stage / "diagnostic.json", report)
+                    if not result.get("complete"):
+                        raise ValueError(
+                            "Atomic trace is incomplete; inspect the retained prefix before another attempt"
+                        )
             else:
                 report["capture_only"] = True
                 write(stage / "diagnostic.json", report)
     finally:
         if stage.exists():
             collect(stage, output)
+        if (
+            atomic_trace
+            and report.get("atomic_trace")
+            and (output / "session-receipt.json").exists()
+        ):
+            cleanup = json.loads((output / "session-receipt.json").read_text())[
+                "cleanup"
+            ]
+            clean = cleanup == {"game": [], "steam_instances": [], "units_active": []}
+            report["atomic_trace"]["process_cleanup_empty"] = clean
+            report["atomic_trace"]["observer_removed_after_process_exit"] = clean
+            report["atomic_trace"]["complete"] &= clean
+            write(output / "trace-result.json", report["atomic_trace"])
+            write(output / "diagnostic.json", report)
     cleanup = json.loads((output / "session-receipt.json").read_text())["cleanup"]
     assert cleanup == {"game": [], "steam_instances": [], "units_active": []}, cleanup
     print(json.dumps({"complete": str(output), "cleanup": cleanup}), flush=True)
@@ -385,6 +486,19 @@ if __name__ == "__main__":
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--interactive", action="store_true")
+    parser.add_argument(
+        "--atomic-trace",
+        action="store_true",
+        help="one approved unchanged-Rio read-only source trace",
+    )
+    parser.add_argument(
+        "--frozen-probes",
+        type=Path,
+        help="exact original Rio probes for the atomic trace",
+    )
+    parser.add_argument(
+        "--trace-config", type=Path, help="prepared, package-bound observer request"
+    )
     parser.add_argument("--minutes", type=float, default=5)
     parser.add_argument(
         "--wait-minutes",
@@ -420,4 +534,7 @@ if __name__ == "__main__":
         args.requests,
         args.wait_minutes,
         args.sample_every,
+        args.atomic_trace,
+        args.frozen_probes.resolve() if args.frozen_probes else None,
+        args.trace_config.resolve() if args.trace_config else None,
     )

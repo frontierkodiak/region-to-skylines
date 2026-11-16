@@ -104,7 +104,7 @@ def staging(cfg, out: pathlib.Path) -> pathlib.Path:
 
 
 def cmd_build(cfg, a):
-    print(json.dumps(build_mod.build(cfg), indent=2))
+    print(json.dumps(build_mod.build(cfg, trace_harmony=a.trace_harmony), indent=2))
 
 
 def cmd_setup(cfg, a):
@@ -683,7 +683,10 @@ def main(argv=None):
     p = argparse.ArgumentParser(prog="cs1-harness", description=__doc__)
     p.add_argument("--host", help="host profile (blade, worm); default: this machine's hostname")
     sub = p.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("build", help="compile the harness mod against the installed game")
+    builder = sub.add_parser("build", help="compile the harness mod against the installed game")
+    builder.add_argument(
+        "--trace-harmony", type=pathlib.Path, help="explicit disposable PL-912 trace build; pinned net35 dependency"
+    )
     s = sub.add_parser("setup", help="user-level host setup (VirtualGL, Steam launch wrapper)")
     s.add_argument("--undo", action="store_true", help="remove everything setup added")
     doctor = sub.add_parser("doctor", help="check GPU rendering on the harness display without Steam")

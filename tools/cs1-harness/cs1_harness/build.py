@@ -6,6 +6,7 @@ import hashlib
 import json
 import os
 import pathlib
+import shutil
 import subprocess
 
 from .config import Config
@@ -42,7 +43,7 @@ def dotnet(cfg: Config) -> pathlib.Path:
     return exe
 
 
-def build(cfg: Config) -> dict:
+def build(cfg: Config, trace_harmony: pathlib.Path | None = None) -> dict:
     managed = cfg.game_dir / "Cities_Data" / "Managed"
     exe = dotnet(cfg)
     sdk = sorted((cfg.dotnet_root / "sdk").iterdir())[-1]
@@ -50,6 +51,25 @@ def build(cfg: Config) -> dict:
     out = cfg.build_dir / "Cs1Harness.dll"
     sources = sorted(MOD_SOURCES.glob("*.cs"))
     refs = [managed / f"{name}.dll" for name in REFERENCES]
+    trace = None
+    if trace_harmony is not None:
+        expected = "e271d22a7c32bfca105d0e471c04eee14eec6142d37a30cd73cb7d32c7d1dd0f"
+        engine = "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+        runtime = cfg.game_dir / "Cities_Data/Mono/x86_64/libmono.so"
+        if (
+            cfg.host != "blade"
+            or sha256(trace_harmony) != expected
+            or sha256(managed / "Assembly-CSharp.dll") != engine
+        ):
+            raise ValueError("unsupported disposable trace build")
+        if sha256(runtime) != "4cfea7a0d01dcaec3ca23380106a109f6a97659302675388fc06aa42ec7252b2":
+            raise ValueError("unsupported trace runtime")
+        dependency = cfg.build_dir / "0Harmony.dll"
+        shutil.copyfile(trace_harmony, dependency)
+        refs.append(dependency)
+        trace = {"enabled": True, "disposable_only": True, "harmony_sha256": expected, "engine_sha256": engine}
+    else:
+        (cfg.build_dir / "0Harmony.dll").unlink(missing_ok=True)
     args = [
         str(exe),
         str(sdk / "Roslyn" / "bincore" / "csc.dll"),
@@ -62,6 +82,7 @@ def build(cfg: Config) -> dict:
         "-deterministic+",
         "-nologo",
         f"-out:{out}",
+        *(["-define:TRACE_OBSERVER"] if trace is not None else []),
         *[f"-r:{r}" for r in refs if r.exists()],
         *map(str, sources),
     ]
@@ -72,6 +93,7 @@ def build(cfg: Config) -> dict:
         "dll_sha256": sha256(out),
         "sources": {s.name: sha256(s) for s in sources},
         "game_assemblies": {r.name: sha256(r) for r in refs if r.exists()},
+        "trace": trace,
     }
     (cfg.build_dir / "build-receipt.json").write_text(json.dumps(receipt, indent=2) + "\n")
     return receipt

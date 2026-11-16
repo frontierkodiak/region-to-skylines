@@ -2532,3 +2532,73 @@ All five collected foreground, all cleanup empty. Pittsburgh game 3565765
 needed normal quit-grace termination; the other four full games quit without
 that forced-termination message. None is reported as a spontaneous crash.
 No owned game, waiter, Steam, service or observer is left by these runs.
+
+## 2026-11-16 — PL-912 CPU-only intake-observer feasibility
+
+No game, Steam, display, GPU workload or installed mod was started/changed.
+`examples/intake-profiler-probe` embeds the exact installed Linux Mono runtime
+in disposable CPU child processes and exercises the actual
+`FastList<WaterSource>`, without calling or replacing `SimulateWater`.
+All modes retain arithmetic checksum84,100 and drop zero profiler events.
+Default-JIT early/late profiler modes observe zero getter/setter calls;
+disabling inlining in that child exposes580 getter and580 setter entry/exit
+pairs. This is a negative default-JIT observability result, not a validated
+atomic source trace. The altered-JIT fixture is not a native game qualification.
+
+Original solver IL is8,425 bytes, SHA256
+`eef2d18b29f0ff396b792dd45ec06c26c5181652985975a7cd93b9e46bb432bc`;
+engine remains`c7f0e723…`, Linux runtime`4cfea7a0…`. No proprietary code or
+assemblies are redistributed. All child processes finish in the foreground.
+GPU/VRAM/power/temperature and game wall time are not applicable.
+
+Build and full harness Ruff checks pass. Initial doctor exited75 behind PL-982;
+a bounded FIFO wait then acquired the slot at16:48:31UTC and doctor passed on
+the RTX2080Ti/05:00.0 with8,004MiB pre-existing use. Its display/bus lifecycle
+completed and no waiter remains owned. The holder was not touched. No game or
+Steam started, and no game-only GPU peak is inferred from doctor. Session/mod,
+all19 shipping-runtime files and all351 fixture files remain exact to PR48's
+merge2e1cf1f. No game is justified by this failed observer premise.
+
+## 2026-11-16 — PL-912 disposable native water recorder
+
+The lead authorized reusable, hash-pinned observation calls in Blade's private
+solver; original IL/branches/stores are inverse-verified. No installed original
+DLL, global JIT option, map, control, probe, threshold or gate changed. All four
+launches waited FIFO behind actual holders and used silent private :57.
+
+| Attempt | Actual result | Card peak MiB | Own sampled peak MiB | Peak W / °C | GPU window s |
+|---|---|---:|---:|---:|---:|
+| rio-native | Menu-only: memory-loaded dependency has empty assembly Location. | 9596 | unmeasured (menu only) | 63.39 / 43 | 252.057 |
+| rio-native2 | Menu-only: late factory import lacked SciPy; preparation moved before slot. | 9596 | unmeasured (menu only) | 95.16 / 42 | 120.207 |
+| rio-native3 | Actual 5.091945-minute zero/five captures, no atomic export: paused solver never idle. | 10821 | 2790 | 132.37 / 58 | 392.043 |
+| rio-prefix | Actual 5.053611-minute short; 286 complete updates/370 nodes; exact source/publication replay. | 10821 | 2814 | 132.17 / 57 | 442.688 |
+
+GPU05:00.0 remains capped at150 W; the pre-existing8004 MiB workload was not
+touched. Own peaks are sparse PID samples, not continuous/loading peaks. A menu
+sample is not called a game peak. GPU windows exclude queue wait, not full
+end-to-end turn duration. Every cleanup receipt is empty. Owned games1473600
+and1557234 needed normal quit-grace termination, not spontaneous-crash recovery.
+
+The completed trace explicitly reports one unpublished in-flight tail. Only
+immutable returned records are exported; their endpoint equals a native read
+checkpoint and actual zero/five grids. No live unpatch of an executing copy is
+claimed: the disposable process and mod are removed on session teardown.
+74,074 input-cell,423,280 source-phase and105,820 publication comparisons match.
+All4,256 observations/1,556 required flags remain; zero1556/five1545, eleven shared
+and zero new/old-only misses. All290 controls, initial grids, native floors, camera
+fields and8512 sampler readings match. No new map qualification or repaired oval
+is claimed; no other native map or full60-minute sweep ran in this unit.
+
+Final122 harness tests, scoped/full harness Ruff+format, build and doctor pass.
+The actual-native compressed numerical fixture has corruption/receipt tests.
+After native e3fcaa1, source-position reporting gained float precision and region
+planning moved from the first water update to pre-arm preparation. The precision-only
+checkpoint preserves all other28 method bodies byte-exact; the later preplanning
+check reproduces all370 native coordinates and four source IDs before arming.
+Final inverse-IL/JIT and synthetic read-only/prefix fixtures pass without another
+game. Mono's same-name assembly loading can unify images within one process,
+so byte comparisons use separate exact-runtime processes. No final-head native
+run is invented for this explicitly recorded scheduling/reporting delta. The ordinary build is restored with no observer
+types or0Harmony reference/dependency. All19 generation runtime files and351
+old factory fixtures remain byte-exact. No proprietary DLL/decompiled code
+is delivered. See TRACE.md and map-factory/ATOMIC_TRACE.md.

@@ -99,6 +99,9 @@ namespace Cs1Harness
             WorldOps.Register();
             TemplateOps.Register();
             NetworkOps.Register();
+#if TRACE_OBSERVER
+            TraceOps.Register();
+#endif
             DumpOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
