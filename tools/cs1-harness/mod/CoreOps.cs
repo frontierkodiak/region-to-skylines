@@ -18,9 +18,33 @@ namespace Cs1Harness
     // Controls any level needs: status, speed, camera, UI, screenshots, quit.
     public static class CoreOps
     {
+        static object Profile(object owner, string name)
+        {
+            ThreadProfiler profiler;
+            try { profiler = Reflect.Get<ThreadProfiler>(owner, "m_simulationProfiler"); }
+            catch (MissingFieldException) { return Host.Obj("manager", name, "profiler", false); }
+            if (profiler == null) return Host.Obj("manager", name, "profiler", false);
+            var watch = Reflect.Get<System.Diagnostics.Stopwatch>(profiler, "m_stopwatch");
+            return Host.Obj("manager", name, "running", watch.IsRunning, "elapsed_ms", (double)watch.ElapsedMilliseconds,
+                "last_step_ms", profiler.m_lastStepDuration, "peak_step_ms", profiler.m_peakStepDuration);
+        }
+
+        // Which simulation manager's step is in progress, and for how long: a
+        // manager stuck in its SimulationStep keeps its stopwatch running.
+        static Dictionary<string, object> SimProfile()
+        {
+            var sim = Singleton<SimulationManager>.instance;
+            var managers = Reflect.GetStatic<FastList<ISimulationManager>>(typeof(SimulationManager), "m_managers");
+            var rows = new List<object> { Profile(sim, "SimulationManager") };
+            for (int i = 0; i < managers.m_size; i++)
+                rows.Add(Profile(managers.m_buffer[i], managers.m_buffer[i].GetType().Name));
+            return Host.Obj("frame", (double)sim.m_currentFrameIndex, "managers", rows);
+        }
+
         public static void Register()
         {
             Host.Register("status", Needs.Any, "process, scene, GPU, plugins, errors; city stats when a city is loaded", q => Status());
+            Host.Register("sim_profile", Needs.Any, "per-manager simulation step timing; a running stopwatch marks the step in progress (read-only)", q => SimProfile());
             Host.Register("quit", Needs.Any, "quit the game after this frame", q => { Host.RequestQuit(); return Host.Obj("quitting", true); });
             Host.Register("run", Needs.Level, "pause/speed and session-only day/night: {paused, speed, day_night}", Run);
             Host.Register("camera", Needs.Level, "aim the camera: {position:[x,z]|[x,y,z], size, yaw, pitch} or {release:true}", CameraOp);

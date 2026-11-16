@@ -22,6 +22,11 @@ namespace Cs1Harness
             Host.Register("time_of_day", Needs.City, "day/night on (this session only) and the clock at {hour}", TimeOfDay);
             Host.Register("save_game", Needs.City, "job: save the city as {name} (the game's save panel routine)", SaveGame);
             Host.Register("load_game", Needs.Level, "job: load a saved city: {name}", LoadGame);
+            Host.Register("quiet_milestones", Needs.Level, "milestones and rewards still apply; their modal panel, which stops the simulation, does not open", q =>
+            {
+                Singleton<UnlockManager>.instance.RegisterUnlockingPanel(null);
+                return Host.Obj("quiet", true);
+            });
         }
 
         static Dictionary<string, object> CustomAssets(Dictionary<string, object> q)

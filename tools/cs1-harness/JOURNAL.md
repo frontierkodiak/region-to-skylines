@@ -47,6 +47,16 @@ out until each hook link is at least 40 m long. With no clear pair it falls
 back to the old choice. Template maps have only two road ends, so they keep
 their old behaviour.
 
+A reloaded city that passes a milestone (440 residents for the second) opens
+the game's modal `UnlockingPanel`, which stops the simulation: `run
+--from-save` then failed "simulation made no progress", looking like a hang.
+The test city already suppressed the panel in New Game; `run --from-save` now
+calls the new `quiet_milestones` op after loading. Milestones and rewards still
+apply. The read-only `sim_profile` op (per-manager step stopwatches) showed no
+manager in a step during the freeze, and `status` showed the modal. Charleston's
+save reloaded with 397 → 457 residents after the fix; three earlier reloads of
+it froze.
+
 Lesson: stopping a `run`'s systemd unit mid-run orphans the game, Steam and
 the harness's transient units (`cs1-harness-*`). Stop them by name only when
 `holder.json` names the dead run, and before the next waiter starts. Next
