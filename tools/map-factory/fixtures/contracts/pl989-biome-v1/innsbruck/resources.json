@@ -176,14 +176,15 @@
     "latitude": 47.27,
     "longitude": 11.4,
     "p75_ground_m": 572.5,
+    "p75_above_floor_m": 522.5,
+    "high_ground_share": 0.3335,
     "p75_real_m": 1723.4,
-    "relief_m": 831.0,
     "fit": {
       "base": 554.3947143554688,
       "verticalScale": 0.4469348561033608
     },
     "environment": "North",
-    "rule": "mountain relief"
+    "rule": "mountain ground"
   },
   "package": {
     "output": "/home/caleb/scratch/2026-11-16-pl989-biomes/refreeze/innsbruck/reference/PL857-innsbruck.crp",

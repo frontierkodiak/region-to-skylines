@@ -224,8 +224,9 @@
     "latitude": 35.58,
     "longitude": -82.555,
     "p75_ground_m": 198.6,
+    "p75_above_floor_m": 148.6,
+    "high_ground_share": 0.0067,
     "p75_real_m": 721.0,
-    "relief_m": 401.6,
     "fit": {
       "base": 572.4373168945312,
       "verticalScale": 1.0

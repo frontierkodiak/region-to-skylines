@@ -151,12 +151,18 @@ TREE_NAMES = sorted({name for theme in THEMES.values() for pool in theme.values(
 # woodland is the same under either. Europe is left as an explicit choice: its
 # environment also replaces the zoned and service buildings with Central
 # European ones, which players want to choose rather than receive. The
-# classifier reads latitude, real elevation and relief, so it is a hint, not a
-# climate model; a caller can set Knobs.environment to any environment name.
+# classifier reads latitude, real elevation and how much of the ground is high
+# above the map floor, so it is a hint, not a climate model; a caller can set
+# Knobs.environment to any environment name.
 TROPIC_LAT = 23.44  # the tropics; a warm lowland is Tropical
-BOREAL_LAT = 55.0  # north of this, North whatever the relief
+BOREAL_LAT = 55.0  # north of this, North whatever the ground
 TROPICAL_P75_REAL_M = 1200.0  # a warm lowland this low is Tropical
-MOUNTAIN_RELIEF_M = 600.0  # p1-p99 dry-ground relief in game metres
+# Mountains are how much of the square is high, not whether one peak is: a
+# p1-p99 range only needs the top 1 % of ground, so a single massif in an
+# otherwise low city would read as boreal. Height is above the map floor.
+MOUNTAIN_P75_ABOVE_FLOOR_M = 400.0  # upper-quartile ground this high
+MOUNTAIN_HIGH_ABOVE_FLOOR_M = 450.0  # "high" ground for the share
+MOUNTAIN_HIGH_SHARE = 0.20  # this much dry ground high reads as mountains
 # fitHeights puts the lowest ground at floor=50: game = (real - base) * vs + 50.
 FIT_FLOOR_M = 50.0
 
@@ -169,8 +175,9 @@ def choose_environment(sq, terrain, depth, knobs=None, fit=None):
     *real* lowland: game heights are shifted and squeezed into CS1's 0..1024 m,
     so a high flat city sits near the map floor and would otherwise read as
     lowland. Real elevation comes from the geometry's fit:
-    `real = (game - 50) / verticalScale + base`. Mountains are measured by
-    relief, which the fit does not change in rank.
+    `real = (game - 50) / verticalScale + base`. Mountains are measured as
+    height above the map floor (game 50 m), by the upper quartile or by the
+    share of high ground, so one massif in a low city does not flip it.
     """
     requested = getattr(knobs, "environment", "auto")
     if requested != "auto":
@@ -183,26 +190,31 @@ def choose_environment(sq, terrain, depth, knobs=None, fit=None):
     wet = np.asarray(depth) > 0
     ground = land[~wet] if (~wet).sum() > 4096 else land
     p75 = float(np.percentile(ground, 75))
-    relief = float(np.percentile(ground, 99) - np.percentile(ground, 1))
+    p75_above_floor = p75 - FIT_FLOOR_M
+    high_share = float(np.mean(ground - FIT_FLOOR_M >= MOUNTAIN_HIGH_ABOVE_FLOOR_M))
     fit = fit or {}
     base = float(fit.get("base", 0.0))
     vertical_scale = float(fit.get("verticalScale", 1.0)) or 1.0
-    real_p75 = (p75 - FIT_FLOOR_M) / vertical_scale + base
+    real_p75 = p75_above_floor / vertical_scale + base
     lat, lon = float(sq["lat"]), float(sq["lon"])
     receipt = {
         "latitude": round(lat, 4),
         "longitude": round(lon, 4),
         "p75_ground_m": round(p75, 1),
+        "p75_above_floor_m": round(p75_above_floor, 1),
+        "high_ground_share": round(high_share, 4),
         "p75_real_m": round(real_p75, 1),
-        "relief_m": round(relief, 1),
         "fit": {"base": base, "verticalScale": vertical_scale},
     }
     if abs(lat) <= TROPIC_LAT and real_p75 < TROPICAL_P75_REAL_M:
         environment, rule = "Tropical", "tropical lowland"
     elif abs(lat) >= BOREAL_LAT:
         environment, rule = "North", "high latitude"
-    elif relief >= MOUNTAIN_RELIEF_M:
-        environment, rule = "North", "mountain relief"
+    elif (
+        p75_above_floor >= MOUNTAIN_P75_ABOVE_FLOOR_M
+        or high_share >= MOUNTAIN_HIGH_SHARE
+    ):
+        environment, rule = "North", "mountain ground"
     else:
         environment, rule = "Sunny", "temperate lowland"
     receipt.update({"environment": environment, "rule": rule})

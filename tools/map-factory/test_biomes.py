@@ -64,7 +64,7 @@ class EnvironmentChoiceTests(unittest.TestCase):
         self.assertEqual(receipt["rule"], "temperate lowland")
 
     def test_mountains_are_north_not_europe(self):
-        """Innsbruck's 2 km of real relief fills CS1's height range."""
+        """Innsbruck's ground fills a third of the map well above the floor."""
         sq = {"lat": 47.27, "lon": 11.4}
         fit = {"base": 554.3947143554688, "verticalScale": 0.4469348561033608}
         terrain = np.linspace(60, 1000, 400)[None, :] * np.ones((400, 1))
@@ -72,9 +72,35 @@ class EnvironmentChoiceTests(unittest.TestCase):
             sq, terrain, flat_water(), fit=fit
         )
         self.assertEqual(environment, "North", receipt)
-        self.assertEqual(receipt["rule"], "mountain relief")
-        self.assertGreaterEqual(receipt["relief_m"], R.MOUNTAIN_RELIEF_M)
+        self.assertEqual(receipt["rule"], "mountain ground")
+        self.assertGreaterEqual(
+            receipt["p75_above_floor_m"], R.MOUNTAIN_P75_ABOVE_FLOOR_M
+        )
         self.assertGreater(receipt["p75_real_m"], R.TROPICAL_P75_REAL_M)
+
+    def test_one_peak_in_a_low_city_stays_temperate(self):
+        """Cape Town's Table Mountain or Athens' Hymettus is not boreal ground.
+
+        The p1-p99 range would flip on the top 1 %; how much of the map is
+        high must not.
+        """
+        sq = {"lat": -33.92, "lon": 18.42}
+        terrain = ground(100)
+        terrain[180:220, 180:220] = 900  # one 40-px massif, about 1 % of 400²
+        environment, receipt = R.choose_environment(sq, terrain, flat_water())
+        self.assertEqual(environment, "Sunny", receipt)
+        self.assertLess(receipt["high_ground_share"], R.MOUNTAIN_HIGH_SHARE)
+        self.assertLess(receipt["p75_above_floor_m"], R.MOUNTAIN_P75_ABOVE_FLOOR_M)
+
+    def test_enough_high_ground_is_mountains_even_below_the_quartile(self):
+        """A fifth of the map at 600 m reads North although p75 is low."""
+        sq = {"lat": 40.0, "lon": 20.0}
+        terrain = ground(100)
+        terrain[:160, :] = 600  # 40 % of 400 rows
+        terrain[160:240, :] = 100
+        environment, receipt = R.choose_environment(sq, terrain, flat_water())
+        self.assertEqual(environment, "North", receipt)
+        self.assertGreaterEqual(receipt["high_ground_share"], R.MOUNTAIN_HIGH_SHARE)
 
     def test_a_rocky_mountain_town_is_north_too(self):
         sq = {"lat": 39.74, "lon": -104.99}
