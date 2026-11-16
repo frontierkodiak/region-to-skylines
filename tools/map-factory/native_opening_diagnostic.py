@@ -10,6 +10,7 @@ import argparse
 import json
 from pathlib import Path
 import select
+import signal
 import shutil
 import subprocess
 import sys
@@ -351,6 +352,13 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
 
 
 if __name__ == "__main__":
+    # Match the harness CLI: a supervisor ending this foreground process must
+    # unwind slot/session contexts, collect receipts and release owned state.
+    def terminate(signum, _frame):
+        raise SystemExit(128 + signum)
+
+    for sig in (signal.SIGTERM, signal.SIGHUP):
+        signal.signal(sig, terminate)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
