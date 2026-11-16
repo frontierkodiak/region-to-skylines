@@ -140,6 +140,40 @@ function charts() {
   const zones = ZONE_SERIES.map(([name, keys, color]) => ({ name, color: css(color), values: saves.map((s) => sum(s.zone_km2, keys)) }));
   stackChart(document.getElementById("zones"), t, zones, (v) => fmt(v, 2));
   servicesTable();
+  stepsTable();
+}
+
+const ZONE_SHORT = { 2: "res low", 3: "res high", 4: "com low", 5: "com high", 6: "industry", 7: "office" };
+
+function stepsTable() {
+  const saves = series.saves;
+  const time = (iso) => new Date(iso).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+  const sameDay = day(saves[0].saved_at) === day(saves[saves.length - 1].saved_at);
+  const when = (iso) => (sameDay ? time(iso) : day(iso));
+  const rows = [];
+  for (let i = 1; i < saves.length; i++) {
+    const s = saves[i], c = s.change, p = saves[i - 1];
+    const km = Object.values(c.road_km_added).reduce((a, b) => a + b, 0);
+    const zones = Object.entries(c.zone_cells_added).filter(([code]) => ZONE_SHORT[code]).sort((a, b) => b[1] - a[1]);
+    const zoned = zones.reduce((a, [, n]) => a + n, 0);
+    const placed = Object.entries(c.buildings_added).filter(([k]) => k !== "growable").reduce((a, [, n]) => a + n, 0);
+    rows.push([
+      `<a href="#" data-i="${i}">${when(p.saved_at)}–${when(s.saved_at)}</a>`,
+      (s.population - p.population >= 0 ? "+" : "") + fmt(s.population - p.population),
+      km >= 0.05 ? fmt(km, 1) : "–",
+      zoned ? `${fmt(zoned)} <span class="muted">${zones.slice(0, 2).map(([code]) => ZONE_SHORT[code]).join(", ")}</span>` : "–",
+      placed || "–",
+      fmt(c.buildings_added.growable || 0),
+    ]);
+  }
+  const el = document.getElementById("steps");
+  el.innerHTML = `<table><tr><th>When</th><th>People</th><th>Network km</th><th>Zone cells</th><th>Placed</th><th>Grown</th></tr>` +
+    rows.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join("")}</tr>`).join("") + `</table>`;
+  el.querySelectorAll("a[data-i]").forEach((a) => a.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    show(+a.dataset.i);
+    document.getElementById("mapwrap").scrollIntoView({ behavior: "smooth" });
+  }));
 }
 
 const W = 640, H = 190, M = { l: 44, r: 92, t: 10, b: 24 };

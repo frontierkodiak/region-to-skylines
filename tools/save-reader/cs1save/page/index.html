@@ -56,6 +56,8 @@ th:first-child, td:first-child { text-align: left; }
 th { color: var(--text-2); font-weight: 500; }
 .obs { padding-left: 18px; }
 .obs li { margin: 0 0 10px; }
+.muted { color: var(--text-3); }
+#steps a { color: inherit; }
 .foot { margin-top: 30px; font-size: 12px; color: var(--text-3); }
 </style>
 </head>
@@ -76,6 +78,8 @@ th { color: var(--text-2); font-weight: 500; }
   <p class="change" id="change"></p>
   <div class="legend" id="legend"></div>
 
+  <h2>Each step</h2>
+  <div id="steps"></div>
   <h2>Population</h2>
   <div class="chart" id="pop"></div>
   <h2>Network built, km</h2>
