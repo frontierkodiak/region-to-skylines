@@ -2419,3 +2419,21 @@ Tropical native shore retained, residual dry oval not declared fixed.
 Empty cleanup; owned game 2579316 required normal quit-grace termination, not
 a spontaneous crash. No new sixty-minute run. Later source-pin canonical binding
 normalization changes receipts only; the complete package remains byte-exact.
+
+## 2026-11-16 · PL-912 supplied-patch boundary counterexample · blade
+
+Foreground Rio zero/five opening and Areas at `58de2bd`, exact package
+`4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40`.
+FIFO waited behind PL-982; silent private :57 / Steam prompt guards retained.
+Actual 5.129167 game minutes, 331.18 s sampled GPU window (queue excluded).
+RTX 2080 Ti 05:00.0; total peak 10,821 MiB / 130.17 W / 57°C; own-game
+sampled peak 2,792 MiB, not continuous/loading peak. Shared 150 W cap and
+other workload untouched. All 4,256 points remain; required zero 1,556/1,556,
+five 1,545/1,556, eleven shared/zero new/zero old-only misses. Twenty released
+intakes have zero buffer/flow at all six readings, including four per-minute
+samples. Controls, grids, terrain, native floor/targets/offsets and cameras
+match; all four raw PNGs inspected. Actual oval lobe is restored, native shore
+remains. **Support checkpoint fails:** 10/1,332 nearby sustained reference cells
+are dry at five; no Asheville or full run followed. Empty native cleanup;
+owned game 3034385 required normal quit-grace termination, not spontaneous
+crash. No new shipping qualification or default; diagnosis remains on PL-912.

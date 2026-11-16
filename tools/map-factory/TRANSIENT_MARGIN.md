@@ -62,3 +62,44 @@ against 0.05, and Charleston global r=0.6891 against 0.9/extreme failures.
 Charleston remains diagnosis-only. PL-979 owns broader workshop/hydraulics
 research, not this baseline. Steward and Opus review precede landing; the
 producer does not self-merge or accept PL-912.
+
+## First actual short · checkpoint `58de2bd`
+
+The exact Rio package
+`4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40`
+ran for **5.129167 game minutes** after the complete five-map CPU audit. All
+4,256 original observations remain: required zero is 1,556/1,556, five is
+1,545/1,556, exactly eleven shared misses and no new or old-only miss. The
+twenty released intakes have zero flow and buffer at zero, each of four
+intermediate per-minute readings, and five. All 290 encoded forcing records,
+initial grids, final terrain, native floor/target/offsets and cameras match.
+Native ground/surface/wet replay has zero mismatches at 8,512 observations.
+
+Actual zero/five opening and Areas frames were inspected. The dry oval's
+northwest lobe is restored to held terrain, leaving a much smaller native shore
+around the held pool. The opening keeps genuine water and native sandy shore.
+The phone comparison uses actual Tropical before/after, not a Sunny substitute.
+
+**The new support checkpoint fails.** Ten of 1,332 reference-sustained cells
+within two cells of raised released-ring vertices have zero depth at five.
+Their d5 reference five-minute depths are 1–7 units (1/64 m per unit). Every
+one retains its original raw floor and startup depth; no frozen observation is
+removed. All ten were positive in the prior merged Tropical short; one was
+already dry in the earlier identical-Sunny-package short. These facts do not
+justify dismissing the other nine or calling the physical-support proof passed.
+
+The exact positions are retained in `fixtures/native-transient-short.json`.
+No Asheville short, other candidate-map native launch, shipping integration or
+new sixty-minute run followed this failure. No original threshold/mask changed.
+This is a visible partial result and a native falsification of the proposed
+support argument, **not accepted admission or a shipped default**.
+
+Two read-only follow-up diagnostics further bound the problem. Requiring direct
+positive-head native output coverage would exclude the ten cells but also
+exclude the oval: its held water sits one grid edge beyond the small regulator's
+physical output radius. Conversely, every lost cell already belongs to a
+four-connected sustained-water component anchored at a positive-head output,
+so component source connectivity alone cannot repair the classification.
+Neither diagnostic generated another package or game; neither is a selector
+promoted to hide the exposed subset. Actual momentum/initial-storage dependence
+and the significance of this thin wet fringe need a source-bound disposition.
