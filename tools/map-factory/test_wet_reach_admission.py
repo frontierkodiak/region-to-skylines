@@ -1,14 +1,30 @@
 """Input-bound sparse evidence must not silently change another map or head."""
 
 import copy
+import json
+from pathlib import Path
+import tempfile
 import unittest
 
 import numpy as np
 
-from wet_reach_admission import SIZE, canonical, digest, replay_arrays
+from wet_reach_admission import SIZE, canonical, digest, geometry_digest, replay_arrays
 
 
 class WetReachContractTests(unittest.TestCase):
+    def test_source_pin_order_is_irrelevant_but_pin_values_are_bound(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "geometry.json"
+            geometry = {"sources": [{"x_m": 16, "z_m": 32}, {"x_m": -400, "z_m": 64}]}
+            path.write_text(json.dumps(geometry))
+            original = geometry_digest(path)
+            geometry["sources"].reverse()
+            path.write_text(json.dumps(geometry))
+            self.assertEqual(geometry_digest(path), original)
+            geometry["sources"][0]["x_m"] += 1
+            path.write_text(json.dumps(geometry))
+            self.assertNotEqual(geometry_digest(path), original)
+
     def setUp(self):
         self.terrain = np.full(SIZE, 6400, dtype="<u2")
         self.water = np.zeros(SIZE, dtype="<u2")

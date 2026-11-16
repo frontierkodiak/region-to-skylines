@@ -26,6 +26,7 @@ FEATURE_FIELDS = [
     "oceans",
     "undergroundWaterways",
     "labels",
+    "sources",
 ]
 
 
