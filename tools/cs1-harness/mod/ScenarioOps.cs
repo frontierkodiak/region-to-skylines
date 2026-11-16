@@ -55,6 +55,35 @@ namespace Cs1Harness
                 && Mathf.Abs(p.z - (z - 2) * 1920f) < 960f - margin;
         }
 
+        // Exit/on-ramp stub pairs in the start tile, closest pairs first.
+        static List<List<ushort>> HookupPairs()
+        {
+            var net = Singleton<NetManager>.instance;
+            var arrive = new List<ushort>();
+            var leave = new List<ushort>();
+            for (int i = 1; i < net.m_nodes.m_buffer.Length; i++)
+            {
+                var n = net.m_nodes.m_buffer[i];
+                if ((n.m_flags & (NetNode.Flags.Created | NetNode.Flags.Deleted | NetNode.Flags.Outside)) != NetNode.Flags.Created
+                    || n.Info == null || !(n.Info.m_netAI is RoadBaseAI) || n.CountSegments() != 1
+                    || Singleton<GameAreaManager>.instance.PointOutOfArea(n.m_position))
+                    continue;
+                bool inFlag = (n.m_flags & NetNode.Flags.OneWayIn) != 0, outFlag = (n.m_flags & NetNode.Flags.OneWayOut) != 0;
+                if (inFlag && !outFlag) arrive.Add((ushort)i);
+                if (outFlag && !inFlag) leave.Add((ushort)i);
+            }
+            var pairs = new List<KeyValuePair<float, List<ushort>>>();
+            foreach (ushort a in arrive)
+                foreach (ushort b in leave)
+                    pairs.Add(new KeyValuePair<float, List<ushort>>(
+                        VectorUtils.LengthXZ(net.m_nodes.m_buffer[a].m_position - net.m_nodes.m_buffer[b].m_position),
+                        new List<ushort> { a, b }));
+            pairs.Sort((x, y) => x.Key.CompareTo(y.Key));
+            var result = new List<List<ushort>>();
+            foreach (var p in pairs) { result.Add(p.Value); if (result.Count >= 12) break; }
+            return result;
+        }
+
         static List<ushort> Hookups()
         {
             var net = Singleton<NetManager>.instance;
@@ -224,7 +253,10 @@ namespace Cs1Harness
             return true;
         }
 
-        static Vector3 Site(List<ushort> hooks)
+        static Vector3 Site(List<ushort> hooks) { return Site(hooks, false).Value; }
+
+        // strict: only a site whose hookup tests clear; null when there is none.
+        static Vector3? Site(List<ushort> hooks, bool strict)
         {
             int tx, tz;
             Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
@@ -293,6 +325,7 @@ namespace Cs1Harness
                 }
                 catch (PlacementRejected) { }
             }
+            if (strict) return null;
             if (fallback != null) return fallback.Value;
             throw new Exception("no dry start-tile site whose grid passes native road placement checks");
         }
@@ -759,8 +792,17 @@ namespace Cs1Harness
             Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
             result["start_tile"] = new object[] { tx, tz };
             result["hookup_candidates"] = HookupInfo();
-            var hooks = Hookups();
-            center = Site(hooks);
+            List<ushort> hooks = null;
+            foreach (var pair in HookupPairs())
+            {
+                var site = Site(pair, true);
+                if (site != null) { hooks = pair; center = site.Value; break; }
+            }
+            if (hooks == null)
+            {
+                hooks = Hookups();
+                center = Site(hooks);
+            }
             result["center"] = XYZ(center);
             result["hookup_nodes"] = hooks;
             var road = Net("Basic Road");
