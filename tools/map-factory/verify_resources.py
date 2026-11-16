@@ -9,8 +9,8 @@ decode the package with the independent survey decoder and check:
 - forest equals min(60 x trees per cell, 255) and the tree byte matches it;
 - no cell has both ore and oil; invented ore and oil stay out of the start
   tile;
-- every tree uses an original-release prefab its map theme loads, and is
-  saved fully grown;
+- every tree uses an original-release prefab its map environment loads, and
+  is saved fully grown, within the planting budget;
 - the New Game amounts equal the 25-tile final sums, and the tile sums equal
   the cell grids binned the way the simulation bins them.
 
@@ -117,12 +117,17 @@ def check(crp, evidence=None):
         if len(trees["prefab"])
         else []
     )
-    theme = meta["environment"]
-    allowed = {n for pool in R.THEMES.get(theme, {}).values() for n, _ in pool}
-    if set(names) - allowed:
+    environment = meta["environment"]
+    if environment not in R.VANILLA_TREES:
+        problems.append(f"unknown map environment: {environment}")
+    elif set(names) - set(R.VANILLA_TREES[environment]):
         problems.append(
-            f"tree prefabs the {theme} theme doesn't load: {sorted(set(names) - allowed)}"
+            f"tree prefabs the {environment} environment doesn't load: "
+            f"{sorted(set(names) - set(R.VANILLA_TREES[environment]))}"
         )
+    planted = len(trees["prefab"])
+    if planted > R.Knobs.trees:
+        problems.append(f"{planted} trees planted, above the {R.Knobs.trees} budget")
     if len(trees["prefab"]) and any(n is None for n in trees["names"]):
         problems.append("tree prefab table has null entries")
     if np.any(trees["flags"] != R.GROWN_TREE):
@@ -167,21 +172,75 @@ def check(crp, evidence=None):
     }
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--fixtures", type=Path, default=ROOT / "fixtures")
-    args = parser.parse_args()
-    manifest = json.loads((args.fixtures / "manifest.json").read_text())
-    report, failed = [], False
+def current_cases(fixtures):
+    """The current contract's cases, with files resolved through fixture_files."""
+    doc = json.loads((fixtures / "current.json").read_text())
+    for case in doc["cases"]:
+        reference = case["reference"]
+        if "presentation_delta" not in reference:
+            raise SystemExit(f"{case['slug']}: current contract is not PL-989 shaped")
+        mapped = case.get("fixture_files", {})
+        base = fixtures / case["slug"]
+        paths = {name: fixtures / mapped.get(name, f"{case['slug']}/{name}") for name in case["files_sha256"]}
+        yield {
+            "slug": case["slug"],
+            "prepared": (fixtures / mapped["terrain.u16.gz"]).parent,
+            "geometry": base / "geometry.json.gz",
+            "landcover": base / "landcover.u8.gz",
+            "evidence": base / "evidence.json",
+            "knobs": reference["resource_knobs"],
+            "plan": fixtures / mapped["plan.npz"],
+            "expected_crp_sha256": reference["expected_crp_sha256"],
+            "files_sha256": case["files_sha256"],
+            "paths": paths,
+            "tree_positions_sha256": reference["presentation_delta"]["tree_positions_sha256"],
+            "base_plan": fixtures / reference["presentation_delta"]["base_plan"],
+            "tree_species_changed": reference["presentation_delta"]["tree_species_changed"],
+        }
+
+
+def historical_cases(fixtures):
+    manifest = json.loads((fixtures / "manifest.json").read_text())
     for case in manifest["cases"]:
         if not case.get("resource_plan"):
             raise SystemExit(f"{case['slug']}: reference has no frozen resource plan")
-        fixture = args.fixtures / case["slug"]
+        base = fixtures / case["slug"]
+        yield {
+            "slug": case["slug"],
+            "prepared": base,
+            "geometry": base / "geometry.json",
+            "landcover": base / "landcover.u8.gz",
+            "evidence": base / "evidence.json",
+            "knobs": case["resource_knobs"],
+            "plan": base / case["resource_plan"],
+            "expected_crp_sha256": case["expected_crp_sha256"],
+            "files_sha256": case["files_sha256"],
+            "paths": {name: base / name for name in case["files_sha256"]},
+            "tree_positions_sha256": None,
+            "base_plan": None,
+            "tree_species_changed": None,
+        }
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--fixtures", type=Path, default=ROOT / "fixtures")
+    parser.add_argument(
+        "--historical",
+        action="store_true",
+        help="check the preserved PL-918 fixture manifest instead of the current contract",
+    )
+    args = parser.parse_args()
+    cases = historical_cases(args.fixtures) if args.historical else current_cases(args.fixtures)
+    report, failed = [], False
+    for case in cases:
+        fixture = case["prepared"]
         for name, digest in case["files_sha256"].items():
-            if sha(fixture / name) != digest:
+            path = case["paths"][name]
+            if sha(path) != digest:
                 raise SystemExit(f"{case['slug']}: frozen input {name} changed")
-        knobs = R.Knobs(**case["resource_knobs"])
-        evidence_file = fixture / "evidence.json"
+        knobs = R.Knobs(**case["knobs"])
+        evidence_file = case["evidence"]
         evidence = (
             json.loads(evidence_file.read_text())["evidence"]
             if evidence_file.exists()
@@ -191,8 +250,9 @@ def main():
             planned, replayed = Path(tmp) / "plan", Path(tmp) / "replay"
             paint(
                 fixture,
-                fixture / "landcover.u8.gz",
+                case["landcover"],
                 planned,
+                geometry=case["geometry"],
                 evidence=evidence_file if evidence_file.exists() else None,
                 knobs=knobs,
             )
@@ -202,7 +262,7 @@ def main():
                 None,
                 replayed,
                 knobs=knobs,
-                plan=fixture / case["resource_plan"],
+                plan=case["plan"],
             )
             digest, replay_digest = sha(crp), sha(next(replayed.glob("*.crp")))
             problems, facts = check(crp, evidence)
@@ -214,10 +274,23 @@ def main():
                 problems.append(
                     "replaying frozen plan.npz through the encoders changed the bytes"
                 )
-            if (planned / "plan.npz").read_bytes() != (
-                fixture / case["resource_plan"]
-            ).read_bytes():
+            if (planned / "plan.npz").read_bytes() != case["plan"].read_bytes():
                 problems.append("resource planning differs from the frozen plan")
+            if case["tree_positions_sha256"] is not None:
+                plan = np.load(planned / "plan.npz")
+                positions = hashlib.sha256(
+                    plan["px"].tobytes() + plan["pz"].tobytes()
+                ).hexdigest()
+                if positions != case["tree_positions_sha256"]:
+                    problems.append("tree positions moved in a presentation-only change")
+                base = np.load(case["base_plan"])
+                for key in ["ore", "oil", "fertility", "forest", "tree"]:
+                    if not np.array_equal(base[key], plan[key]):
+                        problems.append(
+                            f"{key} grid changed in a presentation-only change"
+                        )
+                if np.array_equal(base["kinds"], plan["kinds"]) == case["tree_species_changed"]:
+                    problems.append("tree species flag does not match the frozen plan")
         failed |= bool(problems)
         report.append(
             {"slug": case["slug"], "sha256": digest, "problems": problems, **facts}

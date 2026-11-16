@@ -276,10 +276,22 @@ def begin_tag_size(data, offset, expected):
 
 
 def write_map(
-    template, layout, terrain, water, hydrology, output, preview=None, resources=None
+    template,
+    layout,
+    terrain,
+    water,
+    hydrology,
+    output,
+    preview=None,
+    resources=None,
+    environment=None,
 ):
     """`resources`: optional (plan, tree prefab names) from resources.plan;
-    it regenerates natural resources, trees and the New Game amounts."""
+    it regenerates natural resources, trees and the New Game amounts.
+    `environment`: the built-in map environment (theme) written into the
+    listing metadata; None keeps the template's. It names the environment whose
+    prefab and properties scenes the game loads, so the tree names passed with
+    `resources` must be ones that environment loads (resources.VANILLA_TREES)."""
     original = template.read_bytes()
     spec = json.loads(layout.read_text())
     hydro = json.loads(hydrology.read_text())
@@ -437,6 +449,8 @@ def write_map(
         image_fields.update(
             {name: ("System.UInt32", value) for name, value in amounts.items()}
         )
+    if environment is not None:
+        image_fields["environment"] = ("System.String", environment)
     for field, suffix, size in [
         ("imageRef", "Snapshot", (400, 224)),
         ("steamPreviewRef", "SteamPreview", (1800, 1008)),
@@ -481,6 +495,8 @@ def write_map(
         preserved.extend(["network_geometry", "buildings", "resources"])
     if resources is not None:
         regenerated.extend(["natural_resources", "trees", "resource_amounts"])
+        if environment is not None:
+            regenerated.append("environment")
         if "water_resources" not in regenerated:
             regenerated.append("water_resources")
         preserved = [

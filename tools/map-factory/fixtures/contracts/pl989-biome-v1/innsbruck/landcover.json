@@ -1,0 +1,30 @@
+{
+  "source": "ESA WorldCover 2021 v200; mapgen.js landCover",
+  "sq": {
+    "lon": 11.4,
+    "lat": 47.27,
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4,
+    "name": "Innsbruck",
+    "slug": "innsbruck"
+  },
+  "tiles": [
+    "N45E009"
+  ],
+  "classes": {
+    "10": 1693551,
+    "30": 664365,
+    "40": 130053,
+    "50": 269374,
+    "60": 195848,
+    "70": 4026,
+    "80": 19943,
+    "100": 8824
+  }
+}

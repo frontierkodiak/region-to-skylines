@@ -44,12 +44,32 @@ export async function loadFixtureContract(read, readSource) {
     assert.deepEqual(native.failed_checks, measured.failed);
     assert.deepEqual(native.receipt_sha256, measured.receipt_sha256);
     assert.equal(native.native_crp_sha256, measured.binding.files_sha256[`PL857-${old.slug}.crp`]);
-    assert.equal(c.shipping.expected_crp_sha256, native.native_crp_sha256, "only shipping is the native-tested full package");
+    const delta = c.reference.presentation_delta;
+    if (delta) {
+      // A presentation-only re-export: the package is new, the simulation data
+      // is the native-tested package's, and only these parts may differ.
+      assert.deepEqual(delta.changed, ["environment", "trees"], `${old.slug}: presentation delta scope`);
+      assert.match(delta.base_crp_sha256, /^[0-9a-f]{64}$/, `${old.slug}: delta must name the package it re-exports`);
+      assert.ok(delta.base_plan && typeof delta.environment_changed === "boolean" && typeof delta.tree_species_changed === "boolean", `${old.slug}: delta needs its base plan and change flags`);
+      if (delta.environment_changed || delta.tree_species_changed) {
+        assert.notEqual(c.shipping.expected_crp_sha256, native.native_crp_sha256, `${old.slug}: a real change must change the package`);
+      } else {
+        assert.equal(c.shipping.expected_crp_sha256, native.native_crp_sha256, `${old.slug}: an unchanged export must keep the native-tested bytes`);
+      }
+      assert.equal(c.shipping.presentation_delta.base_crp_sha256, native.native_crp_sha256);
+    } else {
+      assert.equal(c.shipping.expected_crp_sha256, native.native_crp_sha256, "only shipping is the native-tested full package");
+    }
     assert.deepEqual(c.reference.prepared_sha256, native.prepared_sha256);
     for (const [name, digest] of Object.entries(native.prepared_sha256))
       assert.equal(digest, measured.binding.files_sha256[name], `${old.slug}: actual native grid binding`);
     assert.deepEqual(c.shipping.source_files_sha256, current.source_files_sha256);
-    assert.equal(c.shipping.writer_source_commit, evaluation.native_tested_head);
+    if (delta) {
+      assert.equal(c.shipping.writer_source_commit, current.presentation_writer_commit, `${old.slug}: delta writer commit`);
+      assert.notEqual(c.shipping.writer_source_commit, evaluation.native_tested_head, "a delta re-export is written by a later writer");
+    } else {
+      assert.equal(c.shipping.writer_source_commit, evaluation.native_tested_head);
+    }
     assert.equal(c.shipping.historical_capture_source_commit, old.shipping.source_commit);
     assert.deepEqual(measured.initial_audits, { terrain_exact: true, initial_water_exact: true, source_controls_match: true });
     assert.ok(Object.values(measured.cleanup).every((v) => v.length === 0));

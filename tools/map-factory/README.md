@@ -114,13 +114,22 @@ uv run python verify_resources.py                          # frozen bytes and na
 ```
 
 - **Trees** follow WorldCover tree cover: 180k by default, under the
-  editor's 250k cap. `--forest dense` (the default) packs them into stands on
-  summits, ridges, slopes and stream corridors, leaving buildable flats open,
-  with five forestry woods near the start. `--forest open` spreads them over
-  all tree cover in stands and glades. Only original-release prefabs the map
-  theme loads are used, so the Temperate template gets no conifers. No tree
-  stands where the game's tree brush wouldn't place one (steeper axis
-  gradient of 50 % or more) or on ground steeper than 60 %.
+  editor's 250k cap, which leaves about 70k for the player to plant. `--forest
+  dense` (the default) packs them into stands on summits, ridges, slopes and
+  stream corridors, leaving buildable flats open, with five forestry woods
+  near the start. `--forest open` spreads them over all tree cover in stands
+  and glades. No tree stands where the game's tree brush wouldn't place one
+  (steeper axis gradient of 50 % or more) or on ground steeper than 60 %.
+- **Environment (theme) and species** travel together. The map's environment
+  is picked from the square's latitude and its own ground: tropical lowland →
+  `Tropical` (palms on the coast and lower slopes, broadleaf above them);
+  high ground → `Europe` in Europe (pine with valley broadleaf) and `North`
+  elsewhere (spruce and pine forest); high latitude → `North`; otherwise
+  `Sunny` (temperate broadleaf). Only tree prefabs that environment's scenes
+  load are used (`resources.VANILLA_TREES`), so no map asks for a prefab it
+  cannot render. Each palette is drawn from CO's own 2015 maps for that
+  environment. `--environment Sunny|North|Europe|Tropical` overrides the
+  choice.
 - **Forest** bytes are derived from the trees with the game's own formula.
 - **Fertile land** comes from crop and pasture on flat, dry ground.
 - **Ore** comes from USGS MRDS deposits and MSHA mines (coal included).

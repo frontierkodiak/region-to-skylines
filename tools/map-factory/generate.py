@@ -59,7 +59,18 @@ def generate(
         "resources": None
         if report is None
         else {
-            **{k: report[k] for k in ["knobs", "trees", "unlockable", "placed"]},
+            **{
+                k: report[k]
+                for k in [
+                    "knobs",
+                    "trees",
+                    "tree_budget",
+                    "environment",
+                    "biome",
+                    "unlockable",
+                    "placed",
+                ]
+            },
             "prepared_geometry_sha256": geometry_sha256,
         },
         "source": {"inputs_sha256": {"geometry.json": geometry_sha256}},
@@ -117,6 +128,12 @@ if __name__ == "__main__":
         default=None,
         help="open: stands over all tree cover; dense: packed stands on unbuildable slopes",
     )
+    parser.add_argument(
+        "--environment",
+        default="auto",
+        help="map environment (theme): auto by latitude and ground, or "
+        + ", ".join(["Sunny", "North", "Europe", "Tropical"]),
+    )
     args = vars(parser.parse_args())
     from resources import Knobs
 
@@ -125,6 +142,7 @@ if __name__ == "__main__":
         trees=args.pop("trees"),
         resources=args.pop("resources"),
         fertile=args.pop("fertile"),
+        environment=args.pop("environment"),
         **({"forest": forest} if forest else {}),
     )
     print(json.dumps(generate(**args), indent=2))
