@@ -1,0 +1,911 @@
+{
+  "format": 1,
+  "version": "pl912-biome-delta-v1",
+  "status": "partial_not_accepted",
+  "scope": "Presentation-only integration of PL-989 with PL-912 sampled native physics; partial, not issue acceptance",
+  "historical_manifest_sha256": "b46cab511f63a4773b85efc6a3f681c76f9da2db939d9708f0202e47717f694c",
+  "historical_native_qualification_sha256": "354229655d70363c3ef78fe3a88b6665b9788b6fa542a8c22172738ea8840a7a",
+  "native_evaluation_file": "contracts/pl912-native-dry-subreach-v1/native-evaluation.json",
+  "native_evaluation_sha256": "589d152b25a53d077db00ef0db40df2da5ff5badb009b5f32e66a79de4cba4b7",
+  "native_tested_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+  "source_files_sha256": {
+    "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+    "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+    "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+  },
+  "native_engine_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1",
+  "unverified": [
+    "strict_disableMods_ordinary_menu",
+    "macOS",
+    "populated_long_term"
+  ],
+  "reference_scope": "Offline reference-resource presentation delta, not a separate native full-package qualification",
+  "shipping_scope": "Presentation-delta packages, NOT the exact full packages used in five native soaks; original native records remain bound",
+  "cases": [
+    {
+      "slug": "asheville",
+      "reference": {
+        "expected_crp_sha256": "0191694965ac1875301f37d44a56a0f891eae653905d42657f7cc4967bad65e0",
+        "expected_crp_bytes": 6548471,
+        "expected_simulation_sha256": "4820e76e8c904b7a069e8059f8fc8355de3f00c7074016a59ee816c145c30790",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "ca9feddac2a4dcd22cd3eece6455c178",
+            "png_sha256": "59a50dd90329620ccd1ee64a78ab9ff617aef39d0c56f316770ecc20d6b83f8c"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "f9ea1c17c79406f756d376f52e869404",
+            "png_sha256": "0d722ff8049cae91a0961d6d390da09b92ab06f229601e56169c6b612aff9f32"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "9aef2d084a814a1dd49b7393cfa2d9245e35e736d6f9af24cff137e64debf000",
+          "water.u16": "31ea2baa620f49794b0d7f106071b1124949e0ffea7017e90035ec95a6bcf97e"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        },
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "0191694965ac1875301f37d44a56a0f891eae653905d42657f7cc4967bad65e0",
+          "base_plan": "contracts/pl912-native-dry-subreach-v1/asheville/plan.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": false,
+          "tree_species_changed": false,
+          "tree_positions_sha256": "801bf882640fbca626664944f006a2e77a77fc3a4e5b5b204ff3185e9a78d52f",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/asheville/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "62e545bd25bdf606ad50a25cf9682c8a22f922310cf3b42c7c2303441aaf905c",
+          "normalized_non_tree_sha256": "ef2304e6374a7aabb9db39d875c67dba56e1afd730d30c329bc97a048219ad64"
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+          "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+          "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+          "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff"
+        },
+        "expected_crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+        "expected_crp_bytes": 6548426,
+        "expected_simulation_sha256": "e947b470d1dd9e9e7445a4d5144088c7b9b53f46f0ae06ee2b05b4b1fbbe4452",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+          "base_plan": "contracts/pl912-biome-delta-v1/asheville/base-plan-shipping.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": false,
+          "tree_species_changed": false,
+          "tree_positions_sha256": "801bf882640fbca626664944f006a2e77a77fc3a4e5b5b204ff3185e9a78d52f",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/asheville/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "62e545bd25bdf606ad50a25cf9682c8a22f922310cf3b42c7c2303441aaf905c",
+          "normalized_non_tree_sha256": "6df38a56078f4d6c108fb2ceb465267b759fc6b375105d8806b49d2d152024f5"
+        }
+      },
+      "files_sha256": {
+        "banks.f32.gz": "93ef6e3c0eb8b3b026b5f32a8e4d00cc7a179f8dd58de2f2ca42572cd4157e1e",
+        "evidence.json": "2af201f890bd9365b7c787d7a421816599aecc1ddc9d43308afd30dd466fbae6",
+        "geometry.json.gz": "034842613856238709205bfd39c56a1e0a8d3bfb9007fedf81d1c17d4216cbdf",
+        "hydrology.json.gz": "bcaeeabc5d2b6040620a9e0fbb0bf5a236683e32a32ee96098a187d39a44e37a",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "landcover.json": "6c308a00e4665c22e12b145ac89f5fc7ec25db12ebfd6fb47fcf456b3a45fa53",
+        "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c",
+        "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16",
+        "plan.npz": "7f94d7b00b7d5f1388ae38b0b1e2c17f1f920ae6351a71086547c40a7d27b189",
+        "preview-large.png": "0d722ff8049cae91a0961d6d390da09b92ab06f229601e56169c6b612aff9f32",
+        "preview-thumbnail.png": "59a50dd90329620ccd1ee64a78ab9ff617aef39d0c56f316770ecc20d6b83f8c",
+        "resources.json": "ad1084a80af181befb4ebc60d3ec4a105a8ae60e2ea7926f0b4c4b3350b6c9b5",
+        "shipping-evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+        "shipping-geometry.json.gz": "034842613856238709205bfd39c56a1e0a8d3bfb9007fedf81d1c17d4216cbdf",
+        "terrain.u16.gz": "841d56a196405339d9f75833b7136700b238054285dcc84fa2e3623fdd7b6ab5",
+        "water.u16.gz": "ff5f1cc4d32bc836d73b6c4011da44f0f0bd8e06bf8cb7fff073f958fe4f523a",
+        "native-water-simulation.bin.gz": "e57c831be2d8f495d25a501c878bb4335f1250f52e3d5be3f54f117426556ebf",
+        "base-plan-shipping.npz": "74819e6ec040266373fb0a92ce8ddff3a10acf02e8b81a7b4e8c6161599385c5"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-native-dry-subreach-v1/asheville/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-native-dry-subreach-v1/asheville/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-biome-delta-v1/asheville/plan.npz",
+        "preview-large.png": "contracts/pl912-native-dry-subreach-v1/asheville/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-native-dry-subreach-v1/asheville/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-native-dry-subreach-v1/asheville/water.u16.gz",
+        "resources.json": "contracts/pl912-biome-delta-v1/asheville/resources.json",
+        "native-water-simulation.bin.gz": "contracts/pl912-biome-delta-v1/asheville/native-water-simulation.bin.gz",
+        "base-plan-shipping.npz": "contracts/pl912-biome-delta-v1/asheville/base-plan-shipping.npz"
+      },
+      "native": {
+        "native_crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+        "prepared_sha256": {
+          "terrain.u16": "9aef2d084a814a1dd49b7393cfa2d9245e35e736d6f9af24cff137e64debf000",
+          "water.u16": "31ea2baa620f49794b0d7f106071b1124949e0ffea7017e90035ec95a6bcf97e"
+        },
+        "water_sources_sha256": "50dbc9647d3570841166dfb8b65c88f380fb1ebacdbd3ff90031c5f7931a37d9",
+        "node_positions_sha256": "dfb2262737fa92dd99cd6e41256f234799fea34f148a31644947e8d6c10553f1",
+        "start_tile": 11,
+        "sea_level_m": 0.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+        "game_minutes": 60.11889202433328,
+        "verdict": "pass",
+        "failed_checks": [],
+        "receipt_sha256": {
+          "report.json": "03367865b82a91cff68147b7a6a301db977271f955d928bfdcd87e8355b7ff10",
+          "verdict.json": "a4adc66574b4c6ec35f27091cd86981b2e0abbb4d6a6b33ccdfb94bba9a57318",
+          "session-receipt.json": "ad2cb9f059bb4a0d8e6def69534df7e804eafc7bb7453fcdbf408329620a6be9",
+          "audit-common.json": "b11f3cfe7766e5fadf5332ad72b2567f10e1cbb6be4de6ebc0375db4e3bf1cb5",
+          "probes.json": "3d23c61d649b02705845ecfb74a77c3f5f6b313f41e00bb0086c059d0b32c8d2",
+          "startup-views-review.json": "c3517ade62647495ac8abb2c4f3b362d427df7ff710f16a4e353607e9291536f",
+          "new-game-panel-review.json": "b70af3cf6e657fc8500e3f82463df819f4ae8cf83ca56b7aede3a176a4e4cc5c",
+          "flood-candidate-initial.json": "16839745eb646968f1afad65ce1497d8558806dac8cea9b2347764862da6cc5c",
+          "reference-water.u16": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b",
+        "water_simulation_sha256": "62e545bd25bdf606ad50a25cf9682c8a22f922310cf3b42c7c2303441aaf905c"
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "reference": {
+        "expected_crp_sha256": "9bc58d4ca7e83088d5ebf84c48359039511bfde3db6c425808c10c0cae433595",
+        "expected_crp_bytes": 5765247,
+        "expected_simulation_sha256": "b5eac6b99ae7a2930b24b985abde4419d0cffd068a5385c8380f78ca7e8b9c69",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "e38a0de9a07e511a02a2f056c2338ba9",
+            "png_sha256": "d7801d00ff69a29df66c93b58cd824c55c852fa091d585d009cdd88ab4fa8451"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "f6684b3bc566dc4285a62942e16ac9c9",
+            "png_sha256": "9132d2c357e65fecea27c6d21fc694f44aa5ec92f54728312f5513ae08aef391"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "cd9dee2dfce1c13e0c82f1563484a11cb8c989f4665f84650d6354bfbc29b093",
+          "water.u16": "9aca12fd34d2050e5c1108369cb6f50c8bc754a2424e10ca0f8e266a7229342c"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        },
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+          "base_plan": "contracts/pl912-native-dry-subreach-v1/innsbruck/plan.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": true,
+          "tree_species_changed": true,
+          "tree_positions_sha256": "5cfa559b51cf0a01742a9c3807a09127dc83921dab3eceddc38df5554cabe949",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/innsbruck/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "e9764b2a92561d5c0de107fbebd8b4183c486486087baf8f50899580904f218f",
+          "normalized_non_tree_sha256": "ccdfaa145c64cc695300a35b2f5a86e5cc52b64939f4134fb3271dcaed83e957"
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+          "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+          "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b"
+        },
+        "expected_crp_sha256": "9bc58d4ca7e83088d5ebf84c48359039511bfde3db6c425808c10c0cae433595",
+        "expected_crp_bytes": 5765247,
+        "expected_simulation_sha256": "b5eac6b99ae7a2930b24b985abde4419d0cffd068a5385c8380f78ca7e8b9c69",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+          "base_plan": "contracts/pl912-biome-delta-v1/innsbruck/base-plan-shipping.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": true,
+          "tree_species_changed": true,
+          "tree_positions_sha256": "5cfa559b51cf0a01742a9c3807a09127dc83921dab3eceddc38df5554cabe949",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/innsbruck/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "e9764b2a92561d5c0de107fbebd8b4183c486486087baf8f50899580904f218f",
+          "normalized_non_tree_sha256": "ccdfaa145c64cc695300a35b2f5a86e5cc52b64939f4134fb3271dcaed83e957"
+        }
+      },
+      "files_sha256": {
+        "banks.f32.gz": "27924168288117abec58f00bbf298c9a28169ac24908cefadbc00d56760ef5dc",
+        "evidence.json": "5bafec020e6a2376ac3699b70acc66bbfb3868f05fdc91a87566adad7d790fad",
+        "geometry.json.gz": "a6032486fe72811f753c58b47fb04dc4fc261b11b03672d272a5bce3389f8bc5",
+        "hydrology.json.gz": "e52e45a34b9f57e8a615db7dec333920306451652b2f1366b4833e07ecbbfc64",
+        "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+        "landcover.json": "cb4ca4c603d73632c55fda55d467145e570ecab1e17d539cf06cfaa8a7babbc0",
+        "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646",
+        "plan.npz": "1850eb62d9ec2b4b58f853b87f6986a7d402d14504b593867cdcd6777f021644",
+        "preview-large.png": "9132d2c357e65fecea27c6d21fc694f44aa5ec92f54728312f5513ae08aef391",
+        "preview-thumbnail.png": "d7801d00ff69a29df66c93b58cd824c55c852fa091d585d009cdd88ab4fa8451",
+        "resources.json": "98209bcb881a56096a3afd73d3f2809ead70005ccd27988c923c91893d9bb3a4",
+        "shipping-evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "shipping-geometry.json.gz": "a6032486fe72811f753c58b47fb04dc4fc261b11b03672d272a5bce3389f8bc5",
+        "terrain.u16.gz": "c6683201a427f9f178466eb2ba42f3395fc097059d2aa25f1f5669db6868ea20",
+        "water.u16.gz": "bafb264100cd0547f63b649060b1a7c7633b1724265fb93d1a813cf5c4ddcdb2",
+        "native-water-simulation.bin.gz": "828338fb32d005fb196d9d0aad36e37fa02a19ca8d4208d3ee4407c931352aab",
+        "base-plan-shipping.npz": "0e28480f70f43dbe3f819a44e5e2dec7046667ec744d24744a0301677163f904"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-native-dry-subreach-v1/innsbruck/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-native-dry-subreach-v1/innsbruck/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-biome-delta-v1/innsbruck/plan.npz",
+        "preview-large.png": "contracts/pl912-native-dry-subreach-v1/innsbruck/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-native-dry-subreach-v1/innsbruck/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-native-dry-subreach-v1/innsbruck/water.u16.gz",
+        "resources.json": "contracts/pl912-biome-delta-v1/innsbruck/resources.json",
+        "native-water-simulation.bin.gz": "contracts/pl912-biome-delta-v1/innsbruck/native-water-simulation.bin.gz",
+        "base-plan-shipping.npz": "contracts/pl912-biome-delta-v1/innsbruck/base-plan-shipping.npz"
+      },
+      "native": {
+        "native_crp_sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+        "prepared_sha256": {
+          "terrain.u16": "cd9dee2dfce1c13e0c82f1563484a11cb8c989f4665f84650d6354bfbc29b093",
+          "water.u16": "9aca12fd34d2050e5c1108369cb6f50c8bc754a2424e10ca0f8e266a7229342c"
+        },
+        "water_sources_sha256": "95a262923af29c98e9744cdf94d3355983f2831a92781d8912d267e65778552e",
+        "node_positions_sha256": "9cd4b9960d9ee74e3560f38899410da238cbf32034b2abe0e4987d88c54cdd44",
+        "start_tile": 13,
+        "sea_level_m": 0.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+        "game_minutes": 60.08000313341617,
+        "verdict": "pass",
+        "failed_checks": [],
+        "receipt_sha256": {
+          "report.json": "a374bba4a78363c13da987eeeb9deab102bdd253fadc13df154042a629eff365",
+          "verdict.json": "714dc98db6861dffee8cc5c0b0256570821308f7fa4f822b49f35d828859f7a0",
+          "session-receipt.json": "37fc702c50699dc08e49001e1b78f3405ccbcd0dbe969d4b70e6f5c24758dba5",
+          "audit-common.json": "fd9b14cfd987c1b274937d6853b0cc6848fa61fc57f28bf9a2e99b8410e0443a",
+          "probes.json": "53d09129747c94a6b2e209e5238656f653341c1fb100631e47906095c717944b",
+          "startup-views-review.json": "7cfb036e4c7d7555ccbedf03c79e88b1315f3d5d927bb97c209a12ec5295f652",
+          "new-game-panel-review.json": "fe10963f9aa37c19bde2304bafdbdcda55c4b61fe9fee86e6a572f14b75fc29c",
+          "flood-candidate-initial.json": "6c41eb3de837b7a9cb41d5a4fa3dfa62e683e16a727bcb9ef05f60a01a833598",
+          "reference-water.u16": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577",
+        "water_simulation_sha256": "e9764b2a92561d5c0de107fbebd8b4183c486486087baf8f50899580904f218f"
+      }
+    },
+    {
+      "slug": "rio",
+      "reference": {
+        "expected_crp_sha256": "944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e",
+        "expected_crp_bytes": 6134022,
+        "expected_simulation_sha256": "8918c2e08304b274de01a22b006b561d097cde6ba54345619d6b7fa608214277",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "abbd28a75c111fb1011d390b1b43da41",
+            "png_sha256": "c01e177b8ba5fc45febcb04f7214a335dfe2fa391e846098fe7dd5134088ecfc"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "83a2cebeb7f87721bd550d439e7ed8d9",
+            "png_sha256": "6be3ebe891d7a68a072a1195d532b6dbfc77a0d6a83a140b5aea20771eeb17b6"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "934da280656166d8930a595cc3d4ac064eb7e0c8a517c7e0e784f6d8dcdf9b92",
+          "water.u16": "83f5f8b01098a0f91d9cce4481b394d1f07549560ba24c12947cacd27325c6cf"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        },
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+          "base_plan": "contracts/pl912-native-dry-subreach-v1/rio/plan.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": true,
+          "tree_species_changed": true,
+          "tree_positions_sha256": "bf9ea1008267c0dc8397e5575b6346538bb2f1a6a91c4c1980023ddc9b2ab4c6",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/rio/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "2e151afa4ea30826f0b9758b49176d66f267e52f1abd819061367dcde171cf9c",
+          "normalized_non_tree_sha256": "60bf1c138e119923c202dce8ebf561e443bd3880ca79db3821d686faf23c4a97"
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+          "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+          "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+          "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af"
+        },
+        "expected_crp_sha256": "944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e",
+        "expected_crp_bytes": 6134022,
+        "expected_simulation_sha256": "8918c2e08304b274de01a22b006b561d097cde6ba54345619d6b7fa608214277",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+          "base_plan": "contracts/pl912-biome-delta-v1/rio/base-plan-shipping.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": true,
+          "tree_species_changed": true,
+          "tree_positions_sha256": "bf9ea1008267c0dc8397e5575b6346538bb2f1a6a91c4c1980023ddc9b2ab4c6",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/rio/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "2e151afa4ea30826f0b9758b49176d66f267e52f1abd819061367dcde171cf9c",
+          "normalized_non_tree_sha256": "60bf1c138e119923c202dce8ebf561e443bd3880ca79db3821d686faf23c4a97"
+        }
+      },
+      "files_sha256": {
+        "banks.f32.gz": "079896629b5b9d440317c4963faf6ed623efe5110e1a387fe2858e66a45d8871",
+        "evidence.json": "5bafec020e6a2376ac3699b70acc66bbfb3868f05fdc91a87566adad7d790fad",
+        "geometry.json.gz": "243375e62dbac0f950ff88268549d6289fc2d837d34afeea5128e8c090dc8f90",
+        "hydrology.json.gz": "d7657fa72484b6327380ddd8398d74873cca763daac4c43a30157dbc9272d53f",
+        "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+        "landcover.json": "30b0502a874c7316feb1ceaf6e7e985ce85f91dbce7714653d71bacafe65fc15",
+        "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59",
+        "plan.npz": "ac15465bbb66f505ff223f1910ceda1525c485fd87b776c07889f2f387dbd995",
+        "preview-large.png": "6be3ebe891d7a68a072a1195d532b6dbfc77a0d6a83a140b5aea20771eeb17b6",
+        "preview-thumbnail.png": "c01e177b8ba5fc45febcb04f7214a335dfe2fa391e846098fe7dd5134088ecfc",
+        "resources.json": "2e3645dd394c5fd5a822b92d35fb82f054b36bd3f181006115eb777fd0a3fe1f",
+        "shipping-evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "shipping-geometry.json.gz": "243375e62dbac0f950ff88268549d6289fc2d837d34afeea5128e8c090dc8f90",
+        "terrain.u16.gz": "5494ce09e89e6a63ab15895793647b93eae64546b8d61eccf6bae6a4257bd7c7",
+        "water.u16.gz": "c279b2f8f215a1b924b5dac701540916be20705869050607fa55ef84fa898dcb",
+        "native-water-simulation.bin.gz": "173c2435deca0e872ac1b97bb2242b53d0e3d779e7faacd16f25f1bbfa88c507",
+        "base-plan-shipping.npz": "7191a3ea52efa29de082004d88fd7da2bfeab64bb8de6bbceef6182c18f9c2e9"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-native-dry-subreach-v1/rio/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-native-dry-subreach-v1/rio/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-biome-delta-v1/rio/plan.npz",
+        "preview-large.png": "contracts/pl912-native-dry-subreach-v1/rio/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-native-dry-subreach-v1/rio/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-native-dry-subreach-v1/rio/water.u16.gz",
+        "resources.json": "contracts/pl912-biome-delta-v1/rio/resources.json",
+        "native-water-simulation.bin.gz": "contracts/pl912-biome-delta-v1/rio/native-water-simulation.bin.gz",
+        "base-plan-shipping.npz": "contracts/pl912-biome-delta-v1/rio/base-plan-shipping.npz"
+      },
+      "native": {
+        "native_crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+        "prepared_sha256": {
+          "terrain.u16": "934da280656166d8930a595cc3d4ac064eb7e0c8a517c7e0e784f6d8dcdf9b92",
+          "water.u16": "83f5f8b01098a0f91d9cce4481b394d1f07549560ba24c12947cacd27325c6cf"
+        },
+        "water_sources_sha256": "4d4224dc240a115fa80f30ab88b19485b4b77f18a8f1f7fd92d25ccb890d7ffb",
+        "node_positions_sha256": "53850edca5e2ff5e8e67c118368806693da73f90c29f2ecebc152f2b8fcb49e4",
+        "start_tile": 21,
+        "sea_level_m": 86.7952475957194,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+        "game_minutes": 60.13444758070012,
+        "verdict": "fail",
+        "failed_checks": [
+          "no_flooding"
+        ],
+        "receipt_sha256": {
+          "report.json": "e420ce23ce471d5164fef17983fcaaf7be781264ad4dece004c392b55a0b0ce4",
+          "verdict.json": "4205638b1e2b9f91e2ec375e816d2e25dbf2f62cca26df3de222978f90f11b1f",
+          "session-receipt.json": "5547df512273864d2c71d621d2d4641c32e39a74b98f8006aacdb6b1c799ad11",
+          "audit-common.json": "92c6de9bb6d932142e2f85b36a1918b96997d15e699dc028d7f5d83f133b3dfa",
+          "probes.json": "ada64f10cfe7799496c6bcc2b3ae89f4bc5b0066c43a5a4c472a9c91084e43ab",
+          "startup-views-review.json": "352b568328a926025675a976fc08c27a406b17db12d38c4729b50fe982296b13",
+          "new-game-panel-review.json": "e6f58618f456cd9945a557c2546085e2ccca6995e42651398d6d9b070f503433",
+          "flood-candidate-initial.json": "2d707e4c9646582fbb483a66c2933bfe444f9f90d850fa76b0518de16fec44fe",
+          "reference-water.u16": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+        "water_simulation_sha256": "2e151afa4ea30826f0b9758b49176d66f267e52f1abd819061367dcde171cf9c"
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "reference": {
+        "expected_crp_sha256": "3fe6c17c026403201452d4262d875a61958e6887ea62919f08611a52dce88398",
+        "expected_crp_bytes": 6644827,
+        "expected_simulation_sha256": "02c3b68b1e24f988d311f035d1037f64d6580fa9c85275a380ef41e4563c36de",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "b80a0012572c04cc72766ab1c1b630d6",
+            "png_sha256": "d4152a3dd370c4c6f24a97326b3178a8a8afadb7477ce7ebb94fb712410709f7"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "4f6852b179cc8ef7d996e1c3910f3bde",
+            "png_sha256": "ac982e4589524f228a7f4a9e1df97d81a2af583f935812b3d230f87073286206"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "da4cc41c1ac57d1f4c089d59aaf160efc5832d0f70c80385d20e7dcdc94c0352",
+          "water.u16": "7b1c60fa16d7ce5a0b664fe5479900a6c0f9b7dba7f5f0b7a21e6dcbc762421f"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        },
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "3fe6c17c026403201452d4262d875a61958e6887ea62919f08611a52dce88398",
+          "base_plan": "contracts/pl912-native-dry-subreach-v1/pittsburgh/plan.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": false,
+          "tree_species_changed": false,
+          "tree_positions_sha256": "0342f5fafb0150e5e60fcdd391dbc9b9fe1325967515557e1352fac59a6b192a",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/pittsburgh/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "f81c5382c0f9c816f0af977177d12092d6f9e2f24d5b819891c481dfab6c7c76",
+          "normalized_non_tree_sha256": "2542f0e33066a11c0f96afd7644db9546b46626a58e0cce357de84c125ccc2b5"
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+          "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+          "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70"
+        },
+        "expected_crp_sha256": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+        "expected_crp_bytes": 6528198,
+        "expected_simulation_sha256": "104acb4956c9c2cd7d52a04e4957b863a96a5d770fcd3c1ecd57e47f7692312d",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+          "base_plan": "contracts/pl912-biome-delta-v1/pittsburgh/base-plan-shipping.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": false,
+          "tree_species_changed": false,
+          "tree_positions_sha256": "0342f5fafb0150e5e60fcdd391dbc9b9fe1325967515557e1352fac59a6b192a",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/pittsburgh/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "f81c5382c0f9c816f0af977177d12092d6f9e2f24d5b819891c481dfab6c7c76",
+          "normalized_non_tree_sha256": "c65c15703ba1a2a45f8fe02febffaab4ec93e7dc0725b2f09d93c949fbe4ef5b"
+        }
+      },
+      "files_sha256": {
+        "banks.f32.gz": "4683b18deef176cae68265d9f3bbeca76e8b58eda515c589f89e65b167b864d2",
+        "evidence.json": "9d2e59007c3cad540d1c91dddc0721d0f31cd2e93c6b937a2c71127e9ef92db4",
+        "geometry.json.gz": "48323fcbd7b16f5d8e380aa714190308181525203449c2733a7474fe697ffd65",
+        "hydrology.json.gz": "89e2d63c3905ed50f79e7ba7b972b2baecb35869949f566c373a6fa0eedf90cc",
+        "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+        "landcover.json": "63ddab85e79f63c73b684c5dc89fc8a7df1bbaa9b0a28cb9e02cb588f24af6fe",
+        "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f",
+        "plan.npz": "10feb46ee9e0cd997e7314b2f27bc38aa6a5295d2fd426fd3e2db41147d61683",
+        "preview-large.png": "ac982e4589524f228a7f4a9e1df97d81a2af583f935812b3d230f87073286206",
+        "preview-thumbnail.png": "d4152a3dd370c4c6f24a97326b3178a8a8afadb7477ce7ebb94fb712410709f7",
+        "resources.json": "c7c91ca0b4468420f52364f828b696bf0ed399ab4bec327fbb1611897bc1d412",
+        "shipping-evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+        "shipping-geometry.json.gz": "48323fcbd7b16f5d8e380aa714190308181525203449c2733a7474fe697ffd65",
+        "terrain.u16.gz": "441a418751c8bb218adfacb73e176fbd4d6bd4d26371ab0632ae9e47b3431156",
+        "water.u16.gz": "04a1e154fdcbefbf2106541e0e4ce568b3c3790a1cb3ba1d286f433737db3aca",
+        "native-water-simulation.bin.gz": "f1297bc8270d0abf9672ad7eb66551f88852d4add9ab8f00133ccb8b7917cd91",
+        "base-plan-shipping.npz": "7f6da88bde42f575534f769c8c31bfb354b9ecfefd0fa3264e703baa77dc8051"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-native-dry-subreach-v1/pittsburgh/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-native-dry-subreach-v1/pittsburgh/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-biome-delta-v1/pittsburgh/plan.npz",
+        "preview-large.png": "contracts/pl912-native-dry-subreach-v1/pittsburgh/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-native-dry-subreach-v1/pittsburgh/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-native-dry-subreach-v1/pittsburgh/water.u16.gz",
+        "resources.json": "contracts/pl912-biome-delta-v1/pittsburgh/resources.json",
+        "native-water-simulation.bin.gz": "contracts/pl912-biome-delta-v1/pittsburgh/native-water-simulation.bin.gz",
+        "base-plan-shipping.npz": "contracts/pl912-biome-delta-v1/pittsburgh/base-plan-shipping.npz"
+      },
+      "native": {
+        "native_crp_sha256": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+        "prepared_sha256": {
+          "terrain.u16": "da4cc41c1ac57d1f4c089d59aaf160efc5832d0f70c80385d20e7dcdc94c0352",
+          "water.u16": "7b1c60fa16d7ce5a0b664fe5479900a6c0f9b7dba7f5f0b7a21e6dcbc762421f"
+        },
+        "water_sources_sha256": "9aeb46ab6247a75a3c1a2f3066c461ef83a06f58af25d5e32f8db3f1038276f7",
+        "node_positions_sha256": "3dbeb277517e7eecdfccf3d0253eb3847dc0b6ecbaa7556a3de8a86cb604cbe7",
+        "start_tile": 12,
+        "sea_level_m": 0.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+        "game_minutes": 60.09916980108246,
+        "verdict": "pass",
+        "failed_checks": [],
+        "receipt_sha256": {
+          "report.json": "c83806a122f926416df3ecb6574fb6fdd013b911cafc3ca0806cc19d2c8a2d26",
+          "verdict.json": "db8aed1aeb74e70d862be43b226f6d77b99357d6bb744193d81df04fb152d982",
+          "session-receipt.json": "256b4e5f7cb08aca77d3f8f875a6c2a8034009f1b62c79472c86826d55e7e34e",
+          "audit-common.json": "ee7e7c99451784def89c5f674fdbc44aab361d851cc5f1b9a25c8f2927080f68",
+          "probes.json": "ac93b9d829ef34b8758d73fe310ed090e24ca318494f31654a14933735082e98",
+          "startup-views-review.json": "c64e3edf8520fde8e7ca1c539628a328b76baf932075b77a89f606695ad76cd8",
+          "new-game-panel-review.json": "0fdcb9297ea8e72f64a0410006eaec6c817799ca6c390edb87def1d04637dd84",
+          "flood-candidate-initial.json": "c9aa821279f14a80b86d6d72e8c5132ecdb6b5bc85ea44d5b1104ceaf6ec8dd0",
+          "reference-water.u16": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29",
+        "water_simulation_sha256": "f81c5382c0f9c816f0af977177d12092d6f9e2f24d5b819891c481dfab6c7c76"
+      }
+    },
+    {
+      "slug": "charleston",
+      "reference": {
+        "expected_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+        "expected_crp_bytes": 6513994,
+        "expected_simulation_sha256": "e6768c789f6f9f1fabcebb246041fe72b5ded6f663ee51a4a3bdb65aa2bf1db1",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "bb1fbeb1947a75790ce4926c230cc786",
+            "png_sha256": "49eca5d4194468bb8d8f5aeddb3d3ef6e829e98c071c6419cdccbf271abc87d4"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "df88a6879bcaed5758a743342f96a4c8",
+            "png_sha256": "c7e8eac5a6b1f2746df62134ec089d8bfb11253fce96782a05edd353276c5db9"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "1530cbb9a39d61147660d0881675d541af42db5fd7dfe6b22c803c40899ce802",
+          "water.u16": "e5ad937ca389807ddaec76e7df54743096675897c3ad750b55c29b7abfc4146c"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        },
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+          "base_plan": "contracts/pl912-native-dry-subreach-v1/charleston/plan.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": false,
+          "tree_species_changed": false,
+          "tree_positions_sha256": "6653e9147ca77f503f2466a09fd6cccc9cd33fed590cb58a1cb3ea91a7eb0c50",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/charleston/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "cda98b7ae80cec99131922ac0f55c5a07b81c52820724fa941103dbfb3707d4c",
+          "normalized_non_tree_sha256": "8a35aaa8a4e656317f2d32b9d88b807747098d5c11c916cf358183373d8c977f"
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+          "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed"
+        },
+        "expected_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+        "expected_crp_bytes": 6513994,
+        "expected_simulation_sha256": "e6768c789f6f9f1fabcebb246041fe72b5ded6f663ee51a4a3bdb65aa2bf1db1",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+        "presentation_delta": {
+          "changed": [
+            "environment",
+            "trees"
+          ],
+          "base_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+          "base_plan": "contracts/pl912-biome-delta-v1/charleston/base-plan-shipping.npz",
+          "previous_environment": "Sunny",
+          "environment_changed": false,
+          "tree_species_changed": false,
+          "tree_positions_sha256": "6653e9147ca77f503f2466a09fd6cccc9cd33fed590cb58a1cb3ea91a7eb0c50",
+          "water_simulation_file": "contracts/pl912-biome-delta-v1/charleston/native-water-simulation.bin.gz",
+          "water_simulation_sha256": "cda98b7ae80cec99131922ac0f55c5a07b81c52820724fa941103dbfb3707d4c",
+          "normalized_non_tree_sha256": "8a35aaa8a4e656317f2d32b9d88b807747098d5c11c916cf358183373d8c977f"
+        }
+      },
+      "files_sha256": {
+        "banks.f32.gz": "fabbafd353cbdaefd0025e623e1d781d743363c15cd40196b88f0db1b98184b2",
+        "evidence.json": "ffd177979398796ebc8610d18ab221860fe0258b20a03fa44c6527648edf166c",
+        "geometry.json.gz": "beec1a0905993bddd2ad95fe63b54028add1a4a1d77f273c29788f11b4968909",
+        "hydrology.json.gz": "6e10969d245de66c8839bc0a73ee3adfbca744ec412183031d8fb68eda3b5fad",
+        "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+        "landcover.json": "666ae070c84a9a2a1ef4d909bb9c51f50be407c27ab3687cbbc63b7e12d8110f",
+        "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925",
+        "plan.npz": "47e8508a040d2037c66af297abcc2f4475c8c56705b76e1b3ddd749e8311c2e3",
+        "preview-large.png": "c7e8eac5a6b1f2746df62134ec089d8bfb11253fce96782a05edd353276c5db9",
+        "preview-thumbnail.png": "49eca5d4194468bb8d8f5aeddb3d3ef6e829e98c071c6419cdccbf271abc87d4",
+        "resources.json": "bd29a8b8eee08f962febf6a39ec5aa19b5daac5a02be79139d9a0466cc1870d0",
+        "shipping-evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+        "shipping-geometry.json.gz": "beec1a0905993bddd2ad95fe63b54028add1a4a1d77f273c29788f11b4968909",
+        "terrain.u16.gz": "3da28b3826c692b2bd140332c1903b7b80d060caecec8e837c15e3d10b49d74c",
+        "water.u16.gz": "eae51aa96045307319c7e79e04f33f3d455a7807cbb20eff1e114bfe41824016",
+        "native-water-simulation.bin.gz": "6ff60b3c7bea9be8e2c359f88c258bc90e9cc68e68e816d82cfa71ee0685ff9b",
+        "base-plan-shipping.npz": "07f3d9d82aba04c23d20acff3b45f07596957530db313efbbd695f9f429a146c"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-native-dry-subreach-v1/charleston/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-native-dry-subreach-v1/charleston/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-biome-delta-v1/charleston/plan.npz",
+        "preview-large.png": "contracts/pl912-native-dry-subreach-v1/charleston/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-native-dry-subreach-v1/charleston/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-native-dry-subreach-v1/charleston/water.u16.gz",
+        "resources.json": "contracts/pl912-biome-delta-v1/charleston/resources.json",
+        "native-water-simulation.bin.gz": "contracts/pl912-biome-delta-v1/charleston/native-water-simulation.bin.gz",
+        "base-plan-shipping.npz": "contracts/pl912-biome-delta-v1/charleston/base-plan-shipping.npz"
+      },
+      "native": {
+        "native_crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+        "prepared_sha256": {
+          "terrain.u16": "1530cbb9a39d61147660d0881675d541af42db5fd7dfe6b22c803c40899ce802",
+          "water.u16": "e5ad937ca389807ddaec76e7df54743096675897c3ad750b55c29b7abfc4146c"
+        },
+        "water_sources_sha256": "6fd626cafbf774070c04947126bd7db02448c12e6a37d7b79986931ff7d7581b",
+        "node_positions_sha256": "5b0429b72fe00b8817de3b6919dd3dc965ddb7f254799217e74dac41a3641412",
+        "start_tile": 21,
+        "sea_level_m": 90.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+        "game_minutes": 60.146669803559774,
+        "verdict": "fail",
+        "failed_checks": [
+          "ground_truth"
+        ],
+        "receipt_sha256": {
+          "report.json": "73721a00bdfa7649742b367b4187ec225a4ec747f4ab87b84fd18191b4790bb8",
+          "verdict.json": "b491343a5cc786b4abc7b4e17ebb1284fd0a4dc5793c8080f36df8bcee5be4e4",
+          "session-receipt.json": "545f2c23422a2dc2af39f39ac25288502fe1d694f507827e920c0dfd38c7f0ce",
+          "audit-common.json": "f58da078f85e5343249bd837b8dc8919fb038ede7ba6db2501e07dedb3ffd566",
+          "probes.json": "271de033b2fae67902502165c6177b35de0941b25aaae130da8a6518fa5621bc",
+          "startup-views-review.json": "3e165dc0875a3bda088cd810f0169d23edb8a2f9114963f7ac101779d3f9eb88",
+          "new-game-panel-review.json": "9037f577c08b990b7e66b667226ed64147796f2d92bd8c846fea8e425d94cb79",
+          "flood-candidate-initial.json": "34bf1b9190a53d056517158680d777201cf21f32056ea3a8cdf5eeeffb79ed61",
+          "reference-water.u16": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f",
+        "water_simulation_sha256": "cda98b7ae80cec99131922ac0f55c5a07b81c52820724fa941103dbfb3707d4c"
+      }
+    }
+  ],
+  "native_source_files_sha256": {
+    "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+    "tools/map-factory/generate.py": "226136f35fc3fed4d52807a6be6685856b816fdc516815f32fd34fd291d9dcdb",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+    "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+    "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+  },
+  "presentation_writer_commit": "e5a3d74358dc9a2a7d971324b6088c69ee0badbe",
+  "previous_contracts": {
+    "accepted_presentation": {
+      "file": "current.json",
+      "sha256": "1ed5e9711f13bd8babb457756295731a56dfc7aae548d9af7ba107d4b9d7a235"
+    },
+    "native_baseline": {
+      "file": "contracts/pl912-native-dry-subreach-v1/current.json",
+      "sha256": "c34dcfb40a9560d7da2794106807b7a0e9ecfe612eac93ee4ac2b6fae0f07182"
+    }
+  },
+  "presentation_proof_file": "contracts/pl912-biome-delta-v1/presentation-proof.json",
+  "presentation_proof_sha256": "51bd2d81509b33f9dcdc4ee343ff766b70afa06a262404cc6d02b14daafe483e"
+}

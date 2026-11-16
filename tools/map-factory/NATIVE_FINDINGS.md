@@ -2,7 +2,7 @@
 
 ## PL-912 evidence index · updated November 16
 
-The accepted default remains `cb5e2a1`. PR42 now proposes an input-bound dry-reach
+Main is now `3b5b4c9`, including PL-989's accepted biome presentation. PR42 proposes an input-bound dry-reach
 replay in the Python and shipping JS/Pyodide path; it is not landed or accepted.
 The lead accepts genuinely wet streams
 with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
@@ -23,6 +23,15 @@ this evidence without treating a rejected arm as a baseline fix.
   ground truth remains failed (0.6891 versus 0.9). A dry protected Rio inlet
   basin remains visible, not declared repaired. The new versioned fixture
   contract is partial evidence, not issue acceptance or a gate waiver.
+  PL-996 independently verified it and found a current-main integration crash.
+  The repaired integration chains the PL-989 and PL-912 contracts; ten fresh
+  Python builds preserve native WaterSimulation and all grids exactly. Only
+  Rio/ Innsbruck presentation packages change (Tropical/North), not their old
+  full-run identities. The wet-at-five startup-storage guard, rather than an
+  active-intake requirement, independently retains the small Rio dry oval.
+  Source163 has no sampled withdrawal; source91's separate intake counterexample
+  remains. See the correction and the unqualified presentation-delta boundary
+  in DRY_SUBREACHES.md.
 - [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): earlier whole-piece dry-only arm;
   fresh Rio zero/five opening+Areas, unchanged required wetness, no visible
   central Areas improvement. PL-990 corrected Sol's attribution: three deferred

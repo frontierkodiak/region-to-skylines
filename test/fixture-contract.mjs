@@ -11,11 +11,13 @@ export async function loadFixtureContract(read, readSource) {
   const historical = parse(historicalBytes);
   const historicalNativeCases = Object.fromEntries(parse(historicalNativeBytes).cases.map((c) => [c.slug, c]));
   const active = parse(await read("fixtures/active.json"));
-  assert.equal(active.format, 1);
-  assert.equal(active.historical_current, "current.json");
+  assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const current = parse(await read("fixtures/" + active.current));
-  assert.equal(sha(await read("fixtures/current.json")), current.historical_current_contract_sha256, "historical current contract changed");
+  assert.equal(current.previous_contracts.accepted_presentation.file, "current.json");
+  assert.equal(current.previous_contracts.native_baseline.file, "contracts/pl912-native-dry-subreach-v1/current.json");
+  for (const parent of Object.values(current.previous_contracts))
+    assert.equal(sha(await read("fixtures/" + parent.file)), parent.sha256, "predecessor contract changed");
   assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...FACTORY_FILES.map((f) => "tools/map-factory/" + f)].sort(), "every shipping runtime dependency must be bound");
   assert.equal(current.format, 1);
   assert.equal(current.status, "partial_not_accepted");
@@ -25,13 +27,23 @@ export async function loadFixtureContract(read, readSource) {
   const evaluationBytes = await read("fixtures/" + current.native_evaluation_file);
   assert.equal(sha(evaluationBytes), current.native_evaluation_sha256, "fresh native evaluation changed");
   const evaluation = parse(evaluationBytes);
+  const presentationBytes = await read("fixtures/" + current.presentation_proof_file);
+  assert.equal(sha(presentationBytes), current.presentation_proof_sha256, "presentation proof changed");
+  const presentationProof = parse(presentationBytes);
+  assert.equal(presentationProof.status, "complete");
+  assert.equal(presentationProof.cases.length, 10);
+  assert.equal(presentationProof.source_head, current.presentation_writer_commit);
+  assert.deepEqual(presentationProof.source_files_sha256, current.source_files_sha256);
   assert.equal(evaluation.status, "partial_not_accepted");
   assert.equal(current.native_tested_head, evaluation.native_tested_head);
   const admission = parse(await readSource("tools/map-factory/native-water-admission.json"));
   assert.match(current.native_engine_sha256, /^[a-f0-9]{64}$/);
   assert.equal(current.native_engine_sha256, evaluation.native_engine_sha256);
   assert.equal(current.native_engine_sha256, admission.native_engine_sha256);
-  assert.deepEqual(current.source_files_sha256, evaluation.source_files_sha256);
+  assert.deepEqual(current.native_source_files_sha256, evaluation.source_files_sha256);
+  const presentationFiles = ["generate.py", "crp.py", "paint.py", "resources.py"].map((f) => "tools/map-factory/" + f);
+  for (const [name, digest] of Object.entries(current.native_source_files_sha256))
+    if (!presentationFiles.includes(name)) assert.equal(current.source_files_sha256[name], digest, `${name}: hydraulic dependency changed`);
   assert.equal(current.source_files_sha256["tools/map-factory/region.py"], evaluation.production_writer_sha256);
   for (const [name, digest] of Object.entries(current.source_files_sha256))
     assert.equal(sha(await readSource(name)), digest, `${name}: current contract source changed`);
@@ -73,6 +85,16 @@ export async function loadFixtureContract(read, readSource) {
         assert.equal(c.shipping.expected_crp_sha256, native.native_crp_sha256, `${old.slug}: an unchanged export must keep the native-tested bytes`);
       }
       assert.equal(c.shipping.presentation_delta.base_crp_sha256, native.native_crp_sha256);
+      assert.equal(c.shipping.presentation_delta.water_simulation_sha256, native.water_simulation_sha256);
+      assert.equal(delta.water_simulation_sha256, native.water_simulation_sha256);
+      for (const kind of ["reference", "shipping"]) {
+        const row = presentationProof.cases.find((r) => r.case === old.slug && r.kind === kind);
+        const section = c[kind];
+        assert.equal(row.package.sha256, section.expected_crp_sha256);
+        assert.equal(row.base_crp_sha256, section.presentation_delta.base_crp_sha256);
+        assert.equal(row.water_simulation_sha256, section.presentation_delta.water_simulation_sha256);
+        assert.equal(row.normalized_non_tree_sha256, section.presentation_delta.normalized_non_tree_sha256);
+      }
     } else {
       assert.equal(c.shipping.expected_crp_sha256, native.native_crp_sha256, "only shipping is the native-tested full package");
     }

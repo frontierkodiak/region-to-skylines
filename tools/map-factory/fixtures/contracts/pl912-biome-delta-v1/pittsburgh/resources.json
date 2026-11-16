@@ -1,0 +1,83 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "environment": "auto",
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179428,
+  "tree_budget": {
+    "planted": 179428,
+    "editor_cap": 250000,
+    "planting_headroom": 70572,
+    "manager_slots": 262143,
+    "free_slots": 82715
+  },
+  "unlockable": {
+    "ore": 1134729,
+    "oil": 831715,
+    "forest": 4936245,
+    "fertility": 465458,
+    "water": 1103855
+  },
+  "cells": {
+    "ore": 12214,
+    "oil": 80832,
+    "fertility": 9437,
+    "forest": 41086
+  },
+  "evidence": [],
+  "placed": [],
+  "environment": "Sunny",
+  "biome": {
+    "latitude": 40.44,
+    "longitude": -80.0,
+    "p75_ground_m": 175.6,
+    "p75_above_floor_m": 125.6,
+    "high_ground_share": 0.0,
+    "p75_real_m": 338.2,
+    "fit": {
+      "base": 212.61277770996094,
+      "verticalScale": 1.0
+    },
+    "environment": "Sunny",
+    "rule": "temperate lowland"
+  },
+  "package": {
+    "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/pittsburgh/PL857-pittsburgh.crp",
+    "sha256": "3fe6c17c026403201452d4262d875a61958e6887ea62919f08611a52dce88398",
+    "bytes": 6644827,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "environment",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "02c3b68b1e24f988d311f035d1037f64d6580fa9c85275a380ef41e4563c36de"
+  }
+}

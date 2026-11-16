@@ -166,6 +166,10 @@ nearby native water exists but that dry point is not declared wet. The inlet
 footprint is intentionally outside the dry-reach restoration domain, not a
 newly repaired stream. The raw images retain it for steward visual review.
 
+PL-996 subsequently corrected this attribution: the guard is not proof of an
+active intake constraint at this particular oval. See the review correction
+below. The distinct Trapicheiros intake91 counterexample remains valid.
+
 No 60-minute result, shipping JS/Pyodide parity or new qualification is implied.
 The original Rio flood and Charleston terrain failures are not waived.
 
@@ -260,3 +264,54 @@ manifest and qualification ledger remain historical. Offline reference-resource
 variants share physics but did not receive five extra native package runs.
 Strict disableMods/menu, macOS and populated long-term behavior are not newly
 qualified. PR42 remains draft; this evidence does not accept PL-912.
+
+## PL-996 review and current-main integration
+
+Opus independently replayed the five native verdicts/audits, confirmed all
+nineteen runtime bindings and approved the **partial** baseline except for a
+landing blocker: PL-989 had merged to main at `3b5b4c9`, changing the paint
+report and resource-plan API. A clean textual merge would crash on the removed
+`theme` field. Main was no longer `cb5e2a1`; that earlier statement describes
+the old snapshot only.
+
+The branch merges current main without rewriting the reviewed or rejected
+history. Runtime checkpoint `e5a3d74` preserves `environment` and `biome` when
+replaying the resource plan. The real Rio generation/staging test now runs by
+default; it also caught old callers treating `load_plan`'s new tuple as a grid
+dictionary. All callers now unpack the plan and preserve its environment.
+
+Ten fresh Python builds prove identical terrain, initial water, hydrology,
+resource grids and tree positions to their previous PL-912 builds. The entire
+simulation prefix before TreeManager is byte-identical after normalizing only
+SimulationMetaData's environment. WaterSimulation is byte-identical without
+normalization. Rio changes to Tropical, Innsbruck to North; the other three
+shipping packages remain exactly their native-tested bytes. The new two
+packages are **presentation deltas**, not newly sixty-minute-tested packages.
+
+The versioned `pl912-biome-delta-v1` contract chains both PL-989's accepted
+`fixtures/current.json` and the immutable PL-912 native-baseline contract.
+It retains the five actual native package identities, engine hash, observations,
+masks, thresholds and receipts; it does not relabel the new package hashes as
+the old native runs. Fixture builds execute comparisons against saved native
+WaterSimulation bytes and the original resource plans, not just declarations.
+No predecessor contract is rewritten by this integration. A fresh merged Rio
+zero/five opening+Areas short is required for the steward's visual judgment.
+
+### Residual oval: corrected cause, still not fixed
+
+Native Rio Comprido source163/native164 reports zero flow and zero buffered
+withdrawal at all thirteen saved full-run epochs. Using the measured five-minute
+floor, availability replay is about −2,000 depth units from five to sixty;
+all wet surfaces in its footprint are below target. This is sampled evidence,
+not an every-frame or universal inactivity claim. It must not be confused with
+the **different**, demonstrably active Trapicheiros source91/native92.
+
+The oval's dry point is also frozen by the native wet-patch guard independently
+of its source radius. The adjacent strip still contains 0.16–0.52 m of startup
+water at five minutes, then is dry at fifteen through sixty. Removing the intake
+guard alone would not restore the point. Clearing that class changes the
+five-minute transient-storage rule that repaired Papa-Couve; it is a separate
+bounded unit, not an approved control-footprint exemption. Opus recommends the
+steward land this partial baseline after the integration checks, retaining the
+oval as genuine remaining work. No oval repair or complete PL-912 acceptance
+is claimed. The old flood and Charleston failures remain recorded.

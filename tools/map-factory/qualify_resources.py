@@ -72,7 +72,7 @@ def inspect(folder, original, evidence):
         ">h7f", 2, x, y, z, 1000, 0, 60, 0
     )
     grids, areas = M.parse_resources(data, M.data_version(data))
-    plan = load_plan(folder / "plan.npz")
+    plan, _, _ = load_plan(folder / "plan.npz")
     for key in ["ore", "oil", "forest", "fertility", "tree"]:
         assert np.array_equal(grids[key], plan[key]), key
     tiles = (np.arange(512) * 18) >> 10
