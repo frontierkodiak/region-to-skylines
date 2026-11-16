@@ -214,7 +214,7 @@ def seat(ground, depth, graph, bed=14.0, reach=40.0):
     }
 
 
-def prepare_roads(output, geometry):
+def prepare_roads(output, geometry, air=True, ship=True):
     """Add the road graph to an already prepared region directory."""
     data, _ = surface_geometry(json.loads(Path(geometry).read_text()))
     hydro = json.loads((output / "hydrology.json").read_text())
@@ -231,8 +231,12 @@ def prepare_roads(output, geometry):
     graph["report"]["duplicate_segments_dropped"] = len(graph["edges"]) - len(edges)
     graph["edges"] = edges
     start, why = choose_start(graph, ground, depth, hydro["start_tile"])
-    air, air_report = air_path(data, ground)
-    ship, ship_report = ship_path(data, ground, depth, start, hydro["sea_level_m"])
+    air, air_report = air_path(data, ground) if air else (None, {"air": "off"})
+    ship, ship_report = (
+        ship_path(data, ground, depth, start, hydro["sea_level_m"])
+        if ship
+        else (None, {"ship": "off"})
+    )
     merge(graph, air, ship)
     report = {**graph["report"], **air_report, **ship_report}
     report["seat"] = seat(ground, depth, graph)
@@ -422,14 +426,22 @@ def write(output, landcover=None, evidence=None, knobs=None, geometry=None):
 
 
 def generate(
-    png, geometry, output, banks=None, landcover=None, evidence=None, knobs=None
+    png,
+    geometry,
+    output,
+    banks=None,
+    landcover=None,
+    evidence=None,
+    knobs=None,
+    air=True,
+    ship=True,
 ):
     output.mkdir(parents=True, exist_ok=True)
     geometry_bytes = Path(geometry).read_bytes()
     snapshot = output / "geometry.json"
     snapshot.write_bytes(geometry_bytes)
     summary = prepare(png, snapshot, LAYOUT, output, banks)
-    roads = prepare_roads(output, snapshot)
+    roads = prepare_roads(output, snapshot, air, ship)
     package, report = write(output, landcover, evidence, knobs)
     receipt = {
         "preparation": summary,
@@ -466,6 +478,8 @@ if __name__ == "__main__":
     parser.add_argument("--banks", type=Path)
     parser.add_argument("--landcover", type=Path)
     parser.add_argument("--evidence", type=Path)
+    parser.add_argument("--no-air", action="store_false", dest="air")
+    parser.add_argument("--no-ship", action="store_false", dest="ship")
     args = parser.parse_args()
     receipt = generate(**vars(args))
     roads = receipt["real_roads"]
