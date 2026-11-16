@@ -184,9 +184,12 @@ def apply_highways(data, graph, ground_height):
             return TUNNELS[kind][0]
         return PREFABS[(kind, "bridge" if structures == {"bridge"} else "ground")]
 
-    build_index = 1 + max(
+    # Paths treat a segment whose m_modifiedIndex is at or above their own build
+    # index as changed since they were found (PathUnit.GetPosition). The
+    # template's own networks already sit below the saved build counter, so
+    # new networks reuse its oldest index rather than counting upwards.
+    build_index = min(
         [r["build_index"] for r in net.nodes.values()]
-        + [r["build_index"] for r in net.segments.values()]
         + [r["modified_index"] for r in net.segments.values()]
     )
     ids, clones, pillars = [], {}, 0
@@ -238,7 +241,6 @@ def apply_highways(data, graph, ground_height):
             flags |= JUNCTION
         node_id = net.add_node(prefab, node["xyz"], flags)
         net.nodes[node_id]["build_index"] = build_index
-        build_index += 1
         ids.append(node_id)
         x, y, z = node["xyz"]
         if node.get("outside"):
@@ -302,7 +304,6 @@ def apply_highways(data, graph, ground_height):
         record["condition"] = 0
         record["name_seed"] = (segment_id * 2654435761) & 0xFFFF
         net.segment_flags2[segment_id - 1] = 0xC0
-        build_index += 1
 
     net.remove(old_roads)
     for building in old_buildings:
