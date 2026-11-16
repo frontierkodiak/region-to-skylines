@@ -1,0 +1,18 @@
+{
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "mod_sha256": "e522a3a4dcb1649ea4ba126f9daae253345187279465cd3bb06136ab76bd6b47",
+  "disposable_trace": {
+    "enabled": true,
+    "disposable_only": true,
+    "harmony_sha256": "e271d22a7c32bfca105d0e471c04eee14eec6142d37a30cd73cb7d32c7d1dd0f",
+    "engine_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+  },
+  "source_receipt_sha256": "148b7ac5477054d40db4835d17bce4840a353db54c1def59a989c4570d31179e",
+  "map": {
+    "sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40"
+  }
+}

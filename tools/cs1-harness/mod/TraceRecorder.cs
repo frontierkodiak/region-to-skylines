@@ -80,6 +80,7 @@ namespace Cs1Harness
             for (int i = 0; i < targets.Count; i++)
             {
                 TargetIds[i] = Convert.ToInt32(targets[i]);
+                if (Convert.ToDouble(targets[i]) != TargetIds[i]) throw new Exception("source IDs must be integers");
                 if (TargetIds[i] < 1 || TargetIds[i] > SourceCount) throw new Exception("trace source ID out of range");
             }
             var cells = (List<object>)request["cells"]; ExtraPositions = new int[cells.Count];
@@ -95,11 +96,17 @@ namespace Cs1Harness
             if (TargetIds.Length + ExtraPositions.Length == 0 || TargetIds.Length > MaxTouched || ExtraPositions.Length > MaxNodes)
                 throw new Exception("empty or oversized trace region");
             stepLimit = (int)Json.Num(request, "max_steps", MaxSteps);
+            if (Json.Num(request, "max_steps", MaxSteps) != stepLimit) throw new Exception("max_steps must be an integer");
             if (stepLimit < 1 || stepLimit > MaxSteps) throw new Exception("trace max_steps must be 1..512");
             Configuration = Obj("sources", TargetIds, "cells", cells, "max_steps", stepLimit, "binding", request["binding"]);
             records = new Transaction[stepLimit];
             for (int i = 0; i < stepLimit; i++) records[i] = new Transaction();
             for (int i = 0; i < SourceCount; i++) slots[i] = -1;
+            Initialize();
+            var coordinates = new int[nodes * 2]; var ids = new int[touched]; int cursor = 0;
+            for (int i = 0; i < nodes; i++) { coordinates[i * 2] = positions[i] % 1081 * 16 - 8640; coordinates[i * 2 + 1] = positions[i] / 1081 * 16 - 8640; }
+            for (int i = 0; i < SourceCount; i++) if (slots[i] >= 0) ids[cursor++] = i + 1;
+            Configuration["planned_coordinates"] = coordinates; Configuration["planned_source_ids"] = ids;
             capturing = true;
         }
         public static void Stop() { capturing = false; }
@@ -119,13 +126,13 @@ namespace Cs1Harness
                 a.m_inputPosition.y == b.m_inputPosition.y && a.m_inputPosition.z == b.m_inputPosition.z &&
                 a.m_outputPosition.x == b.m_outputPosition.x && a.m_outputPosition.y == b.m_outputPosition.y && a.m_outputPosition.z == b.m_outputPosition.z;
         }
-        static void Initialize(WaterSimulation water)
+        static void Initialize()
         {
             var set = new HashSet<int>();
             foreach (int p in ExtraPositions) set.Add(p);
             foreach (int id in TargetIds)
             {
-                var s = water.m_waterSources.m_buffer[id - 1];
+                var s = expected[id - 1];
                 for (int direction = 0; direction < 2; direction++)
                 {
                     uint rate = direction == 0 ? s.m_inputRate : s.m_outputRate;
@@ -145,9 +152,9 @@ namespace Cs1Harness
                                     }
                 }
             }
-            if (set.Count > MaxNodes) throw new Exception("trace node bound exceeded");
+            if (set.Count == 0 || set.Count > MaxNodes) throw new Exception("trace region must contain 1..512 nodes");
             var ordered = new List<int>(set); ordered.Sort(); nodes = ordered.Count; ordered.CopyTo(positions);
-            Array.Copy(water.m_waterSources.m_buffer, controls, SourceCount);
+            Array.Copy(expected, controls, SourceCount);
             for (int i = 0; i < SourceCount; i++)
             {
                 slots[i] = -1;
@@ -156,7 +163,6 @@ namespace Cs1Harness
                     if (Inside(positions[n], s.m_inputPosition, s.m_inputRate) || Inside(positions[n], s.m_outputPosition, s.m_outputRate))
                     { if (touched >= MaxTouched) throw new Exception("trace source bound exceeded"); slots[i] = touched++; break; }
             }
-            owner = water; initialized = true;
         }
         static void Copy(WaterSimulation water, ushort[] destination, bool published)
         {
@@ -183,7 +189,7 @@ namespace Cs1Harness
                 if (!capturing || water.m_waterSources.m_size != SourceCount) return;
                 for (int i = 0; i < SourceCount; i++)
                     if (!SameControl(expected[i], water.m_waterSources.m_buffer[i])) throw new Exception("loaded source catalog differs from explicit trace binding");
-                if (!initialized) Initialize(water);
+                if (!initialized) { owner = water; Array.Copy(water.m_waterSources.m_buffer, controls, SourceCount); initialized = true; }
                 if (!ReferenceEquals(owner, water)) throw new Exception("water instance changed");
                 if (count >= stepLimit) { HitBound = true; capturing = false; return; }
                 current = records[count]; current.Index = count++;
@@ -264,8 +270,8 @@ namespace Cs1Harness
         static Dictionary<string, object> Obj(params object[] pairs)
         { var result = new Dictionary<string, object>(); for (int i = 0; i < pairs.Length; i += 2) result[(string)pairs[i]] = pairs[i + 1]; return result; }
         static object Source(WaterSource s)
-        { return Obj("type", s.m_type, "input", new[] {s.m_inputPosition.x,s.m_inputPosition.y,s.m_inputPosition.z},
-            "output", new[] {s.m_outputPosition.x,s.m_outputPosition.y,s.m_outputPosition.z}, "target", s.m_target,
+        { return Obj("type", s.m_type, "input", new double[] {s.m_inputPosition.x,s.m_inputPosition.y,s.m_inputPosition.z},
+            "output", new double[] {s.m_outputPosition.x,s.m_outputPosition.y,s.m_outputPosition.z}, "target", s.m_target,
             "input_rate", s.m_inputRate, "output_rate", s.m_outputRate, "water", s.m_water, "flow", s.m_flow, "pollution", s.m_pollution); }
         static ushort[] Snapshot(Transaction r, int phase)
         { var copy = new ushort[nodes * 4]; Array.Copy(r.Snapshots[phase], copy, copy.Length); return copy; }

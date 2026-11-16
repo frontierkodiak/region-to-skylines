@@ -37,6 +37,10 @@ fail closed. Unity may load mod assemblies from bytes, leaving `Assembly.Locatio
 empty: runtime checks use the pinned disposable file plus loaded module identity,
 not a fictitious assembly path.
 
+The recording region and touching-source set are planned before arming, outside
+the solver. Water-thread callbacks only validate the expected catalog and copy
+bounded primitive snapshots into preallocated private storage.
+
 ## Choose the observation
 
 Prepare the complete control table from the unchanged CRP **before** acquiring

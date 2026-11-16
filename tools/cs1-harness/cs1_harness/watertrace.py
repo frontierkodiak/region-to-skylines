@@ -85,6 +85,9 @@ def audit(path: Path, receipt: Path | None = None):
         require(
             session["mod_sha256"] == binding.get("observer_sha256"), "cleanup receipt belongs to a different observer"
         )
+        require(
+            session["map"]["sha256"] == binding.get("package_sha256"), "session map differs from trace package binding"
+        )
         require(session["disposable_trace"]["engine_sha256"] == ENGINE, "cleanup receipt engine mismatch")
     previous = None
     ids = [source["id"] for source in header["sources"]]

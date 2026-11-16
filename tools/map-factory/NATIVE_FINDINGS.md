@@ -2,13 +2,15 @@
 
 ## PL-912 evidence index · updated November 16
 
-Main is now `3b5b4c9`, including PL-989's accepted biome presentation.
-PR42 proposes an input-bound dry-reach
-replay in the Python and shipping JS/Pyodide path; it is not landed or accepted.
+Last verified main is `2abbafa`, including PL-989's biome presentation and the
+partially landed PR42/PR48 dry-reach rules. Those are not issue acceptance.
+PR49 proposes the reusable, opt-in [native source observer](ATOMIC_TRACE.md),
+with no new map-generation default or gate change.
 The lead accepts genuinely wet streams
-with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
-the separate selection-versus-hydraulics/workshop/reservoir question and can use
-this evidence without treating a rejected arm as a baseline fix.
+with native sandy shore; dry broken-looking beds remain the defect. The November16
+lead decision expands tracing on PL-912 from the oval into flooding, minimum
+sustainable stream size and reservoir behaviour. PL-979's workshop research can
+use this evidence without treating a rejected arm as a baseline fix.
 
 - [DRY_SUBREACHES.md](DRY_SUBREACHES.md): PL-990's source-grounded next unit,
   dry line pixels plus startup film never rewetted in recorded native states.
@@ -30,7 +32,7 @@ this evidence without treating a rejected arm as a baseline fix.
   Rio/Innsbruck presentation packages change (Tropical/North), not their old
   full-run identities. The wet-at-five startup-storage guard, rather than an
   active-intake requirement, independently retains the small Rio dry oval.
-  Source163 has no sampled withdrawal; source91's separate intake counterexample
+  Hydrology163/native164 has no sampled withdrawal; hydrology91/native92's separate intake counterexample
   remains. See the correction and the unqualified presentation-delta boundary
   in DRY_SUBREACHES.md.
   The merged Rio package has a fresh actual zero/five opening+Areas short with
@@ -904,3 +906,16 @@ without declaring all excavation fixed. Rio flood area increases to
 0.062464 km² (limit 0.05); Charleston r=0.6891/extreme failures remain.
 These are unwaived partial-baseline results, not issue acceptance, a minimum
 sustainable stream size, a reservoir benefit or an every-frame hydraulic proof.
+## November16 native solver tracing
+
+The reusable opt-in observer and actual source-step evidence are described in
+[native source-step observations](ATOMIC_TRACE.md), with the operator API in
+[harness tracing](../cs1-harness/TRACE.md). The unchanged landed Rio short records
+286 complete native updates with exact intake/source/publication replay. Native92
+is active despite zero output; native164 does not withdraw in the traced window,
+while native163 repeatedly supplies the small oval pool. The unfinished unpublished
+tail and process-based observer cleanup are explicit. This changes no map default,
+observation, threshold or qualification, and establishes no minimum stream size
+or reservoir benefit. The lead has authorized further tracing, including those
+broader hydraulic questions; the original gates remain intact.
+
