@@ -48,6 +48,93 @@ uv run cs1-harness run --map Asheville.crp --scenario test-city \
     --issue PL-893 --out ~/experiments/PL-893-test-city/asheville
 ```
 
+## Camera framing and terrain
+
+`camera.position` is a **look-at pivot**, not the lens position. `[x,z]`
+samples `TerrainManager.SampleRawHeightSmooth` there; `[x,y,z]` uses the
+explicit world-space pivot height. `yaw=0` looks north (+z), `yaw=90` east
+(+x); pitch is degrees downward from horizontal. The map-check `views` caller
+passes `[x,z]` and does not supply a separate height.
+
+`size` is the native camera-controller zoom parameter, not ground coverage or
+height above terrain. In this game's `CameraController.UpdateTransform`, the
+nominal pivot-to-lens distance is:
+
+```text
+d = size * max(0, 1 - current_height / max_distance) / tan(FOV_degrees * pi/180)
+lens = pivot - forward * d
+```
+
+This uses the **full** FOV angle, not half. After the override settles,
+`current_height` tends to zero; at the measured 45° FOV, `d = size`.
+Thus size 700, pitch 50, yaw 0 nominally raises the lens 536.23 m above the
+pivot and places it 449.95 m south. Native terrain/water/object collision
+correction can then raise it, and x/z clamp at ±8640 m. The ground under the
+lens need not have the pivot's elevation. Wait for interpolation to settle
+(map checks default to 4 s) before capturing. A fixed size is not a guarantee
+of a fixed ground footprint on a slope.
+
+Use `world_observe`, not the `camera` reply or `camera_state.position`, to
+verify the rendered view. Those two positions describe the pivot.
+`world_observe.camera.render_position` is the lens; `current_position` is
+the interpolated pivot; `target_position` can differ under native collision
+handling. `screen_points` use screenshot **pixels**, origin top-left:
+
+```sh
+uv run cs1-harness call world_observe '{"points":[{"name":"ridge","x":-4500,"z":-2400}],"tree_radius":400,"screen_points":[{"name":"center","x":960,"y":540}]}'
+```
+
+`tree_radius` is optional (0 disables it; maximum 1000 m). Each point then
+reports native created/hidden/grown counts, roots more than 5 m below raw
+terrain, and up to eight examples with prefab, flags, root and detail heights.
+It reads without changing trees, terrain or camera. A package's tree count
+alone does not prove the trees are visible in game.
+
+Reproduce the three Rio views at sizes 350/700/1400 in an owned, foreground
+session (refuses a busy slot unless `--wait-minutes` is supplied):
+
+```sh
+uv run cs1-harness build
+uv run examples/camera_probe.py --map /path/to/PL857-rio.crp \
+  --out ~/experiments/PL-1000-camera/recheck
+```
+
+The output must be a new directory. `--point name,x,z` is repeatable for other
+maps. Measurements bind the source revision/diff, mod source and game assembly
+hashes, map SHA-256, requested pivot, actual transform, terrain beneath the
+lens, center ray/terrain hit and screenshots. Cleanup runs even on failure.
+
+### Rio verification (PL-1000)
+
+On blade, the original Rio package SHA-256
+`967ca9acc854e4161f2576ffa3a55a1d1db59f754768b55cf879bd336c880317`
+reproduces the empty ridge. At size 700/pitch 50 the pivot is
+`[-4500,441.042,-2400]`, but the **lens** is
+`[-4500,982.868,-2849.951]`. This is not a camera at grass-blade height.
+The camera implementation is unchanged from the original PL-989 run at
+`cb5e2a1`; no camera-placement fix is justified by that observation.
+
+At source `72f7af5`, a nine-shot size sweep measured:
+
+| View (x,z) | Pivot terrain, m | Lens y at size 350 / 700 / 1400, m | Native trees within 400 m |
+|:--|--:|:--|--:|
+| Ridge (-4500,-2400) | 441.04 | 711.70 / 982.87 / 1525.18 | 2,097 |
+| High woodland (-1800,-300) | 642.33 | 912.98 / 1184.15 / 1726.46 | 2,095 |
+| Palms (-3000,-4800) | 188.31 | 458.97 / 730.14 / 1272.45 | 1,317 |
+
+**Use size 350/pitch 50 for close woodland at these locations.** All three
+350 frames show trees. At 700, the ridge is empty and the high-woodland frame
+shows trees only in the distant lowland, while the palm frame remains
+populated. Every sampled area's trees are grown, none hidden, none rooted
+more than 5 m below raw terrain. Ridge lens clearance above the terrain
+directly underneath is 316.93 m at 350 and 604.80 m at 700. The 700 frame's
+center ray hits terrain near the requested pivot, not a foreground ridge.
+This demonstrates size-dependent visibility, not a lens stuck at ground
+level; the underlying renderer/LOD cause is **not established**. Do not fix
+it by adding the target's terrain height a second time. The measurements,
+native screenshots and cleanup receipt are in the PL-1000 attachments and
+blade run `~/experiments/PL-1000-camera/native-observe`.
+
 ## Asset Editor mode
 
 ```sh

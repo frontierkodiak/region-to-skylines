@@ -1,5 +1,49 @@
 # cs1-harness journal
 
+## 2026-11-16 · Sol medium · PL-1000 · camera size and woodland visibility
+
+Blade RTX 2080 Ti, bus 05:00.0; 150 W cap unchanged. Two session-owned
+foreground launches, no other run touched. The Rio package is SHA-256
+967ca9acc854e4161f2576ffa3a55a1d1db59f754768b55cf879bd336c880317,
+the original PL-989 package. CameraOp/mapcheck callers are unchanged from
+cb5e2a1. Native Assembly-CSharp.dll c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1
+was decompiled for CameraController.UpdateTransform/CalculateCameraHeightOffset.
+
+Baseline: five views, roughly 3.3 minutes including launch, whole-GPU peak
+10,821 MiB, 115.63 W, 45°C. Diagnostic source 72f7af5: nine views at sizes
+350/700/1400 across ground heights 188/441/642 m; roughly 3.8 minutes including
+launch, whole-GPU peak 10,821 MiB, 123.97 W, 52°C. GPU sampling is every 5 s;
+per-process peak was not sampled (menu game usage 1,574 MiB). These are not
+simulation throughput benchmarks: city simulation was paused during capture.
+Both receipts end with empty game, Steam and unit cleanup lists.
+
+The original ridge's size-700 view reproduced, but its lens is at 982.868 m,
+604.80 m above the terrain directly underneath, not at grass-blade height.
+Its pivot is at 441.042 m. At settled override/FOV 45°, nominal distance equals
+size, plus native collision correction; `[x,z]` follows the target terrain.
+Native tree observation finds 2,097 nearby ridge trees, all grown, none hidden,
+none rooted more than 5 m below raw terrain. Center-ray terrain hit is within
+4 m of the requested target. No camera-placement bug was demonstrated, so no
+camera behavior was changed.
+
+Size 350/pitch 50 gives readable woodland in all three views. Size 700 loses
+the high-ground woodland but retains the lower palm view; the underlying
+size-dependent rendering/LOD cause is not established. No map/package changed.
+The existing 700 requests retain the same measured transforms before/after the
+read-only diagnostic extension. Native PNGs and measurements are retained in
+~/experiments/PL-1000-camera/{before,native-observe} and attached to PL-1000.
+
+Added an optional tree-radius readout to world_observe and a reusable
+examples/camera_probe.py which owns a slot, captures lens/pivot/terrain/center
+ray/tree receipts, binds source/mod/game/map hashes and cleans up on failure.
+README and knowledge games/cities-skylines-harness.md document the distinction
+between pivot, lens, zoom and terrain; Comb commit 91a911f7.
+
+Checks: mod build, doctor (egl0/05:00.0), ruff check/format, all 113 harness
+unit tests, nine native diagnostic frames. No full map-soak rerun: no water,
+terrain, simulation or camera logic changed. Native renderer/LOD repair is
+not part of this result.
+
 ## 2026-11-12 · Sol xhigh · PL-926 · exclude tunnel excavation before PNG capture
 
 On blade's RTX 2080 Ti, bus 05:00.0, cap 150 W unchanged. Exact source/writer
