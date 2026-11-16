@@ -110,20 +110,14 @@ def distance(mask):
     )
 
 
-def remove_connector_cuts(ground, banks, geometry, surveys):
+def restore_line_cuts(ground, banks, geometry, removed_line, retained_line):
     """Replay only the change in the browser's combined line/body excavation.
 
     Polygon cells belong to their nearest mapped surface line. Retained lines
     win ties; lakes remain independent. The combined cut is blurred only after
     contributions are combined, just as in terrain.js. No deeper bed is added.
     """
-    selected = {feature_id(f) for s in surveys for f in s["features"]}
-    features = geometry.get("rivers", [])
-    rejected = [f for f in features if feature_id(f) in selected]
-    retained = [f for f in features if feature_id(f) not in selected]
     sq = geometry["sq"]
-    removed_line = stroke(sq, rejected)
-    retained_line = stroke(sq, retained)
     rejected_distance, retained_distance = (
         distance(removed_line),
         distance(retained_line),
@@ -171,13 +165,31 @@ def remove_connector_cuts(ground, banks, geometry, surveys):
     # PNG's quantization residue. This restores all interpolation vertices.
     restored[(after == 0) & (delta > 0)] = banks[(after == 0) & (delta > 0)]
     report = {
-        "rule": "explicit portal-bounded connector; no feasible bounded gravity profile in either direction",
-        "deferred_source_features": list(
-            {feature_id(f): f for s in surveys for f in s["features"]}.values()
-        ),
-        "profiles": [{"gravity_excess_m": s["gravity_excess_m"]} for s in surveys],
         "restored_vertices": int(np.count_nonzero(restored > ground)),
         "deferred_polygon_vertices": int(np.count_nonzero(areas & ~retained_areas)),
         "maximum_restoration_m": float((restored - ground).max()),
     }
+    return restored, report
+
+
+def remove_connector_cuts(ground, banks, geometry, surveys):
+    """Historical whole-feature experiment; retain its independent overlap ties."""
+    selected = {feature_id(f) for s in surveys for f in s["features"]}
+    features = geometry.get("rivers", [])
+    rejected = [f for f in features if feature_id(f) in selected]
+    retained = [f for f in features if feature_id(f) not in selected]
+    restored, report = restore_line_cuts(
+        ground,
+        banks,
+        geometry,
+        stroke(geometry["sq"], rejected),
+        stroke(geometry["sq"], retained),
+    )
+    report.update(
+        rule="explicit portal-bounded connector; no feasible bounded gravity profile in either direction",
+        deferred_source_features=list(
+            {feature_id(f): f for s in surveys for f in s["features"]}.values()
+        ),
+        profiles=[{"gravity_excess_m": s["gravity_excess_m"]} for s in surveys],
+    )
     return restored, report
