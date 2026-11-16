@@ -99,6 +99,9 @@ namespace Cs1Harness
             WorldOps.Register();
             TemplateOps.Register();
             NetworkOps.Register();
+#if TRACE_OBSERVER
+            TraceOps.Register();
+#endif
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
             acceptThread = new Thread(Accept) { IsBackground = true, Name = "Cs1Harness" };

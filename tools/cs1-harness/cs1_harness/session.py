@@ -406,11 +406,28 @@ class Session(contextlib.AbstractContextManager):
         dll = c.build_dir / "Cs1Harness.dll"
         if not dll.exists():
             raise HarnessError("mod not built; run `cs1-harness build` first")
+        receipt_path = c.build_dir / "build-receipt.json"
+        build_receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {}
+        trace = build_receipt.get("trace")
+        if trace:
+            dependency = c.build_dir / "0Harmony.dll"
+            if (
+                c.host != "blade"
+                or c.display != ":57"
+                or not trace.get("disposable_only")
+                or sha256(dll) != build_receipt.get("dll_sha256")
+                or sha256(dependency) != "e271d22a7c32bfca105d0e471c04eee14eec6142d37a30cd73cb7d32c7d1dd0f"
+                or sha256(c.game_dir / "Cities_Data/Managed/Assembly-CSharp.dll") != trace.get("engine_sha256")
+            ):
+                raise HarnessError("disposable trace binding mismatch")
         c.mod_dir.mkdir(parents=True, exist_ok=True)
         target = c.mod_dir / dll.name
         shutil.copy2(dll, target)
         self.installed.append(c.mod_dir)
         self.receipt["mod_sha256"] = sha256(target)
+        if trace:
+            shutil.copyfile(dependency, c.mod_dir / "0Harmony.dll")
+            self.receipt["disposable_trace"] = trace
 
     def pin_gpu(self):
         """Resolve the EGL device for the configured PCI bus and write the launch wrapper's session file."""
