@@ -1,0 +1,154 @@
+{
+  "slug": "charleston",
+  "diagnostic_only": true,
+  "thresholds_unchanged": {
+    "min_correlation": 0.9,
+    "min_margin": 0.15
+  },
+  "source_dem": {
+    "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png",
+    "zoom": 13
+  },
+  "grid_step_m": 64,
+  "fit": {
+    "base": -40,
+    "verticalScale": 1
+  },
+  "stages": {
+    "uncarved_banks": {
+      "all_points_correlation": 0.5709348448018167,
+      "points": 73441
+    },
+    "browser_input": {
+      "all_points_correlation": 0.6882527471056221,
+      "points": 73441
+    },
+    "prepared": {
+      "all_points_correlation": 0.6890135600864846,
+      "points": 73441
+    },
+    "counterfactual_restore_lake_polygons": {
+      "all_points_correlation": 0.6987305427111568,
+      "points": 73441
+    },
+    "counterfactual_restore_lake_kernel": {
+      "all_points_correlation": 0.6968650571891634,
+      "points": 73441
+    }
+  },
+  "reference_contrasts_not_gates": {
+    "checker_zoom": {
+      "zoom": 13,
+      "prepared_vs_raw_surface_dem": 0.6890135600864846,
+      "banks_vs_raw_surface_dem": 0.5709348448018167,
+      "banks_vs_same_ocean_model_dem": 0.9389423740507614,
+      "prepared_vs_same_ocean_model_dem": 0.75165892779752
+    },
+    "capture_zoom": {
+      "zoom": 14,
+      "prepared_vs_raw_surface_dem": 0.7500500289309218,
+      "banks_vs_raw_surface_dem": 0.6236732402317453,
+      "banks_vs_same_ocean_model_dem": 0.998550986051234,
+      "prepared_vs_same_ocean_model_dem": 0.7740997070815183
+    }
+  },
+  "subsets_not_acceptance_masks": {
+    "source_lake_polygons": {
+      "points": 2361,
+      "stages": {
+        "uncarved_banks": {
+          "mae_m": 1.5662439510082182,
+          "p95_abs_m": 5.501777777681127,
+          "max_abs_m": 18.889405032619834
+        },
+        "browser_input": {
+          "mae_m": 13.574113173642365,
+          "p95_abs_m": 20.50044457147112,
+          "max_abs_m": 31.140730127069475
+        },
+        "prepared": {
+          "mae_m": 13.580691824379509,
+          "p95_abs_m": 20.501555142158537,
+          "max_abs_m": 31.14190149542226
+        },
+        "counterfactual_restore_lake_polygons": {
+          "mae_m": 1.5662439510082182,
+          "p95_abs_m": 5.501777777681127,
+          "max_abs_m": 18.889405032619834
+        },
+        "counterfactual_restore_lake_kernel": {
+          "mae_m": 1.5662439510082182,
+          "p95_abs_m": 5.501777777681127,
+          "max_abs_m": 18.889405032619834
+        }
+      }
+    },
+    "source_river_polygons": {
+      "points": 7805,
+      "stages": {
+        "uncarved_banks": {
+          "mae_m": 4.586490380667477,
+          "p95_abs_m": 10.549259576605817,
+          "max_abs_m": 35.51094804669265
+        },
+        "browser_input": {
+          "mae_m": 9.127410280837966,
+          "p95_abs_m": 10.820385344588951,
+          "max_abs_m": 40.11688212837054
+        },
+        "prepared": {
+          "mae_m": 9.13173527949877,
+          "p95_abs_m": 10.821606686238452,
+          "max_abs_m": 40.117645079465376
+        },
+        "counterfactual_restore_lake_polygons": {
+          "mae_m": 9.131283727845119,
+          "p95_abs_m": 10.821606686238452,
+          "max_abs_m": 40.117645079465376
+        },
+        "counterfactual_restore_lake_kernel": {
+          "mae_m": 9.126556567619026,
+          "p95_abs_m": 10.821606686238452,
+          "max_abs_m": 40.117645079465376
+        }
+      }
+    },
+    "outside_source_water_polygons": {
+      "points": 63276,
+      "stages": {
+        "uncarved_banks": {
+          "mae_m": 3.0032152567295176,
+          "p95_abs_m": 10.00447463863075,
+          "max_abs_m": 76.5908209422538
+        },
+        "browser_input": {
+          "mae_m": 3.067560034045036,
+          "p95_abs_m": 10.006053898795226,
+          "max_abs_m": 76.5922095132464
+        },
+        "prepared": {
+          "mae_m": 3.099437228166662,
+          "p95_abs_m": 10.0078125,
+          "max_abs_m": 76.5908209422538
+        },
+        "counterfactual_restore_lake_polygons": {
+          "mae_m": 3.099437228166662,
+          "p95_abs_m": 10.0078125,
+          "max_abs_m": 76.5908209422538
+        },
+        "counterfactual_restore_lake_kernel": {
+          "mae_m": 3.0570813359134017,
+          "p95_abs_m": 10.005928739515568,
+          "max_abs_m": 76.5908209422538
+        }
+      }
+    }
+  },
+  "source_sha256": {
+    "fixtures/charleston/input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+    "fixtures/charleston/banks.f32.gz": "fabbafd353cbdaefd0025e623e1d781d743363c15cd40196b88f0db1b98184b2",
+    "fixtures/charleston/shipping-geometry.json.gz": "beec1a0905993bddd2ad95fe63b54028add1a4a1d77f273c29788f11b4968909"
+  },
+  "prepared_terrain_sha256": "b68f31bfa36276c01a97abc9b898edb43d2a78ac9d81fed45fa1059e6dbb227b",
+  "counterfactual_note": "Lake restoration is an attribution experiment, not a proposed shipping bed or a rerun of acceptance."
+}

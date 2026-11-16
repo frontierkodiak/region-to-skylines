@@ -1,0 +1,83 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "environment": "auto",
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179868,
+  "tree_budget": {
+    "planted": 179868,
+    "editor_cap": 250000,
+    "planting_headroom": 70132,
+    "manager_slots": 262143,
+    "free_slots": 82275
+  },
+  "unlockable": {
+    "ore": 789159,
+    "oil": 560522,
+    "forest": 3365250,
+    "fertility": 2328804,
+    "water": 8320749
+  },
+  "cells": {
+    "ore": 10791,
+    "oil": 4105,
+    "fertility": 52738,
+    "forest": 40858
+  },
+  "evidence": [],
+  "placed": [],
+  "environment": "Sunny",
+  "biome": {
+    "latitude": 32.78,
+    "longitude": -79.93,
+    "p75_ground_m": 94.5,
+    "p75_above_floor_m": 44.5,
+    "high_ground_share": 0.0,
+    "p75_real_m": 4.5,
+    "fit": {
+      "base": -40.0,
+      "verticalScale": 1.0
+    },
+    "environment": "Sunny",
+    "rule": "temperate lowland"
+  },
+  "package": {
+    "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/charleston/PL857-charleston.crp",
+    "sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+    "bytes": 6513994,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "environment",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "e6768c789f6f9f1fabcebb246041fe72b5ded6f663ee51a4a3bdb65aa2bf1db1"
+  }
+}

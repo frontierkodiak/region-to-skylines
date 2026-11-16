@@ -2230,3 +2230,192 @@ Blade 2080 Ti PCI05:00.0/private :57; unchanged 150 W cap and accepted e5b21f2 n
 | Final / charleston | 022d795 | 60.060 | 949.5 | 10821 | 1574 | 143.87 | 58 | fail: ground_truth |
 
 Total VRAM includes an 8004 MiB resident baseline; menu game share is not a per-game peak. Wall time includes review and cleanup, not a speed benchmark. All ten cleanup receipts empty. Preliminary probe drift/omission, missing independent landmarks and skipped camera gate were repaired without changing acceptance: final cohort freezes all original probe names/coordinates/order/flags, restores independent references and retains legacy camera checks. Rio adds only 11 supplementary observations. All five final runs use clean 022d795, original 690d2b1 default package bytes, 60+ game minutes, native paths, unchanged thresholds/masks and exact initial grid/control audits. Rio no_flooding and Charleston ground_truth still fail. Other mapped dry subsets remain in raw audits. Actual zero/five/end views retained; Asheville improves, Rio does not. Pittsburgh normal quit fallback terminated only its owned game PID after grace. Independent final 11:54:28 UTC proof: no owned processes/state/sockets/active units; queue slot free. See map-factory/PARTIAL_NATIVE_QUALIFICATION.md and fixtures/minor-stream-candidate/native-evaluation.json. PR41 stays draft; PM owns partial acceptance and remaining Rio.
+
+## 2026-11-14 — PL-912 rejected profile-admission experiment
+
+Blade, private `:57`, 2080 Ti `05:00.0`, run-local silent audio; 150 W cap unchanged.
+Candidate `8d0828ea8351`; implementation checkpoint `76baf94`. Three owned attempts:
+
+| Attempt | Observed wall window | Peak total VRAM MiB | Game share observed at menu MiB | Peak W | Peak °C | Result |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Initial short launch | 65 s | 8852 | no game loaded | 77.73 | 32 | Steam cloud-sync prompt; not answered; cleaned up |
+| Short retry | 347 s | 10821 | 1574 | 128.70 | 58 | 5.033056 game min; opening scar absent at zero/five; cleaned up |
+| Qualification startup | 314 s | 10821 | 1592 | 131.08 | 54 | 1301/1556 required probes wet/near at t000 (83.6% vs 95%); operator quit; cleaned up |
+
+Wall windows are first/last GPU CSV observations, not performance measurements.
+The 8004 MiB resident workload was untouched. Per-game peak VRAM was not recorded;
+the menu readings are not peaks. All three cleanup receipts are empty, and the
+queue is free. The final attempt's generic game-crash triage reflects deliberate
+`call quit` after the irreversible startup regression, not a spontaneous crash.
+No 60-minute run completed; no other map was launched. The experiment is
+quarantined and shipping/default source and historical fixtures are restored.
+Actual opening/Areas sheets, native grids, full probe observations and a
+rerunnable startup audit accompany `map-factory/PROFILE_ADMISSION.md` on PL-912.
+
+### 2026-11-14 — PL-912 held-DEM local stages, rejected visually
+
+Blade, private :57, silent process-local audio, queued normal Steam launch;
+2080 Ti 05:00.0, unchanged 150W cap, pre-existing 8004MiB resident load untouched.
+Source `a4b9653`; Rio package `0c08958566c656f21f575211e4a965c6d03e6cfd96b68cb8d9ed1e3c1360075b`.
+One bounded 5.087222-minute game diagnostic, 331.194s sampled wall window.
+Peak total VRAM 10821MiB, peak power 129.17W, peak temperature 58C. Per-game
+peak VRAM was not recorded separately; the 1620MiB menu readback is not a peak.
+This is not a performance benchmark.
+
+All 4256 frozen observations were retained. Required wet-or-near coverage:
+1556/1556 at zero, 1535/1556 at five (98.65%, above the unchanged 95% gate).
+Both initial grids and all 337 native source controls match the package; final
+terrain is unchanged. Camera position, size, angles and render basis match the
+frozen opening/Areas baseline at both epochs. **The broad sandy opening scar
+remains visible**, and Areas retains dry-looking cuts. No full soak and no
+other native map was launched. The generic five-map CPU check also finds 59
+newly unsupported Saw Mill Run positions in Pittsburgh; that is a model warning,
+not a newly qualified native verdict. No points, masks or thresholds changed.
+
+Normal cleanup stopped only its owned game and Steam/session units; receipt
+has empty game, steam_instances and units_active arrays. Final queue is free.
+The experiment is quarantined with the default writer restored exactly. See
+`map-factory/HELD_DEM_ADMISSION.md`; actual raw views and short receipts are on
+PL-912. This does not qualify Rio flooding or repair Charleston's original gate.
+
+## 2026-11-15 — PL-912 dry-only admission short; native floor diagnostic
+
+Blade, silent private :57, normal FIFO queue after Caleb's reservation.
+2080 Ti PCI05:00.0; 150 W cap and existing 8004 MiB workload untouched.
+
+| Attempt | Source | Game min | Sampled wall s | Peak total VRAM MiB | Sampled game peak MiB | Peak W | Peak °C | Result |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Prepared Rio dry-only arm | 82701e8 | 5.109722 | 330.928 | 10821 | not recorded | 130.86 | 58 | required zero 1556/1556, five 1545/1556; three dry pieces still carved; no sweep |
+| Original Rio hydraulic-floor readback | b3fa6fe | 5.100278 | 331.099 | 10821 | 2790 | 126.39 | 57 | read-only floor/target/buffer + 81 supplemental points; exact paused sampler replay |
+
+First attempt menu game allocation 1574 MiB is not a peak. The second samples
+own-game VRAM at menu and during play, not continuously during loading. Wall
+windows span first/last GPU CSV observations, not queue time or a benchmark.
+Both used actual zero/five opening and Areas with all 4256 original points.
+The supplemental 81 source-line points are separate, not replacement probes.
+No Asheville/new other-map launch and no 60-minute evaluation followed.
+
+Both cleanup receipts are empty. Each game needed normal exact-owned-PID
+termination after quit grace; neither spontaneously crashed. Other queued
+users were never stopped. No run-owned game/service/evaluator remains.
+
+Tool improvements: bounded foreground slot wait; optional supplementary
+readbacks; own-PID VRAM samples; additive raw/hydraulic-floor/target dumps and
+source water-buffer readback. These do not write simulation fields or alter
+gates. Build, doctor, 113 harness tests and Ruff pass. Writer tests: 57 run,
+two opt-in skips; eight JS tests pass. See `map-factory/NATIVE_ADMISSION.md` and
+`fixtures/native-admission-short-rejected.json` for exact packages and limits.
+
+## 2026-11-15 — PL-912 dry subreaches, transient-storage counterexample
+
+Blade, silent private :57, normal FIFO; RTX2080Ti05:00.0, unchanged150Wcap,
+existing8004MiB workload untouched. Candidate package
+`f08d8793896a43a64a263f73aff47561136be8a7b547a76a7a1215279a6e2107`,
+diagnostic source30686b5, planner74e0e29. Actual5.072778game minutes,
+336.162s GPU-sampled wall window. Peak total10821MiB, own-game sampled peak
+2790MiB (menu/during play, not continuous loading peak), peak129.27W/58C.
+
+All4256frozen observations retained; required0=1556/1556,5=1544/1556=99.2288%
+against unchanged95%. Eleven shared/one new dry at5; the new Papa-Couve pool
+was already dry from10through60 in the reference. Removing six neighbouring
+startup-water cells made it dry earlier. Partial visible Areas improvement,
+not acceptance; no Asheville or60minute run followed. Both initial grids,
+290controls, cameras, final terrain and54native floor-offset pattern match.
+All8512native ground/surface/wet observations replay exactly. Cleanup empty;
+normal quit grace required exact-owned-game termination, not spontaneous crash.
+
+An earlier queued invocation exited143 after about10minutes, before any
+Session/game. A signal-cleanup fix now mirrors the harness CLI. A deliberate
+3s queued SIGTERM test returns124 as expected, removes its own waiter and
+launches no game. The foreground PTY retry waited normally, then completed.
+Other holders were untouched. The corrected3ad8f3d planner preserves water as
+well as floor on the native wet-patch boundary; five-map CPU audit and62writer
+tests(two opt-in skips) pass. It still requires fresh actual shorts.
+
+## 2026-11-16 — PL-912 corrected Rio wet-boundary short
+
+Blade/private:57/silent, normal FIFO. Source3ad8f3d, package
+`3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c`.
+Actual5.093333game minutes;331.206s GPU-sampled wall window (queue excluded).
+RTX2080Ti05:00.0,150Wcap unchanged, existing8004MiB workload untouched.
+Peak total10821MiB; own-game sampled peak2790MiB (menu/play, not continuous
+loading peak);131.26W/58C. Foreground queue wait about40minutes, no preemption.
+
+All4256points retained. Required0=1556/1556,5=1545/1556=99.2931%, unchanged95%
+gate. Exactly11shared dry, zero new-only/old-only. Papa-Couve retains0.484375m
+water at5. Initial grids,290controls, cameras, final terrain and54hydraulic-floor
+offsets exact. All8512ground/surface/wet readings replay exactly. Actual Areas
+dry-neck reduction; native wet opening shore retained. Protected dry inlet
+basins remain visible and unmodified, not claimed wet or repaired.
+
+Cleanup empty. Exact owned game1680809 needed normal quit-grace termination,
+not spontaneous failure. The first short checkpoint passes; no full60minute
+qualification or shipping-JS parity is claimed. See DRY_SUBREACHES.md.
+
+## 2026-11-16 — PL-912 corrected Asheville wet-boundary short
+
+Blade/private :57/silent, FIFO. Source `3ad8f3d`, package
+`43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f`.
+Actual 5.078889 game minutes; 331.172 s GPU-sampled wall window, queue excluded.
+RTX 2080 Ti 05:00.0, unchanged 150 W cap and existing 8,004 MiB workload.
+Peak total 10,821 MiB; own-game sampled peak 2,785 MiB (menu/play, not continuous
+loading peak); 129.22 W / 58 C. All 7,745 observations retained; required
+zero/five both 1,261/1,261. Initial grids, 110 controls, final terrain and cameras
+exact. All 15,490 ground/surface/wet observations replay exactly using measured
+hydraulic floor; 49 offsets are guarded. Actual opening and Areas viewed.
+Cleanup empty. Owned game 1755686 needed normal quit-grace termination, not a
+spontaneous crash. No full 60-minute qualification is implied by this short.
+
+## 2026-11-16 — PL-912 five fresh shipping sixty-minute runs
+
+Blade, RTX 2080 Ti 05:00.0, silent private :57, normal FIFO/holder and Steam
+account checks before every attempt. Clean source `d5b4a8d`; exact shipping
+packages are bound by the new partial fixture contract. Existing 8,004 MiB
+workload and shared 150 W cap were untouched. GPU power/temperature/total VRAM
+are card-wide sampled values, not attributed exclusively to the game.
+
+| Map | Game min | Sim wall s | Card peak MiB | Game sampled peak MiB | Card peak W / °C | Result |
+| --- | ---: | ---: | ---: | ---: | --- | --- |
+| Rio | 60.134448 | 953.964 | 10,821 | not measured | 148.95 / 56 | existing flooding failure |
+| Asheville | 60.118892 | 950.191 | 10,821 | 2,815 | 138.35 / 56 | pass |
+| Innsbruck | 60.080003 | 953.888 | 10,821 | 2,779 | 133.70 / 55 | pass |
+| Pittsburgh | 60.099170 | 958.622 | 10,821 | 2,771 | 132.73 / 52 | pass |
+| Charleston | 60.146670 | 953.137 | 10,821 | 2,781 | 137.77 / 54 | existing ground-truth failure |
+
+Game-only observers sampled exact owned PIDs every two seconds: 437/401/438/372
+samples for Asheville/Innsbruck/Pittsburgh/Charleston. These are not continuous
+or guaranteed loading peaks. Rio's 1,574 MiB menu sample is not a game peak.
+Wall values exclude queue/boot/teardown. No owned observer remained running.
+
+All 30,982 original observations, 7,524 required flags, masks and thresholds
+remain. Required sampled-throughout counts: Rio 1,531/1,556; Asheville
+1,261/1,261; Innsbruck 694/694; Pittsburgh 1,799/1,799; Charleston 2,208/2,214.
+No newly lost required endpoint/throughout point and no previously passing
+gate regression. Actual selection, zero/five opening+Areas and end start/overview
+images were viewed. Native initial grids/controls and every collected raw
+terrain epoch are exact; raw terrain was dumped at zero/five, not sixty.
+
+Rio still fails flooding: 0.061440 km² versus 0.05, prior 0.060928. Same original
+mask at 45 minutes: 224 shared / 16 new-only / 14 old-only cells. Charleston
+correlation remains failed, 0.6891 versus 0.9, including extreme-point errors.
+Protected dry Rio inlet basins remain visible. No acceptance or threshold waiver.
+All five completed foreground with empty cleanup; normal quit-grace exact-owned
+game termination, not spontaneous crashes. No other holder was stopped.
+
+## 2026-11-16 — PL-912 merged-biome Rio visual short
+
+Blade/private :57/silent/FIFO; slot and Steam checked immediately before launch.
+Clean source `621f685`, Tropical package
+`944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e`.
+Actual 5.041389 game minutes, 331.422 s sampled GPU wall window (queue excluded).
+RTX 2080 Ti 05:00.0; card peak 10,821 MiB / 130.77 W / 56°C; own-game sampled
+peak 2,794 MiB (menu/play, not continuous loading peak). The 150 W cap and
+8,004 MiB other workload were untouched. All 4,256 observations retained;
+required zero 1,556/1,556, five 1,545/1,556, eleven shared / zero new / zero
+old-only dry. Initial grids, 290 controls, final short terrain, 54 hydraulic-floor
+offsets and camera fields exact. Native ground/surface/wet replay has zero
+mismatches at 8,512 readings. All four actual opening/Areas PNGs viewed;
+Tropical native shore retained, residual dry oval not declared fixed.
+Empty cleanup; owned game 2579316 required normal quit-grace termination, not
+a spontaneous crash. No new sixty-minute run. Later source-pin canonical binding
+normalization changes receipts only; the complete package remains byte-exact.

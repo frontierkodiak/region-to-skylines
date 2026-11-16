@@ -219,6 +219,7 @@ def stage(output, slugs):
             (folder / name).write_bytes(gzip.decompress(encoded))
         crp = folder / f"PL857-{slug}.crp"
         resource_plan = None
+        environment = None
         if case.get("resource_plan"):
             from paint import load_plan
             from resources import TREE_NAMES
@@ -229,7 +230,8 @@ def stage(output, slugs):
                 != case["files_sha256"][plan.name]
             ):
                 raise ValueError(f"Fixture resource plan changed: {slug}")
-            resource_plan = (load_plan(plan), TREE_NAMES)
+            grids, environment, _ = load_plan(plan)
+            resource_plan = (grids, TREE_NAMES)
         receipt = write_map(
             template,
             layout,
@@ -238,6 +240,7 @@ def stage(output, slugs):
             folder / "hydrology.json",
             crp,
             resources=resource_plan,
+            environment=environment,
         )
         if receipt["sha256"] != case["expected_crp_sha256"]:
             raise ValueError(f"CRP reference mismatch: {slug}")
@@ -333,6 +336,7 @@ def stage_prepared(inputs, output, slugs):
         hydro = json.loads((folder / "hydrology.json").read_text())
         crp = folder / (hydro["map_id"] + ".crp")
         resource_plan = None
+        environment = None
         plan_path = source / "plan.npz"
         plan_binding = generation.get("resource_plan")
         if (
@@ -352,7 +356,8 @@ def stage_prepared(inputs, output, slugs):
                     f"Prepared resource plan changed since generation: {slug}"
                 )
             shutil.copyfile(plan_path, folder / "plan.npz")
-            resource_plan = (load_plan(folder / "plan.npz"), TREE_NAMES)
+            grids, environment, _ = load_plan(folder / "plan.npz")
+            resource_plan = (grids, TREE_NAMES)
         receipt = write_map(
             template,
             layout,
@@ -361,6 +366,7 @@ def stage_prepared(inputs, output, slugs):
             folder / "hydrology.json",
             crp,
             resources=resource_plan,
+            environment=environment,
         )
         if receipt["sha256"] != generation["package"]["sha256"]:
             raise ValueError(f"Prepared candidate changed since generation: {slug}")

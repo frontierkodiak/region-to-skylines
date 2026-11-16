@@ -86,23 +86,52 @@ json.dumps({
 `));
     for (const name of ["water_sources_sha256", "node_positions_sha256", "start_tile", "sea_level_m"])
       assert.deepEqual(controls[name], native[name], `${c.slug} ${kind}: native-tested ${name}`);
-    if (kind === "reference" && c.presentation_delta) {
+    const presentation = kind === "reference" ? c.presentation_delta : expected.presentation_delta;
+    if (presentation) {
       // The delta's claim, executed: same resource grids and tree positions,
       // only the map environment and tree species moved.
-      factory.py.FS.writeFile("/work/base-plan.npz", await read("fixtures/" + c.presentation_delta.base_plan));
+      factory.py.FS.writeFile("/work/base-plan.npz", await read("fixtures/" + presentation.base_plan));
+      factory.py.FS.writeFile("/work/native-water.bin", gunzipSync(await read("fixtures/" + presentation.water_simulation_file)));
       const delta = JSON.parse(factory.py.runPython(`
-import json, numpy as np
+import hashlib, json, numpy as np
+from pathlib import Path
+from crp import read_package, patch_payload_environment
+from template import manager_tag
 old = np.load('/work/base-plan.npz')
 new = np.load('/work/out/plan.npz')
+hydro = json.loads(Path('/work/out/hydrology.json').read_text())
+data = next(a['payload'] for a in read_package(Path('/work/out/' + hydro['map_id'] + '.crp').read_bytes())[1] if a['kind'] == 52)
+water = data[data.index(manager_tag('WaterSimulation')):data.index(manager_tag('NetManager'))]
+normalized = patch_payload_environment(data, ${JSON.stringify(presentation.previous_environment)})
 json.dumps({
     'grids_equal': bool(all(np.array_equal(old[k], new[k]) for k in ('ore', 'oil', 'fertility', 'forest', 'tree'))),
     'positions_equal': bool(np.array_equal(old['px'], new['px']) and np.array_equal(old['pz'], new['pz'])),
     'species_equal': bool(np.array_equal(old['kinds'], new['kinds'])),
+    'water_simulation_exact': water == Path('/work/native-water.bin').read_bytes(),
+    'water_simulation_sha256': hashlib.sha256(water).hexdigest(),
+    'normalized_non_tree_sha256': hashlib.sha256(normalized[:normalized.index(manager_tag('TreeManager'))]).hexdigest(),
 })
 `));
       assert.ok(delta.grids_equal, `${c.slug}: resources changed in a presentation-only delta`);
       assert.ok(delta.positions_equal, `${c.slug}: tree positions changed in a presentation-only delta`);
-      assert.equal(delta.species_equal, !c.presentation_delta.tree_species_changed, `${c.slug}: tree species flag`);
+      assert.equal(delta.species_equal, !presentation.tree_species_changed, `${c.slug}: tree species flag`);
+      assert.ok(delta.water_simulation_exact, `${c.slug}: native water segment changed`);
+      assert.equal(delta.water_simulation_sha256, presentation.water_simulation_sha256);
+      assert.equal(delta.normalized_non_tree_sha256, presentation.normalized_non_tree_sha256, `${c.slug}: changes outside environment and trees`);
+    }
+    if (kind === "shipping" && expected.source_order_variant_file) {
+      clearWork(factory);
+      factory.py.FS.mkdirTree("/work");
+      factory.py.FS.writeFile("/work/landcover.u8.gz", await read(dir + "landcover.u8.gz"));
+      if (evidence) factory.py.FS.writeFile("/work/evidence.json", await read(dir + evidence));
+      const variant = await buildMap(factory, {
+        png, banks: new Float32Array(banks.buffer, banks.byteOffset, banks.byteLength / 4),
+        geometry: new Uint8Array(gunzipSync(await read("fixtures/" + expected.source_order_variant_file))),
+        landcover: "/work/landcover.u8.gz", evidence: evidence ? "/work/evidence.json" : null,
+      });
+      assert.equal(variant.receipt.native_admission.applied, true, "live source-pin order must not discard the admission");
+      assert.equal(sha(variant.bytes), expected.expected_crp_sha256, "source-pin order changed the full package");
+      console.log(`  ${c.slug} live source-pin permutation: exact complete shipping package`);
     }
   });
 }

@@ -1,0 +1,278 @@
+{
+  "status": "partial_not_accepted",
+  "native_tested_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+  "production_writer_sha256": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+  "source_files_sha256": {
+    "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+    "tools/map-factory/generate.py": "226136f35fc3fed4d52807a6be6685856b816fdc516815f32fd34fd291d9dcdb",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "1393e84348c9b90628f8eb35dde8c63d8e19444785bdd9a1e17c2732684ccf95",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "5914bc9f99f78fc80403eceaf3bd6678f6be41af82cc4d049bf61c712d1a0a8a",
+    "tools/map-factory/resources.py": "a2653106ca834c15355c864e739d659fba754f51e50144cb03b68f54bbafd06f",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "tools/map-factory/wet_reach_admission.py": "321a5c6c48bb20584e8087fafb52a223ada60c80608d364338c81fbeccdbb055",
+    "tools/map-factory/native-water-admission.json": "4d329b5fd6871e2b90bdde54665a36afe92e63778d8dd4dd7d3c2f074565a064"
+  },
+  "native_engine_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1",
+  "scope": "Fresh five-map 60-minute sampled native evidence; original failures retained, not issue acceptance",
+  "cases": [
+    {
+      "slug": "asheville",
+      "case": "asheville",
+      "source_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+      "clean_source": true,
+      "crp_sha256": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+      "game_minutes": 60.11889202433328,
+      "native_verdict": "pass",
+      "failed": [],
+      "previous_failed": [],
+      "passing_gate_regressions": [],
+      "new_required_point_losses": {
+        "probes_wet_end": [],
+        "probes_wet_throughout": []
+      },
+      "no_regression": true,
+      "initial_audits": {
+        "terrain_exact": true,
+        "initial_water_exact": true,
+        "source_controls_match": true
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "frozen_flood_reference_sha256": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b",
+      "binding": {
+        "files_sha256": {
+          "terrain.u16": "9aef2d084a814a1dd49b7393cfa2d9245e35e736d6f9af24cff137e64debf000",
+          "water.u16": "31ea2baa620f49794b0d7f106071b1124949e0ffea7017e90035ec95a6bcf97e",
+          "hydrology.json": "cbd0036ddc6c071bd140c02ae7d325efd7e1a2a591d0d26bbbb758f6752b6772",
+          "PL857-asheville.crp": "43a67e35b22facff7870f365e98cf8fef2d4ad1e4bd82fe5a20b52d7c877802f",
+          "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb"
+        }
+      },
+      "receipt_sha256": {
+        "report.json": "03367865b82a91cff68147b7a6a301db977271f955d928bfdcd87e8355b7ff10",
+        "verdict.json": "a4adc66574b4c6ec35f27091cd86981b2e0abbb4d6a6b33ccdfb94bba9a57318",
+        "session-receipt.json": "ad2cb9f059bb4a0d8e6def69534df7e804eafc7bb7453fcdbf408329620a6be9",
+        "audit-common.json": "b11f3cfe7766e5fadf5332ad72b2567f10e1cbb6be4de6ebc0375db4e3bf1cb5",
+        "probes.json": "3d23c61d649b02705845ecfb74a77c3f5f6b313f41e00bb0086c059d0b32c8d2",
+        "startup-views-review.json": "c3517ade62647495ac8abb2c4f3b362d427df7ff710f16a4e353607e9291536f",
+        "new-game-panel-review.json": "b70af3cf6e657fc8500e3f82463df819f4ae8cf83ca56b7aede3a176a4e4cc5c",
+        "flood-candidate-initial.json": "16839745eb646968f1afad65ce1497d8558806dac8cea9b2347764862da6cc5c",
+        "reference-water.u16": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b"
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "case": "innsbruck",
+      "source_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+      "clean_source": true,
+      "crp_sha256": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+      "game_minutes": 60.08000313341617,
+      "native_verdict": "pass",
+      "failed": [],
+      "previous_failed": [],
+      "passing_gate_regressions": [],
+      "new_required_point_losses": {
+        "probes_wet_end": [],
+        "probes_wet_throughout": []
+      },
+      "no_regression": true,
+      "initial_audits": {
+        "terrain_exact": true,
+        "initial_water_exact": true,
+        "source_controls_match": true
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "frozen_flood_reference_sha256": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577",
+      "binding": {
+        "files_sha256": {
+          "terrain.u16": "cd9dee2dfce1c13e0c82f1563484a11cb8c989f4665f84650d6354bfbc29b093",
+          "water.u16": "9aca12fd34d2050e5c1108369cb6f50c8bc754a2424e10ca0f8e266a7229342c",
+          "hydrology.json": "e1dffc37bf77bca9707ae12124f0a3cbfea0a59b1718914fee39a1f1abf78da6",
+          "PL857-innsbruck.crp": "cf2562eb029a2770ed49928099b9661247f99615bc17a32dad3e0a1c5431be03",
+          "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3"
+        }
+      },
+      "receipt_sha256": {
+        "report.json": "a374bba4a78363c13da987eeeb9deab102bdd253fadc13df154042a629eff365",
+        "verdict.json": "714dc98db6861dffee8cc5c0b0256570821308f7fa4f822b49f35d828859f7a0",
+        "session-receipt.json": "37fc702c50699dc08e49001e1b78f3405ccbcd0dbe969d4b70e6f5c24758dba5",
+        "audit-common.json": "fd9b14cfd987c1b274937d6853b0cc6848fa61fc57f28bf9a2e99b8410e0443a",
+        "probes.json": "53d09129747c94a6b2e209e5238656f653341c1fb100631e47906095c717944b",
+        "startup-views-review.json": "7cfb036e4c7d7555ccbedf03c79e88b1315f3d5d927bb97c209a12ec5295f652",
+        "new-game-panel-review.json": "fe10963f9aa37c19bde2304bafdbdcda55c4b61fe9fee86e6a572f14b75fc29c",
+        "flood-candidate-initial.json": "6c41eb3de837b7a9cb41d5a4fa3dfa62e683e16a727bcb9ef05f60a01a833598",
+        "reference-water.u16": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577"
+      }
+    },
+    {
+      "slug": "rio",
+      "case": "rio",
+      "source_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+      "clean_source": true,
+      "crp_sha256": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+      "game_minutes": 60.13444758070012,
+      "native_verdict": "fail",
+      "failed": [
+        "no_flooding"
+      ],
+      "previous_failed": [
+        "no_flooding"
+      ],
+      "passing_gate_regressions": [],
+      "new_required_point_losses": {
+        "probes_wet_end": [],
+        "probes_wet_throughout": []
+      },
+      "no_regression": true,
+      "initial_audits": {
+        "terrain_exact": true,
+        "initial_water_exact": true,
+        "source_controls_match": true
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "frozen_flood_reference_sha256": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5",
+      "binding": {
+        "files_sha256": {
+          "terrain.u16": "934da280656166d8930a595cc3d4ac064eb7e0c8a517c7e0e784f6d8dcdf9b92",
+          "water.u16": "83f5f8b01098a0f91d9cce4481b394d1f07549560ba24c12947cacd27325c6cf",
+          "hydrology.json": "cef524935391d0a54823d30b0c9534bba6c98706a524f9be55feff18e47391de",
+          "PL857-rio.crp": "3b53842999af4dd23d68c037cb0b80287a45cd2d0c9843ba020a18ff043d1c9c",
+          "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6"
+        }
+      },
+      "receipt_sha256": {
+        "report.json": "e420ce23ce471d5164fef17983fcaaf7be781264ad4dece004c392b55a0b0ce4",
+        "verdict.json": "4205638b1e2b9f91e2ec375e816d2e25dbf2f62cca26df3de222978f90f11b1f",
+        "session-receipt.json": "5547df512273864d2c71d621d2d4641c32e39a74b98f8006aacdb6b1c799ad11",
+        "audit-common.json": "92c6de9bb6d932142e2f85b36a1918b96997d15e699dc028d7f5d83f133b3dfa",
+        "probes.json": "ada64f10cfe7799496c6bcc2b3ae89f4bc5b0066c43a5a4c472a9c91084e43ab",
+        "startup-views-review.json": "352b568328a926025675a976fc08c27a406b17db12d38c4729b50fe982296b13",
+        "new-game-panel-review.json": "e6f58618f456cd9945a557c2546085e2ccca6995e42651398d6d9b070f503433",
+        "flood-candidate-initial.json": "2d707e4c9646582fbb483a66c2933bfe444f9f90d850fa76b0518de16fec44fe",
+        "reference-water.u16": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5"
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "case": "pittsburgh",
+      "source_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+      "clean_source": true,
+      "crp_sha256": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+      "game_minutes": 60.09916980108246,
+      "native_verdict": "pass",
+      "failed": [],
+      "previous_failed": [],
+      "passing_gate_regressions": [],
+      "new_required_point_losses": {
+        "probes_wet_end": [],
+        "probes_wet_throughout": []
+      },
+      "no_regression": true,
+      "initial_audits": {
+        "terrain_exact": true,
+        "initial_water_exact": true,
+        "source_controls_match": true
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "frozen_flood_reference_sha256": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29",
+      "binding": {
+        "files_sha256": {
+          "terrain.u16": "da4cc41c1ac57d1f4c089d59aaf160efc5832d0f70c80385d20e7dcdc94c0352",
+          "water.u16": "7b1c60fa16d7ce5a0b664fe5479900a6c0f9b7dba7f5f0b7a21e6dcbc762421f",
+          "hydrology.json": "07eb8cb9321cbeb600b693b7980d7d99db36884d736e7b73ed12cf5d7600d0e1",
+          "PL857-pittsburgh.crp": "3bba650f3f83fcd674e02bc171e4ac898cddb5830329f1e5af5bfc336c648020",
+          "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d"
+        }
+      },
+      "receipt_sha256": {
+        "report.json": "c83806a122f926416df3ecb6574fb6fdd013b911cafc3ca0806cc19d2c8a2d26",
+        "verdict.json": "db8aed1aeb74e70d862be43b226f6d77b99357d6bb744193d81df04fb152d982",
+        "session-receipt.json": "256b4e5f7cb08aca77d3f8f875a6c2a8034009f1b62c79472c86826d55e7e34e",
+        "audit-common.json": "ee7e7c99451784def89c5f674fdbc44aab361d851cc5f1b9a25c8f2927080f68",
+        "probes.json": "ac93b9d829ef34b8758d73fe310ed090e24ca318494f31654a14933735082e98",
+        "startup-views-review.json": "c64e3edf8520fde8e7ca1c539628a328b76baf932075b77a89f606695ad76cd8",
+        "new-game-panel-review.json": "0fdcb9297ea8e72f64a0410006eaec6c817799ca6c390edb87def1d04637dd84",
+        "flood-candidate-initial.json": "c9aa821279f14a80b86d6d72e8c5132ecdb6b5bc85ea44d5b1104ceaf6ec8dd0",
+        "reference-water.u16": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29"
+      }
+    },
+    {
+      "slug": "charleston",
+      "case": "charleston",
+      "source_head": "d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1",
+      "clean_source": true,
+      "crp_sha256": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+      "game_minutes": 60.146669803559774,
+      "native_verdict": "fail",
+      "failed": [
+        "ground_truth"
+      ],
+      "previous_failed": [
+        "ground_truth"
+      ],
+      "passing_gate_regressions": [],
+      "new_required_point_losses": {
+        "probes_wet_end": [],
+        "probes_wet_throughout": []
+      },
+      "no_regression": true,
+      "initial_audits": {
+        "terrain_exact": true,
+        "initial_water_exact": true,
+        "source_controls_match": true
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "frozen_flood_reference_sha256": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f",
+      "binding": {
+        "files_sha256": {
+          "terrain.u16": "1530cbb9a39d61147660d0881675d541af42db5fd7dfe6b22c803c40899ce802",
+          "water.u16": "e5ad937ca389807ddaec76e7df54743096675897c3ad750b55c29b7abfc4146c",
+          "hydrology.json": "fdf557b4740ce20aadfaa2d099ca98490f7e78dfa23dcdc4b1f5d80878743816",
+          "PL857-charleston.crp": "db6654b667d933ee2c8b2a91ac2987205cc29afcb29111e0a907582c7e4e0263",
+          "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4"
+        }
+      },
+      "receipt_sha256": {
+        "report.json": "73721a00bdfa7649742b367b4187ec225a4ec747f4ab87b84fd18191b4790bb8",
+        "verdict.json": "b491343a5cc786b4abc7b4e17ebb1284fd0a4dc5793c8080f36df8bcee5be4e4",
+        "session-receipt.json": "545f2c23422a2dc2af39f39ac25288502fe1d694f507827e920c0dfd38c7f0ce",
+        "audit-common.json": "f58da078f85e5343249bd837b8dc8919fb038ede7ba6db2501e07dedb3ffd566",
+        "probes.json": "271de033b2fae67902502165c6177b35de0941b25aaae130da8a6518fa5621bc",
+        "startup-views-review.json": "3e165dc0875a3bda088cd810f0169d23edb8a2f9114963f7ac101779d3f9eb88",
+        "new-game-panel-review.json": "9037f577c08b990b7e66b667226ed64147796f2d92bd8c846fea8e425d94cb79",
+        "flood-candidate-initial.json": "34bf1b9190a53d056517158680d777201cf21f32056ea3a8cdf5eeeffb79ed61",
+        "reference-water.u16": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f"
+      }
+    }
+  ]
+}

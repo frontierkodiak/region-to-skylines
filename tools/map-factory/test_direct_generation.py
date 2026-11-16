@@ -1,4 +1,4 @@
-"""Opt-in public-generator/staging integration using a frozen real region."""
+"""Public-generator/staging integration using a frozen real region."""
 
 import gzip
 import hashlib
@@ -12,18 +12,24 @@ from generate import generate
 from soak import stage_prepared
 
 
-@unittest.skipUnless(
-    os.environ.get("MAP_FACTORY_DIRECT_GENERATION"),
-    "set MAP_FACTORY_DIRECT_GENERATION to a resource-bearing fixture directory",
-)
 class DirectGenerationTests(unittest.TestCase):
     def test_resource_export_stages_and_rejects_changed_acceptance_geometry(self):
-        fixtures = Path(os.environ["MAP_FACTORY_DIRECT_GENERATION"])
+        fixtures = Path(
+            os.environ.get(
+                "MAP_FACTORY_DIRECT_GENERATION", Path(__file__).parent / "fixtures"
+            )
+        )
         case = next(
             c
             for c in json.loads((fixtures / "manifest.json").read_text())["cases"]
             if c["slug"] == "rio"
         )
+        active = json.loads((fixtures / "active.json").read_text())
+        current = json.loads((fixtures / active["current"]).read_text())
+        case = {
+            **case,
+            **next(c["reference"] for c in current["cases"] if c["slug"] == "rio"),
+        }
         fixture = fixtures / "rio"
         raw = gzip.decompress((fixture / "geometry.json.gz").read_bytes())
         with tempfile.TemporaryDirectory() as temporary:

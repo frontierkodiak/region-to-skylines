@@ -1,0 +1,83 @@
+{
+  "knobs": {
+    "trees": 180000,
+    "outer_trees": 0.6,
+    "forest": "dense",
+    "oil_cap": 0.07,
+    "resources": "balanced",
+    "fertile": 1.0,
+    "seed": 0,
+    "environment": "auto",
+    "targets": {
+      "ore": 0.052,
+      "oil": 0.027,
+      "fertile": 0.034
+    }
+  },
+  "trees": 179654,
+  "tree_budget": {
+    "planted": 179654,
+    "editor_cap": 250000,
+    "planting_headroom": 70346,
+    "manager_slots": 262143,
+    "free_slots": 82489
+  },
+  "unlockable": {
+    "ore": 1089238,
+    "oil": 582706,
+    "forest": 3852690,
+    "fertility": 714052,
+    "water": 455091
+  },
+  "cells": {
+    "ore": 8164,
+    "oil": 5383,
+    "fertility": 18564,
+    "forest": 40329
+  },
+  "evidence": [],
+  "placed": [],
+  "environment": "Sunny",
+  "biome": {
+    "latitude": 35.58,
+    "longitude": -82.555,
+    "p75_ground_m": 198.6,
+    "p75_above_floor_m": 148.6,
+    "high_ground_share": 0.0067,
+    "p75_real_m": 721.0,
+    "fit": {
+      "base": 572.4373168945312,
+      "verticalScale": 1.0
+    },
+    "environment": "Sunny",
+    "rule": "temperate lowland"
+  },
+  "package": {
+    "output": "/mango/training/experiments/PL-912-biome-integration/python/reference/asheville/PL857-asheville.crp",
+    "sha256": "0191694965ac1875301f37d44a56a0f891eae653905d42657f7cc4967bad65e0",
+    "bytes": 6548471,
+    "regenerated": [
+      "terrain",
+      "water",
+      "sources",
+      "preview_images",
+      "package_author",
+      "network_geometry",
+      "start_tile",
+      "water_resources",
+      "north_facing_start_camera",
+      "natural_resources",
+      "trees",
+      "resource_amounts",
+      "environment",
+      "map_identity"
+    ],
+    "preserved": [
+      "network_topology",
+      "outside_connections",
+      "lane_ids"
+    ],
+    "preview_kind": "terrain/water grid rendering",
+    "simulation_sha256": "4820e76e8c904b7a069e8059f8fc8355de3f00c7074016a59ee816c145c30790"
+  }
+}

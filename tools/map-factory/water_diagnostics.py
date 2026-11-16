@@ -384,6 +384,7 @@ def export(source, output, modes=MODES):
         prefix="water-diagnostic-replay-", dir=output.parent
     ) as temporary:
         replay = Path(temporary) / original_path.name
+        grids, environment, _ = load_plan(plan)
         write_map(
             ROOT / "templates/native-corridors.crp",
             ROOT / "templates/native-corridors.json",
@@ -391,7 +392,8 @@ def export(source, output, modes=MODES):
             source / "water.u16",
             source / "hydrology.json",
             replay,
-            resources=(load_plan(plan), TREE_NAMES),
+            resources=(grids, TREE_NAMES),
+            environment=environment,
         )
         if replay.read_bytes() != original:
             raise ValueError(

@@ -2,6 +2,7 @@
 
 import argparse
 import hashlib
+import io
 import json
 from pathlib import Path
 
@@ -9,6 +10,7 @@ import numpy as np
 
 from crp import write_map
 from region import prepare
+from wet_reach_admission import admit
 
 ROOT = Path(__file__).resolve().parent
 
@@ -53,6 +55,37 @@ def generate(
             output / "hydrology.json",
             output / (summary["map_id"] + ".crp"),
         )
+    admission = admit(output, png, geometry_snapshot, banks)
+    if admission["applied"]:
+        if report is not None:
+            # Plan resources on the ordinary preparation, then replay those
+            # same arrays/trees after admission. Replanning on the raised floor
+            # would not reproduce the short-tested package or its shore/forest.
+            plan_path = output / "plan.npz"
+            original_plan = plan_path.read_bytes()
+            previous = report
+            report = paint(output, None, output, knobs=knobs, plan=plan_path)
+            for key in ["environment", "biome", "placed", "evidence"]:
+                report[key] = previous[key]
+            with (
+                np.load(io.BytesIO(original_plan)) as before,
+                np.load(plan_path) as after,
+            ):
+                if set(before.files) != set(after.files) or any(
+                    not np.array_equal(before[key], after[key]) for key in before.files
+                ):
+                    raise ValueError("Admission changed the resource plan")
+            plan_path.write_bytes(original_plan)
+            result = report["package"]
+        else:
+            result = write_map(
+                template,
+                layout,
+                output / "terrain.u16",
+                output / "water.u16",
+                output / "hydrology.json",
+                output / (summary["map_id"] + ".crp"),
+            )
     receipt = {
         "preparation": summary,
         "package": result,
@@ -76,6 +109,7 @@ def generate(
         "source": {"inputs_sha256": {"geometry.json": geometry_sha256}},
         "prefill": prefill,
         "in_game_verified": False,
+        "native_admission": admission,
     }
     if report is not None:
         receipt["resource_plan"] = {

@@ -184,11 +184,13 @@ def verify(folder):
                 assert hydro["sea_level_m"] == native_cases[slug]["sea_level_m"], slug
             output = work / (slug + ".crp")
             resources = None
+            environment = None
             if case.get("resource_plan"):
                 from paint import load_plan
                 from resources import TREE_NAMES
 
-                resources = (load_plan(fixture / case["resource_plan"]), TREE_NAMES)
+                grids, environment, _ = load_plan(fixture / case["resource_plan"])
+                resources = (grids, TREE_NAMES)
             receipt = write_map(
                 template,
                 layout,
@@ -197,6 +199,7 @@ def verify(folder):
                 work / "hydrology.json",
                 output,
                 resources=resources,
+                environment=environment,
             )
             assert receipt["sha256"] == case["expected_crp_sha256"], slug
             assert receipt["bytes"] == case["expected_crp_bytes"], slug

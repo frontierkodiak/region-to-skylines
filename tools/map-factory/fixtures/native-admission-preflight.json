@@ -1,0 +1,922 @@
+{
+  "status": "CPU-only; no fresh game or qualification",
+  "new_native_game_launched": false,
+  "acceptance_masks_and_thresholds_changed": false,
+  "production_default_changed": false,
+  "code_snapshot": "7786d4f7da6685bd6c0dbf30023e28d7bc3167ad",
+  "integrity": {
+    "accepted_fixture_contract_files_unchanged": 147,
+    "current_production_closure_files_unchanged": 17,
+    "comparison": "cb5e2a1/current manifest"
+  },
+  "cases": [
+    {
+      "case": "asheville",
+      "planner_source_commit": "7786d4f7da6685bd6c0dbf30023e28d7bc3167ad",
+      "original_package_sha256": "745b043a0b92e0f733705f8f2597074b6b8c2f37a053ebb7f63986ca0c8aeb00",
+      "candidate": {
+        "case": "asheville",
+        "changed": true,
+        "package_sha256": "85f14c2bb489b2e986789dc268f08c3aa6c71d52d6af586fa50df4fde6ffa420",
+        "grids_sha256": {
+          "terrain.u16": "b8e2c3e6c5a0cf497bddec6a338a8bce0cfbcfb3149b9cea52e7256675351216",
+          "water.u16": "af3f3a6f42eebb8d1a77cc678cd0561c72688e707069093eec97030b849697ca"
+        },
+        "resource_plan_byte_exact": true,
+        "hydrology_byte_exact": true,
+        "native_qualification": false
+      },
+      "native_evidence_sha256": {
+        "session-receipt.json": "f374f850b8ffe07db03a71596ec0fa18292eed4cc8ef36ade6381f92444b0cbc",
+        "report.json": "d7f469f40d3ca161dd0282922c9fcd08560ad73536e27a71a66117daeb07757c",
+        "grids/t005-water.u16": "374cedad5cf0a6ac5a1bf720070f26bebf331ec7611dea6ecdca7a48fed48115",
+        "grids/t015-water.u16": "3508e05fbf71ff9aad53fd98ded3ba6b460ff84e3b43508a4565a0dc09958524",
+        "grids/t030-water.u16": "924effdbf53fc2d5fdbf01e75b9f4d7a1e1f161448cb39a71eb10c7c96da080f",
+        "grids/t045-water.u16": "3b447a44b87c309c23ea1520f6a8f4d6b1d743474584ce374a8b1c2a2c80260f",
+        "grids/t060-water.u16": "c2430947162696d16397e16c435cbf9f240441957c33770a3240b66e36a874eb"
+      },
+      "frozen_probes_sha256": "7eb76250bfb2a16220f96ac1b95b69d4c8c28038df97f37b53ebf7066313fcdc",
+      "all_observations_retained": 7745,
+      "dry_pieces": 121,
+      "uncarved_eligible_pieces": [
+        113,
+        174,
+        183,
+        376,
+        399,
+        407,
+        408,
+        409,
+        411,
+        421,
+        430,
+        431,
+        856,
+        875,
+        885,
+        889,
+        933,
+        940,
+        941,
+        942,
+        943,
+        945,
+        946,
+        947,
+        948,
+        949,
+        950,
+        951,
+        952,
+        953,
+        961,
+        962,
+        981,
+        1190,
+        1325,
+        1330,
+        1331,
+        1332,
+        1400,
+        1404,
+        1419,
+        1420,
+        1423,
+        1451,
+        1452,
+        1456,
+        1590,
+        1593,
+        1595,
+        1596,
+        1620,
+        1621,
+        1673,
+        1681,
+        1838,
+        1869,
+        1870,
+        1872,
+        1881,
+        1890,
+        1898,
+        1952,
+        1955,
+        2151,
+        2162,
+        2163,
+        2164,
+        2165,
+        2166,
+        2167,
+        2169
+      ],
+      "deferred_pieces": [
+        {
+          "source_piece": 350,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 361,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 392,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 395,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 599,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 623,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 653,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 656,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 658,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 664,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 666,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 667,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 668,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 827,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 887,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1080,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1386,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1395,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1412,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1430,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1434,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1569,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1587,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1608,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1637,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1666,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1672,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1707,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1723,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1725,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1874,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1876,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1922,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1943,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1969,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2108,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2111,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2113,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2124,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2125,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2134,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2135,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2138,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2140,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2144,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 2145,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 829,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1079,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1942,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1948,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        }
+      ],
+      "terrain_raised_vertices": 14,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 3.0,
+      "startup_water_removed_vertices": 3,
+      "saved_state_audit": {
+        "case": "asheville",
+        "observations_unchanged": 7745,
+        "required": 1261,
+        "initial_required_near": 1261,
+        "initial_required_fraction": 1.0,
+        "startup_film_losses_already_dry_in_reference": [],
+        "new_saved_state_throughout_losses": 0,
+        "encoded_sources_unchanged": 110,
+        "late_wet_interpolation_preserved": [
+          "t005-water",
+          "t015-water",
+          "t030-water",
+          "t045-water",
+          "t060-water"
+        ],
+        "terrain_raised": 14,
+        "terrain_lowered": 0,
+        "native_qualification": false
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "b8e2c3e6c5a0cf497bddec6a338a8bce0cfbcfb3149b9cea52e7256675351216",
+        "water.u16": "af3f3a6f42eebb8d1a77cc678cd0561c72688e707069093eec97030b849697ca",
+        "hydrology.json": "cbd0036ddc6c071bd140c02ae7d325efd7e1a2a591d0d26bbbb758f6752b6772"
+      },
+      "planner_files_sha256": {
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "admission.py": "a47038df246a9dde769675d1f04fb1da9f8a3eb3d19fbdcf6de4170cf78fc015",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      }
+    },
+    {
+      "case": "innsbruck",
+      "planner_source_commit": "7786d4f7da6685bd6c0dbf30023e28d7bc3167ad",
+      "original_package_sha256": "3ef11496c97f164e5e36623b252ab1ad47142b6a0e876f9adbf9b86d17d0a6da",
+      "candidate": {
+        "case": "innsbruck",
+        "changed": true,
+        "package_sha256": "53b4357ec3e4909acf2fc2b1e806e2501e080b7defa9a2f91b18e3c136b4193c",
+        "grids_sha256": {
+          "terrain.u16": "7a99263074a4b24ffef734a2c679017a6d279ba2d33fa43a6bfcd72dbec6a4dc",
+          "water.u16": "11bde02f1d069ac3bc9afafb11eea962fd28511dc6940892cd4835e37fe813a9"
+        },
+        "resource_plan_byte_exact": true,
+        "hydrology_byte_exact": true,
+        "native_qualification": false
+      },
+      "native_evidence_sha256": {
+        "session-receipt.json": "5310d5285092d5a30bb85a3e8b32e3c0d40a21367d7be12097882976c2856b3c",
+        "report.json": "32316cabe6132653b9ce4c78f243cbc66bc9459fb351cb96c93f2e9a042a98e2",
+        "grids/t005-water.u16": "d0ef250d132c5d0c8208d513a384773368602d8520d06c6705f839e4ff050971",
+        "grids/t015-water.u16": "13209b0c1dc0bd9bf64c59c5d551dc8edae5ea22ac5dac8c0817eb47af4a575f",
+        "grids/t030-water.u16": "fd4d7437a7ffe5708505d8aaa889f1d72fc62fdf86348010cb8ec4e6a6e8155c",
+        "grids/t045-water.u16": "67e1c30e2ae4111586497617f4a529f6c28f2b590411f4e5e715210859e63162",
+        "grids/t060-water.u16": "33d2ae266cca0f13ac6766c70a4c6f1ce7986ada9936d0888ee7fab0eb45e07c"
+      },
+      "frozen_probes_sha256": "5edcb53f2e2675521893c77c910535e57d4c933903214e064752b9829261b8eb",
+      "all_observations_retained": 4281,
+      "dry_pieces": 20,
+      "uncarved_eligible_pieces": [
+        627,
+        634,
+        637,
+        642,
+        654,
+        728,
+        736,
+        739
+      ],
+      "deferred_pieces": [
+        {
+          "source_piece": 293,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 296,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 351,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 353,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 357,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 361,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 460,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 465,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 479,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 482,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 575,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 292,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        }
+      ],
+      "terrain_raised_vertices": 0,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 0.0,
+      "startup_water_removed_vertices": 1,
+      "saved_state_audit": {
+        "case": "innsbruck",
+        "observations_unchanged": 4281,
+        "required": 694,
+        "initial_required_near": 694,
+        "initial_required_fraction": 1.0,
+        "startup_film_losses_already_dry_in_reference": [],
+        "new_saved_state_throughout_losses": 0,
+        "encoded_sources_unchanged": 38,
+        "late_wet_interpolation_preserved": [
+          "t005-water",
+          "t015-water",
+          "t030-water",
+          "t045-water",
+          "t060-water"
+        ],
+        "terrain_raised": 0,
+        "terrain_lowered": 0,
+        "native_qualification": false
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "7a99263074a4b24ffef734a2c679017a6d279ba2d33fa43a6bfcd72dbec6a4dc",
+        "water.u16": "11bde02f1d069ac3bc9afafb11eea962fd28511dc6940892cd4835e37fe813a9",
+        "hydrology.json": "e1dffc37bf77bca9707ae12124f0a3cbfea0a59b1718914fee39a1f1abf78da6"
+      },
+      "planner_files_sha256": {
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "admission.py": "a47038df246a9dde769675d1f04fb1da9f8a3eb3d19fbdcf6de4170cf78fc015",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      }
+    },
+    {
+      "case": "rio",
+      "planner_source_commit": "7786d4f7da6685bd6c0dbf30023e28d7bc3167ad",
+      "original_package_sha256": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+      "candidate": {
+        "case": "rio",
+        "changed": true,
+        "package_sha256": "1745bab2356ea8c654eaeb3c2578cea23c8ded99ed7d1daf7e19f53ca729158b",
+        "grids_sha256": {
+          "terrain.u16": "1754f72fe1b331970b1426b4fcf95ee55ec558198a12a4b43800d51030dbf4fe",
+          "water.u16": "4889ab7c6b706fc92522cb3a76efca874cb99e8e7c47d3d96d66d0975c0c75ec"
+        },
+        "resource_plan_byte_exact": true,
+        "hydrology_byte_exact": true,
+        "native_qualification": false
+      },
+      "native_evidence_sha256": {
+        "session-receipt.json": "7c02b3ab7a0bd3ac2e63a56b2cd8bbe1bf1266563f83b691cc46a792d7243fc5",
+        "report.json": "f35b5d33b28f98350d6251f3e9bd4b400615cd1290495969640c8e1a857bb9d4",
+        "grids/t005-water.u16": "bca8e5412eb316f480d7da56f27dac301d0aab575c9798f422542b9c6fac78e8",
+        "grids/t015-water.u16": "370644f76944b8d9902196113654ae97512caec6bcdf03b195ca05f51a80244a",
+        "grids/t030-water.u16": "0343eb487947b771db22cf1a3892c080a5c295b1b146ffb8e02868f541545d75",
+        "grids/t045-water.u16": "5dfed35e89c1eb9845d2f5ef46c95152673bd99550ccab1711ed9eddeee73bfe",
+        "grids/t060-water.u16": "3aa57909619c7488ec9202b514f577f56a234136188708246f75eb5ee317fc07"
+      },
+      "frozen_probes_sha256": "5a9bb1e42b5d47841a4bc89426c8240ab2902bb7211d004311896332690a7f62",
+      "all_observations_retained": 4256,
+      "dry_pieces": 5,
+      "uncarved_eligible_pieces": [
+        21,
+        33
+      ],
+      "deferred_pieces": [
+        {
+          "source_piece": 35,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 36,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 151,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        }
+      ],
+      "terrain_raised_vertices": 192,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 7.421875,
+      "startup_water_removed_vertices": 37,
+      "saved_state_audit": {
+        "case": "rio",
+        "observations_unchanged": 4256,
+        "required": 1556,
+        "initial_required_near": 1556,
+        "initial_required_fraction": 1.0,
+        "startup_film_losses_already_dry_in_reference": [],
+        "new_saved_state_throughout_losses": 0,
+        "encoded_sources_unchanged": 290,
+        "late_wet_interpolation_preserved": [
+          "t005-water",
+          "t015-water",
+          "t030-water",
+          "t045-water",
+          "t060-water"
+        ],
+        "terrain_raised": 192,
+        "terrain_lowered": 0,
+        "native_qualification": false
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "1754f72fe1b331970b1426b4fcf95ee55ec558198a12a4b43800d51030dbf4fe",
+        "water.u16": "4889ab7c6b706fc92522cb3a76efca874cb99e8e7c47d3d96d66d0975c0c75ec",
+        "hydrology.json": "cef524935391d0a54823d30b0c9534bba6c98706a524f9be55feff18e47391de"
+      },
+      "planner_files_sha256": {
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "admission.py": "a47038df246a9dde769675d1f04fb1da9f8a3eb3d19fbdcf6de4170cf78fc015",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      }
+    },
+    {
+      "case": "pittsburgh",
+      "planner_source_commit": "7786d4f7da6685bd6c0dbf30023e28d7bc3167ad",
+      "original_package_sha256": "48537d2de41b074eb06168b407f2be1fc5ed3d85698c1fa86acf6ed2f892c665",
+      "candidate": {
+        "case": "pittsburgh",
+        "changed": true,
+        "package_sha256": "8223404fb4c923a7a9cc33d1bbacd2f06a222a4f7c33a03a9f2c2f39e532f830",
+        "grids_sha256": {
+          "terrain.u16": "9b2180b95cdb5bbf2febcdf918dec678d5b05fd00df44fdee5fe2979570d9074",
+          "water.u16": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29"
+        },
+        "resource_plan_byte_exact": true,
+        "hydrology_byte_exact": true,
+        "native_qualification": false
+      },
+      "native_evidence_sha256": {
+        "session-receipt.json": "0154d233f7fc843b6df940cc809c2f73c6d75db2e112a1de782c2a050f515bf9",
+        "report.json": "4638a87ece6c3703b413c268abb5d9a76a0db2cb0f2a40398988a514b09502a4",
+        "grids/t005-water.u16": "333a73048f410f982f8a8d429e9c62a42d4d5b3affe8667e45aea5880a19a3df",
+        "grids/t015-water.u16": "5d1989da096a821e49de2913ecea4691a82a4ab8621a90318f1da67a8ec7cd1a",
+        "grids/t030-water.u16": "19681807cfeb234182fd5c095f475e93b04f911d85c04e4b7b99f7d2c739eb2f",
+        "grids/t045-water.u16": "f989a3719719429aaa8f40d93a023724de0462791ddac4f4533158b90f0fe6c9",
+        "grids/t060-water.u16": "87c81d156fb25aa04a85f53b707b6965313c3029a88dbf243d45e3810227d158"
+      },
+      "frozen_probes_sha256": "28f6a6054a975004bb3da16d4e662b5f16e6221d75d4c6935d89190c905f6164",
+      "all_observations_retained": 6458,
+      "dry_pieces": 39,
+      "uncarved_eligible_pieces": [
+        206,
+        214,
+        312,
+        313,
+        323,
+        409,
+        412,
+        504,
+        505,
+        645,
+        650,
+        651,
+        703,
+        712,
+        713,
+        714,
+        723,
+        753,
+        755,
+        756,
+        873,
+        886,
+        887,
+        1015
+      ],
+      "deferred_pieces": [
+        {
+          "source_piece": 334,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 335,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 407,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 419,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 754,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 880,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 884,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 949,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 879,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 883,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 905,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 881,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 882,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 903,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 904,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        }
+      ],
+      "terrain_raised_vertices": 1,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 0.046875,
+      "startup_water_removed_vertices": 0,
+      "saved_state_audit": {
+        "case": "pittsburgh",
+        "observations_unchanged": 6458,
+        "required": 1799,
+        "initial_required_near": 1799,
+        "initial_required_fraction": 1.0,
+        "startup_film_losses_already_dry_in_reference": [],
+        "new_saved_state_throughout_losses": 0,
+        "encoded_sources_unchanged": 73,
+        "late_wet_interpolation_preserved": [
+          "t005-water",
+          "t015-water",
+          "t030-water",
+          "t045-water",
+          "t060-water"
+        ],
+        "terrain_raised": 1,
+        "terrain_lowered": 0,
+        "native_qualification": false
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "9b2180b95cdb5bbf2febcdf918dec678d5b05fd00df44fdee5fe2979570d9074",
+        "water.u16": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29",
+        "hydrology.json": "07eb8cb9321cbeb600b693b7980d7d99db36884d736e7b73ed12cf5d7600d0e1"
+      },
+      "planner_files_sha256": {
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "admission.py": "a47038df246a9dde769675d1f04fb1da9f8a3eb3d19fbdcf6de4170cf78fc015",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      }
+    },
+    {
+      "case": "charleston",
+      "planner_source_commit": "7786d4f7da6685bd6c0dbf30023e28d7bc3167ad",
+      "original_package_sha256": "a5f3f283885a62c8373a7832390c88a2b20603fb046a3efccd1578b497d0edcc",
+      "candidate": {
+        "case": "charleston",
+        "changed": true,
+        "package_sha256": "750bfe6a69ee21135b0990fd842e4021f51e79553b7c98ed76683e2f57653de0",
+        "grids_sha256": {
+          "terrain.u16": "ee3b6eda82636cc4ee5420e1c4aebe7b9e4cc282ada2586011a0b0b5334cfd4c",
+          "water.u16": "8a78760adabf82c99e94bbeaee198edf780af2821e785f726d72d60280ff53ea"
+        },
+        "resource_plan_byte_exact": true,
+        "hydrology_byte_exact": true,
+        "native_qualification": false
+      },
+      "native_evidence_sha256": {
+        "session-receipt.json": "565f902a4d3be7ccd9eea61f62cdd33554d3c9688f43cbcd8f5739dad3bd7184",
+        "report.json": "993ab548f8fdeb9d9f32406ad7acc1a283ab7c2eb032191860184b2761463d0d",
+        "grids/t005-water.u16": "6c1a7896a07138dad4813b67e5cfa52762efc374fe87c4b57e4f6d02c20bce95",
+        "grids/t015-water.u16": "f1160822892f2ecad1de32e8f1f47dc53a780fb678ce3b3862bf947090fc8659",
+        "grids/t030-water.u16": "3c16b49f1eb49c550c2d9e3e6f4e97924ca82105356325162ec020138b67ff11",
+        "grids/t045-water.u16": "c1f544dd30514042218cb1997a5ba7ba1176e13fcfa3c149ef648de4f5539979",
+        "grids/t060-water.u16": "f012c0f0bbe257791a2edb795c712d2c65425e097767d13fe6cea75ad8f7363e"
+      },
+      "frozen_probes_sha256": "e139af740b55f60b8c4acdaab248a839d920bd44ddb1e64757c7577ea782d3c8",
+      "all_observations_retained": 8242,
+      "dry_pieces": 106,
+      "uncarved_eligible_pieces": [
+        124,
+        126,
+        127,
+        128,
+        313,
+        314,
+        319,
+        325,
+        334,
+        335,
+        337,
+        345,
+        347,
+        382,
+        449,
+        479,
+        489,
+        494,
+        505,
+        506,
+        507,
+        513,
+        514,
+        517,
+        520,
+        523,
+        535,
+        536,
+        538,
+        540,
+        541,
+        542,
+        549,
+        557,
+        563,
+        567,
+        573,
+        574,
+        576,
+        580,
+        581,
+        582,
+        587,
+        589,
+        593,
+        594,
+        600,
+        606,
+        610,
+        623,
+        625,
+        626,
+        695,
+        696,
+        697,
+        703,
+        704,
+        709,
+        786,
+        830,
+        849,
+        882,
+        971,
+        1000,
+        1087,
+        1088,
+        1091,
+        1093,
+        1096,
+        1097,
+        1103,
+        1104,
+        1125,
+        1126,
+        1132,
+        1139,
+        1203,
+        1210,
+        1211,
+        1215,
+        1219,
+        1220,
+        1225,
+        1227,
+        1274,
+        1283,
+        1430,
+        1433,
+        1467,
+        1469,
+        1471,
+        1495,
+        1498,
+        1500,
+        1505,
+        1524,
+        1806
+      ],
+      "deferred_pieces": [
+        {
+          "source_piece": 750,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 796,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 797,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1429,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1445,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1588,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 798,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 799,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        },
+        {
+          "source_piece": 1580,
+          "reason": "retained wet/control/network or independent cut prevents complete centreline restoration"
+        }
+      ],
+      "terrain_raised_vertices": 1,
+      "terrain_lowered_vertices": 0,
+      "maximum_raise_m": 0.8125,
+      "startup_water_removed_vertices": 33,
+      "saved_state_audit": {
+        "case": "charleston",
+        "observations_unchanged": 8242,
+        "required": 2214,
+        "initial_required_near": 2214,
+        "initial_required_fraction": 1.0,
+        "startup_film_losses_already_dry_in_reference": [],
+        "new_saved_state_throughout_losses": 0,
+        "encoded_sources_unchanged": 45,
+        "late_wet_interpolation_preserved": [
+          "t005-water",
+          "t015-water",
+          "t030-water",
+          "t045-water",
+          "t060-water"
+        ],
+        "terrain_raised": 1,
+        "terrain_lowered": 0,
+        "native_qualification": false
+      },
+      "candidate_files_sha256": {
+        "terrain.u16": "ee3b6eda82636cc4ee5420e1c4aebe7b9e4cc282ada2586011a0b0b5334cfd4c",
+        "water.u16": "8a78760adabf82c99e94bbeaee198edf780af2821e785f726d72d60280ff53ea",
+        "hydrology.json": "fdf557b4740ce20aadfaa2d099ca98490f7e78dfa23dcdc4b1f5d80878743816"
+      },
+      "planner_files_sha256": {
+        "native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+        "admission.py": "a47038df246a9dde769675d1f04fb1da9f8a3eb3d19fbdcf6de4170cf78fc015",
+        "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+        "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+        "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+        "verify_bank_restoration.py": "10f40943f0b940589dfb1286d7c3e974187e85519ee56813982cdd2bc973ed39"
+      }
+    }
+  ]
+}

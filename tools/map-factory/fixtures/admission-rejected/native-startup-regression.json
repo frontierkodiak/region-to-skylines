@@ -1,0 +1,4619 @@
+{
+  "native_observed": true,
+  "not_full_native_qualification": true,
+  "crp_sha256": "8d0828ea83515db2aa4de2706ce047914555e35fd43d43b21c1b239e7998e3eb",
+  "initial_grids_exact_sha256": {
+    "terrain": "f162bb2cc4022a6a3e4a3eef8f8fccdb07c566b9d4db495ee27859f95c6238c4",
+    "water": "84d914048cbf833c37d2634c36f32160d6fdcabadedf58203ae2a0e47c1ad2c3"
+  },
+  "label": "t000",
+  "frame": 202252,
+  "required": 1556,
+  "wet_or_near": 1301,
+  "fraction": 0.8361182519280206,
+  "threshold": 0.95,
+  "fails_wet_throughout_at_start": true,
+  "dry": [
+    {
+      "x": -1312,
+      "z": 3632,
+      "terrain": 92.8125,
+      "ground": 92.8125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:00"
+    },
+    {
+      "x": -1296,
+      "z": 3616,
+      "terrain": 92.140625,
+      "ground": 92.140625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:01"
+    },
+    {
+      "x": -1280,
+      "z": 3616,
+      "terrain": 92.046875,
+      "ground": 92.046875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:02"
+    },
+    {
+      "x": -1264,
+      "z": 3616,
+      "terrain": 92.078125,
+      "ground": 92.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:03"
+    },
+    {
+      "x": -1248,
+      "z": 3632,
+      "terrain": 93.078125,
+      "ground": 93.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:04"
+    },
+    {
+      "x": -1232,
+      "z": 3632,
+      "terrain": 93.25,
+      "ground": 93.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:05"
+    },
+    {
+      "x": -1216,
+      "z": 3632,
+      "terrain": 93.375,
+      "ground": 93.375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:06"
+    },
+    {
+      "x": -1200,
+      "z": 3632,
+      "terrain": 93.3125,
+      "ground": 93.3125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:07"
+    },
+    {
+      "x": -1184,
+      "z": 3632,
+      "terrain": 93,
+      "ground": 93,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:08"
+    },
+    {
+      "x": -1168,
+      "z": 3632,
+      "terrain": 92.65625,
+      "ground": 92.65625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:09"
+    },
+    {
+      "x": -1152,
+      "z": 3632,
+      "terrain": 92.46875,
+      "ground": 92.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:10"
+    },
+    {
+      "x": -1136,
+      "z": 3632,
+      "terrain": 92.40625,
+      "ground": 92.40625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:11"
+    },
+    {
+      "x": -1120,
+      "z": 3632,
+      "terrain": 92.3125,
+      "ground": 92.3125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:12"
+    },
+    {
+      "x": -1104,
+      "z": 3632,
+      "terrain": 92.0625,
+      "ground": 92.0625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:13"
+    },
+    {
+      "x": -1088,
+      "z": 3632,
+      "terrain": 91.5,
+      "ground": 91.5,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:14"
+    },
+    {
+      "x": -1072,
+      "z": 3648,
+      "terrain": 90.640625,
+      "ground": 90.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:15"
+    },
+    {
+      "x": -1056,
+      "z": 3648,
+      "terrain": 89.890625,
+      "ground": 89.890625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:16"
+    },
+    {
+      "x": -1040,
+      "z": 3648,
+      "terrain": 89.640625,
+      "ground": 89.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:17"
+    },
+    {
+      "x": -1024,
+      "z": 3648,
+      "terrain": 89.9375,
+      "ground": 89.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:18"
+    },
+    {
+      "x": -1008,
+      "z": 3648,
+      "terrain": 90.625,
+      "ground": 90.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:19"
+    },
+    {
+      "x": -992,
+      "z": 3648,
+      "terrain": 91.46875,
+      "ground": 91.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:20"
+    },
+    {
+      "x": -976,
+      "z": 3648,
+      "terrain": 92.265625,
+      "ground": 92.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:21"
+    },
+    {
+      "x": -960,
+      "z": 3648,
+      "terrain": 92.96875,
+      "ground": 92.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:22"
+    },
+    {
+      "x": -944,
+      "z": 3648,
+      "terrain": 93.53125,
+      "ground": 93.53125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:23"
+    },
+    {
+      "x": -736,
+      "z": 3680,
+      "terrain": 90.859375,
+      "ground": 90.859375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:36"
+    },
+    {
+      "x": -720,
+      "z": 3680,
+      "terrain": 91.828125,
+      "ground": 91.828125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:37"
+    },
+    {
+      "x": -704,
+      "z": 3680,
+      "terrain": 92.84375,
+      "ground": 92.84375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:38"
+    },
+    {
+      "x": -688,
+      "z": 3680,
+      "terrain": 93.859375,
+      "ground": 93.859375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:39"
+    },
+    {
+      "x": -672,
+      "z": 3680,
+      "terrain": 94.765625,
+      "ground": 94.765625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:40"
+    },
+    {
+      "x": -656,
+      "z": 3680,
+      "terrain": 95.34375,
+      "ground": 95.34375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:41"
+    },
+    {
+      "x": -640,
+      "z": 3680,
+      "terrain": 95.390625,
+      "ground": 95.390625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:42"
+    },
+    {
+      "x": -624,
+      "z": 3680,
+      "terrain": 94.921875,
+      "ground": 94.921875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #1:43"
+    },
+    {
+      "x": -1504,
+      "z": 3456,
+      "terrain": 92.515625,
+      "ground": 92.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:00"
+    },
+    {
+      "x": -1488,
+      "z": 3472,
+      "terrain": 93.859375,
+      "ground": 93.859375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:01"
+    },
+    {
+      "x": -1472,
+      "z": 3472,
+      "terrain": 93.59375,
+      "ground": 93.59375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:02"
+    },
+    {
+      "x": -1456,
+      "z": 3472,
+      "terrain": 93.59375,
+      "ground": 93.59375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:03"
+    },
+    {
+      "x": -1440,
+      "z": 3488,
+      "terrain": 95.796875,
+      "ground": 95.796875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:04"
+    },
+    {
+      "x": -1424,
+      "z": 3504,
+      "terrain": 96.765625,
+      "ground": 96.765625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:05"
+    },
+    {
+      "x": -1408,
+      "z": 3520,
+      "terrain": 96.171875,
+      "ground": 96.171875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:06"
+    },
+    {
+      "x": -1392,
+      "z": 3536,
+      "terrain": 94.578125,
+      "ground": 94.578125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:07"
+    },
+    {
+      "x": -1376,
+      "z": 3552,
+      "terrain": 92.765625,
+      "ground": 92.765625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:08"
+    },
+    {
+      "x": -1376,
+      "z": 3568,
+      "terrain": 92.234375,
+      "ground": 92.234375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:09"
+    },
+    {
+      "x": -1360,
+      "z": 3584,
+      "terrain": 91.03125,
+      "ground": 91.03125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #3:10"
+    },
+    {
+      "x": -1984,
+      "z": 3216,
+      "terrain": 98.34375,
+      "ground": 98.34375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:00"
+    },
+    {
+      "x": -2000,
+      "z": 3200,
+      "terrain": 99.078125,
+      "ground": 99.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:01"
+    },
+    {
+      "x": -2016,
+      "z": 3200,
+      "terrain": 98,
+      "ground": 98,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:02"
+    },
+    {
+      "x": -2032,
+      "z": 3184,
+      "terrain": 98.546875,
+      "ground": 98.546875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:03"
+    },
+    {
+      "x": -2048,
+      "z": 3168,
+      "terrain": 99.515625,
+      "ground": 99.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:04"
+    },
+    {
+      "x": -2064,
+      "z": 3168,
+      "terrain": 99.625,
+      "ground": 99.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:05"
+    },
+    {
+      "x": -2080,
+      "z": 3152,
+      "terrain": 100.5,
+      "ground": 100.5,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:06"
+    },
+    {
+      "x": -2096,
+      "z": 3136,
+      "terrain": 100.625,
+      "ground": 100.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:07"
+    },
+    {
+      "x": -2112,
+      "z": 3120,
+      "terrain": 100.046875,
+      "ground": 100.046875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:08"
+    },
+    {
+      "x": -2128,
+      "z": 3104,
+      "terrain": 99.1875,
+      "ground": 99.1875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:09"
+    },
+    {
+      "x": -2144,
+      "z": 3104,
+      "terrain": 98.671875,
+      "ground": 98.671875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:10"
+    },
+    {
+      "x": -2160,
+      "z": 3104,
+      "terrain": 97.890625,
+      "ground": 97.890625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:11"
+    },
+    {
+      "x": -2176,
+      "z": 3104,
+      "terrain": 96.984375,
+      "ground": 96.984375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #6:12"
+    },
+    {
+      "x": -2816,
+      "z": 2384,
+      "terrain": 108.421875,
+      "ground": 108.421875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:00"
+    },
+    {
+      "x": -2832,
+      "z": 2368,
+      "terrain": 110.625,
+      "ground": 110.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:01"
+    },
+    {
+      "x": -2832,
+      "z": 2352,
+      "terrain": 109.90625,
+      "ground": 109.90625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:02"
+    },
+    {
+      "x": -2848,
+      "z": 2336,
+      "terrain": 108.84375,
+      "ground": 108.84375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:03"
+    },
+    {
+      "x": -2864,
+      "z": 2320,
+      "terrain": 106.390625,
+      "ground": 106.390625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:04"
+    },
+    {
+      "x": -2880,
+      "z": 2320,
+      "terrain": 105.53125,
+      "ground": 105.53125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:05"
+    },
+    {
+      "x": -2896,
+      "z": 2320,
+      "terrain": 104.625,
+      "ground": 104.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:06"
+    },
+    {
+      "x": -2912,
+      "z": 2320,
+      "terrain": 103.75,
+      "ground": 103.75,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:07"
+    },
+    {
+      "x": -2928,
+      "z": 2304,
+      "terrain": 101.84375,
+      "ground": 101.84375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #8:08"
+    },
+    {
+      "x": -3856,
+      "z": 944,
+      "terrain": 118.25,
+      "ground": 118.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #14:04"
+    },
+    {
+      "x": -3856,
+      "z": 928,
+      "terrain": 117.6875,
+      "ground": 117.6875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Maracan\u00e3 [river] #14:05"
+    },
+    {
+      "x": -2736,
+      "z": 1632,
+      "terrain": 113.25,
+      "ground": 113.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:00"
+    },
+    {
+      "x": -2720,
+      "z": 1632,
+      "terrain": 112.828125,
+      "ground": 112.828125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:01"
+    },
+    {
+      "x": -2704,
+      "z": 1648,
+      "terrain": 113.078125,
+      "ground": 113.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:02"
+    },
+    {
+      "x": -2688,
+      "z": 1664,
+      "terrain": 112.734375,
+      "ground": 112.734375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:03"
+    },
+    {
+      "x": -2672,
+      "z": 1680,
+      "terrain": 111.703125,
+      "ground": 111.703125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:04"
+    },
+    {
+      "x": -2672,
+      "z": 1696,
+      "terrain": 111.5,
+      "ground": 111.5,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:05"
+    },
+    {
+      "x": -2656,
+      "z": 1712,
+      "terrain": 110.25,
+      "ground": 110.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:06"
+    },
+    {
+      "x": -2640,
+      "z": 1728,
+      "terrain": 108.75,
+      "ground": 108.75,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:07"
+    },
+    {
+      "x": -2640,
+      "z": 1744,
+      "terrain": 108.71875,
+      "ground": 108.71875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:08"
+    },
+    {
+      "x": -2624,
+      "z": 1760,
+      "terrain": 107.890625,
+      "ground": 107.890625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:09"
+    },
+    {
+      "x": -2624,
+      "z": 1776,
+      "terrain": 108.96875,
+      "ground": 108.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:10"
+    },
+    {
+      "x": -2608,
+      "z": 1792,
+      "terrain": 109.296875,
+      "ground": 109.296875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:11"
+    },
+    {
+      "x": -2608,
+      "z": 1808,
+      "terrain": 110.03125,
+      "ground": 110.03125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:12"
+    },
+    {
+      "x": -2608,
+      "z": 1824,
+      "terrain": 109.9375,
+      "ground": 109.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:13"
+    },
+    {
+      "x": -2592,
+      "z": 1840,
+      "terrain": 109.015625,
+      "ground": 109.015625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:14"
+    },
+    {
+      "x": -2592,
+      "z": 1856,
+      "terrain": 108.125,
+      "ground": 108.125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Trapicheiros [river] #14:15"
+    },
+    {
+      "x": -400,
+      "z": 1056,
+      "terrain": 121.25,
+      "ground": 121.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:01"
+    },
+    {
+      "x": -384,
+      "z": 1072,
+      "terrain": 119.6875,
+      "ground": 119.6875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:02"
+    },
+    {
+      "x": -400,
+      "z": 1088,
+      "terrain": 120.640625,
+      "ground": 120.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:03"
+    },
+    {
+      "x": -400,
+      "z": 1104,
+      "terrain": 119.578125,
+      "ground": 119.578125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:04"
+    },
+    {
+      "x": -400,
+      "z": 1120,
+      "terrain": 118.1875,
+      "ground": 118.1875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:05"
+    },
+    {
+      "x": -416,
+      "z": 1136,
+      "terrain": 117.671875,
+      "ground": 117.671875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:06"
+    },
+    {
+      "x": -416,
+      "z": 1152,
+      "terrain": 116.078125,
+      "ground": 116.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:07"
+    },
+    {
+      "x": -416,
+      "z": 1168,
+      "terrain": 114.828125,
+      "ground": 114.828125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:08"
+    },
+    {
+      "x": -432,
+      "z": 1184,
+      "terrain": 115.640625,
+      "ground": 115.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:09"
+    },
+    {
+      "x": -432,
+      "z": 1200,
+      "terrain": 115.5,
+      "ground": 115.5,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:10"
+    },
+    {
+      "x": -432,
+      "z": 1216,
+      "terrain": 115.8125,
+      "ground": 115.8125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:11"
+    },
+    {
+      "x": -432,
+      "z": 1232,
+      "terrain": 116.015625,
+      "ground": 116.015625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:12"
+    },
+    {
+      "x": -432,
+      "z": 1248,
+      "terrain": 115.671875,
+      "ground": 115.671875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:13"
+    },
+    {
+      "x": -432,
+      "z": 1264,
+      "terrain": 114.640625,
+      "ground": 114.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:14"
+    },
+    {
+      "x": -432,
+      "z": 1280,
+      "terrain": 113.265625,
+      "ground": 113.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:15"
+    },
+    {
+      "x": -448,
+      "z": 1296,
+      "terrain": 112.71875,
+      "ground": 112.71875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:16"
+    },
+    {
+      "x": -448,
+      "z": 1312,
+      "terrain": 111.953125,
+      "ground": 111.953125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:17"
+    },
+    {
+      "x": -448,
+      "z": 1328,
+      "terrain": 111.734375,
+      "ground": 111.734375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:18"
+    },
+    {
+      "x": -464,
+      "z": 1344,
+      "terrain": 112.46875,
+      "ground": 112.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:19"
+    },
+    {
+      "x": -464,
+      "z": 1360,
+      "terrain": 112.8125,
+      "ground": 112.8125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:20"
+    },
+    {
+      "x": -464,
+      "z": 1376,
+      "terrain": 113.59375,
+      "ground": 113.59375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:21"
+    },
+    {
+      "x": -464,
+      "z": 1392,
+      "terrain": 114.6875,
+      "ground": 114.6875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:22"
+    },
+    {
+      "x": -464,
+      "z": 1408,
+      "terrain": 115.9375,
+      "ground": 115.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:23"
+    },
+    {
+      "x": -464,
+      "z": 1424,
+      "terrain": 117.140625,
+      "ground": 117.140625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:24"
+    },
+    {
+      "x": -464,
+      "z": 1440,
+      "terrain": 117.96875,
+      "ground": 117.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:25"
+    },
+    {
+      "x": -464,
+      "z": 1456,
+      "terrain": 118.125,
+      "ground": 118.125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:26"
+    },
+    {
+      "x": -464,
+      "z": 1472,
+      "terrain": 117.65625,
+      "ground": 117.65625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:27"
+    },
+    {
+      "x": -464,
+      "z": 1488,
+      "terrain": 116.9375,
+      "ground": 116.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:28"
+    },
+    {
+      "x": -464,
+      "z": 1504,
+      "terrain": 116.265625,
+      "ground": 116.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:29"
+    },
+    {
+      "x": -464,
+      "z": 1520,
+      "terrain": 115.765625,
+      "ground": 115.765625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:30"
+    },
+    {
+      "x": -464,
+      "z": 1536,
+      "terrain": 115.25,
+      "ground": 115.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:31"
+    },
+    {
+      "x": -464,
+      "z": 1552,
+      "terrain": 114.546875,
+      "ground": 114.546875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:32"
+    },
+    {
+      "x": -464,
+      "z": 1568,
+      "terrain": 113.609375,
+      "ground": 113.609375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:33"
+    },
+    {
+      "x": -464,
+      "z": 1584,
+      "terrain": 112.359375,
+      "ground": 112.359375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:34"
+    },
+    {
+      "x": -464,
+      "z": 1600,
+      "terrain": 110.84375,
+      "ground": 110.84375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:35"
+    },
+    {
+      "x": -464,
+      "z": 1616,
+      "terrain": 109.296875,
+      "ground": 109.296875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:36"
+    },
+    {
+      "x": -480,
+      "z": 1632,
+      "terrain": 107.875,
+      "ground": 107.875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:37"
+    },
+    {
+      "x": -480,
+      "z": 1648,
+      "terrain": 106.96875,
+      "ground": 106.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:38"
+    },
+    {
+      "x": -480,
+      "z": 1664,
+      "terrain": 106.515625,
+      "ground": 106.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:39"
+    },
+    {
+      "x": -480,
+      "z": 1680,
+      "terrain": 106.296875,
+      "ground": 106.296875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Comprido [river] #3:40"
+    },
+    {
+      "x": -2816,
+      "z": 3264,
+      "terrain": 97.0625,
+      "ground": 97.0625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Joana [river] #1:05"
+    },
+    {
+      "x": -2800,
+      "z": 3264,
+      "terrain": 96.96875,
+      "ground": 96.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Joana [river] #1:06"
+    },
+    {
+      "x": -2784,
+      "z": 3280,
+      "terrain": 96,
+      "ground": 96,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Joana [river] #1:07"
+    },
+    {
+      "x": -2768,
+      "z": 3280,
+      "terrain": 96.296875,
+      "ground": 96.296875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Joana [river] #1:08"
+    },
+    {
+      "x": -2752,
+      "z": 3280,
+      "terrain": 97.015625,
+      "ground": 97.015625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Joana [river] #1:09"
+    },
+    {
+      "x": -2736,
+      "z": 3280,
+      "terrain": 97.921875,
+      "ground": 97.921875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "Rio Joana [river] #1:10"
+    },
+    {
+      "x": -480,
+      "z": 1680,
+      "terrain": 106.296875,
+      "ground": 106.296875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,435"
+    },
+    {
+      "x": -480,
+      "z": 1664,
+      "terrain": 106.515625,
+      "ground": 106.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,436"
+    },
+    {
+      "x": -480,
+      "z": 1648,
+      "terrain": 106.96875,
+      "ground": 106.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,437"
+    },
+    {
+      "x": -480,
+      "z": 1632,
+      "terrain": 107.875,
+      "ground": 107.875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,438"
+    },
+    {
+      "x": -480,
+      "z": 1616,
+      "terrain": 109.328125,
+      "ground": 109.328125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,439"
+    },
+    {
+      "x": -480,
+      "z": 1600,
+      "terrain": 111.09375,
+      "ground": 111.09375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,440"
+    },
+    {
+      "x": -480,
+      "z": 1584,
+      "terrain": 112.765625,
+      "ground": 112.765625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,441"
+    },
+    {
+      "x": -480,
+      "z": 1568,
+      "terrain": 114.203125,
+      "ground": 114.203125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,442"
+    },
+    {
+      "x": -480,
+      "z": 1552,
+      "terrain": 115.359375,
+      "ground": 115.359375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,443"
+    },
+    {
+      "x": -480,
+      "z": 1536,
+      "terrain": 116.21875,
+      "ground": 116.21875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,444"
+    },
+    {
+      "x": -480,
+      "z": 1520,
+      "terrain": 116.796875,
+      "ground": 116.796875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @510,445"
+    },
+    {
+      "x": -464,
+      "z": 1504,
+      "terrain": 116.265625,
+      "ground": 116.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,446"
+    },
+    {
+      "x": -464,
+      "z": 1488,
+      "terrain": 116.9375,
+      "ground": 116.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,447"
+    },
+    {
+      "x": -464,
+      "z": 1472,
+      "terrain": 117.65625,
+      "ground": 117.65625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,448"
+    },
+    {
+      "x": -464,
+      "z": 1456,
+      "terrain": 118.125,
+      "ground": 118.125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,449"
+    },
+    {
+      "x": -464,
+      "z": 1440,
+      "terrain": 117.96875,
+      "ground": 117.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,450"
+    },
+    {
+      "x": -464,
+      "z": 1424,
+      "terrain": 117.140625,
+      "ground": 117.140625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,451"
+    },
+    {
+      "x": -464,
+      "z": 1408,
+      "terrain": 115.9375,
+      "ground": 115.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,452"
+    },
+    {
+      "x": -464,
+      "z": 1392,
+      "terrain": 114.6875,
+      "ground": 114.6875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,453"
+    },
+    {
+      "x": -464,
+      "z": 1376,
+      "terrain": 113.59375,
+      "ground": 113.59375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,454"
+    },
+    {
+      "x": -464,
+      "z": 1360,
+      "terrain": 112.8125,
+      "ground": 112.8125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,455"
+    },
+    {
+      "x": -464,
+      "z": 1344,
+      "terrain": 112.46875,
+      "ground": 112.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,456"
+    },
+    {
+      "x": -464,
+      "z": 1328,
+      "terrain": 112.59375,
+      "ground": 112.59375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,457"
+    },
+    {
+      "x": -464,
+      "z": 1312,
+      "terrain": 113.171875,
+      "ground": 113.171875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,458"
+    },
+    {
+      "x": -464,
+      "z": 1296,
+      "terrain": 114.265625,
+      "ground": 114.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,459"
+    },
+    {
+      "x": -464,
+      "z": 1280,
+      "terrain": 115.9375,
+      "ground": 115.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @511,460"
+    },
+    {
+      "x": -448,
+      "z": 1264,
+      "terrain": 115.921875,
+      "ground": 115.921875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @512,461"
+    },
+    {
+      "x": -448,
+      "z": 1248,
+      "terrain": 117.46875,
+      "ground": 117.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @512,462"
+    },
+    {
+      "x": -448,
+      "z": 1232,
+      "terrain": 118.21875,
+      "ground": 118.21875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @512,463"
+    },
+    {
+      "x": -448,
+      "z": 1216,
+      "terrain": 118.15625,
+      "ground": 118.15625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @512,464"
+    },
+    {
+      "x": -448,
+      "z": 1200,
+      "terrain": 117.8125,
+      "ground": 117.8125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @512,465"
+    },
+    {
+      "x": -432,
+      "z": 1184,
+      "terrain": 115.640625,
+      "ground": 115.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @513,466"
+    },
+    {
+      "x": -432,
+      "z": 1168,
+      "terrain": 116.515625,
+      "ground": 116.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @513,467"
+    },
+    {
+      "x": -432,
+      "z": 1152,
+      "terrain": 118.078125,
+      "ground": 118.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @513,468"
+    },
+    {
+      "x": -432,
+      "z": 1136,
+      "terrain": 120.0625,
+      "ground": 120.0625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @513,469"
+    },
+    {
+      "x": -416,
+      "z": 1120,
+      "terrain": 119.515625,
+      "ground": 119.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @514,470"
+    },
+    {
+      "x": -416,
+      "z": 1104,
+      "terrain": 121.421875,
+      "ground": 121.421875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @514,471"
+    },
+    {
+      "x": -416,
+      "z": 1088,
+      "terrain": 123.046875,
+      "ground": 123.046875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @514,472"
+    },
+    {
+      "x": -416,
+      "z": 1072,
+      "terrain": 123.9375,
+      "ground": 123.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @514,473"
+    },
+    {
+      "x": -400,
+      "z": 1056,
+      "terrain": 121.25,
+      "ground": 121.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Comprido [river] @515,474"
+    },
+    {
+      "x": -2784,
+      "z": 3280,
+      "terrain": 96,
+      "ground": 96,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Joana [river] @366,335"
+    },
+    {
+      "x": -2768,
+      "z": 3280,
+      "terrain": 96.296875,
+      "ground": 96.296875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Joana [river] @367,335"
+    },
+    {
+      "x": -2752,
+      "z": 3280,
+      "terrain": 97.015625,
+      "ground": 97.015625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Joana [river] @368,335"
+    },
+    {
+      "x": -2736,
+      "z": 3280,
+      "terrain": 97.921875,
+      "ground": 97.921875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Joana [river] @369,335"
+    },
+    {
+      "x": -2816,
+      "z": 3264,
+      "terrain": 97.0625,
+      "ground": 97.0625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Joana [river] @364,336"
+    },
+    {
+      "x": -2800,
+      "z": 3264,
+      "terrain": 96.96875,
+      "ground": 96.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Joana [river] @365,336"
+    },
+    {
+      "x": -736,
+      "z": 3680,
+      "terrain": 90.859375,
+      "ground": 90.859375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @494,310"
+    },
+    {
+      "x": -720,
+      "z": 3680,
+      "terrain": 91.828125,
+      "ground": 91.828125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @495,310"
+    },
+    {
+      "x": -704,
+      "z": 3680,
+      "terrain": 92.84375,
+      "ground": 92.84375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @496,310"
+    },
+    {
+      "x": -688,
+      "z": 3680,
+      "terrain": 93.859375,
+      "ground": 93.859375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @497,310"
+    },
+    {
+      "x": -672,
+      "z": 3680,
+      "terrain": 94.765625,
+      "ground": 94.765625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @498,310"
+    },
+    {
+      "x": -656,
+      "z": 3680,
+      "terrain": 95.34375,
+      "ground": 95.34375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @499,310"
+    },
+    {
+      "x": -640,
+      "z": 3680,
+      "terrain": 95.390625,
+      "ground": 95.390625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @500,310"
+    },
+    {
+      "x": -944,
+      "z": 3664,
+      "terrain": 94.4375,
+      "ground": 94.4375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @481,311"
+    },
+    {
+      "x": -1184,
+      "z": 3648,
+      "terrain": 93.921875,
+      "ground": 93.921875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @466,312"
+    },
+    {
+      "x": -1168,
+      "z": 3648,
+      "terrain": 93.578125,
+      "ground": 93.578125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @467,312"
+    },
+    {
+      "x": -1152,
+      "z": 3648,
+      "terrain": 93.375,
+      "ground": 93.375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @468,312"
+    },
+    {
+      "x": -1136,
+      "z": 3648,
+      "terrain": 93.265625,
+      "ground": 93.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @469,312"
+    },
+    {
+      "x": -1120,
+      "z": 3648,
+      "terrain": 93.03125,
+      "ground": 93.03125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @470,312"
+    },
+    {
+      "x": -1104,
+      "z": 3648,
+      "terrain": 92.5,
+      "ground": 92.5,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @471,312"
+    },
+    {
+      "x": -1088,
+      "z": 3648,
+      "terrain": 91.640625,
+      "ground": 91.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @472,312"
+    },
+    {
+      "x": -1072,
+      "z": 3648,
+      "terrain": 90.640625,
+      "ground": 90.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @473,312"
+    },
+    {
+      "x": -1056,
+      "z": 3648,
+      "terrain": 89.890625,
+      "ground": 89.890625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @474,312"
+    },
+    {
+      "x": -1040,
+      "z": 3648,
+      "terrain": 89.640625,
+      "ground": 89.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @475,312"
+    },
+    {
+      "x": -1024,
+      "z": 3648,
+      "terrain": 89.9375,
+      "ground": 89.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @476,312"
+    },
+    {
+      "x": -1008,
+      "z": 3648,
+      "terrain": 90.625,
+      "ground": 90.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @477,312"
+    },
+    {
+      "x": -992,
+      "z": 3648,
+      "terrain": 91.46875,
+      "ground": 91.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @478,312"
+    },
+    {
+      "x": -976,
+      "z": 3648,
+      "terrain": 92.265625,
+      "ground": 92.265625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @479,312"
+    },
+    {
+      "x": -960,
+      "z": 3648,
+      "terrain": 92.96875,
+      "ground": 92.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @480,312"
+    },
+    {
+      "x": -1312,
+      "z": 3632,
+      "terrain": 92.8125,
+      "ground": 92.8125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @458,313"
+    },
+    {
+      "x": -1296,
+      "z": 3632,
+      "terrain": 92.921875,
+      "ground": 92.921875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @459,313"
+    },
+    {
+      "x": -1280,
+      "z": 3632,
+      "terrain": 92.875,
+      "ground": 92.875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @460,313"
+    },
+    {
+      "x": -1264,
+      "z": 3632,
+      "terrain": 92.9375,
+      "ground": 92.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @461,313"
+    },
+    {
+      "x": -1248,
+      "z": 3632,
+      "terrain": 93.078125,
+      "ground": 93.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @462,313"
+    },
+    {
+      "x": -1232,
+      "z": 3632,
+      "terrain": 93.25,
+      "ground": 93.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @463,313"
+    },
+    {
+      "x": -1216,
+      "z": 3632,
+      "terrain": 93.375,
+      "ground": 93.375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @464,313"
+    },
+    {
+      "x": -1200,
+      "z": 3632,
+      "terrain": 93.3125,
+      "ground": 93.3125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @465,313"
+    },
+    {
+      "x": -1360,
+      "z": 3584,
+      "terrain": 91.03125,
+      "ground": 91.03125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @455,316"
+    },
+    {
+      "x": -1376,
+      "z": 3568,
+      "terrain": 92.234375,
+      "ground": 92.234375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @454,317"
+    },
+    {
+      "x": -1392,
+      "z": 3552,
+      "terrain": 94.0625,
+      "ground": 94.0625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @453,318"
+    },
+    {
+      "x": -1408,
+      "z": 3536,
+      "terrain": 96.0625,
+      "ground": 96.0625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @452,319"
+    },
+    {
+      "x": -1440,
+      "z": 3520,
+      "terrain": 98.28125,
+      "ground": 98.28125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @450,320"
+    },
+    {
+      "x": -1424,
+      "z": 3520,
+      "terrain": 97.484375,
+      "ground": 97.484375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @451,320"
+    },
+    {
+      "x": -1456,
+      "z": 3504,
+      "terrain": 97.71875,
+      "ground": 97.71875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @449,321"
+    },
+    {
+      "x": -1472,
+      "z": 3488,
+      "terrain": 95.953125,
+      "ground": 95.953125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @448,322"
+    },
+    {
+      "x": -1488,
+      "z": 3472,
+      "terrain": 93.859375,
+      "ground": 93.859375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @447,323"
+    },
+    {
+      "x": -1504,
+      "z": 3456,
+      "terrain": 92.515625,
+      "ground": 92.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @446,324"
+    },
+    {
+      "x": -1984,
+      "z": 3216,
+      "terrain": 98.34375,
+      "ground": 98.34375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @416,339"
+    },
+    {
+      "x": -2016,
+      "z": 3200,
+      "terrain": 98,
+      "ground": 98,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @414,340"
+    },
+    {
+      "x": -2000,
+      "z": 3200,
+      "terrain": 99.078125,
+      "ground": 99.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @415,340"
+    },
+    {
+      "x": -2032,
+      "z": 3184,
+      "terrain": 98.546875,
+      "ground": 98.546875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @413,341"
+    },
+    {
+      "x": -2064,
+      "z": 3168,
+      "terrain": 99.625,
+      "ground": 99.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @411,342"
+    },
+    {
+      "x": -2048,
+      "z": 3168,
+      "terrain": 99.515625,
+      "ground": 99.515625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @412,342"
+    },
+    {
+      "x": -2096,
+      "z": 3152,
+      "terrain": 100.28125,
+      "ground": 100.28125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @409,343"
+    },
+    {
+      "x": -2080,
+      "z": 3152,
+      "terrain": 100.5,
+      "ground": 100.5,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @410,343"
+    },
+    {
+      "x": -2112,
+      "z": 3136,
+      "terrain": 100.125,
+      "ground": 100.125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @408,344"
+    },
+    {
+      "x": -2144,
+      "z": 3120,
+      "terrain": 99.109375,
+      "ground": 99.109375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @406,345"
+    },
+    {
+      "x": -2128,
+      "z": 3120,
+      "terrain": 99.578125,
+      "ground": 99.578125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @407,345"
+    },
+    {
+      "x": -2176,
+      "z": 3104,
+      "terrain": 96.984375,
+      "ground": 96.984375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @404,346"
+    },
+    {
+      "x": -2160,
+      "z": 3104,
+      "terrain": 97.890625,
+      "ground": 97.890625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @405,346"
+    },
+    {
+      "x": -2816,
+      "z": 2384,
+      "terrain": 108.421875,
+      "ground": 108.421875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @364,391"
+    },
+    {
+      "x": -2832,
+      "z": 2368,
+      "terrain": 110.625,
+      "ground": 110.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @363,392"
+    },
+    {
+      "x": -2848,
+      "z": 2352,
+      "terrain": 110.6875,
+      "ground": 110.6875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @362,393"
+    },
+    {
+      "x": -2864,
+      "z": 2336,
+      "terrain": 108.46875,
+      "ground": 108.46875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @361,394"
+    },
+    {
+      "x": -2912,
+      "z": 2320,
+      "terrain": 103.75,
+      "ground": 103.75,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @358,395"
+    },
+    {
+      "x": -2896,
+      "z": 2320,
+      "terrain": 104.625,
+      "ground": 104.625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @359,395"
+    },
+    {
+      "x": -2880,
+      "z": 2320,
+      "terrain": 105.53125,
+      "ground": 105.53125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @360,395"
+    },
+    {
+      "x": -2928,
+      "z": 2304,
+      "terrain": 101.84375,
+      "ground": 101.84375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @357,396"
+    },
+    {
+      "x": -3856,
+      "z": 944,
+      "terrain": 118.25,
+      "ground": 118.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @299,481"
+    },
+    {
+      "x": -3872,
+      "z": 928,
+      "terrain": 117.640625,
+      "ground": 117.640625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Maracan\u00e3 [river] @298,482"
+    },
+    {
+      "x": -2592,
+      "z": 1856,
+      "terrain": 108.125,
+      "ground": 108.125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @378,424"
+    },
+    {
+      "x": -2592,
+      "z": 1840,
+      "terrain": 109.015625,
+      "ground": 109.015625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @378,425"
+    },
+    {
+      "x": -2608,
+      "z": 1824,
+      "terrain": 109.9375,
+      "ground": 109.9375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @377,426"
+    },
+    {
+      "x": -2608,
+      "z": 1808,
+      "terrain": 110.03125,
+      "ground": 110.03125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @377,427"
+    },
+    {
+      "x": -2624,
+      "z": 1792,
+      "terrain": 109.96875,
+      "ground": 109.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @376,428"
+    },
+    {
+      "x": -2624,
+      "z": 1776,
+      "terrain": 108.96875,
+      "ground": 108.96875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @376,429"
+    },
+    {
+      "x": -2640,
+      "z": 1760,
+      "terrain": 109.09375,
+      "ground": 109.09375,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @375,430"
+    },
+    {
+      "x": -2656,
+      "z": 1744,
+      "terrain": 110.140625,
+      "ground": 110.140625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @374,431"
+    },
+    {
+      "x": -2656,
+      "z": 1728,
+      "terrain": 110.1875,
+      "ground": 110.1875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @374,432"
+    },
+    {
+      "x": -2672,
+      "z": 1712,
+      "terrain": 111.578125,
+      "ground": 111.578125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @373,433"
+    },
+    {
+      "x": -2688,
+      "z": 1696,
+      "terrain": 112.5625,
+      "ground": 112.5625,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @372,434"
+    },
+    {
+      "x": -2688,
+      "z": 1680,
+      "terrain": 112.53125,
+      "ground": 112.53125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @372,435"
+    },
+    {
+      "x": -2704,
+      "z": 1664,
+      "terrain": 113.21875,
+      "ground": 113.21875,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @371,436"
+    },
+    {
+      "x": -2704,
+      "z": 1648,
+      "terrain": 113.078125,
+      "ground": 113.078125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @371,437"
+    },
+    {
+      "x": -2736,
+      "z": 1632,
+      "terrain": 113.25,
+      "ground": 113.25,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @369,438"
+    },
+    {
+      "x": -2720,
+      "z": 1632,
+      "terrain": 112.828125,
+      "ground": 112.828125,
+      "surface": 0,
+      "depth": 0,
+      "wet": false,
+      "velocity": [
+        0,
+        0,
+        0
+      ],
+      "max_depth_within_64m": 0,
+      "wet_within_64m": false,
+      "nearest_water_m": null,
+      "name": "geography:Rio Trapicheiros [river] @370,438"
+    }
+  ],
+  "receipt_sha256": {
+    "timeline.jsonl": "72f97c96ce0a26358f4c8c702a14f2d667ee207074640fc193bfd7d607351d6d",
+    "probes.json": "bf5faea8cb3b8cdd59a0389fe513dd7fb7e7a054feda678826d730b01647c37c",
+    "session-receipt.json": "eb1247a59fbb9c01a27237c7e98dfdbdb63b48eeced296b181ee4f9a7c607c3a"
+  },
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "abort": "Operator called quit after startup regression was proven; raw game-crash triage describes that intentional stop, not a spontaneous crash."
+}
