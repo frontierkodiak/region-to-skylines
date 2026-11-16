@@ -706,6 +706,17 @@ namespace Cs1Harness
                     ? Mathf.Clamp(VectorUtils.LengthXZ(net.m_nodes.m_buffer[hooks[0]].m_position
                         - net.m_nodes.m_buffer[hooks[1]].m_position) * 0.75f, 12, 96) : 96;
                 var join = mean + heading.normalized * approach;
+                // Real ramp stubs can sit close together and face apart: push the
+                // join out until each link is long enough for native placement.
+                while (approach < 160f)
+                {
+                    float nearest = float.MaxValue;
+                    foreach (ushort hook in hooks)
+                        nearest = Mathf.Min(nearest, VectorUtils.LengthXZ(net.m_nodes.m_buffer[hook].m_position - join));
+                    if (nearest >= 40f) break;
+                    approach += 8f;
+                    join = mean + heading.normalized * approach;
+                }
                 float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
                 junction = Link(road, Vector3.zero, join, hooks[0], 0, true, elevation);
                 for (int i = 1; i < hooks.Count; i++)
