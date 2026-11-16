@@ -43,6 +43,12 @@ def _export(args):
 
     s = read_save(args.save)
     model = extract(s)
+    t = s.data["TreeManager"]
+    # trees as [x, z, prefab index] in metres, with the prefab names they index
+    model["tree_prefabs"] = t["prefab_names"]
+    model["trees"] = [
+        [round(float(x), 2), round(float(z), 2), int(i)] for x, z, i in zip(t["x"], t["z"], t["prefab_index"])
+    ]
     with open(args.out, "w") as f:
         json.dump(model, f, default=lambda v: v.tolist() if hasattr(v, "tolist") else str(v))
 
