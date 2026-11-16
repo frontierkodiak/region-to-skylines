@@ -87,8 +87,8 @@ def choose_start(graph, ground, depth, current):
 
     Candidates hold an exit-ramp stub (traffic in) and an on-ramp stub (traffic
     out) within 400 m of each other: one interchange. They are ranked by how
-    open the land is where those stubs end (no bridge or railway within 250 m,
-    buildable ground around), then by centrality. A standard tile whose
+    open the land is where those stubs end (no bridge or railway within 250 m),
+    water in the tile, buildable ground around, then by centrality. A standard tile whose
     interchange is reasonably open stays."""
     arrive, leave = _stubs(graph)
     nodes, edges = graph["nodes"], graph["edges"]
@@ -122,8 +122,11 @@ def choose_start(graph, ground, depth, current):
                 ].mean()
             )
             x, z = tile % 5, tile // 5
+            tcol, trow = 540 + (x - 2) * 120, 540 - (z - 2) * 120
+            water = depth[trow - 60 : trow + 60, tcol - 60 : tcol + 60] > 0.5
             score = (
                 crowd > 1,
+                int(water.sum()) < 256,
                 land < 0.5,
                 tile != current,
                 np.hypot(x - 2, z - 2),
@@ -138,12 +141,12 @@ def choose_start(graph, ground, depth, current):
         )
     # A standard tile whose interchange is reasonably open stays: the player
     # starts where the shipping writer would put them.
-    if current in best and best[current][0][4] <= 3:
+    if current in best and best[current][0][5] <= 3:
         tile = current
     else:
         tile = min(best, key=lambda t: best[t][0])
     score = best[tile][0]
-    reason = f"interchange with {score[4]} bridge or rail pieces within 250 m"
+    reason = f"interchange with {score[5]} bridge or rail pieces within 250 m"
     return tile, ("standard tile: " if tile == current else "moved: ") + reason
 
 
