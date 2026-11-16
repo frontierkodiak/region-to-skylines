@@ -9,9 +9,10 @@ CS1 Assembly-CSharp (DataSerializer.version), so older Workshop maps decode with
 their own layout. A manager this reader cannot decode consistently is reported as
 "unknown" with the reason, never as zeros.
 
-usage: craft_anatomy.py [CRP ...] --out DIR [--contract fixtures/current.json]
+usage: craft_anatomy.py [CRP ...] --out DIR [--contract CONTRACT.json]
                         [--workshop-root DIR]
-With no CRP arguments it reads every *.crp under DIR/inputs.
+With no CRP arguments it reads every *.crp under DIR/inputs. The contract
+defaults to the shipping contract fixtures/active.json names.
 """
 
 import argparse
@@ -1214,7 +1215,7 @@ def anatomy(path, out_dir, workshop_root, contract, prepared_root=None):
         }
         if not rec["contract"]["match"]:
             raise ValueError(
-                f"{slug}: hash does not match fixtures/current.json shipping contract"
+                f"{slug}: hash does not match the --contract shipping hash"
             )
     kinds = {a["kind"] for a in assets}
     meta_assets = [a for a in assets if a["kind"] == 100]
@@ -1455,17 +1456,24 @@ def compact(rec):
     }
 
 
+def active_contract(fixtures):
+    """The shipping contract fixtures/active.json names, else fixtures/current.json."""
+    active = fixtures / "active.json"
+    if active.exists():
+        return fixtures / json.loads(active.read_text())["current"]
+    return fixtures / "current.json"
+
+
 def load_contract(path):
-    if not path or not Path(path).exists():
-        return {}
     c = json.loads(Path(path).read_text())
-    return {
+    cases = {
         f"pl857-{case['slug']}": {
             "sha": case["shipping"]["expected_crp_sha256"],
             "bytes": case["shipping"]["expected_crp_bytes"],
         }
         for case in c["cases"]
     }
+    return cases, c.get("version")
 
 
 def main():
@@ -1474,7 +1482,7 @@ def main():
     here = Path(__file__).resolve().parent
     ap.add_argument("--out", type=Path, required=True)
     ap.add_argument(
-        "--contract", type=Path, default=here.parent / "fixtures" / "current.json"
+        "--contract", type=Path, default=active_contract(here.parent / "fixtures")
     )
     ap.add_argument(
         "--workshop-root",
@@ -1496,7 +1504,7 @@ def main():
     )
     a = ap.parse_args()
     files = a.crp or sorted((a.out / "inputs").rglob("*.crp"))
-    contract = load_contract(a.contract)
+    contract, contract_version = load_contract(a.contract)
     a.out.mkdir(parents=True, exist_ok=True)
     records, manifest = [], []
     for f in files:
@@ -1521,7 +1529,7 @@ def main():
     summary = {
         "tool": "survey/craft_anatomy.py",
         "tool_sha256": hashlib.sha256(tool).hexdigest(),
-        "contract": str(a.contract.name),
+        "contract": {"file": a.contract.name, "version": contract_version},
         "caveats": CAVEATS,
         "maps": [compact(r) for r in records],
     }

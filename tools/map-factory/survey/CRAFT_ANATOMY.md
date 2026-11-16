@@ -9,17 +9,21 @@ identified as themes, not measured as maps.
 
 ```sh
 uv run --project tools/map-factory python tools/map-factory/survey/craft_anatomy.py \
-  --out "$HOME/experiments/PL-979-map-craft/anatomy" [CRP ...] [--prepared-root DIR]
+  --out "$HOME/experiments/PL-979-map-craft/anatomy" [CRP ...] \
+  [--contract FILE] [--prepared-root DIR] [--workshop-root DIR]
 ```
 
 With no CRP arguments it reads every `*.crp` under the output directory's
 `inputs/`. An explicit output directory keeps run artifacts out of source. A shipping
-package named `PL857-<region>.crp` must match `fixtures/current.json` (SHA-256
-and byte count) or the run stops. `--prepared-root DIR` additionally compares
+package named `PL857-<region>.crp` must match the contract's shipping SHA-256
+and byte count or the run stops. The contract defaults to the one
+`fixtures/active.json` names. `--prepared-root DIR` additionally compares
 shipping packages with the generator inputs in `DIR/<region>/` (`terrain.u16`,
-`water.u16`, `hydrology.json`). The run takes about 15 s for eight packages.
-To add the next Workshop map, pass its path or copy it to
-`anatomy/inputs/workshop/`.
+`water.u16`, `hydrology.json`). `--workshop-root` is where a map's theme
+reference is resolved; it defaults to carbon's Steam Workshop folder, and on
+blade the copies are in `~/experiments/PL-979-map-craft/workshop`. The run takes
+about 15 s for eight packages. To add the next Workshop map, pass its path or
+copy it to `anatomy/inputs/workshop/`.
 
 ## Outputs
 
@@ -47,6 +51,19 @@ To add the next Workshop map, pass its path or copy it to
 
 The staged copies (`staged/maps/*`) carry the same hashes. No historical or
 rejected packages were used.
+
+The shipping rows below measure the `pl912-stream-only-v1` packages, the
+shipping contract at `cb5e2a1` when this ran on 2026-11-15. PL-912's dry-reach
+and transient-storage exports and PL-989's biome export have since replaced
+all five, so the default contract rejects those inputs. To replay the published
+numbers, pass the contract they were bound to:
+
+```sh
+git show cb5e2a1:tools/map-factory/fixtures/current.json > "$OUT/contract.json"
+# then add: --contract "$OUT/contract.json" \
+#   --prepared-root ~/experiments/PL-912-minor-streams/inputs \
+#   --workshop-root ~/experiments/PL-979-map-craft/workshop
+```
 
 ## Decoding
 

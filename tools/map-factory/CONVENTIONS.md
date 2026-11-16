@@ -11,6 +11,8 @@ region-to-map tool does today. Evidence and sources:
   mods, from their source.
 - [`survey/basemaps.md`](survey/basemaps.md): resources and trees decoded from
   the 104 shipped maps.
+- [`survey/CRAFT_ANATOMY.md`](survey/CRAFT_ANATOMY.md): water, channels, trees,
+  networks and themes decoded from top Workshop maps beside ours (PL-979).
 - Durable game facts are in knowledge:
   [natural resources and trees](https://github.com/polli-labs/knowledge/blob/main/games/cities-skylines-natural-resources.md)
   and [playable map files](https://github.com/polli-labs/knowledge/blob/main/games/cities-skylines-map-files.md).
