@@ -1,5 +1,29 @@
 # cs1-harness journal
 
+## 2026-11-16 · Sol xhigh · PL-912 · unchanged Rio boundary readback
+
+Blade, RTX2080Ti05:00.0, silent private:57/FIFO; exact unchanged shipping Rio
+4858f3eb at clean5a1e045d. One actual5.085000-game-minute observation, 287 sealed
+completed updates/364nodes/targets92+280/five touching natural sources. Native
+47,642input-cell/522,340source-phase/104,468publication comparisons match;
+one unfinished unpublished tail and disposable-process removal remain explicit.
+Both regional published storage budgets close exactly. Papa output279=106,902,
+input280=105,790 native units; capacity-preserving moved disks lose28–55% of
+that removal on fixed old prestates, not a forward simulation. The missing
+transient node couples to inlet89. No candidate or new qualification.
+
+All4256 frozen observations/1556flags:1556zero/1545five,11shared/0new/0old-only
+misses. Initial grids, rawterrain0/5, actualfloors/targets,290controls/ten camera
+fields and8512sampler readings match; allfour raw opening/Areas PNGs inspected.
+GPU window353.644s: cardpeak10821MiB/132.4W/58°C; own-PID sampledpeak2790MiB
+from40readings(not continuous/loading peak).150W cap/other8004MiB untouched.
+Game2211831 needed normal quit-grace termination, not spontaneous-crash recovery.
+Cleanup empty, no owned waiter/service/observer/test left. Ordinary build restored
+with no observer/Harmony symbols/reference/build dependency or ephemeral mod;
+enginec7f0e723 unchanged. No new122-test/full-suite or other-map/full60 claim.
+Readback/independent scalar audits are in PL-912-boundary-readback experiments;
+source findings and exact limits are in map-factory/INLET_BOUNDARY.md.
+
 ## 2026-11-15 · Opus xhigh · PL-984 · city and prefab dumps for the offline save reader
 
 New mod module `DumpOps.cs`: `dump_city {path}` writes every created node,

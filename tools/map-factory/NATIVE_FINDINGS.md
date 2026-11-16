@@ -919,3 +919,17 @@ observation, threshold or qualification, and establishes no minimum stream size
 or reservoir benefit. The lead has authorized further tracing, including those
 broader hydraulic questions; the original gates remain intact.
 
+### November16 · boundary source/receiver budget
+
+[The unchanged-Rio boundary observation](INLET_BOUNDARY.md) adds 287 actual
+completed updates at 364 nodes, with full input92/280 footprints and all five
+intersecting source phases. It closes both regional storage budgets exactly.
+Papa-Couve's source279 supplies106,902 native units while input280 removes105,790;
+the tested capacity-preserving tunnel placements discard28–55% of that removal
+on the old prestates. One purportedly saved-dry new node carries transient water
+and couples to input89. No shifted map was built: these are frozen-state
+counterfactuals, not forward flood predictions or a safe-placement rule.
+The next falsifiable CPU question is joint explicit tunnel topology and receiving
+profile admission before excavation, not another global rate arm. All original
+gates and unresolved Rio/Charleston release risks remain; no new map qualification.
+
