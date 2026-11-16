@@ -14,13 +14,12 @@ namespace Cs1Harness
         public const string HarmonyHash = "e271d22a7c32bfca105d0e471c04eee14eec6142d37a30cd73cb7d32c7d1dd0f";
         static HarmonyInstance harmony;
         static MethodInfo original;
-        static bool removed;
 
         public static void Register()
         {
             Host.Register("trace_arm", Needs.MainMenu, "disposable pinned observer: {sources,cells,controls,binding,dependency_path}", Arm);
             Host.Register("trace_arm_loaded", Needs.City, "arm an observer on a paused disposable city with the same explicit bindings", ArmLoaded);
-            Host.Register("trace_finish", Needs.City, "stop, remove and export the idle atomic trace: {dir}", Finish);
+            Host.Register("trace_finish", Needs.City, "stop and export completed updates with a published checkpoint; then end disposable Session: {dir}", Finish);
         }
 
         static Dictionary<string, object> Arm(Dictionary<string, object> request)
@@ -61,17 +60,12 @@ namespace Cs1Harness
             if (harmony == null) throw new Exception("trace was not armed");
             if (!Singleton<SimulationManager>.instance.SimulationPaused) throw new Exception("pause before finishing observer");
             TraceRecorder.Stop();
-            if (TraceRecorder.Active != 0) return Host.Obj("pending", true, "active", TraceRecorder.Active);
-            if (!removed)
-            {
-                harmony.UnpatchAll(Owner);
-                var info = harmony.GetPatchInfo(original);
-                if (info != null && info.Owners.Contains(Owner)) throw new Exception("observer removal failed");
-                removed = true;
-            }
+            // A paused solver may be waiting inside its current update. Do not
+            // repatch its executing code or read its mutable tail. The owning
+            // Session ends this disposable process and removes the installed mod.
             string directory = Json.Str(request, "dir", "");
             if (!Path.IsPathRooted(directory)) throw new Exception("trace output needs absolute directory");
-            return TraceRecorder.Export(directory, removed);
+            return TraceRecorder.Export(directory, false);
         }
     }
 }

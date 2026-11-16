@@ -38,7 +38,7 @@ def footprint(nodes, position, rate):
     return (delta[:, 0] ** 2 + delta[:, 1] ** 2) < radius * radius
 
 
-def audit(path: Path):
+def audit(path: Path, receipt: Path | None = None):
     payload = path.read_bytes()
     raw = gzip.decompress(payload) if path.suffix == ".gz" else payload
     header, *records = [json.loads(line) for line in raw.decode().splitlines()]
@@ -60,7 +60,9 @@ def audit(path: Path):
         return a[: len(nodes) * 4].reshape(len(nodes), 4)
 
     require(header["engine"] == ENGINE, "unsupported engine")
-    require(header["error"] is None and not header["hit_bound"] and header["unpatched"], "incomplete trace header")
+    require(
+        header["error"] is None and not header["hit_bound"] and header.get("capture_stopped"), "incomplete trace header"
+    )
     proof = header.get("proof") or {}
     require(
         proof.get("inverse_exact") and proof.get("canonical_original") == proof.get("canonical_stripped"),
@@ -68,6 +70,22 @@ def audit(path: Path):
     )
     require(len(records) == header["steps"] and len(records) > 0, "record count mismatch")
     require(len(nodes) > 0 and len({tuple(p) for p in nodes}) == len(nodes), "empty or duplicate node set")
+    if receipt is None:
+        candidate = path.parent.parent / "session-receipt.json"
+        receipt = candidate if candidate.exists() else None
+    if receipt is None:
+        require(False, "missing disposable-process cleanup receipt")
+    else:
+        session = json.loads(receipt.read_text())
+        require(
+            session["cleanup"] == {"game": [], "steam_instances": [], "units_active": []},
+            "disposable process was not cleaned up",
+        )
+        binding = header["configuration"]["binding"]
+        require(
+            session["mod_sha256"] == binding.get("observer_sha256"), "cleanup receipt belongs to a different observer"
+        )
+        require(session["disposable_trace"]["engine_sha256"] == ENGINE, "cleanup receipt engine mismatch")
     previous = None
     ids = [source["id"] for source in header["sources"]]
     for record in records:
@@ -138,12 +156,27 @@ def audit(path: Path):
         expected = end if record["published_buffer"] == record["working_buffer"] else published
         require(np.array_equal(expected, published_end), f"{index}: publication mismatch")
         comparisons["publication_cells"] += len(nodes)
+    checkpoint = header.get("checkpoint", {})
+    require(
+        checkpoint.get("available") and header.get("endpoint_matches_completed_prefix"),
+        "published endpoint is not covered by completed updates",
+    )
+    if records and checkpoint.get("available"):
+        require(
+            np.array_equal(grid(records[-1]["published_end"]), grid(checkpoint["cells"])),
+            "paused published grid differs from completed prefix",
+        )
+        require(
+            records[-1]["published_water_frame"] >> 6 == checkpoint["water_frame"] >> 6,
+            "completed prefix does not reach paused publication cycle",
+        )
     return {
         "path_sha256": hashlib.sha256(payload).hexdigest(),
         "engine": header["engine"],
         "transactions": len(records),
         "nodes": len(nodes),
         "touched_sources": len(ids),
+        "unfinished_unpublished_tail_records": header.get("unfinished_tail_records", 0),
         "comparisons": comparisons,
         "errors": errors,
         "passes": not errors,
@@ -156,8 +189,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("trace", type=Path)
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument(
+        "--receipt", type=Path, help="disposable Session cleanup receipt; otherwise found beside the trace directory"
+    )
     args = parser.parse_args()
-    result = audit(args.trace)
+    result = audit(args.trace, args.receipt)
     args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({k: v for k, v in result.items() if k != "source_steps"}, indent=2))
     raise SystemExit(0 if result["passes"] else 1)

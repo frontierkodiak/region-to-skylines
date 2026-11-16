@@ -436,6 +436,7 @@ def run(
                         result = session.client.call(
                             "trace_finish", dir=str(stage / "atomic-trace")
                         )
+                        write(stage / "trace-finish-progress.json", result)
                         if not result.get("pending"):
                             break
                         if time.monotonic() >= deadline:
@@ -446,7 +447,7 @@ def run(
                     write(stage / "diagnostic.json", report)
                     if not result.get("complete"):
                         raise ValueError(
-                            "The single atomic trace is incomplete; no automatic retry"
+                            "Atomic trace is incomplete; inspect the retained prefix before another attempt"
                         )
             else:
                 report["capture_only"] = True
@@ -454,6 +455,20 @@ def run(
     finally:
         if stage.exists():
             collect(stage, output)
+        if (
+            atomic_trace
+            and report.get("atomic_trace")
+            and (output / "session-receipt.json").exists()
+        ):
+            cleanup = json.loads((output / "session-receipt.json").read_text())[
+                "cleanup"
+            ]
+            clean = cleanup == {"game": [], "steam_instances": [], "units_active": []}
+            report["atomic_trace"]["process_cleanup_empty"] = clean
+            report["atomic_trace"]["observer_removed_after_process_exit"] = clean
+            report["atomic_trace"]["complete"] &= clean
+            write(output / "trace-result.json", report["atomic_trace"])
+            write(output / "diagnostic.json", report)
     cleanup = json.loads((output / "session-receipt.json").read_text())["cleanup"]
     assert cleanup == {"game": [], "steam_instances": [], "units_active": []}, cleanup
     print(json.dumps({"complete": str(output), "cleanup": cleanup}), flush=True)

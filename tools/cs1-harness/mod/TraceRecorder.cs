@@ -21,7 +21,7 @@ namespace Cs1Harness
         static Transaction[] records;
         [ThreadStatic] static Transaction current;
         static bool capturing, initialized;
-        static int active, count, nodes, touched;
+        static int active, count, completedCount, closedCount, nodes, touched;
         static int[] positions = new int[MaxNodes], slots;
         static WaterSource[] controls, expected;
         static WaterSimulation owner;
@@ -32,7 +32,7 @@ namespace Cs1Harness
         sealed class Transaction
         {
             public uint Water, Water2, Sim, Step, EndWater, PublishedWater, PublishedWater2;
-            public int Working, BeforeCount, AfterCount;
+            public int Index, Working, BeforeCount, AfterCount;
             public bool HasB, HasE, Left;
             public ushort[] PublishedEnd = new ushort[MaxNodes * 4];
             public ushort[][] Snapshots = new ushort[3 + MaxTouched * 3][];
@@ -186,7 +186,7 @@ namespace Cs1Harness
                 if (!initialized) Initialize(water);
                 if (!ReferenceEquals(owner, water)) throw new Exception("water instance changed");
                 if (count >= stepLimit) { HitBound = true; capturing = false; return; }
-                current = records[count++];
+                current = records[count]; current.Index = count++;
                 current.Water = U(WaterFrame, water); current.Water2 = U(WaterFrame2, water);
                 current.Sim = U(SimFrame, water); current.Step = U(Step, water);
                 current.Working = (int)((current.Water >> 6) & 1);
@@ -252,6 +252,8 @@ namespace Cs1Harness
                 {
                     current.PublishedWater = U(WaterFrame, water); current.PublishedWater2 = U(WaterFrame2, water);
                     Copy(water, current.PublishedEnd, true); current.Left = true;
+                    if (Complete(current) && current.Index == completedCount) Interlocked.Increment(ref completedCount);
+                    if (current.Index == closedCount) Interlocked.Increment(ref closedCount);
                 }
                 current = null;
             }
@@ -268,9 +270,39 @@ namespace Cs1Harness
         static ushort[] Snapshot(Transaction r, int phase)
         { var copy = new ushort[nodes * 4]; Array.Copy(r.Snapshots[phase], copy, copy.Length); return copy; }
 
+        static bool Complete(Transaction r)
+        {
+            if (!r.HasB || !r.HasE || !r.Left || r.BeforeCount != SourceCount || r.AfterCount != SourceCount) return false;
+            for (int i = 0; i < touched; i++) if (!r.InputSeen[i] || !r.AfterSeen[i]) return false;
+            return true;
+        }
+
+        static Dictionary<string, object> Checkpoint()
+        {
+            if (!initialized) return Obj("available", false);
+            owner.BeginRead();
+            try
+            {
+                uint frame = U(WaterFrame, owner); var cells = new ushort[nodes * 4];
+                Copy(owner, cells, true);
+                return Obj("available", true, "water_frame", frame, "water_frame2", U(WaterFrame2, owner),
+                    "buffer", 1 - (int)((frame >> 6) & 1), "cells", cells);
+            }
+            finally { owner.EndRead(); }
+        }
+
         public static Dictionary<string, object> Export(string directory, bool unpatched)
         {
-            if (capturing || active != 0) throw new Exception("trace must be stopped and idle before writing");
+            if (capturing) throw new Exception("stop capture before writing");
+            var checkpoint = Checkpoint();
+            int prefix = Interlocked.CompareExchange(ref closedCount, 0, 0);
+            bool endpointMatches = prefix > 0 && initialized;
+            if (endpointMatches)
+            {
+                var last = records[prefix - 1]; var cells = (ushort[])checkpoint["cells"];
+                endpointMatches = (last.PublishedWater >> 6) == (Convert.ToUInt32(checkpoint["water_frame"]) >> 6);
+                for (int i = 0; i < cells.Length; i++) endpointMatches &= cells[i] == last.PublishedEnd[i];
+            }
             Directory.CreateDirectory(directory);
             var sourceRows = new List<object>();
             for (int i = 0; i < SourceCount; i++) if (slots[i] >= 0) sourceRows.Add(Obj("id", i + 1, "slot", slots[i], "control", Source(controls[i])));
@@ -278,14 +310,16 @@ namespace Cs1Harness
             var header = Obj("kind", "header", "engine", TraceIL.Engine, "proof", TraceIL.Proof, "nodes", nodeRows,
                 "source_count", SourceCount, "sources", sourceRows, "targets", TargetIds,
                 "packing", new[] {"depth_u16", "native_floor_u16", "velocity_x_i16_reinterpreted_u16", "velocity_z_i16_reinterpreted_u16"},
-                "steps", count, "max_steps", stepLimit, "error", Error, "hit_bound", HitBound, "unpatched", unpatched,
-                "configuration", Configuration);
+                "steps", prefix, "fully_completed_prefix_steps", completedCount, "allocated_records", count, "active_solver_calls", active,
+                "unfinished_tail_records", count - prefix, "max_steps", stepLimit, "error", Error, "hit_bound", HitBound, "unpatched", unpatched,
+                "checkpoint", checkpoint, "endpoint_matches_completed_prefix", endpointMatches,
+                "capture_stopped", true, "requires_disposable_process_cleanup", true, "configuration", Configuration);
             int complete = 0;
             string path = Path.Combine(directory, "trace.jsonl");
             using (var writer = new StreamWriter(path, false, new UTF8Encoding(false)))
             {
                 writer.WriteLine(Json.Write(header));
-                for (int t = 0; t < count; t++)
+                for (int t = 0; t < prefix; t++)
                 {
                     var r = records[t]; var sources = new List<object>(); bool ok = r.HasB && r.HasE && r.Left && r.BeforeCount == SourceCount && r.AfterCount == SourceCount;
                     for (int i = 0; i < SourceCount; i++) if (slots[i] >= 0)
@@ -305,9 +339,11 @@ namespace Cs1Harness
                         "published", Snapshot(r, 0), "transport", Snapshot(r, 1), "end", Snapshot(r, 2), "sources", sources)));
                 }
             }
-            return Obj("path", path, "steps", count, "complete_steps", complete, "nodes", nodes, "touched_sources", touched,
+            return Obj("path", path, "steps", prefix, "allocated_records", count, "unfinished_tail_records", count - prefix,
+                "active_solver_calls", active, "complete_steps", complete, "nodes", nodes, "touched_sources", touched,
                 "error", Error, "hit_bound", HitBound, "unpatched", unpatched, "proof", TraceIL.Proof,
-                "complete", Error == null && !HitBound && count > 0 && complete == count && unpatched);
+                "endpoint_matches_completed_prefix", endpointMatches, "requires_disposable_process_cleanup", true,
+                "complete", Error == null && !HitBound && prefix > 0 && complete == prefix && endpointMatches);
         }
     }
 }

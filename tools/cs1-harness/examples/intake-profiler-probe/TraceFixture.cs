@@ -11,7 +11,7 @@ public static class TraceFixture
     {var field=typeof(WaterSimulation).GetField(name,BindingFlags.Instance|BindingFlags.NonPublic);field.SetValue(water,field.FieldType.IsInstanceOfType(value)?value:Convert.ChangeType(value,field.FieldType));}
     public static int Main(string[] args)
     {
-        var request=(Dictionary<string,object>)Json.Parse("{\"sources\":[1],\"cells\":[[16,0]],\"max_steps\":1,\"binding\":{\"synthetic\":true},\"controls\":[{\"type\":1,\"target\":6400,\"input\":[0,0,0],\"output\":[0,0,0],\"input_rate\":100,\"output_rate\":0}]}");
+        var request=(Dictionary<string,object>)Json.Parse("{\"sources\":[1],\"cells\":[[16,0]],\"max_steps\":2,\"binding\":{\"synthetic\":true},\"controls\":[{\"type\":1,\"target\":6400,\"input\":[0,0,0],\"output\":[0,0,0],\"input_rate\":100,\"output_rate\":0}]}");
         var bad=(Dictionary<string,object>)Json.Parse(Json.Write(request));bad["cells"]=Json.Parse("[[1,0]]");
         try {TraceRecorder.Arm(bad);return 2;}catch(Exception error){Console.WriteLine("unaligned_cell_rejected="+error.Message);}
         TraceRecorder.Arm(request);
@@ -22,14 +22,23 @@ public static class TraceFixture
         var floor=new ushort[1081*1081];for(int i=0;i<floor.Length;i++)floor[i]=6400;
         var buffers=new[]{new WaterSimulation.Cell[floor.Length],new WaterSimulation.Cell[floor.Length]};
         Set(water,"m_heightBuffer",floor);Set(water,"m_waterBuffers",buffers);
+        Set(water,"m_simulationBufferLock",new object());
         Set(water,"m_waterFrameIndex",0u);Set(water,"m_waterFrameIndex2",0u);Set(water,"m_simulationFrameIndex",0u);Set(water,"m_stepIndex",7u);
         TraceRecorder.Begin(water);TraceRecorder.SourceBefore(water,0);TraceRecorder.AfterInput(water,0,source,0,0);
-        TraceRecorder.SourceAfter(water,0,source);TraceRecorder.BeforePublish(water);TraceRecorder.Leave(water);TraceRecorder.Stop();
-        var result=TraceRecorder.Export(Environment.GetEnvironmentVariable("CS1_TRACE_FIXTURE_OUTPUT"),true);
+        TraceRecorder.SourceAfter(water,0,source);TraceRecorder.BeforePublish(water);TraceRecorder.Leave(water);
+        TraceRecorder.Begin(water); // An unfinished working update, like the paused native tail.
+        TraceRecorder.Stop();
+        var output=Environment.GetEnvironmentVariable("CS1_TRACE_FIXTURE_OUTPUT");
+        var result=TraceRecorder.Export(output,false);
         Console.WriteLine(Json.Write(result));
         for(int i=0;i<floor.Length;i++)if(floor[i]!=6400 || buffers[0][i].m_height!=0 || buffers[1][i].m_height!=0)return 3;
         if(sources.m_size!=1 || sources[0].m_inputRate!=100 || sources[0].m_water!=0)return 4;
         Console.WriteLine("synthetic_callback_fixture_native_arrays_unchanged=True");
-        return (bool)result["complete"] && Convert.ToInt32(result["nodes"])==9 ? 0 : 5;
+        buffers[1][540*1081+540].m_height=8;
+        var changed=TraceRecorder.Export(output+"-wrong-endpoint",false);
+        buffers[1][540*1081+540].m_height=0;
+        Console.WriteLine("wrong_published_endpoint_rejected="+(!(bool)changed["complete"]));
+        TraceRecorder.Leave(water);
+        return (bool)result["complete"] && Convert.ToInt32(result["nodes"])==9 && Convert.ToInt32(result["unfinished_tail_records"])==1 && !(bool)changed["complete"] ? 0 : 5;
     }
 }
