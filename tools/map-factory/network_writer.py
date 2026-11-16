@@ -461,39 +461,48 @@ def highway_paths(graph, segment_ids, start_tile, limit=2):
                 break
     if through is not None:
         paths.append(through)
-    # Real rail: one train path between the two farthest-apart rail edges.
+    # Real rail: a train path between two edges along a route trains can take,
+    # crossing junctions only straight on (turns of at most about 30 degrees).
     rail = [k for k, e in enumerate(edges) if e["kind"] == "rail"]
-    ends = [
-        k
+    at = {}
+    for k in rail:
+        for end, direction in (("a", "start_dir"), ("b", "end_dir")):
+            at.setdefault(edges[k][end], []).append((k, edges[k][direction]))
+    starts = [
+        (k, end)
         for k in rail
-        if nodes[edges[k]["a"]].get("outside") or nodes[edges[k]["b"]].get("outside")
+        for end in ("a", "b")
+        if nodes[edges[k][end]].get("outside")
     ]
-    if len(ends) >= 2:
-        neighbours = {}
-        for k in rail:
-            for end in ("a", "b"):
-                neighbours.setdefault(edges[k][end], []).append(k)
-        seen, queue = {ends[0]}, [ends[0]]
-        while queue:
-            k = queue.pop(0)
-            for end in ("a", "b"):
-                for nxt in neighbours[edges[k][end]]:
-                    if nxt not in seen:
-                        seen.add(nxt)
-                        queue.append(nxt)
-        far = [k for k in ends[1:] if k in seen]
-        if far:
+    for first, entered in starts:
+        # Walk away from the edge, choosing at each node the straightest exit.
+        k, node, chain = first, edges[first]["b" if entered == "a" else "a"], [first]
+        while not nodes[node].get("outside"):
+            incoming = next(d for j, d in at[node] if j == k)
+            options = [
+                (incoming[0] * d[0] + incoming[2] * d[2], j)
+                for j, d in at[node]
+                if j != k
+            ]
+            if not options:
+                break
+            dot, j = min(options)
+            if dot > -0.85 or j in chain:
+                break
+            k, chain = j, chain + [j]
+            node = edges[j]["b"] if edges[j]["a"] == node else edges[j]["a"]
+        if nodes[node].get("outside") and k != first:
             # Train Track lane 0 runs backward (end to start), lane 1 forward.
-            first, last = ends[0], far[-1]
-            leave = 0 if nodes[edges[first]["b"]].get("outside") else 1
-            arrive = 0 if nodes[edges[last]["a"]].get("outside") else 1
+            leave = 0 if entered == "b" else 1
+            arrive = 0 if edges[k]["a"] == node else 1
             paths.append(
                 {
-                    "name": "rail:real",
+                    "name": f"rail:{nodes[edges[first][entered]]['outside']}-to-{nodes[node]['outside']}",
                     "from": [segment_ids[first], leave, 128],
-                    "to": [segment_ids[last], arrive, 128],
+                    "to": [segment_ids[k], arrive, 128],
                     "rail": True,
                     "expected_segments": [],
                 }
             )
+            break
     return paths
