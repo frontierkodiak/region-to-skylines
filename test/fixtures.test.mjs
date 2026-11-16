@@ -119,5 +119,19 @@ json.dumps({
       assert.equal(delta.water_simulation_sha256, presentation.water_simulation_sha256);
       assert.equal(delta.normalized_non_tree_sha256, presentation.normalized_non_tree_sha256, `${c.slug}: changes outside environment and trees`);
     }
+    if (kind === "shipping" && expected.source_order_variant_file) {
+      clearWork(factory);
+      factory.py.FS.mkdirTree("/work");
+      factory.py.FS.writeFile("/work/landcover.u8.gz", await read(dir + "landcover.u8.gz"));
+      if (evidence) factory.py.FS.writeFile("/work/evidence.json", await read(dir + evidence));
+      const variant = await buildMap(factory, {
+        png, banks: new Float32Array(banks.buffer, banks.byteOffset, banks.byteLength / 4),
+        geometry: new Uint8Array(gunzipSync(await read("fixtures/" + expected.source_order_variant_file))),
+        landcover: "/work/landcover.u8.gz", evidence: evidence ? "/work/evidence.json" : null,
+      });
+      assert.equal(variant.receipt.native_admission.applied, true, "live source-pin order must not discard the admission");
+      assert.equal(sha(variant.bytes), expected.expected_crp_sha256, "source-pin order changed the full package");
+      console.log(`  ${c.slug} live source-pin permutation: exact complete shipping package`);
+    }
   });
 }

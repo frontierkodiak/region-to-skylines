@@ -1,0 +1,40 @@
+{
+  "status": "pure-canonical-binding-migration",
+  "records": [
+    {
+      "case": "rio",
+      "old_fingerprint": "ccb2a7b36c80fc1bd9db183464341c0806a583375a87caae89950d2e84333084",
+      "new_fingerprint": "cd2c63f727b5eab2cf698c129eb4da164fee4bd26c4cb3be8aff348466057366",
+      "edits_and_targets_exact": true,
+      "all_non_geometry_bindings_exact": true
+    },
+    {
+      "case": "asheville",
+      "old_fingerprint": "642e55d926b3e877500f3e23f4d827c9238a32cf55101b83b9be89f6c36761d8",
+      "new_fingerprint": "7897cf81ace7f698cc6074ab8aaddc913d282f8e5ccd1d7112e70981995a0633",
+      "edits_and_targets_exact": true,
+      "all_non_geometry_bindings_exact": true
+    },
+    {
+      "case": "innsbruck",
+      "old_fingerprint": "c8a677cddf6d8f7eb7ec8e1c7c910c16c48cbf4fc7c6e3cf4bc456da68c5db9b",
+      "new_fingerprint": "b1a2faaca6085628c98702286f4e086754d5ad3deb50877bac39d2ae11297ea5",
+      "edits_and_targets_exact": true,
+      "all_non_geometry_bindings_exact": true
+    },
+    {
+      "case": "pittsburgh",
+      "old_fingerprint": "03b6b58c6f7da63c6b9e303a7f218968d0ff18eb7d475c00a2120ec1a621d1d4",
+      "new_fingerprint": "873a519d5486d995312313094df2c5c110075f506347278a6da0c935651ed5bd",
+      "edits_and_targets_exact": true,
+      "all_non_geometry_bindings_exact": true
+    },
+    {
+      "case": "charleston",
+      "old_fingerprint": "78f10cdbfa9aaf01f3a2b98d25db3df5220b2b5a9b958a502813f63b6d5f2161",
+      "new_fingerprint": "b97693d33449d2c20759a8bea8e2daa31a89a38b9c94827e9dd11e20d51abf7c",
+      "edits_and_targets_exact": true,
+      "all_non_geometry_bindings_exact": true
+    }
+  ]
+}

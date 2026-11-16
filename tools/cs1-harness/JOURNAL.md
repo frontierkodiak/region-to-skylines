@@ -2401,3 +2401,21 @@ correlation remains failed, 0.6891 versus 0.9, including extreme-point errors.
 Protected dry Rio inlet basins remain visible. No acceptance or threshold waiver.
 All five completed foreground with empty cleanup; normal quit-grace exact-owned
 game termination, not spontaneous crashes. No other holder was stopped.
+
+## 2026-11-16 — PL-912 merged-biome Rio visual short
+
+Blade/private :57/silent/FIFO; slot and Steam checked immediately before launch.
+Clean source `621f685`, Tropical package
+`944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e`.
+Actual 5.041389 game minutes, 331.422 s sampled GPU wall window (queue excluded).
+RTX 2080 Ti 05:00.0; card peak 10,821 MiB / 130.77 W / 56°C; own-game sampled
+peak 2,794 MiB (menu/play, not continuous loading peak). The 150 W cap and
+8,004 MiB other workload were untouched. All 4,256 observations retained;
+required zero 1,556/1,556, five 1,545/1,556, eleven shared / zero new / zero
+old-only dry. Initial grids, 290 controls, final short terrain, 54 hydraulic-floor
+offsets and camera fields exact. Native ground/surface/wet replay has zero
+mismatches at 8,512 readings. All four actual opening/Areas PNGs viewed;
+Tropical native shore retained, residual dry oval not declared fixed.
+Empty cleanup; owned game 2579316 required normal quit-grace termination, not
+a spontaneous crash. No new sixty-minute run. Later source-pin canonical binding
+normalization changes receipts only; the complete package remains byte-exact.

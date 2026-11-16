@@ -315,3 +315,49 @@ bounded unit, not an approved control-footprint exemption. Opus recommends the
 steward land this partial baseline after the integration checks, retaining the
 oval as genuine remaining work. No oval repair or complete PL-912 acceptance
 is claimed. The old flood and Charleston failures remain recorded.
+
+### Fresh merged Rio and source-pin ordering
+
+The merged Tropical package `944dfe724e6758289cc0dd860c1591af8c732637281e8d4bd98f1e33160fbf4e`
+ran at clean `621f685` for **5.041389 game minutes**. All 4,256 frozen observations
+remain: required zero 1,556/1,556, five 1,545/1,556. All eleven five-minute misses
+are shared with the reference; none is new. Actual opening and Areas at both
+epochs were viewed. Native shore, visible water and the residual oval remain;
+the Tropical palette is a presentation change, not a new channel repair.
+Initial grids, final short terrain, all 290 controls, hydraulic floor and camera
+bindings pass. Cleanup is empty. `fixtures/native-biome-short.json` binds the
+raw frames and observations. It does not claim sixty-minute or later-head
+native qualification.
+
+A fresh capture of all five live presets exposed a binding-only drift:
+Charleston's identical map-editor source pins arrived in a different order.
+The input canonicalizer already treats unordered geographic collections this
+way; it now also sorts that pin list. Pin **values** remain bound, and the
+actual encoded WaterSimulation, grids, nodes and layout are independently bound.
+No sparse terrain/water edit or target changes. A mutation test rejects changed
+pin coordinates; the complete captured-Charleston export is a fixture regression.
+This is not an exemption for physically different input data.
+
+`pl912-biome-delta-v2` chains the prior presentation contract as well as PL-989
+and the original PL-912 native ledger. It stores the actual native writer's
+original registry and checks every migrated record's edits, targets and all
+non-geometry bindings against those bytes. All ten packages remain identical
+to the first biome integration, including the exact Rio short package. The
+later binding-normalization head is not relabelled as the actual game head.
+Future genuine basemap changes still get ordinary **unqualified** preparation;
+the live input feed is not persistently monitored by this task.
+
+Final local verification: 83 writer tests (one opt-in skip), eight quick JS
+tests, and ten fixture tests executing eleven complete browser exports pass.
+The extra export uses the actual newly captured Charleston geometry and
+reproduces the native-tested full package exactly. All five freshly captured
+PNG/banks/canonical geometry bindings match today. All 207 fixture files from
+accepted main remain byte-exact; prior PL-912 versioned contracts and native
+receipts are preserved. Only the active pointer advances.
+
+`preflight_merge.py` checks Git's actual trial merge tree against the reviewed
+runtime and predecessor contract hashes without changing a worktree or branch.
+It rejects the real `b364232` + `3b5b4c9` counterexample that GitHub called clean.
+Run it again against freshly fetched main immediately before landing; a clean
+textual merge is not source-bound verification. It does not replace tests or
+review. No self-merge or complete PL-912 acceptance is authorized by this check.

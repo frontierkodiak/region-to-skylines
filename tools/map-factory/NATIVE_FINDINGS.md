@@ -2,7 +2,8 @@
 
 ## PL-912 evidence index · updated November 16
 
-Main is now `3b5b4c9`, including PL-989's accepted biome presentation. PR42 proposes an input-bound dry-reach
+Main is now `3b5b4c9`, including PL-989's accepted biome presentation.
+PR42 proposes an input-bound dry-reach
 replay in the Python and shipping JS/Pyodide path; it is not landed or accepted.
 The lead accepts genuinely wet streams
 with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
@@ -26,12 +27,18 @@ this evidence without treating a rejected arm as a baseline fix.
   PL-996 independently verified it and found a current-main integration crash.
   The repaired integration chains the PL-989 and PL-912 contracts; ten fresh
   Python builds preserve native WaterSimulation and all grids exactly. Only
-  Rio/ Innsbruck presentation packages change (Tropical/North), not their old
+  Rio/Innsbruck presentation packages change (Tropical/North), not their old
   full-run identities. The wet-at-five startup-storage guard, rather than an
   active-intake requirement, independently retains the small Rio dry oval.
   Source163 has no sampled withdrawal; source91's separate intake counterexample
   remains. See the correction and the unqualified presentation-delta boundary
   in DRY_SUBREACHES.md.
+  The merged Rio package has a fresh actual zero/five opening+Areas short with
+  all 4,256 observations, no new required miss and empty cleanup. Source-pin
+  order canonicalization now keeps Charleston's identical live input bound;
+  pin values and actual native forcing remain strict. Ten final fixture tests
+  execute eleven complete browser builds, including the captured permutation.
+  True future basemap changes still fall back unqualified, not silently accepted.
 - [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): earlier whole-piece dry-only arm;
   fresh Rio zero/five opening+Areas, unchanged required wetness, no visible
   central Areas improvement. PL-990 corrected Sol's attribution: three deferred

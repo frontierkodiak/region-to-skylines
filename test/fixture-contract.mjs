@@ -37,11 +37,28 @@ export async function loadFixtureContract(read, readSource) {
   assert.equal(evaluation.status, "partial_not_accepted");
   assert.equal(current.native_tested_head, evaluation.native_tested_head);
   const admission = parse(await readSource("tools/map-factory/native-water-admission.json"));
+  const originalRegistryBytes = await read("fixtures/" + current.original_native_registry_file);
+  assert.equal(sha(originalRegistryBytes), current.native_source_files_sha256["tools/map-factory/native-water-admission.json"]);
+  const originalRegistry = parse(originalRegistryBytes);
+  const migrationBytes = await read("fixtures/" + current.binding_migration_file);
+  assert.equal(sha(migrationBytes), current.binding_migration_sha256);
+  const migration = parse(migrationBytes);
+  assert.equal(migration.records.length, 5);
+  assert.equal(Object.keys(originalRegistry.records).length, 5);
+  assert.equal(Object.keys(admission.records).length, 5);
+  for (const row of migration.records) {
+    const before = originalRegistry.records[row.old_fingerprint], after = admission.records[row.new_fingerprint];
+    assert.deepEqual(after.edits, before.edits, "binding migration changed native edits");
+    assert.deepEqual(after.target, before.target, "binding migration changed native target grids");
+    const a = { ...after.bindings }, b = { ...before.bindings };
+    delete a.geometry; delete b.geometry;
+    assert.deepEqual(a, b, "binding migration changed physical forcing or baseline grids");
+  }
   assert.match(current.native_engine_sha256, /^[a-f0-9]{64}$/);
   assert.equal(current.native_engine_sha256, evaluation.native_engine_sha256);
   assert.equal(current.native_engine_sha256, admission.native_engine_sha256);
   assert.deepEqual(current.native_source_files_sha256, evaluation.source_files_sha256);
-  const presentationFiles = ["generate.py", "crp.py", "paint.py", "resources.py"].map((f) => "tools/map-factory/" + f);
+  const presentationFiles = ["generate.py", "crp.py", "paint.py", "resources.py", "wet_reach_admission.py", "native-water-admission.json"].map((f) => "tools/map-factory/" + f);
   for (const [name, digest] of Object.entries(current.native_source_files_sha256))
     if (!presentationFiles.includes(name)) assert.equal(current.source_files_sha256[name], digest, `${name}: hydraulic dependency changed`);
   assert.equal(current.source_files_sha256["tools/map-factory/region.py"], evaluation.production_writer_sha256);
