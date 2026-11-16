@@ -2500,3 +2500,26 @@ All five collected foreground, all cleanup empty. Pittsburgh game 3565765
 needed normal quit-grace termination; the other four full games quit without
 that forced-termination message. None is reported as a spontaneous crash.
 No owned game, waiter, Steam, service or observer is left by these runs.
+
+## 2026-11-16 — PL-912 CPU-only intake-observer feasibility
+
+No game, Steam, display, GPU workload or installed mod was started/changed.
+`examples/intake-profiler-probe` embeds the exact installed Linux Mono runtime
+in disposable CPU child processes and exercises the actual
+`FastList<WaterSource>`, without calling or replacing `SimulateWater`.
+All modes retain arithmetic checksum84,100 and drop zero profiler events.
+Default-JIT early/late profiler modes observe zero getter/setter calls;
+disabling inlining in that child exposes580 getter and580 setter entry/exit
+pairs. This is a negative default-JIT observability result, not a validated
+atomic source trace. The altered-JIT fixture is not a native game qualification.
+
+Original solver IL is8,425 bytes, SHA256
+`eef2d18b29f0ff396b792dd45ec06c26c5181652985975a7cd93b9e46bb432bc`;
+engine remains`c7f0e723…`, Linux runtime`4cfea7a0…`. No proprietary code or
+assemblies are redistributed. All child processes finish in the foreground.
+GPU/VRAM/power/temperature and game wall time are not applicable.
+
+Build and full harness Ruff checks pass. Doctor was attempted once and exited75
+because PL-982 holds the shared slot; its holder was not touched and no waiter
+remains owned. Session/mod/generator/fixture source is unchanged. No game is
+justified by this failed observer premise.
