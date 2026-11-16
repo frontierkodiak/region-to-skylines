@@ -395,6 +395,25 @@ def announce(out: pathlib.Path, a):
     log(f"posted the verdict on {issue}" if r["posted"] else f"--notify: posting on {issue} failed: {r.get('error')}")
 
 
+def cmd_dump_save(cfg, a):
+    """Load a save over a bridging New Game and dump the city and the prefab catalog."""
+    from . import citydump
+
+    out = a.out.resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    for path, what in ((a.save, "save"), (a.map, "map")):
+        if not path.exists():
+            raise SystemExit(f"no such {what}: {path}")
+    stage = staging(cfg, out)
+    meta = {"command": "dump-save", "label": a.label or f"dump {a.save.name}", "issue": a.issue, "out": str(out)}
+    with slot(cfg, stage, a.wait_minutes, meta) as s:
+        observers(s, a, default_label=f"dump {a.save.name}")
+        receipt = citydump.dump_save(s, a.save.resolve(), a.map.resolve(), a.load_timeout, log=log)
+    collect(stage, out)
+    print(json.dumps({k: receipt[k] for k in ("loaded_s", "dump_city", "dump_prefabs")}, indent=2))
+    return 0
+
+
 def cmd_notify(cfg, a):
     """Post a finished run's verdict on an issue (what `run --notify` does at the end)."""
     r = notify_mod.post(a.dir, a.issue, wake=a.wake, dry_run=a.dry_run)
@@ -804,6 +823,16 @@ def main(argv=None):
     k = sub.add_parser("compare", help="overlay two or more map runs over time (compare.png, compare.json)")
     k.add_argument("runs", nargs="+", help="run directories or registry ids")
     k.add_argument("--out", type=pathlib.Path, required=True)
+    ds = sub.add_parser("dump-save", help="load a save and write the city and prefab catalog as JSON")
+    ds.add_argument("save", type=pathlib.Path, help="the save (.crp) to load")
+    ds.add_argument("--map", type=pathlib.Path, required=True, help="map for the bridging New Game")
+    ds.add_argument("--out", type=pathlib.Path, required=True)
+    ds.add_argument("--load-timeout", type=float, default=900)
+    ds.add_argument("--issue", help="issue this run belongs to (PL-NNN)")
+    ds.add_argument("--label", help="what the live page calls this run")
+    ds.add_argument("--no-record", action="store_true", help="skip the timelapse recording")
+    ds.add_argument("--no-live", action="store_true", help="skip the live frame page")
+    ds.add_argument("--wait-minutes", type=float, default=0, help="wait for the shared harness slot")
     qq = sub.add_parser("queue", help="who holds the harness slot (issue, ETA) and who is waiting")
     qq.add_argument("--json", action="store_true")
     qq.add_argument("--stats", action="store_true", help="contention summary from the slot log")
@@ -858,6 +887,7 @@ def main(argv=None):
             "queue": cmd_queue,
             "submit": cmd_submit,
             "compare": cmd_compare,
+            "dump-save": cmd_dump_save,
         }[a.cmd](cfg, a)
     except Blocked as b:
         log(f"blocked: {b}")
