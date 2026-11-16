@@ -50,18 +50,38 @@ class Codec(unittest.TestCase):
     def setUpClass(cls):
         cls.data = payload()
 
-    def test_sections_reencode_to_what_they_decode(self):
-        start = nw.section_start(self.data, "NetManager")
-        net = nc.NetSection(self.data, start)
-        again = nc.NetSection(net.encode(), 0)
-        self.assertEqual(net.nodes, again.nodes)
-        self.assertEqual(net.segments, again.segments)
-        self.assertEqual(net.prefabs.names, again.prefabs.names)
-        start = nw.section_start(self.data, "BuildingManager")
-        buildings = nc.BuildingSection(self.data, start)
-        again = nc.BuildingSection(buildings.encode(), 0)
-        self.assertEqual(buildings.ids, again.ids)
-        self.assertEqual(buildings.records, again.records)
+    def test_template_sections_round_trip_byte_exact(self):
+        """Decoding and re-encoding reproduces the game's own bytes."""
+        for name, section in [
+            ("NetManager", nc.NetSection),
+            ("BuildingManager", nc.BuildingSection),
+        ]:
+            start = nw.section_start(self.data, name)
+            decoded = section(self.data, start)
+            self.assertEqual(decoded.encode(), self.data[start : decoded.end], name)
+
+    def test_exact_encoder_matches_decoder(self):
+        from template import decode_array
+
+        rng = np.random.default_rng(7)
+        for width in [1, 2, 4, 8]:
+            top = (1 << (8 * width)) - 1
+            values = np.concatenate(
+                [
+                    np.zeros(300, np.uint64),
+                    np.arange(200, dtype=np.uint64) * 3,
+                    rng.integers(0, min(top, 2**62), 400, dtype=np.uint64),
+                    np.full(130, 5, np.uint64),
+                    (
+                        np.arange(150, dtype=np.uint64) * 7
+                        + rng.integers(0, 3, 150, dtype=np.uint64)
+                    ),
+                ]
+            ) & np.uint64(top)
+            encoded = nc.encode_exact(values, width)
+            decoded, end = decode_array(encoded, len(values), 0, width)
+            self.assertEqual(end, len(encoded))
+            self.assertEqual(decoded.astype(np.uint64).tolist(), values.tolist(), width)
 
     def test_template_vocabulary(self):
         net = nc.NetSection(self.data, nw.section_start(self.data, "NetManager"))

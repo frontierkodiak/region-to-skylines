@@ -65,9 +65,12 @@ uv run python soak.py STAGE --prepared OUTPUT_PARENT --only REGION   # probes, n
 `netcodec.py` decodes and re-encodes `NetManager.Data` and
 `BuildingManager.Data` exactly as CS1 1.21.1-f9 serializes them
 (`Assembly-CSharp` SHA-256 `c7f0e723…11a1`, decompiled `acs.cs`
-`NetManager.Data.Serialize` and `BuildingManager.Data.Serialize`). Re-encoding
-an unchanged section decodes to the same records (`test_real_roads.py`); the
-run-length choices differ from the game's, which the format allows.
+`NetManager.Data.Serialize` and `BuildingManager.Data.Serialize`). It is the
+one decoder for these sections: the offline save reader (`tools/save-reader`)
+reads games through it too, guide and milestone prefabs included. Its array
+encoder is ColossalFramework's `EncodedArray` writer transcribed exactly, so an
+unchanged section re-encodes to the game's own bytes: the shipping template
+and real game saves (a 26,000-node city among them) round-trip byte for byte.
 
 Facts the writer relies on, each checked in the game source:
 
