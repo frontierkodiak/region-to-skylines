@@ -11,11 +11,36 @@ namespace Cs1Harness
         public static void Register()
         {
             Host.Register("world_observe", Needs.Level,
-                "native terrain/camera and read-only hits at {screen_points:[{name,x,y}]} in top-left screenshot pixels", Observe);
+                "native terrain/camera; {points:[{name,x,z}], tree_radius:0..1000, screen_points:[{name,x,y}]} (screen pixels, top-left)", Observe);
         }
 
         static object[] Vec(Vector3 v) { return new object[] { v.x, v.y, v.z }; }
         static object[] Angle(Vector2 v) { return new object[] { v.x, v.y }; }
+
+        static object TreesNear(Vector3 center, float radius, TerrainManager terrain)
+        {
+            int count = 0, hidden = 0, grown = 0, belowGround = 0;
+            var examples = new List<object>();
+            var trees = Singleton<TreeManager>.instance.m_trees.m_buffer;
+            for (int i = 1; i < trees.Length; i++)
+            {
+                var tree = trees[i];
+                if ((tree.m_flags & 3) != 1) continue;
+                var position = tree.Position;
+                if (new Vector2(position.x - center.x, position.z - center.z).sqrMagnitude > radius * radius) continue;
+                count++;
+                if (tree.Hidden) hidden++;
+                if (tree.GrowState != 0) grown++;
+                float ground = terrain.SampleRawHeightSmooth(position);
+                if (ground - position.y > 5f) belowGround++;
+                if (examples.Count < 8)
+                    examples.Add(Host.Obj("id", i, "position", Vec(position), "terrain_height_m", ground,
+                        "detail_height_m", terrain.SampleDetailHeight(position), "flags", tree.m_flags,
+                        "grow_state", tree.GrowState, "prefab", tree.Info == null ? null : tree.Info.name));
+            }
+            return Host.Obj("radius_m", radius, "created", count, "hidden", hidden, "grown", grown,
+                "roots_over_5m_below_raw_terrain", belowGround, "examples", examples);
+        }
 
         static object ScreenSample(Camera camera, TerrainManager terrain, Dictionary<string, object> point)
         {
@@ -69,6 +94,9 @@ namespace Cs1Harness
         static Dictionary<string, object> Observe(Dictionary<string, object> q)
         {
             var terrain = Singleton<TerrainManager>.instance;
+            float treeRadius = (float)Json.Num(q, "tree_radius", 0);
+            if (float.IsNaN(treeRadius) || float.IsInfinity(treeRadius) || treeRadius < 0 || treeRadius > 1000)
+                throw new Exception("tree_radius must be finite and between 0 and 1000 metres");
             var samples = new List<object>();
             if (q.ContainsKey("points"))
                 foreach (var item in (List<object>)q["points"])
@@ -78,9 +106,11 @@ namespace Cs1Harness
                     if (float.IsNaN(x) || float.IsInfinity(x) || float.IsNaN(z) || float.IsInfinity(z)
                         || Mathf.Abs(x) > 8640f || Mathf.Abs(z) > 8640f)
                         throw new Exception("world_observe points must be finite native world coordinates inside +/-8640m");
-                    samples.Add(Host.Obj("name", Json.Str(point, "name", ""), "x", point["x"], "z", point["z"],
+                    var sample = Host.Obj("name", Json.Str(point, "name", ""), "x", point["x"], "z", point["z"],
                         "sample_position", new object[] { x, 0f, z },
-                        "height_m", terrain.SampleRawHeightSmooth(new Vector3(x, 0, z))));
+                        "height_m", terrain.SampleRawHeightSmooth(new Vector3(x, 0, z)));
+                    if (treeRadius > 0) sample["trees"] = TreesNear(new Vector3(x, 0, z), treeRadius, terrain);
+                    samples.Add(sample);
                 }
             var controller = ToolsModifierControl.cameraController;
             if (controller == null) throw new Exception("no native camera controller");
