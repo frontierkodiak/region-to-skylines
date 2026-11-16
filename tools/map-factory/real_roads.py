@@ -24,6 +24,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from PIL import Image
 from scipy import ndimage
 
 import resources as R
@@ -217,6 +218,44 @@ def prepare_roads(output, geometry):
     return report
 
 
+def preview_assets(assets, crp, hydro):
+    """Redraw the New Game preview images with the real roads and rail."""
+    from map_metadata import preview_image, texture_payload
+
+    nodes = hydro["highways"]["nodes"]
+    positions = {f"h{i}": n["xyz"] for i, n in enumerate(nodes)}
+    routes = [
+        {
+            "kind": "rail" if e["kind"] == "rail" else "road",
+            "nodes": [f"h{e['a']}", f"h{e['b']}"],
+        }
+        for e in hydro["highways"]["edges"]
+        if e["kind"] in ("highway", "ramp", "rail")
+    ]
+    terrain = np.fromfile(crp.parent / "terrain.u16", dtype="<u2")
+    depth = np.fromfile(crp.parent / "water.u16", dtype="<u2")
+    image = preview_image(
+        terrain, depth, {"node_positions": positions}, {"routes": routes}
+    )
+    fields = {}
+    for field, suffix, size in [
+        ("imageRef", "Snapshot", (400, 224)),
+        ("steamPreviewRef", "SteamPreview", (1800, 1008)),
+    ]:
+        asset = next(
+            a for a in assets if a["kind"] == 3 and a["name"].endswith("_" + suffix)
+        )
+        asset["payload"] = texture_payload(
+            asset["name"], image.resize(size, Image.Resampling.LANCZOS)
+        )
+        fields[field] = (
+            "ColossalFramework.Packaging.Package+Asset, ColossalManaged, "
+            "Version=0.3.0.0, Culture=neutral, PublicKeyToken=null",
+            hashlib.md5(asset["payload"]).hexdigest(),
+        )
+    return fields
+
+
 def finish(crp, hydro):
     """Swap the written map's corridor highway for the graph, in place."""
     package, assets = read_package(crp.read_bytes())
@@ -253,6 +292,7 @@ def finish(crp, hydro):
         if count:
             fields["incoming" + kind] = ("System.Int32", count)
             fields["outgoing" + kind] = ("System.Int32", count)
+    fields.update(preview_assets(assets, crp, hydro))
     checksum = hashlib.md5(data).hexdigest()
     for a in assets:
         if a["kind"] == 100:

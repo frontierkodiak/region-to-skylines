@@ -483,11 +483,15 @@ def highway_paths(graph, segment_ids, start_tile, limit=2):
                         queue.append(nxt)
         far = [k for k in ends[1:] if k in seen]
         if far:
+            # Train Track lane 0 runs backward (end to start), lane 1 forward.
+            first, last = ends[0], far[-1]
+            leave = 0 if nodes[edges[first]["b"]].get("outside") else 1
+            arrive = 0 if nodes[edges[last]["a"]].get("outside") else 1
             paths.append(
                 {
                     "name": "rail:real",
-                    "from": [segment_ids[ends[0]], 1, 128],
-                    "to": [segment_ids[far[-1]], 1, 128],
+                    "from": [segment_ids[first], leave, 128],
+                    "to": [segment_ids[last], arrive, 128],
                     "rail": True,
                     "expected_segments": [],
                 }
