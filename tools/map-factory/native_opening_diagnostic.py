@@ -118,6 +118,7 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
     requests = json.loads(requests_file.read_text()) if requests_file else {}
     screen_requests = requests.get("screen_points", [])
     world_requests = requests.get("world_points", [])
+    extra_requests = requests.get("supplementary_world_points", [])
     samples = []
     try:
         with slot(
@@ -180,6 +181,11 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
                 write(
                     stage / "t000-world-water.json",
                     session.client.call("water", points=world_requests),
+                )
+            if extra_requests:
+                write(
+                    stage / "t000-extra-water.json",
+                    session.client.call("water", points=extra_requests),
                 )
             write(stage / "diagnostic.json", report)
             print(
@@ -310,6 +316,11 @@ def run(source, output, interactive, minutes, requests_file=None, wait_minutes=0
                     write(
                         stage / "t005-world-water.json",
                         session.client.call("water", points=world_requests),
+                    )
+                if extra_requests:
+                    write(
+                        stage / "t005-extra-water.json",
+                        session.client.call("water", points=extra_requests),
                     )
                 session.check_audio()
                 write(stage / "audio-t005.json", session.receipt["audio_processes"])

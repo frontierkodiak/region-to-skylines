@@ -213,7 +213,7 @@ namespace Cs1Harness
         // Raw grids for offline comparison: little-endian ushort, 1081 x 1081,
         // the game's own order: index = iz * 1081 + ix, world x = ix * 16 - 8640,
         // world z = iz * 16 - 8640. Water is depth in 1/64 m; terrain is raw
-        // height in 1/64 m.
+        // height in 1/64 m. The hydraulic floor is a separate native field.
         static Dictionary<string, object> Dump(Dictionary<string, object> q)
         {
             string dir = Json.Str(q, "dir", "");
@@ -247,6 +247,17 @@ namespace Cs1Harness
                 string terrainPath = Path.Combine(dir, prefix + "-terrain.u16");
                 File.WriteAllBytes(terrainPath, t);
                 result["terrain"] = terrainPath;
+                var manager = Singleton<TerrainManager>.instance;
+                ushort[][] floors = { manager.BlockHeights, manager.BlockHeightTargets };
+                string[] names = { "water-ground", "water-ground-target" };
+                for (int i = 0; i < floors.Length; i++)
+                {
+                    byte[] bytes = new byte[floors[i].Length * 2];
+                    Buffer.BlockCopy(floors[i], 0, bytes, 0, bytes.Length);
+                    string path = Path.Combine(dir, prefix + "-" + names[i] + ".u16");
+                    File.WriteAllBytes(path, bytes);
+                    result[names[i]] = path;
+                }
             }
             return result;
         }
