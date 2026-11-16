@@ -1,0 +1,517 @@
+{
+  "status": "rejected-visible-residual-not-qualification",
+  "accepted_default": "cb5e2a171841137c7942909c4c058342bc3e4331",
+  "candidate_diagnostic": {
+    "case": "rio",
+    "source_head": "82701e868245154754a6819e41d1d56b396ea7da",
+    "native_game_minutes": 5.109722488715002,
+    "gpu_bus": "05:00.0",
+    "gpu": "RTX 2080 Ti",
+    "wall_gpu_sampling_seconds": 330.928,
+    "peak_total_vram_mib": 10821,
+    "peak_gpu_power_w": 130.86,
+    "peak_gpu_temperature_c": 58,
+    "game_menu_vram_mib": 1574,
+    "game_peak_vram_mib": null,
+    "game_peak_note": "Per-game VRAM was not sampled in this first attempt; menu allocation is not a peak. Read-only sampling added for the reference diagnostic.",
+    "controls_exact_both_epochs": 290,
+    "five_dry_subset": {
+      "shared": [
+        "Rio Trapicheiros [river] #8:11",
+        "Rio Trapicheiros [river] #8:12",
+        "Rio Trapicheiros [river] #8:13",
+        "Rio Trapicheiros [river] #8:14",
+        "Rio Trapicheiros [river] #8:15",
+        "geography:Rio Trapicheiros [river] @403,408",
+        "geography:Rio Trapicheiros [river] @404,408",
+        "geography:Rio Trapicheiros [river] @405,408",
+        "geography:Rio Trapicheiros [river] @406,408",
+        "geography:Rio Trapicheiros [river] @407,408",
+        "geography:Rio dos Macacos [river] @458,730"
+      ],
+      "new_only": [],
+      "old_only": []
+    },
+    "native_60_minute_qualification": false,
+    "cleanup": {
+      "game": [],
+      "steam_instances": [],
+      "units_active": []
+    }
+  },
+  "unchanged_required_cohort": {
+    "t000": {
+      "observed": 4256,
+      "required": 1556,
+      "wet_or_near": 1556,
+      "fraction": 1.0,
+      "dry": []
+    },
+    "t005": {
+      "observed": 4256,
+      "required": 1556,
+      "wet_or_near": 1545,
+      "fraction": 0.9929305912596401,
+      "dry": [
+        {
+          "x": -2128,
+          "z": 2112,
+          "terrain": 94.421875,
+          "ground": 94.421875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.078125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:11"
+        },
+        {
+          "x": -2144,
+          "z": 2112,
+          "terrain": 93.6875,
+          "ground": 93.6875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.03125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:12"
+        },
+        {
+          "x": -2160,
+          "z": 2112,
+          "terrain": 93.421875,
+          "ground": 93.421875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.015625,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:13"
+        },
+        {
+          "x": -2176,
+          "z": 2112,
+          "terrain": 94.15625,
+          "ground": 94.15625,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:14"
+        },
+        {
+          "x": -2192,
+          "z": 2112,
+          "terrain": 96.03125,
+          "ground": 96.03125,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "Rio Trapicheiros [river] #8:15"
+        },
+        {
+          "x": -2192,
+          "z": 2112,
+          "terrain": 96.03125,
+          "ground": 96.03125,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @403,408"
+        },
+        {
+          "x": -2176,
+          "z": 2112,
+          "terrain": 94.15625,
+          "ground": 94.15625,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @404,408"
+        },
+        {
+          "x": -2160,
+          "z": 2112,
+          "terrain": 93.421875,
+          "ground": 93.421875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.015625,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @405,408"
+        },
+        {
+          "x": -2144,
+          "z": 2112,
+          "terrain": 93.6875,
+          "ground": 93.6875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.03125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @406,408"
+        },
+        {
+          "x": -2128,
+          "z": 2112,
+          "terrain": 94.421875,
+          "ground": 94.421875,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0.078125,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio Trapicheiros [river] @407,408"
+        },
+        {
+          "x": -1312,
+          "z": -3040,
+          "terrain": 94.5625,
+          "ground": 94.5625,
+          "surface": 0,
+          "depth": 0,
+          "wet": false,
+          "velocity": [
+            0,
+            0,
+            0
+          ],
+          "max_depth_within_64m": 0,
+          "wet_within_64m": false,
+          "nearest_water_m": null,
+          "name": "geography:Rio dos Macacos [river] @458,730"
+        }
+      ]
+    }
+  },
+  "camera_fields_exact": {
+    "opening": {
+      "current_position": true,
+      "current_size": true,
+      "current_angle_degrees": true,
+      "render_position": true,
+      "render_forward": true,
+      "render_up": true,
+      "field_of_view_degrees": true,
+      "pixel_rect": true,
+      "screen_width": true,
+      "screen_height": true
+    },
+    "area_zoom": {
+      "current_position": true,
+      "current_size": true,
+      "current_angle_degrees": true,
+      "render_position": true,
+      "render_forward": true,
+      "render_up": true,
+      "field_of_view_degrees": true,
+      "pixel_rect": true,
+      "screen_width": true,
+      "screen_height": true
+    }
+  },
+  "reference_diagnostic": {
+    "source_head": "b3fa6fe79fab4c52301d8f0ad245543cac3bc22b",
+    "crp_sha256": "4bc5628e6af29f6c2beb62629bf350fe6a8324e5f5a67bb5f267a8381dd6b7a7",
+    "native_game_minutes": 5.100278043777992,
+    "wall_gpu_sampling_seconds": 331.099,
+    "peak_total_vram_mib": 10821,
+    "sampled_game_peak_mib": 2790,
+    "game_peak_note": "Samples at menu and during gameplay, not continuous loading sampling.",
+    "peak_gpu_power_w": 126.39,
+    "peak_gpu_temperature_c": 57,
+    "cleanup": {
+      "game": [],
+      "steam_instances": [],
+      "units_active": []
+    },
+    "native_60_minute_qualification": false
+  },
+  "hydraulic_floor": {
+    "t000": {
+      "raw_vs_hydraulic_changed_vertices": 54,
+      "maximum_floor_difference_m": 19.46875,
+      "floor_vs_target_changed": 0,
+      "replay": {
+        "world-water": {
+          "points": 4256,
+          "ground_mismatch": 0,
+          "surface_mismatch": 0,
+          "wet_mismatch": 0
+        },
+        "extra-water": {
+          "points": 81,
+          "ground_mismatch": 0,
+          "surface_mismatch": 0,
+          "wet_mismatch": 0
+        }
+      },
+      "pieces": [
+        {
+          "piece": 21,
+          "observed": 15,
+          "wet": 15,
+          "near": 15,
+          "max_depth": 1.90625
+        },
+        {
+          "piece": 33,
+          "observed": 36,
+          "wet": 36,
+          "near": 36,
+          "max_depth": 1
+        },
+        {
+          "piece": 35,
+          "observed": 6,
+          "wet": 3,
+          "near": 6,
+          "max_depth": 3.140625
+        },
+        {
+          "piece": 36,
+          "observed": 10,
+          "wet": 8,
+          "near": 10,
+          "max_depth": 1.46875
+        },
+        {
+          "piece": 151,
+          "observed": 14,
+          "wet": 13,
+          "near": 14,
+          "max_depth": 0.75
+        }
+      ],
+      "source91": {
+        "id": 92,
+        "type": 1,
+        "x": -2160,
+        "z": 2112,
+        "target": 93.671875,
+        "input_rate": 52428,
+        "output_rate": 0,
+        "flow": 0,
+        "buffered_water": 0
+      },
+      "controls_exact": 290
+    },
+    "t005": {
+      "raw_vs_hydraulic_changed_vertices": 54,
+      "maximum_floor_difference_m": 19.46875,
+      "floor_vs_target_changed": 0,
+      "replay": {
+        "world-water": {
+          "points": 4256,
+          "ground_mismatch": 0,
+          "surface_mismatch": 0,
+          "wet_mismatch": 0
+        },
+        "extra-water": {
+          "points": 81,
+          "ground_mismatch": 0,
+          "surface_mismatch": 0,
+          "wet_mismatch": 0
+        }
+      },
+      "pieces": [
+        {
+          "piece": 21,
+          "observed": 15,
+          "wet": 0,
+          "near": 0,
+          "max_depth": 0
+        },
+        {
+          "piece": 33,
+          "observed": 36,
+          "wet": 0,
+          "near": 0,
+          "max_depth": 0
+        },
+        {
+          "piece": 35,
+          "observed": 6,
+          "wet": 0,
+          "near": 0,
+          "max_depth": 0
+        },
+        {
+          "piece": 36,
+          "observed": 10,
+          "wet": 0,
+          "near": 0,
+          "max_depth": 0
+        },
+        {
+          "piece": 151,
+          "observed": 14,
+          "wet": 0,
+          "near": 0,
+          "max_depth": 0
+        }
+      ],
+      "source91": {
+        "id": 92,
+        "type": 1,
+        "x": -2160,
+        "z": 2112,
+        "target": 93.671875,
+        "input_rate": 52428,
+        "output_rate": 0,
+        "flow": 0,
+        "buffered_water": 10
+      },
+      "controls_exact": 290
+    },
+    "floor_static_zero_five": true,
+    "historical_replay": [
+      {
+        "epoch": "t000",
+        "points": 4256,
+        "ground_mismatch": 0,
+        "surface_mismatch": 0,
+        "wet_mismatch": 0
+      },
+      {
+        "epoch": "t005",
+        "points": 4256,
+        "ground_mismatch": 0,
+        "surface_mismatch": 2763,
+        "wet_mismatch": 22
+      },
+      {
+        "epoch": "t015",
+        "points": 4256,
+        "ground_mismatch": 0,
+        "surface_mismatch": 0,
+        "wet_mismatch": 0
+      },
+      {
+        "epoch": "t030",
+        "points": 4256,
+        "ground_mismatch": 0,
+        "surface_mismatch": 0,
+        "wet_mismatch": 0
+      },
+      {
+        "epoch": "t045",
+        "points": 4256,
+        "ground_mismatch": 0,
+        "surface_mismatch": 2846,
+        "wet_mismatch": 24
+      },
+      {
+        "epoch": "t060",
+        "points": 4256,
+        "ground_mismatch": 0,
+        "surface_mismatch": 0,
+        "wet_mismatch": 0
+      }
+    ]
+  },
+  "source_piece_indexing": "rivers followed by streams AFTER surface_geometry filtering",
+  "known_unresolved": {
+    "carved_dry_pieces": [
+      35,
+      36,
+      151
+    ],
+    "whole_piece_unit": "not a complete dry-reach implementation",
+    "intake91": "nonzero buffered_water; guard omission not proved safe",
+    "precise_support": "diagnostic only, not integrated",
+    "historical_water_pairs": "t005/t045 water replay mismatches retained",
+    "candidate_other_maps_native": false,
+    "fresh_60_minute_per_map": false,
+    "shipping_js_pyodide_integration": false,
+    "rio_original_flood": "0.060928 km2 vs 0.05 still unqualified",
+    "charleston_original_global_correlation": "0.6890 vs 0.9; diagnosis only"
+  },
+  "source_file_sha256": {
+    "tools/map-factory/native_support.py": "d9151f65d85583ccaffada6f00b3353b2ea7d6a099758c813e9304833719a9e7",
+    "tools/map-factory/native_opening_diagnostic.py": "0fdf9371ec148796207646ab9f76d0e3945ced2030b8ace3b8d4642e954a1a36",
+    "tools/map-factory/test_native_support.py": "a0a4cc2d7fa63c2b63af77fc4aab4244a1af4dc9e0b344e161722dfb9071ccfe",
+    "tools/map-factory/native_admission.py": "ab33e82258a2aec6890202002cc4f63b6449a23d707cb2d5f3df596fb07531e6",
+    "tools/map-factory/package_native_admission.py": "4338cbc547dc60f952fc4b9dd0e151d072c7364e14c271ed8d2da1e9bd7140a9",
+    "tools/cs1-harness/mod/CityOps.cs": "4ddb2546d4a5cb0fae442b38c34bebbb69d4edfe577d32511e44a98aa28051a4"
+  },
+  "artifact_sha256": {
+    "rio-short-audit.json": "467ea4fd55d1996f1b41084f697cd1d607f16e3488c4aa2cefac02371fdf51cd",
+    "rio-visual-binding.json": "6656a162b65a80fbf0b6716f33cf3e00024d39f1e6047dd4b9c960872b6985c1",
+    "audit_first_native.py": "52169ff76ae7a00702fdb867930d4c9f1889554098f785311a00e3ebd8eb6c46",
+    "audit_hydraulic_floor.py": "84deae5042e67c40bb1ca1e7d5a655cac8f280531e9a5380c79a4b35e0b89e0b",
+    "hydraulic-floor-audit.json": "c34b68a851b4bbe376c224d228826c2295a49b0ae09ef735ae9c26a510f7bd1e",
+    "exact-support-probe.json": "108850984e45d050aaa0b26ae0f6bfb675be79ba8aec7fc4035f3dd6413a8954",
+    "probe_exact_support.py": "fc08272f6b4840b8c7ff46340012f28b45a393bffce7374e77be9d60b80bf185"
+  }
+}

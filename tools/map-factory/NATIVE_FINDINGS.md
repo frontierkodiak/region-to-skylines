@@ -1,5 +1,32 @@
 # Native qualification · PL-926, PL-918 and PL-857
 
+## PL-912 evidence index · updated November 15
+
+The accepted default remains `cb5e2a1`. None of the PL-912 experimental
+admission arms below is a shipped rule. The lead accepts genuinely wet streams
+with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
+the separate selection-versus-hydraulics/workshop/reservoir question and can use
+this evidence without treating a rejected arm as a baseline fix.
+
+- [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): current whole-piece dry-only arm;
+  fresh Rio zero/five opening+Areas, unchanged required wetness, three deferred
+  dry residuals. The short visible checkpoint is not passed; no full sweep.
+  A read-only reference run establishes actual hydraulic floor versus raw
+  terrain, exact paused native sampler replay, and a nonzero intake buffer
+  despite zero output. Precise support/dry-subreach design remains unproved.
+- [HELD_DEM_ADMISSION.md](HELD_DEM_ADMISSION.md): floor-reset counterexample,
+  lower vertices and Pittsburgh shared-polygon support loss. Rejected.
+- [PROFILE_ADMISSION.md](PROFILE_ADMISSION.md): broad omission loses required
+  water at startup; rejected. Corrected Charleston diagnosis attributes land
+  reference/resolution disagreement first, bed carving second. No mask or
+  acceptance change; original correlation/extreme failures remain.
+- PL-974's reviewed native shore mechanism and its limits are preserved in
+  `HELD_DEM_ADMISSION.md` and `fixtures/held-dem-rejected/shore-evidence.json`.
+  Sand alone is neither proof of a dry bed nor a sand-free rendering mandate.
+
+No smallest sustainable stream size or headwater-reservoir benefit was
+established here. Fresh native evidence for those questions belongs to PL-979.
+
 ## Surface tunnel excavation corrected · PL-926 · 2026-11-12
 
 The shared input capture now excludes explicit `brunnel=tunnel` river lines

@@ -2277,3 +2277,31 @@ has empty game, steam_instances and units_active arrays. Final queue is free.
 The experiment is quarantined with the default writer restored exactly. See
 `map-factory/HELD_DEM_ADMISSION.md`; actual raw views and short receipts are on
 PL-912. This does not qualify Rio flooding or repair Charleston's original gate.
+
+## 2026-11-15 — PL-912 dry-only admission short; native floor diagnostic
+
+Blade, silent private :57, normal FIFO queue after Caleb's reservation.
+2080 Ti PCI05:00.0; 150 W cap and existing 8004 MiB workload untouched.
+
+| Attempt | Source | Game min | Sampled wall s | Peak total VRAM MiB | Sampled game peak MiB | Peak W | Peak °C | Result |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| Prepared Rio dry-only arm | 82701e8 | 5.109722 | 330.928 | 10821 | not recorded | 130.86 | 58 | required zero 1556/1556, five 1545/1556; three dry pieces still carved; no sweep |
+| Original Rio hydraulic-floor readback | b3fa6fe | 5.100278 | 331.099 | 10821 | 2790 | 126.39 | 57 | read-only floor/target/buffer + 81 supplemental points; exact paused sampler replay |
+
+First attempt menu game allocation 1574 MiB is not a peak. The second samples
+own-game VRAM at menu and during play, not continuously during loading. Wall
+windows span first/last GPU CSV observations, not queue time or a benchmark.
+Both used actual zero/five opening and Areas with all 4256 original points.
+The supplemental 81 source-line points are separate, not replacement probes.
+No Asheville/new other-map launch and no 60-minute evaluation followed.
+
+Both cleanup receipts are empty. Each game needed normal exact-owned-PID
+termination after quit grace; neither spontaneously crashed. Other queued
+users were never stopped. No run-owned game/service/evaluator remains.
+
+Tool improvements: bounded foreground slot wait; optional supplementary
+readbacks; own-PID VRAM samples; additive raw/hydraulic-floor/target dumps and
+source water-buffer readback. These do not write simulation fields or alter
+gates. Build, doctor, 113 harness tests and Ruff pass. Writer tests: 57 run,
+two opt-in skips; eight JS tests pass. See `map-factory/NATIVE_ADMISSION.md` and
+`fixtures/native-admission-short-rejected.json` for exact packages and limits.
