@@ -126,6 +126,85 @@ namespace Cs1Harness
             return rows;
         }
 
+        // Where the hookup road meets the ramp stubs before running to the grid.
+        static bool JoinPoint(List<ushort> hooks, out Vector3 mean, out Vector3 join)
+        {
+            var net = Singleton<NetManager>.instance;
+            mean = Vector3.zero;
+            var heading = Vector3.zero;
+            foreach (ushort hook in hooks)
+            {
+                var n = net.m_nodes.m_buffer[hook];
+                mean += n.m_position;
+                if (n.CountSegments() == 1)
+                {
+                    for (int i = 0; i < 8; i++)
+                    {
+                        ushort sid = n.GetSegment(i);
+                        if (sid == 0) continue;
+                        var s = net.m_segments.m_buffer[sid];
+                        heading -= s.m_startNode == hook ? s.m_startDirection : s.m_endDirection;
+                    }
+                }
+            }
+            mean /= hooks.Count;
+            heading.y = 0;
+            join = mean;
+            if (heading.sqrMagnitude <= 0.1f) return false;
+            // Native CanAddSegment rejects approaches less than ~41 degrees
+            // apart. Keep the merge close enough for the two highway stubs.
+            float approach = hooks.Count == 2
+                ? Mathf.Clamp(VectorUtils.LengthXZ(net.m_nodes.m_buffer[hooks[0]].m_position
+                    - net.m_nodes.m_buffer[hooks[1]].m_position) * 0.75f, 12, 96) : 96;
+            join = mean + heading.normalized * approach;
+            // Real ramp stubs can sit close together and face apart: push the
+            // join out until each link is long enough for native placement.
+            while (approach < 160f)
+            {
+                float nearest = float.MaxValue;
+                foreach (ushort hook in hooks)
+                    nearest = Mathf.Min(nearest, VectorUtils.LengthXZ(net.m_nodes.m_buffer[hook].m_position - join));
+                if (nearest >= 40f) break;
+                approach += 8f;
+                join = mean + heading.normalized * approach;
+            }
+            return true;
+        }
+
+        // A candidate grid must also be reachable: the hookup links from the
+        // stubs and on to the nearest grid corner may not cross other networks.
+        static bool HookupClear(List<ushort> hooks, Vector3 center)
+        {
+            var road = Net("Basic Road");
+            var net = Singleton<NetManager>.instance;
+            Vector3 mean, join;
+            bool joined = JoinPoint(hooks, out mean, out join);
+            var starts = new List<Vector3>();
+            try
+            {
+                if (joined)
+                {
+                    float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
+                    foreach (ushort hook in hooks)
+                        Link(road, Vector3.zero, join, hook, 0, true, elevation, testOnly: true);
+                    starts.Add(join);
+                }
+                else
+                    foreach (ushort hook in hooks) starts.Add(net.m_nodes.m_buffer[hook].m_position);
+                foreach (var a in starts)
+                {
+                    var corner = Ground(center.x + (a.x < center.x ? -Half : Half), center.z + (a.z < center.z ? -Half : Half));
+                    Link(road, Ground(a.x, a.z), corner, testOnly: true);
+                }
+            }
+            catch (PlacementRejected e)
+            {
+                // Slopes and water are bridged later by Connect; collisions are not.
+                if ((e.Errors & ToolBase.ToolErrors.ObjectCollision) != 0) return false;
+            }
+            return true;
+        }
+
         static Vector3 Site(List<ushort> hooks)
         {
             int tx, tz;
@@ -185,6 +264,7 @@ namespace Cs1Harness
                             a = Ground(p.x - Half + i * Spacing, p.z - Half + j * Spacing);
                             Link(road, a, Ground(a.x, a.z + Spacing), testOnly: true);
                         }
+                    if (!HookupClear(hooks, p)) continue;
                     return p;
                 }
                 catch (PlacementRejected) { }
@@ -679,44 +759,9 @@ namespace Cs1Harness
                 for (int z = 0; z < 3; z++)
                     Link(road, Vector3.zero, Vector3.zero, grid[x, z], grid[x, z + 1], true);
             ushort junction = 0;
-            var mean = Vector3.zero;
-            var heading = Vector3.zero;
-            foreach (ushort hook in hooks)
+            Vector3 mean, join;
+            if (JoinPoint(hooks, out mean, out join))
             {
-                var n = net.m_nodes.m_buffer[hook];
-                mean += n.m_position;
-                if (n.CountSegments() == 1)
-                {
-                    for (int i = 0; i < 8; i++)
-                    {
-                        ushort sid = n.GetSegment(i);
-                        if (sid == 0) continue;
-                        var s = net.m_segments.m_buffer[sid];
-                        heading -= s.m_startNode == hook ? s.m_startDirection : s.m_endDirection;
-                    }
-                }
-            }
-            mean /= hooks.Count;
-            heading.y = 0;
-            if (heading.sqrMagnitude > 0.1f)
-            {
-                // Native CanAddSegment rejects approaches less than ~41 degrees
-                // apart. Keep the merge close enough for the two highway stubs.
-                float approach = hooks.Count == 2
-                    ? Mathf.Clamp(VectorUtils.LengthXZ(net.m_nodes.m_buffer[hooks[0]].m_position
-                        - net.m_nodes.m_buffer[hooks[1]].m_position) * 0.75f, 12, 96) : 96;
-                var join = mean + heading.normalized * approach;
-                // Real ramp stubs can sit close together and face apart: push the
-                // join out until each link is long enough for native placement.
-                while (approach < 160f)
-                {
-                    float nearest = float.MaxValue;
-                    foreach (ushort hook in hooks)
-                        nearest = Mathf.Min(nearest, VectorUtils.LengthXZ(net.m_nodes.m_buffer[hook].m_position - join));
-                    if (nearest >= 40f) break;
-                    approach += 8f;
-                    join = mean + heading.normalized * approach;
-                }
                 float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
                 junction = Link(road, Vector3.zero, join, hooks[0], 0, true, elevation);
                 for (int i = 1; i < hooks.Count; i++)
