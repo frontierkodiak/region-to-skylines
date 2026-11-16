@@ -1,21 +1,28 @@
 # Native qualification · PL-926, PL-918 and PL-857
 
-## PL-912 evidence index · updated November 15
+## PL-912 evidence index · updated November 16
 
-The accepted default remains `cb5e2a1`. None of the PL-912 experimental
-admission arms below is a shipped rule. The lead accepts genuinely wet streams
+The accepted default remains `cb5e2a1`. PR42 now proposes an input-bound dry-reach
+replay in the Python and shipping JS/Pyodide path; it is not landed or accepted.
+The lead accepts genuinely wet streams
 with native sandy shore; dry broken-looking beds remain the defect. PL-979 owns
 the separate selection-versus-hydraulics/workshop/reservoir question and can use
 this evidence without treating a rejected arm as a baseline fix.
 
 - [DRY_SUBREACHES.md](DRY_SUBREACHES.md): PL-990's source-grounded next unit,
   dry line pixels plus startup film never rewetted in recorded native states.
-  Both water and floor inside every physical source radius stay exact. Five-map
-  CPU preparation is not shipping integration or qualification. The first real
+  Both water and floor inside every physical source radius stay exact. The first real
   short improves Areas but exposes a transient-storage loss: a Papa-Couve pool
   dries earlier when its neighbouring startup film is removed. The corrected
   unit preserves startup water throughout the existing native wet-patch guard.
   A short-lived initial pool is not proof of sustained stream supply.
+  Corrected actual Rio/Asheville zero/five opening+Areas precede shipping
+  integration at `d5b4a8d`, ten complete Python/Pyodide parity cases and five
+  fresh sixty-minute games. No passing gate or required point regresses.
+  Rio flooding remains failed (0.061440 km² versus prior 0.060928); Charleston
+  ground truth remains failed (0.6891 versus 0.9). A dry protected Rio inlet
+  basin remains visible, not declared repaired. The new versioned fixture
+  contract is partial evidence, not issue acceptance or a gate waiver.
 - [NATIVE_ADMISSION.md](NATIVE_ADMISSION.md): earlier whole-piece dry-only arm;
   fresh Rio zero/five opening+Areas, unchanged required wetness, no visible
   central Areas improvement. PL-990 corrected Sol's attribution: three deferred

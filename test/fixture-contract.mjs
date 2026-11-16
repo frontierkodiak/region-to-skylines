@@ -1,5 +1,6 @@
 // Current byte conformance is distinct from historical or full native acceptance.
 import assert from "node:assert/strict";
+import { FACTORY_FILES } from "../mapgen.js";
 import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
@@ -9,7 +10,13 @@ export async function loadFixtureContract(read, readSource) {
   const historicalNativeBytes = await read("fixtures/native-qualification.json");
   const historical = parse(historicalBytes);
   const historicalNativeCases = Object.fromEntries(parse(historicalNativeBytes).cases.map((c) => [c.slug, c]));
-  const current = parse(await read("fixtures/current.json"));
+  const active = parse(await read("fixtures/active.json"));
+  assert.equal(active.format, 1);
+  assert.equal(active.historical_current, "current.json");
+  assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
+  const current = parse(await read("fixtures/" + active.current));
+  assert.equal(sha(await read("fixtures/current.json")), current.historical_current_contract_sha256, "historical current contract changed");
+  assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...FACTORY_FILES.map((f) => "tools/map-factory/" + f)].sort(), "every shipping runtime dependency must be bound");
   assert.equal(current.format, 1);
   assert.equal(current.status, "partial_not_accepted");
   assert.equal(sha(historicalBytes), current.historical_manifest_sha256, "historical fixture contract changed");
@@ -20,6 +27,11 @@ export async function loadFixtureContract(read, readSource) {
   const evaluation = parse(evaluationBytes);
   assert.equal(evaluation.status, "partial_not_accepted");
   assert.equal(current.native_tested_head, evaluation.native_tested_head);
+  const admission = parse(await readSource("tools/map-factory/native-water-admission.json"));
+  assert.match(current.native_engine_sha256, /^[a-f0-9]{64}$/);
+  assert.equal(current.native_engine_sha256, evaluation.native_engine_sha256);
+  assert.equal(current.native_engine_sha256, admission.native_engine_sha256);
+  assert.deepEqual(current.source_files_sha256, evaluation.source_files_sha256);
   assert.equal(current.source_files_sha256["tools/map-factory/region.py"], evaluation.production_writer_sha256);
   for (const [name, digest] of Object.entries(current.source_files_sha256))
     assert.equal(sha(await readSource(name)), digest, `${name}: current contract source changed`);
@@ -40,6 +52,10 @@ export async function loadFixtureContract(read, readSource) {
     assert.equal(native.strict_vanilla_verified, false);
     assert.equal(native.game_minutes, measured.game_minutes);
     assert.ok(native.game_minutes >= 60 && measured.clean_source);
+    assert.equal(measured.no_regression, true, "a passing-gate regression blocks promotion");
+    assert.deepEqual(measured.passing_gate_regressions, []);
+    assert.ok(Object.values(measured.new_required_point_losses).every((losses) => losses.length === 0));
+    assert.equal(native.frozen_flood_reference_sha256, measured.frozen_flood_reference_sha256);
     assert.equal(native.verdict, measured.native_verdict);
     assert.deepEqual(native.failed_checks, measured.failed);
     assert.deepEqual(native.receipt_sha256, measured.receipt_sha256);

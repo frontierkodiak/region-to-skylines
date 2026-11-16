@@ -83,7 +83,8 @@ test("current partial fixture contract binds all five native packages without cl
   const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource);
   assert.equal(manifest.cases.length, 5);
   assert.equal(current.status, "partial_not_accepted");
-  assert.equal(nativeCases.asheville.harness_commit, "022d795fb05a4c93ede04f78cce210773f23e58f");
+  assert.equal(nativeCases.asheville.harness_commit, current.native_tested_head);
+  assert.notEqual(current.native_tested_head, "022d795fb05a4c93ede04f78cce210773f23e58f");
   assert.notEqual(nativeCases.asheville.native_crp_sha256, historicalNativeCases.asheville.native_crp_sha256);
   assert.deepEqual(nativeCases.rio.failed_checks, ["no_flooding"]);
   assert.deepEqual(nativeCases.charleston.failed_checks, ["ground_truth"]);
@@ -93,11 +94,14 @@ test("current partial fixture contract binds all five native packages without cl
 test("current fixture contract refuses stale writers, missing regions and fabricated qualification", async () => {
   await assert.rejects(loadFixtureContract(readFixture, async (name) => name.endsWith("region.py") ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
   await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/asheville/terrain.u16.gz" ? new Uint8Array([0]) : readFixture(name), readContractSource), /historical fixture terrain.u16.gz changed/);
-  const original = JSON.parse(await readFixture("fixtures/current.json"));
+  const active = JSON.parse(await readFixture("fixtures/active.json"));
+  const currentPath = "fixtures/" + active.current;
+  const original = JSON.parse(await readFixture(currentPath));
   for (const mutate of [
     (c) => c.cases.pop(),
     (c) => { c.cases[0].native.strict_vanilla_verified = true; },
-    (c) => { c.cases[2].native.failed_checks = []; },
+    (c) => { c.cases[2].native.failed_checks = ["fabricated-check"]; },
+    (c) => { delete c.source_files_sha256["tools/map-factory/native-water-admission.json"]; },
     (c) => { c.cases[0].native.harness_commit = "later-metadata-head"; },
     (c) => { c.cases[0].shipping.writer_source_commit = c.cases[0].shipping.historical_capture_source_commit; },
     (c) => { c.cases[0].shipping.expected_crp_sha256 = c.cases[0].reference.expected_crp_sha256; },
@@ -105,6 +109,6 @@ test("current fixture contract refuses stale writers, missing regions and fabric
   ]) {
     const candidate = structuredClone(original);
     mutate(candidate);
-    await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/current.json" ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
+    await assert.rejects(loadFixtureContract(async (name) => name === currentPath ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
   }
 });

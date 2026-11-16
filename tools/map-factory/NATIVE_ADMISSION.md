@@ -1,5 +1,11 @@
 # Native-evidence admission · PL-912 · short-run residual blocks promotion
 
+**Historical whole-piece arm.** This record is retained, not promoted. The
+subsequent dry-subreach/wet-boundary implementation, actual short/full results,
+shipping parity and remaining protected-basin/flood failures are recorded in
+[DRY_SUBREACHES.md](DRY_SUBREACHES.md). Its new partial contract does not turn
+this rejected whole-piece result into acceptance.
+
 The lead's November 15 decision is explicit: **a genuinely wet stream may keep
 CS1's native sandy shore.** Dry beds reading as broken water are the defect;
 grass with no stream and sand-free rendering are out of scope. Every existing

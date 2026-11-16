@@ -198,3 +198,65 @@ continues to report `in_game_verified: false` and `native_qualified: false`.
 Exact Python and shipping Pyodide package agreement, followed by fresh native
 60-minute evidence, must bind any new versioned fixture contract. Historical
 fixtures and their qualification records are retained unchanged.
+
+## Fresh shipping verification · November 16
+
+The shipping writer at **`d5b4a8db0fbc2ae8697422c3e19da1ca5933f3b1`**
+was clean for all five actual full runs. Complete Python/Pyodide builds agree
+byte-for-byte for all five shipping and all five reference-resource packages,
+including Charleston. The browser's dependency list and npm package include
+the replay module and input-bound registry. This proposes a shipping change;
+accepted main remains `cb5e2a1` until review and landing.
+
+| Map | Fresh game minutes | Required wet-or-near throughout | Remaining failed check |
+| --- | ---: | ---: | --- |
+| Rio | 60.134448 | 1,531 / 1,556 | flooding |
+| Asheville | 60.118892 | 1,261 / 1,261 | none |
+| Innsbruck | 60.080003 | 694 / 694 | none |
+| Pittsburgh | 60.099170 | 1,799 / 1,799 | none |
+| Charleston | 60.146670 | 2,208 / 2,214 | terrain ground truth |
+
+All **30,982 observations / 7,524 required flags** remain unchanged. No required
+endpoint or sampled-throughout point is newly lost, and no previously passing
+gate fails. Throughout means the thirteen recorded epochs, not every frame.
+The unchanged 95% gate is not the stronger pointwise comparison. Both are
+recorded. Actual zero/five opening and Areas, selection panel, and sixty-minute
+start/overview images were viewed for every map. Rio/Asheville also have the
+preceding dedicated short runs; these were not substituted for full runs.
+
+Initial grids and encoded controls match in every run. Every collected raw
+terrain dump (zero/five) is exact; there is **no sixty-minute raw terrain dump**.
+Measured hydraulic floor equals its target at zero/five. Full original floor
+reference exists only for Rio; the other maps' candidate floor is observed,
+not declared byte-identical to an unmeasured original full grid. Every encoded
+terrain edit is non-deepening, original hydrology/resource arrays are retained,
+and all five cleanup receipts are empty.
+
+### Remaining failures and visible limit
+
+Rio flooding is **0.061440 km² against 0.05**, versus the reference maximum
+0.060928. Under the identical original flood mask, 45 minutes has 240 cells
+versus 238: 224 shared, 16 new-only, 14 old-only. This is not a newly passing
+gate or an unchanged numerical result. Full coordinates/depths are retained
+in the evidence bundle. Charleston's actual global correlation is **0.6891
+against 0.9**; the old extreme-point failures remain. No check or mask changed.
+The corrected diagnosis remains source/reference resolution disagreement on
+land first, synthetic beds second; matched-reference land and separate-bed
+measurement is a steward proposal, not acceptance.
+
+The protected dry Rio Comprido intake basin described above remains visible.
+It is not called wet, uncarved, or fixed. The dry-neck improvement and retained
+wet opening earn a partial result, **not the claim that every dry bed is gone**.
+The steward and Opus must judge this remaining hydraulic-control boundary from
+the actual images and intake evidence before landing. No arbitrary head,
+reservoir, removed control guard or threshold waiver is proposed here.
+
+`fixtures/active.json` selects a new, explicitly `partial_not_accepted`, versioned
+contract under `fixtures/contracts/pl912-native-dry-subreach-v1/`. It binds the
+nineteen-file runtime closure, actual game-engine hash, ten complete parity
+builds, exact five shipping packages and fresh native receipts. All 147 old
+fixture/contract files remain byte-exact `cb5e2a1`; the old `current.json`,
+manifest and qualification ledger remain historical. Offline reference-resource
+variants share physics but did not receive five extra native package runs.
+Strict disableMods/menu, macOS and populated long-term behavior are not newly
+qualified. PR42 remains draft; this evidence does not accept PL-912.

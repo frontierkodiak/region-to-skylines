@@ -24,6 +24,12 @@ class DirectGenerationTests(unittest.TestCase):
             for c in json.loads((fixtures / "manifest.json").read_text())["cases"]
             if c["slug"] == "rio"
         )
+        active = json.loads((fixtures / "active.json").read_text())
+        current = json.loads((fixtures / active["current"]).read_text())
+        case = {
+            **case,
+            **next(c["reference"] for c in current["cases"] if c["slug"] == "rio"),
+        }
         fixture = fixtures / "rio"
         raw = gzip.decompress((fixture / "geometry.json.gz").read_bytes())
         with tempfile.TemporaryDirectory() as temporary:

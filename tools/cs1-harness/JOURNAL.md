@@ -2365,3 +2365,39 @@ exact. All 15,490 ground/surface/wet observations replay exactly using measured
 hydraulic floor; 49 offsets are guarded. Actual opening and Areas viewed.
 Cleanup empty. Owned game 1755686 needed normal quit-grace termination, not a
 spontaneous crash. No full 60-minute qualification is implied by this short.
+
+## 2026-11-16 — PL-912 five fresh shipping sixty-minute runs
+
+Blade, RTX 2080 Ti 05:00.0, silent private :57, normal FIFO/holder and Steam
+account checks before every attempt. Clean source `d5b4a8d`; exact shipping
+packages are bound by the new partial fixture contract. Existing 8,004 MiB
+workload and shared 150 W cap were untouched. GPU power/temperature/total VRAM
+are card-wide sampled values, not attributed exclusively to the game.
+
+| Map | Game min | Sim wall s | Card peak MiB | Game sampled peak MiB | Card peak W / °C | Result |
+| --- | ---: | ---: | ---: | ---: | --- | --- |
+| Rio | 60.134448 | 953.964 | 10,821 | not measured | 148.95 / 56 | existing flooding failure |
+| Asheville | 60.118892 | 950.191 | 10,821 | 2,815 | 138.35 / 56 | pass |
+| Innsbruck | 60.080003 | 953.888 | 10,821 | 2,779 | 133.70 / 55 | pass |
+| Pittsburgh | 60.099170 | 958.622 | 10,821 | 2,771 | 132.73 / 52 | pass |
+| Charleston | 60.146670 | 953.137 | 10,821 | 2,781 | 137.77 / 54 | existing ground-truth failure |
+
+Game-only observers sampled exact owned PIDs every two seconds: 437/401/438/372
+samples for Asheville/Innsbruck/Pittsburgh/Charleston. These are not continuous
+or guaranteed loading peaks. Rio's 1,574 MiB menu sample is not a game peak.
+Wall values exclude queue/boot/teardown. No owned observer remained running.
+
+All 30,982 original observations, 7,524 required flags, masks and thresholds
+remain. Required sampled-throughout counts: Rio 1,531/1,556; Asheville
+1,261/1,261; Innsbruck 694/694; Pittsburgh 1,799/1,799; Charleston 2,208/2,214.
+No newly lost required endpoint/throughout point and no previously passing
+gate regression. Actual selection, zero/five opening+Areas and end start/overview
+images were viewed. Native initial grids/controls and every collected raw
+terrain epoch are exact; raw terrain was dumped at zero/five, not sixty.
+
+Rio still fails flooding: 0.061440 km² versus 0.05, prior 0.060928. Same original
+mask at 45 minutes: 224 shared / 16 new-only / 14 old-only cells. Charleston
+correlation remains failed, 0.6891 versus 0.9, including extreme-point errors.
+Protected dry Rio inlet basins remain visible. No acceptance or threshold waiver.
+All five completed foreground with empty cleanup; normal quit-grace exact-owned
+game termination, not spontaneous crashes. No other holder was stopped.
