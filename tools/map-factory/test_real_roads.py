@@ -268,6 +268,23 @@ class LandCoverPath(unittest.TestCase):
                 self.receipt["package"]["sha256"],
             )
 
+    def test_capacity_failure_does_not_leave_a_ready_named_map(self):
+        import tempfile
+
+        from real_roads import write
+
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory)
+            for name in ("terrain.u16", "water.u16"):
+                (output / name).write_bytes((self.out / name).read_bytes())
+            hydro = json.loads((self.out / "hydrology.json").read_text())
+            hydro["highways"] = {"nodes": [{}] * nc.NODES, "edges": []}
+            (output / "hydrology.json").write_text(json.dumps(hydro))
+            with self.assertRaisesRegex(ValueError, "native capacities"):
+                write(output)
+            self.assertFalse((output / (hydro["map_id"] + ".crp")).exists())
+            self.assertTrue((output / (hydro["map_id"] + ".crp.unfinished")).exists())
+
 
 if __name__ == "__main__":
     unittest.main()

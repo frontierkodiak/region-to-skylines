@@ -169,7 +169,10 @@ def seat(ground, depth, graph, bed=14.0, reach=40.0):
     target = np.zeros_like(ground)
     centre = np.zeros(ground.shape, bool)
     for e in edges:
-        if e["kind"] not in ("highway", "ramp", "rail") or e["structure"] == "bridge":
+        if (
+            e["kind"] not in ("highway", "ramp", "rail", "street", "street_oneway")
+            or e["structure"] == "bridge"
+        ):
             continue
         # A tunnel's portal (slope) segment cuts its approach; its interior doesn't.
         if e["structure"] == "tunnel" and not any(
@@ -255,23 +258,48 @@ def grade_directions(graph):
             e[key] = [e[key][0], float(sign * grade), e[key][2]]
 
 
-def prepare_roads(output, geometry, air=True, ship=True):
+def prepare_roads(
+    output, geometry, air=True, ship=True, streets=None, street_scope="all-motor"
+):
     """Add the road graph to an already prepared region directory."""
     data, _ = surface_geometry(json.loads(Path(geometry).read_text()))
     hydro = json.loads((output / "hydrology.json").read_text())
     ground, depth = _grid(output / "terrain.u16"), _grid(output / "water.u16")
-    graph = build_highway_graph(data, ground, depth, rail=True)
+    if streets is None:
+        graph = build_highway_graph(data, ground, depth, rail=True)
+    else:
+        from osm_highways import _network, fragments
+        from osm_streets import build_street_graph
+
+        graph = build_street_graph(
+            json.loads(Path(streets).read_text()),
+            data["sq"],
+            ground,
+            depth,
+            street_scope,
+        )
+        graph["report"]["source_sha256"] = hashlib.sha256(
+            Path(streets).read_bytes()
+        ).hexdigest()
+        rail_frags, tunnels = fragments(data, rail=True)
+        tracks = _network(rail_frags, tunnels, ground, depth, rail=True)
+        merge(graph, tracks)
+        graph["report"]["rail"] = tracks["report"]
     # Overlapping OSM pieces can leave two segments between the same nodes,
     # which the game's tools never build; keep the first.
     seen, edges = set(), []
     for e in graph["edges"]:
         key = frozenset((e["a"], e["b"]))
-        if key not in seen:
+        if key not in seen or (streets is not None and e["kind"] != "rail"):
             seen.add(key)
             edges.append(e)
     graph["report"]["duplicate_segments_dropped"] = len(graph["edges"]) - len(edges)
     graph["edges"] = edges
-    start, why = choose_start(graph, ground, depth, hydro["start_tile"])
+    start, why = (
+        choose_start(graph, ground, depth, hydro["start_tile"])
+        if streets is None
+        else (hydro["start_tile"], "starting city: standard tile retained")
+    )
     air, air_report = air_path(data, ground) if air else (None, {"air": "off"})
     ship, ship_report = (
         ship_path(data, ground, depth, start, hydro["sea_level_m"])
@@ -281,7 +309,8 @@ def prepare_roads(output, geometry, air=True, ship=True):
     merge(graph, air, ship)
     report = {**graph["report"], **air_report, **ship_report}
     report["seat"] = seat(ground, depth, graph)
-    grade_directions(graph)
+    if streets is None:
+        grade_directions(graph)
     if start != hydro["start_tile"]:
         hydro["start_tile"] = start
         hydro["start_area"] = {
@@ -324,7 +353,7 @@ def preview_assets(assets, crp, hydro):
             "nodes": [f"h{e['a']}", f"h{e['b']}"],
         }
         for e in hydro["highways"]["edges"]
-        if e["kind"] in ("highway", "ramp", "rail")
+        if e["kind"] in ("highway", "ramp", "rail", "street", "street_oneway")
     ]
     terrain = np.fromfile(crp.parent / "terrain.u16", dtype="<u2")
     depth = np.fromfile(crp.parent / "water.u16", dtype="<u2")
@@ -409,7 +438,7 @@ def road_layout(hydro):
     segments = [
         {"from": f"h{e['a']}", "to": f"h{e['b']}"}
         for e in hydro["highways"]["edges"]
-        if e["kind"] in ("highway", "ramp", "rail")
+        if e["kind"] in ("highway", "ramp", "rail", "street", "street_oneway")
     ]
     layout["segments"] = layout["segments"] + segments
     return layout, {
@@ -458,7 +487,11 @@ def write(
         report = paint(output, None, output, knobs=knobs, plan=output / "plan.npz")
         report.update({"environment": environment, "biome": biome})
         (output / "resources.json").write_text(json.dumps(report, indent=2) + "\n")
-    return finish(crp, hydro), report
+    pending = crp.with_suffix(".crp.unfinished")
+    crp.replace(pending)
+    package = finish(pending, hydro)
+    pending.replace(crp)
+    return package, report
 
 
 def generate(
@@ -471,6 +504,8 @@ def generate(
     knobs=None,
     air=True,
     ship=True,
+    streets=None,
+    street_scope="all-motor",
 ):
     """Main's generation (preparation, resources, native admission), then roads.
 
@@ -489,7 +524,9 @@ def generate(
         evidence=evidence,
         knobs=knobs,
     )
-    roads = prepare_roads(output, output / "geometry.json", air, ship)
+    roads = prepare_roads(
+        output, output / "geometry.json", air, ship, streets, street_scope
+    )
     resources = receipt.get("resources") or {}
     package, report = write(
         output,
@@ -500,6 +537,12 @@ def generate(
         resources.get("biome"),
     )
     receipt.update({"real_roads": roads, "package": package})
+    if streets is not None:
+        receipt["starting_city"] = {
+            "street_scope": street_scope,
+            "native_qualified": False,
+            "save_delivered": False,
+        }
     if report is not None:
         receipt["resources"].update(
             {k: report[k] for k in ["knobs", "trees", "tree_budget", "unlockable"]}
@@ -523,7 +566,20 @@ if __name__ == "__main__":
     parser.add_argument("--evidence", type=Path)
     parser.add_argument("--no-air", action="store_false", dest="air")
     parser.add_argument("--no-ship", action="store_false", dest="ship")
+    parser.add_argument(
+        "--streets",
+        type=Path,
+        help="experimental full OSM node/way extract from osm_streets.py",
+    )
+    parser.add_argument(
+        "--street-scope",
+        choices=["all-motor", "playable"],
+        default="all-motor",
+        help="playable clips local roads to the central 25 tiles, keeping outside highways; default keeps all motor roads in the full square",
+    )
     args = parser.parse_args()
+    if args.streets is None and args.street_scope != "all-motor":
+        parser.error("--street-scope requires --streets")
     receipt = generate(**vars(args))
     roads = receipt["real_roads"]
     print(

@@ -14,6 +14,10 @@ validate the new geographic transformations.
 
 ## Generate a map
 
+For the experimental physical-network work toward a real starting city, see
+[the starting-city street pilot](STARTING_CITY.md). It is not a shipping map
+change or a grown-city save.
+
 Run from this directory:
 
 ```sh
