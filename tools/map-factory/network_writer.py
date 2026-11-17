@@ -29,8 +29,7 @@ PREFABS = {
     ("highway", "bridge"): "Highway Bridge",
     ("ramp", "ground"): "HighwayRamp",
     ("ramp", "bridge"): "HighwayRampElevated",
-    # Tunnels need portal (slope) segments; until then the road crosses the
-    # ridge at ground level.
+    # A single-segment tunnel run has no room for two portals and stays ground.
     ("highway", "tunnel"): "Highway",
     ("ramp", "tunnel"): "HighwayRamp",
     ("air", "ground"): "Airplane Path",
@@ -38,6 +37,12 @@ PREFABS = {
     ("rail", "ground"): "Train Track",
     ("rail", "bridge"): "Train Track Elevated",
     ("rail", "tunnel"): "Train Track",
+    ("street", "ground"): "Basic Road",
+    ("street", "bridge"): "Basic Road Elevated",
+    ("street", "tunnel"): "Basic Road",
+    ("street_oneway", "ground"): "Oneway Road",
+    ("street_oneway", "bridge"): "Oneway Road Elevated",
+    ("street_oneway", "tunnel"): "Oneway Road",
 }
 # Two-way transport paths: their outside nodes use a connection prefab and an
 # Incoming|Outgoing outside building, as in 7th Island Enhanced.
@@ -45,22 +50,27 @@ CONNECTIONS = {
     "air": ("Airplane Connection Path", "Airplane Connection"),
     "ship": ("Ship Connection Path", "Ship Connection"),
     "rail": ("Train Connection Track", "Train Connection"),
+    "street": ("Basic Road", "Road Connection"),
 }
-TWO_WAY = {"air", "ship", "rail"}
-GROUND_PREFABS = {"Highway", "HighwayRamp", "Train Track"}
+TWO_WAY = {"air", "ship", "rail", "street"}
+GROUND_PREFABS = {"Highway", "HighwayRamp", "Train Track", "Basic Road", "Oneway Road"}
 ELEVATED_PREFABS = {
     "Highway Bridge": "HighwayBridgePillar",
     "HighwayRampElevated": "HighwayBridgePillar",
     "Train Track Elevated": "RailwayElevatedPillar",
+    "Basic Road Elevated": "HighwayBridgePillar",
+    "Oneway Road Elevated": "HighwayBridgePillar",
 }
 DISABLE_ONLY_MIDDLE = 0x10000000
 INCOMING_OUTGOING = 0xC0
 # Native tunnels (7th Island Enhanced): a Slope segment joins the ground portal
-# node to an Underground tunnel node; both ends are Junctions. Ramp tunnels stay
-# ground segments inside the hillside until their prefab names are confirmed.
+# node to an Underground tunnel node; both ends are Junctions.
 TUNNELS = {
     "highway": ("Highway Tunnel", "Highway Slope"),
+    "ramp": ("HighwayRamp Tunnel", "HighwayRamp Slope"),
     "rail": ("Train Track Tunnel", "Train Track Slope"),
+    "street": ("Basic Road Tunnel", "Basic Road Slope"),
+    "street_oneway": ("Oneway Road Tunnel", "Oneway Road Slope"),
 }
 UNDERGROUND = 0x80000
 TEMPLATE_ROADS = {"Highway Elevated", "Highway Connection Elevated"}
@@ -130,6 +140,13 @@ def apply_highways(data, graph, ground_height):
         net.nodes[n]["building"] for n in old_roads if net.nodes[n]["building"]
     ]
     nodes, edges = graph["nodes"], graph["edges"]
+    if (
+        len(net.nodes) + len(nodes) >= nc.NODES
+        or len(net.segments) + len(edges) >= nc.SEGMENTS
+    ):
+        raise ValueError(
+            f"Road graph needs {len(net.nodes) + len(nodes)} nodes / {len(net.segments) + len(edges)} segments; native capacities are {nc.NODES - 1} / {nc.SEGMENTS - 1}"
+        )
     touching = [[] for _ in nodes]
     for k, e in enumerate(edges):
         touching[e["a"]].append(k)
@@ -163,7 +180,15 @@ def apply_highways(data, graph, ground_height):
 
     def node_kind(i):
         kinds = [edges[k]["kind"] for k in touching[i]]
-        for kind in ["highway", "ramp", "rail", "air", "ship"]:
+        for kind in [
+            "highway",
+            "ramp",
+            "street",
+            "street_oneway",
+            "rail",
+            "air",
+            "ship",
+        ]:
             if kind in kinds:
                 return kind
         raise ValueError(f"Unknown network kind in {kinds}")
@@ -215,7 +240,7 @@ def apply_highways(data, graph, ground_height):
         if prefab in below:
             flags |= UNDERGROUND
         portal = any(edge_prefab[k] in slopes for k in touching[i])
-        if kind not in TWO_WAY:
+        if all(edges[k]["kind"] not in TWO_WAY for k in touching[i]):
             if starts:
                 flags |= ONE_WAY_OUT
             if ends:
@@ -278,6 +303,8 @@ def apply_highways(data, graph, ground_height):
                 _angle(direction),
                 0,
             )
+            if kind in ("street", "street_oneway"):
+                buildings.set_prefab(clones[node_id], "RoadSmallBridgePillar")
             pillars += 1
     for node_id, building in clones.items():
         net.nodes[node_id]["building"] = building
@@ -316,9 +343,11 @@ def apply_highways(data, graph, ground_height):
             if n.get("outside") and edges[touching[i][0]]["kind"] == kind
         ]
 
-    roads = outside("highway") + outside("ramp")
-    entries = sum(1 for i in roads if edges[touching[i][0]]["a"] == i)
-    exits = len(roads) - entries
+    roads = outside("highway") + outside("ramp") + outside("street_oneway")
+    entries = sum(1 for i in roads if edges[touching[i][0]]["a"] == i) + len(
+        outside("street")
+    )
+    exits = len(roads) + 2 * len(outside("street")) - entries
     net_bytes, building_bytes = net.encode(), buildings.encode()
     payload = (
         (

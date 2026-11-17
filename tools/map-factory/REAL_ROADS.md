@@ -101,8 +101,9 @@ Facts the writer relies on, each checked in the game source:
 
 ## Not done or not verified
 
-- Ramp tunnels stay ground segments inside the hillside: the vanilla ramp
-  tunnel and slope prefab names aren't confirmed.
+- PL-1031 adds ramp tunnel/slope encoding after checking the stock prefab
+  catalogue. That addition, like its local-street variants, still needs native
+  qualification. See [the street pilot](STARTING_CITY.md).
 - Rail crosses roads where OSM does; where neither side is a bridge (one in
   Asheville) the two overlap without a level crossing.
 - Airports for squares outside the five fixtures must be passed as
