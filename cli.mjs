@@ -9,8 +9,9 @@ import { mkdir, writeFile, readFile, access } from "node:fs/promises";
 import { homedir, platform } from "node:os";
 import { join, resolve } from "node:path";
 import { CS1, SITE, DEFAULTS, PRESETS, sampleElevation, seaMask, fetchBasemapWater, buildMap, mapDetails, parseHash, squareHash, extentOf, encode16, png16, pngRGB, waterMap, slugify, coordName, squareProblem, describeSpot } from "./terrain.js";
+import { LAUNCH_EXAMPLES, mapWarning } from "./launch.js";
 
-const presetNames = PRESETS.map((p) => p.name).join(", ");
+const presetNames = LAUNCH_EXAMPLES.map((p) => p.name).join(", ");
 
 const USAGE = `Region to Cities: Skylines: real terrain to a Cities: Skylines 1 map.
 
@@ -164,7 +165,7 @@ if (install && !(await exists(gameDir())))
   fail(3, `Cities: Skylines data folder not found at ${gameDir()}. Start the game once on this computer, or pass --game-dir <its data folder>.`);
 
 const opts = { vscale: sq.vscale, ...Object.fromEntries(Object.keys(DEFAULTS).map((k) => [k, sq[k]])) };
-const check = PRESETS.find((p) => p.lon === sq.lon && p.lat === sq.lat && sq.rotation === 0 && sq.scale === 1)?.check ?? null;
+const check = mapWarning(PRESETS.find((p) => p.lon === sq.lon && p.lat === sq.lat && sq.rotation === 0 && sq.scale === 1));
 let bytes, details, map = null, mapName = null, report = null;
 log(`Building ${name}: ${(extentOf(sq) / 1000).toFixed(2)} km square at ${sq.lat.toFixed(5)}, ${sq.lon.toFixed(5)}, rotated ${sq.rotation}°`);
 if (crp) {
@@ -224,7 +225,7 @@ let steps;
 if (crp) {
   steps = [
     `Start Cities: Skylines (the first game), choose New Game and pick "${mapName}".`,
-    "That's all: the rivers already have water in them, a highway and a railway connect the starting tile to the outside, and there are forests, farmland, ore and oil. No Map Editor step.",
+    "The map includes water, a highway and railway from the starting tile to the outside, forests, farmland, ore and oil. No Map Editor step.",
     "The 81 Tiles 2 mod hasn't been tried with these maps.",
   ];
 } else {

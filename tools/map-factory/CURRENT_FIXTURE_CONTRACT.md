@@ -1,4 +1,25 @@
-# Current fixture contract: PL-912 stream-only v1
+# Current fixture contract
+
+`fixtures/active.json` selects `contracts/pl912-transient-storage-v1/current.json`,
+the landed partial baseline. Its five native packages, original masks, full-run
+ledger and failed checks remain unchanged and `partial_not_accepted`.
+
+## Historical tooling lineage
+
+The active pointer additionally binds `pl912-observer-tooling-v1/lineage.json`.
+The original short proof pins its actual execution driver, not the later
+recorder-enabled diagnostic driver landed in PR49. The exact old driver is
+archived by its original hash; the current tooling file has a separate strict
+hash. All nineteen shipping runtime dependencies still bind current source
+directly, and none may use a historical snapshot. The previous active pointer
+is archived byte-exact. This repairs the inherited main-branch test mismatch
+without relabelling old evidence as a run on newer tooling or refreshing any
+native qualification.
+
+## Earlier stream-only v1 reference (historical)
+
+The reference below predates the PR42/PR48/PR49 partial landings. Its original
+identities are retained as history, not the current active pointer or PR state.
 
 `fixtures/current.json` is the current **byte-conformance and partial-evaluation**
 contract. `npm run test:fixtures` consumes it for all five regions, with ten full

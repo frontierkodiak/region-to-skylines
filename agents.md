@@ -70,9 +70,14 @@ The command prints the steps. For a **ready-to-play map**:
 
 1. Start Cities: Skylines, choose **New Game** and pick the map by the name the command
    printed (for Asheville, "Asheville - Ready to Play").
-2. That's all: water already flows, the highway and railway are connected, and the
+2. The map includes water, a connected highway and railway, and the
    forests and fields are in place. The map's theme follows the place — temperate,
    tropical or boreal — so its trees suit the region.
+
+Launch examples are Asheville, Innsbruck and Pittsburgh, plus Rio with localized
+flooding and dry minor-stream beds disclosed. Do not present Charleston as a
+geographically qualified launch example: its terrain accuracy check failed.
+Keep region-specific warnings; do not claim every carved stream is wet.
 
 Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
 Charleston squares, including separate no-mods city starts. Other squares, rotations,

@@ -6,7 +6,7 @@ import { dirname } from "node:path";
 import { FACTORY_FILES } from "./mapgen.js";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "style.css", "agents.md", "llms.txt"];
+const PAGE = ["index.html", "app.js", "launch.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "style.css", "agents.md", "llms.txt"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes
