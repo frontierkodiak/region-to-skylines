@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 import { captureInputs } from "./inputs.js";
+import { LAUNCH_EXAMPLES, mapWarning } from "./launch.js";
 
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
@@ -110,7 +111,7 @@ map.on("moveend", () => { writeHash(); schedule(); });
 // ---------------------------------------------------------------- controls
 
 function renderPresets() {
-  $("presets").replaceChildren(...PRESETS.map((p) => {
+  $("presets").replaceChildren(...LAUNCH_EXAMPLES.map((p) => {
     const b = document.createElement("button");
     b.textContent = p.name;
     const on = Math.abs(p.lon - state.lon) < 0.01 && Math.abs(p.lat - state.lat) < 0.01;
@@ -268,7 +269,7 @@ function setDownload(water) {
   dl.textContent = fallback
     ? ({ loading: "Download heightmap now (rivers still loading)", failed: "Download heightmap (no rivers or lakes)" }[water] ?? "Download heightmap")
     : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? "Download ready-to-play map");
-  const check = checkedPreset()?.check, note = fallback || check;
+  const check = mapWarning(checkedPreset()), note = fallback || check;
   $("crpnote").hidden = !note;
   $("crpnote").textContent = fallback ?? check ?? "";
   $("crpmapname").textContent = `\u201c${titleFor()} - Ready to Play\u201d`;

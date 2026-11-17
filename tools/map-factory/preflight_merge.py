@@ -55,6 +55,20 @@ def preflight(head, base):
             },
         }
     expected.update({FIXTURES + p["file"]: p["sha256"] for p in parents.values()})
+    if active.get("tooling_lineage"):
+        lineage_ref = active["tooling_lineage"]
+        expected[FIXTURES + lineage_ref["file"]] = lineage_ref["sha256"]
+        lineage = json.loads(blob(head, FIXTURES + lineage_ref["file"]))
+        expected[FIXTURES + lineage["previous_active"]["file"]] = lineage[
+            "previous_active"
+        ]["sha256"]
+        for path, entry in lineage["files"].items():
+            if path in contract["source_files_sha256"]:
+                raise ValueError(
+                    "Shipping runtime cannot use a historical tooling snapshot"
+                )
+            expected[path] = entry["current_sha256"]
+            expected[FIXTURES + entry["execution_snapshot"]] = entry["execution_sha256"]
     for path, digest in expected.items():
         if hashlib.sha256(blob(tree, path)).hexdigest() != digest:
             mismatches.append(path)

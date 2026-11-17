@@ -5,7 +5,7 @@ import { createHash } from "node:crypto";
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const parse = (bytes) => JSON.parse(new TextDecoder().decode(bytes));
 
-export async function loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles }) {
+export async function loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles, executionSnapshots = {} }) {
   assert.equal(current.version, "pl912-transient-storage-v1");
   assert.equal(current.format, 1);
   assert.equal(current.status, "partial_not_accepted");
@@ -42,7 +42,7 @@ export async function loadTransientContract({ read, readSource, current, histori
   assert.equal(shorts.review_issue, "PL-1002");
   assert.deepEqual(shorts.cases.map((c) => c.case), ["rio", "asheville"]);
   for (const [name, digest] of Object.entries(shorts.material_files_sha256))
-    assert.equal(sha(await readSource(name)), digest, `${name}: short-tested material changed`);
+    assert.equal(sha(executionSnapshots[name] ?? await readSource(name)), digest, `${name}: short-tested execution material changed`);
   for (const c of shorts.cases) {
     assert.equal(c.audit.numeric_short_pass, true);
     assert.equal(c.pool.pool_stage_pass, true);

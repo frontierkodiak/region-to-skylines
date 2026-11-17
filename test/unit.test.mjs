@@ -7,6 +7,7 @@ import { execFileSync } from "node:child_process";
 import { FACTORY_FILES, worldCoverFile } from "../mapgen.js";
 import { oceanMask, carveSurfaceWater, CAPTURE } from "../inputs.js";
 import { CS1, PRESETS, waterwayTags, carveWater } from "../terrain.js";
+import { LAUNCH_EXAMPLES, mapWarning } from "../launch.js";
 
 const root = new URL("../", import.meta.url).pathname;
 
@@ -75,9 +76,31 @@ test("presets with a failed game check say so; the others don't", () => {
   for (const slug of ["asheville", "innsbruck", "rio", "pittsburgh", "charleston"]) assert.ok(PRESETS.find((p) => p.slug === slug), slug);
 });
 
+test("launch examples exclude Charleston and disclose Rio without changing the input catalog", () => {
+  assert.deepEqual(LAUNCH_EXAMPLES.map((p) => p.slug), ["asheville", "innsbruck", "pittsburgh", "rio"]);
+  assert.equal(PRESETS.length, 8);
+  assert.match(mapWarning(PRESETS.find((p) => p.slug === "rio")), /localized flooding.*dry minor-stream/);
+  assert.match(mapWarning(PRESETS.find((p) => p.slug === "charleston")), /terrain accuracy check failed/);
+  assert.equal(mapWarning(PRESETS.find((p) => p.slug === "asheville")), null);
+});
+
 
 const readFixture = async (name) => readFileSync(root + "tools/map-factory/" + name);
 const readContractSource = async (name) => readFileSync(root + name);
+
+test("historical short tooling stays pinned separately from the current observer driver", async () => {
+  const active = JSON.parse(await readFixture("fixtures/active.json"));
+  const lineage = JSON.parse(await readFixture("fixtures/" + active.tooling_lineage.file));
+  const name = "tools/map-factory/native_opening_diagnostic.py";
+  await assert.rejects(loadFixtureContract(readFixture, async (path) => path === name
+    ? Buffer.concat([await readContractSource(path), Buffer.from("\n# changed\n")]) : readContractSource(path)), /unbound current tooling/);
+  const snapshot = "fixtures/" + lineage.files[name].execution_snapshot;
+  await assert.rejects(loadFixtureContract(async (path) => path === snapshot
+    ? Buffer.concat([await readFixture(path), Buffer.from("\n# changed\n")]) : readFixture(path), readContractSource), /historical execution source changed/);
+  const unbound = { ...active }; delete unbound.tooling_lineage;
+  await assert.rejects(loadFixtureContract(async (path) => path === "fixtures/active.json"
+    ? Buffer.from(JSON.stringify(unbound)) : readFixture(path), readContractSource), /short-tested execution material changed/);
+});
 
 test("current partial fixture contract binds all five native packages without claiming acceptance", async () => {
   const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource);

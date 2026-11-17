@@ -1,5 +1,9 @@
 {
   "format": 2,
   "current": "contracts/pl912-transient-storage-v1/current.json",
-  "historical_current": "current.json"
+  "historical_current": "current.json",
+  "tooling_lineage": {
+    "file": "contracts/pl912-observer-tooling-v1/lineage.json",
+    "sha256": "c9edc3d5c224830aed2279fc657495eafc425ff42965260e79e2568cd52691ad"
+  }
 }

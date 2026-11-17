@@ -15,8 +15,25 @@ export async function loadFixtureContract(read, readSource) {
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const current = parse(await read("fixtures/" + active.current));
+  const executionSnapshots = {};
+  if (active.tooling_lineage) {
+    const lineage = parse(await read("fixtures/" + active.tooling_lineage.file));
+    assert.equal(sha(await read("fixtures/" + active.tooling_lineage.file)), active.tooling_lineage.sha256);
+    assert.equal(lineage.format, 1);
+    assert.equal(lineage.native_tested_head, current.native_tested_head);
+    assert.equal(lineage.current_contract_sha256, sha(await read("fixtures/" + active.current)));
+    assert.deepEqual(Object.keys(lineage.files), ["tools/map-factory/native_opening_diagnostic.py"]);
+    for (const [name, entry] of Object.entries(lineage.files)) {
+      assert.ok(!(name in current.source_files_sha256), "shipping runtime cannot use a historical tooling snapshot");
+      assert.equal(sha(await readSource(name)), entry.current_sha256, `${name}: unbound current tooling`);
+      const bytes = await read("fixtures/" + entry.execution_snapshot);
+      assert.equal(sha(bytes), entry.execution_sha256, `${name}: historical execution source changed`);
+      executionSnapshots[name] = bytes;
+    }
+    assert.equal(sha(await read("fixtures/" + lineage.previous_active.file)), lineage.previous_active.sha256);
+  }
   if (current.version === "pl912-transient-storage-v1")
-    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES, executionSnapshots });
   assert.equal(current.previous_contracts.accepted_presentation.file, "current.json");
   assert.equal(current.previous_contracts.native_baseline.file, "contracts/pl912-native-dry-subreach-v1/current.json");
   for (const parent of Object.values(current.previous_contracts))

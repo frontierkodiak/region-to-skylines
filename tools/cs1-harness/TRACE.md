@@ -75,6 +75,31 @@ once per process. The full control catalog must match the loaded state, and it
 is rechecked on every recorded update. The package hash in the request must
 also be checked by the owning driver against its installed map.
 
+For a flood window, select an existing failing component under the original
+reference-water/mapped-water mask before acquiring the slot. The reusable
+`cs1_harness.flood_region` functions retain that predicate and close the region
+over every touching source's complete input/output footprint plus halo. A
+cells-only region with no touching sources is valid: its direct source terms
+are zero, not evidence that remote supplies are inactive. Oversized regions
+fail; the whole-map acceptance mask does not change to make a region fit.
+
+After collecting an unchanged-package loaded-city window and empty cleanup:
+
+```sh
+uv run python -m cs1_harness.flood_region \
+  --run /own/run --reference /original/reference-water.u16 \
+  --mapped /original/mapped-water.u8 --plan /own/region-plan.json \
+  --hydrology /unchanged/hydrology.json --out /own/flood-region-report.json
+```
+
+The report replays the actual trace, closes local published storage against
+source input/output and net transport, and reports whole-map and selected
+flood area/depth, starting-tile overlap and conservative native transport
+segment-bounds overlap. It rejects unexplained publication carry or budget
+residuals. Bounds overlap is not a path-blockage verdict; keep actual native
+path results separate. Net transport is not a reconstruction of face flux
+or the provenance of water from distant sources.
+
 After pausing, call `trace_finish` with an absolute staging directory. A paused
 water thread can remain inside an update waiting for render progress, so waiting
 for the entire solver to become idle is not a valid export contract. The recorder

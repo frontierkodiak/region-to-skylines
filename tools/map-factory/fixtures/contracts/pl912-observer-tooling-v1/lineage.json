@@ -1,0 +1,19 @@
+{
+  "format": 1,
+  "scope": "historical diagnostic execution source, not a physical package or native qualification delta",
+  "native_tested_head": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+  "current_contract_sha256": "dd78e9df097f09582cfb7d72c567f852699396450bf4cf3e45e6cc4a4683c9a7",
+  "landed_tooling_merge": "e03442df4b19400d58b82a8fec0837c9b6e772b6",
+  "previous_active": {
+    "file": "contracts/pl912-observer-tooling-v1/previous-active.json",
+    "sha256": "03e87144c76d9a79963c672067677b43b1931c30f69cce8c84d0166afe45388b"
+  },
+  "files": {
+    "tools/map-factory/native_opening_diagnostic.py": {
+      "execution_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+      "execution_sha256": "c122cdec684bfc4cc0ad3a3d47b845d4cfdae27b0aabeabd9b0b44958aad60c7",
+      "execution_snapshot": "contracts/pl912-observer-tooling-v1/short-execution-driver.py",
+      "current_sha256": "885199bacb173917d7cf8e8e28fd364f6804e71aa23e19936eb37939acf05a4b"
+    }
+  }
+}

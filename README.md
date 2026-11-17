@@ -89,6 +89,16 @@ the heightmap instead.
   grid for the reference squares.
 - `mapgen-worker.js` is the page's worker; `cli.mjs` calls the same functions.
 
+Launch examples are **Asheville, Innsbruck and Pittsburgh**, plus **Rio with
+localized flooding and dry minor-stream beds disclosed**. Charleston is excluded
+from the launch examples: its terrain correlation and extreme-point checks fail.
+The exporter ships the landed partial baseline, not the rejected PR50 rate arm
+or the split-only topology prototype. This launch scope does not change a gate
+or declare all five maps accepted. Rio's measured full-run flood area worsened
+from 0.061440 to **0.062464 km²**, against the unchanged **0.05 km²** limit.
+Remaining dry banks and the 29 drier / 14 wetter exact-point findings stay open;
+gains do not erase losses. A genuinely wet stream may retain native sandy shore.
+
 Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
 Charleston squares, not arbitrary locations, rotations or scales. PL-918 repeats the
 hour-long tests and separate no-mods city starts on the inputs the site captures.
