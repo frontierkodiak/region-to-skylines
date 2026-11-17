@@ -12,6 +12,12 @@ The original PL-848 Asheville template passed ordinary **New Game** and city
 play with `--disableMods --noWorkshop` on CS1 1.21.1-f9. That result does not
 validate the new geographic transformations.
 
+For additional gameplay layers, [map-versus-save format support](GAMEPLAY_FORMATS.md)
+separates native carriers from current writer support and load-time resets;
+[Asheville gameplay data](ASHEVILLE_GAMEPLAY_DATA.md) records sources, reuse terms
+and which dam candidates actually fit the default square. These are scoping
+references, not implemented or newly game-qualified features.
+
 ## Generate a map
 
 Run from this directory:

@@ -75,3 +75,8 @@ reads the public map-factory template. `test_private_saves.py` reads real player
 saves, which stay out of this repository.
 
 Only format 121034 is implemented; older saves are refused rather than guessed.
+
+[Map versus save gameplay layers](../map-factory/GAMEPLAY_FORMATS.md) explains
+which decoded state can also be carried in a map, what New Game resets, and
+which encoders are still missing. Reading a manager does not establish that
+the exporter can author it or that a new layer survives native load/reload.
