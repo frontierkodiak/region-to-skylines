@@ -2640,3 +2640,27 @@ run is invented for this explicitly recorded scheduling/reporting delta. The ord
 types or0Harmony reference/dependency. All19 generation runtime files and351
 old factory fixtures remain byte-exact. No proprietary DLL/decompiled code
 is delivered. See TRACE.md and map-factory/ATOMIC_TRACE.md.
+
+## 2026-11-17 — PL-912 flood window blocked before city
+
+Blade GPU05:00.0 / RTX2080Ti; source97768c5. A single guarded FIFO/silent-private:57
+attempt to observe unchanged Rio4858f3eb from15–20 minutes stopped at Steam Cloud
+sync's choice prompt before city/game load. No prompt answered, no trace armed,
+no new native flood image or budget. This is not a game crash. Actual cleanup:
+no game, Steam instances or active units; ordinary no-observer/no-Harmony build
+restored, ephemeral installed mod absent and original enginec7 hash unchanged.
+
+Wall69.015s;66 GPU samples: cardpeak8004MiB, gamepeak N/A (no game started),
+62.8W/27°C. The logged limit was200W, confirmed afterward as both configured and
+enforced; this differs from the historical150W instruction. This run changed no
+power setting and did not touch the other8004MiB workload. Do not report the cap
+as150W or restore shared power policy unilaterally.
+
+Prepared original t015 flood component:54cells/114nodes/zero touching sources,
+complete source-footprint+halo closure. Whole mask and all4256 probes/1556 flags
+retained. New observational flood_region utility has four focused tests;126
+harness tests, scoped Ruff/format, ordinary/trace builds and prelaunch doctor
+pass. Offline replay closes the OLD287-update native boundary budget; it is not
+the missing15–20window. Full native reporting remains unverified and unmerged.
+Launch presentation/lineage changes are isolated in PR52, not held for this
+account prompt; see map-factory/FLOOD_WINDOW.md and the runroot README.
