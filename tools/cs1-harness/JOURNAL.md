@@ -2662,5 +2662,7 @@ retained. New observational flood_region utility has four focused tests;126
 harness tests, scoped Ruff/format, ordinary/trace builds and prelaunch doctor
 pass. Offline replay closes the OLD287-update native boundary budget; it is not
 the missing15–20window. Full native reporting remains unverified and unmerged.
-Launch presentation/lineage changes are isolated in PR52, not held for this
-account prompt; see map-factory/FLOOD_WINDOW.md and the runroot README.
+Launch presentation/lineage changes were isolated in PR52. The owner then
+overruled launch-with-caveats: PR52 is closed/unmerged and its review cancelled;
+launch waits on Rio flood and dry-bank/thinning repair. No baseline was reverted.
+See map-factory/FLOOD_WINDOW.md and the runroot README.
