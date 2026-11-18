@@ -2640,3 +2640,45 @@ run is invented for this explicitly recorded scheduling/reporting delta. The ord
 types or0Harmony reference/dependency. All19 generation runtime files and351
 old factory fixtures remain byte-exact. No proprietary DLL/decompiled code
 is delivered. See TRACE.md and map-factory/ATOMIC_TRACE.md.
+
+
+## 2026-11-18 — PL-912 loaded-city flood window and Cloud scope failure
+
+Blade05:00.0/RTX2080Ti, unchanged Rio4858f3eb at clean native sourcea8ffc38.
+Actual15.028334–20.112779game-minute observation:285sealed updates/114nodes,
+zero touching sources;32490publication comparisons match. Regional storage
+4059−5=4054, original54-cell seed3204−25=3179, direct source input/output0.
+Endpoint depth/floor exact; one explicit unfinished tail excluded. The pre-arm
+snapshot differs at74depth nodes (max8units/+24regional storage); no atomic
+history is claimed for that gap. All4256points/1556flags retained, required
+1556/1545/1532/1532at0/5/15/20, same11five-minute misses. All40Rio calibrated
+pools pass at5/15/20. All17024sampled grounds/surfaces/wet readings replayexact,
+all290controls and initialgrids exact, rawterrain unchanged at allfour epochs.
+
+Original-mask flooding.058112km²at15/.060672at20 remains failed vs.05; no
+starting-tile or native road/rail bounds overlap,5flood cells inside5x5bounds.
+The selected pool already exists beforefive and is on near-held terrain, not a
+large excavated trench. No coupled candidate/full sweep or shipping pass.
+
+**Setup failed the user's no-transfer constraint.** The blade-only localconfig
+cloudenabled=0 edit did not disable actual Cloud. Steam logged2successful save
+file downloads before city load, no upload-OK records. Logs became visible in
+the post-exit audit; the early absence-of-activity reading was incorrect. No
+sync direction was chosen, saves were not opened/deleted/distributed, and old
+local versions were not recorded. The helper is quarantined against replay;
+no further Steam launch on this file readback. Undoing the added key while
+Steam is stopped undoes the edit only, not Cloud conflicts or downloads.
+
+Wall646.085s; cardpeak10821MiB/136.3W/60°C; game-only sparsepeak2803MiB across
+23sampling epochs, not a continuous/loading peak. Other8004MiB workload and
+power settings untouched; recorded limit200W, not historical150W. Owned game
+2400326 needed normal quit-grace termination, not spontaneous crash recovery.
+Cleanupempty, original enginec7 unchanged, ordinary no-observer build restored.
+
+New report layer is separate from map generation, Steam/session/mod and rejected
+launch metadata.127harness tests, scopedRuff/format, actual native positive
+replay and altered-original-mask negative replay pass. Ordinary build passes;
+pre-native doctor passed. No new JS/Pyodide/five-map full qualification. See
+FLOOD_REPORT.md; raw receipts and explicit Cloud exception are in the runroot
+/home/caleb/experiments/PL-912-flood-cloud. No proprietary binaries/decompile,
+Steam logs, video or downloaded save data delivered.

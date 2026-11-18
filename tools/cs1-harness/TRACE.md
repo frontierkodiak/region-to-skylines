@@ -1,5 +1,12 @@
 # Native water tracing
 
+For original-mask component closure, area/depth, native network overlap and
+sealed local budgets, see [FLOOD_REPORT.md](FLOOD_REPORT.md). An earlier paused
+dump may precede the first atomic prestate; do not hide that arming gap or
+extend a budget over its unrecorded history. The endpoint is checked against
+the collected native depth/floor. The reporting tool never changes Steam
+settings or constitutes a safe Cloud-disabling method.
+
 Use this to answer what the installed solver did at selected native grid nodes
 and natural sources. It records observations, not a second water simulation.
 It is separate from map admission and never selects qualification probes or
