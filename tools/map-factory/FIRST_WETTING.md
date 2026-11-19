@@ -64,11 +64,27 @@ and prove Steam alone before any future game. Then the bounded plan remains
 first-wetting observation, at most one defensible coupled repair, five-map CPU
 and complete Rio short before Asheville; no full sweep in that round.
 
+## General-method acceptance requirement
+
+Caleb's November 19 direction requires scalable general techniques, not a
+one-off map repair. Any candidate must be one shared rule whose selection and
+parameters follow physical inputs, not a named place, tile, reach, source ID or
+street. The source IDs in this trace request select observations only; they
+must never become production repair selectors.
+
+Every repair needs evidence on at least one other map and a report explaining
+the shared mechanism, assumptions and counterexamples. The existing five-map
+CPU checks remain required. A successful complete Rio short earns the Asheville
+short as second-map native evidence; neither short replaces later changed-package
+qualification. If a local exception is the only way through a gate, stop and
+report a gap in the general method rather than hand-tuning past it. This direction
+does not clear the offline-client blocker or authorize another Steam launch.
+
 ## Evidence
 
 `/home/caleb/experiments/PL-912-first-wetting` contains the request/preflight,
 exact executed and guarded helper, preference/undo receipts, sanitized log
 classification, client-only proof and cleanup. The issue delivery attaches only
 allowlisted numeric/source evidence, not full configs, raw Steam logs, saves,
-proprietary code or binaries. The native implementation source is the clean
+proprietary code or binaries. The actual client-only test source is the clean
 `9e73827` checkpoint; later documentation changes are not relabelled as a game.
