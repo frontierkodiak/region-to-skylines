@@ -1,5 +1,14 @@
 # Native qualification · PL-926, PL-918 and PL-857
 
+## PL-912 current checkpoint · November 19
+
+Main `9e73827` includes the landed partial PR42/PR48 baseline, PR49 observer
+and tool-only PR54 flood report. These do not accept PL-912. The prepared
+[first-wetting request](FIRST_WETTING.md) retains unchanged Rio and every
+original observation/gate. Its actual Steam-only offline proof failed before
+any game; flags were undone, cleanup empty. No new native result or candidate.
+The historical evidence index below retains its original source dates.
+
 ## PL-912 evidence index · updated November 16
 
 Last verified main is `2abbafa`, including PL-989's biome presentation and the

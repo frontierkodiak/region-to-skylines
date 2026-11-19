@@ -1,5 +1,22 @@
 # cs1-harness journal
 
+## 2026-11-19 · Sol xhigh · PL-912 · Steam-only offline proof failed before game
+
+On blade, clean `9e73827`, private silent :57/FIFO. Carbon had no matching
+Steam-game process before each action. Both authorized loginusers offline flags
+changed 0 -> 1; other parsed preferences exact. Steam alone produced no positive
+offline log evidence and ten fresh Cloud lines (AppID 7 sync). No game launched,
+no trace armed. Observed suffix: zero app255710 entries or upload/download token
+lines, not a blanket guarantee about unlogged activity. No save was accessed.
+Both flags restored to 0 with all other current preferences preserved. Empty
+client/undo cleanup; ordinary build retained, no observer/mod installed, engine
+c7 exact. Actual client-only session about 43 s; GPU peaks unmeasured, no game
+peak. Pre-client card 8,004 MiB / 20.63 W / 25°C, configured limit 200 W; no
+power/other-workload change. One earlier preflight stopped before an edit/client
+because the sole cached account had no MostRecent leaf; its receipt is retained.
+No automatic retry; owner offline-state resolution required. See
+[the first-wetting record](../map-factory/FIRST_WETTING.md).
+
 ## 2026-11-15 · Opus xhigh · PL-984 · city and prefab dumps for the offline save reader
 
 New mod module `DumpOps.cs`: `dump_city {path}` writes every created node,
