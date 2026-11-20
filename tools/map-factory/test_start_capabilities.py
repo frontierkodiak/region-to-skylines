@@ -68,6 +68,29 @@ class StartCapabilities(unittest.TestCase):
         row = start_witness(self.ground, self.depth, {"start_tile": 12})
         self.assertIsNone(row["predicted"])
 
+    def test_through_roads_without_dangling_stubs_are_not_capability_negatives(self):
+        h = copy.deepcopy(self.hydro)
+        h["highways"] = {
+            "nodes": [
+                {"xyz": [x, 50, z], "outside": outside}
+                for x, z, outside in [
+                    (-8640, -100, "west"),
+                    (0, -100, None),
+                    (8640, -100, "east"),
+                    (8640, 100, "east"),
+                    (0, 100, None),
+                    (-8640, 100, "west"),
+                ]
+            ],
+            "edges": [
+                {"a": a, "b": b, "kind": "highway", "structure": "ground"}
+                for a, b in [(0, 1), (1, 2), (3, 4), (4, 5)]
+            ],
+        }
+        row = start_witness(self.ground, self.depth, h)
+        self.assertIsNone(row["predicted"])
+        self.assertEqual("no_supported_two_stub_witness", row["reason"])
+
     def test_scattered_dry_samples_do_not_form_a_contiguous_footprint(self):
         self.depth[:] = 2
         self.depth[::2, ::2] = 0

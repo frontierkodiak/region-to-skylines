@@ -88,8 +88,9 @@ namespace Cs1Harness
                 try { ExecuteWitness(job,w,records); }
                 catch (PlacementRejected e)
                 {
-                    job.Result["observed_native_placement"] = false;
-                    job.Result["failure_kind"] = "native_tool_rejection";
+                    bool resourceFailure=(e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0;
+                    job.Result["observed_native_placement"] = resourceFailure ? null : (object)false;
+                    job.Result["failure_kind"] = resourceFailure ? "fixture_resource_failure" : "native_tool_rejection";
                     job.Result["error"] = e.Message;
                     job.Result["tool_errors"] = e.Errors.ToString();
                     job.Result["colliding_segments"] = e.SegmentHits;
@@ -144,7 +145,7 @@ namespace Cs1Harness
             var c=(List<object>)w["center_xz"];
             float cx=Convert.ToSingle(c[0]),cz=Convert.ToSingle(c[1]);
             float half=(float)Json.Num(w,"footprint_half_m",0);
-            float low=float.MaxValue,high=float.MinValue,maxDepth=0;
+            float low=float.MaxValue,high=float.MinValue,maxDepth=0,maxSlope=0;
             bool inside=true;
             for (float z=-half;z<=half;z+=16)
                 for (float x=-half;x<=half;x+=16)
@@ -152,16 +153,22 @@ namespace Cs1Harness
                     var p=Ground(cx+x,cz+z);
                     inside &= Inside(p,16);
                     low=Mathf.Min(low,p.y); high=Mathf.Max(high,p.y);
+                    float dx=(Ground(p.x+16,p.z).y-Ground(p.x-16,p.z).y)/32;
+                    float dz=(Ground(p.x,p.z+16).y-Ground(p.x,p.z-16).y)/32;
+                    maxSlope=Mathf.Max(maxSlope,Mathf.Sqrt(dx*dx+dz*dz));
                     float floor,surface; Vector3 velocity,normal;
                     if (tm.SampleWaterData(new Vector2(p.x,p.z),out floor,out surface,out velocity,out normal))
                         maxDepth=Mathf.Max(maxDepth,surface-p.y);
                 }
             job.Result["site"] = Host.Obj("inside_start",inside,"native_relief_m",high-low,
-                "max_sampled_depth_m",maxDepth,"spacing_m",16);
-            if (!inside || maxDepth>.1f || high-low>8)
+                "max_sampled_depth_m",maxDepth,"max_sampled_slope",maxSlope,"spacing_m",16);
+            bool predicates=inside && maxDepth<=.1f && high-low<=8 && maxSlope<=.15f;
+            job.Result["observed_footprint_predicates"]=predicates;
+            if (!predicates)
             {
-                job.Result["observed_native_placement"]=false;
-                job.Result["failure_kind"]="native_footprint_rejection";
+                // A model predicate is not a native tool rejection: no Link
+                // call has run yet. Keep placement and start unscored.
+                job.Result["failure_kind"]="model_footprint_predicate_mismatch";
                 return;
             }
             var road=Net("Basic Road");
