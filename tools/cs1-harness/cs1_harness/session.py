@@ -20,7 +20,7 @@ import shutil
 import subprocess
 import time
 
-from . import audio, gpu, observe
+from . import audio, gpu, observe, offline_steam
 from .client import Client, HarnessError
 from .config import Config
 from .steam import backend
@@ -170,6 +170,8 @@ class Session(contextlib.AbstractContextManager):
         self.record = True
         self.live = True
         self.receipt: dict = {"stage": str(stage)}
+        self.require_offline = False
+        self.offline_guard = None
 
     # -- lifecycle -------------------------------------------------------
 
@@ -509,6 +511,15 @@ class Session(contextlib.AbstractContextManager):
         from .setup import LAUNCH_SH
 
         c = self.cfg
+        if self.require_offline:
+            try:
+                self.offline_guard = offline_steam.Guard(c.steam_root)
+                self.check_offline()
+            except (OSError, ValueError) as error:
+                self.receipt["offline_steam_error"] = f"offline Steam preflight: {error}"
+                raise Blocked(self.receipt["offline_steam_error"], EX_NOPERM) from error
+            if c.host == "blade":
+                self.check_carbon_idle()
         wrapper = c.harness_home / "launch.sh"
         if not wrapper.exists() or wrapper.read_text() != LAUNCH_SH:
             raise HarnessError("launch wrapper is out of date; run `cs1-harness setup` before launching")
@@ -546,6 +557,7 @@ class Session(contextlib.AbstractContextManager):
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             self.our_instances |= set(self.steam.instances()) - before
+            self.check_offline()
             self.steam_log.check()
             self.check_audio(require_game=False)
             live_games = set(game_pids(self.cfg.display)) if not control else set()
@@ -586,11 +598,37 @@ class Session(contextlib.AbstractContextManager):
         """Raise if the game went away or Steam reported a conflict mid-run."""
         if self.steam_log:
             self.steam_log.check()
+        self.check_offline()
         if not game_pids(self.cfg.display):
             raise Blocked(
                 "the game process ended unexpectedly (crash, or the account started playing elsewhere)", EX_TEMPFAIL
             )
         self.check_audio()
+
+    def check_offline(self):
+        if self.receipt.get("offline_steam_error"):
+            raise Blocked(self.receipt["offline_steam_error"], EX_NOPERM)
+        if self.offline_guard is not None:
+            try:
+                self.receipt["offline_steam"] = self.offline_guard.check()
+            except (OSError, ValueError) as error:
+                self.receipt["offline_steam_error"] = f"offline Steam check: {error}"
+                raise Blocked(self.receipt["offline_steam_error"], EX_NOPERM) from error
+
+    def check_carbon_idle(self):
+        command = (
+            "ps -axo pid=,comm= | awk '/Cities|steamapps\\/common/ {found=1} "
+            'END {if(!found) print "NO_STEAM_GAME_PROCESS_FOUND"}\''
+        )
+        result = sh("ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", "carbon", command, check=False)
+        if result.returncode or result.stdout.strip() != "NO_STEAM_GAME_PROCESS_FOUND":
+            raise Blocked(
+                "carbon has a Steam game running, or its read-only process check was inconclusive", EX_TEMPFAIL
+            )
+        self.receipt["carbon_preflight"] = {
+            "idle": True,
+            "checked_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        }
 
     def gpu_processes(self) -> str:
         return sh("nvidia-smi", check=False).stdout
@@ -669,4 +707,12 @@ class Session(contextlib.AbstractContextManager):
             ],
         }
         self.receipt["cleanup"] = leftovers
+        offline_error = None
+        try:
+            self.check_offline()
+        except Blocked as error:
+            offline_error = error
+            self.receipt["offline_steam_error"] = str(error)
         (self.stage / "session-receipt.json").write_text(json.dumps(self.receipt, indent=2, default=str) + "\n")
+        if offline_error is not None:
+            raise offline_error

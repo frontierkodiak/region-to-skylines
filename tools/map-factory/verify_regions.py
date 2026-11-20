@@ -35,12 +35,99 @@ def unpack(source, target):
     target.write_bytes(gzip.decompress(source.read_bytes()))
 
 
+def historical_capture_sources(folder):
+    """Explicit archived capture identity; validate current compatibility separately.
+
+    This does not relabel frozen captures as current-source recaptures or native
+    tests. Other source checks below remain live and unchanged.
+    """
+    active_path = folder / "active.json"
+    if not active_path.exists():
+        return {}
+    active = json.loads(active_path.read_text())
+    current = json.loads((folder / active["current"]).read_text())
+    if current["version"] != "pl1066-optional-runways-v1":
+        return {}
+    prefix = "contracts/pl1066-optional-runways-v1/"
+    adoption = current["capture_adoption"]
+
+    def bound(key, name):
+        item = adoption[key]
+        assert item["file"] == prefix + name, (key, "capture archive path changed")
+        raw = (folder / item["file"]).read_bytes()
+        assert hashlib.sha256(raw).hexdigest() == item["sha256"], (
+            key,
+            "capture archive changed",
+        )
+        return raw
+
+    previous_raw = bound("predecessor", "predecessor.json")
+    assert (
+        previous_raw
+        == (folder / "contracts/pl912-water-risk-v1/current.json").read_bytes()
+    )
+    previous = json.loads(previous_raw)
+    assert json.loads(bound("previous_active", "previous-active.json")) == {
+        "format": 2,
+        "current": "contracts/pl912-water-risk-v1/current.json",
+        "historical_current": "current.json",
+    }
+    archived = bound("historical_inputs", "historical-inputs.js")
+    old_hash = hashlib.sha256(archived).hexdigest()
+    assert old_hash == previous["source_files_sha256"]["inputs.js"]
+    live_hash = hashlib.sha256((ROOT.parents[1] / "inputs.js").read_bytes()).hexdigest()
+    assert live_hash == current["source_files_sha256"]["inputs.js"], (
+        "current capture source changed"
+    )
+    expected = {
+        **previous,
+        "version": "pl1066-optional-runways-v1",
+        "scope": "Optional runway capture; default capture byte compatibility; no new native qualification or physical package",
+        "source_files_sha256": {
+            **previous["source_files_sha256"],
+            "inputs.js": live_hash,
+        },
+        "capture_adoption": adoption,
+    }
+    assert current == expected, "predecessor evidence relabelled"
+    proof = json.loads(bound("compatibility", "capture-compatibility.json"))
+    assert proof["status"] == "default_capture_byte_compatible_not_native_qualification"
+    assert proof["native_tested"] is False
+    assert proof["source_sha256"] == {
+        "historical_inputs": old_hash,
+        "current_inputs": live_hash,
+        "terrain": hashlib.sha256(
+            (ROOT.parents[1] / "terrain.js").read_bytes()
+        ).hexdigest(),
+        "proof_driver": hashlib.sha256(
+            (ROOT.parents[1] / "test/capture-runway-proof.mjs").read_bytes()
+        ).hexdigest(),
+    }
+    assert len(proof["cases"]) == 4
+    for case in proof["cases"]:
+        assert case["historical"] == case["current_default"] == case["explicit_false"]
+        assert case["historical_keys"] == case["default_keys"]
+        assert case["historical_provenance_keys"] == case["default_provenance_keys"]
+        for name in ["png", "banks", "game"]:
+            assert case["enabled"][name] == case["historical"][name]
+    return {"inputs.js": archived}
+
+
 def verify(folder):
     manifest = json.loads((folder / "manifest.json").read_text())
+    historical_sources = historical_capture_sources(folder)
+
+    def capture_source(name):
+        return (
+            historical_sources[name]
+            if name in historical_sources
+            else (ROOT.parents[1] / name).read_bytes()
+        )
+
     if manifest.get("capture_module") == "inputs.js":
         for name in ["inputs.js", "terrain.js"]:
             assert (
-                hashlib.sha256((ROOT.parents[1] / name).read_bytes()).hexdigest()
+                hashlib.sha256(capture_source(name)).hexdigest()
                 == manifest["capture_sources_sha256"][name]
             ), (name, "changed; recapture and qualify")
     native_cases = (
@@ -128,9 +215,7 @@ def verify(folder):
                     == native["layout_sha256"]
                 ), (slug, "native layout changed")
                 assert (
-                    hashlib.sha256(
-                        (ROOT.parents[1] / "inputs.js").read_bytes()
-                    ).hexdigest()
+                    hashlib.sha256(capture_source("inputs.js")).hexdigest()
                     == capture["source_files_sha256"]["inputs.js"]
                 ), (slug, "inputs.js changed; recapture and qualify")
                 for name, expected in capture["files_sha256"].items():

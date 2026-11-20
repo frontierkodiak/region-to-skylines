@@ -114,6 +114,11 @@ stages there and moves results to `--out`.
 
 ## Standard test city
 
+For a reusable 60-minute gameplay verdict, use `--scenario first-hour`.
+[FIRST_HOUR.md](FIRST_HOUR.md) describes its sampled services/traffic, land
+measurement and required native map-panel review. It reuses this builder;
+ordinary empty-map water checks remain unchanged.
+
 `run --scenario test-city` builds a disposable city after ordinary New Game,
 then runs the same water/terrain soak. It finds a dry site in the starting
 tile, connects the existing highway approaches to a 288 m road grid, zones

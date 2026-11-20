@@ -39,12 +39,29 @@ export function oceanMask(polygons, sq) {
 
 const lines = (g) => g.type === "MultiLineString" ? g.coordinates : g.type === "LineString" ? [g.coordinates] : [];
 
+/** Longest captured runway axis; ties use coordinates, never network completion order. */
+export function runwayAirport(runways) {
+  const candidates = runways.flatMap(({ pts, name = "", ref = "" }) => {
+    if (pts.length < 2 || !pts.every((p) => p.length >= 2 && p.slice(0, 2).every(Number.isFinite))) return [];
+    const [a, b] = [pts[0], pts.at(-1)].sort((x, y) => x[0] - y[0] || x[1] - y[1]);
+    const lat = (a[1] + b[1]) / 2, lon = (a[0] + b[0]) / 2;
+    const east = (b[0] - a[0]) * Math.cos(lat * Math.PI / 180), north = b[1] - a[1];
+    const length = Math.hypot(east, north);
+    if (!length) return [];
+    return [{ length, key: JSON.stringify([a, b, name, ref]), airport: {
+      name: name || ref || "Captured OSM runway", lat, lon,
+      heading: (Math.atan2(east, north) * 180 / Math.PI + 360) % 360,
+    } }];
+  }).sort((a, b) => b.length - a.length || a.key.localeCompare(b.key, "en"));
+  return candidates[0]?.airport ?? null;
+}
+
 /**
  * Everything the writer reads, for square `sq` ({lon, lat, rotation, scale, name, slug}).
  * Returns {png (16-bit PNG bytes), geometry (object), banks (Float32Array, rows north first),
  * game (Float32Array heights), seaLevel}.
  */
-export async function captureInputs(sq, { signal, status = () => {}, about = {} } = {}) {
+export async function captureInputs(sq, { signal, status = () => {}, about = {}, includeRunways = false } = {}) {
   status("Fetching terrain");
   const elevation = await sampleElevation(sq, { signal });
   const ground = smooth(elevation.heights, CAPTURE.smoothing);
@@ -60,10 +77,15 @@ export async function captureInputs(sq, { signal, status = () => {}, about = {} 
   await Promise.all(Array.from({ length: 6 }, async () => {
     while (queue.length) { const k = queue.shift(); buffers[k] = await basemapTile(z, jobs[k][0], jobs[k][1], signal); }
   }));
-  const roads = [], streams = [], oceans = [];
+  const roads = [], streams = [], oceans = [], runways = [];
   jobs.forEach(([x, y], k) => {
     if (!buffers[k]) return; // missing tiles are unknown, never inferred sea
     const vt = new VectorTile(new Pbf(buffers[k])), tile = { x, y, z };
+    for (let i = 0, L = includeRunways && vt.layers.aeroway; L && i < L.length; i++) {
+      const f = L.feature(i);
+      if (f.properties.class !== "runway") continue;
+      for (const pts of lines(f.toGeoJSON(x, y, z).geometry)) runways.push({ ...f.properties, pts });
+    }
     for (let i = 0, L = vt.layers.water; L && i < L.length; i++) oceans.push(...oceanPolygons(L.feature(i), tile));
     for (let i = 0, L = vt.layers.waterway; L && i < L.length; i++) {
       const f = L.feature(i);
@@ -92,6 +114,12 @@ export async function captureInputs(sq, { signal, status = () => {}, about = {} 
       water: "OpenFreeMap / OpenStreetMap", ocean: { polygons: oceans.length, cells: sea ? sea.reduce((a, b) => a + b, 0) : 0 },
     },
   };
+  if (includeRunways) {
+    geometry.runways = runways;
+    geometry.airport = runwayAirport(runways);
+    geometry.provenance.runway = { source: "OpenFreeMap / OpenStreetMap aeroway layer, class=runway", pieces: runways.length,
+      selection: "longest captured endpoint axis; coordinate tie-break; absent is unknown, not an invented airport" };
+  }
   const png = new Uint8Array(await (await png16(encode16(fit.game), CS1.px, CS1.px)).arrayBuffer());
   return { png, geometry, banks: uncarved.game, game: fit.game, seaLevel: fit.seaLevel };
 }

@@ -121,10 +121,8 @@ def apply_highways(data, graph, ground_height):
     names = net.prefabs.names
 
     # Prototype buildings are cloned before the template roads are removed. The
-    # template railway goes too when the graph has real rail.
-    replaced = TEMPLATE_ROADS | (
-        TEMPLATE_RAIL if any(e["kind"] == "rail" for e in graph["edges"]) else set()
-    )
+    # template railway goes too: absent real rail must remain absent.
+    replaced = TEMPLATE_ROADS | TEMPLATE_RAIL
     old_roads = [n for n in net.nodes if names[net.node_prefab[n]] in replaced]
     old_buildings = [
         net.nodes[n]["building"] for n in old_roads if net.nodes[n]["building"]

@@ -1,5 +1,133 @@
 # cs1-harness journal
 
+## 2026-11-20 — PL-1066 frozen eight-square opening qualification (blade)
+
+PR58 keeps real connections experimental/opt-in. All five fixtures plus the
+three remaining presets, chosen before capture, received the same native
+first-hour attempt. No square, warning threshold, admission fingerprint or
+water plan was repaired to improve its result. Seven candidate packages are
+byte-identical to the original cohort; the generic absent-real-rail rule
+removes Yosemite's phantom template railway. All 16 final-grid warning
+assessments were independently reproduced without writing the frozen roots.
+
+| Square | Observed game-minutes | Population last/sampled peak | Opening result |
+|:--|--:|--:|:--|
+| Asheville | 35.06 sampled | 273/320 | Water service failure; native bankruptcy forced a pause before the hour; no bailout accepted |
+| Innsbruck | 60.09 | 363/381 | Pass, including native inbound/outbound car paths and sampled services/movement |
+| Rio | 0 | not simulated | No dry start-tile grid site passing native road placement |
+| Pittsburgh | 0 | not simulated | Road join rejected TooShort/SlopeTooSteep |
+| Charleston | 60.05 | 389/481 | Fail: dirty-water observations and transient NoFuel warning; also unchanged ground-truth correlation gate fails (0.6877 <0.9) |
+| Grand Canyon | 0 | not simulated | No road hookup, matching explicit no_outside_link |
+| Hong Kong | 0 | not simulated | No dry start-tile grid site passing native road placement |
+| Yosemite | 0 | not simulated | No road hookup, matching explicit no_outside_link |
+
+One of eight opening checks passes; only two complete the requested hour.
+Failures before simulation are not shortened gameplay passes. Moving/total
+vehicles at the last samples were Asheville 1/1, Innsbruck 11/11 and Charleston 4/4.
+Charleston had zero vehicles at 45 then recovered; that is not proof of a jam.
+Movement sampling cannot exclude individual bottlenecks. All raw problem flags,
+including garbage/pollution/workers, remain in the observations. The common
+verdict now recognizes native DirtyWater and NoFuel even after recovery.
+
+Every New Game panel and untouched opening/native Areas pair was visually
+reviewed with PNG hashes. Native buildable percentages, in cohort order:
+73,76,75,79,58,55,50,74. Panel resources and all incoming/outgoing connection
+counts match their exact CRPs, including Yosemite's zero train connections.
+Panel buildable percent and aggregate 32 m dry-flat samples do not establish a
+contiguous opening site; actual construction is independently required.
+
+All 8 maps still flag drying; Rio/Pittsburgh/Charleston/Hong Kong also flag flood.
+Complete reasons, calibration exceptions and infeasible/uncarved notes remain
+in CPU_RESULTS.md/cpu-report.json and the attached native summary. A first-hour
+pass does not clear a warning or qualify all transport modes, save/reload or
+long empty-water soaks. Vanilla cannot unlock all 81; no Workshop mod added.
+
+The new read-only preflight accepts both cached offline flags plus latest
+Failed sync [login=false][offlineMode=true] evidence, and stops on new online
+state. All 8 sessions passed it with 3 fresh failed-offline sync records each;
+carbon was idle at each post-queue launch check. No agent preference edits or
+Steam prompt answers. All 8 cleanup receipts are empty; final queue read free.
+
+An earlier Asheville diagnostic exposed the shared power-line placement bug:
+an energized wire near the sewage outlet did not power its consumer grid cell
+(conductivity 56, below the installed c7 engine's 64 core threshold). The general
+fix uses each prefab's native conductivity-core cell centres and normal native
+placement checks, not square-specific coordinates. The common cohort mod is
+6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd;
+all its sources match the ordinary build receipt. V2 Asheville still failed
+water service. Dumps retain one shallow wet cell near the pump at 15/30; they
+do not prove permanently dry surroundings or a calibrated causal mechanism.
+The earlier failed run is retained, not counted as a final pass. Error reports
+now bind invocation source separately from judging source; the old Asheville
+error header is not treated as an invocation identity.
+
+RTX 2080 Ti bus 05:00.0, total card peak 10821 MiB, baseline 8004 MiB held by other work;
+game-at-menu 1574–1620 MiB (not a continuously measured game-only peak).
+Main cohort monitor walls by row:1061,1170,174,164,1156,158,159,157s;
+card peak 145.01 W / 59°C. Recorded 200 W limit and other workloads untouched.
+Metrics and sanitized evidence: /home/caleb/experiments/PL-1066-first-hour.
+Private decompiled game source, Steam logs and saves are not delivered.
+
+155 harness tests; 141 map-factory tests (one optional skip);17 JS tests;
+10/10 exact reference/shipping Pyodide builds with water-risk parity; scoped
+Ruff/format, ordinary mod build, pre-game GPU doctor and node build pass.
+The legacy Python terrain replay still fails Asheville on both untouched 8718
+and the runway adoption; its physical assertion was not relaxed. New optional
+runway capture has separate default-byte compatibility/source-contract proof,
+not a live recapture or new native qualification claim. No public deployment
+or merge. Recommend retaining opt-in while general start-site/hookup and
+utility-siting rules are improved and qualified, without hand-repairing maps.
+
+## 2026-11-20 · PL-1066 · connect utility power to conductive cells
+
+The first unchanged-map opening exposed the old builder's unpowered outlet.
+Its power-line nodes were energized, but the endpoint cell falls in the
+building's conductivity fringe: the c7 grid calculation gives 56 against the
+native core threshold 64. The outlet reports Electricity/MajorProblem. That
+run is retained, not reclassified as a map-water defect or repaired in place.
+
+The shared builder now considers electricity-grid cell centres within each
+utility's native footprint/radius and connects only to core-conductivity
+cells, through the ordinary network placement checks. No place names or
+terrain/water edits choose endpoints. Scenario telemetry also reads native
+consumer-cell power; a wire's flag alone cannot satisfy the first-hour check.
+New native verification is required on the failing region and a second region
+before applying this layout across the frozen cohort.
+
+## 2026-11-20 · PL-1066 · corrected offline evidence
+
+The lead inspected the actual failed sync records and confirmed offline mode:
+`Failed sync … [login=false][offlineMode=true]`, paired with the two cached
+offline flags. The earlier client-only check below rejected nonempty Cloud
+log lines without reading their state; that was an overstrict proof predicate,
+not evidence of an online client or a save transfer.
+
+New opt-in `run --require-offline` accepts that pair, watches appended state
+records, rejects online/ambiguous state and audits shutdown. It never changes
+preferences. On blade it also rechecks carbon after acquiring the queue slot.
+Account/Cloud prompt guards are unchanged. The 81-tile gap is unchanged; no
+Workshop mod was added.
+
+## 2026-11-20 · PL-1066 · first-hour opening mode (native unrun)
+
+`--scenario first-hour` reuses ScenarioOps construction and requires 60
+game-minutes, sampled service health and traffic on the scenario's own native
+road-path segments, starter land and the existing native panel proof. It has
+its own verdict row. Empty-map water checks and their thresholds stay unchanged.
+`FIRST_HOUR.md` records sampling limits and the vanilla 81-tile gap.
+
+Blade: ordinary mod build and 139 harness tests pass; scoped Ruff/format pass.
+GPU doctor rendered on the RTX 2080 Ti without Steam. No game/peak game VRAM,
+game power/temperature or gameplay wall-time measurement exists for this mode.
+
+The current-state client-only offline observation made no preference edits
+and launched no game. It stopped on five fresh nonempty Cloud-log lines,
+without positive offline evidence. Its game/Steam/unit cleanup lists are empty.
+Steam itself changed its preference file; no agent rollback was attempted.
+Evidence remains in `~/experiments/PL-1066-first-hour/client-proof/` (no raw
+Steam logs, account configs, saves or proprietary source distributed).
+Native first-hour validation is blocked on usable offline Steam, not waived.
+
 ### 2026-11-20: PL-1074 combined-source Asheville qualification
 
 One fresh empty-map soak of the canonical-reader package completed **60.0178
