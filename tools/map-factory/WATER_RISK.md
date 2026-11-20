@@ -57,15 +57,22 @@ that every flagged node is a carved stream or will dry in a forward simulation.
 | --- | ---: | ---: |
 | Asheville | 0.081408 | 63% |
 | Innsbruck | 0.014848 | 75% |
-| Rio | 0.016384 | 14% |
+| Rio | 0.016128 | 14% |
 | Pittsburgh | 0.172800 | 40% |
-| Charleston | 0.064256 | 13% |
+| Charleston | 0.051456 | 13% |
 
 The same grid rule fires in all five and all 50 bound full runs. This corrects
 the explanation, **not the lack of drying-negative calibration**. Its false-alarm
 rate and geographical discrimination remain unknown; it is not a validated
 causal attribution of the lost monitored points. The prior always-warn result
 cannot become evidence of discrimination by changing the reason.
+
+PL-1072 corrects the neighbour definition: adjacent sea remains wet, rather than
+standing in for a dry channel bank. This changes 22 of 72 old input-bound feature
+rows, including the two fixture areas above. No old classification or native
+label changes. The [independent calibration protocol](WATER_CALIBRATION.md) fixes
+a new 30-square panel and a separate old-data-only candidate before game outcomes.
+That candidate is not the deployed model, and has no new native results yet.
 
 ### Coastal margin above sea level
 
