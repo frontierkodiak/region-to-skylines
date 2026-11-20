@@ -13,10 +13,16 @@ The check does not approve a water-risk warning or change any water-soak gate.
 
 `first-hour` uses the existing ScenarioOps `test-city` builder, not UI clicks.
 It connects highway approaches to a 288 m grid in the starting tile, zones
-residential/commercial/industrial land, and places a coal plant, water intake,
+residential/commercial/industrial land, and places a coal plant, groundwater tower,
 sewage outflow, pipes and power lines through the native placement tools.
 Money, slope and space checks remain active. A construction rejection is a
 result, not permission to hand-place a city or tune the map.
+
+The water tower stays at least 400 m from the planned industrial strip and the
+coal plant's center. The native tools still check placement, pipes, power, and
+cost. A shoreline intake separated from a drain by distance alone does not
+establish an upstream relationship. The original policy produced dirty water
+on stock Cliffside Bay during PL-1078's control run.
 
 The `first_hour` row in `verdict.json` requires:
 
@@ -52,6 +58,15 @@ sample. The first-hour row embeds the land measurement, sampled outages,
 traffic tail and native panel verdict. These are sampled observations, not
 continuous proof. A shorter run, a resumed save, missing observations or an
 unreviewed panel cannot earn a first-hour pass.
+
+## Stock-qualified cohort comparisons
+
+Run the same opening on two or three stock maps before attributing failures to
+exports. See [the qualification commands](../map-factory/PLAYABLE_START.md).
+`report_playable_starts.py` requires the exported package hash and the exact
+player-mod hash used by the passing stock controls. Missing attempts remain
+unresolved. Another failed native gate still fails the map, even when its
+`first_hour` row passes.
 
 ## Offline Steam preflight
 
