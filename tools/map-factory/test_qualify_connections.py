@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 
@@ -11,6 +12,20 @@ from qualify_connections import frozen_inputs, qualify, screen, sha
 
 
 class FrozenInputs(unittest.TestCase):
+    def test_missing_registered_manifest_cannot_fall_back_to_repository_fixture(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            plan = {"fixtures": ["asheville"], "fresh": [], "frozen_input_files": {}}
+            (output / "cohort.json").write_text(json.dumps(plan))
+            with patch("qualify_connections.fixture_inputs") as repository_fixture:
+                qualify(output)
+            repository_fixture.assert_not_called()
+            row = json.loads((output / "cpu-report.json").read_text())["cases"][
+                "asheville"
+            ]
+            self.assertIn("Missing frozen original input manifest", row["error"])
+            self.assertEqual(list(output.rglob("*.crp")), [])
+
     def test_changed_registered_inputs_cannot_export(self):
         with tempfile.TemporaryDirectory() as temporary:
             output = Path(temporary)

@@ -32,6 +32,13 @@ if (extra.length) {
   const slugs = [...registered.original, ...registered.fresh].map(p => p.slug);
   if (slugs.some(slug => typeof slug !== 'string' || !/^[a-z0-9-]+$/.test(slug)) || new Set(slugs).size !== slugs.length)
     throw Error('Cohort slugs must be unique safe directory names');
+  for (const original of registered.original) {
+    const files = original.input_files_sha256;
+    if (!files || typeof files !== 'object' || Array.isArray(files) || !Object.keys(files).length
+        || Object.entries(files).some(([name, digest]) => !/^[a-zA-Z0-9_.-]+$/.test(name)
+          || name === '.' || name === '..' || typeof digest !== 'string' || !/^[a-f0-9]{64}$/.test(digest)))
+      throw Error(`Missing or invalid frozen input manifest: ${original.slug}`);
+  }
   for (const square of registered.fresh)
     if (!Number.isFinite(square.lat) || !Number.isFinite(square.lon) || !Number.isFinite(square.scale)
         || square.lat < -85 || square.lat > 85 || square.lon < -180 || square.lon > 180 || square.scale <= 0)

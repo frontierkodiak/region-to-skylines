@@ -183,6 +183,8 @@ def qualify(output, only=None, baseline=None):
         try:
             if slug in plan["fixtures"]:
                 frozen_files = plan.get("frozen_input_files", {}).get(slug)
+                if "frozen_input_files" in plan and not frozen_files:
+                    raise ValueError(f"Missing frozen original input manifest: {slug}")
                 if frozen_files is not None:
                     if not frozen_files or set(p.name for p in source.iterdir()) != set(
                         frozen_files
