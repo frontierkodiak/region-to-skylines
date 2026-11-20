@@ -11,6 +11,26 @@ from refresh_water_risk import sha
 from water_risk import assess
 from water_risk_corpus import native_outcome
 
+ROOT = Path(__file__).resolve().parent
+
+
+def scored_prediction(prediction, native_labels, complete):
+    """A declined screen has no binary prediction, never an implicit clearance."""
+    if prediction["status"] == "declined":
+        return (
+            {"flood": None, "drying": None},
+            {"flood": True, "drying": True},
+            "assessment_declined",
+        )
+    flags = {
+        k: prediction["risks"][k]["level"] == "flagged" for k in ("flood", "drying")
+    }
+    return (
+        native_labels if complete else {"flood": None, "drying": None},
+        flags,
+        "complete" if complete else "incomplete",
+    )
+
 
 def rate(successes, total):
     """Exact two-sided 95% binomial interval; no empty-denominator estimates."""
@@ -105,6 +125,14 @@ def collect(staging, native, frozen, panel_path):
         or sha(panel_path) != freeze["panel_sha256"]
     ):
         raise ValueError("Frozen model/panel changed")
+    writer = json.loads(
+        (ROOT / "fixtures/contracts/pl912-water-risk-v1/current.json").read_text()
+    )["source_files_sha256"]
+    if manifest["writer_source_files_sha256"] != writer:
+        raise ValueError("Scoring writer contract is not source-equivalent")
+    for name, expected in writer.items():
+        if sha(ROOT.parent.parent / name) != expected:
+            raise ValueError(f"Scoring writer is not source-equivalent: {name}")
     planned = {r["sq"]["slug"]: r for r in panel["squares"]}
     if len(manifest["squares"]) != 30 or {
         r["slug"] for r in manifest["squares"]
@@ -177,10 +205,10 @@ def collect(staging, native, frozen, panel_path):
         if prediction != item["prediction"] or prediction != regenerated:
             raise ValueError(f"Prediction changed: {slug}")
         outcome = native_outcome(report, verdict)
-        if report["game_minutes"] < 60:
-            # A failed short attempt cannot become either a safe negative or a
-            # selectively retained positive in the full-run holdout estimate.
-            outcome["labels"] = {"flood": None, "drying": None}
+        native_labels = dict(outcome["labels"])
+        outcome["labels"], flags, status = scored_prediction(
+            prediction, native_labels, report["game_minutes"] >= 60
+        )
         deployed = json.loads((folder / "deployed-prediction.json").read_text())
         if deployed != item["deployed_prediction"]:
             raise ValueError(f"Deployed prediction changed: {slug}")
@@ -189,13 +217,11 @@ def collect(staging, native, frozen, panel_path):
                 "slug": slug,
                 "stratum": item["stratum"],
                 "world_region": item["world_region"],
-                "flags": {
-                    k: prediction["risks"][k]["level"] == "flagged"
-                    for k in ("flood", "drying")
-                },
+                "flags": flags,
+                "native_labels": native_labels,
                 "candidate_product_clear": prediction["status"] == "lower",
                 "product_clear": deployed["status"] == "lower",
-                "status": "complete" if report["game_minutes"] >= 60 else "incomplete",
+                "status": status,
                 "package_sha256": package_sha,
                 "receipt_hashes": {
                     name: sha(run / name) for name in ("report.json", "verdict.json")

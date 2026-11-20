@@ -21,6 +21,47 @@ from water_risk import assess
 ROOT = Path(__file__).resolve().parent
 
 
+def input_power(rows):
+    """Reject logically uninformative comparisons before spending game time."""
+    prepared = [r for r in rows if r["status"] == "prepared"]
+    drying = [
+        r
+        for r in prepared
+        if r["prediction"]["risks"].get("drying", {}).get("level") == "flagged"
+    ]
+    cleared = [
+        r["slug"]
+        for r in prepared
+        if r["prediction"]["status"] != "declined"
+        and not any(
+            r["prediction"]["risks"][k]["level"] == "flagged"
+            for k in ("flood", "drying")
+        )
+    ]
+    contrast = [
+        r["slug"]
+        for r in prepared
+        if r["prediction"]["risks"].get("flood", {}).get("level")
+        != r["deployed_prediction"]["risks"].get("flood", {}).get("level")
+    ]
+    always_warn = bool(prepared) and len(drying) == len(prepared)
+    return {
+        "prepared": len(prepared),
+        "drying_flagged": len(drying),
+        "drying_identical_to_always_warn_for_any_labels": always_warn,
+        "drying_disposition": "rejected_as_discriminator"
+        if always_warn
+        else "requires_native_test",
+        "rule_cleared_squares": cleared,
+        "deployed_product_cleared_squares": [
+            r["slug"] for r in prepared if r["deployed_prediction"]["status"] == "lower"
+        ],
+        "candidate_vs_deployed_flood_disagreements": contrast,
+        "flood_threshold_change_identifiable": bool(contrast),
+        "uses_native_labels": False,
+    }
+
+
 def stage(panel_path, frozen_path, captures, output):
     panel = json.loads(panel_path.read_text())
     freeze = json.loads((frozen_path / "freeze.json").read_text())
@@ -31,6 +72,12 @@ def stage(panel_path, frozen_path, captures, output):
     ):
         raise ValueError("Frozen panel/model changed")
     model = json.loads(model_path.read_text())
+    writer = json.loads(
+        (ROOT / "fixtures/contracts/pl912-water-risk-v1/current.json").read_text()
+    )["source_files_sha256"]
+    for name, expected in writer.items():
+        if sha(ROOT.parent.parent / name) != expected:
+            raise ValueError(f"Current writer differs from its contract: {name}")
     output.mkdir(parents=True, exist_ok=False)
     rows = []
     for item in panel["squares"]:
@@ -51,6 +98,8 @@ def stage(panel_path, frozen_path, captures, output):
             )
             continue
         capture = json.loads((captured / "capture.json").read_text())
+        if capture["source_files_sha256"] != writer:
+            raise ValueError(f"Capture writer is not source-equivalent: {slug}")
         if capture["sq"]["slug"] != slug or any(
             capture[k] != freeze[k] for k in ("panel_sha256", "model_sha256")
         ):
@@ -125,6 +174,7 @@ def stage(panel_path, frozen_path, captures, output):
                 "world_region": item["world_region"],
                 "package": package_name,
                 "capture_sha256": sha(captured / "capture.json"),
+                "capture_source_commit": capture["source_commit"],
                 "files_sha256": {
                     p.name: sha(p) for p in sorted(folder.iterdir()) if p.is_file()
                 },
@@ -139,9 +189,12 @@ def stage(panel_path, frozen_path, captures, output):
         "panel_sha256": freeze["panel_sha256"],
         "model_sha256": freeze["model_sha256"],
         "freeze_sha256": sha(frozen_path / "freeze.json"),
+        "writer_source_files_sha256": writer,
+        "input_power": input_power(rows),
         "squares": rows,
     }
     write(output / "staging.json", manifest)
+    write(output / "input-power.json", manifest["input_power"])
     return manifest
 
 

@@ -8,13 +8,52 @@ import tempfile
 import unittest
 
 from fit_water_holdout import fit
-from score_water_panel import clearance, collect, rate, score, summarize
+from score_water_panel import (
+    clearance,
+    collect,
+    rate,
+    score,
+    scored_prediction,
+    summarize,
+)
 from water_calibration_panel import panel
+from stage_water_panel import input_power
 
 ROOT = Path(__file__).resolve().parent
 
 
 class WaterPanelTests(unittest.TestCase):
+    def test_always_warn_is_rejected_before_any_game_labels_exist(self):
+        prediction = {
+            "status": "warning",
+            "risks": {
+                "flood": {"level": "not_flagged"},
+                "drying": {"level": "flagged"},
+            },
+        }
+        power = input_power(
+            [
+                {
+                    "slug": "one",
+                    "status": "prepared",
+                    "prediction": prediction,
+                    "deployed_prediction": prediction,
+                }
+            ]
+        )
+        self.assertEqual(power["drying_disposition"], "rejected_as_discriminator")
+        self.assertFalse(power["flood_threshold_change_identifiable"])
+        self.assertEqual(power["rule_cleared_squares"], [])
+        self.assertFalse(power["uses_native_labels"])
+
+    def test_declined_assessment_is_unscored_not_a_crash_or_clearance(self):
+        labels, flags, status = scored_prediction(
+            {"status": "declined", "risks": {}}, {"flood": False, "drying": True}, True
+        )
+        self.assertEqual(labels, {"flood": None, "drying": None})
+        self.assertTrue(all(flags.values()))
+        self.assertEqual(status, "assessment_declined")
+
     def test_selection_reproduces_all_30_fixed_nonoverlapping_squares(self):
         selected = panel()
         self.assertEqual(

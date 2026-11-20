@@ -5,6 +5,14 @@ PL-1072 owns this experiment. Integration owner: the producing agent. Destinatio
 release on PL-912 remains on hold. No candidate cutoff is promoted by this study's
 preparation commit.
 
+**Input-only audit: drying is rejected as a discriminator.** It flags all 28
+exportable new squares, so it cannot beat always-warn for any future labels.
+The current combined check clears none. The 3 m versus 1.5 m flood cutoff also
+has no contrasting case here. See [preparation findings](WATER_CALIBRATION_FINDINGS.md).
+Keep the frozen model as a comparator, not a release candidate. Native labels
+can support flood evaluation and a later general drying replacement; that
+replacement needs a new independent holdout.
+
 ## Fixed panel
 
 `water-calibration-panel.json` fixes 30 non-overlapping, 17.28 km squares before
