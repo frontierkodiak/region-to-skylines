@@ -55,13 +55,13 @@ export function mountCapabilities(root) {
   }
   function unavailable() {
     controller?.abort(); sequence++;
-    status.textContent = "Square check unavailable";
+    status.textContent = "Square check unavailable · move the square to retry.";
     for (const [id, button] of buttons) {
       button.dataset.level = "unknown"; button.querySelector(".capability-mark").textContent = "?";
       button.title = `${LABELS[id]}: unknown. This square's data could not be loaded.`;
       button.setAttribute("aria-label", button.title);
     }
-    detail.textContent = "Move the square to retry.";
+    detail.textContent = "";
     detail.hidden = true;
   }
   async function update(square) {

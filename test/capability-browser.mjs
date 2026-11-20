@@ -59,6 +59,8 @@ try {
       await page.evaluate(() => window.capabilityProbe.update({ lat: 3, lon: 0 }));
       assert.equal(await page.locator("[data-level=unknown]").count(), 8);
       assert.match(await page.locator(".capability-status").textContent(), /unavailable/);
+      assert.match(await page.locator(".capability-status").textContent(), /move the square to retry/);
+      assert.ok(await page.locator(".capability-status").isVisible());
       await page.evaluate(() => window.capabilityProbe.update({ lat: 2, lon: 0 }));
       await page.screenshot({ path: resolve(out, `${name}-row-desktop.png`) });
       await page.setViewportSize({ width: 390, height: 844 });

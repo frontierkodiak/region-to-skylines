@@ -30,7 +30,7 @@
     "capability-inputs.js": "c232a9414354631d8c9c3393524a48a23d918bf8b89895487ad3169b3fa683d1",
     "capability-ledger.mjs": "36bc8af814aa97b3f7602cdad7604fb8bf0262eae36d394f46fd0983ffc82a17",
     "capability-model.js": "d6582f7073d1672255ad0fb9f3fcaab1ade23a5ae7c2a5972df10536dd80cf47",
-    "capability-ui.js": "9c739838d63bc6f61e01ecac2cbf9aad0612d55d9c0f84bb38f284846d055900",
+    "capability-ui.js": "939b6331ab03b19d0ddf46aa13b0b24202828082660ea4e9835c3abb624ffaa2",
     "tools/map-factory/capabilities.py": "98e54c8110f0241af75be5444111dc2446efd454933d344a9d9c03cee2e238d9",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
