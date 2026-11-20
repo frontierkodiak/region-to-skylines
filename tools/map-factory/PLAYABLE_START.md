@@ -55,6 +55,12 @@ View each actual panel capture and supply its hash-bound review. Do not generate
 a visual review from the expected values. If a stock control fails, fix the
 player policy separately and rerun both controls before judging exported maps.
 
+Use the verified `first_hour` row to qualify the stock player. The aggregate
+stock verdict can remain `unverified` because no real-world DEM or authored
+corridor probes were requested. The report retains that distinction and still
+rejects any explicit failed native check. Exported maps retain their full
+native qualification requirements.
+
 ## Compare the exports
 
 Preserve `baseline` and generate changed exports under `candidate`.

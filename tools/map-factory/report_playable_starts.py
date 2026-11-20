@@ -12,7 +12,7 @@ import json
 from pathlib import Path
 
 
-def opening(folder, expected_package):
+def opening(folder, expected_package, *, stock_control=False):
     verdict_path = folder / "verdict.json"
     if not verdict_path.is_file():
         return {"status": "not_run"}
@@ -27,7 +27,10 @@ def opening(folder, expected_package):
     explicit_failure = any(
         check.get("status") == "fail" for check in verdict.get("checks", [])
     )
-    if status == "pass" and (verdict.get("verdict") != "pass" or explicit_failure):
+    accepted_aggregate = verdict.get("verdict") == "pass" or (
+        stock_control and verdict.get("verdict") == "unverified"
+    )
+    if status == "pass" and (not accepted_aggregate or explicit_failure):
         status = (
             "fail"
             if verdict.get("verdict") == "fail" or explicit_failure
@@ -102,7 +105,9 @@ def compare(cohort_path, controls, baseline, candidate):
     preregistration = hashlib.sha256(raw).hexdigest()
     stock = {
         row["name"].lower().replace(" ", "-"): opening(
-            controls / row["name"].lower().replace(" ", "-"), row["sha256"]
+            controls / row["name"].lower().replace(" ", "-"),
+            row["sha256"],
+            stock_control=True,
         )
         for row in cohort["controls"]
     }
