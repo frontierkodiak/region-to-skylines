@@ -100,6 +100,7 @@ def render(output, harness_root=None):
                 "--locked",
                 "cs1-harness",
                 "run",
+                "--require-offline",
                 "--map",
                 str(crp),
                 "--probes",
@@ -127,6 +128,7 @@ def render(output, harness_root=None):
                         "crp_sha256": sha(crp),
                         "probes_sha256": sha(staged / "probes.json"),
                         "requires_owner_resolved_steam_readiness": True,
+                        "requires_parent_offline_guard": True,
                         "requires_parent_first_hour_harness": mode == "first-hour",
                     }
                 )

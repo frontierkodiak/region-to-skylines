@@ -91,6 +91,10 @@ uv run --project tools/map-factory python tools/map-factory/report_connections.p
 The manifest keeps the populated `--scenario first-hour --game-minutes 60
 --sample-every 5` run separate from the ordinary empty-water calibration run.
 It requires resolved Steam readiness and does not itself launch either command.
+Both command variants include `--require-offline` and require the parent's
+offline-guard-capable harness. That guard must check current Steam evidence,
+including a fresh post-queue check on the owning host; wait/retry arguments do
+not authorize replaying setup or trusting stale readiness from another host.
 Resource/window-capture requirements in staged panel probes are retained; no
 visual review is fabricated. Outer-ring counts describe map content, not proof
 that vanilla can unlock or play 81 tiles.
