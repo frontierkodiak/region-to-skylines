@@ -26,7 +26,7 @@ from place_model import (
 from prepare import pixel
 from pyproj import Transformer
 from region import raster
-from shapely.geometry import LineString, Polygon
+from shapely.geometry import LineString, MultiLineString, Polygon
 from surface_water import surface_geometry
 
 ROOT = Path(__file__).resolve().parent
@@ -46,6 +46,7 @@ def model(
     connectors=(),
     source_water=(),
     source_segment=(),
+    source_nhd_flowline=(),
     semantics=None,
     sampling="vertex",
 ):
@@ -94,6 +95,7 @@ def model(
     for name, rows in [
         ("source_water", source_water),
         ("source_segment", source_segment),
+        ("source_nhd_flowline", source_nhd_flowline),
     ]:
         if rows:
             layers[name] = write_table(
@@ -369,6 +371,53 @@ class PlaceInputTests(unittest.TestCase):
         self.assertLess(abs(game[540, 540] - bank[540, 540]), 0.02)
         self.assertGreater(bank[800, 250] - game[800, 250], 1)
 
+    def test_source_flowpaths_preserve_parts_direction_and_body_reference(self):
+        manifest = model(
+            self.place,
+            source_nhd_flowline=[("source-path", {"flowdir": 1, "gnis_name": None})],
+        )
+        evidence = provenance("fixture", "explicit source FK and digitized direction")
+        parts = [[(100, 1400), (1100, 2400)], [(1100, 2400), (2100, 3000)]]
+        manifest["layers"]["hydrography_flowbodies"] = write_table(
+            self.place,
+            "hydrography_flowbodies",
+            [
+                {
+                    "id": "body",
+                    "kind": "river",
+                    "geometry": Polygon(
+                        [(100, 1200), (2100, 1200), (2100, 3200), (100, 3200)]
+                    ).wkb,
+                    "provenance": evidence,
+                }
+            ],
+        )
+        manifest["layers"]["hydrography_flowpaths"] = write_table(
+            self.place,
+            "hydrography_flowpaths",
+            [
+                {
+                    "id": "nhd:flowline:source-path",
+                    "body_id": "body",
+                    "name": None,
+                    "flow_direction": "with_digitized",
+                    "geometry": MultiLineString(parts).wkb,
+                    "provenance": evidence,
+                }
+            ],
+        )
+        write_manifest(self.place, manifest)
+        png, path, _banks, _land = preprocess(self.place, self.root / "flow-inputs")
+        self.assertTrue(png.is_file())
+        rivers = json.loads(path.read_text())["rivers"]
+        self.assertEqual([r["part"] for r in rivers], [0, 1])
+        for river, points in zip(rivers, parts):
+            self.assertEqual(river["body_id"], "body")
+            self.assertEqual(river["flow_direction"], "with_digitized")
+            self.assertEqual(river["sourceFeature"]["properties"]["flowdir"], 1)
+            self.assertNotIn("height", river)
+            np.testing.assert_allclose(river["pts"], Frame(manifest).points(points))
+
     def test_invalid_checksum_fails_before_any_output(self):
         model(self.place)
         with (self.place / "terrain.arrow").open("ab") as stream:
@@ -506,9 +555,12 @@ class CommittedModelsTests(unittest.TestCase):
                         geometry["placeInput"]["crop_local_metres"],
                         [-3000, -4000, 3000, 2000],
                     )
+                    paths = read_table(place, "hydrography_flowpaths").to_pylist()
+                    self.assertTrue(paths)
                     self.assertEqual(
-                        geometry["rivers"], []
-                    )  # no graph recovered from triangles
+                        {r["id"] for r in geometry["rivers"]},
+                        {r["id"] for r in paths},
+                    )  # only explicit source-associated paths, not triangle edges
 
 
 if __name__ == "__main__":

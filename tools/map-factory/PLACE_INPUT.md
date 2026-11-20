@@ -19,8 +19,8 @@ uv run --project tools/map-factory \
   /absolute/scratch/amherst-export
 ```
 
-Supply polli-place-model 0.2 or the workbench's PL-1074 stack (PR249) for the
-transportation semantics extension. Old v0 directories can be upgraded with
+Supply polli-place-model 0.3 from the workbench's PL-1074 stack for the
+transportation semantics and source-associated river-flowpath extensions. Old v0 directories can be upgraded with
 `place rebuild-transportation-semantics MODEL`. No model
 implementation is vendored and no editable dependency or private path is added
 to the public project's lockfile. Any installation of that package providing
@@ -128,22 +128,32 @@ street codes remain road/unknown upstream unless their source dictionary is know
 - Unknown water roles and unsupported geometries stop compilation. Landcover
   must use the existing WorldCover uint8 codes; no new legend is guessed.
 
-### Extensions needed upstream, not guesses in this reader
+### Source-associated river paths and enrichment
 
-Asheville's migrated `surface` triangles provide a footprint, not a river
-network. The reader can compile their areas, but cannot provide missing
-river centrelines, hydraulic connections or sustained-flow sources. Extend
-canonical hydrography with waterbody/watercourse identity, explicit geometry
-role, visibility and flow connectivity (including culverts), and measured
-water-stage/datum evidence where available. Boston's inferred DEM water
-height is likewise not a measured tide. A future non-WorldCover landcover
-source needs an explicit class legend/mapping before this target can use it.
-Asheville's numeric street classes remain numeric; selecting real motorway
-connections needs a source-declared class dictionary or normalized canonical
-classes, not a target-side guess that all streets are highways.
-These are shared-model extensions; they must not be inferred from triangles
-or tuned separately for a place. This adapter does not consume appearance
-meshes or compatibility assets as substitute semantic layers.
+Optional `hydrography_flowpaths` records use explicit river-body foreign keys
+validated by the shared model. They enter the existing river codec with full
+canonical ID, body ID, source direction, provenance and multipart vertex order.
+NHD raw feature properties survive in `sourceFeature.properties`. Missing names
+use the body ID, not a guessed place name. No measured stage is invented.
+
+The shared model's explicit `place enrich-nhd` command selects only NHD
+StreamRiver areas and ArtificialPath lines joined by the original source FK.
+It does not infer paths from Asheville's display triangles, import all small
+streams, turn coastlines into rivers, infer endpoint connectivity or replace
+Overture culverts. Coverage can honestly be empty. Pixel geometry is unchanged
+by this metadata extension. The existing target hydrology, not source direction
+alone, still controls water stage and supply.
+
+The separate source-graph enrichment writer can replace an unclassified legacy
+graph with a pinned Overture graph for the declared frame/extent and genuinely
+rebuild its road meshes. Explicit motorway classes then reach this reader; no
+numeric street-code lookup is introduced here. Other already-pinned graphs are
+verified no-ops. This adapter never acquires data or consumes appearance meshes
+as substitute semantic layers.
+
+Still not expressed: a measured hydraulic network/stage/datum for all sources.
+Boston's inferred DEM water height is not a measured tide. Non-WorldCover
+landcover needs an explicit legend before this target can consume it.
 
 ## Verification
 
@@ -157,7 +167,7 @@ uvx ruff check tools/map-factory/place_input.py tools/map-factory/test_place_inp
 The tests use the real model validator/writers and exercise frame axes, projected
 feet/nonzero origins, elevation offset, vertex/cell sampling, crops, grade and
 connector identity, water holes/culverts, executable CLI and the existing generator.
-They also compile the three committed models when the sibling directory is
+They also compile the four committed models when the sibling directory is
 available (`PLACE_MODEL_PLACES` can select another checkout). Generated test
 artifacts live only in temporary directories. **Asheville source/derived data
 is private; do not commit it or publish its target inputs.**
