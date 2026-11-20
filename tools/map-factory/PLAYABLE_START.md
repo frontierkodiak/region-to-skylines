@@ -69,10 +69,13 @@ Retain those native outputs under `baseline/native/SLUG`. Report their change
 from the historical 1/8 separately as the player-policy effect; that historical
 observation was not stock-qualified.
 
-The comparison report exposes `original_player_baseline` independently of
-candidate and holdout completion. Its rate requires both passing controls,
+The comparison report exposes
+`first_hour_survival.original_player_baseline` independently of candidate and
+holdout completion. Its rate uses the unchanged native `first_hour` verdict,
+not the aggregate map verdict. It requires both passing controls,
 matching original input and package bytes, and all eight native attempts under
 the qualified player. It does not imply that exporter rules were tested.
+The top-level `original_player_baseline` retains strict full-map qualification.
 The adjacent `playable-start-v1-baseline.json` locks the pre-rule package hashes
 to the unchanged preregistration, including Yosemite's qualified-v3 provenance.
 A changed export cannot be substituted as a player-only baseline.
@@ -93,11 +96,17 @@ uv run --project tools/map-factory python tools/map-factory/report_playable_star
 	"$START_RUN/baseline" "$START_RUN/candidate" "$START_RUN/comparison.json"
 ```
 
-Check `paired_comparison_qualified` before reporting an improvement.
+Use `first_hour_survival.before` and `.after` for the requested first-hour
+comparison; require `first_hour_survival.paired_comparison_qualified`.
+The top-level `before`, `after` and `paired_comparison_qualified` remain the
+separate, stricter full-map qualification metric. First-hour survival does not
+waive any independent water, terrain or fidelity failure, or accept a map for
+shipping. All native gates remain visible in each case.
+
 The report checks exact package hashes, the same registered selection and input
 bytes, two or three passing stock controls, and one shared player-mod hash.
 Missing or blocked attempts remain unresolved.
-Incomplete cohorts and mismatched players have no qualified pass rate.
+Incomplete cohorts and mismatched players have no qualified rate in either metric.
 The report preserves other failed native gates alongside the first-hour check.
 Cleanup failures remain explicit but are unresolved infrastructure attempts,
 not map faults. They cannot qualify a stock control or yield a completed rate.

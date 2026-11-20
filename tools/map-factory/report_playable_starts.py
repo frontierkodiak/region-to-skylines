@@ -51,12 +51,22 @@ def opening(folder, expected_package, *, stock_control=False):
             status = "source_mismatch"
         if not receipt.get("mod_sha256"):
             status = "missing_player_identity"
+    first_hour_status = row.get("status", "unjudged")
+    if status not in ("pass", "fail", "unjudged"):
+        first_hour_status = status
+    elif first_hour_status == "pass" and verdict.get("verdict") not in (
+        "pass",
+        "fail",
+        "unverified",
+    ):
+        first_hour_status = "unjudged"
     report_path = folder / "report.json"
     report = json.loads(report_path.read_text()) if report_path.is_file() else {}
     populations = report.get("population_observations") or []
     return {
         "status": status,
         "first_hour": row.get("status"),
+        "first_hour_status": first_hour_status,
         "overall": verdict.get("verdict"),
         "additional_failed_checks": [
             check["name"]
@@ -80,14 +90,14 @@ def opening(folder, expected_package, *, stock_control=False):
     }
 
 
-def summarize(rows, player):
+def summarize(rows, player, status_field="status"):
     same_player = bool(player) and all(
         row.get("player_mod_sha256") == player
         for row in rows
-        if row["status"] in ("pass", "fail")
+        if row.get(status_field) in ("pass", "fail")
     )
-    passed = sum(row["status"] == "pass" for row in rows)
-    failed = sum(row["status"] == "fail" for row in rows)
+    passed = sum(row.get(status_field) == "pass" for row in rows)
+    failed = sum(row.get(status_field) == "fail" for row in rows)
     complete = passed + failed == len(rows)
     return {
         "planned": len(rows),
@@ -180,34 +190,49 @@ def compare(cohort_path, controls, baseline, candidate):
     original_baseline = summarize(
         [cases[slug]["before"] for slug in original_inputs], player
     )
+    original_first_hour = summarize(
+        [cases[slug]["before"] for slug in original_inputs], player, "first_hour_status"
+    )
     original_packages_bound = manifest_bound and all(
         cases[slug]["baseline_package_matches"] for slug in original_inputs
     )
-    original_baseline["qualified"] = bool(
-        qualified
-        and baseline_registered
-        and original_inputs_bound
-        and original_packages_bound
-        and original_baseline["complete"]
-        and original_baseline["same_qualified_player"]
-    )
-    if not original_baseline["qualified"]:
-        original_baseline["qualified_pass_rate"] = None
-    original_baseline["frozen_inputs_match"] = original_inputs_bound
-    original_baseline["registered_selection"] = baseline_registered
-    original_baseline["pre_rule_packages_match"] = original_packages_bound
+    for summary in (original_baseline, original_first_hour):
+        summary["qualified"] = bool(
+            qualified
+            and baseline_registered
+            and original_inputs_bound
+            and original_packages_bound
+            and summary["complete"]
+            and summary["same_qualified_player"]
+        )
+        if not summary["qualified"]:
+            summary["qualified_pass_rate"] = None
+        summary["frozen_inputs_match"] = original_inputs_bound
+        summary["registered_selection"] = baseline_registered
+        summary["pre_rule_packages_match"] = original_packages_bound
     before = summarize([row["before"] for row in cases.values()], player)
     after = summarize([row["after"] for row in cases.values()], player)
+    before_first_hour = summarize(
+        [row["before"] for row in cases.values()], player, "first_hour_status"
+    )
+    after_first_hour = summarize(
+        [row["after"] for row in cases.values()], player, "first_hour_status"
+    )
     if not selection_bound or not all_inputs_bound or not all_baseline_packages_bound:
-        before["qualified_pass_rate"] = after["qualified_pass_rate"] = None
-    comparable = (
+        for summary in (before, after, before_first_hour, after_first_hour):
+            summary["qualified_pass_rate"] = None
+    sources_bound = (
         qualified
         and selection_bound
         and all_inputs_bound
         and all_baseline_packages_bound
-        and all(
-            row["complete"] and row["same_qualified_player"] for row in (before, after)
-        )
+    )
+    comparable = sources_bound and all(
+        row["complete"] and row["same_qualified_player"] for row in (before, after)
+    )
+    first_hour_comparable = sources_bound and all(
+        row["complete"] and row["same_qualified_player"]
+        for row in (before_first_hour, after_first_hour)
     )
     return {
         "schema": 1,
@@ -226,11 +251,20 @@ def compare(cohort_path, controls, baseline, candidate):
         "paired_comparison_qualified": comparable,
         "map_fault_attribution": "qualified" if comparable else "withheld",
         "original_player_baseline": original_baseline,
+        "first_hour_survival": {
+            "scope": "Unchanged native first_hour verdict only; success is not full-map acceptance. "
+            "Every independent native failure remains in the case and strict full-map rates.",
+            "paired_comparison_qualified": first_hour_comparable,
+            "original_player_baseline": original_first_hour,
+            "before": before_first_hour,
+            "after": after_first_hour,
+        },
         "before": before,
         "after": after,
         "cases": cases,
         "note": "All selected squares remain. Missing/blocked/source-mismatched attempts are unresolved, "
         "not failures. No qualified rate is emitted for incomplete cohorts or another player. "
+        "First-hour survival is separate from strict full-map qualification. "
         "Historical 1/8 under the original policy remains a separate observation.",
     }
 
@@ -256,6 +290,7 @@ if __name__ == "__main__":
                     "stock_policy_qualified",
                     "paired_comparison_qualified",
                     "original_player_baseline",
+                    "first_hour_survival",
                     "before",
                     "after",
                 )
