@@ -1,5 +1,29 @@
 # Qualify playable starts
 
+## Frozen player-only result (2026-11-20)
+
+`cohorts/playable-start-v1-player-baseline.json` freezes the complete original
+eight **before any exporter/check rule implementation**, bound to the input,
+package, control, DLL and raw observation hashes. Both stock controls pass with
+DLL `4a4dbf3a…`. The unchanged first-hour verdict passes Asheville, Innsbruck and
+Charleston: **3/8 (37.5%)**, compared with historical **1/8 (12.5%)** under the
+unqualified player. This 25 percentage-point observed change is player-policy
+work, not evidence of exporter improvement. Strict full-map qualification is
+**2/8**: Charleston retains its DEM ground-truth failure.
+
+Rio and Hong Kong fail the fixed opening's site/hookup search; Pittsburgh's
+native join is rejected `TooShort, SlopeTooSteep`; Grand Canyon and Yosemite
+have no authored starter road hookup. All attempts are retained, with empty
+cleanup receipts. A failed finite search is not geographical impossibility.
+
+The latest capability-model direction treats this player as an oracle, not the
+target. These eight are fitting data; the frozen three new squares are held
+out of native scoring until predictions are fixed. Groundwater service is not
+proof of clean surface intake, sustained flow or downstream sewage. Those
+facets require separate witnesses and native observations in PL-1119's ledger.
+No exporter-rule improvement, complete eleven-square comparison or surface
+water promise is established by this baseline.
+
 ## Prepare the frozen inputs
 
 Run these commands from the repository root. Set `START_RUN` to a new absolute output

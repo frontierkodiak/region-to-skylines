@@ -3090,3 +3090,44 @@ this DLL in a rate. No exporter rule has been added. Innsbruck's native
 recovery and the complete original-eight player-policy effect remain pending.
 CPU checks: 157 harness tests, 176 map-factory tests (one optional skip),
 JavaScript checks, and harness Ruff lint/format pass. Doctor remains pending.
+
+### 2026-11-20 PL-1078 original-eight player baseline frozen
+
+All eight original packages and frozen inputs were rerun unchanged with the
+stock-qualified ordered-junction DLL `4a4dbf3a…`, before any exporter/check
+implementation. First-hour passes: Asheville, Innsbruck, Charleston (3/8).
+Strict full-native passes: Asheville, Innsbruck (2/8). Charleston retains its
+DEM fidelity failure; Rio/Hong Kong fail the bounded site/hookup search,
+Pittsburgh's join is rejected TooShort/SlopeTooSteep, and Grand Canyon/Yosemite
+lack an authored starter road hookup. Every failure is preserved. Failed
+player searches do not establish geographic impossibility. Successful
+groundwater service does not establish surface-water capacity or cleanliness.
+
+All actual panels and opening/Areas screenshots were viewed and hash-reviewed;
+all eight cleanup receipts are empty. Full-hour simulation wall times are
+942.16s, 947.12s and 951.24s for Asheville, Innsbruck and Charleston. Failed
+construction cases do not have a simulated hour. Resource telemetry includes
+startup and construction, excluding queue wait:
+
+| Case | Whole-card samples | Peak MiB / W / C |
+|---|---:|---|
+| Asheville | 235 | 10821 / 147.27 / 61 |
+| Innsbruck | 224 | 10821 / 156.55 / 60 |
+| Rio | 31 | 10821 / 125.26 / 46 |
+| Pittsburgh | 32 | 10821 / 120.52 / 48 |
+| Charleston | 225 | 10821 / 138.98 / 60 |
+| Grand Canyon | 32 | 10821 / 119.29 / 47 |
+| Hong Kong | 36 | 10821 / 197.07 / 49 |
+| Yosemite | 31 | 10821 / 114.83 / 47 |
+
+Blade RTX2080Ti at05:00.0; recorded200W cap unchanged. Whole-card includes
+existing allocation. Owned-game menu snapshots were mostly1574MiB (Pittsburgh
+1592MiB), not continuous game-only peaks. See retained gpu.csv for each attempt's
+timestamps. Construction-attempt telemetry spans were150.3s Rio,162.9s
+Pittsburgh,159.5s Grand Canyon,181.9s Hong Kong and150.2s Yosemite; these are
+sampled wall spans, not simulation durations or complete teardown times.
+GPU-only doctor passed at21:27Z, same GPU,3260MiB free; it did not launch Steam.
+
+The before-rule observation manifest is
+`tools/map-factory/cohorts/playable-start-v1-player-baseline.json`. Historical1/8
+remains explicitly unqualified. No candidate/exporter improvement is claimed.
