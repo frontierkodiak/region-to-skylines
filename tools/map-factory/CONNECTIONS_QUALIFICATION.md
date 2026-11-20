@@ -53,15 +53,21 @@ incoming/outgoing connection counts). Existing fixture probes remain frozen;
 fresh squares use explicitly labelled candidate samples plus geographic probes.
 Neither probe construction nor metadata equality is native UI/pathfinding proof.
 
-## Runway capture and source contracts
+## Prepared runway capture (not adopted)
 
-`inputs.js` reads OpenMapTiles' `aeroway` layer, class `runway`, preserving all
+The optional patch attached to PL-1066 makes `inputs.js` read OpenMapTiles'
+`aeroway` layer, class `runway`, preserving all
 line pieces. The longest captured endpoint axis supplies the existing
 `geometry.airport` contract, with coordinate tie-breaks independent of tile
 completion order and line direction. This is the longest **captured piece**, not
 an assertion that a complete airport or its globally longest runway was seen.
 No runway means `airport=null`; existing `transport_paths.py` fixture fallbacks
 are not changed. A runway outside the captured tile footprint is not fetched.
+
+It is not applied by this staging/harness change. The three fresh qualification
+captures used that prepared patch; their capture manifests retain its exact
+source hashes. Running capture from the unchanged shipping source does not add
+runways. Do not treat the two capture source versions as identical.
 
 This additive geometry changes the source-bound `inputs.js` contract. Historical
 fixture files and fingerprints must not be rewritten to make tests pass. A
@@ -70,7 +76,6 @@ shipping CRPs or explicitly qualify the changed output; CPU road exports from
 unchanged fixture inputs alone do not prove that fresh recapture equivalence.
 
 ```sh
-node --test test/runway-inputs.test.mjs
 uv run --project tools/map-factory python -m unittest discover -s tools/map-factory -p test_qualify_connections.py
 uv run --project tools/map-factory python -m unittest discover -s tools/map-factory -p test_real_roads.py
 ```
