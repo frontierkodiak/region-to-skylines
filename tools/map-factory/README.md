@@ -20,6 +20,10 @@ references, not implemented or newly game-qualified features.
 
 ## Generate a map
 
+For a validated canonical `polli.place/0` directory rather than browser/acquisition
+inputs, use the [place reader](PLACE_INPUT.md). It reports the crop and horizontal
+enlargement explicitly and preserves the source road graph for PL-1066.
+
 Run from this directory:
 
 ```sh
@@ -280,8 +284,11 @@ uv run python freeze_native_qualification.py NATIVE_RUN OUTPUT/native-qualificat
 ```
 
 Review changed bytes and the native-game result before accepting a new contract.
-The original PL-848 bundle remains compatible with `verify.py` and the bounded
-Asheville preparer in `prepare.py`.
+The original PL-848 bundle remains compatible with `verify.py` and its archived
+bounded Asheville preparer in `prepare.py`. The frozen historical conformance
+contract still binds that source; the canonical reader never calls its
+place-specific preparation function. Removing it requires a separately qualified
+successor contract, not editing historical hashes to match a cleanup.
 
 ## Native hydraulic soak
 
