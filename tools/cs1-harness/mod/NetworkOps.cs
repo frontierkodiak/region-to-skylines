@@ -12,7 +12,7 @@ namespace Cs1Harness
         public static void Register()
         {
             Host.Register("networks", Needs.City, "native segments, node positions and vehicle lanes", q => Networks());
-            Host.Register("path_start", Needs.City, "native car/train path: {from:[segment,lane,offset], to:[segment,lane,offset], rail:false}", Start);
+            Host.Register("path_start", Needs.City, "native path: {from:[segment,lane,offset], to:[segment,lane,offset], mode:car|train|ship|plane}; rail is the legacy train selector", Start);
             Host.Register("path_result", Needs.City, "poll a harness-owned native path; completed paths are released: {id}", Result);
         }
 
@@ -84,18 +84,28 @@ namespace Cs1Harness
                 throw new Exception("poll pending harness paths before creating more");
             var from = Position(q["from"]);
             var to = Position(q["to"]);
-            bool rail = Json.Bool(q, "rail", false);
+            string mode = q.ContainsKey("mode") ? Convert.ToString(q["mode"]) : Json.Bool(q, "rail", false) ? "train" : "car";
+            VehicleInfo.VehicleType vehicle;
+            switch (mode)
+            {
+                case "car": vehicle = VehicleInfo.VehicleType.Car; break;
+                case "train": vehicle = VehicleInfo.VehicleType.Train; break;
+                case "ship": vehicle = VehicleInfo.VehicleType.Ship; break;
+                case "plane": vehicle = VehicleInfo.VehicleType.Plane; break;
+                default: throw new Exception("mode must be car, train, ship or plane");
+            }
+            bool transport = mode != "car";
             var random = new Randomizer(857u);
             uint id;
             bool created = Singleton<PathManager>.instance.CreatePath(out id, ref random,
                 Singleton<SimulationManager>.instance.m_currentBuildIndex, from, to,
-                rail ? NetInfo.LaneType.Vehicle | NetInfo.LaneType.TransportVehicle | NetInfo.LaneType.CargoVehicle : NetInfo.LaneType.Vehicle,
-                rail ? VehicleInfo.VehicleType.Train : VehicleInfo.VehicleType.Car,
-                rail ? VehicleInfo.VehicleCategory.All : VehicleInfo.VehicleCategory.PassengerCar, 100000f);
+                transport ? NetInfo.LaneType.Vehicle | NetInfo.LaneType.TransportVehicle | NetInfo.LaneType.CargoVehicle : NetInfo.LaneType.Vehicle,
+                vehicle,
+                transport ? VehicleInfo.VehicleCategory.All : VehicleInfo.VehicleCategory.PassengerCar, 100000f);
             if (!created)
                 throw new Exception("native CreatePath refused the request");
             Paths.Add(id);
-            return Host.Obj("id", id);
+            return Host.Obj("id", id, "mode", mode);
         }
 
         static Dictionary<string, object> Result(Dictionary<string, object> q)
