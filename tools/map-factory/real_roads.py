@@ -573,6 +573,13 @@ def generate(
         knobs=knobs,
     )
     roads = prepare_roads(output, output / "geometry.json", air, ship)
+    # Report capabilities against the final prepared grids and authored graph,
+    # before serialization. This advisory check never alters the physical map.
+    from start_capabilities import assess as assess_start
+
+    start = assess_start(output)
+    start_path = output / "start-capabilities.json"
+    start_path.write_text(json.dumps(start, indent=2) + "\n")
     resources = receipt.get("resources") or {}
     package, report = write(
         output,
@@ -582,7 +589,17 @@ def generate(
         resources.get("environment"),
         resources.get("biome"),
     )
-    receipt.update({"real_roads": roads, "package": package})
+    receipt.update(
+        {
+            "real_roads": roads,
+            "package": package,
+            "start_capabilities": {
+                "file": start_path.name,
+                "sha256": hashlib.sha256(start_path.read_bytes()).hexdigest(),
+                "model_sha256": start["model"]["sha256"],
+            },
+        }
+    )
     if report is not None:
         receipt["resources"].update(
             {k: report[k] for k in ["knobs", "trees", "tree_budget", "unlockable"]}
