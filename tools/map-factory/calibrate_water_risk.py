@@ -29,7 +29,7 @@ def metrics(rows):
     }
 
 
-def evaluate(rows):
+def evaluate(rows, rules=DEFAULT_RULES):
     results = {}
     for target in ["flood", "drying"]:
         predictions = []
@@ -37,7 +37,7 @@ def evaluate(rows):
             label = row["labels"][target]
             if label is None:
                 continue
-            positive = bool(classify(row["features"])[target])
+            positive = bool(classify(row["features"], rules)[target])
             outcome = (
                 ("tp" if label else "fp") if positive else ("fn" if label else "tn")
             )
@@ -83,14 +83,14 @@ def evaluate(rows):
     return results
 
 
-def calibrate(rows, coverage=None):
+def calibrate(rows, coverage=None, rules=DEFAULT_RULES):
     known = [r for r in rows if any(v is not None for v in r["labels"].values())]
-    results = evaluate(known)
+    results = evaluate(known, rules)
     features = sorted(known[0]["features"])
     model = {
         "schema": 1,
         "version": "water-risk-v1",
-        "rules": DEFAULT_RULES,
+        "rules": rules,
         "features": features,
         "ranges": {
             f: [

@@ -59,7 +59,9 @@ def measure(terrain, water, hydro):
     # Opposite dry neighbours identify a one-grid-node corridor, unlike the
     # ordinary one-sided rim of a broad lake. The 25 cm depth is the writer's
     # startup-film cap for streams, not a fitted native acceptance threshold.
-    padded = np.pad(wet, 1)
+    # Sea is excluded from inland statistics, but it is still water beside a
+    # channel. Only genuinely dry neighbours can form the opposite banks.
+    padded = np.pad(all_wet, 1)
     narrow = wet & (
         (~padded[1:-1, :-2] & ~padded[1:-1, 2:])
         | (~padded[:-2, 1:-1] & ~padded[2:, 1:-1])
