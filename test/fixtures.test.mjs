@@ -13,14 +13,17 @@ import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const root = new URL("../tools/map-factory/", import.meta.url);
 const read = async (f) => new Uint8Array(await readFile(new URL(f, root)));
-const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
+const { manifest, nativeCases, historicalNativeCases, current, historicalCaptureSources } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
+const captureSource = async (name) => historicalCaptureSources?.[name]
+  ? read("fixtures/" + historicalCaptureSources[name].file)
+  : readFile(new URL("../" + name, import.meta.url));
 assert.equal(manifest.capture_module, "inputs.js", "shipping fixtures must use the shared page/CLI capture");
 for (const name of ["inputs.js", "terrain.js"])
-  assert.equal(createHash("sha256").update(await readFile(new URL("../" + name, import.meta.url))).digest("hex"),
+  assert.equal(createHash("sha256").update(await captureSource(name)).digest("hex"),
     manifest.capture_sources_sha256[name], `${name} changed; recapture and qualify`);
 const only = process.env.FIXTURES ? process.env.FIXTURES.split(",") : null;
 const sha = (b) => createHash("sha256").update(b).digest("hex");
-const captureModuleSha = sha(await readFile(new URL("../inputs.js", import.meta.url)));
+const captureModuleSha = sha(await captureSource("inputs.js"));
 const shippingSources = Object.fromEntries(await Promise.all(["mapgen.js", "tools/map-factory/web.py"].map(async (f) =>
   [f, sha(await readFile(new URL("../" + f, import.meta.url)))])));
 
@@ -72,7 +75,7 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     console.log(`  ${c.slug} ${kind}: ${mapName}, ${bytes.length} bytes, ${((performance.now() - t) / 1000).toFixed(1)} s`);
     assert.equal(bytes.length, expected.expected_crp_bytes);
     assert.equal(sha(bytes), expected.expected_crp_sha256);
-    if (current.version === "pl912-water-risk-v1") {
+    if (["pl912-water-risk-v1", "pl1066-optional-runways-v1"].includes(current.version)) {
       const cpu = current.risk_cases[c.slug];
       assert.equal(waterRisk.status, cpu.status, `${c.slug}: Python/browser risk decision`);
       assert.deepEqual(waterRisk.risks, cpu.risks, `${c.slug}: Python/browser physical flags`);

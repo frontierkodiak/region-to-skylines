@@ -42,7 +42,7 @@ for (const sq of plan.fresh) {
   const status = s => console.error(`${sq.slug}: ${s}`);
   clearWork(factory);
   try {
-    const inputs = await captureInputs(sq, { status });
+    const inputs = await captureInputs(sq, { status, includeRunways: true });
     await writeFile(join(folder, 'input.png'), inputs.png);
     await writeFile(join(folder, 'geometry.json'), JSON.stringify(inputs.geometry) + '\n');
     await writeFile(join(folder, 'banks.f32'), new Uint8Array(inputs.banks.buffer));
@@ -54,7 +54,7 @@ for (const sq of plan.fresh) {
     for (const f of ['input.png', 'geometry.json', 'banks.f32', 'landcover.u8.gz', ...(evidence ? ['evidence.json'] : [])]) files[f] = sha(await readFile(join(folder, f)));
     await writeFile(join(folder, 'capture.json'), JSON.stringify({
       source_commit: execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim(),
-      source_files_sha256: sourceFiles, sq, files_sha256: files, evidence_available: !!evidence,
+      source_files_sha256: sourceFiles, capture_options: { includeRunways: true }, sq, files_sha256: files, evidence_available: !!evidence,
       landcover: { tiles: cover.tiles, classes: cover.classes },
     }, null, 2) + '\n');
   } catch (error) {

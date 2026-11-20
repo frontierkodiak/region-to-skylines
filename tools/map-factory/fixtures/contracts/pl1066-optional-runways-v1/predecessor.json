@@ -1,0 +1,1262 @@
+{
+  "format": 1,
+  "version": "pl912-water-risk-v1",
+  "status": "partial_not_accepted",
+  "scope": "Input-only screening metadata; no new native qualification or physical package",
+  "predecessor": {
+    "file": "contracts/pl912-transient-storage-v1/current.json",
+    "sha256": "dd78e9df097f09582cfb7d72c567f852699396450bf4cf3e45e6cc4a4683c9a7"
+  },
+  "previous_active": {
+    "file": "contracts/pl912-water-risk-v1/previous-active.json",
+    "sha256": "03e87144c76d9a79963c672067677b43b1931c30f69cce8c84d0166afe45388b"
+  },
+  "previous_contracts": {
+    "accepted_presentation": {
+      "file": "current.json",
+      "sha256": "1ed5e9711f13bd8babb457756295731a56dfc7aae548d9af7ba107d4b9d7a235"
+    },
+    "native_baseline": {
+      "file": "contracts/pl912-native-dry-subreach-v1/current.json",
+      "sha256": "c34dcfb40a9560d7da2794106807b7a0e9ecfe612eac93ee4ac2b6fae0f07182"
+    },
+    "binding_predecessor": {
+      "file": "contracts/pl912-biome-delta-v1/current.json",
+      "sha256": "361cc288194466b737896934b287caaf9660b8e2ea2aef86b51ddeab2d00911e"
+    },
+    "partial_landing": {
+      "file": "contracts/pl912-biome-delta-v2/current.json",
+      "sha256": "98ebf95978b4b9706a96e857c69dd56114237769a7d1241482208602d23b404d"
+    }
+  },
+  "native_tested_head": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+  "cases": [
+    {
+      "slug": "asheville",
+      "reference": {
+        "expected_crp_sha256": "3d377ef636ec0a8b83467c367cd89f9d1c031f698557b0f6a99cf464d90773d1",
+        "expected_crp_bytes": 6528662,
+        "expected_simulation_sha256": "a41aa9cf52c6257a0bf8de9a0b26582fe5436cfef540f9b24ee16f04052357eb",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "45442ea24498c663e5777907f20253c2",
+            "png_sha256": "dbeccc63a7d803bb80740d1c9be6e59eff1e11189d90c48c3d65fb2cc1127000"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "7c1ee6385c18ba5d55b250da42dcfdb7",
+            "png_sha256": "2da5ee611d34c7a6b737c57c2f8711584396de4ea8b877b1661287ffd086cb10"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "f88fa5c239dc3b0abcf392a129139a2895d5451bdf260b9626855d47aa1c301d",
+          "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+          "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+          "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+          "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff"
+        },
+        "expected_crp_sha256": "f09410b048f99c7e521c04a7e9c43f4d2f98a8bbfbd3f577bc28ac6d5114f7fe",
+        "expected_crp_bytes": 6528628,
+        "expected_simulation_sha256": "fe1408142b26c427f096c5123f74e301553d2598c98829ebfcab7abf4e7362dd",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "93ef6e3c0eb8b3b026b5f32a8e4d00cc7a179f8dd58de2f2ca42572cd4157e1e",
+        "evidence.json": "2af201f890bd9365b7c787d7a421816599aecc1ddc9d43308afd30dd466fbae6",
+        "geometry.json.gz": "034842613856238709205bfd39c56a1e0a8d3bfb9007fedf81d1c17d4216cbdf",
+        "hydrology.json.gz": "bcaeeabc5d2b6040620a9e0fbb0bf5a236683e32a32ee96098a187d39a44e37a",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "landcover.json": "6c308a00e4665c22e12b145ac89f5fc7ec25db12ebfd6fb47fcf456b3a45fa53",
+        "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c",
+        "landmarks.json": "21e35e8672fdfbf2ce7fae065b3319551710cb78830845f37ba0dd8d30d05e16",
+        "plan.npz": "7f94d7b00b7d5f1388ae38b0b1e2c17f1f920ae6351a71086547c40a7d27b189",
+        "preview-large.png": "2da5ee611d34c7a6b737c57c2f8711584396de4ea8b877b1661287ffd086cb10",
+        "preview-thumbnail.png": "dbeccc63a7d803bb80740d1c9be6e59eff1e11189d90c48c3d65fb2cc1127000",
+        "resources.json": "6388a63ab9d1152cce7512c8c7f9d44b00a4c12336815bc9d587d60a052d9e16",
+        "shipping-evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+        "shipping-geometry.json.gz": "034842613856238709205bfd39c56a1e0a8d3bfb9007fedf81d1c17d4216cbdf",
+        "terrain.u16.gz": "41ad7a90be817e33c4ab11249eb4dd45ff74fea4c130efdd9193f90f3a4877d4",
+        "water.u16.gz": "22313ed4dfaa3300aac099c2f216801b5451da4a1504fd6b8bc05ea9d41c40ff"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-transient-storage-v1/asheville/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-transient-storage-v1/asheville/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-transient-storage-v1/asheville/plan.npz",
+        "preview-large.png": "contracts/pl912-transient-storage-v1/asheville/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-transient-storage-v1/asheville/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-transient-storage-v1/asheville/water.u16.gz",
+        "resources.json": "contracts/pl912-transient-storage-v1/asheville/resources.json"
+      },
+      "native": {
+        "native_crp_sha256": "f09410b048f99c7e521c04a7e9c43f4d2f98a8bbfbd3f577bc28ac6d5114f7fe",
+        "prepared_sha256": {
+          "terrain.u16": "f88fa5c239dc3b0abcf392a129139a2895d5451bdf260b9626855d47aa1c301d",
+          "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+        },
+        "water_sources_sha256": "50dbc9647d3570841166dfb8b65c88f380fb1ebacdbd3ff90031c5f7931a37d9",
+        "node_positions_sha256": "dfb2262737fa92dd99cd6e41256f234799fea34f148a31644947e8d6c10553f1",
+        "start_tile": 11,
+        "sea_level_m": 0.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+        "game_minutes": 60.02111424145599,
+        "verdict": "pass",
+        "failed_checks": [],
+        "receipt_sha256": {
+          "report.json": "5f7fb6ff62321933b4a94d18cd59db6a6874c45cf8991e04007f730e20f4fe0c",
+          "verdict.json": "3b0f774b46e9e258798f882c151f111320d5b4068620a224e950cc0aded911be",
+          "session-receipt.json": "54d9ab9789f0b992e415d32587e41d310b80926db97de7f8a9a7628b797aceab",
+          "audit-common.json": "813340c64897a2832567df88d5c2668b3fe7ba0963b584fdbd1f39308050f48c",
+          "probes.json": "b3bc53ed5095c22a6f431bc0c7577771092d268ce5ac8235ac9dc9c492704f56",
+          "startup-views-review.json": "8f56dae706da6d913d38ce4c432cb46e88d659df0e44d9b5b274a2b1ac8d219b",
+          "new-game-panel-review.json": "cdcc75f79c5829f7123633b738d524d1bad85c4c69cb8b4d1d59a54d7efadfc3",
+          "flood-candidate-initial.json": "88ef84625dc17aaff2bd4ecba2f5cc2e70961062c7c473b8ce158778a48246c2",
+          "reference-water.u16": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "81b13c7c0ffe440a24820f192129bfadcdb2e2e5ae16ee97522e0fdd3141d32b"
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "reference": {
+        "expected_crp_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+        "expected_crp_bytes": 5758116,
+        "expected_simulation_sha256": "dd2076ee85c8f4225358f25682e8895105be2c0663daac935869ec64ddd668ea",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "cbe92740e8bd8d9893f9933a4b173019",
+            "png_sha256": "c88e8fe57a49f8eb4bf526861237a44fba84c1c034488910bd9ef185ac3816f7"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "489466c11579bf59f1d1682401953049",
+            "png_sha256": "d41dc4d4950e8c2072e828245c9679901c88022c189e954cae21d5a87700b1c4"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "cb532cb2702cc8017351c689a5678e2dfa6f65e930e99829350e60d2a538ecd5",
+          "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+          "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+          "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b"
+        },
+        "expected_crp_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+        "expected_crp_bytes": 5758116,
+        "expected_simulation_sha256": "dd2076ee85c8f4225358f25682e8895105be2c0663daac935869ec64ddd668ea",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "27924168288117abec58f00bbf298c9a28169ac24908cefadbc00d56760ef5dc",
+        "evidence.json": "5bafec020e6a2376ac3699b70acc66bbfb3868f05fdc91a87566adad7d790fad",
+        "geometry.json.gz": "a6032486fe72811f753c58b47fb04dc4fc261b11b03672d272a5bce3389f8bc5",
+        "hydrology.json.gz": "e52e45a34b9f57e8a615db7dec333920306451652b2f1366b4833e07ecbbfc64",
+        "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+        "landcover.json": "cb4ca4c603d73632c55fda55d467145e570ecab1e17d539cf06cfaa8a7babbc0",
+        "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646",
+        "plan.npz": "1850eb62d9ec2b4b58f853b87f6986a7d402d14504b593867cdcd6777f021644",
+        "preview-large.png": "d41dc4d4950e8c2072e828245c9679901c88022c189e954cae21d5a87700b1c4",
+        "preview-thumbnail.png": "c88e8fe57a49f8eb4bf526861237a44fba84c1c034488910bd9ef185ac3816f7",
+        "resources.json": "54cb24097b6f1b22675012d300f8b057b83223de68b92a566fbe01a92568dfa8",
+        "shipping-evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "shipping-geometry.json.gz": "a6032486fe72811f753c58b47fb04dc4fc261b11b03672d272a5bce3389f8bc5",
+        "terrain.u16.gz": "c82b325b4d9b7b8e1d0b65c4330f88e4951f06870dcb688719a8f3d58dd69589",
+        "water.u16.gz": "7cac86a86cd2f7c59b0aca70698fb293857c2f84a4f199a528356b58858d986a"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-transient-storage-v1/innsbruck/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-transient-storage-v1/innsbruck/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-transient-storage-v1/innsbruck/plan.npz",
+        "preview-large.png": "contracts/pl912-transient-storage-v1/innsbruck/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-transient-storage-v1/innsbruck/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-transient-storage-v1/innsbruck/water.u16.gz",
+        "resources.json": "contracts/pl912-transient-storage-v1/innsbruck/resources.json"
+      },
+      "native": {
+        "native_crp_sha256": "4c5fad1c3d5e7ebc1567c330a7e2753286ac73f5515e6bc6dfd5619db70c465d",
+        "prepared_sha256": {
+          "terrain.u16": "cb532cb2702cc8017351c689a5678e2dfa6f65e930e99829350e60d2a538ecd5",
+          "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+        },
+        "water_sources_sha256": "95a262923af29c98e9744cdf94d3355983f2831a92781d8912d267e65778552e",
+        "node_positions_sha256": "9cd4b9960d9ee74e3560f38899410da238cbf32034b2abe0e4987d88c54cdd44",
+        "start_tile": 13,
+        "sea_level_m": 0.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+        "game_minutes": 60.103336467966436,
+        "verdict": "pass",
+        "failed_checks": [],
+        "receipt_sha256": {
+          "report.json": "64f486cb24dd0e5be608a2711669b8305e37b754641ae1f21327bc839d3cf2d2",
+          "verdict.json": "2d26b903cc34902dd00bd5a6c779ade03c75d87b91720428cbc2650290842662",
+          "session-receipt.json": "c3ca2e208ea719f094723d140a59ef42bda212cc0ed4c224f13514383ebccd09",
+          "audit-common.json": "8dac511136198f82303cb2c4c28e3dc06a93fcf4fe7c6b117946bb92cc125f80",
+          "probes.json": "e062c2789599f165abe71916ba103ad486dc312f858908fc6688f017a016f45e",
+          "startup-views-review.json": "82c8576fc8c786fdee95dc4eb7a428a6d87aaea1c86738d7b3557a12c2737885",
+          "new-game-panel-review.json": "15e18ebb727fb96dd76d784dc232b762261bc2ba48fbd6d3e596d551ed6e860d",
+          "flood-candidate-initial.json": "9640e1dfc529daf30990192818ff8267f402af163e46115414e065c5053ff129",
+          "reference-water.u16": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "bda23851ffe7bf4aae0de40bfbf9afc0a742e7513a683dd571a2a6d5b377c577"
+      }
+    },
+    {
+      "slug": "rio",
+      "reference": {
+        "expected_crp_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+        "expected_crp_bytes": 6131949,
+        "expected_simulation_sha256": "fb0c6e5e24c9dac0d9de7a29e84a94437d1b4ce5ca0c09cb879529b607efc402",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "0ee96ed93344ccf07955bb69b0e5cb69",
+            "png_sha256": "4bca6758f821b5039382f2b132925f584636aebe0584bb37986a36ed55eb4270"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "5ed8cea7fbcf8a1f69c46fec40cdab08",
+            "png_sha256": "dc3c091996ea2ada813ffeec756b1bd95fad50520a4e86456327210c7cf9a794"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "8682920254c5bef7883fda7f6fe85c08ab81782e11992ebb0b865246a5d3777a",
+          "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+          "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+          "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+          "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af"
+        },
+        "expected_crp_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+        "expected_crp_bytes": 6131949,
+        "expected_simulation_sha256": "fb0c6e5e24c9dac0d9de7a29e84a94437d1b4ce5ca0c09cb879529b607efc402",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "079896629b5b9d440317c4963faf6ed623efe5110e1a387fe2858e66a45d8871",
+        "evidence.json": "5bafec020e6a2376ac3699b70acc66bbfb3868f05fdc91a87566adad7d790fad",
+        "geometry.json.gz": "243375e62dbac0f950ff88268549d6289fc2d837d34afeea5128e8c090dc8f90",
+        "hydrology.json.gz": "d7657fa72484b6327380ddd8398d74873cca763daac4c43a30157dbc9272d53f",
+        "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+        "landcover.json": "30b0502a874c7316feb1ceaf6e7e985ce85f91dbce7714653d71bacafe65fc15",
+        "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59",
+        "plan.npz": "ac15465bbb66f505ff223f1910ceda1525c485fd87b776c07889f2f387dbd995",
+        "preview-large.png": "dc3c091996ea2ada813ffeec756b1bd95fad50520a4e86456327210c7cf9a794",
+        "preview-thumbnail.png": "4bca6758f821b5039382f2b132925f584636aebe0584bb37986a36ed55eb4270",
+        "resources.json": "d8b4ee7d9809210bf5fb9c53d0daf157b3b69d3777979136dd8e700c4c5650e1",
+        "shipping-evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "shipping-geometry.json.gz": "243375e62dbac0f950ff88268549d6289fc2d837d34afeea5128e8c090dc8f90",
+        "terrain.u16.gz": "347daaf86ef9c94403df93ca569097cdc85a127d779ea1f7635c35d97e9c1977",
+        "water.u16.gz": "721dc59e3bf71eb6958d533992314d6c1ee979490b23220d977fe5d75c508294"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-transient-storage-v1/rio/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-transient-storage-v1/rio/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-transient-storage-v1/rio/plan.npz",
+        "preview-large.png": "contracts/pl912-transient-storage-v1/rio/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-transient-storage-v1/rio/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-transient-storage-v1/rio/water.u16.gz",
+        "resources.json": "contracts/pl912-transient-storage-v1/rio/resources.json"
+      },
+      "native": {
+        "native_crp_sha256": "4858f3eb7c80b146135e6861e474f7134990c24221dd4e1562e839f776facd40",
+        "prepared_sha256": {
+          "terrain.u16": "8682920254c5bef7883fda7f6fe85c08ab81782e11992ebb0b865246a5d3777a",
+          "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+        },
+        "water_sources_sha256": "4d4224dc240a115fa80f30ab88b19485b4b77f18a8f1f7fd92d25ccb890d7ffb",
+        "node_positions_sha256": "53850edca5e2ff5e8e67c118368806693da73f90c29f2ecebc152f2b8fcb49e4",
+        "start_tile": 21,
+        "sea_level_m": 86.7952475957194,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+        "game_minutes": 60.09778091212113,
+        "verdict": "fail",
+        "failed_checks": [
+          "no_flooding"
+        ],
+        "receipt_sha256": {
+          "report.json": "37c111c06a2f1180f7c723fdd4dab752f59408e03e357b563aa7c3c9be182835",
+          "verdict.json": "0171a9b17fcb951e1b4b65fc4b92bf8450fdb0b252d52649280ebb681aebe178",
+          "session-receipt.json": "707a61f40c7946ff8002054730cf075144f254a7df11325bbc23e3fe5fa98605",
+          "audit-common.json": "6d1392c60f512319f05c13ee6c8e8010761811b33236e186e33f1ced7e9e04f5",
+          "probes.json": "e6cdc5bd577e765cbfd69166849f1bcf3bd6e756838fc8207d83776ea7ac40b5",
+          "startup-views-review.json": "d53d6d1172b19a09eb58fdf655060233f5f9e61e208eafd54ba37743e47268d0",
+          "new-game-panel-review.json": "f061e21bba8871348b4c65c68b64b791ad0b581174829a31e0676eb75e39a8bc",
+          "flood-candidate-initial.json": "46ff113898bf1ac536bcce4209dc3e895ab37cd7a8ef1bc05cf7bb4bdc8d65dd",
+          "reference-water.u16": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "473775401a9c812fe7daa5b10510740b36375f695211d511a8b17cf34cf982c5"
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "reference": {
+        "expected_crp_sha256": "55f68d7ff51effc8eb7b559d7f9769e615d2a0fb53ff63832e346d97ca1c8bed",
+        "expected_crp_bytes": 6638720,
+        "expected_simulation_sha256": "e61927d1bd9bee336d348c59943973d50056535dc2ff01e75ba3aee11d515333",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "0efb6afb163714ca76443fe515db95e8",
+            "png_sha256": "ced190ee52f5e92f34534b14a1a03a3052c4bbbaeeab2541f33e5934c5f88e4e"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "1eb6e1ad829cd6ce1f700f5d628a704d",
+            "png_sha256": "e9a55f346629380dee9dcb26d0c4e503a937e29e41e1982f2f4d87ce811368e6"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "5675e9f8c17529ae71dfec1ad790e2c0c390cfad7baddf7d0edc979265c0e0e2",
+          "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+          "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+          "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70"
+        },
+        "expected_crp_sha256": "2b899e38b859d78816925131002c2ee48877e43a2c47f8ab9d174d47376fbba2",
+        "expected_crp_bytes": 6522084,
+        "expected_simulation_sha256": "32b26fad2f51a702b8afa9ad90d3f4a9a78457a10d98876901fc8d620d4337df",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "4683b18deef176cae68265d9f3bbeca76e8b58eda515c589f89e65b167b864d2",
+        "evidence.json": "9d2e59007c3cad540d1c91dddc0721d0f31cd2e93c6b937a2c71127e9ef92db4",
+        "geometry.json.gz": "48323fcbd7b16f5d8e380aa714190308181525203449c2733a7474fe697ffd65",
+        "hydrology.json.gz": "89e2d63c3905ed50f79e7ba7b972b2baecb35869949f566c373a6fa0eedf90cc",
+        "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+        "landcover.json": "63ddab85e79f63c73b684c5dc89fc8a7df1bbaa9b0a28cb9e02cb588f24af6fe",
+        "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f",
+        "plan.npz": "10feb46ee9e0cd997e7314b2f27bc38aa6a5295d2fd426fd3e2db41147d61683",
+        "preview-large.png": "e9a55f346629380dee9dcb26d0c4e503a937e29e41e1982f2f4d87ce811368e6",
+        "preview-thumbnail.png": "ced190ee52f5e92f34534b14a1a03a3052c4bbbaeeab2541f33e5934c5f88e4e",
+        "resources.json": "eacfc49e6a11bb44fedf5c64d5ed8f76954ab073780d66cf780503dd5682680f",
+        "shipping-evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+        "shipping-geometry.json.gz": "48323fcbd7b16f5d8e380aa714190308181525203449c2733a7474fe697ffd65",
+        "terrain.u16.gz": "23363eefbc8e69623e6912374340455ec271a0f25a8988b80df2621a98085369",
+        "water.u16.gz": "0147f378a19b8713210054148f8b7bbdb2480cc267ef950d76e16bc600109618"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-transient-storage-v1/pittsburgh/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-transient-storage-v1/pittsburgh/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-transient-storage-v1/pittsburgh/plan.npz",
+        "preview-large.png": "contracts/pl912-transient-storage-v1/pittsburgh/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-transient-storage-v1/pittsburgh/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-transient-storage-v1/pittsburgh/water.u16.gz",
+        "resources.json": "contracts/pl912-transient-storage-v1/pittsburgh/resources.json"
+      },
+      "native": {
+        "native_crp_sha256": "2b899e38b859d78816925131002c2ee48877e43a2c47f8ab9d174d47376fbba2",
+        "prepared_sha256": {
+          "terrain.u16": "5675e9f8c17529ae71dfec1ad790e2c0c390cfad7baddf7d0edc979265c0e0e2",
+          "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+        },
+        "water_sources_sha256": "9aeb46ab6247a75a3c1a2f3066c461ef83a06f58af25d5e32f8db3f1038276f7",
+        "node_positions_sha256": "3dbeb277517e7eecdfccf3d0253eb3847dc0b6ecbaa7556a3de8a86cb604cbe7",
+        "start_tile": 12,
+        "sea_level_m": 0.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+        "game_minutes": 60.13944758096088,
+        "verdict": "pass",
+        "failed_checks": [],
+        "receipt_sha256": {
+          "report.json": "03a06292e883f708f89fcb61f93bfdcb31aaf61b8ee8a3b695304a06cf86f0e6",
+          "verdict.json": "5a0d231e2ccab8043d37b00d56195ba4f91ead552017f5013235b8f39102311f",
+          "session-receipt.json": "955e6f5948b920a22682b983f4cef3825d5622a579234faead65bb35476b9e68",
+          "audit-common.json": "eff494c4269299eb57128876a000a2a4620cbc142cfe7b8b6301b8fc86d09fc4",
+          "probes.json": "ac93b9d829ef34b8758d73fe310ed090e24ca318494f31654a14933735082e98",
+          "startup-views-review.json": "4c55acd3d4b3f2940d53b670e9a2fc7e6ed2b000e2b03ef4adafcc930177985c",
+          "new-game-panel-review.json": "f01993d4dc4ea3bbb05036547c6fc8322d761bfb4b213e06ed00dc9c3fa2d40a",
+          "flood-candidate-initial.json": "1b116e9c9b6f29ba46f9ec48ccf375ad337ed906c02e3f19482da777d9a77a73",
+          "reference-water.u16": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "4a9c1f82e3d624966d9820802932806dbe2ada8004da5be03615816b845d4f29"
+      }
+    },
+    {
+      "slug": "charleston",
+      "reference": {
+        "expected_crp_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+        "expected_crp_bytes": 6504568,
+        "expected_simulation_sha256": "180193a173300989151683164e3ae93001d2359f3b316471158b294811b5d9d6",
+        "preview_assets": {
+          "imageRef": {
+            "file": "preview-thumbnail.png",
+            "texture_asset_md5": "878b01602f910f6b9f7f5365d12f01d9",
+            "png_sha256": "cd96ea7403939427a59fbebb1d24525e75731ad82aa73f4aa2886c6461f9e1d3"
+          },
+          "steamPreviewRef": {
+            "file": "preview-large.png",
+            "texture_asset_md5": "05cfeed2a900149c78d54cebdfce2355",
+            "png_sha256": "2371fedca9565767bad76b0e2ed8702cdf4bcda1959104387f7db480821945d2"
+          }
+        },
+        "prepared_sha256": {
+          "terrain.u16": "a6be1e75efbfef2d72481563efa62cc03e4f03c7f76759c6b59c74cabfbeeee6",
+          "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+        },
+        "resource_plan": "plan.npz",
+        "resource_knobs": {
+          "trees": 180000,
+          "outer_trees": 0.6,
+          "forest": "dense",
+          "oil_cap": 0.07,
+          "resources": "balanced",
+          "fertile": 1.0,
+          "seed": 0,
+          "environment": "auto",
+          "targets": {
+            "ore": 0.052,
+            "oil": 0.027,
+            "fertile": 0.034
+          }
+        }
+      },
+      "shipping": {
+        "source_files_sha256": {
+          "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+          "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+          "mapgen.js": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+          "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+          "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+          "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+          "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+          "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+          "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+          "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+          "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+          "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+          "tools/map-factory/web.py": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+          "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+          "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+          "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+          "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2"
+        },
+        "evidence_file": "shipping-evidence.json",
+        "geometry_file": "shipping-geometry.json.gz",
+        "input_files_sha256": {
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed"
+        },
+        "expected_crp_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+        "expected_crp_bytes": 6504568,
+        "expected_simulation_sha256": "180193a173300989151683164e3ae93001d2359f3b316471158b294811b5d9d6",
+        "historical_capture_source_commit": "d95c5517c740f385edb64f79daadfd96ecff19fb",
+        "writer_source_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+        "source_order_variant_file": "contracts/pl912-biome-delta-v2/charleston/source-order-variant.json.gz"
+      },
+      "files_sha256": {
+        "banks.f32.gz": "fabbafd353cbdaefd0025e623e1d781d743363c15cd40196b88f0db1b98184b2",
+        "evidence.json": "ffd177979398796ebc8610d18ab221860fe0258b20a03fa44c6527648edf166c",
+        "geometry.json.gz": "beec1a0905993bddd2ad95fe63b54028add1a4a1d77f273c29788f11b4968909",
+        "hydrology.json.gz": "6e10969d245de66c8839bc0a73ee3adfbca744ec412183031d8fb68eda3b5fad",
+        "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+        "landcover.json": "666ae070c84a9a2a1ef4d909bb9c51f50be407c27ab3687cbbc63b7e12d8110f",
+        "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925",
+        "plan.npz": "47e8508a040d2037c66af297abcc2f4475c8c56705b76e1b3ddd749e8311c2e3",
+        "preview-large.png": "2371fedca9565767bad76b0e2ed8702cdf4bcda1959104387f7db480821945d2",
+        "preview-thumbnail.png": "cd96ea7403939427a59fbebb1d24525e75731ad82aa73f4aa2886c6461f9e1d3",
+        "resources.json": "857f9ca41ec2fb5310d219286f6ebb8ab9065e6db9f4d146f2376fe9bd017dd5",
+        "shipping-evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+        "shipping-geometry.json.gz": "beec1a0905993bddd2ad95fe63b54028add1a4a1d77f273c29788f11b4968909",
+        "terrain.u16.gz": "ece7c7ef16d5f7ac39187ef859d8f98290248e420d83c9b818d9405db3c00f46",
+        "water.u16.gz": "1130e55e48b9afa447d153b76d1c9d16f185238546fdd8bfd22637cceb3e1de1"
+      },
+      "fixture_files": {
+        "terrain.u16.gz": "contracts/pl912-transient-storage-v1/charleston/terrain.u16.gz",
+        "preview-thumbnail.png": "contracts/pl912-transient-storage-v1/charleston/preview-thumbnail.png",
+        "plan.npz": "contracts/pl912-transient-storage-v1/charleston/plan.npz",
+        "preview-large.png": "contracts/pl912-transient-storage-v1/charleston/preview-large.png",
+        "hydrology.json.gz": "contracts/pl912-transient-storage-v1/charleston/hydrology.json.gz",
+        "water.u16.gz": "contracts/pl912-transient-storage-v1/charleston/water.u16.gz",
+        "resources.json": "contracts/pl912-transient-storage-v1/charleston/resources.json"
+      },
+      "native": {
+        "native_crp_sha256": "b0e8a19c59d9fd90a1351fe87b616e8c3c66e91182a6cd970f5903ce5e74c7b3",
+        "prepared_sha256": {
+          "terrain.u16": "a6be1e75efbfef2d72481563efa62cc03e4f03c7f76759c6b59c74cabfbeeee6",
+          "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+        },
+        "water_sources_sha256": "6fd626cafbf774070c04947126bd7db02448c12e6a37d7b79986931ff7d7581b",
+        "node_positions_sha256": "5b0429b72fe00b8817de3b6919dd3dc965ddb7f254799217e74dac41a3641412",
+        "start_tile": 21,
+        "sea_level_m": 90.0,
+        "template_sha256": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+        "layout_sha256": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+        "harness_commit": "21a0a52aabf741d0de2da175a4e4fb5b2e29b7b9",
+        "game_minutes": 60.13111424719293,
+        "verdict": "fail",
+        "failed_checks": [
+          "ground_truth"
+        ],
+        "receipt_sha256": {
+          "report.json": "1648050292604dd21c4f674b3f91e3c6d0a1d82303f528a2ae5d206591d284a0",
+          "verdict.json": "5766e079c62a87a8e4bcf499caf175e050e87193be1608e24b30f1aba5f12e19",
+          "session-receipt.json": "3d536bd61167d8ef163096304f637eaa77d20dd251901c78e30fbfd80cf9a96e",
+          "audit-common.json": "ef4eeff7342c83ec13d35de0b70d45f9dfb40110b862ea0532699abca3bd8619",
+          "probes.json": "6d7633cb3dde7a4615e9dceb512797dd414ca9041f0fb4af128d05fb7b4e1750",
+          "startup-views-review.json": "13a6fa7afaabf05385d580f1a24c83ed1137eb8f6f4b5dd6a1133f74700c1790",
+          "new-game-panel-review.json": "402f6d90928c0814735e381a3924a2713b74009e427329462635255d537cb4bc",
+          "flood-candidate-initial.json": "11298da4d5a408413b0e327fe1ce97dd98b7c829c2b28caa36c77b0d8da67efd",
+          "reference-water.u16": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f"
+        },
+        "strict_vanilla_verified": false,
+        "frozen_flood_reference_sha256": "b5bfe195cbffa505cfce3b965f2fa6cf804cbfd6d484d63f12094a6d0b35f32f"
+      }
+    }
+  ],
+  "source_files_sha256": {
+    "inputs.js": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "terrain.js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "mapgen.js": "e3b99ce463519821b6a82012d8ff44a7493c4c0b76aef1ea126a58740ce80de3",
+    "tools/map-factory/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+    "tools/map-factory/region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "tools/map-factory/prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "tools/map-factory/surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62",
+    "tools/map-factory/map_metadata.py": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+    "tools/map-factory/paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "tools/map-factory/resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "tools/map-factory/landcover.py": "374032d63f3d427eb93d02ee52a2c820e66f1f0146892452664060ab135ba3a3",
+    "tools/map-factory/evidence.py": "405dfac63e79fe7a2232089977b4c41f0c34e427cd02b8b02676229585efc8f4",
+    "tools/map-factory/web.py": "4ba1d224485c08efaa59290a9b3e6926842a430ed4f57dd79c3ed59b2ce49c0b",
+    "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+    "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2",
+    "tools/map-factory/water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+    "tools/map-factory/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
+    "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
+  },
+  "export_gate_files_sha256": {
+    "agents.md": "d016f82fb6a5d3441e98fa0a30467fe3a4793edc969fe702fc56360254866c4b",
+    "llms.txt": "b3bfb28c0568d10c65c152116d7956db197744215ee3ad52d6fea2f863da7809",
+    "build.mjs": "c713ccb9e3e96d48bbbd70a952a9575878161f13120e31edb8e0a2c66818fbd8",
+    "app.js": "9e4af8e1b40e206ad4810e3e78584e6df9673cab0f9fff85a9c5c3d5107ff22f",
+    "cli.mjs": "5219fdb8eb754a510aff808c827fc9a1a93c0fb8782ddcaf7b509ace5841efce",
+    "water-risk.js": "d608b74a5476b45760de415f11d465ae1ff5f2dfa6f1ca38d63e569ba4b1156b",
+    "mapgen-worker.js": "4c1818667b909ec6a5a7c7930a221c61a6b99cac1e6e23699992e7c61b4c4b95",
+    "index.html": "9f773079f951a40ab5ce1bb2d68e0c90b16052d23671afcb918516e0a0f58216",
+    "style.css": "8d40e28e517e65c309c831de3dfc3562cd91ad9ff19c78cf44a6149ecf5f4200",
+    "package.json": "a717cf3dab70774d4e917fec256bbcc4247e3cbd5b6876bc7089a6dabdacba51",
+    ".gitattributes": "6d1cb43ddb4a86e06e8509ed0e0b0ba2919be0cf84451006302f59f375de88e7"
+  },
+  "archived_sources": {
+    "mapgen.js": "contracts/pl912-water-risk-v1/predecessor-mapgen.js",
+    "tools/map-factory/web.py": "contracts/pl912-water-risk-v1/predecessor-web.py"
+  },
+  "historical_tool_sources": {
+    "tools/map-factory/native_opening_diagnostic.py": {
+      "snapshot": "contracts/pl912-water-risk-v1/native-tested-native_opening_diagnostic.py",
+      "native_tested_sha256": "c122cdec684bfc4cc0ad3a3d47b845d4cfdae27b0aabeabd9b0b44958aad60c7",
+      "current_sha256": "885199bacb173917d7cf8e8e28fd364f6804e71aa23e19936eb37939acf05a4b"
+    }
+  },
+  "corpus_file": "contracts/pl912-water-risk-v1/corpus.json",
+  "corpus_sha256": "325015cad0140d829ea77098019e994e42befbcf1dc1ef9616cd41fa507be51b",
+  "calibration": {
+    "runs": 68,
+    "squares": 5,
+    "complete_60_runs": 50,
+    "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+    "native_simulation": false,
+    "results": {
+      "flood": {
+        "tp": 12,
+        "fp": 18,
+        "tn": 19,
+        "fn": 1,
+        "precision": 0.4,
+        "recall": 0.9230769230769231,
+        "specificity": 0.5135135135135135,
+        "positive_runs": 13,
+        "negative_runs": 37
+      },
+      "drying": {
+        "tp": 50,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": null,
+        "positive_runs": 50,
+        "negative_runs": 0
+      }
+    },
+    "registry_entries": 161,
+    "complete_60_registry_runs": 57,
+    "unscored_complete_60_runs": 7,
+    "unscored_complete_60_positive_outcomes": {
+      "flood": 0,
+      "drying": 7
+    }
+  },
+  "risk_cases": {
+    "asheville": {
+      "schema": 1,
+      "model": "water-risk-v1",
+      "status": "warning",
+      "native_tested": false,
+      "risks": {
+        "flood": {
+          "level": "not_flagged",
+          "reasons": []
+        },
+        "drying": {
+          "level": "flagged",
+          "reasons": [
+            "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+          ]
+        }
+      },
+      "reasons": [
+        "Drying risk flagged.",
+        "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "features": {
+        "relief_m": 406.4375,
+        "slope_p95": 0.4559524715650678,
+        "wet_fraction": 0.017750036155579383,
+        "ocean_fraction": 0.0,
+        "coastal_land_km2": 0.0,
+        "coastal_freeboard_p10_m": 0.0,
+        "spill_potential_km2": 2.4448,
+        "shore_freeboard_p10_m": 0.921875,
+        "shallow_fraction": 0.015668691543727704,
+        "thin_fraction": 0.4561276636775624,
+        "narrow_film_km2": 0.081408,
+        "inlet_wet_fraction": 0.002458779288400347,
+        "inlet_shallow_fraction": 0.002217722495419921,
+        "emitter_exposure_km2": 0.000512,
+        "source_density": 20.715818146755375,
+        "input_output_ratio": 0.9990067208857729,
+        "input_only_fraction": 0.2727272727272727,
+        "output_only_fraction": 0.0,
+        "bank_limited_fraction": 0.0004275114467246107,
+        "adverse_profile_fraction": 0.5646185622463442,
+        "unforced_fraction": 0.6298842852409188,
+        "profile_overbank_p95_m": 3.362949985235552,
+        "sea_present": 0.0
+      },
+      "outside_calibration": [],
+      "notes": [
+        "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "calibration": {
+        "runs": 68,
+        "squares": 5,
+        "complete_60_runs": 50,
+        "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+        "native_simulation": false,
+        "results": {
+          "flood": {
+            "tp": 12,
+            "fp": 18,
+            "tn": 19,
+            "fn": 1,
+            "precision": 0.4,
+            "recall": 0.9230769230769231,
+            "specificity": 0.5135135135135135,
+            "positive_runs": 13,
+            "negative_runs": 37
+          },
+          "drying": {
+            "tp": 50,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": null,
+            "positive_runs": 50,
+            "negative_runs": 0
+          }
+        },
+        "registry_entries": 161,
+        "complete_60_registry_runs": 57,
+        "unscored_complete_60_runs": 7,
+        "unscored_complete_60_positive_outcomes": {
+          "flood": 0,
+          "drying": 7
+        }
+      },
+      "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet."
+    },
+    "innsbruck": {
+      "schema": 1,
+      "model": "water-risk-v1",
+      "status": "warning",
+      "native_tested": false,
+      "risks": {
+        "flood": {
+          "level": "not_flagged",
+          "reasons": []
+        },
+        "drying": {
+          "level": "flagged",
+          "reasons": [
+            "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+          ]
+        }
+      },
+      "reasons": [
+        "Drying risk flagged.",
+        "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "features": {
+        "relief_m": 830.796875,
+        "slope_p95": 0.47468974370972367,
+        "wet_fraction": 0.005820834342409168,
+        "ocean_fraction": 0.0,
+        "coastal_land_km2": 0.0,
+        "coastal_freeboard_p10_m": 0.0,
+        "spill_potential_km2": 1.422592,
+        "shore_freeboard_p10_m": 0.734375,
+        "shallow_fraction": 0.016906792119964716,
+        "thin_fraction": 0.5388121140840929,
+        "narrow_film_km2": 0.014848,
+        "inlet_wet_fraction": 0.007497794766245222,
+        "inlet_shallow_fraction": 0.002940311673037342,
+        "emitter_exposure_km2": 0.0,
+        "source_density": 21.82262569832402,
+        "input_output_ratio": 1.0468424140532173,
+        "input_only_fraction": 0.2631578947368421,
+        "output_only_fraction": 0.0,
+        "bank_limited_fraction": 0.0,
+        "adverse_profile_fraction": 0.743646015461128,
+        "unforced_fraction": 0.7494520265988007,
+        "profile_overbank_p95_m": 9.904798274108146,
+        "sea_present": 0.0
+      },
+      "outside_calibration": [],
+      "notes": [
+        "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "calibration": {
+        "runs": 68,
+        "squares": 5,
+        "complete_60_runs": 50,
+        "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+        "native_simulation": false,
+        "results": {
+          "flood": {
+            "tp": 12,
+            "fp": 18,
+            "tn": 19,
+            "fn": 1,
+            "precision": 0.4,
+            "recall": 0.9230769230769231,
+            "specificity": 0.5135135135135135,
+            "positive_runs": 13,
+            "negative_runs": 37
+          },
+          "drying": {
+            "tp": 50,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": null,
+            "positive_runs": 50,
+            "negative_runs": 0
+          }
+        },
+        "registry_entries": 161,
+        "complete_60_registry_runs": 57,
+        "unscored_complete_60_runs": 7,
+        "unscored_complete_60_positive_outcomes": {
+          "flood": 0,
+          "drying": 7
+        }
+      },
+      "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet."
+    },
+    "rio": {
+      "schema": 1,
+      "model": "water-risk-v1",
+      "status": "warning",
+      "native_tested": false,
+      "risks": {
+        "flood": {
+          "level": "flagged",
+          "reasons": [
+            "Low coastal land can flood.",
+            "Lower coastal land sits 0.9 m above sea level.",
+            "Water sources reach 0.017 km\u00b2 of initially dry low ground."
+          ]
+        },
+        "drying": {
+          "level": "flagged",
+          "reasons": [
+            "80% of mapped channel length needs local water-level corrections.",
+            "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+          ]
+        }
+      },
+      "reasons": [
+        "Flooding risk flagged.",
+        "Low coastal land can flood.",
+        "Lower coastal land sits 0.9 m above sea level.",
+        "Water sources reach 0.017 km\u00b2 of initially dry low ground.",
+        "Drying risk flagged.",
+        "80% of mapped channel length needs local water-level corrections.",
+        "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "features": {
+        "relief_m": 628.59375,
+        "slope_p95": 0.6021887751804821,
+        "wet_fraction": 0.01580576452577144,
+        "ocean_fraction": 0.43485106896430736,
+        "coastal_land_km2": 5.227776,
+        "coastal_freeboard_p10_m": 0.921875,
+        "spill_potential_km2": 1.630464,
+        "shore_freeboard_p10_m": 0.859375,
+        "shallow_fraction": 0.01012452625879805,
+        "thin_fraction": 0.27742284786139687,
+        "narrow_film_km2": 0.016384,
+        "inlet_wet_fraction": 0.06578234975636167,
+        "inlet_shallow_fraction": 0.004493773687060098,
+        "emitter_exposure_km2": 0.017408,
+        "source_density": 61.33256632376827,
+        "input_output_ratio": 0.39875062059827643,
+        "input_only_fraction": 0.24482758620689654,
+        "output_only_fraction": 0.0,
+        "bank_limited_fraction": 0.8022476247347401,
+        "adverse_profile_fraction": 0.14495380714363112,
+        "unforced_fraction": 0.14495380714363112,
+        "profile_overbank_p95_m": 1.6796319202221643,
+        "sea_present": 1.0
+      },
+      "outside_calibration": [],
+      "notes": [
+        "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "calibration": {
+        "runs": 68,
+        "squares": 5,
+        "complete_60_runs": 50,
+        "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+        "native_simulation": false,
+        "results": {
+          "flood": {
+            "tp": 12,
+            "fp": 18,
+            "tn": 19,
+            "fn": 1,
+            "precision": 0.4,
+            "recall": 0.9230769230769231,
+            "specificity": 0.5135135135135135,
+            "positive_runs": 13,
+            "negative_runs": 37
+          },
+          "drying": {
+            "tp": 50,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": null,
+            "positive_runs": 50,
+            "negative_runs": 0
+          }
+        },
+        "registry_entries": 161,
+        "complete_60_registry_runs": 57,
+        "unscored_complete_60_runs": 7,
+        "unscored_complete_60_positive_outcomes": {
+          "flood": 0,
+          "drying": 7
+        }
+      },
+      "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet."
+    },
+    "pittsburgh": {
+      "schema": 1,
+      "model": "water-risk-v1",
+      "status": "warning",
+      "native_tested": false,
+      "risks": {
+        "flood": {
+          "level": "flagged",
+          "reasons": [
+            "Water sources reach 0.046 km\u00b2 of initially dry low ground."
+          ]
+        },
+        "drying": {
+          "level": "flagged",
+          "reasons": [
+            "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+          ]
+        }
+      },
+      "reasons": [
+        "Flooding risk flagged.",
+        "Water sources reach 0.046 km\u00b2 of initially dry low ground.",
+        "Drying risk flagged.",
+        "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "features": {
+        "relief_m": 171.390625,
+        "slope_p95": 0.4151143084363673,
+        "wet_fraction": 0.03389810202462687,
+        "ocean_fraction": 0.0,
+        "coastal_land_km2": 0.0,
+        "coastal_freeboard_p10_m": 0.0,
+        "spill_potential_km2": 0.928,
+        "shore_freeboard_p10_m": -0.109375,
+        "shallow_fraction": 0.0029031606583863477,
+        "thin_fraction": 0.21705543774613753,
+        "narrow_film_km2": 0.1728,
+        "inlet_wet_fraction": 0.0006816116328385338,
+        "inlet_shallow_fraction": 7.57346258709482e-05,
+        "emitter_exposure_km2": 0.045568,
+        "source_density": 7.1987339695041905,
+        "input_output_ratio": 0.8233543074802331,
+        "input_only_fraction": 0.0958904109589041,
+        "output_only_fraction": 0.0,
+        "bank_limited_fraction": 0.028539454392272217,
+        "adverse_profile_fraction": 0.35823240514423726,
+        "unforced_fraction": 0.3984397358693802,
+        "profile_overbank_p95_m": 4.54904593593091,
+        "sea_present": 0.0
+      },
+      "outside_calibration": [],
+      "notes": [
+        "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "calibration": {
+        "runs": 68,
+        "squares": 5,
+        "complete_60_runs": 50,
+        "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+        "native_simulation": false,
+        "results": {
+          "flood": {
+            "tp": 12,
+            "fp": 18,
+            "tn": 19,
+            "fn": 1,
+            "precision": 0.4,
+            "recall": 0.9230769230769231,
+            "specificity": 0.5135135135135135,
+            "positive_runs": 13,
+            "negative_runs": 37
+          },
+          "drying": {
+            "tp": 50,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": null,
+            "positive_runs": 50,
+            "negative_runs": 0
+          }
+        },
+        "registry_entries": 161,
+        "complete_60_registry_runs": 57,
+        "unscored_complete_60_runs": 7,
+        "unscored_complete_60_positive_outcomes": {
+          "flood": 0,
+          "drying": 7
+        }
+      },
+      "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet."
+    },
+    "charleston": {
+      "schema": 1,
+      "model": "water-risk-v1",
+      "status": "warning",
+      "native_tested": false,
+      "risks": {
+        "flood": {
+          "level": "flagged",
+          "reasons": [
+            "Low coastal land can flood.",
+            "Lower coastal land sits 0.1 m above sea level."
+          ]
+        },
+        "drying": {
+          "level": "flagged",
+          "reasons": [
+            "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+          ]
+        }
+      },
+      "reasons": [
+        "Flooding risk flagged.",
+        "Low coastal land can flood.",
+        "Lower coastal land sits 0.1 m above sea level.",
+        "Drying risk flagged.",
+        "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "features": {
+        "relief_m": 29.15625,
+        "slope_p95": 0.1247336410774201,
+        "wet_fraction": 0.016569096521277023,
+        "ocean_fraction": 0.3147460851423246,
+        "coastal_land_km2": 18.281472,
+        "coastal_freeboard_p10_m": 0.109375,
+        "spill_potential_km2": 0.384512,
+        "shore_freeboard_p10_m": 0.140625,
+        "shallow_fraction": 0.03114347691354199,
+        "thin_fraction": 0.4095134800123954,
+        "narrow_film_km2": 0.064256,
+        "inlet_wet_fraction": 0.0001549426712116517,
+        "inlet_shallow_fraction": 0.0001549426712116517,
+        "emitter_exposure_km2": 0.005632,
+        "source_density": 9.078672141307715,
+        "input_output_ratio": 1.001726223576261,
+        "input_only_fraction": 0.022222222222222223,
+        "output_only_fraction": 0.0,
+        "bank_limited_fraction": 0.02709265494361381,
+        "adverse_profile_fraction": 0.32099983863323556,
+        "unforced_fraction": 0.13131575449718083,
+        "profile_overbank_p95_m": 10.0,
+        "sea_present": 1.0
+      },
+      "outside_calibration": [],
+      "notes": [
+        "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
+      "calibration": {
+        "runs": 68,
+        "squares": 5,
+        "complete_60_runs": 50,
+        "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+        "native_simulation": false,
+        "results": {
+          "flood": {
+            "tp": 12,
+            "fp": 18,
+            "tn": 19,
+            "fn": 1,
+            "precision": 0.4,
+            "recall": 0.9230769230769231,
+            "specificity": 0.5135135135135135,
+            "positive_runs": 13,
+            "negative_runs": 37
+          },
+          "drying": {
+            "tp": 50,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "specificity": null,
+            "positive_runs": 50,
+            "negative_runs": 0
+          }
+        },
+        "registry_entries": 161,
+        "complete_60_registry_runs": 57,
+        "unscored_complete_60_runs": 7,
+        "unscored_complete_60_positive_outcomes": {
+          "flood": 0,
+          "drying": 7
+        }
+      },
+      "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet."
+    }
+  },
+  "coverage_file": "contracts/pl912-water-risk-v1/coverage.json",
+  "coverage_sha256": "5f8e66618d51dd8d09b137643197f1d4f56ced2b9049039075e89cbea62dbaf9"
+}

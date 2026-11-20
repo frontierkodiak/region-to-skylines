@@ -53,9 +53,9 @@ incoming/outgoing connection counts). Existing fixture probes remain frozen;
 fresh squares use explicitly labelled candidate samples plus geographic probes.
 Neither probe construction nor metadata equality is native UI/pathfinding proof.
 
-## Prepared runway capture (not adopted)
+## Optional runway capture (capture only)
 
-The optional patch attached to PL-1066 makes `inputs.js` read OpenMapTiles'
+`captureInputs(sq, { includeRunways: true })` makes `inputs.js` read OpenMapTiles'
 `aeroway` layer, class `runway`, preserving all
 line pieces. The longest captured endpoint axis supplies the existing
 `geometry.airport` contract, with coordinate tie-breaks independent of tile
@@ -64,16 +64,31 @@ an assertion that a complete airport or its globally longest runway was seen.
 No runway means `airport=null`; existing `transport_paths.py` fixture fallbacks
 are not changed. A runway outside the captured tile footprint is not fetched.
 
-It is not applied by this staging/harness change. The three fresh qualification
-captures used that prepared patch; their capture manifests retain its exact
-source hashes. Running capture from the unchanged shipping source does not add
-runways. Do not treat the two capture source versions as identical.
+The option defaults to false. Default captures do not add any runway/airport
+keys or provenance, including empty or null values; their byte compatibility
+against the archived previous source is independently exercised with synthetic
+providers. `capture-connections.mjs` explicitly enables the option for **new**
+experimental captures and records it in the capture receipt. App/CLI captures
+do not enable it. Real-road generation remains standalone Python tooling, not a
+public app toggle or CLI option; `mapgen.js`/`web.py` still use the shipping writer.
 
-This additive geometry changes the source-bound `inputs.js` contract. Historical
-fixture files and fingerprints must not be rewritten to make tests pass. A
-truthful contract adoption must independently demonstrate unchanged historical
-shipping CRPs or explicitly qualify the changed output; CPU road exports from
-unchanged fixture inputs alone do not prove that fresh recapture equivalence.
+The three original fresh qualification captures used the earlier prepared
+`b67413b` patch. Both frozen eight-map cohorts retain their original source/input
+identities unchanged. This new feature is not a recapture or native qualification
+of either cohort, and its opt-in geometry is not claimed identical to that patch.
+
+The requested scope is: “Also capture aeroway=runway in inputs.js if it's still
+missing.” Preservation constraints: historical contracts, fingerprints and
+receipts stay untouched; both frozen eight-map cohorts remain immutable.
+The `pl1066-optional-runways-v1` wrapper archives the exact previous water-risk
+contract, active pointer and historical input source. It validates current live
+sources and default-capture compatibility separately, then runs all predecessor
+checks against their exact source identities. No historical receipt, fixture,
+fingerprint, risk rule or native result is relabelled. Both Node fixture builds
+and the Python verifier explicitly distinguish archived capture identity from
+current compatibility proof; water-risk parity remains mandatory for all ten
+reference/shipping byte builds. Synthetic capture equivalence is not live-data
+recapture equivalence or native playability proof.
 
 ```sh
 uv run --project tools/map-factory python -m unittest discover -s tools/map-factory -p test_qualify_connections.py
