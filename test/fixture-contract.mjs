@@ -6,7 +6,7 @@ import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
 
-export async function loadFixtureContract(read, readSource) {
+async function loadHistoricalFixtureContract(read, readSource) {
   const historicalBytes = await read("fixtures/manifest.json");
   const historicalNativeBytes = await read("fixtures/native-qualification.json");
   const historical = parse(historicalBytes);
@@ -135,4 +135,24 @@ export async function loadFixtureContract(read, readSource) {
     nativeCases[old.slug] = native;
   }
   return { manifest: { ...historical, cases }, nativeCases, historicalNativeCases, current };
+}
+
+// Native qualification stays attached to the old source and exact packages.
+// New launch code has separate source pins and must rebuild all ten packages.
+export async function loadFixtureContract(read, readSource) {
+  const evolution = parse(await read("fixtures/contracts/pl1067-launch-v1/source-evolution.json"));
+  for (const [name, pin] of Object.entries(evolution.files)) {
+    assert.equal(sha(await readSource(name)), pin.sha256, `${name}: current contract source changed`);
+    assert.equal(sha(await read(pin.baseline_file)), pin.baseline_sha256, `${name}: historical source changed`);
+  }
+  const historicalSource = (name) => evolution.files[name] ? read(evolution.files[name].baseline_file) : readSource(name);
+  const result = await loadHistoricalFixtureContract(read, historicalSource);
+  const digest = async (name) => sha(await readSource(name));
+  result.manifest.capture_sources_sha256 = { "inputs.js": await digest("inputs.js"), "terrain.js": await digest("terrain.js") };
+  for (const c of result.manifest.cases) {
+    c.input_capture.source_files_sha256 = { ...c.input_capture.source_files_sha256, "inputs.js": await digest("inputs.js") };
+    c.shipping = { ...c.shipping, source_files_sha256: { ...c.shipping.source_files_sha256, "mapgen.js": await digest("mapgen.js"), "tools/map-factory/web.py": await digest("tools/map-factory/web.py") } };
+  }
+  result.launch = evolution;
+  return result;
 }

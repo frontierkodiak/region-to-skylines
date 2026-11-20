@@ -144,3 +144,11 @@ footer details summary { font-weight: 500; }
 footer ul { padding-left: 16px; margin: 6px 0; }
 footer li { margin-bottom: 3px; }
 .note .linkish { margin: 0; padding: 0; font-size: inherit; }
+
+#map-preview-image { width: 100%; height: auto; display: block; background: #eef1e8; }
+#computer, #map-preview { border-top: 1px solid #ccc; padding-top: 12px; margin-top: 16px; }
+#computer textarea { width: 100%; box-sizing: border-box; }
+#computer button, #share-preview, #startTile { min-height: 44px; }
+h2 { font-size: 1.1rem; }
+
+#connections .check { display: flex; align-items: center; min-height: 44px; }

@@ -26,9 +26,9 @@ self.onmessage = async ({ data: { id, sq, inputs } }) => {
     let memory = null;
     try { memory = factory.py._module.HEAP8.length; } catch {}
     const prep = map.receipt.preparation ?? {};
-    self.postMessage({ id, done: true, bytes: map.bytes, mapName: map.mapName, memory,
+    self.postMessage({ id, done: true, bytes: map.bytes, preview: map.preview, mapName: map.mapName, memory,
       summary: { tiles: cover.tiles, deposits: found?.count ?? null, wet_cells: prep.wet_cells, starter_reservoir: !!prep.starter_reservoir } },
-    [map.bytes.buffer]);
+    [map.bytes.buffer, map.preview.buffer]);
     clearWork(factory);
   } catch (err) {
     self.postMessage({ id, error: String(err?.message ?? err) });

@@ -50,7 +50,7 @@ Useful options: `--name <name>` (file name), `--out <dir>`, `--rotate <deg>`, `-
 `--title <name>` (the map's name in New Game), `--heightmap` (the heightmap for the Map
 Editor instead), `--game-dir <dir>` (the game's data folder when it isn't the usual one),
 `--force` (replace a file of the same name), `--json` (machine-readable summary on stdout).
-`--help` lists everything. `--height` and `--no-rivers` shape only the heightmap.
+`--start-tile 0..24` overrides the water-and-road default (west-to-east, then south-to-north). `--no-connection road_in|road_out|rail_in|rail_out` is repeatable. The CLI also writes the shareable `<name>-preview.png`. `--help` lists everything. `--height` and `--no-rivers` shape the heightmap; `--height` also shapes the ready-to-play map.
 
 Exit codes: 0 done; 1 bad arguments (including a hand-edited link with values the page
 can't make); 2 a download failed (retry in a minute); 3 the game's data folder doesn't

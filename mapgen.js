@@ -96,7 +96,7 @@ export async function buildMap({ py, web }, { png, geometry, banks, landcover = 
   py.FS.writeFile("/work/banks.f32", new Uint8Array(banks.buffer, banks.byteOffset, banks.byteLength));
   const result = JSON.parse(web.build("/work", landcover, evidence));
   const bytes = py.FS.readFile(result.crp);
-  return { bytes, mapName: result.map_name, receipt: result.receipt };
+  return { bytes, preview: py.FS.readFile(result.preview), mapName: result.map_name, receipt: result.receipt };
 }
 
 /** Remove one build's files so the next starts clean. */

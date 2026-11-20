@@ -8,7 +8,7 @@
 import { VectorTile } from "@mapbox/vector-tile";
 import Pbf from "pbf";
 import { CS1, sampleElevation, smooth, fetchBasemapWater, basemapTile, carveWater, fitHeights, waterSources,
-  encode16, png16, corners, lonLatToSquare, extentOf, fillMask, waterwayTags } from "./terrain.js";
+  encode16, png16, corners, lonLatToSquare, extentOf, fillMask, waterwayTags, heightFactor } from "./terrain.js";
 
 /** The capture's own settings, which the reference maps were made with (the page's defaults). */
 export const CAPTURE = { smoothing: 1, riverDepth: 10, riverHalfWidth: 40, lakeDepth: 4 };
@@ -79,11 +79,11 @@ export async function captureInputs(sq, { signal, status = () => {}, about = {} 
   status("Shaping the terrain");
   const sea = oceanMask(oceans, sq);
   const carved = carveSurfaceWater(ground, sq, water);
-  const fit = fitHeights(ground, carved.heights, { sea });
+  const fit = fitHeights(ground, carved.heights, { sea, verticalScale: (auto) => heightFactor(sq.vscale ?? "auto", sq.scale, auto) });
   const sources = waterSources(sq, water, carved, fit);
   const uncarved = fitHeights(ground, ground, { sea, verticalScale: fit.verticalScale });
   const geometry = {
-    sq: { name: sq.name, slug: sq.slug, lon: sq.lon, lat: sq.lat, rotation: sq.rotation, scale: sq.scale },
+    sq: { name: sq.name, slug: sq.slug, lon: sq.lon, lat: sq.lat, rotation: sq.rotation, scale: sq.scale, ...(sq.startTile !== undefined ? { startTile: sq.startTile } : {}), ...(sq.disabledConnections?.length ? { disabledConnections: sq.disabledConnections } : {}) },
     ...water, streams, roads, oceans, sources, seaLevel: fit.seaLevel,
     fit: { base: fit.base, verticalScale: fit.verticalScale },
     provenance: {

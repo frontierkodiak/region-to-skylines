@@ -32,7 +32,9 @@ Options
   --title <name>     the map's name in New Game, before " - Ready to Play" (default: the place)
   --rotate <deg>     turn the square clockwise, -180 to 180 (default 0, or the preset's)
   --scale <x>        real ground per map: 0.5, 0.75, 1 (true size, 17.28 km), 1.5 or 2
-  --height <h>       (heightmap) auto (default: 1:1, squeezed if too tall), slopes, or a factor
+  --height <h>       auto (default: 1:1, squeezed if too tall), slopes, or a factor
+  --no-connection <id> disable road_in, road_out, rail_in or rail_out (repeatable)
+  --start-tile <n>   starting tile, 0–24, west to east then south to north (default: auto)
   --no-rivers        (heightmap) don't cut rivers and lakes
   --name <name>      file name without extension (default: from the place)
   --out <dir>        where to write the map file and <name>.json, plus <name>-water.png for a
@@ -68,7 +70,7 @@ try {
     allowPositionals: true,
     options: {
       heightmap: { type: "boolean" }, title: { type: "string" }, rotate: { type: "string" }, scale: { type: "string" }, height: { type: "string" },
-      "no-rivers": { type: "boolean" }, name: { type: "string" }, out: { type: "string" },
+      "no-connection": { type: "string", multiple: true }, "start-tile": { type: "string" }, "no-rivers": { type: "boolean" }, name: { type: "string" }, out: { type: "string" },
       install: { type: "boolean" }, "game-dir": { type: "string" }, force: { type: "boolean" },
       json: { type: "boolean" }, help: { type: "boolean", short: "h" },
     },
@@ -132,6 +134,8 @@ if (/^https?:\/\//.test(where)) {
 }
 if (v.rotate !== undefined) sq.rotation = v.rotate.trim() === "" ? NaN : Number(v.rotate);
 if (v.scale !== undefined) sq.scale = Number(v.scale);
+if (v["no-connection"]) sq.disabledConnections = v["no-connection"];
+if (v["start-tile"] !== undefined) sq.startTile = Number(v["start-tile"]);
 if (v.height !== undefined) sq.vscale = ["auto", "slopes"].includes(v.height) ? v.height : v.height.trim() === "" ? NaN : Number(v.height);
 { const bad = squareProblem(sq); if (bad) fail(1, bad.replace(/^(rotation|scale|height)/, "--$1").replace("--rotation", "--rotate")); }
 if (v["no-rivers"]) sq.rivers = false;
@@ -155,10 +159,11 @@ const install = v.install ? join(gameDir(), ...(crp ? ["Maps"] : ["Addons", "Map
 // with --install and no --out, the map goes only into the game; the extras go to the cache
 const outDir = resolve(v.out || (install ? cacheDir() : "."));
 const file = install && !v.out ? null : join(outDir, `${name}.${ext}`);
+const previewPath = crp ? join(outDir, `${name}-preview.png`) : null;
 const jsonPath = join(outDir, `${name}.json`), waterPath = crp ? null : join(outDir, `${name}-water.png`);
 const installed = install ? join(install, `${name}.${ext}`) : null;
 // check everything that could stop us before downloading anything (the cache is ours to overwrite)
-if (!v.force) for (const p of [file, ...(v.out || !install ? [jsonPath, waterPath] : []), installed].filter(Boolean))
+if (!v.force) for (const p of [file, ...(v.out || !install ? [jsonPath, waterPath, previewPath] : []), installed].filter(Boolean))
   if (await exists(p)) fail(4, `${p} already exists; pass --force to replace it or --name to pick another name`);
 if (install && !(await exists(gameDir())))
   fail(3, `Cities: Skylines data folder not found at ${gameDir()}. Start the game once on this computer, or pass --game-dir <its data folder>.`);
@@ -183,13 +188,15 @@ if (crp) {
     const cover = await landCover(factory, sq, { fromUrl, tileUrl: (tile) => WORLDCOVER_S3 + worldCoverFile(tile), status });
     const found = await deposits(factory, sq, { status });
     const built = await writeMap(factory, { ...inputs, landcover: cover.path, evidence: found?.path ?? null }, { status });
+    await mkdir(outDir, { recursive: true });
+    await writeFile(previewPath, built.preview);
     bytes = Buffer.from(built.bytes);
     mapName = built.mapName;
     const prep = built.receipt.preparation ?? {};
     report = { seconds: Math.round((performance.now() - t) / 1000), land_cover_tiles: cover.tiles, deposits: found?.count ?? null,
       starter_reservoir: !!prep.starter_reservoir, sea_level_game_m: inputs.seaLevel === null ? null : Math.round(inputs.seaLevel) };
     details = { game: "Cities: Skylines 1", map_file: `${name}.crp`, map_name: mapName, link,
-      center: { lon: sq.lon, lat: sq.lat }, rotation_deg: sq.rotation, scale: sq.scale, game_test: check, build: report,
+      center: { lon: sq.lon, lat: sq.lat }, rotation_deg: sq.rotation, scale: sq.scale, game_test: check, build: report, listing: built.receipt.listing, preview: `${name}-preview.png`,
       writer: "tools/map-factory (PL-857 reference) under Pyodide",
       data: ["Elevation: AWS Terrain Tiles (Mapzen)", "Rivers, lakes, coast, roads: © OpenStreetMap contributors (ODbL), via OpenFreeMap",
         "Land cover: ESA WorldCover 2021 (CC BY 4.0)", "Ore and oil: USGS MRDS (public domain)"] };

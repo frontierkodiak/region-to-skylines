@@ -1,0 +1,53 @@
+{
+  "scope": "Default packages must remain byte-identical; optional controls are not native-qualified by historical fixtures.",
+  "baseline_commit": "9e73827",
+  "files": {
+    "inputs.js": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/inputs.js",
+      "baseline_sha256": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+      "sha256": "f43f630a66c5b3c5e09a68629fc4378b4ae6a04f20f812a86d922741298e9a42"
+    },
+    "terrain.js": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/terrain.js",
+      "baseline_sha256": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+      "sha256": "8594f1ccf952337e9eda35d4871a4d5b6499ced0f129c00eaf15a0e9761eaa97"
+    },
+    "mapgen.js": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/mapgen.js",
+      "baseline_sha256": "13958bb4b9feb1918327d3ea99ee8a11aaa445c8ab6cb1d02c2d5d069f6c89ca",
+      "sha256": "28b98cd274198cde317a43c7ea8fefd64c918d5071bbe8db149f360698bde2af"
+    },
+    "tools/map-factory/generate.py": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/tools/map-factory/generate.py",
+      "baseline_sha256": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
+      "sha256": "2fbdf06c27b6089b0869e2e800dba4efbbcfc77b12d3f10a59ed8ae5079e9a0f"
+    },
+    "tools/map-factory/region.py": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/tools/map-factory/region.py",
+      "baseline_sha256": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+      "sha256": "0a4c2aaf41fe15bf16c33435c58edc977d58cc34b8746a5452820800c5f354db"
+    },
+    "tools/map-factory/crp.py": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/tools/map-factory/crp.py",
+      "baseline_sha256": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+      "sha256": "01752a5702c83f3047df358e69767273ad220dd99b2595dffc4b07c1ff9f37ee"
+    },
+    "tools/map-factory/map_metadata.py": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/tools/map-factory/map_metadata.py",
+      "baseline_sha256": "1e1066cdadcde524e88c8fe890e68be7e8c313acfe6f3c00d4994499c907dfd8",
+      "sha256": "c8a7b6ef5e894200315e34b48619744f4e22d6eb9d6486442bb99fc8e81289a2"
+    },
+    "tools/map-factory/web.py": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/tools/map-factory/web.py",
+      "baseline_sha256": "0f20ab966ef1ccc35923d2b808bf98b29185e05f425803ddb5401a38422c1bd9",
+      "sha256": "c2e344db40e7ef04f6243a6a284d1520a2a3bda0f38c81fc1539d18405b61bb7"
+    },
+    "tools/map-factory/native_opening_diagnostic.py": {
+      "baseline_file": "fixtures/contracts/pl1067-launch-v1/baseline/tools/map-factory/native_opening_diagnostic.py",
+      "baseline_sha256": "c122cdec684bfc4cc0ad3a3d47b845d4cfdae27b0aabeabd9b0b44958aad60c7",
+      "sha256": "885199bacb173917d7cf8e8e28fd364f6804e71aa23e19936eb37939acf05a4b",
+      "note": "Historical diagnostic changed upstream before PL-1067; preserve its actual short-tested source.",
+      "baseline_commit": "dc16ddefc209d3ca1d594e471ef69cb75e9e5701"
+    }
+  }
+}

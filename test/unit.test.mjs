@@ -118,3 +118,27 @@ test("current fixture contract refuses stale writers, missing regions and fabric
     await assert.rejects(loadFixtureContract(async (name) => name === currentPath ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
   }
 });
+
+import { desktopBuildPolicy } from "../device.js";
+import { parseHash, squareHash, squareProblem } from "../terrain.js";
+test("phones and low-memory computers are gated before the Python worker", () => {
+  for (const nav of [
+    { userAgent: "iPhone", deviceMemory: undefined },
+    { userAgent: "Android", deviceMemory: 8 },
+    { userAgent: "Desktop", deviceMemory: 4 },
+    { userAgent: "Desktop", userAgentData: { mobile: true } },
+  ]) assert.ok(desktopBuildPolicy(nav));
+  assert.equal(desktopBuildPolicy({ userAgent: "Desktop", deviceMemory: 8 }), null);
+});
+test("shared links preserve height, start tile and individual connection switches", () => {
+  for (const p of PRESETS.slice(0, 2)) {
+    const sq = { ...p, rotation: 0, scale: 1, vscale: 0.5, startTile: 24, disabledConnections: ["rail_out", "road_in"] };
+    const read = parseHash(squareHash(sq));
+    assert.equal(read.vscale, 0.5);
+    assert.equal(read.startTile, 24);
+    assert.deepEqual(read.disabledConnections, ["rail_out", "road_in"]);
+    assert.equal(squareProblem(read), null);
+    assert.match(squareProblem({ ...read, startTile: 25 }), /start tile/);
+    assert.match(squareProblem({ ...read, disabledConnections: ["ship"] }), /connection/);
+  }
+});
