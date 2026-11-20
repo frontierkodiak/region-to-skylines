@@ -1,0 +1,167 @@
+{
+  "schema": 1,
+  "version": "water-risk-v1",
+  "rules": {
+    "low_coastal_freeboard_m": 1.5,
+    "emitter_exposure_km2": 0.01,
+    "bank_limited_fraction": 0.1,
+    "input_output_ratio": 2.0
+  },
+  "features": [
+    "adverse_profile_fraction",
+    "bank_limited_fraction",
+    "coastal_freeboard_p10_m",
+    "coastal_land_km2",
+    "emitter_exposure_km2",
+    "inlet_shallow_fraction",
+    "inlet_wet_fraction",
+    "input_only_fraction",
+    "input_output_ratio",
+    "narrow_film_km2",
+    "ocean_fraction",
+    "output_only_fraction",
+    "profile_overbank_p95_m",
+    "relief_m",
+    "sea_present",
+    "shallow_fraction",
+    "shore_freeboard_p10_m",
+    "slope_p95",
+    "source_density",
+    "spill_potential_km2",
+    "thin_fraction",
+    "unforced_fraction",
+    "wet_fraction"
+  ],
+  "ranges": {
+    "adverse_profile_fraction": [
+      0.14478577404486886,
+      0.9999999999999998
+    ],
+    "bank_limited_fraction": [
+      0.0,
+      0.8024860751843462
+    ],
+    "coastal_freeboard_p10_m": [
+      0.0,
+      2.78125
+    ],
+    "coastal_land_km2": [
+      0.0,
+      19.577088
+    ],
+    "emitter_exposure_km2": [
+      0.0,
+      0.54656
+    ],
+    "inlet_shallow_fraction": [
+      0.0,
+      0.015140313092674145
+    ],
+    "inlet_wet_fraction": [
+      0.0,
+      0.09283792871553463
+    ],
+    "input_only_fraction": [
+      0.022222222222222223,
+      1.0
+    ],
+    "input_output_ratio": [
+      0.12555873906990417,
+      993707.0
+    ],
+    "narrow_film_km2": [
+      0.013568,
+      0.626944
+    ],
+    "ocean_fraction": [
+      0.0,
+      0.4349871337482596
+    ],
+    "output_only_fraction": [
+      0.0,
+      0.0
+    ],
+    "profile_overbank_p95_m": [
+      1.5528787267265203,
+      15.538782796427473
+    ],
+    "relief_m": [
+      29.140625,
+      831.125
+    ],
+    "sea_present": [
+      0.0,
+      1.0
+    ],
+    "shallow_fraction": [
+      0.0028954855603394013,
+      0.036155530763191605
+    ],
+    "shore_freeboard_p10_m": [
+      -0.109375,
+      1.09375
+    ],
+    "slope_p95": [
+      0.12469923074174519,
+      0.6025440086025721
+    ],
+    "source_density": [
+      6.956557537020322,
+      119.69559520209657
+    ],
+    "spill_potential_km2": [
+      0.0,
+      12.342784
+    ],
+    "thin_fraction": [
+      0.10513053119645197,
+      0.6311999742839692
+    ],
+    "unforced_fraction": [
+      0.0,
+      0.7495622224300295
+    ],
+    "wet_fraction": [
+      0.005820834342409168,
+      0.05600649003346851
+    ]
+  },
+  "calibration": {
+    "runs": 68,
+    "squares": 5,
+    "complete_60_runs": 50,
+    "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+    "native_simulation": false,
+    "results": {
+      "flood": {
+        "tp": 12,
+        "fp": 18,
+        "tn": 19,
+        "fn": 1,
+        "precision": 0.4,
+        "recall": 0.9230769230769231,
+        "specificity": 0.5135135135135135,
+        "positive_runs": 13,
+        "negative_runs": 37
+      },
+      "drying": {
+        "tp": 50,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "specificity": null,
+        "positive_runs": 50,
+        "negative_runs": 0
+      }
+    },
+    "registry_entries": 161,
+    "complete_60_registry_runs": 57,
+    "unscored_complete_60_runs": 7,
+    "unscored_complete_60_positive_outcomes": {
+      "flood": 0,
+      "drying": 7
+    }
+  }
+}

@@ -2,6 +2,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 import { captureInputs } from "./inputs.js";
+import { waterRiskDecision, calibrationText } from "./water-risk.js";
 
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
@@ -174,7 +175,7 @@ $("vscale").onchange = (e) => {
 $("rivers").onchange = (e) => { state.rivers = e.target.checked; writeHash(); schedule(0); };
 for (const k of Object.keys(DEFAULTS)) $(k).onchange = (e) => { state[k] = Number(e.target.value); writeHash(); if (result) finish(result.raw); };
 $("resetplay").onclick = () => { Object.assign(state, DEFAULTS); for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]); writeHash(); if (result) finish(result.raw); };
-$("name").onchange = () => { typedTitle = $("name").value.trim() || null; writeHash(); finishLabel(); if (result) setDownload(result.raw.water); };
+$("name").onchange = () => { typedTitle = $("name").value.trim() || null; resetWaterRisk(); writeHash(); finishLabel(); if (result) setDownload(result.raw.water); };
 
 // Nominatim usage policy (read 2026-11-09): searches only when the user submits, never as they
 // type (no autocomplete); at most one request per second; repeated queries answered from a cache.
@@ -215,6 +216,7 @@ $("search").onsubmit = async (e) => {
 
 let timer;
 function schedule(delay = 450) {
+  resetWaterRisk();
   clearTimeout(timer);
   timer = setTimeout(build, delay);
 }
@@ -268,6 +270,7 @@ function setDownload(water) {
   dl.textContent = fallback
     ? ({ loading: "Download heightmap now (rivers still loading)", failed: "Download heightmap (no rivers or lakes)" }[water] ?? "Download heightmap")
     : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? "Download ready-to-play map");
+  if (pendingRiskMap && pendingRiskMap.selection === result && pendingRiskMap.key === selectionKey()) dl.textContent = "Review water risk";
   const check = checkedPreset()?.check, note = fallback || check;
   $("crpnote").hidden = !note;
   $("crpnote").textContent = fallback ?? check ?? "";
@@ -278,6 +281,7 @@ const checkedPreset = () => PRESETS.find((p) => Math.abs(p.lon - state.lon) < 1e
 
 /** Smooth, carve and fit the fetched terrain with the current options; cheap enough to rerun on any change. */
 function finish(raw, status = "") {
+  resetWaterRisk();
   const { sq, elev, w } = raw;
   const built = buildMap(raw, opts());
   const { carved, fit, sources } = built;
@@ -358,6 +362,37 @@ const fileName = () => baseName() + (result && ["loading", "failed"].includes(re
 // ---------------------------------------------------------------- the ready-to-play map file
 
 let worker = null, building = false, fallback = null, nextId = 0;
+let pendingRiskMap = null, lastWaterRisk = null;
+const selectionKey = () => JSON.stringify({ square: state, options: opts(), name: baseName(), title: titleFor() });
+function resetWaterRisk() {
+  pendingRiskMap = lastWaterRisk = null;
+  $("water-risk").hidden = true;
+}
+function showWaterRisk(map, selection, key) {
+  const decision = waterRiskDecision(map.waterRisk);
+  lastWaterRisk = { risk: map.waterRisk, selection, key };
+  $("water-risk").hidden = false;
+  $("water-risk-title").textContent = decision.title;
+  $("water-risk-reasons").replaceChildren(...decision.reasons.map((text) => {
+    const li = document.createElement("li"); li.textContent = text; return li;
+  }));
+  $("water-risk-calibration").textContent = calibrationText(map.waterRisk);
+  $("water-risk-continue").hidden = decision.action !== "review";
+  pendingRiskMap = decision.action === "review" ? { map, selection, key } : null;
+  return decision;
+}
+$("water-risk-continue").onclick = () => {
+  const pending = pendingRiskMap;
+  if (!pending || pending.selection !== result || pending.key !== selectionKey()) return resetWaterRisk();
+  save(new Blob([pending.map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
+  pendingRiskMap = null;
+  $("water-risk-continue").hidden = true;
+  setStatus(`Saved ${baseName()}.crp with the water-risk warning acknowledged`);
+};
+$("water-risk-report").onclick = () => {
+  if (!lastWaterRisk || lastWaterRisk.selection !== result || lastWaterRisk.key !== selectionKey()) return;
+  save(new Blob([JSON.stringify({ square: result.sq, water_risk: lastWaterRisk.risk }, null, 2) + "\n"], { type: "application/json" }), `${baseName()}-water-risk.json`);
+};
 /**
  * The ready-to-play .crp for the current square: capture the writer's inputs here (inputs.js),
  * then run the reference writer under Pyodide in mapgen-worker.js. `progress(text)` reports.
@@ -390,6 +425,11 @@ $("dl").onclick = async () => {
   if (!result) return;
   const dl = $("dl");
   if (dl.dataset.kind !== "crp") return savePNG();
+  if (pendingRiskMap && pendingRiskMap.selection === result && pendingRiskMap.key === selectionKey()) {
+    $("water-risk").scrollIntoView({ block: "nearest" });
+    return;
+  }
+  const selection = result, key = selectionKey();
   building = true;
   dl.disabled = true;
   const start = performance.now();
@@ -399,8 +439,13 @@ $("dl").onclick = async () => {
   try {
     const map = await crpBytes((s) => { step = s; tick(); });
     lastBuild = { seconds: (performance.now() - start) / 1000, memory: map.memory, summary: map.summary };
-    save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
-    setStatus(`Saved ${baseName()}.crp: \u201c${map.mapName}\u201d in New Game`);
+    if (result === selection && selectionKey() === key) {
+      const decision = showWaterRisk(map, selection, key);
+      if (decision.action === "download") {
+        save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
+        setStatus(`Saved ${baseName()}.crp: \u201c${map.mapName}\u201d in New Game`);
+      } else setStatus(decision.action === "review" ? "Map built; review the water risk before downloading" : "Water check unavailable; choose another square or use the heightmap");
+    } else setStatus("Square changed; the previous map was not downloaded");
   } catch (err) {
     lastBuild = { error: err.message };
     fallback = `This browser couldn't build the map file (${err.message}). Here is the heightmap instead; the Map Editor steps are under Advanced.`;
@@ -440,6 +485,7 @@ function agentPrompt() {
     "",
     `Instructions for AI agents: ${SITE}/agents.md`,
     `In short, run: npx -y ${CLI_TGZ} "${link()}" --install`,
+    "If it stops with exit 5, show me the water-risk reasons; do not add --allow-water-risk without my agreement.",
     "then tell me what it printed and what to do in the game.",
   ].join("\n");
 }

@@ -1,0 +1,2761 @@
+[
+  {
+    "run_id": "PL-891-cs1-harness-v2/notify-smoke",
+    "run_path_sha256": "026f7117d00796bc8dfe1c5aa9788943452c3200b26bd41d3b1584509c25359c",
+    "minutes": 3.0447223810168604,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "c4fc7e384495896d686b6c14975aed6df6781077675f77d018499499dc26e581",
+    "minutes": 10.05,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "PL-893-test-city/vanilla-10",
+    "run_path_sha256": "ce159bca57cd75742e0a3a6ca59243ae907d86970072a73db486f6319e843a50",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-857-sustained-water/render-inspection-innsbruck",
+    "run_path_sha256": "f8d9b5df5453569cd2c3cfec145279d5fa774367e808d77ea47c90b27215749d",
+    "minutes": 1.1191667250357569,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "reach-final-views/asheville",
+    "run_path_sha256": "e700fd50c70ace17105009e98222448575791db80b088111ff4af75d4524f5b3",
+    "minutes": 60.1258364691399,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 28,
+      "required_wet_end": 28,
+      "required_water_loss": false,
+      "initialized_observations": 5231,
+      "initialized_water_loss_end": 1057,
+      "exact_point_wet_loss_end": 1867,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "bf3a17bd209c1e8fec80721857d3eb76304675d5a6837074b7177fde96f9e540",
+    "minutes": 10.06,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "reach-final-views/rio",
+    "run_path_sha256": "dcaa3f35c24e6248bf4abed1fd58e64958b8c30efaa86038c8b307fce25bb36b",
+    "minutes": 60.10055869004378,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 1.7321,
+      "required": 342,
+      "required_wet_end": 329,
+      "required_water_loss": true,
+      "initialized_observations": 1208,
+      "initialized_water_loss_end": 107,
+      "exact_point_wet_loss_end": 176,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "bad10370f7fbe435d49da0ddc06b069654278c2f8d745a98fde2530b46352eff",
+    "minutes": 10.01,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/render-fps-check",
+    "run_path_sha256": "3e30a31c4b95cf22b4bd1531bdb02eed490081d4e178caae08353f58e96548c2",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/render-fps-check2",
+    "run_path_sha256": "20e0289055e1379e8f65e31b11d1fe387ba0626c4ee9495d7c9433232f1273fe",
+    "minutes": 10.14222275118033,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 28,
+      "required_wet_end": 24,
+      "required_water_loss": true,
+      "initialized_observations": 62,
+      "initialized_water_loss_end": 10,
+      "exact_point_wet_loss_end": 10,
+      "original_native_water_failures": [
+        "probes_wet_end"
+      ]
+    },
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/ground-truth-live",
+    "run_path_sha256": "8333fcbf83fed4ed3e57c5bec0fc84300c27e223b6e96c19d45408e2b0a64a4e",
+    "minutes": 3.038889047379295,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "runs/asheville-1",
+    "run_path_sha256": "df25feffb1f09d6f99a659178b3172898e4d1f95e2498fe55b70ae74102f2770",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "native-north-smoke-retry-2307/asheville",
+    "run_path_sha256": "2e7bf2b268d567b81198cec6dfcf3a2b66da0a00e169d46d0c538e2692af7b4d",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/opening-camera",
+    "run_path_sha256": "034caee2dab846c3e2c9672e41b0c91afd3b81261173eea6df0cbd8baa9332e8",
+    "minutes": 1.063333388790488,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/ground-truth-sampler",
+    "run_path_sha256": "2c50e8ad0f275e93363f930c1c2f055a8a405115ce35faaab307be75dacc5050",
+    "minutes": 1.0966667238622902,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "native-start-ui-trial/asheville",
+    "run_path_sha256": "ed3fa4b855090433563d6ac183c6fa576b60d974e8f81de10d15f2f87bb3704e",
+    "minutes": 1.1313889478954176,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "r4-north-rio-60/rio",
+    "run_path_sha256": "854bc76aea27cd7f13c921f91bf4c8568f2c64c08bdea0e568c2f6eb56f40d99",
+    "minutes": 60.02889201963941,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.4019,
+      "required": 342,
+      "required_wet_end": 341,
+      "required_water_loss": true,
+      "initialized_observations": 1208,
+      "initialized_water_loss_end": 101,
+      "exact_point_wet_loss_end": 172,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "runs/asheville-2",
+    "run_path_sha256": "632005887cdfafc66745d17bcdb64f2661e17c26ccdb78b9bd582baabe404182",
+    "minutes": 6.1050003184005615,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 23,
+      "required_wet_end": 15,
+      "required_water_loss": true,
+      "initialized_observations": 36,
+      "initialized_water_loss_end": 8,
+      "exact_point_wet_loss_end": 13,
+      "original_native_water_failures": [
+        "probes_wet_end"
+      ]
+    },
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "resources-north-asheville-60/asheville",
+    "run_path_sha256": "1a86cb871789e3335bd5eacacc139376d23661c94106227dfe5c78b35b2fcc78",
+    "minutes": 60.07305868860955,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 28,
+      "required_wet_end": 28,
+      "required_water_loss": false,
+      "initialized_observations": 5231,
+      "initialized_water_loss_end": 1042,
+      "exact_point_wet_loss_end": 1853,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "rio-coast-noemit-15/rio",
+    "run_path_sha256": "e8a2cbbf2874511de293cb58e722975d3cf968003a2d10df9e22e6b4b08ab8c6",
+    "minutes": 15.013334116339683,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 342,
+      "required_wet_end": 173,
+      "required_water_loss": true,
+      "initialized_observations": 1208,
+      "initialized_water_loss_end": 858,
+      "exact_point_wet_loss_end": 1032,
+      "original_native_water_failures": [
+        "probes_wet_end"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "resources-three-60/innsbruck",
+    "run_path_sha256": "a78d75af1e69d2b2675f485c2ec2c0c884c16c9e7b6b6fe77946e073da778e98",
+    "minutes": 60.012225352103506,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.001,
+      "required": 35,
+      "required_wet_end": 35,
+      "required_water_loss": false,
+      "initialized_observations": 2755,
+      "initialized_water_loss_end": 863,
+      "exact_point_wet_loss_end": 1255,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "resources-neutral-pointer-asheville-1/asheville",
+    "run_path_sha256": "bf89f4d764a468be77cfc8164bf7bc1b4c3b58c749e1c3cb8b72ecc9e5682e00",
+    "minutes": 1.1266667254269123,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "rio-coast-nofill-15/rio",
+    "run_path_sha256": "c607c07e6b1e12a1e1d7eaeb835b3266fe7f51f28aac0468351e03f4e4abbc1f",
+    "minutes": 15.013334116339683,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 4.1741,
+      "required": 342,
+      "required_wet_end": 342,
+      "required_water_loss": null,
+      "initialized_observations": 90,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": null
+    }
+  },
+  {
+    "run_id": "resources-coast-rio-60/rio",
+    "run_path_sha256": "69068c3240a60f83b494b2dad911434a8d211a9526953a6649d372fb8d92c579",
+    "minutes": 60.128892024854814,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.4012,
+      "required": 342,
+      "required_wet_end": 342,
+      "required_water_loss": false,
+      "initialized_observations": 1208,
+      "initialized_water_loss_end": 95,
+      "exact_point_wet_loss_end": 177,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "resources-three-60/pittsburgh",
+    "run_path_sha256": "60c2c127d37c67ac05d5154bce6dccef6eecfd2113a55b528ef1a39aab846f49",
+    "minutes": 60.01639201898748,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 2.165,
+      "required": 79,
+      "required_wet_end": 79,
+      "required_water_loss": false,
+      "initialized_observations": 2109,
+      "initialized_water_loss_end": 647,
+      "exact_point_wet_loss_end": 943,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "runs/pittsburgh-3",
+    "run_path_sha256": "e33615b9ce6be1d186e6f62ff529f592d5ef7b90f4c6734d95c336dfe6864b0d",
+    "minutes": 6.09333365112543,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 2.0769,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 36,
+      "initialized_water_loss_end": 16,
+      "exact_point_wet_loss_end": 16,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "rio-coast-shallow-head-15/rio",
+    "run_path_sha256": "31dc2380f8e222f44bc438579af336dd27ec8daed14185e5c35fa431de5c16b1",
+    "minutes": 15.012223005170622,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.108,
+      "required": 342,
+      "required_wet_end": 304,
+      "required_water_loss": true,
+      "initialized_observations": 1208,
+      "initialized_water_loss_end": 218,
+      "exact_point_wet_loss_end": 402,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "settled-panel-asheville-1/asheville",
+    "run_path_sha256": "ac009e5841520d6b82cdb5965c26217583e7e42477a0f71e92d207fd78ddcfd0",
+    "minutes": 1.1266667254269123,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "resources-three-60/charleston",
+    "run_path_sha256": "a2ba9b6cdc0e19b7732663a979127a44d80cc82b6e895bf2cf1f86920593ae71",
+    "minutes": 60.144447581221655,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.1866,
+      "required": 198,
+      "required_wet_end": 198,
+      "required_water_loss": false,
+      "initialized_observations": 3017,
+      "initialized_water_loss_end": 878,
+      "exact_point_wet_loss_end": 1083,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "window-panel-asheville-1/asheville",
+    "run_path_sha256": "bfedc65a7a5ed04d980b7d64d6d1b8815324514a4c3a7fe28b1b69737dffee9a",
+    "minutes": 1.1266667254269123,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "rio-coast-symmetric-footprints-15/rio",
+    "run_path_sha256": "85d5b6a79439d497a6fa75e7c9be989797f12f6952b5204e1e86483e88952d06",
+    "minutes": 15.012223005170622,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.2353,
+      "required": 342,
+      "required_wet_end": 342,
+      "required_water_loss": null,
+      "initialized_observations": 1208,
+      "initialized_water_loss_end": 96,
+      "exact_point_wet_loss_end": 180,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "resources-deeper-start-60/charleston",
+    "run_path_sha256": "0a0bb463c0bedbf385cbbaf8305fb9d4b98ec10f2d4713914b3fe7c6f3a0d2aa",
+    "minutes": 60.012225352103506,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1155,
+      "required": 198,
+      "required_wet_end": 198,
+      "required_water_loss": false,
+      "initialized_observations": 3017,
+      "initialized_water_loss_end": 880,
+      "exact_point_wet_loss_end": 1081,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "surface-rio-smoke-15/rio",
+    "run_path_sha256": "e8c9736638039d96311fcf70f7fdc87bb3d572d125c9ed7ea05df94118bedbde",
+    "minutes": 15.013334116339683,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0379,
+      "required": 244,
+      "required_wet_end": 244,
+      "required_water_loss": null,
+      "initialized_observations": 1047,
+      "initialized_water_loss_end": 44,
+      "exact_point_wet_loss_end": 102,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "surface-final-five-60/rio",
+    "run_path_sha256": "3d1701b51abf93a38180ad41424b2b4eb94a5b36ec960448a6170b3b795940fb",
+    "minutes": 60.11000313498079,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0148,
+      "required": 244,
+      "required_wet_end": 244,
+      "required_water_loss": false,
+      "initialized_observations": 1047,
+      "initialized_water_loss_end": 276,
+      "exact_point_wet_loss_end": 298,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "surface-final-five-60/asheville",
+    "run_path_sha256": "a3c12f25e89df21e7966ea5b068d47bacfca0c3f3868de30d1113f307c469ca6",
+    "minutes": 60.06111424354215,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 28,
+      "required_wet_end": 28,
+      "required_water_loss": false,
+      "initialized_observations": 5127,
+      "initialized_water_loss_end": 4179,
+      "exact_point_wet_loss_end": 4459,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "head-bounded-rio-15/rio",
+    "run_path_sha256": "81392a5d7b0030e75e77ef4d136d24519bd03691d038f9c38c1c0578936244fb",
+    "minutes": 15.139445234028,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 244,
+      "required_wet_end": 219,
+      "required_water_loss": true,
+      "initialized_observations": 1047,
+      "initialized_water_loss_end": 338,
+      "exact_point_wet_loss_end": 420,
+      "original_native_water_failures": [
+        "probes_wet_end"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "surface-final-five-60/innsbruck",
+    "run_path_sha256": "af409832dc924d7c432ac868c23b13be3ffcf98cbc697711eade9cac9cda0fed",
+    "minutes": 60.02666979730129,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 33,
+      "required_wet_end": 33,
+      "required_water_loss": false,
+      "initialized_observations": 2874,
+      "initialized_water_loss_end": 2564,
+      "exact_point_wet_loss_end": 2661,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "bed-crest-rio-15/rio",
+    "run_path_sha256": "936cf9cbfb8d0f652fe4f592624376448e271e89b201c98ed369a58a4d256979",
+    "minutes": 15.013334116339683,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0008,
+      "required": 244,
+      "required_wet_end": 244,
+      "required_water_loss": null,
+      "initialized_observations": 1047,
+      "initialized_water_loss_end": 275,
+      "exact_point_wet_loss_end": 300,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "surface-final-five-60/pittsburgh",
+    "run_path_sha256": "4894ff87e51c815c6177c411e8c92ee3bdec18e8c0a0f7a585dd32904297f24a",
+    "minutes": 60.112780912903446,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 48,
+      "required_wet_end": 48,
+      "required_water_loss": false,
+      "initialized_observations": 2002,
+      "initialized_water_loss_end": 1617,
+      "exact_point_wet_loss_end": 1679,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "bed-crest-final-60/rio",
+    "run_path_sha256": "92b5db1ab42d076568ae28769600cf18df1e6177186393271c3fd1685ac59182",
+    "minutes": 60.104447579135496,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0008,
+      "required": 244,
+      "required_wet_end": 244,
+      "required_water_loss": false,
+      "initialized_observations": 1047,
+      "initialized_water_loss_end": 275,
+      "exact_point_wet_loss_end": 304,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "surface-final-five-60/charleston",
+    "run_path_sha256": "f68794760ccf864149a1d208187327e80597b86fc0a57bb9a168580130f92fde",
+    "minutes": 60.13666980303824,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0046,
+      "required": 198,
+      "required_wet_end": 198,
+      "required_water_loss": true,
+      "initialized_observations": 2978,
+      "initialized_water_loss_end": 1049,
+      "exact_point_wet_loss_end": 1175,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "complete-river-pilots-15/rio",
+    "run_path_sha256": "1e47786fba22e286f64564c4e991bce6481ec4fadfd5736bf0288329946ceb68",
+    "minutes": 15.013334116339683,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1751,
+      "required": 1558,
+      "required_wet_end": 1546,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 340,
+      "exact_point_wet_loss_end": 754,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "complete-river-final-60/asheville",
+    "run_path_sha256": "386fb9744603bed4991b636bf31966c13607798d123fa66fb9758b8e6b5a0f17",
+    "minutes": 60.11444757965703,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 7744,
+      "initialized_water_loss_end": 4207,
+      "exact_point_wet_loss_end": 4501,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "short-footprint-v2-pilot-15/rio",
+    "run_path_sha256": "5a705f54df683635f68532bfd2dd3cd2fede4f3f9da764960b6518e95431d390",
+    "minutes": 15.020000783354043,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1559,
+      "required": 1558,
+      "required_wet_end": 1538,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 358,
+      "exact_point_wet_loss_end": 809,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "short-footprint-v2-final-60/pittsburgh",
+    "run_path_sha256": "b64925b9027a2a9dfd9b8e961b1536ef468c092e28fec6e2a086b28632425e7e",
+    "minutes": 60.06361424367254,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1798,
+      "required_wet_end": 1798,
+      "required_water_loss": false,
+      "initialized_observations": 6458,
+      "initialized_water_loss_end": 1644,
+      "exact_point_wet_loss_end": 1806,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "complete-river-final-60/innsbruck",
+    "run_path_sha256": "6138989c40f46f31a31c5d1cfc6a1223091ee8f524acc7079846a3c09abc831a",
+    "minutes": 60.03889202016095,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 4281,
+      "initialized_water_loss_end": 2583,
+      "exact_point_wet_loss_end": 2733,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "baseline/rio",
+    "run_path_sha256": "27d037dcc551f958bea2d90ae471dac38585ca408807691ddc70eb3d6abe1acf",
+    "minutes": 5.130833600927144,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1062,
+      "required": 1558,
+      "required_wet_end": 1542,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 292,
+      "exact_point_wet_loss_end": 764,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "portal-original-pilot-5/rio",
+    "run_path_sha256": "0e19cf300fa0a0cf94418cf06a61b759fe18d551c419e8ad3b95578bb91388f5",
+    "minutes": 5.132222489888469,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0374,
+      "required": 1558,
+      "required_wet_end": 1530,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 310,
+      "exact_point_wet_loss_end": 912,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "complete-river-final-60/charleston",
+    "run_path_sha256": "4f7d7dc7e24920370c01197fc365884a588d79a687bc200b2383f63da5daec1e",
+    "minutes": 60.00778090742727,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0056,
+      "required": 2213,
+      "required_wet_end": 2213,
+      "required_water_loss": true,
+      "initialized_observations": 8244,
+      "initialized_water_loss_end": 1106,
+      "exact_point_wet_loss_end": 1252,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "short-output-off/rio",
+    "run_path_sha256": "4b55afad7778d2efe6bac18445a477b760ea9c8ea9ec8e1f38bcf8c58bca1a96",
+    "minutes": 5.006111372200151,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0031,
+      "required": 1558,
+      "required_wet_end": 1014,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 1428,
+      "exact_point_wet_loss_end": 2083,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "inlet-throughput-final-60/rio",
+    "run_path_sha256": "bf251577d0a20c6805999ef87fc187fa7baeaea5ac15fc5d708dbd2d82a46517",
+    "minutes": 60.03555868665377,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0504,
+      "required": 1558,
+      "required_wet_end": 1525,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 381,
+      "exact_point_wet_loss_end": 957,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "sea-only/rio",
+    "run_path_sha256": "e6c9c5a7930a29d9b56d251bbe4de1a82214a9fe8780ca3b41f8220d01763078",
+    "minutes": 5.127500267419964,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1075,
+      "required": 1558,
+      "required_wet_end": 1538,
+      "required_water_loss": true,
+      "initialized_observations": 373,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 9,
+      "original_native_water_failures": [
+        "probes_wet_throughout",
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "inlet-throughput-final-60/pittsburgh",
+    "run_path_sha256": "deae11b0ae29ffaf9faf1b7ea8f490c9f46fcdaa14e4e04415946726fd81ffe2",
+    "minutes": 60.061947576918946,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1798,
+      "required_wet_end": 1798,
+      "required_water_loss": false,
+      "initialized_observations": 6458,
+      "initialized_water_loss_end": 1647,
+      "exact_point_wet_loss_end": 1817,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/saves",
+    "run_path_sha256": "bf9658804764b232fe2b0534c7b9be24ff6d2cdca55de54719aae46363d96e4f",
+    "minutes": 2.138889000440637,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/from-save",
+    "run_path_sha256": "892c5141a70a404b189df072d92ec316f0905ce5cf2ccb6e4e460467eab9f52b",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/caleb-t0",
+    "run_path_sha256": "463cecb991cab8592f782422e2500815567226602fd576706feadfef2ef15ba4",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/saves2",
+    "run_path_sha256": "596d6e8b69dd03529e752dc4f57abe96341cf037b6bb9bfdbb264554b51e953f",
+    "minutes": 2.133333444595337,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "c2557244bd1b0d511f363a35ec0a2eb05f482e965ae966aad8208890dd550a8a",
+    "minutes": 1.13,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/from-save3",
+    "run_path_sha256": "49a03c1262504cfa7634c18cbe2383a6a8574ddc3aa8297f664d0146a4c61476",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/caleb-t0-2",
+    "run_path_sha256": "85151e2d189003f84d5385b05d9454cb0cbd7c9b5936101c0e0b7ffa56875c2a",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-891-cs1-harness-v2/from-save4",
+    "run_path_sha256": "af0df8f04467e19fda13b814e04a75eefd37bed5cd2e863b140237463515defc",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "38394ba1e2b765610d75b435fa8432f2f3fd7b56148974f5d3d4657495170b3d",
+    "minutes": 0.57,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "9ae709e1e1c2e90222a9092c8f9a71b351ef0af122921bd3e7074500099f9926",
+    "minutes": 1.03,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "r2/run-open",
+    "run_path_sha256": "37732fbe76d35362660e252deb1fd6433982a787a1761ff54a99f48246034f28",
+    "minutes": 1.1266667254269123,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "r2/run-dense",
+    "run_path_sha256": "8d1198b39ba379b160238e2c64541db783ab93dd385fe4a99219bf7e33cde123",
+    "minutes": 1.1266667254269123,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "r2/run-blackwoods",
+    "run_path_sha256": "1b399a50fe8d0afd26a867d8215946448ddd92256b7d5cfe96aaa6f479f8b617",
+    "minutes": 1.1144445025672514,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "r2/run-dense2",
+    "run_path_sha256": "9e028ff30c0f52dbcc413870d7cadcbfdc0973b90c8fc4d27f95a9b984f536af",
+    "minutes": 1.140000059455633,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "main-smoke/soak",
+    "run_path_sha256": "4f995a053b80ef9feea763825504662849b55a3fd9a397f767cba8a70a5d9ab5",
+    "minutes": 3.046666825562715,
+    "status": "incomplete_under_five_minutes"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "2d17817b61c00874ab6abbe920725a1553b129ff940feec26c3f7a79cda0f446",
+    "minutes": 1.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "soaks/charleston",
+    "run_path_sha256": "8e937948635bbde7c32d747a21fcda8413b954cfaf54b3e92163b475fef80867",
+    "minutes": 60.067780910556515,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0046,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 8242,
+      "initialized_water_loss_end": 1098,
+      "exact_point_wet_loss_end": 1253,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/rio",
+    "run_path_sha256": "c5dc0b84a06e0cf23dcc552e73da5ad61ec9b5711836ca6921409f9384f61af1",
+    "minutes": 60.068892021725574,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1203,
+      "required": 1556,
+      "required_wet_end": 1533,
+      "required_water_loss": true,
+      "initialized_observations": 4248,
+      "initialized_water_loss_end": 374,
+      "exact_point_wet_loss_end": 802,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/asheville",
+    "run_path_sha256": "3717878e078e4846cdf3d4120bf31be0ea4d055dfc73bc78545c6337f06b6f1f",
+    "minutes": 60.11555869082609,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 7745,
+      "initialized_water_loss_end": 4196,
+      "exact_point_wet_loss_end": 4495,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/innsbruck",
+    "run_path_sha256": "39a53a82fac9b80189828eadb6fd1c2c92b2771f8b495378702879476c90953a",
+    "minutes": 60.014447574441625,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 4281,
+      "initialized_water_loss_end": 2575,
+      "exact_point_wet_loss_end": 2711,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/pittsburgh",
+    "run_path_sha256": "3a8347b2a675d8592514c540ab713091c89627f0db91893f8064d593af812535",
+    "minutes": 60.074725355363135,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1799,
+      "required_wet_end": 1799,
+      "required_water_loss": false,
+      "initialized_observations": 6458,
+      "initialized_water_loss_end": 1635,
+      "exact_point_wet_loss_end": 1776,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "diagnostic-soaks/new-remote-new-inlet",
+    "run_path_sha256": "e9dec9026239a84f0124f6a38053f4ffa86e65d6cf6dac3b4a7014c98e091f73",
+    "minutes": 10.071389414152751,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1085,
+      "required": 1556,
+      "required_wet_end": 1546,
+      "required_water_loss": true,
+      "initialized_observations": 4248,
+      "initialized_water_loss_end": 357,
+      "exact_point_wet_loss_end": 784,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "diagnostic-soaks/terrain-only",
+    "run_path_sha256": "1c30d1030f597e895169fca8ce97846ee85c3456977e829f73f877ea5c8c39cd",
+    "minutes": 10.056667191162704,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0284,
+      "required": 1556,
+      "required_wet_end": 1526,
+      "required_water_loss": true,
+      "initialized_observations": 4248,
+      "initialized_water_loss_end": 391,
+      "exact_point_wet_loss_end": 928,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/rio",
+    "run_path_sha256": "b28ca198e0b028026a62d1d5ae109a2e8897ae21e24d58e6657255925c9b846d",
+    "minutes": 60.11555869082609,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0625,
+      "required": 1556,
+      "required_wet_end": 1531,
+      "required_water_loss": true,
+      "initialized_observations": 4245,
+      "initialized_water_loss_end": 365,
+      "exact_point_wet_loss_end": 849,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "diagnostic-soaks/new-remote-old-inlet",
+    "run_path_sha256": "9bc6c5ae3d991599179eac56907da2370012013814a5d06ff5bd180789711e03",
+    "minutes": 10.056667191162704,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.1531,
+      "required": 1556,
+      "required_wet_end": 1546,
+      "required_water_loss": true,
+      "initialized_observations": 4248,
+      "initialized_water_loss_end": 357,
+      "exact_point_wet_loss_end": 794,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/innsbruck",
+    "run_path_sha256": "aa844dfc4fe8dd279f4dc4fe623ba4ad2761c5dc4330f73806689e9904f97a82",
+    "minutes": 60.126669802516695,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 4281,
+      "initialized_water_loss_end": 2577,
+      "exact_point_wet_loss_end": 2718,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "diagnostic-soaks/old-remote-new-inlet",
+    "run_path_sha256": "04c2e92867663e6aa2ead1e46282fc1f39b034b5710c142c3d6649ab7c40fae4",
+    "minutes": 10.039722745834538,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0415,
+      "required": 1556,
+      "required_wet_end": 1524,
+      "required_water_loss": true,
+      "initialized_observations": 4248,
+      "initialized_water_loss_end": 376,
+      "exact_point_wet_loss_end": 944,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/pittsburgh",
+    "run_path_sha256": "6e87bebad33f6cddd6b7cf3b74ae73fa47f9fba1d2b466f7e75ea48ba9f71504",
+    "minutes": 60.12166980225592,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1799,
+      "required_wet_end": 1799,
+      "required_water_loss": false,
+      "initialized_observations": 6458,
+      "initialized_water_loss_end": 1639,
+      "exact_point_wet_loss_end": 1777,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "diagnostic-soaks/old-remote-old-inlet",
+    "run_path_sha256": "f3014681f2f0dff4bf94a3e18a39ca5410c10dd5eb1928639f93975a29ac0890",
+    "minutes": 10.05527830220138,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0415,
+      "required": 1556,
+      "required_wet_end": 1524,
+      "required_water_loss": true,
+      "initialized_observations": 4248,
+      "initialized_water_loss_end": 376,
+      "exact_point_wet_loss_end": 949,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/asheville",
+    "run_path_sha256": "03a2498c58326eeb671c899e953302ee3931ce8f05fbd557e698a6280d4532a4",
+    "minutes": 60.1377809142073,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 7745,
+      "initialized_water_loss_end": 4201,
+      "exact_point_wet_loss_end": 4490,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "soaks/charleston",
+    "run_path_sha256": "e78e28f159f68e1012c846bcc49d9b2a13e434a6096ef355008c80f877792bf6",
+    "minutes": 60.144447581221655,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0051,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 8242,
+      "initialized_water_loss_end": 1095,
+      "exact_point_wet_loss_end": 1243,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification/asheville",
+    "run_path_sha256": "20ed4894cacd879487b973069237afc21164312a0aeb7cb265414c8b2df91c9d",
+    "minutes": 60.00666979625821,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 4093,
+      "initialized_water_loss_end": 577,
+      "exact_point_wet_loss_end": 832,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification/innsbruck",
+    "run_path_sha256": "9418a50a2b38034d89ba8d53e4d211077f97315332c95a5bed689c19841c3768",
+    "minutes": 60.02666979730129,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 1865,
+      "initialized_water_loss_end": 186,
+      "exact_point_wet_loss_end": 295,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification/rio",
+    "run_path_sha256": "d64e226ccae2ff6c318bb0a7a1646ea662de254057264ce9687b72c7d64eda2f",
+    "minutes": 60.122225357840456,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0617,
+      "required": 1556,
+      "required_wet_end": 1531,
+      "required_water_loss": true,
+      "initialized_observations": 3977,
+      "initialized_water_loss_end": 90,
+      "exact_point_wet_loss_end": 563,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification/pittsburgh",
+    "run_path_sha256": "2bcf01c92bc6da4899a6755d30167809c7a93c373f2b72ce1d0ef73f9eaa535e",
+    "minutes": 60.145558692390715,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1799,
+      "required_wet_end": 1799,
+      "required_water_loss": false,
+      "initialized_observations": 4961,
+      "initialized_water_loss_end": 138,
+      "exact_point_wet_loss_end": 255,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification-frozen/charleston",
+    "run_path_sha256": "6cb612a55743c522e9650d2e197caf8d3ed3828e9cfd2a9c36aa7ab162c55a0b",
+    "minutes": 60.06000313237309,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0054,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 7848,
+      "initialized_water_loss_end": 792,
+      "exact_point_wet_loss_end": 925,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification-frozen/asheville",
+    "run_path_sha256": "8475ec0f888322e45ebd21a1e75bdad232e81fac3d94858f5e5c6556b07438e2",
+    "minutes": 60.090003133937714,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 4093,
+      "initialized_water_loss_end": 569,
+      "exact_point_wet_loss_end": 824,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification-frozen/innsbruck",
+    "run_path_sha256": "573e11f5bac08315be26ed39b5a389451a342dda970ac0d465e785371a9272fa",
+    "minutes": 60.013336463272566,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 1865,
+      "initialized_water_loss_end": 188,
+      "exact_point_wet_loss_end": 287,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification-frozen/rio",
+    "run_path_sha256": "eddd3da50500e4a2d073eae1b2984be17e7661571e0e32af84a73ea7cc87e5b5",
+    "minutes": 60.04000313133001,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0609,
+      "required": 1556,
+      "required_wet_end": 1531,
+      "required_water_loss": true,
+      "initialized_observations": 3977,
+      "initialized_water_loss_end": 90,
+      "exact_point_wet_loss_end": 575,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "qualification-frozen/pittsburgh",
+    "run_path_sha256": "3c04c966458d6aadb9044bf206fdf6a8ebb9f2a1ee6c57efdcdbd64a89376061",
+    "minutes": 60.132780913946526,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1799,
+      "required_wet_end": 1799,
+      "required_water_loss": false,
+      "initialized_observations": 4961,
+      "initialized_water_loss_end": 137,
+      "exact_point_wet_loss_end": 260,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "native-evaluated/rio",
+    "run_path_sha256": "234a7f01a55ef0f1aaaf9c713e862e69f269bc7b86e67bc6c4831462f032daf8",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "95ccf81c23bb42bd7d5c4a192ca66c31af774922e9c2e848b91b391529e26062",
+    "minutes": 10.14,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "1edbc2b128464cc801b72f938a6f7c827aa0e08e6058eaa78e99a3231647ad96",
+    "minutes": 5.1,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/asheville-soak",
+    "run_path_sha256": "6f335ba3688135a25ee08ca0d4f5db00f125db5f33e08c351f4c0a2c6ec7692b",
+    "minutes": 60.084447578092416,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 4093,
+      "initialized_water_loss_end": 561,
+      "exact_point_wet_loss_end": 831,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "runs/innsbruck-city",
+    "run_path_sha256": "fe1ec2114e8d19992b5ab8642f8fe7fe444399acfed660d232e2844b4b240d44",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/innsbruck-soak",
+    "run_path_sha256": "46e18547760abc59816816ac16aea669e75a64641642f78d44b7f01e321333aa",
+    "minutes": 60.13889202537636,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 1865,
+      "initialized_water_loss_end": 189,
+      "exact_point_wet_loss_end": 311,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "runs/innsbruck-city-r2",
+    "run_path_sha256": "785d7ea1e0c52b6e5739c3d683dafb5d73b7494d55b5934ade0cb1dd4df90dfe",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-989-biomes/asheville",
+    "run_path_sha256": "a1a51e6121076687603105707bcf1b1cece0e8da50387cc97c4f41678f0a9f68",
+    "minutes": 6.045555870855847,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 0,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": null,
+      "drying": null
+    }
+  },
+  {
+    "run_id": "runs/charleston-city",
+    "run_path_sha256": "e36164a8729bf94cea79a8037cc4610234e40aa0158f5f28e2159b1ffaee6ec8",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "15622fe492383706346b133fc7b47a7d8036c3ca3f4ea218d4f1e67ac5dd20a3",
+    "minutes": 10.02,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/charleston-soak",
+    "run_path_sha256": "bea01bcd72b9bb3adfdd6f7942a2d4c95dd9072845586e5126ec34672acc581b",
+    "minutes": 60.1377809142073,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0061,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 7848,
+      "initialized_water_loss_end": 793,
+      "exact_point_wet_loss_end": 934,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "runs/charleston-city-r3",
+    "run_path_sha256": "d74a8ce0d9105a35791eca4cefd205f0824ed2b6407e91c77f407986a2398d97",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "f514033697898a4d4b2bc463ab30fe9fe2f2e563b67e3c2d1f791c68dc3d6cee",
+    "minutes": 5.02,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/innsbruck-city-r3",
+    "run_path_sha256": "1f6385cb0d3177df2893d1dbe55d5cfd954af22e9a868fe192545348e2abf09c",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/charleston-city-r4",
+    "run_path_sha256": "d265ca694ca30e1756d273ad519f8051db741b93f7f5de8a6dd6d4f0ecdf5b25",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "PL-989-biomes/rio",
+    "run_path_sha256": "c83d755e2a74ff7fb612062ae3352916efa74fbfdf8945285ff51f61ede7c64b",
+    "minutes": 6.057500315923243,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0489,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 0,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": null
+    }
+  },
+  {
+    "run_id": "PL-989-biomes/innsbruck",
+    "run_path_sha256": "26241dda7cecbb062437d8f859123478d44d51516ac4b8e552854812fec04d68",
+    "minutes": 6.047778093193968,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0003,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 0,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "PL-989-biomes/seventh-island",
+    "run_path_sha256": "a696dd0f3adefea1ec8895a4b4f372ebeb4bdccdf481ebefa30cf68ec1933f42",
+    "minutes": 6.013333646953106,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 0,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": []
+    },
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/innsbruck-city-r4",
+    "run_path_sha256": "e0a066d2b436d714a72a31763a3a675a8173cbbbbfd0b284e7171f8ebe8a1373",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/charleston-city-r5",
+    "run_path_sha256": "d191c69a164d46aecb922d1491066a2a12bf68b3e18d9f5d6b07f1967847924e",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/charleston-city-r6",
+    "run_path_sha256": "59da8d51c91ba2792bda127e6d9f13b470b8b2b0c87ec2389f1f22fe429b3d62",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/asheville-soak-r3",
+    "run_path_sha256": "6c3baef39096b94c83c7c3efa39ec93145c685df1bc9101cc5dc419fd2a4941a",
+    "minutes": 60.00889201859633,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 4093,
+      "initialized_water_loss_end": 582,
+      "exact_point_wet_loss_end": 842,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "c412d07c413fba4e11a1958a6ed6b706a7e170b9029aedec76226914bb831133",
+    "minutes": 10.12,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "8942e5f0aa83300c72caa55f0ad2ea029e3ce43d7aa0c116e7e5fd90948e314d",
+    "minutes": 10.14,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "2dc92f6c54dbcec913d57d4dd69948faaddf15d41b9c25a3c1902632589b0981",
+    "minutes": 10.07,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "803f9039cd37a682b4a54c754a736623daf913e3a3e6f926f7beced6c7822fc5",
+    "minutes": 5.14,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "PL-989-biomes/innsbruck-north",
+    "run_path_sha256": "8c8a3538d09877bac95a5051a29c2f18087e586829d593006f02141fe280d1ee",
+    "minutes": 6.0400003150105475,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0003,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 0,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": null,
+      "drying": null
+    }
+  },
+  {
+    "run_id": "PL-989-biomes/rio-settled",
+    "run_path_sha256": "93ca43ac48061dd3bcbdca78348cdceda580989f4211354e9d9e2dc02e5867ce",
+    "minutes": 6.0566669825464485,
+    "native_outcome": {
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump",
+      "flood_worst_km2": 0.0489,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 0,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 0,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": null,
+      "drying": null
+    }
+  },
+  {
+    "run_id": "runs/charleston-reload-r7",
+    "run_path_sha256": "95c994aa8ab3cfe6330929331483b61d476871cd095bf0657a3b304d9548f702",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "6e7b89d56a2daff35e187d5a54a86459247f85c5e8bb2aeb86fadcfffa03b4ee",
+    "minutes": 5.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/charleston-reload-r8",
+    "run_path_sha256": "82f1a425dcbf8e54e59ef05be301fd1a2a8f6aee37f54761f753384b66300c87",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "642515cbdde020ed5fdaca3b16a2572e7f0320830b430ef855c39827ff199561",
+    "minutes": 10.1,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "9effa95fa6834d4e3ec87d856674949d2f01b64e1986870116a69bdf419d8214",
+    "minutes": 5.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "b0385326b9d7a97c75b629d2e3ab5c9eec070ec0efb7a62cf97a2c25b73c4358",
+    "minutes": 10.01,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "full-native/rio",
+    "run_path_sha256": "0243f3c9400f454661f235a104c7936738ef595d6f797238cbf31d86fb4dab5d",
+    "minutes": 60.13444758070012,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0614,
+      "required": 1556,
+      "required_wet_end": 1531,
+      "required_water_loss": true,
+      "initialized_observations": 3883,
+      "initialized_water_loss_end": 33,
+      "exact_point_wet_loss_end": 482,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "runs/charleston-reload-noairship",
+    "run_path_sha256": "3cc6a1f3f881b42ec37a536c8f282e8fdb0b169ff6e894613763ddb8b0aa591c",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "full-native/asheville",
+    "run_path_sha256": "eeb9f9ca5e4a7cff2dd3a7d6465921fe179b3c97ea3b9457aef482e3a256d987",
+    "minutes": 60.11889202433328,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 3664,
+      "initialized_water_loss_end": 190,
+      "exact_point_wet_loss_end": 399,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/innsbruck",
+    "run_path_sha256": "5acdaf6eaf1e4a3a06ba41ce55a7150247c70bf7652b287011b8ccbac8418bf0",
+    "minutes": 60.08000313341617,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 1705,
+      "initialized_water_loss_end": 41,
+      "exact_point_wet_loss_end": 146,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/pittsburgh",
+    "run_path_sha256": "7f35ebfe589624ff0d9f956913d3691530ea1548af18f9dc58f1b96709299fc5",
+    "minutes": 60.09916980108246,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1799,
+      "required_wet_end": 1799,
+      "required_water_loss": false,
+      "initialized_observations": 4854,
+      "initialized_water_loss_end": 39,
+      "exact_point_wet_loss_end": 152,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/charleston",
+    "run_path_sha256": "bcd730c87e1f0997520a464616ed90f2805028116af4f751453639356c3ea022",
+    "minutes": 60.146669803559774,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0064,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 7723,
+      "initialized_water_loss_end": 676,
+      "exact_point_wet_loss_end": 803,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "adf9b297a7d67c7d417eb18986587a3295f84981465a0c377374b34d16c2a47e",
+    "minutes": 10.12,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "64022a47a6e58228238eb1dc959c19687618c81ddfe2cb253d4fe44f0286c195",
+    "minutes": 5.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "8730eecb8d2ac88758b7ed406ff039db4e75ea0505ff1aaa4dc4dea48f9c3b89",
+    "minutes": 5.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/charleston-reload-r9",
+    "run_path_sha256": "cbe9f89985ed9ce51fc14f3fc28e57ce105a004fc5198f6ceef2406107b58c44",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/charleston-reload-r10",
+    "run_path_sha256": "e23b54678fa4ef3802337ebeb7d2de379cb350959eddfd35d1dc8d3973a56ce8",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/charleston-reload-r11",
+    "run_path_sha256": "6a80ec1a188608b71e0167bb3a6240db7176f6130277dfbb09acab8d2eec2d96",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "runs/charleston-reload-r12",
+    "run_path_sha256": "f96e59a4101ef959ea4351c7320e42bef9dc6fbb7fb7c4211d04adb54d24e057",
+    "minutes": 0.0,
+    "status": "unavailable_or_inconsistent",
+    "reason": "FileNotFoundError"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "aeb82c742110b5436ba3e1775631d91dc784b4badba8dbc6860012f22b2445bf",
+    "minutes": 5.14,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "full-native/rio",
+    "run_path_sha256": "ef6f1dfc1942ac53f98b68637c728b2720904168cd83533a9270f2e0fab2da05",
+    "minutes": 60.09778091212113,
+    "native_outcome": {
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0625,
+      "required": 1556,
+      "required_wet_end": 1531,
+      "required_water_loss": true,
+      "initialized_observations": 3873,
+      "initialized_water_loss_end": 29,
+      "exact_point_wet_loss_end": 461,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    "status": "included",
+    "group": "Rio de Janeiro",
+    "labels": {
+      "flood": true,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/asheville",
+    "run_path_sha256": "e9cbec0dfb676f528a4c4f48fc6a89cae8385c7342e64913a3f5dbe3400c3d74",
+    "minutes": 60.02111424145599,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 3612,
+      "initialized_water_loss_end": 122,
+      "exact_point_wet_loss_end": 330,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Asheville",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/innsbruck",
+    "run_path_sha256": "7f8ecd02d569dbf9d9ad2ccffbfc5e43ba4f415247d0976b051fcc311430870f",
+    "minutes": 60.103336467966436,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 1694,
+      "initialized_water_loss_end": 35,
+      "exact_point_wet_loss_end": 144,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Innsbruck",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/pittsburgh",
+    "run_path_sha256": "6a4d232762fdbde7683a03cdafc5b75cabbeae1bd86f199856f5eaacf04a42f6",
+    "minutes": 60.13944758096088,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1799,
+      "required_wet_end": 1799,
+      "required_water_loss": false,
+      "initialized_observations": 4841,
+      "initialized_water_loss_end": 29,
+      "exact_point_wet_loss_end": 131,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Pittsburgh",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "full-native/charleston",
+    "run_path_sha256": "fdc7873e719979e8bbee2e2177e1a6aad682a62df27ee5d60860ac3b00cd1f1c",
+    "minutes": 60.13111424719293,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0074,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 7719,
+      "initialized_water_loss_end": 679,
+      "exact_point_wet_loss_end": 790,
+      "original_native_water_failures": []
+    },
+    "status": "included",
+    "group": "Charleston",
+    "labels": {
+      "flood": false,
+      "drying": true
+    }
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "a381f275ee8a175946eb8886dcbde7694346d167b674a70368456306056aa583",
+    "minutes": 10.13,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "c966091bb9b195405b341eb6737e84715232d41a4f7a2d076ccb89dac2f85b3c",
+    "minutes": 5.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/asheville-soak-f1",
+    "run_path_sha256": "91a7b3eda13e0fa0b646e37b3b6d9da04009202608473278fbad9d895abe81ac",
+    "minutes": 60.09555868978301,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1261,
+      "required_wet_end": 1261,
+      "required_water_loss": false,
+      "initialized_observations": 3613,
+      "initialized_water_loss_end": 128,
+      "exact_point_wet_loss_end": 350,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "47666c66cd8e6a061bf2287198d947281061ba669b44e350ea8ab724b6307f6f",
+    "minutes": 10.03,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "a843fd4583b174941832ca106584083bba8ea8fd66c348f69a27020b3588db06",
+    "minutes": 5.12,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/innsbruck-soak-f1",
+    "run_path_sha256": "471640b699a19ea5facd12584736b08b4b7f1b715f064fbc983cf253d267ff2b",
+    "minutes": 60.050003131851554,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 694,
+      "required_wet_end": 694,
+      "required_water_loss": false,
+      "initialized_observations": 1694,
+      "initialized_water_loss_end": 29,
+      "exact_point_wet_loss_end": 132,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "dd33a00ff6ee92475c80ea91ecc8adea6b9d4d59fe62c527a4d6b1aedf553be7",
+    "minutes": 10.01,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "744a6f1014e43ed920dce5ae0a5ad9c6493317ab403170f47fe91504e3b5f92b",
+    "minutes": 5.11,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "runs/charleston-soak-f1",
+    "run_path_sha256": "cc422144e49996343f8bcc4e2b3ed997c2ddc39a5ce52ae6da443c73b4ba1237",
+    "minutes": 60.127780913685754,
+    "native_outcome": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "the run's first water dump union hash-bound mapped_water",
+      "flood_worst_km2": 0.0046,
+      "required": 2214,
+      "required_wet_end": 2214,
+      "required_water_loss": true,
+      "initialized_observations": 7719,
+      "initialized_water_loss_end": 672,
+      "exact_point_wet_loss_end": 790,
+      "original_native_water_failures": []
+    },
+    "status": "input_package_hash_mismatch"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "70bd4f9af5177c03fca027dbecb84bac41242f7a46d09ef9bfca1f19dc1966f3",
+    "minutes": 10.02,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "2863aa327861f7aee0a1ae55572500ed70547bb8165897b485fe2b39e0307753",
+    "minutes": 5.04,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "56f7d4a734b4f42375797d8c997013615e3a6cc647412e9730404c88a7510014",
+    "minutes": 10.15,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "d6cbcabd9afc22eb2e86265aeb9ba230b5e3bc492d3e6abcd302a5cd0f34ff09",
+    "minutes": 5.04,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "630a9a564c226f597b5843e6b157bd4be363d1b84bad1d0cbb4e03eec654170f",
+    "minutes": 10.11,
+    "status": "excluded_nonempty_city"
+  },
+  {
+    "run_id": "populated-or-saved-city",
+    "run_path_sha256": "5cec01bb33ea693d67c794de13d82e9caae9d9e59563b4644548284fdb11aa17",
+    "minutes": 5.14,
+    "status": "excluded_nonempty_city"
+  }
+]

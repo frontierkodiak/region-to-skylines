@@ -17,6 +17,7 @@ export const FACTORY_FILES = [
   "generate.py", "region.py", "prepare.py", "surface_water.py", "crp.py", "template.py", "map_metadata.py",
   "paint.py", "resources.py", "landcover.py", "evidence.py", "web.py",
   "wet_reach_admission.py", "native-water-admission.json",
+  "water_risk.py", "water-risk-model.json",
   "templates/native-corridors.crp", "templates/native-corridors.json",
 ];
 
@@ -96,7 +97,7 @@ export async function buildMap({ py, web }, { png, geometry, banks, landcover = 
   py.FS.writeFile("/work/banks.f32", new Uint8Array(banks.buffer, banks.byteOffset, banks.byteLength));
   const result = JSON.parse(web.build("/work", landcover, evidence));
   const bytes = py.FS.readFile(result.crp);
-  return { bytes, mapName: result.map_name, receipt: result.receipt };
+  return { bytes, mapName: result.map_name, receipt: result.receipt, waterRisk: result.water_risk };
 }
 
 /** Remove one build's files so the next starts clean. */
