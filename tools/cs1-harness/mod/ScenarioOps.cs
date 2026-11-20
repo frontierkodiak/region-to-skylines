@@ -791,6 +791,7 @@ namespace Cs1Harness
             int tx, tz;
             Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
             result["start_tile"] = new object[] { tx, tz };
+            result["land"] = Land(tx, tz);
             result["hookup_candidates"] = HookupInfo();
             List<ushort> hooks = null;
             foreach (var pair in HookupPairs())
@@ -893,6 +894,7 @@ namespace Cs1Harness
             var doc = Host.Obj("state", state, "error", error, "result", result, "utilities", live);
             if (state == "done")
             {
+                doc["traffic"] = Traffic();
                 var grown = Host.Obj("Residential", 0, "Commercial", 0, "Industrial", 0);
                 var problems = new Dictionary<string, object>();
                 var bm = Singleton<BuildingManager>.instance;
@@ -934,6 +936,54 @@ namespace Cs1Harness
                 doc["water_prefabs"] = water;
             }
             return doc;
+        }
+
+        static Dictionary<string, object> Land(int tx, int tz)
+        {
+            var tm = Singleton<TerrainManager>.instance;
+            int samples = 0, dryFlat = 0;
+            for (float z = -944; z < 960; z += 32)
+                for (float x = -944; x < 960; x += 32)
+                {
+                    var p = Ground((tx - 2) * 1920 + x, (tz - 2) * 1920 + z);
+                    float ground, surface;
+                    Vector3 velocity, normal;
+                    bool wet = tm.SampleWaterData(new Vector2(p.x, p.z), out ground, out surface, out velocity, out normal)
+                        && surface > p.y + 0.1f;
+                    float dx = Mathf.Abs(Ground(p.x + 8, p.z).y - Ground(p.x - 8, p.z).y) / 16;
+                    float dz = Mathf.Abs(Ground(p.x, p.z + 8).y - Ground(p.x, p.z - 8).y) / 16;
+                    samples++;
+                    if (!wet && Mathf.Max(dx, dz) <= 0.15f) dryFlat++;
+                }
+            return Host.Obj("samples", samples, "dry_flat_samples", dryFlat, "sample_spacing_m", 32,
+                "max_axis_slope", 0.15f, "dry_flat_km2", dryFlat * 32f * 32f / 1000000f,
+                "dry_flat_fraction", (float)dryFlat / samples);
+        }
+
+        static Dictionary<string, object> Traffic()
+        {
+            int total = 0, moving = 0;
+            var vm = Singleton<VehicleManager>.instance;
+            var pm = Singleton<PathManager>.instance;
+            var scenarioRoads = new HashSet<ushort>(roads);
+            for (int i = 1; i < vm.m_vehicles.m_buffer.Length; i++)
+            {
+                var v = vm.m_vehicles.m_buffer[i];
+                var flags = Vehicle.Flags.Created | Vehicle.Flags.Spawned;
+                if ((v.m_flags & flags) != flags || v.Info == null
+                    || (v.Info.m_vehicleType & VehicleInfo.VehicleType.Car) == 0) continue;
+                PathUnit.Position position;
+                lock (pm.m_bufferLock)
+                {
+                    if (v.m_path == 0 || !pm.m_pathUnits.m_buffer[v.m_path].GetPosition(v.m_pathPositionIndex >> 1, out position))
+                        continue;
+                }
+                if (!scenarioRoads.Contains(position.m_segment)) continue;
+                total++;
+                if (v.GetLastFrameData().m_velocity.sqrMagnitude > 0.01f) moving++;
+            }
+            return Host.Obj("scope", "scenario road segments", "segments", scenarioRoads.Count, "vehicles", total, "moving", moving,
+                "stationary", total - moving, "moving_velocity_squared_min", 0.01f);
         }
 
         static PathUnit.Position Lane(ushort segment, int choice)

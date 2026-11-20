@@ -53,6 +53,8 @@ class MapCheck:
         self.save_on_dry = False  # save once when required probes first fall below the verdict's threshold
         self.from_save: pathlib.Path | None = None
         self.saves: list[dict] = []
+        self.scenario = None
+        self.scenario_observations: list[dict] = []
 
     def path_checks(self, label):
         """Use native pathfinding, retaining every returned position and missing segment."""
@@ -110,6 +112,14 @@ class MapCheck:
         for p, sample in zip(self.points, water["samples"]):
             sample["name"] = p["name"]
         row = {"label": label, "stats": stats, "water": water}
+        if self.scenario:
+            row["scenario"] = self.c.call("scenario_status")
+            self.scenario_observations.append(
+                {
+                    "minute": (stats["frame"] - self.scenario_start_frame) / self.scenario_frames_per_minute,
+                    "status": row["scenario"],
+                }
+            )
         self.record("sample", row)
         if self.points:
             wet = sum(1 for s in water["samples"] if s["wet"])
@@ -329,6 +339,9 @@ class MapCheck:
         fdt = status["fixed_delta_time"]
         frames_per_minute = 60.0 / fdt
         start_frame = status["frame"]
+        self.scenario = scenario
+        self.scenario_start_frame = start_frame
+        self.scenario_frames_per_minute = frames_per_minute
         target = start_frame + int(game_minutes * frames_per_minute)
         self.log(
             f"city loaded at frame {start_frame}; {frames_per_minute:.0f} frames per game-minute; "
@@ -437,6 +450,7 @@ class MapCheck:
             "scenario": fixture,
             "requested_scenario": scenario,
             "population_observations": population_observations,
+            "scenario_observations": self.scenario_observations,
             "opening_camera": opening,
             "paths_start": paths_start,
             "paths_end": paths_end,

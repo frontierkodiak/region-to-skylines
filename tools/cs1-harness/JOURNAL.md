@@ -1,5 +1,25 @@
 # cs1-harness journal
 
+## 2026-11-20 · PL-1066 · first-hour opening mode (native unrun)
+
+`--scenario first-hour` reuses ScenarioOps construction and requires 60
+game-minutes, sampled service health and traffic on the scenario's own native
+road-path segments, starter land and the existing native panel proof. It has
+its own verdict row. Empty-map water checks and their thresholds stay unchanged.
+`FIRST_HOUR.md` records sampling limits and the vanilla 81-tile gap.
+
+Blade: ordinary mod build and 139 harness tests pass; scoped Ruff/format pass.
+GPU doctor rendered on the RTX 2080 Ti without Steam. No game/peak game VRAM,
+game power/temperature or gameplay wall-time measurement exists for this mode.
+
+The current-state client-only offline observation made no preference edits
+and launched no game. It stopped on five fresh nonempty Cloud-log lines,
+without positive offline evidence. Its game/Steam/unit cleanup lists are empty.
+Steam itself changed its preference file; no agent rollback was attempted.
+Evidence remains in `~/experiments/PL-1066-first-hour/client-proof/` (no raw
+Steam logs, account configs, saves or proprietary source distributed).
+Native first-hour validation is blocked on usable offline Steam, not waived.
+
 ## 2026-11-15 · Opus xhigh · PL-984 · city and prefab dumps for the offline save reader
 
 New mod module `DumpOps.cs`: `dump_city {path}` writes every created node,

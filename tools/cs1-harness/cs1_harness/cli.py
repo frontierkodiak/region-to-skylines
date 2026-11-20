@@ -270,6 +270,8 @@ def cmd_down(cfg, a):
 
 
 def cmd_run(cfg, a):
+    if a.scenario == "first-hour" and (a.game_minutes != 60 or not 0 < a.sample_every <= 5 or a.from_save):
+        raise SystemExit("first-hour requires a fresh New Game, --game-minutes 60 and --sample-every in (0, 5]")
     out = a.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     points, views = load_probe_file(a.probes)
@@ -728,7 +730,9 @@ def main(argv=None):
     r = sub.add_parser("run", help="New Game on a map, simulate, report")
     r.add_argument("--map", type=pathlib.Path, required=True, help="the .crp map file")
     r.add_argument(
-        "--scenario", choices=("test-city",), help="build a standard city before the soak; check growth and car paths"
+        "--scenario",
+        choices=("test-city", "first-hour"),
+        help="build a standard city; first-hour also requires 60 minutes, sampled services/traffic and native panel proof",
     )
     r.add_argument(
         "--game-minutes", type=float, default=60, help="simulated minutes, counted as play at 1x speed (default 60)"
