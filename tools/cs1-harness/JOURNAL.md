@@ -2682,3 +2682,33 @@ pre-native doctor passed. No new JS/Pyodide/five-map full qualification. See
 FLOOD_REPORT.md; raw receipts and explicit Cloud exception are in the runroot
 /home/caleb/experiments/PL-912-flood-cloud. No proprietary binaries/decompile,
 Steam logs, video or downloaded save data delivered.
+
+## 2026-11-20 — PL-1072 first frozen-panel square
+
+`dry-upland-north-america`, clean native harness `6949182` on blade RTX 2080 Ti,
+bus 05:00.0: 60.062781 game minutes; simulation soak 1066.053417 wall seconds
+(not queue/startup or total turn duration). Frozen package, initial grids,
+reference, mapped-water mask and probes revalidate. Population zero, no enabled
+mods. Fresh carbon-idle and positive offline evidence passed before launch;
+the guard reported no contradictory state. Cleanup game/Steam/transient units
+all empty.
+
+Card peak 10821 MiB, baseline 8004 MiB; subtraction estimates 2817 MiB game
+increment, **not a directly sampled game peak**. Game menu sample 1574 MiB.
+258 GPU samples: peak 133.9 W and 53°C. Recorded power cap **200 W**, unchanged;
+do not substitute the older journal's 150 W claim. The other workload was not
+touched.
+
+Original no-flooding gate passed at worst 0.0031 km² versus 0.05; required
+starter-reservoir probe 1/1 wet at end and 13/13 sampled epochs. Optional water:
+2.03 to 1.28 km² wet, 0.94 dried/0.19 newly wet; 608 of 2409 initially wet
+monitored points dry exactly at end, 137 without a wet native neighbor within
+64 m. No interim panel precision/recall or safe-square claim.
+
+Original overall verdict failed only `startup_views` (unreviewed). Actual
+opening/Areas/final-overview producer inspection and a hash-bound assessment
+sidecar pass afterward; original report/verdict and their ledger hashes remain
+unchanged. Not human or independent visual acceptance. One of 28 exportable
+squares collected; two capture failures remain unscored. No one-shot score yet,
+no physical writer/model/probe change, and no proprietary binary or Steam log
+is delivered. See `tools/map-factory/WATER_CALIBRATION_FINDINGS.md`.

@@ -62,7 +62,43 @@ changes are experiment tools, tests, and documentation. Staging now verifies tha
 exact file set and its hashes. Scoring also rejects a different writer contract.
 Source equivalence is not the same as claiming the capture ran at a later SHA.
 
-## Remaining blocker
+## Native collection: first complete square
+
+On November 20, `dry-upland-north-america` completed 60.062781 game minutes
+on blade with clean, pinned harness `6949182`. Its simulation soak took
+1066.053417 wall seconds, excluding queue and startup. Frozen package, initial
+grids, probes, mapped-water mask, reference and per-run harness identity all
+revalidate. Carbon was idle at launch, the read-only offline guard passed, and
+owned game, Steam instances and transient units were empty after teardown.
+
+The original no-flooding gate passed: worst excess area was 0.0031 km² against
+0.05 km². The one required starter-reservoir probe passed at the end and at all
+13 sampled epochs. Optional mapped water did change: wet area went from 2.03
+to 1.28 km², with 0.94 km² dried and 0.19 km² newly wet at the native 0.1 m
+threshold. Of 2409 initially wet monitored points, 608 were dry exactly at the
+end and 137 had no natively wet neighbor within 64 m. These are observations
+from one square, not an interim panel score or evidence of a safe cleared class.
+
+The original overall verdict is **fail**, solely for unreviewed startup images.
+It remains immutable in the collection ledger. Subsequent producer inspection
+of the actual opening, Areas and final overview PNGs passed the hash-bound
+startup-view assessment in a separate sidecar; this is neither human nor
+independent visual acceptance. No original verdict was rewritten.
+
+One of 28 exportable squares is collected; 27 remain, alongside the two original
+capture failures. Collection uses complete foreground tranches with cleanup
+before each continuation. The one-shot holdout score has not run. Focused review
+PL-1079 found collector adoption/receipt-order defects at `e8a4de3`; producer
+`982fe3c` fixes those, validates per-run provenance and adds 12 collector tests.
+The full writer/calibration suite passes 149 tests with one optional skip, plus
+12 JavaScript tests. This does not claim an independent review of the fixes.
+
+Curated receipts are attached to the PL-1072 result comment. Raw run receipts
+remain in the experiment's `native/dry-upland-north-america-attempt-1` directory.
+No cutoff, probe, package, frozen model or physical writer changed after observing
+this outcome.
+
+## Remaining work and release hold
 
 At preparation closeout no new native game or holdout score existed. PL-1066
 subsequently resolved the offline-evidence interpretation and explicitly released
