@@ -29,6 +29,10 @@ def measure(terrain, water, hydro):
     ground, depth = terrain.astype(float) / 64, water.astype(float) / 64
     all_wet = depth > 0
     sea = hydro.get("sea_level_m")
+    if sea is not None:
+        sea = float(sea)
+        if not math.isfinite(sea):
+            raise ValueError("Invalid sea level")
     at_sea = (
         all_wet & (np.abs(ground + depth - float(sea)) <= 1 / 64)
         if sea is not None
@@ -38,6 +42,18 @@ def measure(terrain, water, hydro):
     edge[0] = edge[-1] = True
     edge[:, 0] = edge[:, -1] = True
     ocean = ndimage.binary_propagation(edge & at_sea, mask=at_sea)
+    # Survey complaint #2: land near the actual sea, measured against sea
+    # level. A low inland bank must not stand in for a low coastal shoreline.
+    coastal_land = (
+        ~all_wet & (ndimage.distance_transform_edt(~ocean) <= 4)
+        if ocean.any()
+        else np.zeros_like(all_wet)
+    )
+    coastal_freeboard = (
+        ground[coastal_land] - math.floor(sea * 64 + 0.5) / 64
+        if coastal_land.any()
+        else np.array([])
+    )
     wet = all_wet & ~ocean
     area = max(int(wet.sum()), 1)
     if all_wet.any():
@@ -108,6 +124,10 @@ def measure(terrain, water, hydro):
         "slope_p95": float(np.percentile(np.hypot(gx, gy), 95)),
         "wet_fraction": float(wet.mean()),
         "ocean_fraction": float(ocean.mean()),
+        "coastal_land_km2": float(coastal_land.sum() * STEP**2 / 1e6),
+        "coastal_freeboard_p10_m": float(np.percentile(coastal_freeboard, 10))
+        if coastal_freeboard.size
+        else 0.0,
         "spill_potential_km2": float(spill.sum() * STEP**2 / 1e6),
         "shore_freeboard_p10_m": float(np.percentile(freeboard[shore], 10))
         if shore.any()
@@ -160,6 +180,8 @@ def feature_description(feature, value):
         "slope_p95": f"Steeper terrain slopes reach {value * 100:.0f}%.",
         "wet_fraction": f"Inland water initially covers {value * 100:.1f}% of this square.",
         "ocean_fraction": f"Open-sea water covers {value * 100:.1f}% of this square.",
+        "coastal_land_km2": f"{value:.3f} km² of initially dry land lies within 64 m of the sea.",
+        "coastal_freeboard_p10_m": f"Lower coastal land sits {abs(value):.1f} m {'below' if value < 0 else 'above'} sea level.",
         "shallow_fraction": f"{value * 100:.0f}% of inland water starts less than 12.5 cm deep.",
         "thin_fraction": f"{value * 100:.0f}% of inland water occupies narrow grid corridors.",
         "inlet_wet_fraction": f"Drainage disks overlap {value * 100:.1f}% of inland water.",
@@ -196,16 +218,16 @@ DEFAULT_RULES = {
 def classify(features, rules=DEFAULT_RULES):
     coastal = (
         features["ocean_fraction"] > 0
-        and features["shore_freeboard_p10_m"] < rules["low_coastal_freeboard_m"]
+        and features["coastal_land_km2"] > 0
+        and features["coastal_freeboard_p10_m"] < rules["low_coastal_freeboard_m"]
     )
     flood, drying = [], []
     if coastal:
-        reason = "Low coastal shores need water-level verification."
+        reason = "Low coastal land can flood."
         detail = feature_description(
-            "shore_freeboard_p10_m", features["shore_freeboard_p10_m"]
+            "coastal_freeboard_p10_m", features["coastal_freeboard_p10_m"]
         )
         flood.extend([reason, detail])
-        drying.extend([reason, detail])
     if features["emitter_exposure_km2"] >= rules["emitter_exposure_km2"]:
         flood.append(
             feature_description(

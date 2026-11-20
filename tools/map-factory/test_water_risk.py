@@ -13,6 +13,39 @@ from calibrate_water_risk import calibrate, metrics
 
 
 class WaterRiskTests(unittest.TestCase):
+    def coastal_inputs(self, coastal_height):
+        terrain, water, hydro = self.inputs()
+        terrain[:100] = 35 * 64
+        water[:100] = 5 * 64
+        terrain[100:104] = round(coastal_height * 64)
+        hydro.update(sea_level_m=40, sources=[])
+        return terrain, water, hydro
+
+    def test_high_coastal_banks_do_not_borrow_low_inland_freeboard(self):
+        features = measure(*self.coastal_inputs(45))
+        self.assertLess(features["shore_freeboard_p10_m"], 1.5)
+        self.assertFalse(classify(features)["flood"])
+
+    def test_low_coastal_land_flags_flooding_not_drying(self):
+        features = measure(*self.coastal_inputs(40.5))
+        self.assertEqual(features["coastal_freeboard_p10_m"], 0.5)
+        self.assertGreater(features["coastal_land_km2"], 0)
+        self.assertTrue(classify(features)["flood"])
+        self.assertFalse(classify(features)["drying"])
+
+    def test_coastal_margin_follows_sea_datum_and_requires_sea(self):
+        terrain, water, hydro = self.coastal_inputs(40.5)
+        before = measure(terrain, water, hydro)
+        hydro["sea_level_m"] += 10
+        after = measure(terrain + 10 * 64, water, hydro)
+        self.assertEqual(
+            before["coastal_freeboard_p10_m"], after["coastal_freeboard_p10_m"]
+        )
+        hydro["sea_level_m"] = None
+        inland = measure(terrain, water, hydro)
+        self.assertEqual(inland["coastal_land_km2"], 0)
+        self.assertFalse(classify(inland)["flood"])
+
     def inputs(self):
         ground = np.full((1081, 1081), 100 * 64, dtype=np.uint16)
         water = np.zeros_like(ground)
@@ -84,8 +117,14 @@ class WaterRiskTests(unittest.TestCase):
         ]:
             changed = {**features, key: value}
             self.assertTrue(classify(changed)[expected])
-        coastal = {**features, "ocean_fraction": 0.2, "shore_freeboard_p10_m": 0}
-        self.assertTrue(all(classify(coastal).values()))
+        coastal = {
+            **features,
+            "ocean_fraction": 0.2,
+            "coastal_land_km2": 0.1,
+            "coastal_freeboard_p10_m": 0,
+        }
+        self.assertTrue(classify(coastal)["flood"])
+        self.assertFalse(classify(coastal)["drying"])
 
     def test_incomplete_inputs_decline_instead_of_silently_exporting(self):
         terrain, water, hydro = self.inputs()

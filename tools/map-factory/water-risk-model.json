@@ -11,6 +11,8 @@
   "features": [
     "adverse_profile_fraction",
     "bank_limited_fraction",
+    "coastal_freeboard_p10_m",
+    "coastal_land_km2",
     "emitter_exposure_km2",
     "inlet_shallow_fraction",
     "inlet_wet_fraction",
@@ -38,6 +40,14 @@
     "bank_limited_fraction": [
       0.0,
       0.8024860751843462
+    ],
+    "coastal_freeboard_p10_m": [
+      0.0,
+      2.78125
+    ],
+    "coastal_land_km2": [
+      0.0,
+      19.577088
     ],
     "emitter_exposure_km2": [
       0.0,
@@ -120,12 +130,12 @@
     "native_simulation": false,
     "results": {
       "flood": {
-        "tp": 13,
+        "tp": 12,
         "fp": 18,
         "tn": 19,
-        "fn": 0,
-        "precision": 0.41935483870967744,
-        "recall": 1.0,
+        "fn": 1,
+        "precision": 0.4,
+        "recall": 0.9230769230769231,
         "specificity": 0.5135135135135135,
         "positive_runs": 13,
         "negative_runs": 37

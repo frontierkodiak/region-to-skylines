@@ -37,6 +37,28 @@ infeasible stream profile, or fitted profiles exceeding the ordinary 3 m incisio
 budget. These are retrospective advisory operating points, not new native gates.
 There are no per-region branches or learned geographical splits.
 
+### Coastal margin above sea level
+
+This implements complaint #2 in [the player survey conventions](CONVENTIONS.md#what-real-terrain-maps-get-wrong):
+flood-prone shores with too little freeboard above sea level. The metric is the
+10th-percentile height of **initially dry land within 64 m of boundary-connected
+sea water**, minus the encoded sea level (`floor(sea_m * 64 + 0.5) / 64`). It flags
+flooding below the shared 1.5 m warning margin. The coastal land area is also
+reported. An absent coast cannot trigger this flag.
+
+The general nearest-water bank statistic remains separate: a low inland riverbank
+must not be described as a low sea-facing shore. Low coastal margin predicts
+flooding, not drying. The app/CLI explanation reports metres above/below **sea
+level**, not merely nearby water. This is a static input signal, not a tidal,
+wave, transport or forward-simulation model; original flood masks and the
+0.05 km² gate are unchanged.
+
+Focused tests failed before this correction: a 5 m coastal shore was flagged
+because inland banks had only 1 m freeboard, and a 0.5 m coastal margin was also
+incorrectly called drying. The corrected tests cover both cases, sea-datum
+translation and no-sea inputs. These synthetic tests validate the measurement,
+not native hydraulic performance.
+
 ## Calibration: what the numbers mean
 
 The registry census has **161 distinct run paths** (167 entries, deduplicated by
@@ -49,7 +71,7 @@ hashes; version diversity is not geographical diversity.
 
 | Full 60-minute scored runs | TP | FP | TN | FN | Precision | Recall |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Original flooding failure | 13 | 18 | 19 | 0 | 41.9% | 100% |
+| Original flooding failure | 12 | 18 | 19 | 1 | 40.0% | 92.3% |
 | Monitored-water loss | 50 | 0 | 0 | 0 | 100% | 100% |
 
 **The drying row cannot establish discrimination:** there are zero observed
@@ -58,13 +80,21 @@ specificity/false-alarm rate is unmeasurable. All five current fixture assessmen
 warn. The flood screen improves on always-warn precision (26%) but still flags
 18 flood-passing runs. Results are retrospective, not an untouched holdout.
 
-| Landscape | Flood failures flagged | Flood-passing runs flagged | Flood-passing runs not flagged |
-| --- | ---: | ---: | ---: |
-| Asheville | 0 | 0 | 10 |
-| Innsbruck | 0 | 0 | 9 |
-| Pittsburgh | 1 | 9 | 0 |
-| Rio de Janeiro | 10 | 2 | 0 |
-| Charleston | 2 | 7 | 0 |
+| Landscape | Flood failures flagged | Flood failures missed | Flood-passing runs flagged | Flood-passing runs not flagged |
+| --- | ---: | ---: | ---: | ---: |
+| Asheville | 0 | 0 | 0 | 10 |
+| Innsbruck | 0 | 0 | 0 | 9 |
+| Pittsburgh | 1 | 0 | 9 | 0 |
+| Rio de Janeiro | 9 | 1 | 2 | 0 |
+| Charleston | 2 | 0 | 7 | 0 |
+
+The corrected coastal metric exposes one miss: historical
+`PL-857-sustained-water/r4-north-rio-60/rio`, package `e1844ef2…`, originally
+failed at 0.4019 km². Its coastal margin is 2.78125 m while the general-bank
+statistic is 0.390625 m. It still gets a drying warning, but that does **not**
+erase the flood false negative. The initial screen's flood precision/recall
+was 41.9%/100%; this correction is 40.0%/92.3%. No cutoff was changed to recover
+the missed case, and its flood cause was not diagnosed in this unit.
 
 Flood labels retain each run's original `no_flooding` verdict and reference mask;
 older initial-water references are reported separately from mapped/frozen ones.
@@ -84,8 +114,8 @@ would hide the optional dry streams this screen must address.
 All seven unscored full runs have monitored-water loss. They are unknown
 predictions, not passes or demonstrated misses. Assuming all seven were missed
 gives a demonstrated drying-recall lower bound of **50/57 = 87.7%**. No evaluated
-false negative exists for the final rule; that is not evidence there are none on
-new geography. Passing short runs are censored, not sixty-minute negatives.
+drying false negative exists; that is not evidence there are none on new geography.
+Passing short runs are censored, not sixty-minute negatives.
 The extended dataset has 68 runs with at least one usable label; short observed
 failures are included only as positives. Product copy uses the full-run figures.
 
