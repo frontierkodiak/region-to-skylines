@@ -68,8 +68,9 @@ uv run --project tools/map-factory python tools/map-factory/report_playable_star
 ```
 
 Check `paired_comparison_qualified` before reporting an improvement.
-The report checks exact package hashes, two or three passing stock controls,
-and one shared player-mod hash. Missing or blocked attempts remain unresolved.
+The report checks exact package hashes, the same registered selection and input
+bytes, two or three passing stock controls, and one shared player-mod hash.
+Missing or blocked attempts remain unresolved.
 Incomplete cohorts and mismatched players have no qualified pass rate.
 The report preserves other failed native gates alongside the first-hour check.
 

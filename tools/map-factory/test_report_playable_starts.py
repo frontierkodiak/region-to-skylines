@@ -1,5 +1,6 @@
 """A changed player, missing attempt or wrong package cannot earn a comparison."""
 
+import hashlib
 import json
 from pathlib import Path
 import tempfile
@@ -46,11 +47,26 @@ class CohortComparison(unittest.TestCase):
         ]
         self.cohort = {
             "issue": "test",
-            "original": [{"slug": "original"}],
+            "original": [
+                {
+                    "slug": "original",
+                    "input_files_sha256": {"input.png": "frozen-original"},
+                }
+            ],
             "fresh": [{"slug": "holdout"}],
             "controls": [
                 {"name": name, "sha256": "map"} for name in ("Stock A", "Stock B")
             ],
+        }
+        self.cohort_path = self.root / "cohort.json"
+        write(self.cohort_path, self.cohort)
+        selection = {
+            "preregistration_sha256": hashlib.sha256(
+                self.cohort_path.read_bytes()
+            ).hexdigest(),
+            "fixtures": ["original"],
+            "frozen_input_files": {"original": {"input.png": "frozen-original"}},
+            "fresh": self.cohort["fresh"],
         }
         for slug in ("stock-a", "stock-b"):
             attempt(self.stock / slug)
@@ -58,17 +74,26 @@ class CohortComparison(unittest.TestCase):
             write(
                 root / "cpu-report.json",
                 {
+                    "selection": selection,
                     "cases": {
-                        slug: {"stage": {"crp_sha256": "map"}}
+                        slug: {
+                            "stage": {"crp_sha256": "map"},
+                            "inputs_sha256": {
+                                "input.png": "frozen-original"
+                                if slug == "original"
+                                else "frozen-holdout"
+                            },
+                        }
                         for slug in ("original", "holdout")
-                    }
+                    },
                 },
             )
             for slug in ("original", "holdout"):
                 attempt(root / "native" / slug)
 
     def result(self):
-        return compare(self.cohort, self.stock, self.before, self.after)
+        write(self.cohort_path, self.cohort)
+        return compare(self.cohort_path, self.stock, self.before, self.after)
 
     def test_complete_same_player_comparison_is_qualified(self):
         result = self.result()
@@ -110,6 +135,35 @@ class CohortComparison(unittest.TestCase):
     def test_one_stock_control_is_insufficient(self):
         self.cohort["controls"].pop()
         self.assertFalse(self.result()["stock_policy_qualified"])
+
+    def test_different_input_bytes_cannot_earn_a_paired_rate(self):
+        path = self.after / "cpu-report.json"
+        report = json.loads(path.read_text())
+        report["cases"]["holdout"]["inputs_sha256"]["input.png"] = "recaptured-square"
+        write(path, report)
+        result = self.result()
+        self.assertFalse(result["paired_comparison_qualified"])
+        self.assertFalse(result["all_frozen_inputs_match"])
+        self.assertIsNone(result["before"]["qualified_pass_rate"])
+
+    def test_different_selection_cannot_earn_a_paired_rate(self):
+        path = self.after / "cpu-report.json"
+        report = json.loads(path.read_text())
+        report["selection"]["preregistration_sha256"] = "another-selection"
+        write(path, report)
+        result = self.result()
+        self.assertFalse(result["paired_comparison_qualified"])
+        self.assertFalse(result["frozen_selection_matches"])
+        self.assertIsNone(result["after"]["qualified_pass_rate"])
+
+    def test_inconsistent_aggregate_cannot_hide_an_explicit_failed_native_check(self):
+        path = self.after / "native/holdout/verdict.json"
+        verdict = json.loads(path.read_text())
+        verdict["checks"].append({"name": "ground_truth", "status": "fail"})
+        write(path, verdict)
+        result = self.result()
+        self.assertEqual(result["cases"]["holdout"]["after"]["overall"], "pass")
+        self.assertEqual(result["after"]["failed"], 1)
 
     def test_healthy_opening_cannot_hide_another_failed_native_gate(self):
         path = self.after / "native/holdout/verdict.json"

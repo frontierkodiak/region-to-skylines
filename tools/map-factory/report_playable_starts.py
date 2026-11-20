@@ -24,8 +24,15 @@ def opening(folder, expected_package):
     receipt = json.loads(receipt_path.read_text()) if receipt_path.is_file() else {}
     actual_package = (receipt.get("map") or {}).get("sha256")
     status = row.get("status", "unjudged")
-    if status == "pass" and verdict.get("verdict") != "pass":
-        status = "fail" if verdict.get("verdict") == "fail" else "unjudged"
+    explicit_failure = any(
+        check.get("status") == "fail" for check in verdict.get("checks", [])
+    )
+    if status == "pass" and (verdict.get("verdict") != "pass" or explicit_failure):
+        status = (
+            "fail"
+            if verdict.get("verdict") == "fail" or explicit_failure
+            else "unjudged"
+        )
     if verdict.get("verdict") == "error" and value.get("phase") == "preflight_or_load":
         status = "blocked"
     if status != "blocked":
@@ -84,16 +91,15 @@ def summarize(rows, player):
     }
 
 
-def export_hashes(root):
+def export_report(root):
     path = root / "cpu-report.json"
-    report = json.loads(path.read_text()) if path.is_file() else {}
-    return {
-        slug: (row.get("stage") or {}).get("crp_sha256")
-        for slug, row in report.get("cases", {}).items()
-    }
+    return json.loads(path.read_text()) if path.is_file() else {}
 
 
-def compare(cohort, controls, baseline, candidate):
+def compare(cohort_path, controls, baseline, candidate):
+    raw = cohort_path.read_bytes()
+    cohort = json.loads(raw)
+    preregistration = hashlib.sha256(raw).hexdigest()
     stock = {
         row["name"].lower().replace(" ", "-"): opening(
             controls / row["name"].lower().replace(" ", "-"), row["sha256"]
@@ -106,19 +112,50 @@ def compare(cohort, controls, baseline, candidate):
     )
     qualified = qualified and len(stock_players) == 1 and None not in stock_players
     player = next(iter(stock_players)) if qualified else None
-    expected_before, expected_after = export_hashes(baseline), export_hashes(candidate)
-    slugs = [row["slug"] for row in cohort["original"] + cohort["fresh"]]
-    cases = {
-        slug: {
-            "before": opening(baseline / "native" / slug, expected_before.get(slug)),
-            "after": opening(candidate / "native" / slug, expected_after.get(slug)),
-        }
-        for slug in slugs
+    report_before, report_after = export_report(baseline), export_report(candidate)
+    selection = report_before.get("selection") or {}
+    original_inputs = {
+        row["slug"]: row["input_files_sha256"] for row in cohort["original"]
     }
+    selection_bound = bool(
+        selection == report_after.get("selection")
+        and selection.get("preregistration_sha256") == preregistration
+        and selection.get("fixtures") == list(original_inputs)
+        and selection.get("frozen_input_files") == original_inputs
+        and selection.get("fresh") == cohort["fresh"]
+    )
+    slugs = [row["slug"] for row in cohort["original"] + cohort["fresh"]]
+    cases = {}
+    for slug in slugs:
+        before_case = report_before.get("cases", {}).get(slug, {})
+        after_case = report_after.get("cases", {}).get(slug, {})
+        inputs = before_case.get("inputs_sha256")
+        inputs_bound = bool(inputs and inputs == after_case.get("inputs_sha256"))
+        if slug in original_inputs:
+            inputs_bound = inputs_bound and inputs == original_inputs[slug]
+        cases[slug] = {
+            "before": opening(
+                baseline / "native" / slug,
+                before_case.get("stage", {}).get("crp_sha256"),
+            ),
+            "after": opening(
+                candidate / "native" / slug,
+                after_case.get("stage", {}).get("crp_sha256"),
+            ),
+            "frozen_inputs_match": inputs_bound,
+        }
+    all_inputs_bound = all(row["frozen_inputs_match"] for row in cases.values())
     before = summarize([row["before"] for row in cases.values()], player)
     after = summarize([row["after"] for row in cases.values()], player)
-    comparable = qualified and all(
-        row["complete"] and row["same_qualified_player"] for row in (before, after)
+    if not selection_bound or not all_inputs_bound:
+        before["qualified_pass_rate"] = after["qualified_pass_rate"] = None
+    comparable = (
+        qualified
+        and selection_bound
+        and all_inputs_bound
+        and all(
+            row["complete"] and row["same_qualified_player"] for row in (before, after)
+        )
     )
     return {
         "schema": 1,
@@ -126,6 +163,9 @@ def compare(cohort, controls, baseline, candidate):
         "controls": stock,
         "stock_policy_qualified": qualified,
         "qualified_player_mod_sha256": player,
+        "preregistration_sha256": preregistration,
+        "frozen_selection_matches": selection_bound,
+        "all_frozen_inputs_match": all_inputs_bound,
         "paired_comparison_qualified": comparable,
         "map_fault_attribution": "qualified" if comparable else "withheld",
         "before": before,
@@ -143,7 +183,7 @@ if __name__ == "__main__":
         parser.add_argument(name, type=Path)
     args = parser.parse_args()
     result = compare(
-        json.loads(args.cohort.read_text()),
+        args.cohort,
         args.controls,
         args.baseline,
         args.candidate,
