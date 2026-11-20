@@ -3367,3 +3367,28 @@ Foggy Hills must pass under this same DLL before map-fault attribution. Then
 rerun the original frozen eight with the unchanged exporter before adding
 rules. Keep that player-only measurement separate from the later eleven-map
 exporter comparison; real connections remain opt-in.
+
+### 2026-11-20 PL-1078 stock control: Foggy Hills, teardown failure retained
+
+Exact stock package `076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136`
+completed 60.089 game-minutes with the same final `f60c6833...` player. All nine
+first-hour checks pass, with zero sampled service outages and last population
+299. Its actual panel was viewed and hash-reviewed (`2e27576f...`).
+
+The overall verdict is **fail**, solely for cleanup: no game or active unit
+remained, but Flatpak still listed instance `841100075`. A read-only follow-up
+at 16:56:27 UTC confirmed that instance had disappeared; PL-1072's subsequent
+session was left untouched. The failed receipt is retained, not rewritten or
+promoted to qualification. No exported-map native baseline has started.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Simulation wall time was 915.64 seconds.
+The 219 whole-card samples peak at 10821 MiB, 144.51 W and 59 C, including the
+existing allocation. Owned-game menu usage was 1574 MiB, not a game-only peak.
+The recorded 200 W cap was unchanged.
+
+Session teardown now waits up to ten seconds, while retaining the slot, for
+Steam's instance list to settle after stopping the session units. It never
+kills an untracked instance or removes a persistent instance from the receipt.
+Two mocked-backend cleanup tests and the full 157-test harness suite pass.
+This is Python lifecycle work, not a player/DLL or verdict change. Foggy Hills
+requires a new immutable clean attempt before the player can be qualified.
