@@ -2936,3 +2936,28 @@ with that compiled player. Two superseded requests were interrupted only while
 still queued, after checking their exact PID, label, owning issue, and queue
 state. Neither acquired the install or started a game. The running groundwater
 control was not interrupted; PL-1072 acquired the install after its cleanup.
+
+### 2026-11-20 PL-1078 stock control: final player on Cliffside Bay
+
+The same exact stock package completed 60.091 game-minutes with the final
+join-validation and groundwater player, mod SHA256
+`f60c6833f25669a8c90b00f71ea217f6576646beaa12e272212b825dc8eba4b5`.
+All nine unchanged first-hour checks pass, with no sampled service outages or
+explicit failed native check. Last observed population is 264. Garbage and
+pollution warnings remain in the raw observations; no threshold was relaxed.
+The broader stock verdict remains `unverified` without geographic references.
+The actual panel PNG was viewed and hash-reviewed (`03e1e3c5...`). Cleanup
+contains no game, Steam instance or active session unit.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Reported simulation wall time is 919.45
+seconds. The 222 whole-card samples peak at 10821 MiB, 146 W and 59 C,
+including the existing allocation. The owned game used 1574 MiB at the menu,
+not a measured game-only peak. The recorded 200 W cap was not changed.
+Carbon was checked idle at 15:54:14 UTC; the offline guard remained required.
+The fair queue handed the install back to PL-1072 after cleanup. Evidence:
+PL-1078 experiment `controls-native/009e8a8/cliffside-bay`.
+
+Foggy Hills must pass under this same DLL before map-fault attribution. Then
+rerun the original frozen eight with the unchanged exporter before adding
+rules. Keep that player-only measurement separate from the later eleven-map
+exporter comparison; real connections remain opt-in.
