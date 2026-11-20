@@ -100,6 +100,24 @@ class FirstHourTest(unittest.TestCase):
     def test_observed_complete_opening_passes(self):
         self.assertEqual(verdict(opening())["status"], "pass")
 
+    def test_dirty_water_is_not_hidden_by_powered_connected_facilities(self):
+        doc = opening()
+        self.assertEqual(verdict(doc)["status"], "pass")
+        doc["scenario_observations"][6]["status"]["growable_problems"] = {"DirtyWater, FatalProblem": 7}
+        result = verdict(doc)
+        self.assertEqual(result["status"], "fail")
+        self.assertTrue(result["value"]["checks"]["utilities"])
+        self.assertFalse(result["value"]["checks"]["sampled_services"])
+        self.assertEqual(result["value"]["outages"][0]["growables"], 7)
+
+    def test_native_no_fuel_problem_is_retained_even_before_cell_power_disappears(self):
+        doc = opening()
+        doc["scenario_observations"][9]["status"]["utilities"][0]["problems"] = "NoFuel"
+        result = verdict(doc)
+        self.assertEqual(result["status"], "fail")
+        self.assertEqual(result["value"]["outages"][0]["problems"], ["NoFuel"])
+        self.assertTrue(result["value"]["outages"][0]["electricity_grid_powered"])
+
     def test_existing_test_city_does_not_claim_a_first_hour(self):
         doc = opening()
         doc["requested_scenario"] = "test-city"

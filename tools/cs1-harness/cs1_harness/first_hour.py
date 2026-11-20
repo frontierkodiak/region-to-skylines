@@ -10,7 +10,17 @@ MINUTES = 60
 WARMUP_MINUTES = 5
 MAX_SAMPLE_GAP_MINUTES = 6
 GRID_KM2 = 288 * 288 / 1e6
-SUPPLY_PROBLEMS = {"Electricity", "Water", "WaterNotConnected", "Sewage", "NoResources", "Flood", "TurnedOff"}
+SUPPLY_PROBLEMS = {
+    "Electricity",
+    "Water",
+    "DirtyWater",
+    "WaterNotConnected",
+    "Sewage",
+    "NoResources",
+    "NoFuel",
+    "Flood",
+    "TurnedOff",
+}
 
 
 def failure(out: pathlib.Path, reason: str) -> dict:

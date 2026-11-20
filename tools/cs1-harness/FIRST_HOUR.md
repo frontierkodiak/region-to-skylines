@@ -23,11 +23,17 @@ The `first_hour` row in `verdict.json` requires:
 - The existing population, native inbound/outbound car-path and final utility
   checks to pass, and at least 59.4 of the requested 60 game-minutes completed.
 - At least 13 native scenario observations, including startup and the end,
-  with no gap above six game-minutes. Utilities and grown-building service
-  problems after the first five minutes must be clear at every observation.
+  with no gap above six game-minutes. Required water/sewage/power problems at
+  utilities and grown buildings after the first five minutes must be clear.
   A healthy final state does not erase an observed earlier outage.
   Consumers must also have power in their native electricity-grid cell;
   an energized wire elsewhere is not that evidence.
+  Native `DirtyWater` on grown buildings is a water-service failure even when
+  the intake, outlet and power plant report no facility-level problems.
+  A plant's native `NoFuel` problem also fails the service check; remaining
+  cell power at that sample does not erase the fuel-supply warning.
+  Other native warnings (such as garbage, workers or ground pollution) remain
+  in the observations; this is not an all-services or citizen-health verdict.
 - Moving spawned road vehicles observed on the scenario's own roads during
   the final 15 game-minutes, using native current-path segment membership.
   The report retains each tail sample's moving/total counts. This detects
