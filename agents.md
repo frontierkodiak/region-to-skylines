@@ -2,7 +2,7 @@
 
 Your person wants a real place as a Cities: Skylines (CS1, the first game) map. This tool
 turns a square of real terrain anywhere into a **ready-to-play map file** (`.crp`): the
-rivers already have water in them, a highway and a railway connect it to the outside, and
+mapped waterways are included, a highway and a railway connect it to the outside, and
 it has real forests and farmland, plus ore and oil, so the game's **New Game** screen lists it and
 nobody opens the Map Editor. It copies the file into the game's folder. Do the setup for
 them; leave only the playing to them.
@@ -52,11 +52,20 @@ Editor instead), `--game-dir <dir>` (the game's data folder when it isn't the us
 `--force` (replace a file of the same name), `--json` (machine-readable summary on stdout).
 `--help` lists everything. `--height` and `--no-rivers` shape only the heightmap.
 
+**Water-risk check:** every square is screened from its initial terrain, water and
+control plan. Exit 5 means no map was exported or installed; the JSON report explains
+the flagged risk or why the check was unavailable. Show the reasons to your person.
+Only add `--allow-water-risk` after they accept this square's reported risks;
+`--force` is not water-risk approval. An unavailable/invalid check cannot be
+overridden. Offer another square or `--heightmap` instead. The screen is calibrated
+on five landscapes, not independently validated safe-water predictions.
+
 Exit codes: 0 done; 1 bad arguments (including a hand-edited link with values the page
 can't make); 2 a download failed (retry in a minute); 3 the game's data folder doesn't
 exist (the game hasn't been started on this computer, or it lives elsewhere: ask, then pass
 `--game-dir`); 4 a file of that name exists (ask before `--force`, or pick another `--name`).
 Exit 2 also covers a failed map build: retry, or fall back to `--heightmap`.
+Exit 5 is the water-risk stop described above, not a transient build error.
 
 **WSL:** the game runs on Windows, so pass
 `--game-dir "/mnt/c/Users/<user>/AppData/Local/Colossal Order/Cities_Skylines"`.
@@ -70,14 +79,15 @@ The command prints the steps. For a **ready-to-play map**:
 
 1. Start Cities: Skylines, choose **New Game** and pick the map by the name the command
    printed (for Asheville, "Asheville - Ready to Play").
-2. That's all: water already flows, the highway and railway are connected, and the
+2. The highway and railway are connected, and the
    forests and fields are in place. The map's theme follows the place — temperate,
    tropical or boreal — so its trees suit the region.
 
-Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
+Native evidence exists for the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
 Charleston squares, including separate no-mods city starts. Other squares, rotations,
 scales and the 81 Tiles 2 mod haven't been tested. Pass on any region-specific finding
-the command prints.
+the command prints. Those results include water and elevation failures; they do not
+qualify every map or every stream. Pass on the selected square's water-risk report too.
 
 For a **heightmap** (`--heightmap`), pass on the Map Editor steps:
 

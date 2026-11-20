@@ -9,6 +9,7 @@ import { mkdir, writeFile, readFile, access } from "node:fs/promises";
 import { homedir, platform } from "node:os";
 import { join, resolve } from "node:path";
 import { CS1, SITE, DEFAULTS, PRESETS, sampleElevation, seaMask, fetchBasemapWater, buildMap, mapDetails, parseHash, squareHash, extentOf, encode16, png16, pngRGB, waterMap, slugify, coordName, squareProblem, describeSpot } from "./terrain.js";
+import { waterRiskDecision, calibrationText } from "./water-risk.js";
 
 const presetNames = PRESETS.map((p) => p.name).join(", ");
 
@@ -43,10 +44,11 @@ Options
   --game-dir <dir>   the game's data folder, if not the usual one for this OS
   --force            replace files of the same name instead of stopping
   --json             print a JSON summary on stdout (progress still goes to stderr)
+  --allow-water-risk export after a flagged water check (the risk report is kept)
   -h, --help         this text
 
 Exit codes: 0 done, 1 bad arguments, 2 download or build failed, 3 game folder not found,
-4 a file of that name exists (use --force or --name).`;
+4 a file of that name exists (use --force or --name), 5 water check stopped export.`;
 
 const fail = (code, msg) => { process.stderr.write(`region-to-skylines: ${msg}\n`); process.exit(code); };
 const log = (msg) => process.stderr.write(msg + "\n");
@@ -71,6 +73,7 @@ try {
       "no-rivers": { type: "boolean" }, name: { type: "string" }, out: { type: "string" },
       install: { type: "boolean" }, "game-dir": { type: "string" }, force: { type: "boolean" },
       json: { type: "boolean" }, help: { type: "boolean", short: "h" },
+      "allow-water-risk": { type: "boolean" },
     },
   });
 } catch (err) { fail(1, `${err.message}\n\n${USAGE}`); }
@@ -165,7 +168,7 @@ if (install && !(await exists(gameDir())))
 
 const opts = { vscale: sq.vscale, ...Object.fromEntries(Object.keys(DEFAULTS).map((k) => [k, sq[k]])) };
 const check = PRESETS.find((p) => p.lon === sq.lon && p.lat === sq.lat && sq.rotation === 0 && sq.scale === 1)?.check ?? null;
-let bytes, details, map = null, mapName = null, report = null;
+let bytes, details, map = null, mapName = null, report = null, waterRisk = null;
 log(`Building ${name}: ${(extentOf(sq) / 1000).toFixed(2)} km square at ${sq.lat.toFixed(5)}, ${sq.lon.toFixed(5)}, rotated ${sq.rotation}°`);
 if (crp) {
   // ready-to-play: capture the writer's inputs as the page does, then run the writer
@@ -184,6 +187,7 @@ if (crp) {
     const found = await deposits(factory, sq, { status });
     const built = await writeMap(factory, { ...inputs, landcover: cover.path, evidence: found?.path ?? null }, { status });
     bytes = Buffer.from(built.bytes);
+    waterRisk = built.waterRisk;
     mapName = built.mapName;
     const prep = built.receipt.preparation ?? {};
     report = { seconds: Math.round((performance.now() - t) / 1000), land_cover_tiles: cover.tiles, deposits: found?.count ?? null,
@@ -191,6 +195,7 @@ if (crp) {
     details = { game: "Cities: Skylines 1", map_file: `${name}.crp`, map_name: mapName, link,
       center: { lon: sq.lon, lat: sq.lat }, rotation_deg: sq.rotation, scale: sq.scale, game_test: check, build: report,
       writer: "tools/map-factory (PL-857 reference) under Pyodide",
+      water_risk: waterRisk,
       data: ["Elevation: AWS Terrain Tiles (Mapzen)", "Rivers, lakes, coast, roads: © OpenStreetMap contributors (ODbL), via OpenFreeMap",
         "Land cover: ESA WorldCover 2021 (CC BY 4.0)", "Ore and oil: USGS MRDS (public domain)"] };
   } catch (err) { fail(2, `building the map file failed: ${err.message}. Try again in a minute, or pass --heightmap.`); }
@@ -208,6 +213,22 @@ if (crp) {
   details = mapDetails({ sq, elev, w, map, opts, file: `${name}.png`, link });
   bytes = Buffer.from(await (await png16(encode16(map.fit.game), CS1.px, CS1.px)).arrayBuffer());
 }
+if (crp) {
+  const decision = waterRiskDecision(waterRisk);
+  if (decision.action !== "download") {
+    log(decision.title);
+    for (const reason of decision.reasons) log(`  ${reason}`);
+    log(calibrationText(waterRisk));
+    if (decision.action === "decline" || !v["allow-water-risk"]) {
+      await mkdir(outDir, { recursive: true });
+      await writeFile(jsonPath, JSON.stringify(details, null, 2) + "\n");
+      const stopped = { status: "water-check-stopped", water_risk: waterRisk, json: jsonPath, crp: null, installed: null };
+      if (v.json) console.log(JSON.stringify(stopped, null, 2));
+      else log(`No map exported or installed. Report: ${jsonPath}. ${decision.action === "review" ? "Use --allow-water-risk to export anyway, or --heightmap for the Map Editor." : "Choose another square or use --heightmap."}`);
+      process.exit(5);
+    }
+  }
+}
 await mkdir(outDir, { recursive: true });
 if (file) await writeFile(file, bytes);
 await writeFile(jsonPath, JSON.stringify(details, null, 2) + "\n");
@@ -224,7 +245,7 @@ let steps;
 if (crp) {
   steps = [
     `Start Cities: Skylines (the first game), choose New Game and pick "${mapName}".`,
-    "That's all: the rivers already have water in them, a highway and a railway connect the starting tile to the outside, and there are forests, farmland, ore and oil. No Map Editor step.",
+    "The map includes highway and railway connections to the outside, forests, farmland, ore and oil. No Map Editor step.",
     "The 81 Tiles 2 mod hasn't been tried with these maps.",
   ];
 } else {
@@ -245,7 +266,7 @@ if (crp) {
 }
 const summary = {
   name, link, kind: crp ? "ready-to-play map" : "heightmap",
-  ...(crp ? { crp: file, map_name: mapName, game_test: check, build: report } : { png: file, water_map: waterPath }),
+  ...(crp ? { crp: file, map_name: mapName, game_test: check, build: report, water_risk: waterRisk } : { png: file, water_map: waterPath }),
   json: jsonPath, installed, game_dir: v.install ? gameDir() : null,
   ...(crp ? {} : { heights_game_m: [r(map.fit.gameMin), r(map.fit.gameMax)], sea_level_game_m: map.fit.seaLevel === null ? null : r(map.fit.seaLevel),
     water_sources: details.water_sources }),

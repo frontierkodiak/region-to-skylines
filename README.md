@@ -1,7 +1,7 @@
 # Region to Cities: Skylines
 
 Pick a square of real terrain anywhere and download it as a ready-to-play Cities: Skylines
-(CS1) map: rivers already flowing, a highway and a railway to the outside, real forests
+(CS1) map: mapped waterways, a highway and a railway to the outside, real forests
 and farmland, plus ore and oil, listed under New Game with no Map Editor step. The game's
 heightmap is there too, under "Advanced", for anyone who wants to build their own map in
 the Map Editor. It runs in your browser from open data, with no account or key, or from the command
@@ -59,6 +59,18 @@ How it is built:
   crosses the edge, or ends inside the map, the app walks the carved line 0.6 to
   2.4 km and checks whether it runs downhill (an entry or a start) or uphill (an
   exit or a mouth). That places the suggested water sources.
+
+## Water-risk check
+
+Before a map downloads, the page checks its terrain, initial water and water-control
+plan for flooding or drying risks. A flagged square shows the reasons and requires
+**Download map anyway**. The CLI stops with exit code 5 and writes its JSON report;
+pass `--allow-water-risk` to export a flagged square explicitly. Missing or invalid
+checks cannot be overridden. `--heightmap` remains available.
+
+This input-based screen is not a native game test. Its calibration covers five
+landscapes; it does not establish that an unflagged square is safe. See
+[the measurements, misses and limits](tools/map-factory/WATER_RISK.md).
 
 ## The ready-to-play map file
 

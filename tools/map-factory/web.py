@@ -189,11 +189,19 @@ def build(work, landcover_path=None, evidence_path=None):
         knobs=Knobs(trees=180_000, resources="balanced", fertile=1.0),
     )
     crp = work / "out" / (receipt["preparation"]["map_id"] + ".crp")
+    from water_risk import assess
+
+    water_risk = assess(
+        np.fromfile(work / "out/terrain.u16", dtype="<u2").reshape(1081, 1081),
+        np.fromfile(work / "out/water.u16", dtype="<u2").reshape(1081, 1081),
+        json.loads((work / "out/hydrology.json").read_text()),
+    )
     return json.dumps(
         {
             "crp": str(crp),
             "map_name": receipt["preparation"]["map_name"],
             "receipt": receipt,
+            "water_risk": water_risk,
         },
         default=str,
     )

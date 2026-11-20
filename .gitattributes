@@ -19,6 +19,8 @@ tools/map-factory/resources.py -export-ignore
 tools/map-factory/landcover.py -export-ignore
 tools/map-factory/evidence.py -export-ignore
 tools/map-factory/web.py -export-ignore
+tools/map-factory/water_risk.py -export-ignore
+tools/map-factory/water-risk-model.json -export-ignore
 tools/map-factory/wet_reach_admission.py -export-ignore
 tools/map-factory/native-water-admission.json -export-ignore
 tools/map-factory/templates/native-corridors.crp -export-ignore

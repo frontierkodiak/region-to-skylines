@@ -4,7 +4,7 @@
 // machine, plus the first Pyodide download): run with `npm run test:fixtures`.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { gunzipSync } from "node:zlib";
 import { createHash } from "node:crypto";
 import { loadPyodide } from "pyodide";
@@ -13,7 +13,7 @@ import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const root = new URL("../tools/map-factory/", import.meta.url);
 const read = async (f) => new Uint8Array(await readFile(new URL(f, root)));
-const { manifest, nativeCases, historicalNativeCases } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
+const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
 assert.equal(manifest.capture_module, "inputs.js", "shipping fixtures must use the shared page/CLI capture");
 for (const name of ["inputs.js", "terrain.js"])
   assert.equal(createHash("sha256").update(await readFile(new URL("../" + name, import.meta.url))).digest("hex"),
@@ -25,6 +25,7 @@ const shippingSources = Object.fromEntries(await Promise.all(["mapgen.js", "tool
   [f, sha(await readFile(new URL("../" + f, import.meta.url)))])));
 
 const factory = await startFactory({ loadPyodide, read });
+if (process.env.RISK_BUILD_PROOF) await mkdir(process.env.RISK_BUILD_PROOF, { recursive: true });
 for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
   for (const [kind, expected, evidence] of [
     ["reference", c, c.files_sha256["evidence.json"] ? "evidence.json" : null],
@@ -61,7 +62,7 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
       assert.equal(sha(bytes), inputHashes[name], `${c.slug} ${kind}: frozen inputs.js ${name}`);
     assert.deepEqual(c.prepared_sha256, native.prepared_sha256, `${c.slug}: native-tested live-pin grids`);
     const t = performance.now();
-    const { bytes, mapName } = await buildMap(factory, {
+    const { bytes, mapName, waterRisk } = await buildMap(factory, {
       png,
       geometry,
       banks: new Float32Array(banks.buffer, banks.byteOffset, banks.byteLength / 4),
@@ -71,6 +72,16 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
     console.log(`  ${c.slug} ${kind}: ${mapName}, ${bytes.length} bytes, ${((performance.now() - t) / 1000).toFixed(1)} s`);
     assert.equal(bytes.length, expected.expected_crp_bytes);
     assert.equal(sha(bytes), expected.expected_crp_sha256);
+    if (current.version === "pl912-water-risk-v1") {
+      const cpu = current.risk_cases[c.slug];
+      assert.equal(waterRisk.status, cpu.status, `${c.slug}: Python/browser risk decision`);
+      assert.deepEqual(waterRisk.risks, cpu.risks, `${c.slug}: Python/browser physical flags`);
+      assert.deepEqual(waterRisk.calibration, cpu.calibration);
+      for (const [feature, value] of Object.entries(cpu.features))
+        assert.ok(Math.abs(value - waterRisk.features[feature]) <= 1e-8 * Math.max(1, Math.abs(value)), `${c.slug}: risk feature ${feature}`);
+      if (process.env.RISK_BUILD_PROOF)
+        await writeFile(`${process.env.RISK_BUILD_PROOF}/${c.slug}-${kind}.json`, JSON.stringify({ case: c.slug, kind, package_sha256: sha(bytes), water_risk: waterRisk }, null, 2));
+    }
     for (const name of ["terrain.u16", "water.u16"])
       assert.equal(sha(factory.py.FS.readFile("/work/out/" + name)), native.prepared_sha256[name], `${c.slug} ${kind}: native-tested ${name}`);
     const controls = JSON.parse(factory.py.runPython(`

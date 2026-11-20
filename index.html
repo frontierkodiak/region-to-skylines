@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Region to Skylines</title>
-  <meta name="description" content="Pick a square of real terrain and download it as a ready-to-play Cities: Skylines 1 map, with rivers already flowing, roads to the outside and real forests and farmland. Runs in your browser, no account or key.">
+  <meta name="description" content="Pick a square of real terrain and build a Cities: Skylines 1 map with mapped waterways, roads to the outside and real forests and farmland. Review its water-risk check before download. Runs in your browser, no account or key.">
   <link rel="alternate" type="text/markdown" href="/agents.md" title="Instructions for AI agents">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
   <link rel="stylesheet" href="style.css">
@@ -96,7 +96,7 @@
             </ul>
           </li>
           <li>Start Cities: Skylines, choose <b>New Game</b> and pick <b id="crpmapname">the map</b>.</li>
-          <li>That's all: the rivers already have water in them, a highway and a railway connect the starting tile to the outside, and there are trees, farmland, ore and oil. No Map Editor step.</li>
+          <li>The map includes highway and railway connections to the outside, trees, farmland, ore and oil. No Map Editor step.</li>
         </ol>
         <p class="note">The first map downloads about 30 MB and takes about a minute. Trees and farmland come from <a href="https://esa-worldcover.org">ESA WorldCover</a> (CC BY 4.0), ore and oil from USGS mineral deposits where it has records, topped up to the share the game's own maps have. Game tests cover the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and Charleston squares, including separate no-mods city starts. Other squares and the <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a> mod haven't been tested.</p>
       </details>
@@ -205,6 +205,15 @@
         <div id="mapname">Loading…</div>
         <button id="dl" disabled>Download ready-to-play map</button>
         <p id="crpnote" class="note" hidden></p>
+        <section id="water-risk" hidden aria-live="polite">
+          <strong id="water-risk-title"></strong>
+          <ul id="water-risk-reasons"></ul>
+          <details><summary>What this check covers</summary><p id="water-risk-calibration" class="note"></p></details>
+          <div class="dlrow">
+            <button id="water-risk-continue" class="secondary" hidden>Download map anyway</button>
+            <button id="water-risk-report" class="secondary">Water check (.json)</button>
+          </div>
+        </section>
       </div>
     </aside>
   </main>
