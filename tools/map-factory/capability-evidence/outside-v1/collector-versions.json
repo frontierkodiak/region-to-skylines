@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "versions": [
+    {
+      "git_sha": "5f181ffb8101f0c293de6a76adeb5015c7fcd541",
+      "collector_sha256": "e3488f300e8797fd2e92dfb182e7c55988a1831d57d8a97908f74d3a7952a6f6",
+      "protocol": "Frozen named car/train probes plus all lanes at exact outside boundary offsets; first two attempts.",
+      "raw_source": {
+        "path": "raw/source/collector-e3488f300e8797fd2e92dfb182e7c55988a1831d57d8a97908f74d3a7952a6f6.py.gz",
+        "sha256": "e3488f300e8797fd2e92dfb182e7c55988a1831d57d8a97908f74d3a7952a6f6",
+        "encoding": "gzip"
+      }
+    },
+    {
+      "git_sha": "899c43b544246736590f75bc3463c74f9126dcea",
+      "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+      "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
+      "raw_source": {
+        "path": "raw/source/collector-d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358.py.gz",
+        "sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+        "encoding": "gzip"
+      }
+    }
+  ]
+}

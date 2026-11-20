@@ -1,0 +1,18 @@
+[
+  {
+    "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+    "slug": "asheville",
+    "observed_at": "2026-11-20T22:17:12.903495+00:00",
+    "type": "Steam startup transport error 0x3000; no game process was present",
+    "observed": null,
+    "raw_evidence": {
+      "path": "raw/asheville/steam-startup.png.gz",
+      "sha256": "1861605d65df1a6a1d11debbe75eafce683d74b957ad534921ccb99f78d6d2fc",
+      "encoding": "gzip"
+    },
+    "recovery": "Selected the default Restart Steam and then Continue Anyway on the verified owned startup-transport dialog; both left the same stalled backend PID. Fresh offline/carbon guards then passed and only the owned cs1-harness-steam transient unit was restarted. A game process subsequently appeared, but the original 600-second startup budget expired before main-menu readiness. No account-in-use, Cloud conflict or credential prompt was answered.",
+    "recorded_at": "2026-11-20T22:18:35.990522+00:00",
+    "limitation": "An environment startup failure, not a map or native path rejection.",
+    "outcome": "Native package opening/path observation unknown; no map was opened. Native mod loaded and NVIDIA rendering appeared in the retained game log. Cleanup was empty."
+  }
+]
