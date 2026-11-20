@@ -58,6 +58,31 @@ def outside_pair(networks, vehicle):
     return [ends[a]["position"], ends[b]["position"]]
 
 
+def outside_requests(networks, capability, vehicle):
+    """Matched boundary/midpoint requests; change only endpoint lane offsets."""
+    pair = outside_pair(networks, vehicle)
+    if pair is None:
+        return []
+    by_id = {segment["id"]: segment for segment in networks["segments"]}
+    requests = []
+    for direction, (a, b) in enumerate([pair, pair[::-1]]):
+        a_lanes = [lane["index"] for lane in by_id[a[0]]["lanes"] if vehicle in lane["vehicle"].split(", ")]
+        b_lanes = [lane["index"] for lane in by_id[b[0]]["lanes"] if vehicle in lane["vehicle"].split(", ")]
+        for a_lane, b_lane in itertools.product(a_lanes, b_lanes):
+            for position_kind, a_offset, b_offset in [("boundary", a[2], b[2]), ("midpoint", 128, 128)]:
+                requests.append(
+                    {
+                        "capability": capability,
+                        "name": "outside-to-outside",
+                        "direction": direction,
+                        "position_kind": position_kind,
+                        "from": [a[0], a_lane, a_offset],
+                        "to": [b[0], b_lane, b_offset],
+                    }
+                )
+    return requests
+
+
 def collect(package, probes, out, wait_minutes=60):
     """Acquire/release the fair slot for ONE map; retain errors and cleanup."""
     out.mkdir(parents=True, exist_ok=False)
@@ -115,26 +140,7 @@ def collect(package, probes, out, wait_minutes=60):
             for p in probes.get("paths", []):
                 requests.append({"capability": "rail" if p.get("rail") else "road", "name": p["name"], **p})
             for capability, vehicle in MODES.items():
-                pair = outside_pair(networks, vehicle)
-                if pair:
-                    by_id = {segment["id"]: segment for segment in networks["segments"]}
-                    for direction, (a, b) in enumerate([pair, pair[::-1]]):
-                        a_lanes = [
-                            lane["index"] for lane in by_id[a[0]]["lanes"] if vehicle in lane["vehicle"].split(", ")
-                        ]
-                        b_lanes = [
-                            lane["index"] for lane in by_id[b[0]]["lanes"] if vehicle in lane["vehicle"].split(", ")
-                        ]
-                        for a_lane, b_lane in itertools.product(a_lanes, b_lanes):
-                            requests.append(
-                                {
-                                    "capability": capability,
-                                    "name": "outside-to-outside",
-                                    "direction": direction,
-                                    "from": [a[0], a_lane, a[2]],
-                                    "to": [b[0], b_lane, b[2]],
-                                }
-                            )
+                requests.extend(outside_requests(networks, capability, vehicle))
             result["paths"] = []
             c.call("run", paused=False, speed=1)
             for request in requests:
