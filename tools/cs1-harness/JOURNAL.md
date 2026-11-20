@@ -1,5 +1,19 @@
 # cs1-harness journal
 
+## 2026-11-20 · PL-1066 · corrected offline evidence
+
+The lead inspected the actual failed sync records and confirmed offline mode:
+`Failed sync … [login=false][offlineMode=true]`, paired with the two cached
+offline flags. The earlier client-only check below rejected nonempty Cloud
+log lines without reading their state; that was an overstrict proof predicate,
+not evidence of an online client or a save transfer.
+
+New opt-in `run --require-offline` accepts that pair, watches appended state
+records, rejects online/ambiguous state and audits shutdown. It never changes
+preferences. On blade it also rechecks carbon after acquiring the queue slot.
+Account/Cloud prompt guards are unchanged. The 81-tile gap is unchanged; no
+Workshop mod was added.
+
 ## 2026-11-20 · PL-1066 · first-hour opening mode (native unrun)
 
 `--scenario first-hour` reuses ScenarioOps construction and requires 60

@@ -3,7 +3,7 @@
 ```sh
 cd tools/cs1-harness
 uv run cs1-harness run --map MAP.crp --probes PROBES.json \
-  --scenario first-hour --game-minutes 60 --sample-every 5 \
+  --scenario first-hour --game-minutes 60 --sample-every 5 --require-offline \
   --issue PL-1066 --out /home/caleb/experiments/PL-1066-first-hour/SLUG
 ```
 
@@ -44,6 +44,23 @@ sample. The first-hour row embeds the land measurement, sampled outages,
 traffic tail and native panel verdict. These are sampled observations, not
 continuous proof. A shorter run, a resumed save, missing observations or an
 unreviewed panel cannot earn a first-hour pass.
+
+## Offline Steam preflight
+
+`--require-offline` reads the selected cached account's `WantsOfflineMode=1`
+and `SkipOfflineModeWarning=1`, together with the latest timestamped Cloud
+sync batch. `Failed sync … [login=false][offlineMode=true]` is positive offline
+evidence, not a transfer. Generic Cloud startup lines are not a failure.
+Any new `login=true` or `offlineMode=false` record stops the run, even when a
+later record says offline. Missing or contradictory evidence also stops it;
+the guard never edits account preferences or answers Steam dialogs.
+
+The guard monitors new records during launch and simulation and audits
+shutdown; it retains sanitized evidence in `session-receipt.json`. A failure
+is latched for this session and uses exit 77, not an automatic launch retry.
+The existing account/Cloud-dialog guard remains active. On blade, this mode
+also checks carbon's game processes after acquiring the harness slot and
+immediately before the launch path, so a queue wait cannot reuse stale clearance.
 
 ## 81-tile limitation
 

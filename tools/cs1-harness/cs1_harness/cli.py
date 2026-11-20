@@ -298,6 +298,7 @@ def cmd_run(cfg, a):
                 "game_minutes": a.game_minutes,
             }
             with slot(cfg, stage, a.wait_minutes, meta) as s:
+                s.require_offline = a.require_offline
                 observers(s, a, default_label=f"map check: {a.map.name}")
                 probe_data = json.loads(a.probes.read_text()) if a.probes else {}
                 paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
@@ -744,6 +745,11 @@ def main(argv=None):
     r.add_argument("--screenshot-every", type=float, default=15, help="game-minutes between screenshot sets")
     r.add_argument("--dump-every", type=float, default=15, help="game-minutes between full water-grid dumps")
     r.add_argument("--load-timeout", type=float, default=900, help="seconds to wait for the city to load")
+    r.add_argument(
+        "--require-offline",
+        action="store_true",
+        help="require cached offline flags and failed offline sync state; reject online Cloud records throughout the run",
+    )
     r.add_argument(
         "--retry-minutes",
         type=float,
