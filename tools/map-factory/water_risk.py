@@ -56,6 +56,15 @@ def measure(terrain, water, hydro):
     )
     wet = all_wet & ~ocean
     area = max(int(wet.sum()), 1)
+    # Opposite dry neighbours identify a one-grid-node corridor, unlike the
+    # ordinary one-sided rim of a broad lake. The 25 cm depth is the writer's
+    # startup-film cap for streams, not a fitted native acceptance threshold.
+    padded = np.pad(wet, 1)
+    narrow = wet & (
+        (~padded[1:-1, :-2] & ~padded[1:-1, 2:])
+        | (~padded[:-2, 1:-1] & ~padded[2:, 1:-1])
+    )
+    narrow_film = narrow & (depth <= 0.25)
     if all_wet.any():
         distance, nearest = ndimage.distance_transform_edt(
             ~all_wet, return_indices=True
@@ -134,6 +143,7 @@ def measure(terrain, water, hydro):
         else 0.0,
         "shallow_fraction": float((wet & (depth < 0.125)).sum() / area),
         "thin_fraction": float((wet & (width <= 1)).sum() / area),
+        "narrow_film_km2": float(narrow_film.sum() * STEP**2 / 1e6),
         "inlet_wet_fraction": float((inlet & wet).sum() / area),
         "inlet_shallow_fraction": float((inlet & wet & (depth < 0.5)).sum() / area),
         "emitter_exposure_km2": float(exposure.sum() * STEP**2 / 1e6),
@@ -184,6 +194,7 @@ def feature_description(feature, value):
         "coastal_freeboard_p10_m": f"Lower coastal land sits {abs(value):.1f} m {'below' if value < 0 else 'above'} sea level.",
         "shallow_fraction": f"{value * 100:.0f}% of inland water starts less than 12.5 cm deep.",
         "thin_fraction": f"{value * 100:.0f}% of inland water occupies narrow grid corridors.",
+        "narrow_film_km2": f"{value:.4f} km² of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
         "inlet_wet_fraction": f"Drainage disks overlap {value * 100:.1f}% of inland water.",
         "inlet_shallow_fraction": f"Drainage disks overlap shallow water across {value * 100:.1f}% of inland water.",
         "emitter_exposure_km2": f"Water sources reach {value:.3f} km² of initially dry low ground.",
@@ -196,7 +207,7 @@ def feature_description(feature, value):
         "bank_limited_fraction": f"{value * 100:.0f}% of mapped channel length needs local water-level corrections.",
         "adverse_profile_fraction": f"{value * 100:.0f}% of mapped channel length has an adverse fitted profile.",
         "profile_overbank_p95_m": f"Higher fitted profiles exceed local banks by {value:.1f} m before local-stage correction.",
-        "unforced_fraction": f"{value * 100:.0f}% of mapped channel length has no feasible sustained water profile.",
+        "unforced_fraction": f"{value * 100:.0f}% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible.",
         "sea_present": "This square has open-sea water."
         if value
         else "This square has no open-sea water.",
@@ -211,7 +222,6 @@ DEFAULT_RULES = {
     "emitter_exposure_km2": 0.01,
     "bank_limited_fraction": 0.10,
     "input_output_ratio": 2.0,
-    "profile_overbank_m": 3.0,
 }
 
 
@@ -244,13 +254,9 @@ def classify(features, rules=DEFAULT_RULES):
         drying.append(
             "Large withdrawal capacity relative to supply; streams may dry out."
         )
-    if features["unforced_fraction"] > 0:
+    if features["narrow_film_km2"] > 0:
         drying.append(
-            feature_description("unforced_fraction", features["unforced_fraction"])
-        )
-    elif features["profile_overbank_p95_m"] > rules["profile_overbank_m"]:
-        drying.append(
-            "Fitted channel levels exceed the ordinary incision budget; stream continuity needs review."
+            feature_description("narrow_film_km2", features["narrow_film_km2"])
         )
     return {"flood": flood, "drying": drying}
 
@@ -281,6 +287,13 @@ def assess(terrain, water, hydro, model=None):
             "calibration": model["calibration"],
         }
     flags = classify(features, model["rules"])
+    # Omitted reaches are a map-content limitation, not evidence that retained
+    # water will dry. Keep the explanation out of the binary drying score.
+    notes = (
+        [feature_description("unforced_fraction", features["unforced_fraction"])]
+        if features["unforced_fraction"] > 0
+        else []
+    )
     outside = [
         f
         for f in model["features"]
@@ -300,6 +313,7 @@ def assess(terrain, water, hydro, model=None):
             "This square has water/terrain patterns outside the calibration range."
         )
         reasons.extend(feature_description(f, features[f]) for f in outside[:2])
+    reasons.extend(notes)
     return {
         "schema": 1,
         "model": model["version"],
@@ -312,6 +326,7 @@ def assess(terrain, water, hydro, model=None):
         "reasons": list(dict.fromkeys(reasons)),
         "features": features,
         "outside_calibration": outside,
+        "notes": notes,
         "calibration": model["calibration"],
         "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
     }

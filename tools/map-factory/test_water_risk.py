@@ -13,6 +13,36 @@ from calibrate_water_risk import calibrate, metrics
 
 
 class WaterRiskTests(unittest.TestCase):
+    def test_omitted_profiles_are_notes_not_retained_water_drying(self):
+        terrain, water, hydro = self.inputs()
+        hydro["rivers"] = [
+            {
+                "length_m": 100,
+                "unforced_infeasible_stream": True,
+                "profile_above_uncarved_m": 10,
+            }
+        ]
+        risk = assess(terrain, water, hydro)
+        self.assertEqual(risk["risks"]["drying"]["level"], "not_flagged")
+        self.assertTrue(any("left uncarved" in s for s in risk["notes"]))
+        self.assertNotIn("Drying risk flagged.", risk["reasons"])
+        hydro["rivers"][0]["unforced_infeasible_stream"] = False
+        self.assertFalse(classify(measure(terrain, water, hydro))["drying"])
+
+    def test_shallow_narrow_retained_water_not_wide_pool_rim(self):
+        terrain, water, hydro = self.inputs()
+        hydro["sources"] = []
+        water[:] = 0
+        water[500:530, 500:530] = 8
+        self.assertFalse(classify(measure(terrain, water, hydro))["drying"])
+        water[:] = 0
+        water[500, 200:700] = 64
+        self.assertFalse(classify(measure(terrain, water, hydro))["drying"])
+        water[500, 200:700] = 16
+        features = measure(terrain, water, hydro)
+        self.assertAlmostEqual(features["narrow_film_km2"], 500 * 256 / 1e6)
+        self.assertTrue(classify(features)["drying"])
+
     def coastal_inputs(self, coastal_height):
         terrain, water, hydro = self.inputs()
         terrain[:100] = 35 * 64
@@ -104,6 +134,7 @@ class WaterRiskTests(unittest.TestCase):
             emitter_exposure_km2=0,
             bank_limited_fraction=0,
             input_output_ratio=1,
+            narrow_film_km2=0,
             unforced_fraction=0,
             profile_overbank_p95_m=0,
         )
@@ -112,8 +143,7 @@ class WaterRiskTests(unittest.TestCase):
             ("emitter_exposure_km2", 0.02, "flood"),
             ("bank_limited_fraction", 0.2, "drying"),
             ("input_output_ratio", 3, "drying"),
-            ("unforced_fraction", 0.01, "drying"),
-            ("profile_overbank_p95_m", 4, "drying"),
+            ("narrow_film_km2", 0.001, "drying"),
         ]:
             changed = {**features, key: value}
             self.assertTrue(classify(changed)[expected])
@@ -219,6 +249,25 @@ class WaterRiskTests(unittest.TestCase):
         self.assertEqual(result["precision"], 1)
         self.assertIsNone(result["specificity"])
         self.assertEqual(result["negative_runs"], 0)
+
+    def test_exact_thinning_is_not_cancelled_by_nearby_water(self):
+        row = {
+            "run": "anonymous",
+            "package_sha256": "unused",
+            "group": "test",
+            "features": measure(*self.inputs()),
+            "labels": {"flood": False, "drying": True},
+            "complete_60": True,
+            "original_dry_gate_failed": False,
+            "required_water_loss": False,
+            "initialized_observations": 10,
+            "exact_point_wet_loss_end": 4,
+            "initialized_water_loss_end": 1,
+        }
+        _, report = calibrate([row])
+        counts = report["exact_point_thinning_full_60"]["per_square"]["test"]
+        self.assertEqual(counts["exact_wet_loss_readings"], 4)
+        self.assertEqual(counts["isolated_loss_readings"], 1)
 
     def test_committed_calibration_reproduces_from_bound_corpus(self):
         root = Path(__file__).parent

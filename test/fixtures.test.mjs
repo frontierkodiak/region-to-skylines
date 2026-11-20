@@ -76,6 +76,8 @@ for (const c of manifest.cases.filter((c) => !only || only.includes(c.slug))) {
       const cpu = current.risk_cases[c.slug];
       assert.equal(waterRisk.status, cpu.status, `${c.slug}: Python/browser risk decision`);
       assert.deepEqual(waterRisk.risks, cpu.risks, `${c.slug}: Python/browser physical flags`);
+      assert.deepEqual(waterRisk.notes, cpu.notes, `${c.slug}: omitted-stream notes`);
+      assert.deepEqual(waterRisk.reasons, cpu.reasons, `${c.slug}: export explanations`);
       assert.deepEqual(waterRisk.calibration, cpu.calibration);
       for (const [feature, value] of Object.entries(cpu.features))
         assert.ok(Math.abs(value - waterRisk.features[feature]) <= 1e-8 * Math.max(1, Math.abs(value)), `${c.slug}: risk feature ${feature}`);

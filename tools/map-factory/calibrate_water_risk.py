@@ -144,6 +144,29 @@ def calibrate(rows, coverage=None):
         "required_water_loss_full_60": dict(
             Counter(str(r["required_water_loss"]) for r in known if r["complete_60"])
         ),
+        "exact_point_thinning_full_60": {
+            "unit": "End-point readings summed over repeated runs, not unique geographic points or causal changes.",
+            "per_square": {
+                group: {
+                    "runs": len(selected),
+                    "initialized_readings": sum(
+                        r["initialized_observations"] for r in selected
+                    ),
+                    "exact_wet_loss_readings": sum(
+                        r["exact_point_wet_loss_end"] for r in selected
+                    ),
+                    "isolated_loss_readings": sum(
+                        r["initialized_water_loss_end"] for r in selected
+                    ),
+                }
+                for group in sorted({r["group"] for r in known})
+                if (
+                    selected := [
+                        r for r in known if r["complete_60"] and r["group"] == group
+                    ]
+                )
+            },
+        },
         "all_warn_baseline_full_60": {
             target: metrics(
                 [
@@ -159,7 +182,7 @@ def calibrate(rows, coverage=None):
             "Rules were developed using this corpus; retrospective results are not independent holdout validation.",
             "Older mask/cohort/writer versions differ. Original receipts and references are retained, not rewritten.",
             "Monitored initialized points include optional water but do not exhaustively label carved beds or visible continuity. Exact-point thinning is not cancelled by nearby-water coverage.",
-            "No observed drying-negative complete run exists in this corpus. Drying specificity/false-positive rate cannot be measured; an always-warn screen has the same apparent drying performance.",
+            "No observed drying-negative complete run exists in this corpus. Drying specificity/false-positive rate cannot be measured. Compare recall with the reported always-warn baseline; matching it does not establish discrimination.",
             "Unbound/unavailable inputs are explicitly excluded from scoring, never silently counted as safe.",
             "Nominal source capacities and static spill potential are not measured discharge or a forward hydraulic model.",
         ],

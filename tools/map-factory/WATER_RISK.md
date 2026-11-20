@@ -32,10 +32,40 @@ simulated flood area**.
 
 One conservative rule flags low coastal freeboard (<1.5 m), source disks exposing
 at least 0.01 km² of initially dry low ground, a bank-limited channel-length
-fraction over 10%, withdrawal/supply capacity over 2, any length with an unforced
-infeasible stream profile, or fitted profiles exceeding the ordinary 3 m incision
-budget. These are retrospective advisory operating points, not new native gates.
+fraction over 10%, withdrawal/supply capacity over 2, or shallow narrow initialized
+inland water. These are retrospective advisory operating points, not new native gates.
 There are no per-region branches or learned geographical splits.
+
+### Retained water, not omitted streams
+
+The previous drying explanation was wrong: `unforced_infeasible_stream` reaches
+are deliberately left **uncarved and unforced**. Their length is now a separate
+map-content note, not a drying prediction. Adverse fitted profiles alone no longer
+flag drying either; the writer may have rejected those profiles before excavation.
+Notes still reach the app/CLI review, but do not enter binary drying scores.
+
+The new `narrow_film_km2` signal measures **water actually present in the encoded
+initial grid**: inland wet nodes with dry neighbours on both opposite sides of
+at least one grid axis, and depth at most 0.25 m. The depth is the writer's stream
+startup-film cap, not a threshold fitted to recover a case. Positive area flags
+fragile shallow water. A broad pool's ordinary one-sided shallow rim and a deep
+one-cell channel do not trigger it. Sea water is excluded. The signal does not
+read an omitted line, native observation, map name or hash, and does not assert
+that every flagged node is a carved stream or will dry in a forward simulation.
+
+| Current fixture | Shallow narrow initial water (km²) | Omitted mapped length (note only) |
+| --- | ---: | ---: |
+| Asheville | 0.081408 | 63% |
+| Innsbruck | 0.014848 | 75% |
+| Rio | 0.016384 | 14% |
+| Pittsburgh | 0.172800 | 40% |
+| Charleston | 0.064256 | 13% |
+
+The same grid rule fires in all five and all 50 bound full runs. This corrects
+the explanation, **not the lack of drying-negative calibration**. Its false-alarm
+rate and geographical discrimination remain unknown; it is not a validated
+causal attribution of the lost monitored points. The prior always-warn result
+cannot become evidence of discrimination by changing the reason.
 
 ### Coastal margin above sea level
 
@@ -106,6 +136,20 @@ to the original 95% required-water gate. Exact-point wet loss is reported separa
 and cannot be erased by nearby coverage. Neither label exhaustively measures
 visible dry beds, continuous channels or every frame.
 
+The report now aggregates exact-point loss separately from isolated loss:
+
+| Landscape | Runs | Initially wet readings | Exact-point dry at end | Also no water within 64 m |
+| --- | ---: | ---: | ---: | ---: |
+| Asheville | 10 | 54,285 | 24,050 | 20,340 |
+| Innsbruck | 9 | 25,601 | 12,950 | 11,612 |
+| Rio | 12 | 34,166 | 5,816 | 2,216 |
+| Pittsburgh | 10 | 49,560 | 10,596 | 9,172 |
+| Charleston | 9 | 57,030 | 9,605 | 8,253 |
+
+These are summed endpoint readings across repeated versions/runs, **not unique
+geographic points, every-frame losses or causal differences between packages**.
+Gains elsewhere do not cancel them.
+
 Sixteen scored full runs lose some required water, but **none of the 57 full runs
 fails the original 95% required-water gate**. Gate-failure recall therefore cannot
 be estimated from these full runs. Treating that gate alone as the drying target
@@ -146,13 +190,18 @@ not a new native soak. Predecessor contracts, native receipts and failed cases
 are retained. An already-stale nonshipping short-driver binding on main is
 resolved by preserving its actual native-tested source separately from the
 unchanged current driver; no historical game is attributed to today's tool.
+The archived predecessor active pointer is hash-checked; a whitespace-only
+mutation is rejected. Excluded populated/saved-city rows retain anonymous path
+hashes: their identities are reproducible only with the private live registry,
+not recoverable from the published coverage alone.
 
 ## Release recommendation
 
 The screen supplies a general, explainable **per-square warning**, but the present
-corpus cannot substantiate a class of drying-safe squares. Hold the announcement
-of an exporter that reliably clears safe squares until geography-disjoint native
-validation includes genuinely drying-negative examples. Do not present the
+corpus cannot substantiate a class of drying-safe squares, and flood false alarms
+remain frequent. Hold the announcement of an exporter that reliably clears safe
+squares until geography-disjoint validation demonstrates useful **both flood and
+drying** discrimination, including genuinely drying-negative examples. Do not present the
 100% retrospective drying precision as that proof. Caleb owns the announcement.
 
 The existing Rio full-run flood failure (0.062464 km² versus 0.05), dry banks and

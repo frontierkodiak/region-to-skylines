@@ -5,8 +5,7 @@
     "low_coastal_freeboard_m": 1.5,
     "emitter_exposure_km2": 0.01,
     "bank_limited_fraction": 0.1,
-    "input_output_ratio": 2.0,
-    "profile_overbank_m": 3.0
+    "input_output_ratio": 2.0
   },
   "features": [
     "adverse_profile_fraction",
@@ -18,6 +17,7 @@
     "inlet_wet_fraction",
     "input_only_fraction",
     "input_output_ratio",
+    "narrow_film_km2",
     "ocean_fraction",
     "output_only_fraction",
     "profile_overbank_p95_m",
@@ -68,6 +68,10 @@
     "input_output_ratio": [
       0.12555873906990417,
       993707.0
+    ],
+    "narrow_film_km2": [
+      0.013568,
+      0.626944
     ],
     "ocean_fraction": [
       0.0,

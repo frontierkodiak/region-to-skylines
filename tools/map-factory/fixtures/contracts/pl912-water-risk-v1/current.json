@@ -7,6 +7,10 @@
     "file": "contracts/pl912-transient-storage-v1/current.json",
     "sha256": "dd78e9df097f09582cfb7d72c567f852699396450bf4cf3e45e6cc4a4683c9a7"
   },
+  "previous_active": {
+    "file": "contracts/pl912-water-risk-v1/previous-active.json",
+    "sha256": "03e87144c76d9a79963c672067677b43b1931c30f69cce8c84d0166afe45388b"
+  },
   "previous_contracts": {
     "accepted_presentation": {
       "file": "current.json",
@@ -707,8 +711,8 @@
     "tools/map-factory/web.py": "4ba1d224485c08efaa59290a9b3e6926842a430ed4f57dd79c3ed59b2ce49c0b",
     "tools/map-factory/wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
     "tools/map-factory/native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2",
-    "tools/map-factory/water_risk.py": "5d9807dfc7d04184b66b0a5a9beec6140ba226410079656ea18f6aaedcde3e98",
-    "tools/map-factory/water-risk-model.json": "6658f03c3cac62cfe69ccf8deea950280c706cbaa8dfa5f11118573bf05c11e8",
+    "tools/map-factory/water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+    "tools/map-factory/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
     "tools/map-factory/templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b"
   },
@@ -737,7 +741,7 @@
     }
   },
   "corpus_file": "contracts/pl912-water-risk-v1/corpus.json",
-  "corpus_sha256": "77c4f249bf36c919f55e4b3dff309c58a946d564ac378d9765f350b0c6dc1842",
+  "corpus_sha256": "325015cad0140d829ea77098019e994e42befbcf1dc1ef9616cd41fa507be51b",
   "calibration": {
     "runs": 68,
     "squares": 5,
@@ -790,13 +794,14 @@
         "drying": {
           "level": "flagged",
           "reasons": [
-            "63% of mapped channel length has no feasible sustained water profile."
+            "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
           ]
         }
       },
       "reasons": [
         "Drying risk flagged.",
-        "63% of mapped channel length has no feasible sustained water profile."
+        "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
       ],
       "features": {
         "relief_m": 406.4375,
@@ -809,6 +814,7 @@
         "shore_freeboard_p10_m": 0.921875,
         "shallow_fraction": 0.015668691543727704,
         "thin_fraction": 0.4561276636775624,
+        "narrow_film_km2": 0.081408,
         "inlet_wet_fraction": 0.002458779288400347,
         "inlet_shallow_fraction": 0.002217722495419921,
         "emitter_exposure_km2": 0.000512,
@@ -823,6 +829,9 @@
         "sea_present": 0.0
       },
       "outside_calibration": [],
+      "notes": [
+        "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
       "calibration": {
         "runs": 68,
         "squares": 5,
@@ -876,13 +885,14 @@
         "drying": {
           "level": "flagged",
           "reasons": [
-            "75% of mapped channel length has no feasible sustained water profile."
+            "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
           ]
         }
       },
       "reasons": [
         "Drying risk flagged.",
-        "75% of mapped channel length has no feasible sustained water profile."
+        "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
       ],
       "features": {
         "relief_m": 830.796875,
@@ -895,6 +905,7 @@
         "shore_freeboard_p10_m": 0.734375,
         "shallow_fraction": 0.016906792119964716,
         "thin_fraction": 0.5388121140840929,
+        "narrow_film_km2": 0.014848,
         "inlet_wet_fraction": 0.007497794766245222,
         "inlet_shallow_fraction": 0.002940311673037342,
         "emitter_exposure_km2": 0.0,
@@ -909,6 +920,9 @@
         "sea_present": 0.0
       },
       "outside_calibration": [],
+      "notes": [
+        "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
       "calibration": {
         "runs": 68,
         "squares": 5,
@@ -967,7 +981,7 @@
           "level": "flagged",
           "reasons": [
             "80% of mapped channel length needs local water-level corrections.",
-            "14% of mapped channel length has no feasible sustained water profile."
+            "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
           ]
         }
       },
@@ -978,7 +992,8 @@
         "Water sources reach 0.017 km\u00b2 of initially dry low ground.",
         "Drying risk flagged.",
         "80% of mapped channel length needs local water-level corrections.",
-        "14% of mapped channel length has no feasible sustained water profile."
+        "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
       ],
       "features": {
         "relief_m": 628.59375,
@@ -991,6 +1006,7 @@
         "shore_freeboard_p10_m": 0.859375,
         "shallow_fraction": 0.01012452625879805,
         "thin_fraction": 0.27742284786139687,
+        "narrow_film_km2": 0.016384,
         "inlet_wet_fraction": 0.06578234975636167,
         "inlet_shallow_fraction": 0.004493773687060098,
         "emitter_exposure_km2": 0.017408,
@@ -1005,6 +1021,9 @@
         "sea_present": 1.0
       },
       "outside_calibration": [],
+      "notes": [
+        "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
       "calibration": {
         "runs": 68,
         "squares": 5,
@@ -1060,7 +1079,7 @@
         "drying": {
           "level": "flagged",
           "reasons": [
-            "40% of mapped channel length has no feasible sustained water profile."
+            "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
           ]
         }
       },
@@ -1068,7 +1087,8 @@
         "Flooding risk flagged.",
         "Water sources reach 0.046 km\u00b2 of initially dry low ground.",
         "Drying risk flagged.",
-        "40% of mapped channel length has no feasible sustained water profile."
+        "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
       ],
       "features": {
         "relief_m": 171.390625,
@@ -1081,6 +1101,7 @@
         "shore_freeboard_p10_m": -0.109375,
         "shallow_fraction": 0.0029031606583863477,
         "thin_fraction": 0.21705543774613753,
+        "narrow_film_km2": 0.1728,
         "inlet_wet_fraction": 0.0006816116328385338,
         "inlet_shallow_fraction": 7.57346258709482e-05,
         "emitter_exposure_km2": 0.045568,
@@ -1095,6 +1116,9 @@
         "sea_present": 0.0
       },
       "outside_calibration": [],
+      "notes": [
+        "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
       "calibration": {
         "runs": 68,
         "squares": 5,
@@ -1151,7 +1175,7 @@
         "drying": {
           "level": "flagged",
           "reasons": [
-            "13% of mapped channel length has no feasible sustained water profile."
+            "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
           ]
         }
       },
@@ -1160,7 +1184,8 @@
         "Low coastal land can flood.",
         "Lower coastal land sits 0.1 m above sea level.",
         "Drying risk flagged.",
-        "13% of mapped channel length has no feasible sustained water profile."
+        "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+        "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
       ],
       "features": {
         "relief_m": 29.15625,
@@ -1173,6 +1198,7 @@
         "shore_freeboard_p10_m": 0.140625,
         "shallow_fraction": 0.03114347691354199,
         "thin_fraction": 0.4095134800123954,
+        "narrow_film_km2": 0.064256,
         "inlet_wet_fraction": 0.0001549426712116517,
         "inlet_shallow_fraction": 0.0001549426712116517,
         "emitter_exposure_km2": 0.005632,
@@ -1187,6 +1213,9 @@
         "sea_present": 1.0
       },
       "outside_calibration": [],
+      "notes": [
+        "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+      ],
       "calibration": {
         "runs": 68,
         "squares": 5,

@@ -6,7 +6,7 @@ const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
 
 export async function loadWaterRiskContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles }) {
-  assert.deepEqual(Object.keys(current).sort(), ["format", "version", "status", "scope", "predecessor", "previous_contracts", "native_tested_head", "cases", "source_files_sha256", "export_gate_files_sha256", "archived_sources", "historical_tool_sources", "corpus_file", "corpus_sha256", "coverage_file", "coverage_sha256", "calibration", "risk_cases"].sort());
+  assert.deepEqual(Object.keys(current).sort(), ["format", "version", "status", "scope", "predecessor", "previous_active", "previous_contracts", "native_tested_head", "cases", "source_files_sha256", "export_gate_files_sha256", "archived_sources", "historical_tool_sources", "corpus_file", "corpus_sha256", "coverage_file", "coverage_sha256", "calibration", "risk_cases"].sort());
   assert.equal(current.format, 1);
   assert.equal(current.version, "pl912-water-risk-v1");
   assert.equal(current.status, "partial_not_accepted");
@@ -14,6 +14,9 @@ export async function loadWaterRiskContract({ read, readSource, current, histori
   const previousBytes = await read("fixtures/" + current.predecessor.file);
   assert.equal(sha(previousBytes), current.predecessor.sha256, "predecessor contract changed");
   const previous = parse(previousBytes);
+  const previousActiveBytes = await read("fixtures/" + current.previous_active.file);
+  assert.equal(sha(previousActiveBytes), current.previous_active.sha256, "archived active pointer changed");
+  assert.deepEqual(parse(previousActiveBytes), { format: 2, current: current.predecessor.file, historical_current: "current.json" });
   assert.deepEqual(current.cases, previous.cases, "risk screening cannot relabel native cases");
   assert.deepEqual(current.previous_contracts, previous.previous_contracts);
   assert.equal(current.native_tested_head, previous.native_tested_head);
