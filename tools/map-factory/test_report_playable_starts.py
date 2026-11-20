@@ -109,14 +109,19 @@ class CohortComparison(unittest.TestCase):
         result = self.result()
         self.assertTrue(result["paired_comparison_qualified"])
         self.assertEqual(result["before"]["qualified_pass_rate"], 1)
+        self.assertTrue(result["first_hour_survival"]["paired_comparison_qualified"])
 
     def test_missing_holdout_is_unresolved_not_a_failure_or_completed_rate(self):
         (self.after / "native/holdout/verdict.json").unlink()
         result = self.result()
         self.assertFalse(result["paired_comparison_qualified"])
+        self.assertTrue(
+            result["first_hour_survival"]["original_player_baseline"]["qualified"]
+        )
         self.assertEqual(result["after"]["failed"], 0)
         self.assertEqual(result["after"]["unresolved"], 1)
         self.assertIsNone(result["after"]["qualified_pass_rate"])
+        self.assertIsNone(result["first_hour_survival"]["after"]["qualified_pass_rate"])
 
     def test_original_player_baseline_does_not_require_candidate_or_holdouts(self):
         (self.after / "cpu-report.json").unlink()
@@ -134,6 +139,10 @@ class CohortComparison(unittest.TestCase):
         self.assertTrue(baseline["qualified"])
         self.assertEqual(baseline["failed"], 1)
         self.assertEqual(baseline["qualified_pass_rate"], 0)
+        self.assertEqual(
+            self.result()["first_hour_survival"]["original_player_baseline"]["failed"],
+            1,
+        )
 
     def test_changed_exports_cannot_be_mislabeled_as_player_only_baseline(self):
         path = self.before / "cpu-report.json"
@@ -145,6 +154,12 @@ class CohortComparison(unittest.TestCase):
         self.assertFalse(result["original_player_baseline"]["qualified"])
         self.assertIsNone(result["original_player_baseline"]["qualified_pass_rate"])
         self.assertFalse(result["paired_comparison_qualified"])
+
+        self.assertIsNone(
+            result["first_hour_survival"]["original_player_baseline"][
+                "qualified_pass_rate"
+            ]
+        )
 
     def test_missing_or_unbound_package_manifest_withholds_rates(self):
         write(self.manifest_path, {"packages_sha256": {"original": "map"}})
@@ -185,6 +200,9 @@ class CohortComparison(unittest.TestCase):
         self.assertFalse(result["stock_policy_qualified"])
         self.assertEqual(result["map_fault_attribution"], "withheld")
         self.assertIsNone(result["before"]["qualified_pass_rate"])
+        self.assertIsNone(
+            result["first_hour_survival"]["before"]["qualified_pass_rate"]
+        )
         self.assertFalse(result["original_player_baseline"]["qualified"])
 
     def test_old_policy_cannot_become_a_qualified_baseline(self):
@@ -194,6 +212,9 @@ class CohortComparison(unittest.TestCase):
         self.assertFalse(result["paired_comparison_qualified"])
         self.assertFalse(result["before"]["same_qualified_player"])
         self.assertIsNone(result["before"]["qualified_pass_rate"])
+        self.assertIsNone(
+            result["first_hour_survival"]["before"]["qualified_pass_rate"]
+        )
 
     def test_wrong_package_cannot_count_as_a_pass(self):
         attempt(self.after / "native/holdout", package="another-square")
@@ -203,6 +224,8 @@ class CohortComparison(unittest.TestCase):
         )
         self.assertEqual(result["after"]["passed"], 1)
         self.assertFalse(result["paired_comparison_qualified"])
+        self.assertEqual(result["first_hour_survival"]["after"]["unresolved"], 1)
+        self.assertIsNone(result["first_hour_survival"]["after"]["qualified_pass_rate"])
 
     def test_one_stock_control_is_insufficient(self):
         self.cohort["controls"].pop()
@@ -225,6 +248,10 @@ class CohortComparison(unittest.TestCase):
         result = self.result()
         self.assertFalse(result["paired_comparison_qualified"])
         self.assertEqual(result["after"]["unresolved"], 1)
+        self.assertEqual(
+            result["first_hour_survival"]["after"]["qualified_pass_rate"], 1
+        )
+        self.assertTrue(result["first_hour_survival"]["paired_comparison_qualified"])
 
     def test_stock_unverified_aggregate_cannot_hide_an_explicit_failure(self):
         path = self.stock / "stock-b/verdict.json"
@@ -246,6 +273,10 @@ class CohortComparison(unittest.TestCase):
         self.assertEqual(result["before"]["unresolved"], 1)
         self.assertFalse(result["original_player_baseline"]["qualified"])
         self.assertIsNone(result["before"]["qualified_pass_rate"])
+        self.assertIsNone(
+            result["first_hour_survival"]["before"]["qualified_pass_rate"]
+        )
+        self.assertEqual(result["first_hour_survival"]["before"]["unresolved"], 1)
 
     def test_cleanup_failure_cannot_qualify_a_stock_control(self):
         path = self.stock / "stock-b/verdict.json"
@@ -269,6 +300,7 @@ class CohortComparison(unittest.TestCase):
         self.assertFalse(result["paired_comparison_qualified"])
         self.assertFalse(result["all_frozen_inputs_match"])
         self.assertIsNone(result["before"]["qualified_pass_rate"])
+        self.assertIsNone(result["first_hour_survival"]["after"]["qualified_pass_rate"])
 
     def test_different_selection_cannot_earn_a_paired_rate(self):
         path = self.after / "cpu-report.json"
@@ -279,6 +311,7 @@ class CohortComparison(unittest.TestCase):
         self.assertFalse(result["paired_comparison_qualified"])
         self.assertFalse(result["frozen_selection_matches"])
         self.assertIsNone(result["after"]["qualified_pass_rate"])
+        self.assertIsNone(result["first_hour_survival"]["after"]["qualified_pass_rate"])
 
     def test_inconsistent_aggregate_cannot_hide_an_explicit_failed_native_check(self):
         path = self.after / "native/holdout/verdict.json"
@@ -299,6 +332,13 @@ class CohortComparison(unittest.TestCase):
         self.assertEqual(result["cases"]["holdout"]["after"]["first_hour"], "pass")
         self.assertEqual(result["after"]["failed"], 1)
         self.assertEqual(result["after"]["qualified_pass_rate"], 0.5)
+        self.assertEqual(
+            result["first_hour_survival"]["after"]["qualified_pass_rate"], 1
+        )
+        self.assertEqual(
+            result["cases"]["holdout"]["after"]["additional_failed_checks"],
+            ["ground_truth"],
+        )
 
 
 if __name__ == "__main__":
