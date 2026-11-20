@@ -3297,3 +3297,26 @@ unchanged. These CPU fixture checks are not new native panel games or current-
 tree native qualification. Both predictors remain rejected as discriminators,
 human-only checks not verified, exporter release held. Final evidence/integration
 review is separate from the already consumed preparation/collector reviews.
+
+### 2026-11-20 PL-1078 stock control: original player fails clean-water service
+
+Cliffside Bay, exact stock format-4 package `2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c`,
+ran with source `0d573aa` and byte-unchanged PR58 ScenarioOps. It completed
+60.134 game-minutes, last observed population 323. At 20.021 minutes, 57 grown
+buildings reported DirtyWater. Dirty-water failures continued through the end.
+All other first-hour checks passed, including native car paths, movement,
+facility utilities, start land, sample coverage, and the reviewed native panel.
+This is a player-policy failure on a stock map, not exported-map evidence.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. The reported simulation wall time is
+917.09 seconds. The 220 whole-card samples include setup and cleanup, with
+peaks of 10821 MiB, 142.52 W, and 59 C. Memory includes an existing allocation;
+the owned game used 1592 MiB at the menu, not a measured game-only peak.
+The recorded 200 W power limit was not changed. Cleanup contains no game,
+Steam instances, or active session units. Evidence is under the PL-1078
+experiment's `controls-native/original/cliffside-bay` directory.
+
+The separate groundwater policy commit `df82d6b` compiles and passes 155
+Python tests. Its 400 m setbacks and actual service reliability still require
+both full-hour stock controls. No improvement in exported-map survival is
+claimed by this control or the CPU exports.
