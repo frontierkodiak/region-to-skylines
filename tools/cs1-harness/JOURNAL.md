@@ -3414,3 +3414,28 @@ fix and this pairing rule; no gameplay policy or native verdict was changed.
 The original frozen-eight baseline now runs in foreground before any exporter
 rule. Every map releases the fair slot; PL-1072's next case acquired it after
 the stock retry. No exported-map improvement is claimed yet.
+
+### 2026-11-20 PL-1078 unchanged-exporter baseline under the qualified player
+
+The original eight run before adding any exporter rule, with the same stock-
+qualified `f60c6833...` DLL and preregistered inputs/pre-rule packages. The
+unchanged PR58 first-hour outcome is recorded separately from full native
+qualification. Actual New Game, untouched opening and Areas-tool captures are
+viewed and hash-reviewed before final rejudgment; no native gate is relaxed.
+The historical 1/8 is an unqualified-player observation, not this baseline.
+
+| Case | First hour | Full native | Game min | Last population | Simulation wall s | Whole-card peak MiB / W / C | GPU samples |
+|---|---|---|---:|---:|---:|---|---:|
+| Asheville | pass | pass | 60.031 | 369 | 989.28 | 10821 / 142.85 / 60 | 239 |
+
+Asheville has zero sampled service outages and empty cleanup. Its exact
+pre-rule package remains `0b92ed3...`; the water and bankruptcy failure seen
+under the original player did not recur. All independent native gates pass
+after the actual startup images were reviewed. The rest of the eight remain
+pending; no complete baseline rate or exporter improvement is claimed yet.
+
+Resource measurements are on blade's RTX 2080 Ti at PCI 05:00.0. Whole-card
+memory includes the existing allocation; owned-game menu usage was 1574 MiB,
+not a continuously measured game-only peak. The recorded 200 W cap is unchanged.
+Every case releases the fair slot; native evidence lives under the PL-1078
+experiment's `baseline/native` directory.
