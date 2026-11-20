@@ -93,6 +93,17 @@ ship clearance, sustained water, terminal service, landing or takeoff. No road
 or rail certificate is issued from the present selected-pair study. Actual
 water/start/hookup/intake qualification remains with its owning study.
 
+The preview row clears the previous square at pan start, aborts superseded
+requests and rejects late responses. A failed capture leaves Unknown, not stale
+green icons. Hover, keyboard focus and tap expose the reason. Its water estimate
+uses the input capture's explicit ocean geometry and bank-minus-bed excavation;
+it is not the Python preparation's final water or a flow simulation.
+
+`test/capability-browser.mjs` runs on blade in the matching official Playwright
+container. Synthetic state/abort/error/layout checks are labelled separately
+from real Boston capture and pan checks. Both Chromium and WebKit are required;
+the script closes its browsers and local server in `finally`.
+
 ## Score the game, without conflating oracles
 
 Each capability's `game_agreement` is an array of observations. A row includes

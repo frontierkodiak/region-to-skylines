@@ -13,6 +13,7 @@ ADDITIONS = [
     "capability-inputs.js",
     "capability-ledger.mjs",
     "capability-model.js",
+    "capability-ui.js",
     "tools/map-factory/capabilities.py",
     "tools/map-factory/integrate_outside_evidence.py",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json",

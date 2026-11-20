@@ -412,10 +412,13 @@ def prepared_input(folder):
 
 
 def assess_prepared(folder, native_context=None):
-    ledger = json.loads(
-        (Path(__file__).resolve().parents[2] / "capabilities.json").read_text()
-    )
+    ledger_bytes = (
+        Path(__file__).resolve().parents[2] / "capabilities.json"
+    ).read_bytes()
+    ledger = json.loads(ledger_bytes)
     report = check(prepared_input(folder), ledger)
+    report["model_sha256"] = hashlib.sha256(ledger_bytes).hexdigest()
+    report["tool_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
     report["inputs_sha256"] = {
         name: hashlib.sha256((folder / name).read_bytes()).hexdigest()
         for name in ("terrain.u16", "water.u16", "hydrology.json")

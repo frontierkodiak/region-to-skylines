@@ -22,7 +22,7 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     assert.equal(sha(await readSource(name)), binding.current_sha256, `${name}: capability UI source changed`);
     archived[name] = raw;
   }
-  assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), ["capabilities.json", "capability-inputs.js", "capability-ledger.mjs", "capability-model.js", "tools/map-factory/capabilities.py", "tools/map-factory/integrate_outside_evidence.py", "tools/map-factory/capability-evidence/pl1119-v3-predictions.json"].sort());
+  assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), ["capabilities.json", "capability-inputs.js", "capability-ledger.mjs", "capability-model.js", "capability-ui.js", "tools/map-factory/capabilities.py", "tools/map-factory/integrate_outside_evidence.py", "tools/map-factory/capability-evidence/pl1119-v3-predictions.json"].sort());
   for (const [name, digest] of Object.entries(adoption.added_files_sha256)) assert.equal(sha(await readSource(name)), digest, `${name}: capability source changed`);
   return (name) => archived[name] ?? readSource(name);
 }
