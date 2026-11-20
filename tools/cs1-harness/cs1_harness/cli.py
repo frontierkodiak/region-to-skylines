@@ -285,6 +285,7 @@ def cmd_run(cfg, a):
         if isinstance(ref, dict) and ref.get("reference_water"):
             shutil.copyfile(a.probes.parent / ref["reference_water"], out / "reference-water.u16")
     harness = verdict_mod.harness_commit()
+    (out / "harness-source.json").write_text(json.dumps(harness, indent=2) + "\n")
     stage = staging(cfg, out)
     attempt = 0
     while True:
@@ -353,13 +354,13 @@ def cmd_run(cfg, a):
                 log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
                 time.sleep(a.retry_minutes * 60)
                 continue
-            finish_error(cfg, out, a, f"blocked: {b}", b.code)
+            finish_error(cfg, out, a, f"blocked: {b}", b.code, harness)
             return b.code
         except HarnessError as e:
             if stage.exists():
                 collect(stage, out)
             log(f"failed: {e}")
-            finish_error(cfg, out, a, f"failed: {e}", 1)
+            finish_error(cfg, out, a, f"failed: {e}", 1, harness)
             return 1
         except Exception:  # a harness bug: judge, triage and report it like any other failure
             import traceback
@@ -369,13 +370,20 @@ def cmd_run(cfg, a):
             tb = traceback.format_exc()
             log(f"harness error:\n{tb}")
             (out / "traceback.txt").write_text(tb)
-            finish_error(cfg, out, a, "Traceback: " + tb.strip().splitlines()[-1], 70)
+            finish_error(cfg, out, a, "Traceback: " + tb.strip().splitlines()[-1], 70, harness)
             return 70
 
 
-def finish_error(cfg, out: pathlib.Path, a, reason: str, code: int):
+def finish_error(cfg, out: pathlib.Path, a, reason: str, code: int, harness: dict):
     verdict_mod.error_verdict(
-        out, "map-soak", reason, code, issue=a.issue, label=a.label, scenario=getattr(a, "scenario", None)
+        out,
+        "map-soak",
+        reason,
+        code,
+        issue=a.issue,
+        label=a.label,
+        scenario=getattr(a, "scenario", None),
+        harness=harness,
     )
     t = triage_mod.attach(out, cfg)
     if t:

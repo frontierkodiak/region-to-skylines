@@ -1,6 +1,7 @@
 """The lead's failed-offline-sync evidence passes; online records still stop."""
 
 import pathlib
+import json
 import tempfile
 import unittest
 
@@ -38,6 +39,17 @@ class OfflineSteamTest(unittest.TestCase):
         self.log.write_text("Cloud client initialized\n")
         with self.assertRaisesRegex(OfflineError, "no timestamped"):
             Guard(self.root)
+
+    def test_evidence_and_failures_do_not_publish_account_or_sync_names(self):
+        secret = "private-account-and-save-name"
+        self.config.write_text(CONFIG.replace('"WantsOfflineMode"', f'"AccountName" "{secret}" "WantsOfflineMode"'))
+        self.log.write_text(OFFLINE.replace("eval,", secret))
+        guard = Guard(self.root)
+        self.assertNotIn(secret, json.dumps(guard.check()))
+        self.append(OFFLINE.replace("eval,", secret).replace("login=false", "login=true"))
+        with self.assertRaises(OfflineError) as error:
+            guard.check()
+        self.assertNotIn(secret, str(error.exception))
 
     def test_latest_offline_transition_can_supersede_historical_online_mode(self):
         historical = OFFLINE.replace("06:14:59", "05:00:00").replace("login=false", "login=true")

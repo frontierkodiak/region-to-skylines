@@ -800,6 +800,7 @@ def error_verdict(
     issue: str | None = None,
     label: str | None = None,
     scenario: str | None = None,
+    harness: dict | None = None,
 ) -> dict:
     """A run that ended before it could be judged."""
     verdict = {
@@ -813,7 +814,8 @@ def error_verdict(
         "label": label,
         "checks": [first_hour.failure(out, reason)] if scenario == "first-hour" else [],
         "requested_scenario": scenario,
-        "harness": harness_commit(),
+        "harness": harness,
+        "judged_by": harness_commit(),
     }
     out.mkdir(parents=True, exist_ok=True)
     (out / "verdict.json").write_text(json.dumps(verdict, indent=2) + "\n")

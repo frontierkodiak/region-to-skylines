@@ -6,6 +6,7 @@ import json
 import pathlib
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from cs1_harness.first_hour import assess
 from cs1_harness.cli import cmd_run
@@ -50,6 +51,16 @@ def verdict(doc, city=None, panel="pass"):
 
 
 class FirstHourTest(unittest.TestCase):
+    def test_failed_run_keeps_invocation_source_when_checkout_moves(self):
+        with (
+            tempfile.TemporaryDirectory() as temporary,
+            patch("cs1_harness.verdict.harness_commit", return_value={"commit": "later-head", "dirty": True}),
+        ):
+            source = {"commit": "invocation-head", "dirty": False}
+            doc = error_verdict(pathlib.Path(temporary), "map-soak", "bankruptcy", 1, harness=source)
+            self.assertEqual(doc["harness"], source)
+            self.assertEqual(doc["judged_by"]["commit"], "later-head")
+
     def test_failed_construction_keeps_its_own_verdict_and_land_evidence(self):
         with tempfile.TemporaryDirectory() as temporary:
             out = pathlib.Path(temporary)

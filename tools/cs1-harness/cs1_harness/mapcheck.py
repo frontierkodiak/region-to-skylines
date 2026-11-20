@@ -376,7 +376,15 @@ class MapCheck:
             observe.write_context(s.cfg, minute=m, of_minutes=game_minutes)
             if stats["frame"] != last_progress[1]:
                 last_progress = (time.monotonic(), stats["frame"])
-            elif time.monotonic() - last_progress[0] > 300:
+            elif scenario == "first-hour" and time.monotonic() - last_progress[0] > 30:
+                modal = self.c.call("status").get("modal") or {}
+                if modal.get("top") == "(Library) BailoutPanel" and modal.get("top_visible") is True:
+                    self.record("scenario_interruption", {"minute": m, "stats": stats, "modal": modal})
+                    raise HarnessError(
+                        f"scripted opening interrupted by native bankruptcy alert at {m:.2f} game-minutes; "
+                        "no bailout accepted; full hour not completed"
+                    )
+            if time.monotonic() - last_progress[0] > 300:
                 raise HarnessError("simulation made no progress for 5 minutes")
             if m >= game_minutes:
                 break
