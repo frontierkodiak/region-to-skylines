@@ -3063,3 +3063,30 @@ enforce all native construction errors; no collision, slope, money or length
 rule is disabled. No named-map or coordinate exception was added. Build and
 157harness tests pass, but the new DLL still requires both stock controls and
 a fresh unchanged-exporter original-eight baseline before any exporter rule.
+
+### 2026-11-20 PL-1078 ordered-junction player stock-qualified
+
+Both fresh stock controls pass with identical DLL SHA256 `4a4dbf3a...`
+(`c200644` player source). All nine unchanged first-hour checks pass, with
+zero sampled service outages, no explicit failed native check and empty
+game/Steam/unit cleanup. Actual New Game captures were viewed and hash-reviewed.
+Stock aggregate geography remains `unverified`, not a real-world fidelity pass.
+
+| Stock control | Game min | Last population | Simulation wall s | Whole-card peak MiB / W / C | GPU samples | Panel SHA prefix |
+|---|---:|---:|---:|---|---:|---|
+| Cliffside Bay | 60.093 | 301 | 919.78 | 10821 / 145.50 / 60 | 232 | 12c5acda |
+| Foggy Hills | 60.016 | 325 | 920.09 | 10821 / 144.26 / 60 | 221 | ea0e4bb9 |
+
+Blade, RTX 2080 Ti at PCI 05:00.0; the recorded 200 W cap was unchanged.
+Whole-card memory includes the existing allocation. Menu-game usage was
+1620 MiB / 1574 MiB respectively, not continuously measured game-only peaks.
+Fresh offline/carbon guards and the fair queue were used for each run. The
+slot was released after each; PL-1072 acquired it after Foggy Hills.
+
+The new unchanged-exporter original-eight baseline starts only after these
+controls, in a separate `baseline-player-v2/native` output group. The f60
+pilot and all prior control attempts remain intact and are not mixed with
+this DLL in a rate. No exporter rule has been added. Innsbruck's native
+recovery and the complete original-eight player-policy effect remain pending.
+CPU checks: 157 harness tests, 176 map-factory tests (one optional skip),
+JavaScript checks, and harness Ruff lint/format pass. Doctor remains pending.
