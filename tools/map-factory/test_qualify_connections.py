@@ -7,10 +7,32 @@ from pathlib import Path
 
 import numpy as np
 
-from qualify_connections import frozen_inputs, screen, sha
+from qualify_connections import frozen_inputs, qualify, screen, sha
 
 
 class FrozenInputs(unittest.TestCase):
+    def test_changed_registered_inputs_cannot_export(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            source = output / "inputs/square"
+            source.mkdir(parents=True)
+            path = source / "geometry.json"
+            path.write_bytes(b"registered bytes")
+            plan = {
+                "fixtures": ["square"],
+                "fresh": [],
+                "frozen_input_files": {"square": {path.name: sha(path)}},
+            }
+            (output / "cohort.json").write_text(json.dumps(plan))
+            path.write_bytes(b"different square")
+            qualify(output)
+            row = json.loads((output / "cpu-report.json").read_text())["cases"][
+                "square"
+            ]
+            self.assertEqual(row["status"], "declined")
+            self.assertIn("Frozen original input bytes changed", row["error"])
+            self.assertEqual(list(output.rglob("*.crp")), [])
+
     def test_reuse_does_not_recapture_or_change_the_original_cohort(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
