@@ -103,6 +103,10 @@ def compare(cohort_path, controls, baseline, candidate):
     raw = cohort_path.read_bytes()
     cohort = json.loads(raw)
     preregistration = hashlib.sha256(raw).hexdigest()
+    manifest_path = cohort_path.with_name(f"{cohort_path.stem}-baseline.json")
+    manifest_raw = manifest_path.read_bytes() if manifest_path.is_file() else b"{}"
+    manifest = json.loads(manifest_raw)
+    baseline_packages = manifest.get("packages_sha256") or {}
     stock = {
         row["name"].lower().replace(" ", "-"): opening(
             controls / row["name"].lower().replace(" ", "-"),
@@ -130,6 +134,10 @@ def compare(cohort_path, controls, baseline, candidate):
     )
     selection_bound = baseline_registered and selection == report_after.get("selection")
     slugs = [row["slug"] for row in cohort["original"] + cohort["fresh"]]
+    manifest_bound = bool(
+        manifest.get("preregistration_sha256") == preregistration
+        and set(baseline_packages) == set(slugs)
+    )
     cases = {}
     for slug in slugs:
         before_case = report_before.get("cases", {}).get(slug, {})
@@ -148,8 +156,17 @@ def compare(cohort_path, controls, baseline, candidate):
                 after_case.get("stage", {}).get("crp_sha256"),
             ),
             "frozen_inputs_match": inputs_bound,
+            "baseline_package_matches": bool(
+                manifest_bound
+                and baseline_packages.get(slug)
+                and before_case.get("stage", {}).get("crp_sha256")
+                == baseline_packages[slug]
+            ),
         }
     all_inputs_bound = all(row["frozen_inputs_match"] for row in cases.values())
+    all_baseline_packages_bound = all(
+        row["baseline_package_matches"] for row in cases.values()
+    )
     original_inputs_bound = bool(original_inputs) and all(
         report_before.get("cases", {}).get(slug, {}).get("inputs_sha256") == hashes
         for slug, hashes in original_inputs.items()
@@ -157,10 +174,14 @@ def compare(cohort_path, controls, baseline, candidate):
     original_baseline = summarize(
         [cases[slug]["before"] for slug in original_inputs], player
     )
+    original_packages_bound = manifest_bound and all(
+        cases[slug]["baseline_package_matches"] for slug in original_inputs
+    )
     original_baseline["qualified"] = bool(
         qualified
         and baseline_registered
         and original_inputs_bound
+        and original_packages_bound
         and original_baseline["complete"]
         and original_baseline["same_qualified_player"]
     )
@@ -168,14 +189,16 @@ def compare(cohort_path, controls, baseline, candidate):
         original_baseline["qualified_pass_rate"] = None
     original_baseline["frozen_inputs_match"] = original_inputs_bound
     original_baseline["registered_selection"] = baseline_registered
+    original_baseline["pre_rule_packages_match"] = original_packages_bound
     before = summarize([row["before"] for row in cases.values()], player)
     after = summarize([row["after"] for row in cases.values()], player)
-    if not selection_bound or not all_inputs_bound:
+    if not selection_bound or not all_inputs_bound or not all_baseline_packages_bound:
         before["qualified_pass_rate"] = after["qualified_pass_rate"] = None
     comparable = (
         qualified
         and selection_bound
         and all_inputs_bound
+        and all_baseline_packages_bound
         and all(
             row["complete"] and row["same_qualified_player"] for row in (before, after)
         )
@@ -189,6 +212,11 @@ def compare(cohort_path, controls, baseline, candidate):
         "preregistration_sha256": preregistration,
         "frozen_selection_matches": selection_bound,
         "all_frozen_inputs_match": all_inputs_bound,
+        "baseline_manifest_bound": manifest_bound,
+        "baseline_manifest_sha256": hashlib.sha256(manifest_raw).hexdigest()
+        if manifest_bound
+        else None,
+        "all_pre_rule_packages_match": all_baseline_packages_bound,
         "paired_comparison_qualified": comparable,
         "map_fault_attribution": "qualified" if comparable else "withheld",
         "original_player_baseline": original_baseline,

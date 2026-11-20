@@ -73,6 +73,9 @@ The comparison report exposes `original_player_baseline` independently of
 candidate and holdout completion. Its rate requires both passing controls,
 matching original input and package bytes, and all eight native attempts under
 the qualified player. It does not imply that exporter rules were tested.
+The adjacent `playable-start-v1-baseline.json` locks the pre-rule package hashes
+to the unchanged preregistration, including Yosemite's qualified-v3 provenance.
+A changed export cannot be substituted as a player-only baseline.
 
 Do not attribute an exported-map failure to the map before the final player
 passes both controls. Real connections stay opt-in throughout qualification.

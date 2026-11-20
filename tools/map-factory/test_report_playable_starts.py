@@ -60,6 +60,16 @@ class CohortComparison(unittest.TestCase):
         }
         self.cohort_path = self.root / "cohort.json"
         write(self.cohort_path, self.cohort)
+        self.manifest_path = self.root / "cohort-baseline.json"
+        write(
+            self.manifest_path,
+            {
+                "preregistration_sha256": hashlib.sha256(
+                    self.cohort_path.read_bytes()
+                ).hexdigest(),
+                "packages_sha256": {"original": "map", "holdout": "map"},
+            },
+        )
         selection = {
             "preregistration_sha256": hashlib.sha256(
                 self.cohort_path.read_bytes()
@@ -124,6 +134,28 @@ class CohortComparison(unittest.TestCase):
         self.assertTrue(baseline["qualified"])
         self.assertEqual(baseline["failed"], 1)
         self.assertEqual(baseline["qualified_pass_rate"], 0)
+
+    def test_changed_exports_cannot_be_mislabeled_as_player_only_baseline(self):
+        path = self.before / "cpu-report.json"
+        report = json.loads(path.read_text())
+        report["cases"]["original"]["stage"]["crp_sha256"] = "rule-changed-map"
+        write(path, report)
+        attempt(self.before / "native/original", package="rule-changed-map")
+        result = self.result()
+        self.assertFalse(result["original_player_baseline"]["qualified"])
+        self.assertIsNone(result["original_player_baseline"]["qualified_pass_rate"])
+        self.assertFalse(result["paired_comparison_qualified"])
+
+    def test_missing_or_unbound_package_manifest_withholds_rates(self):
+        write(self.manifest_path, {"packages_sha256": {"original": "map"}})
+        for remove in (False, True):
+            with self.subTest(remove=remove):
+                if remove:
+                    self.manifest_path.unlink()
+                result = self.result()
+                self.assertFalse(result["baseline_manifest_bound"])
+                self.assertFalse(result["original_player_baseline"]["qualified"])
+                self.assertIsNone(result["before"]["qualified_pass_rate"])
 
     def test_original_baseline_withholds_missing_or_different_player(self):
         folder = self.before / "native/original"
