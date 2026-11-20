@@ -1,5 +1,55 @@
 # cs1-harness journal
 
+### 2026-11-20: PL-1074 combined-source Asheville qualification
+
+One fresh empty-map soak of the canonical-reader package completed **60.0178
+game-minutes and failed `no_flooding`**. Worst qualifying flooding was
+**0.2744 km²**, against the unchanged limit of **0.05 km² deeper than 0.5 m,
+beyond the 128 m reference-water buffer**. The broader endpoint comparison
+reported 0.49 km² newly wet and 0.99 km² dried; these are not the gate metric.
+Input screening had already warned for drying/out-of-calibration and refused
+normal product export. Its flood component did not flag this native failure.
+No threshold, map, probe, source, account preference or per-square repair changed.
+
+Native panel and opening/Areas PNGs were actually viewed before their hash-bound
+reviews. Final overview/start-tile/change-map images were also viewed. Completion,
+panel/startup, paths, terrain correspondence and cleanup pass. All **11 required
+probes** were wet in **13 sampled observations per probe**, not continuously
+measured. The other 1,867 probes are outside that required cohort; 58 probes
+were dry at some sample and 55 were dry at the end. Population/services/outside
+scenario checks, explicit terrain landmarks and Clef remain **skipped**. This is
+not first-hour gameplay, full native qualification or a warning waiver. The
+offline rejudge retains the failure.
+
+Source pins: map `c43208dea874410cdaef5c3a84963d05ad0d615b7db18e8d5e5273d022a9e52b`,
+probes `055c5305810d7c053c3b4e8b12883aaf1bc8d337aa16a1b48656a5b685c4bab4`,
+reader code `1fbcbb68`, model main `a56fab58`, native controller main `dc8b6f2d`.
+The installed mod hash is
+`37b8ac6a1ad98567804815580f0e9890e7d446cb4ef5fc9003a9fc8820d5603f`.
+An owned wrapper adds read-only offline auditing and per-process GPU telemetry,
+not controller-file edits. The guard is separately pinned from PR58 `6949182`,
+using the lead-approved config plus failed-offline-sync evidence. Carbon was
+checked immediately before launch. Audit reports no offline or telemetry error;
+the owned game's, Steam's and transient units' cleanup lists are empty.
+
+Host **blade**, **RTX 2080 Ti / 05:00.0**. Single-attempt command wall time is
+**1128.753 s**, including setup and cleanup; the harness soak loop records
+**950.357 s**. Whole-card five-second samples span **1121.084 s / 224 samples**,
+including the pre-existing approximately 8,004 MiB allocation and launch/cleanup.
+Sampled card maxima: **10,821 MiB, 132.81 W, 49°C**. The observed existing power
+limit was 200 W; it was not changed. The game's owned graphics-memory maximum
+was **2,815 MiB over 85 nominal ten-second samples**. These are sampled resource
+observations, not true continuous peaks, game-only peaks or speed comparisons.
+
+PL-1072 water calibration queued after this launch and took the released FIFO
+slot after teardown. Amherst, Boston and Charleston on the current combined
+packages remain unrun. No PL-1074 waiter or game remains. Reports and raw native
+evidence stay in the task-owned blade experiment and on PL-1074; no private
+model tables, CRPs, Steam logs/preferences, saves or proprietary source are
+published here. The prior Amherst baseline remains superseded.
+
+
+
 ## 2026-11-15 · Opus xhigh · PL-984 · city and prefab dumps for the offline save reader
 
 New mod module `DumpOps.cs`: `dump_city {path}` writes every created node,
