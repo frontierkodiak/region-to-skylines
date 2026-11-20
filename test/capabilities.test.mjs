@@ -93,9 +93,12 @@ test("ledger rejects a stale symbol even when its source file exists", () => {
   stale.capabilities.find((c) => c.id === "air").existing_checks = ["inputs.js:capturedAirport"];
   assert.throws(() => validateLedger(stale), /Missing check symbol/);
   assert.match(ledger.stock_reference.metrics.trees_total.name, /budget-sensitive/);
-  const ship = ledger.capabilities.find((c) => c.id === "ship");
-  assert.equal(ship.exporter_check, "tools/map-factory/capabilities.py:check");
-  assert.equal(ship.browser_check, "capability-model.js:checkCapabilities");
+  for (const key of ["ship", "air"]) {
+    const capability = ledger.capabilities.find((c) => c.id === key);
+    assert.equal(capability.exporter_check, "tools/map-factory/capabilities.py:check");
+    assert.equal(capability.browser_check, "capability-model.js:checkCapabilities");
+    assert.match(capability.promise_levels.unknown, /planner was explicitly disabled/);
+  }
 });
 
 test("explicit planner opt-outs are unknown even with corridor or stale route evidence", () => {

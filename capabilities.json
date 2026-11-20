@@ -218,17 +218,19 @@
       "icon": "air",
       "status": "modelled_not_native_fitted",
       "definition": "An authored flight path joins two distinct outside nodes. The player's airport and its usable approach are separate capabilities.",
-      "exporter_check": "tools/map-factory/capabilities.py:network_access",
-      "browser_check": "capability-model.js:networkAccess",
+      "exporter_check": "tools/map-factory/capabilities.py:check",
+      "browser_check": "capability-model.js:checkCapabilities",
       "existing_checks": [
         "tools/map-factory/transport_paths.py:air_path",
-        "inputs.js:runwayAirport"
+        "inputs.js:runwayAirport",
+        "tools/map-factory/capabilities.py:network_access",
+        "capability-model.js:networkAccess"
       ],
       "promise_levels": {
         "promised": "Exact-export native airplane path succeeds under the recorded test.",
         "likely": "Authored edge-to-edge flight path exists, or mapped runway supplies a preliminary approach candidate.",
         "not_possible_here": "Current export has no authored flight route.",
-        "unknown": "No runway observation; a synthetic flight route may still be feasible."
+        "unknown": "The planner was explicitly disabled, or no runway observation is available; a synthetic flight route may still be feasible."
       },
       "metric_ids": [
         "incoming_air_entries"
