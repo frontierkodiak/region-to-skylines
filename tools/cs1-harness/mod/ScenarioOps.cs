@@ -12,6 +12,7 @@ namespace Cs1Harness
     {
         const float Spacing = 96f;
         const float Half = Spacing * 1.5f;
+        const float MaximumApproachDot = 0.64f;
         static string city;
         static volatile string state = "idle";
         static string error;
@@ -80,7 +81,14 @@ namespace Cs1Harness
                         new List<ushort> { a, b }));
             pairs.Sort((x, y) => x.Key.CompareTo(y.Key));
             var result = new List<List<ushort>>();
-            foreach (var p in pairs) { result.Add(p.Value); if (result.Count >= 12) break; }
+            // Bound the expensive grid searches by feasible joins, not the first
+            // twelve raw pairs: overlapping fragments can create many tiny gaps.
+            foreach (var p in pairs)
+            {
+                if (!JoinLinksClear(p.Value)) continue;
+                result.Add(p.Value);
+                if (result.Count >= 12) break;
+            }
             return result;
         }
 
@@ -208,12 +216,48 @@ namespace Cs1Harness
             return true;
         }
 
+        static bool JoinLinksClear(List<ushort> hooks)
+        {
+            Vector3 mean, join;
+            if (!JoinPoint(hooks, out mean, out join)) return true;
+            var net = Singleton<NetManager>.instance;
+            // The test-only links cannot see each other at the future junction.
+            // Apply the same angular clearance as the grid's outgoing link.
+            for (int i = 0; i < hooks.Count; i++)
+                for (int j = i + 1; j < hooks.Count; j++)
+                {
+                    var a = net.m_nodes.m_buffer[hooks[i]].m_position - join; a.y = 0;
+                    var b = net.m_nodes.m_buffer[hooks[j]].m_position - join; b.y = 0;
+                    if (Vector3.Dot(a.normalized, b.normalized) > MaximumApproachDot)
+                    {
+                        if (result != null) result["last_hookup_join_rejection"] = "ramp approaches overlap at the proposed junction";
+                        return false;
+                    }
+                }
+            var road = Net("Basic Road");
+            float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
+            try
+            {
+                foreach (ushort hook in hooks)
+                    Link(road, Vector3.zero, join, hook, 0, true, elevation, testOnly: true);
+                return true;
+            }
+            catch (PlacementRejected e)
+            {
+                // Build uses these exact links without Connect's bridge recovery.
+                // A rejected join is therefore not a constructible candidate.
+                if (result != null) result["last_hookup_join_rejection"] = e.Message;
+                return false;
+            }
+        }
+
         // A candidate grid must also be reachable: the hookup links from the
         // stubs and on to the nearest grid corner may not cross other networks.
         static bool HookupClear(List<ushort> hooks, Vector3 center)
         {
             var road = Net("Basic Road");
             var net = Singleton<NetManager>.instance;
+            if (!JoinLinksClear(hooks)) return false;
             Vector3 mean, join;
             bool joined = JoinPoint(hooks, out mean, out join);
             var starts = new List<Vector3>();
@@ -221,9 +265,6 @@ namespace Cs1Harness
             {
                 if (joined)
                 {
-                    float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
-                    foreach (ushort hook in hooks)
-                        Link(road, Vector3.zero, join, hook, 0, true, elevation, testOnly: true);
                     starts.Add(join);
                 }
                 else
@@ -239,7 +280,7 @@ namespace Cs1Harness
                         foreach (ushort hook in hooks)
                         {
                             var toHook = net.m_nodes.m_buffer[hook].m_position - join; toHook.y = 0;
-                            if (Vector3.Dot(toCorner.normalized, toHook.normalized) > 0.64f) return false;
+                            if (Vector3.Dot(toCorner.normalized, toHook.normalized) > MaximumApproachDot) return false;
                         }
                     }
                     Link(road, Ground(a.x, a.z), corner, testOnly: true);
@@ -247,8 +288,8 @@ namespace Cs1Harness
             }
             catch (PlacementRejected e)
             {
-                // Slopes and water are bridged later by Connect; collisions are not.
-                if ((e.Errors & ToolBase.ToolErrors.ObjectCollision) != 0) return false;
+                // Only the corner crossing goes through Connect's bridge retry.
+                return (e.Errors & ~(ToolBase.ToolErrors.CannotBuildOnWater | ToolBase.ToolErrors.SlopeTooSteep)) == 0;
             }
             return true;
         }
@@ -301,7 +342,6 @@ namespace Cs1Harness
                     candidates.Add(new KeyValuePair<float, Vector3>(score, Ground(p.x, p.z)));
                 }
             candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
-            Vector3? fallback = null;
             foreach (var candidate in candidates)
             {
                 var p = candidate.Value;
@@ -318,7 +358,6 @@ namespace Cs1Harness
                         }
                     if (!HookupClear(hooks, p))
                     {
-                        if (fallback == null) fallback = p;
                         continue;
                     }
                     return p;
@@ -326,8 +365,7 @@ namespace Cs1Harness
                 catch (PlacementRejected) { }
             }
             if (strict) return null;
-            if (fallback != null) return fallback.Value;
-            throw new Exception("no dry start-tile site whose grid passes native road placement checks");
+            throw new Exception("no dry start-tile grid and hookup that pass native road placement checks");
         }
 
         static NetInfo Net(string name)
