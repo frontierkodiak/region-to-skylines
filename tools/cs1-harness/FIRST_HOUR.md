@@ -26,6 +26,8 @@ The `first_hour` row in `verdict.json` requires:
   with no gap above six game-minutes. Utilities and grown-building service
   problems after the first five minutes must be clear at every observation.
   A healthy final state does not erase an observed earlier outage.
+  Consumers must also have power in their native electricity-grid cell;
+  an energized wire elsewhere is not that evidence.
 - Moving spawned road vehicles observed on the scenario's own roads during
   the final 15 game-minutes, using native current-path segment membership.
   The report retains each tail sample's moving/total counts. This detects

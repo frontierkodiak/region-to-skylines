@@ -10,7 +10,14 @@ from cs1_harness.cli import cmd_run
 
 def opening():
     utilities = [
-        {"role": role, "flags": "Created, Active", "problems": "None", "connected_segments": 1}
+        {
+            "role": role,
+            "flags": "Created, Active",
+            "problems": "None",
+            "connected_segments": 1,
+            "requires_electricity": role != "power",
+            "electricity_grid_powered": True,
+        }
         for role in ("power", "water", "sewage")
     ]
     return {
@@ -73,6 +80,11 @@ class FirstHourTest(unittest.TestCase):
     def test_grown_building_failure_is_not_hidden_by_working_plant(self):
         doc = opening()
         doc["scenario_observations"][8]["status"]["growable_problems"] = {"Water, Electricity": 6}
+        self.assertFalse(verdict(doc)["value"]["checks"]["sampled_services"])
+
+    def test_energized_wire_or_active_flags_do_not_prove_consumer_cell_power(self):
+        doc = opening()
+        doc["scenario_observations"][3]["status"]["utilities"][2]["electricity_grid_powered"] = False
         self.assertFalse(verdict(doc)["value"]["checks"]["sampled_services"])
 
     def test_startup_only_service_warmup_is_allowed(self):

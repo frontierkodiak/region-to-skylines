@@ -1,5 +1,21 @@
 # cs1-harness journal
 
+## 2026-11-20 · PL-1066 · connect utility power to conductive cells
+
+The first unchanged-map opening exposed the old builder's unpowered outlet.
+Its power-line nodes were energized, but the endpoint cell falls in the
+building's conductivity fringe: the c7 grid calculation gives 56 against the
+native core threshold 64. The outlet reports Electricity/MajorProblem. That
+run is retained, not reclassified as a map-water defect or repaired in place.
+
+The shared builder now considers electricity-grid cell centres within each
+utility's native footprint/radius and connects only to core-conductivity
+cells, through the ordinary network placement checks. No place names or
+terrain/water edits choose endpoints. Scenario telemetry also reads native
+consumer-cell power; a wire's flag alone cannot satisfy the first-hour check.
+New native verification is required on the failing region and a second region
+before applying this layout across the frozen cohort.
+
 ## 2026-11-20 · PL-1066 · corrected offline evidence
 
 The lead inspected the actual failed sync records and confirmed offline mode:

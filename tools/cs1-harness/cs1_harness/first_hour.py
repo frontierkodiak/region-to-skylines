@@ -50,10 +50,17 @@ def assess(report: dict, city_checks: list[dict], panel: dict) -> dict:
             if (
                 "Active" not in flags
                 or problems
+                or type(facility.get("requires_electricity")) is not bool
+                or (facility.get("requires_electricity") and facility.get("electricity_grid_powered") is not True)
                 or (facility["role"] != "power" and facility.get("connected_segments", 0) == 0)
             ):
                 outages.append(
-                    {"minute": observation["minute"], "role": facility["role"], "problems": sorted(problems)}
+                    {
+                        "minute": observation["minute"],
+                        "role": facility["role"],
+                        "problems": sorted(problems),
+                        "electricity_grid_powered": facility.get("electricity_grid_powered"),
+                    }
                 )
         for problems, count in (status.get("growable_problems") or {}).items():
             if count and set(re.split(r"[,\s]+", problems)) & SUPPLY_PROBLEMS:

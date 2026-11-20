@@ -637,14 +637,32 @@ namespace Cs1Harness
             return origins;
         }
 
-        static Vector3 PowerEnd(BuildingInfo info, Vector3 pos, float angle, Vector3 origin)
+        static List<Vector3> PowerEnds(BuildingInfo info, Vector3 pos, float angle)
         {
-            var d = origin - pos;
-            var local = new Vector3(Mathf.Cos(angle) * d.x + Mathf.Sin(angle) * d.z, 0,
-                Mathf.Sin(angle) * d.x - Mathf.Cos(angle) * d.z);
-            var edge = new Vector3(Mathf.Clamp(local.x, -info.m_cellWidth * 4, info.m_cellWidth * 4), 0,
-                Mathf.Clamp(local.z, -info.m_cellLength * 4, info.m_cellLength * 4));
-            return Building.CalculatePosition(pos, angle, edge + (local - edge).normalized * 16);
+            var ends = new List<Vector3>();
+            const float cell = ElectricityManager.ELECTRICITYGRID_CELL_SIZE;
+            float radius = info.m_buildingAI.ElectricityGridRadius();
+            float reach = Mathf.Sqrt(info.m_cellWidth * info.m_cellWidth + info.m_cellLength * info.m_cellLength) * 4 + radius;
+            int minX = Mathf.Clamp((int)((pos.x - reach) / cell + 128), 0, 255);
+            int maxX = Mathf.Clamp((int)((pos.x + reach) / cell + 128), 0, 255);
+            int minZ = Mathf.Clamp((int)((pos.z - reach) / cell + 128), 0, 255);
+            int maxZ = Mathf.Clamp((int)((pos.z + reach) / cell + 128), 0, 255);
+            var axis = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+            var across = new Vector3(axis.z, 0, -axis.x);
+            for (int z = minZ; z <= maxZ; z++)
+                for (int x = minX; x <= maxX; x++)
+                {
+                    var p = Ground((x + 0.5f - 128) * cell, (z + 0.5f - 128) * cell);
+                    var delta = p - pos;
+                    float dx = Mathf.Max(0, Mathf.Abs(Vector3.Dot(axis, delta)) - info.m_cellWidth * 4);
+                    float dz = Mathf.Max(0, Mathf.Abs(Vector3.Dot(across, delta)) - info.m_cellLength * 4);
+                    int conductivity = Mathf.Min(255, Mathf.RoundToInt(((radius - Mathf.Sqrt(dx * dx + dz * dz))
+                        * (2 / (cell * 4)) + 0.25f) * 255));
+                    // ElectricityManager rejects fringe cells below this limit unless
+                    // they have conductive neighbours on both axes. Connect to the core.
+                    if (conductivity >= ElectricityManager.CONDUCTIVITY_LIMIT) ends.Add(p);
+                }
+            return ends;
         }
 
         static bool PowerReachable(BuildingInfo info, Vector3 pos, float angle, List<ushort> nodes)
@@ -652,15 +670,16 @@ namespace Cs1Harness
             var ai = info.m_buildingAI as WaterFacilityAI;
             if (ai != null && ai.m_electricityConsumption == 0) return true;
             var wire = Net("Power Line");
+            var ends = PowerEnds(info, pos, angle);
             foreach (ushort id in NetworkNodes(wire, nodes))
             {
                 var origin = Singleton<NetManager>.instance.m_nodes.m_buffer[id].m_position;
-                var end = PowerEnd(info, pos, angle, origin);
-                try { Link(wire, origin, end, id, testOnly: true); return true; }
-                catch (PlacementRejected e)
-                {
-                    if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
-                }
+                foreach (var end in ends)
+                    try { Link(wire, origin, end, id, testOnly: true); return true; }
+                    catch (PlacementRejected e)
+                    {
+                        if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                    }
             }
             return false;
         }
@@ -681,32 +700,20 @@ namespace Cs1Harness
             }
             var ends = new List<Vector3> { target };
             if (electricity)
-            {
-                ends.Clear();
-                float x = facility.Info.m_cellWidth * 4 + 16;
-                float z = facility.Info.m_cellLength * 4 + 16;
-                foreach (var offset in new Vector3[] { new Vector3(x,0,0), new Vector3(-x,0,0), new Vector3(0,0,z), new Vector3(0,0,-z),
-                    new Vector3(x,0,z), new Vector3(x,0,-z), new Vector3(-x,0,z), new Vector3(-x,0,-z) })
-                    ends.Add(Building.CalculatePosition(target, facility.m_angle, offset));
-            }
+                ends = PowerEnds(facility.Info, target, facility.m_angle);
             var origins = NetworkNodes(info, nodes);
             origins.Sort((a, b) => (net.m_nodes.m_buffer[a].m_position - target).sqrMagnitude
                 .CompareTo((net.m_nodes.m_buffer[b].m_position - target).sqrMagnitude));
             string lastError = "no usable network endpoint";
             var rejected = new List<object>();
             result["utility_last_rejections"] = rejected;
-            if (electricity)
-                foreach (ushort origin in origins)
-                {
-                    var end = PowerEnd(facility.Info, target, facility.m_angle, net.m_nodes.m_buffer[origin].m_position);
-                    try { nodes.Add(Link(info, Vector3.zero, end, origin)); return; }
-                    catch (PlacementRejected e)
-                    {
-                        if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
-                        if (rejected.Count < 8) rejected.Add(e.Message);
-                    }
-                }
             foreach (ushort origin in origins)
+            {
+                if (electricity)
+                {
+                    var source = net.m_nodes.m_buffer[origin].m_position;
+                    ends.Sort((a, b) => (a - source).sqrMagnitude.CompareTo((b - source).sqrMagnitude));
+                }
                 foreach (var end in ends)
                 {
                     try
@@ -722,6 +729,7 @@ namespace Cs1Harness
                         if (rejected.Count < 8) rejected.Add(lastError);
                     }
                 }
+            }
             // A straight wire can collide with the plant or the road grid. Test a
             // dogleg before constructing either leg, keeping normal tool checks.
             foreach (ushort origin in origins)
@@ -882,6 +890,8 @@ namespace Cs1Harness
             foreach (ushort id in buildings)
             {
                 var b = Singleton<BuildingManager>.instance.m_buildings.m_buffer[id];
+                bool electricity;
+                Singleton<ElectricityManager>.instance.CheckElectricity(b.m_position, out electricity);
                 var water = b.Info.m_buildingAI as WaterFacilityAI;
                 string role = water == null ? "power" : water.m_waterIntake > 0 ? "water" : "sewage";
                 live.Add(Host.Obj("id", id, "name", b.Info == null ? null : b.Info.name, "position", XYZ(b.m_position),
@@ -889,6 +899,8 @@ namespace Cs1Harness
                     "connected_segments", b.m_netNode == 0 ? 0 : Singleton<NetManager>.instance.m_nodes.m_buffer[b.m_netNode].CountSegments(),
                     "flags", b.m_flags.ToString(), "problems", b.m_problems.ToString(),
                     "electricity", b.m_electricityBuffer, "water", b.m_waterBuffer, "sewage", b.m_sewageBuffer,
+                    "electricity_grid_powered", electricity,
+                    "requires_electricity", b.Info.m_buildingAI.GetElectricityConsumption() > 0,
                     "width", b.Width, "length", b.Length, "electricity_rate", b.Info.m_buildingAI.GetElectricityRate(id, ref b)));
             }
             var doc = Host.Obj("state", state, "error", error, "result", result, "utilities", live);
