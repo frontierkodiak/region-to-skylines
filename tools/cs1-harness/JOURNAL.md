@@ -2834,3 +2834,53 @@ repair or a geometry-quality claim. No human or independent visual acceptance.
 Thirteen of 28 exports collected; 15 remain, plus two preserved missing captures.
 No full score, model/probe/writer/gate change, cutoff promotion or release claim.
 Evidence excludes proprietary binaries, decompiled code, saves and account logs.
+
+## 2026-11-20 — PL-1072 four more lowland rivers
+
+Blade RTX 2080 Ti, bus 05:00.0, clean pinned runtime `6949182`. Four fresh attempts
+in frozen order, respecting older PL-1078 and PL-1121 requests between squares.
+All card peaks were 10821 MiB. Recorded power caps were 200 W, unchanged. This run
+did not modify another workload. Wall seconds cover the simulation soak, not
+FIFO wait/startup; GPU peaks span the recorded whole-card session samples.
+
+| Lowland river | Baseline / estimated increment / menu MiB | Peak W | Peak °C | Soak wall s | Game min | Native water result |
+|---|---:|---:|---:|---:|---:|---|
+| South America | 8004 / 2817 / 1574 | 143.90 | 58 | 952.817994 | 60.136670 | flood .1152 km² fail; required end/all-sample 1/1 pass |
+| Europe | 8004 / 2817 / 1592 | 135.39 | 56 | 953.794198 | 60.068892 | flood .0000 km² pass; required end/all-sample 6/6 pass |
+| Africa | 8822 / 1999 / 1620 | 136.27 | 58 | 965.596482 | 60.015281 | flood .0000 km² pass; required end 1059/1215 fail, all-sample 828/1215 fail |
+| Asia | 8004 / 2817 / 1574 | 135.07 | 53 | 976.725111 | 60.140836 | flood .0338 km² pass; required end 844/1410 fail, all-sample 791/1410 fail |
+
+The estimated game increment is card peak minus pre-launch baseline, **not a
+directly sampled game peak**. Africa's later sampled card minimum was 8004 MiB,
+below its 8822 MiB baseline; baseline subtraction cannot isolate game memory.
+No causal VRAM comparison is claimed. No power setting changed.
+
+Required-water throughout counts cover all 13 sampled epochs, not every frame.
+Endpoint recovery cannot rescue the earlier sampled losses in Africa or Asia.
+The unchanged required retention is 95%; sampled flood limit .05 km². Initialized/
+exact-dry/isolated-dry endpoint counts: South America 4123/261/125, Europe
+4164/776/506, Africa 4420/982/555, Asia 8891/2657/1693. No nearby endpoint readings
+are unknown. Dried/newly-wet grid areas at .1 m are .50/24.61, 1.29/.09, 1.75/8.47
+and 5.39/5.31 km² respectively. The grid delta is not the separate deeper/masked
+flood measurement or an interim drying/model label.
+
+All 280 staged files, 21 writer files and seventeen native package/grid/probe/
+mask/reference/source bindings revalidate. Every original report/verdict hash
+matches the collection ledger. All seventeen completed sessions record mod SHA
+`6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd`;
+the runtime installs its own per-checkout build on each launch. Fresh carbon and
+continuous offline guards passed; additional read-only carbon spot checks found
+no Steam game at check time. Each owned cleanup is empty; all 760 recorded
+session/waiter PIDs checked afterward are absent. Africa game 908608 and Asia
+game 3091529 needed normal quit-grace termination, not spontaneous-crash recovery.
+Foreground collector session 44902 exited zero and its final result was collected.
+
+All twelve actual opening/Areas/t060 PNGs were inspected. Producer startup-view
+sidecars pass without rewriting original overall failures: South America has
+startup plus flooding; Africa/Asia have startup plus both required-water gates;
+Europe has startup-unreviewed alone. Europe's and Africa's close views poorly
+frame the approach. No road-usability, human or independent visual acceptance.
+Seventeen of 28 exports collected, 11 remain, plus two preserved missing captures.
+No interim/full score, model/probe/writer/gate change, cutoff promotion or release
+claim. Evidence excludes proprietary binaries, decompiled code, saves and account
+logs; offline curation uses flags/counts rather than raw logs.

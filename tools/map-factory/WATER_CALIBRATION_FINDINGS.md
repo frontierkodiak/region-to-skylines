@@ -1,6 +1,6 @@
 # Water-calibration findings: no demonstrated safe-square class
 
-Latest collection: **13 of 28 exportable squares complete; 15 remain**, plus two
+Latest collection: **17 of 28 exportable squares complete; 11 remain**, plus two
 original capture failures. The full one-shot holdout score has not run.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
@@ -240,6 +240,58 @@ Fifteen exports remain, plus both original missing captures. Frozen inputs,
 physical writer, models and native gates are unchanged. The all-warn drying
 rejection, zero combined/deployed clearance and non-identifiable flood-cutoff
 comparison remain. Full scoring and the PL-912 recommendation are still pending.
+
+## Native collection: four more lowland rivers
+
+The fifth tranche completed on November 20 through unchanged, clean harness
+`6949182`. All four exceeded 60 game minutes in frozen order. The collector
+respected FIFO handoffs with PL-1078 and PL-1121. Every water failure remains
+retained once, without repair or a retry to improve its verdict.
+
+| Lowland river | Game minutes | Worst sampled flood, km² | Flood gate | Required wet at end | Required wet at all 13 samples |
+|---|---:|---:|---|---|---|
+| South America | 60.136670 | 0.1152 | fail | 1/1, pass | 1/1, pass |
+| Europe | 60.068892 | 0.0000 | pass | 6/6, pass | 6/6, pass |
+| Africa | 60.015281 | 0.0000 | pass | 1059/1215, fail | 828/1215, fail |
+| Asia | 60.140836 | 0.0338 | pass | 844/1410, fail | 791/1410, fail |
+
+The existing flood limit remains 0.05 km²; required-water retention is 95%.
+Endpoint recovery does not erase an earlier sampled loss. Africa and Asia have
+different endpoint and throughout-sample counts, so neither endpoint snapshot
+can substitute for the all-sample result. This is sampled evidence, not an
+every-frame guarantee.
+
+| Square | Initialized wet monitored points | Exactly dry at end | No wet native neighbor within 64 m at end | Grid area dried / newly wet, km² |
+|---|---:|---:|---:|---:|
+| South American lowland river | 4123 | 261 | 125 | 0.50 / 24.61 |
+| European lowland river | 4164 | 776 | 506 | 1.29 / 0.09 |
+| African lowland river | 4420 | 982 | 555 | 1.75 / 8.47 |
+| Asian lowland river | 8891 | 2657 | 1693 | 5.39 / 5.31 |
+
+No nearby endpoint readings are unknown. Grid changes use the separate 0.1 m
+threshold, not the flood gate's depth and reference exclusions. South America's
+24.61 km² newly-wet grid area is not 24.61 km² of flood-gate failure. These raw
+observations do not replace the full frozen drying definition; no interim labels
+or model accuracy were computed.
+
+All 280 staged files, 21 writer files and seventeen completed native binding
+sets revalidate. Original report/verdict hashes match the collection ledger.
+Fresh carbon and read-only offline guards passed; each owned cleanup is empty.
+All 760 recorded session/waiter PIDs checked after collection are absent. The
+foreground collector exited zero after all four results and teardown.
+
+All twelve actual opening/Areas/t060 PNGs were inspected. Hash-bound producer
+startup-view reviews pass in separate sidecars; original overall failures remain
+unchanged: South America also fails flooding, Africa and Asia fail both required
+water gates, and Europe fails solely for startup-unreviewed. Europe's and Africa's
+close views poorly frame the road approach. This is image/state QA, not
+water-safety, road-usability, human or independent acceptance.
+
+Eleven exports remain, plus the two original missing captures. Frozen panel,
+model, packages, probes, physical writer and native gates are unchanged. Drying
+still equals always-warn, combined/deployed clearance is empty and the two flood
+cutoffs have no contrasting case. Full scoring and the PL-912 recommendation
+remain pending; exporter release is still held.
 
 ## Remaining work and release hold
 
