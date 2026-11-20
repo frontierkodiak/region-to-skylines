@@ -63,6 +63,14 @@ generator. It archives inputs, work files, exact package bytes, assessment, and
 source hashes. It neither installs a map nor starts Steam. Successful captures
 are preserved on rerun. Failed squares remain visible in the panel.
 
+```sh
+uv run --locked --project tools/map-factory python tools/map-factory/stage_water_panel.py \
+  tools/map-factory/water-calibration-panel.json \
+  tools/map-factory/calibration/pl1072-frozen \
+  ~/experiments/PL-1072-water-calibration/captures \
+  ~/experiments/PL-1072-water-calibration/staged
+```
+
 Stage probes from the ordinary hydrology samples plus geographic river probes.
 Also monitor every initially wet node on a fixed 64 m lattice, including a
 constructed reservoir, without choosing points from outcomes. Freeze the mapped
@@ -84,6 +92,22 @@ unscored until a fresh attempt succeeds; preserve the failed attempt. Collect
 cleanup receipts in the same foreground call. No game, waiter, browser, or server
 may survive the turn.
 
+For each prepared square, use its staged `.crp` and `probes.json` with:
+
+```sh
+uv run --locked --project tools/cs1-harness cs1-harness run \
+  --map <staged-square.crp> --probes <staged-square/probes.json> \
+  --game-minutes 60 --issue PL-1072 --no-live --no-record \
+  --wait-minutes 0 --retry-minutes 0 --out <native/square-slug>
+```
+
+Do not add `--notify` or `--wake`; the issue gets one consolidated result. A
+nonzero native exit needs diagnosis before retry, not an ignored loop exit.
+If all attempts fail, write `native/<slug>/failure.json` with the attempt paths
+and reason. The scorer requires every planned square to have a capture, a capture
+failure, a native report, or an explicit native failure. Short runs remain
+unscored. Do not replace them with passing labels.
+
 Score the frozen candidate once, after all planned runs have been attempted.
 Flooding is the existing `no_flooding` failure at 0.05 km². Drying uses
 `water_risk_corpus.native_outcome`, including initialized optional-water loss and
@@ -97,6 +121,21 @@ same scored squares. Report cleared-square count, base and cleared failure rates
 their intervals, and absolute/relative risk reduction. Report both target-rule
 clearance and the actual app's stricter clearance, including out-of-range inputs
 and content notes. No cleared squares means no demonstrated safety benefit.
+
+```sh
+uv run --locked --project tools/map-factory python tools/map-factory/score_water_panel.py \
+  ~/experiments/PL-1072-water-calibration/staged \
+  ~/experiments/PL-1072-water-calibration/native \
+  ~/experiments/PL-1072-water-calibration/staged/holdout-score.json \
+  tools/map-factory/calibration/pl1072-frozen \
+  tools/map-factory/water-calibration-panel.json
+```
+
+The result path is fixed. The scorer refuses a second score, verifies frozen
+inputs and native references, and replays the candidate predictions without
+refitting. Candidate rule clearance and deployed-product clearance are separate.
+The deployed-product result uses the captured 1.5 m model, not an unshipped 3 m
+candidate described as the current app.
 
 A predictor that matches always-warn or provides no demonstrated safer cleared
 set is not accepted as a discriminator. Drop or rework it in a later development
