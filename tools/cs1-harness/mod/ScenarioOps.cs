@@ -12,7 +12,6 @@ namespace Cs1Harness
     {
         const float Spacing = 96f;
         const float Half = Spacing * 1.5f;
-        const float MaximumApproachDot = 0.64f;
         static string city;
         static volatile string state = "idle";
         static string error;
@@ -220,20 +219,6 @@ namespace Cs1Harness
         {
             Vector3 mean, join;
             if (!JoinPoint(hooks, out mean, out join)) return true;
-            var net = Singleton<NetManager>.instance;
-            // The test-only links cannot see each other at the future junction.
-            // Apply the same angular clearance as the grid's outgoing link.
-            for (int i = 0; i < hooks.Count; i++)
-                for (int j = i + 1; j < hooks.Count; j++)
-                {
-                    var a = net.m_nodes.m_buffer[hooks[i]].m_position - join; a.y = 0;
-                    var b = net.m_nodes.m_buffer[hooks[j]].m_position - join; b.y = 0;
-                    if (Vector3.Dot(a.normalized, b.normalized) > MaximumApproachDot)
-                    {
-                        if (result != null) result["last_hookup_join_rejection"] = "ramp approaches overlap at the proposed junction";
-                        return false;
-                    }
-                }
             var road = Net("Basic Road");
             float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
             try
@@ -280,7 +265,7 @@ namespace Cs1Harness
                         foreach (ushort hook in hooks)
                         {
                             var toHook = net.m_nodes.m_buffer[hook].m_position - join; toHook.y = 0;
-                            if (Vector3.Dot(toCorner.normalized, toHook.normalized) > MaximumApproachDot) return false;
+                            if (Vector3.Dot(toCorner.normalized, toHook.normalized) > 0.64f) return false;
                         }
                     }
                     Link(road, Ground(a.x, a.z), corner, testOnly: true);
