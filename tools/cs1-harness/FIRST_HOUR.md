@@ -18,6 +18,14 @@ sewage outflow, pipes and power lines through the native placement tools.
 Money, slope and space checks remain active. A construction rejection is a
 result, not permission to hand-place a city or tune the map.
 
+Hookup planning tries both deterministic stub orders. A later link attaches to
+the junction created by the first link: a fresh-endpoint preflight cannot model
+that topology. In this ordered-join preflight, only a pure collision with the first stub's incident segment is
+deferred; buildings, other segments, mixed errors, length and slope rejections
+are not waived. A non-strict fallback must still pass every grid-road preflight.
+Actual construction always repeats the native checks with real node identities;
+an inconclusive preflight is not a successful road or a passed map.
+
 The water tower stays at least 400 m from the planned industrial strip and the
 coal plant's center. The native tools still check placement, pipes, power, and
 cost. A shoreline intake separated from a drain by distance alone does not

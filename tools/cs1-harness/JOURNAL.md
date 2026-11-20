@@ -3033,3 +3033,33 @@ memory includes the existing allocation; owned-game menu usage was 1574 MiB,
 not a continuously measured game-only peak. The recorded 200 W cap is unchanged.
 Every case releases the fair slot; native evidence lives under the PL-1078
 experiment's `baseline/native` directory.
+
+### 2026-11-20 PL-1078 player regression found before exporter changes
+
+The same exact Innsbruck package `43e5166...` that passed under PR58's old
+player now fails before construction with `f60c6833...`. Starter-land evidence
+is unchanged (3416/3600 dry-flat samples). Independent Sol review confirmed a
+player false-negative: each preflight link used a fresh endpoint, but actual
+construction creates one junction and reuses its node for subsequent links.
+The old native network dump proves the exact rejected 570-to-join geometry was
+successfully built after hook593 established the junction. No map defect or
+need for grading is established by this failure.
+
+The unsuccessful native attempt took about177 seconds from active launch to
+logged error, with no simulation hour. Blade, RTX2080Ti at05:00.0;34whole-card
+samples peak10821MiB/116.92W/47C; the recorded200W cap was unchanged. Menu-game
+usage was1620MiB, not a continuous game-only peak. Cleanup is empty.
+
+The incomplete f60 pilot is retained: Asheville passes; Innsbruck is a player
+regression. Rio's exact PID3848331 was interrupted only while still queued,
+after checking daemonPID1376919 and active holderPID3173749; no game launched.
+The foreground wrapper's exit was collected and its waiter disappeared.
+Remaining cases were not run or scored. No complete baseline rate is claimed.
+
+The revised player models deterministic join order, defers only the later
+link's paired-stub collision until the real junction exists, and restores a
+fallback only after native grid-road checks pass. Actual `Link`/`Connect` still
+enforce all native construction errors; no collision, slope, money or length
+rule is disabled. No named-map or coordinate exception was added. Build and
+157harness tests pass, but the new DLL still requires both stock controls and
+a fresh unchanged-exporter original-eight baseline before any exporter rule.
