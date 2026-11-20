@@ -3392,3 +3392,25 @@ kills an untracked instance or removes a persistent instance from the receipt.
 Two mocked-backend cleanup tests and the full 157-test harness suite pass.
 This is Python lifecycle work, not a player/DLL or verdict change. Foggy Hills
 requires a new immutable clean attempt before the player can be qualified.
+
+### 2026-11-20 PL-1078 final player stock-qualified
+
+Foggy Hills' clean retry completed 60.100 game-minutes with the identical
+`f60c6833...` DLL, stock package and probes. All nine unchanged first-hour
+checks pass, with zero sampled service outages, no explicit failed native check,
+last population 273, and empty cleanup. The broader stock geography verdict is
+still `unverified`. The retry's actual panel was viewed and hash-reviewed
+(`b52a9186...`); the prior cleanup-failed attempt remains untouched.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Simulation wall time was 926.51 seconds.
+The 233 whole-card samples peak at 10821 MiB, 144.10 W and 59 C, including the
+existing allocation; menu-game usage was 1574 MiB, not a game-only peak.
+The recorded 200 W cap was unchanged. Carbon was idle-checked at 17:11:43 UTC.
+
+The accepted controls are the prior clean Cliffside Bay run plus this Foggy
+retry, linked under the experiment's `controls-native/final-player-v1` group.
+Both use the same compiled player. Independent Sol review accepted the teardown
+fix and this pairing rule; no gameplay policy or native verdict was changed.
+The original frozen-eight baseline now runs in foreground before any exporter
+rule. Every map releases the fair slot; PL-1072's next case acquired it after
+the stock retry. No exported-map improvement is claimed yet.
