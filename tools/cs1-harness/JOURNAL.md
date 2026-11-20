@@ -2682,3 +2682,34 @@ pre-native doctor passed. No new JS/Pyodide/five-map full qualification. See
 FLOOD_REPORT.md; raw receipts and explicit Cloud exception are in the runroot
 /home/caleb/experiments/PL-912-flood-cloud. No proprietary binaries/decompile,
 Steam logs, video or downloaded save data delivered.
+
+## 2026-11-20 — PL-1074 shared-place reader baseline (superseded)
+
+Blade-only disposable test install, private display and existing FIFO harness.
+The initial Amherst-center diagnostic package completed 60 game minutes. After
+viewing the actual panel/opening/area PNGs, hash-bound visual reviews made its
+offline map-soak verdict pass. This was an empty-map baseline: required river
+wetness, first-hour population/services/outside trips, terrain landmarks and
+Clef were skipped, not passed. It does not prove a useful river or playable
+first hour. Existing warning thresholds and source geometry were not changed.
+
+RTX2080Ti / PCI05:00.0; 249 whole-card samples span 1245.865seconds including
+setup/cleanup (not isolated simulation wall time). Sampled peaks10821MiB,
+153.5W,51°C; recorded power limit200W. Those values include the pre-existing
+allocation and are not game-only/loading peaks. The menu ownership receipt
+records1488MiB for the owned game PID; no continuous game-only peak is claimed.
+Cleanup lists game, Steam instances and active session units as empty.
+
+The following Boston attempt was deliberately interrupted at its t005 capture
+after review exposed the shared rail-class mismatch. It produced no accepted
+native verdict or retained GPU-series/isolated-wall receipt; no metrics are
+invented for it. Owned-process cleanup completed; no other user's processes,
+shared GPU workload or power settings were changed. The remaining two cases
+were not launched. PL-1066 subsequently acquired the install for its frozen
+cohort and was left untouched.
+
+Reader rail normalization and later source-graph/NHD enrichment change these
+packages. Therefore neither the Amherst baseline nor aborted Boston attempt
+qualifies the final PL-1074 heads. Fresh four-case native gates remain required.
+The final four source-derived packages are diagnostic-only: all retain the
+landed water-risk warnings; no public export/install or risk waiver is claimed.
