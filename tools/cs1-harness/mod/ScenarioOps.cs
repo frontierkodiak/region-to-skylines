@@ -8,7 +8,7 @@ namespace Cs1Harness
 {
     // Disposable New Game fixture. All construction runs on the simulation thread;
     // NetTool/BuildingTool enforce the same space, slope, area and money rules as play.
-    public static class ScenarioOps
+    public static partial class ScenarioOps
     {
         const float Spacing = 96f;
         const float Half = Spacing * 1.5f;
@@ -40,6 +40,7 @@ namespace Cs1Harness
 
         public static void Register()
         {
+            RegisterWitness();
             Host.Register("scenario_build", Needs.City, "build test-city in a fresh, paused New Game; poll scenario_status", Start);
             Host.Register("scenario_status", Needs.City, "construction and live utility state (inspect:true lists hookup nodes and water prefabs)", Status);
             Host.Register("scenario_paths", Needs.City, "native car paths between the fixture and highway edges: {start:true}, then poll", Paths);
