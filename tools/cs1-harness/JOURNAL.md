@@ -2750,3 +2750,42 @@ view, documented without changing it. Five of 28 exports collected, 23 remain;
 two original capture failures stay missing. No one-shot score, model/probe/writer
 change, cutoff promotion or release claim. No proprietary binary, decompiled
 code, save or account log is delivered.
+
+## 2026-11-20 — PL-1072 Oceania and three mountain-river squares
+
+Blade RTX 2080 Ti, bus 05:00.0, clean pinned native harness `6949182`, frozen
+panel order. All card peaks were 10821 MiB. Baseline subtraction below estimates
+the game increment, **not a directly sampled game peak**. Recorded power caps
+were 200 W and were not changed; no other workload was modified by this run.
+Wall seconds are the simulation-soak phase, excluding FIFO wait and startup;
+GPU peaks span the recorded session samples.
+
+| Frozen square | Baseline / estimated increment / menu MiB | Peak W | Peak °C | Soak wall s | Game min | Native water result |
+|---|---:|---:|---:|---:|---:|---|
+| Dry upland, Oceania | 8004 / 2817 / 1574 | 147.41 | 58 | 953.418893 | 60.014448 | flood .0000 km² pass; required 136/136 pass |
+| Mountain river, North America | 8004 / 2817 / 1574 | 142.02 | 54 | 955.044162 | 60.141670 | flood .0108 km² pass; required 1/1 pass |
+| Mountain river, South America | 8007 / 2814 / 1556 | 124.78 | 49 | 979.193509 | 60.146670 | flood .0000 km² pass; required 368/407 fail |
+| Mountain river, Europe | 8004 / 2817 / 1592 | 138.42 | 57 | 954.192501 | 60.060003 | flood .0451 km² pass; required 833/842 pass |
+
+Flood limit remains .05 km². Required counts match at endpoint and throughout
+all 13 sampled epochs. Initialized/exact-dry/isolated-dry endpoint point counts:
+Oceania 1947/395/164; North America 1523/262/141; South America 1973/344/141;
+Europe 2413/548/323. No nearby endpoint readings are unknown. Grid dried/newly-wet
+areas are respectively .87/.00, .55/.38, .50/.02 and .51/.42 km² at the separate
+.1 m threshold. These are raw observations, not interim model labels/accuracy.
+
+All frozen package/grid/probe/mask/reference and native-source bindings match,
+alongside all 280 staged and 21 writer-file hashes. Nine original report/verdict
+pairs remain hash-identical to collection receipts. Fresh carbon checks and
+read-only offline guards passed. Every owned cleanup is empty and recorded
+session/waiter PIDs are gone. Owned game 1984810 (North America) needed normal
+quit-grace termination during teardown, not spontaneous-crash recovery.
+
+Actual opening/Areas/t060 PNGs were inspected. Producer startup-view sidecars
+pass without rewriting originals: three original overall failures solely for
+startup-unreviewed, South America's for startup plus required-water loss.
+Some close opening compositions are uninformative and are documented, not
+repaired. No human or independent visual acceptance. Nine of 28 exports now
+collected; 19 remain, plus two preserved capture failures. No one-shot score,
+input/model/gate change, cutoff promotion, proprietary binary, decompiled code,
+save or account-log delivery. The foreground collector returned after all four.

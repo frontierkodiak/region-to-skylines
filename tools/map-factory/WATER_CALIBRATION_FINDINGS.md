@@ -1,6 +1,6 @@
 # Water-calibration findings: no demonstrated safe-square class
 
-Latest collection: **5 of 28 exportable squares complete; 23 remain**, plus two
+Latest collection: **9 of 28 exportable squares complete; 19 remain**, plus two
 original capture failures. The full one-shot holdout score has not run.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
@@ -149,6 +149,50 @@ input-only rejection of the all-warn drying rule and the lack of a contrasting
 1.5 m versus 3 m flood example remain unchanged. A safer cleared class has not
 been demonstrated. Full cohort scoring waits for the remaining 23 exports;
 both original capture failures stay missing, not safe negatives.
+
+## Native collection: Oceania and three mountain-river squares
+
+The next frozen tranche completed on November 20, still using clean native
+harness `6949182`. All four exceeded 60 game minutes. Required-water counts
+below match at endpoint and for points wet throughout all 13 sampled epochs;
+the unchanged gate requires at least 95%.
+
+| Frozen square | Game minutes | Worst flood area, km² | Flood gate | Required water |
+|---|---:|---:|---|---|
+| Dry upland, Oceania | 60.014448 | 0.0000 | pass | 136/136, pass |
+| Mountain river, North America | 60.141670 | 0.0108 | pass | 1/1, pass |
+| Mountain river, South America | 60.146670 | 0.0000 | pass | 368/407, fail |
+| Mountain river, Europe | 60.060003 | 0.0451 | pass | 833/842, pass |
+
+| Square | Initialized wet monitored points | Exactly dry at end | No wet native neighbor within 64 m at end | Grid area dried / newly wet, km² |
+|---|---:|---:|---:|---:|
+| Oceania upland | 1947 | 395 | 164 | 0.87 / 0.00 |
+| North American mountain river | 1523 | 262 | 141 | 0.55 / 0.38 |
+| South American mountain river | 1973 | 344 | 141 | 0.50 / 0.02 |
+| European mountain river | 2413 | 548 | 323 | 0.51 / 0.42 |
+
+No nearby endpoint readings are unknown. These raw observations do not substitute
+for the full frozen drying definition, and no interim model score was computed.
+Passing the listed gates is not a safe-square or human-playability claim. The
+South American required-water failure is retained, not repaired or retried.
+
+All 280 staged files, 21 writer files and nine completed native binding sets
+revalidate. Every original report/verdict hash still matches its collection
+receipt. All four fresh carbon/offline guards passed and teardown receipts are
+empty; recorded owned session and waiter PIDs have exited. The foreground
+collector returned after the full four-square tranche.
+
+Actual opening, Areas and t060 PNGs were inspected for all four. Producer
+hash-bound startup-view sidecars pass, separately from the original verdicts.
+Some close opening views poorly frame the approach; that composition is
+documented without changing it. The three original overall failures for startup
+unreviewed alone and the South American failure for startup plus required-water
+gates remain unchanged. No human or independent visual acceptance is claimed.
+
+Nineteen exportable squares remain, alongside the two original capture failures.
+No physical writer, package, point, mask, model, cutoff or game gate changed;
+the all-warn drying rejection and non-identifiable flood cutoff comparison still
+hold. The full one-shot score and PL-912 recommendation remain pending.
 
 ## Remaining work and release hold
 
