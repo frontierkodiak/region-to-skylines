@@ -124,6 +124,22 @@ other planned squares. Each fresh attempt has its own directory. Canonical
 square paths are read-only aliases to collected complete attempts. Failed water
 verdicts are retained as observations, not retried until they pass. Account and
 lifecycle guard failures stop collection. Other failed attempts stay archived.
+`--max-new N` bounds a foreground tranche without changing the panel. Existing
+complete squares do not consume the limit. Arrange the next Multica run only
+after the tranche returns and every owned child has ended. Never leave the
+collector running when a turn exits, and score only after the whole panel has
+been attempted.
+The collector requires a non-error verdict and clean per-run harness identity;
+it writes and flushes the collection receipt before creating a completed alias.
+It accepts either a checkout root or its `tools/cs1-harness` project directory
+and passes that project explicitly to uv.
+
+An interrupted or guard-stopped attempt is not silently resumed. Verify that its
+game and waiter have ended, inspect the teardown receipt, and classify the cause.
+Preserve a failed attempt under `native-classified/` with its old/new paths and
+reason in a classification JSON record before retrying the square. Do not remove
+or overwrite its files, and never classify an active attempt. A complete attempt
+with matching report/verdict hashes is retained, not rerun to improve its verdict.
 
 Do not add `--notify` or `--wake`; the issue gets one consolidated result. A
 nonzero native exit needs diagnosis before retry, not an ignored loop exit.
