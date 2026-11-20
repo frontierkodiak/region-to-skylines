@@ -70,13 +70,19 @@ export function checkCapabilities(data, ledger) {
   const result = {};
   for (const key of Object.keys(KINDS)) {
     const witness = data.graph != null ? networkAccess(data.graph, key) : null;
-    if (key === "ship" && grid) {
-      const corridor = shipCorridor(grid.depth_m, grid.size, grid.spacing_m, ledger.model_rules.ship);
-      result[key] = { level: corridor.candidate ? "likely" : "not_possible_here", reason: corridor.candidate ? "initial_deep_corridor" : "no_initial_deep_corridor", witness: corridor };
-      if (witness) {
-        result[key].authored_route = witness;
-        if (!witness.candidate) Object.assign(result[key], { level: "not_possible_here", reason: "no_authored_ship_route" });
-      }
+    if (key === "ship") {
+      const corridor = grid ? shipCorridor(grid.depth_m, grid.size, grid.spacing_m, ledger.model_rules.ship) : null;
+      const route = witness?.candidate === true, broad = corridor?.candidate === true;
+      const absent = data.mode === "export" && witness?.candidate === false && corridor?.candidate === false;
+      result[key] = {
+        level: route || broad ? "likely" : absent ? "not_possible_here" : "unknown",
+        reason: route ? (broad ? "authored_ship_route" : "authored_ship_route_corridor_unconfirmed")
+          : broad ? (witness ? "initial_deep_corridor_no_authored_route" : "initial_deep_corridor")
+          : absent ? "no_authored_ship_route_or_initial_deep_corridor"
+          : data.mode === "estimate" && grid ? "no_corridor_in_estimate" : "ship_feasibility_not_established",
+      };
+      if (corridor) result[key].witness = corridor;
+      if (witness) result[key].authored_route = witness;
     } else if (witness) {
       result[key] = { level: witness.candidate ? "likely" : "not_possible_here", reason: witness.candidate ? "authored_edge_to_edge_route" : "no_authored_edge_to_edge_route", witness };
     } else {
@@ -84,7 +90,6 @@ export function checkCapabilities(data, ledger) {
       result[key] = { level: observation ? "likely" : "unknown", reason: observation ? "mapped_candidate_not_routed" : "transport_not_established" };
     }
   }
-  if (data.mode === "estimate" && result.ship.level === "not_possible_here") Object.assign(result.ship, { level: "unknown", reason: "no_corridor_in_estimate" });
   for (const key of ["water", "start", "buildable", "resources", "trees", "water_risk"]) result[key] = { level: "unknown", reason: "not_evaluated" };
   const buildable = data.buildable_fraction;
   if (buildable != null && Number.isFinite(buildable) && buildable >= 0 && buildable <= 1)

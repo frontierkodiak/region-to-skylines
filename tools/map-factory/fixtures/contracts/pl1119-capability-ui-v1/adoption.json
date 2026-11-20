@@ -26,10 +26,10 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "de3f7048d050f49bd74eed76ba09308539ddc5ce0017476d8b982f4341b5ee4d",
+    "capabilities.json": "93813f604dda940ee9bea8ba0e294b4f61f2486e390c569a3bf2dee5ce3e1976",
     "capability-inputs.js": "c232a9414354631d8c9c3393524a48a23d918bf8b89895487ad3169b3fa683d1",
-    "capability-ledger.mjs": "cc586ff5f047d8d66ab6a21c1179d715d8aab64c26e03be649d11331773c8845",
-    "capability-model.js": "b42a2f4c3310e6f4c29b06f11cbf86dcfd9b1c7927b0cfe43b52b9d28642769d",
-    "tools/map-factory/capabilities.py": "a8ac708e7250e05d9784f40764924fe566a0f440ede7a23a3b43f629b52d6269"
+    "capability-ledger.mjs": "d9d6decbbaf4518309b7446f81acd1e23e4622df90b0f3272fb62d85a5e572a5",
+    "capability-model.js": "e01fae4d11c282d5c065b197664d1621b1473b514c81d04e496774a060b80d5d",
+    "tools/map-factory/capabilities.py": "cddc99205d42c0130e588b82cc1d9d41c0730f88f24ba69d51169ca2796733f0"
   }
 }

@@ -14,7 +14,7 @@ export function stockReference() {
   const maps = JSON.parse(raw).filter((map) => map.file !== "CO.crp");
   const fields = {
     buildable_percent: ["New Game buildable land", "%", (m) => m.meta.buildableArea],
-    trees_total: ["Trees across the whole map", "trees", (m) => m.trees.total],
+    trees_total: ["Planted tree count (export budget-sensitive)", "trees", (m) => m.trees.total],
     wet_central_fraction: ["Wet share of the central 25 tiles", "fraction", (m) => m.water_central_share],
     terrain_relief_m: ["Terrain relief across the whole map", "m", (m) => m.terrain.max - m.terrain.min],
     median_land_slope_percent: ["Median central land slope", "%", (m) => m.terrain.median_land_slope_pct],
@@ -38,7 +38,10 @@ export function validateLedger(ledger) {
   for (const cap of ledger.capabilities) {
     if (!cap.definition || !cap.status || !Array.isArray(cap.game_agreement) || JSON.stringify(Object.keys(cap.promise_levels).sort()) !== JSON.stringify(LEVELS)) throw new Error(`Incomplete capability ${cap.id}`);
     for (const ref of [cap.exporter_check, cap.browser_check, ...cap.existing_checks].filter(Boolean)) {
-      if (!existsSync(ROOT + ref.split(":")[0])) throw new Error(`Missing check ${ref}`);
+      const [file, symbol] = ref.split(":");
+      if (!existsSync(ROOT + file)) throw new Error(`Missing check ${ref}`);
+      if (symbol && (!/^[A-Za-z_]\w*$/.test(symbol) || !new RegExp(`\\b(?:def|function|class|const|let|var)\\s+${symbol}\\b`).test(readFileSync(ROOT + file, "utf8"))))
+        throw new Error(`Missing check symbol ${ref}`);
     }
     for (const id of cap.metric_ids) if (!ledger.stock_reference.metrics[id]) throw new Error(`Missing stock metric ${id}`);
     for (const row of cap.game_agreement) {

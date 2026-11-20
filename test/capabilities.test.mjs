@@ -64,9 +64,35 @@ test("estimates and absent data cannot promote promises or false negatives", () 
   const result = checkCapabilities(input, ledger);
   for (const c of Object.values(result.capabilities)) assert.equal(c.level, "unknown");
   input.mode = "export";
+  assert.equal(checkCapabilities(input, ledger).capabilities.ship.level, "unknown", "missing graph does not establish absence");
+  input.graph = { nodes: [], edges: [] };
   assert.equal(checkCapabilities(input, ledger).capabilities.ship.level, "not_possible_here");
   assert.throws(() => checkCapabilities({ ...input, grid: { ...input.grid, depth_m: [NaN, 0, 0, 0] } }, ledger));
   assert.throws(() => networkAccess({ nodes: [node()], edges: [edge(-1, 0, "rail")] }, "rail"));
+});
+
+test("ship route existence and broad-corridor support are separate evidence", () => {
+  const nodes = [node("west"), node("east")], edges = [edge(0, 1, "ship")];
+  const input = { schema: 1, mode: "export", grid: { size: 17, spacing_m: 1080, depth_m: new Array(289).fill(0) }, graph: { nodes, edges } };
+  const narrow = checkCapabilities(input, ledger).capabilities.ship;
+  assert.equal(narrow.level, "likely");
+  assert.equal(narrow.reason, "authored_ship_route_corridor_unconfirmed");
+  assert.equal(narrow.authored_route.candidate, true);
+  assert.equal(narrow.witness.candidate, false);
+  input.graph = { nodes: [], edges: [] };
+  input.grid.depth_m.fill(8);
+  const unrouted = checkCapabilities(input, ledger).capabilities.ship;
+  assert.equal(unrouted.level, "likely");
+  assert.equal(unrouted.reason, "initial_deep_corridor_no_authored_route");
+  assert.equal(unrouted.authored_route.candidate, false);
+  assert.equal(unrouted.witness.candidate, true);
+});
+
+test("ledger rejects a stale symbol even when its source file exists", () => {
+  const stale = structuredClone(ledger);
+  stale.capabilities.find((c) => c.id === "air").existing_checks = ["inputs.js:capturedAirport"];
+  assert.throws(() => validateLedger(stale), /Missing check symbol/);
+  assert.match(ledger.stock_reference.metrics.trees_total.name, /budget-sensitive/);
 });
 
 test("agreement separates oracle types and excludes missing labels", () => {

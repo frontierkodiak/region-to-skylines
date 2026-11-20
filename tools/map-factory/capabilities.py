@@ -160,23 +160,55 @@ def check(data, ledger):
     for key in KINDS:
         graph = data.get("graph")
         witness = network_access(graph, key) if graph is not None else None
-        if key == "ship" and grid:
-            corridor = ship_corridor(
-                grid["depth_m"], n, spacing, ledger["model_rules"]["ship"]
+        if key == "ship":
+            corridor = (
+                ship_corridor(
+                    grid["depth_m"], n, spacing, ledger["model_rules"]["ship"]
+                )
+                if grid
+                else None
             )
-            result[key] = {
-                "level": "likely" if corridor["candidate"] else "not_possible_here",
-                "reason": "initial_deep_corridor"
-                if corridor["candidate"]
-                else "no_initial_deep_corridor",
-                "witness": corridor,
-            }
+            route = witness is not None and witness["candidate"]
+            broad = corridor is not None and corridor["candidate"]
+            absent = (
+                data["mode"] == "export"
+                and witness is not None
+                and not route
+                and corridor is not None
+                and not broad
+            )
+            level = (
+                "likely"
+                if route or broad
+                else "not_possible_here"
+                if absent
+                else "unknown"
+            )
+            if route:
+                reason = (
+                    "authored_ship_route"
+                    if broad
+                    else "authored_ship_route_corridor_unconfirmed"
+                )
+            elif broad:
+                reason = (
+                    "initial_deep_corridor_no_authored_route"
+                    if witness is not None
+                    else "initial_deep_corridor"
+                )
+            elif absent:
+                reason = "no_authored_ship_route_or_initial_deep_corridor"
+            else:
+                reason = (
+                    "no_corridor_in_estimate"
+                    if data["mode"] == "estimate" and grid
+                    else "ship_feasibility_not_established"
+                )
+            result[key] = {"level": level, "reason": reason}
+            if corridor is not None:
+                result[key]["witness"] = corridor
             if witness is not None:
                 result[key]["authored_route"] = witness
-                if not witness["candidate"]:
-                    result[key].update(
-                        level="not_possible_here", reason="no_authored_ship_route"
-                    )
         elif witness is not None:
             result[key] = {
                 "level": "likely" if witness["candidate"] else "not_possible_here",
@@ -193,9 +225,6 @@ def check(data, ledger):
                 if observation
                 else "transport_not_established",
             }
-    # A coarse estimate may miss a corridor and can never establish impossibility.
-    if data["mode"] == "estimate" and result["ship"]["level"] == "not_possible_here":
-        result["ship"].update(level="unknown", reason="no_corridor_in_estimate")
     for key in ("water", "start", "buildable", "resources", "trees", "water_risk"):
         result[key] = {"level": "unknown", "reason": "not_evaluated"}
     buildable = data.get("buildable_fraction")
@@ -335,6 +364,10 @@ def assess_prepared(folder):
         }
         for key, value in values.items()
     }
+    if "trees_total" in report["metrics"]:
+        report["metrics"]["trees_total"]["basis"] = (
+            "budgeted_export_plan_not_place_abundance"
+        )
     return report
 
 

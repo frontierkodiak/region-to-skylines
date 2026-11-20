@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "model": "square-capabilities-v1",
+  "model": "square-capabilities-v2",
   "updated_at": "2026-11-20",
   "game": "Cities: Skylines 1, 1.21.1-f9",
   "source_revision": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
@@ -38,7 +38,7 @@
         "p75": 76.25
       },
       "trees_total": {
-        "name": "Trees across the whole map",
+        "name": "Planted tree count (export budget-sensitive)",
         "unit": "trees",
         "n": 104,
         "p25": 102567.25,
@@ -191,7 +191,7 @@
       "name": "Ship",
       "icon": "ship",
       "status": "modelled_not_native_fitted",
-      "definition": "The initial water plan contains a broad deep corridor connected to the map edge, with separated outside endpoints and water reaching the central 25 tiles. An exported ship route and actual native ship path are separate observations.",
+      "definition": "A ship-route candidate is supported by an authored edge-to-edge ship route or a broad deep corridor in the initial water plan. Route existence, broad-corridor support, native pathfinding and sustained navigability are separate observations.",
       "exporter_check": "tools/map-factory/capabilities.py:ship_corridor",
       "browser_check": "capability-model.js:shipCorridor",
       "existing_checks": [
@@ -199,9 +199,9 @@
       ],
       "promise_levels": {
         "promised": "Exact-export native ship path is accepted, with water stability separately qualified for any sustained-service claim.",
-        "likely": "Candidate initial deep-water corridor; if an authored graph is supplied, it also has a ship route.",
-        "not_possible_here": "Current final export lacks the corridor or the authored ship route.",
-        "unknown": "Missing depth or only a coarse estimate without a corridor; inlet width and water persistence not established."
+        "likely": "An authored edge-to-edge ship route or a candidate initial deep-water corridor exists. A coarse corridor miss cannot veto an authored route; neither is native navigability proof.",
+        "not_possible_here": "Both the authored route and the broad corridor are absent in the supplied final export plan, under the stated checks. This does not rule out another planner or a narrower route missed by coarsening.",
+        "unknown": "Neither kind of candidate was established and one input is missing, or only a browser estimate is available. Missing evidence is not a negative geographic result."
       },
       "metric_ids": [
         "incoming_ship_entries",
@@ -220,7 +220,7 @@
       "browser_check": "capability-model.js:networkAccess",
       "existing_checks": [
         "tools/map-factory/transport_paths.py:air_path",
-        "inputs.js:capturedAirport"
+        "inputs.js:runwayAirport"
       ],
       "promise_levels": {
         "promised": "Exact-export native airplane path succeeds under the recorded test.",

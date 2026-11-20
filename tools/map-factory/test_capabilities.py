@@ -1,15 +1,38 @@
 """Behavioral cross-runtime checks; no native game evidence is fabricated."""
 
 import json
+import tempfile
 from pathlib import Path
 import random
 import subprocess
 import unittest
 
-from capabilities import check, stock_band
+import numpy as np
+
+from capabilities import check, prepared_input, stock_band
+from transport_paths import ship_path
 
 ROOT = Path(__file__).resolve().parents[2]
 LEDGER = json.loads((ROOT / "capabilities.json").read_text())
+
+
+def narrow_ship_export():
+    """Constructed depth, real offline planner; not native game evidence."""
+    ground = np.full((1081, 1081), 100.0)
+    depth = np.zeros_like(ground)
+    depth[540:544, :] = 8.0  # 64 m, narrower than the model's shore buffer.
+    geometry = {"sq": {"lon": 0, "lat": 0, "rotation": 0, "scale": 1}, "seaLevel": 108}
+    fragment, _ = ship_path(geometry, ground, depth, 12, 108)
+    if fragment is None:
+        raise AssertionError(
+            "Counterexample no longer exercises an authored ship route"
+        )
+    with tempfile.TemporaryDirectory() as temporary:
+        folder = Path(temporary)
+        for name, grid in (("terrain.u16", ground), ("water.u16", depth)):
+            (np.flipud(grid) * 64).astype("<u2").tofile(folder / name)
+        (folder / "hydrology.json").write_text(json.dumps({"highways": fragment}))
+        return prepared_input(folder)
 
 
 class CapabilityParity(unittest.TestCase):
@@ -54,6 +77,7 @@ class CapabilityParity(unittest.TestCase):
                 {"schema": 1, "mode": "export"},
             ]
         )
+        inputs.append(narrow_ship_export())
         javascript = """
           import {readFileSync} from 'node:fs';
           import {checkCapabilities} from './capability-model.js';
@@ -72,6 +96,13 @@ class CapabilityParity(unittest.TestCase):
         self.assertEqual(
             json.loads(result.stdout), [check(data, LEDGER) for data in inputs]
         )
+
+    def test_real_offline_ship_planner_is_not_vetoed_by_coarse_corridor(self):
+        ship = check(narrow_ship_export(), LEDGER)["capabilities"]["ship"]
+        self.assertTrue(ship["authored_route"]["candidate"])
+        self.assertFalse(ship["witness"]["candidate"])
+        self.assertEqual(ship["level"], "likely")
+        self.assertEqual(ship["reason"], "authored_ship_route_corridor_unconfirmed")
 
     def test_stock_band_boundaries(self):
         metric = {"p25": 1, "p75": 3}

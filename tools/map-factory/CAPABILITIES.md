@@ -24,9 +24,13 @@ components, a one-cell shore buffer, separated map-edge endpoints and central
 25-tile access. These are provisional modelling choices in the ledger, not
 recovered game constants. It does not change `transport_paths.py`, smooth a
 route, run the water simulation or certify the generated ship spline. A narrow
-route can be missed by conservative coarsening. Browser negatives are therefore
-unknown. Native boundary fitting belongs to the connection oracle study before
-any broader promise is promoted.
+route can be missed by conservative coarsening. Version 2 keeps the corridor and
+authored route as separate witnesses: either can support a candidate, but neither
+proves native navigability. A coarse miss cannot veto an authored route, and a
+missing graph cannot establish route absence. A final-plan negative requires
+both checks to be present and negative; it is not global impossibility. Browser
+negatives remain unknown. Native boundary fitting belongs to the connection
+oracle study before any broader promise is promoted.
 
 The browser core and Python core consume the same normalized schema:
 
@@ -78,6 +82,8 @@ keeps the raw distribution's values.
 
 Reports reuse the survey's central-land/water sampling for comparable resource
 coverage, water coverage, terrain relief and median slope, plus total trees.
+The tree count is budget-sensitive planted output, not the square's natural
+tree abundance; its report records that basis and the page labels it explicitly.
 An available CRP supplies its buildable bar and entry counts. The 15-percent
 dry-low-slope area is a different measure: it is not compared to that bar.
 Below p25 / typical / above p75 is descriptive; more relief, water or trees is
