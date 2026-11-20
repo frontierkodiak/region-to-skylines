@@ -108,12 +108,52 @@ class CohortComparison(unittest.TestCase):
         self.assertEqual(result["after"]["unresolved"], 1)
         self.assertIsNone(result["after"]["qualified_pass_rate"])
 
+    def test_original_player_baseline_does_not_require_candidate_or_holdouts(self):
+        (self.after / "cpu-report.json").unlink()
+        (self.before / "native/holdout/verdict.json").unlink()
+        result = self.result()
+        baseline = result["original_player_baseline"]
+        self.assertTrue(baseline["qualified"])
+        self.assertEqual(baseline["planned"], 1)
+        self.assertEqual(baseline["qualified_pass_rate"], 1)
+        self.assertFalse(result["paired_comparison_qualified"])
+
+    def test_original_baseline_preserves_failed_maps(self):
+        attempt(self.before / "native/original", status="fail")
+        baseline = self.result()["original_player_baseline"]
+        self.assertTrue(baseline["qualified"])
+        self.assertEqual(baseline["failed"], 1)
+        self.assertEqual(baseline["qualified_pass_rate"], 0)
+
+    def test_original_baseline_withholds_missing_or_different_player(self):
+        folder = self.before / "native/original"
+        for player in ("another-player", None):
+            with self.subTest(player=player):
+                attempt(folder, player=player)
+                baseline = self.result()["original_player_baseline"]
+                self.assertFalse(baseline["qualified"])
+                self.assertIsNone(baseline["qualified_pass_rate"])
+        (folder / "verdict.json").unlink()
+        baseline = self.result()["original_player_baseline"]
+        self.assertFalse(baseline["qualified"])
+        self.assertEqual(baseline["unresolved"], 1)
+
+    def test_original_baseline_requires_registered_input_bytes(self):
+        path = self.before / "cpu-report.json"
+        report = json.loads(path.read_text())
+        report["cases"]["original"]["inputs_sha256"]["input.png"] = "recaptured"
+        write(path, report)
+        baseline = self.result()["original_player_baseline"]
+        self.assertFalse(baseline["qualified"])
+        self.assertIsNone(baseline["qualified_pass_rate"])
+
     def test_stock_failure_withholds_map_attribution_even_when_all_maps_pass(self):
         attempt(self.stock / "stock-b", status="fail")
         result = self.result()
         self.assertFalse(result["stock_policy_qualified"])
         self.assertEqual(result["map_fault_attribution"], "withheld")
         self.assertIsNone(result["before"]["qualified_pass_rate"])
+        self.assertFalse(result["original_player_baseline"]["qualified"])
 
     def test_old_policy_cannot_become_a_qualified_baseline(self):
         attempt(self.before / "native/original", player="old-player")
