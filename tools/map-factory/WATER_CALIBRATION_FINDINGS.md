@@ -1,6 +1,6 @@
 # Water-calibration findings: no demonstrated safe-square class
 
-Latest collection: **9 of 28 exportable squares complete; 19 remain**, plus two
+Latest collection: **13 of 28 exportable squares complete; 15 remain**, plus two
 original capture failures. The full one-shot holdout score has not run.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
@@ -193,6 +193,53 @@ Nineteen exportable squares remain, alongside the two original capture failures.
 No physical writer, package, point, mask, model, cutoff or game gate changed;
 the all-warn drying rejection and non-identifiable flood cutoff comparison still
 hold. The full one-shot score and PL-912 recommendation remain pending.
+
+## Native collection: three mountain rivers and the first lowland river
+
+The fourth tranche completed on November 20 through unchanged, clean harness
+`6949182`. Each square completed more than 60 game minutes. The collector yielded
+the shared install between squares through the FIFO queue. No failed water
+verdict was repaired or retried.
+
+| Frozen square | Game minutes | Worst flood area, km² | Flood gate | Required water |
+|---|---:|---:|---|---|
+| Mountain river, Africa | 60.149170 | 0.0000 | pass | 1660/1663, pass |
+| Mountain river, Asia | 60.101670 | 0.1526 | fail | 1/1, pass |
+| Mountain river, Oceania | 60.093336 | 0.0000 | pass | 227/227, pass |
+| Lowland river, North America | 60.037781 | 0.0000 | pass | 843/843, pass |
+
+Required-water counts match at endpoint and throughout all 13 sampled epochs;
+the unchanged gate requires 95%. The flood limit is still 0.05 km² beyond the
+frozen initial/mapped-water exclusion, deeper than 0.5 m and beyond 128 m.
+
+| Square | Initialized wet monitored points | Exactly dry at end | No wet native neighbor within 64 m at end | Grid area dried / newly wet, km² |
+|---|---:|---:|---:|---:|
+| African mountain river | 4664 | 1083 | 59 | 1.14 / 0.02 |
+| Asian mountain river | 2580 | 1263 | 658 | 2.16 / 0.38 |
+| Oceanian mountain river | 5552 | 1224 | 651 | 2.15 / 0.41 |
+| North American lowland river | 6154 | 497 | 361 | 1.65 / 0.09 |
+
+Nearby endpoint readings are known for all monitored points. Grid changes use
+the separate 0.1 m threshold. These are raw measurements, not interim drying
+labels, model accuracy or evidence of a safe cleared class.
+
+All 280 staged files, 21 writer files and thirteen native binding sets revalidate.
+Original report/verdict hashes match the collection ledger. Fresh carbon/offline
+guards passed, owned cleanup is empty, and all 580 recorded session/waiter PIDs
+checked after collection are absent. The foreground collector exited zero after
+all four results and teardown; no owned child remains active.
+
+Actual opening, Areas and t060 PNGs were inspected for all four. Separate
+hash-bound producer startup-view assessments pass; the original overall verdicts
+remain fail: three solely startup-unreviewed, Asia also for flooding. Asia's close
+opening poorly frames the approach. Oceania's final overview shows elevated rail
+with angular supports across ridged terrain. These observations are retained,
+not repaired or presented as geometry quality or human playability acceptance.
+
+Fifteen exports remain, plus both original missing captures. Frozen inputs,
+physical writer, models and native gates are unchanged. The all-warn drying
+rejection, zero combined/deployed clearance and non-identifiable flood-cutoff
+comparison remain. Full scoring and the PL-912 recommendation are still pending.
 
 ## Remaining work and release hold
 
