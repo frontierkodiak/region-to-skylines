@@ -1,6 +1,6 @@
 # Observed outside-connection results
 
-New native observations completed: 1/9 selected squares.
+New native observations completed: 2/9 selected squares.
 
 A path witness means at least one selected native request succeeded. It does not mean every lane or direction passed.
 Failed requests and unknowns remain in evidence.json. No aggregate agreement score is calculated.
@@ -11,7 +11,7 @@ Archived exact-package car and train paths are included. Those first-hour runs c
 | --- | --- | --- | --- | --- | --- |
 | asheville | witness | witness | unknown | unknown | no |
 | innsbruck | witness | witness | unknown | witness | no |
-| rio | unknown | unknown | unknown | unknown | yes |
+| rio | witness | failed probes | witness | witness | yes |
 | pittsburgh | unknown | unknown | unknown | unknown | no |
 | charleston | witness | unknown | unknown | unknown | yes |
 | grand-canyon | unknown | unknown | unknown | unknown | no |

@@ -2909,8 +2909,9 @@ queue waiting. No GPU power setting was changed.
 | --- | ---: | ---: | ---: | ---: | --- |
 | Asheville, attempt 1 | 9579 / 1574 | 82.78 | 40 | 676.2 | Steam startup transport error 0x3000; original 600 s menu deadline expired; no package opened; unknown, not a map rejection |
 | Innsbruck, attempt 1 | 10821 / 2815 | 120.79 | 48 | 181.4 | Native panel and path calls completed; 4 car, 1 train, and 2 aircraft requests succeeded; all failed lane-position requests retained |
+| Rio, attempt 1 | 10821 / 2815 | 127.05 | 51 | 180.0 | Native ship and aircraft paths passed in both directions at boundary and midpoint positions; selected rail requests failed at both positions |
 
-Both sessions reported empty game, Steam-instance, and transient-unit cleanup.
+All three sessions reported empty game, Steam-instance, and transient-unit cleanup.
 The failed startup's renderer and mod-listening lines are retained separately
 from account and DLC log content. Its owned Steam unit was restarted after
 fresh offline and carbon-idle checks; no account or Cloud-conflict prompt was
@@ -2924,3 +2925,8 @@ this change precedes Boston's native result. It changes probes, not maps.
 `path_start` supports car, train, ship, and plane vehicle types. Existing `rail`
 callers remain supported. Actual terminal service, strict no-mods behavior,
 continuous ship clearance, and sustained water safety are not established.
+
+Rio's 498 ship-route opening samples were wet, with minimum sampled depth
+9.203125 m. This is point coverage at opening, not continuous curve clearance
+or sustained water acceptance. Midpoint controls did not resolve Rio's selected
+rail-pair failures. No geometry or package was repaired to improve a result.
