@@ -17,6 +17,7 @@ import numpy as np
 import shapely
 from landcover import lonlat
 from place_model import SCHEMAS, read_grid, read_manifest, read_table, validate
+from place_model.nhd import canonical_id
 from pyproj import Transformer
 from region import SIZE
 from scipy.ndimage import map_coordinates
@@ -284,10 +285,39 @@ def compile_geometry(place, manifest, frame):
                     f"Hydrography {row['id']}: unsupported {part.geom_type}; needs explicit line/area semantics"
                 )
             geometry[field].append(item)
+    if "hydrography_flowpaths" in manifest["layers"]:
+        body_ids = {
+            row["id"] for row in read_table(place, "hydrography_flowbodies").to_pylist()
+        }
+        path_properties = {
+            canonical_id("flowline", ident): props
+            for ident, props in source_properties(
+                place, manifest, "source_nhd_flowline"
+            ).items()
+        }
+        for row in read_table(place, "hydrography_flowpaths").to_pylist():
+            # Validation owns body role/FK/direction. Preserve the full source
+            # path and order; do not infer connections between path endpoints.
+            if row["body_id"] not in body_ids:
+                raise ValueError("Canonical flowpath lacks its river body")
+            geom = shapely.from_wkb(row["geometry"])
+            parts = list(geom.geoms) if geom.geom_type == "MultiLineString" else [geom]
+            for part_index, part in enumerate(parts):
+                geometry["rivers"].append(
+                    {
+                        **feature(row, path_properties.get(row["id"], {})),
+                        "name": row["name"] or row["body_id"],
+                        "kind": "river",
+                        "class": "river",
+                        "part": part_index,
+                        "pts": frame.points(part.coords),
+                    }
+                )
     geometry["placeInput"]["water_limitations"] = [
         "Generic water/surface/bay polygons retain area only; no lake flattening, inferred centerline, hydraulic connectivity or sustained river supply.",
         "Underground polygons and swimming pools are retained as unmodeledHydrography, not natural surface sources.",
         "Scoped road flags and level rules are source properties, not whole-line grade instructions; native serialization belongs to PL-1066.",
+        "Canonical river flowpaths retain body ID and source direction, not measured water stage or an inferred hydraulic network. Existing target hydrology still controls levels and supply.",
     ]
     return geometry
 
@@ -295,9 +325,9 @@ def compile_geometry(place, manifest, frame):
 def preprocess(place, output):
     """Validate first, then return input PNG, geometry JSON, banks and landcover paths."""
     place, output = Path(place), Path(output)
-    if "transportation_semantics" not in SCHEMAS:
+    if not {"transportation_semantics", "hydrography_flowpaths"} <= SCHEMAS.keys():
         raise ValueError(
-            "This reader needs polli-place-model >=0.2 with transportation semantics"
+            "This reader needs polli-place-model >=0.3 with transportation semantics and river flowpaths"
         )
     validation = validate(place)
     manifest = read_manifest(place)
