@@ -25,7 +25,7 @@ const sourceFiles = {};
 for (const f of ["inputs.js", "terrain.js", "mapgen.js", ...FACTORY_FILES.map((f) => "tools/map-factory/" + f)]) {
   const bytes = await readFile(join(root, f));
   // Capture must not silently load uncommitted product code.
-  if (sha(bytes) !== sha(execFileSync("git", ["show", `${source}:${f}`], { cwd: root }))) throw Error(`Dirty writer: ${f}`);
+  if (sha(bytes) !== sha(execFileSync("git", ["show", `${source}:${f}`], { cwd: root, maxBuffer: 128 * 1024 * 1024 }))) throw Error(`Dirty writer: ${f}`);
   sourceFiles[f] = sha(bytes);
 }
 await mkdir(output, { recursive: true });
