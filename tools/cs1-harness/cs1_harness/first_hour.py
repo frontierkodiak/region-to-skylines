@@ -3,12 +3,61 @@
 from __future__ import annotations
 
 import re
+import json
+import pathlib
 
 MINUTES = 60
 WARMUP_MINUTES = 5
 MAX_SAMPLE_GAP_MINUTES = 6
 GRID_KM2 = 288 * 288 / 1e6
 SUPPLY_PROBLEMS = {"Electricity", "Water", "WaterNotConnected", "Sewage", "NoResources", "Flood", "TurnedOff"}
+
+
+def failure(out: pathlib.Path, reason: str) -> dict:
+    """Keep a first-hour verdict and actual observations when construction/simulation aborts."""
+    observations, errors, fixture = [], [], {}
+    scenario = out / "scenario.json"
+    if scenario.is_file():
+        try:
+            fixture = json.loads(scenario.read_text())
+        except (OSError, ValueError):
+            errors.append("unreadable scenario receipt")
+    timeline = out / "timeline.jsonl"
+    if timeline.is_file():
+        for number, line in enumerate(timeline.read_text().splitlines(), 1):
+            try:
+                row = json.loads(line)
+                if row.get("kind") != "sample":
+                    continue
+                stats, city = row["stats"], row.get("scenario") or {}
+                observations.append(
+                    {
+                        "label": row["label"],
+                        "frame": stats["frame"],
+                        "population": stats["population"],
+                        "money": stats.get("money"),
+                        "traffic": city.get("traffic"),
+                        "utilities": city.get("utilities"),
+                        "growable_problems": city.get("growable_problems"),
+                    }
+                )
+            except (ValueError, KeyError, TypeError):
+                errors.append(f"unreadable timeline record {number}")
+    return {
+        "name": "first_hour",
+        "status": "fail",
+        "threshold": "completed scripted 60-minute opening",
+        "detail": reason,
+        "value": {
+            "completed": False,
+            "phase": "simulation" if observations else "construction" if scenario.is_file() else "preflight_or_load",
+            "construction_state": fixture.get("state"),
+            "land": (fixture.get("result") or {}).get("land"),
+            "observations": observations,
+            "evidence_errors": errors,
+            "scope": "Partial observations only; no full-hour, end-path or healthy-utility qualification is implied.",
+        },
+    }
 
 
 def assess(report: dict, city_checks: list[dict], panel: dict) -> dict:

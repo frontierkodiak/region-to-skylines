@@ -793,7 +793,13 @@ def judge(out: pathlib.Path, write: bool = True) -> dict:
 
 
 def error_verdict(
-    out: pathlib.Path, check_type: str, reason: str, exit_code: int, issue: str | None = None, label: str | None = None
+    out: pathlib.Path,
+    check_type: str,
+    reason: str,
+    exit_code: int,
+    issue: str | None = None,
+    label: str | None = None,
+    scenario: str | None = None,
 ) -> dict:
     """A run that ended before it could be judged."""
     verdict = {
@@ -805,7 +811,8 @@ def error_verdict(
         "exit_code": exit_code,
         "issue": issue,
         "label": label,
-        "checks": [],
+        "checks": [first_hour.failure(out, reason)] if scenario == "first-hour" else [],
+        "requested_scenario": scenario,
         "harness": harness_commit(),
     }
     out.mkdir(parents=True, exist_ok=True)

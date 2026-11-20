@@ -374,7 +374,9 @@ def cmd_run(cfg, a):
 
 
 def finish_error(cfg, out: pathlib.Path, a, reason: str, code: int):
-    verdict_mod.error_verdict(out, "map-soak", reason, code, issue=a.issue, label=a.label)
+    verdict_mod.error_verdict(
+        out, "map-soak", reason, code, issue=a.issue, label=a.label, scenario=getattr(a, "scenario", None)
+    )
     t = triage_mod.attach(out, cfg)
     if t:
         log(f"triage: {t['class']} ({t['why']})")

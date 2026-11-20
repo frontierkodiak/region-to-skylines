@@ -2,10 +2,14 @@
 
 import argparse
 import copy
+import json
+import pathlib
+import tempfile
 import unittest
 
 from cs1_harness.first_hour import assess
 from cs1_harness.cli import cmd_run
+from cs1_harness.verdict import error_verdict
 
 
 def opening():
@@ -46,6 +50,36 @@ def verdict(doc, city=None, panel="pass"):
 
 
 class FirstHourTest(unittest.TestCase):
+    def test_failed_construction_keeps_its_own_verdict_and_land_evidence(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            out = pathlib.Path(temporary)
+            (out / "scenario.json").write_text(
+                json.dumps({"state": "failed", "result": {"land": {"dry_flat_km2": 1.2}}})
+            )
+            doc = error_verdict(out, "map-soak", "no road hookup", 1, scenario="first-hour")
+            row = doc["checks"][0]
+            self.assertEqual(
+                (row["name"], row["status"], row["value"]["phase"]), ("first_hour", "fail", "construction")
+            )
+            self.assertEqual(row["value"]["land"]["dry_flat_km2"], 1.2)
+            self.assertFalse(row["value"]["completed"])
+
+    def test_stalled_run_retains_last_actual_population_not_a_full_hour_claim(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            out = pathlib.Path(temporary)
+            sample = {
+                "kind": "sample",
+                "label": "t030",
+                "stats": {"frame": 100, "population": 223},
+                "scenario": {"growable_problems": {"Water": 40}},
+            }
+            (out / "timeline.jsonl").write_text(json.dumps(sample) + '\n{"unfinished":')
+            row = error_verdict(out, "map-soak", "no simulation progress", 1, scenario="first-hour")["checks"][0]
+            self.assertEqual(row["value"]["phase"], "simulation")
+            self.assertEqual(row["value"]["observations"][0]["population"], 223)
+            self.assertEqual(len(row["value"]["evidence_errors"]), 1)
+            self.assertFalse(row["value"]["completed"])
+
     def test_invalid_first_hour_stops_before_any_session_or_output(self):
         for change in ({"game_minutes": 10}, {"sample_every": 10}, {"from_save": "city.crp"}):
             args = dict(scenario="first-hour", game_minutes=60, sample_every=5, from_save=None) | change
