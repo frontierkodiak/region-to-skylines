@@ -61,10 +61,27 @@ corridor probes were requested. The report retains that distinction and still
 rejects any explicit failed native check. Exported maps retain their full
 native qualification requirements.
 
-## Compare the exports
+## Measure the player correction first
+
+After both stock controls pass, run the original frozen eight with the same
+qualified player and unchanged exporter, before adding any exporter rule.
+Retain those native outputs under `baseline/native/SLUG`. Report their change
+from the historical 1/8 separately as the player-policy effect; that historical
+observation was not stock-qualified.
+
+The comparison report exposes `original_player_baseline` independently of
+candidate and holdout completion. Its rate requires both passing controls,
+matching original input and package bytes, and all eight native attempts under
+the qualified player. It does not imply that exporter rules were tested.
+
+Do not attribute an exported-map failure to the map before the final player
+passes both controls. Real connections stay opt-in throughout qualification.
+
+## Compare the exporter rules
 
 Preserve `baseline` and generate changed exports under `candidate`.
-Run every staged map with the stock-qualified player and unchanged verdict.
+Complete the baseline for the three preregistered new squares as well.
+Run every candidate with the same stock-qualified player and unchanged verdict.
 Put native outputs under `baseline/native/SLUG` and `candidate/native/SLUG`.
 
 ```sh
@@ -80,5 +97,5 @@ Missing or blocked attempts remain unresolved.
 Incomplete cohorts and mismatched players have no qualified pass rate.
 The report preserves other failed native gates alongside the first-hour check.
 
-Report the historical 1/8 result separately. It used the original player policy
-and is not a paired baseline for a corrected player.
+Report exporter-rule gains against the qualified-player baseline, separately
+from the player-policy effect. Historical 1/8 is not the paired exporter baseline.

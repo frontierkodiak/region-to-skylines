@@ -122,13 +122,13 @@ def compare(cohort_path, controls, baseline, candidate):
     original_inputs = {
         row["slug"]: row["input_files_sha256"] for row in cohort["original"]
     }
-    selection_bound = bool(
-        selection == report_after.get("selection")
-        and selection.get("preregistration_sha256") == preregistration
+    baseline_registered = bool(
+        selection.get("preregistration_sha256") == preregistration
         and selection.get("fixtures") == list(original_inputs)
         and selection.get("frozen_input_files") == original_inputs
         and selection.get("fresh") == cohort["fresh"]
     )
+    selection_bound = baseline_registered and selection == report_after.get("selection")
     slugs = [row["slug"] for row in cohort["original"] + cohort["fresh"]]
     cases = {}
     for slug in slugs:
@@ -150,6 +150,24 @@ def compare(cohort_path, controls, baseline, candidate):
             "frozen_inputs_match": inputs_bound,
         }
     all_inputs_bound = all(row["frozen_inputs_match"] for row in cases.values())
+    original_inputs_bound = bool(original_inputs) and all(
+        report_before.get("cases", {}).get(slug, {}).get("inputs_sha256") == hashes
+        for slug, hashes in original_inputs.items()
+    )
+    original_baseline = summarize(
+        [cases[slug]["before"] for slug in original_inputs], player
+    )
+    original_baseline["qualified"] = bool(
+        qualified
+        and baseline_registered
+        and original_inputs_bound
+        and original_baseline["complete"]
+        and original_baseline["same_qualified_player"]
+    )
+    if not original_baseline["qualified"]:
+        original_baseline["qualified_pass_rate"] = None
+    original_baseline["frozen_inputs_match"] = original_inputs_bound
+    original_baseline["registered_selection"] = baseline_registered
     before = summarize([row["before"] for row in cases.values()], player)
     after = summarize([row["after"] for row in cases.values()], player)
     if not selection_bound or not all_inputs_bound:
@@ -173,6 +191,7 @@ def compare(cohort_path, controls, baseline, candidate):
         "all_frozen_inputs_match": all_inputs_bound,
         "paired_comparison_qualified": comparable,
         "map_fault_attribution": "qualified" if comparable else "withheld",
+        "original_player_baseline": original_baseline,
         "before": before,
         "after": after,
         "cases": cases,
@@ -202,6 +221,7 @@ if __name__ == "__main__":
                 for key in (
                     "stock_policy_qualified",
                     "paired_comparison_qualified",
+                    "original_player_baseline",
                     "before",
                     "after",
                 )
