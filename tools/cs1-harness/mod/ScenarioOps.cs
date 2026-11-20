@@ -27,8 +27,15 @@ namespace Cs1Harness
         sealed class PlacementRejected : Exception
         {
             public readonly ToolBase.ToolErrors Errors;
-            public PlacementRejected(string context, ToolBase.ToolErrors errors) : base(context + ": " + errors)
-            { Errors = errors; }
+            public readonly ushort[] SegmentHits;
+            public readonly ushort[] BuildingHits;
+            public PlacementRejected(string context, ToolBase.ToolErrors errors,
+                ushort[] segments = null, ushort[] buildings = null) : base(context + ": " + errors)
+            {
+                Errors = errors;
+                SegmentHits = segments ?? new ushort[0];
+                BuildingHits = buildings ?? new ushort[0];
+            }
         }
 
         public static void Register()
@@ -84,8 +91,9 @@ namespace Cs1Harness
             // twelve raw pairs: overlapping fragments can create many tiny gaps.
             foreach (var p in pairs)
             {
-                if (!JoinLinksClear(p.Value)) continue;
-                result.Add(p.Value);
+                var ordered = JoinOrder(p.Value);
+                if (ordered == null) continue;
+                result.Add(ordered);
                 if (result.Count >= 12) break;
             }
             return result;
@@ -215,25 +223,57 @@ namespace Cs1Harness
             return true;
         }
 
-        static bool JoinLinksClear(List<ushort> hooks)
+        static bool PairedStubCollision(PlacementRejected error, ushort firstHook)
+        {
+            if (error.Errors != ToolBase.ToolErrors.ObjectCollision
+                || error.BuildingHits.Length != 0 || error.SegmentHits.Length == 0) return false;
+            var node = Singleton<NetManager>.instance.m_nodes.m_buffer[firstHook];
+            if (node.CountSegments() != 1) return false;
+            foreach (ushort hit in error.SegmentHits)
+            {
+                bool incident = false;
+                for (int i = 0; i < 8; i++)
+                    if (node.GetSegment(i) == hit) { incident = true; break; }
+                if (!incident) return false;
+            }
+            return true;
+        }
+
+        static List<ushort> JoinOrder(List<ushort> hooks)
+        {
+            if (JoinPlanPossible(hooks)) return hooks;
+            if (hooks.Count == 2)
+            {
+                var reverse = new List<ushort> { hooks[1], hooks[0] };
+                if (JoinPlanPossible(reverse)) return reverse;
+            }
+            return null;
+        }
+
+        static bool JoinPlanPossible(List<ushort> hooks)
         {
             Vector3 mean, join;
             if (!JoinPoint(hooks, out mean, out join)) return true;
             var road = Net("Basic Road");
             float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
-            try
+            for (int i = 0; i < hooks.Count; i++)
             {
-                foreach (ushort hook in hooks)
-                    Link(road, Vector3.zero, join, hook, 0, true, elevation, testOnly: true);
-                return true;
+                try { Link(road, Vector3.zero, join, hooks[i], 0, true, elevation, testOnly: true); }
+                catch (PlacementRejected e)
+                {
+                    // Later links attach to the junction made by the first link,
+                    // not this fresh endpoint. Defer only its paired-stub overlap;
+                    // actual Link still checks every error against the real node.
+                    if (i > 0 && PairedStubCollision(e, hooks[0]))
+                    {
+                        if (result != null) result["join_preflight_deferred"] = e.Message;
+                        continue;
+                    }
+                    if (result != null) result["last_hookup_join_rejection"] = e.Message;
+                    return false;
+                }
             }
-            catch (PlacementRejected e)
-            {
-                // Build uses these exact links without Connect's bridge recovery.
-                // A rejected join is therefore not a constructible candidate.
-                if (result != null) result["last_hookup_join_rejection"] = e.Message;
-                return false;
-            }
+            return true;
         }
 
         // A candidate grid must also be reachable: the hookup links from the
@@ -242,7 +282,7 @@ namespace Cs1Harness
         {
             var road = Net("Basic Road");
             var net = Singleton<NetManager>.instance;
-            if (!JoinLinksClear(hooks)) return false;
+            if (!JoinPlanPossible(hooks)) return false;
             Vector3 mean, join;
             bool joined = JoinPoint(hooks, out mean, out join);
             var starts = new List<Vector3>();
@@ -327,6 +367,7 @@ namespace Cs1Harness
                     candidates.Add(new KeyValuePair<float, Vector3>(score, Ground(p.x, p.z)));
                 }
             candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
+            Vector3? gridValidFallback = null;
             foreach (var candidate in candidates)
             {
                 var p = candidate.Value;
@@ -341,6 +382,7 @@ namespace Cs1Harness
                             a = Ground(p.x - Half + i * Spacing, p.z - Half + j * Spacing);
                             Link(road, a, Ground(a.x, a.z + Spacing), testOnly: true);
                         }
+                    if (gridValidFallback == null) gridValidFallback = p;
                     if (!HookupClear(hooks, p))
                     {
                         continue;
@@ -350,6 +392,11 @@ namespace Cs1Harness
                 catch (PlacementRejected) { }
             }
             if (strict) return null;
+            if (gridValidFallback != null)
+            {
+                result["hookup_preflight_deferred_site"] = XYZ(gridValidFallback.Value);
+                return gridValidFallback;
+            }
             throw new Exception("no dry start-tile grid and hookup that pass native road placement checks");
         }
 
@@ -437,9 +484,13 @@ namespace Cs1Harness
                 errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, true, true, false, true, true, false, false, 0,
                     out first, out last, out segment, out cost, out production);
                 if (errors != ToolBase.ToolErrors.None)
+                {
+                    var segmentHits = CollisionIds(collidingSegments);
+                    var buildingHits = CollisionIds(collidingBuildings);
                     throw new PlacementRejected(info.name + " " + start.m_position + " -> " + end.m_position
                         + " (elevation " + start.m_elevation + " -> " + end.m_elevation + ")"
-                        + CollisionDetail(collidingSegments, collidingBuildings), errors);
+                        + CollisionDetail(segmentHits, buildingHits), errors, segmentHits, buildingHits);
+                }
             }
             finally { controller.EndColliding(); }
             if (testOnly) return 0;
@@ -456,23 +507,39 @@ namespace Cs1Harness
             return last;
         }
 
-        static string CollisionDetail(ulong[] segments, ulong[] buildings)
+        static ushort[] CollisionIds(ulong[] bits)
+        {
+            var ids = new List<ushort>();
+            for (int word = 0; word < bits.Length; word++)
+            {
+                if (bits[word] == 0) continue;
+                for (int bit = 0; bit < 64; bit++)
+                {
+                    int id = word * 64 + bit;
+                    if (id > 0 && id <= ushort.MaxValue && (bits[word] & (1UL << bit)) != 0)
+                        ids.Add((ushort)id);
+                }
+            }
+            return ids.ToArray();
+        }
+
+        static string CollisionDetail(ushort[] segments, ushort[] buildings)
         {
             var hits = new List<string>();
             var net = Singleton<NetManager>.instance;
-            for (int i = 1; i < net.m_segments.m_buffer.Length && hits.Count < 8; i++)
-                if ((segments[i >> 6] & (1UL << (i & 63))) != 0)
-                {
-                    var s = net.m_segments.m_buffer[i];
-                    hits.Add("segment " + i + " " + (s.Info == null ? "?" : s.Info.name) + " " + s.m_flags);
-                }
+            foreach (ushort i in segments)
+            {
+                if (hits.Count >= 8) break;
+                var s = net.m_segments.m_buffer[i];
+                hits.Add("segment " + i + " " + (s.Info == null ? "?" : s.Info.name) + " " + s.m_flags);
+            }
             var bm = Singleton<BuildingManager>.instance;
-            for (int i = 1; i < bm.m_buildings.m_buffer.Length && hits.Count < 8; i++)
-                if ((buildings[i >> 6] & (1UL << (i & 63))) != 0)
-                {
-                    var b = bm.m_buildings.m_buffer[i];
-                    hits.Add("building " + i + " " + (b.Info == null ? "?" : b.Info.name));
-                }
+            foreach (ushort i in buildings)
+            {
+                if (hits.Count >= 8) break;
+                var b = bm.m_buildings.m_buffer[i];
+                hits.Add("building " + i + " " + (b.Info == null ? "?" : b.Info.name));
+            }
             return hits.Count == 0 ? "" : " [" + string.Join("; ", hits.ToArray()) + "]";
         }
 
@@ -883,6 +950,7 @@ namespace Cs1Harness
             if (hooks == null)
             {
                 hooks = Hookups();
+                hooks = JoinOrder(hooks) ?? hooks;
                 center = Site(hooks);
             }
             result["center"] = XYZ(center);
