@@ -32,8 +32,9 @@ not a universal requirement for every playable city. Curvature, obstacles,
 between-sample terrain and the native placement tool can falsify a likely plan.
 
 The finite search returns unknown if it finds no plan. Missing graphs are
-unknown. `not_possible_here` is used only for a complete structural negative
-in the **current authored graph/current tile**—never geographical impossibility
+unknown. A through-road without dangling ramp stubs is unknown, not a negative.
+`not_possible_here` is used only when the current authored road graph lacks a
+required incoming or outgoing outside anchor—never geographical impossibility
 or a claim about every possible generator. No check emits `promised`.
 
 Water candidates require an initialized wet route in prepared upstream-to-
@@ -60,7 +61,9 @@ forced funds, direct-buffer road creation or groundwater substitution.
 
 Successful construction settles for256 simulation frames, then uses the
 existing native inbound/outbound car path observer. Placement and path results
-are separate. Setup, binding, controller, timeout and cleanup faults are
+are separate. Native readbacks of the model's footprint predicates are also
+separate: a predicate mismatch leaves unattempted tool placement unscored.
+Setup, binding, controller, resource, timeout and cleanup faults are
 unscored. A native rejection is a negative for the specified witness, not for
 all sites on Earth. Water samples do not score sustained service.
 

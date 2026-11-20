@@ -129,11 +129,21 @@ def start_witness(ground, depth, hydro, params=PARAMETERS):
         n for n in access["leave"] if _tile_of(graph["nodes"][n]["xyz"]) == tile
     ]
     scope = "Current authored directed graph and current start tile only; not all possible generators"
-    if not arrivals or not departures:
+    if not access["incoming"] or not access["outgoing"]:
         return {
             "level": "not_possible_here",
-            "reason": "no_authored_two_way_start_access",
+            "reason": "missing_authored_outside_road_direction",
             "predicted": False,
+            "scope": scope,
+            "witness": None,
+        }
+    if not arrivals or not departures:
+        # Through-roads can have valid access without dangling ramp stubs.
+        # This constructor supports a two-stub plan only, not every legal join.
+        return {
+            "level": "unknown",
+            "reason": "no_supported_two_stub_witness",
+            "predicted": None,
             "scope": scope,
             "witness": None,
         }

@@ -41,9 +41,10 @@ def prediction(path, package, model_hash):
         raise ValueError("Model binding mismatch")
     if row.get("artifact_sha256") != sha(package):
         raise ValueError("Prediction does not bind the exact map bytes")
-    start = row["capabilities"]["start"]
-    if start.get("witness") is not None and digest(start["witness"]) != start.get("witness_sha256"):
-        raise ValueError("Witness binding mismatch")
+    for capability in ("start", "water"):
+        value = row["capabilities"][capability]
+        if value.get("witness") is not None and digest(value["witness"]) != value.get("witness_sha256"):
+            raise ValueError(f"Witness binding mismatch: {capability}")
     return row
 
 
@@ -96,7 +97,8 @@ def run(cfg, args):
         raise ValueError("Compiled oracle DLL mismatch")
     out = args.out.resolve()
     out.mkdir(parents=True, exist_ok=False)
-    shutil.copyfile(args.prediction, out / "prediction.json")
+    # Freeze the validated request, not a second read of a mutable source file.
+    (out / "prediction.json").write_text(json.dumps(row, indent=2) + "\n")
     shutil.copyfile(args.probes, out / "probes.json")
     stage = staging(cfg, out)
     result = {
@@ -104,8 +106,8 @@ def run(cfg, args):
         "oracle": "exact_start_witness_v1",
         "observed_at": datetime.now(timezone.utc).isoformat(),
         "model_sha256": args.model_sha256,
-        "prediction_sha256": sha(args.prediction),
-        "artifact_sha256": sha(args.map),
+        "prediction_sha256": sha(out / "prediction.json"),
+        "artifact_sha256": row["artifact_sha256"],
         "oracle_dll_sha256": args.dll_sha256,
         "oracle_source": verdict.harness_commit(),
         "observed_start": None,
@@ -127,6 +129,10 @@ def run(cfg, args):
             if sha(cfg.build_dir / "Cs1Harness.dll") != args.dll_sha256:
                 raise HarnessError("Oracle DLL changed while queued")
             installed = session.install_map(args.map.resolve())
+            if (session.receipt.get("map") or {}).get("sha256") != row["artifact_sha256"] or sha(installed) != row[
+                "artifact_sha256"
+            ]:
+                raise HarnessError("Installed map changed from the frozen prediction while queued")
             session.launch(["--noWorkshop"])
             if session.receipt.get("mod_sha256") != args.dll_sha256:
                 raise HarnessError("Installed oracle DLL mismatch")
@@ -202,6 +208,8 @@ def main():
     parser.add_argument("--issue", required=True)
     parser.add_argument("--wait-minutes", type=float, default=45)
     args = parser.parse_args()
+    if not 0 <= args.wait_minutes <= 45:
+        parser.error("--wait-minutes must be finite and in [0,45]")
 
     def terminate(signum, _frame):
         raise SystemExit(128 + signum)
