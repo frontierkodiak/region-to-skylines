@@ -136,6 +136,32 @@ class CohortComparison(unittest.TestCase):
         self.cohort["controls"].pop()
         self.assertFalse(self.result()["stock_policy_qualified"])
 
+    def test_stock_opening_does_not_require_a_geographic_reference(self):
+        for slug in ("stock-a", "stock-b"):
+            path = self.stock / slug / "verdict.json"
+            verdict = json.loads(path.read_text())
+            verdict["verdict"] = "unverified"
+            verdict["checks"].append({"name": "ground_truth", "status": "skip"})
+            write(path, verdict)
+        self.assertTrue(self.result()["stock_policy_qualified"])
+
+    def test_unverified_export_is_not_promoted_to_a_full_map_pass(self):
+        path = self.after / "native/holdout/verdict.json"
+        verdict = json.loads(path.read_text())
+        verdict["verdict"] = "unverified"
+        write(path, verdict)
+        result = self.result()
+        self.assertFalse(result["paired_comparison_qualified"])
+        self.assertEqual(result["after"]["unresolved"], 1)
+
+    def test_stock_unverified_aggregate_cannot_hide_an_explicit_failure(self):
+        path = self.stock / "stock-b/verdict.json"
+        verdict = json.loads(path.read_text())
+        verdict["verdict"] = "unverified"
+        verdict["checks"].append({"name": "no_flooding", "status": "fail"})
+        write(path, verdict)
+        self.assertFalse(self.result()["stock_policy_qualified"])
+
     def test_different_input_bytes_cannot_earn_a_paired_rate(self):
         path = self.after / "cpu-report.json"
         report = json.loads(path.read_text())

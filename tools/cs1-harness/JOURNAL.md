@@ -3320,3 +3320,25 @@ The separate groundwater policy commit `df82d6b` compiles and passes 155
 Python tests. Its 400 m setbacks and actual service reliability still require
 both full-hour stock controls. No improvement in exported-map survival is
 claimed by this control or the CPU exports.
+
+### 2026-11-20 PL-1078 stock control: groundwater-only player
+
+The same Cliffside Bay package completed 60.134 game-minutes with player source
+`df82d6b`, mod SHA256 `117aac531884410779013b45f19c025aef6be436b12ea6d058e521fecfcec61d`.
+All nine first-hour checks passed, with zero sampled service outages and last
+observed population 306. The aggregate map verdict is `unverified`, not `pass`:
+no real-world DEM or authored corridor probes were requested for this stock
+control. No explicit native check failed. The panel was viewed and reviewed
+against its actual capture. Cleanup is empty.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Simulation wall time was 932.31 seconds.
+The 223 whole-card samples, including setup and cleanup, peak at 10821 MiB,
+146.82 W, and 59 C. These include the existing allocation. The menu measured
+1574 MiB for the owned game, not a continuous game-only peak. The recorded
+200 W limit was unchanged.
+
+The separate join-validation change requires both stock controls to run again
+with that compiled player. Two superseded requests were interrupted only while
+still queued, after checking their exact PID, label, owning issue, and queue
+state. Neither acquired the install or started a game. The running groundwater
+control was not interrupted; PL-1072 acquired the install after its cleanup.
