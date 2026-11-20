@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 import shapely
 from landcover import lonlat
-from place_model import read_grid, read_manifest, read_table, validate
+from place_model import SCHEMAS, read_grid, read_manifest, read_table, validate
 from pyproj import Transformer
 from region import SIZE
 from scipy.ndimage import map_coordinates
@@ -176,13 +176,28 @@ def water_visibility(row, properties):
 
 
 def compile_geometry(place, manifest, frame):
+    if "transportation_semantics" not in manifest["layers"]:
+        raise ValueError(
+            "Place lacks transportation_semantics; rebuild it with the shared model's transportation-semantics command"
+        )
+    semantics = {
+        row["id"]: row
+        for row in read_table(place, "transportation_semantics").to_pylist()
+    }
     road_properties = source_properties(place, manifest, "source_segment")
     water_properties = source_properties(place, manifest, "source_water")
     roads = []
     for row in read_table(place, "transportation_segments").to_pylist():
+        semantic = semantics[row["id"]]
+        target_class = semantic["class"]
+        if semantic["mode"] == "rail" and target_class == "standard_gauge":
+            target_class = "rail"
         roads.append(
             {
                 **feature(row, road_properties.get(row["id"], {})),
+                "canonical_class": row["class"],
+                "transportation_semantics": semantic,
+                "class": target_class,
                 "pts": frame.points(shapely.from_wkb(row["geometry"]).coords),
             }
         )
@@ -280,6 +295,10 @@ def compile_geometry(place, manifest, frame):
 def preprocess(place, output):
     """Validate first, then return input PNG, geometry JSON, banks and landcover paths."""
     place, output = Path(place), Path(output)
+    if "transportation_semantics" not in SCHEMAS:
+        raise ValueError(
+            "This reader needs polli-place-model >=0.2 with transportation semantics"
+        )
     validation = validate(place)
     manifest = read_manifest(place)
     frame = Frame(manifest)

@@ -46,6 +46,7 @@ def model(
     connectors=(),
     source_water=(),
     source_segment=(),
+    semantics=None,
     sampling="vertex",
 ):
     evidence = provenance("fixture", "synthetic source measurements")
@@ -60,6 +61,20 @@ def model(
         layers[name] = write_table(
             root, name, [{**row, "provenance": evidence} for row in rows]
         )
+    if semantics is None:
+        semantics = [
+            {
+                "id": r["id"],
+                "mode": "road",
+                "class": "unknown" if r["class"].isdigit() else r["class"],
+            }
+            for r in roads
+        ]
+    layers["transportation_semantics"] = write_table(
+        root,
+        "transportation_semantics",
+        [{**row, "provenance": evidence} for row in semantics],
+    )
     bounds = [100, 200, 2100, 4200]
     fractions = (
         np.linspace(0, 1, 5) if sampling == "vertex" else (np.arange(5) + 0.5) / 5
@@ -257,13 +272,13 @@ class PlaceInputTests(unittest.TestCase):
             for key in [
                 "id",
                 "connectors",
-                "class",
                 "bridge",
                 "tunnel",
                 "level",
                 "width",
             ]:
                 self.assertEqual(before[key], after[key])
+            self.assertEqual(before["class"], after["canonical_class"])
         self.assertEqual(len(geo["roadConnectors"]), 6)
         self.assertEqual(geo["roads"][1]["sourceFeature"]["properties"], scoped)
         self.assertLess(
@@ -272,6 +287,37 @@ class PlaceInputTests(unittest.TestCase):
         middle = [c for c in geo["roadConnectors"] if c["id"].endswith("middle")]
         self.assertEqual([(c["x"], c["z"]) for c in middle], [(0, 0), (0, 0)])
         self.assertNotEqual(middle[0]["id"], middle[1]["id"])
+
+    def test_canonical_standard_gauge_reaches_the_legacy_rail_codec(self):
+        from region import crossings
+
+        road = {
+            "id": "rail",
+            "geometry": LineString([(0, 2200), (2200, 2200)]).wkb,
+            "connectors": [
+                {"connector_id": "a", "at": 0.0},
+                {"connector_id": "b", "at": 1.0},
+            ],
+            "class": "standard_gauge",
+            "width": 4.0,
+            "bridge": False,
+            "tunnel": False,
+            "level": 0,
+        }
+        manifest = model(
+            self.place,
+            roads=[road],
+            connectors=[
+                {"id": "a", "x": 0, "z": 2200},
+                {"id": "b", "x": 2200, "z": 2200},
+            ],
+            semantics=[{"id": "rail", "mode": "rail", "class": "standard_gauge"}],
+        )
+        geo = compile_geometry(self.place, manifest, Frame(manifest))
+        self.assertEqual(geo["roads"][0]["class"], "rail")
+        self.assertEqual(geo["roads"][0]["canonical_class"], "standard_gauge")
+        self.assertEqual(geo["roads"][0]["connectors"], road["connectors"])
+        self.assertEqual(len(crossings(geo, {"rail"})), 2)
 
     def test_water_lines_holes_and_explicit_culvert_are_not_conflated(self):
         shell = [(300, 1400), (1900, 1400), (1900, 3000), (300, 3000)]

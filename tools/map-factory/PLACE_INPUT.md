@@ -19,7 +19,9 @@ uv run --project tools/map-factory \
   /absolute/scratch/amherst-export
 ```
 
-Supply the workbench at `75de9234` for this reader's initial contract. No model
+Supply polli-place-model 0.2 or the workbench's PL-1074 stack (PR249) for the
+transportation semantics extension. Old v0 directories can be upgraded with
+`place rebuild-transportation-semantics MODEL`. No model
 implementation is vendored and no editable dependency or private path is added
 to the public project's lockfile. Any installation of that package providing
 the documented API works; the sibling checkout is only an example dependency.
@@ -94,10 +96,16 @@ measured tide or vertical-datum harmonization.
 ## Identity and semantic limits
 
 - `roads` retains every canonical segment, even outside the crop. IDs,
-  classes (including unknown/numeric classes), widths in **source metres**,
+  raw classes (including numeric classes) in `canonical_class`, widths in **source metres**,
   bridge/tunnel/level, provenance and the entire original connector list with
   unchanged linear `at` references survive. Lines are not clipped or split:
   their reference fractions therefore remain meaningful.
+
+The shared `transportation_semantics` table, keyed by segment ID, owns normalized
+mode/class. The adapter uses that class for target routing, mapping only explicit
+rail/standard_gauge to the existing `rail` codec. It does not guess that an
+unknown or narrow-gauge line is a native standard-gauge railway. Numeric source
+street codes remain road/unknown upstream unless their source dictionary is known.
 - `roadConnectors` retains every connector ID and provenance. Its x/z are
   game east/north metres under the reported transform. Coincident connectors
   remain distinct. Geometric crossings never create connectivity. Full
