@@ -36,7 +36,13 @@ def opening(folder, expected_package, *, stock_control=False):
             if verdict.get("verdict") == "fail" or explicit_failure
             else "unjudged"
         )
-    if verdict.get("verdict") == "error" and value.get("phase") == "preflight_or_load":
+    cleanup_failed = any(
+        check.get("name") == "cleanup" and check.get("status") == "fail"
+        for check in verdict.get("checks", [])
+    )
+    if cleanup_failed or (
+        verdict.get("verdict") == "error" and value.get("phase") == "preflight_or_load"
+    ):
         status = "blocked"
     if status != "blocked":
         if not expected_package or not actual_package:
