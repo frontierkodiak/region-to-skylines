@@ -1,4 +1,7 @@
-# Preparation findings: no demonstrated safe-square class
+# Water-calibration findings: no demonstrated safe-square class
+
+Latest collection: **5 of 28 exportable squares complete; 23 remain**, plus two
+original capture failures. The full one-shot holdout score has not run.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
 Its regression, old-corpus refresh, frozen fit, and synthetic scoring attacks
@@ -97,6 +100,55 @@ Curated receipts are attached to the PL-1072 result comment. Raw run receipts
 remain in the experiment's `native/dry-upland-north-america-attempt-1` directory.
 No cutoff, probe, package, frozen model or physical writer changed after observing
 this outcome.
+
+## Native collection: four-square dry-upland tranche
+
+The next four squares completed on November 20 through the same clean native
+harness `6949182`, in frozen panel order. All are empty-map runs over 60 game
+minutes, not first-hour city-building trials. Flood area uses the original
+0.05 km² gate. Required-water counts below are identical at endpoint and for
+points wet throughout all 13 sampled epochs.
+
+| Intended dry-upland square | Game minutes | Worst flood area, km² | Flood gate | Required water |
+|---|---:|---:|---|---|
+| South America | 60.035559 | 0.0850 | fail | 1/1, pass |
+| Europe | 60.052225 | 0.1132 | fail | 1/1, pass |
+| Africa | 60.061670 | 0.0000 | pass | 1635/1971, fail |
+| Asia | 60.037503 | 0.2452 | fail | 50/50, pass |
+
+| Square | Initialized wet monitored points | Exactly dry at end | No wet native neighbor within 64 m at end | Grid area dried / newly wet, km² |
+|---|---:|---:|---:|---:|
+| South America | 790 | 180 | 55 | 0.28 / 0.49 |
+| Europe | 697 | 300 | 228 | 0.59 / 0.53 |
+| Africa | 7069 | 1936 | 841 | 2.39 / 0.05 |
+| Asia | 1255 | 279 | 0 | 0.57 / 0.42 |
+
+These are per-square observations, not interim model accuracy or drying labels.
+Exact thinning is not isolated loss; the full frozen outcome definition also
+uses required-water endpoint/throughout evidence. No nearby endpoint values are
+unknown in these four records. Grid changes use the separate 0.1 m wet threshold,
+not the flood gate's deeper-than-0.5 m and 128 m exclusion definition.
+
+All 280 staged files and all 21 writer files revalidate. Each native package,
+initial grid, probe file, mask, reference and harness identity matches its frozen
+binding; original report/verdict hashes still match the collection ledger.
+Fresh carbon-idle and offline guards passed, all owned teardown receipts are
+empty, and recorded game/session/waiter PIDs have exited. No failed water run was
+retried to improve its result. The four original overall verdicts remain fail:
+unreviewed startup images plus the native water failures shown above.
+
+Actual opening, Areas and final overview PNGs were inspected for all four.
+Hash-bound producer startup-view sidecars pass without rewriting the original
+verdicts. Europe's close opening shows uninformative grassy terrain rather than
+the entrance; the Areas view reveals the road approach and reservoir. This is
+recorded image/state QA, not ideal composition or human playability acceptance.
+Curated receipts and actual images are attached to the PL-1072 tranche result.
+
+No physical writer, package, probe, model, cutoff or game gate changed. The
+input-only rejection of the all-warn drying rule and the lack of a contrasting
+1.5 m versus 3 m flood example remain unchanged. A safer cleared class has not
+been demonstrated. Full cohort scoring waits for the remaining 23 exports;
+both original capture failures stay missing, not safe negatives.
 
 ## Remaining work and release hold
 

@@ -2712,3 +2712,41 @@ unchanged. Not human or independent visual acceptance. One of 28 exportable
 squares collected; two capture failures remain unscored. No one-shot score yet,
 no physical writer/model/probe change, and no proprietary binary or Steam log
 is delivered. See `tools/map-factory/WATER_CALIBRATION_FINDINGS.md`.
+
+## 2026-11-20 — PL-1072 four more frozen dry-upland squares
+
+Blade RTX 2080 Ti, bus 05:00.0, clean native harness `6949182`, fixed panel order.
+Each run's card peak was 10821 MiB with 8004 MiB before launch: estimated game
+increment 2817 MiB by subtraction, **not a directly sampled game peak**.
+Recorded power cap was 200 W throughout and was not changed. Other workloads
+were not touched. Wall seconds below are the simulation-soak phase, excluding
+queue/startup; GPU peaks span the recorded session samples.
+
+| Dry-upland square | Menu game MiB | Peak W | Peak °C | Soak wall s | Game min | Native water result |
+|---|---:|---:|---:|---:|---:|---|
+| South America | 1592 | 133.76 | 50 | 953.997303 | 60.035559 | flood .0850 km² fail; required 1/1 pass |
+| Europe | 1574 | 139.65 | 53 | 952.938427 | 60.052225 | flood .1132 km² fail; required 1/1 pass |
+| Africa | 1574 | 134.39 | 49 | 954.579344 | 60.061670 | flood .0000 km² pass; required 1635/1971 fail |
+| Asia | 1574 | 132.78 | 52 | 1070.630970 | 60.037503 | flood .2452 km² fail; required 50/50 pass |
+
+The flood limit remains .05 km². Required counts match at endpoint and throughout
+all 13 sampled epochs. Initialized/exact-dry/isolated-dry endpoint point counts:
+South America 790/180/55; Europe 697/300/228; Africa 7069/1936/841; Asia 1255/279/0.
+No endpoint-neighbor readings are unknown. These observations are not an interim
+panel score; exact thinning alone is not the full drying outcome definition.
+
+Every frozen package, initial grid, probe/mask/reference and per-run native-source
+binding revalidates, as do all 280 staged files and 21 writer files. Fresh carbon
+checks and the read-only offline guard passed. All cleanup receipts are empty;
+recorded session processes and waiter PIDs have exited. Owned games 1632709
+(Africa) and 1765008 (Asia) needed normal quit-grace termination during teardown,
+not spontaneous-crash recovery. The foreground collector returned after all four.
+
+Original overall failures for startup-unreviewed plus the listed water gates
+remain hash-identical. Actual opening/Areas/final-overview inspection and
+hash-bound producer startup sidecars pass separately; no human or independent
+visual acceptance is claimed. Europe's close opening is an uninformative grassy
+view, documented without changing it. Five of 28 exports collected, 23 remain;
+two original capture failures stay missing. No one-shot score, model/probe/writer
+change, cutoff promotion or release claim. No proprietary binary, decompiled
+code, save or account log is delivered.
