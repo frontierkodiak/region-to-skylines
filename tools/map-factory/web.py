@@ -192,6 +192,7 @@ def build(work, landcover_path=None, evidence_path=None):
     return json.dumps(
         {
             "crp": str(crp),
+            "preview": str(work / "out" / "preview.png"),
             "map_name": receipt["preparation"]["map_name"],
             "receipt": receipt,
         },

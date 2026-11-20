@@ -56,10 +56,15 @@
             <option value="1.5">1.5x</option>
           </select>
         </label>
+        <label>Starting tile<select id="startTile"><option value="auto">Auto: near water and a road</option></select></label>
         <label class="check"><input id="rivers" type="checkbox" checked> Cut OSM rivers and lakes</label>
         <p id="scalenote" class="note wide"></p>
       </div>
 
+      <details><summary>Outside connections</summary>
+        <div id="connections"></div>
+        <p class="note">Sea and air connections are not included. Disabling highway traffic can prevent a new city from growing.</p>
+      </details>
       <div id="previewwrap">
         <canvas id="preview3d"></canvas>
         <div id="status">Loading…</div>
@@ -69,12 +74,25 @@
       <p class="note" id="tilesnote">
         <span class="sw grid"></span> The game cuts the map into 9 x 9 tiles of <span id="tTile">1.92 km</span>.
         <span class="sw g25"></span> The base game lets you build on the middle 25 (<span id="t25">9.6 km</span> square), unlocked one at a time as the city grows;
-        <span class="sw st"></span> you start on the centre tile.
+        <span class="sw st"></span> the writer picks a starting tile near water and a road, unless you choose one.
         The <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2862121823">81 Tiles 2</a> mod opens all 81 (<span id="t81">17.28 km</span>), and can unlock them all at once.
         The map always covers all 81.
       </p>
 
       <dl id="stats"></dl>
+      <section id="map-preview" hidden aria-label="Your packaged map">
+        <h2>Your map</h2>
+        <img id="map-preview-image" width="1200" height="1510" alt="Daylight top-down map with resource, water and height overlays">
+        <p id="map-preview-summary" class="note"></p>
+        <button id="share-preview" type="button" class="secondary">Share preview image</button>
+      </section>
+      <section id="computer" hidden>
+        <h2>Take this map to your computer</h2>
+        <p id="computer-reason" class="note"></p>
+        <button id="send-link" type="button" class="secondary">Send map link to your computer</button>
+        <textarea id="computer-link" readonly hidden aria-label="Map link"></textarea>
+        <p class="note">Or copy the agent instructions below and open them on your computer.</p>
+      </section>
 
 
       <label class="namefield">Map name <input id="name" value="asheville" spellcheck="false"></label>
@@ -203,7 +221,7 @@
 
       <div class="download" id="dlbar">
         <div id="mapname">Loading…</div>
-        <button id="dl" disabled>Download ready-to-play map</button>
+        <button id="dl" disabled>Prepare map &amp; preview</button>
         <p id="crpnote" class="note" hidden></p>
       </div>
     </aside>

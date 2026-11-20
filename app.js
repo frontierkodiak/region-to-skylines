@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
+import { desktopBuildPolicy } from "./device.js";
 import { captureInputs } from "./inputs.js";
 
 const $ = (id) => document.getElementById(id);
@@ -22,9 +23,40 @@ function readHash() {
 }
 const link = () => location.origin + location.pathname + squareHash({ ...state, name: $("name").value });
 function writeHash() {
+  if (result) invalidatePrepared();
   history.replaceState(null, "", squareHash({ ...state, name: $("name").value }));
 }
 readHash();
+const deviceReason = desktopBuildPolicy();
+$("computer").hidden = !deviceReason;
+$("computer-reason").textContent = deviceReason ?? "";
+for (let n = 0; n < 25; n++) {
+  const o = document.createElement("option");
+  o.value = n; o.textContent = `Tile ${n}: column ${n % 5 + 1}, row ${Math.floor(n / 5) + 1} from south`;
+  $("startTile").append(o);
+}
+for (const id of ["road_in", "road_out", "rail_in", "rail_out"]) {
+  const box = document.createElement("input"); box.type = "checkbox"; box.checked = !state.disabledConnections?.includes(id); box.id = id;
+  const label = document.createElement("label"); label.className = "check";
+  label.append(box, document.createTextNode({ road_in: "Highway incoming", road_out: "Highway outgoing", rail_in: "Rail incoming", rail_out: "Rail outgoing" }[id]));
+  $("connections").append(label);
+  box.onchange = () => { state.disabledConnections = ["road_in", "road_out", "rail_in", "rail_out"].filter((k) => !$(k).checked); writeHash(); };
+}
+$("startTile").value = state.startTile ?? "auto";
+$("startTile").onchange = (e) => {
+  if (e.target.value === "auto") delete state.startTile;
+  else state.startTile = Number(e.target.value);
+  writeHash(); invalidatePrepared();
+};
+$("send-link").onclick = async () => {
+  const data = { title: titleFor(), url: link() };
+  try {
+    if (navigator.share) await navigator.share(data);
+    else { await navigator.clipboard.writeText(data.url); $("send-link").textContent = "Link copied: open it on your computer"; }
+  } catch {
+    $("computer-link").hidden = false; $("computer-link").value = data.url; $("computer-link").select();
+  }
+};
 $("rot").value = state.rotation; $("rotOut").textContent = `${state.rotation}°`;
 $("scale").value = String(state.scale); $("vscale").value = String(state.vscale); $("rivers").checked = state.rivers;
 for (const k of Object.keys(DEFAULTS)) $(k).value = String(state[k]);
@@ -262,12 +294,16 @@ function setDownload(water) {
   for (const id of ["dlpng", "dljson", "dlwater"]) $(id).disabled = water === "busy";
   $("dlpng").textContent = { loading: "Heightmap now (rivers still loading)", failed: "Heightmap (no rivers or lakes)" }[water] ?? "Heightmap (.png)";
   if (building) return;
+  if (deviceReason) {
+    dl.disabled = false; dl.dataset.kind = "computer"; dl.textContent = "Open computer options";
+    return;
+  }
   dl.dataset.kind = fallback ? "png" : "crp";
   dl.disabled = busy || (!fallback && water !== "basemap" && water !== "off");
   dl.classList.toggle("partial", fallback && (water === "loading" || water === "failed"));
   dl.textContent = fallback
     ? ({ loading: "Download heightmap now (rivers still loading)", failed: "Download heightmap (no rivers or lakes)" }[water] ?? "Download heightmap")
-    : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? "Download ready-to-play map");
+    : ({ loading: "Ready-to-play map: loading rivers…", failed: "Ready-to-play map: rivers didn't load, move the map to retry" }[water] ?? (prepared?.key === preparationKey() ? "Download ready-to-play map" : "Prepare map & preview"));
   const check = checkedPreset()?.check, note = fallback || check;
   $("crpnote").hidden = !note;
   $("crpnote").textContent = fallback ?? check ?? "";
@@ -358,12 +394,31 @@ const fileName = () => baseName() + (result && ["loading", "failed"].includes(re
 // ---------------------------------------------------------------- the ready-to-play map file
 
 let worker = null, building = false, fallback = null, nextId = 0;
+let prepared = null, previewURL = null;
+const preparationKey = () => link() + "|" + titleFor();
+function invalidatePrepared() {
+  prepared = null;
+  fallback = null;
+  if (previewURL) URL.revokeObjectURL(previewURL);
+  previewURL = null;
+  $("map-preview").hidden = true;
+  if (result) setDownload(result.raw.water);
+}
+$("share-preview").onclick = async () => {
+  if (!prepared) return;
+  const file = new File([prepared.preview], `${baseName()}-preview.png`, { type: "image/png" });
+  try {
+    if (navigator.canShare?.({ files: [file] })) await navigator.share({ files: [file], title: titleFor() });
+    else save(file, file.name);
+  } catch (err) { if (err.name !== "AbortError") save(file, file.name); }
+};
 /**
  * The ready-to-play .crp for the current square: capture the writer's inputs here (inputs.js),
  * then run the reference writer under Pyodide in mapgen-worker.js. `progress(text)` reports.
  */
 async function crpBytes(progress = () => {}) {
-  const sq = { ...result.sq, name: titleFor(), slug: baseName() };
+  if (deviceReason) throw new Error(deviceReason);
+  const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5), disabledConnections: state.disabledConnections, vscale: state.vscale, startTile: state.startTile, name: titleFor(), slug: baseName() };
   const inputs = await captureInputs(sq, { status: progress, about: { page: location.origin + location.pathname } });
   const w = (worker ??= new Worker(new URL("mapgen-worker.js", import.meta.url), { type: "module" }));
   const id = ++nextId;
@@ -387,8 +442,13 @@ async function savePNG() {
   if (result.raw.water === "loading") setStatus("Saved without rivers; download again once they load");
 }
 $("dl").onclick = async () => {
+  if (deviceReason) { $("computer").scrollIntoView({ behavior: "smooth", block: "center" }); return; }
   if (!result) return;
   const dl = $("dl");
+  if (prepared?.key === preparationKey()) {
+    save(new Blob([prepared.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
+    return;
+  }
   if (dl.dataset.kind !== "crp") return savePNG();
   building = true;
   dl.disabled = true;
@@ -397,10 +457,18 @@ $("dl").onclick = async () => {
   const tick = () => (dl.textContent = `${step}… ${Math.round((performance.now() - start) / 1000)} s`);
   const timer = setInterval(tick, 1000);
   try {
+    const buildKey = preparationKey();
     const map = await crpBytes((s) => { step = s; tick(); });
     lastBuild = { seconds: (performance.now() - start) / 1000, memory: map.memory, summary: map.summary };
-    save(new Blob([map.bytes], { type: "application/octet-stream" }), `${baseName()}.crp`);
-    setStatus(`Saved ${baseName()}.crp: \u201c${map.mapName}\u201d in New Game`);
+    if (buildKey !== preparationKey()) throw new Error("The square changed. Prepare the map again.");
+    invalidatePrepared();
+    prepared = { ...map, key: buildKey };
+    previewURL = URL.createObjectURL(new Blob([map.preview], { type: "image/png" }));
+    $("map-preview-image").src = previewURL;
+    $("map-preview").hidden = false;
+    $("map-preview-summary").textContent = "Packaged terrain, resources and initial water. 9 tiles in vanilla; 25 / 81 with mods. Water stability is not shown by this preview.";
+    $("map-preview").scrollIntoView({ block: "start" });
+    setStatus(`Preview ready: \u201c${map.mapName}\u201d in New Game`);
   } catch (err) {
     lastBuild = { error: err.message };
     fallback = `This browser couldn't build the map file (${err.message}). Here is the heightmap instead; the Map Editor steps are under Advanced.`;
@@ -552,7 +620,7 @@ function drawPreview(fit, wet) {
   }
   placeNorth(result.sq.rotation);
   previewY = (g) => -0.25 + (g - fit.gameMin) * k * EXAG * (17280 / extentOf(result.sq));
-  $("legend").textContent = `Height x${EXAG} · lines: in-game tiles, white = start · drag to orbit`;
+  $("legend").textContent = `Height x${EXAG} · lines: in-game tiles, white = centre tile · drag to orbit`;
   resize();
 }
 

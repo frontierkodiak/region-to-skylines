@@ -837,6 +837,10 @@ export function squareProblem(sq) {
   if (!SCALES.includes(sq.scale)) return `scale takes ${SCALES.slice(0, -1).join(", ")} or ${SCALES.at(-1)}`;
   if (!["auto", "slopes"].includes(sq.vscale) && !(typeof sq.vscale === "number" && sq.vscale > 0 && sq.vscale <= 4))
     return "height takes auto, slopes or a factor above 0, up to 4";
+  if (sq.startTile !== undefined && (!Number.isInteger(sq.startTile) || sq.startTile < 0 || sq.startTile > 24)) return "start tile takes an integer from 0 to 24";
+  if (sq.disabledConnections !== undefined && (!Array.isArray(sq.disabledConnections) ||
+      sq.disabledConnections.some((k) => !["road_in", "road_out", "rail_in", "rail_out"].includes(k))))
+    return "unknown connection toggle";
   const range = { sm: [0, 4], rd: [0, 40], rw: [8, 200], ld: [0, 20] };
   for (const [k, [lo, hi]] of Object.entries(range))
     if (sq[k] !== undefined && !(isFinite(sq[k]) && sq[k] >= lo && sq[k] <= hi)) return `${k} takes ${lo} to ${hi}`;
@@ -937,6 +941,8 @@ export function parseHash(hash) {
   if (p.has("s")) o.scale = Number(p.get("s")) || 1;
   if (p.has("h")) o.vscale = ["auto", "slopes"].includes(p.get("h")) ? p.get("h") : Number(p.get("h"));
   if (p.has("rivers")) o.rivers = p.get("rivers") !== "0";
+  if (p.has("off")) o.disabledConnections = p.get("off").split(",");
+  if (p.has("start")) o.startTile = Number(p.get("start"));
   if (p.has("n")) o.name = p.get("n");
   for (const k of Object.keys(DEFAULTS)) if (p.has(k) && isFinite(Number(p.get(k)))) o[k] = Number(p.get(k));
   return o;
@@ -947,6 +953,8 @@ export function squareHash(o) {
     h: o.vscale ?? "auto", rivers: o.rivers === false ? 0 : 1, n: o.name ?? "map",
   });
   for (const k of Object.keys(DEFAULTS)) if (o[k] !== undefined && o[k] !== DEFAULTS[k]) p.set(k, o[k]);
+  if (o.disabledConnections?.length) p.set("off", [...o.disabledConnections].sort().join(","));
+  if (o.startTile !== undefined) p.set("start", o.startTile);
   return "#" + p.toString().replaceAll("%2C", ",");
 }
 

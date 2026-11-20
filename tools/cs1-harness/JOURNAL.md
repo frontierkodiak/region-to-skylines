@@ -1,5 +1,21 @@
 # cs1-harness journal
 
+## 2026-11-19 · Sol medium (carbon) · PL-1067 · launch panel readback
+
+Blade / RTX 2080 Ti (05:00.0), queued through `cli.slot`, Steam offline.
+Two launches: the first exposed a driver path-alias mismatch and tore down;
+the second resolved installed paths via the native map inventory and checked
+Asheville plus Innsbruck with railway traffic disabled. Both native listing
+checks pass, including stable resource bars, image refs and hash-bound visual
+review. Buildable percentages are 73 and 76; Innsbruck shows no railway
+connection. No simulation or strict-disableMods claim. Second session wall
+about 97 s, peak observed total VRAM 9,588 MiB (other work already occupied
+about 8 GB), game VRAM 1,574 MiB at menu, peak GPU power 81.94 W and 33 C.
+The slot is free and the game/Steam/display/bus were torn down. Run receipts
+and screenshots are attached to PL-1067; driver and evidence retained on blade
+under `~/experiments/PL-1067`. No GPU power settings changed.
+
+
 ## 2026-11-15 · Opus xhigh · PL-984 · city and prefab dumps for the offline save reader
 
 New mod module `DumpOps.cs`: `dump_city {path}` writes every created node,

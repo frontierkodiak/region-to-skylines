@@ -73,8 +73,7 @@ MRDS resource inputs and the richer offline wells/mines reference. Both use the 
 is a partial evaluation: Asheville improves, Rio remains unresolved, and Rio flooding
 and Charleston terrain correlation still fail. Byte conformance is not native acceptance. The first map downloads
 about 30 MB (cached afterwards); a map takes about a
-minute and half a gigabyte of memory, so a phone may run out, in which case the page offers
-the heightmap instead.
+minute and half a gigabyte of memory, so phones and low-memory devices get computer handoff options before Python is downloaded.
 
 - `inputs.js` captures what the writer reads, for any square: the heightmap (the page's
   defaults, with sea from OpenStreetMap's mapped ocean), the uncarved ground, and the
@@ -226,3 +225,35 @@ experiment: Blender previews and FBX checks are not a game-tested asset pack.
 
 The code is MIT licensed; see [LICENSE](LICENSE). The data it fetches keeps its
 own licences, above.
+
+## Launch controls and previews
+
+**Prepare map & preview** builds the map, then shows its full-square daylight
+render and resource, initial-water and height overlays before the download.
+**Share preview image** shares that same PNG (or downloads it when file sharing
+is unavailable). The CLI writes `<name>-preview.png` beside its JSON.
+Counts and buildable percentage come from the packaged MapMetaData; this is a
+grid rendering, not a game screenshot or a water-stability promise.
+
+Height now applies to ready-to-play maps too. Starting tile defaults to the
+writer's water-and-road choice; an override is numbered 0–24 from southwest,
+west-to-east then south-to-north. A tile with insufficient buildable ground is
+rejected. Highway incoming/outgoing and rail incoming/outgoing can be switched
+off independently; their corridors remain, but their outside traffic offers
+and listing counts are disabled. Sea and air connections remain unavailable.
+
+```sh
+node cli.mjs asheville --height 0.75 --start-tile 11 --no-connection rail_in --out ./maps
+```
+
+Shared links retain these choices. Defaults remain unchanged. Optional height,
+start and traffic combinations have not had long-term gameplay qualification.
+Phones (including mobile user-agent hints) and devices reporting 4 GB RAM or
+less do not start the Python worker: send the link to a computer, or copy the
+agent instructions. Clipboard and file-sharing failures leave selectable text
+or an image download.
+
+The historical native fixture evidence remains bound to its original source.
+`test/fixture-contract.mjs` additionally validates PL-1067 source-evolution pins
+and runs the current writer against all ten unchanged package goldens. It does
+not relabel the new controls as having historical native qualification.

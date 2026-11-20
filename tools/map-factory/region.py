@@ -515,6 +515,9 @@ def start_area(ground, depth, geometry):
         if road_mask.any()
         else np.zeros_like(ground)
     )
+    override = geometry["sq"].get("startTile")
+    if override is not None and (type(override) is not int or not 0 <= override < 25):
+        raise ValueError("Start tile must be an integer from 0 to 24")
     options = []
     for z in range(5):
         for x in range(5):
@@ -522,7 +525,7 @@ def start_area(ground, depth, geometry):
             area = np.s_[row - 60 : row + 60, col - 60 : col + 60]
             land = float(buildable[area].mean())
             water = int((depth[area] > 0.5).sum())
-            if land > 0.15:
+            if land > 0.15 and (override is None or override == z * 5 + x):
                 options.append(
                     (
                         int(water >= 256),
@@ -533,7 +536,7 @@ def start_area(ground, depth, geometry):
                     )
                 )
     if not options:
-        raise ValueError("No buildable starting tile in the vanilla 25-tile area")
+        raise ValueError("Selected starting tile has insufficient buildable land" if override is not None else "No buildable starting tile in the vanilla 25-tile area")
     has_water, _, _, x, z = max(options)
     col, row = 540 + (x - 2) * 120, 540 - (z - 2) * 120
     yy, xx = np.mgrid[row - 50 : row + 51, col - 50 : col + 51]
@@ -962,6 +965,7 @@ def prepare(png, geometry, layout, output, banks=None):
     summary.update(
         {
             "start_tile": start["index"],
+            **({"disabled_connections": data["sq"]["disabledConnections"]} if data["sq"].get("disabledConnections") else {}),
             "start_area": start,
             "map_id": "PL857-" + data["sq"]["slug"],
             "map_name": data["sq"]["name"] + " - Ready to Play",

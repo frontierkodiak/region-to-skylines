@@ -116,6 +116,9 @@ def generate(
             "file": "plan.npz",
             "sha256": hashlib.sha256((output / "plan.npz").read_bytes()).hexdigest(),
         }
+    from map_metadata import launch_preview
+
+    receipt["listing"] = launch_preview(output, receipt)
     (output / "generation.json").write_text(json.dumps(receipt, indent=2) + "\n")
     return receipt
 

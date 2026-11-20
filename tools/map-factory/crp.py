@@ -304,10 +304,16 @@ def metadata_header(data):
     """
     typename, offset = read_unique_string(data, 6)
     if "SimulationMetaData" not in (typename or ""):
-        raise ValueError(f"Payload does not start with SimulationMetaData: {typename!r}")
+        raise ValueError(
+            f"Payload does not start with SimulationMetaData: {typename!r}"
+        )
     instance, offset = read_unique_string(data, offset)
     environment, end = read_unique_string(data, offset)
-    return {"typename": typename, "instance": instance, "environment": environment}, offset, end
+    return (
+        {"typename": typename, "instance": instance, "environment": environment},
+        offset,
+        end,
+    )
 
 
 def payload_environment(data):
@@ -507,6 +513,49 @@ def write_map(
         replacements.append(
             (start, start + 30, struct.pack(">h7f", 2, x, y, z, 1000, 0, 60, 0))
         )
+    disabled = hydro.get("disabled_connections", [])
+    connection_fields = {}
+    if disabled:
+        from template import decode_array, encode_array, manager_tag
+
+        allowed = {"road_in", "road_out", "rail_in", "rail_out"}
+        if set(disabled) - allowed:
+            raise ValueError("Unknown connection toggle")
+        # Building.Flags.Incoming/Outgoing are 0x40/0x80 in the installed game.
+        # CalculateOutsideConnectionCount reverses these from the building
+        # perspective: Outgoing means traffic incoming to the map.
+        # Leave the actual corridors and their lane IDs intact; disable the
+        # outside building's transfer offers, not just its menu count.
+        tag = manager_tag("BuildingManager")
+        at = data.find(tag)
+        if at < 0 or data.find(tag, at + 1) >= 0:
+            raise ValueError("Building manager tag is not unique")
+        start = at + begin_tag_size(data, at, "BuildingManager")
+        flags, end = decode_array(data, 49151, start, 4)
+        old_flags = flags.copy()
+        groups = {r["kind"]: set(r["nodes"]) for r in spec["routes"]}
+        for toggle in disabled:
+            kind = "rail" if toggle.startswith("rail") else toggle
+            bit = 0x80 if toggle.endswith("_in") else 0x40
+            for building in spec["buildings"]:
+                if building["node"] in groups[kind]:
+                    flags[building["id"] - 1] &= np.uint32(0xFFFFFFFF ^ bit)
+        if not np.array_equal(old_flags != 0, flags != 0):
+            raise ValueError("Connection toggle removed a building")
+        replacements.append((start, end, encode_array(flags, 4)))
+        for kind, nodes_in_route in groups.items():
+            prefix = "TrainTracks" if kind == "rail" else "Roads"
+            for direction, bit in [("incoming", 0x80), ("outgoing", 0x40)]:
+                count = sum(
+                    bool(int(flags[b["id"] - 1]) & bit)
+                    for b in spec["buildings"]
+                    if b["node"] in nodes_in_route
+                )
+                name = direction + prefix
+                connection_fields[name] = (
+                    "System.Int32",
+                    count + connection_fields.get(name, ("", 0))[1],
+                )
     for start, end, replacement in sorted(replacements, reverse=True):
         data = data[:start] + replacement + data[end:]
     if environment is not None:
@@ -516,7 +565,7 @@ def write_map(
     from map_metadata import buildable_area, preview_image, texture_payload
 
     image = preview_image(raw, depth, hydro, spec, preview)
-    image_fields = {}
+    image_fields = dict(connection_fields)
     if amounts is not None:
         image_fields.update(
             {name: ("System.UInt32", value) for name, value in amounts.items()}
@@ -559,6 +608,9 @@ def write_map(
     output.write_bytes(result)
     regenerated = ["terrain", "water", "sources", "preview_images", "package_author"]
     preserved = ["network_topology", "outside_connections", "lane_ids", "trees"]
+    if disabled:
+        regenerated.append("outside_connection_traffic")
+        preserved.remove("outside_connections")
     if positions:
         regenerated.extend(["network_geometry", "start_tile", "water_resources"])
         regenerated.append("north_facing_start_camera")
