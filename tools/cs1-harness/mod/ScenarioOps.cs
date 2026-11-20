@@ -352,14 +352,17 @@ namespace Cs1Harness
             {
                 var p = PrefabCollection<BuildingInfo>.GetLoaded(i);
                 var ai = p == null ? null : p.m_buildingAI as WaterFacilityAI;
-                if (ai == null || !ShoreMode(p)
-                    || ai.m_useGroundWater || ai.m_waterStorage != 0 || ai.m_sewageStorage != 0) continue;
+                if (ai == null || ai.m_waterStorage != 0 || ai.m_sewageStorage != 0) continue;
+                // Distance alone cannot keep a shoreline intake upstream of its
+                // drain, especially in a calm bay. Use vanilla groundwater when
+                // the opening has no proven clean surface-water catchment.
+                if (intake ? !ai.m_useGroundWater || ShoreMode(p) : !ShoreMode(p) || ai.m_useGroundWater) continue;
                 if (intake ? ai.m_waterIntake <= 0 || ai.m_sewageOutlet != 0 : ai.m_sewageOutlet <= 0 || ai.m_waterIntake != 0) continue;
                 if (!Singleton<UnlockManager>.instance.Unlocked(p.m_UnlockMilestone)) continue;
                 int cost = ai.GetConstructionCost();
                 if (cost < cheapest) { cheapest = cost; selected = p; }
             }
-            if (selected == null) throw new Exception("no loaded shoreline " + (intake ? "water pump" : "sewage drain"));
+            if (selected == null) throw new Exception("no loaded " + (intake ? "groundwater supply" : "shoreline sewage drain"));
             return selected;
         }
 
@@ -550,6 +553,53 @@ namespace Cs1Harness
                 if (!PowerReachable(info, p, angle, powerNodes))
                 { lastError = "no native power-line path to shoreline at " + p; continue; }
                 try { return Place(info, p, angle, water); }
+                catch (PlacementRejected e)
+                {
+                    if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                    lastError = e.Message;
+                }
+            }
+            throw new Exception("cannot place " + info.name + ": " + lastError);
+        }
+
+        static ushort Groundwater(BuildingInfo info, ushort plant, List<ushort> powerNodes)
+        {
+            int tx, tz;
+            Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
+            var tm = Singleton<TerrainManager>.instance;
+            var plantPosition = Singleton<BuildingManager>.instance.m_buildings.m_buffer[plant].m_position;
+            var candidates = new List<KeyValuePair<float, Vector3>>();
+            // Keep the source 400 m beyond the entire planned industrial strip,
+            // not merely away from today's empty ground or a single building.
+            // The coal plant is another separate ground-pollution source.
+            for (float z = -832; z <= 832; z += 32)
+                for (float x = -832; x <= 832; x += 32)
+                {
+                    var p = Ground((tx - 2) * 1920 + x, (tz - 2) * 1920 + z);
+                    float dx = Mathf.Max(0, Mathf.Abs(p.x - center.x) - Half - 32);
+                    float dz = Mathf.Max(center.z + 80 - p.z, Mathf.Max(0, p.z - center.z - Half - 32));
+                    if (Mathf.Sqrt(dx * dx + dz * dz) < 400
+                        || VectorUtils.LengthXZ(p - plantPosition) < 400) continue;
+                    float ground, surface;
+                    Vector3 velocity, normal;
+                    if (tm.SampleWaterData(new Vector2(p.x, p.z), out ground, out surface, out velocity, out normal)
+                        && surface > p.y + 0.1f) continue;
+                    candidates.Add(new KeyValuePair<float, Vector3>(VectorUtils.LengthXZ(p - center), p));
+                }
+            candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
+            string lastError = "no dry groundwater site separated from starter pollution";
+            foreach (var candidate in candidates)
+            {
+                var p = candidate.Value;
+                if (!PowerReachable(info, p, 0, powerNodes)) continue;
+                try
+                {
+                    ushort source = Place(info, p, 0);
+                    result["water_supply"] = Host.Obj("mode", "groundwater", "source", source,
+                        "pollution_setback_m", 400, "planned_industrial_strip", true,
+                        "surface_upstream_relationship", "not assumed");
+                    return source;
+                }
                 catch (PlacementRejected e)
                 {
                     if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
@@ -856,8 +906,7 @@ namespace Cs1Harness
             var powerEnds = new List<ushort>();
             Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), endpoints: powerEnds);
             Supply(power, plant, powerEnds);
-            var distant = new Vector3(100000, 0, 100000);
-            ushort pump = Shore(WaterPrefab(true), center, distant, powerEnds);
+            ushort pump = Groundwater(WaterPrefab(true), plant, powerEnds);
             Supply(power, pump, powerEnds);
             ushort drain = Shore(WaterPrefab(false), center, bm.m_buildings.m_buffer[pump].m_position, powerEnds);
             Supply(power, drain, powerEnds);
