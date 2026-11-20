@@ -1,0 +1,155 @@
+# Canonical place reader (PL-1074)
+
+`place_input.py PLACE OUTPUT` validates a `polli.place/0` directory through
+the **real** `place_model` API and compiles terrain, water, transportation and
+landcover into the existing map-factory inputs. It then calls `generate.generate`:
+the existing hydrology, resource planning, native admission and CRP codecs.
+It does not acquire data, install a map, or serialize a new real-road network.
+**Actual real-road serialization remains PL-1066.** The template's connections
+are still template connections, even where their boundary positions follow roads.
+
+From the repository root, with Node and the repository's npm dependencies:
+
+```sh
+npm ci --ignore-scripts
+uv run --project tools/map-factory \
+  --with ../agentic-research-workbench/place-model \
+  python tools/map-factory/place_input.py \
+  ../agentic-research-workbench/place-model/places/amherst-center \
+  /absolute/scratch/amherst-export
+```
+
+Supply the workbench at `75de9234` for this reader's initial contract. No model
+implementation is vendored and no editable dependency or private path is added
+to the public project's lockfile. Any installation of that package providing
+the documented API works; the sibling checkout is only an example dependency.
+
+`OUTPUT` must be empty. `--inputs-only` compiles without running the generator.
+The Python `preprocess(place, output)` function returns four paths, in order:
+
+| Input | Encoding |
+| --- | --- |
+| `input.png` | 1081×1081 north-first 16-bit heightmap, 0…65535 → 0…1024 game m |
+| `geometry.json` | Existing geometry codec plus canonical identity/properties and `placeInput` receipt |
+| `banks.f32` | 1081×1081 north-first little-endian float32 uncarved fitted game heights |
+| `landcover.u8.gz` | 1728×1728 north-first categorical WorldCover codes, at 10 game m cell centres |
+
+The executable writes these under `OUTPUT/inputs` and writes its full receipt
+to `OUTPUT/place-input.json` and stdout. After generation, it uses the existing
+`water_risk.assess` and `water-risk.js` decision. Exit 5 retains inputs and the
+risk report but exports **no CRP**. Only after accepting that exact report may
+the caller rerun into a fresh directory with `--allow-water-risk`. Unavailable
+or invalid checks cannot be overridden. Successful output is in
+`OUTPUT/generated`. Input compilation alone does not run a water-risk screen.
+No receipt claims game safety: native/harness/water qualification remain
+downstream, including for a lower-risk screen.
+
+## Frame, crop and elevation
+
+The selected square is centred on the model extent, with its side equal to
+the smaller extent dimension. For cell-sampled terrain the square is further
+inscribed inside the sample-centre support: the outer half-cell has no elevation
+sample and is not extrapolated. Vertex terrain uses both boundary vertices.
+Grids are checked for covered samples before interpolation. Terrain is bilinear;
+landcover is nearest categorical, never interpolated class values.
+
+Canonical local coordinates are already metres. No horizontal unit conversion
+is applied twice. Geography is computed from the manifest alone:
+
+```text
+source_east  = origin[0] + local_x / horizontal_unit_metres
+source_north = origin[1] - local_z / horizontal_unit_metres
+lon, lat    = transform(source_crs -> EPSG:4326, source_east, source_north)
+game_x      = (local_x - crop_center_x) * 17280 / crop_side
+game_z      = (crop_center_z - local_z) * 17280 / crop_side
+```
+
+CS1 z is **north-positive**. The PNG's top row is north; `region.prepare`
+performs the existing flip to native south-first grids. There are 1081
+vertices at 16 m, spanning 17,280 m, not 1081 cells.
+
+`placeInput` reports the original extent, local crop, actual WGS84 crop corners,
+source and game sides, both scale ratios, original frame, datum, source licenses
+and manifest hash. A 2 km source becomes 17.28 game km: **8.64× horizontal
+enlargement, not 1:1**. Amherst and Boston use their full 2×2 km extent.
+Asheville's 6×8 km extent is cropped to `[-3000,-4000,3000,2000]`, a 6 km
+square enlarged 2.88×. All of these are generic extent rules, not place switches.
+
+The legacy geographic codec uses a local WGS84 approximation (`prepare.pixel`).
+Target feature `pts`/`rings` deliberately use its **inverse**, so their target
+pixels agree exactly with the canonical crop and sampled grids. These compatibility
+lon/lat values are not survey coordinates; use `crop_corners_wgs84` and the
+manifest CRS for actual geography. No arbitrary per-place rotation or origin
+is used to hide projection differences.
+
+Canonical elevations remain absolute in the source vertical datum. The display
+adapter's `elevation_origin_metres` is retained but **not subtracted**. A tiny
+Node codec bridge calls existing `CAPTURE` smoothing/carving, `fitHeights(auto)`
+and PNG encoders, then calls `fitHeights` again on the uncarved grid for banks,
+as `captureInputs` does. Its base and vertical scale are reported. No new
+terrain-fitting or water-control policy is implemented. Coastal fitting retains
+the existing policy's zero reference in the source datum; this is **not** a
+measured tide or vertical-datum harmonization.
+
+## Identity and semantic limits
+
+- `roads` retains every canonical segment, even outside the crop. IDs,
+  classes (including unknown/numeric classes), widths in **source metres**,
+  bridge/tunnel/level, provenance and the entire original connector list with
+  unchanged linear `at` references survive. Lines are not clipped or split:
+  their reference fractions therefore remain meaningful.
+- `roadConnectors` retains every connector ID and provenance. Its x/z are
+  game east/north metres under the reported transform. Coincident connectors
+  remain distinct. Geometric crossings never create connectivity. Full
+  `source_segment.properties` (including scoped level/bridge/tunnel rules)
+  is retained in `sourceFeature.properties`; scalar summary flags do not
+  replace those ranged rules. No class is promoted to motorway or rail.
+- Hydrography retains canonical ID, kind, absolute height, provenance and
+  `source_water.properties`. Multipart output retains the same ID plus a
+  `part` index. Rings retain holes. LineStrings remain lines, never polygon
+  exteriors reused as centrelines. Explicit tunnel/culvert/underground source
+  evidence becomes the existing `brunnel=tunnel` exclusion; a negative level
+  alone is not assumed underground. Intermittency and source grade survive.
+- Known rivers become `rivers`; stream/canal/ditch/drain lines use the
+  existing stream codec with their original `kind` retained. Only explicit
+  `ocean` polygons become ocean masks. Known lake/pond/reservoir/basin areas
+  use the existing lake codec. Generic water/surface/bay and river/canal
+  areas use `riverAreas`, without lake flattening or reconstructed flow.
+  Swimming pools and underground polygons are retained in
+  `unmodeledHydrography` with reasons rather than becoming natural sources.
+- Unknown water roles and unsupported geometries stop compilation. Landcover
+  must use the existing WorldCover uint8 codes; no new legend is guessed.
+
+### Extensions needed upstream, not guesses in this reader
+
+Asheville's migrated `surface` triangles provide a footprint, not a river
+network. The reader can compile their areas, but cannot provide missing
+river centrelines, hydraulic connections or sustained-flow sources. Extend
+canonical hydrography with waterbody/watercourse identity, explicit geometry
+role, visibility and flow connectivity (including culverts), and measured
+water-stage/datum evidence where available. Boston's inferred DEM water
+height is likewise not a measured tide. A future non-WorldCover landcover
+source needs an explicit class legend/mapping before this target can use it.
+Asheville's numeric street classes remain numeric; selecting real motorway
+connections needs a source-declared class dictionary or normalized canonical
+classes, not a target-side guess that all streets are highways.
+These are shared-model extensions; they must not be inferred from triangles
+or tuned separately for a place. This adapter does not consume appearance
+meshes or compatibility assets as substitute semantic layers.
+
+## Verification
+
+```sh
+uv run --project tools/map-factory \
+  --with ../agentic-research-workbench/place-model \
+  python -m unittest discover -s tools/map-factory -p test_place_input.py -v
+uvx ruff check tools/map-factory/place_input.py tools/map-factory/test_place_input.py
+```
+
+The tests use the real model validator/writers and exercise frame axes, projected
+feet/nonzero origins, elevation offset, vertex/cell sampling, crops, grade and
+connector identity, water holes/culverts, executable CLI and the existing generator.
+They also compile the three committed models when the sibling directory is
+available (`PLACE_MODEL_PLACES` can select another checkout). Generated test
+artifacts live only in temporary directories. **Asheville source/derived data
+is private; do not commit it or publish its target inputs.**
