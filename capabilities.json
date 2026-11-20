@@ -1,0 +1,424 @@
+{
+  "schema": 1,
+  "model": "square-capabilities-v1",
+  "updated_at": "2026-11-20",
+  "game": "Cities: Skylines 1, 1.21.1-f9",
+  "source_revision": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+  "scope": "Initial geographic and authored-export capability estimates. Not a digital twin of the simulation. Real-connections generation remains opt-in; the public writer still uses template corridors.",
+  "promise_levels": {
+    "promised": "The stated capability has relevant native evidence bound to this exact export and test conditions. Never inferred from stock-map ranks, metadata counts or geographic similarity.",
+    "likely": "The deterministic model found a candidate. Game behavior or simulation stability remains unverified for this export.",
+    "not_possible_here": "The current export plan lacks this capability under the stated rule. Not a claim that no other generator or human map-maker could provide it.",
+    "unknown": "Inputs, a model or relevant game observations are missing. Absence of evidence is not a negative result."
+  },
+  "model_rules": {
+    "ship": {
+      "min_initial_depth_m": 6,
+      "sample_spacing_m": 64,
+      "shore_clearance_cells": 1,
+      "min_endpoint_separation_m": 1000,
+      "central_half_extent_m": 4800,
+      "status": "provisional_not_native_fitted",
+      "limits": "Four-connected block-min depth grid with one-cell shore clearance; a component must reach the central 25 tiles and two separated edge points. Bounds are modelling choices, not measured game limits. The existing ship generator can smooth a path outside this corridor; an authored route still needs its own check."
+    }
+  },
+  "stock_reference": {
+    "source": "tools/map-factory/survey/basemaps.json",
+    "sha256": "95840ef01f77faae5e35466077c95f9f6827adbcdf5456faeb90d2a8747e7eba",
+    "maps": 104,
+    "excluded": "CO.crp: blank editor terrain system package",
+    "quantiles": "Linear interpolation at (n-1)*p; bands strictly below p25, inclusive typical, strictly above p75. Descriptive, not quality gates.",
+    "metrics": {
+      "buildable_percent": {
+        "name": "New Game buildable land",
+        "unit": "%",
+        "n": 104,
+        "p25": 57,
+        "median": 68,
+        "p75": 76.25
+      },
+      "trees_total": {
+        "name": "Trees across the whole map",
+        "unit": "trees",
+        "n": 104,
+        "p25": 102567.25,
+        "median": 142956,
+        "p75": 199471.75
+      },
+      "wet_central_fraction": {
+        "name": "Wet share of the central 25 tiles",
+        "unit": "fraction",
+        "n": 104,
+        "p25": 0.07627500000000001,
+        "median": 0.16035,
+        "p75": 0.273125
+      },
+      "terrain_relief_m": {
+        "name": "Terrain relief across the whole map",
+        "unit": "m",
+        "n": 104,
+        "p25": 595.875,
+        "median": 761.5999999999999,
+        "p75": 989.9250000000001
+      },
+      "median_land_slope_percent": {
+        "name": "Median central land slope",
+        "unit": "%",
+        "n": 104,
+        "p25": 4.625,
+        "median": 7.35,
+        "p75": 12.025
+      },
+      "ore_central_land_fraction": {
+        "name": "ore share of central land",
+        "unit": "fraction",
+        "n": 104,
+        "p25": 0.07395,
+        "median": 0.14865,
+        "p75": 0.23652499999999999
+      },
+      "oil_central_land_fraction": {
+        "name": "oil share of central land",
+        "unit": "fraction",
+        "n": 104,
+        "p25": 0.032799999999999996,
+        "median": 0.0716,
+        "p75": 0.115375
+      },
+      "fertility_central_land_fraction": {
+        "name": "fertility share of central land",
+        "unit": "fraction",
+        "n": 104,
+        "p25": 0.048674999999999996,
+        "median": 0.12305,
+        "p75": 0.1834
+      },
+      "forest_central_land_fraction": {
+        "name": "forest share of central land",
+        "unit": "fraction",
+        "n": 104,
+        "p25": 0.299825,
+        "median": 0.393,
+        "p75": 0.511775
+      },
+      "incoming_road_entries": {
+        "name": "Incoming road entries",
+        "unit": "entries",
+        "n": 104,
+        "p25": 2,
+        "median": 3,
+        "p75": 4
+      },
+      "incoming_rail_entries": {
+        "name": "Incoming rail entries",
+        "unit": "entries",
+        "n": 104,
+        "p25": 2,
+        "median": 3,
+        "p75": 4
+      },
+      "incoming_ship_entries": {
+        "name": "Incoming ship entries",
+        "unit": "entries",
+        "n": 104,
+        "p25": 1,
+        "median": 2,
+        "p75": 4
+      },
+      "incoming_air_entries": {
+        "name": "Incoming air entries",
+        "unit": "entries",
+        "n": 104,
+        "p25": 2,
+        "median": 4,
+        "p75": 4
+      }
+    }
+  },
+  "capabilities": [
+    {
+      "id": "road",
+      "name": "Road",
+      "icon": "road",
+      "status": "modelled_not_native_fitted",
+      "definition": "An authored directed highway/ramp route connects an incoming outside node to a different outside node. Reachable start-tile arrival/departure stubs are a separate requirement, not implied by this route.",
+      "exporter_check": "tools/map-factory/capabilities.py:network_access",
+      "browser_check": "capability-model.js:networkAccess",
+      "existing_checks": [
+        "tools/map-factory/real_roads.py:road_eligibility",
+        "tools/map-factory/report_connections.py",
+        "tools/cs1-harness/cs1_harness/mapcheck.py:path_checks"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export directed native car paths pass, separately from a legal starting hookup.",
+        "likely": "Directed authored edge-to-edge route exists.",
+        "not_possible_here": "No such route in the current authored graph.",
+        "unknown": "No authored graph; mapped roads alone are a preliminary candidate."
+      },
+      "metric_ids": [
+        "incoming_road_entries"
+      ],
+      "game_agreement": [],
+      "limits": "Counts do not prove direction, pathfinding or the player's ability to join. The real-roads path remains opt-in."
+    },
+    {
+      "id": "rail",
+      "name": "Rail",
+      "icon": "rail",
+      "status": "modelled_not_native_fitted",
+      "definition": "An authored railway connects two distinct outside nodes through the square. This does not include stations or prove useful freight/passenger service.",
+      "exporter_check": "tools/map-factory/capabilities.py:network_access",
+      "browser_check": "capability-model.js:networkAccess",
+      "existing_checks": [
+        "tools/map-factory/osm_highways.py",
+        "tools/map-factory/real_roads.py",
+        "tools/cs1-harness/cs1_harness/mapcheck.py:path_checks"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export native train path succeeds under the recorded test.",
+        "likely": "Authored two-way edge-to-edge railway exists.",
+        "not_possible_here": "Current export contains no such rail route.",
+        "unknown": "Missing railway observations or graph; synthetic rail feasibility not solved."
+      },
+      "metric_ids": [
+        "incoming_rail_entries"
+      ],
+      "game_agreement": [],
+      "limits": "Missing OSM rail is not geographic impossibility. Grade, tunnel portals, crossings and native lanes need independent verification."
+    },
+    {
+      "id": "ship",
+      "name": "Ship",
+      "icon": "ship",
+      "status": "modelled_not_native_fitted",
+      "definition": "The initial water plan contains a broad deep corridor connected to the map edge, with separated outside endpoints and water reaching the central 25 tiles. An exported ship route and actual native ship path are separate observations.",
+      "exporter_check": "tools/map-factory/capabilities.py:ship_corridor",
+      "browser_check": "capability-model.js:shipCorridor",
+      "existing_checks": [
+        "tools/map-factory/transport_paths.py:ship_path"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export native ship path is accepted, with water stability separately qualified for any sustained-service claim.",
+        "likely": "Candidate initial deep-water corridor; if an authored graph is supplied, it also has a ship route.",
+        "not_possible_here": "Current final export lacks the corridor or the authored ship route.",
+        "unknown": "Missing depth or only a coarse estimate without a corridor; inlet width and water persistence not established."
+      },
+      "metric_ids": [
+        "incoming_ship_entries",
+        "wet_central_fraction"
+      ],
+      "game_agreement": [],
+      "limits": "Not restricted by place names or ocean labels. Initial water is not stable water. A negative browser estimate is unknown because coarse sampling can miss a route."
+    },
+    {
+      "id": "air",
+      "name": "Air",
+      "icon": "air",
+      "status": "modelled_not_native_fitted",
+      "definition": "An authored flight path joins two distinct outside nodes. The player's airport and its usable approach are separate capabilities.",
+      "exporter_check": "tools/map-factory/capabilities.py:network_access",
+      "browser_check": "capability-model.js:networkAccess",
+      "existing_checks": [
+        "tools/map-factory/transport_paths.py:air_path",
+        "inputs.js:capturedAirport"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export native airplane path succeeds under the recorded test.",
+        "likely": "Authored edge-to-edge flight path exists, or mapped runway supplies a preliminary approach candidate.",
+        "not_possible_here": "Current export has no authored flight route.",
+        "unknown": "No runway observation; a synthetic flight route may still be feasible."
+      },
+      "metric_ids": [
+        "incoming_air_entries"
+      ],
+      "game_agreement": [],
+      "limits": "Fixture airport fallbacks in the existing generator are not geographic evidence for arbitrary squares. Terrain clearance at high altitude and service remain unverified."
+    },
+    {
+      "id": "water",
+      "name": "Fresh water",
+      "icon": "water",
+      "status": "awaiting_start_oracle",
+      "definition": "A reachable clean fresh-water intake can supply the starting population, with enough sustained flow and a sewage outlet that does not contaminate it.",
+      "exporter_check": null,
+      "browser_check": null,
+      "existing_checks": [
+        "tools/cs1-harness/FIRST_HOUR.md",
+        "tools/cs1-harness/mod/ScenarioOps.cs"
+      ],
+      "promise_levels": {
+        "promised": "Exact-package sustained native intake and sewage test passes with recorded demand.",
+        "likely": "A future fitted flow/intake model finds a candidate.",
+        "not_possible_here": "A complete model rules out the stated water-supply option, not all alternatives.",
+        "unknown": "Wet pixels alone do not establish clean intake capacity."
+      },
+      "metric_ids": [
+        "wet_central_fraction"
+      ],
+      "game_agreement": [],
+      "limits": "PL-1078 owns this model/oracle. Groundwater availability is a separate fallback. Historical first-hour failures are not map-fault labels until the player policy passes stock controls."
+    },
+    {
+      "id": "start",
+      "name": "Start site",
+      "icon": "start",
+      "status": "awaiting_start_oracle",
+      "definition": "A dry legal build site in an unlockable starting tile can join a reachable outside road using geometry the game accepts.",
+      "exporter_check": null,
+      "browser_check": null,
+      "existing_checks": [
+        "tools/map-factory/region.py:start_area",
+        "tools/map-factory/real_roads.py:road_eligibility",
+        "tools/cs1-harness/FIRST_HOUR.md"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export native construction and road hookup pass.",
+        "likely": "A future fitted site-and-hookup model finds a witness.",
+        "not_possible_here": "Current start policy cannot place a legal connected site.",
+        "unknown": "Dry terrain or nearby roads alone do not prove a legal start."
+      },
+      "metric_ids": [
+        "buildable_percent"
+      ],
+      "game_agreement": [],
+      "limits": "PL-1078 owns start selection/hookup. Do not use historical 1/8 first-hour rate as exporter accuracy."
+    },
+    {
+      "id": "buildable",
+      "name": "Buildable land",
+      "icon": "buildable",
+      "status": "geometric_estimate",
+      "definition": "Dry initial terrain with local slope below 15 percent in the central 25 tiles, recorded separately from the game's New Game buildable-area percentage and legal building placement.",
+      "exporter_check": "tools/map-factory/capabilities.py:prepared_input",
+      "browser_check": "capability-inputs.js:estimateInputs",
+      "existing_checks": [
+        "tools/map-factory/map_metadata.py:buildable_area",
+        "tools/map-factory/region.py:start_area"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export native placement passes for a specified footprint.",
+        "likely": "Dry low-slope samples exist.",
+        "not_possible_here": "No qualifying samples in a complete final grid.",
+        "unknown": "Missing terrain or water data."
+      },
+      "metric_ids": [
+        "buildable_percent",
+        "median_land_slope_percent",
+        "terrain_relief_m"
+      ],
+      "game_agreement": [],
+      "limits": "The 15-percent geometric area is not directly comparable to the native metadata bar or a guarantee of a contiguous build site."
+    },
+    {
+      "id": "resources",
+      "name": "Resources",
+      "icon": "resources",
+      "status": "existing_export_checks",
+      "definition": "Ore, oil and fertile land are encoded in the unlockable 25 tiles; report their abundance, patch size and accessibility separately from extraction gameplay.",
+      "exporter_check": "tools/map-factory/capabilities.py:assess_prepared",
+      "browser_check": null,
+      "existing_checks": [
+        "tools/map-factory/resources.py",
+        "tools/map-factory/report_connections.py:outer_ring",
+        "tools/map-factory/RESOURCE_QUALIFICATION.md"
+      ],
+      "promise_levels": {
+        "promised": "Native resource readback matches the exact export; extraction is a separate test.",
+        "likely": "Final resource plan contains accessible cells.",
+        "not_possible_here": "Specified resource absent from the final plan.",
+        "unknown": "Land cover, deposits or final resource plan not evaluated."
+      },
+      "metric_ids": [
+        "ore_central_land_fraction",
+        "oil_central_land_fraction",
+        "fertility_central_land_fraction"
+      ],
+      "game_agreement": [],
+      "limits": "Balanced mode adds synthetic ore/oil to stock-map shares. Distinguish measured deposits from generated gameplay resources."
+    },
+    {
+      "id": "trees",
+      "name": "Trees",
+      "icon": "trees",
+      "status": "existing_export_checks",
+      "definition": "Biome-appropriate tree instances and forest resource cover are placed across the square, with room for starting growth rather than a uniform tree quota alone.",
+      "exporter_check": "tools/map-factory/capabilities.py:assess_prepared",
+      "browser_check": null,
+      "existing_checks": [
+        "tools/map-factory/resources.py",
+        "tools/map-factory/report_connections.py:outer_ring",
+        "tools/map-factory/RESOURCE_QUALIFICATION.md"
+      ],
+      "promise_levels": {
+        "promised": "Exact-export native tree/resource readback and visual check pass.",
+        "likely": "Final tree plan contains instances and forest cover.",
+        "not_possible_here": "Current final plan contains none.",
+        "unknown": "No tree plan or land-cover observation."
+      },
+      "metric_ids": [
+        "trees_total",
+        "forest_central_land_fraction"
+      ],
+      "game_agreement": [],
+      "limits": "A count is not visual quality or biome correctness. Vanilla tree budget and central versus outer-ring coverage remain separate."
+    },
+    {
+      "id": "water_risk",
+      "name": "Stable water",
+      "icon": "water",
+      "status": "calibration_rejected_for_clearance",
+      "definition": "Water remains within the flood boundary and retains required mapped reaches during a full native simulation run.",
+      "exporter_check": "tools/map-factory/water_risk.py:assess",
+      "browser_check": "water-risk.js:waterRiskDecision",
+      "existing_checks": [
+        "tools/map-factory/WATER_RISK.md",
+        "tools/map-factory/water-risk-model.json"
+      ],
+      "promise_levels": {
+        "promised": "Exact-package full native simulation meets recorded flooding and retention limits.",
+        "likely": "Not currently available from the existing risk screen.",
+        "not_possible_here": "A relevant native failure or fitted deterministic impossibility, not merely a warning.",
+        "unknown": "A clear screen is not a safety certificate."
+      },
+      "metric_ids": [
+        "wet_central_fraction"
+      ],
+      "game_agreement": [],
+      "calibration": {
+        "source": "tools/map-factory/water-risk-model.json",
+        "squares": 5,
+        "scored_complete_runs": 50,
+        "flood": {
+          "tp": 12,
+          "fp": 18,
+          "tn": 19,
+          "fn": 1
+        },
+        "drying": {
+          "tp": 50,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0
+        },
+        "limits": "Retrospective fitting, not independent agreement. All 50 drying cases are positive; always-warn has the same score. Seven other complete runs are unscored. PL-1072 independent geography is still incomplete; no cleared-square safety claim."
+      },
+      "limits": "Preserve the existing water-risk download gate. This ledger does not lower its thresholds or waive warnings."
+    }
+  ],
+  "launch_bar_proposal": {
+    "required": [
+      "Native-accepted outside road access and a legal connected start",
+      "Pre-baked hydrology with qualified clean intake and sustained water",
+      "Honest per-square transport options, with explicit optional rail/ship/air absence",
+      "Measured buildable room and accessible gameplay resources"
+    ],
+    "descriptive_not_gates": [
+      "Stock-map quartile bands",
+      "Terrain relief and slope variety",
+      "Water feature coverage",
+      "Number of outside entries",
+      "Central forest cover and total tree count"
+    ],
+    "limits": "Proposal, not launch approval. A higher interest metric is not always better. No hand-picked map fixes."
+  }
+}

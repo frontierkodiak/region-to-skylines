@@ -1,0 +1,85 @@
+// Build a readable ledger and stock-map reference from the one capability file.
+import { createHash } from "node:crypto";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+export const ROOT = fileURLToPath(new URL(".", import.meta.url));
+const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];
+const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const label = (s) => s.replaceAll("_", " ");
+const sha = (raw) => createHash("sha256").update(raw).digest("hex");
+
+export function stockReference() {
+  const path = "tools/map-factory/survey/basemaps.json", raw = readFileSync(ROOT + path);
+  const maps = JSON.parse(raw).filter((map) => map.file !== "CO.crp");
+  const fields = {
+    buildable_percent: ["New Game buildable land", "%", (m) => m.meta.buildableArea],
+    trees_total: ["Trees across the whole map", "trees", (m) => m.trees.total],
+    wet_central_fraction: ["Wet share of the central 25 tiles", "fraction", (m) => m.water_central_share],
+    terrain_relief_m: ["Terrain relief across the whole map", "m", (m) => m.terrain.max - m.terrain.min],
+    median_land_slope_percent: ["Median central land slope", "%", (m) => m.terrain.median_land_slope_pct],
+    ...Object.fromEntries(["ore", "oil", "fertility", "forest"].map((key) => [`${key}_central_land_fraction`, [`${key} share of central land`, "fraction", (m) => m.resources[key].central_share_of_land]])),
+    ...Object.fromEntries(["road", "rail", "ship", "air"].map((key, i) => [`incoming_${key}_entries`, [`Incoming ${key} entries`, "entries", (m) => m.meta[["incomingRoads", "incomingTrainTracks", "incomingShipPath", "incomingPlanePath"][i]]]])),
+  };
+  const metrics = {};
+  for (const [key, [name, unit, get]] of Object.entries(fields)) {
+    const values = maps.map(get).filter(Number.isFinite).sort((a, b) => a - b);
+    const q = (p) => { const index = (values.length - 1) * p, lo = Math.floor(index), hi = Math.ceil(index); return values[lo] + (values[hi] - values[lo]) * (index - lo); };
+    metrics[key] = { name, unit, n: values.length, p25: q(0.25), median: q(0.5), p75: q(0.75) };
+  }
+  return { source: path, sha256: sha(raw), maps: maps.length, excluded: "CO.crp: blank editor terrain system package", quantiles: "Linear interpolation at (n-1)*p; bands strictly below p25, inclusive typical, strictly above p75. Descriptive, not quality gates.", metrics };
+}
+
+export function validateLedger(ledger) {
+  if (ledger.schema !== 1 || !ledger.model || JSON.stringify(Object.keys(ledger.promise_levels).sort()) !== JSON.stringify(LEVELS)) throw new Error("Invalid capability ledger header");
+  const ids = ledger.capabilities.map((c) => c.id);
+  if (new Set(ids).size !== ids.length || !["road", "rail", "ship", "air", "water", "start", "buildable", "resources", "trees", "water_risk"].every((id) => ids.includes(id))) throw new Error("Missing or duplicate capability");
+  if (JSON.stringify(ledger.stock_reference) !== JSON.stringify(stockReference())) throw new Error("Stock reference is stale; run node capability-ledger.mjs --refresh-stock");
+  for (const cap of ledger.capabilities) {
+    if (!cap.definition || !cap.status || !Array.isArray(cap.game_agreement) || JSON.stringify(Object.keys(cap.promise_levels).sort()) !== JSON.stringify(LEVELS)) throw new Error(`Incomplete capability ${cap.id}`);
+    for (const ref of [cap.exporter_check, cap.browser_check, ...cap.existing_checks].filter(Boolean)) {
+      if (!existsSync(ROOT + ref.split(":")[0])) throw new Error(`Missing check ${ref}`);
+    }
+    for (const id of cap.metric_ids) if (!ledger.stock_reference.metrics[id]) throw new Error(`Missing stock metric ${id}`);
+    for (const row of cap.game_agreement) {
+      if (!row.square || !row.observed_at || !row.oracle || !/^[a-f0-9]{64}$/.test(row.artifact_sha256 ?? "") || !/^[a-f0-9]{40}$/.test(row.source_sha ?? "") || !Array.isArray(row.evidence) || !row.evidence.length || ![true, false, null].includes(row.observed) || ![true, false, null].includes(row.predicted)) throw new Error(`Unbound game evidence for ${cap.id}`);
+    }
+  }
+  const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
+  const recorded = ledger.capabilities.find((c) => c.id === "water_risk").calibration;
+  if (recorded.squares !== source.squares || recorded.scored_complete_runs !== source.complete_60_runs ||
+      ["flood", "drying"].some((k) => ["tp", "fp", "tn", "fn"].some((v) => recorded[k][v] !== source.results[k][v]))) throw new Error("Water calibration seed is stale");
+}
+
+export function agreementByOracle(rows) {
+  return [...new Set(rows.map((r) => r.oracle))].sort().map((oracle) => {
+    const all = rows.filter((r) => r.oracle === oracle), scored = all.filter((r) => typeof r.predicted === "boolean" && typeof r.observed === "boolean");
+    return { oracle, scored: scored.length, unscored: all.length - scored.length, agree: scored.filter((r) => r.predicted === r.observed).length, false_positive: scored.filter((r) => r.predicted && !r.observed).length, false_negative: scored.filter((r) => !r.predicted && r.observed).length };
+  });
+}
+
+export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
+  const sourceLink = (ref) => `<a href="https://github.com/frontierkodiak/region-to-skylines/blob/${encodeURIComponent(revision)}/${escape(ref.split(":")[0])}">${escape(ref)}</a>`;
+  const caps = ledger.capabilities.map((c) => {
+    const agreement = agreementByOracle(c.game_agreement);
+    return `<article id="${escape(c.id)}"><div class="ledger-title"><h2>${escape(c.name)}</h2><span>${escape(label(c.status))}</span></div><p>${escape(c.definition)}</p>
+      <details><summary>Checks and promise levels</summary><dl>${Object.entries(c.promise_levels).map(([k, v]) => `<dt>${escape(label(k))}</dt><dd>${escape(v)}</dd>`).join("")}</dl>
+      <p>Exporter: ${c.exporter_check ? sourceLink(c.exporter_check) : "Not implemented"}<br>Browser: ${c.browser_check ? sourceLink(c.browser_check) : "Not implemented"}</p><p>Existing work: ${c.existing_checks.map(sourceLink).join(", ")}</p></details>
+      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(label(a.oracle))}: ${a.agree}/${a.scored} agree; ${a.unscored} unscored; ${a.false_positive} false positives, ${a.false_negative} false negatives.</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : "<p class=note>No scored observations for this model yet.</p>"}
+      ${c.calibration ? `<details><summary>Existing water-screen calibration</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}
+      <p class=note>${escape(c.limits)}</p></article>`;
+  }).join("");
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Map capabilities · Region to Skylines</title><link rel="stylesheet" href="style.css"></head>
+    <body class="ledger-page"><header><h1>Map capabilities</h1><a href="./">Choose a square</a><a href="capabilities.json">JSON ledger</a></header><main><section>
+    <p>${escape(ledger.game)} · updated ${escape(ledger.updated_at)}</p><p>${escape(ledger.scope)}</p>
+    <nav aria-label="Capabilities">${ledger.capabilities.map((c) => `<a href="#${escape(c.id)}">${escape(c.name)}</a>`).join(" ")}</nav>${caps}
+    <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div><details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>
+    <article id="launch"><h2>Proposed launch bar</h2><ul>${ledger.launch_bar_proposal.required.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><h3>Describe, without gating</h3><ul>${ledger.launch_bar_proposal.descriptive_not_gates.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><p class=note>${escape(ledger.launch_bar_proposal.limits)}</p></article></section></main></body></html>`;
+}
+
+if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
+  const file = ROOT + "capabilities.json", ledger = JSON.parse(readFileSync(file, "utf8"));
+  if (process.argv.includes("--refresh-stock")) { ledger.stock_reference = stockReference(); writeFileSync(file, JSON.stringify(ledger, null, 2) + "\n"); }
+  validateLedger(ledger);
+  console.log(`Capability ledger valid: ${ledger.capabilities.length} capabilities, ${ledger.stock_reference.maps} stock maps`);
+}

@@ -4,9 +4,10 @@ import { execFileSync } from "node:child_process";
 import { mkdirSync, rmSync, readFileSync, writeFileSync, renameSync, copyFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { FACTORY_FILES } from "./mapgen.js";
+import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt"];
+const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes
@@ -22,6 +23,9 @@ for (const f of PAGE) {
   const text = readFileSync(f, "utf8");
   writeFileSync(`dist/${f}`, f.endsWith(".css") ? text : text.replaceAll("__CLI_TGZ__", cli));
 }
+const ledger = JSON.parse(readFileSync("capabilities.json", "utf8"));
+validateLedger(ledger);
+writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
 // the map writer the worker runs (tools/map-factory), byte for byte
 for (const f of FACTORY_FILES) {
   mkdirSync(dirname(`dist/tools/map-factory/${f}`), { recursive: true });
