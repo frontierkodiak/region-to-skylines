@@ -56,14 +56,16 @@ def render(output, harness_root=None):
         "",
         "Selection: " + plan["selection_rule"],
         "",
-        "| Square | CPU export | Water screen | Road in/out | Rail in/out | Plane in/out | Ship in/out | Theme |",
-        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
+        "| Square | CPU export | Road eligibility | Water screen | Road in/out | Rail in/out | Plane in/out | Ship in/out | Theme |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     coverage, commands = {}, []
     for slug in slugs:
         row = report["cases"].get(slug)
         if not row:
-            lines.append(f"| {slug} | pending | not assessed | — | — | — | — | — |")
+            lines.append(
+                f"| {slug} | pending | not assessed | not assessed | — | — | — | — | — |"
+            )
             continue
         c = row.get("stage", {}).get("new_game_panel", {}).get("connections", {})
         counts = [
@@ -76,7 +78,14 @@ def render(output, harness_root=None):
         lines.append(
             "| "
             + " | ".join(
-                [slug, row["status"], row["water_risk"]["status"], *counts, theme]
+                [
+                    slug,
+                    row["status"],
+                    row.get("road_eligibility", {}).get("status", "not recorded"),
+                    row["water_risk"]["status"],
+                    *counts,
+                    theme,
+                ]
             )
             + " |"
         )
@@ -127,6 +136,21 @@ def render(output, harness_root=None):
         if not row:
             continue
         lines.extend([f"### {slug}", ""])
+        if eligibility := row.get("road_eligibility"):
+            lines.append(
+                f"- Road eligibility: **{eligibility['status']}**; fallback: {eligibility['fallback']}."
+            )
+            lines.extend("- " + reason for reason in eligibility["reason_codes"])
+        if comparison := row.get("baseline_comparison"):
+            lines.append(
+                "- Original CRP: **"
+                + (
+                    "byte-identical"
+                    if comparison["package_unchanged"]
+                    else "changed; requires new package-bound native evidence"
+                )
+                + "**."
+            )
         lines.extend("- " + reason for reason in row["water_risk"]["reasons"])
         if row.get("error"):
             lines.append("- Export error: " + row["error"])

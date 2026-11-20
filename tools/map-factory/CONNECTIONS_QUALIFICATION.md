@@ -94,3 +94,52 @@ It requires resolved Steam readiness and does not itself launch either command.
 Resource/window-capture requirements in staged panel probes are retained; no
 visual review is fabricated. Outer-ring counts describe map content, not proof
 that vanilla can unlock or play 81 tiles.
+
+## Structural road eligibility and explicit fallback
+
+Real connections remain opt-in. Before ranking start tiles, `real_roads.py`
+traverses the directed highway/ramp graph from incoming outside nodes, and
+backwards from outgoing outside nodes. A start interchange must contain an
+outside-reachable arrival stub and a departure stub that reaches outside, in the
+same central-5x5 start tile and within the existing 400 m pairing distance.
+Rail, air and ship routes cannot satisfy road access; boundary counts or nearby
+but disconnected stubs are insufficient.
+
+`real_roads.road_eligibility` reports `eligible` only for that structural graph
+condition. It does not certify terrain buildability, native lane/path behavior,
+utilities, first-hour growth or water safety. The CLI JSON, generation receipt
+and CPU results prominently retain this state and its witness/reason codes.
+
+For a square without this access, the generic fallback is the explicit
+`no_outside_link` state, **not** an invented corridor. A blind straight corridor
+on arbitrary mountains/water is not a qualified general solution. Keep the
+square, its geometry, reasons and water warnings; do not move or replace it to
+improve the cohort result. Internal test exports remain available so native
+first-hour construction failure can be observed and reported honestly.
+
+Absent real rail now removes the template railway and its outside buildings;
+all native New Game transport counts, including zero, are overwritten from the
+authored graph. Prepared probes likewise contain no template routes for a
+real-connections package. The existing resource-mask convention is not changed.
+
+### Requalify exact frozen inputs, never recapture
+
+```sh
+original=/home/caleb/experiments/PL-1066-qualification
+candidate=/home/caleb/experiments/PL-1066-eligibility
+uv run --project tools/map-factory python tools/map-factory/qualify_connections.py \
+  "$candidate" --baseline "$original"
+uv run --project tools/map-factory python tools/map-factory/report_connections.py "$candidate" \
+  --harness-root /path/to/qualified/tools/cs1-harness
+uv run --project tools/map-factory python -m unittest discover -s tools/map-factory \
+  -p test_connection_eligibility.py
+```
+
+`--baseline` copies the exact frozen cohort and raw input files, refuses input
+conflicts or using the original output as the candidate, and compares complete
+CRP bytes plus terrain, water and resource-plan hashes. It never calls a network
+capture. Every candidate still runs the unchanged landed water screen on its
+final grids/controls, including unchanged packages. Original exports remain
+untouched. A byte-identical CRP can reuse only evidence already bound to those
+exact bytes; a changed CRP needs new package-bound native qualification. No
+CPU comparison fabricates that evidence.

@@ -71,7 +71,69 @@ def screen(folder):
     return result
 
 
-def qualify(output, only=None):
+def frozen_inputs(baseline, output):
+    """Reuse an exact completed cohort, without selecting or fetching new inputs."""
+    if baseline.resolve() == output.resolve():
+        raise ValueError("Candidate output must differ from the preserved baseline")
+    raw = (baseline / "cohort.json").read_bytes()
+    plan = json.loads(raw)
+    original_report = json.loads((baseline / "cpu-report.json").read_text())
+    if original_report["selection"] != plan:
+        raise ValueError("Baseline report differs from the frozen cohort")
+    output.mkdir(parents=True, exist_ok=True)
+    target = output / "cohort.json"
+    if target.exists() and target.read_bytes() != raw:
+        raise ValueError("Candidate cohort differs from frozen baseline")
+    target.write_bytes(raw)
+    for slug in plan["fixtures"] + [sq["slug"] for sq in plan["fresh"]]:
+        source, destination = baseline / "inputs" / slug, output / "inputs" / slug
+        original = original_report["cases"][slug]
+        if original["status"] != "exported":
+            raise ValueError(f"Baseline is not a completed export: {slug}")
+        expected_inputs = original["inputs_sha256"]
+        if set(p.name for p in source.iterdir()) != set(expected_inputs):
+            raise ValueError(f"Frozen baseline input file set changed: {slug}")
+        destination.mkdir(parents=True, exist_ok=True)
+        if set(p.name for p in destination.iterdir()) - set(expected_inputs):
+            raise ValueError(f"Unexpected candidate input files: {slug}")
+        for path in source.iterdir():
+            if not path.is_file():
+                raise ValueError(f"Unexpected nested input directory: {path}")
+            if sha(path) != expected_inputs[path.name]:
+                raise ValueError(
+                    f"Frozen baseline input bytes changed: {slug}/{path.name}"
+                )
+            target = destination / path.name
+            if target.exists() and target.read_bytes() != path.read_bytes():
+                raise ValueError(
+                    f"Candidate input differs from frozen baseline: {target}"
+                )
+            shutil.copyfile(path, target)
+
+
+def compare_export(folder, original):
+    """Full package/grid/resource identities; hydrology includes new advisory metadata."""
+    crp, baseline_crp = next(folder.glob("*.crp")), next(original.glob("*.crp"))
+    files = {}
+    for name in ["terrain.u16", "water.u16", "plan.npz"]:
+        before, after = sha(original / name), sha(folder / name)
+        files[name] = {
+            "before_sha256": before,
+            "after_sha256": after,
+            "unchanged": before == after,
+        }
+    before, after = sha(baseline_crp), sha(crp)
+    return {
+        "before_crp_sha256": before,
+        "after_crp_sha256": after,
+        "package_unchanged": before == after,
+        "files": files,
+    }
+
+
+def qualify(output, only=None, baseline=None):
+    if baseline is not None:
+        frozen_inputs(baseline, output)
     plan = json.loads((output / "cohort.json").read_text())
     slugs = plan["fixtures"] + [sq["slug"] for sq in plan["fresh"]]
     if only is not None and not set(only).issubset(slugs):
@@ -151,6 +213,7 @@ def qualify(output, only=None):
                 else None,
             )
             row["generation"] = receipt
+            row["road_eligibility"] = receipt["real_roads"]["eligibility"]
             row["status"] = "exported"
         except Exception as error:
             row.update(status="failed", error=str(error))
@@ -183,6 +246,10 @@ def qualify(output, only=None):
                         "hydraulic_probe_reference"
                     ],
                 }
+                if baseline is not None:
+                    row["baseline_comparison"] = compare_export(
+                        folder, baseline / "maps" / slug
+                    )
             except Exception as error:
                 row["stage_error"] = str(error)
                 (folder / "stage-error.log").write_text(traceback.format_exc())
@@ -201,5 +268,14 @@ if __name__ == "__main__":
     parser.add_argument(
         "--only", nargs="+", help="Run a subset without changing the frozen cohort"
     )
+    parser.add_argument(
+        "--baseline",
+        type=Path,
+        help="Reuse this completed frozen cohort's exact inputs, preserve its exports, and compare bytes",
+    )
     args = parser.parse_args()
-    qualify(args.output.resolve(), args.only)
+    qualify(
+        args.output.resolve(),
+        args.only,
+        args.baseline.resolve() if args.baseline else None,
+    )

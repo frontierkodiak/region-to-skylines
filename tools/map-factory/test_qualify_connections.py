@@ -7,7 +7,56 @@ from pathlib import Path
 
 import numpy as np
 
-from qualify_connections import screen
+from qualify_connections import frozen_inputs, screen, sha
+
+
+class FrozenInputs(unittest.TestCase):
+    def test_reuse_does_not_recapture_or_change_the_original_cohort(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            baseline, candidate = root / "original", root / "candidate"
+            source = baseline / "inputs" / "square"
+            source.mkdir(parents=True)
+            cohort = {"fixtures": ["square"], "fresh": []}
+            raw = json.dumps(cohort).encode()
+            (baseline / "cohort.json").write_bytes(raw)
+            (source / "geometry.json").write_bytes(b"exact frozen input")
+            report = {
+                "selection": cohort,
+                "cases": {
+                    "square": {
+                        "status": "exported",
+                        "inputs_sha256": {
+                            "geometry.json": sha(source / "geometry.json")
+                        },
+                    }
+                },
+            }
+            (baseline / "cpu-report.json").write_text(json.dumps(report))
+            frozen_inputs(baseline, candidate)
+            self.assertEqual((candidate / "cohort.json").read_bytes(), raw)
+            target = candidate / "inputs/square/geometry.json"
+            self.assertEqual(
+                target.read_bytes(), (source / "geometry.json").read_bytes()
+            )
+            target.write_bytes(b"changed square")
+            with self.assertRaisesRegex(ValueError, "differs from frozen baseline"):
+                frozen_inputs(baseline, candidate)
+            self.assertEqual(
+                (source / "geometry.json").read_bytes(), b"exact frozen input"
+            )
+            target.write_bytes(b"exact frozen input")
+            (source / "geometry.json").write_bytes(b"changed baseline")
+            with self.assertRaisesRegex(ValueError, "baseline input bytes changed"):
+                frozen_inputs(baseline, candidate)
+
+    def test_original_output_cannot_be_used_as_candidate(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary)
+            with self.assertRaisesRegex(
+                ValueError, "differ from the preserved baseline"
+            ):
+                frozen_inputs(path, path)
 
 
 class Screen(unittest.TestCase):

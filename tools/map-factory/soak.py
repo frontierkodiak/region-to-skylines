@@ -156,10 +156,7 @@ def probes_for(hydro, descriptor, highways=None):
     pairs = {frozenset((s["from"], s["to"])): s["id"] for s in descriptor["segments"]}
     paths = []
     for route in descriptor["routes"]:
-        real_rail = highways is not None and any(
-            e["kind"] == "rail" for e in hydro["highways"]["edges"]
-        )
-        if highways is not None and (route["kind"] != "rail" or real_rail):
+        if highways is not None:
             continue
         nodes = route["nodes"]
         segments = [pairs[frozenset(pair)] for pair in zip(nodes, nodes[1:])]

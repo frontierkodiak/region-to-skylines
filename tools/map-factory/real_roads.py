@@ -23,6 +23,7 @@ uv run python real_roads.py PNG GEOMETRY OUTPUT --banks BANKS \
 """
 
 import argparse
+from collections import deque
 import hashlib
 import json
 from pathlib import Path
@@ -72,6 +73,37 @@ def _stubs(graph):
     return arrive, leave
 
 
+def _road_access(graph):
+    """Directed road reachability, excluding rail/air/ship and isolated markers."""
+    nodes, edges = graph["nodes"], graph["edges"]
+    forward, reverse = [[] for _ in nodes], [[] for _ in nodes]
+    for edge in edges:
+        if edge["kind"] in ("highway", "ramp"):
+            forward[edge["a"]].append(edge["b"])
+            reverse[edge["b"]].append(edge["a"])
+    incoming = [i for i, n in enumerate(nodes) if n.get("outside") and forward[i]]
+    outgoing = [i for i, n in enumerate(nodes) if n.get("outside") and reverse[i]]
+
+    def reachable(seeds, links):
+        seen, queue = set(seeds), deque(seeds)
+        while queue:
+            for neighbour in links[queue.popleft()]:
+                if neighbour not in seen:
+                    seen.add(neighbour)
+                    queue.append(neighbour)
+        return seen
+
+    arrive, leave = _stubs(graph)
+    from_outside = reachable(incoming, forward)
+    to_outside = reachable(outgoing, reverse)
+    return {
+        "incoming": incoming,
+        "outgoing": outgoing,
+        "arrive": [i for i in arrive if i in from_outside],
+        "leave": [i for i in leave if i in to_outside],
+    }
+
+
 def _tile_of(xyz):
     x, z = xyz[0], xyz[2]
     tx, tz = int(np.floor(x / 1920 + 2.5)), int(np.floor(z / 1920 + 2.5))
@@ -85,6 +117,56 @@ def _tile_of(xyz):
     return None
 
 
+def road_eligibility(graph, start_tile):
+    """Structural start access, not native pathfinding or a playability promise.
+
+    No synthetic corridor is inferred when access is absent. The explicit
+    no_outside_link fallback leaves the geographic counterexample intact.
+    """
+    access = _road_access(graph)
+    nodes = graph["nodes"]
+    arrivals = [i for i in access["arrive"] if _tile_of(nodes[i]["xyz"]) == start_tile]
+    departures = [i for i in access["leave"] if _tile_of(nodes[i]["xyz"]) == start_tile]
+    pairs = []
+    for a in arrivals:
+        for b in departures:
+            pa, pb = np.asarray(nodes[a]["xyz"]), np.asarray(nodes[b]["xyz"])
+            gap = float(np.hypot(*(pa - pb)[[0, 2]]))
+            if gap <= 400:
+                pairs.append((gap, a, b))
+    reasons = []
+    if not access["incoming"]:
+        reasons.append("no_incoming_road_connection")
+    if not access["outgoing"]:
+        reasons.append("no_outgoing_road_connection")
+    if not arrivals:
+        reasons.append("no_outside_reachable_start_arrival")
+    if not departures:
+        reasons.append("no_start_departure_reaches_outside")
+    if arrivals and departures and not pairs:
+        reasons.append("start_arrival_departure_more_than_400m_apart")
+    witness = min(pairs) if pairs else None
+    return {
+        "schema": 1,
+        "status": "eligible" if witness else "no_outside_link",
+        "fallback": "none" if witness else "explicit_no_outside_link",
+        "reason_codes": reasons,
+        "start_tile": start_tile,
+        "incoming_road_nodes": len(access["incoming"]),
+        "outgoing_road_nodes": len(access["outgoing"]),
+        "reachable_start_arrivals": arrivals,
+        "outside_reachable_start_departures": departures,
+        "interchange": {
+            "arrival": witness[1],
+            "departure": witness[2],
+            "gap_m": witness[0],
+        }
+        if witness
+        else None,
+        "scope": "Directed graph access only; native paths, buildability and first-hour play unverified",
+    }
+
+
 def choose_start(graph, ground, depth, current):
     """The start tile where a player can most easily join the highways.
 
@@ -93,7 +175,8 @@ def choose_start(graph, ground, depth, current):
     open the land is where those stubs end (no bridge or railway within 250 m),
     water in the tile, buildable ground around, then by centrality. A standard tile whose
     interchange is reasonably open stays."""
-    arrive, leave = _stubs(graph)
+    access = _road_access(graph)
+    arrive, leave = access["arrive"], access["leave"]
     nodes, edges = graph["nodes"], graph["edges"]
     dy, dx = np.gradient(ground, 16)
     buildable = (np.hypot(dx, dy) < 0.15) & (depth < 0.25)
@@ -140,7 +223,7 @@ def choose_start(graph, ground, depth, current):
     if not best:
         return (
             current,
-            "no start tile holds an interchange's exit and on-ramp; standard tile kept",
+            "no start tile holds an outside-reachable exit and on-ramp; standard tile kept",
         )
     # A standard tile whose interchange is reasonably open stays: the player
     # starts where the shipping writer would put them.
@@ -297,6 +380,7 @@ def prepare_roads(output, geometry, air=True, ship=True):
             "start_tile_nodes": sum(
                 1 for n in graph["nodes"] if _tile_of(n["xyz"]) == start
             ),
+            "eligibility": road_eligibility(graph, start),
         }
     )
     hydro.update(
@@ -383,9 +467,8 @@ def finish(crp, hydro):
         ("ShipPath", report["ship_paths"]),
         ("TrainTracks", report["train_tracks"]),
     ]:
-        if count:
-            fields["incoming" + kind] = ("System.Int32", count)
-            fields["outgoing" + kind] = ("System.Int32", count)
+        fields["incoming" + kind] = ("System.Int32", count)
+        fields["outgoing" + kind] = ("System.Int32", count)
     fields.update(preview_assets(assets, crp, hydro))
     checksum = hashlib.md5(data).hexdigest()
     for a in assets:
@@ -540,7 +623,14 @@ if __name__ == "__main__":
         json.dumps(
             {
                 k: roads.get(k)
-                for k in ["outside", "air", "ship", "start_tile", "start_tile_reason"]
+                for k in [
+                    "eligibility",
+                    "outside",
+                    "air",
+                    "ship",
+                    "start_tile",
+                    "start_tile_reason",
+                ]
             },
             indent=2,
         )
