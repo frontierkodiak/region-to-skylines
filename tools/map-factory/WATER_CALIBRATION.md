@@ -106,8 +106,24 @@ For each prepared square, use its staged `.crp` and `probes.json` with:
 uv run --locked --project tools/cs1-harness cs1-harness run \
   --map <staged-square.crp> --probes <staged-square/probes.json> \
   --game-minutes 60 --issue PL-1072 --no-live --no-record \
-  --wait-minutes 0 --retry-minutes 0 --out <native/square-slug>
+  --require-offline --wait-minutes 0 --retry-minutes 0 --out <native/square-slug>
 ```
+
+The native phase uses a separate detached harness checkout at PL-1066's
+`6949182ccf3f8bf066fd24372e1bcfc31c8512f1`. Its read-only offline guard accepts
+the lead-approved combination of cached offline flags and failed
+`login=false/offlineMode=true` syncs, while rejecting online state. Its `MAP_SOAK`,
+flooding, required-point and throughout-water definitions are identical to this
+study's original harness. Do not merge the other writer changes from that branch
+into the frozen capture source.
+
+`run_water_panel.py STAGING NATIVE HARNESS_DIR NATIVE_PLAN` automates this command
+serially. The plan binds the immutable staging and harness revision. `--only SLUG`
+can verify the first unit before the complete cohort; it does not remove the
+other planned squares. Each fresh attempt has its own directory. Canonical
+square paths are read-only aliases to collected complete attempts. Failed water
+verdicts are retained as observations, not retried until they pass. Account and
+lifecycle guard failures stop collection. Other failed attempts stay archived.
 
 Do not add `--notify` or `--wake`; the issue gets one consolidated result. A
 nonzero native exit needs diagnosis before retry, not an ignored loop exit.

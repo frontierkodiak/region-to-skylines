@@ -64,8 +64,9 @@ Source equivalence is not the same as claiming the capture ran at a later SHA.
 
 ## Remaining blocker
 
-No new native game or holdout score exists. PL-1066 is blocked on usable cached
-offline Steam and has not released the test install. Its failed client-only
-check is not repeated here. After that resolution and release, collect the
-frozen panel's labels with the existing harness. The PL-912 exporter release
-hold remains justified; there is no safe-square class to ship without a caveat.
+At preparation closeout no new native game or holdout score existed. PL-1066
+subsequently resolved the offline-evidence interpretation and explicitly released
+the install on November 20 at 13:30 UTC. Collection resumes through its pinned
+guarded harness, without changing the frozen writer or repeating the rejected
+client-only experiment. The PL-912 exporter release hold remains justified;
+there is no safe-square class to ship without a caveat.
