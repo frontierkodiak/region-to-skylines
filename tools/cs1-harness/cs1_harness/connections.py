@@ -85,8 +85,17 @@ def collect(package, probes, out, wait_minutes=60):
             entries = c.call("maps")["maps"]
             entry = next(m for m in entries if m.get("path") and Path(m["path"]).samefile(installed))
             result["listed"] = entry
-            panel = c.call("new_game_panel", path=entry["path"])
+            deadline = time.monotonic() + 30
+            while True:
+                panel = c.call("new_game_panel", path=entry["path"], select=True)
+                if not panel.get("pending"):
+                    break
+                if time.monotonic() >= deadline:
+                    raise RuntimeError("native New Game panel did not become available")
+                s.alive()
+                time.sleep(0.1)
             dump(out / "panel.json", panel)
+            c.call("new_game_panel", close=True)
             c.call("new_game", path=entry["path"])
             result["loaded"] = c.wait(
                 lambda st: st.get("in_game") and not st.get("loading"), 600, "New Game", alive=s.alive
