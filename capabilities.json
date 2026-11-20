@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "model": "square-capabilities-v2",
+  "model": "square-capabilities-v3",
   "updated_at": "2026-11-20",
   "game": "Cities: Skylines 1, 1.21.1-f9",
   "source_revision": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
@@ -192,16 +192,18 @@
       "icon": "ship",
       "status": "modelled_not_native_fitted",
       "definition": "A ship-route candidate is supported by an authored edge-to-edge ship route or a broad deep corridor in the initial water plan. Route existence, broad-corridor support, native pathfinding and sustained navigability are separate observations.",
-      "exporter_check": "tools/map-factory/capabilities.py:ship_corridor",
-      "browser_check": "capability-model.js:shipCorridor",
+      "exporter_check": "tools/map-factory/capabilities.py:check",
+      "browser_check": "capability-model.js:checkCapabilities",
       "existing_checks": [
-        "tools/map-factory/transport_paths.py:ship_path"
+        "tools/map-factory/transport_paths.py:ship_path",
+        "tools/map-factory/capabilities.py:network_access",
+        "tools/map-factory/capabilities.py:ship_corridor"
       ],
       "promise_levels": {
         "promised": "Exact-export native ship path is accepted, with water stability separately qualified for any sustained-service claim.",
         "likely": "An authored edge-to-edge ship route or a candidate initial deep-water corridor exists. A coarse corridor miss cannot veto an authored route; neither is native navigability proof.",
         "not_possible_here": "Both the authored route and the broad corridor are absent in the supplied final export plan, under the stated checks. This does not rule out another planner or a narrower route missed by coarsening.",
-        "unknown": "Neither kind of candidate was established and one input is missing, or only a browser estimate is available. Missing evidence is not a negative geographic result."
+        "unknown": "The planner was explicitly disabled, neither kind of candidate was established and one input is missing, or only a browser estimate is available. Missing evidence is not a negative geographic result."
       },
       "metric_ids": [
         "incoming_ship_entries",

@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[2]
 LEDGER = json.loads((ROOT / "capabilities.json").read_text())
 
 
-def narrow_ship_export():
+def narrow_ship_export(planner_report=None):
     """Constructed depth, real offline planner; not native game evidence."""
     ground = np.full((1081, 1081), 100.0)
     depth = np.zeros_like(ground)
@@ -31,7 +31,9 @@ def narrow_ship_export():
         folder = Path(temporary)
         for name, grid in (("terrain.u16", ground), ("water.u16", depth)):
             (np.flipud(grid) * 64).astype("<u2").tofile(folder / name)
-        (folder / "hydrology.json").write_text(json.dumps({"highways": fragment}))
+        (folder / "hydrology.json").write_text(
+            json.dumps({"highways": fragment, "highway_report": planner_report or {}})
+        )
         return prepared_input(folder)
 
 
@@ -78,6 +80,21 @@ class CapabilityParity(unittest.TestCase):
             ]
         )
         inputs.append(narrow_ship_export())
+        for mode in ("export", "estimate"):
+            for depth in (0, 8):
+                inputs.append(
+                    {
+                        "schema": 1,
+                        "mode": mode,
+                        "planner_enabled": {"ship": False, "air": False},
+                        "graph": {"nodes": [], "edges": []},
+                        "grid": {
+                            "size": 17,
+                            "spacing_m": 1080,
+                            "depth_m": [depth] * 289,
+                        },
+                    }
+                )
         javascript = """
           import {readFileSync} from 'node:fs';
           import {checkCapabilities} from './capability-model.js';
@@ -116,6 +133,21 @@ class CapabilityParity(unittest.TestCase):
                 "above_p75",
                 "not_comparable",
             ],
+        )
+
+    def test_prepared_opt_out_is_unknown_not_a_negative(self):
+        data = narrow_ship_export({"ship": "off", "air": "off"})
+        self.assertEqual(data["planner_enabled"], {"ship": False, "air": False})
+        for graph in (data["graph"], {"nodes": [], "edges": []}):
+            data["graph"] = graph
+            report = check(data, LEDGER)["capabilities"]
+            for key in ("ship", "air"):
+                self.assertEqual(
+                    report[key], {"level": "unknown", "reason": "planner_disabled"}
+                )
+        del data["planner_enabled"]
+        self.assertEqual(
+            check(data, LEDGER)["capabilities"]["ship"]["level"], "not_possible_here"
         )
 
 

@@ -93,6 +93,29 @@ test("ledger rejects a stale symbol even when its source file exists", () => {
   stale.capabilities.find((c) => c.id === "air").existing_checks = ["inputs.js:capturedAirport"];
   assert.throws(() => validateLedger(stale), /Missing check symbol/);
   assert.match(ledger.stock_reference.metrics.trees_total.name, /budget-sensitive/);
+  const ship = ledger.capabilities.find((c) => c.id === "ship");
+  assert.equal(ship.exporter_check, "tools/map-factory/capabilities.py:check");
+  assert.equal(ship.browser_check, "capability-model.js:checkCapabilities");
+});
+
+test("explicit planner opt-outs are unknown even with corridor or stale route evidence", () => {
+  const input = { schema: 1, mode: "export", planner_enabled: { ship: false, air: false },
+    graph: { nodes: [node("west"), node("east")], edges: [edge(0, 1, "ship"), edge(0, 1, "air")] },
+    grid: { size: 17, spacing_m: 1080, depth_m: new Array(289).fill(8) } };
+  for (const mode of ["export", "estimate"]) {
+    input.mode = mode;
+    for (const key of ["ship", "air"])
+      assert.deepEqual(checkCapabilities(input, ledger).capabilities[key], { level: "unknown", reason: "planner_disabled" });
+  }
+  input.mode = "export";
+  input.planner_enabled = { ship: true, air: true };
+  for (const key of ["ship", "air"]) assert.equal(checkCapabilities(input, ledger).capabilities[key].level, "likely");
+  input.graph = { nodes: [], edges: [] };
+  input.grid.depth_m.fill(0);
+  input.planner_enabled = { ship: false, air: false };
+  for (const key of ["ship", "air"]) assert.equal(checkCapabilities(input, ledger).capabilities[key].level, "unknown");
+  delete input.planner_enabled;
+  for (const key of ["ship", "air"]) assert.equal(checkCapabilities(input, ledger).capabilities[key].level, "not_possible_here");
 });
 
 test("agreement separates oracle types and excludes missing labels", () => {

@@ -158,6 +158,9 @@ def check(data, ledger):
             raise ValueError("Invalid capability depths")
     result = {}
     for key in KINDS:
+        if data.get("planner_enabled", {}).get(key) is False:
+            result[key] = {"level": "unknown", "reason": "planner_disabled"}
+            continue
         graph = data.get("graph")
         witness = network_access(graph, key) if graph is not None else None
         if key == "ship":
@@ -285,6 +288,11 @@ def prepared_input(folder):
         "schema": 1,
         "mode": "export",
         "graph": hydro.get("highways"),
+        "planner_enabled": {
+            key: False
+            for key in ("ship", "air")
+            if hydro.get("highway_report", {}).get(key) == "off"
+        },
         "grid": {"size": 271, "spacing_m": 64, "depth_m": coarse.ravel().tolist()},
         "buildable_fraction": float(dry[central].mean()),
     }

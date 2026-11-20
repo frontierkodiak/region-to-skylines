@@ -32,6 +32,11 @@ both checks to be present and negative; it is not global impossibility. Browser
 negatives remain unknown. Native boundary fitting belongs to the connection
 oracle study before any broader promise is promoted.
 
+Version 3 preserves explicit planner opt-outs: `highway_report.ship` or `.air`
+equal to `off` becomes `planner_enabled` false in the normalized input. That
+capability stays unknown with reason `planner_disabled`, not a negative from an
+unattempted planner. This also prevents a stale graph from overriding the opt-out.
+
 The browser core and Python core consume the same normalized schema:
 
 ```json

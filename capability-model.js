@@ -69,6 +69,10 @@ export function checkCapabilities(data, ledger) {
     grid.depth_m.length !== grid.size ** 2 || Array.from(grid.depth_m).some((d) => !Number.isFinite(d) || d < 0))) throw new Error("Invalid capability grid");
   const result = {};
   for (const key of Object.keys(KINDS)) {
+    if (data.planner_enabled?.[key] === false) {
+      result[key] = { level: "unknown", reason: "planner_disabled" };
+      continue;
+    }
     const witness = data.graph != null ? networkAccess(data.graph, key) : null;
     if (key === "ship") {
       const corridor = grid ? shipCorridor(grid.depth_m, grid.size, grid.spacing_m, ledger.model_rules.ship) : null;
