@@ -99,6 +99,8 @@ bytes, two or three passing stock controls, and one shared player-mod hash.
 Missing or blocked attempts remain unresolved.
 Incomplete cohorts and mismatched players have no qualified pass rate.
 The report preserves other failed native gates alongside the first-hour check.
+Cleanup failures remain explicit but are unresolved infrastructure attempts,
+not map faults. They cannot qualify a stock control or yield a completed rate.
 
 Report exporter-rule gains against the qualified-player baseline, separately
 from the player-policy effect. Historical 1/8 is not the paired exporter baseline.

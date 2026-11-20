@@ -234,6 +234,32 @@ class CohortComparison(unittest.TestCase):
         write(path, verdict)
         self.assertFalse(self.result()["stock_policy_qualified"])
 
+    def test_cleanup_failure_is_unresolved_infrastructure_not_a_map_fault(self):
+        path = self.before / "native/original/verdict.json"
+        verdict = json.loads(path.read_text())
+        verdict["verdict"] = "fail"
+        verdict["checks"].append({"name": "cleanup", "status": "fail"})
+        write(path, verdict)
+        result = self.result()
+        self.assertEqual(result["cases"]["original"]["before"]["status"], "blocked")
+        self.assertEqual(result["before"]["failed"], 0)
+        self.assertEqual(result["before"]["unresolved"], 1)
+        self.assertFalse(result["original_player_baseline"]["qualified"])
+        self.assertIsNone(result["before"]["qualified_pass_rate"])
+
+    def test_cleanup_failure_cannot_qualify_a_stock_control(self):
+        path = self.stock / "stock-b/verdict.json"
+        verdict = json.loads(path.read_text())
+        verdict["verdict"] = "fail"
+        verdict["checks"].append({"name": "cleanup", "status": "fail"})
+        write(path, verdict)
+        result = self.result()
+        self.assertFalse(result["stock_policy_qualified"])
+        self.assertEqual(result["controls"]["stock-b"]["status"], "blocked")
+        self.assertEqual(
+            result["controls"]["stock-b"]["additional_failed_checks"], ["cleanup"]
+        )
+
     def test_different_input_bytes_cannot_earn_a_paired_rate(self):
         path = self.after / "cpu-report.json"
         report = json.loads(path.read_text())
