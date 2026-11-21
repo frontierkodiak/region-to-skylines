@@ -35,6 +35,13 @@ can generate electricity**. Normal facility completion, native grid power,
 budget, pipe setup and timing are recorded separately. Auxiliary/setup/resource
 faults leave service unscored.
 
+Every loaded cycle checks each facility's own electrical/enablement problems,
+normal completion and exact declared pipe-node connectivity, plus the consumer
+pipe and available cash. A loaded auxiliary failure stops the reference with
+service null. `Active=false` and `WaterNotFound` alone do not invalidate the
+fixture: insufficient water can be the observed hydraulic result. The Python
+controller independently validates every raw cycle as well as its totals.
+
 After2game-minutes of settling, the native consumer requests1000water units and
 dumps1000sewage units every256simulationframes for60game-minutes. These are
 native API units, **not m³/s or an asserted population equivalent**. Every cycle
@@ -52,8 +59,9 @@ hour is not an indefinite-capacity or whole-map guarantee.
 ## Reference controls and held-out scoring
 
 `prepare_surface_controls.py` decodes the two already registered stock maps,
-without changing their packages, and freezes a geometrically selected pair on
-one wet component. These are fixture references, **not model predictions**;
+without changing their packages, and freezes two geometrically selected shore
+anchors at least320m apart. A shared body is preferred, not required to test
+the pipe fixture. These are fixture references, **not model predictions**;
 quality/downstream relationship is unpredicted. Before attributing a service
 shortfall to map hydrology, verify that this demand/plumbing/power fixture is
 supported on the reference controls. Retain failed/dirty controls too. The

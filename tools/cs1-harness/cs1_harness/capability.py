@@ -113,6 +113,33 @@ def surface_observation(row):
         )
         if not qualified:
             raise HarnessError("Native surface service label lacks a complete qualified load fixture")
+        samples = row.get("samples") or []
+        if len(samples) != row["cycles"]:
+            raise HarnessError("Native surface service lacks complete raw cycle records")
+        for cycle in samples:
+            if cycle.get("auxiliary_valid") is not True or cycle.get("consumer_pipe_valid") is not True:
+                raise HarnessError("Native surface service has unqualified auxiliary/pipe state")
+            for role in ("intake", "outlet"):
+                facility = cycle.get(role) or {}
+                problems = str(facility.get("problems", ""))
+                if (
+                    facility.get("completed") is not True
+                    or facility.get("electricity_grid_powered") is not True
+                    or facility.get("declared_pipe_valid") is not True
+                    or facility.get("production_rate_native", 0) <= 0
+                    or "Electricity" in problems
+                    or "TurnedOff" in problems
+                ):
+                    raise HarnessError("Native surface service has unqualified facility-side auxiliary state")
+        measured = {
+            "fetched_native_units": sum(c["fetched"] for c in samples),
+            "sewage_accepted_native_units": sum(c["sewage"] for c in samples),
+            "short_water_cycles": sum(c["fetched"] < 1000 for c in samples),
+            "short_sewage_cycles": sum(c["sewage"] < 1000 for c in samples),
+            "polluted_delivery_cycles": sum(c["pollution_native"] > 0 for c in samples),
+        }
+        if any(row.get(k) != v for k, v in measured.items()):
+            raise HarnessError("Native surface totals disagree with raw cycles")
         passed = (
             row.get("short_water_cycles") == 0
             and row.get("short_sewage_cycles") == 0

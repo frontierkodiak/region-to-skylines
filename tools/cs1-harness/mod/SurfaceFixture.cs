@@ -111,6 +111,8 @@ namespace Cs1Harness
                 yield break;
             }
             job.Result["observed_native_placement"]=true;
+            ushort intakePipe=Convert.ToUInt16(setup.Row["intake_pipe_node"]);
+            ushort outletPipe=Convert.ToUInt16(setup.Row["outlet_pipe_node"]);
             var sm=Singleton<SimulationManager>.instance;
             double framesPerMinute=60.0/Time.fixedDeltaTime;
             if(double.IsNaN(framesPerMinute) || framesPerMinute<=0) throw new Exception("invalid native frame clock");
@@ -137,7 +139,7 @@ namespace Cs1Harness
                 bool loaded=sm.m_currentFrameIndex>=loadStart;
                 uint due=next;
                 var cycle=new SurfaceTransfer();
-                yield return SurfaceAction(()=>SurfaceCycle(facilities,consumer,loaded,due),cycle);
+                yield return SurfaceAction(()=>SurfaceCycle(facilities,consumer,intakePipe,outletPipe,loaded,due),cycle);
                 if(Json.Str(cycle.Row,"kind","")!="cycle")
                 { job.Result["failure"]=cycle.Row;sm.SimulationPaused=true;yield break; }
                 uint frame=Convert.ToUInt32(cycle.Row["frame"]);
@@ -153,6 +155,15 @@ namespace Cs1Harness
                     if(Convert.ToInt32(cycle.Row["pollution_native"])>0) dirty++;
                     if(!(bool)cycle.Row["auxiliary_valid"]) auxiliaryFailures++;
                     samples.Add(cycle.Row);
+                    if(!(bool)cycle.Row["auxiliary_valid"])
+                    {
+                        job.Result["fixture_qualified"]=false;
+                        job.Result["failure_scope"]="auxiliary";
+                        job.Result["first_auxiliary_failure"]=cycle.Row;
+                        job.Result["cycles"]=cycles;
+                        sm.SimulationPaused=true;
+                        yield break;
+                    }
                 }
                 job.Result["elapsed_load_game_minutes"]=frame>=loadStart?(frame-loadStart)/framesPerMinute:0;
                 job.Result["cycles"]=cycles;
@@ -223,17 +234,31 @@ namespace Cs1Harness
             consumer=Link(pipe,Vector3.zero,point,intake);
             Link(pipe,Vector3.zero,Vector3.zero,consumer,outlet);
             return Host.Obj("kind","ready","consumer_node",consumer,"consumer_position",XYZ(net.m_nodes.m_buffer[consumer].m_position),
+                "intake_pipe_node",intake,"outlet_pipe_node",outlet,
                 "money_after",Singleton<EconomyManager>.instance.InternalCashAmount);
         }
 
-        static Dictionary<string,object> SurfaceFacility(ushort id,out bool auxiliaryValid)
+        static Dictionary<string,object> SurfaceFacility(ushort id,ushort expectedPipe,out bool auxiliaryValid)
         {
             var b=Singleton<BuildingManager>.instance.m_buildings.m_buffer[id];
             bool powered;
             Singleton<ElectricityManager>.instance.CheckElectricity(b.m_position,out powered);
             bool completed=(b.m_flags & (Building.Flags.Created|Building.Flags.Deleted|Building.Flags.Completed))
                 ==(Building.Flags.Created|Building.Flags.Completed);
-            auxiliaryValid=completed && powered && b.m_netNode!=0;
+            string problems=b.m_problems.ToString();
+            var reasons=new List<string>();
+            if(!completed) reasons.Add("facility_not_completed");
+            if(!powered) reasons.Add("grid_unpowered");
+            if(problems.Contains("Electricity")) reasons.Add("native_facility_electricity_problem");
+            if(problems.Contains("TurnedOff") || b.m_productionRate==0) reasons.Add("facility_disabled");
+            var net=Singleton<NetManager>.instance;
+            bool pipe=b.m_netNode!=0 && b.m_netNode==expectedPipe
+                && (net.m_nodes.m_buffer[expectedPipe].m_flags & (NetNode.Flags.Created|NetNode.Flags.Deleted))==NetNode.Flags.Created
+                && net.m_nodes.m_buffer[expectedPipe].CountSegments()>0;
+            if(!pipe || problems.Contains("WaterNotConnected")) reasons.Add("declared_native_pipe_invalid");
+            // Active/WaterNotFound are recorded, not blanket auxiliary gates:
+            // a dried intake can be the water-capability outcome itself.
+            auxiliaryValid=reasons.Count==0;
             var ai=(WaterFacilityAI)b.Info.m_buildingAI;
             object source=null;
             var water=Singleton<TerrainManager>.instance.WaterSimulation;
@@ -244,13 +269,15 @@ namespace Cs1Harness
                     "output_rate_native",s.m_outputRate,"flow_native",s.m_flow,"pollution_native",s.m_pollution,"buffer_native",s.m_water); }
                 finally { water.UnlockWaterSource(b.m_waterSource,s); }
             }
-            return Host.Obj("id",id,"position",XYZ(b.m_position),"flags",b.m_flags.ToString(),"problems",b.m_problems.ToString(),
+            return Host.Obj("id",id,"position",XYZ(b.m_position),"flags",b.m_flags.ToString(),"problems",problems,
                 "completed",completed,"electricity_grid_powered",powered,"electricity_buffer",b.m_electricityBuffer,
+                "active",(b.m_flags & Building.Flags.Active)!=0,"production_rate_native",b.m_productionRate,
+                "declared_pipe_valid",pipe,"auxiliary_reasons",reasons,
                 "water_buffer_native",b.m_waterBuffer,"sewage_buffer_native",b.m_sewageBuffer,
                 "water_pollution_native",b.m_waterPollution,"water_rate_native",ai.GetWaterRate(id,ref b),"source",source);
         }
 
-        static Dictionary<string,object> SurfaceCycle(List<ushort> facilities,ushort consumer,bool loaded,uint due)
+        static Dictionary<string,object> SurfaceCycle(List<ushort> facilities,ushort consumer,ushort intakePipe,ushort outletPipe,bool loaded,uint due)
         {
             var bm=Singleton<BuildingManager>.instance;
             var injected=new List<object>();
@@ -264,11 +291,15 @@ namespace Cs1Harness
                 dumped=Singleton<WaterManager>.instance.TryDumpSewage(consumer,1000,1000);
             }
             bool intakeValid,outletValid;
-            var intake=SurfaceFacility(facilities[0],out intakeValid);
-            var outlet=SurfaceFacility(facilities[1],out outletValid);
+            var intake=SurfaceFacility(facilities[0],intakePipe,out intakeValid);
+            var outlet=SurfaceFacility(facilities[1],outletPipe,out outletValid);
+            var node=Singleton<NetManager>.instance.m_nodes.m_buffer[consumer];
+            bool consumerValid=(node.m_flags & (NetNode.Flags.Created|NetNode.Flags.Deleted))==NetNode.Flags.Created
+                && node.CountSegments()>=2;
             return Host.Obj("kind","cycle","due_frame",due,"frame",Singleton<SimulationManager>.instance.m_currentFrameIndex,
                 "loaded",loaded,"fetched",fetched,"sewage",dumped,"pollution_native",pollution,
-                "auxiliary_power_injected_native",injected,"auxiliary_valid",intakeValid && outletValid
+                "consumer_pipe_valid",consumerValid,"auxiliary_power_injected_native",injected,
+                "auxiliary_valid",intakeValid && outletValid && consumerValid
                     && Singleton<EconomyManager>.instance.InternalCashAmount>=0,
                 "intake",intake,"outlet",outlet);
         }
