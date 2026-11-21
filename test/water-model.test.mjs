@@ -67,3 +67,46 @@ test("bank slope equality and shallow-apron snap gap",()=>{
     assert.equal(!!bankCandidate(g,d,[0,0,0],102,12),expected);
   }
 });
+
+const ledgerForBoundary = JSON.parse(readFileSync(new URL("../capabilities.json",import.meta.url)));
+const coreWater = async (input) => {
+  const {checkCapabilities}=await import("../capability-model.js");
+  return checkCapabilities({schema:1,mode:"estimate",...input},ledgerForBoundary).capabilities.water;
+};
+test("estimate boundary strips injected promise, No and proof fields",async()=>{
+  for(const level of ["promised","not_possible_here"]){
+    const water=await coreWater({water_opportunity:{level,service:"verified",quality:"clean",native_agreement:"qualified",certificate:{valid:true}}});
+    assert.equal(water.level,"unknown");
+    for(const key of ["service","quality","flow","hookup"])assert.equal(water[key],"unknown");
+    assert.equal(water.predicted,null);
+    assert.equal(water.certificate,undefined);
+    assert.match(water.native_agreement,/^unscored/);
+  }
+});
+test("computed opportunity is projected independently of caller qualification claims",async()=>{
+  const valid=liveShore(...grids());
+  const original=await coreWater({water_opportunity:valid});
+  assert.equal(original.level,"likely");
+  const claims={...valid,level:"promised",predicted:true,service:"verified",flow:"verified",
+    quality:"clean",hookup:"verified",native_agreement:"qualified",certificate:{valid:true},witness:{qualified:true}};
+  assert.deepEqual(await coreWater({water_opportunity:claims}),original);
+  for(const opportunity of [null,{},[],{...valid,model:"unsupported"},{...valid,fidelity:"coarse"},
+    {...valid,bank:null},{...valid,wet_point_xz:[0,0]},
+    {...valid,bank:{...valid.bank,water_anchor:[0,0,500]}},
+  ]){
+    const water=await coreWater({water_opportunity:opportunity});
+    assert.equal(water.level,"unknown");
+    assert.equal(water.predicted,null);
+  }
+});
+test("Unicode code-point order matches Python for route iteration and tied witnesses",async()=>{
+  const {channelCandidate}=await import("../water-model.js");
+  const g=Float64Array.from({length:N*N},(_,i)=>100-(i%N)/64),d=new Float64Array(N*N).fill(2);
+  const route=[[-160,0,0],[160,0,0]];
+  for(const names of [["\ue000","\u{10000}"],["a\ue000","a\u{10000}"],["河\ue000","河\u{10000}"]]){
+    for(const order of [names,[...names].reverse()]){
+      const candidate=channelCandidate(g,d,Object.fromEntries(order.map((n)=>[n,route])),12);
+      assert.equal(candidate.river,names[0]);
+    }
+  }
+});

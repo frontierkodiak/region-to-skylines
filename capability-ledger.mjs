@@ -9,7 +9,7 @@ import { WATER_STUDY, validateWaterStudy, waterStudyPage } from "./water-calibra
 
 import { START_WATER_STUDY, validateStartWaterStudy, startWaterPage } from "./start-water-study.mjs";
 
-export const START_WATER_PROJECTION_SHA = "308c9e4d9dd09c2927586688ab5632bb05cfbe8132f8d3d74bf673c7ef7856f1";
+export const START_WATER_PROJECTION_SHA = "8117761d8c0fd3299f04405c25252812bb1238fa8848dc13a4b2f26fd762b076";
 export const WATER_PROJECTION_SHA = "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf";
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];

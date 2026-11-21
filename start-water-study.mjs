@@ -92,11 +92,11 @@ export function activeStartModel(load = read) {
 }
 
 export function activeWaterModel(load = read) {
-  const files = ["water-model.js", "start-model.js", "tools/map-factory/water_model.py", "tools/map-factory/start_model.py", "tools/map-factory/real_roads.py", "tools/map-factory/capabilities.py", "capability-inputs.js"];
+  const files = ["capability-model.js", "water-model.js", "start-model.js", "tools/map-factory/water_model.py", "tools/map-factory/start_model.py", "tools/map-factory/real_roads.py", "tools/map-factory/capabilities.py", "capability-inputs.js"];
   return {
     id: WATER_MODEL, source_study: START_WATER_SOURCE,
     historical_projection: {file: HISTORICAL_PROJECTION, sha256: HISTORICAL_PROJECTION_SHA},
-    relationship: "Water-only port: same route ordering, depth/drop/separation, bank search and fixed load. Missing tile/routes, partial routes and unsupported fidelity abstain. Live finite central shore search has no directed flow/start tile/service. No native score transfer.",
+    relationship: "Water-only port: same route ordering, depth/drop/separation, bank search and fixed load. Missing tile/routes, partial routes and unsupported fidelity abstain. Live finite central shore search has no directed flow/start tile/service. V2 mirrors a whitelist projection of compact geometry in both full cores; caller status/proof fields never survive. Route iteration and tied selection use Python Unicode code-point order. No native score transfer.",
     parameters: {load: WATER_LOAD, bank: WATER_BANK, route: {intake_depth_m: 1, sewage_separation_m: 320, surface_drop_strictly_above_m: 1/64}},
     prepared_fidelity: "prepared_16m_south_first",
     live_fidelity: "capture_16m_bank_minus_bed_or_coastal_depth",

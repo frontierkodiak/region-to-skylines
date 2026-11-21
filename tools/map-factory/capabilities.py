@@ -15,7 +15,11 @@ from pathlib import Path
 
 import numpy as np
 from start_model import evaluate_start, digest as start_digest
-from water_model import evaluate_water
+from water_model import (
+    MODEL as WATER_MODEL,
+    evaluate_water,
+    normalize_water_opportunity,
+)
 
 KINDS = {
     "road": {"highway", "ramp"},
@@ -664,11 +668,12 @@ def check(data, ledger):
         or data.get("planner_enabled", {}).get("start") is False
     ):
         result["start"] = evaluate_start(data)
-    if (
-        data.get("start_input") is not None
-        or data.get("planner_enabled", {}).get("water") is False
-    ):
-        result["water"] = evaluate_water(data)
+    result["water"] = (
+        normalize_water_opportunity(data.get("water_opportunity"))
+        if data["mode"] == "estimate"
+        and data.get("planner_enabled", {}).get("water") is not False
+        else evaluate_water(data)
+    )
     buildable = data.get("buildable_fraction")
     if buildable is not None and math.isfinite(buildable) and 0 <= buildable <= 1:
         result["buildable"] = {
@@ -1008,12 +1013,13 @@ def assess_prepared(folder, native_context=None):
     }
     water = report["capabilities"]["water"]
     water["binding"] = {
-        "model": "pl1212-surface-intake-port-v1",
+        "model": WATER_MODEL,
         "source_sha256": {
             name: hashlib.sha256(
                 (Path(__file__).resolve().parents[2] / name).read_bytes()
             ).hexdigest()
             for name in (
+                "capability-model.js",
                 "water-model.js",
                 "start-model.js",
                 "tools/map-factory/water_model.py",

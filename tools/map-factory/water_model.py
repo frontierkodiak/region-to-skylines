@@ -5,11 +5,12 @@ are new. No native score transfers. This module never reads the archived outcome
 """
 
 from dataclasses import asdict, dataclass
+import math
 import numpy as np
 from real_roads import _tile_of
 from start_model import PARAMETERS, GRID, position, sample
 
-MODEL = "pl1212-surface-intake-port-v1"
+MODEL = "pl1212-surface-intake-port-v2"
 
 
 @dataclass(frozen=True)
@@ -181,6 +182,7 @@ def evaluate_water(data):
         "native_agreement": "unscored_new_runtime",
         "stock_comparison": "not_comparable",
         "service": "unknown",
+        "quality": "unknown",
         "flow": "unknown",
         "hookup": "unknown",
     }
@@ -283,3 +285,112 @@ def evaluate_water(data):
         "crp.water_payload initializes native water pollution to zero; not a real-world salinity claim"
     )
     return water
+
+
+CAPTURE_WATER_FIDELITY = "capture_16m_bank_minus_bed_or_coastal_depth"
+SHORE_SCOPE = "Central 1920m square, 64m wet-anchor lattice, 16m capture and 8m lateral interpolation"
+
+
+def normalize_water_opportunity(value):
+    """Whitelist compact geometry; caller status/proof fields are never evidence.
+
+    Geometry is declared capture evidence, not authenticated raw capture or
+    service qualification. This mirrors normalizeWaterOpportunity exactly.
+    """
+    result = {
+        "level": "unknown",
+        "predicted": None,
+        "witness": None,
+        "model": MODEL,
+        "native_agreement": "unscored_capture_approximation",
+        "stock_comparison": "not_comparable",
+        "service": "unknown",
+        "quality": "unknown",
+        "flow": "unknown",
+        "hookup": "unknown",
+        "opportunity": "unknown",
+        "fidelity": CAPTURE_WATER_FIDELITY,
+        "reason": "missing_capture_opportunity",
+    }
+    if not isinstance(value, dict):
+        return result
+    if value.get("model") != MODEL:
+        return {**result, "reason": "unbound_capture_opportunity"}
+    if value.get("fidelity") != CAPTURE_WATER_FIDELITY:
+        return {**result, "reason": "unsupported_capture_opportunity"}
+    if value.get("opportunity") == "unknown" and value.get("reason") in (
+        "incomplete_or_coarse_shore_grid",
+        "no_bank_in_finite_capture_search",
+    ):
+        return {**result, "reason": value["reason"]}
+    invalid = {**result, "reason": "invalid_capture_opportunity"}
+
+    def finite(v):
+        return type(v) in (int, float) and math.isfinite(v)
+
+    def vector(v, size):
+        return isinstance(v, list) and len(v) == size and all(finite(x) for x in v)
+
+    def distance(a, b):
+        return math.hypot(a[0] - b[0], a[1] - b[1])
+
+    def near(a, b):
+        return abs(a - b) <= 1e-7
+
+    origin, bank = value.get("wet_point_xz"), value.get("bank")
+    if (
+        value.get("opportunity") != "candidate"
+        or value.get("reason") != "captured_shore_bank_candidate"
+        or not vector(origin, 2)
+        or not all(-832 <= v <= 832 and (v + 832) % 64 == 0 for v in origin)
+        or not isinstance(bank, dict)
+        or not vector(bank.get("bank"), 3)
+        or not vector(bank.get("water_anchor"), 3)
+    ):
+        return invalid
+    p, wet = bank["bank"], bank["water_anchor"]
+    offset, minimum, count = (
+        bank.get(k)
+        for k in ("lateral_offset_m", "lateral_min_depth_m", "lateral_sample_count")
+    )
+    if (
+        _tile_of(p) != 12
+        or _tile_of(wet) != 12
+        or wet[1] != 0
+        or not finite(minimum)
+        or minimum < BANK.minimum_wet_depth_m
+        or not finite(offset)
+        or offset < 0
+        or not finite(count)
+        or int(count) != count
+        or not 1 <= count <= 25
+    ):
+        return invalid
+    bank_xz, wet_xz = [p[0], p[2]], [wet[0], wet[2]]
+    radius = distance(bank_xz, origin)
+    if (
+        radius < 16 - 1e-7
+        or radius > 192 + 1e-7
+        or not near(radius / 16, round(radius / 16))
+        or not near(offset, (count - 1) * 8)
+        or not near(distance(wet_xz, origin), offset)
+        or offset > radius + 1e-7
+        or distance(bank_xz, wet_xz) > LOAD.shore_snap_radius_m + 1e-7
+        or not near(distance(bank_xz, wet_xz), radius - offset)
+    ):
+        return invalid
+    return {
+        **result,
+        "level": "likely",
+        "reason": "captured_shore_bank_candidate",
+        "opportunity": "candidate",
+        "wet_point_xz": list(origin),
+        "scope": SHORE_SCOPE,
+        "bank": {
+            "bank": list(p),
+            "water_anchor": list(wet),
+            "lateral_offset_m": offset,
+            "lateral_min_depth_m": minimum,
+            "lateral_sample_count": count,
+        },
+    }

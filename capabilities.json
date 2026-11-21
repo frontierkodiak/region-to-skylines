@@ -35595,13 +35595,13 @@
       "limits": "New runtime unscored. Prepared route ordering and initial surface drop are not simulated velocity; initial zero pollution is not geographic salinity or sustained clean water. Declared load: 1000 native water/sewage units per256frames, auxiliary power, 2 loaded settling minutes and 60 scored minutes, one shore snap per anchor and fixed pipes. No SI/population/indefinite-capacity conversion. Live captured bank-minus-bed/coastal depth is not finished water or an authored start tile. Stock: Not comparable. Archived 3/3 fitting and 1/2 regional holdout do not qualify this port.",
       "witness_study": "pl1078-start-water-v2",
       "runtime_model": {
-        "id": "pl1212-surface-intake-port-v1",
+        "id": "pl1212-surface-intake-port-v2",
         "source_study": "9a4aad77101fbdb0190c7ceaa11ec643065bec56",
         "historical_projection": {
           "file": "tools/map-factory/capability-evidence/pl1208-projection/start-water-study.mjs",
           "sha256": "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b"
         },
-        "relationship": "Water-only port: same route ordering, depth/drop/separation, bank search and fixed load. Missing tile/routes, partial routes and unsupported fidelity abstain. Live finite central shore search has no directed flow/start tile/service. No native score transfer.",
+        "relationship": "Water-only port: same route ordering, depth/drop/separation, bank search and fixed load. Missing tile/routes, partial routes and unsupported fidelity abstain. Live finite central shore search has no directed flow/start tile/service. V2 mirrors a whitelist projection of compact geometry in both full cores; caller status/proof fields never survive. Route iteration and tied selection use Python Unicode code-point order. No native score transfer.",
         "parameters": {
           "load": {
             "consumer_api": "spatial_water_and_sewage",
@@ -35635,12 +35635,13 @@
         "agreement": "unscored_new_runtime",
         "stock_comparison": "not_comparable",
         "source_sha256": {
-          "water-model.js": "901ddc820d41d927ba54f8ad23f0722d4ee8b8fe05053e79425dbe80cd2ce3dd",
+          "capability-model.js": "2be4f2fe25b2208b7cf272df144bacdf79de021f2a6bdf35babb7ff837f7630d",
+          "water-model.js": "45d7f4653944e7f242e1be3dbda1f2ef3a94a2ba033f104094ca4cdddcfc383a",
           "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
-          "tools/map-factory/water_model.py": "c753c79ddd1c7b040e6fb73e9a82a22fe0884ad49ae9f8bad3f46ea5e2d7316a",
+          "tools/map-factory/water_model.py": "9eeb70313868e4457654b9b8a2f44939ca993a96056a96e07d5d2a97be05e43a",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
-          "tools/map-factory/capabilities.py": "8b5c24108d768a52acbe2a147eb35d7dc5c9f846fbb427a5ceb34288a30dd28c",
+          "tools/map-factory/capabilities.py": "7d121c8e1151ecd6d46c774c9c1df216323436078549a7b1b60266e0a193ce7b",
           "capability-inputs.js": "348bb2517d4886dd88819c960c4060c3494d8bf05a34e46843b1a861538abafc"
         }
       }
@@ -35693,7 +35694,7 @@
         "source_sha256": {
           "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
-          "tools/map-factory/capabilities.py": "8b5c24108d768a52acbe2a147eb35d7dc5c9f846fbb427a5ceb34288a30dd28c",
+          "tools/map-factory/capabilities.py": "7d121c8e1151ecd6d46c774c9c1df216323436078549a7b1b60266e0a193ce7b",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
           "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
           "capability-inputs.js": "348bb2517d4886dd88819c960c4060c3494d8bf05a34e46843b1a861538abafc"

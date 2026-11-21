@@ -1,6 +1,6 @@
 // Active PL1212 Water-only port; frozen predicates, new unscored runtime.
 import { sample, position, tileOf } from "./start-model.js";
-export const WATER_MODEL = "pl1212-surface-intake-port-v1";
+export const WATER_MODEL = "pl1212-surface-intake-port-v2";
 export const WATER_LOAD = Object.freeze({
   consumer_api: "spatial_water_and_sewage", settling_has_load: true,
   native_units_per_cycle: 1000, cycle_frames: 256, settling_game_minutes: 2,
@@ -15,6 +15,13 @@ export const WATER_BANK = Object.freeze({
 const N = 1081;
 const xz = (p) => [p[0], p[2]];
 const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
+// Python string ordering: lexicographic Unicode code points, without locale/normalization.
+export function codePointOrder(a, b) {
+  const left = Array.from(a, (c) => c.codePointAt(0)), right = Array.from(b, (c) => c.codePointAt(0));
+  for (let i = 0; i < Math.min(left.length, right.length); i++)
+    if (left[i] !== right[i]) return left[i] - right[i];
+  return left.length - right.length;
+}
 const mix = (a, b, t) => a.map((v, i) => v * (1 - t) + b[i] * t);
 export function bankCandidate(ground, depth, anchor, waterHeight, tile, northFirst = false) {
   const read = (grid, point) => sample(grid, point, northFirst);
@@ -51,7 +58,7 @@ export function bankCandidate(ground, depth, anchor, waterHeight, tile, northFir
 }
 export function channelCandidate(ground, depth, routes, tile) {
   const candidates = [];
-  for (const name of Object.keys(routes).sort()) {
+  for (const name of Object.keys(routes).sort(codePointOrder)) {
     const p = routes[name];
     if (!Array.isArray(p) || p.length < 2 || p.some((v) => !Array.isArray(v) || v.length !== 3 || v.some((x) => !Number.isFinite(x)))) continue;
     const depths = p.map((v) => sample(depth, xz(v)));
@@ -66,7 +73,7 @@ export function channelCandidate(ground, depth, routes, tile) {
       candidates.push({ name, i, j, separation: arc[j] - arc[i], p, depths, surfaces }); break;
     }
   }
-  candidates.sort((a, b) => a.separation - b.separation || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0) || a.i - b.i || a.j - b.j);
+  candidates.sort((a, b) => a.separation - b.separation || codePointOrder(a.name, b.name) || a.i - b.i || a.j - b.j);
   const c = candidates[0];
   return c ? {
     river: c.name, intake_sample_index: c.i, outlet_sample_index: c.j,
@@ -80,7 +87,7 @@ export function channelCandidate(ground, depth, routes, tile) {
 const base = () => ({
   level: "unknown", predicted: null, witness: null, model: WATER_MODEL,
   native_agreement: "unscored_new_runtime", stock_comparison: "not_comparable",
-  service: "unknown", flow: "unknown", hookup: "unknown",
+  service: "unknown", quality: "unknown", flow: "unknown", hookup: "unknown",
 });
 function complete(g, d) {
   return g?.length === N * N && d?.length === N * N &&
@@ -152,4 +159,44 @@ export function liveShore(ground, depth, { spacing = 16 } = {}) {
       scope: "Central 1920m square, 64m wet-anchor lattice, 16m capture and 8m lateral interpolation" };
   }
   return { ...result, reason: "no_bank_in_finite_capture_search" };
+}
+
+export const CAPTURE_WATER_FIDELITY = "capture_16m_bank_minus_bed_or_coastal_depth";
+const SHORE_SCOPE = "Central 1920m square, 64m wet-anchor lattice, 16m capture and 8m lateral interpolation";
+const vector = (p, size) => Array.isArray(p) && p.length === size && p.every(Number.isFinite);
+const near = (a, b) => Math.abs(a - b) <= 1e-7;
+
+/** Validate compact geometric evidence, not the producer's status/proof claims.
+ * This does not authenticate a capture or establish service. Only whitelisted
+ * geometry is projected; every qualification field is generated here.
+ */
+export function normalizeWaterOpportunity(input) {
+  const result = { ...base(), opportunity: "unknown", fidelity: CAPTURE_WATER_FIDELITY,
+    native_agreement: "unscored_capture_approximation", reason: "missing_capture_opportunity" };
+  if (!input || typeof input !== "object" || Array.isArray(input)) return result;
+  if (input.model !== WATER_MODEL) return { ...result, reason: "unbound_capture_opportunity" };
+  if (input.fidelity !== CAPTURE_WATER_FIDELITY) return { ...result, reason: "unsupported_capture_opportunity" };
+  if (input.opportunity === "unknown" && ["incomplete_or_coarse_shore_grid", "no_bank_in_finite_capture_search"].includes(input.reason))
+    return { ...result, reason: input.reason };
+  const invalid = { ...result, reason: "invalid_capture_opportunity" };
+  const origin = input.wet_point_xz, b = input.bank;
+  if (input.opportunity !== "candidate" || input.reason !== "captured_shore_bank_candidate" ||
+      !vector(origin, 2) || !origin.every((v) => v >= -832 && v <= 832 && (v + 832) % 64 === 0) ||
+      !b || typeof b !== "object" || Array.isArray(b) || !vector(b.bank, 3) || !vector(b.water_anchor, 3) ||
+      tileOf(b.bank) !== 12 || tileOf(b.water_anchor) !== 12 || b.water_anchor[1] !== 0 ||
+      !Number.isFinite(b.lateral_min_depth_m) || b.lateral_min_depth_m < WATER_BANK.minimum_wet_depth_m ||
+      !Number.isFinite(b.lateral_offset_m) || b.lateral_offset_m < 0 ||
+      !Number.isInteger(b.lateral_sample_count) || b.lateral_sample_count < 1 || b.lateral_sample_count > 25)
+    return invalid;
+  const bankXZ = xz(b.bank), wetXZ = xz(b.water_anchor), radius = distance(bankXZ, origin);
+  const offset = b.lateral_offset_m;
+  if (radius < 16 - 1e-7 || radius > 192 + 1e-7 || !near(radius / 16, Math.round(radius / 16)) ||
+      !near(offset, (b.lateral_sample_count - 1) * 8) || !near(distance(wetXZ, origin), offset) ||
+      offset > radius + 1e-7 || distance(bankXZ, wetXZ) > WATER_LOAD.shore_snap_radius_m + 1e-7 ||
+      !near(distance(bankXZ, wetXZ), radius - offset)) return invalid;
+  return { ...result, level: "likely", reason: "captured_shore_bank_candidate", opportunity: "candidate",
+    wet_point_xz: [...origin], scope: SHORE_SCOPE,
+    bank: { bank: [...b.bank], water_anchor: [...b.water_anchor],
+      lateral_offset_m: offset, lateral_min_depth_m: b.lateral_min_depth_m,
+      lateral_sample_count: b.lateral_sample_count } };
 }
