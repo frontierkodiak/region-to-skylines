@@ -26,6 +26,35 @@ from water_risk_corpus import native_outcome  # noqa: E402
 COMMENT = "01a1ff6d-7295-72b6-8481-d925cb4a2f5c"
 
 
+def runtime_locations(records, receipt):
+    expected = {**receipt["game_assemblies"], "Cs1Harness.dll": receipt["dll_sha256"]}
+    checks = []
+    for name, digest in expected.items():
+        matches = [
+            m
+            for r in records
+            for m in r.get("modules", [])
+            if m.get("name", "").split(",")[0] + ".dll" == name
+        ]
+        states = [m.get("current_location_sha256") for m in matches]
+        checks.append(
+            {
+                "assembly": name,
+                "status": "unknown"
+                if not states or any(s is None for s in states)
+                else "pass"
+                if all(s == digest for s in states)
+                else "fail",
+                "expected_current_file_sha256": digest,
+                "recorded_current_file_sha256": states,
+            }
+        )
+    return {
+        "scope": "Loaded-module metadata/current on-disk location hash comparison only, NOT loaded-image/JIT identity or runtime health.",
+        "checks": checks,
+    }
+
+
 def authorized(folder, authorization):
     record = load(authorization)
     if (
@@ -170,13 +199,14 @@ def collect(folder, arm_name, native, authorization):
         "cadence_complete": cadence,
         "named_counters_all_available": counters,
         "runtime_metadata_records": len(modules),
+        "runtime_location_hash_comparison": runtime_locations(
+            modules, load(folder / "build-receipt.json")
+        ),
         "measured_storage": storage,
         "water_outcome_original_definition": original,
         "raw_native_verdict": verdict["verdict"],
         "raw_nonpassing_checks": [
-            {k: c[k] for k in ("name", "status")}
-            for c in verdict["checks"]
-            if c["status"] != "pass"
+            c for c in verdict["checks"] if c["status"] != "pass"
         ],
         "native_files_sha256": {
             p.name: sha(p)

@@ -5,10 +5,26 @@ import unittest
 
 import numpy as np
 
-from synthetic_results import COMMENT, authorized, floor_checks, sha
+from synthetic_results import COMMENT, authorized, floor_checks, runtime_locations, sha
 
 
 class AuthorizedResultTests(unittest.TestCase):
+    def test_runtime_missing_or_mismatched_location_bytes_are_not_identity_passes(self):
+        receipt = {"game_assemblies": {"Engine.dll": "engine"}, "dll_sha256": "mod"}
+        records = [
+            {
+                "modules": [
+                    {"name": "Cs1Harness, Version=1", "current_location_sha256": "mod"}
+                ]
+            }
+        ]
+        result = runtime_locations(records, receipt)
+        self.assertEqual([r["status"] for r in result["checks"]], ["unknown", "pass"])
+        records[0]["modules"][0]["current_location_sha256"] = "different"
+        self.assertEqual(
+            runtime_locations(records, receipt)["checks"][1]["status"], "fail"
+        )
+
     def test_authorization_is_not_a_review_pass_and_binds_exact_protocol(self):
         with tempfile.TemporaryDirectory() as name:
             folder = Path(name)
