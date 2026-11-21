@@ -59,6 +59,17 @@ class FollowupTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "bytes changed"):
             followup.unpack(followup.BASE, changed, self.study / "tampered")
 
+    def test_completed_finite_miss_is_not_repeated_to_select_a_better_result(self):
+        path = self.study / "raw/asheville/observation.json"
+        observation = json.loads(path.read_text())
+        for row in observation["paths"]:
+            row["result"].update(success=False, flags=8, positions=[])
+        path.write_text(json.dumps(observation))
+        rows = followup.attempts(self.study, self.case("asheville"))
+        self.assertEqual(rows[0][1]["boundary_successes"], 0)
+        self.assertTrue(rows[0][1]["completed"])
+        self.assertIsNone(followup.choose_attempt(self.study, self.case("asheville")))
+
 
 if __name__ == "__main__":
     unittest.main()

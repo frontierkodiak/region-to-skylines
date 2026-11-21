@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/banana-pool/banana/agent-workspaces/multica/workspaces/polli-labs-94477025d634/pl-1215-14dc1b67c356/workdir/region-to-skylines/tools/cs1-harness/../map-factory/capability-evidence/rail-v3/followup.py", line 344, in <module>
+    main()
+    ~~~~^^
+  File "/banana-pool/banana/agent-workspaces/multica/workspaces/polli-labs-94477025d634/pl-1215-14dc1b67c356/workdir/region-to-skylines/tools/cs1-harness/../map-factory/capability-evidence/rail-v3/followup.py", line 340, in main
+    print(json.dumps(verify(args.evidence), indent=2))
+                     ~~~~~~^^^^^^^^^^^^^^^
+  File "/banana-pool/banana/agent-workspaces/multica/workspaces/polli-labs-94477025d634/pl-1215-14dc1b67c356/workdir/region-to-skylines/tools/cs1-harness/../map-factory/capability-evidence/rail-v3/followup.py", line 277, in verify
+    raise ValueError("owned continuation cleanup failed")
+ValueError: owned continuation cleanup failed
