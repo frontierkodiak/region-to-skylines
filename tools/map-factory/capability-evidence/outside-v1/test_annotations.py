@@ -46,8 +46,10 @@ class AnnotationTest(unittest.TestCase):
                 write_new_raw(path, b"rewritten observation")
             self.assertEqual(path.read_bytes(), original)
 
-    def test_literal_boundary_and_midpoint_only_cells_are_separate(self):
-        cells = summary(annotations(copy.deepcopy(self.evidence)))[1]
+    def test_historical_literal_boundary_and_midpoint_cells_are_separate(self):
+        historical = copy.deepcopy(self.evidence)
+        historical["rows"] = historical["rows"][:619]
+        cells = summary(annotations(historical))[1]
         self.assertEqual(sum(c["observed"] is True for c in cells), 11)
         self.assertEqual(sum(c["observed"] is None for c in cells), 25)
         self.assertEqual(

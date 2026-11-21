@@ -3044,3 +3044,45 @@ unknown/not-run observation are retained. The collector, wrapper and sampler
 were awaited to exit; foreign work was untouched. Remaining native cases are
 Pittsburgh, Charleston, Hong Kong and Boston. No certificate or native threshold
 is issued by this study.
+
+### 2026-11-20 — PL-1142, blade — Charleston and Boston v2
+
+I kept the Rio-verified mod/collector unchanged and collected each package in its
+own fair-queue session. Charleston and Boston both passed all four ship controls:
+boundary and midpoint in both directions, with exact returned first/last
+positions. Launch/opening file identity and native NewGameFromMap/non-inverted
+context validate in both observations. Actual launch records retain noWorkshop
+and mods enabled. Both sessions report empty cleanup. These are sampled native
+lane paths, not terminal service or sustained-water acceptance.
+
+| Case | Wall s, excluding queue | Board samples / process samples | Sampled board VRAM MiB | Sampled game VRAM MiB | Power W | Temperature C |
+| --- | --- | --- | --- | --- | --- | --- |
+| Charleston | 154.0 | 30 / 64 | 10821 | 2815 | 118.00 | 45 |
+| Boston | 155.8 | 31 / 64 | 10821 | 2815 | 116.21 | 47 |
+
+Board samples are 5 s apart; process samples are 2 s apart and restricted to
+actual collector slot ownership. Board VRAM includes resident workloads. Raw
+board and process telemetry is retained under each attempt. No power settings,
+shared services, package bytes or export defaults changed. The historical-count
+test is now explicitly scoped to the original 619 rows, so additional measured
+v2 positives can change the current summary without altering history.
+
+### 2026-11-21 — PL-1142, blade — Hong Kong v2
+
+Hong Kong completed with the same verified runtime/mod/collector context. Ship
+passed all four controls. The road sweep completed 256 of 2,400 enumerated
+candidate requests plus five frozen named probes: 32 successes total, split into
+seven distinct-edge literal-boundary witnesses, seven distinct-edge midpoint
+successes and eighteen same-edge successes. All original failed requests remain
+unchanged. This is a concrete example of why earlier selected-pair failures
+could not establish road absence. The road enumeration is not exhausted.
+Rail completed 16 selected requests with no success and remains unknown.
+
+Runtime identity at launch and opening matched the build and each other; the
+loaded simulation reports NewGameFromMap and non-inverted traffic. Native
+cleanup is empty. Wall time excluding queue was 292.8 s. Sampled peaks were
+10,821 MiB total board VRAM (resident workloads included), 2,811 MiB game VRAM,
+133.55 W and 60 C, from 57 board / 120 process samples at 5 s / 2 s intervals.
+Board and process telemetry is retained. No package or service setting changed;
+these paths are not terminal-service, continuous-clearance or sustained-water
+acceptance. Pittsburgh remains the final diagnostic case.

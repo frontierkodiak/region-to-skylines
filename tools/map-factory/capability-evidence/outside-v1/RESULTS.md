@@ -23,26 +23,26 @@ Ship witnesses are sampled native paths, not terminal service, continuous cleara
 | pittsburgh / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 1 |
 | pittsburgh / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | pittsburgh / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
-| charleston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 10 | 2 |
-| charleston / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
-| charleston / ship | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
-| charleston / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
+| charleston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 10 | 3 |
+| charleston / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 3 |
+| charleston / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 3 |
+| charleston / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 3 |
 | grand-canyon / road | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | grand-canyon / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | grand-canyon / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | grand-canyon / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
-| hong-kong / road | unknown (6 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
-| hong-kong / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
-| hong-kong / ship | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
-| hong-kong / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| hong-kong / road | witness (91 failed) | witness | 7 | 18 | 0 | 0 | 2 |
+| hong-kong / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| hong-kong / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
+| hong-kong / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
 | yosemite / road | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | yosemite / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | yosemite / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
 | yosemite / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
-| boston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 0 | 1 |
-| boston / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 1 |
-| boston / ship | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
-| boston / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
+| boston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 0 | 2 |
+| boston / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 2 |
+| boston / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
+| boston / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
 
 ## Retained attempt errors
 
