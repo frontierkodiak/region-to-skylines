@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh, both actual PNGs viewed",
+  "notes": "Fresh empty city, central dry-looking area with surrounding highway approaches and river. Cuts/elevated-road artifacts remain visible; no full-map fidelity claim. Hello guide visible in both; opening has no Areas overlay, zoom shows outlined start tile. Captured before witness construction.",
+  "opening": {
+    "sha256": "4d41b6f30032a1f1c01d13d2638c747a3303664ee26205097e26e68fa17c06de",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "ebaabbf62561dbf497194a5a2448c4dc2d7c449062d4fe50c85157f6cb9b8948",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

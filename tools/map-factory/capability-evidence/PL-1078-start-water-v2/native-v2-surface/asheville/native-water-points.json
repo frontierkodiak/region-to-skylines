@@ -1,0 +1,42 @@
+{
+  "frame": 202252,
+  "samples": [
+    {
+      "point": [
+        -1232,
+        0,
+        -432
+      ],
+      "cell": [
+        463,
+        513
+      ],
+      "depth_m": 5.609375,
+      "pollution_native": 0,
+      "velocity_native": [
+        0,
+        0
+      ]
+    },
+    {
+      "point": [
+        -1168,
+        0,
+        384
+      ],
+      "cell": [
+        467,
+        564
+      ],
+      "depth_m": 6.8125,
+      "pollution_native": 0,
+      "velocity_native": [
+        0,
+        0
+      ]
+    }
+  ],
+  "rate_units": "native, SI conversion not established",
+  "observed_surface_service": null,
+  "ok": true
+}

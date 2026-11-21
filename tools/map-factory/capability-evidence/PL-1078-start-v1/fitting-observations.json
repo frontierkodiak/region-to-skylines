@@ -1,0 +1,366 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "innsbruck",
+        "lat": 47.27,
+        "lon": 11.4,
+        "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "input_files_sha256": {
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+          "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+          "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-20T23:58:46.258163+00:00",
+      "observed_at_basis": "Controller-completion upper bound derived from raw pre-queue timestamp plus recorded wall; native event occurred before cleanup",
+      "source_sha": "cd7a5f128ea2ab1ce5da88a8117f05ad5924196f",
+      "assessment_source_sha": "7bad9711badd3a00c2e6713def2508de006cce05",
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "oracle": "exact_start_witness_v1",
+      "oracle_source": {
+        "commit": "d5992e76ab8a160aeb9f2681a43b13b460f36b39",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "7a8b32970e0337abba8c5e092ad811aaef6923a8f61d5c1fdbbadade8b715c57",
+      "model_sha256": "1a937aa0babfc07ce23831a20878ed9dbcf36b25667dba844e88b06dcc8db8f5",
+      "witness_sha256": "c8a84acf9142ac3735d6385661bc124bbeb25891d56ddc615e7f66351e20c78d",
+      "predicted": true,
+      "observed": false,
+      "facets": {
+        "footprint_predicates": true,
+        "native_placement": false,
+        "accepted_steps": 24,
+        "attempted_steps": 25,
+        "failure": {
+          "failure_kind": "native_tool_rejection",
+          "error": "Basic Road (2689.7, 62.3, -741.2) -> (2619.8, 61.7, -702.4) (elevation 0 -> 1.035462) [segment 592 HighwayRamp Created, Original, End]: ObjectCollision",
+          "tool_errors": "ObjectCollision",
+          "colliding_segments": [
+            592
+          ],
+          "colliding_buildings": []
+        }
+      },
+      "evidence": [
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/observation.json",
+          "sha256": "9044194dfd05cf832163e85163f471e993111574d43430c3e36c13d4b422b85f"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/prediction.json",
+          "sha256": "53dc5d247cc4a0a63759f6968364b1522c61b91dcda5a4be16b9f4a2c4bc780a"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/witness-job.json",
+          "sha256": "c48905928dbad48a315ed3e21c3402a3a2ffbcb7c1e4d694a2b6102e898de7f2"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/new-game-panel-review.json",
+          "sha256": "87ea814928f7edba47f1aa675bd7ac5cf3a3bef9928e5a8e643317de70e134ef"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/startup-views-review.json",
+          "sha256": "b31c07cc1d74f3269683c3671a008c4f0a4b3ac8d011e3ce8abb8db6c1b4ef34"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/new-game-panel.png",
+          "sha256": "d839d4a71492801fc1744661bd2285b5de97187ff4b317a0f1554f26c76a891f"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/startup-opening.png",
+          "sha256": "293f65205aa7b5c00111058d3b54339aea0cc832fd89d7e6d4585fde1b5fdca6"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/startup-area_zoom.png",
+          "sha256": "3687e2c473d0cf64f9df409aa0556beadbfff9c5d24940dbcf94cc2ad21c91a0"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/gpu.csv",
+          "sha256": "950aeead787bb4692cbfee6d652106f8c9b9aa283e603c873325a002a504ef3e"
+        },
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/receipt-bindings.json",
+          "sha256": "a6d8a68774dfab761d7c3de2eb1ba0f85911fbf5f1ce4941aba954c22b8c5fb2"
+        }
+      ],
+      "resource_observation": {
+        "samples": 32,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 118.82,
+        "peak_temperature_c": 46.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 18:56:05.795",
+        "last_telemetry_local": "2026/11/20 18:58:45.097"
+      },
+      "wall_seconds_including_queue": 1226.5484645219985,
+      "cleanup_qualified": true,
+      "limits": [
+        "Exact witness only; rejection is not map incapability",
+        "No first-hour service/ground-truth acceptance or qualified-player rerate",
+        "Fitting result; not held-out model accuracy"
+      ],
+      "retained_private_evidence": [
+        {
+          "path": "native-witness-v1/innsbruck-attempt1/session-receipt.json",
+          "sha256": "2b3e71ad7bc10c0aba29d48d5453a1fb36c4de7628bfec6839661d1a9702aa89"
+        }
+      ]
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "pittsburgh",
+        "lat": 40.44,
+        "lon": -80,
+        "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "input_files_sha256": {
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70",
+          "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+          "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+          "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+          "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T00:20:23.401303+00:00",
+      "observed_at_basis": "Controller-completion upper bound derived from raw pre-queue timestamp plus recorded wall; native event occurred before cleanup",
+      "source_sha": "cd7a5f128ea2ab1ce5da88a8117f05ad5924196f",
+      "assessment_source_sha": "7bad9711badd3a00c2e6713def2508de006cce05",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "oracle": "exact_start_witness_v1",
+      "oracle_source": {
+        "commit": "d5992e76ab8a160aeb9f2681a43b13b460f36b39",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "7a8b32970e0337abba8c5e092ad811aaef6923a8f61d5c1fdbbadade8b715c57",
+      "model_sha256": "1a937aa0babfc07ce23831a20878ed9dbcf36b25667dba844e88b06dcc8db8f5",
+      "witness_sha256": "178a3ff3d6834b55ea9bb7263595979432307432e4566138c98e2f72be65ebbf",
+      "predicted": true,
+      "observed": true,
+      "facets": {
+        "footprint_predicates": true,
+        "native_placement": true,
+        "accepted_steps": 27,
+        "attempted_steps": 27,
+        "failure": null
+      },
+      "evidence": [
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/observation.json",
+          "sha256": "3256618bf3c4da91304e1908a7b540228eeed4beafb4733f34b5f3ed74090571"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/prediction.json",
+          "sha256": "0b6254eb65844a97703f68bf04736d053930214cfccf4218762ae5c78afcfb35"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/witness-job.json",
+          "sha256": "3a6845b38a22ba343d9d956e7bdb2d975b3f61f1fa9355a473326835d394da47"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/native-paths.json",
+          "sha256": "70924854eb43abc31505d8d21a9f8290ab238900217c69818cb8887930cdea83"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/new-game-panel-review.json",
+          "sha256": "d3c24c2ea4132e734d8e022a233a5fd57c5c4e84cb46ef6f378748747e760608"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/startup-views-review.json",
+          "sha256": "768c2d9c7261de8478bdb80384d77a9e0e1c38b4464d64612d2fd9e6468fba16"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/new-game-panel.png",
+          "sha256": "5602c7e2dfb0cede192fa6ab2c92dc7e025dfc7a3a5bb16b7fdb6f8bbdfa8133"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/startup-opening.png",
+          "sha256": "4d41b6f30032a1f1c01d13d2638c747a3303664ee26205097e26e68fa17c06de"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/startup-area_zoom.png",
+          "sha256": "ebaabbf62561dbf497194a5a2448c4dc2d7c449062d4fe50c85157f6cb9b8948"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/gpu.csv",
+          "sha256": "a13ac7aa22e88f5bee42dd3da1c06f23da4a8eff7b63d2e08ff75a2556f67d66"
+        },
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/receipt-bindings.json",
+          "sha256": "efd35aa8bb295c99ccaab18bc3039e64d9d793c100c5edbe1d845490b4d958b4"
+        }
+      ],
+      "resource_observation": {
+        "samples": 34,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 123.26,
+        "peak_temperature_c": 49.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 19:17:33.651",
+        "last_telemetry_local": "2026/11/20 19:20:22.233"
+      },
+      "wall_seconds_including_queue": 1158.2069527909625,
+      "cleanup_qualified": true,
+      "limits": [
+        "Exact witness only; rejection is not map incapability",
+        "No first-hour service/ground-truth acceptance or qualified-player rerate",
+        "Fitting result; not held-out model accuracy"
+      ],
+      "retained_private_evidence": [
+        {
+          "path": "native-witness-v1/pittsburgh-attempt1/session-receipt.json",
+          "sha256": "1cf25ba3e0ed685f2278052dee4e860c624901bfa200b787b929308424403d6b"
+        }
+      ],
+      "returned_endpoint_audit": {
+        "successful_paths": 17,
+        "literal_outside_endpoints_match": true,
+        "inbound": 8,
+        "outbound": 9,
+        "scope": "After declared road construction; not fresh-map outside-road qualification"
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "charleston",
+        "lat": 32.78,
+        "lon": -79.93,
+        "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "input_files_sha256": {
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+          "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+          "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T00:42:09.863838+00:00",
+      "observed_at_basis": "Controller-completion upper bound derived from raw pre-queue timestamp plus recorded wall; native event occurred before cleanup",
+      "source_sha": "cd7a5f128ea2ab1ce5da88a8117f05ad5924196f",
+      "assessment_source_sha": "7bad9711badd3a00c2e6713def2508de006cce05",
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "oracle": "exact_start_witness_v1",
+      "oracle_source": {
+        "commit": "d5992e76ab8a160aeb9f2681a43b13b460f36b39",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "7a8b32970e0337abba8c5e092ad811aaef6923a8f61d5c1fdbbadade8b715c57",
+      "model_sha256": "1a937aa0babfc07ce23831a20878ed9dbcf36b25667dba844e88b06dcc8db8f5",
+      "witness_sha256": "4d3720d2b9ef0703f19bcf475da6bdab72896e61076adc6e8e237255a568c566",
+      "predicted": true,
+      "observed": false,
+      "facets": {
+        "footprint_predicates": true,
+        "native_placement": false,
+        "accepted_steps": 25,
+        "attempted_steps": 26,
+        "failure": {
+          "failure_kind": "native_tool_rejection",
+          "error": "Basic Road (-3478.8, 91.1, 56.0) -> (-3527.1, 91.1, 126.7) (elevation 0 -> 0) [segment 1241 HighwayRamp Created, Original; segment 1242 HighwayRamp Created, Original; segment 1278 Highway Created, Original]: ObjectCollision",
+          "tool_errors": "ObjectCollision",
+          "colliding_segments": [
+            1241,
+            1242,
+            1278
+          ],
+          "colliding_buildings": []
+        }
+      },
+      "evidence": [
+        {
+          "path": "native-witness-v1/charleston-attempt1/observation.json",
+          "sha256": "72f1736b0dacdf7af53ec9cd9b091ca2bc9246789ae086d1c4036d374db8d62b"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/prediction.json",
+          "sha256": "e1cf3e7b6d6c1546fc808f75a5307245401f7ebd33e37182cd7cd361dd0cfe64"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/witness-job.json",
+          "sha256": "102187fd0996e64d641e6a93beb539d9b9561eabe78a3ce100c5984add0c4356"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/new-game-panel-review.json",
+          "sha256": "6eb5bef0ecb04d87d1412cec64df441c581acf388a242b3e487940b0772fadee"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/startup-views-review.json",
+          "sha256": "82ef8fab3c4101c89f8c57128811a304e0cf626bc7eca3a0e53d7c536a83f6b0"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/new-game-panel.png",
+          "sha256": "3a6fee29cba94ba2498e781477c49b878c0ffc087b7c8533f19626a8396048c5"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/startup-opening.png",
+          "sha256": "c0fa8b1c581fc6422bf3a0bcb0f9bfa4b7c8d15b4f4289c428145af8c7dad3fd"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/startup-area_zoom.png",
+          "sha256": "6fb5c735bae66b33dff9c6a52db247667b46d623ef3d330e4472b17f3e1951db"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/gpu.csv",
+          "sha256": "03ec2420cc1279057bc339f1f85a6edf220143db81ceb239e121c5a881a720e7"
+        },
+        {
+          "path": "native-witness-v1/charleston-attempt1/receipt-bindings.json",
+          "sha256": "2890a35e2f91d611f1b3f188fbdce5b70ec88498e777e6735b9b45eaef9bcaa3"
+        }
+      ],
+      "resource_observation": {
+        "samples": 35,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 114.83,
+        "peak_temperature_c": 48.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 19:39:13.947",
+        "last_telemetry_local": "2026/11/20 19:42:08.616"
+      },
+      "wall_seconds_including_queue": 1306.2857208629139,
+      "cleanup_qualified": true,
+      "limits": [
+        "Exact witness only; rejection is not map incapability",
+        "No first-hour service/ground-truth acceptance or qualified-player rerate",
+        "Fitting result; not held-out model accuracy"
+      ],
+      "retained_private_evidence": [
+        {
+          "path": "native-witness-v1/charleston-attempt1/session-receipt.json",
+          "sha256": "ebb90e5c7a1d413bf8ed4f1c7e98eb4b3623b536749c171e435dcc71297028e5"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "fitting_positive_predictions": 3,
+    "native_agreements": 1,
+    "false_positives": 2,
+    "held_out_native_seen": 0
+  },
+  "retention": "All failures are retained; subsequent v2 model does not overwrite v1 labels",
+  "source_analysis_sha256": "0fadbce2de780caee68c6c4f5c5d77d029ee8380434245f739e2a3d8e9ae8058"
+}

@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "error",
+  "failed": [],
+  "reason": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-2367.6, 115.8, 15.4) -> (-2317.8, 119.2, 98.1) (elevation 0 -> 0) [segment 831 HighwayRamp Created, Original, End; segment 867 Highway Created, Original; segment 868 Highway Created, Original; segment 872 Highway Created, Original; segment 873 Highway Created, Original]: ObjectCollision\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+  "exit_code": 1,
+  "issue": "PL-1078",
+  "label": "PL-1078 baseline-holdouts hong-kong-northeast",
+  "checks": [
+    {
+      "name": "first_hour",
+      "status": "fail",
+      "threshold": "completed scripted 60-minute opening",
+      "detail": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-2367.6, 115.8, 15.4) -> (-2317.8, 119.2, 98.1) (elevation 0 -> 0) [segment 831 HighwayRamp Created, Original, End; segment 867 Highway Created, Original; segment 868 Highway Created, Original; segment 872 Highway Created, Original; segment 873 Highway Created, Original]: ObjectCollision\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+      "value": {
+        "completed": false,
+        "phase": "construction",
+        "construction_state": "failed",
+        "land": {
+          "samples": 3600,
+          "dry_flat_samples": 3154,
+          "sample_spacing_m": 32,
+          "max_axis_slope": 0.15000000596046448,
+          "dry_flat_km2": 3.229696035385132,
+          "dry_flat_fraction": 0.8761110901832581
+        },
+        "observations": [],
+        "evidence_errors": [],
+        "scope": "Partial observations only; no full-hour, end-path or healthy-utility qualification is implied."
+      }
+    }
+  ],
+  "requested_scenario": "first-hour",
+  "harness": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "no rule matched the reason",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "triage-steam.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

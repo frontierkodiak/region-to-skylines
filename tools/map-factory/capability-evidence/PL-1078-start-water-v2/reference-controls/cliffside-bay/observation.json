@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "oracle": "native_surface_load_v2",
+  "controller_started_at": "2026-11-21T01:15:59.080261+00:00",
+  "observed_at": "2026-11-21T01:58:45.337718+00:00",
+  "model_sha256": "fd0622319c43bf0d4b0449b15da5f7e46ba84b3bea5a00305919e898f0c2068c",
+  "prediction_sha256": "1dd23ff2fed4c613b08b9fb3928a4a4f9e1e442dc6d829c8a1310d47215391c3",
+  "artifact_sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+  "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "oracle_source": {
+    "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+    "dirty": false
+  },
+  "observed_start": null,
+  "observed_native_placement": true,
+  "observed_surface_service": false,
+  "observed_water_capability": false,
+  "fixture_qualified": true,
+  "wall_seconds_including_queue": 2647.3361794089433,
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "cleanup_qualified": true
+}

@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "mode": "export",
+  "model": {
+    "id": "surface-stock-load-reference-v1",
+    "parameters": {
+      "consumer_api": "spatial_water_and_sewage",
+      "settling_has_load": true,
+      "native_units_per_cycle": 1000,
+      "cycle_frames": 256,
+      "settling_game_minutes": 2,
+      "horizon_game_minutes": 60,
+      "shore_snap_radius_m": 50,
+      "auxiliary_power_rate": 1000,
+      "max_pollution_native": 0
+    },
+    "reference_selection": {
+      "separation_m": 320,
+      "water_threshold_m": 0.1,
+      "shore_distance_m": 32,
+      "starting_tile_center_extent_m": 800,
+      "component_policy": "largest decoded body first; shared body preferred, not required for fixture plumbing"
+    },
+    "source_sha256": {
+      "prepare_surface_controls.py": "7c8d91dd9e44cbeca6262e973359a7bad1e1ea7dc7e4525967b3fafa5c98cbf4",
+      "surface_intake.py": "4cc4fa4f7ed72d538cf4c1319304b125cebc9f8e1625bf35460910c28d4863bf",
+      "start_capabilities.py": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe"
+    },
+    "sha256": "fd0622319c43bf0d4b0449b15da5f7e46ba84b3bea5a00305919e898f0c2068c"
+  },
+  "inputs_sha256": {
+    "terrain.u16": "7c078f4cf825e33860a6cf587fbf64a33f0902398d4e29de715c085a66ce48a4",
+    "water.u16": "90b3421e3f853e60e10116094e74e503a6a0ec2c2f0fd3e91869a7f652d7c69b",
+    "hydrology.json": "ba1f7d5f2d6c6b5f431366c3f6325b8188c091832d2ef03c040b06f6ad4f21c8"
+  },
+  "capabilities": {
+    "start": {
+      "level": "unknown",
+      "reason": "missing_authored_graph",
+      "predicted": null
+    },
+    "water": {
+      "level": "unknown",
+      "reason": "stock_load_reference_not_a_capability_prediction",
+      "predicted": null,
+      "witness": {
+        "schema": 1,
+        "start_tile": 12,
+        "facilities": [
+          {
+            "prefab": "Water Intake",
+            "anchor": [
+              -528,
+              0,
+              -96
+            ],
+            "model_bank_candidate": [
+              -528,
+              182.09375,
+              -80
+            ],
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          },
+          {
+            "prefab": "Water Outlet",
+            "anchor": [
+              -400,
+              0,
+              -400
+            ],
+            "model_bank_candidate": [
+              -384,
+              183.921875,
+              -400
+            ],
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          }
+        ],
+        "consumer_point": [
+          -456.0,
+          183.0078125,
+          -240.0
+        ],
+        "load": {
+          "consumer_api": "spatial_water_and_sewage",
+          "settling_has_load": true,
+          "native_units_per_cycle": 1000,
+          "cycle_frames": 256,
+          "settling_game_minutes": 2,
+          "horizon_game_minutes": 60,
+          "shore_snap_radius_m": 50,
+          "auxiliary_power_rate": 1000,
+          "max_pollution_native": 0
+        },
+        "auxiliary_power": "fixed native supply, fixture control only",
+        "channel_route": {
+          "intake_water_point": [
+            -528,
+            0,
+            -96
+          ],
+          "outlet_water_point": [
+            -400,
+            0,
+            -400
+          ],
+          "direction_basis": "Reference only: no initial cleanliness/downstream prediction"
+        }
+      },
+      "witness_sha256": "16d7f9fa18659488fa49493ecd5658830300c088d318be8093969ca89b19dba3",
+      "subchecks": {
+        "reference_geometry_frozen": true,
+        "quality": null,
+        "downstream": null,
+        "service": null
+      },
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ]
+    }
+  },
+  "artifact_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+  "split": "fixture_control",
+  "square": {
+    "stock_map": "Foggy Hills"
+  },
+  "source_sha": null,
+  "scope": "Stock package reference, not an exporter/model accuracy row"
+}

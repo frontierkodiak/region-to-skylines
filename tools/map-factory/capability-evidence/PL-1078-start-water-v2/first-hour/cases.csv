@@ -1,0 +1,69 @@
+square,arm,first_hour,strict,game_minutes,population_last,population_peak,phase,reason
+asheville,before,pass,pass,60.015558685610685,301,490,,
+asheville,after,pass,pass,60.08000313341617,409,473,,
+innsbruck,before,pass,pass,60.127780913685754,398,518,,
+innsbruck,after,pass,pass,60.03555868665377,381,495,,
+rio,before,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+rio,after,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+pittsburgh,before,fail,fail,,,,construction,"failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-579.9, 60.0, 117.7) -> (-539.5, 68.2, 122.3) (elevation -6.834091 -> 0): TooShort, SlopeTooSteep
+  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+pittsburgh,after,fail,fail,,,,construction,"failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-579.9, 60.0, 117.7) -> (-539.5, 68.2, 122.3) (elevation -6.834091 -> 0): TooShort, SlopeTooSteep
+  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+charleston,before,pass,fail,60.15333647057414,341,510,,
+charleston,after,pass,fail,60.11222535731891,347,525,,
+grand-canyon,before,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection
+  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+grand-canyon,after,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection
+  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+hong-kong,before,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+hong-kong,after,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+yosemite,before,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection
+  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+yosemite,after,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection
+  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+grand-canyon-northeast,before,pass,pass,60.10000313445926,351,541,,
+grand-canyon-northeast,after,fail,fail,60.02222535262505,385,540,,
+rio-northeast,before,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection
+  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+rio-northeast,after,fail,fail,,,,construction,"failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection
+  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+hong-kong-northeast,before,fail,fail,,,,construction,"failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-2367.6, 115.8, 15.4) -> (-2317.8, 119.2, 98.1) (elevation 0 -> 0) [segment 831 HighwayRamp Created, Original, End; segment 867 Highway Created, Original; segment 868 Highway Created, Original; segment 872 Highway Created, Original; segment 873 Highway Created, Original]: ObjectCollision
+  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "
+hong-kong-northeast,after,fail,fail,,,,construction,"failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-2367.6, 115.8, 15.4) -> (-2317.8, 119.2, 98.1) (elevation 0 -> 0) [segment 831 HighwayRamp Created, Original, End; segment 867 Highway Created, Original; segment 868 Highway Created, Original; segment 872 Highway Created, Original; segment 873 Highway Created, Original]: ObjectCollision
+  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 
+  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 "

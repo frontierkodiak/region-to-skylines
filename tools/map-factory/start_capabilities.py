@@ -57,14 +57,60 @@ def position(ground, xz):
     return [float(xz[0]), float(sample(ground, np.asarray([xz]))[0]), float(xz[1])]
 
 
+def edge_curve(graph, edge):
+    """Provisional cubic corridor, using the exported endpoint tangents.
+
+    The one-third chord control length is a geometric approximation, not a
+    recovered native collision rule. Native guarded placement remains the oracle.
+    """
+    a, b = [np.asarray(graph["nodes"][edge[k]]["xyz"])[[0, 2]] for k in ("a", "b")]
+    length = np.linalg.norm(b - a)
+    controls = [a, b]
+    if "start_dir" in edge and "end_dir" in edge:
+        controls = [
+            a,
+            a + np.asarray(edge["start_dir"])[[0, 2]] * length / 3,
+            b + np.asarray(edge["end_dir"])[[0, 2]] * length / 3,
+            b,
+        ]
+    t = np.linspace(0, 1, max(2, int(length / 4) + 1))[:, None]
+    if len(controls) == 2:
+        return a * (1 - t) + b * t
+    a, c, d, b = controls
+    return (
+        a * (1 - t) ** 3 + 3 * c * (1 - t) ** 2 * t + 3 * d * (1 - t) * t**2 + b * t**3
+    )
+
+
+def outward_heading(graph, hook):
+    edge = next(
+        e
+        for e in graph["edges"]
+        if e["kind"] in ("highway", "ramp") and hook in (e["a"], e["b"])
+    )
+    key = "start_dir" if edge["a"] == hook else "end_dir"
+    if key in edge:
+        return -np.asarray(edge[key])[[0, 2]]
+    other = edge["b"] if edge["a"] == hook else edge["a"]
+    delta = (np.asarray(graph["nodes"][hook]["xyz"]) - graph["nodes"][other]["xyz"])[
+        [0, 2]
+    ]
+    return delta / max(np.linalg.norm(delta), 1e-9)
+
+
+def link_clearance(a, b, corridor):
+    a, b = np.asarray(a)[[0, 2]], np.asarray(b)[[0, 2]]
+    line = np.linspace(a, b, max(2, int(np.linalg.norm(b - a) / 4) + 1))
+    return float(np.min(np.linalg.norm(line[:, None] - corridor[None, :], axis=2)))
+
+
 def road_mask(graph):
     result = np.zeros((GRID, GRID), dtype=bool)
     for edge in graph["edges"]:
         # Elevated and underground networks can still obstruct a new footprint.
         if edge["kind"] in ("air", "ship"):
             continue
-        a, b = [np.asarray(graph["nodes"][edge[k]]["xyz"])[[0, 2]] for k in ("a", "b")]
-        points = np.linspace(a, b, max(2, int(np.linalg.norm(b - a) / 8) + 1))
+        points = edge_curve(graph, edge)
         ij = np.floor((points + HALF) / SPACING + 0.5).astype(int).clip(0, GRID - 1)
         result[ij[:, 1], ij[:, 0]] = True
     return result
@@ -168,16 +214,7 @@ def start_witness(ground, depth, hydro, params=PARAMETERS):
             continue
         hooks = [arrival, departure]
         xyz = [np.asarray(graph["nodes"][i]["xyz"]) for i in hooks]
-        heading = np.zeros(2)
-        for hook, p in zip(hooks, xyz):
-            e = next(
-                e
-                for e in graph["edges"]
-                if e["kind"] in ("highway", "ramp") and hook in (e["a"], e["b"])
-            )
-            other = e["b"] if e["a"] == hook else e["a"]
-            delta = (p - np.asarray(graph["nodes"][other]["xyz"]))[[0, 2]]
-            heading += delta / max(np.linalg.norm(delta), 1e-9)
+        heading = sum((outward_heading(graph, hook) for hook in hooks), np.zeros(2))
         if np.linalg.norm(heading) < 0.1:
             continue
         mean = np.mean(xyz, axis=0)
@@ -198,6 +235,41 @@ def start_witness(ground, depth, hydro, params=PARAMETERS):
             segment_clear(ground, depth, p, join, params) for p in xyz
         ):
             continue
+        # The two intended ramp junctions are allowed to meet the fixture.
+        # Screen unrelated authored networks, including elevated corridors whose
+        # pillars/clearance are unresolved; this can abstain conservatively.
+        unrelated = [
+            edge_curve(graph, e)
+            for e in graph["edges"]
+            if e["kind"] not in ("air", "ship")
+            and not any(h in (e["a"], e["b"]) for h in hooks)
+        ]
+        nearby = [
+            c
+            for c in unrelated
+            if np.min(np.linalg.norm(c - join_xz, axis=1)) < params.max_hookup_m + 400
+        ]
+        corridor = np.concatenate(nearby) if nearby else None
+        if corridor is not None and any(
+            link_clearance(p, join, corridor) < params.road_clearance_m for p in xyz
+        ):
+            continue
+
+        # Native junction collision handling is order-sensitive. Freeze the
+        # geometrically less obstructed stub first, before any native response.
+        def first_clearance(hook):
+            other = next(h for h in hooks if h != hook)
+            e = next(
+                e
+                for e in graph["edges"]
+                if other in (e["a"], e["b"]) and e["kind"] in ("highway", "ramp")
+            )
+            return link_clearance(
+                graph["nodes"][hook]["xyz"], join, edge_curve(graph, e)
+            )
+
+        hooks = sorted(hooks, key=lambda h: (-first_clearance(h), h))
+        xyz = [np.asarray(graph["nodes"][i]["xyz"]) for i in hooks]
         for center in sorted(
             centers, key=lambda c: (np.linalg.norm(np.asarray(c) - join_xz), c)
         ):
@@ -209,6 +281,11 @@ def start_witness(ground, depth, hydro, params=PARAMETERS):
                 ],
             )
             if not segment_clear(ground, depth, join, corner, params):
+                continue
+            if (
+                corridor is not None
+                and link_clearance(join, corner, corridor) < params.road_clearance_m
+            ):
                 continue
             points, steps = {}, []
             for z in range(4):
@@ -269,7 +346,8 @@ def start_witness(ground, depth, hydro, params=PARAMETERS):
                     "incoming": access["incoming"],
                     "outgoing": access["outgoing"],
                 },
-                "scope": "Fixed 4x4 road grid, then ordered two-stub shared junction; no grading or bridge fallback",
+                "scope": "Fixed 4x4 road grid, then clearance-ranked two-stub shared junction; no grading or bridge fallback",
+                "ordering_basis": "Maximum sampled clearance from the other authored ramp corridor, then graph index; never native retries",
             }
             return {
                 "level": "likely",
@@ -287,6 +365,7 @@ def start_witness(ground, depth, hydro, params=PARAMETERS):
                 "limits": [
                     "16m footprint samples and 8m hookup water samples; between-sample terrain/collisions unresolved",
                     "Provisional length/slope/clearance limits, not recovered game constants",
+                    "Cubic corridor uses authored tangents and one-third-chord control length; native curve/width/pillars can disagree",
                 ],
             }
     return {
@@ -399,7 +478,7 @@ def assess(folder):
         for name in ["start_capabilities.py", "real_roads.py"]
     }
     model = {
-        "id": "start-surface-v1",
+        "id": "start-surface-v2",
         "parameters": asdict(PARAMETERS),
         "source_sha256": source,
     }

@@ -1,0 +1,232 @@
+{
+  "schema": 1,
+  "mode": "export",
+  "model": {
+    "id": "surface-intake-load-v1",
+    "parameters": {
+      "load": {
+        "consumer_api": "spatial_water_and_sewage",
+        "settling_has_load": true,
+        "native_units_per_cycle": 1000,
+        "cycle_frames": 256,
+        "settling_game_minutes": 2,
+        "horizon_game_minutes": 60,
+        "shore_snap_radius_m": 50,
+        "auxiliary_power_rate": 1000,
+        "max_pollution_native": 0
+      },
+      "bank": {
+        "search_radius_m": 192,
+        "radial_step_m": 16,
+        "directions": 16,
+        "lateral_sample_spacing_m": 8,
+        "minimum_wet_depth_m": 1,
+        "minimum_freeboard_m": 0.25,
+        "maximum_freeboard_m": 8,
+        "maximum_bank_slope": 0.15
+      }
+    },
+    "source_sha256": {
+      "surface_intake.py": "4cc4fa4f7ed72d538cf4c1319304b125cebc9f8e1625bf35460910c28d4863bf",
+      "start_capabilities.py": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe",
+      "real_roads.py": "2c20cb0138543d827bf04fd2adee4db02fbbc7d45b76f20f47925072d563748c",
+      "crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8"
+    },
+    "sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604"
+  },
+  "inputs_sha256": {
+    "terrain.u16": "69d1e80a63f6294e58dcd00f081afc6b4770a11c1533e3035fc06edc43245a1f",
+    "water.u16": "82b558f204df508eb138caa1c21865269ef8acbf7d8bd788c4732cd35a9135ba",
+    "hydrology.json": "e7fa4b4a3a52f4743d50a6b00ab387d3f6d93d27488cd2de7c3a4ba26263e669"
+  },
+  "capabilities": {
+    "start": {
+      "level": "unknown",
+      "reason": "no_witness_in_finite_plan_search",
+      "predicted": null,
+      "scope": "Current authored directed graph and current start tile only; not all possible generators",
+      "dry_footprint_candidates": 1,
+      "witness": null
+    },
+    "water": {
+      "level": "likely",
+      "reason": "initial_wet_downstream_route_with_nearby_bank_candidates",
+      "predicted": true,
+      "witness": {
+        "schema": 1,
+        "start_tile": 11,
+        "facilities": [
+          {
+            "prefab": "Water Intake",
+            "anchor": [
+              -1904.0,
+              0.0,
+              848.0
+            ],
+            "initial_surface_m": 106.09375,
+            "model_bank_candidate": [
+              -1936.0,
+              111.375,
+              848.0
+            ],
+            "bank_search": {
+              "lateral_offset_m": 16.0,
+              "lateral_min_depth_m": 1.0,
+              "lateral_sample_count": 3
+            },
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          },
+          {
+            "prefab": "Water Outlet",
+            "anchor": [
+              -2016.0,
+              0.0,
+              528.0
+            ],
+            "initial_surface_m": 101.890625,
+            "model_bank_candidate": [
+              -2032.0,
+              107.84375,
+              528.0
+            ],
+            "bank_search": {
+              "lateral_offset_m": 32.0,
+              "lateral_min_depth_m": 1.0,
+              "lateral_sample_count": 5
+            },
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          }
+        ],
+        "consumer_point": [
+          -1984.0,
+          107.859375,
+          688.0
+        ],
+        "load": {
+          "consumer_api": "spatial_water_and_sewage",
+          "settling_has_load": true,
+          "native_units_per_cycle": 1000,
+          "cycle_frames": 256,
+          "settling_game_minutes": 2,
+          "horizon_game_minutes": 60,
+          "shore_snap_radius_m": 50,
+          "auxiliary_power_rate": 1000,
+          "max_pollution_native": 0
+        },
+        "channel_route": {
+          "river": "unnamed waterway [river] #3",
+          "intake_sample_index": 11,
+          "outlet_sample_index": 13,
+          "intake_water_point": [
+            -1888.0,
+            0.0,
+            848.0
+          ],
+          "outlet_water_point": [
+            -1984.0,
+            0.0,
+            528.0
+          ],
+          "along_route_separation_m": 334.08980828513745,
+          "initial_intake_depth_m": 1.0,
+          "initial_surface_drop_m": 4.203125,
+          "direction_basis": "Prepared upstream-to-downstream channel route and initial surface drop; not simulated velocity",
+          "bank_placement": null,
+          "demand_native_units": null,
+          "horizon_game_minutes": 60
+        },
+        "auxiliary_power": "fixed native ElectricityManager supply, not a claim about map power generation",
+        "pipe_plan": "intake native pipe node -> consumer -> outlet native pipe node; no reroute",
+        "scope": "Specified surface intake/outlet anchors, one native shore snap each, controlled power and fixed load/horizon"
+      },
+      "witness_sha256": "9087f96665b13bcb3a9bf86f1c461bc7279a9a6e3049142de7c95a1532afeeab",
+      "subchecks": {
+        "initial_wet_downstream_route": true,
+        "native_intake_placement": null,
+        "clean_intake": null,
+        "sustained_capacity": null,
+        "sewage_downstream_safe": null
+      },
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "channel_candidate": {
+        "river": "unnamed waterway [river] #3",
+        "intake_sample_index": 11,
+        "outlet_sample_index": 13,
+        "intake_water_point": [
+          -1888.0,
+          0.0,
+          848.0
+        ],
+        "outlet_water_point": [
+          -1984.0,
+          0.0,
+          528.0
+        ],
+        "along_route_separation_m": 334.08980828513745,
+        "initial_intake_depth_m": 1.0,
+        "initial_surface_drop_m": 4.203125,
+        "direction_basis": "Prepared upstream-to-downstream channel route and initial surface drop; not simulated velocity",
+        "bank_placement": null,
+        "demand_native_units": null,
+        "horizon_game_minutes": 60
+      },
+      "initial_quality_basis": "crp.water_payload initializes native water pollution to zero; not a real-world salinity claim"
+    }
+  },
+  "base_start_model": {
+    "id": "start-surface-v2",
+    "parameters": {
+      "footprint_half_m": 192,
+      "center_step_m": 64,
+      "max_depth_m": 0.1,
+      "max_slope": 0.15,
+      "max_relief_m": 8,
+      "min_segment_m": 40,
+      "max_hookup_m": 512,
+      "road_clearance_m": 24,
+      "intake_depth_m": 1,
+      "sewage_separation_m": 320
+    },
+    "source_sha256": {
+      "start_capabilities.py": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe",
+      "real_roads.py": "2c20cb0138543d827bf04fd2adee4db02fbbc7d45b76f20f47925072d563748c"
+    },
+    "sha256": "d9f7908d2329d67b3e3e2ce045f9c5d1246c7dd0fb8c36ef8df307086ad35ecc"
+  },
+  "square": {
+    "slug": "hong-kong-northeast",
+    "name": "hong-kong northeast holdout",
+    "lat": 22.79,
+    "lon": 114.67,
+    "parent_slug": "hong-kong",
+    "selection_hash": "6b62f80f5d5086999a6cd22be3ef6bb22df07bc773279c39c5a0c3c6c1de1065",
+    "rotation": 0,
+    "scale": 1,
+    "vscale": "auto",
+    "rivers": true,
+    "sm": 1,
+    "rd": 10,
+    "rw": 40,
+    "ld": 4
+  },
+  "split": "held_out",
+  "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+  "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+  "artifact_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+  "raw_inputs_sha256": {
+    "banks.f32": "442a191c41dc16d0b52738fcb36619ce00b6fba9093f19ea532bba423985c7d3",
+    "input.png": "518ead8a7f82f6c139b9a0a49ed05c3f5b05a94ef2ca2f9463eeb73b51f3e190",
+    "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+    "landcover.u8.gz": "dc5e0955155b761f7399f35287fe942cb06f2331260f1721b6c6541855a97b2d",
+    "capture.json": "3d11127fcd65c8dab6774c6ad8e5ba3b5c36f1553d88ba79cf57571badf22bb8",
+    "geometry.json": "3512a5105626d2ea69a2d9728d9d72333f75fb4c71a52e13c5d9273202f00cb1"
+  }
+}

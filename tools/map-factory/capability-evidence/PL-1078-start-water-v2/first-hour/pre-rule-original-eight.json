@@ -1,0 +1,488 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-20T23:13:14.402992+00:00",
+  "purpose": "Player-only unchanged-exporter original-eight baseline; precedes rule implementation",
+  "preregistration_sha256": "daa6c286253c23f1231c30ae78fd41c21b7a6e562fad41b1b6126aaa1c5cd7ba",
+  "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+  "player_source_sha": "c200644366b36ee91f3c9cd811f33e88e833e289",
+  "judge_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+  "historical": {
+    "passed": 1,
+    "planned": 8,
+    "stock_qualified": false
+  },
+  "first_hour": {
+    "planned": 8,
+    "passed": 3,
+    "failed": 5,
+    "unresolved": 0,
+    "complete": true,
+    "same_qualified_player": true,
+    "qualified_pass_rate": 0.375,
+    "qualified": true,
+    "frozen_inputs_match": true,
+    "registered_selection": true,
+    "pre_rule_packages_match": true
+  },
+  "full_native": {
+    "planned": 8,
+    "passed": 2,
+    "failed": 6,
+    "unresolved": 0,
+    "complete": true,
+    "same_qualified_player": true,
+    "qualified_pass_rate": 0.25,
+    "qualified": true,
+    "frozen_inputs_match": true,
+    "registered_selection": true,
+    "pre_rule_packages_match": true
+  },
+  "controls": {
+    "cliffside-bay": {
+      "verdict.json": "51a756bd3d9c39c4da88d3128d65855b06aee525f5ee32eb268277c9c4b59fe9",
+      "report.json": "2e168b92e18a121bc8b402fff224ba8ba0491dced2add7e0fd3018c34b65ccb3",
+      "scenario.json": "05d0c3e6462e32b9e0ae325eff73ea227cd73026d06eed17fb6b79d6ae916a08",
+      "session-receipt.json": "b25c3b3da756ea05cec35b526696de10d99937db91c83746833182f5972d31e1",
+      "harness-source.json": "d8318f44fa333e1b03f14eede8abb9a67b33b392a61e0931bb9c63618051de1c",
+      "new-game-panel.json": "f4eae900d2789d0944b397cf325e94c3a8d97efdefe562d3d76c2ccac44e610b",
+      "new-game-panel.png": "12c5acda5c1b07c30cc63af4e09d9105e478f6b142e4befbd3ba8f7be57a5c49",
+      "new-game-panel-review.json": "bd6858b70659b0f83b6944665fbbfdb55724fd45188106ab3ff3cdcd2a54607b",
+      "startup-world.json": "5bbd8bccbac802d33a14c7a4411a2d0aabd5c5e871937d8ca8add1dc6fe1ce7d",
+      "gpu.csv": "986902efa08a52d80c132e705227d30d4e0f5ad23255a3478fb222ad851c51d9"
+    },
+    "foggy-hills": {
+      "verdict.json": "9adf9720299e4915fcf6651d8d664a72bc898053b02354e95d06a898bda1c797",
+      "report.json": "fb8e6daa4918de7b11d4ccd913a878c4c341907392bb0f28c0302a3548661a1b",
+      "scenario.json": "cdd6d09fdecd7fbadc6497509edabec820cf81e9906aa148bdc897038e9c21d4",
+      "session-receipt.json": "4b1f2b1bc9ee4182355591b12ac6ef05a143c05aadd701a6cebd9b43895dbc75",
+      "harness-source.json": "d8318f44fa333e1b03f14eede8abb9a67b33b392a61e0931bb9c63618051de1c",
+      "new-game-panel.json": "af4cd268ffd94e1d335825a195b5b1596c46b20ed09fc2724ddcc2d9ba000ac3",
+      "new-game-panel.png": "ea0e4bb9dc86453aaebdb36196cf30bd1cb8a71a64ed70524e3b5c2f98e85172",
+      "new-game-panel-review.json": "94fe7fc61d69858ada395f3cd0241213acf5548567b64ac1df7357c8a6f199f7",
+      "startup-world.json": "66f5410054ddf98c62be9beff45627be6a8b0f5415629e9e0015f2cfe5d70b55",
+      "gpu.csv": "48fee1049309133d6d6bbfa1bea5df68c3c15a6d0a9d7c3159de16a61d812128"
+    }
+  },
+  "cases": {
+    "asheville": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff",
+        "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+        "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c"
+      },
+      "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "observations": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.015558685610685,
+        "population_last": 301,
+        "population_peak": 490,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "expected_package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "0da18c80771f3ea6f2b1fc59882f4700f22a5e3cb27a6ecbed55fd8f547970c2",
+        "harness": {
+          "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "0da18c80771f3ea6f2b1fc59882f4700f22a5e3cb27a6ecbed55fd8f547970c2",
+        "report.json": "34d3618c7902c73a271f08cf9d3e313cb89ead1a58571630f6850ec5e2196677",
+        "scenario.json": "0487bd21067de34fc6f4d2262e36579272d04b81f36282e70c8937a45066cab0",
+        "session-receipt.json": "f1b5a4101001624a3ac3af1b30e44804a59b66e57ba57af818b066f73cf87c3c",
+        "harness-source.json": "d8318f44fa333e1b03f14eede8abb9a67b33b392a61e0931bb9c63618051de1c",
+        "new-game-panel.json": "8941375c870813fc044871fbeccfc825dd30402fe841ef1db722716319f87d18",
+        "new-game-panel.png": "64134e388c3e51f04be72cd3b9c71529d8aeb15b1c835ed1aa3ff5dee9448cbb",
+        "new-game-panel-review.json": "51e6a454e3e6a2333326128dd227109a9096bb7c33e3df98fcdf31a42b808c4d",
+        "startup-world.json": "b09a79ce4024f68317a14936e5cc8c4ab911b7a7540566fbe074c5d7dc25f0b5",
+        "startup-opening.png": "f7d4096b56df899ae3319aa5b988fb53d2bdaf24aad155d710ba785c773d82f3",
+        "startup-area_zoom.png": "36ab89770921f7bb97c056025a7d510ff827f1491513896bd9b099e4c14d4a4b",
+        "startup-views-review.json": "c35d83986f515e51479ae919dc222c1bf8401c5699e201dfec9ff0b87592427b",
+        "gpu.csv": "2009cc923f562e61e8b6c51d6932d7af1c18faaad5acf9ede37881b28ba6215a"
+      }
+    },
+    "innsbruck": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+        "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+        "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646"
+      },
+      "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "observations": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.127780913685754,
+        "population_last": 398,
+        "population_peak": 518,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "expected_package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "fbb26ff1ba74e0de69f825e929ab75455bd4d369b117ff6988cf82c764839f77",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "fbb26ff1ba74e0de69f825e929ab75455bd4d369b117ff6988cf82c764839f77",
+        "report.json": "840a6d9cf9d45e0d521caafb118da9833fdf16694e83d39b32a192f04f83e995",
+        "scenario.json": "800ff9fa6dabf963d7f134959be59d60267eec81eab78fbfa7cfbd029ef937f3",
+        "session-receipt.json": "06fea24c2673a223751f28f8cd3beff939facb3234dbc79f18b8850d9e98da47",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "42bc4763bd4d0d04d42e7762b54824036cd194d756ad7bab5ce67ce22620e399",
+        "new-game-panel.png": "3f670723f7fdc530263d0049e1338b40d4becb7e9b36bf6707700db0ebbc9569",
+        "new-game-panel-review.json": "ea1614afa8b03e9b63a9e1ef482dcb8cacb35fe3de87c5234ee0c1d3901be47c",
+        "startup-world.json": "62c37bf5c7c4da6a0feabcb8d7ed7a1a14b4ac9375092edda2e4cace9bc025ce",
+        "startup-opening.png": "43264ecb1d03070582eadbced25cba94ac9cc1350a18cd19e8d878f8d8037c87",
+        "startup-area_zoom.png": "d3aa8783025365ec71258f4f808c264d13e504679d54e1c81c0b29854b46696e",
+        "startup-views-review.json": "40ecc3fbfa523004279bbe024a1a5bcaf7cc03617d306a0386ac4b6efdc44d4d",
+        "gpu.csv": "4ef377d48eb9d2e2351384eb586a4893bc605a8c9426aac5f4fb308d11ecb7ec"
+      }
+    },
+    "rio": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+        "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+        "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59"
+      },
+      "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "observations": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "expected_package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "526ef562334882fc953d84b4eb77b91bb8e169a6a24ff1a9a45ae1cfe23e745b",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "526ef562334882fc953d84b4eb77b91bb8e169a6a24ff1a9a45ae1cfe23e745b",
+        "scenario.json": "6c72fb47a4f3185b1476d7d5eb2df2bb95a2fadddeacdf11b3254140cec68000",
+        "session-receipt.json": "9268998dc6cb5d0ff01faf921ec06c3e8a1db8af0caee5d763d4d20629c04423",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "6d21739bf0ceda8b6eaf52dfdfc48ef9f99c38e0c03102ad4e6350eb7001e0c7",
+        "new-game-panel.png": "b85ca5dc2e721c0d4428043b65f825efa9e89d209cf17b40e9a6e021a08d8a59",
+        "new-game-panel-review.json": "0aee4931907c064a2172378731b5558b1f7c736cc0f99b74e20e33d56c2d5977",
+        "startup-world.json": "490a68e8fe727d741a7ec15ba707418c925ee34081bc88cb35dde5b82802997b",
+        "startup-opening.png": "7b1e6c398d8d36faa2d89b8e02829cd838e4ecdeaf4f67e44f94421ced7c011f",
+        "startup-area_zoom.png": "66c314ac74afdf2b7c7bde3ed3474c212fd801fb61c61235c44273cd72564ca1",
+        "startup-views-review.json": "3b1009b497462717303e10835367761fec81d777228b2ac320d4c578b8568dc9",
+        "gpu.csv": "a88faee90967641dc9567563d9bb9810a9ce0648058d0f0159bcb555b38d9f61"
+      }
+    },
+    "pittsburgh": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70",
+        "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+        "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+        "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+        "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f"
+      },
+      "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "observations": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-579.9, 60.0, 117.7) -> (-539.5, 68.2, 122.3) (elevation -6.834091 -> 0): TooShort, SlopeTooSteep\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "expected_package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "caa9f7434eed7ff797ef283c6b2e6ef578276862a8d81c1350b484bb26b8184c",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "caa9f7434eed7ff797ef283c6b2e6ef578276862a8d81c1350b484bb26b8184c",
+        "scenario.json": "c8da94ce6f05d7966299d39a25c4bfe4ac19891813c114687ba98b3639f2ddcc",
+        "session-receipt.json": "21df0fea6ff2c32da8399cc47576dbb007c8254bea97cdd22f4fb58f6d1b0278",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "20f970e8e1fee22799924d6d1c201100d9f1e84008d6e6b3607f49fb39087a56",
+        "new-game-panel.png": "6bb6fbe43bec5f07dfba090bc158c790155ab2c2576ecc72bbb939931f4d2442",
+        "new-game-panel-review.json": "4d390a4e6f0048f9144f7a0deaea1a3a8eb3963ac32c0ebac0edc95e738a19ca",
+        "startup-world.json": "d0b088df435f9c7480e9a3e756f31246a2fc73e0a4f603340578b622b12c60f4",
+        "startup-opening.png": "dbbdde03f64d8da971e43f427b75bdfc751293ce4aa7a45bd00e2fac1501f8af",
+        "startup-area_zoom.png": "6963c05a30a426ad3342d65a2bf96c5a620d02e9d422a9bd1358ef0e21406773",
+        "startup-views-review.json": "2a9039f0ced84396bcfc2ac191194f746bc1b8564208c998437ecf2868618862",
+        "gpu.csv": "279235cdde366f98560a5cc49b93559c7bc0e179a385947c259f4824fa07b470"
+      }
+    },
+    "charleston": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+        "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+        "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+        "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+        "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+      },
+      "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "observations": {
+        "status": "fail",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "fail",
+        "additional_failed_checks": [
+          "ground_truth"
+        ],
+        "game_minutes": 60.15333647057414,
+        "population_last": 341,
+        "population_peak": 510,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "expected_package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "135a8cc4acbee5d2e3144e3ad885de84ec7e945142ab3b04ee15daaf2030359a",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "135a8cc4acbee5d2e3144e3ad885de84ec7e945142ab3b04ee15daaf2030359a",
+        "report.json": "a3e19d8c7949676586e763d7021f16e89006b963a7529b481ed7df4ab77f5379",
+        "scenario.json": "da47d00aa1c40714b1a8124eff099e7a0b77659c47ad5e49cecce4b0041905f3",
+        "session-receipt.json": "120a0b763cb30bb676b550879b1b86c12c19c002cae18690e529baa960952452",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "14e750daea7239ad6834413b358e89be539bb8fc268488512ea6b8bfa8fdf0a4",
+        "new-game-panel.png": "a0431499f4c355dee48dd5296f95ef942098752a519efbbdcd8fbc0301ba8a70",
+        "new-game-panel-review.json": "d2baca086c4b4d2169324a46db61e85f9b8accb5ecefd87f39cd4854be1e9904",
+        "startup-world.json": "9d9cfedef75a89b310ce700b93ca4b99742e8e6956f3bc63113ed54680c9488a",
+        "startup-opening.png": "79fa4e792ac69dca8380f4030333d1906a8cec1050ee37fc357a64f5ac0685d1",
+        "startup-area_zoom.png": "1c9914d50aa2a5fa440092cec07db2067f2f10c4742af9a23d35a637522cbb31",
+        "startup-views-review.json": "c9ad1aef79131e1af89db8067542af7c883d5ba2c3b10ddfc835151d5b80abd6",
+        "gpu.csv": "7d0224be773777a308b023a219f16065817abcbfb1e081b981a2240af1652bf0"
+      }
+    },
+    "grand-canyon": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "1b17876deab03ee5657053cf432d1c72119daca4c826b0da53832566bcab5132",
+        "capture.json": "4ccd67e75d3cf1d2994a3b913c907fe85be7db0c2559486102a4722e27710a42",
+        "evidence.json": "e2279b336b6b9d91279a2ca6c107d1b387682061a46b4218a16801b9340113a8",
+        "geometry.json": "3fad8973d115bb593ef0d912f2bbbd75c2019f076f7e8e4e72c831e729a1df4b",
+        "input.png": "64e3863814bec5505afaddb6c787779f9a774b6424e16d31ebdeeefb346a7e69",
+        "landcover.u8.gz": "80f31d136cdf9fa83077594ddc782524f9d830a617365c24f660f333004d59fc"
+      },
+      "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "observations": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "expected_package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "27fb7f0ddcd33f067df1fe9b6abe395656bc9384293798a7b2f3f66451e29c0f",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "27fb7f0ddcd33f067df1fe9b6abe395656bc9384293798a7b2f3f66451e29c0f",
+        "scenario.json": "57dbaa84514fae29ef4e422e91e7d475a1a5316808590ba55aad7158715eb815",
+        "session-receipt.json": "7baf1d44a2c43603683886bd06f08ca27bd1a179a50b61ef136519ac94fe0b22",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "f8fa90871b5d285476ec340055a956f17aa0fbc7b014783dc4d3958f8c25e163",
+        "new-game-panel.png": "5cba8a199853344a9f02e9cc3dc14c352ad540603b454e90f2e3c16f8140ed96",
+        "new-game-panel-review.json": "d1a47d7ed210a3abebae0c7f77281512ff8ec1e71f1c42430135d43949f2a25c",
+        "startup-world.json": "b6117322437560782f4f81f460c12bb129e1616bc3c25fc6a11dcb8c5d40eac9",
+        "startup-opening.png": "68d5418b23578871421a79a0279ce0cd124b9bc33a94d9ad96e8c49740064288",
+        "startup-area_zoom.png": "797e8ca76436245e8aa42864c3147c08ae30bab7a0317e072eac825a0e27f2d8",
+        "startup-views-review.json": "00026957032875a7b683789ddfa1cb6083cf96b1098e7b66084eab9fd51a6e7e",
+        "gpu.csv": "63268be5d217ba0059615955f127e595a71c92bff5557e162718390b75d700d2"
+      }
+    },
+    "hong-kong": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "4638361ec522e44930936f3a926eca6cba46c780679fded6ec420e439efe1b97",
+        "capture.json": "0257389e48a00e3dcf1fd80d5fd7688f2727cf33c544f6b79200aab4f0fac1a7",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "e00280a99c83474d949912662d7ab3f9f764b7df13824468ad96fecdd245818c",
+        "input.png": "e75742fb5f3c2894de2ba4b5b28eb1b12055a670c202775ae3f6b567ad2ab444",
+        "landcover.u8.gz": "3ee722570902c1a0222c3c7cb97544ee6892708508be9780cd8895b48f69d46c"
+      },
+      "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "observations": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "expected_package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "45baa244c3a6b05f42496c381e169343bed4b6594ed84a6f09b93d0902253d10",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "45baa244c3a6b05f42496c381e169343bed4b6594ed84a6f09b93d0902253d10",
+        "scenario.json": "9457a0435ee40020223a5a43a95a87cc20fc34cba4f74acc320fb6986e4207f8",
+        "session-receipt.json": "2a13091dc94b2a13aae7131fe8617b1ce192a1a76b1df523098e90a72b4cb1f9",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "722aed2e80ac083779d97e2ec7bab2fcc01769b335fe56ef23c790e87fcc0627",
+        "new-game-panel.png": "ead3c73adcd334b9045a5d3fb7ef1deadf14c514c68cef3a8ca459ed674d9a86",
+        "new-game-panel-review.json": "bb312445d91222d030c948fec0240ef0b3e9e09f3ed0aa36d0b8104203dafe3a",
+        "startup-world.json": "77a7187f77d1a34b208a5670881e5c06229d37e184f133f16b28fbd2aefbc5d5",
+        "startup-opening.png": "3ccf61249222f71ac6d2d8549d6376691ca4f14322459aa3aee64a6686545c91",
+        "startup-area_zoom.png": "da048de37ea615f2c562c75101c5a9682626dfb7bbcaa714fa928e3999d069d1",
+        "startup-views-review.json": "5f0a0b71f1d1f7a30cad96877ca5fd7ad955abfb070cb15137140f8bc9c7752d",
+        "gpu.csv": "edaa81f24ab13abfe6b7349925c57e76f97b4b272d57be34ffaaa9171167e28f"
+      }
+    },
+    "yosemite": {
+      "split": "fitting",
+      "inputs_sha256": {
+        "banks.f32": "0b719ecc75726dd73262e6170cb3a3d4920398cea2b74267ec1c3de42335cd26",
+        "capture.json": "a3baa46959ef3d3e77a041d3d65512a86326581a2f37eb167cc7bb4f3c411056",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "32d3aaa99ec33e93cf4a7d0463a7c288a94c8dfa4e173b581e8ab54a30f75ee0",
+        "input.png": "dc8668cc768818c068098583654860e40f3c80d288ce571993e77bed6338c55b",
+        "landcover.u8.gz": "18a0128012d79784c38a8fea64e199b265d734b03b304f0b33a0e28059842ab1"
+      },
+      "package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "observations": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "expected_package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "491c0bf6af4151474cfd2dea00bb03529efcaeebc7fab228d3e0a5197ac2a265",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "evidence_sha256": {
+        "verdict.json": "491c0bf6af4151474cfd2dea00bb03529efcaeebc7fab228d3e0a5197ac2a265",
+        "scenario.json": "50f8c7c77238cc15cdc1532f95014e6674bc33c5f04db788464daf76e4bf30b1",
+        "session-receipt.json": "7413230502376c1826ba68e9e0a10bd71b30d0033e27e6236c403fbdd8daadd1",
+        "harness-source.json": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+        "new-game-panel.json": "21a00a99d13018d17d01078066de53407fc3defe45082b3c11272eac4b81d1c7",
+        "new-game-panel.png": "36ffbc653966f160011a8252e53ec75e0046a28e33af11ac057f9be5924c9c33",
+        "new-game-panel-review.json": "ee989b922f958393f2698ae12dad1aee6f46b02aa1d77be211c35246ac31f7f8",
+        "startup-world.json": "27000ec7eb9457735a4eda9bbdd57682255f544d3388e1cde1aca071a3b72012",
+        "startup-opening.png": "ad65327820c067b3141e4cd7ea7c5d2d230d06462d87313fda3986fc2f6e0f4d",
+        "startup-area_zoom.png": "74dce0772328858855bbe2af35f3ade7ed7315d46363b869ba6c0a8f2778fe2b",
+        "startup-views-review.json": "7a43d74ea4f398c2b1bd3e99871a0917d8971bc723419c1baf2e757c7c97974b",
+        "gpu.csv": "552e0b4a5deb3d30405052e8f156ba12bc1098bb4849140c81e007d5b953d7b9"
+      }
+    }
+  },
+  "limitations": [
+    "Fitting data, not held-out model accuracy",
+    "Groundwater service is not evidence of surface intake/flow/downstream sewage",
+    "A failed finite player search does not establish geographic impossibility",
+    "First-hour survival does not waive other native or geographic failures"
+  ]
+}

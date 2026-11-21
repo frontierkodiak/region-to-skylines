@@ -1,4 +1,5 @@
 import contextlib
+import copy
 import json
 from pathlib import Path
 import tempfile
@@ -6,7 +7,8 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
-from cs1_harness.capability import digest, prediction, run, sha
+from cs1_harness.capability import digest, prediction, run, sha, surface_observation
+from cs1_harness.client import HarnessError
 
 
 class PredictionBinding(unittest.TestCase):
@@ -106,6 +108,7 @@ class PredictionBinding(unittest.TestCase):
             probes=probes,
             out=self.root / "output",
             issue="synthetic",
+            mode="start",
             wait_minutes=45,
         )
         with (
@@ -118,6 +121,110 @@ class PredictionBinding(unittest.TestCase):
         result = json.loads((args.out / "observation.json").read_text())
         self.assertIsNone(result["observed_start"])
         self.assertIn("Installed map changed", result["error"])
+
+
+class SurfaceLabels(unittest.TestCase):
+    def setUp(self):
+        self.row = {
+            "observed_native_placement": True,
+            "observed_surface_service": True,
+            "observed_water_capability": True,
+            "fixture_qualified": True,
+            "consumer_api": "spatial_water_and_sewage",
+            "settling_has_load": True,
+            "settling_samples": [{"loaded": False}] * 29,
+            "expected_settling_cycles": 29,
+            "observed_horizon_game_minutes": 60.01,
+            "cycles": 843,
+            "expected_load_cycles": 843,
+            "requested_native_units": 843000,
+            "fetched_native_units": 843000,
+            "sewage_accepted_native_units": 843000,
+            "auxiliary_failure_cycles": 0,
+            "timing_failure": False,
+            "short_water_cycles": 0,
+            "short_sewage_cycles": 0,
+            "polluted_delivery_cycles": 0,
+        }
+        facility = {
+            "completed": True,
+            "electricity_grid_powered": True,
+            "declared_pipe_valid": True,
+            "production_rate_native": 100,
+            "problems": "None",
+            "active": True,
+        }
+        self.row["samples"] = [
+            {
+                "fetched": 1000,
+                "sewage": 1000,
+                "pollution_native": 0,
+                "auxiliary_valid": True,
+                "loaded": True,
+                "consumer_pipe_valid": True,
+                "intake": copy.deepcopy(facility),
+                "outlet": copy.deepcopy(facility),
+            }
+            for _ in range(843)
+        ]
+
+    def test_complete_measured_service_can_score_positive(self):
+        self.assertTrue(surface_observation(self.row)["observed_water_capability"])
+
+    def test_partial_horizon_or_auxiliary_failure_cannot_be_called_service(self):
+        for key, value in [
+            ("observed_horizon_game_minutes", 59),
+            ("auxiliary_failure_cycles", 1),
+            ("expected_load_cycles", 844),
+            ("fixture_qualified", False),
+            ("consumer_api", "pipe_node_sewage"),
+            ("settling_has_load", False),
+            ("expected_settling_cycles", 30),
+        ]:
+            with self.subTest(key=key), self.assertRaises(HarnessError):
+                surface_observation({**self.row, key: value})
+
+    def test_polluted_delivery_is_a_negative_only_with_qualified_complete_fixture(self):
+        self.row.update(
+            {"observed_surface_service": False, "observed_water_capability": False, "polluted_delivery_cycles": 1}
+        )
+        self.row["samples"][0]["pollution_native"] = 1
+        self.assertFalse(surface_observation(self.row)["observed_water_capability"])
+
+    def test_short_actual_volume_cannot_be_hidden_by_zero_short_cycle_counter(self):
+        self.row["fetched_native_units"] -= 1
+        with self.assertRaisesRegex(HarnessError, "disagree"):
+            surface_observation(self.row)
+
+    def test_facility_warning_cannot_be_hidden_by_powered_grid_and_zero_aggregate_failures(self):
+        self.row["samples"][0]["intake"]["problems"] = "Electricity"
+        with self.assertRaisesRegex(HarnessError, "facility-side auxiliary"):
+            surface_observation(self.row)
+
+    def test_water_specific_failure_is_not_automatically_an_auxiliary_fault(self):
+        self.row.update(
+            {
+                "observed_surface_service": False,
+                "observed_water_capability": False,
+                "fetched_native_units": 0,
+                "short_water_cycles": 843,
+            }
+        )
+        for cycle in self.row["samples"]:
+            cycle["fetched"] = 0
+            cycle["intake"].update({"problems": "WaterNotFound", "active": False})
+        self.assertFalse(surface_observation(self.row)["observed_water_capability"])
+
+    def test_unattempted_service_cannot_score_without_native_necessary_condition_rejection(self):
+        with self.assertRaises(HarnessError):
+            surface_observation({"observed_water_capability": True})
+        with self.assertRaises(HarnessError):
+            surface_observation({"observed_water_capability": False})
+        self.assertFalse(
+            surface_observation({"observed_water_capability": False, "observed_shore_snap": False})[
+                "observed_water_capability"
+            ]
+        )
 
 
 if __name__ == "__main__":

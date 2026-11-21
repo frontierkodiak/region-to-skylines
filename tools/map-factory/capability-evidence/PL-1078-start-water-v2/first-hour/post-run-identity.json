@@ -1,0 +1,713 @@
+{
+  "schema": 1,
+  "audited_at": "2026-11-21T11:24:53.302332+00:00",
+  "player_worktree_head": "c360286d884bd31772146937f8408feb65d1bddc",
+  "tracked_player_source_clean": true,
+  "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+  "merged_pr58_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+  "judges": [
+    {
+      "path": "tools/cs1-harness/cs1_harness/first_hour.py",
+      "sha256": "74ffbc7b6596c17cdd92b821ba3dd7735ad28e612b24aabc1fabfa6ca9d26093",
+      "matches_merged_pr58": true
+    },
+    {
+      "path": "tools/cs1-harness/cs1_harness/verdict.py",
+      "sha256": "f9cb1c4e0a07680ab1eed55fb5414ba6054f50090565712c99dc5801e3cfd5dd",
+      "matches_merged_pr58": true
+    }
+  ],
+  "cases": [
+    {
+      "arm": "stock",
+      "square": "cliffside-bay",
+      "raw_receipt_sha256": "b25c3b3da756ea05cec35b526696de10d99937db91c83746833182f5972d31e1",
+      "map_sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "400793e0ecbb103b7b104bcdb3584100df700fb54d74be3e3ab73500a004df5d",
+      "verdict_path": "verdicts/stock/cliffside-bay/verdict.json",
+      "verdict_sha256": "51a756bd3d9c39c4da88d3128d65855b06aee525f5ee32eb268277c9c4b59fe9",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T18:53:58Z"
+      },
+      "offline_fresh_syncs": 2,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 13:54:34",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        },
+        {
+          "timestamp": "2026-11-20 13:54:34",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "stock",
+      "square": "foggy-hills",
+      "raw_receipt_sha256": "4b1f2b1bc9ee4182355591b12ac6ef05a143c05aadd701a6cebd9b43895dbc75",
+      "map_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "72a8aeb7271e31b5855a7a460f79c4cf3a65a72d4e88e452035d171411c8e4cd",
+      "verdict_path": "verdicts/stock/foggy-hills/verdict.json",
+      "verdict_sha256": "9adf9720299e4915fcf6651d8d664a72bc898053b02354e95d06a898bda1c797",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T19:33:21Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 14:51:50",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "asheville",
+      "raw_receipt_sha256": "f1b5a4101001624a3ac3af1b30e44804a59b66e57ba57af818b066f73cf87c3c",
+      "map_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "b8a13eb5ef2da1f0552ac38f10266244d453201ee7ee5a2eb1e5aa7e65c77c96",
+      "verdict_path": "verdicts/before/asheville/verdict.json",
+      "verdict_sha256": "0da18c80771f3ea6f2b1fc59882f4700f22a5e3cb27a6ecbed55fd8f547970c2",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T20:11:37Z"
+      },
+      "offline_fresh_syncs": 2,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 15:12:12",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        },
+        {
+          "timestamp": "2026-11-20 15:12:12",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "innsbruck",
+      "raw_receipt_sha256": "06fea24c2673a223751f28f8cd3beff939facb3234dbc79f18b8850d9e98da47",
+      "map_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "17f056921bbeb0416567a49e62c8737e7988da622a5f1b697f94e1a2fd61b3fe",
+      "verdict_path": "verdicts/before/innsbruck/verdict.json",
+      "verdict_sha256": "fbb26ff1ba74e0de69f825e929ab75455bd4d369b117ff6988cf82c764839f77",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T20:50:07Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 16:08:49",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "rio",
+      "raw_receipt_sha256": "9268998dc6cb5d0ff01faf921ec06c3e8a1db8af0caee5d763d4d20629c04423",
+      "map_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "566b5f6fa0450682984f1db6ee99ada0f988bd2c29e1bfc49f2be9e41f384a1e",
+      "verdict_path": "verdicts/before/rio/verdict.json",
+      "verdict_sha256": "526ef562334882fc953d84b4eb77b91bb8e169a6a24ff1a9a45ae1cfe23e745b",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T21:27:49Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 16:30:25",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "pittsburgh",
+      "raw_receipt_sha256": "21df0fea6ff2c32da8399cc47576dbb007c8254bea97cdd22f4fb58f6d1b0278",
+      "map_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "c9bd0d22005c8215eb1238dd1c30ac041e6eb937139a6f33be1bb907eaf12536",
+      "verdict_path": "verdicts/before/pittsburgh/verdict.json",
+      "verdict_sha256": "caa9f7434eed7ff797ef283c6b2e6ef578276862a8d81c1350b484bb26b8184c",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T21:30:32Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 16:33:11",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "charleston",
+      "raw_receipt_sha256": "120a0b763cb30bb676b550879b1b86c12c19c002cae18690e529baa960952452",
+      "map_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "e8c32bf27b895417bef2e37048235b63bda5fd15afa26da53fe60fb93b007dec",
+      "verdict_path": "verdicts/before/charleston/verdict.json",
+      "verdict_sha256": "135a8cc4acbee5d2e3144e3ad885de84ec7e945142ab3b04ee15daaf2030359a",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T21:33:18Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 16:52:07",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "grand-canyon",
+      "raw_receipt_sha256": "7baf1d44a2c43603683886bd06f08ca27bd1a179a50b61ef136519ac94fe0b22",
+      "map_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "782afbf482132cbd45d02a286eb260bf5a712f9c61791c1e99ab80773d49e7c9",
+      "verdict_path": "verdicts/before/grand-canyon/verdict.json",
+      "verdict_sha256": "27fb7f0ddcd33f067df1fe9b6abe395656bc9384293798a7b2f3f66451e29c0f",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T22:11:05Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 17:13:41",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "hong-kong",
+      "raw_receipt_sha256": "2a13091dc94b2a13aae7131fe8617b1ce192a1a76b1df523098e90a72b4cb1f9",
+      "map_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "1c49cf5d037b6fd294b3040d1b2e3dd155a3f3a31d72e11b607d0b408a0f077e",
+      "verdict_path": "verdicts/before/hong-kong/verdict.json",
+      "verdict_sha256": "45baa244c3a6b05f42496c381e169343bed4b6594ed84a6f09b93d0902253d10",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T22:44:09Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 17:47:08",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "yosemite",
+      "raw_receipt_sha256": "7413230502376c1826ba68e9e0a10bd71b30d0033e27e6236c403fbdd8daadd1",
+      "map_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "8583656156504996e287ce9ea775ba2e61059b343b4cf8cedeff3213a21fd469",
+      "verdict_path": "verdicts/before/yosemite/verdict.json",
+      "verdict_sha256": "491c0bf6af4151474cfd2dea00bb03529efcaeebc7fab228d3e0a5197ac2a265",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T23:10:16Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-20 18:12:54",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "grand-canyon-northeast",
+      "raw_receipt_sha256": "e866d068bc6f6a826470a92f75870b5e433fcb760d58813f53b640bdfca8ef83",
+      "map_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "c0db98ff0182d5150c03f8de17dca673edd6ed61b13e27d0be290fddd8ef2fc9",
+      "verdict_path": "verdicts/before/grand-canyon-northeast/verdict.json",
+      "verdict_sha256": "0463a9f2afc3df6576b9dca72c1954fda77ce9198b4ba0df690d8613ff15b5ff",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T08:19:04Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 03:37:43",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "rio-northeast",
+      "raw_receipt_sha256": "6d550048f5170e355a9b3e90b729ab7c13589ddd69b7aaa2d1b59893d0da601c",
+      "map_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "f8fcf33c507204eaf9f956c030cc3375a1431efa7915d8e7bf7cbca2e3f60705",
+      "verdict_path": "verdicts/before/rio-northeast/verdict.json",
+      "verdict_sha256": "b4effe37d32f301d8f0d5c2c6c932eedda3d9eec936aba67668e85f6dbc7fc9c",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T08:37:57Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 03:40:32",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "before",
+      "square": "hong-kong-northeast",
+      "raw_receipt_sha256": "cdee3b5faededf6cfe4a8a5ae59b172cd0d2edc88ed8fa49184d4b567538dde0",
+      "map_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "d981b3255f49589abd9d3efa4bb8a2e223b73fc5ba8d291c801ede0e338ec74e",
+      "verdict_path": "verdicts/before/hong-kong-northeast/verdict.json",
+      "verdict_sha256": "b0331972b9634ddaa95d4ce269afa7b993e3423a9a9aa30c07f779651b24dd40",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T09:01:34Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 04:04:09",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "asheville",
+      "raw_receipt_sha256": "05890cd3347d6b8f6ce261d6556511a8c62486027758fde40f9b309c26728600",
+      "map_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "b8a13eb5ef2da1f0552ac38f10266244d453201ee7ee5a2eb1e5aa7e65c77c96",
+      "verdict_path": "verdicts/after/asheville/verdict.json",
+      "verdict_sha256": "87659d8ec99abc4695287d044799cded18b34520dba9c67360ed4555ca3387a7",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T09:04:26Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 04:23:13",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "innsbruck",
+      "raw_receipt_sha256": "e60b9506a84da4b1923f4d07827df190252cda52ea781a2fe204ac3787c421ea",
+      "map_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "17f056921bbeb0416567a49e62c8737e7988da622a5f1b697f94e1a2fd61b3fe",
+      "verdict_path": "verdicts/after/innsbruck/verdict.json",
+      "verdict_sha256": "de99af9051a0271dee77024baf467e82c20b7b7132b3ea4defa590f99a5cddd7",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T09:42:06Z"
+      },
+      "offline_fresh_syncs": 2,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 04:42:42",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        },
+        {
+          "timestamp": "2026-11-21 04:42:42",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "rio",
+      "raw_receipt_sha256": "c4fb723e0df374d5a6a11bc8f150135856182e2a4dca0ea830c17c027317fbec",
+      "map_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "566b5f6fa0450682984f1db6ee99ada0f988bd2c29e1bfc49f2be9e41f384a1e",
+      "verdict_path": "verdicts/after/rio/verdict.json",
+      "verdict_sha256": "fe902dc3b17b0aed40774d343bfd97ddf50ddb51fe18122fd9bc40776c97fdaf",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:21:49Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 05:24:23",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "pittsburgh",
+      "raw_receipt_sha256": "84a31f93ff8138a98902c53cf6b6e0faf28673e6439f9a86d37222c188334423",
+      "map_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "c9bd0d22005c8215eb1238dd1c30ac041e6eb937139a6f33be1bb907eaf12536",
+      "verdict_path": "verdicts/after/pittsburgh/verdict.json",
+      "verdict_sha256": "228bd9a2ecf5924dc91c220d08ecf66e876a7ce5351767498b4146ec2f3c928b",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:24:31Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 05:27:11",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "charleston",
+      "raw_receipt_sha256": "63684c9cf16b5d1bc3e24a131dbd3d97c68d0c2c78629614f5ee31807df62f08",
+      "map_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "e8c32bf27b895417bef2e37048235b63bda5fd15afa26da53fe60fb93b007dec",
+      "verdict_path": "verdicts/after/charleston/verdict.json",
+      "verdict_sha256": "01ae244df1f3a34cd6fc5371445117e4c8aea1e253f5ee6f26f8cd8682fb31ab",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:27:18Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 05:45:59",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "grand-canyon",
+      "raw_receipt_sha256": "8f1a78612724c8bc779ecdbfe39c1c0fbdf9c1f727c197317acfdfb5e5da3ff2",
+      "map_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "782afbf482132cbd45d02a286eb260bf5a712f9c61791c1e99ab80773d49e7c9",
+      "verdict_path": "verdicts/after/grand-canyon/verdict.json",
+      "verdict_sha256": "b0f50969fdc7f95839ac92735372a6f75eb7c4bf024754816890d34e4950a1b4",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:46:12Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 05:48:47",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "hong-kong",
+      "raw_receipt_sha256": "b88844ac7162d3091be0f073883971edf40699a6928963e6a1edffb1fe63c945",
+      "map_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "1c49cf5d037b6fd294b3040d1b2e3dd155a3f3a31d72e11b607d0b408a0f077e",
+      "verdict_path": "verdicts/after/hong-kong/verdict.json",
+      "verdict_sha256": "25e44868256e1f7bacdcea721a9c13c39050fbedd0f1028f5997cdc5de7b55df",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:48:53Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 05:51:30",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "yosemite",
+      "raw_receipt_sha256": "518d63681cad8811d6e9b79dca23b6dbb008d6c5c6b6c3681c3c56194e55bc8f",
+      "map_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "8583656156504996e287ce9ea775ba2e61059b343b4cf8cedeff3213a21fd469",
+      "verdict_path": "verdicts/after/yosemite/verdict.json",
+      "verdict_sha256": "cb83f5692d7f59a98486a8dbfaac4ec1239477ff6165464d87812cbc021c6834",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:51:38Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 05:54:12",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "grand-canyon-northeast",
+      "raw_receipt_sha256": "f6461168f6d7d6690a26f505a500f1a5ae25db0072722f9abff652e735b642e7",
+      "map_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "c0db98ff0182d5150c03f8de17dca673edd6ed61b13e27d0be290fddd8ef2fc9",
+      "verdict_path": "verdicts/after/grand-canyon-northeast/verdict.json",
+      "verdict_sha256": "f14bb7c8875a03e3eed17fcdd058f46a973c802ef75716861cabe73c9400bb50",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T10:54:19Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 06:12:57",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "rio-northeast",
+      "raw_receipt_sha256": "861c17138034dbc4e84e57788a0a11bd276947331582965502b208b539b9e5f4",
+      "map_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "f8fcf33c507204eaf9f956c030cc3375a1431efa7915d8e7bf7cbca2e3f60705",
+      "verdict_path": "verdicts/after/rio-northeast/verdict.json",
+      "verdict_sha256": "8e54ca4ee021783c712736fdefead9029bc4b07f9414c68ed52c26f13bceaba3",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T11:13:07Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 06:15:42",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    {
+      "arm": "after",
+      "square": "hong-kong-northeast",
+      "raw_receipt_sha256": "379db80959fbe83cfa99335bbff9c97ec269c663bb6a349554edb87fceac4433",
+      "map_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+      "mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "probes_sha256": "d981b3255f49589abd9d3efa4bb8a2e223b73fc5ba8d291c801ede0e338ec74e",
+      "verdict_path": "verdicts/after/hong-kong-northeast/verdict.json",
+      "verdict_sha256": "bcb0a0b16b76088296b1fabce756b8af831345cc1ed3be35333fc869207c51ab",
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T11:15:49Z"
+      },
+      "offline_fresh_syncs": 3,
+      "offline_latest_sync": [
+        {
+          "timestamp": "2026-11-21 06:18:23",
+          "login": false,
+          "offline_mode": true,
+          "failed_sync": true
+        }
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    }
+  ],
+  "scope": "Post-collection selected identity/guard audit; not launch-bound engine identity qualification or a runtime promise."
+}

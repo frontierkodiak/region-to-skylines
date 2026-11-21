@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty city with Hello guide overlay; opening shows road/river crossing and grass. Areas view outlines start tile amid rivers and hills, with road approaches and coast visible. Captured before water fixture, not evidence of service success; the retained fixed-load result fails water quantity.",
+  "opening": {
+    "sha256": "53e386cf2243d3b4f87102699f993c2b22f56c90e437e772760b45753bdb89a5",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "f568b3d93e6ed1da33d95605ef6b17eeff655f4376693ca569125d94484ee7a6",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-21T08:16:18.038506+00:00",
+  "oracle": "native_surface_load_v2",
+  "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+  "artifact_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+  "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "labels": {
+    "observed_start": null,
+    "observed_native_placement": true,
+    "observed_surface_service": false,
+    "observed_water_capability": false,
+    "fixture_qualified": true
+  },
+  "native_counts": {
+    "cycles": 843,
+    "expected_load_cycles": 843,
+    "observed_horizon_game_minutes": 60.005003129504615,
+    "requested_native_units": 843000,
+    "fetched_native_units": 713000,
+    "sewage_accepted_native_units": 843000,
+    "short_water_cycles": 130,
+    "short_sewage_cycles": 0,
+    "polluted_delivery_cycles": 0,
+    "auxiliary_failure_cycles": 0,
+    "timing_failure": false
+  },
+  "error": null,
+  "cleanup_qualified": true,
+  "wall_seconds_including_queue": 1837.409132994013,
+  "resource_observation": {
+    "samples": 364,
+    "total_card_peak_mib": 10821.0,
+    "peak_power_w": 136.6,
+    "peak_temperature_c": 63.0,
+    "recorded_power_limit_w": [
+      200.0
+    ],
+    "game_menu_mib": [
+      1620
+    ],
+    "first_telemetry_local": "2026/11/21 02:47:02.928",
+    "last_telemetry_local": "2026/11/21 03:17:29.291"
+  },
+  "evidence": [
+    {
+      "path": "observation.json",
+      "sha256": "e7a385e2f3981b22126d2a27e3a361d7a357d081a4cc0aa62b8154aecf1be274"
+    },
+    {
+      "path": "prediction.json",
+      "sha256": "ec5ce8889bc6c01cb5868112f0a4759bd5c93203986afb7f58187e27da4e6685"
+    },
+    {
+      "path": "native-water-points.json",
+      "sha256": "43043dabcb9ca5b61b83438d27c7b8ac9397a81ff89e333a2349cba03f512f4a"
+    },
+    {
+      "path": "gpu.csv",
+      "sha256": "a5fd77650199f7ff782e49a9c115d3f26af77f500bc335239507947f855457a3"
+    },
+    {
+      "path": "new-game-panel.png",
+      "sha256": "b866ef4b586f1dfc98316105f29df0ca43e48c932b184e0b2a39b18a35720000"
+    },
+    {
+      "path": "new-game-panel-review.json",
+      "sha256": "56d0b9bc3c95d89aef3f13b9676dbbbe3d583aeaec7591ba493e57af18e93b4a"
+    },
+    {
+      "path": "startup-opening.png",
+      "sha256": "53e386cf2243d3b4f87102699f993c2b22f56c90e437e772760b45753bdb89a5"
+    },
+    {
+      "path": "startup-area_zoom.png",
+      "sha256": "f568b3d93e6ed1da33d95605ef6b17eeff655f4376693ca569125d94484ee7a6"
+    },
+    {
+      "path": "startup-views-review.json",
+      "sha256": "8e7e0966fb987c685852760f38a31a9315167dc3b73544b1d8481aa08ba52801"
+    },
+    {
+      "path": "witness-job.json.gz",
+      "sha256": "8550f865b1e5400409022e29b39a24a59ae1629be339ce7fa71188ee10edd406",
+      "encoding": "gzip",
+      "decompressed_sha256": "e4f0a1e5b05b138e8b65e0f1ea093e8e2d2451d82edfb93b9b221539e3700b34"
+    },
+    {
+      "path": "receipt-bindings.json",
+      "sha256": "f8f90ef008c3fe96474cb5e7bc3dd6dac635cca74a1468855d89c3cb3ca3b801"
+    }
+  ],
+  "limits": [
+    "Specified witness only; no geographic incapability or first-hour rerate",
+    "Selected receipt fields are not a launch-bound promise certificate",
+    "Menu game memory and total-card peak memory are different measurements"
+  ]
+}

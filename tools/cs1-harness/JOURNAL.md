@@ -1,5 +1,60 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1078 frozen capability witnesses and load references (blade)
+
+The original-eight player baseline was frozen before capability implementation:
+stock-qualified immutable4a4 DLL, first-hour3/8, strict full-map2/8. Historical1/8
+is unqualified. No capability observation below changes those player results.
+
+Version1's three positive fitting start predictions were executed exactly.
+Innsbruck accepted24/25 steps then rejected the first hookup for collision;
+Pittsburgh accepted27/27 with native car paths in both directions;
+Charleston accepted25/26 then rejected the second hookup for collision. All
+three native footprint predicates passed. These are witness outcomes, not
+geographic impossibility or first-hour service outcomes. Pittsburgh's17
+successful path results reach the requested literal outside offsets0/255;
+all12 unsuccessful path requests remain in the raw file. The paths are after
+the declared starter-road construction, not fresh-map outside-road certificates.
+
+| Fitting case | Card peak MiB / W / °C | GPU samples | Controller wall including queue |
+|:--|--:|--:|--:|
+| Innsbruck |10821 /118.82 /46|32|1226.548s|
+| Pittsburgh |10821 /123.26 /49|34|1158.207s|
+| Charleston |10821 /114.83 /48|35|1306.286s|
+
+All nine panel/opening/Areas PNGs were actually viewed and their review hashes
+rechecked. Every session cleaned up fully. Game-at-menu VRAM was1574MiB, not
+a continuously measured game-only peak. Observed card limit200W and other
+workloads were unchanged. Build-time c7 game hashes are not launch identity.
+
+The first surface reference (Cliffside Bay, c7ce DLL, mixed spatial-water and
+pipe-node sewage calls) was stopped for fixture diagnosis. Its last retained
+snapshot has13.008 loaded minutes/183 cycles: water full/clean throughout,
+92 short sewage responses despite healthy auxiliaries. It is incomplete and
+unscored; Foggy Hills was not attempted in that series. Exact controller
+termination and empty cleanup are recorded. GPU114 samples:10821MiB/129.66W/60°C;
+controller wall1062.947s including queue, menu1574MiB. No hydrology fault is
+attributed to that uncalibrated fixture.
+
+The reviewed f916 DLL uses consistent spatial consumer calls and an explicit
+two-minute loaded settling period before sixty scored minutes. The first
+revised reference completed60.0103 minutes/843 scored cycles:843000 native
+water units and843000 accepted sewage units, no short quantities or auxiliary
+faults.733 deliveries were polluted, so full clean service is FALSE. The
+reference's upstream/cleanliness relationship was deliberately unpredicted;
+quantity support is not a clean-water positive or a model agreement score.
+Cleanup is empty; normal quit timed out and the harness terminated its owned
+game PID. GPU339 samples:10821MiB/130.42W/60°C; telemetry20:31:35–20:59:57 local,
+controller wall2647.336s including queue; menu1574MiB. Cap200W unchanged.
+
+Foggy Hills, version2 product witnesses, registered holdouts and the fresh
+eleven-square paired player arm are still pending. Model/witness identities
+were frozen before any held-out native observation. Source/DLLs for the
+player, v1 oracle and running v2 collector remain separately immutable.
+Curated evidence is under `tools/map-factory/capability-evidence/`; raw Steam,
+audio and launch logs are not published. No preview, default or promise is
+promoted. PL-1119 owns ledger integration and Caleb owns public landing.
+
 ## 2026-11-20 — PL-1066 frozen eight-square opening qualification (blade)
 
 PR58 keeps real connections experimental/opt-in. All five fixtures plus the
@@ -3537,3 +3592,182 @@ GPU-only doctor passed at21:27Z, same GPU,3260MiB free; it did not launch Steam.
 The before-rule observation manifest is
 `tools/map-factory/cohorts/playable-start-v1-player-baseline.json`. Historical1/8
 remains explicitly unqualified. No candidate/exporter improvement is claimed.
+
+## PL-1078 fixed surface fixture stock references — 2026-11-21
+
+Source `83fa0ec27324dd4c4db8c6342e9600f76c3ddc41`, compiled mod
+`f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b`.
+Both cases used the same spatial consumer water/sewage APIs, 1000 native units
+per 256 simulation frames, two minutes of loaded settling and sixty scored
+minutes, with declared conditional auxiliary power and checked plumbing.
+
+| Reference | Scored minutes / cycles | Water / sewage units | Polluted deliveries | Clean service |
+|---|---:|---:|---:|---|
+| Cliffside Bay | 60.0103 / 843 | 843000 / 843000 | 733 | false |
+| Foggy Hills | 60.0119 / 843 | 843000 / 843000 | 0 | true |
+
+Neither case had quantity shortfalls, timing faults or auxiliary failure. Both
+cleanup receipts are empty; parent wrapper was collected exit0. Their anchors
+were selected geometrically, not predicted clean/upstream, so neither is a
+capability-model agreement score or a stock-map incapability claim. The fixture
+quantity check is supported; Cliffside's contamination remains a clean-service
+failure. The earlier mixed-API interrupted diagnostic remains unscored.
+
+Cliffside recorded 339 GPU samples, whole-card peak10821MiB/130.42W/60C;
+Foggy386 samples,10821MiB/130.43W/60C. Both RTX2080Ti05:00.0 with actual recorded
+200W cap unchanged; owned-game menu allocation1574MiB is not a game-only peak.
+Foggy telemetry21:25:00.785–21:57:20.539 local; controller3445.04s includes
+24.9min fair queue wait. Cliffside controller2647.34s likewise includes queue.
+Both actual NewGamePanel PNGs were viewed and hash-reviewed. Raw cycle JSON is
+published losslessly gzip-compressed under the map-factory study's
+`reference-controls/`, with selected map/mod/cleanup receipt bindings. These
+are not launch-bound runtime identity certificates and emit no promise.
+
+## PL-1078 current-model start fitting, first case — 2026-11-21
+
+The frozen combined model's exact Innsbruck witness was accepted: all27 normal
+construction steps; footprint predicates true. Of6 native passenger-car path
+requests,1inbound and2outbound returned successful paths matching the requested
+literal outside segment/offset0or255 and grid segment/offset128. No retry,
+alternate site/order, grading or native collision waiver was used. This is one
+completed fitting agreement out of3 positive predictions; the other2 are still
+unscored here, not an overall or held-out accuracy claim. Start paths occur
+after the declared road construction, not on the untouched fresh map.
+
+Collector `83fa0ec`, DLLf916, exact map43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6,
+witness6ec184c289dd9ac22d16425fd9bbbe9ef5de12149e7a9993dee4c0b7bcd68088.
+Observed03:19:38.330049Z; controller1339.58s includes19.6min fair queue wait.
+Cleanup empty. GPU32samples/10821MiB whole-card/113.71W/47C, recorded200Wcap
+unchanged; owned-game menu1574MiB, not a game-only peak. Telemetry22:17:21.211–
+22:20:03.237local. All3 actual panel/opening/Areas PNGs were viewed and hash-
+reviewed. Raw construction/paths, telemetry, selected receipt bindings and
+captures are retained under the map-factory study's `native-v2-start/innsbruck`.
+The source, player and pre-rule first-hour results are unchanged.
+
+## PL-1078 current-model start fitting completed — 2026-11-21
+
+All three frozen positive start witnesses have been attempted under unchanged
+source83fa/DLLf916/modelBB. Parent controller collected exit0; all cleanup empty.
+Innsbruck passed as above. Pittsburgh accepted27/27 steps and returned8inbound /
+9outbound literal outside paths from29requests; all12 unsuccessful requests
+remain. Charleston accepted26/27 steps, then normal NetTool rejected the final
+`join -> g30` link with `ObjectCollision` against Basic Road22296, created by
+the earlier grid step2 `g20 -> g30`. Native footprint predicates passed. This
+is a retained provisional-geometry false positive, not geographic incapability.
+No native search, order change, retries or named-square patch followed.
+
+Positive-witness fitting agreement2/3, versus archivedv1's1/3; not held-out or
+overall accuracy. No first-hour rate or physical package changed. Raw current
+observations and all22 registered capability rows are in the static fitting
+projection; unknown/unattempted rows remain null and all risk records remain.
+
+| Case | Native observation UTC | Controller seconds including queue | Whole-card samples / peak MiB / W / C |
+|---|---|---:|---|
+| Pittsburgh | 03:42:24.073120 | 1365.97 | 34 / 10821 / 122.96 / 49 |
+| Charleston | 04:06:38.221700 | 1451.25 | 30 / 10821 / 121.43 / 45 |
+
+Pittsburgh telemetry22:40:00.702–22:42:49.388local; Charleston23:04:24.948–
+23:06:50.262local. RTX2080Ti05:00.0; actual recorded200W cap unchanged;
+owned-game menu1574MiB is not a game-only peak. All9 actual PNGs for this series
+were viewed and hash-reviewed. Existing dark bridge patches remain documented;
+start connectivity does not clear full-map visual/geographic acceptance.
+
+## PL-1078 first two water fitting observations — 2026-11-21
+
+Unchanged83fa/f916/modelBB fixed spatial load, conditional auxiliary power and
+normal native facility/pipe construction. Both full-hour results were collected
+with empty cleanup. Each has29 loaded settling cycles plus843 scored cycles,
+843000 water fetched and843000 sewage accepted; zero quantity shortfalls,
+polluted deliveries, auxiliary failures or timing faults. These are product
+fitting observations, not stock references or first-hour player scores.
+
+| Case | Scored game-minutes | Observation UTC | Controller seconds including queue | Whole-card samples / peak MiB / W / C |
+|---|---:|---|---:|---|
+| Asheville | 60.0083365 | 04:42:03.162047 | 2166.42 | 402 / 10821 / 131.57 / 59 |
+| Innsbruck | 60.0052809 | 05:41:40.610260 | 3525.23 | 434 / 10821 / 203.10 / 73 |
+
+Asheville telemetry23:09:39.819–23:43:15.733local Nov20; Innsbruck00:05:46.985–
+00:42:06.598local Nov21. RTX2080Ti05:00.0, actual recorded200W cap unchanged.
+The transient203.10W measurement is retained, not rounded down to the cap.
+Whole-card peaks include other allocation; owned-game menu1574MiB is not a
+continuous game-only peak. All6 actual panel/opening/Areas PNGs were viewed and
+hash-reviewed. Selected map/mod/cleanup receipt fields and lossless raw cycles
+are published with telemetry; private Steam/audio/launch logs are not.
+Pittsburgh water and every held-out native observation remain pending here.
+
+## PL-1078 fitting phase frozen before holdouts — 2026-11-21
+
+Pittsburgh water completed60.0047254 scored game-minutes with29 settling and843
+scored cycles,843000 water/sewage units and no shortfall, pollution, auxiliary
+or timing fault. Source83fa/DLLf916/modelBB unchanged; fixture qualified;
+cleanup empty. Native observed06:47:36.923687Z, controller4010.54s includes24.3min
+fair queue wait. Parent water batch collected exit0. GPU506samples, whole-card
+10821MiB/135.33W/62C; actual recorded200W cap unchanged, menu1574MiB not game-only
+peak. TelemetryNov21local01:06:28.486–01:48:50.191. All3 actual PNGs viewed and
+hash-reviewed, including retained dark bridge geometry patches.
+
+The completed fitting phase is start2/3 and water3/3 positive-witness agreement,
+not overall or held-out accuracy. All22 registered capability rows, every risk
+record and Charleston's self-plan collision remain in the static fitting report.
+At06:51:04.486208Z the fitting decision froze the unchanged provisional model
+before any registered holdout native run. No physical map, player, judge,
+default or promise changed. The following held-out phase cannot tune the model.
+
+## PL-1078 locked regional water holdouts — 2026-11-21
+
+The unchanged modelBB/snapshotFD/source83fa/DLLf916 was tested on its two
+preregistered positive water holdouts. Parent batch collected exit0; both
+placements/fixtures/timing/auxiliaries qualified and cleanup was empty.
+
+| Holdout | Scored game-minutes | Water fetched / requested | Sewage accepted | Short water cycles | Service |
+|---|---:|---:|---:|---:|---|
+| Rio northeast | 60.0038920 | 843000 / 843000 | 843000 | 0 | true |
+| Hong Kong northeast | 60.0050031 | 713000 / 843000 | 843000 | 130 | false |
+
+Both used29 loaded settling and843 scored cycles; zero polluted deliveries,
+sewage shortfalls, auxiliary failures or timing faults. HK northeast's130 zero
+water responses span scored indices2..833 and all show intake problemsNone.
+The fixed witness/load fails; root mechanism and other possible plans remain
+unresolved. It is retained as a held-out false positive, not a geographic
+incapability or an excuse for a named-square patch. Water positive-witness
+agreement1/2held-out versus3/3fitting; no pooling or global accuracy claim.
+No held-out start positive exists; the third water holdout remains unknown.
+
+Rio native observed07:45:39.435224Z, controller3213.62s inclqueue; HK08:16:18.038506Z,
+controller1837.41s. Whole-card telemetry: Rio388samples10821MiB/134.32W/63C,
+Nov21local02:14:23.208–02:46:51.822; HK364samples10821MiB/136.60W/63C,
+02:47:02.928–03:17:29.291. Recorded200W cap unchanged; game menu1574/1620MiB are
+not continuous game-only peaks. All6 actual PNGs viewed/hash-reviewed. Rio's
+panel has all outside modes absent; clean water does not establish road access.
+
+The complete22-row report retains every warning, prediction and null. A
+separate pre-player-arm identity audit confirms all11 probe pairs byte-identical,
+A4a4 DLL unchanged, and first_hour.py/verdict.py byte-identical to landed PR58.
+Fresh remaining first-hour attempts use that player, not this capability DLL.
+
+## PL-1078 completed frozen-player comparison — 2026-11-21
+
+Both stock controls qualified the unchanged4a4 player. Original8 pre-rule baseline remains3/8 first-hour and2/8 strict. The completed11-square before/repeat comparison is4/11 versus3/11 first-hour,3/11 versus2/11 strict; zero unresolved attempts. The only changed first-hour label is Grand Canyon northeast: repeat qualifying population first observed at6.038min, after the unchanged5min deadline, despite final385/peak540. Keep the failure; no retry or policy/judge/model edit. Charleston keeps its independent DEM failure in both arms.
+
+All maps, inputs, probes and qualified player are byte-identical across arms. These advisory checks demonstrate no physical exporter improvement. Construction failures are failed fixed openings, not universal geographic incapability.
+
+New runs below: blade,NVIDIA GeForce RTX2080Ti at05:00.0. Whole-card peak includes other allocations; menu game memory is not continuous game-only peak. Recorded GPU cap200W remained unchanged. Telemetry span measures first-to-last GPU sample, excludes queue time and is not exact controller wall time. Scored wall time is the native report simulation interval; construction errors have none.
+
+| Arm / square | First hour / strict aggregate | Scored wall s | Telemetry span s | Card peak MiB / game menu MiB | Peak W / C |
+|---|---|---:|---:|---|---|
+| before/grand-canyon-northeast | pass / pass | 942.52 | 1111.50 | 10821 / 1620 | 141.70 / 63 |
+| before/hong-kong-northeast | fail / error | n/a | 150.28 | 10821 / 1574 | 117.58 / 47 |
+| before/rio-northeast | fail / error | n/a | 158.64 | 10821 / 1574 | 118.78 / 50 |
+| after/asheville | pass / pass | 943.29 | 1130.25 | 10821 / 1574 | 145.28 / 61 |
+| after/charleston | pass / fail | 944.71 | 1125.29 | 10821 / 1574 | 141.61 / 60 |
+| after/grand-canyon | fail / error | n/a | 150.31 | 10821 / 1574 | 116.56 / 49 |
+| after/grand-canyon-northeast | fail / fail | 942.86 | 1121.92 | 10821 / 1574 | 142.61 / 60 |
+| after/hong-kong | fail / error | n/a | 159.96 | 10821 / 1574 | 123.94 / 48 |
+| after/hong-kong-northeast | fail / error | n/a | 145.26 | 10821 / 1574 | 116.01 / 47 |
+| after/innsbruck | pass / pass | 943.08 | 1171.54 | 10821 / 1620 | 146.07 / 61 |
+| after/pittsburgh | fail / error | n/a | 155.33 | 10821 / 1620 | 117.54 / 48 |
+| after/rio | fail / error | n/a | 158.12 | 10821 / 1620 | 118.10 / 47 |
+| after/rio-northeast | fail / error | n/a | 158.47 | 10821 / 1574 | 119.53 / 47 |
+| after/yosemite | fail / error | n/a | 157.71 | 10821 / 1592 | 120.36 / 47 |
+
+Every child and the parent comparison process was collected. All24 stock/before/repeat cleanup receipts are empty. All available actual map-panel/startup PNGs were viewed and hash-reviewed; genuine gameplay/ground-truth failures and every warning remain. Only normal completed reports were rejudged after visual QA, using unchanged PR58 judge files. Seven newer normal runs retain pre-visual backups; the three earlier original-eight normal cases retain final reviewed verdicts only. Construction errors are untouched. Proof-bundle manifests, all24 raw verdicts, exact original8 freeze and comparison are in `tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/`. No preview, browser or run-owned game/waiter remains.

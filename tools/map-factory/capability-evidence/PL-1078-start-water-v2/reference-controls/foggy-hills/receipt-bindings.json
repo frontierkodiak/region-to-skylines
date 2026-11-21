@@ -1,0 +1,28 @@
+{
+  "raw_receipt_sha256": "ae4a346dc0d7fc3ef27367a30409f14236c2ae119b01155b529fccb13c6ae224",
+  "scope": "Selected bindings; build-time hashes alone do not qualify running game identity",
+  "map_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+  "mod_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": "PL-1078 exact witness Foggy Hills",
+    "mem_used_before_mib": 8004,
+    "mem_total_mib": 11264
+  },
+  "game_gpu_at_menu": [
+    {
+      "bus": "05:00.0",
+      "pid": 1239058,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1574
+    }
+  ]
+}

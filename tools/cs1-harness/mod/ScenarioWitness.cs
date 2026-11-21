@@ -10,6 +10,7 @@ namespace Cs1Harness
     {
         static void RegisterWitness()
         {
+            RegisterSurfaceFixture();
             Host.Register("capability_witness", Needs.City,
                 "execute one pre-recorded start witness in a fresh paused city; no search or fallback; poll job", Witness);
             Host.Register("capability_water", Needs.City,
