@@ -146,13 +146,13 @@
   {
     "slug": "pittsburgh",
     "capability": "road",
-    "observed": null,
-    "reason": "probe_limited",
-    "fresh_failed_requests": 18,
-    "runtime_bound_two_edge": false,
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 95,
+    "runtime_bound_two_edge": true,
     "same_edge_positives": 0,
-    "midpoint_positives": 0,
-    "access_positives": 4,
+    "midpoint_positives": 51,
+    "access_positives": 8,
     "archived_positives": 0
   },
   {

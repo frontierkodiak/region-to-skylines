@@ -1,9 +1,9 @@
 {
-  "evidence_sha256": "6a879a9d6367772dd2a3d2d111c959bd03c6479212954d692b11e55958f44823",
+  "evidence_sha256": "ea2e27fc65ae4d60e7fddb918a9dba59237b6a9c25d50b6be763b7c2b1263b32",
   "water_support_sha256": "8582aebf15decdc63737a4ae83e048133eabfeaf3a2ca8d62b93fed29ab36b13",
-  "rows": 1001,
-  "raw_files_verified": 137,
-  "native_attempts": 16,
+  "rows": 1269,
+  "raw_files_verified": 143,
+  "native_attempts": 17,
   "selected_squares_attempted": 9,
   "native_completed": 9,
   "runtime_bound_observations": [
@@ -12,6 +12,13 @@
       "attempt_id": "native-v2-2",
       "observation_sha256": "7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc",
       "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "scope": "sampled_native_lane_paths_at_opening"
+    },
+    {
+      "slug": "pittsburgh",
+      "attempt_id": "native-v2-6",
+      "observation_sha256": "97ab029dfdc6d0de243f831c6d26b888103d5a8021c4767d38e04fc97ad3c206",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
       "scope": "sampled_native_lane_paths_at_opening"
     },
     {

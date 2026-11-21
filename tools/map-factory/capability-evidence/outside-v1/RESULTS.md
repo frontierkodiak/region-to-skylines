@@ -19,10 +19,10 @@ Ship witnesses are sampled native paths, not terminal service, continuous cleara
 | rio / rail | unknown (24 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
 | rio / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
 | rio / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
-| pittsburgh / road | unknown (18 failed) | unknown | 0 | 0 | 4 | 0 | 1 |
-| pittsburgh / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 1 |
-| pittsburgh / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
-| pittsburgh / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
+| pittsburgh / road | witness (95 failed) | witness | 51 | 0 | 8 | 0 | 2 |
+| pittsburgh / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 2 |
+| pittsburgh / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| pittsburgh / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
 | charleston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 10 | 3 |
 | charleston / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 3 |
 | charleston / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 3 |

@@ -3086,3 +3086,25 @@ cleanup is empty. Wall time excluding queue was 292.8 s. Sampled peaks were
 Board and process telemetry is retained. No package or service setting changed;
 these paths are not terminal-service, continuous-clearance or sustained-water
 acceptance. Pittsburgh remains the final diagnostic case.
+
+### 2026-11-21 — PL-1142, blade — Pittsburgh v2 and final receipt audit
+
+Pittsburgh completed the final focused case with the unchanged Rio-verified
+harness. The road sweep submitted 256 of 2,708 enumerated candidate requests
+plus five frozen named probes. There were 106 successful requests, including
+51 literal distinct-edge boundary witnesses. The remaining candidate space is
+unexhausted; failed lane requests do not establish absence. Launch/opening
+identity and NewGameFromMap/non-inverted native context validate. Cleanup lists
+are empty, and wrapper, collector and sampler exited before handoff.
+
+Wall time excluding queue was 310.4 s. The 61 board samples (5 s) and 127 owned
+process samples (2 s) recorded peaks of 10,821 MiB board VRAM, 2,811 MiB game
+VRAM, 132.24 W and 62 C. Board VRAM includes resident workloads. Both telemetry
+streams are retained with native-v2-6. No shared workload was displaced.
+
+The combined audit verifies 1,269 rows, 143 referenced raw files and 17 retained
+attempts, including five completed runtime-bound v2 observations. All sixteen
+ship controls passed with exact requested/returned endpoints. Original 619
+observation fields and all 98 original raw gzip files are unchanged. All nine
+water-risk screens remain warnings. This produces no native threshold fit,
+new accuracy/holdout result, global absence, service or sustained-water claim.

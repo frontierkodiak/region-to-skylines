@@ -155,6 +155,45 @@ input evidence for the parent's qualifier, not a certificate issued here.
 
 Rio ship passed all four controls. Rio rail completed 48 failed selected requests
 and remains unknown. Pittsburgh's queued cancellation in the same collector
-batch is not a native observation; `queue-cancel.json` records its reason. Use a
-new output root and `--only pittsburgh charleston hong-kong boston` to continue
-without rerunning Rio. The raw writer refuses to replace any retained raw bytes.
+batch is not a native observation; `queue-cancel.json` records its reason. The queued attempt is retained alongside the later completed Pittsburgh
+receipt. All five focused cases are now complete. The raw writer refuses to
+replace any retained raw bytes.
+
+## Completed focused v2 receipts
+
+`verification-v2.json` records each uncompressed observation SHA256 and package
+SHA256. Each raw observation contains launch/opening runtime file bindings,
+loaded native context, requests and returned endpoints; it is input to the
+parent qualifier, not a certificate. All runs used NewGameFromMap, non-inverted
+traffic, noWorkshop and enabled mods. No unresolved loaded assemblies remain.
+
+| Case / attempt | Ship successes / requests | Diagnostic successes / requests | Candidate coverage |
+| --- | --- | --- | --- |
+| Rio / native-v2-2 | 4 / 4 | rail 0 / 48 | all selected rail controls |
+| Charleston / native-v2-3 | 4 / 4 | not requested | all ship controls |
+| Boston / native-v2-4 | 4 / 4 | not requested | all ship controls |
+| Hong Kong / native-v2-5 | 4 / 4 | road 32 / 261; rail 0 / 16 | road 256 / 2400 candidate requests + 5 named |
+| Pittsburgh / native-v2-6 | not requested | road 106 / 261 | road 256 / 2708 candidate requests + 5 named |
+
+Each ship matrix includes boundary and midpoint endpoints in both directions;
+all sixteen returned first/last positions exactly match the requests. Hong Kong
+road positives split into 7 literal distinct-edge boundary, 7 distinct-edge
+midpoint and 18 same-edge paths. Pittsburgh has 51 literal distinct-edge boundary positives, 51 distinct-edge
+midpoint positives and 4 access-leg positives. Road enumerations are unexhausted; rail failures remain
+unknown. Historical first-619-row classification remains 11 literal positive
+cells and 25 unknowns; fresh positives are not retroactive historical changes.
+
+Common executable SHA256:
+`a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca`.
+Mod SHA256:
+`861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7`.
+Collector/helper hashes and retained source commit are in
+`collector-versions.json`; all 23 loaded file assemblies and 8 matching compile
+references are recorded in each observation. These are file identity checks,
+not in-memory code attestation. Per-case board/process telemetry is retained;
+actual sampled metrics and cleanup are in the harness JOURNAL.
+
+The final verifier checks 1269 rows / 143 raw files / 17 attempts. All original
+98 raw files and original 619 rows' request/result/observed/time/raw references
+remain unchanged. All nine water screens remain warnings. No new holdout,
+accuracy estimate, native threshold fit, absence or service claim is made.
