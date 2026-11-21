@@ -22,7 +22,7 @@ const server = createServer(async (request, response) => {
 });
 await new Promise((r) => server.listen(0, "127.0.0.1", r));
 const origin = `http://127.0.0.1:${server.address().port}`;
-const results = { scope: "Real retained export inputs. Activation is a constructed test proposal, not production acceptance, fresh game evidence, or a pan-time promise.", browsers: [] };
+const results = { scope: "Real retained export inputs and replayed exact observation contexts, not fresh game evidence or a pan-time promise.", browsers: [] };
 try {
   for (const [name, engine] of [["chromium", chromium], ["webkit", webkit]]) {
     const browser = await engine.launch({headless:true});
@@ -32,7 +32,7 @@ try {
       page.on("pageerror", (e) => errors.push(String(e)));
       await page.goto(origin + "/capabilities.html");
       assert.equal(await page.locator("[data-study]").count(), 2);
-      assert.match(await page.locator('[data-study="outside-targeted-v2"]').textContent(), /4 awaiting independent review. Active certificates: 0/);
+      assert.match(await page.locator('[data-study="outside-targeted-v2"]').textContent(), /0 awaiting independent review. Active certificates: 4/);
       assert.match(await page.locator('[data-study="outside-v1"]').textContent(), /11 boundary witnesses/);
       assert.match(await page.locator('[data-study="outside-targeted-v2"]').textContent(), /not accuracy/);
       const calculated = await page.evaluate(async (input) => {
@@ -46,20 +46,20 @@ try {
         }
         const levels = (d, l) => Object.fromEntries(Object.entries(checkCapabilities(d,l).capabilities).map(([k,v])=>[k,v.level]));
         const real = input.cases.map((d) => levels(d, ledger));
-        const proposal = structuredClone(ledger);
-        proposal.native_path_certificates = staged.map((c) => {const o=structuredClone(c);delete o.blocked_by;return o;});
-        const planned = input.cases.map((d) => levels(d, proposal));
-        const pan = input.cases.map((d) => levels({...d, mode:"estimate"}, proposal));
+        const unqualified = structuredClone(ledger);
+        unqualified.native_path_certificates = [];
+        const withoutCertificates = input.cases.map((d) => levels(d, unqualified));
+        const pan = input.cases.map((d) => levels({...d, mode:"estimate"}, ledger));
         const mutated = input.cases.map((d) => {
           const x=structuredClone(d);
           if(x.export_identity.native_context) x.export_identity.native_context.opening_runtime_identity.assemblies[1].sha256="0".repeat(64);
-          return levels(x,proposal);
+          return levels(x,ledger);
         });
-        return {real, planned, pan, mutated, servedReceipts:staged.length};
+        return {real, withoutCertificates, pan, mutated, servedReceipts:staged.length};
       }, inputs);
       const count = (rows) => rows.flatMap(Object.values).filter((level) => level === "promised").length;
-      assert.equal(count(calculated.real), 0);
-      assert.equal(count(calculated.planned), 4);
+      assert.equal(count(calculated.real), 4);
+      assert.equal(count(calculated.withoutCertificates), 0);
       assert.equal(count(calculated.pan), 0);
       assert.equal(count(calculated.mutated), 0);
       assert.deepEqual(errors, []);
@@ -68,7 +68,7 @@ try {
       await page.locator('[data-study="outside-targeted-v2"]').scrollIntoViewIfNeeded();
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
       await page.screenshot({path:resolve(out, `${name}-ledger-phone.png`)});
-      results.browsers.push({engine:name, served_receipts:calculated.servedReceipts, real_promotions:0, constructed_activation_promotions:4, pan_promotions:0, mutated_context_promotions:0, ledger: "v1/targeted-v2 distinct; not accuracy; independent review pending; phone no horizontal overflow"});
+      results.browsers.push({engine:name, served_receipts:calculated.servedReceipts, exact_context_export_promotions:4, unqualified_export_promotions:0, pan_promotions:0, mutated_context_promotions:0, ledger: "v1/targeted-v2 distinct; not accuracy; historical staged proposals retained; phone no horizontal overflow"});
     } finally {await browser.close();}
   }
 } finally {await new Promise((r) => server.close(r));}

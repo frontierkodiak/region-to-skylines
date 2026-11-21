@@ -8,10 +8,10 @@ const root = new URL("../", import.meta.url);
 const ledger = JSON.parse(readFileSync(new URL("capabilities.json", root)));
 const staged = ledger.evidence_studies["outside-targeted-v2"].qualification_candidates;
 
-test("targeted v2 stages four bound receipts without activating or pooling v1", () => {
+test("targeted v2 retains four exact bound certificates without pooling v1", () => {
   validateLedger(ledger);
   assert.equal(staged.length, 4);
-  assert.equal(ledger.native_path_certificates.length, 0);
+  assert.deepEqual(ledger.native_path_certificates, staged.map(({ blocked_by, ...certificate }) => certificate));
   assert.equal(ledger.evidence_studies["outside-v1"].qualification_candidates.length, 9);
   for (const c of staged) {
     assert.deepEqual(c.blocked_by, ["independent_review_pending"]);
@@ -24,12 +24,15 @@ test("targeted v2 stages four bound receipts without activating or pooling v1", 
   assert.match(html, /outside-targeted-v2/);
   assert.match(html, /outside-v1/);
   assert.match(html, /not pooled as independent votes/);
-  assert.match(html, /4 awaiting independent review. Active certificates: 0/);
+  assert.match(html, /0 awaiting independent review. Active certificates: 4/);
+  const unqualified = structuredClone(ledger); unqualified.native_path_certificates = [];
+  assert.match(ledgerPage(unqualified), /4 awaiting independent review. Active certificates: 0/);
 });
 
-test("proposed activation changes only the review block; context mutations stay unqualified", () => {
+test("exact certificates change only the review block; context mutations stay unqualified", () => {
   // Constructed geometry here; the Python export test separately reads real files.
   const proposal = structuredClone(ledger);
+  const unqualified = structuredClone(ledger); unqualified.native_path_certificates = [];
   proposal.native_path_certificates = staged.map((c) => {
     const object = structuredClone(c); delete object.blocked_by; return object;
   });
@@ -37,7 +40,8 @@ test("proposed activation changes only the review block; context mutations stay 
   for (const certificate of staged) {
     const input = { schema: 1, mode: "export", graph: { nodes: [{outside:"west"}, {outside:"east"}], edges: [{a:0,b:1,kind:"ship"}] },
       export_identity: {artifact_sha256: certificate.artifact_sha256, inputs_sha256: certificate.inputs_sha256, native_context: certificate.native_context} };
-    assert.equal(checkCapabilities(input, ledger).capabilities.ship.level, "likely");
+    assert.equal(checkCapabilities(input, unqualified).capabilities.ship.level, "likely");
+    assert.equal(checkCapabilities(input, ledger).capabilities.ship.level, "promised");
     assert.equal(checkCapabilities(input, proposal).capabilities.ship.level, "promised");
     const mutations = [
       (i) => {i.mode = "estimate";},

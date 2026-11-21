@@ -1,8 +1,8 @@
-"""Test-only planned activation on actual retained exports, with JS parity.
+"""Exact certificate checks on actual retained exports, with JS parity.
 
 Run on blade with OUTSIDE_V2_SELECTION pointing to the fixed native selection.
-No writer, collector or game is invoked. The activation output is a concrete
-review artifact, never an application approval API.
+No writer, collector or game is invoked. Contexts are replayed from the same
+retained observations, not evidence of a fresh game launch or a pan-time promise.
 """
 
 import copy
@@ -20,7 +20,7 @@ SELECTION = os.environ.get("OUTSIDE_V2_SELECTION")
 
 @unittest.skipUnless(SELECTION, "Set OUTSIDE_V2_SELECTION to actual blade export paths")
 class ActualExportTests(unittest.TestCase):
-    def test_planned_activation_actual_inputs_and_contexts(self):
+    def test_exact_certificates_actual_inputs_and_contexts(self):
         ledger = json.loads((ROOT / "capabilities.json").read_bytes())
         candidates = ledger["evidence_studies"][STUDY]["qualification_candidates"]
         activated = copy.deepcopy(ledger)
@@ -29,6 +29,11 @@ class ActualExportTests(unittest.TestCase):
             self.assertEqual(
                 certificate.pop("blocked_by"), ["independent_review_pending"]
             )
+        self.assertEqual(
+            ledger["native_path_certificates"], activated["native_path_certificates"]
+        )
+        unqualified = copy.deepcopy(ledger)
+        unqualified["native_path_certificates"] = []
         selection_bytes = Path(SELECTION).read_bytes()
         self.assertEqual(
             sha(selection_bytes), ledger["evidence_studies"][STUDY]["selection_sha256"]
@@ -56,11 +61,11 @@ class ActualExportTests(unittest.TestCase):
                     identity["inputs_sha256"], certificate["inputs_sha256"]
                 )
             data["export_identity"] = identity
-            report = check(data, ledger)
+            report = check(data, unqualified)
             self.assertTrue(
                 all(c["level"] != "promised" for c in report["capabilities"].values())
             )
-            planned = check(data, activated)
+            planned = check(data, ledger)
             promised = [
                 k
                 for k, c in planned["capabilities"].items()
@@ -131,43 +136,30 @@ class ActualExportTests(unittest.TestCase):
             Path(browser_output).write_bytes(
                 encoded(
                     {
-                        "scope": "Real retained prepared inputs; proposed activation is constructed, not active or new game evidence.",
+                        "scope": "Real retained prepared inputs with replayed exact native contexts; not fresh game evidence or a pan-time promise.",
                         "cases": originals,
                     }
                 )
             )
-        output = os.environ.get("OUTSIDE_V2_ACTIVATION_OUT")
+        output = os.environ.get("OUTSIDE_V2_EXPORT_RESULTS")
         if output:
             Path(output).write_bytes(
                 encoded(
                     {
-                        "scope": "Proposed only: parent must independently accept exact objects before applying. Test-only activation, not shipped generic bypass.",
+                        "scope": "Exact retained exports and replayed observation contexts; no fresh native run or pan-time promise.",
                         "ledger_sha256": sha((ROOT / "capabilities.json").read_bytes()),
-                        "patch": [
-                            {
-                                "op": "test",
-                                "path": "/native_path_certificates",
-                                "value": [],
-                            },
-                            {
-                                "op": "test",
-                                "path": f"/evidence_studies/{STUDY}/qualification_candidates",
-                                "value": candidates,
-                            },
-                            {
-                                "op": "replace",
-                                "path": "/native_path_certificates",
-                                "value": activated["native_path_certificates"],
-                            },
+                        "certificate_receipts": [
+                            c["runtime_identity_evidence"]
+                            for c in ledger["native_path_certificates"]
                         ],
                         "actual_export_results": records,
                         "parity_cases": len(cases),
-                        "planned_ship_promotions": promotions,
+                        "exact_context_ship_promotions": promotions,
                     }
                 )
             )
         print(
-            f"Actual retained exports: 9; planned exact ship promotions: {promotions}; JS/Python parity: {len(cases)}; negative mutation/pan promotions: 0"
+            f"Actual retained exports: 9; exact-context ship promotions: {promotions}; JS/Python parity: {len(cases)}; negative mutation/pan promotions: 0"
         )
 
 

@@ -92,7 +92,13 @@ class RetainedEvidenceTests(unittest.TestCase):
             )
         for file, raw in self.receipts.items():
             self.assertEqual((ROOT / file).read_bytes(), raw)
-        self.assertEqual(ledger["native_path_certificates"], [])
+        self.assertEqual(
+            ledger["native_path_certificates"],
+            [
+                {k: v for k, v in candidate.items() if k != "blocked_by"}
+                for candidate in self.study["qualification_candidates"]
+            ],
+        )
         self.assertEqual(
             ledger["evidence_studies"]["outside-v1"]["source_commit"], ORIGINAL
         )

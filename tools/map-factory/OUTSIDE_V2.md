@@ -19,7 +19,7 @@ failures remain Unknown. The page separates the old nine-square projection
 
 ### Runtime identity and limits
 
-Each staged ship candidate binds an exact CRP, three physical inputs, the frozen
+Each retained ship candidate binds an exact CRP, three physical inputs, the frozen
 prediction, raw observation hash/timestamps, collector/helper and mod source,
 build receipt, executable, launch/opening host and namespace PID/start, all
 resolved loaded assembly files, plugin states, actual NewGameFromMap traffic
@@ -38,15 +38,23 @@ water screens warn. No game or writer is run by this integration.
 
 ### Review and reproduction
 
-`native_path_certificates` stays empty. Four candidates are blocked by
-`independent_review_pending`; no production approval switch was added. The
-test-only actual-export verifier emits a concrete JSON Patch containing the
-exact staged objects with only that block removed. The parent independently
-reviews the new code/data and receipt chain before applying any activation.
+The four active `native_path_certificates` are the exact PR71 proposed objects
+with only their review block removed. The original staged objects remain in
+the source study, unchanged, so its deterministic projection can be reproduced.
+The page excludes an exactly matching active object from the pending-review
+count. No production approval switch was added. Qualification is restricted to
+the same CRP, three physical inputs and full native observation context; no
+pan-time or general ship-clearance promise follows.
+
+Activation is a separately reviewable draft delta on PR71's exact head
+`2f7892a1f0acd07347870793f0ca201b1b9ca74d`. Its acceptance and independent
+review are recorded on PL-1119; preparing this branch is not public deployment.
 
 From the repository root, using the exact source checkout as `NATIVE`:
 
 ```sh
+## Rebuild the staged projection in a clean worktree at PR71; the importer
+## deliberately refuses to overwrite a ledger with active certificates.
 uv run --no-project python tools/map-factory/integrate_outside_v2.py "$NATIVE"
 uv run --no-project python tools/map-factory/refresh_capability_ui.py
 OUTSIDE_V2_NATIVE_ROOT="$NATIVE" uv run --no-project python -m unittest discover -s tools/map-factory -p test_outside_v2.py -v
@@ -57,12 +65,12 @@ On blade, the actual retained export files are tested with the map-factory
 environment and `OUTSIDE_V2_SELECTION` set to the exact selection file:
 
 ```sh
-OUTSIDE_V2_SELECTION="$NATIVE/selection.json" OUTSIDE_V2_ACTIVATION_OUT=activation-proposal.json OUTSIDE_V2_BROWSER_INPUTS=actual-inputs.json uv run --project tools/map-factory python -m unittest discover -s tools/map-factory -p test_outside_v2_exports.py -v
+OUTSIDE_V2_SELECTION="$NATIVE/selection.json" OUTSIDE_V2_EXPORT_RESULTS=export-verification.json OUTSIDE_V2_BROWSER_INPUTS=actual-inputs.json uv run --project tools/map-factory python -m unittest discover -s tools/map-factory -p test_outside_v2_exports.py -v
 ```
 
-The export test expects four exact ship promotions under proposed activation
-and zero pan/unbound/mutated-context promotions, with Python/JS parity. Its
-activation JSON is a review artifact, not another ledger. Run
+The export test expects four exact ship promotions under replayed same-observation
+contexts and zero pan/unbound/mutated-context promotions, with Python/JS parity.
+Its output is verification evidence, not another ledger or fresh game run. Run
 `test/outside-v2-browser.mjs PLAYWRIGHT_CORE DIST actual-inputs.json OUTPUT` in
 blade's official matching Playwright image for Chromium/WebKit, receipt HTTP
 hashes, separated studies and mobile layout. The usual capability browser test

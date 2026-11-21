@@ -238,7 +238,8 @@ test("native scoring retains failures and unknowns without substituting panels o
   assert.ok(road.filter((r) => ["native_panel", "native_path_archived_player", "native_path_fresh_named"].includes(r.oracle)).every((r) => r.predicted === null));
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === true).length, 4);
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === null).length, 5);
-  assert.equal(ledger.native_path_certificates.length, 0, "new candidates await independent review; v1 stays unbound");
+  assert.equal(ledger.native_path_certificates.filter((c) => c.study === "outside-v1").length, 0, "v1 stays unbound");
+  assert.equal(ledger.native_path_certificates.filter((c) => c.study === "outside-targeted-v2").length, 4);
   const primary = ledger.capabilities.flatMap((c) => c.game_agreement.filter((r) => r.study === "outside-v1" && r.oracle === "native_two_edge_witness"));
   assert.equal(primary.filter((r) => r.observed === true).length, 11);
   assert.equal(primary.filter((r) => r.observed === null).length, 25);
