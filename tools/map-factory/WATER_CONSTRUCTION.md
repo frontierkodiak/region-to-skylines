@@ -112,6 +112,15 @@ Retain the original flood and full drying definitions. Observe at least
 60 game minutes. Do not tune on the holdout or rescore it after repairs.
 No predictor prefilter is proposed.
 
+The historical drying label remains a comparator, not a settled construction
+promise. Sixteen of the 27 historical positives arise only from loss of
+initialized optional water, without a required-water loss or original dry-gate
+failure. Seven fail the original dry gate. Preserve those historical labels.
+Define the replacement's maintained-water coverage and meaningful drying
+outcome on development data, and freeze that definition before accessing the
+new holdout. Do not choose a denominator or omission rule after its outcomes.
+No such replacement definition or native promise is adopted in this checkpoint.
+
 ## Reproduce the diagnosis
 
 Run these read-only commands with the retained experiment root on blade:
