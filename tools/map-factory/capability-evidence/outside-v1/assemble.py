@@ -108,6 +108,7 @@ def assemble(selection, native, reproduction, attempt_id="attempt-1"):
             "square": case["square"],
             "slug": slug,
             "exporter_source_sha": exporter_sha,
+            "exporter": "real_roads.generate",
             "artifact_sha256": case["artifact_sha256"],
             "prediction": None,
             "observed": None,
@@ -413,6 +414,19 @@ def assemble(selection, native, reproduction, attempt_id="attempt-1"):
     return {
         "schema": 1,
         "issue": "PL-1121",
+        "scope": "Experimental real-connections packages, not the public shipping writer or global geographic feasibility.",
+        "units": {
+            "network_position": "game metres",
+            "water_depth": "game metres",
+            "path_offset": "byte 0..255",
+            "path_result.length": "raw native field; unit not independently calibrated",
+        },
+        "native_protocol": {
+            "entry": "NewGameFromMap",
+            "inverted_traffic": False,
+            "no_workshop": True,
+            "strict_disable_mods": False,
+        },
         "rows": rows,
         "artifacts": artifacts,
         "generated_at": datetime.datetime.now(datetime.UTC).isoformat(),
