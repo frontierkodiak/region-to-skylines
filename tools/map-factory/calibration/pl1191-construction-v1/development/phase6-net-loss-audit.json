@@ -1,0 +1,176 @@
+{
+  "schema": "polli.passive-lake-net-loss-audit/1",
+  "bodies": [
+    {
+      "id": "lake-component:13",
+      "nodes": 6,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 1752.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "lake-component:21",
+      "nodes": 3,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 876.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "lake-component:24",
+      "nodes": 9,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 2628.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "lake-component:28",
+      "nodes": 3,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 876.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "lake-component:34",
+      "nodes": 4,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 1168.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "lake-component:41",
+      "nodes": 2,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 584.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "lake-component:43",
+      "nodes": 1,
+      "initial_depth_range_m": [
+        1.5,
+        1.5
+      ],
+      "t005_depth_range_m": [
+        0.359375,
+        0.359375
+      ],
+      "node_net_loss_range_m": [
+        1.140625,
+        1.140625
+      ],
+      "native_node_area_volume_loss_m3": 292.0,
+      "mean_node_loss_m_per_water_frame": 6.142961008186126e-05,
+      "rim_wet_nodes_start_t005": [
+        0,
+        0
+      ]
+    }
+  ],
+  "stats_frame_delta": 18524,
+  "water_frame_delta": 18568,
+  "captured_floor_equal": true,
+  "inputs_sha256": {
+    "/home/caleb/experiments/PL-1191-stable-water/development-natural/candidates-v1/dry-upland-europe/geometry.json": "b35466602fc2ec647b76a551e5bd8b49d43cd602b79360ed73d6ffbcc78a5d76",
+    "/home/caleb/experiments/PL-1191-stable-water/development-natural/candidates-v1/dry-upland-europe/natural-plan.json": "3a84c79b8e5f9d75b8a0a58615b4382220b1006c23510522b14d884e13431195",
+    "/home/caleb/experiments/PL-1191-stable-water/development-native/dry-upland-europe-natural-storage-attempt-1/timeline.jsonl": "1dd2781fd24cb8bb25a54c7928eb2f7fb6bfc35a8d1ff50a63a2040ac438fb8b",
+    "/home/caleb/experiments/PL-1191-stable-water/development-native/dry-upland-europe-natural-storage-attempt-1/grids/t000-water.u16": "02a3cd473bde69cc8496efc65aac4cacb0737f793bb35cd75e9a7360957dc467",
+    "/home/caleb/experiments/PL-1191-stable-water/development-native/dry-upland-europe-natural-storage-attempt-1/grids/t005-water.u16": "8eaddcf920155c3754479f927a1d3475a32250a9efaff51c5875dc3beb27f90a",
+    "/home/caleb/experiments/PL-1191-stable-water/development-native/dry-upland-europe-natural-storage-attempt-1/grids/t000-water-ground.u16": "e3c04d8e9cb5024e3e1348a32589939bfa051f168ef3b4d4cce03f60bf6e4ac9",
+    "/home/caleb/experiments/PL-1191-stable-water/development-native/dry-upland-europe-natural-storage-attempt-1/grids/t005-water-ground.u16": "e3c04d8e9cb5024e3e1348a32589939bfa051f168ef3b4d4cce03f60bf6e4ac9"
+  },
+  "source_sha256": "aa9be0e9293d857bc529c8253ec555da63e977a97ec0e1e445d7513e40244024",
+  "volume_convention": "sum node depth times16m squared, same as harness; not integrated physical flux",
+  "physical_flux_budget": "unknown",
+  "mechanism": "unresolved: no evaporation or cross-boundary flux telemetry",
+  "interpretation": "One unsaturated interval in one native run. No exact sink cadence, between-sample no-spill proof, or long-term extrapolation."
+}
