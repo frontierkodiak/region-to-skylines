@@ -171,3 +171,8 @@ They also compile the four committed models when the sibling directory is
 available (`PLACE_MODEL_PLACES` can select another checkout). Generated test
 artifacts live only in temporary directories. **Asheville source/derived data
 is private; do not commit it or publish its target inputs.**
+
+For a source-bound offline comparison of canonical DEM, fitted banks, input PNG
+and prepared native terrain, see [terrain fidelity attribution](TERRAIN_FIDELITY.md).
+It uses unchanged frozen terrain metrics, separates source/reference disagreement
+from exporter edits, and does not replace native qualification.
