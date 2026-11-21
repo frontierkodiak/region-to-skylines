@@ -3338,3 +3338,30 @@ The complete22-row report retains every warning, prediction and null. A
 separate pre-player-arm identity audit confirms all11 probe pairs byte-identical,
 A4a4 DLL unchanged, and first_hour.py/verdict.py byte-identical to landed PR58.
 Fresh remaining first-hour attempts use that player, not this capability DLL.
+
+## PL-1078 completed frozen-player comparison — 2026-11-21
+
+Both stock controls qualified the unchanged4a4 player. Original8 pre-rule baseline remains3/8 first-hour and2/8 strict. The completed11-square before/repeat comparison is4/11 versus3/11 first-hour,3/11 versus2/11 strict; zero unresolved attempts. The only changed first-hour label is Grand Canyon northeast: repeat qualifying population first observed at6.038min, after the unchanged5min deadline, despite final385/peak537. Keep the failure; no retry or policy/judge/model edit. Charleston keeps its independent DEM failure in both arms.
+
+All maps, inputs, probes and qualified player are byte-identical across arms. These advisory checks demonstrate no physical exporter improvement. Construction failures are failed fixed openings, not universal geographic incapability.
+
+New runs below: blade,NVIDIA GeForce RTX2080Ti at05:00.0. Whole-card peak includes other allocations; menu game memory is not continuous game-only peak. Recorded GPU cap200W remained unchanged. Telemetry span measures first-to-last GPU sample, excludes queue time and is not exact controller wall time. Scored wall time is the native report simulation interval; construction errors have none.
+
+| Arm / square | First hour / strict aggregate | Scored wall s | Telemetry span s | Card peak MiB / game menu MiB | Peak W / C |
+|---|---|---:|---:|---|---|
+| before/grand-canyon-northeast | pass / pass | 942.52 | 1111.50 | 10821 / 1620 | 141.70 / 63 |
+| before/hong-kong-northeast | fail / error | n/a | 150.28 | 10821 / 1574 | 117.58 / 47 |
+| before/rio-northeast | fail / error | n/a | 158.64 | 10821 / 1574 | 118.78 / 50 |
+| after/asheville | pass / pass | 943.29 | 1130.25 | 10821 / 1574 | 145.28 / 61 |
+| after/charleston | pass / fail | 944.71 | 1125.29 | 10821 / 1574 | 141.61 / 60 |
+| after/grand-canyon | fail / error | n/a | 150.31 | 10821 / 1574 | 116.56 / 49 |
+| after/grand-canyon-northeast | fail / fail | 942.86 | 1121.92 | 10821 / 1574 | 142.61 / 60 |
+| after/hong-kong | fail / error | n/a | 159.96 | 10821 / 1574 | 123.94 / 48 |
+| after/hong-kong-northeast | fail / error | n/a | 145.26 | 10821 / 1574 | 116.01 / 47 |
+| after/innsbruck | pass / pass | 943.08 | 1171.54 | 10821 / 1620 | 146.07 / 61 |
+| after/pittsburgh | fail / error | n/a | 155.33 | 10821 / 1620 | 117.54 / 48 |
+| after/rio | fail / error | n/a | 158.12 | 10821 / 1620 | 118.10 / 47 |
+| after/rio-northeast | fail / error | n/a | 158.47 | 10821 / 1574 | 119.53 / 47 |
+| after/yosemite | fail / error | n/a | 157.71 | 10821 / 1592 | 120.36 / 47 |
+
+Every child and the parent comparison process was collected. All24 stock/before/repeat cleanup receipts are empty. All available actual map-panel/startup PNGs were viewed and hash-reviewed; genuine gameplay/ground-truth failures and every warning remain. Only normal completed reports were rejudged after visual QA, using unchanged PR58 judge files; initial verdicts are retained, construction errors untouched. Proof-bundle manifests, all24 raw verdicts, exact original8 freeze and comparison are in `tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/`. No preview, browser or run-owned game/waiter remains.

@@ -1,0 +1,763 @@
+{
+  "schema": 1,
+  "issue": "PL-1078",
+  "controls": {
+    "cliffside-bay": {
+      "status": "pass",
+      "first_hour": "pass",
+      "first_hour_status": "pass",
+      "overall": "unverified",
+      "additional_failed_checks": [],
+      "game_minutes": 60.09333646744489,
+      "population_last": 301,
+      "population_peak": 496,
+      "checks": {
+        "population_growth": true,
+        "outside_connection": true,
+        "utilities": true,
+        "duration": true,
+        "sample_coverage": true,
+        "sampled_services": true,
+        "sampled_traffic_movement": true,
+        "starter_land": true,
+        "map_panel": true
+      },
+      "outages": [],
+      "reason": null,
+      "phase": null,
+      "package_sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+      "expected_package_sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "verdict_sha256": "51a756bd3d9c39c4da88d3128d65855b06aee525f5ee32eb268277c9c4b59fe9",
+      "harness": {
+        "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+        "dirty": false
+      }
+    },
+    "foggy-hills": {
+      "status": "pass",
+      "first_hour": "pass",
+      "first_hour_status": "pass",
+      "overall": "unverified",
+      "additional_failed_checks": [],
+      "game_minutes": 60.015558685610685,
+      "population_last": 325,
+      "population_peak": 493,
+      "checks": {
+        "population_growth": true,
+        "outside_connection": true,
+        "utilities": true,
+        "duration": true,
+        "sample_coverage": true,
+        "sampled_services": true,
+        "sampled_traffic_movement": true,
+        "starter_land": true,
+        "map_panel": true
+      },
+      "outages": [],
+      "reason": null,
+      "phase": null,
+      "package_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+      "expected_package_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "verdict_sha256": "9adf9720299e4915fcf6651d8d664a72bc898053b02354e95d06a898bda1c797",
+      "harness": {
+        "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+        "dirty": false
+      }
+    }
+  },
+  "stock_policy_qualified": true,
+  "qualified_player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+  "preregistration_sha256": "daa6c286253c23f1231c30ae78fd41c21b7a6e562fad41b1b6126aaa1c5cd7ba",
+  "frozen_selection_matches": true,
+  "all_frozen_inputs_match": true,
+  "baseline_manifest_bound": true,
+  "baseline_manifest_sha256": "7c5cbdb1255eb04e9846c916d36b26df24b75eec788c1e3a4cbd0d07b89ba0ac",
+  "all_pre_rule_packages_match": true,
+  "paired_comparison_qualified": true,
+  "map_fault_attribution": "qualified",
+  "original_player_baseline": {
+    "planned": 8,
+    "passed": 2,
+    "failed": 6,
+    "unresolved": 0,
+    "complete": true,
+    "same_qualified_player": true,
+    "qualified_pass_rate": 0.25,
+    "qualified": true,
+    "frozen_inputs_match": true,
+    "registered_selection": true,
+    "pre_rule_packages_match": true
+  },
+  "first_hour_survival": {
+    "scope": "Unchanged native first_hour verdict only; success is not full-map acceptance. Every independent native failure remains in the case and strict full-map rates.",
+    "paired_comparison_qualified": true,
+    "original_player_baseline": {
+      "planned": 8,
+      "passed": 3,
+      "failed": 5,
+      "unresolved": 0,
+      "complete": true,
+      "same_qualified_player": true,
+      "qualified_pass_rate": 0.375,
+      "qualified": true,
+      "frozen_inputs_match": true,
+      "registered_selection": true,
+      "pre_rule_packages_match": true
+    },
+    "before": {
+      "planned": 11,
+      "passed": 4,
+      "failed": 7,
+      "unresolved": 0,
+      "complete": true,
+      "same_qualified_player": true,
+      "qualified_pass_rate": 0.36363636363636365
+    },
+    "after": {
+      "planned": 11,
+      "passed": 3,
+      "failed": 8,
+      "unresolved": 0,
+      "complete": true,
+      "same_qualified_player": true,
+      "qualified_pass_rate": 0.2727272727272727
+    }
+  },
+  "before": {
+    "planned": 11,
+    "passed": 3,
+    "failed": 8,
+    "unresolved": 0,
+    "complete": true,
+    "same_qualified_player": true,
+    "qualified_pass_rate": 0.2727272727272727
+  },
+  "after": {
+    "planned": 11,
+    "passed": 2,
+    "failed": 9,
+    "unresolved": 0,
+    "complete": true,
+    "same_qualified_player": true,
+    "qualified_pass_rate": 0.18181818181818182
+  },
+  "cases": {
+    "asheville": {
+      "before": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.015558685610685,
+        "population_last": 301,
+        "population_peak": 490,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "expected_package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "0da18c80771f3ea6f2b1fc59882f4700f22a5e3cb27a6ecbed55fd8f547970c2",
+        "harness": {
+          "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.08000313341617,
+        "population_last": 409,
+        "population_peak": 473,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "expected_package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "87659d8ec99abc4695287d044799cded18b34520dba9c67360ed4555ca3387a7",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "innsbruck": {
+      "before": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.127780913685754,
+        "population_last": 398,
+        "population_peak": 518,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "expected_package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "fbb26ff1ba74e0de69f825e929ab75455bd4d369b117ff6988cf82c764839f77",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.03555868665377,
+        "population_last": 381,
+        "population_peak": 495,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "expected_package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "de99af9051a0271dee77024baf467e82c20b7b7132b3ea4defa590f99a5cddd7",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "rio": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "expected_package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "526ef562334882fc953d84b4eb77b91bb8e169a6a24ff1a9a45ae1cfe23e745b",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "expected_package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "fe902dc3b17b0aed40774d343bfd97ddf50ddb51fe18122fd9bc40776c97fdaf",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "pittsburgh": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-579.9, 60.0, 117.7) -> (-539.5, 68.2, 122.3) (elevation -6.834091 -> 0): TooShort, SlopeTooSteep\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "expected_package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "caa9f7434eed7ff797ef283c6b2e6ef578276862a8d81c1350b484bb26b8184c",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-579.9, 60.0, 117.7) -> (-539.5, 68.2, 122.3) (elevation -6.834091 -> 0): TooShort, SlopeTooSteep\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "expected_package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "228bd9a2ecf5924dc91c220d08ecf66e876a7ce5351767498b4146ec2f3c928b",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "charleston": {
+      "before": {
+        "status": "fail",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "fail",
+        "additional_failed_checks": [
+          "ground_truth"
+        ],
+        "game_minutes": 60.15333647057414,
+        "population_last": 341,
+        "population_peak": 510,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "expected_package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "135a8cc4acbee5d2e3144e3ad885de84ec7e945142ab3b04ee15daaf2030359a",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "fail",
+        "additional_failed_checks": [
+          "ground_truth"
+        ],
+        "game_minutes": 60.11222535731891,
+        "population_last": 347,
+        "population_peak": 525,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "expected_package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "01ae244df1f3a34cd6fc5371445117e4c8aea1e253f5ee6f26f8cd8682fb31ab",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "grand-canyon": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "expected_package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "27fb7f0ddcd33f067df1fe9b6abe395656bc9384293798a7b2f3f66451e29c0f",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "expected_package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "b0f50969fdc7f95839ac92735372a6f75eb7c4bf024754816890d34e4950a1b4",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "hong-kong": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "expected_package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "45baa244c3a6b05f42496c381e169343bed4b6594ed84a6f09b93d0902253d10",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "expected_package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "25e44868256e1f7bacdcea721a9c13c39050fbedd0f1028f5997cdc5de7b55df",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "yosemite": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "expected_package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "491c0bf6af4151474cfd2dea00bb03529efcaeebc7fab228d3e0a5197ac2a265",
+        "harness": {
+          "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "expected_package_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "cb83f5692d7f59a98486a8dbfaac4ec1239477ff6165464d87812cbc021c6834",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "grand-canyon-northeast": {
+      "before": {
+        "status": "pass",
+        "first_hour": "pass",
+        "first_hour_status": "pass",
+        "overall": "pass",
+        "additional_failed_checks": [],
+        "game_minutes": 60.10000313445926,
+        "population_last": 351,
+        "population_peak": 541,
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+        "expected_package_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "0463a9f2afc3df6576b9dca72c1954fda77ce9198b4ba0df690d8613ff15b5ff",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "fail",
+        "additional_failed_checks": [
+          "population_growth"
+        ],
+        "game_minutes": 60.02222535262505,
+        "population_last": 385,
+        "population_peak": 540,
+        "checks": {
+          "population_growth": false,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "reason": null,
+        "phase": null,
+        "package_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+        "expected_package_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "f14bb7c8875a03e3eed17fcdd058f46a973c802ef75716861cabe73c9400bb50",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "rio-northeast": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+        "expected_package_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "b4effe37d32f301d8f0d5c2c6c932eedda3d9eec936aba67668e85f6dbc7fc9c",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: System.Exception: no road hookup node in the start tile; map needs an accessible highway connection\n  at Cs1Harness.ScenarioOps.Hookups () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+        "expected_package_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "8e54ca4ee021783c712736fdefead9029bc4b07f9414c68ed52c26f13bceaba3",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    },
+    "hong-kong-northeast": {
+      "before": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-2367.6, 115.8, 15.4) -> (-2317.8, 119.2, 98.1) (elevation 0 -> 0) [segment 831 HighwayRamp Created, Original, End; segment 867 Highway Created, Original; segment 868 Highway Created, Original; segment 872 Highway Created, Original; segment 873 Highway Created, Original]: ObjectCollision\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+        "expected_package_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "b0331972b9634ddaa95d4ce269afa7b993e3423a9a9aa30c07f779651b24dd40",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "after": {
+        "status": "fail",
+        "first_hour": "fail",
+        "first_hour_status": "fail",
+        "overall": "error",
+        "additional_failed_checks": [],
+        "game_minutes": null,
+        "population_last": null,
+        "population_peak": null,
+        "checks": null,
+        "outages": [],
+        "reason": "failed: test-city construction failed: Cs1Harness.ScenarioOps+PlacementRejected: Basic Road (-2367.6, 115.8, 15.4) -> (-2317.8, 119.2, 98.1) (elevation 0 -> 0) [segment 831 HighwayRamp Created, Original, End; segment 867 Highway Created, Original; segment 868 Highway Created, Original; segment 872 Highway Created, Original; segment 873 Highway Created, Original]: ObjectCollision\n  at Cs1Harness.ScenarioOps.Link (.NetInfo info, Vector3 a, Vector3 b, UInt16 from, UInt16 to, Boolean road, Single endElevation, Boolean testOnly, System.Collections.Generic.List`1 endpoints) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+        "phase": "construction",
+        "package_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+        "expected_package_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+        "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+        "verdict_sha256": "bcb0a0b16b76088296b1fabce756b8af831345cc1ed3be35333fc869207c51ab",
+        "harness": {
+          "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+          "dirty": false
+        }
+      },
+      "frozen_inputs_match": true,
+      "baseline_package_matches": true
+    }
+  },
+  "note": "All selected squares remain. Missing/blocked/source-mismatched attempts are unresolved, not failures. No qualified rate is emitted for incomplete cohorts or another player. First-hour survival is separate from strict full-map qualification. Historical 1/8 under the original policy remains a separate observation."
+}

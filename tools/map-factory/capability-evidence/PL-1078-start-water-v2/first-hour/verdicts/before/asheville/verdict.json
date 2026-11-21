@@ -1,0 +1,948 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "pass",
+  "failed": [],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "pass",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-asheville.crp",
+          "selected_index": 12,
+          "map_name": "Asheville - Ready to Play",
+          "author": "",
+          "published": true,
+          "buildableArea": 73,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 564,
+            "realtime": 16.437137603759766,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.33978769183158875,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.33978769183158875,
+                "target_value": 0.33978769183158875,
+                "amount": 564799,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.4171344041824341,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4171344041824341,
+                "target_value": 0.4171344041824341,
+                "amount": 1118893,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.43264123797416687,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.43264123797416687,
+                "target_value": 0.43264123797416687,
+                "amount": 3861810,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.3659907579421997,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.3659907579421997,
+                "target_value": 0.3659907579421997,
+                "amount": 723495,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.14835134148597717,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.14835134148597717,
+                "target_value": 0.14835134148597717,
+                "amount": 454065,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 564799,
+            "oreAmount": 1118893,
+            "forestAmount": 3861810,
+            "fertileLandAmount": 723495,
+            "waterAmount": 454065
+          },
+          "connections": {
+            "incomingRoads": 4,
+            "outgoingRoads": 4,
+            "incomingTrainTracks": 4,
+            "outgoingTrainTracks": 4,
+            "incomingShipPath": 0,
+            "outgoingShipPath": 0,
+            "incomingPlanePath": 2,
+            "outgoingPlanePath": 2
+          },
+          "imageRef": {
+            "name": "Asheville - Ready to Play_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "Asheville - Ready to Play_SteamPreview",
+            "resolved": true,
+            "width": 1800,
+            "height": 1008
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 73 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": "Sol xhigh, PL-1078",
+        "problems": [],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native listing and rendered selection reviewed"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "pass",
+      "value": {
+        "reference": "USGS GNIS landform coordinates + independent fresh AWS Terrarium13 samples, 2026-11-10; game height=(DEM_ASL-572.4373168945312)+50; original input sq -82.555,35.58,r0,s1. Not sampled from prepared terrain.",
+        "points": [
+          {
+            "name": "Sunset Mountain",
+            "gnis_id": 1022849,
+            "lon": -82.53260339253322,
+            "lat": 35.61913935558249,
+            "x": 2030.0137894945817,
+            "z": 4342.559806068036,
+            "dem_height_asl_m": 939.8808851907509,
+            "expected_height_m": 417.4435682962196,
+            "tolerance_m": 12,
+            "height_m": 415.8387756347656,
+            "error_m": -1.6047926614539847,
+            "pass": true
+          },
+          {
+            "name": "Richmond Hill",
+            "gnis_id": 1022281,
+            "lon": -82.58454949252696,
+            "lat": 35.61715986023446,
+            "x": -2678.346592948732,
+            "z": 4122.932354191818,
+            "dem_height_asl_m": 692.3081333475228,
+            "expected_height_m": 169.87081645299156,
+            "tolerance_m": 12,
+            "height_m": 169.53614807128906,
+            "error_m": -0.3346683817024996,
+            "pass": true
+          },
+          {
+            "name": "Beaucatcher Mountain",
+            "gnis_id": 1019023,
+            "lon": -82.5337609193875,
+            "lat": 35.61379856609152,
+            "x": 1925.0963157479648,
+            "z": 3749.992620660865,
+            "dem_height_asl_m": 875.0758417619336,
+            "expected_height_m": 352.63852486740234,
+            "tolerance_m": 12,
+            "height_m": 351.71368408203125,
+            "error_m": -0.9248407853710887,
+            "pass": true
+          },
+          {
+            "name": "Busbee Mountain",
+            "gnis_id": 1019438,
+            "lon": -82.49461183984228,
+            "lat": 35.52848700620322,
+            "x": 5473.543170508335,
+            "z": -5715.430236980767,
+            "dem_height_asl_m": 1064.0861020297125,
+            "expected_height_m": 541.6487851351812,
+            "tolerance_m": 12,
+            "height_m": 540.0195922851562,
+            "error_m": -1.6291928500249924,
+            "pass": true
+          }
+        ],
+        "startup_camera": {
+          "current_position": [
+            -1920,
+            187.767822265625,
+            0
+          ],
+          "current_size": 1000,
+          "current_height": 119.828125,
+          "current_angle_degrees": [
+            0,
+            68.57142639160156
+          ],
+          "target_position": [
+            -1920,
+            187.767822265625,
+            0
+          ],
+          "target_size": 1000,
+          "target_angle_degrees": [
+            0,
+            60
+          ],
+          "render_position": [
+            -1920,
+            1098.695068359375,
+            -354.39654541015625
+          ],
+          "render_forward": [
+            0,
+            -0.9308737516403198,
+            0.36534106731414795
+          ],
+          "render_up": [
+            0,
+            0.36534106731414795,
+            0.9308737516403198
+          ],
+          "render_euler_degrees": [
+            68.5714340209961,
+            0,
+            0
+          ],
+          "field_of_view_degrees": 45,
+          "aspect": 1.9863439798355103,
+          "pixel_width": 1920,
+          "pixel_height": 967,
+          "screen_width": 1920,
+          "screen_height": 1080,
+          "pixel_rect": [
+            0,
+            113.39999389648438,
+            1920,
+            966.5999755859375
+          ],
+          "render_heading_degrees": 0,
+          "areas_visible": false
+        }
+      },
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "native landmark heights match independent reference"
+    },
+    {
+      "name": "startup_views",
+      "status": "pass",
+      "value": {
+        "views": {
+          "opening": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-opening.png",
+            "sha256": "f7d4096b56df899ae3319aa5b988fb53d2bdaf24aad155d710ba785c773d82f3",
+            "current_position": [
+              -1920,
+              187.767822265625,
+              0
+            ],
+            "target_position": [
+              -1920,
+              187.767822265625,
+              0
+            ],
+            "expected_center": {
+              "x": -1920,
+              "z": 0,
+              "tolerance_m": 64
+            }
+          },
+          "area_zoom": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-area_zoom.png",
+            "sha256": "36ab89770921f7bb97c056025a7d510ff827f1491513896bd9b099e4c14d4a4b"
+          }
+        },
+        "problems": []
+      },
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "native headings and actual opening/Areas PNGs reviewed"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.02,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "pass",
+      "value": {
+        "wet": 1261,
+        "required": 1261,
+        "fraction": 1.0,
+        "dry": []
+      },
+      "threshold": ">= 95% of required probes",
+      "detail": "6484 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "pass",
+      "value": {
+        "required": 1261,
+        "samples": 13,
+        "observations": 16393,
+        "wet_throughout": 1261,
+        "fraction": 1.0,
+        "without_water_probes": 0,
+        "without_water_names": [],
+        "without_water_names_truncated": 0,
+        "exact_dry": {
+          "probes": 25,
+          "observations": 52,
+          "names": [
+            "geography:Swannanoa River [river] @501,655",
+            "geography:Swannanoa River [river] @516,655",
+            "geography:Swannanoa River [river] @520,655",
+            "geography:Swannanoa River [river] @521,655",
+            "geography:Swannanoa River [river] @523,654",
+            "geography:Swannanoa River [river] @524,654",
+            "geography:Swannanoa River [river] @525,653",
+            "geography:Swannanoa River [river] @526,653",
+            "geography:Swannanoa River [river] @528,652",
+            "geography:Swannanoa River [river] @534,649",
+            "geography:Swannanoa River [river] @535,649",
+            "geography:Swannanoa River [river] @561,650",
+            "geography:Swannanoa River [river] @616,612",
+            "geography:Swannanoa River [river] @621,612",
+            "geography:Swannanoa River [river] @622,611",
+            "geography:Swannanoa River [river] @623,611",
+            "geography:Swannanoa River [river] @624,611",
+            "geography:Swannanoa River [river] @627,610",
+            "geography:Swannanoa River [river] @629,609",
+            "geography:Swannanoa River [river] @630,608",
+            "geography:Swannanoa River [river] @640,602",
+            "geography:Swannanoa River [river] @642,601",
+            "geography:Swannanoa River [river] @666,595",
+            "geography:Swannanoa River [river] @667,595",
+            "geography:Swannanoa River [river] @668,595"
+          ],
+          "names_truncated": 0
+        },
+        "native_no_nearby": {
+          "probes": 0,
+          "observations": 0,
+          "names": [],
+          "names_truncated": 0
+        },
+        "native_nearby_observations": 16393,
+        "native_nearby_wet_observations": 16393,
+        "sampled_minutes": [
+          0.0,
+          60.015558685610685
+        ],
+        "largest_sample_gap_minutes": 5.14833360183984,
+        "coordinate_identity_tolerance_m": 0.001,
+        "per_sample": [
+          {
+            "frame": 202252,
+            "minute": 0.0,
+            "label": "t000",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 220786,
+            "minute": 5.148,
+            "label": "t005",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 238298,
+            "minute": 10.013,
+            "label": "t010",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 256358,
+            "minute": 15.029,
+            "label": "t015",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 274426,
+            "minute": 20.048,
+            "label": "t020",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 292625,
+            "minute": 25.104,
+            "label": "t025",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 310382,
+            "minute": 30.036,
+            "label": "t030",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 328730,
+            "minute": 35.133,
+            "label": "t035",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 346774,
+            "minute": 40.145,
+            "label": "t040",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 364294,
+            "minute": 45.012,
+            "label": "t045",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 382796,
+            "minute": 50.151,
+            "label": "t050",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 400786,
+            "minute": 55.148,
+            "label": "t055",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 418308,
+            "minute": 60.016,
+            "label": "t060",
+            "without_water": 0,
+            "names": []
+          }
+        ]
+      },
+      "threshold": ">= 95% of required probes wet exactly OR natively within64m at every observed sample",
+      "detail": "Sampled evidence only, not continuous/every-frame wetness; no inferred legacy nearby values."
+    },
+    {
+      "name": "no_flooding",
+      "status": "pass",
+      "value": {
+        "worst_km2": 0.0,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.0
+          }
+        ],
+        "reference": "the run's first water dump union hash-bound mapped_water",
+        "reference_sha256": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "e9befed7558393bf97d7a0394310f9ac4422ed153dd37dd2b3329b278975a835",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 39002
+        },
+        "failing_grids": [],
+        "initial_only_diagnostic": {
+          "worst_km2": 0.0,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.0
+            }
+          ],
+          "would_fail": false,
+          "status": "pass",
+          "reference_cells": 20466,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "pass",
+      "value": {
+        "initial": 0,
+        "final": 298,
+        "growth": 298,
+        "first_observed_minute": 1.771
+      },
+      "threshold": ">= 50 new residents by minute 5, retained at the end",
+      "detail": ""
+    },
+    {
+      "name": "outside_connection",
+      "status": "pass",
+      "value": {
+        "complete": true,
+        "directions": [
+          "inbound",
+          "outbound"
+        ],
+        "paths_checked": 8
+      },
+      "threshold": "native passenger-car paths grid -> highway edge and edge -> grid, released",
+      "detail": ""
+    },
+    {
+      "name": "utilities",
+      "status": "pass",
+      "value": {
+        "broken": []
+      },
+      "threshold": "power, water and sewage active, native pipe nodes connected, no connection or supply problems",
+      "detail": ""
+    },
+    {
+      "name": "first_hour",
+      "status": "pass",
+      "value": {
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "land": {
+          "samples": 3600,
+          "dry_flat_samples": 2704,
+          "sample_spacing_m": 32,
+          "max_axis_slope": 0.15000000596046448,
+          "dry_flat_km2": 2.7688961029052734,
+          "dry_flat_fraction": 0.7511110901832581
+        },
+        "traffic_last_15_minutes": [
+          {
+            "minute": 45.01166901420802,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 50.15111372669538,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 5,
+              "moving": 5,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 55.14833620954305,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 60.015558685610685,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          }
+        ],
+        "map_panel": {
+          "name": "new_game_panel",
+          "status": "pass",
+          "value": {
+            "observed": {
+              "source": "native NewGamePanel",
+              "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-asheville.crp",
+              "selected_index": 12,
+              "map_name": "Asheville - Ready to Play",
+              "author": "",
+              "published": true,
+              "buildableArea": 73,
+              "selection_refreshed": false,
+              "resource_bars": {
+                "schema": 1,
+                "source": "native UIProgressBar.value / NewGamePanel resource targets",
+                "frame": 564,
+                "realtime": 16.437137603759766,
+                "bars": {
+                  "oil": {
+                    "component": "ResourceBarOil",
+                    "value": 0.33978769183158875,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.33978769183158875,
+                    "target_value": 0.33978769183158875,
+                    "amount": 564799,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "ore": {
+                    "component": "ResourceBarOre",
+                    "value": 0.4171344041824341,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.4171344041824341,
+                    "target_value": 0.4171344041824341,
+                    "amount": 1118893,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "forest": {
+                    "component": "ResourceBarForestry",
+                    "value": 0.43264123797416687,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.43264123797416687,
+                    "target_value": 0.43264123797416687,
+                    "amount": 3861810,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "fertility": {
+                    "component": "ResourceBarFarming",
+                    "value": 0.3659907579421997,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.3659907579421997,
+                    "target_value": 0.3659907579421997,
+                    "amount": 723495,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "water": {
+                    "component": "ResourceBarWater",
+                    "value": 0.14835134148597717,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.14835134148597717,
+                    "target_value": 0.14835134148597717,
+                    "amount": 454065,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  }
+                }
+              },
+              "resources": {
+                "maxResourceAmount": 20631704,
+                "oilAmount": 564799,
+                "oreAmount": 1118893,
+                "forestAmount": 3861810,
+                "fertileLandAmount": 723495,
+                "waterAmount": 454065
+              },
+              "connections": {
+                "incomingRoads": 4,
+                "outgoingRoads": 4,
+                "incomingTrainTracks": 4,
+                "outgoingTrainTracks": 4,
+                "incomingShipPath": 0,
+                "outgoingShipPath": 0,
+                "incomingPlanePath": 2,
+                "outgoingPlanePath": 2
+              },
+              "imageRef": {
+                "name": "Asheville - Ready to Play_Snapshot",
+                "resolved": true,
+                "width": 400,
+                "height": 224
+              },
+              "steamPreviewRef": {
+                "name": "Asheville - Ready to Play_SteamPreview",
+                "resolved": true,
+                "width": 1800,
+                "height": 1008
+              },
+              "snapshot_texture_present": true,
+              "author_label": "Created by xxx",
+              "author_visible": false,
+              "buildable_label": "Suitable area for building: 73 %",
+              "ok": true
+            },
+            "screenshot": "new-game-panel.png",
+            "reviewer": "Sol xhigh, PL-1078",
+            "problems": [],
+            "resource_bars_required": true,
+            "resource_bars_verified": true
+          },
+          "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+          "detail": "native listing and rendered selection reviewed"
+        }
+      },
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "Services and traffic are sampled, not continuous. Traffic uses native current-path segments on the roads built by this scenario; movement does not rule out individual bottlenecks. Land is a 32 m start-tile sample at <=15% axis slope plus actual native city construction; it is not the game's New Game buildable-area score. Water-soak gates remain independent."
+    },
+    {
+      "name": "paths",
+      "status": "pass",
+      "value": {
+        "checked": 12,
+        "broken": []
+      },
+      "threshold": "every native path found, no expected segment missing",
+      "detail": ""
+    },
+    {
+      "name": "no_terracing",
+      "status": "pass",
+      "value": 0.0059,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 9,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "pass",
+      "value": {
+        "orientation": "as is",
+        "correlation_as_is": 0.9998,
+        "best_other": 0.3748,
+        "landmarks": [
+          {
+            "name": "highest DEM point",
+            "x": 5312.0,
+            "z": 6464.0,
+            "dem_m": 1156.5,
+            "game_m": 632.5,
+            "dem_from_game_m": 1154.7,
+            "error_m": -1.8
+          },
+          {
+            "name": "lowest DEM point",
+            "x": -4096.0,
+            "z": 7616.0,
+            "dem_m": 582.6,
+            "game_m": 51.1,
+            "dem_from_game_m": 573.8,
+            "error_m": -8.8
+          },
+          {
+            "name": "Sunset Mountain",
+            "x": 2029.0,
+            "z": 4342.8,
+            "game_m": 415.8,
+            "dem_m": 939.9,
+            "dem_from_game_m": 938.2,
+            "error_m": -1.7
+          },
+          {
+            "name": "Richmond Hill",
+            "x": -2677.1,
+            "z": 4123.3,
+            "game_m": 170.2,
+            "dem_m": 692.3,
+            "dem_from_game_m": 692.8,
+            "error_m": 0.5
+          },
+          {
+            "name": "Beaucatcher Mountain",
+            "x": 1924.3,
+            "z": 3750.2,
+            "game_m": 351.7,
+            "dem_m": 875.1,
+            "dem_from_game_m": 874.1,
+            "error_m": -1.0
+          },
+          {
+            "name": "Busbee Mountain",
+            "x": 5477.0,
+            "z": -5713.7,
+            "game_m": 540.2,
+            "dem_m": 1064.1,
+            "dem_from_game_m": 1062.5,
+            "error_m": -1.6
+          }
+        ]
+      },
+      "threshold": "terrain correlates with the real DEM >= 0.9 as is, and beats every rotation or mirror by >= 0.15",
+      "detail": ""
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 0.0,
+        "facing": "north"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 15,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+  "harness": {
+    "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "fde7e144adbd9b09d19358f68d284a100f80789a",
+    "dirty": false
+  }
+}

@@ -141,10 +141,16 @@ selected receipt fields are still not launch-context certificates.
 all eleven squares, the unchanged qualified4a4 DLL, and both judge files'
 byte identity to merged PR58. These checks do not manufacture an exporter gain.
 
-Held-out first-hour baseline attempts and the
-fresh eleven-square candidate player arm remain pending. The latter will use
-the immutable 4a4 player, not the capability DLL. Byte-identical candidate maps
-mean any repeat-run difference cannot be attributed to physical exporter rules.
+The paired first-hour collection is complete: **4/11 before versus 3/11 on the
+fresh repeat**, or **3/11 versus 2/11** under the strict whole-map verdict.
+The original eight remain 3/8 first-hour in both arms. The only changed label is
+Grand Canyon northeast: its repeat reached 385 residents (peak537), but first
+observed qualifying growth was minute6.038, later than PR58's minute5 deadline.
+The failed full-hour attempt remains; there was no retry or judge adjustment.
+Charleston retains its separate DEM failure in both arms. The same immutable
+4a4 player, judge and byte-identical map/probe inputs served both arms; **no
+physical exporter improvement is demonstrated**. See [the complete comparison](first-hour/README.md),
+all cases, proof-bundle manifests and telemetry under `first-hour/`.
 
 ## Raw evidence and integration
 

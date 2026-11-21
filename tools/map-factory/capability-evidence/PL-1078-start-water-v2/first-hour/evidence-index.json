@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scope": "Fresh paired first-hour attempts, not capability-oracle labels or physical exporter improvement.",
+  "player_identity_receipt_sha256": "da991c7f2079e20fbcda69861e8c17f72bd83085427833b769d6945bc543f418",
+  "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+  "comparison_sha256": "bd1003b2dc27374171077b5e7dd8ff3aaaf346ec84f8ebeab4ff58257ffa9817",
+  "bundles": [
+    {
+      "filename": "stock-first-hour.zip",
+      "sha256": "9ad60d6b1406e9f0cdeb222f5f4f93e4c9c8677197997cd9002e88d76c526266",
+      "bytes": 2180053,
+      "manifest": "stock-manifest.json",
+      "manifest_sha256": "e4c4fb2ba74170c56e6cdb9bd86e020b0f9c6b75f35a18882189dfa7210cc41d",
+      "cases": 2
+    },
+    {
+      "filename": "before-first-hour.zip",
+      "sha256": "d1acc18647d89d5b0d34f34481328ed17ccae6a1e4225a5854ac868ae700e05b",
+      "bytes": 80780785,
+      "manifest": "before-manifest.json",
+      "manifest_sha256": "ba36624d7b8725d76ccd9c3204cf51c2c53195d0f9486fa122cf026cc1f94b5e",
+      "cases": 11
+    },
+    {
+      "filename": "after-first-hour.zip",
+      "sha256": "45e70a730a5cfc2a658b06e584c4086071bc4bccf5e458d42fbc3a8ffcc26785",
+      "bytes": 80881835,
+      "manifest": "after-manifest.json",
+      "manifest_sha256": "d309963ef27047e77406a81628154c3b3de9b59585557a445680024adb5c8245",
+      "cases": 11
+    }
+  ],
+  "limits": [
+    "Before/after physical maps, grids, resource plans and probes are byte-identical.",
+    "One attempt per map per arm; no retries selected for a passing rate.",
+    "Historical 1/8 used an unqualified player; not a causal exporter comparator.",
+    "Failed fixed player openings do not prove geographic incapability.",
+    "Selected receipts are not launch-bound identity certificates."
+  ]
+}
