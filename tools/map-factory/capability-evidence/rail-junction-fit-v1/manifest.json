@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "study": "rail-junction-fit-v1",
+  "source": {
+    "repo": "frontierkodiak/region-to-skylines",
+    "accepted_pr": 81,
+    "accepted_head": "364628b81701c134e3f469f9e175c4fe40f7a311",
+    "accepted_merge": "d008778fd44cf448b2078738468267e8a7863af0",
+    "internal_branch": "PL-1142-native-v2",
+    "native_study": "1a0e45c65745ba5f05cf22f947da2e88fed25277",
+    "accepted_prefix": "tools/map-factory/capability-evidence/rail-query-model-v1",
+    "accepted_files": {
+      "openings.json": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+      "packages.json": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+      "corrected/protocol.json": "89665a2b7e067412f58ff851b8ccbc7ec61bbb569be37e2185f9108da1235c2a",
+      "corrected/predictions.json": "e8268d16fd5b69da88e6a6a2052a55b2282a7366d4c893c781080b3077286a74",
+      "corrected/evaluation.json": "252e4d6cbf8276c061b9edd5d9cc1171d0f05dbddbbad2836bcfe64b374b52f8",
+      "corrected/integrity.json": "f6cfe4be004da17a66fe4bfd650de0fa585bb5f033f6cede860a15a3c249b2f7",
+      "model.py": "adad224e12968af755f72986d29cc8069f9dadf7d9e7dd611c36fad83ab8a950",
+      "topology.py": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d",
+      "bridge.py": "0963ff4a9cbbe3045adbf463a0749c7ef8f145d180f61d3d5e0587568f6bf78a"
+    }
+  },
+  "expected": {
+    "openings_by_split": {
+      "cohort": [
+        "asheville",
+        "innsbruck",
+        "boston",
+        "charleston",
+        "grand-canyon",
+        "hong-kong",
+        "pittsburgh",
+        "rio",
+        "yosemite"
+      ],
+      "stock_controls": [
+        "stock-1",
+        "stock-2"
+      ]
+    },
+    "packages": [
+      "asheville",
+      "innsbruck",
+      "boston",
+      "charleston",
+      "grand-canyon",
+      "hong-kong",
+      "pittsburgh",
+      "rio",
+      "yosemite",
+      "stock-1",
+      "stock-2"
+    ],
+    "excluded": [
+      "rio-queue-denial"
+    ],
+    "zero_query_packages": [
+      "charleston",
+      "grand-canyon",
+      "yosemite"
+    ]
+  },
+  "measures": [
+    "chord",
+    "tangent"
+  ],
+  "pairings": [
+    "any_lane",
+    "orientation_index"
+  ],
+  "thresholds_degrees": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    30,
+    45,
+    60,
+    90,
+    120,
+    150,
+    180
+  ],
+  "junction_kinds": [
+    "continuation",
+    "turn"
+  ],
+  "baselines": [
+    "frozen:always_fail",
+    "frozen:always_candidate",
+    "frozen:weak_component"
+  ],
+  "frozen_rules": [
+    "frozen:junction:continuation:any_lane",
+    "frozen:junction:continuation:orientation_index",
+    "frozen:junction:single:any_lane"
+  ],
+  "primary": {
+    "correspondence": "tangent:continuation:any_lane",
+    "reference": "frozen:junction:continuation:any_lane",
+    "question": "does the same fitted continuation rule predict better when the junction angle comes from the export's authored endpoint tangents instead of chords?"
+  },
+  "selection": {
+    "criterion": "balanced_accuracy",
+    "eligible": "a rule abstains on nothing in the training rows and both classes are present there; abstentions are reported but never silently dropped from a decision",
+    "ties": "higher precision, then higher recall, then the rule name; every tied rule is reported",
+    "not_estimable": "a fold with no training row, or a fold whose training set lacks a class, selects nothing and its held-out rows are unscored; a fold with no positive or no negative held-out row reports a null precision or recall",
+    "control_protocol": "the stock controls are never training rows for any selection and are evaluated as held-out packages trained only on the cohort"
+  },
+  "labels": {
+    "positive": "complete and released native path whose returned first and last positions equal the requested literal offsets",
+    "negative": "complete and released selected request whose native result reports success=false; an observed failure for that exact request, mode, flags and protocol, never a geographic negative",
+    "unknown": "incomplete, unreleased, endpoint-mismatched or absent observed row; never scored"
+  }
+}
