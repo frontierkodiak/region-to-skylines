@@ -24,8 +24,21 @@ def write(path, value):
 
 def refresh(experiments, output):
     fixtures = ROOT / "fixtures"
+    active = json.loads((fixtures / "active.json").read_text())
+    if active["current"] != "contracts/pl912-water-risk-v1/current.json":
+        raise ValueError(
+            "Historical preparation refresh cannot overwrite a superseded contract"
+        )
     contract_path = fixtures / "contracts/pl912-water-risk-v1/current.json"
     contract = json.loads(contract_path.read_text())
+    repo = ROOT.parent.parent
+    mutable = {
+        "tools/map-factory/water_risk.py",
+        "tools/map-factory/water-risk-model.json",
+    }
+    for name, expected in contract["source_files_sha256"].items():
+        if name not in mutable and sha(repo / name) != expected:
+            raise ValueError(f"Physical writer/source changed: {name}")
     corpus_path = fixtures / contract["corpus_file"]
     original = json.loads(corpus_path.read_text())
     output.mkdir(parents=True, exist_ok=False)
@@ -75,14 +88,7 @@ def refresh(experiments, output):
     write(ROOT / "water-risk-model.json", model)
     contract["corpus_sha256"] = sha(corpus_path)
     contract["calibration"] = model["calibration"]
-    repo = ROOT.parent.parent
     for name in contract["source_files_sha256"]:
-        if name not in {
-            "tools/map-factory/water_risk.py",
-            "tools/map-factory/water-risk-model.json",
-        }:
-            if sha(repo / name) != contract["source_files_sha256"][name]:
-                raise ValueError(f"Physical writer/source changed: {name}")
         contract["source_files_sha256"][name] = sha(repo / name)
     for case in contract["cases"]:
 

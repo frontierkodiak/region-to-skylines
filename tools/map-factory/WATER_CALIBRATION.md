@@ -1,5 +1,12 @@
 # Independent water-risk calibration
 
+**Completed study, not a live runbook.** The one-shot result is saved in
+`calibration/pl1072-frozen/holdout-score.json`; see its `HOLDOUT_REPORT.md`.
+The commands below record the historical protocol at study source `cc9d541`.
+Do not rerun the completed cohort or score it again. Post-score main integration
+uses a separate versioned metadata layer; it does not relabel the historical
+captures or games as runs on the later tree. A replacement needs a new holdout.
+
 PL-1072 owns this experiment. Integration owner: the producing agent. Destination:
 `frontierkodiak/region-to-skylines` main, after independent review. The exporter
 release on PL-912 remains on hold. No candidate cutoff is promoted by this study's

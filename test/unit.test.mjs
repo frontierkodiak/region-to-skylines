@@ -1,5 +1,7 @@
 // Quick checks (no network): what ships, what the rewrite admits, and the ocean fill.
 import { test } from "node:test";
+import "./runway-inputs.test.mjs";
+import "./sea-neighbour-contract.test.mjs";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";

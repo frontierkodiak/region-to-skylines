@@ -1,0 +1,361 @@
+{
+  "schema": 1,
+  "status": "default_capture_byte_compatible_not_native_qualification",
+  "native_tested": false,
+  "source_sha256": {
+    "historical_inputs": "389ade1e772119af76024a8d92da22d18d1b0e8cc516ff57819ffe9c93df9faa",
+    "current_inputs": "6524fb014af57c915dac4b9618c8fb50986d41ca2eccd88036abbab622472af9",
+    "terrain": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "proof_driver": "4b70f76f205d959b14cab244b09afdd5aec5a8bb10573e74e6f3a17cbeaa91a7"
+  },
+  "providers": {
+    "elevation_png_sha256": "688a2e5b07e19a5d54c0d9a3aea72c006b954878b80794cfc69853745ee4531d",
+    "runway_vector_sha256": "adc118041fa33420aa97203723d6fcbb83db96ccaa552d6b4974c5333ce82cc8",
+    "scope": "Synthetic constant 100m Terrarium PNG and encoded OpenMapTiles aeroway lines; no live requests or historical recapture"
+  },
+  "cases": [
+    {
+      "sq": {
+        "lon": 0,
+        "lat": 0,
+        "rotation": 0,
+        "scale": 1,
+        "name": "Synthetic capture",
+        "slug": "synthetic"
+      },
+      "historical": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "b64448f9f4c2c276e1e5e9119c670ded2a2a046c00bedd3606a584ca1b3fe648",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "current_default": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "b64448f9f4c2c276e1e5e9119c670ded2a2a046c00bedd3606a584ca1b3fe648",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "explicit_false": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "b64448f9f4c2c276e1e5e9119c670ded2a2a046c00bedd3606a584ca1b3fe648",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "enabled": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "42a1a7177cad102b87cd384f08261ff8eb0e5a7302dacf1b2a5c08ec858fe9c8",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "historical_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "default_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "historical_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "default_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "runway_pieces": 64,
+      "airport": {
+        "name": "09/27",
+        "lat": -0.01098632805766897,
+        "lon": -0.011243820190429688,
+        "heading": 90
+      }
+    },
+    {
+      "sq": {
+        "lon": 11.4,
+        "lat": 47.27,
+        "rotation": 27,
+        "scale": 0.75,
+        "name": "Synthetic capture",
+        "slug": "synthetic"
+      },
+      "historical": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "aa3b1837e307d7f90546f9243ce57cae02142a625d94294bc063b71fbd428d34",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "current_default": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "aa3b1837e307d7f90546f9243ce57cae02142a625d94294bc063b71fbd428d34",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "explicit_false": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "aa3b1837e307d7f90546f9243ce57cae02142a625d94294bc063b71fbd428d34",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "enabled": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "311120c23d50d315e3d0d04bf61d8845fa1b627a44056573c2c55bfee17217ec",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "historical_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "default_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "historical_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "default_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "runway_pieces": 132,
+      "airport": {
+        "name": "09/27",
+        "lat": 47.197177951727895,
+        "lon": 11.28270149230957,
+        "heading": 90
+      }
+    },
+    {
+      "sq": {
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": -15,
+        "scale": 1.25,
+        "name": "Synthetic capture",
+        "slug": "synthetic"
+      },
+      "historical": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "6cd4281befed45505b600781c31923acc0d16b6d57a92bf143c0798c069422a9",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "current_default": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "6cd4281befed45505b600781c31923acc0d16b6d57a92bf143c0798c069422a9",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "explicit_false": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "6cd4281befed45505b600781c31923acc0d16b6d57a92bf143c0798c069422a9",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "enabled": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "8330945b7ee62db01f4c1a2a8fa22c550e53e42f3880ab3f05bc7dcc20fda301",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "historical_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "default_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "historical_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "default_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "runway_pieces": 49,
+      "airport": {
+        "name": "09/27",
+        "lat": -22.816694126899847,
+        "lon": -43.08889389038086,
+        "heading": 90
+      }
+    },
+    {
+      "sq": {
+        "lon": 120,
+        "lat": 0,
+        "rotation": 0,
+        "scale": 1,
+        "name": "Synthetic capture",
+        "slug": "synthetic"
+      },
+      "historical": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "c48cd26f3a91aa36c616dbf6f12bb68c136a7ca1a65886e1d519f2d210e15054",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "current_default": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "c48cd26f3a91aa36c616dbf6f12bb68c136a7ca1a65886e1d519f2d210e15054",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "explicit_false": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "c48cd26f3a91aa36c616dbf6f12bb68c136a7ca1a65886e1d519f2d210e15054",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "enabled": {
+        "png": "caeff5face7a7b6a8295e232c296ed940c5d76aa511bbe64fdc66668a73cad22",
+        "geometry": "cd00672869bd4f3ac02b17734a89ea8566c30fdef585cc3d8e260180cbe844ef",
+        "banks": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294",
+        "game": "acee93b15096c2004b77326650d594253f112cd438700104cca1e9577d3e2294"
+      },
+      "historical_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "default_keys": [
+        "sq",
+        "rivers",
+        "lakes",
+        "riverAreas",
+        "fragments",
+        "source",
+        "zoom",
+        "tiles",
+        "streams",
+        "roads",
+        "oceans",
+        "sources",
+        "seaLevel",
+        "fit",
+        "provenance"
+      ],
+      "historical_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "default_provenance_keys": [
+        "capture",
+        "elevation",
+        "water",
+        "ocean"
+      ],
+      "runway_pieces": 0,
+      "airport": null
+    }
+  ]
+}

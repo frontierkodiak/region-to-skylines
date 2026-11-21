@@ -270,6 +270,8 @@ def cmd_down(cfg, a):
 
 
 def cmd_run(cfg, a):
+    if a.scenario == "first-hour" and (a.game_minutes != 60 or not 0 < a.sample_every <= 5 or a.from_save):
+        raise SystemExit("first-hour requires a fresh New Game, --game-minutes 60 and --sample-every in (0, 5]")
     out = a.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     points, views = load_probe_file(a.probes)
@@ -283,6 +285,7 @@ def cmd_run(cfg, a):
         if isinstance(ref, dict) and ref.get("reference_water"):
             shutil.copyfile(a.probes.parent / ref["reference_water"], out / "reference-water.u16")
     harness = verdict_mod.harness_commit()
+    (out / "harness-source.json").write_text(json.dumps(harness, indent=2) + "\n")
     stage = staging(cfg, out)
     attempt = 0
     while True:
@@ -296,6 +299,7 @@ def cmd_run(cfg, a):
                 "game_minutes": a.game_minutes,
             }
             with slot(cfg, stage, a.wait_minutes, meta) as s:
+                s.require_offline = a.require_offline
                 observers(s, a, default_label=f"map check: {a.map.name}")
                 probe_data = json.loads(a.probes.read_text()) if a.probes else {}
                 paths = probe_data.get("paths", []) if isinstance(probe_data, dict) else []
@@ -350,13 +354,13 @@ def cmd_run(cfg, a):
                 log(f"retrying in {a.retry_minutes} minutes (attempt {attempt + 1})")
                 time.sleep(a.retry_minutes * 60)
                 continue
-            finish_error(cfg, out, a, f"blocked: {b}", b.code)
+            finish_error(cfg, out, a, f"blocked: {b}", b.code, harness)
             return b.code
         except HarnessError as e:
             if stage.exists():
                 collect(stage, out)
             log(f"failed: {e}")
-            finish_error(cfg, out, a, f"failed: {e}", 1)
+            finish_error(cfg, out, a, f"failed: {e}", 1, harness)
             return 1
         except Exception:  # a harness bug: judge, triage and report it like any other failure
             import traceback
@@ -366,12 +370,21 @@ def cmd_run(cfg, a):
             tb = traceback.format_exc()
             log(f"harness error:\n{tb}")
             (out / "traceback.txt").write_text(tb)
-            finish_error(cfg, out, a, "Traceback: " + tb.strip().splitlines()[-1], 70)
+            finish_error(cfg, out, a, "Traceback: " + tb.strip().splitlines()[-1], 70, harness)
             return 70
 
 
-def finish_error(cfg, out: pathlib.Path, a, reason: str, code: int):
-    verdict_mod.error_verdict(out, "map-soak", reason, code, issue=a.issue, label=a.label)
+def finish_error(cfg, out: pathlib.Path, a, reason: str, code: int, harness: dict):
+    verdict_mod.error_verdict(
+        out,
+        "map-soak",
+        reason,
+        code,
+        issue=a.issue,
+        label=a.label,
+        scenario=getattr(a, "scenario", None),
+        harness=harness,
+    )
     t = triage_mod.attach(out, cfg)
     if t:
         log(f"triage: {t['class']} ({t['why']})")
@@ -728,7 +741,9 @@ def main(argv=None):
     r = sub.add_parser("run", help="New Game on a map, simulate, report")
     r.add_argument("--map", type=pathlib.Path, required=True, help="the .crp map file")
     r.add_argument(
-        "--scenario", choices=("test-city",), help="build a standard city before the soak; check growth and car paths"
+        "--scenario",
+        choices=("test-city", "first-hour"),
+        help="build a standard city; first-hour also requires 60 minutes, sampled services/traffic and native panel proof",
     )
     r.add_argument(
         "--game-minutes", type=float, default=60, help="simulated minutes, counted as play at 1x speed (default 60)"
@@ -740,6 +755,11 @@ def main(argv=None):
     r.add_argument("--screenshot-every", type=float, default=15, help="game-minutes between screenshot sets")
     r.add_argument("--dump-every", type=float, default=15, help="game-minutes between full water-grid dumps")
     r.add_argument("--load-timeout", type=float, default=900, help="seconds to wait for the city to load")
+    r.add_argument(
+        "--require-offline",
+        action="store_true",
+        help="require cached offline flags and failed offline sync state; reject online Cloud records throughout the run",
+    )
     r.add_argument(
         "--retry-minutes",
         type=float,

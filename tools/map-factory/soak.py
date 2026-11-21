@@ -156,10 +156,7 @@ def probes_for(hydro, descriptor, highways=None):
     pairs = {frozenset((s["from"], s["to"])): s["id"] for s in descriptor["segments"]}
     paths = []
     for route in descriptor["routes"]:
-        real_rail = highways is not None and any(
-            e["kind"] == "rail" for e in hydro["highways"]["edges"]
-        )
-        if highways is not None and (route["kind"] != "rail" or real_rail):
+        if highways is not None:
             continue
         nodes = route["nodes"]
         segments = [pairs[frozenset(pair)] for pair in zip(nodes, nodes[1:])]
@@ -388,21 +385,32 @@ def stage_prepared(inputs, output, slugs):
             raise ValueError(f"Prepared candidate changed since generation: {slug}")
         # Candidate routing must not move or omit accepted observations.
         reference = ROOT / "fixtures" / slug / "hydrology.json.gz"
-        encoded = reference.read_bytes()
-        reference_sha = hashlib.sha256(encoded).hexdigest()
-        if reference_sha != references[slug]["files_sha256"]["hydrology.json.gz"]:
-            raise ValueError(f"Frozen probe fixture changed: {slug}")
-        frozen = json.loads(gzip.decompress(encoded))
+        if slug in references:
+            encoded = reference.read_bytes()
+            reference_sha = hashlib.sha256(encoded).hexdigest()
+            if reference_sha != references[slug]["files_sha256"]["hydrology.json.gz"]:
+                raise ValueError(f"Frozen probe fixture changed: {slug}")
+            frozen = json.loads(gzip.decompress(encoded))
+            probe_reference = {
+                "file": str(reference.relative_to(ROOT)),
+                "sha256": reference_sha,
+                "policy": "accepted names and coordinates, independent of candidate routing",
+            }
+        else:
+            frozen = hydro
+            probe_reference = {
+                "file": "hydrology.json",
+                "sha256": hashlib.sha256(
+                    (folder / "hydrology.json").read_bytes()
+                ).hexdigest(),
+                "policy": "fresh square candidate samples; no accepted native fixture exists",
+            }
         data = probes_for(
             {**hydro, "samples": frozen["samples"]},
             json.loads(layout.read_text()),
             receipt.get("highways"),
         )
-        data["hydraulic_probe_reference"] = {
-            "file": str(reference.relative_to(ROOT)),
-            "sha256": reference_sha,
-            "policy": "accepted names and coordinates, independent of candidate routing",
-        }
+        data["hydraulic_probe_reference"] = probe_reference
         data["new_game_panel"] = panel_expectations(crp)
         if geometry_raw is not None:
             geometry = json.loads(geometry_raw)
@@ -410,7 +418,9 @@ def stage_prepared(inputs, output, slugs):
             mapped_water_reference(data, geometry, folder)
             data["mapped_water_provenance"]["source_geometry"] = geometry_binding
             landmarks = None
-            if expected_sha := references[slug]["files_sha256"].get("landmarks.json"):
+            if expected_sha := (
+                references.get(slug, {}).get("files_sha256", {}).get("landmarks.json")
+            ):
                 raw = (ROOT / "fixtures" / slug / "landmarks.json").read_bytes()
                 if hashlib.sha256(raw).hexdigest() != expected_sha:
                     raise ValueError(f"Frozen landmark fixture changed: {slug}")

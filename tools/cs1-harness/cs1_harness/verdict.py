@@ -23,7 +23,7 @@ import subprocess
 import numpy as np
 from PIL import Image
 
-from . import landmarks, mapped_water, new_game_panel, startup_views
+from . import first_hour, landmarks, mapped_water, new_game_panel, startup_views
 
 SCHEMA = 1
 
@@ -485,7 +485,9 @@ def map_soak(out: pathlib.Path, report: dict) -> list[dict]:
 
     checks.append(probes_wet_throughout(out, report, meta, t))
     checks.append(flooding(out, report, meta, t))
-    checks.extend(scenario_checks(report))
+    city_checks = scenario_checks(report)
+    checks.extend(city_checks)
+    checks.append(first_hour.assess(report, city_checks, checks[0]))
 
     paths = [("start", p) for p in report.get("paths_start") or []] + [
         ("end", p) for p in report.get("paths_end") or []
@@ -791,7 +793,14 @@ def judge(out: pathlib.Path, write: bool = True) -> dict:
 
 
 def error_verdict(
-    out: pathlib.Path, check_type: str, reason: str, exit_code: int, issue: str | None = None, label: str | None = None
+    out: pathlib.Path,
+    check_type: str,
+    reason: str,
+    exit_code: int,
+    issue: str | None = None,
+    label: str | None = None,
+    scenario: str | None = None,
+    harness: dict | None = None,
 ) -> dict:
     """A run that ended before it could be judged."""
     verdict = {
@@ -803,8 +812,10 @@ def error_verdict(
         "exit_code": exit_code,
         "issue": issue,
         "label": label,
-        "checks": [],
-        "harness": harness_commit(),
+        "checks": [first_hour.failure(out, reason)] if scenario == "first-hour" else [],
+        "requested_scenario": scenario,
+        "harness": harness,
+        "judged_by": harness_commit(),
     }
     out.mkdir(parents=True, exist_ok=True)
     (out / "verdict.json").write_text(json.dumps(verdict, indent=2) + "\n")

@@ -495,6 +495,34 @@ not sampled or causal game peaks.
 
 ## Review and release hold
 
+The completed PL-1075/PL-1079 review work was already accepted and consumed;
+it is not being redispatched. The PL-1079 steward independently inspected
+`982fe3c` and passed all 12 focused collector tests on November 20 at 15:19 UTC.
+That accepts the collector-fix disposition, not this later full study or PR57.
+Final review concerns the new native evidence/result and post-score integration.
+
+Main was integrated only after scoring. Its optional capture adoption had
+correctly frozen the earlier water-risk contract, so overwriting that path with
+the prepared correction broke the predecessor guard. The new
+`pl1072-sea-neighbours-v1` metadata layer preserves main's PL-912/PL-1066 bytes,
+archives the exact corrected preparation contract/corpus, and verifies both
+chains. Old-corpus labels, bindings and all features except `narrow_film_km2`
+must remain equal. The deployed model/calibration is unchanged. Coherent hash
+rewrites cannot bless changed labels or unrelated features.
+
+The historical in-place refresh now rejects a superseded contract or changed
+physical source before writing. This is an integration/lifecycle guard, not a
+new fit. The fixed panel, model, original native reports and score remain
+unchanged. The later integrated source is not claimed source-equivalent to the
+historical capture; equivalence was verified at `cc9d541` before the one-shot.
+
+Integrated checks pass: 178 Python tests (one optional resource-candidate proof
+skip), 20 JS unit tests, and all 10 Node/Pyodide fixture tests including the
+Charleston source-pin permutation. The reader test dependency/fixtures are an
+isolated committed polli-place-model0.3.1 archive at `a56fab58`, not the stale
+0.1 workbench directory. Scoped lint/format checks pass. No new native game,
+current-tree native qualification, human acceptance or release is claimed.
+
 At preparation closeout no new native game or holdout score existed. PL-1066
 subsequently resolved the offline-evidence interpretation and explicitly released
 the install on November 20 at 13:30 UTC. All 28 exportable cases have now completed
