@@ -26,7 +26,7 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "e34c646dc2bb1aab283b935f8ca24d2ce46af724b11af8f04e416429ea5d4e34",
+    "capabilities.json": "03f25d4538bd2c6435e00a8aaf5d5c2a93fda685754e9f7bccdb615a6ff07c88",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "b000938703729b0e1bb62f8d781d40737841ef4b18fbf4def0c5b08825f67700",

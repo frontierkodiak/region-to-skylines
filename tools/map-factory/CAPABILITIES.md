@@ -130,10 +130,14 @@ model cannot drift from the writer silently.
   never reads as "crop cover". Below-threshold fertile support is Unknown, not
   absent. Balanced ore/oil top-ups fill each export to stock shares after this
   evidence is gathered; they are not evidence and never count here.
-- **Never a No for resources.** MRDS covers the United States only, and the
-  exporter's other sources are not queried live, so a missing record is missing
-  coverage, not absence. The live check returns `unknown` where it cannot tell,
-  and the reason says what was sampled.
+- **Never a No for resources.** MRDS has worldwide legacy records with a U.S.
+  focus, uneven completeness and potentially outdated operating information
+  ([USGS catalog](https://data.usgs.gov/datacatalog/data/USGS%3A5d712a5ae4b0c4f70cfd4e54)).
+  The exporter's other sources are not queried live. A missing record is not
+  absence. The live check returns `unknown` where it cannot tell, and the reason
+  says what was sampled. The inherited `evidence.py` U.S.-only docstring is not
+  a coverage guarantee; its MRDS query has no U.S. gate. Physical writer bytes
+  and their historical contracts are unchanged by this metadata correction.
 - **No stock comparison.** The 104-map catalog measures the game's planted
   forest bytes and budgeted tree counts. WorldCover tree cover is not either
   quantity, so no bridge is claimed and no stock band is attached. The ledger

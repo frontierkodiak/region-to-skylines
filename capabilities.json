@@ -65,7 +65,7 @@
         "20": 0.15
       },
       "landcover_source": "ESA WorldCover 2021 v200, 10 m, CC-BY 4.0, the same document tools/map-factory/landcover.py reads",
-      "deposit_source": "USGS MRDS through tools/map-factory/evidence.py; the browser reader uses mapgen.js deposits (MRDS only)",
+      "deposit_source": "USGS MRDS through tools/map-factory/evidence.py; capability-evidence.js uses the same MRDS query as mapgen.js, without the exporter's MSHA/NETL sources",
       "fidelity": {
         "pan_time": "WorldCover overview nearest the 64 m lattice, bounded to 262144 pixels per tile, sampled at the same 271 nodes as the depth grid; capture-time terrain screens slope.",
         "prepared": "The writer's own 1728-square 10 m WorldCover grid sampled at the same 271 nodes; prepared terrain screens slope. Patch coherence and the tree budget stay in the export plan."
@@ -73,7 +73,7 @@
       "limits": [
         "Land cover says what a place can host. It is not the exported plan's tree count or resource bytes.",
         "Balanced ore/oil top-ups fill each export to stock shares; they are not place evidence and never count here.",
-        "A missing deposit record is not geographic absence: MRDS covers the United States only, and MSHA/NETL are exporter-only.",
+        "A missing deposit record is not geographic absence: MRDS has worldwide legacy records with a U.S. focus and uneven completeness/currency; MSHA/NETL are exporter-only.",
         "The slope screen uses capture or prepared terrain at 64 m; the writer grades trees at 16 m, so steep small features read flatter here.",
         "Thresholds are candidate levels awaiting game observation, not native constants."
       ]
@@ -9120,7 +9120,7 @@
       },
       "source_coverage": {
         "land cover": "ESA WorldCover 2021 v200 at 10 m, global, CC-BY 4.0. The pan-time reader samples a WorldCover overview of the same document, so its shares are a coarse estimate of the 10 m grid the exporter uses.",
-        "deposits": "USGS MRDS for the square's bounding box, United States only. The exporter also reads MSHA Mines and NETL WELLS; the browser reader does not. Missing records are missing coverage, not absence.",
+        "deposits": "USGS MRDS for the square's bounding box: worldwide legacy records with a U.S. focus, uneven completeness and potentially outdated operating information. The exporter also reads MSHA Mines and NETL WELLS; the browser reader does not. Missing records are not evidence of absence.",
         "terrain": "Capture heightmap from AWS Terrain Tiles / Terrarium at pan time, the writer's prepared terrain at export. Slope is screened at 64 m.",
         "stock bridge": "None claimed. The stock catalogs forest bytes and budgeted tree counts from 104 finished maps; WorldCover tree cover and the planned tree budget are not the same quantity, so no stock band is attached to these measures."
       },
@@ -9175,7 +9175,7 @@
       },
       "source_coverage": {
         "land cover": "ESA WorldCover 2021 v200 at 10 m, global, CC-BY 4.0. The pan-time reader samples a WorldCover overview of the same document, so its shares are a coarse estimate of the 10 m grid the exporter uses.",
-        "deposits": "USGS MRDS for the square's bounding box, United States only. The exporter also reads MSHA Mines and NETL WELLS; the browser reader does not. Missing records are missing coverage, not absence.",
+        "deposits": "USGS MRDS for the square's bounding box: worldwide legacy records with a U.S. focus, uneven completeness and potentially outdated operating information. The exporter also reads MSHA Mines and NETL WELLS; the browser reader does not. Missing records are not evidence of absence.",
         "terrain": "Capture heightmap from AWS Terrain Tiles / Terrarium at pan time, the writer's prepared terrain at export. Slope is screened at 64 m.",
         "stock bridge": "None claimed. The stock catalogs forest bytes and budgeted tree counts from 104 finished maps; WorldCover tree cover and the planned tree budget are not the same quantity, so no stock band is attached to these measures."
       },
