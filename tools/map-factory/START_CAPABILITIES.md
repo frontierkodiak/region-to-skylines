@@ -31,6 +31,25 @@ most15%, relief at most8m; road clearance24m; center lattice64m; hookup lengths
 not a universal requirement for every playable city. Curvature, obstacles,
 between-sample terrain and the native placement tool can falsify a likely plan.
 
+### Version2: fitting counterexamples
+
+Version1's three positive fitting predictions produced one accepted native
+start (Pittsburgh) and two native collision rejections (Innsbruck/Charleston).
+These are retained false positives, not failed geography or player regressions.
+Version2 uses the exported endpoint tangents instead of straight endpoint
+chords for the junction heading. It screens candidate links against unrelated
+authored network corridors and orders the paired stubs by sampled clearance
+from the other ramp. All decisions are frozen on CPU, never selected by a
+native retry or a square name. It can therefore select another authored pair
+or abstain, without changing a map, start tile or the qualified player.
+
+Corridors are sampled every4m using a cubic with one-third-chord control
+length. That curve length and the24m clearance are **provisional geometric
+approximations**, not recovered engine collision constants or prefab widths.
+The two deliberately joined stub segments are excluded from the unrelated
+corridor screen; their junction legality is still a native question. No angular
+proxy veto, grading, collision bypass or default promotion is introduced.
+
 The finite search returns unknown if it finds no plan. Missing graphs are
 unknown. A through-road without dangling ramp stubs is unknown, not a negative.
 `not_possible_here` is used only when the current authored road graph lacks a

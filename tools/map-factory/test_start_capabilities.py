@@ -10,6 +10,9 @@ from start_capabilities import (
     PARAMETERS,
     digest,
     dry_centers,
+    edge_curve,
+    link_clearance,
+    outward_heading,
     segment_clear,
     start_witness,
     water_witness,
@@ -53,6 +56,30 @@ class StartCapabilities(unittest.TestCase):
         self.assertIsNone(row["subchecks"]["native_placement"])
         changed = {**self.hydro, "map_name": "Any name", "map_id": "ignored"}
         self.assertEqual(row, start_witness(self.ground, self.depth, changed))
+
+    def test_authored_endpoint_direction_not_chord_controls_the_join(self):
+        g = graph()
+        g["edges"][0]["end_dir"] = [0, 0, -1]
+        self.assertEqual([0, 1], outward_heading(g, 1).tolist())
+        # Replacing an endpoint tangent while keeping the endpoints unchanged
+        # must change the exported-plan heading; a chord-only check missed this.
+        before = start_witness(self.ground, self.depth, self.hydro)
+        after = start_witness(self.ground, self.depth, {**self.hydro, "highways": g})
+        self.assertNotEqual(
+            before["witness"]["points"]["join"], after["witness"]["points"]["join"]
+        )
+
+    def test_bowed_authored_road_obstructs_a_route_its_chord_misses(self):
+        g = {"nodes": [{"xyz": [-100, 50, 0]}, {"xyz": [100, 50, 0]}]}
+        edge = {"a": 0, "b": 1, "start_dir": [0, 0, 1], "end_dir": [0, 0, 1]}
+        a, b = [-20, 50, 50], [20, 50, 50]
+        self.assertLess(
+            link_clearance(a, b, edge_curve(g, edge)), PARAMETERS.road_clearance_m
+        )
+        self.assertGreater(
+            link_clearance(a, b, edge_curve(g, {"a": 0, "b": 1})),
+            PARAMETERS.road_clearance_m,
+        )
 
     def test_road_presence_without_both_directed_outside_paths_is_negative_only_for_plan(
         self,
