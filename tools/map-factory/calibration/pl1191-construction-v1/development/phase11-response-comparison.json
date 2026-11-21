@@ -1,0 +1,588 @@
+{
+  "schema": "polli.pl1191-synthetic-response-comparison/1",
+  "protocol_sha256": "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc",
+  "authorization_sha256": "2fd7dcacb95ec04af60f9378ad1bb87ec04a3d1c0a8b0baf7af82066a8e94dec",
+  "review_order_authorization_comment": "01a1ff6d-7295-72b6-8481-d925cb4a2f5c",
+  "preparation_review_receipt_sha256": "75a0532f6a3c82b545fdc4a6c27aaec6bb8808125ccbd58cab1342d031e4cf8e",
+  "native_harness_source": "20efcf7181e7a95e47da61ca2af1d6d4b983db39",
+  "mod_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+  "total_snapshots": 723,
+  "full_actual_floor_hashes_across_all_arms": [
+    "ce6af35d055766a5e8f07bb002d1385ebc2401801acd08b48c5285b0f28fbd6a"
+  ],
+  "arms": [
+    {
+      "arm": "output-000",
+      "setting": 0,
+      "game_minutes": 60.13444758070012,
+      "wall_seconds": 931.0719192570541,
+      "snapshot_count": 241,
+      "natural_contracts": {
+        "streams:0:0": "fail",
+        "streams:0:1": "fail",
+        "streams:1:0": "fail"
+      },
+      "engineered_contracts": {
+        "synthetic-port:0": "fail",
+        "synthetic-port:1": "fail",
+        "synthetic-port:2": "fail"
+      },
+      "port_minimum_exact_depth_m": {
+        "synthetic-port:0": 0,
+        "synthetic-port:1": 0,
+        "synthetic-port:2": 0
+      },
+      "observation_complete_primary_definition": true,
+      "strict_cadence_complete": false,
+      "largest_observed_gap_game_minutes": 0.31472223863626425,
+      "missed_scheduled_slots": 0,
+      "maximum_read_bracket_game_minutes": 0.0011111111690600712,
+      "named_counters_available": true,
+      "all_three_controls_match_every_snapshot": true,
+      "floor_checks_statuses": [
+        "pass"
+      ],
+      "full_floor_hashes": [
+        "ce6af35d055766a5e8f07bb002d1385ebc2401801acd08b48c5285b0f28fbd6a"
+      ],
+      "minimum_declared_channel_depth_m_any_sample": 0.0,
+      "endpoint_declared_channel_depth_sum_q": 0,
+      "endpoint_full_grid_depth_sum_q": 0,
+      "maximum_outside_declared_channel_depth_sum_q": 0,
+      "first_captured_all_grid_dry_minute": 7.56194483883058,
+      "endpoint_full_wet_nodes_any_depth": 0,
+      "velocity_readback": {
+        "0": {
+          "records": 3374,
+          "nonzero_horizontal_records": 262,
+          "scope": "Native API values, not integrated discharge or verified physical velocity units."
+        },
+        "1": {
+          "records": 1687,
+          "nonzero_horizontal_records": 111,
+          "scope": "Native API values, not integrated discharge or verified physical velocity units."
+        }
+      },
+      "historical_labels_on_this_synthetic_cohort": {
+        "flood": null,
+        "drying": true
+      },
+      "original_no_flooding_check": {
+        "name": "no_flooding",
+        "status": "fail",
+        "value": 73,
+        "threshold": null,
+        "detail": "probe file reference_water (frozen copy) is nearly dry; give the probe file a reference_water grid to judge flooding"
+      },
+      "raw_verdict": "error",
+      "raw_verdict_reason": "Traceback: AttributeError: 'int' object has no attribute 'get'",
+      "derived_judgment": "fail",
+      "raw_verdict_sha256": "58ad51551553bd36623ac1c92602c53b230483c6073be8183050e8e280da5b2c",
+      "derived_verdict_sha256": "ee0f45ac15d49697f8ed86a47001e1f18fd0361e779ecb14cb2a52a3e988fc31",
+      "report_sha256": "f1f50f87e59852a70e52527c9bccf8f3a6ea2d92c18a3bdd02558ff6a2c9431a",
+      "timeline_sha256": "f89c9f75528cdb71a0f10aca965f35b86f7a09a84f30d7ee405f825e3161123e",
+      "analysis_sha256": "3d53ba6371beb328f1eacf48c5a6f86338ec720f619bfa2e26fcfffc21dbfb64",
+      "frozen_collector_sha256": "85ca28dd481b7e84b7661637d3a166de92cf71c91ab8639f049655050853e36c",
+      "same_primary_and_floor_results_between_collectors": true,
+      "runtime_location_hash_comparison": {
+        "scope": "Loaded-module metadata/current on-disk location hash comparison only, NOT loaded-image/JIT identity or runtime health.",
+        "checks": [
+          {
+            "assembly": "mscorlib.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+            "recorded_current_file_sha256": [
+              "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f"
+            ]
+          },
+          {
+            "assembly": "System.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+            "recorded_current_file_sha256": [
+              "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec"
+            ]
+          },
+          {
+            "assembly": "System.Core.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+            "recorded_current_file_sha256": [
+              "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398"
+            ]
+          },
+          {
+            "assembly": "UnityEngine.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+            "recorded_current_file_sha256": [
+              "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d"
+            ]
+          },
+          {
+            "assembly": "UnityEngine.UI.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+            "recorded_current_file_sha256": [
+              "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df"
+            ]
+          },
+          {
+            "assembly": "ColossalManaged.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+            "recorded_current_file_sha256": [
+              "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9"
+            ]
+          },
+          {
+            "assembly": "ICities.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+            "recorded_current_file_sha256": [
+              "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90"
+            ]
+          },
+          {
+            "assembly": "Assembly-CSharp.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1",
+            "recorded_current_file_sha256": [
+              "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+            ]
+          },
+          {
+            "assembly": "Cs1Harness.dll",
+            "status": "unknown",
+            "expected_current_file_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+            "recorded_current_file_sha256": [
+              null
+            ]
+          }
+        ]
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": {
+        "samples": 232,
+        "temp_c": {
+          "min": 26.0,
+          "mean": 34.0,
+          "max": 44.0
+        },
+        "power_w": {
+          "min": 20.32,
+          "mean": 34.4,
+          "max": 134.08
+        },
+        "util_pct": {
+          "min": 0.0,
+          "mean": 26.5,
+          "max": 98.0
+        },
+        "mem_mib": {
+          "min": 7974.0,
+          "mean": 10374.1,
+          "max": 10821.0
+        },
+        "power_limit_w": "200.00",
+        "index": "0"
+      },
+      "vram": {
+        "gpu": "NVIDIA GeForce RTX 2080 Ti",
+        "bus": "05:00.0",
+        "before_launch_mib": 7974,
+        "total_mib": 11264,
+        "game_at_menu_mib": 1574
+      },
+      "stable_water_promise": "unknown"
+    },
+    {
+      "arm": "output-032",
+      "setting": 32,
+      "game_minutes": 60.044169798213986,
+      "wall_seconds": 925.8544296389446,
+      "snapshot_count": 241,
+      "natural_contracts": {
+        "streams:0:0": "pass",
+        "streams:0:1": "pass",
+        "streams:1:0": "pass"
+      },
+      "engineered_contracts": {
+        "synthetic-port:0": "pass",
+        "synthetic-port:1": "pass",
+        "synthetic-port:2": "pass"
+      },
+      "port_minimum_exact_depth_m": {
+        "synthetic-port:0": 1.109375,
+        "synthetic-port:1": 1.140625,
+        "synthetic-port:2": 1.5
+      },
+      "observation_complete_primary_definition": true,
+      "strict_cadence_complete": false,
+      "largest_observed_gap_game_minutes": 0.3333333507180214,
+      "missed_scheduled_slots": 0,
+      "maximum_read_bracket_game_minutes": 0.0016666667535901068,
+      "named_counters_available": true,
+      "all_three_controls_match_every_snapshot": true,
+      "floor_checks_statuses": [
+        "pass"
+      ],
+      "full_floor_hashes": [
+        "ce6af35d055766a5e8f07bb002d1385ebc2401801acd08b48c5285b0f28fbd6a"
+      ],
+      "minimum_declared_channel_depth_m_any_sample": 0.46875,
+      "endpoint_declared_channel_depth_sum_q": 6721,
+      "endpoint_full_grid_depth_sum_q": 6721,
+      "maximum_outside_declared_channel_depth_sum_q": 6,
+      "first_captured_all_grid_dry_minute": null,
+      "endpoint_full_wet_nodes_any_depth": 73,
+      "velocity_readback": {
+        "0": {
+          "records": 3374,
+          "nonzero_horizontal_records": 3112,
+          "scope": "Native API values, not integrated discharge or verified physical velocity units."
+        },
+        "1": {
+          "records": 1687,
+          "nonzero_horizontal_records": 1429,
+          "scope": "Native API values, not integrated discharge or verified physical velocity units."
+        }
+      },
+      "historical_labels_on_this_synthetic_cohort": {
+        "flood": null,
+        "drying": false
+      },
+      "original_no_flooding_check": {
+        "name": "no_flooding",
+        "status": "fail",
+        "value": 73,
+        "threshold": null,
+        "detail": "probe file reference_water (frozen copy) is nearly dry; give the probe file a reference_water grid to judge flooding"
+      },
+      "raw_verdict": "error",
+      "raw_verdict_reason": "Traceback: AttributeError: 'int' object has no attribute 'get'",
+      "derived_judgment": "fail",
+      "raw_verdict_sha256": "58ad51551553bd36623ac1c92602c53b230483c6073be8183050e8e280da5b2c",
+      "derived_verdict_sha256": "7fb1525d82a029a1367e0df1ad16143ccfbcee1b31b20a0b345e74a2692865a6",
+      "report_sha256": "44c98e0840a03e83f9aab2ab2b56ca95b3716f4878cdfac255750e4d0265caf0",
+      "timeline_sha256": "32c6d3384b382dd875f9a35a97fa2722fc8487bbe5d84f567c82c2de859f551d",
+      "analysis_sha256": "9eff58d52bca73c8715965138b01db1b3a11f9b64cc510a146d5607fd205224f",
+      "frozen_collector_sha256": "7698fdf3f20ba4d9dd48ff30220062a508f887dae215031786f599d4b9c8324a",
+      "same_primary_and_floor_results_between_collectors": true,
+      "runtime_location_hash_comparison": {
+        "scope": "Loaded-module metadata/current on-disk location hash comparison only, NOT loaded-image/JIT identity or runtime health.",
+        "checks": [
+          {
+            "assembly": "mscorlib.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+            "recorded_current_file_sha256": [
+              "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f"
+            ]
+          },
+          {
+            "assembly": "System.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+            "recorded_current_file_sha256": [
+              "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec"
+            ]
+          },
+          {
+            "assembly": "System.Core.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+            "recorded_current_file_sha256": [
+              "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398"
+            ]
+          },
+          {
+            "assembly": "UnityEngine.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+            "recorded_current_file_sha256": [
+              "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d"
+            ]
+          },
+          {
+            "assembly": "UnityEngine.UI.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+            "recorded_current_file_sha256": [
+              "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df"
+            ]
+          },
+          {
+            "assembly": "ColossalManaged.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+            "recorded_current_file_sha256": [
+              "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9"
+            ]
+          },
+          {
+            "assembly": "ICities.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+            "recorded_current_file_sha256": [
+              "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90"
+            ]
+          },
+          {
+            "assembly": "Assembly-CSharp.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1",
+            "recorded_current_file_sha256": [
+              "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+            ]
+          },
+          {
+            "assembly": "Cs1Harness.dll",
+            "status": "unknown",
+            "expected_current_file_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+            "recorded_current_file_sha256": [
+              null
+            ]
+          }
+        ]
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": {
+        "samples": 231,
+        "temp_c": {
+          "min": 32.0,
+          "mean": 35.4,
+          "max": 47.0
+        },
+        "power_w": {
+          "min": 20.39,
+          "mean": 34.2,
+          "max": 130.66
+        },
+        "util_pct": {
+          "min": 0.0,
+          "mean": 28.2,
+          "max": 98.0
+        },
+        "mem_mib": {
+          "min": 7974.0,
+          "mean": 10398.6,
+          "max": 10821.0
+        },
+        "power_limit_w": "200.00",
+        "index": "0"
+      },
+      "vram": {
+        "gpu": "NVIDIA GeForce RTX 2080 Ti",
+        "bus": "05:00.0",
+        "before_launch_mib": 7974,
+        "total_mib": 11264,
+        "game_at_menu_mib": 1574
+      },
+      "stable_water_promise": "unknown"
+    },
+    {
+      "arm": "output-128",
+      "setting": 128,
+      "game_minutes": 60.07528091094767,
+      "wall_seconds": 928.9634252088144,
+      "snapshot_count": 241,
+      "natural_contracts": {
+        "streams:0:0": "pass",
+        "streams:0:1": "pass",
+        "streams:1:0": "pass"
+      },
+      "engineered_contracts": {
+        "synthetic-port:0": "pass",
+        "synthetic-port:1": "pass",
+        "synthetic-port:2": "pass"
+      },
+      "port_minimum_exact_depth_m": {
+        "synthetic-port:0": 1.140625,
+        "synthetic-port:1": 1.140625,
+        "synthetic-port:2": 1.5
+      },
+      "observation_complete_primary_definition": true,
+      "strict_cadence_complete": false,
+      "largest_observed_gap_game_minutes": 0.3333333507180214,
+      "missed_scheduled_slots": 0,
+      "maximum_read_bracket_game_minutes": 0.0011111111690600712,
+      "named_counters_available": true,
+      "all_three_controls_match_every_snapshot": true,
+      "floor_checks_statuses": [
+        "pass"
+      ],
+      "full_floor_hashes": [
+        "ce6af35d055766a5e8f07bb002d1385ebc2401801acd08b48c5285b0f28fbd6a"
+      ],
+      "minimum_declared_channel_depth_m_any_sample": 0.625,
+      "endpoint_declared_channel_depth_sum_q": 6762,
+      "endpoint_full_grid_depth_sum_q": 6762,
+      "maximum_outside_declared_channel_depth_sum_q": 3,
+      "first_captured_all_grid_dry_minute": null,
+      "endpoint_full_wet_nodes_any_depth": 73,
+      "velocity_readback": {
+        "0": {
+          "records": 3374,
+          "nonzero_horizontal_records": 3101,
+          "scope": "Native API values, not integrated discharge or verified physical velocity units."
+        },
+        "1": {
+          "records": 1687,
+          "nonzero_horizontal_records": 1427,
+          "scope": "Native API values, not integrated discharge or verified physical velocity units."
+        }
+      },
+      "historical_labels_on_this_synthetic_cohort": {
+        "flood": null,
+        "drying": false
+      },
+      "original_no_flooding_check": {
+        "name": "no_flooding",
+        "status": "fail",
+        "value": 73,
+        "threshold": null,
+        "detail": "probe file reference_water (frozen copy) is nearly dry; give the probe file a reference_water grid to judge flooding"
+      },
+      "raw_verdict": "error",
+      "raw_verdict_reason": "Traceback: AttributeError: 'int' object has no attribute 'get'",
+      "derived_judgment": "fail",
+      "raw_verdict_sha256": "58ad51551553bd36623ac1c92602c53b230483c6073be8183050e8e280da5b2c",
+      "derived_verdict_sha256": "48ded74bc9ac99ff1477f0f9c549b2a3e622d763521ec04b879acf0b6535981a",
+      "report_sha256": "6e40a8f5936692a17832c399c01546ef07655a9907cf416c7442830da71fce4d",
+      "timeline_sha256": "d55185fc3fe529300ccb6ec9ef8c6472adeb9bbf785a9d0232b10609bb206c4a",
+      "analysis_sha256": "00e85b3686a373962f44e4edba12c3020c95d13f2ae873c616dda0a47a5e2fce",
+      "frozen_collector_sha256": "9cb69a679761c68587d43b7b821ee45d2a2cc4a13cb52e2f15e7b0f42d7746a7",
+      "same_primary_and_floor_results_between_collectors": true,
+      "runtime_location_hash_comparison": {
+        "scope": "Loaded-module metadata/current on-disk location hash comparison only, NOT loaded-image/JIT identity or runtime health.",
+        "checks": [
+          {
+            "assembly": "mscorlib.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+            "recorded_current_file_sha256": [
+              "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f"
+            ]
+          },
+          {
+            "assembly": "System.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+            "recorded_current_file_sha256": [
+              "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec"
+            ]
+          },
+          {
+            "assembly": "System.Core.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+            "recorded_current_file_sha256": [
+              "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398"
+            ]
+          },
+          {
+            "assembly": "UnityEngine.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+            "recorded_current_file_sha256": [
+              "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d"
+            ]
+          },
+          {
+            "assembly": "UnityEngine.UI.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+            "recorded_current_file_sha256": [
+              "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df"
+            ]
+          },
+          {
+            "assembly": "ColossalManaged.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+            "recorded_current_file_sha256": [
+              "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9"
+            ]
+          },
+          {
+            "assembly": "ICities.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+            "recorded_current_file_sha256": [
+              "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90"
+            ]
+          },
+          {
+            "assembly": "Assembly-CSharp.dll",
+            "status": "pass",
+            "expected_current_file_sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1",
+            "recorded_current_file_sha256": [
+              "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+            ]
+          },
+          {
+            "assembly": "Cs1Harness.dll",
+            "status": "unknown",
+            "expected_current_file_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+            "recorded_current_file_sha256": [
+              null
+            ]
+          }
+        ]
+      },
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "gpu": {
+        "samples": 231,
+        "temp_c": {
+          "min": 32.0,
+          "mean": 35.3,
+          "max": 47.0
+        },
+        "power_w": {
+          "min": 20.37,
+          "mean": 34.9,
+          "max": 132.98
+        },
+        "util_pct": {
+          "min": 0.0,
+          "mean": 26.7,
+          "max": 98.0
+        },
+        "mem_mib": {
+          "min": 7974.0,
+          "mean": 10362.5,
+          "max": 10821.0
+        },
+        "power_limit_w": "200.00",
+        "index": "0"
+      },
+      "vram": {
+        "gpu": "NVIDIA GeForce RTX 2080 Ti",
+        "bus": "05:00.0",
+        "before_launch_mib": 7974,
+        "total_mib": 11264,
+        "game_at_menu_mib": 1574
+      },
+      "stable_water_promise": "unknown"
+    }
+  ],
+  "independent_results_review": "required_before_adoption",
+  "physical_flow_budget": "unknown",
+  "geographic_qualification": false,
+  "holdout_access": false,
+  "stable_water_promise": "unknown",
+  "scope": "Predeclared single synthetic source-only trial per arm. All three intakes fixed active. Joint two-output setting effect, not isolated single-source causality, minimum source capacity, evaporation proof or geographic qualification. Raw post-run registry errors retained; separate unchanged-rule judgments do not replace them."
+}

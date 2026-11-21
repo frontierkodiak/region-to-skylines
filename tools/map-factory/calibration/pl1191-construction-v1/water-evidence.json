@@ -950,5 +950,88 @@
     "independent_pre_native_review": "pending",
     "new_runtime_launched": false,
     "stable_water_promise": "unknown"
+  },
+  "synthetic_source_response_observations": {
+    "comparison": "development/phase11-response-comparison.json",
+    "authorization": "development/phase11-review-order-authorization.json",
+    "protocol_sha256": "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc",
+    "native_harness_source": "20efcf7181e7a95e47da61ca2af1d6d4b983db39",
+    "mod_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+    "arms": [
+      {
+        "setting": 0,
+        "game_minutes": 60.13444758070012,
+        "natural_contracts": {
+          "streams:0:0": "fail",
+          "streams:0:1": "fail",
+          "streams:1:0": "fail"
+        },
+        "engineered_contracts": {
+          "synthetic-port:0": "fail",
+          "synthetic-port:1": "fail",
+          "synthetic-port:2": "fail"
+        },
+        "minimum_port_depth_m": 0,
+        "raw_verdict": "error",
+        "derived_judgment": "fail",
+        "historical_labels_on_this_synthetic_cohort": {
+          "flood": null,
+          "drying": true
+        }
+      },
+      {
+        "setting": 32,
+        "game_minutes": 60.044169798213986,
+        "natural_contracts": {
+          "streams:0:0": "pass",
+          "streams:0:1": "pass",
+          "streams:1:0": "pass"
+        },
+        "engineered_contracts": {
+          "synthetic-port:0": "pass",
+          "synthetic-port:1": "pass",
+          "synthetic-port:2": "pass"
+        },
+        "minimum_port_depth_m": 1.109375,
+        "raw_verdict": "error",
+        "derived_judgment": "fail",
+        "historical_labels_on_this_synthetic_cohort": {
+          "flood": null,
+          "drying": false
+        }
+      },
+      {
+        "setting": 128,
+        "game_minutes": 60.07528091094767,
+        "natural_contracts": {
+          "streams:0:0": "pass",
+          "streams:0:1": "pass",
+          "streams:1:0": "pass"
+        },
+        "engineered_contracts": {
+          "synthetic-port:0": "pass",
+          "synthetic-port:1": "pass",
+          "synthetic-port:2": "pass"
+        },
+        "minimum_port_depth_m": 1.140625,
+        "raw_verdict": "error",
+        "derived_judgment": "fail",
+        "historical_labels_on_this_synthetic_cohort": {
+          "flood": null,
+          "drying": false
+        }
+      }
+    ],
+    "new_snapshots": 723,
+    "full_actual_floor_hashes_across_all_arms": [
+      "ce6af35d055766a5e8f07bb002d1385ebc2401801acd08b48c5285b0f28fbd6a"
+    ],
+    "all_strict_cadence_flags": false,
+    "raw_post_run_registry_errors_retained": true,
+    "flood_label": "indeterminate on all arms; unchanged73<100reference failure retained",
+    "independent_results_review": "required_before_adoption",
+    "physical_source_budget": "unknown",
+    "geographic_qualification": false,
+    "stable_water_promise": "unknown"
   }
 }

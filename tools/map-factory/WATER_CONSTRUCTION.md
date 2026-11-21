@@ -615,6 +615,54 @@ failures/refusals/protocols unchanged, shipping defaults/ledger unchanged and
 every product promise unknown. PR74 and telemetry PR80 remain draft/unmerged;
 both have base conflicts which this exact-source tranche does not rewrite.
 
+## Synthetic native response: zero versus two positive output settings
+
+The user explicitly authorized the frozen observations in parallel with review
+in comment01a1ff6d-7295-72b6-8481-d925cb4a2f5c. No pre-native review gate delayed
+the runs; PL-1226 completed preparation review independently with no blocker.
+All three source-only arms ran once on exact20efcf7/DLL368955b1. No package,
+runtime, rate, geometry, mask, probe or old protocol was changed between arms.
+All3intakes128 remained fixed; only two upstream outputs changed jointly.
+
+| Outputs | Game minutes | Natural sectors pass | Engineered ports pass | Minimum exact port depth |
+|---|---:|---:|---:|---:|
+|0|60.134448|0/3|0/3|0m|
+|32|60.044170|3/3|3/3|1.109375m|
+|128|60.075281|3/3|3/3|1.140625m|
+
+241new snapshots per arm/723total preserve all73channel nodes/24probes and
+complete3control tables. All controls match every sample. All723actual full
+hydraulic-floor grids share one hash across arms/times, with all authored-stage
+source/channel/rim checks passing. This is captured stability, not atomic reads
+or between-sample proof. No qualification transfers to geographic packages.
+Output0first has a completely dry captured grid at7.561945min. Outputs32/128
+retain all three sectors100%nearby at every sample. Minimum depth anywhere on
+the73declared nodes is0.46875/0.625m respectively; every engineered port stays
+above its frozen0.5m contract. Both pieces have nonzero horizontal velocity API
+readbacks; these are not integrated physical discharge or a demand budget.
+
+Zero scheduled slots are missing, but all strict0.30-minute cadence flags
+remain false: maxgaps0.314722/0.333333/0.333333minutes. The original broader
+primary sampling definition is complete. All four named fields are available;
+counter semantics do not establish evaporation cadence or source flux units.
+
+All raw no_flooding checks fail the unchanged73<100reference gate; flood labels
+stay indeterminate. Historical full drying on these NEW synthetic cohorts is
+true/false/false, not an old-study rescore. A registry scalar-value bug then
+overwrote each completed verdict with an error. Raw files remain unchanged;
+separate exact frozen-rule judge replays and SHA-bound lineage preserve failing
+verdicts and that flood-reference failure. Frozen and authorization-aware
+collectors agree on all primary/floor results. Reporting repair is not new
+native evidence or a manufactured overall pass. The registry fix is CPU/actual-
+report replay tested after all runs, with no new native trial on the fix.
+
+Eight current on-disk reference hashes match; loaded Cs1Harness location/hash
+is unavailable. Sidecars/module metadata are not complete loaded-image/JIT
+identity or runtime health. Raw Bridge/TypeLoad logs and visual statuses remain.
+All owned games/helpers are collected with empty teardown. Results review is
+required before adoption. Both PRs remain draft/unmerged; all promises unknown.
+See `development/phase11-response-comparison.json` and the phase-eleven report.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged
