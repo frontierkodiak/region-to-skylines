@@ -719,3 +719,47 @@ All native work uses blade's disposable test install and the existing Steam,
 carbon-idle, offline, and ownership guards. No public merge or deploy is
 authorized here. Human visual acceptance, populated-city behavior, continuous
 retention between samples, and long-term operation remain unverified.
+## Phase thirteen: lateral-authority diagnosis, not a widened stream
+
+PL-1230 independently passes phase twelve's CPU rule/refusal accounting only;
+its review child is closed after use. No geographic/native acceptance or promise
+adoption follows. The medium finding is missing lateral bank authority, not a
+bad native-floor read. No older runtime qualification is transferred here.
+
+The review's proposed corner footprint adds every non-channel node four-adjacent
+to at least two original channel nodes. A separately committed read-only tool
+finds these additions are all ORIGINAL untouched eight-neighbour rim nodes.
+Therefore this is prohibited footprint expansion under the current no-widening
+and full-rim rule, not a correction justified by adjacency alone. No relaxed-bank
+solve, changed mask, earthwork, new control or physical package is produced.
+
+All five cases replay, retaining1370line rows/296polygons/583mandatory stream
+parts, old controls/probes and both null-support base refusals. The four reviewed
+South American components retain maximum potential-bound deficits4.1875,1.921875,
+0.90625and1.5m. Their corner additions would retire36,2,8and21untouched bank
+nodes. These are conditional mathematical refusals, not geographic impossibility.
+A resolved local component would not qualify the whole map's other mandatory
+features. Complete per-component deficit magnitudes are now reported.
+
+A prospectively bound single public Overpass capture obtained82elements, no width
+tags and7possible water polygons. A second source declaration was committed
+before coverage analysis: all7literal polygon assemblies succeed; none covers
+the four components'103channel+284rim nodes, with no sampled boundary uncertainty.
+This supplementary contemporary source supplies no lateral-width/bank authority
+for the proposal. It does not prove the real waterways are dry, transfer source
+identity, supply bank elevations or resolve hydraulic connectivity.
+
+Correction to phase twelve's evidence shorthand: its delivered artifact checked
+stages/beds/rim/ports, not materialized grid bytes. A NEW phase-thirteen CPU replay
+now materializes the ORIGINAL recipe and proves exact frozen synthetic terrain/
+depth hashesfa9d04b8…/96c1edce…. This does not modify old evidence or constitute
+another native trial. The proposed corner rule would also retire2untouched rim
+nodes on that flat synthetic control; matching original stages cannot authorize it.
+
+Nine new focused tests pass; scoped Ruff/format/diff and all five complete old/new
+protocol replays pass. Source receipt-schema failure before case creation is
+retained separately; fixed source was committed before final CPU preparation.
+No native/Steam/install/preview/tab action occurred. Shipping/defaults/liveledger
+and all prior evidence remain unchanged; holdout unopened, promises unknown.
+See `bank-authority-freeze-v1.json` and
+`development/phase13-bank-authority-summary.json` for exact source/data lineage.

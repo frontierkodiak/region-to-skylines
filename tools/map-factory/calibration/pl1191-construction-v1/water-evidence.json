@@ -1055,5 +1055,19 @@
     "native_observation": false,
     "scope": "Fresh CPU recipe matches native-tested synthetic geometry but every geographic graph remains refused/unresolved. No masks or original cohort changed.",
     "stable_water_promise": "unknown"
+  },
+  "stream_bank_authority_diagnostic": {
+    "status": "refused_adjacency_only_footprint_expansion",
+    "policy": "untouched-bank-authority-diagnostic-v1",
+    "global_freeze_sha256": "6340ded24fb1799a0865def459bdff238c1d16175c2bd14a9729fdb4fed06a04",
+    "five_case_protocols_replayed": true,
+    "mandatory_stream_parts_retained": 583,
+    "public_width_tags": 0,
+    "public_polygons_assembled": 7,
+    "four_target_channel_and_rim_nodes_covered": 0,
+    "target_sample_nodes": 387,
+    "new_geographic_admissions": 0,
+    "complete_geographic_candidate": false,
+    "stable_water_promise": "unknown"
   }
 }
