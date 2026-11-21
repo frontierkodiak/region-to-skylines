@@ -46,6 +46,7 @@ MODES = (
     "reservoir-output-off",
     "river-output-off",
     "below-sea-intake-off",
+    "all-intake-off",
 )
 
 
@@ -229,15 +230,18 @@ def transform(source, hydro, terrain, mode):
                     controls[i]["capacity"] = original_rate / 65535
                     new_hydro["sources"][i]["capacity"] = original_rate / 65535
                     changed_intakes[i] = original_rate
-    elif mode == "below-sea-intake-off":
+    elif mode in {"below-sea-intake-off", "all-intake-off"}:
         if not math.isfinite(water["sea_level_m"]):
             raise ValueError("Nonfinite encoded sea level")
         for i, actual in enumerate(water["sources"]):
             if (
-                actual["target_fixed"] / 64 < water["sea_level_m"]
-                and actual["intake_rate"] > 0
-            ):
+                mode == "all-intake-off"
+                or actual["target_fixed"] / 64 < water["sea_level_m"]
+            ) and actual["intake_rate"] > 0:
                 controls[i]["capacity"] = 0
+                new_hydro["sources"][i].setdefault(
+                    "output_capacity", actual["output_rate"] / 65535
+                )
                 new_hydro["sources"][i]["capacity"] = 0
                 changed_intakes[i] = 0
     else:
@@ -367,12 +371,19 @@ def transform(source, hydro, terrain, mode):
         ]
         + (
             ["intake rates"]
-            if mode not in {"portal-intake-original", "below-sea-intake-off"}
+            if mode
+            not in {"portal-intake-original", "below-sea-intake-off", "all-intake-off"}
             else []
         )
         + (
             ["bounded output rates"]
-            if mode in {"sea-only", "portal-intake-original", "below-sea-intake-off"}
+            if mode
+            in {
+                "sea-only",
+                "portal-intake-original",
+                "below-sea-intake-off",
+                "all-intake-off",
+            }
             else []
         ),
         "limitations": [

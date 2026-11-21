@@ -171,6 +171,27 @@ supply, not a stable construction fix. It does not distinguish the two lakes
 from the river regulators. A separate `river-output-off` package preserves lake
 and stream outputs and every intake; it is prepared but not yet observed.
 
+## Coastal intake development intervention
+
+The Oceanian `below-sea-intake-off` intervention completed 60.034 game minutes.
+Only 99 positive intakes changed; all 167 outputs, targets, positions, initial
+grids and frozen observations remained fixed. All 167 controls match their
+package in all 13 samples, in both baseline and intervention. Cleanup is empty.
+
+Required endpoint retention changes from 987/1149 to 988/1149, and throughout
+from 978/1149 to 980/1149. Both original gates and full drying still fail.
+Flood remains 0.0003 km². In the original lost cohort, only 1/68 Main Drain
+probes is wet at the endpoint and none throughout; all 94 Bulimba probes still
+lose water. The below-sea intake factor does not rescue either domain. This
+does not prove all intake effects irrelevant: 68 intakes remain active, including
+eight in Main Drain's static marine component. A matched `all-intake-off`
+variant is prepared to isolate that broader factor, not observed or adopted.
+
+The generic intake transformer now preserves implicit output rates explicitly
+in its hydrology record before changing intake. A real-format regression failed
+before the fix and passes after it. The observed coastal variant is unaffected:
+all 99 changed controls already declared output separately.
+
 ## Reproduce the diagnosis
 
 Run these read-only commands with the retained experiment root on blade:

@@ -3,7 +3,7 @@
   "capability_id": "water_risk",
   "status": "construction_in_development",
   "stable_water_promise": "unknown",
-  "definition": "The exact authored package retains required mapped water and meets the unchanged native flooding and full drying gates over the stated observation period.",
+  "definition": "No promise is adopted. The prospective maintained-water primary is specified by maintained_water_definition below; the unchanged historical full drying and flooding gates remain separately reported comparators.",
   "rejected_calibration": {
     "source": "calibration/pl1072-frozen/holdout-score.json",
     "source_sha256": "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b",
@@ -482,6 +482,52 @@
       },
       "stable_water_promise": "unknown",
       "limits": "No measured flood with outputs off, but every required probe dries; not river-versus-lake attribution or a fix."
+    },
+    {
+      "source": "calibration/pl1191-construction-v1/development/low-coast-oceania-below-sea-intake-off.json",
+      "sha256": "1a2fbd09e373220194daa93025c4161fbc3c9a71c91253c73ff4e3893783b9e5",
+      "game_minutes": 60.033614242107916,
+      "mode": "below-sea-intake-off",
+      "baseline": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": true,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0003,
+        "required": 1149,
+        "required_wet_end": 987,
+        "required_water_loss": true,
+        "initialized_observations": 26098,
+        "initialized_water_loss_end": 976,
+        "exact_point_wet_loss_end": 1666,
+        "original_native_water_failures": [
+          "probes_wet_end",
+          "probes_wet_throughout"
+        ]
+      },
+      "intervention": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": true,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0003,
+        "required": 1149,
+        "required_wet_end": 988,
+        "required_water_loss": true,
+        "initialized_observations": 26098,
+        "initialized_water_loss_end": 926,
+        "exact_point_wet_loss_end": 1482,
+        "original_native_water_failures": [
+          "probes_wet_end",
+          "probes_wet_throughout"
+        ]
+      },
+      "stable_water_promise": "unknown",
+      "limits": "Disabling 99 below-sea intakes recovers only one of 68 lost Main Drain endpoints and none of 94 Bulimba endpoints; no throughout rescue. Not a sufficient general fix or holdout qualification."
     }
   ],
   "maintained_water_definition": {
@@ -496,6 +542,13 @@
       "sha256": "5beb4a81c549352f7a921989eea6e00abb66ae6d4da77cf10dc83c528a280d89",
       "new_native_observation": false,
       "scope": "Engineered reservoir exact-depth check under the development definition only; baseline pass, output-off fail. Original receipt and historical labels unchanged."
+    }
+  ],
+  "diagnostic_cohort_comparisons": [
+    {
+      "source": "calibration/pl1191-construction-v1/development/low-coast-oceania-fixed-cohort.json",
+      "sha256": "f9c94b60116c40db3a4dc58b88377c0d6c7c0fef467cb7bf9a66ad9510eb627e",
+      "scope": "Previously lost development probes only; not a complete maintained-water inventory or new acceptance label."
     }
   ]
 }

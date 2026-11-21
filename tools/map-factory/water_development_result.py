@@ -75,7 +75,7 @@ def verify_source_factor(diagnostic, decoded):
                 ]
             )
         }
-    elif mode == "below-sea-intake-off":
+    elif mode in {"below-sea-intake-off", "all-intake-off"}:
         field, indices_key, other_key = (
             "intake_rate",
             "changed_intake_indices",
@@ -84,7 +84,11 @@ def verify_source_factor(diagnostic, decoded):
         selected = {
             row["index"]
             for row in before
-            if row[field] > 0 and row["target_fixed"] / 64 < diagnostic["sea_level_m"]
+            if row[field] > 0
+            and (
+                mode == "all-intake-off"
+                or row["target_fixed"] / 64 < diagnostic["sea_level_m"]
+            )
         }
     else:
         raise ValueError("Unsupported source-only intervention")

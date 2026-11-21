@@ -3354,3 +3354,25 @@ Foreground run collected; empty game, Steam and unit cleanup. Owned game PID
 2465626 is absent. The shared slot then passed to PL-1078; the separate coastal
 intake-only experiment joined FIFO rather than preempting it. Old-mod loaded-
 assembly identity limitations remain; no new native qualification is claimed.
+
+## 2026-11-21 · PL-1191 coast below-sea intake ablation
+
+Blade, RTX 2080 Ti at 05:00.0. Completed60.034 game minutes in16.15 observation
+wall minutes, excluding FIFO/boot/teardown. Peak total VRAM10,821MiB against
+8,008MiB before launch;2,813MiB increment is an estimate, not a sampled game
+peak. Game share at menu1,574MiB. Peak power141.72W, temperature59C. No power
+settings changed. Clean pinned harness6949182, mod SHA6cedb7ee.
+
+Only99 encoded below-sea intakes disabled; all167 outputs and remaining68
+intakes unchanged. Every167-control table matches its package at all13 samples
+in baseline/intervention. Original grids, probes, masks and thresholds fixed.
+Endpoint987→988/1149; throughout978→980/1149; both95% gates and full drying fail.
+Flood remains0.0003km². Original lost cohort:1/68 Main Drain wet at endpoint,
+0/68 throughout;0/94 Bulimba wet at endpoint or throughout. Not a general fix.
+Producer inspected actual t060 views; startup_views failure is not rewritten.
+
+Foreground command collected. Game2609423 ignored quit; the harness terminated
+that exact owned PID. It and waiter2535781 are absent; game/Steam/unit cleanup
+is empty. Runtime sidecar captures the running executable and matching on-disk
+compile references, not full loaded-assembly identity. Old baselines receive no
+new identity claim. Holdout, native nine-square and human acceptance remain open.
