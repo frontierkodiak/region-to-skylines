@@ -28,7 +28,7 @@ Grand Canyon northeast is the only first-hour pass/fail change. The repeat reach
 
 Charleston passes the first-hour check in both arms but fails independent DEM ground truth in both. Garbage, pollution, worker and other native warnings remain in the raw scenario and timeline evidence. Surface-water component results are separate: the player uses groundwater.
 
-All 24 control/before/repeat cleanup receipts are empty. Actual available map-panel and startup PNGs were viewed and hash-reviewed. Initial unreviewed verdicts are preserved where visual review completed a normal report; construction errors were not rejudged. No verdict threshold, player strategy or holdout model was changed.
+All 24 control/before/repeat cleanup receipts are empty. Actual available map-panel and startup PNGs were viewed and hash-reviewed. Seven newer normal runs retain pre-visual-review verdicts as well as final verdicts; the three earlier original-eight normal runs retain final reviewed verdicts only. Construction errors were not rejudged. No verdict threshold, player strategy or holdout model was changed.
 
 ## Evidence
 
