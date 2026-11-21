@@ -14,6 +14,68 @@ class ReservoirBasin:
     receipt: dict
 
 
+def validate_native_basin(floor_m, encoded_control):
+    """Check the radius<6 starter design against an actual encoded control.
+
+    The caller supplies a north-up metre grid, not a rendered terrain image or
+    a requested float target. This static check does not establish retention.
+    """
+    floor = np.asarray(floor_m, dtype=float)
+    if (
+        floor.ndim != 2
+        or not np.isfinite(floor).all()
+        or (floor < 0).any()
+        or (floor > 65535 / 64).any()
+        or not np.equal(floor * 64, np.floor(floor * 64)).all()
+    ):
+        raise ValueError("Expected a native quantized hydraulic floor in metres")
+    target = encoded_control["target_fixed"] / 64
+    rate = max(encoded_control["intake_rate"], encoded_control["output_rate"])
+    if not 0 < rate <= 65535 or not 0 < target <= 65535 / 64:
+        raise ValueError("Expected a positive bounded encoded storage control")
+    x, _, z = encoded_control["position"]
+    if not np.isfinite([x, z]).all():
+        raise ValueError("Nonfinite encoded storage position")
+    half_row, half_col = (np.array(floor.shape) - 1) / 2
+    yy, xx = np.indices(floor.shape)
+    radius_m = 10 + 0.4 * np.sqrt(rate)
+    distance = np.hypot((xx - half_col) * 16 - x, (half_row - yy) * 16 - z)
+    core = distance <= radius_m
+    disk = distance < 6 * 16
+    # A clipped source footprint cannot be certified from the available floor.
+    edge_distance = min(
+        x + half_col * 16,
+        half_col * 16 - x,
+        z + half_row * 16,
+        half_row * 16 - z,
+    )
+    if edge_distance < 7 * 16 or not core.any():
+        raise ValueError("Storage footprint is not fully inside the hydraulic grid")
+    if (target - floor[core] < 1).any():
+        raise ValueError("Storage footprint lacks one metre of hydraulic depth")
+    adjacency = np.ones((3, 3), dtype=bool)
+    labels, _ = ndimage.label(floor < target, structure=adjacency)
+    components = np.unique(labels[core])
+    if len(components) != 1 or components[0] == 0:
+        raise ValueError("Storage footprint spans disconnected hydraulic domains")
+    basin = labels == components[0]
+    if (basin & ~disk).any():
+        raise ValueError("Storage hydraulic domain escapes its constructed envelope")
+    rim = ndimage.binary_dilation(disk, structure=adjacency) & ~disk
+    freeboard = float((floor[rim] - target).min())
+    if freeboard < 0.5:
+        raise ValueError("Storage hydraulic rim lacks half a metre of freeboard")
+    return {
+        "qualification": "static actual-control geometry only; NOT native retention",
+        "native_target_m": target,
+        "source_radius_m": float(radius_m),
+        "minimum_source_footprint_depth_m": float((target - floor[core]).min()),
+        "minimum_rim_freeboard_m": freeboard,
+        "domain_cells": int(basin.sum()),
+        "domain_adjacency": 8,
+    }
+
+
 def construct_closed_reservoir(
     terrain, water, candidate_mask, protected_mask, preferred_position
 ):

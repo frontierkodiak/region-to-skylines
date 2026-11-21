@@ -5,7 +5,7 @@ import unittest
 import numpy as np
 from scipy import ndimage
 
-from reservoir_basin import construct_closed_reservoir
+from reservoir_basin import construct_closed_reservoir, validate_native_basin
 
 
 class ReservoirBasinTests(unittest.TestCase):
@@ -121,6 +121,42 @@ class ReservoirBasinTests(unittest.TestCase):
         self.allowed[35:46, 35:46] = True
         with self.assertRaisesRegex(ValueError, "No feasible enclosed"):
             self.build()
+
+    def native_control(self, basin):
+        return {
+            "position": basin.source["position"],
+            "target_fixed": int(basin.source["target"] * 64),
+            "intake_rate": round(basin.source["capacity"] * 65535),
+            "output_rate": round(basin.source["capacity"] * 65535),
+        }
+
+    def test_final_native_floor_and_encoded_control_validate(self):
+        basin = self.build()
+        result = validate_native_basin(basin.terrain, self.native_control(basin))
+        self.assertEqual(result["minimum_rim_freeboard_m"], 0.5)
+        self.assertGreaterEqual(result["minimum_source_footprint_depth_m"], 1)
+        self.assertIn("NOT native retention", result["qualification"])
+
+    def test_later_native_floor_escape_is_not_hidden_by_constructor_receipt(self):
+        basin = self.build()
+        floor = basin.terrain.copy()
+        floor[40, 40:] = basin.source["target"] - 1
+        with self.assertRaisesRegex(ValueError, "escapes"):
+            validate_native_basin(floor, self.native_control(basin))
+
+    def test_actual_encoded_target_not_requested_target_controls_freeboard(self):
+        basin = self.build()
+        control = self.native_control(basin)
+        control["target_fixed"] += 1
+        with self.assertRaisesRegex(ValueError, "freeboard"):
+            validate_native_basin(basin.terrain, control)
+
+    def test_later_native_footprint_obstruction_is_not_a_deep_storage_pass(self):
+        basin = self.build()
+        floor = basin.terrain.copy()
+        floor[40, 40] = basin.source["target"] - 0.5
+        with self.assertRaisesRegex(ValueError, "one metre"):
+            validate_native_basin(floor, self.native_control(basin))
 
 
 if __name__ == "__main__":

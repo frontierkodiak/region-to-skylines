@@ -88,6 +88,16 @@ with at most 3 m of cut, at least 1 m depth across the source footprint, and
 escape. Infeasible construction raises an error. The constructor does not run
 in the product exporter and does not claim native stability.
 
+`validate_native_basin` independently checks that same fixed starter design
+against a final quantized hydraulic floor and an actual encoded source table.
+It requires a full source footprint, at least 1 m of hydraulic depth, no
+eight-neighbour escape outside the designed disk, and 0.5 m on its full rim.
+Run it after all earthworks/admission and again on the actual native hydraulic
+floor; a constructor receipt cannot replace either check. It is still a static
+geometry gate, not a native retention verdict. All five original engineered
+development ponds fail this gate on their captured native floors, through
+insufficient footprint depth or escape. No original verdict is changed.
+
 `water_diagnostics.py` adds explicit `reservoir-output-off` and `all-output-off`
 modes. They preserve intake, source positions and targets, terrain, initial
 water, networks, resources, and preview bytes. The original three default
