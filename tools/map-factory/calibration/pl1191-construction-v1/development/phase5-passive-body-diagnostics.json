@@ -1,0 +1,1346 @@
+[
+  {
+    "id": "lake-component:13",
+    "body_cells": 6,
+    "target_m": 123.84375,
+    "anchor_xz": [
+      6656,
+      -4048
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 123.84375,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 122.703125,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 122.34375,
+        "terrain": 122.34375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 9.0,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 6
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 2.15625,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 6
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  },
+  {
+    "id": "lake-component:21",
+    "body_cells": 3,
+    "target_m": 201.4375,
+    "anchor_xz": [
+      -8496,
+      -5312
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 201.4375,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 200.296875,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 199.9375,
+        "terrain": 199.9375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 4.5,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 3
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 1.078125,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 3
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  },
+  {
+    "id": "lake-component:24",
+    "body_cells": 9,
+    "target_m": 198.34375,
+    "anchor_xz": [
+      -8128,
+      -5664
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 198.34375,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 197.203125,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 196.84375,
+        "terrain": 196.84375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 13.5,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 9
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 3.234375,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 9
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  },
+  {
+    "id": "lake-component:28",
+    "body_cells": 3,
+    "target_m": 189.140625,
+    "anchor_xz": [
+      -8528,
+      -5808
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 189.140625,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 188,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 187.640625,
+        "terrain": 187.640625,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 4.5,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 3
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 1.078125,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 3
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  },
+  {
+    "id": "lake-component:34",
+    "body_cells": 4,
+    "target_m": 186.984375,
+    "anchor_xz": [
+      -6608,
+      -6176
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 186.984375,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 185.84375,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 185.484375,
+        "terrain": 185.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 6.0,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 4
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 1.4375,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 4
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  },
+  {
+    "id": "lake-component:41",
+    "body_cells": 2,
+    "target_m": 163.984375,
+    "anchor_xz": [
+      -5136,
+      -6800
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 163.984375,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 162.84375,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 162.484375,
+        "terrain": 162.484375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 3.0,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 2
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 0.71875,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 2
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  },
+  {
+    "id": "lake-component:43",
+    "body_cells": 1,
+    "target_m": 156.875,
+    "anchor_xz": [
+      -4096,
+      -6864
+    ],
+    "samples": [
+      {
+        "label": "t000",
+        "depth": 1.5,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 156.875,
+        "wet": true,
+        "max_depth_within_64m": 1.5,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t005",
+        "depth": 0.359375,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 155.734375,
+        "wet": true,
+        "max_depth_within_64m": 0.359375,
+        "wet_within_64m": true,
+        "nearest_water_m": 0
+      },
+      {
+        "label": "t010",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t015",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t020",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t025",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t030",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t035",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t040",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t045",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t050",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t055",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      },
+      {
+        "label": "t060",
+        "depth": 0,
+        "ground": 155.375,
+        "terrain": 155.375,
+        "surface": 0,
+        "wet": false,
+        "max_depth_within_64m": 0,
+        "wet_within_64m": false,
+        "nearest_water_m": null
+      }
+    ],
+    "depth_grids": [
+      {
+        "label": "t000",
+        "body_depth_sum_m": 1.5,
+        "anchor_node_depth_m": 1.5,
+        "body_wet_nodes_gt_0p1": 1
+      },
+      {
+        "label": "t005",
+        "body_depth_sum_m": 0.359375,
+        "anchor_node_depth_m": 0.359375,
+        "body_wet_nodes_gt_0p1": 1
+      },
+      {
+        "label": "t015",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t030",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t045",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      },
+      {
+        "label": "t060",
+        "body_depth_sum_m": 0.0,
+        "anchor_node_depth_m": 0.0,
+        "body_wet_nodes_gt_0p1": 0
+      }
+    ]
+  }
+]

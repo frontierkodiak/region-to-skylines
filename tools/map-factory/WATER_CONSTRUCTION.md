@@ -318,6 +318,57 @@ preflight but retain incomplete support. None has a new native feature result.
 The compiler is fixed at `81f301a`; the primary definition and twelve-square
 panel hashes are unchanged. Holdout inputs remain unopened.
 
+## Passive natural-body counterexample
+
+Fresh experimental `natural_storage_candidate.py` reconstructs the original
+source-bound base, then applies `natural_basins.py` inside captured perennial
+lake footprints. The original starter search/masks are unchanged. The passive
+rule adds no controls, permits no fill or more than 3 m cut, and requires an
+untouched full eight-neighbour rim with 0.5 m freeboard and 1.5 m initial depth.
+Open/controlled/protected bodies and infeasible geometry remain refusals.
+
+Across the same five development cases, fresh base preparation retains both
+original refusals. Europe constructs seven of 63 passive bodies; South America
+two of 47; Asia refuses its one body. Authored initial natural-contract failures
+change 76 to 68/85 in Europe and 771 to 769/855 in South America; Asia stays
+8/49. These are source-grid diagnostics, not native maintenance or a prefilter.
+V2 inventory records proven outside-square geometry separately and adds every
+constructed-body anchor. In-square unsupported coverage remains unresolved.
+`inventory-freeze-v2.json` retains the unchanged definition and panel hashes;
+frozen v1 code and artifacts are unchanged.
+
+The first European passive package completes 60.146 game minutes. **All seven
+new exact-depth anchors fail:** each starts at 1.5 m, falls to 0.359375 m at
+t005, and has no nearby water by t010. The one-to-nine-node bodies lose the
+same depth per node; raw body-node sums are zero in t015 and later dumps.
+Captured actual floors at t000/t005 are byte-identical, and all static body/
+full-rim checks pass at their authored target stages. These are not actual water-
+depth checks. Later floors remain unknown. Uniform loss suggests a
+shared sink, not a proven evaporation mechanism. Static containment does not
+establish retained water without a measured time-dependent budget.
+
+All 20 existing controls match at thirteen samples. Masked flood is zero, but
+full historical drying and both pooled gates fail on the new frozen cohort:
+3/288 required endpoints retain water; 127/497 initialized nearby losses and
+179 exact-point losses remain. Raw visual failures are not rewritten. Owned
+cleanup is empty. The unchanged South American passive package is retained
+without a native outcome, not rerun merely to repeat the failed premise.
+The rule stays experimental and is rejected as sufficient maintenance for
+these seven shallow bodies. No product promise or historical certificate.
+
+`audit_natural_initialization.py PREPARED INVENTORY` reproduces the source audit.
+Existing code omits excavation, water and forcing for rejected stream profiles;
+the lake path skips components below eight nodes and does not excavate below
+its bank-capped stage. Those are authored initialization mechanisms, not
+exclusive causes of all observed native losses. Next work is explicit loss/
+supply diagnosis and bounded replenishment; no holdout input has been fetched.
+
+All 255 Python tests pass with one optional skip. New tests exercise physical
+bounds, decoded packages and coherent probe omission. Serialized network-manager
+bytes, source geometry and controls equal the fresh bases in all three prepared
+exports. This is not nine-square native requalification. Shipping bytes remain
+unchanged, and every ledger promise remains unknown.
+
 ## Reproduce the diagnosis
 
 Run these read-only commands with the retained experiment root on blade:

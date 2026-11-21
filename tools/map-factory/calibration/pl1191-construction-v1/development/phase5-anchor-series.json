@@ -1,0 +1,630 @@
+{
+  "scope": "Derived fixed-anchor series; frozen observation/definition/old verdict unchanged",
+  "plan_sha256": "5ca6d33308b35468ec163447297fdf640748fba3d0fda382d27ed78bf828245a",
+  "timeline_sha256": "1dd2781fd24cb8bb25a54c7928eb2f7fb6bfc35a8d1ff50a63a2040ac438fb8b",
+  "anchors": [
+    {
+      "id": "natural-storage:lake-component:13",
+      "anchor_xz": [
+        6656,
+        -4048
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    },
+    {
+      "id": "natural-storage:lake-component:21",
+      "anchor_xz": [
+        -8496,
+        -5312
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    },
+    {
+      "id": "natural-storage:lake-component:24",
+      "anchor_xz": [
+        -8128,
+        -5664
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    },
+    {
+      "id": "natural-storage:lake-component:28",
+      "anchor_xz": [
+        -8528,
+        -5808
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    },
+    {
+      "id": "natural-storage:lake-component:34",
+      "anchor_xz": [
+        -6608,
+        -6176
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    },
+    {
+      "id": "natural-storage:lake-component:41",
+      "anchor_xz": [
+        -5136,
+        -6800
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    },
+    {
+      "id": "natural-storage:lake-component:43",
+      "anchor_xz": [
+        -4096,
+        -6864
+      ],
+      "status": "fail",
+      "minimum_exact_depth_m": 0,
+      "series": [
+        {
+          "label": "t000",
+          "minute": 0.0,
+          "exact_depth_m": 1.5,
+          "nearby_max_depth_m": 1.5
+        },
+        {
+          "label": "t005",
+          "minute": 5.14555582391719,
+          "exact_depth_m": 0.359375,
+          "nearby_max_depth_m": 0.359375
+        },
+        {
+          "label": "t010",
+          "minute": 10.139722751049945,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t015",
+          "minute": 15.114723010516414,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t020",
+          "minute": 20.140278828175116,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t025",
+          "minute": 25.134723533100136,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t030",
+          "minute": 30.136668238416313,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t035",
+          "minute": 35.153335166722535,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t040",
+          "minute": 40.12111320359011,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t045",
+          "minute": 45.03889123784999,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t050",
+          "minute": 50.14778039318819,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t055",
+          "minute": 55.143336209282275,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        },
+        {
+          "label": "t060",
+          "minute": 60.145558692390715,
+          "exact_depth_m": 0,
+          "nearby_max_depth_m": 0
+        }
+      ]
+    }
+  ]
+}

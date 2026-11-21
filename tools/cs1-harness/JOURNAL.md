@@ -3448,3 +3448,11 @@ Blade RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. lowland-river-south-a
 Anchor minimum 1.3125 m at all 13 samples; masked flood 0.0 km². Full historical drying remains positive: 72/1144 initialized nearby losses, 125 exact-point losses. Actual floors pass t000/t005; eleven later floors unknown. All 36 controls match at thirteen samples. Owned game 4183235 absent; foreground collection complete, cleanup empty. Raw new_game_panel/startup_views failures retained. Running executable/on-disk reference sidecar is not full loaded-assembly identity.
 
 Both changed packages are development data, not matched source-only arms or historical qualification. No failed water result rerun until green. Natural-water inventories compiled afterward under the unchanged definition; new-cohort native results remain absent. Holdout untouched, promises unknown.
+
+## 2026-11-21 · PL-1191 passive mapped lakes rejected
+
+Blade RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. Europe natural-storage package89e64767, plan5ca6d333. 60.146 game minutes in 15.90 observation wall minutes. Peak total VRAM10821MiB against 8008MiB baseline, 2813MiB estimated increment; menu1574MiB. Peak133.84W/52.0C. No power change; FIFO respected behind PL-1215.
+
+Seven new passive anchors all start1.5m, fall to0.359375m at first five-minute sample, lose all nearby water by ten-minute sample. Actual floors t000/t005 byte-identical; static authored-stage/full-rim checks pass, later floors unknown. Uniform per-node loss, not identified evaporation flux. Masked flood0km²; required3/288 endpoint, full historical drying positive,127/497 initialized nearby losses,179 exact losses. All20 controls match at13samples; no new local controls. Raw visual/pooled failures retained, no rescore or rerun.
+
+Owned game211129/driver197879 absent, foreground command and collector complete, cleanup empty; final slot free. Executable/on-disk-reference sidecar is not complete loaded-assembly identity. Passive construction is not a sufficient maintenance rule; no product promise, new historical certificate, holdout input access or deployment.

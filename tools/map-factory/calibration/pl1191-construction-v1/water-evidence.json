@@ -790,5 +790,48 @@
     "compiler_freeze": "calibration/pl1191-construction-v1/inventory-freeze.json",
     "compiler_freeze_sha256": "0eed64a8efbd8d3924ab7cb56a9da3aecb95d645a7a1c9a1a03b80de242a73a8",
     "stable_water_promise": "unknown"
+  },
+  "passive_natural_storage": {
+    "status": "rejected_as_sufficient_maintenance_for_observed_shallow_bodies",
+    "source": "calibration/pl1191-construction-v1/development/phase5-europe-observation.json",
+    "sha256": "af240f21824b01cba7bd28fea16a1ddaf095be40bd25f8969996c881188e8e35",
+    "game_minutes": 60.145558692390715,
+    "new_body_anchors": 7,
+    "new_body_anchor_failures": 7,
+    "depth_start_m": 1.5,
+    "depth_first_five_minute_sample_m": 0.359375,
+    "nearby_water_at_ten_minute_sample": false,
+    "captured_floor_0_5_hashes_equal": true,
+    "later_floors": "unknown",
+    "water_outcome_original_definition": {
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 288,
+      "required_wet_end": 3,
+      "required_water_loss": true,
+      "initialized_observations": 497,
+      "initialized_water_loss_end": 127,
+      "exact_point_wet_loss_end": 179,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    "runtime_identity": "old protocol, not full loaded assemblies",
+    "stable_water_promise": "unknown",
+    "limits": "Fresh package/probe cohort; uniform loss despite captured static containment, not evaporation proof. All unsupported coverage/refusals retained; South passive package unobserved."
+  },
+  "natural_initialization_diagnosis": {
+    "source": "calibration/pl1191-construction-v1/development/phase5-preparation-summary.json",
+    "sha256": "1d39051949be7b0b890a5db35d866a0e69b4d801a2103d6795bb3bdbae626543",
+    "compiler_freeze": "calibration/pl1191-construction-v1/inventory-freeze-v2.json",
+    "compiler_freeze_sha256": "b47dea3ed0f2853862034eeb5a2f4b94fd7a68ca3867594f2f8f9e639f84fb18",
+    "holdout_inputs_accessed": false,
+    "stable_water_promise": "unknown"
   }
 }
