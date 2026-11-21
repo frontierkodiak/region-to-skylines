@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "dry-upland-europe",
+    "network_manager_sha256": "acf05ce6defef0de65134b160342b4c621c4ad60b6cff46ea6e81acb49cec9c0",
+    "bytes": 76058,
+    "equal_to_fresh_base": true,
+    "scope": "Serialized network-manager identity only, not nine-square native nonregression."
+  },
+  {
+    "slug": "dry-upland-asia",
+    "network_manager_sha256": "568c1b06c52677d8e532b94167ad50c4c435db6577b8771bf52aeeeaec5bc008",
+    "bytes": 76058,
+    "equal_to_fresh_base": true,
+    "scope": "Serialized network-manager identity only, not nine-square native nonregression."
+  },
+  {
+    "slug": "lowland-river-south-america",
+    "network_manager_sha256": "bcf9f97395b46c1e6d6eff81a92d1160b7b65f7d3dcf0bf7237baba4fdc1a142",
+    "bytes": 76058,
+    "equal_to_fresh_base": true,
+    "scope": "Serialized network-manager identity only, not nine-square native nonregression."
+  }
+]

@@ -1,0 +1,95 @@
+{
+  "schema": "polli.passive-natural-development-preparation/1",
+  "source_revision": "e2e86db605484daf7e7fcd081646a97c9aed4564",
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "status": "prepared_not_native_qualified",
+      "package_sha256": "6ab38e8b707ccbe77b475f7a3d90be055ecdea13ededd83c76babfad861ef9cc",
+      "generation_sha256": "5c20cdc264f48b2ff480b8cbc0ca838b034591a5bd66bf957df426c88f874fdf",
+      "natural_plan_sha256": "1dc3591e26ac950ebda4396d858b5506e3c171ab2fce158ef0d6f68e60b7a9fb",
+      "construction_counts": {
+        "refused": 1
+      },
+      "source_feature_counts": {
+        "mapped": 1
+      },
+      "inventory_status_counts": {
+        "outside_square": 5,
+        "compiled": 14,
+        "excluded": 2,
+        "unresolved": 5,
+        "natural_control": 57
+      },
+      "authored_initial_natural_failures": 8,
+      "natural_contracts": 49,
+      "stable_water_promise": "unknown"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "status": "prepared_not_native_qualified",
+      "package_sha256": "89e64767c6ffcc77b2b50b9d6084363117605e149d28529aef6402e4cf260eec",
+      "generation_sha256": "ccd0bab559ff9a8b05fd4bfd66155c5d8d4aff090eefd421d6c278976e609912",
+      "natural_plan_sha256": "3a84c79b8e5f9d75b8a0a58615b4382220b1006c23510522b14d884e13431195",
+      "construction_counts": {
+        "refused": 56,
+        "constructed": 7
+      },
+      "source_feature_counts": {
+        "mapped": 75,
+        "outside_square": 21
+      },
+      "inventory_status_counts": {
+        "excluded": 399,
+        "unresolved": 62,
+        "compiled": 90,
+        "outside_square": 21,
+        "natural_control": 19
+      },
+      "authored_initial_natural_failures": 68,
+      "natural_contracts": 85,
+      "stable_water_promise": "unknown",
+      "native_plan_sha256": "5ca6d33308b35468ec163447297fdf640748fba3d0fda382d27ed78bf828245a"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "status": "prepared_not_native_qualified",
+      "package_sha256": "35d7d15868b7e6cb4d94825ddf1d6dae2376738de5f563502e1dc46eb953fa51",
+      "generation_sha256": "421711a78a71da521a1de0df8218592185bcdb0aebe77ae6c8d1c6afbffae106",
+      "natural_plan_sha256": "898d5652d6b6742b916bf3a51b7051a165f77bcb9c8ef497a3e40b7f07c6291f",
+      "construction_counts": {
+        "refused": 45,
+        "constructed": 2
+      },
+      "source_feature_counts": {
+        "outside_square": 17,
+        "mapped": 57
+      },
+      "inventory_status_counts": {
+        "outside_square": 73,
+        "compiled": 120,
+        "unresolved": 618,
+        "excluded": 235,
+        "natural_control": 35
+      },
+      "authored_initial_natural_failures": 769,
+      "natural_contracts": 855,
+      "stable_water_promise": "unknown",
+      "native_plan_sha256": "3f111bd3493f2f5c3d32fde73ad8c3752f005be2cef59f314e95afb87eeaf027"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "status": "refused",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks",
+      "stable_water_promise": "unknown"
+    },
+    {
+      "slug": "mountain-river-asia",
+      "status": "refused",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks",
+      "stable_water_promise": "unknown"
+    }
+  ],
+  "holdout_inputs_accessed": false,
+  "scope": "Five original development cases; passive lake subset only. Static/authored initialization, not new native or geography qualification."
+}

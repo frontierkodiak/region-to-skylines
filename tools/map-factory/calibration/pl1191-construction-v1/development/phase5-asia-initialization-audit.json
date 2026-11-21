@@ -1,0 +1,113 @@
+{
+  "schema": "polli.natural-initialization-diagnosis/1",
+  "source_files_sha256": {
+    "audit_natural_initialization.py": "0e44086be633cf7e0f031a0ac1fbb34f232969063312110dd93b580d6e312e2d",
+    "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "maintained_water_inventory.py": "11f27ab62545847cd647226d306b1579b236059630ecf91217cc773575b0268a"
+  },
+  "input_files_sha256": {
+    "prepared/geometry.json": "668dd584b78a451190d0c017e50b1ea01f0fe527635ccb256c4528badf5a7ee8",
+    "prepared/hydrology.json": "2bd4983d5a0b0c97a9bd3ddba4b1c074cece003783c0eea9b69d4c1609a3aea9",
+    "prepared/terrain.u16": "feeef62ebc9d3053ab2d6890b132f05dadb85a1537fc7ec1613930d39b1084d8",
+    "prepared/water.u16": "cddfcf1f3d32db018d12f40cad37e008abef6f5141d0c244b524d0a2e1b21dd3",
+    "inventory/inventory.json": "7c8eeb631c90960b35874cb10688be80c12613fff5919a05775861acf47c0d7e",
+    "inventory/authored-initialization.json": "6c9ff2c78c7831705cd14ea9a165180cdee82a9fa156998e022fc735198bdc95"
+  },
+  "failed_contracts": 8,
+  "failed_entries": [
+    {
+      "id": "streams:1",
+      "field": "streams",
+      "name": "",
+      "support_status": "unresolved",
+      "reason": "no fully supported authored same-name/class waterway; contracts retained",
+      "contracts": [
+        "streams:1:0"
+      ]
+    },
+    {
+      "id": "streams:3",
+      "field": "streams",
+      "name": "",
+      "support_status": "unresolved",
+      "reason": "no fully supported authored same-name/class waterway; contracts retained",
+      "contracts": [
+        "streams:3:0",
+        "streams:3:1",
+        "streams:3:2"
+      ]
+    },
+    {
+      "id": "streams:4",
+      "field": "streams",
+      "name": "",
+      "support_status": "unresolved",
+      "reason": "no fully supported authored same-name/class waterway; contracts retained",
+      "contracts": [
+        "streams:4:0",
+        "streams:4:1",
+        "streams:4:2"
+      ]
+    },
+    {
+      "id": "streams:5",
+      "field": "streams",
+      "name": "",
+      "support_status": "unresolved",
+      "reason": "no fully supported authored same-name/class waterway; contracts retained",
+      "contracts": [
+        "streams:5:0"
+      ]
+    }
+  ],
+  "failures_by_field": {
+    "streams": 4
+  },
+  "unforced_stream_profiles": [
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 2554.233764908629,
+      "upstream": [
+        761,
+        462
+      ],
+      "downstream": [
+        895,
+        436
+      ],
+      "max_surface_above_uncarved_m": 0.25630885582819474,
+      "profile_above_uncarved_m": 1.3666191879607936,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 1.6166191879607936
+    }
+  ],
+  "authored_short_reach_omissions": [
+    {
+      "name": "\u8c61\u6cc9\u6cb3",
+      "class": "river",
+      "mapped_vertices": 0,
+      "reason": "below native two-vertex river resolution"
+    }
+  ],
+  "existing_four_neighbour_lake_components": [
+    {
+      "component": 1,
+      "cells": 27,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 13,
+      "floor_range_m": [
+        231.640625,
+        235.9375
+      ]
+    }
+  ],
+  "mechanisms": [
+    "Existing stream code rejects a global monotone profile above its bank ceiling, then explicitly disables excavation, initialization and control forcing for that profile.",
+    "Existing lake code skips components below eight nodes. For retained components it caps stage below the lowest bank but does not excavate the lake interior; a floor above the capped stage starts dry.",
+    "These are source-code/authored-grid mechanisms, not causal attribution of every native loss or geographic impossibility."
+  ],
+  "new_native_observation": false,
+  "stable_water_promise": "unknown"
+}

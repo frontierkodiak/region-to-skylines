@@ -1,0 +1,2420 @@
+{
+  "schema": "polli.natural-initialization-diagnosis/1",
+  "source_files_sha256": {
+    "audit_natural_initialization.py": "0e44086be633cf7e0f031a0ac1fbb34f232969063312110dd93b580d6e312e2d",
+    "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "maintained_water_inventory.py": "11f27ab62545847cd647226d306b1579b236059630ecf91217cc773575b0268a"
+  },
+  "input_files_sha256": {
+    "prepared/geometry.json": "b35466602fc2ec647b76a551e5bd8b49d43cd602b79360ed73d6ffbcc78a5d76",
+    "prepared/hydrology.json": "b2d12951d90c671275316bd723a316a8e70c522eec536441ff408a7e835c4089",
+    "prepared/terrain.u16": "a6e2a8a94b5e95bcd0b2c867dd61b9d06328b1d9b08ce4dc97597a53e3ca48b7",
+    "prepared/water.u16": "2da768eaa7f0674d85a6592572739fc235cca28b65991596b1c7497bbea55195",
+    "inventory/inventory.json": "45faf2ec90c3da08668683f8a0910e0007a0b9462015d4d1349222df37020beb",
+    "inventory/authored-initialization.json": "6484168f188dc640b0e5b7c393261f9b90cc5d3c5513fee4e70895f271206492"
+  },
+  "failed_contracts": 76,
+  "failed_entries": [
+    {
+      "id": "streams:333",
+      "field": "streams",
+      "name": "",
+      "support_status": "unresolved",
+      "reason": "authored plan omits a same-name/class reach; source-piece support unresolved",
+      "contracts": [
+        "streams:333:0"
+      ]
+    },
+    {
+      "id": "streams:386",
+      "field": "streams",
+      "name": "",
+      "support_status": "unresolved",
+      "reason": "authored plan omits a same-name/class reach; source-piece support unresolved",
+      "contracts": [
+        "streams:386:0",
+        "streams:386:1"
+      ]
+    },
+    {
+      "id": "lakes:0",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:0:0"
+      ]
+    },
+    {
+      "id": "lakes:1",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:1:0"
+      ]
+    },
+    {
+      "id": "lakes:2",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:2:0"
+      ]
+    },
+    {
+      "id": "lakes:4",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:4:0"
+      ]
+    },
+    {
+      "id": "lakes:5",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:5:0"
+      ]
+    },
+    {
+      "id": "lakes:6",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:6:0"
+      ]
+    },
+    {
+      "id": "lakes:7",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:7:0"
+      ]
+    },
+    {
+      "id": "lakes:8",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:8:0"
+      ]
+    },
+    {
+      "id": "lakes:9",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:9:0"
+      ]
+    },
+    {
+      "id": "lakes:10",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:10:0"
+      ]
+    },
+    {
+      "id": "lakes:11",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:11:0"
+      ]
+    },
+    {
+      "id": "lakes:12",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:12:0"
+      ]
+    },
+    {
+      "id": "lakes:13",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:13:0"
+      ]
+    },
+    {
+      "id": "lakes:14",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:14:0"
+      ]
+    },
+    {
+      "id": "lakes:16",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:16:0"
+      ]
+    },
+    {
+      "id": "lakes:17",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:17:0"
+      ]
+    },
+    {
+      "id": "lakes:19",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:19:0"
+      ]
+    },
+    {
+      "id": "lakes:25",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:25:0"
+      ]
+    },
+    {
+      "id": "lakes:26",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:26:0"
+      ]
+    },
+    {
+      "id": "lakes:27",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:27:0"
+      ]
+    },
+    {
+      "id": "lakes:28",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:28:0"
+      ]
+    },
+    {
+      "id": "lakes:29",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:29:0"
+      ]
+    },
+    {
+      "id": "lakes:30",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:30:0"
+      ]
+    },
+    {
+      "id": "lakes:31",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:31:0"
+      ]
+    },
+    {
+      "id": "lakes:32",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:32:0"
+      ]
+    },
+    {
+      "id": "lakes:33",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:33:0"
+      ]
+    },
+    {
+      "id": "lakes:40",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:40:0"
+      ]
+    },
+    {
+      "id": "lakes:41",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:41:0"
+      ]
+    },
+    {
+      "id": "lakes:42",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:42:0"
+      ]
+    },
+    {
+      "id": "lakes:43",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:43:0"
+      ]
+    },
+    {
+      "id": "lakes:44",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:44:0"
+      ]
+    },
+    {
+      "id": "lakes:46",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:46:0"
+      ]
+    },
+    {
+      "id": "lakes:47",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:47:0"
+      ]
+    },
+    {
+      "id": "lakes:48",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:48:0"
+      ]
+    },
+    {
+      "id": "lakes:51",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:51:0"
+      ]
+    },
+    {
+      "id": "lakes:52",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:52:0"
+      ]
+    },
+    {
+      "id": "lakes:53",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:53:0"
+      ]
+    },
+    {
+      "id": "lakes:55",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:55:0"
+      ]
+    },
+    {
+      "id": "lakes:56",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:56:0"
+      ]
+    },
+    {
+      "id": "lakes:57",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:57:0"
+      ]
+    },
+    {
+      "id": "lakes:58",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:58:0"
+      ]
+    },
+    {
+      "id": "lakes:59",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:59:0"
+      ]
+    },
+    {
+      "id": "lakes:60",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:60:0"
+      ]
+    },
+    {
+      "id": "lakes:61",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:61:0"
+      ]
+    },
+    {
+      "id": "lakes:62",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:62:0"
+      ]
+    },
+    {
+      "id": "lakes:63",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:63:0"
+      ]
+    },
+    {
+      "id": "lakes:65",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:65:0"
+      ]
+    },
+    {
+      "id": "lakes:66",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:66:0"
+      ]
+    },
+    {
+      "id": "lakes:67",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:67:0"
+      ]
+    },
+    {
+      "id": "lakes:68",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:68:0"
+      ]
+    },
+    {
+      "id": "lakes:69",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:69:0"
+      ]
+    },
+    {
+      "id": "lakes:70",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:70:0"
+      ]
+    },
+    {
+      "id": "lakes:71",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:71:0"
+      ]
+    },
+    {
+      "id": "lakes:72",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:72:0"
+      ]
+    },
+    {
+      "id": "lakes:73",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:73:0"
+      ]
+    },
+    {
+      "id": "lakes:74",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:74:0"
+      ]
+    },
+    {
+      "id": "lakes:75",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:75:0"
+      ]
+    },
+    {
+      "id": "lakes:76",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:76:0"
+      ]
+    },
+    {
+      "id": "lakes:77",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:77:0"
+      ]
+    },
+    {
+      "id": "lakes:83",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:83:0"
+      ]
+    },
+    {
+      "id": "lakes:87",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:87:0"
+      ]
+    },
+    {
+      "id": "lakes:88",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:88:0"
+      ]
+    },
+    {
+      "id": "lakes:89",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:89:0"
+      ]
+    },
+    {
+      "id": "lakes:91",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:91:0"
+      ]
+    },
+    {
+      "id": "lakes:92",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:92:0"
+      ]
+    },
+    {
+      "id": "lakes:93",
+      "field": "lakes",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "lakes:93:0"
+      ]
+    },
+    {
+      "id": "riverAreas:0",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:0:0"
+      ]
+    },
+    {
+      "id": "riverAreas:1",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:1:0"
+      ]
+    },
+    {
+      "id": "riverAreas:2",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:2:0"
+      ]
+    },
+    {
+      "id": "riverAreas:3",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:3:0"
+      ]
+    },
+    {
+      "id": "riverAreas:7",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:7:0"
+      ]
+    },
+    {
+      "id": "riverAreas:8",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:8:0"
+      ]
+    },
+    {
+      "id": "riverAreas:9",
+      "field": "riverAreas",
+      "name": "",
+      "support_status": "compiled",
+      "reason": null,
+      "contracts": [
+        "riverAreas:9:0"
+      ]
+    }
+  ],
+  "failures_by_field": {
+    "streams": 2,
+    "lakes": 66,
+    "riverAreas": 7
+  },
+  "unforced_stream_profiles": [
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 3240.8207768355337,
+      "upstream": [
+        983,
+        218
+      ],
+      "downstream": [
+        1080,
+        355
+      ],
+      "max_surface_above_uncarved_m": 0.25775297873167347,
+      "profile_above_uncarved_m": 22.109653448206984,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 22.359653448206984
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 5876.662622758387,
+      "upstream": [
+        906,
+        220
+      ],
+      "downstream": [
+        1069,
+        464
+      ],
+      "max_surface_above_uncarved_m": 0.256863679228843,
+      "profile_above_uncarved_m": 1.4683147561821102,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 1.7183147561821102
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 975.5290039756342,
+      "upstream": [
+        780,
+        287
+      ],
+      "downstream": [
+        788,
+        343
+      ],
+      "max_surface_above_uncarved_m": 0.2575579917338473,
+      "profile_above_uncarved_m": 8.522524971509029,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 8.772524971509029
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1516.312841947207,
+      "upstream": [
+        290,
+        299
+      ],
+      "downstream": [
+        329,
+        370
+      ],
+      "max_surface_above_uncarved_m": 0.2556423176487215,
+      "profile_above_uncarved_m": 10.247539637718546,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 10.497539637718546
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 3287.0176028802052,
+      "upstream": [
+        615,
+        326
+      ],
+      "downstream": [
+        696,
+        455
+      ],
+      "max_surface_above_uncarved_m": 0.2561417651611464,
+      "profile_above_uncarved_m": 4.119114636804284,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 4.369114636804284
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 890.5096679918781,
+      "upstream": [
+        726,
+        335
+      ],
+      "downstream": [
+        780,
+        339
+      ],
+      "max_surface_above_uncarved_m": 0.25765813185910247,
+      "profile_above_uncarved_m": 11.411452586375049,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 11.661452586375049
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1508.5483399593898,
+      "upstream": [
+        881,
+        374
+      ],
+      "downstream": [
+        872,
+        459
+      ],
+      "max_surface_above_uncarved_m": 0.25672541017564754,
+      "profile_above_uncarved_m": 3.703135524938716,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 3.953135524938716
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 2633.762768884263,
+      "upstream": [
+        928,
+        423
+      ],
+      "downstream": [
+        1022,
+        527
+      ],
+      "max_surface_above_uncarved_m": 0.2575500572101532,
+      "profile_above_uncarved_m": 7.694910752649037,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 7.944910752649037
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 991.058007951268,
+      "upstream": [
+        906,
+        433
+      ],
+      "downstream": [
+        882,
+        485
+      ],
+      "max_surface_above_uncarved_m": 0.2570055218212701,
+      "profile_above_uncarved_m": 6.528326134845315,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 6.778326134845315
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 915.4112549695423,
+      "upstream": [
+        823,
+        495
+      ],
+      "downstream": [
+        874,
+        480
+      ],
+      "max_surface_above_uncarved_m": 0.2565203386631083,
+      "profile_above_uncarved_m": 9.7540166415655,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 10.0040166415655
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 886.1564209736038,
+      "upstream": [
+        757,
+        529
+      ],
+      "downstream": [
+        803,
+        536
+      ],
+      "max_surface_above_uncarved_m": 0.25752576189307774,
+      "profile_above_uncarved_m": 4.158841814161065,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 4.408841814161065
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1561.0966799187802,
+      "upstream": [
+        939,
+        505
+      ],
+      "downstream": [
+        902,
+        583
+      ],
+      "max_surface_above_uncarved_m": 0.2566772097716239,
+      "profile_above_uncarved_m": 3.846959486484792,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 4.096959486484792
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1184.1950929411155,
+      "upstream": [
+        782,
+        599
+      ],
+      "downstream": [
+        833,
+        559
+      ],
+      "max_surface_above_uncarved_m": 0.2574573244720568,
+      "profile_above_uncarved_m": 5.162030575902634,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 5.412030575902634
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1906.940258945176,
+      "upstream": [
+        800,
+        615
+      ],
+      "downstream": [
+        908,
+        612
+      ],
+      "max_surface_above_uncarved_m": 0.25551347884612596,
+      "profile_above_uncarved_m": 3.0460693946149036,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 3.2960693946149036
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 941.9209229614208,
+      "upstream": [
+        1051,
+        626
+      ],
+      "downstream": [
+        1010,
+        645
+      ],
+      "max_surface_above_uncarved_m": 0.2502367872554032,
+      "profile_above_uncarved_m": 1.4237906121186938,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 1.6737906121186938
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 2849.9982668964453,
+      "upstream": [
+        755,
+        633
+      ],
+      "downstream": [
+        859,
+        731
+      ],
+      "max_surface_above_uncarved_m": 0.2571853047460877,
+      "profile_above_uncarved_m": 7.982501517962021,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 8.232501517962021
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 899.4112549695424,
+      "upstream": [
+        864,
+        647
+      ],
+      "downstream": [
+        912,
+        648
+      ],
+      "max_surface_above_uncarved_m": 0.2563777470430466,
+      "profile_above_uncarved_m": 4.0043136426796195,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 4.2543136426796195
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 2457.0966799187813,
+      "upstream": [
+        1074,
+        665
+      ],
+      "downstream": [
+        1080,
+        796
+      ],
+      "max_surface_above_uncarved_m": 0.25703316017174416,
+      "profile_above_uncarved_m": 2.3872065239102938,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.6372065239102938
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 3747.8014408517797,
+      "upstream": [
+        759,
+        673
+      ],
+      "downstream": [
+        753,
+        860
+      ],
+      "max_surface_above_uncarved_m": 0.2577424718557495,
+      "profile_above_uncarved_m": 7.049819813498289,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 7.299819813498289
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1265.803173955329,
+      "upstream": [
+        139,
+        746
+      ],
+      "downstream": [
+        123,
+        816
+      ],
+      "max_surface_above_uncarved_m": -0.04775502073573534,
+      "profile_above_uncarved_m": -0.04775502073573534,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.20224497926426466
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1329.803173955329,
+      "upstream": [
+        151,
+        754
+      ],
+      "downstream": [
+        133,
+        828
+      ],
+      "max_surface_above_uncarved_m": 0.24321012897860328,
+      "profile_above_uncarved_m": 0.5958360955931425,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.8458360955931425
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1368.4305909532984,
+      "upstream": [
+        573,
+        778
+      ],
+      "downstream": [
+        523,
+        805
+      ],
+      "max_surface_above_uncarved_m": 0.2575069186215728,
+      "profile_above_uncarved_m": 3.574796621012183,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 3.824796621012183
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1618.9402589451763,
+      "upstream": [
+        245,
+        797
+      ],
+      "downstream": [
+        318,
+        839
+      ],
+      "max_surface_above_uncarved_m": 0.25602393988168615,
+      "profile_above_uncarved_m": 4.005290509674808,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 4.255290509674808
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 4761.015869776655,
+      "upstream": [
+        842,
+        838
+      ],
+      "downstream": [
+        766,
+        1080
+      ],
+      "max_surface_above_uncarved_m": 0.2513199240208053,
+      "profile_above_uncarved_m": 0.5304516668086308,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.7804516668086308
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 757.019335983756,
+      "upstream": [
+        36,
+        839
+      ],
+      "downstream": [
+        28,
+        883
+      ],
+      "max_surface_above_uncarved_m": 0.2523682588260101,
+      "profile_above_uncarved_m": 0.7383324538836291,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.9883324538836291
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1301.2144289248715,
+      "upstream": [
+        255,
+        850
+      ],
+      "downstream": [
+        250,
+        906
+      ],
+      "max_surface_above_uncarved_m": 0.257605129715472,
+      "profile_above_uncarved_m": 2.2027561482018427,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.4527561482018427
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "length_m": 1613.9209229614203,
+      "upstream": [
+        197,
+        860
+      ],
+      "downstream": [
+        178,
+        953
+      ],
+      "max_surface_above_uncarved_m": 0.2575278781231134,
+      "profile_above_uncarved_m": 1.5133968364169448,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 1.7633968364169448
+    },
+    {
+      "name": "Rambla de Castro",
+      "class": "stream",
+      "length_m": 9910.855982595956,
+      "upstream": [
+        746,
+        288
+      ],
+      "downstream": [
+        974,
+        754
+      ],
+      "max_surface_above_uncarved_m": 0.2576971725658268,
+      "profile_above_uncarved_m": 3.594004531555015,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 3.844004531555015
+    },
+    {
+      "name": "Rambla de G\u00e9rgal",
+      "class": "stream",
+      "length_m": 10149.718897606113,
+      "upstream": [
+        279,
+        538
+      ],
+      "downstream": [
+        323,
+        1080
+      ],
+      "max_surface_above_uncarved_m": 0.2576713816383034,
+      "profile_above_uncarved_m": 2.531245993079949,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.781245993079949
+    },
+    {
+      "name": "Rambla de la Galera",
+      "class": "stream",
+      "length_m": 10165.913990547235,
+      "upstream": [
+        1080,
+        450
+      ],
+      "downstream": [
+        1066,
+        974
+      ],
+      "max_surface_above_uncarved_m": 0.21586452928710287,
+      "profile_above_uncarved_m": 0.21586452928710287,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.46586452928710287
+    },
+    {
+      "name": "Arroyo del Verdelecho",
+      "class": "stream",
+      "length_m": 7292.427124746205,
+      "upstream": [
+        657,
+        685
+      ],
+      "downstream": [
+        699,
+        1080
+      ],
+      "max_surface_above_uncarved_m": 0.257600830199209,
+      "profile_above_uncarved_m": 4.707278703395929,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 4.957278703395929
+    },
+    {
+      "name": "Barranco de La Virgen",
+      "class": "stream",
+      "length_m": 4768.585278823359,
+      "upstream": [
+        237,
+        291
+      ],
+      "downstream": [
+        277,
+        538
+      ],
+      "max_surface_above_uncarved_m": 0.256889429293949,
+      "profile_above_uncarved_m": 3.632101445385956,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 3.882101445385956
+    },
+    {
+      "name": "Rambla de Molina",
+      "class": "stream",
+      "length_m": 964.5483399593903,
+      "upstream": [
+        249,
+        907
+      ],
+      "downstream": [
+        239,
+        959
+      ],
+      "max_surface_above_uncarved_m": 0.18016056193650343,
+      "profile_above_uncarved_m": 0.18016056193650343,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.4301605619365034
+    },
+    {
+      "name": "Barranco Toril",
+      "class": "stream",
+      "length_m": 4168.820776835539,
+      "upstream": [
+        324,
+        311
+      ],
+      "downstream": [
+        280,
+        537
+      ],
+      "max_surface_above_uncarved_m": 0.2556816480012003,
+      "profile_above_uncarved_m": 2.574403801279459,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.824403801279459
+    },
+    {
+      "name": "Rambla de Lanujar",
+      "class": "stream",
+      "length_m": 2975.9191898578692,
+      "upstream": [
+        507,
+        926
+      ],
+      "downstream": [
+        536,
+        1080
+      ],
+      "max_surface_above_uncarved_m": -0.1912993822849387,
+      "profile_above_uncarved_m": -0.1912993822849387,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.0587006177150613
+    },
+    {
+      "name": "Barranco de Sol\u00e1n Garc\u00eda",
+      "class": "stream",
+      "length_m": 2540.9789309126904,
+      "upstream": [
+        91,
+        500
+      ],
+      "downstream": [
+        231,
+        488
+      ],
+      "max_surface_above_uncarved_m": 0.25760922783018714,
+      "profile_above_uncarved_m": 1.7662208746044712,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.016220874604471
+    },
+    {
+      "name": "Barranco del Carrascal",
+      "class": "stream",
+      "length_m": 1680.1950929411157,
+      "upstream": [
+        801,
+        536
+      ],
+      "downstream": [
+        888,
+        569
+      ],
+      "max_surface_above_uncarved_m": 0.2575018919641252,
+      "profile_above_uncarved_m": 2.2987090152723795,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.5487090152723795
+    },
+    {
+      "name": "Barranco de Cirre",
+      "class": "stream",
+      "length_m": 1678.1160159025355,
+      "upstream": [
+        433,
+        697
+      ],
+      "downstream": [
+        349,
+        746
+      ],
+      "max_surface_above_uncarved_m": 0.1240339108606463,
+      "profile_above_uncarved_m": 0.1240339108606463,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.3740339108606463
+    },
+    {
+      "name": "Rambla de la Espinosa",
+      "class": "stream",
+      "length_m": 1014.1564209736035,
+      "upstream": [
+        1080,
+        596
+      ],
+      "downstream": [
+        1022,
+        595
+      ],
+      "max_surface_above_uncarved_m": 0.25550536550574066,
+      "profile_above_uncarved_m": 1.816460451095054,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 2.066460451095054
+    },
+    {
+      "name": "Barranco de la Moreda",
+      "class": "stream",
+      "length_m": 977.1370849898476,
+      "upstream": [
+        835,
+        737
+      ],
+      "downstream": [
+        893,
+        731
+      ],
+      "max_surface_above_uncarved_m": 0.254526894696653,
+      "profile_above_uncarved_m": 1.7335746332659596,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 1.9835746332659596
+    },
+    {
+      "name": "Rambla de Hoya Pardo",
+      "class": "stream",
+      "length_m": 998.1564209736038,
+      "upstream": [
+        1080,
+        540
+      ],
+      "downstream": [
+        1023,
+        551
+      ],
+      "max_surface_above_uncarved_m": 0.256334586335214,
+      "profile_above_uncarved_m": 3.06757405009202,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 3.31757405009202
+    },
+    {
+      "name": "Rambla del Paseo",
+      "class": "stream",
+      "length_m": 936.4305909532985,
+      "upstream": [
+        895,
+        731
+      ],
+      "downstream": [
+        944,
+        752
+      ],
+      "max_surface_above_uncarved_m": -0.7270489998348921,
+      "profile_above_uncarved_m": 0.4706743543951859,
+      "unforced_infeasible_stream": true,
+      "uncarved_infeasible_stream": true,
+      "rejected_monotone_overbank_m": 0.7206743543951859
+    }
+  ],
+  "authored_short_reach_omissions": [
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 5,
+      "mapped_vertices": 27,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 8,
+      "routed_vertices": 44,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 9,
+      "mapped_vertices": 29,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 13,
+      "routed_vertices": 44,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 14,
+      "mapped_vertices": 11,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 18,
+      "mapped_vertices": 32,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 19,
+      "mapped_vertices": 26,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 20,
+      "routed_vertices": 40,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 21,
+      "mapped_vertices": 3,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 23,
+      "routed_vertices": 32,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 24,
+      "routed_vertices": 36,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 25,
+      "mapped_vertices": 9,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 27,
+      "mapped_vertices": 25,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 28,
+      "mapped_vertices": 41,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 31,
+      "routed_vertices": 40,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 33,
+      "mapped_vertices": 8,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 34,
+      "mapped_vertices": 2,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 37,
+      "routed_vertices": 39,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 45,
+      "mapped_vertices": 9,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 47,
+      "mapped_vertices": 22,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 48,
+      "mapped_vertices": 14,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 49,
+      "mapped_vertices": 1,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 50,
+      "mapped_vertices": 38,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 51,
+      "routed_vertices": 35,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "unnamed waterway",
+      "class": "stream",
+      "component": 52,
+      "mapped_vertices": 36,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Rambla de Molina",
+      "class": "stream",
+      "component": 2,
+      "mapped_vertices": 28,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Rambla de la Espinosa",
+      "class": "stream",
+      "component": 2,
+      "mapped_vertices": 0,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Barranco de Sen\u00e9s",
+      "class": "stream",
+      "component": 1,
+      "routed_vertices": 32,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Rambla Ancha",
+      "class": "stream",
+      "mapped_vertices": 42,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Rambla de Galera",
+      "class": "stream",
+      "mapped_vertices": 36,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Barranco del Fraile",
+      "class": "stream",
+      "mapped_vertices": 15,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Rambla de la Espinola",
+      "class": "stream",
+      "mapped_vertices": 6,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    },
+    {
+      "name": "Barranco Icarade",
+      "class": "stream",
+      "mapped_vertices": 0,
+      "reason": "below existing 45-vertex modeled-reach minimum"
+    }
+  ],
+  "existing_four_neighbour_lake_components": [
+    {
+      "component": 1,
+      "cells": 31,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        579.703125,
+        586.046875
+      ]
+    },
+    {
+      "component": 2,
+      "cells": 1,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        622.109375,
+        622.109375
+      ]
+    },
+    {
+      "component": 3,
+      "cells": 1,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        623.0625,
+        623.0625
+      ]
+    },
+    {
+      "component": 4,
+      "cells": 8,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        679.84375,
+        684.296875
+      ]
+    },
+    {
+      "component": 5,
+      "cells": 7,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        656.328125,
+        660.375
+      ]
+    },
+    {
+      "component": 6,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        291.203125,
+        292.046875
+      ]
+    },
+    {
+      "component": 7,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        292.421875,
+        294.109375
+      ]
+    },
+    {
+      "component": 8,
+      "cells": 8,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        358.75,
+        360.734375
+      ]
+    },
+    {
+      "component": 9,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        527.921875,
+        530.125
+      ]
+    },
+    {
+      "component": 10,
+      "cells": 1,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        530.625,
+        530.625
+      ]
+    },
+    {
+      "component": 11,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        191.453125,
+        192.5625
+      ]
+    },
+    {
+      "component": 12,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        183.5,
+        186.46875
+      ]
+    },
+    {
+      "component": 13,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        134.546875,
+        136.46875
+      ]
+    },
+    {
+      "component": 14,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        124.421875,
+        124.5625
+      ]
+    },
+    {
+      "component": 15,
+      "cells": 6,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        124.640625,
+        125.28125
+      ]
+    },
+    {
+      "component": 16,
+      "cells": 6,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        243.046875,
+        244.390625
+      ]
+    },
+    {
+      "component": 17,
+      "cells": 6,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        224.625,
+        226.765625
+      ]
+    },
+    {
+      "component": 18,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        330.21875,
+        330.921875
+      ]
+    },
+    {
+      "component": 19,
+      "cells": 7,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        204.15625,
+        205.796875
+      ]
+    },
+    {
+      "component": 20,
+      "cells": 10,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        214.953125,
+        216.5
+      ]
+    },
+    {
+      "component": 21,
+      "cells": 9,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        215.15625,
+        216.890625
+      ]
+    },
+    {
+      "component": 22,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        206.671875,
+        206.921875
+      ]
+    },
+    {
+      "component": 23,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        202.453125,
+        202.875
+      ]
+    },
+    {
+      "component": 24,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        202.15625,
+        202.5625
+      ]
+    },
+    {
+      "component": 25,
+      "cells": 5,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        210.515625,
+        211.78125
+      ]
+    },
+    {
+      "component": 26,
+      "cells": 9,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        199.21875,
+        199.75
+      ]
+    },
+    {
+      "component": 27,
+      "cells": 6,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        193.828125,
+        195.1875
+      ]
+    },
+    {
+      "component": 28,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        146.15625,
+        149.21875
+      ]
+    },
+    {
+      "component": 29,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        194.734375,
+        195.171875
+      ]
+    },
+    {
+      "component": 30,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        190.046875,
+        190.5
+      ]
+    },
+    {
+      "component": 31,
+      "cells": 6,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        235.59375,
+        238.046875
+      ]
+    },
+    {
+      "component": 32,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        190.140625,
+        190.609375
+      ]
+    },
+    {
+      "component": 33,
+      "cells": 7,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        188.546875,
+        189.28125
+      ]
+    },
+    {
+      "component": 34,
+      "cells": 12,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 1,
+      "floor_range_m": [
+        183.28125,
+        187.0625
+      ]
+    },
+    {
+      "component": 35,
+      "cells": 18,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        184.1875,
+        186.765625
+      ]
+    },
+    {
+      "component": 36,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        187.828125,
+        188.140625
+      ]
+    },
+    {
+      "component": 37,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        185.140625,
+        186.40625
+      ]
+    },
+    {
+      "component": 38,
+      "cells": 8,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        184.421875,
+        185.359375
+      ]
+    },
+    {
+      "component": 39,
+      "cells": 9,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        170.96875,
+        174.25
+      ]
+    },
+    {
+      "component": 40,
+      "cells": 6,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        175.640625,
+        176.71875
+      ]
+    },
+    {
+      "component": 41,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        208.390625,
+        208.96875
+      ]
+    },
+    {
+      "component": 42,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        163.21875,
+        163.296875
+      ]
+    },
+    {
+      "component": 43,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        165.03125,
+        165.140625
+      ]
+    },
+    {
+      "component": 44,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        168.140625,
+        169.171875
+      ]
+    },
+    {
+      "component": 45,
+      "cells": 1,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        158.265625,
+        158.265625
+      ]
+    },
+    {
+      "component": 46,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        151.578125,
+        152.390625
+      ]
+    },
+    {
+      "component": 47,
+      "cells": 5,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        162.3125,
+        162.921875
+      ]
+    },
+    {
+      "component": 48,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        83.96875,
+        84.703125
+      ]
+    },
+    {
+      "component": 49,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        140.328125,
+        141.234375
+      ]
+    },
+    {
+      "component": 50,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        138.3125,
+        139.46875
+      ]
+    },
+    {
+      "component": 51,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 1,
+      "floor_range_m": [
+        134.34375,
+        135.015625
+      ]
+    },
+    {
+      "component": 52,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        139.484375,
+        139.734375
+      ]
+    },
+    {
+      "component": 53,
+      "cells": 4,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        195.953125,
+        197.390625
+      ]
+    },
+    {
+      "component": 54,
+      "cells": 19,
+      "skipped_by_existing_eight_node_minimum": false,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        159.53125,
+        162.546875
+      ]
+    },
+    {
+      "component": 55,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        135.109375,
+        135.484375
+      ]
+    },
+    {
+      "component": 56,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        129.78125,
+        129.859375
+      ]
+    },
+    {
+      "component": 57,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        134.234375,
+        134.734375
+      ]
+    },
+    {
+      "component": 58,
+      "cells": 1,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        134.0,
+        134.0
+      ]
+    },
+    {
+      "component": 59,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        127.65625,
+        128.3125
+      ]
+    },
+    {
+      "component": 60,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        129.453125,
+        130.8125
+      ]
+    },
+    {
+      "component": 61,
+      "cells": 5,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        127.0625,
+        129.109375
+      ]
+    },
+    {
+      "component": 62,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        123.109375,
+        124.40625
+      ]
+    },
+    {
+      "component": 63,
+      "cells": 2,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        124.078125,
+        124.203125
+      ]
+    },
+    {
+      "component": 64,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 2,
+      "floor_range_m": [
+        119.828125,
+        121.25
+      ]
+    },
+    {
+      "component": 65,
+      "cells": 3,
+      "skipped_by_existing_eight_node_minimum": true,
+      "initial_wet_cells": 0,
+      "floor_range_m": [
+        118.140625,
+        118.34375
+      ]
+    }
+  ],
+  "mechanisms": [
+    "Existing stream code rejects a global monotone profile above its bank ceiling, then explicitly disables excavation, initialization and control forcing for that profile.",
+    "Existing lake code skips components below eight nodes. For retained components it caps stage below the lowest bank but does not excavate the lake interior; a floor above the capped stage starts dry.",
+    "These are source-code/authored-grid mechanisms, not causal attribution of every native loss or geographic impossibility."
+  ],
+  "new_native_observation": false,
+  "stable_water_promise": "unknown"
+}
