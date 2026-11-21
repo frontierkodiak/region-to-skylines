@@ -55,6 +55,8 @@ class PreparedStorage:
     terrain: np.ndarray
     water: np.ndarray
     hydro: dict
+    preconstruction_terrain: np.ndarray
+    preconstruction_water: np.ndarray
 
 
 def construction_masks(terrain, water, geometry, start, network, layout):
@@ -128,8 +130,9 @@ def prepare_arrays(ground, banks, geometry, layout):
     network = fit_networks(ground, depth, geometry, layout, start)
     limit_source_footprints(ground, depth, banks, geometry, summary)
     ground, depth = native(ground).astype(float) / 64, native(depth).astype(float) / 64
+    before_terrain, before_water = ground.copy(), depth.copy()
     before_hash = hashlib.sha256(
-        native(ground).tobytes() + native(depth).tobytes()
+        native(np.flipud(ground)).tobytes() + native(np.flipud(depth)).tobytes()
     ).hexdigest()
     construction = None
     if needs_storage:
@@ -162,7 +165,7 @@ def prepare_arrays(ground, banks, geometry, layout):
             },
         }
     )
-    return PreparedStorage(ground, depth, summary)
+    return PreparedStorage(ground, depth, summary, before_terrain, before_water)
 
 
 def validate_package(folder):
@@ -189,11 +192,55 @@ def validate_package(folder):
     floor = (
         np.flipud(np.fromfile(folder / "terrain.u16", "<u2").reshape(SIZE, SIZE)) / 64
     )
-    checks = [
-        {"source_index": i, **validate_native_basin(floor, decoded["sources"][i])}
-        for i, source in enumerate(hydro["sources"])
-        if source.get("class") == "reservoir"
-    ]
+    before_t = (folder / "preconstruction-terrain.u16").read_bytes()
+    before_w = (folder / "preconstruction-water.u16").read_bytes()
+    if (
+        hashlib.sha256(before_t + before_w).hexdigest()
+        != hydro["water_construction"]["preconstruction_native_grids_sha256"]
+    ):
+        raise ValueError("Preconstruction source grids no longer match")
+    before_floor = np.flipud(np.frombuffer(before_t, "<u2").reshape(SIZE, SIZE)) / 64
+    before_depth = np.flipud(np.frombuffer(before_w, "<u2").reshape(SIZE, SIZE)) / 64
+    initial_depth = np.flipud(decoded["depth"].reshape(SIZE, SIZE)) / 64
+    rows, cols = np.indices(floor.shape)
+    storage = np.zeros_like(floor, dtype=bool)
+    checks = []
+    for i, source in enumerate(hydro["sources"]):
+        if source.get("class") != "reservoir":
+            continue
+        control = decoded["sources"][i]
+        check = validate_native_basin(floor, control)
+        distance = np.hypot(
+            cols * 16 - HALF - control["position"][0],
+            HALF - rows * 16 - control["position"][2],
+        )
+        disk = distance < 96
+        rim = ndimage.binary_dilation(disk, structure=np.ones((3, 3))) & ~disk
+        core = distance <= check["source_radius_m"]
+        cut = before_floor[disk] - floor[disk]
+        if (
+            (cut < 0).any()
+            or (cut > 3).any()
+            or not np.array_equal(floor[rim], before_floor[rim])
+        ):
+            raise ValueError(
+                "Final storage earthworks violate no-fill/cut/untouched-rim bounds"
+            )
+        if (initial_depth[core] < 1).any():
+            raise ValueError(
+                "Final initial storage lacks one metre across source footprint"
+            )
+        checks.append(
+            {
+                "source_index": i,
+                **check,
+                "maximum_cut_m": float(cut.max()),
+                "minimum_initial_footprint_depth_m": float(initial_depth[core].min()),
+            }
+        )
+        storage |= disk
+    if (initial_depth[~storage] > before_depth[~storage]).any():
+        raise ValueError("Initial water added outside the new storage envelope")
     return {
         "package_sha256": sha(package),
         "static_storage_checks": checks,
@@ -232,6 +279,8 @@ def export(png, geometry, banks, output, landcover=None, evidence=None, knobs=No
     for name, grid in [
         ("terrain.u16", prepared.terrain),
         ("water.u16", prepared.water),
+        ("preconstruction-terrain.u16", prepared.preconstruction_terrain),
+        ("preconstruction-water.u16", prepared.preconstruction_water),
     ]:
         native(np.flipud(grid)).tofile(output / name)
     (output / "hydrology.json").write_text(json.dumps(prepared.hydro, indent=2) + "\n")
@@ -331,6 +380,8 @@ def export(png, geometry, banks, output, landcover=None, evidence=None, knobs=No
                 "hydrology.json",
                 "probes.json",
                 "mapped-water.u8",
+                "preconstruction-terrain.u16",
+                "preconstruction-water.u16",
             ]
         },
         "in_game_verified": False,

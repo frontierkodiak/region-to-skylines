@@ -143,3 +143,41 @@ class ClosedStorageCandidateTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "freeboard"):
                     export(*paths, root / "candidate")
             self.assertFalse((root / "candidate/generation.json").exists())
+
+    def test_late_fill_cannot_manufacture_a_passing_rim(self):
+        def fill_rim(folder, *_):
+            hydro = json.loads((folder / "hydrology.json").read_text())
+            source = next(s for s in hydro["sources"] if s.get("class") == "reservoir")
+            row = round((source["position"][2] + 8640) / 16)
+            col = round((source["position"][0] + 8640) / 16) + 6
+            terrain = np.fromfile(folder / "terrain.u16", "<u2").reshape(1081, 1081)
+            terrain[row, col] += 32
+            terrain.tofile(folder / "terrain.u16")
+            return {"applied": True, "native_qualified": False}
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = self.files(root)
+            with patch("closed_storage_candidate.admit", side_effect=fill_rim):
+                with self.assertRaisesRegex(ValueError, "untouched-rim"):
+                    export(*paths, root / "candidate")
+            self.assertFalse((root / "candidate/generation.json").exists())
+
+    def test_late_prefill_removal_cannot_pass_from_geometry_alone(self):
+        def remove_prefill(folder, *_):
+            hydro = json.loads((folder / "hydrology.json").read_text())
+            source = next(s for s in hydro["sources"] if s.get("class") == "reservoir")
+            row = round((source["position"][2] + 8640) / 16)
+            col = round((source["position"][0] + 8640) / 16)
+            water = np.fromfile(folder / "water.u16", "<u2").reshape(1081, 1081)
+            water[row, col] = 0
+            water.tofile(folder / "water.u16")
+            return {"applied": True, "native_qualified": False}
+
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            paths = self.files(root)
+            with patch("closed_storage_candidate.admit", side_effect=remove_prefill):
+                with self.assertRaisesRegex(ValueError, "initial storage"):
+                    export(*paths, root / "candidate")
+            self.assertFalse((root / "candidate/generation.json").exists())
