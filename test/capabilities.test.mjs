@@ -60,6 +60,7 @@ test("the terrain-interest survey is row-, tool- and quartile-bound", () => {
     assert.equal(ledger.stock_reference.metrics[id].definition, STOCK_MEASURES[id].definition);
     assert.equal(ledger.stock_reference.metrics[id].name, STOCK_MEASURES[id].label);
     assert.equal(ledger.stock_reference.metrics[id].kind, "terrain_shape");
+    assert.equal(ledger.stock_reference.metrics[id].status, "measured_stock_distribution_capture_comparable");
   }
   // A changed quartile or a rewritten policy makes the stock reference stale.
   for (const mutate of [

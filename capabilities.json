@@ -198,7 +198,8 @@
         "median": 15.5,
         "p75": 21.185,
         "definition": "mean terrain gradient magnitude at 16 m spacing over all 1081 x 1081 nodes, in percent",
-        "kind": "terrain_shape"
+        "kind": "terrain_shape",
+        "status": "measured_stock_distribution_capture_comparable"
       },
       "central_terrain_diversity_m": {
         "name": "Central height range",
@@ -208,7 +209,8 @@
         "median": 182.2,
         "p75": 300.65000000000003,
         "definition": "90th minus 10th percentile of terrain height over the central 25 tiles' nodes, in metres",
-        "kind": "terrain_shape"
+        "kind": "terrain_shape",
+        "status": "measured_stock_distribution_capture_comparable"
       }
     },
     "terrain_interest": {

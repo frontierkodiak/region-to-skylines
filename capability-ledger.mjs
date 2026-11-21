@@ -62,7 +62,7 @@ function terrainInterest() {
     if (values.length !== study.maps.included) throw new Error(`Terrain interest rows lack ${id}`);
     const declared = study.quantiles?.[id];
     if (!declared || declared.n !== values.length || declared.p25 !== linearQuantile(values, 0.25) || declared.median !== linearQuantile(values, 0.5) || declared.p75 !== linearQuantile(values, 0.75)) throw new Error(`Terrain interest quartiles are stale: ${id}`);
-    metrics[id] = { name: measure.name, unit: measure.unit, n: values.length, p25: declared.p25, median: declared.median, p75: declared.p75, definition: measure.definition, kind: measure.kind };
+    metrics[id] = { name: measure.name, unit: measure.unit, n: values.length, p25: declared.p25, median: declared.median, p75: declared.p75, definition: measure.definition, kind: measure.kind, status: "measured_stock_distribution_capture_comparable" };
   }
   const evidence = {
     fixtures: ["asheville", "charleston", "innsbruck", "pittsburgh", "rio"],
