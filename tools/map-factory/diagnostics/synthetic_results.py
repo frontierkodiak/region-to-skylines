@@ -177,6 +177,8 @@ def collect(folder, arm_name, native, authorization):
             }
         )
     original = native_outcome(report, verdict)
+    lineage_path = native / "derived-judgment-lineage.json"
+    lineage = load(lineage_path) if lineage_path.exists() else None
     failed = (
         features["status"] == "fail"
         or any(r["status"] == "fail" for r in floors)
@@ -204,8 +206,12 @@ def collect(folder, arm_name, native, authorization):
         ),
         "measured_storage": storage,
         "water_outcome_original_definition": original,
-        "raw_native_verdict": verdict["verdict"],
-        "raw_nonpassing_checks": [
+        "raw_native_verdict": lineage["raw_verdict"]["verdict"]
+        if lineage
+        else verdict["verdict"],
+        "derived_native_verdict": verdict["verdict"] if lineage else None,
+        "judgment_lineage": lineage,
+        "judged_nonpassing_checks": [
             c for c in verdict["checks"] if c["status"] != "pass"
         ],
         "native_files_sha256": {
