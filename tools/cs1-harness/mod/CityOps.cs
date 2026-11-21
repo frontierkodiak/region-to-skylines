@@ -93,7 +93,8 @@ namespace Cs1Harness
             }
             if (lm.LoadLevel(meta.assetRef, "Game", "InGame", sim) == null)
                 throw new Exception("LoadingManager refused the map");
-            return Host.Obj("loading", path, "map_name", meta.mapName, "published", meta.isPublished);
+            return Host.Obj("loading", path, "map_name", meta.mapName, "published", meta.isPublished,
+                "update_mode", sim.m_updateMode.ToString(), "invert_traffic", sim.m_invertTraffic.ToString());
         }
 
         internal static Dictionary<string, object> Stats()

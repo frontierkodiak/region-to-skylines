@@ -507,79 +507,13 @@ if __name__ == "__main__":
                 attempt["completed"] for attempt in target["attempts"]
             )
             target["error"] = None if target["completed"] else case["error"]
+    from annotate import annotations, summary
+
+    evidence = annotations(evidence)
+    markdown, cells = summary(evidence)
     (HERE / "evidence.json").write_text(json.dumps(evidence, indent=2) + "\n")
-    for row in evidence["rows"]:
-        ref = row.get("raw_evidence")
-        if (
-            ref
-            and sha(gzip.decompress((HERE / ref["path"]).read_bytes())) != ref["sha256"]
-        ):
-            raise ValueError("raw evidence hash mismatch")
-    water = {
-        row["slug"]: row
-        for row in json.loads((HERE / "water-support.json").read_text())["rows"]
-    }
-    completed = sum(case["completed"] for case in evidence["artifacts"])
-    md = [
-        "# Observed outside-connection results",
-        "",
-        f"New native observations completed: {completed}/9 selected squares.",
-        "",
-        "A path witness means at least one selected native request succeeded. It does not mean every lane or direction passed.",
-        "Failed requests and unknowns remain in evidence.json. No aggregate agreement score is calculated.",
-        "",
-        "Archived exact-package car and train paths are included. Those first-hour runs can contain player construction.",
-        "",
-        "| Square | Road path | Rail path | Ship path | Air path | 6 m raster witness |",
-        "| --- | --- | --- | --- | --- | --- |",
-    ]
-    for case in evidence["artifacts"]:
-        cells = []
-        for capability in FIELDS:
-            observed = [
-                row["observed"]
-                for row in evidence["rows"]
-                if row["slug"] == case["slug"]
-                and row["capability_id"] == capability
-                and row["oracle_type"] == "native_path"
-            ]
-            cells.append(
-                "witness"
-                if True in observed
-                else "failed probes"
-                if False in observed
-                else "unknown"
-            )
-        raster = (
-            "yes" if water[case["slug"]]["rasters"][0]["deep_6m_edge_pairs"] else "no"
-        )
-        md.append("| " + " | ".join([case["slug"], *cells, raster]) + " |")
-    md.extend(
-        [
-            "",
-            "The last column tests only a two-edge path through the authored raster at the exporter's existing 6 m depth choice. It is not a native ship threshold or a geographic impossibility result.",
-            "",
-            "## Retained attempt errors",
-            "",
-        ]
-    )
-    errors = [
-        f"- {case['slug']} {attempt['attempt_id']}: {attempt['error']}"
-        for case in evidence["artifacts"]
-        for attempt in case["attempts"]
-        if attempt["error"]
-    ]
-    md.extend(errors or ["No attempt errors recorded."])
-    md.extend(
-        [
-            "",
-            "Actual terminal service, strict no-mods behavior, continuous ship clearance, and sustained water safety are not verified.",
-            "",
-            "The nine water-risk reports remain unchanged. The held-out square is Boston. No native depth, width, or grade threshold was fitted.",
-            "",
-        ]
-    )
-    (HERE / "RESULTS.md").write_text("\n".join(md))
+    (HERE / "RESULTS.md").write_text(markdown)
+    (HERE / "capability-summary.json").write_text(json.dumps(cells, indent=2) + "\n")
     print(
         f"{len(evidence['rows'])} rows; {sum(a['completed'] for a in evidence['artifacts'])}/9 native openings complete"
     )

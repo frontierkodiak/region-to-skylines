@@ -71,3 +71,41 @@ uv run --project tools/map-factory python "$study/water_support.py"
 The Boston capture program is `capture-boston.mjs`. It fixes the square and
 uses `includeRunways=true`. The original capture receipt and input hashes are
 retained. A new live capture is not a reproduction of that capture's bytes.
+
+## PL-1142 correction and focused v2 diagnostic
+
+`annotate.py` derives endpoint roles, collector/protocol labels and missing-request
+reasons from retained raw observations and networks. `assemble.py` calls it
+automatically. `verify.py` rejects fresh rows that differ from raw requests/results
+and checks derived annotations and summary. Historical gzip files, failures and
+timestamps are unchanged. Historical v1 attempts lack runtime executable binding
+and cannot qualify as exact-runtime certificates. All nine water-risk screens
+remain warnings.
+
+After building, run the focused collector in the foreground on blade:
+
+```sh
+uv run --directory tools/cs1-harness python -m cs1_harness.connections \
+  ../map-factory/capability-evidence/outside-v1/selection.json \
+  --focused-v2 --out ~/experiments/PL-1142-native-v2/native --wait-minutes 0
+```
+
+The fixed selection is ship in Rio, Charleston, Hong Kong and Boston; additionally
+Rio rail, Pittsburgh road, and Hong Kong road/rail. The diagnostic subset had no
+successful fresh two-edge witness in the reviewed evidence. This is a diagnostic
+re-probe, not a new holdout, threshold fit or map repair. Each candidate outside
+lane pair is tested at boundary and midpoint in both directions. Road pairs
+require opposite OneWay roles. Native requests determine rail reachability.
+No failed request is a global capability negative.
+
+The collector binds the rendering PID through its namespace PID and hashes
+`/proc/PID/exe`. It asks that process for loaded assembly paths and hashes,
+independently hashes those files through `/proc/PID/root`, then compares all build
+references and the mod DLL. Missing or mismatched identity aborts before map
+observations. This binds loaded assembly files at menu readiness, not in-memory
+code pages.
+
+Each batch releases the fair queue slot. If occupied, retain that attempt and
+arrange a persisted continuation. Never leave a waiter or game behind. Preserve
+all old attempts when importing new receipts with another `--retry-native`.
+Retain the new collector and runtime helper source hashes/version before import.

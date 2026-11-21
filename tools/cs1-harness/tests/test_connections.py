@@ -19,7 +19,7 @@ def segment(identity, start, end, a, b, *, outside_start=False, outside_end=Fals
 
 
 class OutsidePairTest(unittest.TestCase):
-    def test_connected_outside_endpoints_not_isolated_distant_marker(self):
+    def test_all_outside_pairs_are_candidates_not_reachability_claims(self):
         networks = {
             "segments": [
                 segment(1, 1, 2, -100, 0, outside_start=True),
@@ -27,7 +27,7 @@ class OutsidePairTest(unittest.TestCase):
                 segment(3, 4, 5, 900, 1000, outside_end=True),
             ]
         }
-        self.assertEqual(outside_pair(networks, "Ship"), [[1, 0, 0], [2, 0, 255]])
+        self.assertEqual(len(outside_requests(networks, "ship", "Ship")), 12)
         self.assertIsNone(outside_pair(networks, "Plane"))
 
     def test_midpoint_controls_keep_segments_lanes_and_direction_fixed(self):
@@ -48,6 +48,17 @@ class OutsidePairTest(unittest.TestCase):
             self.assertEqual(original["to"][:2], control["to"][:2])
             self.assertEqual([control["from"][2], control["to"][2]], [128, 128])
         self.assertEqual(networks["segments"][0]["a"], [-100, 0, 0])
+
+    def test_road_requires_opposite_roles(self):
+        a = segment(1, 1, 2, -100, 0, outside_start=True, vehicle="Car")
+        b = segment(2, 2, 3, 0, 100, outside_end=True, vehicle="Car")
+        a["start_flags"] += ", OneWayOut"
+        b["end_flags"] += ", OneWayOut"
+        self.assertEqual(outside_requests({"segments": [a, b]}, "road", "Car"), [])
+        b["end_flags"] = "Created, Outside, OneWayIn"
+        requests = outside_requests({"segments": [a, b]}, "road", "Car")
+        self.assertEqual(len(requests), 4)
+        self.assertEqual(requests[0]["endpoint_roles"], [["OneWayOut"], ["OneWayIn"]])
 
     def test_one_outside_node_is_not_a_pair(self):
         self.assertIsNone(outside_pair({"segments": [segment(1, 1, 2, 0, 100, outside_end=True)]}, "Ship"))

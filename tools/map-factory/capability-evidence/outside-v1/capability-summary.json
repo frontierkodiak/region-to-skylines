@@ -1,0 +1,326 @@
+[
+  {
+    "slug": "asheville",
+    "capability": "road",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 36,
+    "access_positives": 4,
+    "archived_positives": 10
+  },
+  {
+    "slug": "asheville",
+    "capability": "rail",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 16,
+    "access_positives": 0,
+    "archived_positives": 2
+  },
+  {
+    "slug": "asheville",
+    "capability": "ship",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "asheville",
+    "capability": "air",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "innsbruck",
+    "capability": "road",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 18,
+    "access_positives": 3,
+    "archived_positives": 8
+  },
+  {
+    "slug": "innsbruck",
+    "capability": "rail",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 8,
+    "access_positives": 0,
+    "archived_positives": 2
+  },
+  {
+    "slug": "innsbruck",
+    "capability": "ship",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "innsbruck",
+    "capability": "air",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "rio",
+    "capability": "road",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 18,
+    "access_positives": 2,
+    "archived_positives": 0
+  },
+  {
+    "slug": "rio",
+    "capability": "rail",
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 16,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "rio",
+    "capability": "ship",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "rio",
+    "capability": "air",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "pittsburgh",
+    "capability": "road",
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 37,
+    "access_positives": 4,
+    "archived_positives": 0
+  },
+  {
+    "slug": "pittsburgh",
+    "capability": "rail",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 16,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "pittsburgh",
+    "capability": "ship",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "pittsburgh",
+    "capability": "air",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "charleston",
+    "capability": "road",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 36,
+    "access_positives": 4,
+    "archived_positives": 10
+  },
+  {
+    "slug": "charleston",
+    "capability": "rail",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "charleston",
+    "capability": "ship",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "charleston",
+    "capability": "air",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "grand-canyon",
+    "capability": "road",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "grand-canyon",
+    "capability": "rail",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "grand-canyon",
+    "capability": "ship",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "grand-canyon",
+    "capability": "air",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "hong-kong",
+    "capability": "road",
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 13,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "hong-kong",
+    "capability": "rail",
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 16,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "hong-kong",
+    "capability": "ship",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "hong-kong",
+    "capability": "air",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "yosemite",
+    "capability": "road",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "yosemite",
+    "capability": "rail",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "yosemite",
+    "capability": "ship",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "yosemite",
+    "capability": "air",
+    "observed": null,
+    "reason": "not_run",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "boston",
+    "capability": "road",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 36,
+    "access_positives": 4,
+    "archived_positives": 0
+  },
+  {
+    "slug": "boston",
+    "capability": "rail",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 16,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "boston",
+    "capability": "ship",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  },
+  {
+    "slug": "boston",
+    "capability": "air",
+    "observed": true,
+    "reason": "sampled_two_edge_positive",
+    "fresh_failed_requests": 0,
+    "access_positives": 0,
+    "archived_positives": 0
+  }
+]

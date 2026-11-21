@@ -2947,3 +2947,21 @@ those four squares only; that exporter choice is not a native fitted limit.
 No aggregate accuracy or geographic impossibility is inferred. Local harness
 159 tests, root 17 tests, qualification/eligibility 13 tests, study 2 tests,
 C# build, ordinary build, doctor, and final raw-data verifier passed.
+
+### 2026-11-20 — PL-1142, blade — native oracle correction, CPU stage
+
+I replaced the farthest-undirected-pair selector with explicit outside lane-pair
+coverage: road endpoints must have opposite OneWay roles; rail candidates keep
+native lane directions and are submitted to the native pathfinder. I added
+running-process executable and loaded-assembly file hashing, compared against the
+build receipt before loading a map. This is file identity at launch, not in-memory
+code attestation. Historical raw observations are unchanged. Failed pairs stay
+failed requests, not capability negatives. The summary separates fresh two-edge
+paths, access legs, archived player paths and panels. All nine water-risk screens
+are warnings.
+
+The CPU gate passed 161 harness tests and four study tests. The C# mod compiled
+against blade's installed game. No owned game was launched in this stage:
+PL-1072 held the fair slot and PL-1078 was already waiting. GPU/VRAM, power,
+temperature and game wall time are not measured here. Runtime binding and focused
+v2 receipts still require the subsequent native stage.
