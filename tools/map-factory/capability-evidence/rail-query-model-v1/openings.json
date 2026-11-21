@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "note": "The frozen primary study set. One opening per package; every selected boundary request of an opening stays in that opening's split. `rail-v3/raw/rio` is the fair-queue denial with no network snapshot and no plan, so it is excluded and listed separately; `rio-attempt-2` is the completed opening. `rail-v1` and `rail-v2` are earlier selector revisions and are not part of this set.",
+  "openings": [
+    {
+      "opening": "stock-1",
+      "split": "stock_controls",
+      "group": "stock",
+      "label": "stock: AP Asanu Beach",
+      "package": "stock-1",
+      "raw": "rail-v3/raw/stock-1"
+    },
+    {
+      "opening": "stock-2",
+      "split": "stock_controls",
+      "group": "stock",
+      "label": "stock: AP Hanami Bay",
+      "package": "stock-2",
+      "raw": "rail-v3/raw/stock-2"
+    },
+    {
+      "opening": "asheville",
+      "split": "cohort",
+      "group": "asheville",
+      "label": "cohort: Asheville",
+      "package": "asheville",
+      "raw": "rail-v3/raw/asheville"
+    },
+    {
+      "opening": "innsbruck",
+      "split": "cohort",
+      "group": "innsbruck",
+      "label": "cohort: Innsbruck",
+      "package": "innsbruck",
+      "raw": "rail-v3/raw/innsbruck"
+    },
+    {
+      "opening": "boston",
+      "split": "cohort",
+      "group": "boston",
+      "label": "cohort: Boston",
+      "package": "boston",
+      "raw": "rail-v3-followup-1/raw/boston-attempt-1"
+    },
+    {
+      "opening": "charleston",
+      "split": "cohort",
+      "group": "charleston",
+      "label": "cohort: Charleston",
+      "package": "charleston",
+      "raw": "rail-v3-followup-1/raw/charleston-attempt-1"
+    },
+    {
+      "opening": "grand-canyon",
+      "split": "cohort",
+      "group": "grand-canyon",
+      "label": "cohort: Grand Canyon",
+      "package": "grand-canyon",
+      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1"
+    },
+    {
+      "opening": "hong-kong",
+      "split": "cohort",
+      "group": "hong-kong",
+      "label": "cohort: Hong Kong",
+      "package": "hong-kong",
+      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1"
+    },
+    {
+      "opening": "pittsburgh",
+      "split": "cohort",
+      "group": "pittsburgh",
+      "label": "cohort: Pittsburgh",
+      "package": "pittsburgh",
+      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1"
+    },
+    {
+      "opening": "rio",
+      "split": "cohort",
+      "group": "rio",
+      "label": "cohort: Rio",
+      "package": "rio",
+      "raw": "rail-v3-followup-1/raw/rio-attempt-2"
+    },
+    {
+      "opening": "yosemite",
+      "split": "cohort",
+      "group": "yosemite",
+      "label": "cohort: Yosemite",
+      "package": "yosemite",
+      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1"
+    }
+  ],
+  "excluded": [
+    {
+      "opening": "rio-queue-denial",
+      "raw": "rail-v3/raw/rio",
+      "reason": "fair-queue denial before launch: no network snapshot and no query plan, so there is nothing to predict. Retained as an attempt, never overwritten."
+    }
+  ]
+}
