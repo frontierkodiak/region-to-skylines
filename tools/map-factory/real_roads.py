@@ -575,7 +575,7 @@ def generate(
     roads = prepare_roads(output, output / "geometry.json", air, ship)
     # Report capabilities against the final prepared grids and authored graph,
     # before serialization. This advisory check never alters the physical map.
-    from start_capabilities import assess as assess_start
+    from surface_intake import assess_surface as assess_start
 
     start = assess_start(output)
     start_path = output / "start-capabilities.json"
