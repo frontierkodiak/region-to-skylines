@@ -6,6 +6,7 @@ Neither a plan nor a successful metadata round trip is native game evidence.
 """
 
 import argparse
+import gzip
 from collections import deque
 import hashlib
 import json
@@ -247,6 +248,310 @@ def qualify_exact_export(report, identity, ledger):
     return {**report, "capabilities": capabilities}
 
 
+def _round(value, places):
+    return round(value, places) if math.isfinite(value) else None
+
+
+def deposit_evidence(deposits, central_half):
+    """Recorded deposits inside the square, split by kind.
+
+    A missing record is not geographic absence, so this evidence never becomes a
+    negative; it only ever names what a source actually recorded.
+    """
+    available = isinstance(deposits, dict) and deposits.get("status") == "available"
+    records = deposits.get("records", []) if available else []
+    if not isinstance(records, list):
+        records = []
+    summary = {
+        "ore": {"records": 0, "central": 0, "central_weight": 0.0},
+        "oil": {"records": 0, "central": 0, "central_weight": 0.0},
+        "wells": 0,
+    }
+    for record in records:
+        if record.get("kind") == "well":
+            summary["wells"] += 1
+            continue
+        kind = (
+            "oil"
+            if record.get("kind") == "oil"
+            else "ore"
+            if record.get("kind") == "ore"
+            else None
+        )
+        x, z = record.get("x"), record.get("z")
+        if (
+            kind is None
+            or not isinstance(x, (int, float))
+            or not isinstance(z, (int, float))
+        ):
+            continue
+        if not (math.isfinite(x) and math.isfinite(z)):
+            continue
+        summary[kind]["records"] += 1
+        if abs(x) <= central_half and abs(z) <= central_half:
+            summary[kind]["central"] += 1
+            weight = record.get("weight", 1)
+            summary[kind]["central_weight"] += (
+                weight
+                if isinstance(weight, (int, float)) and math.isfinite(weight)
+                else 1
+            )
+    for kind in ("ore", "oil"):
+        summary[kind]["central_weight"] = _round(summary[kind]["central_weight"], 3)
+    deposits_recorded = summary["ore"]["records"] + summary["oil"]["records"]
+    return {
+        "status": "available" if available else "unavailable",
+        "source": deposits.get("source") if isinstance(deposits, dict) else None,
+        "records": deposits_recorded,
+        "wells": summary.pop("wells"),
+        **summary,
+    }
+
+
+def place_evidence(grid, place, rules):
+    """Vegetation and resource potential from place evidence.
+
+    Mirrored in capability-model.js:placeEvidence. Every node is the same lattice
+    as the depth grid; weights, class sets, slope cuts and thresholds come from
+    the ledger's model_rules.place. Pure Python floats and loops, so the two
+    cores accumulate in the same order and print the same rounded values.
+    """
+    size, spacing = grid["size"], grid["spacing_m"]
+    total = size * size
+    landcover = place.get("landcover") if isinstance(place, dict) else None
+    values = (
+        landcover.get("values")
+        if isinstance(landcover, dict) and landcover.get("status") == "available"
+        else None
+    )
+    if values is not None:
+        if len(values) != total or any(
+            not (isinstance(value, int) and not isinstance(value, bool))
+            or value < 0
+            or value > 255
+            for value in values
+        ):
+            raise ValueError(
+                "Land-cover evidence must match the capability grid as 0-255 classes"
+            )
+    terrain = place.get("terrain_m") if isinstance(place, dict) else None
+    if not isinstance(terrain, list):
+        terrain = None
+    if terrain is not None:
+        if len(terrain) != total or any(
+            not isinstance(value, (int, float)) or not math.isfinite(value)
+            for value in terrain
+        ):
+            raise ValueError(
+                "Terrain evidence must match the capability grid as finite metres"
+            )
+    half = (size - 1) * spacing / 2
+    central_half = rules["central_half_extent_m"]
+    gx = gz = None
+    if terrain is not None:
+        gx, gz = [0.0] * total, [0.0] * total
+        for r in range(size):
+            r0, r1 = max(0, r - 1), min(size - 1, r + 1)
+            dz = spacing if r in (0, size - 1) else 2 * spacing
+            for c in range(size):
+                c0, c1 = max(0, c - 1), min(size - 1, c + 1)
+                dx = spacing if c in (0, size - 1) else 2 * spacing
+                i = r * size + c
+                gz[i] = (terrain[r1 * size + c] - terrain[r0 * size + c]) / dz
+                gx[i] = (terrain[r * size + c1] - terrain[r * size + c0]) / dx
+    forest = set(rules["forest_classes"])
+    vegetated = set(rules["vegetated_classes"])
+    crop = set(rules["crop_classes"])
+    weight_of = {int(k): v for k, v in rules["tree_weight"].items()}
+    fertile_of = {int(k): v for k, v in rules["fertile_weight"].items()}
+    counts = {}
+    central_land = covered = tree_cover = vegetated_nodes = crop_nodes = 0
+    tree_sum = fertile_sum = 0.0
+    for r in range(size):
+        if abs(half - r * spacing) > central_half:
+            continue
+        for c in range(size):
+            if abs(c * spacing - half) > central_half:
+                continue
+            i = r * size + c
+            if not grid["depth_m"][i] < rules["land_depth_m"]:
+                continue
+            central_land += 1
+            if values is None:
+                continue
+            cls = values[i]
+            weight, fertile = weight_of.get(cls, 0), fertile_of.get(cls, 0)
+            if cls != 0:
+                covered += 1
+            counts[cls] = counts.get(cls, 0) + 1
+            if cls in forest:
+                tree_cover += 1
+            if cls in vegetated:
+                vegetated_nodes += 1
+            if cls in crop:
+                crop_nodes += 1
+            if gx is not None:
+                axis = max(abs(gx[i]), abs(gz[i]))
+                tree_sum += weight * min(
+                    1.0,
+                    max(
+                        0.0,
+                        (rules["tree_slope_limit_percent"] / 100 - axis)
+                        / (rules["tree_slope_taper_percent"] / 100),
+                    ),
+                )
+                slope = math.sqrt(gx[i] * gx[i] + gz[i] * gz[i]) * 100
+                flat = min(
+                    1.0,
+                    max(
+                        0.0,
+                        (rules["fertile_slope_none_percent"] - slope)
+                        / (
+                            rules["fertile_slope_none_percent"]
+                            - rules["fertile_slope_full_percent"]
+                        ),
+                    ),
+                )
+                fertile_sum += fertile * flat
+            else:
+                tree_sum += weight
+                fertile_sum += fertile
+    return {
+        "grid": {
+            "size": size,
+            "spacing_m": spacing,
+            "central_half_extent_m": central_half,
+            "central_land_nodes": central_land,
+        },
+        "landcover": {
+            "status": "available" if values is not None else "unavailable",
+            "source": landcover.get("source") if values is not None else None,
+            "fidelity": landcover.get("fidelity", "unspecified")
+            if values is not None
+            else None,
+            "cell_m": landcover.get("cell_m") if values is not None else None,
+            "sample_m": landcover.get("sample_m") if values is not None else None,
+            "tiles": landcover.get("tiles", [])
+            if values is not None and isinstance(landcover.get("tiles"), list)
+            else [],
+            "coverage_of_central_land": _round(covered / central_land, 4)
+            if central_land
+            else None,
+            "class_counts": {str(cls): counts[cls] for cls in sorted(counts)},
+        },
+        "deposits": deposit_evidence(
+            place.get("deposits") if isinstance(place, dict) else None, central_half
+        ),
+        "vegetation": {
+            "tree_suitability": _round(tree_sum / central_land, 4)
+            if central_land
+            else None,
+            "tree_cover_share_of_central_land": _round(tree_cover / central_land, 4)
+            if central_land
+            else None,
+            "vegetated_share_of_central_land": _round(vegetated_nodes / central_land, 4)
+            if central_land
+            else None,
+            "slope_screened": gx is not None,
+            "slope_limit_percent": rules["tree_slope_limit_percent"],
+        },
+        "fertility": {
+            "suitability": _round(fertile_sum / central_land, 4)
+            if central_land
+            else None,
+            "crop_share_of_central_land": _round(crop_nodes / central_land, 4)
+            if central_land
+            else None,
+            "slope_full_percent": rules["fertile_slope_full_percent"],
+            "slope_none_percent": rules["fertile_slope_none_percent"],
+        },
+        "balanced_top_up": "not_evidence",
+    }
+
+
+def place_capabilities(grid, place, rules):
+    """The two candidate levels, never a native promise or a place-evidence No."""
+    evidence = place_evidence(grid, place, rules)
+    central_land = evidence["grid"]["central_land_nodes"]
+    coverage = evidence["landcover"]["coverage_of_central_land"] or 0
+    landcover_ok = (
+        evidence["landcover"]["status"] == "available"
+        and central_land > 0
+        and coverage >= rules["landcover_min_coverage"]
+    )
+    suitability = evidence["vegetation"]["tree_suitability"]
+    if evidence["landcover"]["status"] != "available":
+        trees = {"level": "unknown", "reason": "no_landcover_evidence"}
+    elif central_land == 0:
+        trees = {"level": "unknown", "reason": "no_central_land"}
+    elif not landcover_ok:
+        trees = {"level": "unknown", "reason": "landcover_coverage_incomplete"}
+    elif suitability >= rules["tree_suitability_min"]:
+        trees = {"level": "likely", "reason": "vegetation_suitability_candidate"}
+    else:
+        trees = {"level": "not_possible_here", "reason": "no_tree_supporting_cover"}
+    deposits, fertile = evidence["deposits"], evidence["fertility"]["suitability"]
+    central_deposit = deposits["status"] == "available" and (
+        deposits["ore"]["central"] > 0 or deposits["oil"]["central"] > 0
+    )
+    if central_deposit:
+        resources = {"level": "likely", "reason": "recorded_deposit_in_central_tiles"}
+    elif landcover_ok and fertile >= rules["fertile_suitability_min"]:
+        resources = {"level": "likely", "reason": "crop_and_pasture_cover"}
+    elif deposits["status"] == "available" and deposits["records"] > 0:
+        resources = {
+            "level": "unknown",
+            "reason": "recorded_deposit_outside_central_tiles",
+        }
+    elif landcover_ok and deposits["status"] == "available":
+        resources = {
+            "level": "unknown",
+            "reason": "no_recorded_deposit_or_fertile_cover",
+        }
+    elif landcover_ok:
+        resources = {"level": "unknown", "reason": "deposit_evidence_unavailable"}
+    elif deposits["status"] == "available":
+        resources = {"level": "unknown", "reason": "landcover_evidence_unavailable"}
+    else:
+        resources = {"level": "unknown", "reason": "no_place_evidence"}
+    return {
+        "evidence": evidence,
+        "resources": {**resources, "evidence": evidence},
+        "trees": {**trees, "evidence": evidence},
+    }
+
+
+def place_measures(evidence):
+    """The values the exporter report carries, beside the final plan's own."""
+    return {
+        "tree_suitability": evidence["vegetation"]["tree_suitability"],
+        "tree_cover_share_of_central_land": evidence["vegetation"][
+            "tree_cover_share_of_central_land"
+        ],
+        "vegetated_share_of_central_land": evidence["vegetation"][
+            "vegetated_share_of_central_land"
+        ],
+        "landcover_coverage_of_central_land": evidence["landcover"][
+            "coverage_of_central_land"
+        ],
+        "crop_share_of_central_land": evidence["fertility"][
+            "crop_share_of_central_land"
+        ],
+        "fertile_land_suitability": evidence["fertility"]["suitability"],
+        "recorded_ore_central_weight": evidence["deposits"]["ore"]["central_weight"],
+        "recorded_oil_central_weight": evidence["deposits"]["oil"]["central_weight"],
+    }
+
+
+def evidence_definitions(ledger):
+    """Measure definitions come from the one ledger, never a second catalog."""
+    return {
+        metric_id: metric["definition"]
+        for capability in ledger["capabilities"]
+        for metric_id, metric in capability.get("evidence_metrics", {}).items()
+    }
+
+
 def check(data, ledger):
     """Assess normalized geometry; only exact-context native receipts qualify paths."""
     if data.get("schema") != 1 or data.get("mode") not in ("export", "estimate"):
@@ -350,6 +655,14 @@ def check(data, ledger):
             "reason": "dry_low_slope_samples",
             "fraction": buildable,
         }
+    if data.get("place") is not None:
+        if not grid:
+            raise ValueError("Place evidence needs a capability grid")
+        if not ledger.get("model_rules", {}).get("place"):
+            raise ValueError("Ledger lacks place evidence rules")
+        place = place_capabilities(grid, data["place"], ledger["model_rules"]["place"])
+        result["resources"] = place["resources"]
+        result["trees"] = place["trees"]
     return qualify_exact_export(
         {
             "schema": 1,
@@ -408,6 +721,89 @@ def stock_band(value, metric):
     )
 
 
+LANDCOVER_SOURCE = (
+    "ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data "
+    "(2021) processed by ESA WorldCover consortium"
+)
+EVIDENCE_SOURCE = "USGS MRDS, MSHA Mines, NETL WELLS (tools/map-factory/evidence.py)"
+
+
+def _landcover_nodes(raw, size):
+    """Sample the writer's 1728-square north-first 10 m classes at the grid nodes.
+
+    Node r stands at game z = half - r * spacing, which is native row
+    6.4 * r; the containing 10 m cell is floor(). This is the same lattice the
+    pan-time reader samples the WorldCover overviews at.
+    """
+    native = 1728
+    out = []
+    for r in range(size):
+        row = min(native - 1, int(math.floor(6.4 * r)))
+        base = row * native
+        for c in range(size):
+            out.append(int(raw[base + min(native - 1, int(math.floor(6.4 * c)))]))
+    return out
+
+
+def _read_input(folder, name):
+    """Fixture layers ship gzipped; prepared folders usually do not."""
+    direct, packed = folder / name, folder / (name + ".gz")
+    if direct.exists():
+        return direct.read_bytes()
+    if packed.exists():
+        return gzip.decompress(packed.read_bytes())
+    raise FileNotFoundError(direct)
+
+
+def place_input(folder, size=271):
+    """The place-evidence block the shared model reads, from committed inputs.
+
+    Land cover comes from the writer's own landcover.u8.gz; deposits from the
+    exporter's evidence.json. Missing inputs stay explicitly unavailable rather
+    than becoming zeros, so the model can tell "not recorded" from "absent".
+    """
+    import gzip
+
+    place = {
+        "deposits": {"status": "unavailable", "source": EVIDENCE_SOURCE, "records": []}
+    }
+    landcover_path = folder / "landcover.u8.gz"
+    if landcover_path.exists():
+        raw = gzip.decompress(landcover_path.read_bytes())
+        if len(raw) != 1728 * 1728:
+            raise ValueError("Land cover must be the writer's 1728-square grid")
+        ground = np.frombuffer(_read_input(folder, "terrain.u16"), dtype="<u2")
+        ground = ground.reshape(1081, 1081).astype(float) / 64
+        place["terrain_m"] = [
+            float(ground[1080 - 4 * r, 4 * c]) for r in range(size) for c in range(size)
+        ]
+        place["landcover"] = {
+            "status": "available",
+            "fidelity": "prepared_landcover_10m",
+            "source": LANDCOVER_SOURCE,
+            "cell_m": 10.0,
+            "sample_m": 10.0,
+            "tiles": [],
+            "values": _landcover_nodes(raw, size),
+        }
+    evidence_path = folder / "evidence.json"
+    if evidence_path.exists():
+        found = json.loads(evidence_path.read_text()).get("evidence", [])
+        place["deposits"] = {
+            "status": "available",
+            "source": EVIDENCE_SOURCE,
+            "records": [
+                {
+                    key: record[key]
+                    for key in ("kind", "x", "z", "weight")
+                    if key in record
+                }
+                for record in found
+            ],
+        }
+    return place
+
+
 def prepared_input(folder):
     """Read final south-first grids; conservatively block-min to north-first 64 m."""
     depth = (
@@ -442,6 +838,7 @@ def prepared_input(folder):
         },
         "grid": {"size": 271, "spacing_m": 64, "depth_m": coarse.ravel().tolist()},
         "buildable_fraction": float(dry[central].mean()),
+        "place": place_input(folder),
     }
 
 
@@ -489,9 +886,13 @@ def assess_prepared(folder, native_context=None):
                     for r in ("ore", "oil", "fertility")
                 )
             )
+            current = report["capabilities"][key]
             report["capabilities"][key] = {
                 "level": "likely" if present else "not_possible_here",
                 "reason": "final_plan_present" if present else "final_plan_empty",
+                **(
+                    {"evidence": current["evidence"]} if current.get("evidence") else {}
+                ),
             }
     packages = list(folder.glob("*.crp"))
     if len(packages) == 1:
@@ -507,12 +908,16 @@ def assess_prepared(folder, native_context=None):
                 "incoming" + native
             ]
         report["artifact_sha256"] = hashlib.sha256(packages[0].read_bytes()).hexdigest()
+    evidence = report["capabilities"]["trees"].get("evidence")
+    if evidence:
+        values.update(place_measures(evidence))
+    definitions = {**STOCK_MEASURES, **evidence_definitions(ledger)}
     report["fidelity"] = "prepared_grids"
     report["metrics"] = {
         key: {
             "value": value,
             "band": stock_band(value, ledger["stock_reference"]["metrics"].get(key)),
-            **({"definition": STOCK_MEASURES[key]} if key in STOCK_MEASURES else {}),
+            **({"definition": definitions[key]} if key in definitions else {}),
         }
         for key, value in values.items()
     }

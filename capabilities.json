@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "model": "square-capabilities-v4",
+  "model": "square-capabilities-v5",
   "updated_at": "2026-11-21",
   "game": "Cities: Skylines 1, 1.21.1-f9",
   "source_revision": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
-  "scope": "Initial geographic and authored-export capability estimates. Not a digital twin of the simulation. Real-connections generation remains opt-in; the public writer still uses template corridors.",
+  "scope": "Initial geographic and authored-export capability estimates. Trees and resources now carry a place-evidence candidate model; the export plan's tree budget and balanced ore/oil top-up stay separate. Not a digital twin of the simulation. Real-connections generation remains opt-in; the public writer still uses template corridors.",
   "promise_levels": {
     "promised": "The stated capability has relevant native evidence bound to this exact export and test conditions. Never inferred from stock-map ranks, metadata counts or geographic similarity.",
     "likely": "The deterministic model found a candidate. Game behavior or simulation stability remains unverified for this export.",
@@ -20,6 +20,63 @@
       "central_half_extent_m": 4800,
       "status": "provisional_not_native_fitted",
       "limits": "Four-connected block-min depth grid with one-cell shore clearance; a component must reach the central 25 tiles and two separated edge points. Bounds are modelling choices, not measured game limits. The existing ship generator can smooth a path outside this corridor; an authored route still needs its own check."
+    },
+    "place": {
+      "scope": "Vegetation suitability and recorded resource evidence on the pan-time 271-node (64 m) lattice, central 25 tiles. Not the export's planted tree budget and not its balanced ore/oil top-up.",
+      "central_half_extent_m": 4800,
+      "land_depth_m": 0.25,
+      "landcover_min_coverage": 0.9,
+      "tree_suitability_min": 0.05,
+      "fertile_suitability_min": 0.02,
+      "tree_slope_limit_percent": 50,
+      "tree_slope_taper_percent": 10,
+      "fertile_slope_full_percent": 6,
+      "fertile_slope_none_percent": 14,
+      "forest_classes": [
+        10,
+        95
+      ],
+      "vegetated_classes": [
+        10,
+        20,
+        30,
+        40,
+        90,
+        95,
+        100
+      ],
+      "crop_classes": [
+        40
+      ],
+      "tree_weight": {
+        "10": 1.0,
+        "95": 1.0,
+        "20": 0.35,
+        "90": 0.15,
+        "30": 0.03,
+        "100": 0.05,
+        "60": 0.02,
+        "40": 0.0
+      },
+      "fertile_weight": {
+        "40": 1.0,
+        "30": 0.7,
+        "90": 0.3,
+        "20": 0.15
+      },
+      "landcover_source": "ESA WorldCover 2021 v200, 10 m, CC-BY 4.0, the same document tools/map-factory/landcover.py reads",
+      "deposit_source": "USGS MRDS through tools/map-factory/evidence.py; the browser reader uses mapgen.js deposits (MRDS only)",
+      "fidelity": {
+        "pan_time": "WorldCover overview nearest the 64 m lattice, bounded to 262144 pixels per tile, sampled at the same 271 nodes as the depth grid; capture-time terrain screens slope.",
+        "prepared": "The writer's own 1728-square 10 m WorldCover grid sampled at the same 271 nodes; prepared terrain screens slope. Patch coherence and the tree budget stay in the export plan."
+      },
+      "limits": [
+        "Land cover says what a place can host. It is not the exported plan's tree count or resource bytes.",
+        "Balanced ore/oil top-ups fill each export to stock shares; they are not place evidence and never count here.",
+        "A missing deposit record is not geographic absence: MRDS covers the United States only, and MSHA/NETL are exporter-only.",
+        "The slope screen uses capture or prepared terrain at 64 m; the writer grades trees at 16 m, so steep small features read flatter here.",
+        "Thresholds are candidate levels awaiting game observation, not native constants."
+      ]
     }
   },
   "stock_reference": {
@@ -9014,54 +9071,117 @@
       "id": "resources",
       "name": "Resources",
       "icon": "resources",
-      "status": "existing_export_checks",
-      "definition": "Ore, oil and fertile land are encoded in the unlockable 25 tiles; report their abundance, patch size and accessibility separately from extraction gameplay.",
-      "exporter_check": "tools/map-factory/capabilities.py:assess_prepared",
-      "browser_check": null,
+      "status": "place_evidence_candidate",
+      "definition": "Recorded ore and oil deposits from USGS MRDS, and fertile land from crop, pasture, shrub and wetland cover, reported separately for the central 25 tiles. The exporter's balanced ore/oil top-up is not evidence and is not counted.",
+      "exporter_check": "tools/map-factory/capabilities.py:place_capabilities",
+      "browser_check": "capability-model.js:placeCapabilities",
       "existing_checks": [
         "tools/map-factory/resources.py",
         "tools/map-factory/report_connections.py:outer_ring",
         "tools/map-factory/RESOURCE_QUALIFICATION.md"
       ],
       "promise_levels": {
-        "promised": "Native resource readback matches the exact export; extraction is a separate test.",
-        "likely": "Final resource plan contains accessible cells.",
-        "not_possible_here": "Specified resource absent from the final plan.",
-        "unknown": "Land cover, deposits or final resource plan not evaluated."
+        "promised": "Native resource readback matches the exact export; extraction is a separate test. No native receipt exists for this model.",
+        "likely": "A deposit record lies in the central 25 tiles, or land cover makes fertile land above the candidate threshold. The reason names which measure.",
+        "not_possible_here": "A final export plan contains none of the resource grids. Place evidence cannot establish absence, so the live check never returns this level.",
+        "unknown": "No deposit record is not absence, and missing or incomplete land cover cannot rule a resource out."
       },
       "metric_ids": [
         "ore_central_land_fraction",
         "oil_central_land_fraction",
         "fertility_central_land_fraction"
       ],
+      "evidence_metrics": {
+        "recorded_ore_central_weight": {
+          "name": "Recorded ore deposits",
+          "unit": "weight",
+          "definition": "Sum of recorded ore-deposit weights inside the central 25 tiles: MRDS producers 1.0, past producers 0.8, prospects 0.35, MSHA mines weighted by status. A record, not a measured reserve."
+        },
+        "recorded_oil_central_weight": {
+          "name": "Recorded oil deposits",
+          "unit": "weight",
+          "definition": "Sum of recorded oil and gas deposit weights inside the central 25 tiles from the same sources. Wells contribute through the exporter's density step, which the live check does not run."
+        },
+        "crop_share_of_central_land": {
+          "name": "Crop cover share of central land",
+          "unit": "fraction",
+          "definition": "Share of the central 25 tiles' land nodes mapped as cropland (WorldCover 40). One crop measure, not a resource total."
+        },
+        "fertile_land_suitability": {
+          "name": "Fertile land suitability",
+          "unit": "0-1",
+          "definition": "Mean over the central 25 tiles' land nodes of WorldCover fertile weight (cropland 1.0, grassland 0.7, wetland 0.3, shrub 0.15) times flatness (full below 6 percent slope, none at 14 percent and above)."
+        },
+        "landcover_coverage_of_central_land": {
+          "name": "Land-cover coverage",
+          "unit": "fraction",
+          "definition": "Share of the central 25 tiles' land nodes with a WorldCover class. Class 0 is no data, not bare ground."
+        }
+      },
+      "source_coverage": {
+        "land cover": "ESA WorldCover 2021 v200 at 10 m, global, CC-BY 4.0. The pan-time reader samples a WorldCover overview of the same document, so its shares are a coarse estimate of the 10 m grid the exporter uses.",
+        "deposits": "USGS MRDS for the square's bounding box, United States only. The exporter also reads MSHA Mines and NETL WELLS; the browser reader does not. Missing records are missing coverage, not absence.",
+        "terrain": "Capture heightmap from AWS Terrain Tiles / Terrarium at pan time, the writer's prepared terrain at export. Slope is screened at 64 m.",
+        "stock bridge": "None claimed. The stock catalogs forest bytes and budgeted tree counts from 104 finished maps; WorldCover tree cover and the planned tree budget are not the same quantity, so no stock band is attached to these measures."
+      },
+      "fidelity": "The live check reads WorldCover cover and one MRDS record query per square. The exporter reads the full 10 m land cover plus MRDS, MSHA and NETL wells. Neither is a final resource plan: balanced mode tops ore and oil up to stock shares after this evidence is recorded.",
       "game_agreement": [],
-      "limits": "Balanced mode adds synthetic ore/oil to stock-map shares. Distinguish measured deposits from generated gameplay resources."
+      "limits": "Recorded deposits are public records, not measured reserves, and absence of a record is not absence of a deposit. Balanced ore/oil top-ups, patch shape and extraction gameplay stay in the export plan. Cropland cover is one characteristic of fertile land, not a resource total."
     },
     {
       "id": "trees",
       "name": "Trees",
       "icon": "trees",
-      "status": "existing_export_checks",
-      "definition": "Biome-appropriate tree instances and forest resource cover are placed across the square, with room for starting growth rather than a uniform tree quota alone.",
-      "exporter_check": "tools/map-factory/capabilities.py:assess_prepared",
-      "browser_check": null,
+      "status": "place_evidence_candidate",
+      "definition": "Land cover that can host trees, weighted by WorldCover class and screened by the game's own tree-brush slope limit, over the central 25 tiles. Separate from the exporter's planted tree count, which is a 180,000-tree default budget rather than natural abundance.",
+      "exporter_check": "tools/map-factory/capabilities.py:place_capabilities",
+      "browser_check": "capability-model.js:placeCapabilities",
       "existing_checks": [
         "tools/map-factory/resources.py",
         "tools/map-factory/report_connections.py:outer_ring",
         "tools/map-factory/RESOURCE_QUALIFICATION.md"
       ],
       "promise_levels": {
-        "promised": "Exact-export native tree/resource readback and visual check pass.",
-        "likely": "Final tree plan contains instances and forest cover.",
-        "not_possible_here": "Current final plan contains none.",
-        "unknown": "No tree plan or land-cover observation."
+        "promised": "Exact-export native tree readback and a visual check pass. No native receipt exists for this model.",
+        "likely": "Land cover in the central 25 tiles supports trees above the candidate threshold, with its measured scope named. The export's own tree plan is separate evidence.",
+        "not_possible_here": "Complete land cover shows no tree-supporting cover in the central 25 tiles. The player can still plant trees there.",
+        "unknown": "No land cover, too little of the central land covered, no central land, or the evidence could not be loaded."
       },
       "metric_ids": [
         "trees_total",
         "forest_central_land_fraction"
       ],
+      "evidence_metrics": {
+        "tree_suitability": {
+          "name": "Tree suitability",
+          "unit": "0-1",
+          "definition": "Mean over the central 25 tiles' land nodes of WorldCover tree weight (forest and mangrove 1.0, shrub 0.35, wetland 0.15, moss 0.05, grassland 0.03, bare 0.02, cropland 0) times the game tree-brush slope taper (full below 40 percent, none at 50 percent and above)."
+        },
+        "tree_cover_share_of_central_land": {
+          "name": "Tree cover share of central land",
+          "unit": "fraction",
+          "definition": "Share of the central 25 tiles' land nodes whose WorldCover class is tree cover or mangrove. The game's forest byte is a different measure and is not compared with it."
+        },
+        "vegetated_share_of_central_land": {
+          "name": "Vegetated share of central land",
+          "unit": "fraction",
+          "definition": "Share of the central 25 tiles' land nodes whose WorldCover class is tree, shrub, grass, crop, wetland, mangrove or moss."
+        },
+        "landcover_coverage_of_central_land": {
+          "name": "Land-cover coverage",
+          "unit": "fraction",
+          "definition": "Share of the central 25 tiles' land nodes with a WorldCover class. Class 0 is no data, not bare ground."
+        }
+      },
+      "source_coverage": {
+        "land cover": "ESA WorldCover 2021 v200 at 10 m, global, CC-BY 4.0. The pan-time reader samples a WorldCover overview of the same document, so its shares are a coarse estimate of the 10 m grid the exporter uses.",
+        "deposits": "USGS MRDS for the square's bounding box, United States only. The exporter also reads MSHA Mines and NETL WELLS; the browser reader does not. Missing records are missing coverage, not absence.",
+        "terrain": "Capture heightmap from AWS Terrain Tiles / Terrarium at pan time, the writer's prepared terrain at export. Slope is screened at 64 m.",
+        "stock bridge": "None claimed. The stock catalogs forest bytes and budgeted tree counts from 104 finished maps; WorldCover tree cover and the planned tree budget are not the same quantity, so no stock band is attached to these measures."
+      },
+      "fidelity": "The live check reads capture-time terrain and a WorldCover overview at the depth grid's 271 nodes. The exporter reads prepared terrain and the full 10 m land cover at the same nodes. Neither replaces the export plan or a native check.",
       "game_agreement": [],
-      "limits": "A count is not visual quality or biome correctness. Vanilla tree budget and central versus outer-ring coverage remain separate."
+      "limits": "A suitability mean is not a tree count, biome correctness or visual quality. The tree budget (180,000 by default, editor cap 250,000) is a separate export decision, not natural abundance."
     },
     {
       "id": "water_risk",

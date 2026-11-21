@@ -90,6 +90,68 @@ comparison is the prepared report's. The policy is `CAPTURE_STOCK` in
 supporting it. The readout clears on pan, a superseded or failed capture leaves no
 band, and its rows take the same hover, keyboard focus and tap as the icons.
 
+## Vegetation and resources, live
+
+The Trees and Resources icons are a place-evidence candidate model, not the
+export plan. Both cores read one normalized `place` block on the same 271-node
+(64 m) lattice as the depth grid: `terrain_m`, `landcover.values`, and
+`deposits.records`. `capability-model.js:placeCapabilities` and
+`capabilities.py:place_capabilities` are mirrored; the Python parity test
+compares them byte for byte on constructed evidence and both parsers on a real
+MRDS response.
+
+| Evidence | Read at pan time | Read at export |
+|---|---|---|
+| Land cover | ESA WorldCover 2021 v200, the overview nearest the 64 m lattice, bounded to 262144 pixels per tile, sampled at the lattice nodes | the writer's own 1728-square 10 m `landcover.u8.gz`, sampled at the same nodes |
+| Deposits | USGS MRDS for the square's bounding box (the same browser reader the download path uses) | MRDS, MSHA Mines and NETL WELLS through `evidence.py` |
+| Terrain | the capture heightmap, for the tree-brush slope screen | the prepared terrain |
+
+Definitions and thresholds live in `capabilities.json:model_rules.place`; the
+tree and fertile weights are asserted equal to `resources.TREE_WEIGHT` and
+`FERTILE_WEIGHT`, and the slope cuts to `resources.py`'s own taper, so the live
+model cannot drift from the writer silently.
+
+- **Trees** weighs WorldCover classes by the writer's own tree weights and
+  multiplies by the game tree-brush taper (full below 40 percent slope, zero at
+  50 and above). It reports tree-cover share, vegetated share and a weighted
+  suitability over the central 25 tiles' dry land. It does **not** report the
+  exporter's planted tree count: 180,000 is a budget, not natural abundance.
+- **Resources** reports recorded deposits and fertile cover separately. A
+  deposit record in the central tiles, or crop/pasture cover above the candidate
+  threshold, makes a Maybe. Balanced ore/oil top-ups fill each export to stock
+  shares after this evidence is gathered; they are not evidence and never count
+  here.
+- **Never a No for resources.** MRDS covers the United States only, and the
+  exporter's other sources are not queried live, so a missing record is missing
+  coverage, not absence. The live check returns `unknown` where it cannot tell.
+  Trees return a scoped No only when complete land cover shows no
+  tree-supporting cover; the player can still plant trees.
+- **No stock comparison.** The 104-map catalog measures the game's planted
+  forest bytes and budgeted tree counts. WorldCover tree cover is not either
+  quantity, so no bridge is claimed and no stock band is attached. The ledger
+  records this as the reason rather than showing a made-up band.
+
+### What the pan-time read costs
+
+Measured on the five committed squares from carbon, cold, one square each:
+three HTTP range requests per square, 197 kB to 328 kB, 0.3 s to 0.9 s for land
+cover, and one MRDS request at about 0.3 s. The chosen overview was 73.7 m per
+pixel at four squares and 36.9 m at Rio; the read is bounded, cancellable, and
+runs in `capability-evidence-worker.js`, which the view terminates on pan.
+
+### What it is worth
+
+The 271-node lattice reproduces the central window's 10 m WorldCover shares
+within 0.0025 absolute on all five committed squares for tree cover, crop cover
+and vegetated share, while reading 2.4 percent of the cells. The overview read
+used at pan time reproduced the same 10 m tree-cover share within 0.032, crop
+within 0.001, and found no no-data cells. Both are measured in
+`test_capabilities.py`; the overview comparison is recorded here because it
+needs the network.
+
+Neither number makes this a plan or a native check. Patch coherence, the tree
+budget, balanced top-ups, reserve size and gameplay remain outside it.
+
 ## Exact-export native qualification
 
 `check` / `checkCapabilities` accept an optional `export_identity` containing the

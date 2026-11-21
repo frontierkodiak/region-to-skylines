@@ -10,6 +10,8 @@ PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
     "capabilities.json",
+    "capability-evidence.js",
+    "capability-evidence-worker.js",
     "capability-inputs.js",
     "capability-ledger.mjs",
     "capability-model.js",

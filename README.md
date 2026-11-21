@@ -82,9 +82,11 @@ normalized inputs; browser approximations are not final exported-water parity.
 
 The preview's icon row updates after a pan and explains each result on hover,
 keyboard focus or tap. It uses preliminary terrain/water and mapped-transport
-estimates: a candidate is **Maybe**, and unmodeled fresh-water, resource and tree
-checks stay **Unknown**. It does not promote game promises or change the public
-writer's connection policy.
+estimates: a candidate is **Maybe**. Trees and resources read ESA WorldCover land
+cover and recorded USGS deposits for the central tiles; their detail names the
+measured scope and keeps the export's planted-tree budget and balanced ore/oil
+top-up separate. Fresh-water checks stay **Unknown**. It does not promote game
+promises or change the public writer's connection policy.
 
 ## Water-risk check
 

@@ -2,6 +2,10 @@
 // Full export reports use final prepared grids through capabilities.py instead.
 import { captureInputs, oceanMask } from "./inputs.js";
 import { measureStockMetrics } from "./capability-model.js";
+import { LANDCOVER_SOURCE, MRDS_SOURCE, PLACE_GRID, requestDeposits, requestLandcover } from "./capability-evidence.js";
+
+/** The 271-node lattice the capability grid uses, sampled from a 1081-square grid. */
+const NODES = PLACE_GRID.size;
 
 /**
  * What the stock maps' measures can honestly say at capture fidelity. Measured on
@@ -36,16 +40,18 @@ function captureDepth({ game, banks, seaLevel, geometry }) {
   return depth;
 }
 
-export function estimateInputs(capture, depth = captureDepth(capture)) {
+export function estimateInputs(capture, depth = captureDepth(capture), evidence = {}) {
   const { game, geometry } = capture;
-  const n = 1081, coarse = 271;
-  const ship = new Float64Array(coarse ** 2);
+  const n = 1081, coarse = NODES;
+  const ship = new Float64Array(coarse ** 2), terrain = new Array(coarse ** 2);
   let dry = 0, central = 0;
   for (let r = 0; r < coarse; r++) for (let c = 0; c < coarse; c++) {
     let minimum = Infinity;
     for (let y = r * 4; y < Math.min(n, r * 4 + 4); y++) for (let x = c * 4; x < Math.min(n, c * 4 + 4); x++)
       minimum = Math.min(minimum, depth[y * n + x]);
     ship[r * coarse + c] = minimum;
+    // The same node the exporter reads from its prepared terrain.
+    terrain[r * coarse + c] = game[(r * 4) * n + c * 4];
     const y = r * 4, x = c * 4, i = y * n + x;
     if (x >= 240 && x < 840 && y >= 240 && y < 840) {
       const dx = (game[i + 1] - game[i - 1]) / 32, dy = (game[i + n] - game[i - n]) / 32;
@@ -56,7 +62,12 @@ export function estimateInputs(capture, depth = captureDepth(capture)) {
   const roads = geometry.roads ?? [];
   return { schema: 1, mode: "estimate", grid: { size: coarse, spacing_m: 64, depth_m: Array.from(ship) },
     transport: { road: roads.some((r) => ["motorway", "trunk"].includes(r.class)), rail: roads.some((r) => r.class === "rail"), air: !!geometry.airport },
-    buildable_fraction: central ? dry / central : null };
+    buildable_fraction: central ? dry / central : null,
+    place: {
+      terrain_m: terrain,
+      landcover: evidence.landcover ?? { status: "unavailable", source: LANDCOVER_SOURCE, fidelity: "unavailable", tiles: [], values: null },
+      deposits: evidence.deposits ?? { status: "unavailable", source: MRDS_SOURCE, records: [] },
+    } };
 }
 
 /** Captures run north-first; the stock measures read the game's south-first order. */
@@ -71,9 +82,19 @@ export function stockEstimate(capture, depth = captureDepth(capture)) {
 }
 
 export async function captureEstimate(sq, { signal } = {}) {
-  const capture = await captureInputs(sq, { signal, includeRunways: true });
+  // One terrain capture feeds the icon row, the stock comparison and the slope
+  // screen; land cover and deposits are the only extra reads.
+  const capturePromise = captureInputs(sq, { signal, includeRunways: true });
+  const coverPromise = requestLandcover(sq, { signal });
+  const depositPromise = requestDeposits(sq, { signal }).catch((error) => {
+    if (signal?.aborted) throw error;
+    return { status: "unavailable", source: MRDS_SOURCE, records: [] };
+  });
+  const capture = await capturePromise;
+  if (signal?.aborted) throw signal.reason;
+  const [landcover, deposits] = await Promise.all([coverPromise, depositPromise]);
   if (signal?.aborted) throw signal.reason;
   // One fetch and one depth pass feed both the icon row and the stock comparison.
   const depth = captureDepth(capture);
-  return { input: estimateInputs(capture, depth), stock: stockEstimate(capture, depth), square: capture.geometry.sq };
+  return { input: estimateInputs(capture, depth, { landcover, deposits }), stock: stockEstimate(capture, depth), square: capture.geometry.sq };
 }

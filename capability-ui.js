@@ -23,6 +23,31 @@ const REASONS = {
 };
 const BANDS = { below_p25: "Below p25", typical: "Typical", above_p75: "Above p75", not_comparable: "Not comparable" };
 
+// Place evidence reasons state the measured values and their scope. "Land
+// cover", "recorded" and "suitability" are deliberate: none of these is the
+// export's planted trees, resource bytes or a native check.
+const pct = (value) => (Number.isFinite(value) ? `${Math.round(value * 100)}%` : "—");
+const score = (value) => (Number.isFinite(value) ? String(Number(value.toFixed(2))) : "—");
+const samples = (evidence) => evidence.landcover.sample_m ? `${Math.round(evidence.landcover.sample_m)} m WorldCover samples` : "WorldCover samples";
+const PLACE_DETAIL = {
+  vegetation_suitability_candidate: (e) => `Tree cover on ${pct(e.vegetation.tree_cover_share_of_central_land)} of the central tiles' land, weighted suitability ${score(e.vegetation.tree_suitability)} at ${samples(e)}. Land cover, not the export's planted trees.`,
+  no_tree_supporting_cover: () => "Land cover in the central tiles supports no trees. The player can still plant them.",
+  no_landcover_evidence: () => "Land cover could not be loaded, so trees are unknown. Move the square to retry.",
+  landcover_coverage_incomplete: (e) => `Land cover covers ${pct(e.landcover.coverage_of_central_land)} of the central tiles' land, too little to judge.`,
+  no_central_land: () => "The central tiles have no dry land to judge trees on.",
+  recorded_deposit_in_central_tiles: (e) => `${[
+    e.deposits.ore.central ? `${e.deposits.ore.central} ore` : "",
+    e.deposits.oil.central ? `${e.deposits.oil.central} oil` : "",
+  ].filter(Boolean).join(" and ")} deposit${e.deposits.ore.central + e.deposits.oil.central === 1 ? "" : "s"} recorded in the central tiles (USGS MRDS). Records, not measured reserves.`,
+  crop_and_pasture_cover: (e) => `Crop and pasture cover on ${pct(e.fertility.crop_share_of_central_land)} of the central tiles suggests fertile land; ore and oil are not established.`,
+  recorded_deposit_outside_central_tiles: (e) => `${e.deposits.records} deposit${e.deposits.records === 1 ? "" : "s"} recorded in this square, none in the central tiles.`,
+  no_recorded_deposit_or_fertile_cover: () => "No deposit recorded and no crop or pasture cover in the central tiles. A missing record is not absence.",
+  deposit_evidence_unavailable: () => "No fertile cover found, and deposits could not be loaded. Unknown, not absent.",
+  landcover_evidence_unavailable: () => "Deposits were checked; land cover could not be loaded, so fertile land is unknown.",
+  no_place_evidence: () => "Neither land cover nor deposits could be loaded. Move the square to retry.",
+};
+const placeDetail = (result) => (result?.evidence && PLACE_DETAIL[result.reason] ? PLACE_DETAIL[result.reason](result.evidence) : null);
+
 export function mountCapabilities(root) {
   const row = root.querySelector(".capability-row"), detail = root.querySelector(".capability-detail"), status = root.querySelector(".capability-status");
   const stockNote = root.querySelector(".stock-basis"), stockList = root.querySelector(".stock-list");
@@ -133,7 +158,7 @@ export function mountCapabilities(root) {
         const [mark, name] = LEVELS[result.level];
         button.dataset.level = result.level; button.querySelector(".capability-mark").textContent = mark;
         const area = id === "buildable" && result.fraction != null ? ` ${Math.round(result.fraction * 100)}% of sampled central land qualifies.` : "";
-        button.title = `${cap.name}: ${name}. ${REASONS[result.reason] ?? cap.limits}${area}`;
+        button.title = `${cap.name}: ${name}. ${placeDetail(result) ?? REASONS[result.reason] ?? cap.limits}${area}`;
         button.setAttribute("aria-label", button.title);
       }
       status.textContent = `${square.lat.toFixed(3)}, ${square.lon.toFixed(3)} · estimate`;

@@ -11,8 +11,20 @@ const { chromium, webkit } = await import(pathToFileURL(resolve(modulePath, "ind
 const root = resolve(directory), out = resolve(output);
 await mkdir(out, { recursive: true });
 const section = (await readFile(resolve(root, "index.html"), "utf8")).match(/<section id="capabilities"[\s\S]*?<\/section>/)[0];
+// WorldCover has no CORS headers, so the page reads it through the same
+// /worldcover/ rewrite the deployed site and dev.mjs use.
+const WORLDCOVER = "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/";
+const TILE = /^\/worldcover\/(ESA_WorldCover_10m_2021_v200_[NS]\d{2}[EW]\d{3}_Map\.tif)$/;
 const server = createServer(async (req, res) => {
   const url = new URL(req.url, "http://local");
+  const tile = url.pathname.match(TILE);
+  if (tile) {
+    const upstream = await fetch(WORLDCOVER + tile[1], { headers: req.headers.range ? { Range: req.headers.range } : {} });
+    const headers = { "Cache-Control": "public, max-age=31536000, immutable" };
+    for (const name of ["content-type", "content-length", "content-range", "accept-ranges"]) if (upstream.headers.get(name)) headers[name] = upstream.headers.get(name);
+    res.writeHead(upstream.status, headers);
+    return res.end(Buffer.from(await upstream.arrayBuffer()));
+  }
   if (url.pathname === "/__ui_probe") {
     res.setHeader("Content-Type", "text/html");
     return res.end(`<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/style.css"><main><aside id="panel">${section}</aside></main><script type="module">import {mountCapabilities} from '/capability-ui.js';window.capabilityProbe=mountCapabilities(document.querySelector('#capabilities'));</script>`);
@@ -41,11 +53,19 @@ try {
           median_land_slope_percent: {comparable:false, detail:'Slope needs the prepared terrain and water mask; constructed UI input only.'},
           wet_central_fraction: {comparable:false, detail:'Carved-bed depth is not the prepared water level; constructed UI input only.'},
         };
+        const N = 17, total = N * N, flat = new Array(total).fill(100);
+        const cover = (cls) => ({status:'available', source:'ESA WorldCover (constructed)', fidelity:'constructed', cell_m:10, sample_m:40, tiles:['N00E000'], values:new Array(total).fill(cls)});
+        const place = (sq, depth) => sq.lat === 5
+          ? {terrain_m:flat, landcover:{status:'unavailable', source:'ESA WorldCover (constructed)'}, deposits:{status:'unavailable', source:'USGS MRDS (constructed)', records:[]}}
+          : sq.lat === 1
+            ? {terrain_m:flat, landcover:cover(50), deposits:{status:'available', source:'USGS MRDS (constructed)', records:[]}}
+            : {terrain_m:flat, landcover:cover(10), deposits:{status:'available', source:'USGS MRDS (constructed)', records:[{kind:'ore',x:0,z:0,weight:1}]}};
         export async function captureEstimate(sq) {
           await new Promise((r) => setTimeout(r, sq.lat === 4 ? 1000 : 60));
           if (sq.lat === 3) throw new Error('constructed data failure');
+          const depth = new Array(total).fill(sq.lat === 1 ? 0 : 8);
           return { square:sq,
-            input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:17,spacing_m:1080,depth_m:new Array(289).fill(sq.lat === 1 ? 0 : 8)}},
+            input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq, depth)},
             stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
         }` }));
       await page.goto(origin + "/__ui_probe");
@@ -56,6 +76,14 @@ try {
       assert.equal(await page.locator('[data-capability="ship"]').getAttribute("data-level"), "unknown");
       await page.locator('[data-capability="ship"]').focus();
       assert.match(await page.locator(".capability-detail").textContent(), /No broad deep corridor/);
+      // Constructed place evidence: built-up land with no deposit record is a
+      // scoped No for trees and Unknown for resources, never a resource No.
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "not_possible_here");
+      await page.locator('[data-capability="trees"]').focus();
+      assert.match(await page.locator(".capability-detail").textContent(), /supports no trees/);
+      await page.locator('[data-capability="resources"]').focus();
+      assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "unknown");
+      assert.match(await page.locator(".capability-detail").textContent(), /A missing record is not absence/);
       // Constructed low/typical/high stock bands; the two capture-limited measures stay uncompared.
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "below_p25");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "300 m");
@@ -76,6 +104,16 @@ try {
       await page.evaluate(() => window.capabilityProbe.update({ lat: 2, lon: 0 }));
       assert.equal(await page.locator('[data-capability="ship"]').getAttribute("data-level"), "likely");
       assert.match(await page.locator(".capability-detail").textContent(), /game's ship path/);
+      // A positive icon is only Maybe, and its detail names the land-cover
+      // measure and the recorded deposit separately from the export plan.
+      await page.locator('[data-capability="trees"]').focus();
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "likely");
+      assert.match(await page.locator(".capability-detail").textContent(), /Land cover, not the export's planted trees/);
+      assert.match(await page.locator(".capability-detail").textContent(), /WorldCover samples/);
+      await page.locator('[data-capability="resources"]').focus();
+      assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "likely");
+      assert.match(await page.locator(".capability-detail").textContent(), /ore deposit recorded in the central tiles/);
+      assert.match(await page.locator(".capability-detail").textContent(), /Records, not measured reserves/);
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "typical");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "700 m");
       await page.evaluate(() => window.capabilityProbe.update({ lat: 5, lon: 0 }));
@@ -83,6 +121,10 @@ try {
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "1200 m");
       await page.evaluate(() => window.capabilityProbe.reset());
       assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
+      for (const id of ["trees", "resources"]) {
+        assert.equal(await page.locator(`[data-capability="${id}"]`).getAttribute("data-level"), "loading");
+        assert.equal(await page.locator(`[data-capability="${id}"] .capability-mark`).textContent(), "…");
+      }
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "…",
         "a pan clears the previous square instead of showing it against a new one");
       await page.evaluate(() => { window.capabilityProbe.update({lat:4,lon:0}); window.capabilityProbe.reset(); return window.capabilityProbe.update({lat:5,lon:0}); });
@@ -93,6 +135,8 @@ try {
       await page.evaluate(() => window.capabilityProbe.update({ lat: 3, lon: 0 }));
       assert.equal(await page.locator("[data-level=unknown]").count(), 8);
       assert.equal(await page.locator(".stock-row[data-state=unknown]").count(), 3, "a failed capture leaves no stock band behind");
+      await page.locator('[data-capability="trees"]').focus();
+      assert.match(await page.locator(".capability-detail").textContent(), /Land cover could not be loaded/);
       assert.match(await page.locator(".capability-status").textContent(), /unavailable/);
       assert.match(await page.locator(".capability-status").textContent(), /move the square to retry/);
       assert.ok(await page.locator(".capability-status").isVisible());
@@ -109,6 +153,10 @@ try {
       await page.goto(origin + "/capabilities.html");
       assert.equal(await page.locator("article").count(), 12);
       assert.match(await page.title(), /Map capabilities/);
+      assert.match(await page.locator("#trees").textContent(), /Place evidence measures/);
+      assert.match(await page.locator("#trees").textContent(), /Sources, coverage and fidelity/);
+      assert.match(await page.locator("#resources").textContent(), /balanced ore\/oil top-up/i);
+      assert.match(await page.locator("#resources").textContent(), /A missing deposit record is not geographic absence/);
       await page.screenshot({ path: resolve(out, `${name}-ledger-phone.png`) });
       const item = { browser: name, version: browser.version(), synthetic_states: "pass", ledger_page: "pass", live: "not_run" };
       if (process.argv.includes("--live")) {
@@ -118,6 +166,11 @@ try {
         await page.waitForFunction(() => /estimate|unavailable/.test(document.querySelector(".capability-status")?.textContent ?? ""), undefined, { timeout: 120000 });
         item.live = { status: await page.locator(".capability-status").textContent(), icons: await page.locator(".capability-row button").evaluateAll((els) => els.map((e) => ({ id: e.dataset.capability, level: e.dataset.level, description: e.title }))), stock: await page.locator(".stock-row").evaluateAll((els) => els.map((e) => ({ id: e.dataset.metric, state: e.dataset.state, band: e.dataset.band ?? null, value: e.querySelector(".stock-value").textContent, band_text: e.querySelector(".stock-band").textContent, description: e.title }))), errors };
         assert.match(item.live.status, /estimate/, "real capture must finish, not silently become unavailable");
+        const place = Object.fromEntries(item.live.icons.filter((icon) => ["trees", "resources"].includes(icon.id)).map((icon) => [icon.id, icon]));
+        assert.equal(place.trees.description.includes("WorldCover"), true, "real trees evidence names its source");
+        assert.ok(["likely", "unknown"].includes(place.trees.level), "real land cover is a candidate or unknown, never promised");
+        assert.ok(["likely", "unknown"].includes(place.resources.level), "real deposits are a candidate or unknown, never promised");
+        assert.doesNotMatch(`${place.trees.description} ${place.resources.description}`, /Verified/);
         const real = Object.fromEntries(item.live.stock.map((row) => [row.id, row]));
         assert.equal(real.terrain_relief_m.state, "measured", "real geography gives a real relief estimate, labelled as such");
         assert.match(real.terrain_relief_m.description, /Capture estimate, not the finished map/);

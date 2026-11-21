@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { checkCapabilities, measureStockMetrics, networkAccess, shipCorridor, stockBand, stockComparison, STOCK_MEASURES } from "../capability-model.js";
 import { validateLedger, ledgerPage, stockReference, agreementByOracle } from "../capability-ledger.mjs";
+import { estimateInputs } from "../capability-inputs.js";
+import { parseMrdsXml, requestDeposits } from "../capability-evidence.js";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const ledger = JSON.parse(readFileSync(new URL("../capabilities.json", import.meta.url)));
@@ -241,4 +243,101 @@ test("native scoring retains failures and unknowns without substituting panels o
   const stale = structuredClone(ledger);
   stale.evidence_studies["outside-v1"].predictions_sha256 = "0".repeat(64);
   assert.throws(() => validateLedger(stale), /Stale native evidence projection/);
+});
+
+test("place evidence separates land cover from the export's tree budget", () => {
+  const rules = ledger.model_rules.place;
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const landcover = { status: "available", source: "constructed", fidelity: "constructed", cell_m: 10, sample_m: 40, tiles: [], values: new Array(9).fill(10) };
+  const result = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover } }, ledger);
+  const trees = result.capabilities.trees;
+  assert.equal(trees.level, "likely");
+  assert.equal(trees.reason, "vegetation_suitability_candidate");
+  assert.equal(trees.evidence.balanced_top_up, "not_evidence");
+  assert.equal(trees.evidence.vegetation.tree_cover_share_of_central_land, 1);
+  assert.equal(trees.evidence.vegetation.tree_suitability, rules.tree_weight[10]);
+  assert.ok(!("trees_total" in trees), "the model must not invent the exporter's tree count");
+  // Without a slope grid the taper cannot hide the cover, and it says so.
+  assert.equal(trees.evidence.vegetation.slope_screened, false);
+  const terrain_m = Array.from({ length: 9 }, (_, i) => 100 + Math.floor(i / 3) * 4800);
+  const screened = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover, terrain_m } }, ledger).capabilities.trees;
+  assert.equal(screened.level, "not_possible_here");
+  assert.equal(screened.evidence.vegetation.slope_screened, true);
+});
+
+test("no place evidence is Unknown, never a No", () => {
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const bare = checkCapabilities({ schema: 1, mode: "estimate", grid }, ledger).capabilities;
+  assert.deepEqual([bare.resources.level, bare.resources.reason, bare.trees.level, bare.trees.reason], ["unknown", "not_evaluated", "unknown", "not_evaluated"]);
+  const unavailable = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { deposits: { status: "unavailable", records: [] } } }, ledger).capabilities;
+  assert.equal(unavailable.trees.reason, "no_landcover_evidence");
+  assert.equal(unavailable.resources.reason, "no_place_evidence");
+  assert.equal(unavailable.resources.level, "unknown");
+  // Built-up land with no deposit is still not a negative: a missing record is
+  // not geographic absence.
+  const built = { status: "available", source: "constructed", cell_m: 10, sample_m: 40, tiles: [], values: new Array(9).fill(50) };
+  const none = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: built, deposits: { status: "available", records: [] } } }, ledger).capabilities;
+  assert.equal(none.trees.level, "not_possible_here");
+  assert.equal(none.resources.level, "unknown");
+  assert.equal(none.resources.reason, "no_recorded_deposit_or_fertile_cover");
+  // A well record is not a deposit record.
+  const wells = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: built, deposits: { status: "available", records: [{ kind: "well", x: 0, z: 0 }] } } }, ledger).capabilities.resources.evidence.deposits;
+  assert.deepEqual([wells.records, wells.wells], [0, 1]);
+});
+
+test("place evidence refuses mismatched arrays instead of guessing", () => {
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const short = { status: "available", values: [10, 10], source: "constructed" };
+  assert.throws(() => checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: short } }, ledger), /Land-cover evidence/);
+  assert.throws(() => checkCapabilities({ schema: 1, mode: "estimate", grid, place: { terrain_m: [1, 2] } }, ledger), /Terrain evidence/);
+  assert.throws(() => checkCapabilities({ schema: 1, mode: "estimate", place: { landcover: short } }, ledger), /needs a capability grid/);
+});
+
+test("deposits fail closed to unavailable, and an abort propagates", async () => {
+  const square = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1 };
+  const failed = await requestDeposits(square, { fetchImpl: async () => ({ ok: false, status: 500, text: async () => "" }) });
+  assert.deepEqual([failed.status, failed.records.length], ["unavailable", 0]);
+  const thrown = await requestDeposits(square, { fetchImpl: async () => { throw new Error("offline"); } });
+  assert.equal(thrown.status, "unavailable");
+  const controller = new AbortController();
+  controller.abort(new Error("panned"));
+  await assert.rejects(requestDeposits(square, { signal: controller.signal, fetchImpl: async () => { throw controller.signal.reason; } }), /panned/);
+});
+
+test("MRDS parsing keeps the writer's provenance rules", () => {
+  const square = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1 };
+  // The sample holds four records: an occurrence, a processing plant, a
+  // producer and a prospect outside the square. Only the producer counts.
+  const records = parseMrdsXml(readFileSync(new URL("./mrds-sample.xml", import.meta.url), "utf8"), square);
+  assert.deepEqual(records.map((r) => r.weight), [1], "occurrences, processing plants and out-of-square prospects are not deposits");
+  for (const record of records) assert.ok(Math.abs(record.x) <= 8640 && Math.abs(record.z) <= 8640);
+  assert.match(records[0].source, /^USGS MRDS \d+ .+ \(Producer, Surface\)$/);
+});
+
+test("the pan-time input samples the same lattice as the exporter", () => {
+  const capture = { game: new Float32Array(1081 * 1081), geometry: { roads: [], sq: {} } };
+  for (let i = 0; i < capture.game.length; i++) capture.game[i] = i % 977;
+  const depth = new Float64Array(1081 * 1081);
+  const input = estimateInputs(capture, depth);
+  assert.equal(input.grid.size, 271);
+  assert.equal(input.place.terrain_m.length, 271 * 271);
+  for (const [r, c] of [[0, 0], [1, 2], [270, 270]]) {
+    assert.equal(input.place.terrain_m[r * 271 + c], capture.game[(r * 4) * 1081 + c * 4]);
+  }
+  assert.equal(input.place.landcover.status, "unavailable");
+  assert.equal(input.place.deposits.status, "unavailable");
+});
+
+test("the ledger page carries the place measures, sources and fidelity", () => {
+  const page = ledgerPage(ledger, "test-source");
+  assert.match(page, /Place evidence measures/);
+  assert.match(page, /Tree suitability/);
+  assert.match(page, /Sources, coverage and fidelity/);
+  assert.match(page, /balanced ore\/oil top-up/i);
+  const incomplete = structuredClone(ledger);
+  delete incomplete.capabilities.find((c) => c.id === "trees").source_coverage;
+  assert.throws(() => validateLedger(incomplete), /place evidence provenance/);
+  const empty = structuredClone(ledger);
+  empty.capabilities.find((c) => c.id === "resources").evidence_metrics = {};
+  assert.throws(() => validateLedger(empty), /Empty evidence metrics/);
 });

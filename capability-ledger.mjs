@@ -46,6 +46,12 @@ export function validateLedger(ledger) {
         throw new Error(`Missing check symbol ${ref}`);
     }
     for (const id of cap.metric_ids) if (!ledger.stock_reference.metrics[id]) throw new Error(`Missing stock metric ${id}`);
+    if (cap.evidence_metrics != null) {
+      if (typeof cap.evidence_metrics !== "object" || !Object.keys(cap.evidence_metrics).length) throw new Error(`Empty evidence metrics for ${cap.id}`);
+      for (const [id, measure] of Object.entries(cap.evidence_metrics))
+        if (!measure?.name || !measure?.definition || !measure?.unit) throw new Error(`Incomplete evidence metric ${cap.id}:${id}`);
+    }
+    if (cap.status === "place_evidence_candidate" && (!cap.source_coverage || !cap.fidelity)) throw new Error(`Missing place evidence provenance for ${cap.id}`);
     for (const row of cap.game_agreement) {
       if (!row.square || !row.observed_at || !row.oracle || !/^[a-f0-9]{64}$/.test(row.artifact_sha256 ?? "") || !/^[a-f0-9]{40}$/.test(row.source_sha ?? "") || !Array.isArray(row.evidence) || !row.evidence.length || ![true, false, null].includes(row.observed) || ![true, false, null].includes(row.predicted)) throw new Error(`Unbound game evidence for ${cap.id}`);
     }
@@ -100,6 +106,8 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
     return `<article id="${escape(c.id)}"><div class="ledger-title"><h2>${escape(c.name)}</h2><span>${escape(label(c.status))}</span></div><p>${escape(c.definition)}</p>
       <details><summary>Checks and promise levels</summary><dl>${Object.entries(c.promise_levels).map(([k, v]) => `<dt>${escape(label(k))}</dt><dd>${escape(v)}</dd>`).join("")}</dl>
       <p>Exporter: ${c.exporter_check ? sourceLink(c.exporter_check) : "Not implemented"}<br>Browser: ${c.browser_check ? sourceLink(c.browser_check) : "Not implemented"}</p><p>Existing work: ${c.existing_checks.map(sourceLink).join(", ")}</p></details>
+      ${c.evidence_metrics ? `<h3>Place evidence measures</h3><dl>${Object.entries(c.evidence_metrics).map(([id, m]) => `<dt>${escape(m.name)} (${escape(m.unit)})</dt><dd>${escape(m.definition)}</dd>`).join("")}</dl>` : ""}
+      ${c.source_coverage ? `<details><summary>Sources, coverage and fidelity</summary><dl>${Object.entries(c.source_coverage).map(([key, value]) => `<dt>${escape(label(key))}</dt><dd>${escape(value)}</dd>`).join("")}</dl><p>${escape(c.fidelity)}</p></details>` : ""}
       <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : "<p class=note>No scored observations for this model yet.</p>"}
       ${c.calibration ? `<details><summary>Existing water-screen calibration</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}
       <p class=note>${escape(c.limits)}</p></article>`;

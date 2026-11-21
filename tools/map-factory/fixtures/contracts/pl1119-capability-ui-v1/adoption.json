@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "0591e5188b70ef3ea46ca4845f6417639ebffe25275be6020af3a41b7000af53"
+      "current_sha256": "dafc14b1978a17c7f7e637ec6e5431a3acf9a7877bf4d824682ef3ab2469dc15"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -26,12 +26,14 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "92a5aa48096c83cea2046a811ab0c566d2d07682b8d30b70305d674363ebe4f7",
-    "capability-inputs.js": "b12b43f44df385722863a651dd2a08ed3809affd007292811f0a457af3129dce",
-    "capability-ledger.mjs": "36bc8af814aa97b3f7602cdad7604fb8bf0262eae36d394f46fd0983ffc82a17",
-    "capability-model.js": "2f54141a869402c075e3cada0794014c61e4ee5f0da669fed6b4f8412b37e295",
-    "capability-ui.js": "5994e786ea1174274fa8e139d54103bbf70cfd58a125b7fb914e9c9d4fcf9a4c",
-    "tools/map-factory/capabilities.py": "30dc5ffef21eb57f6a1cf624d517b3854547291e721685ce37c98e169216d3d1",
+    "capabilities.json": "e95888c3494d3c618498ea76f0980c7cc37e83a34996242b5aaa8b8aab823c75",
+    "capability-evidence.js": "111bc1d65258ce144b400c2133f8cc5567bceadb08811d95738cecda9036e7b5",
+    "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
+    "capability-inputs.js": "79248bda304776d6fffac93ac85414deef4e0e71549be0f84dffa1c011a6eec7",
+    "capability-ledger.mjs": "ae09933ea788245064c091d04c9ac783c952c00bad83224023150fde0c7bafa9",
+    "capability-model.js": "a0db8aa2c2965f8da02166701350c6140dd23f8179aca928f27fc9922f11ca6d",
+    "capability-ui.js": "1636467c9b95b283e35c893370d8bee2e06775bc59113ca773e4ea9b0cee87aa",
+    "tools/map-factory/capabilities.py": "01fa005efa90fed89898d13e4316ed9c306ec460ae47c6a228a728b89645a5cc",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
   }
