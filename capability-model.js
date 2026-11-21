@@ -1,3 +1,4 @@
+import { evaluateStart } from "./start-model.js";
 // Mirrored deterministic core: tools/map-factory/capabilities.py. No DOM or IO.
 const KINDS = { road: ["highway", "ramp"], rail: ["rail"], ship: ["ship"], air: ["air"] };
 const PATH_SCOPE = "sampled_native_lane_paths_at_opening";
@@ -289,6 +290,7 @@ export function checkCapabilities(data, ledger) {
     }
   }
   for (const key of ["water", "start", "buildable", "resources", "trees", "water_risk"]) result[key] = { level: "unknown", reason: "not_evaluated" };
+  if (data.start_input != null || data.planner_enabled?.start === false) result.start = evaluateStart(data);
   const buildable = data.buildable_fraction;
   if (buildable != null && Number.isFinite(buildable) && buildable >= 0 && buildable <= 1)
     result.buildable = { level: buildable > 0 ? "likely" : data.mode === "export" ? "not_possible_here" : "unknown", reason: "dry_low_slope_samples", fraction: buildable };

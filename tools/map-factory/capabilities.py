@@ -14,6 +14,7 @@ import math
 from pathlib import Path
 
 import numpy as np
+from start_model import evaluate_start, digest as start_digest
 
 KINDS = {
     "road": {"highway", "ramp"},
@@ -657,6 +658,11 @@ def check(data, ledger):
             }
     for key in ("water", "start", "buildable", "resources", "trees", "water_risk"):
         result[key] = {"level": "unknown", "reason": "not_evaluated"}
+    if (
+        data.get("start_input") is not None
+        or data.get("planner_enabled", {}).get("start") is False
+    ):
+        result["start"] = evaluate_start(data)
     buildable = data.get("buildable_fraction")
     if buildable is not None and math.isfinite(buildable) and 0 <= buildable <= 1:
         result["buildable"] = {
@@ -851,6 +857,12 @@ def prepared_input(folder):
         / 64
     )
     hydro = json.loads((folder / "hydrology.json").read_text())
+    start_input = {
+        "fidelity": "prepared_16m_south_first",
+        "tile": hydro.get("start_tile"),
+        "terrain_m": ground.ravel().tolist(),
+        "depth_m": depth.ravel().tolist(),
+    }
     depth = np.flipud(depth)
     coarse = np.zeros((271, 271))
     for r in range(271):
@@ -865,6 +877,7 @@ def prepared_input(folder):
         "schema": 1,
         "mode": "export",
         "graph": hydro.get("highways"),
+        "start_input": start_input,
         "planner_enabled": {
             key: False
             for key in ("ship", "air")
@@ -960,6 +973,32 @@ def assess_prepared(folder, native_context=None):
         report["metrics"]["trees_total"]["basis"] = (
             "budgeted_export_plan_not_place_abundance"
         )
+    start = report["capabilities"]["start"]
+    start["binding"] = {
+        "model": "pl1210-start-port-v1",
+        "source_sha256": {
+            name: hashlib.sha256(
+                (Path(__file__).resolve().parents[2] / name).read_bytes()
+            ).hexdigest()
+            for name in (
+                "start-model.js",
+                "tools/map-factory/start_model.py",
+                "tools/map-factory/real_roads.py",
+                "tools/map-factory/crp.py",
+                "tools/map-factory/capabilities.py",
+            )
+        },
+        "ledger_sha256": report["model_sha256"],
+        "inputs_sha256": {
+            name: report["inputs_sha256"][name]
+            for name in ("terrain.u16", "water.u16", "hydrology.json")
+        },
+        "artifact_sha256": report.get("artifact_sha256"),
+        "witness_sha256": start_digest(start["witness"])
+        if start.get("witness")
+        else None,
+        "agreement": "unscored_new_runtime",
+    }
     return qualify_exact_export(
         report,
         {

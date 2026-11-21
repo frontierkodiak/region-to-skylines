@@ -43,11 +43,12 @@ const results = { scope: "Synthetic UI state checks are not geographic/native ev
 try {
   for (const [name, engine] of [["chromium", chromium], ["webkit", webkit]]) {
     const browser = await engine.launch({ headless: true });
-    const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
+    const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, hasTouch: true });
     try {
       const page = await context.newPage();
       // Construction is deliberately explicit: these are controlled UI inputs.
       await page.route("**/capability-inputs.js", (route) => route.fulfill({ contentType: "text/javascript", body: `
+        import {liveFootprint} from "/start-model.js";
         const comparable = {
           terrain_relief_m: {comparable:true, basis:'capture_heightmap'},
           median_land_slope_percent: {comparable:false, detail:'Slope needs the prepared terrain and water mask; constructed UI input only.'},
@@ -66,8 +67,10 @@ try {
           await new Promise((r) => setTimeout(r, sq.lat === 4 ? 1000 : 60));
           if (sq.lat === 3) throw new Error('constructed data failure');
           const depth = new Array(total).fill([1, 6, 7].includes(sq.lat) ? 0 : 8);
+          const terrain=new Float64Array(1081**2).fill(100), initialDepth=new Float64Array(1081**2).fill(sq.lat===5?1:0);
+          const footprint=liveFootprint(terrain,initialDepth);
           return { square:sq,
-            input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq)},
+            input:{start_footprint:footprint,schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq)},
             stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
         }` }));
       await page.goto(origin + "/__ui_probe");
@@ -75,6 +78,14 @@ try {
       assert.equal(await page.locator("[data-level=loading]").count(), 8);
       assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
       await page.evaluate(() => window.capabilityProbe.update({ lat: 1, lon: 0 }));
+      await page.locator('[data-capability="buildable"]').focus();
+      assert.match(await page.locator(".capability-detail").textContent(), /384 × 384 m candidate.*Hookup: Unknown/);
+      assert.equal(await page.locator('.start-footprint a').getAttribute('href'), './capabilities.html#start');
+      await page.locator('[data-capability="trees"]').focus();
+      await page.keyboard.press('Tab');
+      assert.equal(await page.locator('.start-footprint a').evaluate((el)=>el===document.activeElement),true);
+      await page.keyboard.press('Escape');
+      assert.equal(await page.locator('.capability-detail').isVisible(),false);
       assert.equal(await page.locator('[data-capability="ship"]').getAttribute("data-level"), "unknown");
       await page.locator('[data-capability="ship"]').focus();
       assert.match(await page.locator(".capability-detail").textContent(), /No broad deep corridor/);
@@ -146,7 +157,10 @@ try {
       await page.locator('[data-capability="resources"]').focus();
       assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "unknown");
       assert.match(await page.locator(".capability-detail").textContent(), /Neither land cover nor deposits could be loaded/);
+      await page.locator('[data-capability="buildable"]').focus();
+      assert.match(await page.locator('.capability-detail').textContent(),/Start footprint: Unknown.*Hookup: Unknown/);
       await page.evaluate(() => window.capabilityProbe.reset());
+      assert.doesNotMatch(await page.locator('[data-capability="buildable"]').getAttribute('title'),/candidate/);
       assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
       for (const id of ["trees", "resources"]) {
         assert.equal(await page.locator(`[data-capability="${id}"]`).getAttribute("data-level"), "loading");
@@ -174,7 +188,12 @@ try {
       await page.locator('[data-metric="terrain_relief_m"]').click();
       assert.match(await page.locator(".capability-detail").textContent(), /p25/, "a tap reveals the stock numbers on touch");
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+      await page.locator('[data-capability="buildable"]').tap();
       await page.screenshot({ path: resolve(out, `${name}-row-phone.png`) });
+      await page.setViewportSize({width:320,height:844});
+      await page.locator('[data-capability="buildable"]').tap();
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      await page.screenshot({path:resolve(out,`${name}-start-320.png`)});
       await page.unroute("**/capability-inputs.js");
       await page.goto(origin + "/capabilities.html");
       assert.equal(await page.locator("article").count(), 12);
@@ -205,6 +224,9 @@ try {
           assert.equal(real[id].state, "not_comparable", "real capture never compares the prepared-only measures");
         assert.match(await page.locator(".stock-basis").textContent(), /^104 shipped maps/);
         assert.deepEqual(errors, []);
+        await page.locator('[data-capability="buildable"]').focus();
+        assert.match(await page.locator('.capability-detail').textContent(),/Start footprint:.*Hookup: Unknown.*Not comparable/);
+        item.live.start_detail=await page.locator('.capability-detail').textContent();
         await page.screenshot({ path: resolve(out, `${name}-boston-live.png`) });
         const box = await page.locator("#map").boundingBox();
         const x = box.x + box.width / 2, y = box.y + box.height / 2;
@@ -213,6 +235,8 @@ try {
         await page.waitForFunction(() => document.querySelectorAll('.capability-row [data-level="loading"]').length === 8 && document.querySelectorAll('.stock-row[data-state="checking"]').length === 3);
         await page.mouse.up();
         await page.waitForFunction(() => /estimate|unavailable/.test(document.querySelector(".capability-status")?.textContent ?? ""), undefined, { timeout: 120000 });
+        item.live.pan_start_detail=await page.locator('[data-capability="buildable"]').getAttribute('title');
+        assert.match(item.live.pan_start_detail,/Hookup: Unknown/);
         item.live.pan_status = await page.locator(".capability-status").textContent();
         assert.match(item.live.pan_status, /estimate/);
         assert.notEqual(item.live.pan_status, item.live.status, "pan must produce a different square, with stale indicators cleared first");

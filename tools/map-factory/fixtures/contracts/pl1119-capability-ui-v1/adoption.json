@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "f6a42f915f1c1e355c02758678eb3f7056af40b8a4d45192d4b8fd2257216628"
+      "current_sha256": "19f07bbcd3e36ed9d30813a696454b3ca1ac1df6e018af2679bada4813d5b1f1"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "fb95e629a629fb1449587a9b3b1d3fd18d2300f74a68fd812f4a1117849dd185"
+      "current_sha256": "527f394fc409a0a7caaa93a43e3aaf211e56f7b3ed9ac8dbdd6b37b56f92723e"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -26,7 +26,9 @@
     }
   },
   "added_files_sha256": {
-    "start-water-study.mjs": "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b",
+    "start-model.js": "53b3eb323eecc5da139aa42671b6e41bc7079e4778a5710b4ccd1cb0cffe5eb9",
+    "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
+    "start-water-study.mjs": "4409cad3517ce1935b00d6dc5b6b3e14bc6c9b7e925a716b14ebe247efc2d14b",
     "tools/map-factory/capability-evidence/pl1078-files.json": "7cd7e6b2f2dd0d78e6443b8ff8cddd9d5df4ffbdf29d5d7c51fed0ae66092a58",
     "tools/map-factory/capability-evidence/PL-1078-start-water-v2/README.md": "0d4eeb3e14a664249ea43a031aaff8553b54a26c7f1d7154889ab94476f8531c",
     "tools/map-factory/capability-evidence/PL-1078-start-water-v2/export-identities-and-warnings.json": "35a9c73cbc6271f67e7d5ac99497ba8439c11aef6342eca11b95c8e3fb299054",
@@ -251,14 +253,14 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "3c6654cc673475e9ced51fde9cf7f5528407ad08da4525680e0c5e65f488608a",
+    "capabilities.json": "6af7b919a9021425d5d2f94482133765098c4110f17988df7a6a591a1c5762db",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
-    "capability-inputs.js": "b000938703729b0e1bb62f8d781d40737841ef4b18fbf4def0c5b08825f67700",
-    "capability-ledger.mjs": "461cfcca9013bce4aa1bda4feb1bef756a922c6e8ce2d6715017d740eee3aee8",
-    "capability-model.js": "81327e3ebf686b29991f311d8fa9c11e97afd884235dea7d1b26d7d90ebb667d",
-    "capability-ui.js": "7ea69f193eaf0ad7334c3bcb584d61761d80e4c5904202982de0c4e597303955",
-    "tools/map-factory/capabilities.py": "8c6ab0a7acd7dabd64c8f82f10e21fdec29928bec1d545cbf90ddcfbdd4f9c66",
+    "capability-inputs.js": "c1c6aa6f631f7b4c4ea62c6f59254686f555c5eb398f68ff88d5ec6dac0c4ee3",
+    "capability-ledger.mjs": "a1836b0bd2da593e88350bc1bba19065594c5216124e382572ae411504b79fc9",
+    "capability-model.js": "a90d3103b426470c3b2cc50f041ecf3d026dbe31fe3cb3a9bef7974b45aa5d1c",
+    "capability-ui.js": "64d4b6629128e9e6fa389739985bc681014f333c1a157bfdaf94987dad92a8ee",
+    "tools/map-factory/capabilities.py": "ed8720a73d75b4898dadb763b7b48e4998b8641b1ad4c1b0b2263de15d662948",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/integrate_outside_v2.py": "239d3ea6e0f1e149446d6a32fbe9eb565c066db55ab25875f06ab9f9890cbd03",
     "tools/map-factory/capability-evidence/runtime-identities/25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0.json": "25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0",

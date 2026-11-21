@@ -13,7 +13,7 @@
     "tools/map-factory/paint.py", "tools/map-factory/resources.py", "tools/map-factory/landcover.py", "tools/map-factory/evidence.py", "tools/map-factory/web.py", "tools/map-factory/wet_reach_admission.py", "tools/map-factory/native-water-admission.json", "tools/map-factory/water_risk.py", "tools/map-factory/water-risk-model.json", "tools/map-factory/templates/native-corridors.crp", "tools/map-factory/templates/native-corridors.json"
   ],
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs",
+    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs",
     "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs"
   },
   "engines": { "node": ">=20.3" },

@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
+import { START_MODEL, START_PARAMETERS } from "./start-model.js";
 
 const ROOT = fileURLToPath(new URL(".", import.meta.url));
 export const START_WATER_STUDY = "pl1078-start-water-v2";
@@ -75,14 +76,29 @@ export function startWaterStudy(load = read) {
   };
 }
 
+export function activeStartModel(load = read) {
+  const files = ["start-model.js", "tools/map-factory/start_model.py", "tools/map-factory/capabilities.py", "tools/map-factory/real_roads.py", "tools/map-factory/crp.py", "capability-inputs.js"];
+  return { id: START_MODEL, source_study: START_WATER_SOURCE,
+    relationship: "Start-only port; frozen search/parameters. Missing tile abstains. Live footprint omits road obstruction/hookup and uses initial capture depth. No native score transfer.",
+    parameters: START_PARAMETERS,
+    prepared_fidelity: "prepared_16m_south_first", live_fidelity: "capture_16m_initial_depth_estimate",
+    agreement: "unscored_new_runtime", stock_comparison: "not_comparable",
+    source_sha256: Object.fromEntries(files.map((file) => [file, sha(load(file))])) };
+}
+
 export function validateStartWaterStudy(ledger, load = read, expectedProjectionHash) {
   if (sha(load("start-water-study.mjs")) !== expectedProjectionHash) throw new Error("Start/water projection tool changed");
   if (!isDeepStrictEqual(ledger.witness_studies, {[START_WATER_STUDY]: startWaterStudy(load)}))
     throw new Error("Start/water projection is stale or unbound");
   for (const id of ["start", "water"]) {
     const cap = ledger.capabilities.find((c) => c.id === id);
-    if (cap.witness_study !== START_WATER_STUDY || cap.status !== "saved_witness_study_live_unmodeled" ||
-        cap.exporter_check !== null || cap.browser_check !== null || cap.game_agreement.length)
+    const current = id === "start"
+      ? cap.status === "prepared_start_unscored_live_footprint_estimate" &&
+        cap.exporter_check === "tools/map-factory/start_model.py:evaluate_start" &&
+        cap.browser_check === "start-model.js:evaluateStart" &&
+        isDeepStrictEqual(cap.runtime_model, activeStartModel(load))
+      : cap.status === "saved_witness_study_live_unmodeled" && cap.exporter_check === null && cap.browser_check === null;
+    if (cap.witness_study !== START_WATER_STUDY || !current || cap.game_agreement.length)
       throw new Error("Start/water saved-study scope changed");
   }
 }
@@ -97,6 +113,20 @@ export function importStartWater(ledger) {
       ? "Saved declared-plan construction and sampled passenger-car literal outside paths, not fresh-map road connectivity, freight/spawning or geographic impossibility. Advisory Python component delivered at the pinned source, not adopted in this runtime. Live Start remains unmodeled."
       : "Saved clean surface service at 1000 native water/sewage units per 256 frames, explicit auxiliary power, two loaded settling minutes and sixty scored minutes. No SI/population/indefinite-capacity claim; groundwater-player success is separate. Advisory Python component delivered at the pinned source, not adopted in this runtime. Live Water remains unmodeled.";
   }
+  const start = ledger.capabilities.find((c) => c.id === "start");
+  start.status = "prepared_start_unscored_live_footprint_estimate";
+  start.definition = "A declared 384 × 384 m dry/flat footprint with a fixed 4×4 road grid and two-stub directed outside-road hookup plan on the current prepared terrain, graph and start tile. Live capture estimates only footprint opportunity in the central 1,920 m square; hookup Unknown.";
+  start.exporter_check = "tools/map-factory/start_model.py:evaluate_start";
+  start.browser_check = "start-model.js:evaluateStart";
+  start.runtime_model = activeStartModel();
+  start.metric_ids = [];
+  start.promise_levels = {
+    promised: "Unavailable in this runtime; no native qualification is carried over.",
+    likely: "A dry/flat footprint and directed two-stub hookup witness exists in the current prepared plan; native placement and paths are unverified.",
+    not_possible_here: "Current authored plan lacks an incoming or outgoing directed road; not a geographic negative.",
+    unknown: "No witness in this finite search, missing inputs, or capture-only footprint opportunity; hookup is not established.",
+  };
+  start.limits = "Prepared plan is advisory and unscored in this runtime; native placement, collisions and passenger paths remain unverified. A negative scopes only the current authored directed plan. Live footprint uses initial capture terrain/depth, not finished water or an authored start tile; hookup Unknown. Stock: Not comparable. Historical 2/3 positive-witness fitting agreement is not this port's accuracy; holdout not estimable.";
   return ledger;
 }
 
@@ -111,7 +141,7 @@ export function startWaterPage(study, id, escape) {
   const cohort = (v) => `${v.passed}/${v.planned}`;
   return `<section data-witness-study="${START_WATER_STUDY}" data-capability="${id}">
     <h3>Saved ${id === "start" ? "start-plan" : "surface-intake"} witnesses · advisory</h3>
-    <p>Live check: unmodeled. Positive-witness agreement, not overall accuracy or global prevalence.</p>
+    <p>${id === "start" ? "Current Start port: prepared declared-plan search and live footprint approximation; new runtime unscored. The scores below belong only to the archived model." : "Live Water: unmodeled."} Positive-witness agreement, not overall accuracy or global prevalence.</p>
     ${table(["Split", "Registered", "Positive predictions", "Agreed / scored", "Unscored positives", "Other unscored rows"],
       ["fitting", "held_out"].map((split) => {
         const s = study.report.summary[split][id];

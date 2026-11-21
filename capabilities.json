@@ -35601,27 +35601,52 @@
       "id": "start",
       "name": "Start site",
       "icon": "start",
-      "status": "saved_witness_study_live_unmodeled",
-      "definition": "A dry legal build site in an unlockable starting tile can join a reachable outside road using geometry the game accepts.",
-      "exporter_check": null,
-      "browser_check": null,
+      "status": "prepared_start_unscored_live_footprint_estimate",
+      "definition": "A declared 384 × 384 m dry/flat footprint with a fixed 4×4 road grid and two-stub directed outside-road hookup plan on the current prepared terrain, graph and start tile. Live capture estimates only footprint opportunity in the central 1,920 m square; hookup Unknown.",
+      "exporter_check": "tools/map-factory/start_model.py:evaluate_start",
+      "browser_check": "start-model.js:evaluateStart",
       "existing_checks": [
         "tools/map-factory/region.py:start_area",
         "tools/map-factory/real_roads.py:road_eligibility",
         "tools/cs1-harness/FIRST_HOUR.md"
       ],
       "promise_levels": {
-        "promised": "Exact-export native construction and road hookup pass.",
-        "likely": "A future fitted site-and-hookup model finds a witness.",
-        "not_possible_here": "Current start policy cannot place a legal connected site.",
-        "unknown": "Dry terrain or nearby roads alone do not prove a legal start."
+        "promised": "Unavailable in this runtime; no native qualification is carried over.",
+        "likely": "A dry/flat footprint and directed two-stub hookup witness exists in the current prepared plan; native placement and paths are unverified.",
+        "not_possible_here": "Current authored plan lacks an incoming or outgoing directed road; not a geographic negative.",
+        "unknown": "No witness in this finite search, missing inputs, or capture-only footprint opportunity; hookup is not established."
       },
-      "metric_ids": [
-        "buildable_percent"
-      ],
+      "metric_ids": [],
       "game_agreement": [],
-      "limits": "Saved declared-plan construction and sampled passenger-car literal outside paths, not fresh-map road connectivity, freight/spawning or geographic impossibility. Advisory Python component delivered at the pinned source, not adopted in this runtime. Live Start remains unmodeled.",
-      "witness_study": "pl1078-start-water-v2"
+      "limits": "Prepared plan is advisory and unscored in this runtime; native placement, collisions and passenger paths remain unverified. A negative scopes only the current authored directed plan. Live footprint uses initial capture terrain/depth, not finished water or an authored start tile; hookup Unknown. Stock: Not comparable. Historical 2/3 positive-witness fitting agreement is not this port's accuracy; holdout not estimable.",
+      "witness_study": "pl1078-start-water-v2",
+      "runtime_model": {
+        "id": "pl1210-start-port-v1",
+        "source_study": "9a4aad77101fbdb0190c7ceaa11ec643065bec56",
+        "relationship": "Start-only port; frozen search/parameters. Missing tile abstains. Live footprint omits road obstruction/hookup and uses initial capture depth. No native score transfer.",
+        "parameters": {
+          "footprint_half_m": 192,
+          "center_step_m": 64,
+          "max_depth_m": 0.1,
+          "max_slope": 0.15,
+          "max_relief_m": 8,
+          "min_segment_m": 40,
+          "max_hookup_m": 512,
+          "road_clearance_m": 24
+        },
+        "prepared_fidelity": "prepared_16m_south_first",
+        "live_fidelity": "capture_16m_initial_depth_estimate",
+        "agreement": "unscored_new_runtime",
+        "stock_comparison": "not_comparable",
+        "source_sha256": {
+          "start-model.js": "53b3eb323eecc5da139aa42671b6e41bc7079e4778a5710b4ccd1cb0cffe5eb9",
+          "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
+          "tools/map-factory/capabilities.py": "ed8720a73d75b4898dadb763b7b48e4998b8641b1ad4c1b0b2263de15d662948",
+          "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
+          "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+          "capability-inputs.js": "c1c6aa6f631f7b4c4ea62c6f59254686f555c5eb398f68ff88d5ec6dac0c4ee3"
+        }
+      }
     },
     {
       "id": "buildable",
@@ -48504,7 +48529,7 @@
       },
       "projection": {
         "file": "start-water-study.mjs",
-        "sha256": "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b"
+        "sha256": "4409cad3517ce1935b00d6dc5b6b3e14bc6c9b7e925a716b14ebe247efc2d14b"
       },
       "report": {
         "schema": 1,

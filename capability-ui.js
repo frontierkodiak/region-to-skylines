@@ -51,6 +51,11 @@ const PLACE_DETAIL = {
 /** The exact text a capability detail shows; exported so tests read the copy itself. */
 export const placeDetail = (result) => (result?.evidence && PLACE_DETAIL[result.reason] ? PLACE_DETAIL[result.reason](result.evidence) : null);
 
+export function footprintDetail(result) {
+  const found = result?.footprint === "candidate";
+  return ` Start footprint: ${found ? "384 × 384 m candidate" : "Unknown"}. Hookup: Unknown. Central 1,920 m square; initial terrain/depth estimate. Stock: Not comparable.`;
+}
+
 export function mountCapabilities(root) {
   const row = root.querySelector(".capability-row"), detail = root.querySelector(".capability-detail"), status = root.querySelector(".capability-status");
   const stockNote = root.querySelector(".stock-basis"), stockList = root.querySelector(".stock-list");
@@ -59,6 +64,10 @@ export function mountCapabilities(root) {
   ledger.catch(() => {});
   let controller = null, sequence = 0, active = null, catalog = null;
   const buttons = new Map(), stockRows = new Map();
+  const startReadout = document.createElement("p"); startReadout.className = "start-footprint note";
+  const startLink = document.createElement("a"); startLink.href = "./capabilities.html#start"; startLink.textContent = "Start footprint";
+  const startValue = document.createElement("span");
+  startReadout.append(startLink, startValue); row.after(startReadout);
   const show = (button) => { active = button; detail.textContent = button.title; detail.hidden = false; };
   const hide = () => { active = null; detail.hidden = true; };
   for (const [id, name] of Object.entries(LABELS)) {
@@ -94,6 +103,8 @@ export function mountCapabilities(root) {
   function reset(message = "Checking this square…") {
     controller?.abort(); sequence++;
     status.textContent = message;
+    startValue.textContent = ": Checking… · Hookup: Unknown";
+    startReadout.removeAttribute("title");
     for (const [id, button] of buttons) {
       button.dataset.level = "loading";
       button.querySelector(".capability-mark").textContent = "…";
@@ -106,6 +117,8 @@ export function mountCapabilities(root) {
   function unavailable() {
     controller?.abort(); sequence++;
     status.textContent = "Square check unavailable · move the square to retry.";
+    startValue.textContent = ": Unknown · Hookup: Unknown";
+    startReadout.removeAttribute("title");
     for (const [id, button] of buttons) {
       button.dataset.level = "unknown"; button.querySelector(".capability-mark").textContent = "?";
       button.title = `${LABELS[id]}: unknown. This square's data could not be loaded.`;
@@ -146,7 +159,7 @@ export function mountCapabilities(root) {
       }
       button.setAttribute("aria-label", button.title);
     }
-    if (active) { detail.textContent = active.title; detail.hidden = false; }
+    if (active) show(active);
   }
   async function update(square) {
     controller?.abort(); controller = new AbortController();
@@ -155,19 +168,22 @@ export function mountCapabilities(root) {
       const [ledgerData, capture] = await Promise.all([ledger, captureEstimate(square, { signal })]);
       if (signal.aborted || sequence !== current) return;
       catalog = ledgerData;
+      startValue.textContent = `: ${capture.input.start_footprint?.footprint === "candidate" ? "384 × 384 m candidate" : "Unknown"} · Hookup: Unknown`;
+      startReadout.title = "Central 1,920 m square; initial terrain/depth estimate. Stock: Not comparable.";
       const report = checkCapabilities(capture.input, catalog);
       for (const [id, button] of buttons) {
         const cap = catalog.capabilities.find((c) => c.id === id), result = report.capabilities[id];
         const [mark, name] = LEVELS[result.level];
         button.dataset.level = result.level; button.querySelector(".capability-mark").textContent = mark;
         const area = id === "buildable" && result.fraction != null ? ` ${Math.round(result.fraction * 100)}% of sampled central land qualifies.` : "";
-        button.title = `${cap.name}: ${name}. ${placeDetail(result) ?? REASONS[result.reason] ?? cap.limits}${area}`;
+        const footprint = id === "buildable" ? footprintDetail(capture.input.start_footprint) : "";
+        button.title = `${cap.name}: ${name}. ${placeDetail(result) ?? REASONS[result.reason] ?? cap.limits}${area}${footprint}`;
         button.setAttribute("aria-label", button.title);
       }
       status.textContent = `${square.lat.toFixed(3)}, ${square.lon.toFixed(3)} · estimate`;
       renderStock(capture.stock);
       const focused = [...buttons.values(), ...stockRows.values()].find((button) => button === document.activeElement);
-      if (focused ?? active) { detail.textContent = (focused ?? active).title; detail.hidden = false; }
+      if (focused ?? active) show(focused ?? active);
     } catch {
       if (signal.aborted || sequence !== current) return;
       unavailable();
