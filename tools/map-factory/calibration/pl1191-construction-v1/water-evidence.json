@@ -440,7 +440,7 @@
     },
     {
       "source": "calibration/pl1191-construction-v1/development/lake-shore-europe-all-output-off.json",
-      "sha256": "a2798a3b50c2d4a924dddfd124b059dc1f602b9012b04d401186177cac30a574",
+      "sha256": "0e80211c14c8e7832000db93b9915b46cf5c2d1614712caaa088627df725265c",
       "game_minutes": 60.146669803559774,
       "mode": "all-output-off",
       "baseline": {

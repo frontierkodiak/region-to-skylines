@@ -414,6 +414,12 @@
   },
   "game_minutes": 60.146669803559774,
   "harness_source": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+  "runtime_binding": {
+    "baseline_mod_sha256": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "intervention_mod_sha256": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "loaded_assembly_identity": "unverified by this old protocol; equal mod bytes and configured-source readback do not establish the later full loaded-assembly contract",
+    "scope": "Development comparison only; no runtime qualification retrofitted onto the historical baseline."
+  },
   "baseline": {
     "labels": {
       "flood": true,

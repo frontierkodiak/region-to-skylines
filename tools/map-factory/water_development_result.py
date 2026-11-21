@@ -146,6 +146,10 @@ def result(baseline, staged, native, harness_source):
         "files_sha256": {name: sha(staged / name) for name in files},
     }
     report = validate(item, staged, native, harness_source)
+    baseline_mod = original_report["session"].get("mod_sha256")
+    native_mod = report["session"].get("mod_sha256")
+    if not baseline_mod or native_mod != baseline_mod:
+        raise ValueError("Matched development observations used different mod bytes")
     verdict = json.loads((native / "verdict.json").read_text())
     checks = {c["name"]: c for c in verdict["checks"]}
     baseline_checks = {c["name"]: c for c in original_verdict["checks"]}
@@ -175,6 +179,12 @@ def result(baseline, staged, native, harness_source):
         },
         "game_minutes": report["game_minutes"],
         "harness_source": harness_source,
+        "runtime_binding": {
+            "baseline_mod_sha256": baseline_mod,
+            "intervention_mod_sha256": native_mod,
+            "loaded_assembly_identity": "unverified by this old protocol; equal mod bytes and configured-source readback do not establish the later full loaded-assembly contract",
+            "scope": "Development comparison only; no runtime qualification retrofitted onto the historical baseline.",
+        },
         "baseline": native_outcome(original_report, original_verdict),
         "intervention": native_outcome(report, verdict),
         "baseline_flood_grids": baseline_checks["no_flooding"]["value"]["grids"],
