@@ -663,6 +663,50 @@ All owned games/helpers are collected with empty teardown. Results review is
 required before adoption. Both PRs remain draft/unmerged; all promises unknown.
 See `development/phase11-response-comparison.json` and the phase-eleven report.
 
+## Reviewed response and general head/terminal recipe
+
+Independent results review PL-1229 passes the limited phase-eleven evidence
+and reporting-only registry repair. It independently recomputes every contract,
+all723snapshots/control tables and exact derived judgments from archived raw
+data. The73-cell flood gate remains failed/indeterminate; point/grid nuances,
+source-coincident port anchors, single trials, cadence failure and partial
+runtime identity remain. Per-feature retention is not overall qualification.
+No result-changing defect warrants a native rerun; no adoption occurs.
+
+New `diagnostics/stream_ports.py` declares one intake128/output32 port at every
+authored graph head and intake128/output0 at every terminal, with no internal
+per-node regulators. It preserves every source part/branch and original sector/
+probe. Quantized longest-head-distance offsets encode the tested0.5m/768m
+grade; a shifted DAG potential solver keeps the existing bank/cut bounds.
+Initial depth max(1.5m,oldwater) strengthens the former1mgeometry model. All
+no-fill/cut<=3m/full8rim/freeboard/source-footprint/protection limits remain.
+Directions are provisional authoring evidence; terminal ports are artificial
+intakes, not proof of natural gravity outlet support or a physical flux budget.
+
+The generic recipe exactly reproduces frozen synthetic arm32's73stages/beds,
+full152rim, terrain/water bytes and three controls. This is CPU equivalence,
+not another native replication. Six focused tests and scopedRuff/format pass.
+Fresh additive protocols replay all5fixed geographic cases, retaining1370line
+rows,296polygon rows,583mandatory stream parts and all old probes/controls.
+Both original base refusals keep physical supportNULL/UNKNOWN.
+
+No complete geographic candidate is admitted. Asia remains1bound refusal;
+Europe2refused/unresolved; South America190refused/unresolved graphs:14new
+numeric feasible,140bound refusals,16cycles,12direction/bank and8exterior-bank
+unknowns. All14numeric profiles retain fixed foreign-stream buffer/interface
+refusals (one also infrastructure/otherwater);31port proposals are UNDEPLOYED.
+The new stricter14count is not a rewrite of the old45profiles. All old refusal
+records and protocols remain, no mask/geometry/probe is moved to manufacture
+admission. This is conditional model feasibility, not geographic impossibility.
+
+The first CPU preparation rejected the structured review receipt before any
+case output. Its failure log/empty attempt root remain; the actual schema was
+fixed/tested/committed before the fresh final attempt. No native/Steam/install
+action occurs in this tranche. See `stream-port-freeze-v1.json` and
+`development/phase12-head-terminal-summary.json`. Source-authoritative bank/
+junction/outlet geometry remains necessary before the review's recommended
+complete geographic candidate can be prepared. All promises stay unknown.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged

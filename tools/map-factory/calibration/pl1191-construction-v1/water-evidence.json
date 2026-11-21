@@ -1033,5 +1033,27 @@
     "physical_source_budget": "unknown",
     "geographic_qualification": false,
     "stable_water_promise": "unknown"
+  },
+  "synthetic_response_results_review": {
+    "issue": "PL-1229",
+    "status": "pass",
+    "scope": "Limited development response and reporting repair only, not geographic/runtime/overall acceptance or adoption",
+    "receipt_sha256": "8696e8dc351233b3cb174dbeb45fd0244fb68457b24c602c945e8233d84b6bd6",
+    "all_low_findings_retained": true,
+    "native_rerun_warranted": false,
+    "stable_water_promise": "unknown"
+  },
+  "stream_head_terminal_recipe": {
+    "freeze": "stream-port-freeze-v1.json",
+    "summary": "development/phase12-head-terminal-summary.json",
+    "source_parts": 583,
+    "new_numeric_profiles_feasible": 14,
+    "new_undeployed_port_proposals": 31,
+    "stream_admissions": 0,
+    "complete_geographic_candidates": 0,
+    "physical_package": null,
+    "native_observation": false,
+    "scope": "Fresh CPU recipe matches native-tested synthetic geometry but every geographic graph remains refused/unresolved. No masks or original cohort changed.",
+    "stable_water_promise": "unknown"
   }
 }

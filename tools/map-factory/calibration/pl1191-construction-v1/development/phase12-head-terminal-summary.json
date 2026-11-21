@@ -1,0 +1,1338 @@
+{
+  "schema": "polli.pl1191-phase12-head-terminal-summary/1",
+  "rule_commit": "796a605f0a6c83506fe4962d5941f4e0a4c30c3c",
+  "policy": "branched-head-terminal-recipe-v1",
+  "basis_review_issue": "PL-1229",
+  "basis_review_receipt_sha256": "8696e8dc351233b3cb174dbeb45fd0244fb68457b24c602c945e8233d84b6bd6",
+  "basis_review_disposition": "Accepted limited single-trial synthetic response and registry fix; all six low findings retained; no adoption or qualification.",
+  "source_line_rows": 1370,
+  "polygon_rows": 296,
+  "mandatory_stream_parts": 583,
+  "original_initialized_contracts_and_full_probes_unchanged": true,
+  "original_controls_unchanged": true,
+  "synthetic_equivalence": {
+    "schema": "polli.stream-port-synthetic-equivalence/1",
+    "policy": "branched-head-terminal-recipe-v1",
+    "status": "pass",
+    "scope": "CPU exact recipe equivalence to already-observed frozen synthetic arm32, not new native replication or geographic qualification",
+    "basis_protocol_sha256": "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc",
+    "original_grid_sha256": {
+      "terrain.u16": "fa9d04b8d94e7504bb21c0fcd9b6842fb0a57056d4f1b9cd43e3b6e2e8763b7e",
+      "water.u16": "96c1edce3a4bd19c22e1106f1a1e4770ddd319bc5195e5b122c0558eb8716e3c"
+    },
+    "all_nodes_and_full_rim_exact": true,
+    "all_three_control_positions_targets_rates_exact": true,
+    "recipe": {
+      "status": "feasible",
+      "heads": [
+        0,
+        24
+      ],
+      "terminals": [
+        72
+      ],
+      "grade_offset_q": [
+        0,
+        1,
+        1,
+        2,
+        3,
+        3,
+        4,
+        5,
+        5,
+        6,
+        7,
+        7,
+        8,
+        9,
+        9,
+        10,
+        11,
+        11,
+        12,
+        13,
+        13,
+        14,
+        15,
+        15,
+        0,
+        1,
+        1,
+        2,
+        3,
+        3,
+        4,
+        5,
+        5,
+        6,
+        7,
+        7,
+        8,
+        9,
+        9,
+        10,
+        11,
+        11,
+        12,
+        13,
+        13,
+        14,
+        15,
+        15,
+        16,
+        17,
+        17,
+        18,
+        19,
+        19,
+        20,
+        21,
+        21,
+        22,
+        23,
+        23,
+        24,
+        25,
+        25,
+        26,
+        27,
+        27,
+        28,
+        29,
+        29,
+        30,
+        31,
+        31,
+        32
+      ],
+      "longest_distance_m": [
+        0.0,
+        16.0,
+        32.0,
+        48.0,
+        64.0,
+        80.0,
+        96.0,
+        112.0,
+        128.0,
+        144.0,
+        160.0,
+        176.0,
+        192.0,
+        208.0,
+        224.0,
+        240.0,
+        256.0,
+        272.0,
+        288.0,
+        304.0,
+        320.0,
+        336.0,
+        352.0,
+        368.0,
+        0.0,
+        16.0,
+        32.0,
+        48.0,
+        64.0,
+        80.0,
+        96.0,
+        112.0,
+        128.0,
+        144.0,
+        160.0,
+        176.0,
+        192.0,
+        208.0,
+        224.0,
+        240.0,
+        256.0,
+        272.0,
+        288.0,
+        304.0,
+        320.0,
+        336.0,
+        352.0,
+        368.0,
+        384.0,
+        400.0,
+        416.0,
+        432.0,
+        448.0,
+        464.0,
+        480.0,
+        496.0,
+        512.0,
+        528.0,
+        544.0,
+        560.0,
+        576.0,
+        592.0,
+        608.0,
+        624.0,
+        640.0,
+        656.0,
+        672.0,
+        688.0,
+        704.0,
+        720.0,
+        736.0,
+        752.0,
+        768.0
+      ],
+      "lower_q": [
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304,
+        6304
+      ],
+      "upper_q": [
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368,
+        6368
+      ],
+      "required_depth_q": [
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96,
+        96
+      ],
+      "full_rim_rc": [
+        [
+          515,
+          515
+        ],
+        [
+          515,
+          516
+        ],
+        [
+          515,
+          517
+        ],
+        [
+          516,
+          515
+        ],
+        [
+          516,
+          517
+        ],
+        [
+          517,
+          515
+        ],
+        [
+          517,
+          517
+        ],
+        [
+          518,
+          515
+        ],
+        [
+          518,
+          517
+        ],
+        [
+          519,
+          515
+        ],
+        [
+          519,
+          517
+        ],
+        [
+          520,
+          515
+        ],
+        [
+          520,
+          517
+        ],
+        [
+          521,
+          515
+        ],
+        [
+          521,
+          517
+        ],
+        [
+          522,
+          515
+        ],
+        [
+          522,
+          517
+        ],
+        [
+          523,
+          515
+        ],
+        [
+          523,
+          517
+        ],
+        [
+          524,
+          515
+        ],
+        [
+          524,
+          517
+        ],
+        [
+          525,
+          515
+        ],
+        [
+          525,
+          517
+        ],
+        [
+          526,
+          515
+        ],
+        [
+          526,
+          517
+        ],
+        [
+          527,
+          515
+        ],
+        [
+          527,
+          517
+        ],
+        [
+          528,
+          515
+        ],
+        [
+          528,
+          517
+        ],
+        [
+          529,
+          515
+        ],
+        [
+          529,
+          517
+        ],
+        [
+          530,
+          515
+        ],
+        [
+          530,
+          517
+        ],
+        [
+          531,
+          515
+        ],
+        [
+          531,
+          517
+        ],
+        [
+          532,
+          515
+        ],
+        [
+          532,
+          517
+        ],
+        [
+          533,
+          515
+        ],
+        [
+          533,
+          517
+        ],
+        [
+          534,
+          515
+        ],
+        [
+          534,
+          517
+        ],
+        [
+          535,
+          515
+        ],
+        [
+          535,
+          517
+        ],
+        [
+          536,
+          515
+        ],
+        [
+          536,
+          517
+        ],
+        [
+          537,
+          515
+        ],
+        [
+          537,
+          517
+        ],
+        [
+          538,
+          515
+        ],
+        [
+          538,
+          517
+        ],
+        [
+          539,
+          491
+        ],
+        [
+          539,
+          492
+        ],
+        [
+          539,
+          493
+        ],
+        [
+          539,
+          494
+        ],
+        [
+          539,
+          495
+        ],
+        [
+          539,
+          496
+        ],
+        [
+          539,
+          497
+        ],
+        [
+          539,
+          498
+        ],
+        [
+          539,
+          499
+        ],
+        [
+          539,
+          500
+        ],
+        [
+          539,
+          501
+        ],
+        [
+          539,
+          502
+        ],
+        [
+          539,
+          503
+        ],
+        [
+          539,
+          504
+        ],
+        [
+          539,
+          505
+        ],
+        [
+          539,
+          506
+        ],
+        [
+          539,
+          507
+        ],
+        [
+          539,
+          508
+        ],
+        [
+          539,
+          509
+        ],
+        [
+          539,
+          510
+        ],
+        [
+          539,
+          511
+        ],
+        [
+          539,
+          512
+        ],
+        [
+          539,
+          513
+        ],
+        [
+          539,
+          514
+        ],
+        [
+          539,
+          515
+        ],
+        [
+          539,
+          517
+        ],
+        [
+          539,
+          518
+        ],
+        [
+          539,
+          519
+        ],
+        [
+          539,
+          520
+        ],
+        [
+          539,
+          521
+        ],
+        [
+          539,
+          522
+        ],
+        [
+          539,
+          523
+        ],
+        [
+          539,
+          524
+        ],
+        [
+          539,
+          525
+        ],
+        [
+          539,
+          526
+        ],
+        [
+          539,
+          527
+        ],
+        [
+          539,
+          528
+        ],
+        [
+          539,
+          529
+        ],
+        [
+          539,
+          530
+        ],
+        [
+          539,
+          531
+        ],
+        [
+          539,
+          532
+        ],
+        [
+          539,
+          533
+        ],
+        [
+          539,
+          534
+        ],
+        [
+          539,
+          535
+        ],
+        [
+          539,
+          536
+        ],
+        [
+          539,
+          537
+        ],
+        [
+          539,
+          538
+        ],
+        [
+          539,
+          539
+        ],
+        [
+          539,
+          540
+        ],
+        [
+          539,
+          541
+        ],
+        [
+          540,
+          491
+        ],
+        [
+          540,
+          541
+        ],
+        [
+          541,
+          491
+        ],
+        [
+          541,
+          492
+        ],
+        [
+          541,
+          493
+        ],
+        [
+          541,
+          494
+        ],
+        [
+          541,
+          495
+        ],
+        [
+          541,
+          496
+        ],
+        [
+          541,
+          497
+        ],
+        [
+          541,
+          498
+        ],
+        [
+          541,
+          499
+        ],
+        [
+          541,
+          500
+        ],
+        [
+          541,
+          501
+        ],
+        [
+          541,
+          502
+        ],
+        [
+          541,
+          503
+        ],
+        [
+          541,
+          504
+        ],
+        [
+          541,
+          505
+        ],
+        [
+          541,
+          506
+        ],
+        [
+          541,
+          507
+        ],
+        [
+          541,
+          508
+        ],
+        [
+          541,
+          509
+        ],
+        [
+          541,
+          510
+        ],
+        [
+          541,
+          511
+        ],
+        [
+          541,
+          512
+        ],
+        [
+          541,
+          513
+        ],
+        [
+          541,
+          514
+        ],
+        [
+          541,
+          515
+        ],
+        [
+          541,
+          516
+        ],
+        [
+          541,
+          517
+        ],
+        [
+          541,
+          518
+        ],
+        [
+          541,
+          519
+        ],
+        [
+          541,
+          520
+        ],
+        [
+          541,
+          521
+        ],
+        [
+          541,
+          522
+        ],
+        [
+          541,
+          523
+        ],
+        [
+          541,
+          524
+        ],
+        [
+          541,
+          525
+        ],
+        [
+          541,
+          526
+        ],
+        [
+          541,
+          527
+        ],
+        [
+          541,
+          528
+        ],
+        [
+          541,
+          529
+        ],
+        [
+          541,
+          530
+        ],
+        [
+          541,
+          531
+        ],
+        [
+          541,
+          532
+        ],
+        [
+          541,
+          533
+        ],
+        [
+          541,
+          534
+        ],
+        [
+          541,
+          535
+        ],
+        [
+          541,
+          536
+        ],
+        [
+          541,
+          537
+        ],
+        [
+          541,
+          538
+        ],
+        [
+          541,
+          539
+        ],
+        [
+          541,
+          540
+        ],
+        [
+          541,
+          541
+        ]
+      ],
+      "controls": [
+        {
+          "role": "head_inlet",
+          "node_index": 24,
+          "node_rc": [
+            540,
+            492
+          ],
+          "position": [
+            -768,
+            98.0,
+            0
+          ],
+          "type": 1,
+          "target_fixed": 6368,
+          "intake_rate": 128,
+          "output_rate": 32,
+          "source_radius_model_m": 14.525483399593906,
+          "full_footprint_node_indices": [
+            24
+          ],
+          "minimum_static_source_depth_m": 1.5
+        },
+        {
+          "role": "head_inlet",
+          "node_index": 0,
+          "node_rc": [
+            516,
+            516
+          ],
+          "position": [
+            -384,
+            98.0,
+            384
+          ],
+          "type": 1,
+          "target_fixed": 6368,
+          "intake_rate": 128,
+          "output_rate": 32,
+          "source_radius_model_m": 14.525483399593906,
+          "full_footprint_node_indices": [
+            0
+          ],
+          "minimum_static_source_depth_m": 1.5
+        },
+        {
+          "role": "terminal_intake",
+          "node_index": 72,
+          "node_rc": [
+            540,
+            540
+          ],
+          "position": [
+            0,
+            97.5,
+            0
+          ],
+          "type": 1,
+          "target_fixed": 6336,
+          "intake_rate": 128,
+          "output_rate": 0,
+          "source_radius_model_m": 14.525483399593906,
+          "full_footprint_node_indices": [
+            72
+          ],
+          "minimum_static_source_depth_m": 1.5
+        }
+      ],
+      "target_q": [
+        6368,
+        6367,
+        6367,
+        6366,
+        6365,
+        6365,
+        6364,
+        6363,
+        6363,
+        6362,
+        6361,
+        6361,
+        6360,
+        6359,
+        6359,
+        6358,
+        6357,
+        6357,
+        6356,
+        6355,
+        6355,
+        6354,
+        6353,
+        6353,
+        6368,
+        6367,
+        6367,
+        6366,
+        6365,
+        6365,
+        6364,
+        6363,
+        6363,
+        6362,
+        6361,
+        6361,
+        6360,
+        6359,
+        6359,
+        6358,
+        6357,
+        6357,
+        6356,
+        6355,
+        6355,
+        6354,
+        6353,
+        6353,
+        6352,
+        6351,
+        6351,
+        6350,
+        6349,
+        6349,
+        6348,
+        6347,
+        6347,
+        6346,
+        6345,
+        6345,
+        6344,
+        6343,
+        6343,
+        6342,
+        6341,
+        6341,
+        6340,
+        6339,
+        6339,
+        6338,
+        6337,
+        6337,
+        6336
+      ],
+      "bed_q": [
+        6272,
+        6271,
+        6271,
+        6270,
+        6269,
+        6269,
+        6268,
+        6267,
+        6267,
+        6266,
+        6265,
+        6265,
+        6264,
+        6263,
+        6263,
+        6262,
+        6261,
+        6261,
+        6260,
+        6259,
+        6259,
+        6258,
+        6257,
+        6257,
+        6272,
+        6271,
+        6271,
+        6270,
+        6269,
+        6269,
+        6268,
+        6267,
+        6267,
+        6266,
+        6265,
+        6265,
+        6264,
+        6263,
+        6263,
+        6262,
+        6261,
+        6261,
+        6260,
+        6259,
+        6259,
+        6258,
+        6257,
+        6257,
+        6256,
+        6255,
+        6255,
+        6254,
+        6253,
+        6253,
+        6252,
+        6251,
+        6251,
+        6250,
+        6249,
+        6249,
+        6248,
+        6247,
+        6247,
+        6246,
+        6245,
+        6245,
+        6244,
+        6243,
+        6243,
+        6242,
+        6241,
+        6241,
+        6240
+      ],
+      "new_control_count": 3,
+      "no_per_node_regulators": true
+    }
+  },
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "eligible_clips": 4,
+      "status": "incomplete_geographic_candidate",
+      "dispositions": {
+        "refused_or_unresolved": 1
+      },
+      "geometry_statuses": {
+        "infeasible_bounds": 1
+      },
+      "reason_counts": {
+        "infeasible_bounds": 1,
+        "protected_foreign_stream_buffer": 1,
+        "foreign_line_interface_unresolved": 1
+      },
+      "freeze_sha256": "761e05f64c3d3d143bc76e3fac83cf6d7dd944f2821532baa04378f6e11b92b9"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "eligible_clips": 2,
+      "status": "incomplete_geographic_candidate",
+      "dispositions": {
+        "refused_or_unresolved": 2
+      },
+      "geometry_statuses": {
+        "unresolved_direction_or_bank": 1,
+        "unresolved_exterior_bank": 1
+      },
+      "reason_counts": {
+        "unresolved_direction_or_bank": 1,
+        "protected_foreign_stream_buffer": 1,
+        "foreign_line_interface_unresolved": 1,
+        "unresolved_exterior_bank": 1,
+        "exterior_bank_outside_square": 1,
+        "square_boundary_port_unresolved": 1
+      },
+      "freeze_sha256": "7b0707b3b612a385e0f733f22ec96b5c3318d075ee3026c8b83bccd1ac770b98"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "eligible_clips": 536,
+      "status": "incomplete_geographic_candidate",
+      "dispositions": {
+        "refused_or_unresolved": 190
+      },
+      "geometry_statuses": {
+        "unresolved_exterior_bank": 8,
+        "unresolved_cycle": 16,
+        "infeasible_bounds": 140,
+        "unresolved_direction_or_bank": 12,
+        "feasible": 14
+      },
+      "reason_counts": {
+        "unresolved_exterior_bank": 8,
+        "exterior_bank_outside_square": 10,
+        "square_boundary_port_unresolved": 10,
+        "protected_infrastructure_or_water": 47,
+        "protected_foreign_stream_buffer": 178,
+        "wet_exterior_bank_interface_unresolved": 17,
+        "foreign_line_interface_unresolved": 177,
+        "body_interface_unresolved": 25,
+        "unresolved_cycle": 16,
+        "raster_only_junction_unresolved": 28,
+        "infeasible_bounds": 140,
+        "unresolved_direction_or_bank": 12
+      },
+      "freeze_sha256": "7305800496cb7e855db5fc4a20f531af4880e505bdb26ca6fe65c95e1a06eaf7"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "eligible_clips": 9,
+      "status": "retained_base_refusal",
+      "dispositions": null,
+      "geometry_statuses": null,
+      "reason_counts": null,
+      "freeze_sha256": "bceca789daad9d97df8b273817f8d6c766d9d84b166d9391231f9afcd5db4b14"
+    },
+    {
+      "slug": "mountain-river-asia",
+      "eligible_clips": 32,
+      "status": "retained_base_refusal",
+      "dispositions": null,
+      "geometry_statuses": null,
+      "reason_counts": null,
+      "freeze_sha256": "79ce27fcf9e463b77cfe9100dd768e1d1347b2c92b9a76154e523a6fd3019e5a"
+    }
+  ],
+  "numerically_feasible_geographic_graphs": 14,
+  "undeployed_proposed_ports": 31,
+  "admitted_geographic_streams": 0,
+  "complete_geographic_candidates": 0,
+  "native_trials_this_tranche": 0,
+  "geometry_model_change": "Stricter1.5m initial depth and quantized authored grade, all existing source/protection/bank bounds unchanged. No old refusal becomes admission.",
+  "interpretation": "14numeric South American profiles all remain refused at fixed foreign buffers/interfaces; feasibility is conditional on the model, not geographic impossibility.",
+  "stable_water_promise": "unknown",
+  "holdout_access": false
+}

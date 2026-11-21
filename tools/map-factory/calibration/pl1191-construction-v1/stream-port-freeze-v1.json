@@ -1,0 +1,40 @@
+{
+  "schema": "polli.pl1191-stream-port-rule-freeze/1",
+  "rule_commit": "796a605f0a6c83506fe4962d5941f4e0a4c30c3c",
+  "policy": "branched-head-terminal-recipe-v1",
+  "source_files_sha256": {
+    "diagnostics/stream_ports.py": "c6ae3f43ed6ff4ade2d8ccc4790f609c1afaa1bfd243b1459ebebc9da4e7942f",
+    "calibration/pl1191-construction-v1/development/phase12-stream-port-policy.md": "8610bb30113793ffc15ef262165275c2834654d0a452e9b2a376e3a416a7d37d"
+  },
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "freeze_sha256": "761e05f64c3d3d143bc76e3fac83cf6d7dd944f2821532baa04378f6e11b92b9"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "freeze_sha256": "7b0707b3b612a385e0f733f22ec96b5c3318d075ee3026c8b83bccd1ac770b98"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "freeze_sha256": "7305800496cb7e855db5fc4a20f531af4880e505bdb26ca6fe65c95e1a06eaf7"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "freeze_sha256": "bceca789daad9d97df8b273817f8d6c766d9d84b166d9391231f9afcd5db4b14"
+    },
+    {
+      "slug": "mountain-river-asia",
+      "freeze_sha256": "79ce27fcf9e463b77cfe9100dd768e1d1347b2c92b9a76154e523a6fd3019e5a"
+    }
+  ],
+  "results_receipt_sha256": "8696e8dc351233b3cb174dbeb45fd0244fb68457b24c602c945e8233d84b6bd6",
+  "synthetic_equivalence_sha256": "d88f446926b33a45dfc2ae59b13667780125dc6f05b2ee321726d84c1a3a2437",
+  "focused_tests_sha256": "07f19c3a97a8294b50f4b3f36d9cfcfe03fe6235bba0e3916249d8905328fc24",
+  "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+  "panel_sha256": "181c2fd902b910668f340ef5ca97f2e08788e6fa3b60c41399d0faeca486636c",
+  "new_physical_package": null,
+  "new_native_outcome": false,
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown"
+}
