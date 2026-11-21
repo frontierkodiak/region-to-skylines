@@ -42,8 +42,10 @@ service null. `Active=false` and `WaterNotFound` alone do not invalidate the
 fixture: insufficient water can be the observed hydraulic result. The Python
 controller independently validates every raw cycle as well as its totals.
 
-After2game-minutes of settling, the native consumer requests1000water units and
-dumps1000sewage units every256simulationframes for60game-minutes. These are
+The native consumer requests1000water units and dumps1000sewage units every
+256simulationframes during2game-minutes of loaded settling, then for the
+scored60game-minutes. Settling cycles remain raw evidence, not scored delivery.
+These are
 native API units, **not m³/s or an asserted population equivalent**. Every cycle
 records delivered quantity/pollution, accepted sewage, facility state and
 source counters. A complete positive requires every requested quantity, no
@@ -69,6 +71,16 @@ separate unchanged4a4first-hour player controls remain authoritative for its
 benchmark; do not mix DLLs or reference-oracle outcomes into that rate.
 
 The native load and any population interpretation are not calibrated yet.
+
+The first reference attempt used a spatial water consumer but a pipe-node
+sewage call. With healthy auxiliaries, sewage acceptance alternated between
+full and zero while water stayed clean/full. That incomplete diagnostic is
+retained and unscored; it is not a stock hydrology failure. Version2 explicitly
+binds both calls to the same spatial consumer position. This API-consistency
+correction and loaded settling still require both reference runs; they are not
+a calibrated result. The earlier unloaded settling could not establish native
+sewage demand before the first scored request. Demand size and scored horizon
+are unchanged; no buffer, source or pollution value is forced.
 Original8 are fitting data. Freeze model/parameter/witness digests before
 native results on the registered3holdouts. Keep unknowns, model false positives,
 native setup faults and held-out versus fitting scores separate. Exporter and

@@ -32,6 +32,8 @@ namespace Cs1Harness
             var load=w["load"] as Dictionary<string,object>;
             var facilities=w["facilities"] as List<object>;
             if (load==null || facilities==null || facilities.Count!=2
+                || Json.Str(load,"consumer_api","")!="spatial_water_and_sewage"
+                || !Json.Bool(load,"settling_has_load",false)
                 || Json.Num(load,"native_units_per_cycle",0)!=1000 || Json.Num(load,"cycle_frames",0)!=256
                 || Json.Num(load,"settling_game_minutes",0)!=2 || Json.Num(load,"horizon_game_minutes",0)!=60
                 || Json.Num(load,"auxiliary_power_rate",0)!=1000 || Json.Num(load,"max_pollution_native",-1)!=0)
@@ -79,12 +81,14 @@ namespace Cs1Harness
         {
             job.Result["witness_sha256"]=hash;
             job.Result["mode"]="fixed_surface_load_no_search";
+            job.Result["consumer_api"]="spatial_water_and_sewage";
+            job.Result["settling_has_load"]=true;
             job.Result["observed_native_placement"]=null;
             job.Result["observed_surface_service"]=null;
             job.Result["observed_water_capability"]=null;
             job.Result["limits"]=new object[]{
                 "One native shore snap at each declared anchor, then native checked placement; no alternate site",
-                "1000 native water/sewage units per256simulationframes, 2min settling and60min load",
+                "Spatial consumer:1000 native water/sewage units per256simulationframes, 2min loaded settling then60min scored load",
                 "Auxiliary electricity held available through native supply API; not a power-generation or whole-game promise",
                 "No SI-rate or population-equivalence conversion; no groundwater or water-source replacement"
             };
@@ -124,7 +128,9 @@ namespace Cs1Harness
             int cycles=0,shortWater=0,shortSewage=0,dirty=0,auxiliaryFailures=0;
             bool timingFailure=false;
             var samples=new List<object>();
+            var settlingSamples=new List<object>();
             job.Result["samples"]=samples;
+            job.Result["settling_samples"]=settlingSamples;
             sm.SelectedSimulationSpeed=3;sm.SimulationPaused=false;
             float deadline=Time.realtimeSinceStartup+3600;
             uint lastFrame=start;
@@ -136,8 +142,8 @@ namespace Cs1Harness
                 { lastFrame=sm.m_currentFrameIndex;lastProgress=Time.realtimeSinceStartup; }
                 else if(Time.realtimeSinceStartup-lastProgress>60) throw new Exception("surface fixture simulation stalled");
                 if(sm.m_currentFrameIndex<next) { yield return null;continue; }
-                bool loaded=sm.m_currentFrameIndex>=loadStart;
                 uint due=next;
+                bool loaded=due>=loadStart;
                 var cycle=new SurfaceTransfer();
                 yield return SurfaceAction(()=>SurfaceCycle(facilities,consumer,intakePipe,outletPipe,loaded,due),cycle);
                 if(Json.Str(cycle.Row,"kind","")!="cycle")
@@ -165,6 +171,7 @@ namespace Cs1Harness
                         yield break;
                     }
                 }
+                else settlingSamples.Add(cycle.Row);
                 job.Result["elapsed_load_game_minutes"]=frame>=loadStart?(frame-loadStart)/framesPerMinute:0;
                 job.Result["cycles"]=cycles;
             }
@@ -179,6 +186,7 @@ namespace Cs1Harness
             job.Result["timing_failure"]=timingFailure;
             int expectedCycles=(int)((target-start-1)/256)-(int)Math.Ceiling((loadStart-start)/256.0)+1;
             job.Result["expected_load_cycles"]=expectedCycles;
+            job.Result["expected_settling_cycles"]=(int)Math.Ceiling((loadStart-start)/256.0);
             job.Result["observed_horizon_game_minutes"]=(sm.m_currentFrameIndex-loadStart)/framesPerMinute;
             bool qualified=cycles==expectedCycles && cycles>0 && !timingFailure && auxiliaryFailures==0;
             job.Result["fixture_qualified"]=qualified;
@@ -284,12 +292,11 @@ namespace Cs1Harness
             foreach(ushort id in facilities)
                 injected.Add(Singleton<ElectricityManager>.instance.TryDumpElectricity(bm.m_buildings.m_buffer[id].m_position,1000,1000));
             byte pollution=0;int fetched=0,dumped=0;
-            if(loaded)
-            {
-                var consumerPosition=Singleton<NetManager>.instance.m_nodes.m_buffer[consumer].m_position;
-                fetched=Singleton<WaterManager>.instance.TryFetchWater(consumerPosition,1000,1000,ref pollution);
-                dumped=Singleton<WaterManager>.instance.TryDumpSewage(consumer,1000,1000);
-            }
+            // The same declared load runs during settling so native consumers
+            // can establish demand. Those raw cycles are retained, not scored.
+            var consumerPosition=Singleton<NetManager>.instance.m_nodes.m_buffer[consumer].m_position;
+            fetched=Singleton<WaterManager>.instance.TryFetchWater(consumerPosition,1000,1000,ref pollution);
+            dumped=Singleton<WaterManager>.instance.TryDumpSewage(consumerPosition,1000,1000);
             bool intakeValid,outletValid;
             var intake=SurfaceFacility(facilities[0],intakePipe,out intakeValid);
             var outlet=SurfaceFacility(facilities[1],outletPipe,out outletValid);

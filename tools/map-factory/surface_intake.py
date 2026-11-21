@@ -19,6 +19,8 @@ from start_capabilities import assess, digest, position, sample
 
 @dataclass(frozen=True)
 class Load:
+    consumer_api: str = "spatial_water_and_sewage"
+    settling_has_load: bool = True
     native_units_per_cycle: int = 1000
     cycle_frames: int = 256
     settling_game_minutes: int = 2
