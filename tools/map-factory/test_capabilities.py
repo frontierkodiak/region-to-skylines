@@ -1,5 +1,6 @@
 """Behavioral cross-runtime checks; no native game evidence is fabricated."""
 
+import gzip
 import json
 import copy
 import tempfile
@@ -9,8 +10,15 @@ import subprocess
 import unittest
 
 import numpy as np
+from PIL import Image
 
-from capabilities import check, prepared_input, stock_band
+from capabilities import (
+    STOCK_MEASURES,
+    check,
+    prepared_input,
+    stock_band,
+    stock_metrics,
+)
 from integrate_outside_evidence import boundary_probe
 from transport_paths import ship_path
 
@@ -247,6 +255,145 @@ class CapabilityParity(unittest.TestCase):
         self.assertFalse(ship["witness"]["candidate"])
         self.assertEqual(ship["level"], "likely")
         self.assertEqual(ship["reason"], "authored_ship_route_corridor_unconfirmed")
+
+    def test_stock_measure_definitions_and_fixtures_match_javascript(self):
+        fixtures = ["asheville", "charleston", "innsbruck", "pittsburgh", "rio"]
+        node = """
+          import {readFileSync} from 'node:fs';
+          import {measureStockMetrics, stockComparison, STOCK_MEASURES} from './capability-model.js';
+          const {cases, ledger} = JSON.parse(readFileSync(0, 'utf8'));
+          const load = (p) => {
+            const b = readFileSync(p), v = new DataView(b.buffer, b.byteOffset, b.byteLength);
+            const out = new Float64Array(b.byteLength / 8);
+            for (let i = 0; i < out.length; i++) out[i] = v.getFloat64(i * 8, true);
+            return out;
+          };
+          process.stdout.write(JSON.stringify({
+            definitions: Object.fromEntries(Object.entries(STOCK_MEASURES).map(([id, m]) => [id, m.definition])),
+            values: cases.map((c) => measureStockMetrics(load(c.terrain), load(c.water))),
+            bands: cases.map((c) => Object.fromEntries(Object.entries(stockComparison(measureStockMetrics(load(c.terrain), load(c.water)), ledger.stock_reference)).map(([id, row]) => [id, row.band]))),
+          }));
+        """
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp)
+            cases, prepared = [], []
+            for slug in fixtures:
+                source = ROOT / "tools/map-factory/fixtures" / slug
+                terrain, water = [
+                    np.frombuffer(
+                        gzip.open(source / f"{name}.u16.gz").read(), dtype="<u2"
+                    )
+                    .reshape(1081, 1081)
+                    .astype(float)
+                    / 64
+                    for name in ("terrain", "water")
+                ]
+                paths = []
+                for name, grid in (("terrain", terrain), ("water", water)):
+                    path = folder / f"{slug}-{name}.f64"
+                    grid.astype("<f8").tofile(path)
+                    paths.append(str(path))
+                cases.append({"terrain": paths[0], "water": paths[1]})
+                prepared.append(stock_metrics(terrain, water))
+            # A dyadic tie: 1 m per 16 m is exactly 6.25%, which round() takes to 6.2.
+            tie = np.repeat(np.arange(1081, dtype=float), 1081).reshape(1081, 1081)
+            tie_paths = []
+            for name, grid in (("terrain", tie), ("water", np.zeros((1081, 1081)))):
+                path = folder / f"tie-{name}.f64"
+                grid.astype("<f8").tofile(path)
+                tie_paths.append(str(path))
+            cases.append({"terrain": tie_paths[0], "water": tie_paths[1]})
+            prepared.append(stock_metrics(tie, np.zeros((1081, 1081))))
+            result = subprocess.run(
+                ["node", "--input-type=module", "-e", node],
+                cwd=ROOT,
+                input=json.dumps({"cases": cases, "ledger": LEDGER}),
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+        shared = json.loads(result.stdout)
+        self.assertEqual(
+            shared["definitions"], {key: value for key, value in STOCK_MEASURES.items()}
+        )
+        self.assertEqual(shared["values"], prepared, "prepared stock values drifted")
+        for slug, bands, values in zip(fixtures + ["tie"], shared["bands"], prepared):
+            self.assertEqual(
+                bands,
+                {
+                    key: stock_band(value, LEDGER["stock_reference"]["metrics"][key])
+                    for key, value in values.items()
+                },
+                f"{slug}: stock bands drifted",
+            )
+
+    def test_capture_fidelity_compares_only_whole_map_relief(self):
+        """Evidence for the pan-time policy: which measures keep their stock band."""
+        metrics = LEDGER["stock_reference"]["metrics"]
+        fixtures = [
+            "asheville",
+            "innsbruck",
+            "pittsburgh",
+        ]  # inland: no ocean mask to replay
+        comparable, differed = set(), set()
+        for slug in fixtures:
+            source = ROOT / "tools/map-factory/fixtures" / slug
+            prepared = stock_metrics(
+                *[
+                    np.frombuffer(
+                        gzip.open(source / f"{name}.u16.gz").read(), dtype="<u2"
+                    )
+                    .reshape(1081, 1081)
+                    .astype(float)
+                    / 64
+                    for name in ("terrain", "water")
+                ]
+            )
+            game = (
+                np.asarray(Image.open(source / "input.png")).astype(float)
+                * 1024
+                / 65535
+            )
+            banks = (
+                np.frombuffer(gzip.open(source / "banks.f32.gz").read(), dtype="<f4")
+                .reshape(1081, 1081)
+                .astype(float)
+            )
+            capture = stock_metrics(
+                np.flipud(game), np.flipud(np.maximum(0.0, banks - game))
+            )
+            for key in metrics:
+                if key not in STOCK_MEASURES:
+                    continue
+                if stock_band(prepared[key], metrics[key]) == stock_band(
+                    capture[key], metrics[key]
+                ):
+                    comparable.add(key)
+                else:
+                    differed.add(key)
+        self.assertEqual(comparable - differed, {"terrain_relief_m"})
+        self.assertIn("wet_central_fraction", differed)
+        self.assertIn("median_land_slope_percent", differed)
+        # The pan-time policy must agree: only relief is compared.
+        policy = subprocess.run(
+            [
+                "node",
+                "--input-type=module",
+                "-e",
+                "import {CAPTURE_STOCK} from './capability-inputs.js';"
+                "process.stdout.write(JSON.stringify(CAPTURE_STOCK));",
+            ],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        compared = {
+            key
+            for key, value in json.loads(policy.stdout).items()
+            if value["comparable"]
+        }
+        self.assertEqual(compared, {"terrain_relief_m"})
 
     def test_stock_band_boundaries(self):
         metric = {"p25": 1, "p75": 3}

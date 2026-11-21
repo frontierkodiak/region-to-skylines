@@ -147,3 +147,89 @@ export function stockBand(value, metric) {
   if (!metric || !Number.isFinite(value)) return "not_comparable";
   return value < metric.p25 ? "below_p25" : value > metric.p75 ? "above_p75" : "typical";
 }
+
+// Stock-map measures, mirrored in tools/map-factory/capabilities.py. Same 1081-node
+// grids, 16 m gradient, central 25-tile mask and 0.5 m wet threshold as
+// survey/measure_maps.py, so a prepared export scores inside the same definitions.
+export const STOCK_MEASURES = {
+  terrain_relief_m: {
+    label: "Terrain relief",
+    definition: "highest minus lowest terrain over all 1081 x 1081 nodes, in metres",
+  },
+  median_land_slope_percent: {
+    label: "Central land slope",
+    definition: "median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent",
+  },
+  wet_central_fraction: {
+    label: "Central wet share",
+    definition: "share of the central 25 tiles whose water depth is above 0.5 m",
+  },
+};
+const STOCK_GRID = 1081, STOCK_RESOURCE = 512, STOCK_CELL_M = 33.75, STOCK_SPACING_M = 16;
+const STOCK_CENTRAL = Array.from({ length: STOCK_RESOURCE }, (_, i) => {
+  const tile = Math.min(8, Math.floor((i * 9) / STOCK_RESOURCE));
+  return tile >= 2 && tile <= 6;
+});
+const STOCK_NODE = Array.from({ length: STOCK_RESOURCE }, (_, i) =>
+  Math.min(STOCK_GRID - 1, Math.max(0, Math.floor(((i - 256 + 0.5) * STOCK_CELL_M + 8640) / STOCK_SPACING_M + 0.5))));
+// Python's round() on the exact decimal value of the double, ties to even, so the
+// two cores print the same number at a dyadic tie (e.g. 6.25 -> 6.2, not 6.3).
+function round(value, places) {
+  if (!Number.isFinite(value)) return value;
+  const negative = value < 0, digits = Math.abs(value).toFixed(20).replace(".", "").split("");
+  const keep = String(Math.floor(Math.abs(value))).length + places;
+  let head = Number(digits.slice(0, keep).join("")) || 0;
+  const rest = digits.slice(keep), first = Number(rest[0] ?? "0");
+  if (first > 5 || (first === 5 && (/[1-9]/.test(rest.slice(1).join("")) || head % 2 === 1))) head++;
+  return (negative ? -head : head) / 10 ** places;
+}
+
+/** The three stock measures on 1081-square terrain/water metre grids in the game's south-first row order. */
+export function measureStockMetrics(ground, depth) {
+  if (ground?.length !== STOCK_GRID ** 2 || depth?.length !== STOCK_GRID ** 2)
+    throw new Error("Stock measures need 1081-square terrain and water grids");
+  let low = Infinity, high = -Infinity;
+  for (let i = 0; i < ground.length; i++) { const h = ground[i]; if (h < low) low = h; if (h > high) high = h; }
+  const slopes = [];
+  let wet = 0, central = 0;
+  for (let r = 0; r < STOCK_RESOURCE; r++) {
+    if (!STOCK_CENTRAL[r]) continue;
+    const row = STOCK_NODE[r] * STOCK_GRID;
+    for (let c = 0; c < STOCK_RESOURCE; c++) {
+      if (!STOCK_CENTRAL[c]) continue;
+      const i = row + STOCK_NODE[c];
+      central++;
+      if (depth[i] > 0.5) { wet++; continue; }
+      const dz = (ground[i + STOCK_GRID] - ground[i - STOCK_GRID]) / (2 * STOCK_SPACING_M);
+      const dx = (ground[i + 1] - ground[i - 1]) / (2 * STOCK_SPACING_M);
+      slopes.push(Math.hypot(dx, dz) * 100);
+    }
+  }
+  slopes.sort((a, b) => a - b);
+  const middle = slopes.length >> 1;
+  const median = !slopes.length ? null
+    : slopes.length % 2 ? slopes[middle] : (slopes[middle - 1] + slopes[middle]) / 2;
+  return {
+    terrain_relief_m: Number.isFinite(high - low) ? round(high - low, 1) : null,
+    wet_central_fraction: central ? round(wet / central, 4) : null,
+    median_land_slope_percent: median == null ? null : round(median, 1),
+  };
+}
+
+/**
+ * Values plus the stock reference they are read against. A measure the caller marks
+ * not comparable keeps its definition but carries no value or band: absent at this
+ * input fidelity is not silent zero.
+ */
+export function stockComparison(values, reference, comparability = {}) {
+  const metrics = reference?.metrics ?? {};
+  return Object.fromEntries(Object.entries(STOCK_MEASURES).map(([id, measure]) => {
+    const metric = metrics[id], comparable = comparability[id]?.comparable !== false;
+    const value = comparable && Number.isFinite(values?.[id]) ? values[id] : null;
+    return [id, {
+      value, comparable, definition: measure.definition, label: measure.label,
+      unit: metric?.unit ?? null, p25: metric?.p25 ?? null, median: metric?.median ?? null, p75: metric?.p75 ?? null,
+      band: stockBand(value, metric),
+    }];
+  }));
+}

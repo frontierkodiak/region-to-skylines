@@ -34,6 +34,18 @@
 .capability-row [data-level="promised"] { color: var(--accent); border-color: var(--accent); }
 .capability-row [data-level="likely"] { color: var(--ink); border-style: dashed; }
 .capability-row [data-level="not_possible_here"] { color: var(--square); }
+.stock-readout { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); }
+.stock-heading { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; font-size: 12px; }
+.stock-list { display: grid; gap: 1px; margin-top: 4px; }
+.stock-row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 4px 8px; align-items: baseline; min-height: 44px; padding: 6px 2px; border: 0; border-bottom: 1px solid var(--line); background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.stock-row:last-child { border-bottom: 0; }
+.stock-row:hover .stock-name, .stock-row:focus-visible .stock-name { text-decoration: underline; }
+.stock-row:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stock-name { font-size: 12px; overflow-wrap: anywhere; }
+.stock-value { font-variant-numeric: tabular-nums; font-weight: 600; }
+.stock-band { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.stock-row[data-state="measured"]:not([data-band="typical"]) .stock-band { color: var(--ink); }
+.stock-row[data-state="not_comparable"] .stock-value { color: var(--muted); font-weight: 400; }
 .capability-status { min-height: 18px; font-variant-numeric: tabular-nums; }
 .capability-detail { position: absolute; top: 100%; left: 0; right: 0; z-index: 5; padding: 10px; margin-top: 4px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 14px rgba(0,0,0,.06); }
 @media (max-width: 420px) { .capability-row { grid-template-columns: repeat(4, minmax(44px, 1fr)); } }

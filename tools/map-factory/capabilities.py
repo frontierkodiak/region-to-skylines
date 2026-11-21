@@ -362,6 +362,40 @@ def check(data, ledger):
     )
 
 
+# Mirrored in capability-model.js STOCK_MEASURES. Same definitions as
+# survey/measure_maps.py: 1081 nodes, 16 m gradient, central 25-tile mask and
+# 0.5 m wet threshold. Strings are asserted equal across both cores by the
+# Python/JavaScript parity test.
+STOCK_MEASURES = {
+    "terrain_relief_m": "highest minus lowest terrain over all 1081 x 1081 nodes, in metres",
+    "median_land_slope_percent": "median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent",
+    "wet_central_fraction": "share of the central 25 tiles whose water depth is above 0.5 m",
+}
+
+
+def stock_metrics(ground, depth, field=None):
+    """The three stock measures on 1081-square terrain/water metre grids.
+
+    `field` is an already-computed `survey.measure_maps.terrain_fields` when the
+    caller needs it for something else; the values are identical either way.
+    """
+    if ground.shape != (1081, 1081) or depth.shape != (1081, 1081):
+        raise ValueError("Stock measures need 1081-square terrain and water grids")
+    from survey.measure_maps import CENTRAL, terrain_fields
+
+    field = terrain_fields(ground, depth) if field is None else field
+    land = CENTRAL & field["land"]
+    return {
+        "terrain_relief_m": round(float(ground.max() - ground.min()), 1),
+        "wet_central_fraction": round(
+            float((CENTRAL & field["wet"]).sum() / CENTRAL.sum()), 4
+        ),
+        "median_land_slope_percent": round(float(np.median(field["slope"][land])), 1)
+        if land.any()
+        else None,
+    }
+
+
 def stock_band(value, metric):
     if metric is None or value is None or not math.isfinite(value):
         return "not_comparable"
@@ -434,15 +468,7 @@ def assess_prepared(folder, native_context=None):
     ]
     field = terrain_fields(ground, depth)
     land = CENTRAL & field["land"]
-    values = {
-        "terrain_relief_m": round(float(ground.max() - ground.min()), 1),
-        "wet_central_fraction": round(
-            float((CENTRAL & field["wet"]).sum() / CENTRAL.sum()), 4
-        ),
-        "median_land_slope_percent": round(float(np.median(field["slope"][land])), 1)
-        if land.any()
-        else None,
-    }
+    values = stock_metrics(ground, depth, field)
     plan_path = folder / "plan.npz"
     if plan_path.exists():
         with np.load(plan_path) as plan:
@@ -481,10 +507,12 @@ def assess_prepared(folder, native_context=None):
                 "incoming" + native
             ]
         report["artifact_sha256"] = hashlib.sha256(packages[0].read_bytes()).hexdigest()
+    report["fidelity"] = "prepared_grids"
     report["metrics"] = {
         key: {
             "value": value,
             "band": stock_band(value, ledger["stock_reference"]["metrics"].get(key)),
+            **({"definition": STOCK_MEASURES[key]} if key in STOCK_MEASURES else {}),
         }
         for key, value in values.items()
     }

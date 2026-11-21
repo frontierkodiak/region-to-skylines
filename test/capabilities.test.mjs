@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { checkCapabilities, networkAccess, shipCorridor, stockBand } from "../capability-model.js";
+import { checkCapabilities, measureStockMetrics, networkAccess, shipCorridor, stockBand, stockComparison, STOCK_MEASURES } from "../capability-model.js";
 import { validateLedger, ledgerPage, stockReference, agreementByOracle } from "../capability-ledger.mjs";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 
@@ -133,6 +133,42 @@ test("agreement separates oracle types and excludes missing labels", () => {
   const m = { p25: 1, p75: 3 };
   assert.deepEqual([0, 1, 2, 3, 4].map((v) => stockBand(v, m)), ["below_p25", "typical", "typical", "typical", "above_p75"]);
   assert.equal(stockBand(null, m), "not_comparable");
+});
+
+test("stock measures follow the prepared definitions, mask and wet threshold", () => {
+  const n = 1081, ground = new Float64Array(n ** 2), depth = new Float64Array(n ** 2);
+  // 1 m per 16 m row is exactly 6.25% slope; Python's round() takes the tie to 6.2.
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) ground[r * n + c] = r;
+  assert.deepEqual(measureStockMetrics(ground, depth), { terrain_relief_m: 1080, wet_central_fraction: 0, median_land_slope_percent: 6.2 });
+  ground.fill(100);
+  depth.fill(0.5); // the threshold is strictly above 0.5 m, as in terrain_fields()
+  assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 0);
+  depth.fill(0.6);
+  assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 1);
+  depth.fill(0);
+  for (let i = 0; i < n * n; i += 1) if (i % n < 100) depth[i] = 1; // water outside the central 25 tiles
+  assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 0);
+  assert.throws(() => measureStockMetrics(new Float64Array(4), depth), /1081-square/);
+});
+
+test("stock comparison withholds only the measures capture fidelity cannot support", () => {
+  const reference = ledger.stock_reference;
+  const values = { terrain_relief_m: 300, median_land_slope_percent: 9, wet_central_fraction: 0.2 };
+  const withheld = { median_land_slope_percent: { comparable: false }, wet_central_fraction: { comparable: false } };
+  const result = stockComparison(values, reference, withheld);
+  assert.equal(result.terrain_relief_m.value, 300);
+  assert.equal(result.terrain_relief_m.band, "below_p25");
+  assert.equal(result.terrain_relief_m.definition, STOCK_MEASURES.terrain_relief_m.definition);
+  assert.deepEqual([result.terrain_relief_m.p25, result.terrain_relief_m.median, result.terrain_relief_m.p75], [reference.metrics.terrain_relief_m.p25, reference.metrics.terrain_relief_m.median, reference.metrics.terrain_relief_m.p75]);
+  for (const id of ["median_land_slope_percent", "wet_central_fraction"]) {
+    assert.equal(result[id].comparable, false);
+    assert.equal(result[id].value, null, "a withheld measure carries no value to compare");
+    assert.equal(result[id].band, "not_comparable");
+    assert.ok(result[id].definition, "the definition still travels with the withheld measure");
+  }
+  assert.equal(result.median_land_slope_percent.label, "Central land slope");
+  const missing = stockComparison(null, reference);
+  for (const row of Object.values(missing)) { assert.equal(row.value, null); assert.equal(row.band, "not_comparable"); }
 });
 
 test("UI adoption cannot hide changed live checks or rewritten historical gates", async () => {

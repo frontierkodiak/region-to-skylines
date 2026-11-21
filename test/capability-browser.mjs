@@ -36,21 +36,55 @@ try {
       const page = await context.newPage();
       // Construction is deliberately explicit: these are controlled UI inputs.
       await page.route("**/capability-inputs.js", (route) => route.fulfill({ contentType: "text/javascript", body: `
+        const comparable = {
+          terrain_relief_m: {comparable:true, basis:'capture_heightmap'},
+          median_land_slope_percent: {comparable:false, detail:'Slope needs the prepared terrain and water mask; constructed UI input only.'},
+          wet_central_fraction: {comparable:false, detail:'Carved-bed depth is not the prepared water level; constructed UI input only.'},
+        };
         export async function captureEstimate(sq) {
           await new Promise((r) => setTimeout(r, sq.lat === 4 ? 1000 : 60));
           if (sq.lat === 3) throw new Error('constructed data failure');
-          return { square:sq, input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:17,spacing_m:1080,depth_m:new Array(289).fill(sq.lat === 1 ? 0 : 8)}} };
+          return { square:sq,
+            input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:17,spacing_m:1080,depth_m:new Array(289).fill(sq.lat === 1 ? 0 : 8)}},
+            stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
         }` }));
       await page.goto(origin + "/__ui_probe");
       await page.waitForFunction(() => !!window.capabilityProbe);
       assert.equal(await page.locator("[data-level=loading]").count(), 8);
+      assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
       await page.evaluate(() => window.capabilityProbe.update({ lat: 1, lon: 0 }));
       assert.equal(await page.locator('[data-capability="ship"]').getAttribute("data-level"), "unknown");
       await page.locator('[data-capability="ship"]').focus();
       assert.match(await page.locator(".capability-detail").textContent(), /No broad deep corridor/);
+      // Constructed low/typical/high stock bands; the two capture-limited measures stay uncompared.
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "below_p25");
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "300 m");
+      for (const id of ["median_land_slope_percent", "wet_central_fraction"]) {
+        const row = page.locator(`[data-metric="${id}"]`);
+        assert.equal(await row.getAttribute("data-state"), "not_comparable");
+        assert.equal(await row.locator(".stock-value").textContent(), "—");
+        assert.equal(await row.locator(".stock-band").textContent(), "Not comparable");
+      }
+      assert.match(await page.locator(".stock-basis").textContent(), /^104 shipped maps/);
+      await page.locator('[data-metric="terrain_relief_m"]').focus();
+      assert.match(await page.locator(".capability-detail").textContent(), /p25 595\.9 m/, "bounds show at display precision, not ledger float noise");
+      assert.doesNotMatch(await page.locator(".capability-detail").textContent(), /9999/);
+      await page.locator('[data-metric="median_land_slope_percent"]').focus();
+      assert.match(await page.locator(".capability-detail").textContent(), /not comparable from this square's map-time capture/);
+      assert.match(await page.locator(".capability-detail").textContent(), /prepared terrain and water mask/);
+      await page.locator('[data-capability="ship"]').focus(); // the icon detail still follows its own focus
       await page.evaluate(() => window.capabilityProbe.update({ lat: 2, lon: 0 }));
       assert.equal(await page.locator('[data-capability="ship"]').getAttribute("data-level"), "likely");
       assert.match(await page.locator(".capability-detail").textContent(), /game's ship path/);
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "typical");
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "700 m");
+      await page.evaluate(() => window.capabilityProbe.update({ lat: 5, lon: 0 }));
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "above_p75");
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "1200 m");
+      await page.evaluate(() => window.capabilityProbe.reset());
+      assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
+      assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "…",
+        "a pan clears the previous square instead of showing it against a new one");
       await page.evaluate(() => { window.capabilityProbe.update({lat:4,lon:0}); window.capabilityProbe.reset(); return window.capabilityProbe.update({lat:5,lon:0}); });
       await page.waitForTimeout(1100); // Intentionally wait past the stale constructed response.
       assert.match(await page.locator(".capability-status").textContent(), /5.000/);
@@ -58,6 +92,7 @@ try {
       assert.match(await page.locator(".capability-detail").textContent(), /10%/);
       await page.evaluate(() => window.capabilityProbe.update({ lat: 3, lon: 0 }));
       assert.equal(await page.locator("[data-level=unknown]").count(), 8);
+      assert.equal(await page.locator(".stock-row[data-state=unknown]").count(), 3, "a failed capture leaves no stock band behind");
       assert.match(await page.locator(".capability-status").textContent(), /unavailable/);
       assert.match(await page.locator(".capability-status").textContent(), /move the square to retry/);
       assert.ok(await page.locator(".capability-status").isVisible());
@@ -65,6 +100,9 @@ try {
       await page.screenshot({ path: resolve(out, `${name}-row-desktop.png`) });
       await page.setViewportSize({ width: 390, height: 844 });
       for (const box of await page.locator(".capability-row button").evaluateAll((els) => els.map((e) => ({ w: e.getBoundingClientRect().width, h: e.getBoundingClientRect().height })))) assert.ok(box.w >= 44 && box.h >= 44);
+      for (const box of await page.locator(".stock-row").evaluateAll((els) => els.map((e) => ({ w: e.getBoundingClientRect().width, h: e.getBoundingClientRect().height })))) assert.ok(box.w >= 44 && box.h >= 44);
+      await page.locator('[data-metric="terrain_relief_m"]').click();
+      assert.match(await page.locator(".capability-detail").textContent(), /p25/, "a tap reveals the stock numbers on touch");
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
       await page.screenshot({ path: resolve(out, `${name}-row-phone.png`) });
       await page.unroute("**/capability-inputs.js");
@@ -78,15 +116,22 @@ try {
         await page.setViewportSize({ width: 1440, height: 1000 });
         await page.goto(origin + "/#c=-71.057,42.36&r=0&s=1&h=auto&rivers=1&n=boston");
         await page.waitForFunction(() => /estimate|unavailable/.test(document.querySelector(".capability-status")?.textContent ?? ""), undefined, { timeout: 120000 });
-        item.live = { status: await page.locator(".capability-status").textContent(), icons: await page.locator(".capability-row button").evaluateAll((els) => els.map((e) => ({ id: e.dataset.capability, level: e.dataset.level, description: e.title }))), errors };
+        item.live = { status: await page.locator(".capability-status").textContent(), icons: await page.locator(".capability-row button").evaluateAll((els) => els.map((e) => ({ id: e.dataset.capability, level: e.dataset.level, description: e.title }))), stock: await page.locator(".stock-row").evaluateAll((els) => els.map((e) => ({ id: e.dataset.metric, state: e.dataset.state, band: e.dataset.band ?? null, value: e.querySelector(".stock-value").textContent, band_text: e.querySelector(".stock-band").textContent, description: e.title }))), errors };
         assert.match(item.live.status, /estimate/, "real capture must finish, not silently become unavailable");
+        const real = Object.fromEntries(item.live.stock.map((row) => [row.id, row]));
+        assert.equal(real.terrain_relief_m.state, "measured", "real geography gives a real relief estimate, labelled as such");
+        assert.match(real.terrain_relief_m.description, /Capture estimate, not the finished map/);
+        assert.match(real.terrain_relief_m.description, /p25/);
+        for (const id of ["median_land_slope_percent", "wet_central_fraction"])
+          assert.equal(real[id].state, "not_comparable", "real capture never compares the prepared-only measures");
+        assert.match(await page.locator(".stock-basis").textContent(), /^104 shipped maps/);
         assert.deepEqual(errors, []);
         await page.screenshot({ path: resolve(out, `${name}-boston-live.png`) });
         const box = await page.locator("#map").boundingBox();
         const x = box.x + box.width / 2, y = box.y + box.height / 2;
         await page.mouse.move(x, y); await page.mouse.down();
         await page.mouse.move(x + 80, y, { steps: 10 });
-        await page.waitForFunction(() => document.querySelectorAll('.capability-row [data-level="loading"]').length === 8);
+        await page.waitForFunction(() => document.querySelectorAll('.capability-row [data-level="loading"]').length === 8 && document.querySelectorAll('.stock-row[data-state="checking"]').length === 3);
         await page.mouse.up();
         await page.waitForFunction(() => /estimate|unavailable/.test(document.querySelector(".capability-status")?.textContent ?? ""), undefined, { timeout: 120000 });
         item.live.pan_status = await page.locator(".capability-status").textContent();

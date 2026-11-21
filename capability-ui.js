@@ -1,5 +1,5 @@
 import { captureEstimate } from "./capability-inputs.js";
-import { checkCapabilities } from "./capability-model.js";
+import { checkCapabilities, stockComparison, STOCK_MEASURES } from "./capability-model.js";
 
 const ICONS = {
   road: "M6 3 3 21M18 3l3 18M12 3v4m0 3v4m0 3v4",
@@ -21,27 +21,48 @@ const REASONS = {
   not_evaluated: "This capability is not yet modeled for live checks.",
   dry_low_slope_samples: "Dry samples with local slope below 15%. This is not the game's buildable-area bar or a legal start-site check.",
 };
+const BANDS = { below_p25: "Below p25", typical: "Typical", above_p75: "Above p75", not_comparable: "Not comparable" };
 
 export function mountCapabilities(root) {
   const row = root.querySelector(".capability-row"), detail = root.querySelector(".capability-detail"), status = root.querySelector(".capability-status");
+  const stockNote = root.querySelector(".stock-basis"), stockList = root.querySelector(".stock-list");
   const ledger = fetch("./capabilities.json").then((r) => { if (!r.ok) throw new Error("Ledger unavailable"); return r.json(); });
   // Attach a rejection handler immediately, even if the first terrain build fails.
   ledger.catch(() => {});
-  let controller = null, sequence = 0;
-  let activeId = null;
-  const buttons = new Map();
+  let controller = null, sequence = 0, active = null, catalog = null;
+  const buttons = new Map(), stockRows = new Map();
+  const show = (button) => { active = button; detail.textContent = button.title; detail.hidden = false; };
+  const hide = () => { active = null; detail.hidden = true; };
   for (const [id, name] of Object.entries(LABELS)) {
     const button = document.createElement("button");
     button.type = "button"; button.dataset.capability = id; button.dataset.level = "loading";
     button.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg><span class="capability-name">${name}</span><span class="capability-mark" aria-hidden="true">…</span>`;
-    const show = () => { activeId = id; detail.textContent = button.title; detail.hidden = false; };
-    button.addEventListener("pointerenter", show); button.addEventListener("focus", show); button.addEventListener("click", show);
+    button.addEventListener("pointerenter", () => show(button)); button.addEventListener("focus", () => show(button));
+    button.addEventListener("click", () => show(button));
     buttons.set(id, button); row.append(button);
   }
-  const hide = () => { activeId = null; detail.hidden = true; };
+  for (const [id, measure] of Object.entries(STOCK_MEASURES)) {
+    const button = document.createElement("button");
+    button.type = "button"; button.className = "stock-row"; button.dataset.metric = id; button.dataset.state = "checking";
+    button.innerHTML = `<span class="stock-name">${measure.label}</span><span class="stock-value">…</span><span class="stock-band">Checking</span>`;
+    button.addEventListener("pointerenter", () => show(button)); button.addEventListener("focus", () => show(button));
+    button.addEventListener("click", () => show(button));
+    stockRows.set(id, button); stockList.append(button);
+  }
   root.addEventListener("pointerleave", () => { if (!root.contains(document.activeElement)) hide(); });
   root.addEventListener("focusout", (event) => { if (!root.contains(event.relatedTarget)) hide(); });
   root.addEventListener("keydown", (event) => { if (event.key === "Escape") hide(); });
+  function resetStock(state = "checking") {
+    for (const button of stockRows.values()) {
+      button.dataset.state = state;
+      button.querySelector(".stock-value").textContent = state === "unknown" ? "—" : "…";
+      button.querySelector(".stock-band").textContent = state === "unknown" ? "Unknown" : "Checking";
+      button.title = state === "unknown"
+        ? "Against stock maps: this square's data could not be loaded."
+        : "Against stock maps: checking this square.";
+      button.setAttribute("aria-label", button.title);
+    }
+  }
   function reset(message = "Checking this square…") {
     controller?.abort(); sequence++;
     status.textContent = message;
@@ -51,6 +72,7 @@ export function mountCapabilities(root) {
       button.title = `${LABELS[id]}: checking this square.`;
       button.setAttribute("aria-label", button.title);
     }
+    resetStock();
     hide();
   }
   function unavailable() {
@@ -61,15 +83,50 @@ export function mountCapabilities(root) {
       button.title = `${LABELS[id]}: unknown. This square's data could not be loaded.`;
       button.setAttribute("aria-label", button.title);
     }
+    resetStock("unknown");
     detail.textContent = "";
     detail.hidden = true;
+  }
+  // Bounds come from the ledger with float noise (761.5999999999999); show them at display precision.
+  const format = (value, unit) => unit === "%" ? `${Number(value.toFixed(1))}%`
+    : unit === "fraction" ? `${Number((value * 100).toFixed(1))}%` : `${Number(value.toFixed(1))} m`;
+  function renderStock(stock) {
+    if (!catalog) return;
+    const reference = catalog.stock_reference;
+    stockNote.textContent = `${reference.maps} shipped maps · p25–p75 is typical`;
+    const comparison = stockComparison(stock?.measures, reference, stock?.comparability);
+    for (const [id, button] of stockRows) {
+      const row = comparison[id], metric = reference.metrics[id], policy = stock?.comparability?.[id];
+      const value = button.querySelector(".stock-value"), band = button.querySelector(".stock-band");
+      if (!stock) {
+        button.dataset.state = "unknown"; delete button.dataset.band;
+        value.textContent = "—"; band.textContent = "Unknown";
+        button.title = `${metric.name}: unknown. This square's data could not be loaded.`;
+      } else if (!row.comparable) {
+        button.dataset.state = "not_comparable"; delete button.dataset.band;
+        value.textContent = "—"; band.textContent = BANDS.not_comparable;
+        button.title = `${metric.name}: not comparable from this square's map-time capture. ${policy?.detail ?? ""} The ${reference.maps}-map comparison is made on the prepared map.`;
+      } else if (row.value == null || row.band === "not_comparable") {
+        button.dataset.state = "unknown"; delete button.dataset.band;
+        value.textContent = "—"; band.textContent = "Unknown";
+        button.title = `${metric.name}: unknown for this square.`;
+      } else {
+        const screening = policy?.basis?.includes("water_screening") ? " The dry mask uses capture-time water screening." : "";
+        button.dataset.state = "measured"; button.dataset.band = row.band;
+        value.textContent = format(row.value, row.unit); band.textContent = BANDS[row.band];
+        button.title = `${metric.name}: ${format(row.value, row.unit)}, ${BANDS[row.band].toLowerCase()}. p25 ${format(row.p25, row.unit)}, median ${format(row.median, row.unit)}, p75 ${format(row.p75, row.unit)} across ${reference.maps} shipped maps. Capture estimate, not the finished map.${screening}`;
+      }
+      button.setAttribute("aria-label", button.title);
+    }
+    if (active) { detail.textContent = active.title; detail.hidden = false; }
   }
   async function update(square) {
     controller?.abort(); controller = new AbortController();
     const signal = controller.signal, current = ++sequence;
     try {
-      const [catalog, capture] = await Promise.all([ledger, captureEstimate(square, { signal })]);
+      const [ledgerData, capture] = await Promise.all([ledger, captureEstimate(square, { signal })]);
       if (signal.aborted || sequence !== current) return;
+      catalog = ledgerData;
       const report = checkCapabilities(capture.input, catalog);
       for (const [id, button] of buttons) {
         const cap = catalog.capabilities.find((c) => c.id === id), result = report.capabilities[id];
@@ -80,8 +137,9 @@ export function mountCapabilities(root) {
         button.setAttribute("aria-label", button.title);
       }
       status.textContent = `${square.lat.toFixed(3)}, ${square.lon.toFixed(3)} · estimate`;
-      const active = [...buttons].find(([id, b]) => id === activeId || b === document.activeElement)?.[1];
-      if (active) { detail.textContent = active.title; detail.hidden = false; }
+      renderStock(capture.stock);
+      const focused = [...buttons.values(), ...stockRows.values()].find((button) => button === document.activeElement);
+      if (focused ?? active) { detail.textContent = (focused ?? active).title; detail.hidden = false; }
     } catch {
       if (signal.aborted || sequence !== current) return;
       unavailable();

@@ -14,7 +14,7 @@
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
-      "current_sha256": "61acf134bc4c0ef366d375597641f8184a0291619ac44094017200d85cd96228"
+      "current_sha256": "53116abaf8e93aa910d27e48bb2028d545a5743bc65009d3eccedcbe2c1b5809"
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
@@ -22,16 +22,16 @@
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
-      "current_sha256": "2c64417e026b050e652850e920b56b0c7842b1d6b8c7c657a44ffed6ea642d6e"
+      "current_sha256": "146909eecf567829eeb5eea84317509db0e90bec764302fda0e445ed7b739221"
     }
   },
   "added_files_sha256": {
     "capabilities.json": "92a5aa48096c83cea2046a811ab0c566d2d07682b8d30b70305d674363ebe4f7",
-    "capability-inputs.js": "c232a9414354631d8c9c3393524a48a23d918bf8b89895487ad3169b3fa683d1",
+    "capability-inputs.js": "b12b43f44df385722863a651dd2a08ed3809affd007292811f0a457af3129dce",
     "capability-ledger.mjs": "36bc8af814aa97b3f7602cdad7604fb8bf0262eae36d394f46fd0983ffc82a17",
-    "capability-model.js": "d6582f7073d1672255ad0fb9f3fcaab1ade23a5ae7c2a5972df10536dd80cf47",
-    "capability-ui.js": "939b6331ab03b19d0ddf46aa13b0b24202828082660ea4e9835c3abb624ffaa2",
-    "tools/map-factory/capabilities.py": "98e54c8110f0241af75be5444111dc2446efd454933d344a9d9c03cee2e238d9",
+    "capability-model.js": "2f54141a869402c075e3cada0794014c61e4ee5f0da669fed6b4f8412b37e295",
+    "capability-ui.js": "5994e786ea1174274fa8e139d54103bbf70cfd58a125b7fb914e9c9d4fcf9a4c",
+    "tools/map-factory/capabilities.py": "30dc5ffef21eb57f6a1cf624d517b3854547291e721685ce37c98e169216d3d1",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
   }

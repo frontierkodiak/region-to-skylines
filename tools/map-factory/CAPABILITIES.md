@@ -56,6 +56,40 @@ never rule out synthetic routes. Version 4 can emit `promised` only for the narr
 scope `sampled_native_lane_paths_at_opening`, through the exact-context path
 below. Geometry and retrospective agreement never promote a promise themselves.
 
+## Against the stock maps, live
+
+The preview adds an **Against stock maps** readout under the icon row. It reads the
+one `capabilities.json` `stock_reference` (104 shipped maps, p25 / median / p75)
+and the same metric definitions as `survey/measure_maps.py` and the prepared
+report, so a square is never scored inside a second catalog:
+
+| Measure | Definition |
+|---|---|
+| Terrain relief | highest minus lowest terrain over all 1081 x 1081 nodes, in metres |
+| Central land slope | median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent |
+| Central wet share | share of the central 25 tiles whose water depth is above 0.5 m |
+
+`measureStockMetrics` (JavaScript) and `stock_metrics` (Python) are mirrored
+cores; the Python parity test compares their definitions, values and bands on the
+five committed prepared fixtures and on a dyadic rounding tie. Bands are strictly
+below p25, inclusive typical, strictly above p75: they describe abundance and
+interest, not a launch bar.
+
+Pan-time input is the same capture the icon row already fetches, before the
+writer's preparation. On the five committed fixtures it reproduces whole-map
+relief within 1.1 m and the same band every time. It does **not** reproduce the
+other two: Asheville's central land slope reads 11.7% (typical) where the prepared
+export is 12.1% (above p75), and Pittsburgh's central wet share reads 0.090 (typical)
+where the prepared export is 0.047 (below p25). The capture has carved-bed depth,
+not the prepared water level, and it has not had the preparation's terrain edits.
+
+So the live readout compares relief only and leaves central land slope and central
+wet share **Not comparable**, naming the gap in each row's detail. Their
+comparison is the prepared report's. The policy is `CAPTURE_STOCK` in
+`capability-inputs.js`; the fidelity test fails if the measured evidence stops
+supporting it. The readout clears on pan, a superseded or failed capture leaves no
+band, and its rows take the same hover, keyboard focus and tap as the icons.
+
 ## Exact-export native qualification
 
 `check` / `checkCapabilities` accept an optional `export_identity` containing the
