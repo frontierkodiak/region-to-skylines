@@ -70,6 +70,7 @@ def annotations(evidence):
         segments = {s["id"]: s for s in networks["segments"]}
         request = row.get("request")
         roles = []
+        edges = []
         if request:
             for endpoint in [request["from"], request["to"]]:
                 segment = segments.get(endpoint[0], {})
@@ -91,6 +92,17 @@ def annotations(evidence):
                         ),
                         "",
                     )
+                edge = None
+                for key, position in [("start_flags", "a"), ("end_flags", "b")]:
+                    if "Outside" in segment.get(key, "").split(", "):
+                        x, _, z = segment[position]
+                        edge = (
+                            ("east" if x > 0 else "west")
+                            if abs(x) > abs(z)
+                            else ("north" if z > 0 else "south")
+                        )
+                        break
+                edges.append(edge)
                 roles.append(
                     [
                         f
@@ -99,6 +111,7 @@ def annotations(evidence):
                     ]
                 )
             row["endpoint_roles"] = roles
+            row["endpoint_edges"] = edges
             generic = request["name"] == "outside-to-outside"
             two_edge = all("Outside" in role for role in roles)
             row["probe_kind"] = (
@@ -108,6 +121,10 @@ def annotations(evidence):
                 if two_edge
                 else "legacy_access_leg"
             )
+            if two_edge and edges[0] == edges[1]:
+                row["probe_kind"] = "outside_same_edge"
+                row["capability_observed"] = None
+                row["capability_reason"] = "same_edge_only"
             if not two_edge:
                 row["capability_observed"] = None
                 row["capability_reason"] = "access_leg_only"
@@ -119,6 +136,7 @@ def annotations(evidence):
             )
         else:
             row["endpoint_roles"] = None
+            row["endpoint_edges"] = None
             row["probe_kind"] = "not_requested"
             vehicle = {"road": "Car", "rail": "Train", "ship": "Ship", "air": "Plane"}[
                 row["capability_id"]
@@ -150,13 +168,13 @@ def summary(evidence):
     lines = [
         "# Outside-connection evidence",
         "",
-        "Fresh two-edge positives, access legs, archived player paths and panels are separate below.",
+        "Fresh distinct-edge positives, same-edge paths, access legs, archived player paths and panels are separate below.",
         "Every failed request remains a pair/lane observation, not a native capability negative. Missing or unexhausted coverage is unknown.",
         "All nine water-risk screens remain **warnings**. No native depth, width or grade threshold is fitted.",
         "Ship witnesses are sampled native paths, not terminal service, continuous clearance or sustained water safety.",
         "",
-        "| Square / mode | Fresh two-edge | Runtime-bound two-edge | Access positives | Archived positives | Panel observations |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| Square / mode | Fresh two-edge | Runtime-bound two-edge | Same-edge positives | Access positives | Archived positives | Panel observations |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     cells = []
     for case in evidence["artifacts"]:
@@ -177,6 +195,11 @@ def summary(evidence):
                 r["observed"] is True
                 for r in rows
                 if r.get("probe_kind") == "legacy_access_leg"
+            )
+            same_edge = sum(
+                r["observed"] is True
+                for r in rows
+                if r.get("probe_kind") == "outside_same_edge"
             )
             archived = sum(
                 r["observed"] is True
@@ -201,12 +224,13 @@ def summary(evidence):
                     else "not_run",
                     "fresh_failed_requests": failed,
                     "runtime_bound_two_edge": bound,
+                    "same_edge_positives": same_edge,
                     "access_positives": access,
                     "archived_positives": archived,
                 }
             )
             lines.append(
-                f"| {case['slug']} / {mode} | {'witness' if positive else 'unknown'} ({failed} failed) | {'witness' if bound else 'unknown'} | {access} | {archived} | {panels} |"
+                f"| {case['slug']} / {mode} | {'witness' if positive else 'unknown'} ({failed} failed) | {'witness' if bound else 'unknown'} | {same_edge} | {access} | {archived} | {panels} |"
             )
     lines += ["", "## Retained attempt errors", ""]
     lines += [

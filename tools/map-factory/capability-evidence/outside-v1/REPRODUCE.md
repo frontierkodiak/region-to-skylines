@@ -126,3 +126,8 @@ uv run --project tools/map-factory python "$study/import_v2.py" \
 Register the collector source version first in `collector-versions.json`. Keep
 every partial or failed batch with a distinct attempt ID. Runtime-bound fresh
 two-edge witnesses are separate from historical fresh witnesses in the summary.
+
+Outside endpoints on the same map edge remain useful diagnostics but do not
+qualify as distinct-edge witnesses. Edge sides come from native outside-node
+coordinates (dominant absolute x/z axis). The sweep prioritizes distinct edges;
+the summary lists same-edge positives separately.

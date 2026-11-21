@@ -31,6 +31,11 @@ def dump(path, value):
     path.write_text(json.dumps(value, indent=2) + "\n")
 
 
+def boundary_side(point):
+    x, _, z = point
+    return ("east" if x > 0 else "west") if abs(x) > abs(z) else ("north" if z > 0 else "south")
+
+
 def outside_endpoints(networks, vehicle):
     ends = []
     for segment in networks["segments"]:
@@ -41,6 +46,7 @@ def outside_endpoints(networks, vehicle):
                 ends.append(
                     {
                         "node": segment[key],
+                        "edge": boundary_side(segment["a" if key == "start" else "b"]),
                         "segment": segment["id"],
                         "offset": offset,
                         "roles": [role for role in flags if role in {"OneWayIn", "OneWayOut"}],
@@ -77,7 +83,7 @@ def outside_pairs(networks, vehicle):
     the native pathfinder tests connectivity, with lane directions retained.
     """
     labels = component_labels(networks, vehicle)
-    return [
+    candidates = [
         (a, b)
         for a, b in itertools.combinations(outside_endpoints(networks, vehicle), 2)
         if labels[a["node"]] == labels[b["node"]]
@@ -85,6 +91,8 @@ def outside_pairs(networks, vehicle):
         and a["node"] != b["node"]
         and (vehicle != "Car" or ({*a["roles"], *b["roles"]} == {"OneWayIn", "OneWayOut"} and a["roles"] != b["roles"]))
     ]
+
+    return sorted(candidates, key=lambda pair: pair[0]["edge"] == pair[1]["edge"])
 
 
 def outside_pair(networks, vehicle):
@@ -109,6 +117,7 @@ def outside_requests(networks, capability, vehicle):
                             "direction": direction,
                             "position_kind": kind,
                             "endpoint_roles": [a["roles"], b["roles"]],
+                            "endpoint_edges": [a["edge"], b["edge"]],
                             "lane_directions": [a_lane.get("direction"), b_lane.get("direction")],
                             "from": [a["segment"], a_lane["index"], a_offset],
                             "to": [b["segment"], b_lane["index"], b_offset],

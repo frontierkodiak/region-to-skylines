@@ -117,7 +117,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "not_run",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -268,7 +269,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "not_run",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -418,7 +420,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "not_run",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -568,7 +571,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "not_run",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -11505,7 +11509,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        null
+      ]
     },
     {
       "square": {
@@ -11899,7 +11907,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        null
+      ]
     },
     {
       "square": {
@@ -12338,7 +12350,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "east"
+      ]
     },
     {
       "square": {
@@ -13300,7 +13316,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13374,7 +13394,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13448,7 +13472,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13522,7 +13550,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13596,7 +13628,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13670,7 +13706,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13744,7 +13784,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13818,7 +13862,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13892,7 +13940,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -13966,7 +14018,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -14040,7 +14096,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14114,7 +14174,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14188,7 +14252,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14262,7 +14330,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14336,7 +14408,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14410,7 +14486,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14484,7 +14564,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14558,7 +14642,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -14632,7 +14720,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -15570,7 +15662,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "south"
+      ]
     },
     {
       "square": {
@@ -15642,7 +15738,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -15714,7 +15814,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -15786,7 +15890,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -15858,7 +15966,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -15930,7 +16042,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -16002,7 +16118,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -16074,7 +16194,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -16146,7 +16270,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -16304,7 +16432,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -17414,7 +17543,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -18407,7 +18540,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -26426,7 +26563,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -27435,7 +27576,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -27508,7 +27653,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -27581,7 +27730,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -28438,7 +28591,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -29294,7 +29451,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -30150,7 +30311,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -31006,7 +31171,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -31862,7 +32031,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -32718,7 +32891,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -33579,7 +33756,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -34435,7 +34616,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -35291,7 +35476,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -36147,7 +36336,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -37003,7 +37196,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -37859,7 +38056,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -38715,7 +38916,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -39571,7 +39776,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -40427,7 +40636,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -41283,7 +41496,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -42139,7 +42356,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -42995,7 +43216,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -43851,7 +44076,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -43926,7 +44155,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44001,7 +44234,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44076,7 +44313,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44151,7 +44392,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44226,7 +44471,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44301,7 +44550,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44376,7 +44629,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44451,7 +44708,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44526,7 +44787,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44601,7 +44866,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44676,7 +44945,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44751,7 +45024,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44826,7 +45103,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44901,7 +45182,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -44976,7 +45261,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45051,7 +45340,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45126,7 +45419,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45201,7 +45498,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45392,7 +45693,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45465,7 +45770,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45538,7 +45847,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45611,7 +45924,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45684,7 +46001,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45757,7 +46078,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45830,7 +46155,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45903,7 +46232,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -45976,7 +46309,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46049,7 +46386,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46122,7 +46463,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46195,7 +46540,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46268,7 +46617,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46341,7 +46694,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46414,7 +46771,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -46487,7 +46848,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -47928,7 +48293,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -49252,7 +49621,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -50576,7 +50949,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -51900,7 +52277,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -53001,7 +53382,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -53985,7 +54370,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -54969,7 +55358,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -55953,7 +56346,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -56805,7 +57202,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -57359,7 +57760,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -57898,7 +58303,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -58937,7 +59346,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -59013,7 +59426,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59088,7 +59505,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59163,7 +59584,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59238,7 +59663,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59313,7 +59742,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59388,7 +59821,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59463,7 +59900,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59538,7 +59979,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59613,7 +60058,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59688,7 +60137,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59763,7 +60216,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59838,7 +60295,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59913,7 +60374,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -59988,7 +60453,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -60063,7 +60532,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -60138,7 +60611,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -60213,7 +60690,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -60288,7 +60769,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -60363,7 +60848,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -60438,7 +60927,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60513,7 +61006,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60588,7 +61085,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60663,7 +61164,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60738,7 +61243,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60813,7 +61322,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60888,7 +61401,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -60963,7 +61480,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61038,7 +61559,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61113,7 +61638,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61188,7 +61717,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61263,7 +61796,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61338,7 +61875,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61413,7 +61954,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61488,7 +62033,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61563,7 +62112,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61638,7 +62191,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -61713,7 +62270,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63001,7 +63562,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63074,7 +63639,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63147,7 +63716,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63220,7 +63793,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63293,7 +63870,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63366,7 +63947,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63439,7 +64024,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63512,7 +64101,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63585,7 +64178,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -63658,7 +64255,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -63731,7 +64332,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -63804,7 +64409,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -63877,7 +64486,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -63950,7 +64563,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -64023,7 +64640,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -64096,7 +64717,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -64169,7 +64794,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -64327,7 +64956,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -65428,7 +66058,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -66412,7 +67046,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -67396,7 +68034,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -68380,7 +69022,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -69477,7 +70123,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -70716,7 +71366,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -71055,7 +71709,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "west"
+      ]
     },
     {
       "square": {
@@ -71824,7 +72482,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -72856,7 +73518,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -72931,7 +73597,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73006,7 +73676,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73081,7 +73755,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73156,7 +73834,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73231,7 +73913,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73306,7 +73992,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73381,7 +74071,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73456,7 +74150,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73531,7 +74229,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73606,7 +74308,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73681,7 +74387,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73756,7 +74466,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73831,7 +74545,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73906,7 +74624,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -73981,7 +74703,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -74056,7 +74782,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -74131,7 +74861,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -74206,7 +74940,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -74281,7 +75019,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74356,7 +75098,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74431,7 +75177,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74506,7 +75256,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74581,7 +75335,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74656,7 +75414,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74731,7 +75493,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74806,7 +75572,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74881,7 +75651,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -74956,7 +75730,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75031,7 +75809,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75106,7 +75888,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75181,7 +75967,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75256,7 +76046,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75331,7 +76125,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75406,7 +76204,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75481,7 +76283,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75556,7 +76362,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -75715,7 +76525,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_pair",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -77646,7 +78457,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -79460,7 +80275,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -81274,7 +82093,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -83088,7 +83911,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -84354,7 +85181,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -85503,7 +86334,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -86652,7 +87487,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -87801,7 +88640,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -96632,7 +97475,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -96791,7 +97635,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_pair",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -96949,7 +97794,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -97107,7 +97953,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -97413,7 +98260,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        null
+      ]
     },
     {
       "square": {
@@ -97486,7 +98337,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        null
+      ]
     },
     {
       "square": {
@@ -97559,7 +98414,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "east"
+      ]
     },
     {
       "square": {
@@ -97632,7 +98491,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "east"
+      ]
     },
     {
       "square": {
@@ -97708,7 +98571,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -97783,7 +98650,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -97858,7 +98729,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -97933,7 +98808,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -98008,7 +98887,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -98083,7 +98966,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -98158,7 +99045,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -98233,7 +99124,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -98308,7 +99203,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -98383,7 +99282,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -98458,7 +99361,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -98533,7 +99440,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -98608,7 +99519,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -98785,7 +99700,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -98796,10 +99711,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -98858,7 +99777,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -98869,10 +99788,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -98931,7 +99854,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -98942,10 +99865,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99004,7 +99931,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99015,10 +99942,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99077,7 +100008,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99088,10 +100019,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99150,7 +100085,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99161,10 +100096,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99223,7 +100162,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99234,10 +100173,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99296,7 +100239,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99307,10 +100250,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99369,7 +100316,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99380,10 +100327,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99442,7 +100393,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99453,10 +100404,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99515,7 +100470,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99526,10 +100481,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99588,7 +100547,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99599,10 +100558,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99661,7 +100624,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99672,10 +100635,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99734,7 +100701,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99745,10 +100712,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99807,7 +100778,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99818,10 +100789,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -99880,7 +100855,7 @@
       ],
       "attempt_id": "attempt-1",
       "capability_observed": null,
-      "capability_reason": "probe_limited",
+      "capability_reason": "same_edge_only",
       "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": [
@@ -99891,10 +100866,14 @@
           "Outside"
         ]
       ],
-      "probe_kind": "generic_pair",
+      "probe_kind": "outside_same_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "north"
+      ]
     },
     {
       "square": {
@@ -101790,7 +102769,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -103569,7 +104552,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -105348,7 +106335,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -107127,7 +108118,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -107285,7 +108280,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -107559,7 +108555,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -107718,7 +108715,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -107876,7 +108874,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -108034,7 +109033,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -109106,7 +110106,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -110290,7 +111294,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        null
+      ]
     },
     {
       "square": {
@@ -111144,7 +112152,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -111603,7 +112615,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "south"
+      ]
     },
     {
       "square": {
@@ -112140,7 +113156,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112215,7 +113235,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112290,7 +113314,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112365,7 +113393,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112440,7 +113472,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112515,7 +113551,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112590,7 +113630,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112665,7 +113709,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112740,7 +113788,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112815,7 +113867,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112890,7 +113946,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -112965,7 +114025,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113040,7 +114104,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113115,7 +114183,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113190,7 +114262,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113265,7 +114341,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113340,7 +114420,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113415,7 +114499,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113490,7 +114578,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -113565,7 +114657,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -113640,7 +114736,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -113715,7 +114815,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -113790,7 +114894,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -113865,7 +114973,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -113940,7 +115052,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114015,7 +115131,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114090,7 +115210,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114165,7 +115289,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114240,7 +115368,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114315,7 +115447,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114390,7 +115526,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114465,7 +115605,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114540,7 +115684,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114615,7 +115763,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114690,7 +115842,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114765,7 +115921,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -114840,7 +116000,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "north"
+      ]
     },
     {
       "square": {
@@ -116093,7 +117257,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "west"
+      ]
     },
     {
       "square": {
@@ -116166,7 +117334,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116239,7 +117411,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116312,7 +117488,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116385,7 +117565,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116458,7 +117642,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116531,7 +117719,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116604,7 +117796,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116677,7 +117873,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -116750,7 +117950,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -116823,7 +118027,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -116896,7 +118104,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -116969,7 +118181,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -117042,7 +118258,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -117115,7 +118335,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -117188,7 +118412,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -117261,7 +118489,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -118977,7 +120209,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "south"
+      ]
     },
     {
       "square": {
@@ -120576,7 +121812,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "south"
+      ]
     },
     {
       "square": {
@@ -122175,7 +123415,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "east"
+      ]
     },
     {
       "square": {
@@ -123774,7 +125018,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "east"
+      ]
     },
     {
       "square": {
@@ -124890,7 +126138,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -125889,7 +127141,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "east"
+      ]
     },
     {
       "square": {
@@ -126888,7 +128144,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -127887,7 +129147,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "north"
+      ]
     },
     {
       "square": {
@@ -128552,7 +129816,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        null
+      ]
     },
     {
       "square": {
@@ -129176,7 +130444,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        null
+      ]
     },
     {
       "square": {
@@ -129675,7 +130947,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "west"
+      ]
     },
     {
       "square": {
@@ -130274,7 +131550,11 @@
       "probe_kind": "legacy_access_leg",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        null,
+        "north"
+      ]
     },
     {
       "square": {
@@ -131441,7 +132721,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "south"
+      ]
     },
     {
       "square": {
@@ -131516,7 +132800,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -131591,7 +132879,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -131666,7 +132958,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -131741,7 +133037,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -131816,7 +133116,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -131891,7 +133195,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -131966,7 +133274,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132041,7 +133353,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132116,7 +133432,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132191,7 +133511,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132266,7 +133590,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132341,7 +133669,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132416,7 +133748,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132491,7 +133827,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132566,7 +133906,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132641,7 +133985,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132716,7 +134064,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132791,7 +134143,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "east",
+        "west"
+      ]
     },
     {
       "square": {
@@ -132866,7 +134222,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -132941,7 +134301,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133016,7 +134380,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133091,7 +134459,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133166,7 +134538,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133241,7 +134617,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133316,7 +134696,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133391,7 +134775,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133466,7 +134854,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133541,7 +134933,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133616,7 +135012,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133691,7 +135091,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133766,7 +135170,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133841,7 +135249,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133916,7 +135328,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -133991,7 +135407,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -134066,7 +135486,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -134141,7 +135565,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "same_role_probe_limited",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "east"
+      ]
     },
     {
       "square": {
@@ -135791,7 +137219,11 @@
       "probe_kind": "legacy_two_edge",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "west",
+        "south"
+      ]
     },
     {
       "square": {
@@ -135864,7 +137296,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -135937,7 +137373,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136010,7 +137450,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136083,7 +137527,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136156,7 +137604,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136229,7 +137681,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136302,7 +137758,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136375,7 +137835,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -136448,7 +137912,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136521,7 +137989,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136594,7 +138066,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136667,7 +138143,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136740,7 +138220,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136813,7 +138297,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136886,7 +138374,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -136959,7 +138451,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -137039,7 +138535,8 @@
       "endpoint_roles": null,
       "probe_kind": "not_requested",
       "reason": "no_lane",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": null
     },
     {
       "square": {
@@ -138117,7 +139614,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -139156,7 +140657,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "north",
+        "south"
+      ]
     },
     {
       "square": {
@@ -140195,7 +141700,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     },
     {
       "square": {
@@ -141234,7 +142743,11 @@
       "probe_kind": "generic_pair",
       "reason": null,
       "pair_status": "candidate_only",
-      "runtime_bound": false
+      "runtime_bound": false,
+      "endpoint_edges": [
+        "south",
+        "north"
+      ]
     }
   ],
   "artifacts": [

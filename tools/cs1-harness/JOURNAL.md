@@ -2972,3 +2972,9 @@ filtering only as a probe selector, then fixed a 256-request/mode budget before
 new observations. Round-robin lane-pair selection preserves all four controls
 and spreads the budget across endpoint pairs. Incomplete coverage stays unknown;
 there is no native absence verdict. Ship and rail candidates fit within budget.
+
+I also found that outside endpoints can lie on the same map edge. The diagnostic
+sweep retains those requests, but prioritizes distinct-edge pairs. Derived rows
+record edge sides from native outside-node coordinates. Same-edge positives stay
+separate from distinct-edge witnesses, so a local boundary return path cannot
+silently qualify as a cross-map witness.
