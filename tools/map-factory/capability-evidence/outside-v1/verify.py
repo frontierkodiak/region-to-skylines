@@ -5,6 +5,9 @@ import datetime
 import gzip
 import hashlib
 import json
+import copy
+
+from annotate import annotations, summary
 from pathlib import Path
 
 import numpy as np
@@ -63,6 +66,11 @@ def verify(require_nine_attempts=False):
         ):
             raise ValueError("unmeasured service/geographic claims cannot be promoted")
         if row["oracle_type"] == "native_path" and row["observed"] is not None:
+            if (
+                row.get("request")
+                and row["capability_id"] != row["request"]["capability"]
+            ):
+                raise ValueError("path capability differs from raw request")
             result = row["path_result"]
             if (
                 not result["complete"]
@@ -72,10 +80,53 @@ def verify(require_nine_attempts=False):
                 raise ValueError("path observation is incomplete or was not released")
             if datetime.datetime.fromisoformat(row["observed_at"]).tzinfo is None:
                 raise ValueError("native observation lacks a timezone")
+    if annotations(copy.deepcopy(evidence)) != evidence:
+        raise ValueError("derived annotations differ from raw evidence")
+    markdown, cells = summary(evidence)
+    if (HERE / "RESULTS.md").read_text() != markdown or json.loads(
+        (HERE / "capability-summary.json").read_text()
+    ) != cells:
+        raise ValueError("summary differs from raw-derived rows")
+    fresh_rows = {}
+    for row in evidence["rows"]:
+        if row["oracle_type"] != "native_path":
+            continue
+        if "archive_context" in row:
+            report = json.loads(raw(row["raw_evidence"]))
+            if row["path_result"] not in report[row["archive_context"]["phase"]]:
+                raise ValueError("archived path differs from raw report")
+            continue
+        if row.get("raw_evidence"):
+            fresh_rows.setdefault(row["raw_evidence"]["path"], []).append(row)
+    for path, rows in fresh_rows.items():
+        observation = json.loads(raw(rows[0]["raw_evidence"]))
+        expected = observation.get("paths", [])
+        actual = [row for row in rows if row["request"] is not None]
+        if len(actual) != len(expected):
+            raise ValueError("fresh raw requests missing or duplicated")
+        for source in expected:
+            matching = [row for row in actual if row["request"] == source["request"]]
+            if len(matching) != 1:
+                raise ValueError("fresh request not uniquely represented")
+            row = matching[0]
+            result = source.get("result", {})
+            observed = result.get("success") if result.get("complete") else None
+            if (
+                row["request"] != source["request"]
+                or row["path_result"] != result
+                or row["observed"] != observed
+                or row["error"] != source.get("error")
+                or row["observed_at"] != observation["finished_at"]
+            ):
+                raise ValueError("fresh path row differs from raw observation")
     versions = {
         version["collector_sha256"]: version
         for version in evidence["collector_versions"]
     }
+    for identity, version in versions.items():
+        if digest(raw(version["raw_source"])) != identity:
+            raise ValueError("collector source identity differs from retained source")
+    runtime_bound_observations = []
     seen_attempts = set()
     attempts = 0
     covered_cases = 0
@@ -106,6 +157,86 @@ def verify(require_nine_attempts=False):
                 observation["session"].get("cleanup", {}).values()
             ):
                 raise ValueError("native session did not clean up")
+            if observation.get("schema", 1) >= 2:
+                version = versions[observation["collector_sha256"]]
+                for name, source in version["dependencies"].items():
+                    if digest(raw(source)) != observation["collector_sources"].get(
+                        name
+                    ):
+                        raise ValueError(
+                            "collector helper differs from retained source"
+                        )
+                if observation.get("completed"):
+                    for mode, coverage in observation["candidate_coverage"].items():
+                        executed = sum(
+                            p["request"]["capability"] == mode
+                            and p["request"]["name"] == "outside-to-outside"
+                            for p in observation["paths"]
+                        )
+                        if (
+                            executed != coverage["planned_requests"]
+                            or executed > coverage["candidate_requests"]
+                        ):
+                            raise ValueError(
+                                "native candidate coverage differs from raw requests"
+                            )
+            if observation.get("schema", 1) >= 2 and observation.get("completed"):
+                protocol = observation.get("new_game_protocol", {})
+                if (
+                    protocol.get("update_mode") != "NewGameFromMap"
+                    or protocol.get("invert_traffic") != "False"
+                ):
+                    raise ValueError("native New Game protocol is not bound")
+                context = observation.get("native_context", {})
+                if (
+                    context.get("update_mode") != "NewGameFromMap"
+                    or context.get("invert_traffic") != "False"
+                    or context.get("no_workshop") is not True
+                    or context.get("mods_enabled") is not True
+                ):
+                    raise ValueError("actual native simulation context is not bound")
+                runtime = observation.get("runtime_identity", {})
+                launch = observation.get("launch_runtime_identity", {})
+                if not launch.get("build_matches") or (
+                    launch.get("host_pid"),
+                    launch.get("process_start_ticks"),
+                ) != (runtime.get("host_pid"), runtime.get("process_start_ticks")):
+                    raise ValueError(
+                        "opening observation differs from the launch-bound process"
+                    )
+                if runtime != observation["session"].get("runtime_identity"):
+                    raise ValueError("session and opening runtime identities differ")
+                build = observation["build_receipt"]
+                if not runtime.get("build_matches") or runtime.get(
+                    "executable", {}
+                ).get("sha256") != build.get("game_executable_sha256"):
+                    raise ValueError("runtime executable is not bound to build")
+                loaded = {
+                    Path(a["path"]).name: a["sha256"] for a in runtime["assemblies"]
+                }
+                for name, expected in {
+                    **build["game_assemblies"],
+                    "Cs1Harness.dll": build["dll_sha256"],
+                }.items():
+                    if loaded.get(name) != expected:
+                        raise ValueError(
+                            "runtime assembly is not bound to build: " + name
+                        )
+                if (
+                    "--noWorkshop" not in runtime["launch_args"]
+                    or "--disableMods" in runtime["launch_args"]
+                    or runtime["launch_args"] != observation["session"]["launch_args"]
+                ):
+                    raise ValueError("unbound native launch protocol")
+                runtime_bound_observations.append(
+                    {
+                        "slug": case["slug"],
+                        "attempt_id": attempt["attempt_id"],
+                        "observation_sha256": ref["sha256"],
+                        "artifact_sha256": case["artifact_sha256"],
+                        "scope": "sampled_native_lane_paths_at_opening",
+                    }
+                )
             if observation.get("completed"):
                 session = observation["session"]
                 if session["map"]["sha256"] != case["artifact_sha256"]:
@@ -147,6 +278,7 @@ def verify(require_nine_attempts=False):
         "native_attempts": attempts,
         "selected_squares_attempted": covered_cases,
         "native_completed": sum(case["completed"] for case in cases.values()),
+        "runtime_bound_observations": runtime_bound_observations,
         "scope": "Data integrity and deterministic raster reproduction, not independent game reruns or geographic/service acceptance.",
     }
 

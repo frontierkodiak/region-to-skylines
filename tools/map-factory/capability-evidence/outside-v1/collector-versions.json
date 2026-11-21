@@ -20,6 +20,74 @@
         "sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
         "encoding": "gzip"
       }
+    },
+    {
+      "git_sha": "cd4b8734ab6cc7f536e3404fc0d48ddbf9999fe3",
+      "collector_sha256": "def2949aae40a790170635d8c81208990c2da9ad183dc112caec8b394dc1999c",
+      "protocol": "Focused v2: unchanged packages, NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs, all connected-component lane-pair candidates; fixed 256-request/mode round-robin budget; matched boundary/midpoint, both directions. Omitted candidates remain unknown.",
+      "raw_source": {
+        "path": "raw/source/connections.py-def2949aae40a790170635d8c81208990c2da9ad183dc112caec8b394dc1999c.gz",
+        "sha256": "def2949aae40a790170635d8c81208990c2da9ad183dc112caec8b394dc1999c",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd.gz",
+          "sha256": "a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd",
+          "encoding": "gzip"
+        }
+      }
+    },
+    {
+      "git_sha": "7c4fc196b3398c705fbd5e0023a7c09c3dbef3e9",
+      "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+      "protocol": "Focused v2: unchanged packages; NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs; connected-component candidate lanes; distinct-edge pairs first; fixed 256-request/mode round-robin budget; matched boundary/midpoint and both directions. Same-edge paths and omitted candidates cannot qualify as distinct-edge witnesses.",
+      "raw_source": {
+        "path": "raw/source/connections.py-818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1.gz",
+        "sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd.gz",
+          "sha256": "a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd",
+          "encoding": "gzip"
+        }
+      }
+    },
+    {
+      "git_sha": "8cb3f39a8e0aadfa11b61dbebb03e5b721590db4",
+      "collector_sha256": "a36a99e84afa9f64a73fbf6fec6a5e45e1105f6a6e83b7609bd84edc55219f88",
+      "protocol": "Focused v2: unchanged packages; NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs; connected-component candidate lanes; distinct-edge pairs first; fixed 256-request/mode round-robin budget; matched boundary/midpoint and both directions. Same-edge paths and omitted candidates cannot qualify as distinct-edge witnesses.",
+      "raw_source": {
+        "path": "raw/source/connections.py-a36a99e84afa9f64a73fbf6fec6a5e45e1105f6a6e83b7609bd84edc55219f88.gz",
+        "sha256": "a36a99e84afa9f64a73fbf6fec6a5e45e1105f6a6e83b7609bd84edc55219f88",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f.gz",
+          "sha256": "609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f",
+          "encoding": "gzip"
+        }
+      }
+    },
+    {
+      "git_sha": "658f784d4430b5c5bbb408945882dbbe640d9bba",
+      "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+      "protocol": "Focused v2: unchanged packages; NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs; connected-component candidate lanes; distinct-edge pairs first; fixed 256-request/mode round-robin budget; matched boundary/midpoint and both directions. Same-edge paths and omitted candidates cannot qualify as distinct-edge witnesses.",
+      "raw_source": {
+        "path": "raw/source/connections.py-a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def.gz",
+        "sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f.gz",
+          "sha256": "609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f",
+          "encoding": "gzip"
+        }
+      }
     }
   ]
 }

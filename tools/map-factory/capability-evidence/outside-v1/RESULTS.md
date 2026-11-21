@@ -1,30 +1,51 @@
-# Observed outside-connection results
+# Outside-connection evidence
 
-New native observations completed: 9/9 selected squares.
+Literal boundary witnesses require requested outside offsets and identical returned first/last path positions. Segment-midpoint successes are separate, unscored diagnostics.
+Every failed request remains a pair/lane observation, not a native capability negative. Missing or unexhausted coverage is unknown.
+All nine water-risk screens remain **warnings**. No native depth, width or grade threshold is fitted.
+Ship witnesses are sampled native paths, not terminal service, continuous clearance or sustained water safety.
 
-A path witness means at least one selected native request succeeded. It does not mean every lane or direction passed.
-Failed requests and unknowns remain in evidence.json. No aggregate agreement score is calculated.
-
-Archived exact-package car and train paths are included. Those first-hour runs can contain player construction.
-
-| Square | Road path | Rail path | Ship path | Air path | 6 m raster witness |
-| --- | --- | --- | --- | --- | --- |
-| asheville | witness | witness | unknown | witness | no |
-| innsbruck | witness | witness | unknown | witness | no |
-| rio | witness | failed probes | witness | witness | yes |
-| pittsburgh | witness | witness | unknown | witness | no |
-| charleston | witness | unknown | witness | witness | yes |
-| grand-canyon | unknown | unknown | unknown | unknown | no |
-| hong-kong | failed probes | failed probes | witness | unknown | yes |
-| yosemite | unknown | unknown | unknown | unknown | no |
-| boston | witness | witness | witness | witness | yes |
-
-The last column tests only a two-edge path through the authored raster at the exporter's existing 6 m depth choice. It is not a native ship threshold or a geographic impossibility result.
+| Square / mode | Literal boundary | Runtime-bound boundary | Midpoint positives | Same-edge positives | Access positives | Archived positives | Panel observations |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| asheville / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 10 | 2 |
+| asheville / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 2 | 2 |
+| asheville / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| asheville / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
+| innsbruck / road | unknown (18 failed) | unknown | 1 | 0 | 3 | 8 | 2 |
+| innsbruck / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 2 | 2 |
+| innsbruck / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| innsbruck / air | witness (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| rio / road | witness (9 failed) | unknown | 10 | 0 | 2 | 0 | 2 |
+| rio / rail | unknown (24 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| rio / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
+| rio / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
+| pittsburgh / road | witness (95 failed) | witness | 51 | 0 | 8 | 0 | 2 |
+| pittsburgh / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 2 |
+| pittsburgh / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| pittsburgh / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
+| charleston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 10 | 3 |
+| charleston / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 3 |
+| charleston / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 3 |
+| charleston / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 3 |
+| grand-canyon / road | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| grand-canyon / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| grand-canyon / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| grand-canyon / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| hong-kong / road | witness (91 failed) | witness | 7 | 18 | 0 | 0 | 2 |
+| hong-kong / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| hong-kong / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
+| hong-kong / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| yosemite / road | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| yosemite / rail | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| yosemite / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| yosemite / air | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
+| boston / road | unknown (18 failed) | unknown | 1 | 0 | 4 | 0 | 2 |
+| boston / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 2 |
+| boston / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
+| boston / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
 
 ## Retained attempt errors
 
 - asheville attempt-1: game did not reach the main menu within 600 s
-
-Actual terminal service, strict no-mods behavior, continuous ship clearance, and sustained water safety are not verified.
-
-The nine water-risk reports remain unchanged. The held-out square is Boston. No native depth, width, or grade threshold was fitted.
+- rio native-v2-1: loaded assembly missing or differs from build: Cs1Harness.dll
+- pittsburgh native-v2-2: Remaining fair queue exceeds this turn; cancel before slot acquisition, retain completed Rio and continue remaining cases through a persisted wakeup.

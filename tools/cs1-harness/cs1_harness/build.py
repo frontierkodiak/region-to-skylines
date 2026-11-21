@@ -92,6 +92,7 @@ def build(cfg: Config, trace_harmony: pathlib.Path | None = None) -> dict:
         "dll": str(out),
         "dll_sha256": sha256(out),
         "sources": {s.name: sha256(s) for s in sources},
+        "game_executable_sha256": sha256(cfg.game_dir / "Cities.x64"),
         "game_assemblies": {r.name: sha256(r) for r in refs if r.exists()},
         "trace": trace,
     }

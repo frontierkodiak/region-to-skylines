@@ -93,7 +93,8 @@ namespace Cs1Harness
             }
             if (lm.LoadLevel(meta.assetRef, "Game", "InGame", sim) == null)
                 throw new Exception("LoadingManager refused the map");
-            return Host.Obj("loading", path, "map_name", meta.mapName, "published", meta.isPublished);
+            return Host.Obj("loading", path, "map_name", meta.mapName, "published", meta.isPublished,
+                "update_mode", sim.m_updateMode.ToString(), "invert_traffic", sim.m_invertTraffic.ToString());
         }
 
         internal static Dictionary<string, object> Stats()
@@ -103,6 +104,8 @@ namespace Cs1Harness
             var water = Singleton<TerrainManager>.instance.WaterSimulation;
             return Host.Obj(
                 "frame", sm.m_currentFrameIndex,
+                "update_mode", sm.m_metaData.m_updateMode.ToString(),
+                "invert_traffic", sm.m_metaData.m_invertTraffic.ToString(),
                 "game_time", sm.m_currentGameTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                 "paused", sm.SimulationPaused,
                 "speed", sm.SelectedSimulationSpeed,

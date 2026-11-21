@@ -71,3 +71,129 @@ uv run --project tools/map-factory python "$study/water_support.py"
 The Boston capture program is `capture-boston.mjs`. It fixes the square and
 uses `includeRunways=true`. The original capture receipt and input hashes are
 retained. A new live capture is not a reproduction of that capture's bytes.
+
+## PL-1142 correction and focused v2 diagnostic
+
+`annotate.py` derives endpoint roles, collector/protocol labels and missing-request
+reasons from retained raw observations and networks. `assemble.py` calls it
+automatically. `verify.py` rejects fresh rows that differ from raw requests/results
+and checks derived annotations and summary. Historical gzip files, failures and
+timestamps are unchanged. Historical v1 attempts lack runtime executable binding
+and cannot qualify as exact-runtime certificates. All nine water-risk screens
+remain warnings.
+
+After building, run the focused collector in the foreground on blade:
+
+```sh
+uv run --directory tools/cs1-harness python -m cs1_harness.connections \
+  ../map-factory/capability-evidence/outside-v1/selection.json \
+  --focused-v2 --out ~/experiments/PL-1142-native-v2/native --wait-minutes 0
+```
+
+The fixed selection is ship in Rio, Charleston, Hong Kong and Boston; additionally
+Rio rail, Pittsburgh road, and Hong Kong road/rail. The diagnostic subset had no
+successful fresh two-edge witness in the reviewed evidence. This is a diagnostic
+re-probe, not a new holdout, threshold fit or map repair. Candidates are restricted to an undirected vehicle component for probe selection,
+not a native connectivity claim. A fixed 256-request/mode budget rotates across
+endpoint pairs before trying their other lane combinations. Each submitted lane
+pair keeps boundary/midpoint controls in both directions; omitted pairs remain
+unknown. All ship candidates fit within this budget. Road pairs
+require opposite OneWay roles. Native requests determine rail reachability.
+No failed request is a global capability negative.
+
+The collector binds the rendering PID through its namespace PID and hashes
+`/proc/PID/exe`. It asks that process for loaded assembly paths and hashes,
+independently hashes those files through `/proc/PID/root`, then compares all build
+references and the mod DLL. Missing or mismatched identity aborts before map
+observations. This binds loaded assembly files at menu readiness, not in-memory
+code pages.
+
+Each batch releases the fair queue slot. If occupied, retain that attempt and
+arrange a persisted continuation. Never leave a waiter or game behind. Preserve
+all old attempts when importing new receipts with another `--retry-native`.
+Retain the new collector and runtime helper source hashes/version before import.
+
+Append each v2 batch without replacing historical attempts:
+
+```sh
+study=tools/map-factory/capability-evidence/outside-v1
+uv run --project tools/map-factory python "$study/import_v2.py" \
+  --native ~/experiments/PL-1142-native-v2/native \
+  --reproduction ~/experiments/PL-1121-outside-oracle/reproduction \
+  --attempt-id native-v2-1
+```
+
+Register the collector source version first in `collector-versions.json`. Keep
+every partial or failed batch with a distinct attempt ID. Runtime-bound fresh
+two-edge witnesses are separate from historical fresh witnesses in the summary.
+
+Outside endpoints on the same map edge remain useful diagnostics but do not
+qualify as distinct-edge witnesses. Edge sides come from native outside-node
+coordinates (dominant absolute x/z axis). The sweep prioritizes distinct edges;
+the summary lists same-edge positives separately.
+
+A boundary-segment midpoint is not an outside endpoint. The literal-boundary
+predicate requires the requested offset to be the native outside end (0/255),
+distinct outside nodes and map edges, and exact returned first/last positions.
+Historical results contain 11 literal-boundary positive cells, 25 unknowns;
+eight of those unknowns have midpoint-only segment-path positives. The raw
+observations remain intact and no failed/unrequested cell becomes an absence.
+
+The collector also reads the loaded simulation's actual update mode and traffic
+inversion and rebinds runtime file identity at opening to the launch PID/start.
+Historical protocol descriptions remain recipes, not observed entry state;
+`session.menu_status.protocol` is the wire protocol, not traffic or entry mode.
+
+The first completed runtime-bound v2 observation is Rio `native-v2-2`, retained
+at `raw/rio/native-v2-2/observation.json.gz`. Its uncompressed SHA256 is
+`7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc`.
+`launch_runtime_identity` is captured at menu readiness; `runtime_identity` is
+captured again at opening in the same PID/start identity. `native_context` is
+read from the loaded simulation. Both snapshots, build references, actual file
+hashes and the complete control results are in those exact raw bytes. This is
+input evidence for the parent's qualifier, not a certificate issued here.
+
+Rio ship passed all four controls. Rio rail completed 48 failed selected requests
+and remains unknown. Pittsburgh's queued cancellation in the same collector
+batch is not a native observation; `queue-cancel.json` records its reason. The queued attempt is retained alongside the later completed Pittsburgh
+receipt. All five focused cases are now complete. The raw writer refuses to
+replace any retained raw bytes.
+
+## Completed focused v2 receipts
+
+`verification-v2.json` records each uncompressed observation SHA256 and package
+SHA256. Each raw observation contains launch/opening runtime file bindings,
+loaded native context, requests and returned endpoints; it is input to the
+parent qualifier, not a certificate. All runs used NewGameFromMap, non-inverted
+traffic, noWorkshop and enabled mods. No unresolved loaded assemblies remain.
+
+| Case / attempt | Ship successes / requests | Diagnostic successes / requests | Candidate coverage |
+| --- | --- | --- | --- |
+| Rio / native-v2-2 | 4 / 4 | rail 0 / 48 | all selected rail controls |
+| Charleston / native-v2-3 | 4 / 4 | not requested | all ship controls |
+| Boston / native-v2-4 | 4 / 4 | not requested | all ship controls |
+| Hong Kong / native-v2-5 | 4 / 4 | road 32 / 261; rail 0 / 16 | road 256 / 2400 candidate requests + 5 named |
+| Pittsburgh / native-v2-6 | not requested | road 106 / 261 | road 256 / 2708 candidate requests + 5 named |
+
+Each ship matrix includes boundary and midpoint endpoints in both directions;
+all sixteen returned first/last positions exactly match the requests. Hong Kong
+road positives split into 7 literal distinct-edge boundary, 7 distinct-edge
+midpoint and 18 same-edge paths. Pittsburgh has 51 literal distinct-edge boundary positives, 51 distinct-edge
+midpoint positives and 4 access-leg positives. Road enumerations are unexhausted; rail failures remain
+unknown. Historical first-619-row classification remains 11 literal positive
+cells and 25 unknowns; fresh positives are not retroactive historical changes.
+
+Common executable SHA256:
+`a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca`.
+Mod SHA256:
+`861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7`.
+Collector/helper hashes and retained source commit are in
+`collector-versions.json`; all 23 loaded file assemblies and 8 matching compile
+references are recorded in each observation. These are file identity checks,
+not in-memory code attestation. Per-case board/process telemetry is retained;
+actual sampled metrics and cleanup are in the harness JOURNAL.
+
+The final verifier checks 1269 rows / 143 raw files / 17 attempts. All original
+98 raw files and original 619 rows' request/result/observed/time/raw references
+remain unchanged. All nine water screens remain warnings. No new holdout,
+accuracy estimate, native threshold fit, absence or service claim is made.

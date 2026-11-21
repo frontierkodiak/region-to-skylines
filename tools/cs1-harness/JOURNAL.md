@@ -2947,3 +2947,164 @@ those four squares only; that exporter choice is not a native fitted limit.
 No aggregate accuracy or geographic impossibility is inferred. Local harness
 159 tests, root 17 tests, qualification/eligibility 13 tests, study 2 tests,
 C# build, ordinary build, doctor, and final raw-data verifier passed.
+
+### 2026-11-20 — PL-1142, blade — native oracle correction, CPU stage
+
+I replaced the farthest-undirected-pair selector with explicit outside lane-pair
+coverage: road endpoints must have opposite OneWay roles; rail candidates keep
+native lane directions and are submitted to the native pathfinder. I added
+running-process executable and loaded-assembly file hashing, compared against the
+build receipt before loading a map. This is file identity at launch, not in-memory
+code attestation. Historical raw observations are unchanged. Failed pairs stay
+failed requests, not capability negatives. The summary separates fresh two-edge
+paths, access legs, archived player paths and panels. All nine water-risk screens
+are warnings.
+
+The CPU gate passed 161 harness tests and four study tests. The C# mod compiled
+against blade's installed game. No owned game was launched in this stage:
+PL-1072 held the fair slot and PL-1078 was already waiting. GPU/VRAM, power,
+temperature and game wall time are not measured here. Runtime binding and focused
+v2 receipts still require the subsequent native stage.
+
+Before the v2 game stage I counted candidate requests from the retained networks.
+The road cross-product was thousands of requests. I kept undirected-component
+filtering only as a probe selector, then fixed a 256-request/mode budget before
+new observations. Round-robin lane-pair selection preserves all four controls
+and spreads the budget across endpoint pairs. Incomplete coverage stays unknown;
+there is no native absence verdict. Ship and rail candidates fit within budget.
+
+I also found that outside endpoints can lie on the same map edge. The diagnostic
+sweep retains those requests, but prioritizes distinct-edge pairs. Derived rows
+record edge sides from native outside-node coordinates. Same-edge positives stay
+separate from distinct-edge witnesses, so a local boundary return path cannot
+silently qualify as a cross-map witness.
+
+### 2026-11-20 — PL-1142, blade — first native v2 attempt
+
+The GPU doctor passed on the RTX 2080 Ti at 05:00.0. Rio's first v2 launch
+reached the main menu, then the identity gate rejected a missing loaded
+Cs1Harness.dll. The installed mod hash equals the build hash, but that alone
+is not runtime binding. No map or native path was observed. Teardown reports
+no game, Steam instance or active unit left. The failed raw attempt is retained.
+
+Mono can load a plugin from bytes without an Assembly.Location. I added a
+resolution path through the game's native PluginInfo.GetAssemblies ownership,
+requiring the installed file's module MVID to match the actual loaded module
+before hashing it. Missing/ambiguous ownership or a mismatched MVID still fails.
+Partial runtime identity is retained before validation, so a future rejection
+does not discard the diagnostic hashes. This fix is compiled and CPU-tested;
+it still needs a new native run. It does not attest in-memory code pages.
+
+For the rejected Rio attempt, wall time from acquisition through cleanup was
+100.6 s. The retained 5 s GPU samples peaked at 9,625 MiB total VRAM, 63.76 W
+and 44 C. The separate 2 s process sampler observed a 1,574 MiB game peak.
+Total VRAM includes blade's resident workload; these are sampled menu-launch
+peaks, not map-running performance or sustained load measurements. No power
+settings changed. All owned processes were collected before this handoff.
+
+### 2026-11-20 — PL-1142 — literal endpoint correction from PL-1143
+
+The earlier 19-cell count classified boundary segments, not literal outside
+endpoints. I corrected the derived predicate to require the requested 0/255
+outside offsets, distinct outside nodes/segments and distinct map edges, plus
+identical returned first/last native path positions. This re-derives 11 literal
+boundary-positive cells and 25 unknowns. Eight unknowns have successful named
+midpoint-segment paths, retained as unscored diagnostics. Raw successes/failures
+and timestamps are untouched. The wire protocol integer is not entry state.
+
+New collection reads update mode and traffic inversion from the loaded native
+simulation metadata and re-hashes the runtime at opening, requiring the same
+PID/start identity as the launch snapshot. This binds actual context and path
+observations in one run rather than promoting a declared collector recipe.
+
+### 2026-11-20 — PL-1142, blade — runtime-bound Rio v2
+
+The plugin-owner/MVID fix passed in the actual game. Rio completed 52 native
+requests: all four ship controls succeeded (boundary/midpoint in both directions,
+with exact returned endpoints), and all 48 enumerated rail requests failed.
+Rail remains unknown at capability level, not absent. Runtime executable,
+23 loaded-assembly files, mod and collector are recorded in the same observation;
+all eight compile-reference hashes match. Launch and opening PID/start identity
+match. Loaded native simulation metadata reports NewGameFromMap and non-inverted
+traffic. Launch arguments establish noWorkshop and mods enabled. No unresolved loaded assemblies remain.
+
+The uncompressed observation SHA256 is
+7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc.
+Wall time from acquisition through cleanup was 172.5 s, excluding queue wait.
+Sampled peaks: 10,821 MiB board VRAM (includes resident workload), 2,815 MiB game
+VRAM from 71 process samples, 125.91 W and 51 C from 34 board samples. Sampling
+intervals were 2 s for processes and 5 s for the board. These are opening-run
+sampled peaks, not a sustained-load benchmark. No power/service settings changed.
+Cleanup reports no game, Steam instance or active unit left.
+
+After Rio released, PL-1078 took the slot and PL-1072's Oceania batch was already
+waiting. I cancelled only the verified owned Pittsburgh queue waiter, before
+acquisition, rather than leave it beyond this turn. Its raw scheduler event and
+unknown/not-run observation are retained. The collector, wrapper and sampler
+were awaited to exit; foreign work was untouched. Remaining native cases are
+Pittsburgh, Charleston, Hong Kong and Boston. No certificate or native threshold
+is issued by this study.
+
+### 2026-11-20 — PL-1142, blade — Charleston and Boston v2
+
+I kept the Rio-verified mod/collector unchanged and collected each package in its
+own fair-queue session. Charleston and Boston both passed all four ship controls:
+boundary and midpoint in both directions, with exact returned first/last
+positions. Launch/opening file identity and native NewGameFromMap/non-inverted
+context validate in both observations. Actual launch records retain noWorkshop
+and mods enabled. Both sessions report empty cleanup. These are sampled native
+lane paths, not terminal service or sustained-water acceptance.
+
+| Case | Wall s, excluding queue | Board samples / process samples | Sampled board VRAM MiB | Sampled game VRAM MiB | Power W | Temperature C |
+| --- | --- | --- | --- | --- | --- | --- |
+| Charleston | 154.0 | 30 / 64 | 10821 | 2815 | 118.00 | 45 |
+| Boston | 155.8 | 31 / 64 | 10821 | 2815 | 116.21 | 47 |
+
+Board samples are 5 s apart; process samples are 2 s apart and restricted to
+actual collector slot ownership. Board VRAM includes resident workloads. Raw
+board and process telemetry is retained under each attempt. No power settings,
+shared services, package bytes or export defaults changed. The historical-count
+test is now explicitly scoped to the original 619 rows, so additional measured
+v2 positives can change the current summary without altering history.
+
+### 2026-11-21 — PL-1142, blade — Hong Kong v2
+
+Hong Kong completed with the same verified runtime/mod/collector context. Ship
+passed all four controls. The road sweep completed 256 of 2,400 enumerated
+candidate requests plus five frozen named probes: 32 successes total, split into
+seven distinct-edge literal-boundary witnesses, seven distinct-edge midpoint
+successes and eighteen same-edge successes. All original failed requests remain
+unchanged. This is a concrete example of why earlier selected-pair failures
+could not establish road absence. The road enumeration is not exhausted.
+Rail completed 16 selected requests with no success and remains unknown.
+
+Runtime identity at launch and opening matched the build and each other; the
+loaded simulation reports NewGameFromMap and non-inverted traffic. Native
+cleanup is empty. Wall time excluding queue was 292.8 s. Sampled peaks were
+10,821 MiB total board VRAM (resident workloads included), 2,811 MiB game VRAM,
+133.55 W and 60 C, from 57 board / 120 process samples at 5 s / 2 s intervals.
+Board and process telemetry is retained. No package or service setting changed;
+these paths are not terminal-service, continuous-clearance or sustained-water
+acceptance. Pittsburgh remains the final diagnostic case.
+
+### 2026-11-21 — PL-1142, blade — Pittsburgh v2 and final receipt audit
+
+Pittsburgh completed the final focused case with the unchanged Rio-verified
+harness. The road sweep submitted 256 of 2,708 enumerated candidate requests
+plus five frozen named probes. There were 106 successful requests, including
+51 literal distinct-edge boundary witnesses. The remaining candidate space is
+unexhausted; failed lane requests do not establish absence. Launch/opening
+identity and NewGameFromMap/non-inverted native context validate. Cleanup lists
+are empty, and wrapper, collector and sampler exited before handoff.
+
+Wall time excluding queue was 310.4 s. The 61 board samples (5 s) and 127 owned
+process samples (2 s) recorded peaks of 10,821 MiB board VRAM, 2,811 MiB game
+VRAM, 132.24 W and 62 C. Board VRAM includes resident workloads. Both telemetry
+streams are retained with native-v2-6. No shared workload was displaced.
+
+The combined audit verifies 1,269 rows, 143 referenced raw files and 17 retained
+attempts, including five completed runtime-bound v2 observations. All sixteen
+ship controls passed with exact requested/returned endpoints. Original 619
+observation fields and all 98 original raw gzip files are unchanged. All nine
+water-risk screens remain warnings. This produces no native threshold fit,
+new accuracy/holdout result, global absence, service or sustained-water claim.
