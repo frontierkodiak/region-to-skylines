@@ -10,18 +10,47 @@ import { PRESETS, DEFAULTS } from '../../terrain.js';
 import { captureInputs } from '../../inputs.js';
 import { startFactory, landCover, deposits, clearWork, WORLDCOVER_S3, worldCoverFile, FACTORY_FILES } from '../../mapgen.js';
 
-const [output, mode = '--plan'] = process.argv.slice(2);
-if (!output || !['--plan', '--capture'].includes(mode)) throw Error('Usage: capture-connections.mjs OUTPUT [--plan|--capture]');
+const [output, mode = '--plan', ...extra] = process.argv.slice(2);
+if (!output || !['--plan', '--capture'].includes(mode) || (extra.length && (extra.length !== 2 || extra[0] !== '--cohort')))
+  throw Error('Usage: capture-connections.mjs OUTPUT [--plan|--capture] [--cohort PREREGISTRATION.json]');
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const fixtures = ['asheville', 'innsbruck', 'rio', 'pittsburgh', 'charleston'];
 const fresh = PRESETS.filter(p => !fixtures.includes(p.slug)).sort((a, b) => a.slug.localeCompare(b.slug, 'en'));
 if (fresh.length < 3) throw Error('The selection rule must supply at least three fresh squares');
-const plan = {
+let plan = {
   schema: 1, issue: 'PL-1066',
   selection_rule: 'All PRESETS excluding the five fixtures, sorted by slug; default square, no substitutions, no outcome-based retries.',
   fixtures,
   fresh: fresh.map(p => ({ ...DEFAULTS, lon: p.lon, lat: p.lat, rotation: 0, scale: 1, vscale: 'auto', rivers: true, name: p.name, slug: p.slug })),
 };
+if (extra.length) {
+  const raw = await readFile(extra[1]);
+  const registered = JSON.parse(raw);
+  if (registered.schema !== 1 || !registered.issue || !Array.isArray(registered.original) || !Array.isArray(registered.fresh)
+      || !registered.selection_rule || !registered.original.length || !registered.fresh.length)
+    throw Error('Expected a frozen original/fresh cohort preregistration');
+  const slugs = [...registered.original, ...registered.fresh].map(p => p.slug);
+  if (slugs.some(slug => typeof slug !== 'string' || !/^[a-z0-9-]+$/.test(slug)) || new Set(slugs).size !== slugs.length)
+    throw Error('Cohort slugs must be unique safe directory names');
+  for (const original of registered.original) {
+    const files = original.input_files_sha256;
+    if (!files || typeof files !== 'object' || Array.isArray(files) || !Object.keys(files).length
+        || Object.entries(files).some(([name, digest]) => !/^[a-zA-Z0-9_.-]+$/.test(name)
+          || name === '.' || name === '..' || typeof digest !== 'string' || !/^[a-f0-9]{64}$/.test(digest)))
+      throw Error(`Missing or invalid frozen input manifest: ${original.slug}`);
+  }
+  for (const square of registered.fresh)
+    if (!Number.isFinite(square.lat) || !Number.isFinite(square.lon) || !Number.isFinite(square.scale)
+        || square.lat < -85 || square.lat > 85 || square.lon < -180 || square.lon > 180 || square.scale <= 0)
+      throw Error('Invalid registered fresh square');
+  plan = {
+    schema: 1, issue: registered.issue, selection_rule: registered.selection_rule,
+    preregistration_sha256: createHash('sha256').update(raw).digest('hex'),
+    fixtures: registered.original.map(p => p.slug),
+    frozen_input_files: Object.fromEntries(registered.original.map(p => [p.slug, p.input_files_sha256])),
+    fresh: registered.fresh,
+  };
+}
 await mkdir(output, { recursive: true });
 const planPath = resolve(output, 'cohort.json');
 try {

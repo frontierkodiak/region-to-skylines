@@ -688,9 +688,17 @@ class Session(contextlib.AbstractContextManager):
         (c.harness_home / "session.env").unlink(missing_ok=True)
         shutil.rmtree(c.harness_home / "run-audio", ignore_errors=True)
         c.state_file.unlink(missing_ok=True)
+        # Flatpak helper instances can remain briefly after their unit exits.
+        # Keep the slot while they settle; never kill an untracked instance.
+        steam_instances = self.steam.instances()
+        for _ in range(50):
+            if not steam_instances:
+                break
+            time.sleep(0.2)
+            steam_instances = self.steam.instances()
         leftovers = {
             "game": game_pids(c.display),
-            "steam_instances": self.steam.instances(),
+            "steam_instances": steam_instances,
             "units_active": [
                 u
                 for u in (

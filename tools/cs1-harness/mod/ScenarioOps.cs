@@ -27,8 +27,15 @@ namespace Cs1Harness
         sealed class PlacementRejected : Exception
         {
             public readonly ToolBase.ToolErrors Errors;
-            public PlacementRejected(string context, ToolBase.ToolErrors errors) : base(context + ": " + errors)
-            { Errors = errors; }
+            public readonly ushort[] SegmentHits;
+            public readonly ushort[] BuildingHits;
+            public PlacementRejected(string context, ToolBase.ToolErrors errors,
+                ushort[] segments = null, ushort[] buildings = null) : base(context + ": " + errors)
+            {
+                Errors = errors;
+                SegmentHits = segments ?? new ushort[0];
+                BuildingHits = buildings ?? new ushort[0];
+            }
         }
 
         public static void Register()
@@ -80,7 +87,15 @@ namespace Cs1Harness
                         new List<ushort> { a, b }));
             pairs.Sort((x, y) => x.Key.CompareTo(y.Key));
             var result = new List<List<ushort>>();
-            foreach (var p in pairs) { result.Add(p.Value); if (result.Count >= 12) break; }
+            // Bound the expensive grid searches by feasible joins, not the first
+            // twelve raw pairs: overlapping fragments can create many tiny gaps.
+            foreach (var p in pairs)
+            {
+                var ordered = JoinOrder(p.Value);
+                if (ordered == null) continue;
+                result.Add(ordered);
+                if (result.Count >= 12) break;
+            }
             return result;
         }
 
@@ -208,12 +223,66 @@ namespace Cs1Harness
             return true;
         }
 
+        static bool PairedStubCollision(PlacementRejected error, ushort firstHook)
+        {
+            if (error.Errors != ToolBase.ToolErrors.ObjectCollision
+                || error.BuildingHits.Length != 0 || error.SegmentHits.Length == 0) return false;
+            var node = Singleton<NetManager>.instance.m_nodes.m_buffer[firstHook];
+            if (node.CountSegments() != 1) return false;
+            foreach (ushort hit in error.SegmentHits)
+            {
+                bool incident = false;
+                for (int i = 0; i < 8; i++)
+                    if (node.GetSegment(i) == hit) { incident = true; break; }
+                if (!incident) return false;
+            }
+            return true;
+        }
+
+        static List<ushort> JoinOrder(List<ushort> hooks)
+        {
+            if (JoinPlanPossible(hooks)) return hooks;
+            if (hooks.Count == 2)
+            {
+                var reverse = new List<ushort> { hooks[1], hooks[0] };
+                if (JoinPlanPossible(reverse)) return reverse;
+            }
+            return null;
+        }
+
+        static bool JoinPlanPossible(List<ushort> hooks)
+        {
+            Vector3 mean, join;
+            if (!JoinPoint(hooks, out mean, out join)) return true;
+            var road = Net("Basic Road");
+            float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
+            for (int i = 0; i < hooks.Count; i++)
+            {
+                try { Link(road, Vector3.zero, join, hooks[i], 0, true, elevation, testOnly: true); }
+                catch (PlacementRejected e)
+                {
+                    // Later links attach to the junction made by the first link,
+                    // not this fresh endpoint. Defer only its paired-stub overlap;
+                    // actual Link still checks every error against the real node.
+                    if (i > 0 && PairedStubCollision(e, hooks[0]))
+                    {
+                        if (result != null) result["join_preflight_deferred"] = e.Message;
+                        continue;
+                    }
+                    if (result != null) result["last_hookup_join_rejection"] = e.Message;
+                    return false;
+                }
+            }
+            return true;
+        }
+
         // A candidate grid must also be reachable: the hookup links from the
         // stubs and on to the nearest grid corner may not cross other networks.
         static bool HookupClear(List<ushort> hooks, Vector3 center)
         {
             var road = Net("Basic Road");
             var net = Singleton<NetManager>.instance;
+            if (!JoinPlanPossible(hooks)) return false;
             Vector3 mean, join;
             bool joined = JoinPoint(hooks, out mean, out join);
             var starts = new List<Vector3>();
@@ -221,9 +290,6 @@ namespace Cs1Harness
             {
                 if (joined)
                 {
-                    float elevation = Mathf.Max(0, mean.y - NetSegment.SampleTerrainHeight(road, join, false, 0));
-                    foreach (ushort hook in hooks)
-                        Link(road, Vector3.zero, join, hook, 0, true, elevation, testOnly: true);
                     starts.Add(join);
                 }
                 else
@@ -247,8 +313,8 @@ namespace Cs1Harness
             }
             catch (PlacementRejected e)
             {
-                // Slopes and water are bridged later by Connect; collisions are not.
-                if ((e.Errors & ToolBase.ToolErrors.ObjectCollision) != 0) return false;
+                // Only the corner crossing goes through Connect's bridge retry.
+                return (e.Errors & ~(ToolBase.ToolErrors.CannotBuildOnWater | ToolBase.ToolErrors.SlopeTooSteep)) == 0;
             }
             return true;
         }
@@ -301,7 +367,7 @@ namespace Cs1Harness
                     candidates.Add(new KeyValuePair<float, Vector3>(score, Ground(p.x, p.z)));
                 }
             candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
-            Vector3? fallback = null;
+            Vector3? gridValidFallback = null;
             foreach (var candidate in candidates)
             {
                 var p = candidate.Value;
@@ -316,9 +382,9 @@ namespace Cs1Harness
                             a = Ground(p.x - Half + i * Spacing, p.z - Half + j * Spacing);
                             Link(road, a, Ground(a.x, a.z + Spacing), testOnly: true);
                         }
+                    if (gridValidFallback == null) gridValidFallback = p;
                     if (!HookupClear(hooks, p))
                     {
-                        if (fallback == null) fallback = p;
                         continue;
                     }
                     return p;
@@ -326,8 +392,12 @@ namespace Cs1Harness
                 catch (PlacementRejected) { }
             }
             if (strict) return null;
-            if (fallback != null) return fallback.Value;
-            throw new Exception("no dry start-tile site whose grid passes native road placement checks");
+            if (gridValidFallback != null)
+            {
+                result["hookup_preflight_deferred_site"] = XYZ(gridValidFallback.Value);
+                return gridValidFallback;
+            }
+            throw new Exception("no dry start-tile grid and hookup that pass native road placement checks");
         }
 
         static NetInfo Net(string name)
@@ -352,14 +422,17 @@ namespace Cs1Harness
             {
                 var p = PrefabCollection<BuildingInfo>.GetLoaded(i);
                 var ai = p == null ? null : p.m_buildingAI as WaterFacilityAI;
-                if (ai == null || !ShoreMode(p)
-                    || ai.m_useGroundWater || ai.m_waterStorage != 0 || ai.m_sewageStorage != 0) continue;
+                if (ai == null || ai.m_waterStorage != 0 || ai.m_sewageStorage != 0) continue;
+                // Distance alone cannot keep a shoreline intake upstream of its
+                // drain, especially in a calm bay. Use vanilla groundwater when
+                // the opening has no proven clean surface-water catchment.
+                if (intake ? !ai.m_useGroundWater || ShoreMode(p) : !ShoreMode(p) || ai.m_useGroundWater) continue;
                 if (intake ? ai.m_waterIntake <= 0 || ai.m_sewageOutlet != 0 : ai.m_sewageOutlet <= 0 || ai.m_waterIntake != 0) continue;
                 if (!Singleton<UnlockManager>.instance.Unlocked(p.m_UnlockMilestone)) continue;
                 int cost = ai.GetConstructionCost();
                 if (cost < cheapest) { cheapest = cost; selected = p; }
             }
-            if (selected == null) throw new Exception("no loaded shoreline " + (intake ? "water pump" : "sewage drain"));
+            if (selected == null) throw new Exception("no loaded " + (intake ? "groundwater supply" : "shoreline sewage drain"));
             return selected;
         }
 
@@ -411,9 +484,13 @@ namespace Cs1Harness
                 errors = NetTool.CreateNode(info, start, mid, end, buffer, 1000, true, true, false, true, true, false, false, 0,
                     out first, out last, out segment, out cost, out production);
                 if (errors != ToolBase.ToolErrors.None)
+                {
+                    var segmentHits = CollisionIds(collidingSegments);
+                    var buildingHits = CollisionIds(collidingBuildings);
                     throw new PlacementRejected(info.name + " " + start.m_position + " -> " + end.m_position
                         + " (elevation " + start.m_elevation + " -> " + end.m_elevation + ")"
-                        + CollisionDetail(collidingSegments, collidingBuildings), errors);
+                        + CollisionDetail(segmentHits, buildingHits), errors, segmentHits, buildingHits);
+                }
             }
             finally { controller.EndColliding(); }
             if (testOnly) return 0;
@@ -430,23 +507,39 @@ namespace Cs1Harness
             return last;
         }
 
-        static string CollisionDetail(ulong[] segments, ulong[] buildings)
+        static ushort[] CollisionIds(ulong[] bits)
+        {
+            var ids = new List<ushort>();
+            for (int word = 0; word < bits.Length; word++)
+            {
+                if (bits[word] == 0) continue;
+                for (int bit = 0; bit < 64; bit++)
+                {
+                    int id = word * 64 + bit;
+                    if (id > 0 && id <= ushort.MaxValue && (bits[word] & (1UL << bit)) != 0)
+                        ids.Add((ushort)id);
+                }
+            }
+            return ids.ToArray();
+        }
+
+        static string CollisionDetail(ushort[] segments, ushort[] buildings)
         {
             var hits = new List<string>();
             var net = Singleton<NetManager>.instance;
-            for (int i = 1; i < net.m_segments.m_buffer.Length && hits.Count < 8; i++)
-                if ((segments[i >> 6] & (1UL << (i & 63))) != 0)
-                {
-                    var s = net.m_segments.m_buffer[i];
-                    hits.Add("segment " + i + " " + (s.Info == null ? "?" : s.Info.name) + " " + s.m_flags);
-                }
+            foreach (ushort i in segments)
+            {
+                if (hits.Count >= 8) break;
+                var s = net.m_segments.m_buffer[i];
+                hits.Add("segment " + i + " " + (s.Info == null ? "?" : s.Info.name) + " " + s.m_flags);
+            }
             var bm = Singleton<BuildingManager>.instance;
-            for (int i = 1; i < bm.m_buildings.m_buffer.Length && hits.Count < 8; i++)
-                if ((buildings[i >> 6] & (1UL << (i & 63))) != 0)
-                {
-                    var b = bm.m_buildings.m_buffer[i];
-                    hits.Add("building " + i + " " + (b.Info == null ? "?" : b.Info.name));
-                }
+            foreach (ushort i in buildings)
+            {
+                if (hits.Count >= 8) break;
+                var b = bm.m_buildings.m_buffer[i];
+                hits.Add("building " + i + " " + (b.Info == null ? "?" : b.Info.name));
+            }
             return hits.Count == 0 ? "" : " [" + string.Join("; ", hits.ToArray()) + "]";
         }
 
@@ -550,6 +643,53 @@ namespace Cs1Harness
                 if (!PowerReachable(info, p, angle, powerNodes))
                 { lastError = "no native power-line path to shoreline at " + p; continue; }
                 try { return Place(info, p, angle, water); }
+                catch (PlacementRejected e)
+                {
+                    if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
+                    lastError = e.Message;
+                }
+            }
+            throw new Exception("cannot place " + info.name + ": " + lastError);
+        }
+
+        static ushort Groundwater(BuildingInfo info, ushort plant, List<ushort> powerNodes)
+        {
+            int tx, tz;
+            Singleton<GameAreaManager>.instance.GetStartTile(out tx, out tz);
+            var tm = Singleton<TerrainManager>.instance;
+            var plantPosition = Singleton<BuildingManager>.instance.m_buildings.m_buffer[plant].m_position;
+            var candidates = new List<KeyValuePair<float, Vector3>>();
+            // Keep the source 400 m beyond the entire planned industrial strip,
+            // not merely away from today's empty ground or a single building.
+            // The coal plant is another separate ground-pollution source.
+            for (float z = -832; z <= 832; z += 32)
+                for (float x = -832; x <= 832; x += 32)
+                {
+                    var p = Ground((tx - 2) * 1920 + x, (tz - 2) * 1920 + z);
+                    float dx = Mathf.Max(0, Mathf.Abs(p.x - center.x) - Half - 32);
+                    float dz = Mathf.Max(center.z + 80 - p.z, Mathf.Max(0, p.z - center.z - Half - 32));
+                    if (Mathf.Sqrt(dx * dx + dz * dz) < 400
+                        || VectorUtils.LengthXZ(p - plantPosition) < 400) continue;
+                    float ground, surface;
+                    Vector3 velocity, normal;
+                    if (tm.SampleWaterData(new Vector2(p.x, p.z), out ground, out surface, out velocity, out normal)
+                        && surface > p.y + 0.1f) continue;
+                    candidates.Add(new KeyValuePair<float, Vector3>(VectorUtils.LengthXZ(p - center), p));
+                }
+            candidates.Sort((a, b) => a.Key.CompareTo(b.Key));
+            string lastError = "no dry groundwater site separated from starter pollution";
+            foreach (var candidate in candidates)
+            {
+                var p = candidate.Value;
+                if (!PowerReachable(info, p, 0, powerNodes)) continue;
+                try
+                {
+                    ushort source = Place(info, p, 0);
+                    result["water_supply"] = Host.Obj("mode", "groundwater", "source", source,
+                        "pollution_setback_m", 400, "planned_industrial_strip", true,
+                        "surface_upstream_relationship", "not assumed");
+                    return source;
+                }
                 catch (PlacementRejected e)
                 {
                     if ((e.Errors & ToolBase.ToolErrors.NotEnoughMoney) != 0) throw;
@@ -810,6 +950,7 @@ namespace Cs1Harness
             if (hooks == null)
             {
                 hooks = Hookups();
+                hooks = JoinOrder(hooks) ?? hooks;
                 center = Site(hooks);
             }
             result["center"] = XYZ(center);
@@ -856,8 +997,7 @@ namespace Cs1Harness
             var powerEnds = new List<ushort>();
             Link(power, powerHub, Ground(center.x - Half - 48, center.z - Half - 24), endpoints: powerEnds);
             Supply(power, plant, powerEnds);
-            var distant = new Vector3(100000, 0, 100000);
-            ushort pump = Shore(WaterPrefab(true), center, distant, powerEnds);
+            ushort pump = Groundwater(WaterPrefab(true), plant, powerEnds);
             Supply(power, pump, powerEnds);
             ushort drain = Shore(WaterPrefab(false), center, bm.m_buildings.m_buffer[pump].m_position, powerEnds);
             Supply(power, drain, powerEnds);

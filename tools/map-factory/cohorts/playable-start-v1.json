@@ -1,0 +1,185 @@
+{
+  "schema": 1,
+  "issue": "PL-1078",
+  "baseline_source_commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+  "selection_rule": "Rank the frozen eight slugs by SHA256(\"PL-1078:\" + slug), ascending hex; take the first three, shift both latitude and longitude by +0.5 degrees. No geographic screening, substitution, or outcome-based retry. Keep export/construction failures in the denominator.",
+  "scope": "Three non-overlapping offset holdouts, not a representative global random sample.",
+  "controls_rule": "First two alphabetic Base Game rows in the source official-map CSV whose literal name + .crp exists in the installed stock map directory. No outcome-based substitutions.",
+  "control_gate": "Run the same first-hour opening on both controls before map-fault attribution; if it fails, fix/report player policy separately and rerun both. Keep PR58 verdict thresholds unchanged.",
+  "comparison": "Report historical 1/8 separately from a paired 11-square baseline/candidate comparison under the stock-qualified policy. Three new-square baseline outcomes are unknown until run.",
+  "sources_sha256": {
+    "terrain_js": "f5b282ee527a92049ecfeeb0f00b2f1ae80c6b80c667707c5914f707446572da",
+    "baseline_cohort_json": "255a02d56e5d3bd5143fb85caa9a588ed3ace40ad385aeacdcae0b054fca8bab"
+  },
+  "original": [
+    {
+      "slug": "asheville",
+      "lat": 35.58,
+      "lon": -82.555,
+      "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "input_files_sha256": {
+        "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff",
+        "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+        "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+        "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+        "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c"
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "lat": 47.27,
+      "lon": 11.4,
+      "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "input_files_sha256": {
+        "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+        "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+        "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646"
+      }
+    },
+    {
+      "slug": "rio",
+      "lat": -22.94,
+      "lon": -43.205,
+      "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "input_files_sha256": {
+        "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+        "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+        "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59"
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "lat": 40.44,
+      "lon": -80,
+      "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "input_files_sha256": {
+        "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70",
+        "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+        "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+        "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+        "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f"
+      }
+    },
+    {
+      "slug": "charleston",
+      "lat": 32.78,
+      "lon": -79.93,
+      "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "input_files_sha256": {
+        "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+        "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+        "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+        "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+        "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+      }
+    },
+    {
+      "slug": "grand-canyon",
+      "lat": 36.08,
+      "lon": -112.11,
+      "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "input_files_sha256": {
+        "banks.f32": "1b17876deab03ee5657053cf432d1c72119daca4c826b0da53832566bcab5132",
+        "capture.json": "4ccd67e75d3cf1d2994a3b913c907fe85be7db0c2559486102a4722e27710a42",
+        "evidence.json": "e2279b336b6b9d91279a2ca6c107d1b387682061a46b4218a16801b9340113a8",
+        "geometry.json": "3fad8973d115bb593ef0d912f2bbbd75c2019f076f7e8e4e72c831e729a1df4b",
+        "input.png": "64e3863814bec5505afaddb6c787779f9a774b6424e16d31ebdeeefb346a7e69",
+        "landcover.u8.gz": "80f31d136cdf9fa83077594ddc782524f9d830a617365c24f660f333004d59fc"
+      }
+    },
+    {
+      "slug": "hong-kong",
+      "lat": 22.29,
+      "lon": 114.17,
+      "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "input_files_sha256": {
+        "banks.f32": "4638361ec522e44930936f3a926eca6cba46c780679fded6ec420e439efe1b97",
+        "capture.json": "0257389e48a00e3dcf1fd80d5fd7688f2727cf33c544f6b79200aab4f0fac1a7",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "e00280a99c83474d949912662d7ab3f9f764b7df13824468ad96fecdd245818c",
+        "input.png": "e75742fb5f3c2894de2ba4b5b28eb1b12055a670c202775ae3f6b567ad2ab444",
+        "landcover.u8.gz": "3ee722570902c1a0222c3c7cb97544ee6892708508be9780cd8895b48f69d46c"
+      }
+    },
+    {
+      "slug": "yosemite",
+      "lat": 37.735,
+      "lon": -119.575,
+      "package_sha256": "17020ec6905c63b8ced550c49be07e68496d004ce2677bec6b5866c5d56baf17",
+      "input_files_sha256": {
+        "banks.f32": "0b719ecc75726dd73262e6170cb3a3d4920398cea2b74267ec1c3de42335cd26",
+        "capture.json": "a3baa46959ef3d3e77a041d3d65512a86326581a2f37eb167cc7bb4f3c411056",
+        "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+        "geometry.json": "32d3aaa99ec33e93cf4a7d0463a7c288a94c8dfa4e173b581e8ab54a30f75ee0",
+        "input.png": "dc8668cc768818c068098583654860e40f3c80d288ce571993e77bed6338c55b",
+        "landcover.u8.gz": "18a0128012d79784c38a8fea64e199b265d734b03b304f0b33a0e28059842ab1"
+      }
+    }
+  ],
+  "fresh": [
+    {
+      "slug": "grand-canyon-northeast",
+      "name": "grand-canyon northeast holdout",
+      "lat": 36.58,
+      "lon": -111.61,
+      "parent_slug": "grand-canyon",
+      "selection_hash": "00a966b4c1f3b31fa01e12bf1aad56e06dd163352e42cafb73fc5913ef54417f",
+      "rotation": 0,
+      "scale": 1,
+      "vscale": "auto",
+      "rivers": true,
+      "sm": 1,
+      "rd": 10,
+      "rw": 40,
+      "ld": 4
+    },
+    {
+      "slug": "rio-northeast",
+      "name": "rio northeast holdout",
+      "lat": -22.44,
+      "lon": -42.705,
+      "parent_slug": "rio",
+      "selection_hash": "367817c1d5e9da11844e047674f5318625124c998fcaf41be1782b7c804cadea",
+      "rotation": 0,
+      "scale": 1,
+      "vscale": "auto",
+      "rivers": true,
+      "sm": 1,
+      "rd": 10,
+      "rw": 40,
+      "ld": 4
+    },
+    {
+      "slug": "hong-kong-northeast",
+      "name": "hong-kong northeast holdout",
+      "lat": 22.79,
+      "lon": 114.67,
+      "parent_slug": "hong-kong",
+      "selection_hash": "6b62f80f5d5086999a6cd22be3ef6bb22df07bc773279c39c5a0c3c6c1de1065",
+      "rotation": 0,
+      "scale": 1,
+      "vscale": "auto",
+      "rivers": true,
+      "sm": 1,
+      "rd": 10,
+      "rw": 40,
+      "ld": 4
+    }
+  ],
+  "controls": [
+    {
+      "name": "Cliffside Bay",
+      "filename": "Cliffside Bay.crp",
+      "sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c"
+    },
+    {
+      "name": "Foggy Hills",
+      "filename": "Foggy Hills.crp",
+      "sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136"
+    }
+  ]
+}

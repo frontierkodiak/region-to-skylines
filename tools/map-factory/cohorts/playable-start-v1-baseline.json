@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "preregistration_sha256": "daa6c286253c23f1231c30ae78fd41c21b7a6e562fad41b1b6126aaa1c5cd7ba",
+  "exporter_source_commit": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+  "provenance": "All eleven packages exported before any PL-1078 exporter rule. Seven original packages reproduce the preregistration. Yosemite reproduces the actual PR58 qualified-v3 native package after generic template-rail removal, not the earlier preregistered stale-rail package. The three fixed-offset holdouts were captured before export. No new native map outcomes were used to choose these packages.",
+  "packages_sha256": {
+    "asheville": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+    "innsbruck": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+    "rio": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+    "pittsburgh": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+    "charleston": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+    "grand-canyon": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+    "hong-kong": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+    "yosemite": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+    "grand-canyon-northeast": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+    "rio-northeast": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+    "hong-kong-northeast": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d"
+  }
+}

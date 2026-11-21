@@ -182,8 +182,28 @@ def qualify(output, only=None, baseline=None):
         folder.mkdir(parents=True, exist_ok=True)
         try:
             if slug in plan["fixtures"]:
-                fixture_inputs(slug, source)
-                row["input_kind"] = "frozen shipping fixture"
+                frozen_files = plan.get("frozen_input_files", {}).get(slug)
+                if "frozen_input_files" in plan and not frozen_files:
+                    raise ValueError(f"Missing frozen original input manifest: {slug}")
+                if frozen_files is not None:
+                    if not frozen_files or set(p.name for p in source.iterdir()) != set(
+                        frozen_files
+                    ):
+                        raise ValueError(
+                            f"Frozen original input file set changed: {slug}"
+                        )
+                    for name, expected in frozen_files.items():
+                        if sha(source / name) != expected:
+                            raise ValueError(
+                                f"Frozen original input bytes changed: {slug}/{name}"
+                            )
+                else:
+                    fixture_inputs(slug, source)
+                row["input_kind"] = (
+                    "frozen qualification input"
+                    if frozen_files is not None
+                    else "frozen shipping fixture"
+                )
             else:
                 row["input_kind"] = "fresh capture"
                 capture = json.loads((source / "capture.json").read_text())

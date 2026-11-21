@@ -3297,3 +3297,243 @@ unchanged. These CPU fixture checks are not new native panel games or current-
 tree native qualification. Both predictors remain rejected as discriminators,
 human-only checks not verified, exporter release held. Final evidence/integration
 review is separate from the already consumed preparation/collector reviews.
+
+### 2026-11-20 PL-1078 stock control: original player fails clean-water service
+
+Cliffside Bay, exact stock format-4 package `2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c`,
+ran with source `0d573aa` and byte-unchanged PR58 ScenarioOps. It completed
+60.134 game-minutes, last observed population 323. At 20.021 minutes, 57 grown
+buildings reported DirtyWater. Dirty-water failures continued through the end.
+All other first-hour checks passed, including native car paths, movement,
+facility utilities, start land, sample coverage, and the reviewed native panel.
+This is a player-policy failure on a stock map, not exported-map evidence.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. The reported simulation wall time is
+917.09 seconds. The 220 whole-card samples include setup and cleanup, with
+peaks of 10821 MiB, 142.52 W, and 59 C. Memory includes an existing allocation;
+the owned game used 1592 MiB at the menu, not a measured game-only peak.
+The recorded 200 W power limit was not changed. Cleanup contains no game,
+Steam instances, or active session units. Evidence is under the PL-1078
+experiment's `controls-native/original/cliffside-bay` directory.
+
+The separate groundwater policy commit `df82d6b` compiles and passes 155
+Python tests. Its 400 m setbacks and actual service reliability still require
+both full-hour stock controls. No improvement in exported-map survival is
+claimed by this control or the CPU exports.
+
+### 2026-11-20 PL-1078 stock control: groundwater-only player
+
+The same Cliffside Bay package completed 60.134 game-minutes with player source
+`df82d6b`, mod SHA256 `117aac531884410779013b45f19c025aef6be436b12ea6d058e521fecfcec61d`.
+All nine first-hour checks passed, with zero sampled service outages and last
+observed population 306. The aggregate map verdict is `unverified`, not `pass`:
+no real-world DEM or authored corridor probes were requested for this stock
+control. No explicit native check failed. The panel was viewed and reviewed
+against its actual capture. Cleanup is empty.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Simulation wall time was 932.31 seconds.
+The 223 whole-card samples, including setup and cleanup, peak at 10821 MiB,
+146.82 W, and 59 C. These include the existing allocation. The menu measured
+1574 MiB for the owned game, not a continuous game-only peak. The recorded
+200 W limit was unchanged.
+
+The separate join-validation change requires both stock controls to run again
+with that compiled player. Two superseded requests were interrupted only while
+still queued, after checking their exact PID, label, owning issue, and queue
+state. Neither acquired the install or started a game. The running groundwater
+control was not interrupted; PL-1072 acquired the install after its cleanup.
+
+### 2026-11-20 PL-1078 stock control: final player on Cliffside Bay
+
+The same exact stock package completed 60.091 game-minutes with the final
+join-validation and groundwater player, mod SHA256
+`f60c6833f25669a8c90b00f71ea217f6576646beaa12e272212b825dc8eba4b5`.
+All nine unchanged first-hour checks pass, with no sampled service outages or
+explicit failed native check. Last observed population is 264. Garbage and
+pollution warnings remain in the raw observations; no threshold was relaxed.
+The broader stock verdict remains `unverified` without geographic references.
+The actual panel PNG was viewed and hash-reviewed (`03e1e3c5...`). Cleanup
+contains no game, Steam instance or active session unit.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Reported simulation wall time is 919.45
+seconds. The 222 whole-card samples peak at 10821 MiB, 146 W and 59 C,
+including the existing allocation. The owned game used 1574 MiB at the menu,
+not a measured game-only peak. The recorded 200 W cap was not changed.
+Carbon was checked idle at 15:54:14 UTC; the offline guard remained required.
+The fair queue handed the install back to PL-1072 after cleanup. Evidence:
+PL-1078 experiment `controls-native/009e8a8/cliffside-bay`.
+
+Foggy Hills must pass under this same DLL before map-fault attribution. Then
+rerun the original frozen eight with the unchanged exporter before adding
+rules. Keep that player-only measurement separate from the later eleven-map
+exporter comparison; real connections remain opt-in.
+
+### 2026-11-20 PL-1078 stock control: Foggy Hills, teardown failure retained
+
+Exact stock package `076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136`
+completed 60.089 game-minutes with the same final `f60c6833...` player. All nine
+first-hour checks pass, with zero sampled service outages and last population
+299. Its actual panel was viewed and hash-reviewed (`2e27576f...`).
+
+The overall verdict is **fail**, solely for cleanup: no game or active unit
+remained, but Flatpak still listed instance `841100075`. A read-only follow-up
+at 16:56:27 UTC confirmed that instance had disappeared; PL-1072's subsequent
+session was left untouched. The failed receipt is retained, not rewritten or
+promoted to qualification. No exported-map native baseline has started.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Simulation wall time was 915.64 seconds.
+The 219 whole-card samples peak at 10821 MiB, 144.51 W and 59 C, including the
+existing allocation. Owned-game menu usage was 1574 MiB, not a game-only peak.
+The recorded 200 W cap was unchanged.
+
+Session teardown now waits up to ten seconds, while retaining the slot, for
+Steam's instance list to settle after stopping the session units. It never
+kills an untracked instance or removes a persistent instance from the receipt.
+Two mocked-backend cleanup tests and the full 157-test harness suite pass.
+This is Python lifecycle work, not a player/DLL or verdict change. Foggy Hills
+requires a new immutable clean attempt before the player can be qualified.
+
+### 2026-11-20 PL-1078 final player stock-qualified
+
+Foggy Hills' clean retry completed 60.100 game-minutes with the identical
+`f60c6833...` DLL, stock package and probes. All nine unchanged first-hour
+checks pass, with zero sampled service outages, no explicit failed native check,
+last population 273, and empty cleanup. The broader stock geography verdict is
+still `unverified`. The retry's actual panel was viewed and hash-reviewed
+(`b52a9186...`); the prior cleanup-failed attempt remains untouched.
+
+Blade, RTX 2080 Ti at PCI 05:00.0. Simulation wall time was 926.51 seconds.
+The 233 whole-card samples peak at 10821 MiB, 144.10 W and 59 C, including the
+existing allocation; menu-game usage was 1574 MiB, not a game-only peak.
+The recorded 200 W cap was unchanged. Carbon was idle-checked at 17:11:43 UTC.
+
+The accepted controls are the prior clean Cliffside Bay run plus this Foggy
+retry, linked under the experiment's `controls-native/final-player-v1` group.
+Both use the same compiled player. Independent Sol review accepted the teardown
+fix and this pairing rule; no gameplay policy or native verdict was changed.
+The original frozen-eight baseline now runs in foreground before any exporter
+rule. Every map releases the fair slot; PL-1072's next case acquired it after
+the stock retry. No exported-map improvement is claimed yet.
+
+### 2026-11-20 PL-1078 unchanged-exporter baseline under the qualified player
+
+The original eight run before adding any exporter rule, with the same stock-
+qualified `f60c6833...` DLL and preregistered inputs/pre-rule packages. The
+unchanged PR58 first-hour outcome is recorded separately from full native
+qualification. Actual New Game, untouched opening and Areas-tool captures are
+viewed and hash-reviewed before final rejudgment; no native gate is relaxed.
+The historical 1/8 is an unqualified-player observation, not this baseline.
+
+| Case | First hour | Full native | Game min | Last population | Simulation wall s | Whole-card peak MiB / W / C | GPU samples |
+|---|---|---|---:|---:|---:|---|---:|
+| Asheville | pass | pass | 60.031 | 369 | 989.28 | 10821 / 142.85 / 60 | 239 |
+
+Asheville has zero sampled service outages and empty cleanup. Its exact
+pre-rule package remains `0b92ed3...`; the water and bankruptcy failure seen
+under the original player did not recur. All independent native gates pass
+after the actual startup images were reviewed. The rest of the eight remain
+pending; no complete baseline rate or exporter improvement is claimed yet.
+
+Resource measurements are on blade's RTX 2080 Ti at PCI 05:00.0. Whole-card
+memory includes the existing allocation; owned-game menu usage was 1574 MiB,
+not a continuously measured game-only peak. The recorded 200 W cap is unchanged.
+Every case releases the fair slot; native evidence lives under the PL-1078
+experiment's `baseline/native` directory.
+
+### 2026-11-20 PL-1078 player regression found before exporter changes
+
+The same exact Innsbruck package `43e5166...` that passed under PR58's old
+player now fails before construction with `f60c6833...`. Starter-land evidence
+is unchanged (3416/3600 dry-flat samples). Independent Sol review confirmed a
+player false-negative: each preflight link used a fresh endpoint, but actual
+construction creates one junction and reuses its node for subsequent links.
+The old native network dump proves the exact rejected 570-to-join geometry was
+successfully built after hook593 established the junction. No map defect or
+need for grading is established by this failure.
+
+The unsuccessful native attempt took about177 seconds from active launch to
+logged error, with no simulation hour. Blade, RTX2080Ti at05:00.0;34whole-card
+samples peak10821MiB/116.92W/47C; the recorded200W cap was unchanged. Menu-game
+usage was1620MiB, not a continuous game-only peak. Cleanup is empty.
+
+The incomplete f60 pilot is retained: Asheville passes; Innsbruck is a player
+regression. Rio's exact PID3848331 was interrupted only while still queued,
+after checking daemonPID1376919 and active holderPID3173749; no game launched.
+The foreground wrapper's exit was collected and its waiter disappeared.
+Remaining cases were not run or scored. No complete baseline rate is claimed.
+
+The revised player models deterministic join order, defers only the later
+link's paired-stub collision until the real junction exists, and restores a
+fallback only after native grid-road checks pass. Actual `Link`/`Connect` still
+enforce all native construction errors; no collision, slope, money or length
+rule is disabled. No named-map or coordinate exception was added. Build and
+157harness tests pass, but the new DLL still requires both stock controls and
+a fresh unchanged-exporter original-eight baseline before any exporter rule.
+
+### 2026-11-20 PL-1078 ordered-junction player stock-qualified
+
+Both fresh stock controls pass with identical DLL SHA256 `4a4dbf3a...`
+(`c200644` player source). All nine unchanged first-hour checks pass, with
+zero sampled service outages, no explicit failed native check and empty
+game/Steam/unit cleanup. Actual New Game captures were viewed and hash-reviewed.
+Stock aggregate geography remains `unverified`, not a real-world fidelity pass.
+
+| Stock control | Game min | Last population | Simulation wall s | Whole-card peak MiB / W / C | GPU samples | Panel SHA prefix |
+|---|---:|---:|---:|---|---:|---|
+| Cliffside Bay | 60.093 | 301 | 919.78 | 10821 / 145.50 / 60 | 232 | 12c5acda |
+| Foggy Hills | 60.016 | 325 | 920.09 | 10821 / 144.26 / 60 | 221 | ea0e4bb9 |
+
+Blade, RTX 2080 Ti at PCI 05:00.0; the recorded 200 W cap was unchanged.
+Whole-card memory includes the existing allocation. Menu-game usage was
+1620 MiB / 1574 MiB respectively, not continuously measured game-only peaks.
+Fresh offline/carbon guards and the fair queue were used for each run. The
+slot was released after each; PL-1072 acquired it after Foggy Hills.
+
+The new unchanged-exporter original-eight baseline starts only after these
+controls, in a separate `baseline-player-v2/native` output group. The f60
+pilot and all prior control attempts remain intact and are not mixed with
+this DLL in a rate. No exporter rule has been added. Innsbruck's native
+recovery and the complete original-eight player-policy effect remain pending.
+CPU checks: 157 harness tests, 176 map-factory tests (one optional skip),
+JavaScript checks, and harness Ruff lint/format pass. Doctor remains pending.
+
+### 2026-11-20 PL-1078 original-eight player baseline frozen
+
+All eight original packages and frozen inputs were rerun unchanged with the
+stock-qualified ordered-junction DLL `4a4dbf3a…`, before any exporter/check
+implementation. First-hour passes: Asheville, Innsbruck, Charleston (3/8).
+Strict full-native passes: Asheville, Innsbruck (2/8). Charleston retains its
+DEM fidelity failure; Rio/Hong Kong fail the bounded site/hookup search,
+Pittsburgh's join is rejected TooShort/SlopeTooSteep, and Grand Canyon/Yosemite
+lack an authored starter road hookup. Every failure is preserved. Failed
+player searches do not establish geographic impossibility. Successful
+groundwater service does not establish surface-water capacity or cleanliness.
+
+All actual panels and opening/Areas screenshots were viewed and hash-reviewed;
+all eight cleanup receipts are empty. Full-hour simulation wall times are
+942.16s, 947.12s and 951.24s for Asheville, Innsbruck and Charleston. Failed
+construction cases do not have a simulated hour. Resource telemetry includes
+startup and construction, excluding queue wait:
+
+| Case | Whole-card samples | Peak MiB / W / C |
+|---|---:|---|
+| Asheville | 235 | 10821 / 147.27 / 61 |
+| Innsbruck | 224 | 10821 / 156.55 / 60 |
+| Rio | 31 | 10821 / 125.26 / 46 |
+| Pittsburgh | 32 | 10821 / 120.52 / 48 |
+| Charleston | 225 | 10821 / 138.98 / 60 |
+| Grand Canyon | 32 | 10821 / 119.29 / 47 |
+| Hong Kong | 36 | 10821 / 197.07 / 49 |
+| Yosemite | 31 | 10821 / 114.83 / 47 |
+
+Blade RTX2080Ti at05:00.0; recorded200W cap unchanged. Whole-card includes
+existing allocation. Owned-game menu snapshots were mostly1574MiB (Pittsburgh
+1592MiB), not continuous game-only peaks. See retained gpu.csv for each attempt's
+timestamps. Construction-attempt telemetry spans were150.3s Rio,162.9s
+Pittsburgh,159.5s Grand Canyon,181.9s Hong Kong and150.2s Yosemite; these are
+sampled wall spans, not simulation durations or complete teardown times.
+GPU-only doctor passed at21:27Z, same GPU,3260MiB free; it did not launch Steam.
+
+The before-rule observation manifest is
+`tools/map-factory/cohorts/playable-start-v1-player-baseline.json`. Historical1/8
+remains explicitly unqualified. No candidate/exporter improvement is claimed.
