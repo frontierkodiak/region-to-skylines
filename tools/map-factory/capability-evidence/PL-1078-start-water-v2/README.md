@@ -114,7 +114,34 @@ retained start counterexample does not trigger a named-square repair, new model
 or promise. The two positive regional water holdouts will use the same model,
 source, DLL and load protocol; Grand Canyon northeast remains unknown/unscored.
 
-Held-out capability observations, held-out first-hour baseline attempts and the
+## Held-out water observations
+
+The frozen model was not revised after either held-out outcome.
+
+| Regional holdout | Scored minutes / cycles | Water / requested | Sewage accepted | Short water cycles | Agreement |
+|---|---:|---:|---:|---:|---|
+| Rio northeast | 60.0039 / 843 | 843000 / 843000 | 843000 | 0 | yes |
+| Hong Kong northeast | 60.0050 / 843 | 713000 / 843000 | 843000 | 130 | no |
+
+Both placements, auxiliaries, timing and cleanup qualified; neither delivered
+polluted water. Hong Kong northeast's 130 short responses were zero deliveries,
+from scored index2 through833, not just an initial settling delay. Intake
+problem flags were `None` on those responses. This falsifies service for the
+specified fixture/load; its mechanism is unresolved and is not proof that the
+square has no other viable intake or plan. Do not repair or relabel it from
+held-out data. Regional positive-witness water agreement is **1/2**, kept
+separate from fitting3/3. There are no positive held-out start predictions, so
+no held-out start agreement estimate. Grand Canyon northeast remains unknown.
+
+`observations.json` retains all 22 rows, every risk record and the separate
+fitting/held-out scores. All eight native case receipts have empty cleanup;
+all 24 actual panel/opening/Areas PNGs were viewed and hash-reviewed. The
+selected receipt fields are still not launch-context certificates.
+`player-arm-identity.json` also records byte-identical before/after probes on
+all eleven squares, the unchanged qualified4a4 DLL, and both judge files'
+byte identity to merged PR58. These checks do not manufacture an exporter gain.
+
+Held-out first-hour baseline attempts and the
 fresh eleven-square candidate player arm remain pending. The latter will use
 the immutable 4a4 player, not the capability DLL. Byte-identical candidate maps
 mean any repeat-run difference cannot be attributed to physical exporter rules.
