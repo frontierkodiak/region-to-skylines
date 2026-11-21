@@ -1,0 +1,45 @@
+{
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "status": "prepared",
+      "new_controls": 0,
+      "encoded_sum_per_direction": 0,
+      "package": "PL1191-dry-upland-asia-natural-storage-regulated.crp",
+      "package_sha256": "6ab38e8b707ccbe77b475f7a3d90be055ecdea13ededd83c76babfad861ef9cc"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "status": "prepared",
+      "new_controls": 28,
+      "encoded_sum_per_direction": 3584,
+      "package": "PL1191-dry-upland-europe-natural-storage-regulated.crp",
+      "package_sha256": "cb696d4eeae4f175ba56832ceb14d0176f0aa46063fc5a39f07d630aeabe535b",
+      "plan_sha256": "3d611445ec1f0e7f720707d1fde08b17e2d8df4b1c10587064a39a124e9214d7"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "status": "prepared",
+      "new_controls": 13,
+      "encoded_sum_per_direction": 1664,
+      "package": "PL1191-lowland-river-south-america-natural-storage-regulated.crp",
+      "package_sha256": "5eabf10554655ca69542727018b69d0874724237d8cbca44f6f5444e895714f2",
+      "plan_sha256": "bfc09b4f8568390aa85240be9cd497bf3906ac22ad81e741d0cd0c9e349b550b"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "status": "original_fixed_bound_base_refusal_retained",
+      "original_preparation": "/home/caleb/experiments/PL-1191-stable-water/development-natural/candidates-v1/dry-upland-south-america",
+      "reason": "No passive parent package; do not replace or relax original protected masks."
+    },
+    {
+      "slug": "mountain-river-asia",
+      "status": "original_fixed_bound_base_refusal_retained",
+      "original_preparation": "/home/caleb/experiments/PL-1191-stable-water/development-natural/candidates-v1/mountain-river-asia",
+      "reason": "No passive parent package; do not replace or relax original protected masks."
+    }
+  ],
+  "scope": "Same five predeclared development cases; original contracts/probe points unchanged; new controller accounting rows only; flux units unknown.",
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown"
+}
