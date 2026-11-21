@@ -3003,3 +3003,60 @@ Twenty-five of 28 exports collected; three low coasts remain, plus two original
 capture failures. No interim/full holdout score, model/probe/writer/gate change,
 cutoff promotion or release claim. Evidence excludes proprietary binaries,
 decompiled code, saves and raw account logs.
+
+## 2026-11-21 UTC — PL-1072 final three coasts and one-shot result
+
+Blade RTX 2080 Ti, bus 05:00.0, clean pinned runtime `6949182`. Three fresh
+attempts in fixed order with FIFO handoffs to PL-1078 and PL-1142. The card peak
+was 10821 MiB in every run. Configured power limits were 200 W, unchanged; no
+power settings or other workloads were modified. Wall seconds cover the soak,
+not startup/queue; power and temperature peaks are whole-card session samples.
+
+| Low coast | GPU samples | Baseline / menu MiB | Estimated increment MiB | Peak W / °C | Soak wall s | Game min | Native water result |
+|---|---:|---|---:|---|---:|---:|---|
+| Europe | 235 | 8004 / 1574 | 2817 | 218.22 / 72 | 954.049632 | 60.034448 | flood .0000 km² pass; required end/all 13: 836/836 pass |
+| Asia | 228 | 8008 / 1592 | 2813 | 141.09 / 58 | 969.055488 | 60.067781 | flood .0000 km² pass; required end/all 13: 733/733 pass |
+| Oceania | 240 | 8008 / 1592 | 2813 | 158.01 / 60 | 971.193991 | 60.108059 | flood .0003 km² pass; required end 987/1149 and all 13: 978/1149 fail |
+
+Incremental VRAM is baseline subtraction, not a directly sampled or causal game
+peak. Europe's observed 218.22 W sample is retained alongside its unchanged 200 W
+configured cap. Required throughout counts cover all 13 samples, not every frame;
+Oceania's endpoint recovery does not rescue earlier sampled losses.
+
+Initialized/exact-dry/isolated-dry endpoint counts: Europe 8838/472/319,
+Asia 44808/660/596, Oceania 26098/1666/979. No nearby endpoints are unknown.
+Dried/newly-wet areas at .1 m: .79/9.15, 2.43/.02 and 3.73/.08 km². These do not
+replace the deeper/masked flood gate or the frozen full drying outcome.
+Europe fails DEM correlation (.8175 versus .9); Asia fails correlation (.8191)
+and terracing (.297 versus .08). All failures and originals remain unchanged.
+
+All nine actual opening/Areas/t060 PNGs were inspected. Europe shows branching
+water/sandy banks. Asia's opening does not frame the road, and its final view
+shows a long narrow crossing. Oceania's final overview poorly frames the road.
+Hash-bound producer-only startup sidecars pass without rewriting original
+overall failures or establishing geometry, water-safety, human or independent
+acceptance. Every original overall verdict remains fail.
+
+All 280 staged files, 21 writer files and 28 native binding sets revalidate at
+study head `cc9d541`. All 28 mod receipts match
+`6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd`.
+Fresh carbon and continuous read-only offline guards passed; every owned cleanup
+is empty. Collector exec session 14803 exited zero and was collected. All 1,260 recorded
+PID numbers, including the 28 explicit old/new CLI/collector/waiter identifiers,
+were absent. Europe game PID1789310 and Oceania game PID953568 needed normal quit-grace
+termination, not crash recovery; Asia has no forced-termination record. No
+owned child remains active. No native lifecycle or account guard changed.
+
+Only after final curation and full pre-score verification, the frozen scorer
+ran once at its fixed path. Result SHA256:
+`b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b`.
+Flood TP/FP/TN/FN=1/4/18/5, precision 20%, recall 16.7%; drying 27/1/0/0 is exactly
+always-warn. Flood clears fail 5/23 versus base 6/28: no demonstrated improvement.
+Both combined/deployed clearance sets are empty. Both original capture failures
+remain unknown. Dry-upland Asia is the sole drying-negative, but it floods.
+Both predictors are rejected as qualified discriminators; no 3 m promotion,
+refit, per-square repair or release. A replacement needs a new independent
+holdout. Human-only checks remain not verified. The saved result's 148 exact
+rate/interval records and 28 receipt bindings passed a read-only audit without
+prediction, native-outcome or scorer reinvocation. The report carries complete
+intervals and stratum/region counts.

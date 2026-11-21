@@ -1,12 +1,44 @@
 # Water-calibration findings: no demonstrated safe-square class
 
-Latest collection: **25 of 28 exportable squares complete; 3 remain**, plus two
-original capture failures. The full one-shot holdout score has not run.
+**Complete: 28 full native runs, two original capture failures retained unknown.**
+The frozen one-shot score ran once on November 21. Both predictors fail
+qualification; exporter release stays held. Full metrics, exact intervals,
+always-warn comparisons and group counts are in
+[the final report](calibration/pl1072-frozen/HOLDOUT_REPORT.md) and its
+[verbatim score](calibration/pl1072-frozen/holdout-score.json).
+
+| Target | TP / FP / TN / FN | Precision, exact 95% CI | Recall, exact 95% CI |
+|---|---|---|---|
+| Flood | 1 / 4 / 18 / 5 | 20.0% [0.5%, 71.6%] | 16.7% [0.4%, 64.1%] |
+| Drying | 27 / 1 / 0 / 0 | 96.4% [81.7%, 99.9%] | 100% [87.2%, 100%] |
+
+Flood-only clears fail at 5/23, 21.7% [7.5%, 43.7%], versus the base
+6/28, 21.4% [8.3%, 41.0%]: no demonstrated risk reduction. Drying is exactly
+always-warn, with specificity 0/1. The one drying-negative square, dry-upland
+Asia, floods; it is not a both-target safe case. Every scored package fails at
+least one frozen water target. Both combined candidate and deployed-product
+clearance are empty; cleared risk and absolute/relative reductions are not
+estimable. These are target outcomes, not a playability judgment.
+
+**Reject both frozen predictors as qualified discriminators.** Keep the warning
+guard and release hold; develop a general replacement with a new geography-
+disjoint holdout. Do not promote the 3 m cutoff: its flags still agree with
+1.5 m on all exports. No fit, threshold, probe, package or gate changed against
+the new labels. Human-only checks remain **not verified**.
+
+The result SHA256 is
+`b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b`.
+Pre-score verification at `cc9d541` checked all 280 staged files, 21
+source-equivalent writer files, 28 native binding sets and 1,260 absent recorded
+PID numbers. The post-score audit checked 148 saved rate/interval records and
+all native receipt hashes without invoking prediction, native outcomes or the
+scorer again. The published score is a byte-identical copy of the fixed-path
+one-shot output, not a second score.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
 Its regression, old-corpus refresh, frozen fit, and synthetic scoring attacks
-reproduced. There was no blocking preparation defect. Actual native scoring
-remains unverified. The later producer delta fixes the declined-assessment crash,
+reproduced. There was no blocking preparation defect. That preparation review
+predates actual native scoring. The later producer delta fixes the declined-assessment crash,
 checks source equivalence, and records the limits below.
 
 ## Reject the drying discriminator
@@ -422,11 +454,51 @@ unchanged. Drying remains always-warn; combined/deployed clearance is empty and
 the flood cutoffs have no contrasting case. Full one-shot scoring and the
 PL-912 recommendation remain pending; exporter release stays held.
 
-## Remaining work and release hold
+## Final native collection: last three coasts
+
+Europe, Asia and Oceania completed in frozen order, taking coverage to 28/28
+exports. All three have empty cleanup; collector exec14803 exited zero and was
+collected. Both original capture failures remain missing, not native negatives.
+
+| Low coast | Game minutes | Sampled flood km² | Required wet at end | Required wet at all 13 samples |
+|---|---:|---:|---|---|
+| Europe | 60.034448 | .0000, pass | 836/836, pass | 836/836, pass |
+| Asia | 60.067781 | .0000, pass | 733/733, pass | 733/733, pass |
+| Oceania | 60.108059 | .0003, pass | 987/1149, fail | 978/1149, fail |
+
+Oceania's endpoint recovery does not rescue its earlier sampled losses.
+Europe also fails DEM correlation (.8175 versus .9); Asia fails correlation
+(.8191 versus .9) and terracing (.297 versus .08). All original failures remain
+unchanged. Initialized/exact-dry/isolated-dry endpoint counts are 8838/472/319,
+44808/660/596 and 26098/1666/979 respectively, with no unknown nearby endpoints.
+Grid dried/newly-wet areas at .1 m are .79/9.15, 2.43/.02 and 3.73/.08 km²;
+these are not the deeper, masked flood-gate areas.
+
+All nine actual opening/Areas/t060 PNGs were inspected. Europe shows branching
+water and sandy banks; Asia's opening does not frame a road approach, and its
+final view shows a long narrow crossing. Oceania's final overview poorly frames
+the road. Separate producer startup-view sidecars do not establish geometry,
+terrain-fidelity, playability, independent or human acceptance. All twenty-eight
+original overall verdicts remain fail. No square was repaired or rerun to pass.
+
+All twenty-eight mod receipts match the pinned hash. Fresh launch carbon checks
+and continuous read-only offline guards passed. Europe game1789310 and Oceania
+game953568 needed normal quit-grace termination, not spontaneous-crash recovery;
+Asia has no such forced-termination record. All owned games, Steam clients,
+displays, buses, collectors and waiters ended before scoring. The local verifier
+now retains its explicit waiter PID list automatically; no native guard changed.
+
+The pre-score curator and verifier were not rerun after scoring. Their receipts
+are historical pre-score evidence, while the final report and saved score are
+the completed study result. VRAM increments remain baseline-subtracted estimates,
+not sampled or causal game peaks.
+
+## Review and release hold
 
 At preparation closeout no new native game or holdout score existed. PL-1066
 subsequently resolved the offline-evidence interpretation and explicitly released
-the install on November 20 at 13:30 UTC. Collection resumes through its pinned
-guarded harness, without changing the frozen writer or repeating the rejected
-client-only experiment. The PL-912 exporter release hold remains justified;
-there is no safe-square class to ship without a caveat.
+the install on November 20 at 13:30 UTC. All 28 exportable cases have now completed
+through its pinned guarded harness, without changing the frozen writer or
+repeating the rejected client-only experiment. The study is delivered for normal
+PR review and human acceptance, not exporter-release approval. The PL-912 release
+hold remains justified; no safe-square class was established.
