@@ -1,0 +1,17 @@
+test_car_only_middle_segment_blocks_a_train_path (test_rail_query_model.DomainContractTest.test_car_only_middle_segment_blocks_a_train_path) ... ok
+test_equal_angle_junction_does_not_depend_on_ids (test_rail_query_model.DomainContractTest.test_equal_angle_junction_does_not_depend_on_ids) ... ok
+test_invert_swaps_the_required_travel_bit (test_rail_query_model.DomainContractTest.test_invert_swaps_the_required_travel_bit) ... ok
+test_length_bound_rejects_an_oversized_path (test_rail_query_model.DomainContractTest.test_length_bound_rejects_an_oversized_path) ... ok
+test_length_bound_relaxes_to_a_shorter_alternative (test_rail_query_model.DomainContractTest.test_length_bound_relaxes_to_a_shorter_alternative) ... ok
+test_reversal_hypothesis_is_expressible (test_rail_query_model.DomainContractTest.test_reversal_hypothesis_is_expressible) ... ok
+test_changed_source_fails_binding (test_rail_query_model.BindingContractTest.test_changed_source_fails_binding) ... ok
+test_missing_row_is_unknown_not_a_failure (test_rail_query_model.BindingContractTest.test_missing_row_is_unknown_not_a_failure) ... ok
+test_missing_success_fails_closed (test_rail_query_model.BindingContractTest.test_missing_success_fails_closed) ... ok
+test_mutated_request_fails_binding (test_rail_query_model.BindingContractTest.test_mutated_request_fails_binding) ... ok
+test_mutated_row_request_fails_binding (test_rail_query_model.BindingContractTest.test_mutated_row_request_fails_binding) ... ok
+test_real_binding_covers_every_query (test_rail_query_model.BindingContractTest.test_real_binding_covers_every_query) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.118s
+
+OK
