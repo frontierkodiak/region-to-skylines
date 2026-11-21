@@ -1,0 +1,3343 @@
+{
+  "schema": 1,
+  "snapshot_sha256": "fd3875416400e1d13cf94f3bd77a75e1c34da1f2ba5481a7ee5f7abec2679087",
+  "export_receipt_sha256": "ddf16de69ffac1f43c75a2e84b99d05f3c458740d9d038cf662f23a1409c5811",
+  "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+  "rows": [
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "asheville",
+        "lat": 35.58,
+        "lon": -82.555,
+        "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "input_files_sha256": {
+          "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff",
+          "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+          "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+          "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+          "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 406.546875,
+          "slope_p95": 0.4584256281547447,
+          "wet_fraction": 0.017750036155579383,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 2.442496,
+          "shore_freeboard_p10_m": 0.921875,
+          "shallow_fraction": 0.015668691543727704,
+          "thin_fraction": 0.4561276636775624,
+          "narrow_film_km2": 0.081408,
+          "inlet_wet_fraction": 0.002458779288400347,
+          "inlet_shallow_fraction": 0.002217722495419921,
+          "emitter_exposure_km2": 0.000512,
+          "source_density": 20.715818146755375,
+          "input_output_ratio": 0.9990067208857729,
+          "input_only_fraction": 0.2727272727272727,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0004275114467246107,
+          "adverse_profile_fraction": 0.5646185622463442,
+          "unforced_fraction": 0.6298842852409188,
+          "profile_overbank_p95_m": 3.362949985235552,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "f70236327038371148df83c7b130b895ce63b0b879d264c8c065a5c7fd72daf4",
+          "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+          "hydrology.json": "0d396d1cdfcda129be31e525cbd921a287d1eaac8deb025f77c0d885552aef9a"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "asheville",
+        "lat": 35.58,
+        "lon": -82.555,
+        "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "input_files_sha256": {
+          "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff",
+          "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+          "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+          "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+          "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T04:42:03.162047+00:00",
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "e5273617193de9389a66b6dcd5abb45aca1e4532f4925b5a74887558104dafb8",
+      "oracle": "native_surface_load_v2",
+      "predicted": true,
+      "observed": true,
+      "evidence": [
+        {
+          "path": "native-v2-surface/asheville/observation.json",
+          "sha256": "e35638c83d7917a195e6edd97c2f4ec4c1d9d5303aa686c763ef1b83a3062038"
+        },
+        {
+          "path": "native-v2-surface/asheville/prediction.json",
+          "sha256": "6272f0246ba192a157bb5ef2f5c8ac4234c9b9d4a343d2f97d629255dfbcd09a"
+        },
+        {
+          "path": "native-v2-surface/asheville/witness-job.json.gz",
+          "sha256": "c75411631b37fc0e787692df29927558966f1acfd4bcd9ecaa16d85e1ae22b19",
+          "encoding": "gzip",
+          "decompressed_sha256": "2bb077db50f18e694297cb6de09e27291519f6b5c1fc8f107406216eb02cfdd8"
+        }
+      ],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "oracle_source": {
+        "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+      "facets": {
+        "observed_native_placement": true,
+        "observed_shore_snap": null,
+        "observed_footprint_predicates": null,
+        "observed_surface_service": true,
+        "fixture_qualified": true,
+        "observed_horizon_game_minutes": 60.0083364630118
+      },
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0814 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 406.546875,
+          "slope_p95": 0.4584256281547447,
+          "wet_fraction": 0.017750036155579383,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 2.442496,
+          "shore_freeboard_p10_m": 0.921875,
+          "shallow_fraction": 0.015668691543727704,
+          "thin_fraction": 0.4561276636775624,
+          "narrow_film_km2": 0.081408,
+          "inlet_wet_fraction": 0.002458779288400347,
+          "inlet_shallow_fraction": 0.002217722495419921,
+          "emitter_exposure_km2": 0.000512,
+          "source_density": 20.715818146755375,
+          "input_output_ratio": 0.9990067208857729,
+          "input_only_fraction": 0.2727272727272727,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0004275114467246107,
+          "adverse_profile_fraction": 0.5646185622463442,
+          "unforced_fraction": 0.6298842852409188,
+          "profile_overbank_p95_m": 3.362949985235552,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "63% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "f70236327038371148df83c7b130b895ce63b0b879d264c8c065a5c7fd72daf4",
+          "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+          "hydrology.json": "0d396d1cdfcda129be31e525cbd921a287d1eaac8deb025f77c0d885552aef9a"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "innsbruck",
+        "lat": 47.27,
+        "lon": 11.4,
+        "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "input_files_sha256": {
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+          "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+          "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T03:19:38.330049+00:00",
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "6ec184c289dd9ac22d16425fd9bbbe9ef5de12149e7a9993dee4c0b7bcd68088",
+      "oracle": "exact_start_witness_v1",
+      "predicted": true,
+      "observed": true,
+      "evidence": [
+        {
+          "path": "native-v2-start/innsbruck/observation.json",
+          "sha256": "bf45ec10acd18ec834fdfdedb3f08ef0590d4db833a5b2e90005c6a9b475af0b"
+        },
+        {
+          "path": "native-v2-start/innsbruck/prediction.json",
+          "sha256": "a56a1c11ea0c535f4015c4a74677f60dc8d9139732fd321352ad359d542868db"
+        },
+        {
+          "path": "native-v2-start/innsbruck/witness-job.json.gz",
+          "sha256": "0c64d8fb6d7c3080e76790e5e19bd562c1bc89e93fc97125b40bb048f77256eb",
+          "encoding": "gzip",
+          "decompressed_sha256": "1aa704b938226e7cb5f76d5d6a268b0c76aeb90221e2713ae2739e51fda32264"
+        },
+        {
+          "path": "native-v2-start/innsbruck/native-paths.json",
+          "sha256": "702410360ea4246ace9c3d693e8fd7c0cdcba3583dd5a7dcb7a5e7277292e2ea"
+        }
+      ],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "16m footprint samples and 8m hookup water samples; between-sample terrain/collisions unresolved",
+        "Provisional length/slope/clearance limits, not recovered game constants",
+        "Cubic corridor uses authored tangents and one-third-chord control length; native curve/width/pillars can disagree"
+      ],
+      "oracle_source": {
+        "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+      "facets": {
+        "observed_native_placement": true,
+        "observed_shore_snap": null,
+        "observed_footprint_predicates": true,
+        "observed_surface_service": null,
+        "fixture_qualified": null,
+        "observed_horizon_game_minutes": null,
+        "literal_boundary_paths": {
+          "complete": true,
+          "inbound": 1,
+          "outbound": 2,
+          "both_directions": true
+        }
+      },
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 830.78125,
+          "slope_p95": 0.47703078978710295,
+          "wet_fraction": 0.005820834342409168,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 1.422592,
+          "shore_freeboard_p10_m": 0.734375,
+          "shallow_fraction": 0.016906792119964716,
+          "thin_fraction": 0.5388121140840929,
+          "narrow_film_km2": 0.014848,
+          "inlet_wet_fraction": 0.007497794766245222,
+          "inlet_shallow_fraction": 0.002940311673037342,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 21.82262569832402,
+          "input_output_ratio": 1.0468424140532173,
+          "input_only_fraction": 0.2631578947368421,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0,
+          "adverse_profile_fraction": 0.743646015461128,
+          "unforced_fraction": 0.7494520265988007,
+          "profile_overbank_p95_m": 9.904798274108146,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "79aa3d9f97bad3d31463b1ac7755cd2e1c9b0848e5818bcbe8ef9556defe54d5",
+          "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375",
+          "hydrology.json": "4a544cca94dd3b0e49a6f45e02fa6a674eb4633d3d63e0519bf1de9a54856135"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "innsbruck",
+        "lat": 47.27,
+        "lon": 11.4,
+        "package_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "input_files_sha256": {
+          "banks.f32": "f8011f3a5801224177071fba9e2378b277be7ee90779861282ccea3ba026d29b",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "a1f81db4b5374c8965f4e45a75f237fd88c84b7deef89222a9ff5e94fc1359f3",
+          "input.png": "b98cc337687ec0eecfd378938b243d80e8c61646fd2dc82bb1d80ae6ccfa767e",
+          "landcover.u8.gz": "50f6e4b3c92403b30af49bb6ab5fcf560af836adb2b1de1ecac5f4d3e96aa646"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T05:41:40.610260+00:00",
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "a63dae3ab808cffc8487e9eaf06999e6904efbb1503bdffc8866769901c680e7",
+      "oracle": "native_surface_load_v2",
+      "predicted": true,
+      "observed": true,
+      "evidence": [
+        {
+          "path": "native-v2-surface/innsbruck/observation.json",
+          "sha256": "5154fa2a627d30b76bc03dfde515953db4e7ced016af2a8d3c46d08d393648b2"
+        },
+        {
+          "path": "native-v2-surface/innsbruck/prediction.json",
+          "sha256": "a56a1c11ea0c535f4015c4a74677f60dc8d9139732fd321352ad359d542868db"
+        },
+        {
+          "path": "native-v2-surface/innsbruck/witness-job.json.gz",
+          "sha256": "bef3a5dc3775e427e94ce1edd3591a799ee240a56873e134db52dbe04399d89e",
+          "encoding": "gzip",
+          "decompressed_sha256": "9f67774d9cbd104495f39b304186976212e45e89ae4778d5e02b7af2b05bae48"
+        }
+      ],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "oracle_source": {
+        "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+      "facets": {
+        "observed_native_placement": true,
+        "observed_shore_snap": null,
+        "observed_footprint_predicates": null,
+        "observed_surface_service": true,
+        "fixture_qualified": true,
+        "observed_horizon_game_minutes": 60.005280907296886
+      },
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0148 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 830.78125,
+          "slope_p95": 0.47703078978710295,
+          "wet_fraction": 0.005820834342409168,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 1.422592,
+          "shore_freeboard_p10_m": 0.734375,
+          "shallow_fraction": 0.016906792119964716,
+          "thin_fraction": 0.5388121140840929,
+          "narrow_film_km2": 0.014848,
+          "inlet_wet_fraction": 0.007497794766245222,
+          "inlet_shallow_fraction": 0.002940311673037342,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 21.82262569832402,
+          "input_output_ratio": 1.0468424140532173,
+          "input_only_fraction": 0.2631578947368421,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0,
+          "adverse_profile_fraction": 0.743646015461128,
+          "unforced_fraction": 0.7494520265988007,
+          "profile_overbank_p95_m": 9.904798274108146,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "75% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "79aa3d9f97bad3d31463b1ac7755cd2e1c9b0848e5818bcbe8ef9556defe54d5",
+          "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375",
+          "hydrology.json": "4a544cca94dd3b0e49a6f45e02fa6a674eb4633d3d63e0519bf1de9a54856135"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "rio",
+        "lat": -22.94,
+        "lon": -43.205,
+        "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "input_files_sha256": {
+          "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+          "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+          "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 0.9 m above sea level.",
+              "Water sources reach 0.017 km\u00b2 of initially dry low ground."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "80% of mapped channel length needs local water-level corrections.",
+              "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 0.9 m above sea level.",
+          "Water sources reach 0.017 km\u00b2 of initially dry low ground.",
+          "Drying risk flagged.",
+          "80% of mapped channel length needs local water-level corrections.",
+          "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Steeper terrain slopes reach 60%.",
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 628.59375,
+          "slope_p95": 0.604172037911929,
+          "wet_fraction": 0.01580576452577144,
+          "ocean_fraction": 0.43485106896430736,
+          "coastal_land_km2": 5.227776,
+          "coastal_freeboard_p10_m": 0.921875,
+          "spill_potential_km2": 1.620224,
+          "shore_freeboard_p10_m": 0.875,
+          "shallow_fraction": 0.01012452625879805,
+          "thin_fraction": 0.27742284786139687,
+          "narrow_film_km2": 0.016384,
+          "inlet_wet_fraction": 0.06578234975636167,
+          "inlet_shallow_fraction": 0.004493773687060098,
+          "emitter_exposure_km2": 0.017408,
+          "source_density": 61.33256632376827,
+          "input_output_ratio": 0.39875062059827643,
+          "input_only_fraction": 0.24482758620689654,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.8022476247347401,
+          "adverse_profile_fraction": 0.14495380714363112,
+          "unforced_fraction": 0.14495380714363112,
+          "profile_overbank_p95_m": 1.6796319202221643,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [
+          "slope_p95"
+        ],
+        "notes": [
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "0bd6f24ea5912802d90043ff35055657f65f3b189a4143e7e3685903e027435b",
+          "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540",
+          "hydrology.json": "0b91900c4d7222d34cc12ddc87d79eab6bd5bc80d8dda8e4251930c02d938e1e"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "rio",
+        "lat": -22.94,
+        "lon": -43.205,
+        "package_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "input_files_sha256": {
+          "banks.f32": "790d547e0f749346d880ca205ce0eb0dc9a3517f1ef073d28bc32ad66510e1af",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "d4eb59b021a6d54e367580795ac75b3263957dc56d64d10b61adecd0dfdb00a6",
+          "input.png": "782030f5b39d27ec39281db79460597eaf27ca258cec700118fc5a89c5fdf10e",
+          "landcover.u8.gz": "70c5464330da83c07aa97ec6540e369040797757ed42401676391322fbe1ba59"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "native_surface_load_v2",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 0.9 m above sea level.",
+              "Water sources reach 0.017 km\u00b2 of initially dry low ground."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "80% of mapped channel length needs local water-level corrections.",
+              "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 0.9 m above sea level.",
+          "Water sources reach 0.017 km\u00b2 of initially dry low ground.",
+          "Drying risk flagged.",
+          "80% of mapped channel length needs local water-level corrections.",
+          "0.0164 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Steeper terrain slopes reach 60%.",
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 628.59375,
+          "slope_p95": 0.604172037911929,
+          "wet_fraction": 0.01580576452577144,
+          "ocean_fraction": 0.43485106896430736,
+          "coastal_land_km2": 5.227776,
+          "coastal_freeboard_p10_m": 0.921875,
+          "spill_potential_km2": 1.620224,
+          "shore_freeboard_p10_m": 0.875,
+          "shallow_fraction": 0.01012452625879805,
+          "thin_fraction": 0.27742284786139687,
+          "narrow_film_km2": 0.016384,
+          "inlet_wet_fraction": 0.06578234975636167,
+          "inlet_shallow_fraction": 0.004493773687060098,
+          "emitter_exposure_km2": 0.017408,
+          "source_density": 61.33256632376827,
+          "input_output_ratio": 0.39875062059827643,
+          "input_only_fraction": 0.24482758620689654,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.8022476247347401,
+          "adverse_profile_fraction": 0.14495380714363112,
+          "unforced_fraction": 0.14495380714363112,
+          "profile_overbank_p95_m": 1.6796319202221643,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [
+          "slope_p95"
+        ],
+        "notes": [
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "0bd6f24ea5912802d90043ff35055657f65f3b189a4143e7e3685903e027435b",
+          "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540",
+          "hydrology.json": "0b91900c4d7222d34cc12ddc87d79eab6bd5bc80d8dda8e4251930c02d938e1e"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "pittsburgh",
+        "lat": 40.44,
+        "lon": -80,
+        "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "input_files_sha256": {
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70",
+          "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+          "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+          "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+          "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T03:42:24.073120+00:00",
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "f7b48f6396c00e9683a13e6eb4366f496b4c3e5007fc2720bceb3f04416ef3d6",
+      "oracle": "exact_start_witness_v1",
+      "predicted": true,
+      "observed": true,
+      "evidence": [
+        {
+          "path": "native-v2-start/pittsburgh/observation.json",
+          "sha256": "0319aba72514204c0dda97e4940c959df746e6854f891374628563c3a9747c7d"
+        },
+        {
+          "path": "native-v2-start/pittsburgh/prediction.json",
+          "sha256": "f38e6442859c2020ce306d401c6ae0da3560c8d32648b413d096bdfe337b67f5"
+        },
+        {
+          "path": "native-v2-start/pittsburgh/witness-job.json.gz",
+          "sha256": "56a3b3322ec21f4d6b6804ab125fe1b35d25ace795003b81aa2daa6962700b76",
+          "encoding": "gzip",
+          "decompressed_sha256": "a124d8ecab14dabd3487bfd5683445706340c5174d9eb248fc5a1726c2e6cdc7"
+        },
+        {
+          "path": "native-v2-start/pittsburgh/native-paths.json",
+          "sha256": "494f490b2ff391f4e0fceade3ba0973b9bacbc50b66c9bca5ea9db0ff44bfffb"
+        }
+      ],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "16m footprint samples and 8m hookup water samples; between-sample terrain/collisions unresolved",
+        "Provisional length/slope/clearance limits, not recovered game constants",
+        "Cubic corridor uses authored tangents and one-third-chord control length; native curve/width/pillars can disagree"
+      ],
+      "oracle_source": {
+        "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+      "facets": {
+        "observed_native_placement": true,
+        "observed_shore_snap": null,
+        "observed_footprint_predicates": true,
+        "observed_surface_service": null,
+        "fixture_qualified": null,
+        "observed_horizon_game_minutes": null,
+        "literal_boundary_paths": {
+          "complete": true,
+          "inbound": 8,
+          "outbound": 9,
+          "both_directions": true
+        }
+      },
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Water sources reach 0.046 km\u00b2 of initially dry low ground."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Water sources reach 0.046 km\u00b2 of initially dry low ground.",
+          "Drying risk flagged.",
+          "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 171.390625,
+          "slope_p95": 0.4240083794575524,
+          "wet_fraction": 0.03389810202462687,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 0.889856,
+          "shore_freeboard_p10_m": -0.09375,
+          "shallow_fraction": 0.0029031606583863477,
+          "thin_fraction": 0.21705543774613753,
+          "narrow_film_km2": 0.1728,
+          "inlet_wet_fraction": 0.0006816116328385338,
+          "inlet_shallow_fraction": 7.57346258709482e-05,
+          "emitter_exposure_km2": 0.045568,
+          "source_density": 7.1987339695041905,
+          "input_output_ratio": 0.8233543074802331,
+          "input_only_fraction": 0.0958904109589041,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.028539454392272217,
+          "adverse_profile_fraction": 0.35823240514423726,
+          "unforced_fraction": 0.3984397358693802,
+          "profile_overbank_p95_m": 4.54904593593091,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "7ecc9ea1ae96216712210690eb8cdf1a90bfc8e222ac91b1316d783cf3a39120",
+          "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0",
+          "hydrology.json": "7076a0d1918e5d2f0491bc9a9d2a0cc160a1db1176cb18a2a4129775d7727977"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "pittsburgh",
+        "lat": 40.44,
+        "lon": -80,
+        "package_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "input_files_sha256": {
+          "banks.f32": "70259c06722f7d731a424df3a7c6063ef0ffacc76757257fc6dadd8aab997a70",
+          "evidence.json": "b754269207f46dc2c850875596e7690c6e8333cf21420be3ec1d030dbc6aecd0",
+          "geometry.json": "c15fde7bb6aec80207e61e22b2f796fa92f4a59fa6af9c74b2099eda35e17e4d",
+          "input.png": "24e461a00694b749da348f7b9372c4542f84742aee66cf312607444a1acbb42f",
+          "landcover.u8.gz": "631485cce0d6d4fad42bf82370fb33f838ca88cacab462f21e3b30ba80e1fa5f"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T06:47:36.923687+00:00",
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "728fd95a3b80eb151e200c407690b6c3ad44d57f0aaf79e121a91cfd76d4bb78",
+      "oracle": "native_surface_load_v2",
+      "predicted": true,
+      "observed": true,
+      "evidence": [
+        {
+          "path": "native-v2-surface/pittsburgh/observation.json",
+          "sha256": "2d0830e386c0cb19c7ebc5a253f75b39515268b1414b4cf33c119020ed4e903b"
+        },
+        {
+          "path": "native-v2-surface/pittsburgh/prediction.json",
+          "sha256": "f38e6442859c2020ce306d401c6ae0da3560c8d32648b413d096bdfe337b67f5"
+        },
+        {
+          "path": "native-v2-surface/pittsburgh/witness-job.json.gz",
+          "sha256": "f9ae893d44519e7b84e01b17c7a788ea9b000e1ad6afd73725ba45253c1d9544",
+          "encoding": "gzip",
+          "decompressed_sha256": "94e21408df26414f86d1e7bd75d60667230014d7a4a883eba67053e9ad232bfc"
+        }
+      ],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "oracle_source": {
+        "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+      "facets": {
+        "observed_native_placement": true,
+        "observed_shore_snap": null,
+        "observed_footprint_predicates": null,
+        "observed_surface_service": true,
+        "fixture_qualified": true,
+        "observed_horizon_game_minutes": 60.00472535171235
+      },
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Water sources reach 0.046 km\u00b2 of initially dry low ground."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Water sources reach 0.046 km\u00b2 of initially dry low ground.",
+          "Drying risk flagged.",
+          "0.1728 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 171.390625,
+          "slope_p95": 0.4240083794575524,
+          "wet_fraction": 0.03389810202462687,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 0.889856,
+          "shore_freeboard_p10_m": -0.09375,
+          "shallow_fraction": 0.0029031606583863477,
+          "thin_fraction": 0.21705543774613753,
+          "narrow_film_km2": 0.1728,
+          "inlet_wet_fraction": 0.0006816116328385338,
+          "inlet_shallow_fraction": 7.57346258709482e-05,
+          "emitter_exposure_km2": 0.045568,
+          "source_density": 7.1987339695041905,
+          "input_output_ratio": 0.8233543074802331,
+          "input_only_fraction": 0.0958904109589041,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.028539454392272217,
+          "adverse_profile_fraction": 0.35823240514423726,
+          "unforced_fraction": 0.3984397358693802,
+          "profile_overbank_p95_m": 4.54904593593091,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "40% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "7ecc9ea1ae96216712210690eb8cdf1a90bfc8e222ac91b1316d783cf3a39120",
+          "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0",
+          "hydrology.json": "7076a0d1918e5d2f0491bc9a9d2a0cc160a1db1176cb18a2a4129775d7727977"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "charleston",
+        "lat": 32.78,
+        "lon": -79.93,
+        "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "input_files_sha256": {
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+          "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+          "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+        }
+      },
+      "split": "fitting",
+      "observed_at": "2026-11-21T04:06:38.221700+00:00",
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "83b92a4ecc4bb214d9aeb030a74d1e8995b402e6d654a016d478a21235fe9bd5",
+      "oracle": "exact_start_witness_v1",
+      "predicted": true,
+      "observed": false,
+      "evidence": [
+        {
+          "path": "native-v2-start/charleston/observation.json",
+          "sha256": "17ee955590e8a5abf0dbf509c8aaf52f3029ad15b8ff0885f363e6de2d3fd4b7"
+        },
+        {
+          "path": "native-v2-start/charleston/prediction.json",
+          "sha256": "2ee2498934060a884b583516962af615c70e79e6c25c23dca660d917e69b62f4"
+        },
+        {
+          "path": "native-v2-start/charleston/witness-job.json.gz",
+          "sha256": "3436a569da0e928f8171abfefdcf005f99fae1d58c07ec8eb15829e24fbdf27d",
+          "encoding": "gzip",
+          "decompressed_sha256": "3381cfa792ea5f865467f2ebf3cec5328d268eccc3741b407c7b2597271ea068"
+        }
+      ],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "16m footprint samples and 8m hookup water samples; between-sample terrain/collisions unresolved",
+        "Provisional length/slope/clearance limits, not recovered game constants",
+        "Cubic corridor uses authored tangents and one-third-chord control length; native curve/width/pillars can disagree"
+      ],
+      "oracle_source": {
+        "commit": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+        "dirty": false
+      },
+      "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+      "facets": {
+        "observed_native_placement": false,
+        "observed_shore_snap": null,
+        "observed_footprint_predicates": true,
+        "observed_surface_service": null,
+        "fixture_qualified": null,
+        "observed_horizon_game_minutes": null
+      },
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 0.1 m above sea level."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 0.1 m above sea level.",
+          "Drying risk flagged.",
+          "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 29.1875,
+          "slope_p95": 0.12692683020957696,
+          "wet_fraction": 0.016569096521277023,
+          "ocean_fraction": 0.3147460851423246,
+          "coastal_land_km2": 18.281472,
+          "coastal_freeboard_p10_m": 0.109375,
+          "spill_potential_km2": 0.37376,
+          "shore_freeboard_p10_m": 0.140625,
+          "shallow_fraction": 0.03114347691354199,
+          "thin_fraction": 0.4095134800123954,
+          "narrow_film_km2": 0.064256,
+          "inlet_wet_fraction": 0.0001549426712116517,
+          "inlet_shallow_fraction": 0.0001549426712116517,
+          "emitter_exposure_km2": 0.005632,
+          "source_density": 9.078672141307715,
+          "input_output_ratio": 1.001726223576261,
+          "input_only_fraction": 0.022222222222222223,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.02709265494361381,
+          "adverse_profile_fraction": 0.32099983863323556,
+          "unforced_fraction": 0.13131575449718083,
+          "profile_overbank_p95_m": 10.0,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "0b8f91e15ebbd6d16cfe077ff19da3e50f830f6142c15e3f7a1fcc78116ec3c6",
+          "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+          "hydrology.json": "109ad2af6b8a2977354f2940d5752ddd0663c54003ceb3fcccc62d0dcbe5790e"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "charleston",
+        "lat": 32.78,
+        "lon": -79.93,
+        "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "input_files_sha256": {
+          "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+          "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+          "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+          "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+          "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "native_surface_load_v2",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 0.1 m above sea level."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 0.1 m above sea level.",
+          "Drying risk flagged.",
+          "0.0643 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 29.1875,
+          "slope_p95": 0.12692683020957696,
+          "wet_fraction": 0.016569096521277023,
+          "ocean_fraction": 0.3147460851423246,
+          "coastal_land_km2": 18.281472,
+          "coastal_freeboard_p10_m": 0.109375,
+          "spill_potential_km2": 0.37376,
+          "shore_freeboard_p10_m": 0.140625,
+          "shallow_fraction": 0.03114347691354199,
+          "thin_fraction": 0.4095134800123954,
+          "narrow_film_km2": 0.064256,
+          "inlet_wet_fraction": 0.0001549426712116517,
+          "inlet_shallow_fraction": 0.0001549426712116517,
+          "emitter_exposure_km2": 0.005632,
+          "source_density": 9.078672141307715,
+          "input_output_ratio": 1.001726223576261,
+          "input_only_fraction": 0.022222222222222223,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.02709265494361381,
+          "adverse_profile_fraction": 0.32099983863323556,
+          "unforced_fraction": 0.13131575449718083,
+          "profile_overbank_p95_m": 10.0,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [],
+        "notes": [
+          "13% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "0b8f91e15ebbd6d16cfe077ff19da3e50f830f6142c15e3f7a1fcc78116ec3c6",
+          "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+          "hydrology.json": "109ad2af6b8a2977354f2940d5752ddd0663c54003ceb3fcccc62d0dcbe5790e"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "grand-canyon",
+        "lat": 36.08,
+        "lon": -112.11,
+        "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "input_files_sha256": {
+          "banks.f32": "1b17876deab03ee5657053cf432d1c72119daca4c826b0da53832566bcab5132",
+          "capture.json": "4ccd67e75d3cf1d2994a3b913c907fe85be7db0c2559486102a4722e27710a42",
+          "evidence.json": "e2279b336b6b9d91279a2ca6c107d1b387682061a46b4218a16801b9340113a8",
+          "geometry.json": "3fad8973d115bb593ef0d912f2bbbd75c2019f076f7e8e4e72c831e729a1df4b",
+          "input.png": "64e3863814bec5505afaddb6c787779f9a774b6424e16d31ebdeeefb346a7e69",
+          "landcover.u8.gz": "80f31d136cdf9fa83077594ddc782524f9d830a617365c24f660f333004d59fc"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": false,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0415 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0415 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 27.5 m before local-stage correction.",
+          "Terrain relief is 857 m.",
+          "74% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 856.875,
+          "slope_p95": 0.9987022801005083,
+          "wet_fraction": 0.014202082732523163,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 1.051904,
+          "shore_freeboard_p10_m": 0.890625,
+          "shallow_fraction": 0.0071101470233791274,
+          "thin_fraction": 0.5304290190407327,
+          "narrow_film_km2": 0.041472,
+          "inlet_wet_fraction": 0.0040973728609303445,
+          "inlet_shallow_fraction": 0.0040973728609303445,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 9.414919257652446,
+          "input_output_ratio": 1.0183952593591148,
+          "input_only_fraction": 0.375,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0,
+          "adverse_profile_fraction": 0.7278546444675896,
+          "unforced_fraction": 0.7390678950711156,
+          "profile_overbank_p95_m": 27.501621388018783,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "profile_overbank_p95_m",
+          "relief_m",
+          "slope_p95"
+        ],
+        "notes": [
+          "74% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "e137dcc96546d8a26d84c606b61625770a3e0a50ab745fdd2d07b190d8eac5ed",
+          "water.u16": "6bca756264c0ec275f82b711fae839b942778a0f5ec8ec0d15c649c9bda01b97",
+          "hydrology.json": "7f9a19495a0adc955d63137bef041154e3b71f7107981d76fcc2d79e8273fb46"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "grand-canyon",
+        "lat": 36.08,
+        "lon": -112.11,
+        "package_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "input_files_sha256": {
+          "banks.f32": "1b17876deab03ee5657053cf432d1c72119daca4c826b0da53832566bcab5132",
+          "capture.json": "4ccd67e75d3cf1d2994a3b913c907fe85be7db0c2559486102a4722e27710a42",
+          "evidence.json": "e2279b336b6b9d91279a2ca6c107d1b387682061a46b4218a16801b9340113a8",
+          "geometry.json": "3fad8973d115bb593ef0d912f2bbbd75c2019f076f7e8e4e72c831e729a1df4b",
+          "input.png": "64e3863814bec5505afaddb6c787779f9a774b6424e16d31ebdeeefb346a7e69",
+          "landcover.u8.gz": "80f31d136cdf9fa83077594ddc782524f9d830a617365c24f660f333004d59fc"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "native_surface_load_v2",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0415 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0415 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 27.5 m before local-stage correction.",
+          "Terrain relief is 857 m.",
+          "74% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 856.875,
+          "slope_p95": 0.9987022801005083,
+          "wet_fraction": 0.014202082732523163,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 1.051904,
+          "shore_freeboard_p10_m": 0.890625,
+          "shallow_fraction": 0.0071101470233791274,
+          "thin_fraction": 0.5304290190407327,
+          "narrow_film_km2": 0.041472,
+          "inlet_wet_fraction": 0.0040973728609303445,
+          "inlet_shallow_fraction": 0.0040973728609303445,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 9.414919257652446,
+          "input_output_ratio": 1.0183952593591148,
+          "input_only_fraction": 0.375,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0,
+          "adverse_profile_fraction": 0.7278546444675896,
+          "unforced_fraction": 0.7390678950711156,
+          "profile_overbank_p95_m": 27.501621388018783,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "profile_overbank_p95_m",
+          "relief_m",
+          "slope_p95"
+        ],
+        "notes": [
+          "74% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "e137dcc96546d8a26d84c606b61625770a3e0a50ab745fdd2d07b190d8eac5ed",
+          "water.u16": "6bca756264c0ec275f82b711fae839b942778a0f5ec8ec0d15c649c9bda01b97",
+          "hydrology.json": "7f9a19495a0adc955d63137bef041154e3b71f7107981d76fcc2d79e8273fb46"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "hong-kong",
+        "lat": 22.29,
+        "lon": 114.17,
+        "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "input_files_sha256": {
+          "banks.f32": "4638361ec522e44930936f3a926eca6cba46c780679fded6ec420e439efe1b97",
+          "capture.json": "0257389e48a00e3dcf1fd80d5fd7688f2727cf33c544f6b79200aab4f0fac1a7",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "e00280a99c83474d949912662d7ab3f9f764b7df13824468ad96fecdd245818c",
+          "input.png": "e75742fb5f3c2894de2ba4b5b28eb1b12055a670c202775ae3f6b567ad2ab444",
+          "landcover.u8.gz": "3ee722570902c1a0222c3c7cb97544ee6892708508be9780cd8895b48f69d46c"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 1.0 m above sea level."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0064 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 1.0 m above sea level.",
+          "Drying risk flagged.",
+          "0.0064 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 40.6 m before local-stage correction.",
+          "90% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 442.3125,
+          "slope_p95": 0.6417897498582159,
+          "wet_fraction": 0.00339734083201476,
+          "ocean_fraction": 0.3788933568722557,
+          "coastal_land_km2": 9.08928,
+          "coastal_freeboard_p10_m": 1.0,
+          "spill_potential_km2": 1.31712,
+          "shore_freeboard_p10_m": 1.0,
+          "shallow_fraction": 0.011586901763224182,
+          "thin_fraction": 0.3397984886649874,
+          "narrow_film_km2": 0.0064,
+          "inlet_wet_fraction": 0.005037783375314861,
+          "inlet_shallow_fraction": 0.0,
+          "emitter_exposure_km2": 0.00128,
+          "source_density": 30.502204030226704,
+          "input_output_ratio": 0.3965148861646235,
+          "input_only_fraction": 0.03225806451612903,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.09951339321854145,
+          "adverse_profile_fraction": 0.9004866067814584,
+          "unforced_fraction": 0.9004866067814584,
+          "profile_overbank_p95_m": 40.57815941070196,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [
+          "narrow_film_km2",
+          "profile_overbank_p95_m",
+          "slope_p95",
+          "unforced_fraction",
+          "wet_fraction"
+        ],
+        "notes": [
+          "90% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "54d5d480d85955ff3420c2cb079664e652f1c46bcec87120c8884808e017b013",
+          "water.u16": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29",
+          "hydrology.json": "ce0c44e636cb811d9cd48a22d493de6de408818728add1dad5f015d4084abdf2"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "hong-kong",
+        "lat": 22.29,
+        "lon": 114.17,
+        "package_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "input_files_sha256": {
+          "banks.f32": "4638361ec522e44930936f3a926eca6cba46c780679fded6ec420e439efe1b97",
+          "capture.json": "0257389e48a00e3dcf1fd80d5fd7688f2727cf33c544f6b79200aab4f0fac1a7",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "e00280a99c83474d949912662d7ab3f9f764b7df13824468ad96fecdd245818c",
+          "input.png": "e75742fb5f3c2894de2ba4b5b28eb1b12055a670c202775ae3f6b567ad2ab444",
+          "landcover.u8.gz": "3ee722570902c1a0222c3c7cb97544ee6892708508be9780cd8895b48f69d46c"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "native_surface_load_v2",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 1.0 m above sea level."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0064 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 1.0 m above sea level.",
+          "Drying risk flagged.",
+          "0.0064 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 40.6 m before local-stage correction.",
+          "90% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 442.3125,
+          "slope_p95": 0.6417897498582159,
+          "wet_fraction": 0.00339734083201476,
+          "ocean_fraction": 0.3788933568722557,
+          "coastal_land_km2": 9.08928,
+          "coastal_freeboard_p10_m": 1.0,
+          "spill_potential_km2": 1.31712,
+          "shore_freeboard_p10_m": 1.0,
+          "shallow_fraction": 0.011586901763224182,
+          "thin_fraction": 0.3397984886649874,
+          "narrow_film_km2": 0.0064,
+          "inlet_wet_fraction": 0.005037783375314861,
+          "inlet_shallow_fraction": 0.0,
+          "emitter_exposure_km2": 0.00128,
+          "source_density": 30.502204030226704,
+          "input_output_ratio": 0.3965148861646235,
+          "input_only_fraction": 0.03225806451612903,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.09951339321854145,
+          "adverse_profile_fraction": 0.9004866067814584,
+          "unforced_fraction": 0.9004866067814584,
+          "profile_overbank_p95_m": 40.57815941070196,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [
+          "narrow_film_km2",
+          "profile_overbank_p95_m",
+          "slope_p95",
+          "unforced_fraction",
+          "wet_fraction"
+        ],
+        "notes": [
+          "90% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "54d5d480d85955ff3420c2cb079664e652f1c46bcec87120c8884808e017b013",
+          "water.u16": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29",
+          "hydrology.json": "ce0c44e636cb811d9cd48a22d493de6de408818728add1dad5f015d4084abdf2"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "yosemite",
+        "lat": 37.735,
+        "lon": -119.575,
+        "package_sha256": "17020ec6905c63b8ced550c49be07e68496d004ce2677bec6b5866c5d56baf17",
+        "input_files_sha256": {
+          "banks.f32": "0b719ecc75726dd73262e6170cb3a3d4920398cea2b74267ec1c3de42335cd26",
+          "capture.json": "a3baa46959ef3d3e77a041d3d65512a86326581a2f37eb167cc7bb4f3c411056",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "32d3aaa99ec33e93cf4a7d0463a7c288a94c8dfa4e173b581e8ab54a30f75ee0",
+          "input.png": "dc8668cc768818c068098583654860e40f3c80d288ce571993e77bed6338c55b",
+          "landcover.u8.gz": "18a0128012d79784c38a8fea64e199b265d734b03b304f0b33a0e28059842ab1"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": false,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "18% of mapped channel length needs local water-level corrections.",
+              "0.0305 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "18% of mapped channel length needs local water-level corrections.",
+          "0.0305 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 22.8 m before local-stage correction.",
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 768.359375,
+          "slope_p95": 0.5653472471339354,
+          "wet_fraction": 0.008660223984883973,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 1.59872,
+          "shore_freeboard_p10_m": 1.09375,
+          "shallow_fraction": 0.014920948616600791,
+          "thin_fraction": 0.508300395256917,
+          "narrow_film_km2": 0.030464,
+          "inlet_wet_fraction": 0.001976284584980237,
+          "inlet_shallow_fraction": 0.001976284584980237,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 34.353384387351774,
+          "input_output_ratio": 0.13044865501668956,
+          "input_only_fraction": 0.0449438202247191,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.17744713613110077,
+          "adverse_profile_fraction": 0.7572047462534857,
+          "unforced_fraction": 0.7809992739069495,
+          "profile_overbank_p95_m": 22.792481951000322,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "profile_overbank_p95_m",
+          "unforced_fraction"
+        ],
+        "notes": [
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "eed4f040b070a4f6f70160d1b927bf86b5dfbea296d92877423ccff707edd197",
+          "water.u16": "fe1f0c8d145fba8e6fc92e987f06d61a4df2a95dd51853dd2d4fab6f187e701b",
+          "hydrology.json": "4c173d39adacd4d0be88c26626ae7bafd1edde0d6703c0d5b68c6161b21d5777"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "yosemite",
+        "lat": 37.735,
+        "lon": -119.575,
+        "package_sha256": "17020ec6905c63b8ced550c49be07e68496d004ce2677bec6b5866c5d56baf17",
+        "input_files_sha256": {
+          "banks.f32": "0b719ecc75726dd73262e6170cb3a3d4920398cea2b74267ec1c3de42335cd26",
+          "capture.json": "a3baa46959ef3d3e77a041d3d65512a86326581a2f37eb167cc7bb4f3c411056",
+          "evidence.json": "ec0c6a3c3d53a7e9400479aac6c6cca2b0d3f5847c3e01a2929a5e6d49438bc6",
+          "geometry.json": "32d3aaa99ec33e93cf4a7d0463a7c288a94c8dfa4e173b581e8ab54a30f75ee0",
+          "input.png": "dc8668cc768818c068098583654860e40f3c80d288ce571993e77bed6338c55b",
+          "landcover.u8.gz": "18a0128012d79784c38a8fea64e199b265d734b03b304f0b33a0e28059842ab1"
+        }
+      },
+      "split": "fitting",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "native_surface_load_v2",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "18% of mapped channel length needs local water-level corrections.",
+              "0.0305 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "18% of mapped channel length needs local water-level corrections.",
+          "0.0305 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 22.8 m before local-stage correction.",
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 768.359375,
+          "slope_p95": 0.5653472471339354,
+          "wet_fraction": 0.008660223984883973,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 1.59872,
+          "shore_freeboard_p10_m": 1.09375,
+          "shallow_fraction": 0.014920948616600791,
+          "thin_fraction": 0.508300395256917,
+          "narrow_film_km2": 0.030464,
+          "inlet_wet_fraction": 0.001976284584980237,
+          "inlet_shallow_fraction": 0.001976284584980237,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 34.353384387351774,
+          "input_output_ratio": 0.13044865501668956,
+          "input_only_fraction": 0.0449438202247191,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.17744713613110077,
+          "adverse_profile_fraction": 0.7572047462534857,
+          "unforced_fraction": 0.7809992739069495,
+          "profile_overbank_p95_m": 22.792481951000322,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "profile_overbank_p95_m",
+          "unforced_fraction"
+        ],
+        "notes": [
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "eed4f040b070a4f6f70160d1b927bf86b5dfbea296d92877423ccff707edd197",
+          "water.u16": "fe1f0c8d145fba8e6fc92e987f06d61a4df2a95dd51853dd2d4fab6f187e701b",
+          "hydrology.json": "4c173d39adacd4d0be88c26626ae7bafd1edde0d6703c0d5b68c6161b21d5777"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "grand-canyon-northeast",
+        "name": "grand-canyon northeast holdout",
+        "lat": 36.58,
+        "lon": -111.61,
+        "parent_slug": "grand-canyon",
+        "selection_hash": "00a966b4c1f3b31fa01e12bf1aad56e06dd163352e42cafb73fc5913ef54417f",
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true,
+        "sm": 1,
+        "rd": 10,
+        "rw": 40,
+        "ld": 4
+      },
+      "split": "held_out",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0481 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0481 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 16.0 m before local-stage correction.",
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 593.59375,
+          "slope_p95": 0.3054865605071894,
+          "wet_fraction": 0.00656876277746733,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 3.042816,
+          "shore_freeboard_p10_m": 1.015625,
+          "shallow_fraction": 0.02071391349661282,
+          "thin_fraction": 0.6141219385096405,
+          "narrow_film_km2": 0.048128,
+          "inlet_wet_fraction": 0.010812923397602918,
+          "inlet_shallow_fraction": 0.01068264721208963,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 18.32008858780615,
+          "input_output_ratio": 1.5860834780777935,
+          "input_only_fraction": 0.4722222222222222,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0,
+          "adverse_profile_fraction": 0.7518435641188849,
+          "unforced_fraction": 0.7841017290883118,
+          "profile_overbank_p95_m": 16.02134316544233,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "profile_overbank_p95_m",
+          "unforced_fraction"
+        ],
+        "notes": [
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "e19bb17b9ee0d0a18a2e596a2ab41dea4e8c200a6a3b9e4f7a1afb34bb27a2db",
+          "water.u16": "ad7d2539712a1e4984d454ebabf572ec4ecad1e803b1520d33971a96ef938067",
+          "hydrology.json": "26b5db0aa243b21de08c7c0c3f1a42d2071ee57d6eccefd5bbfeaadf72eb60d9"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "grand-canyon-northeast",
+        "name": "grand-canyon northeast holdout",
+        "lat": 36.58,
+        "lon": -111.61,
+        "parent_slug": "grand-canyon",
+        "selection_hash": "00a966b4c1f3b31fa01e12bf1aad56e06dd163352e42cafb73fc5913ef54417f",
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true,
+        "sm": 1,
+        "rd": 10,
+        "rw": 40,
+        "ld": 4
+      },
+      "split": "held_out",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "native_surface_load_v2",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "0.0481 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "0.0481 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "Higher fitted profiles exceed local banks by 16.0 m before local-stage correction.",
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 593.59375,
+          "slope_p95": 0.3054865605071894,
+          "wet_fraction": 0.00656876277746733,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 3.042816,
+          "shore_freeboard_p10_m": 1.015625,
+          "shallow_fraction": 0.02071391349661282,
+          "thin_fraction": 0.6141219385096405,
+          "narrow_film_km2": 0.048128,
+          "inlet_wet_fraction": 0.010812923397602918,
+          "inlet_shallow_fraction": 0.01068264721208963,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 18.32008858780615,
+          "input_output_ratio": 1.5860834780777935,
+          "input_only_fraction": 0.4722222222222222,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.0,
+          "adverse_profile_fraction": 0.7518435641188849,
+          "unforced_fraction": 0.7841017290883118,
+          "profile_overbank_p95_m": 16.02134316544233,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "profile_overbank_p95_m",
+          "unforced_fraction"
+        ],
+        "notes": [
+          "78% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "e19bb17b9ee0d0a18a2e596a2ab41dea4e8c200a6a3b9e4f7a1afb34bb27a2db",
+          "water.u16": "ad7d2539712a1e4984d454ebabf572ec4ecad1e803b1520d33971a96ef938067",
+          "hydrology.json": "26b5db0aa243b21de08c7c0c3f1a42d2071ee57d6eccefd5bbfeaadf72eb60d9"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "rio-northeast",
+        "name": "rio northeast holdout",
+        "lat": -22.44,
+        "lon": -42.705,
+        "parent_slug": "rio",
+        "selection_hash": "367817c1d5e9da11844e047674f5318625124c998fcaf41be1782b7c804cadea",
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true,
+        "sm": 1,
+        "rd": 10,
+        "rw": 40,
+        "ld": 4
+      },
+      "split": "held_out",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": false,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "81% of mapped channel length needs local water-level corrections.",
+              "0.0916 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "81% of mapped channel length needs local water-level corrections.",
+          "0.0916 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "13% of mapped channel length has an adverse fitted profile.",
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 777.3812499999985,
+          "slope_p95": 0.39945375576376096,
+          "wet_fraction": 0.012102919744882808,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 0.995328,
+          "shore_freeboard_p10_m": 0.4375,
+          "shallow_fraction": 0.021636145089443542,
+          "thin_fraction": 0.4530156261047868,
+          "narrow_film_km2": 0.091648,
+          "inlet_wet_fraction": 0.0,
+          "inlet_shallow_fraction": 0.0,
+          "emitter_exposure_km2": 0.000512,
+          "source_density": 34.80078484055717,
+          "input_output_ratio": 0.1270815643330503,
+          "input_only_fraction": 0.0,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.8111279769101098,
+          "adverse_profile_fraction": 0.1257202453012768,
+          "unforced_fraction": 0.14492697497151943,
+          "profile_overbank_p95_m": 3.2390675046843,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "adverse_profile_fraction",
+          "bank_limited_fraction",
+          "input_only_fraction"
+        ],
+        "notes": [
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "c1b9a094c522664f66a6ae27ab7bdedd24d6a755888d05fa010146694ba9bb94",
+          "water.u16": "653f1799bc546b3ed85f41822c8352856bb4770724c27bafe23a8f7e68975ce4",
+          "hydrology.json": "ca66aac9519b3dd6c2681fdaf3b897338fcf9a7c27cf67d82e77ab296aa44b44"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "rio-northeast",
+        "name": "rio northeast holdout",
+        "lat": -22.44,
+        "lon": -42.705,
+        "parent_slug": "rio",
+        "selection_hash": "367817c1d5e9da11844e047674f5318625124c998fcaf41be1782b7c804cadea",
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true,
+        "sm": 1,
+        "rd": 10,
+        "rw": 40,
+        "ld": 4
+      },
+      "split": "held_out",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "3b9d551f21586feff3d647ea8cb9fd93bba98f108e17017b469a185b9083c19f",
+      "oracle": "native_surface_load_v2",
+      "predicted": true,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "not_flagged",
+            "reasons": []
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "81% of mapped channel length needs local water-level corrections.",
+              "0.0916 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Drying risk flagged.",
+          "81% of mapped channel length needs local water-level corrections.",
+          "0.0916 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "13% of mapped channel length has an adverse fitted profile.",
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 777.3812499999985,
+          "slope_p95": 0.39945375576376096,
+          "wet_fraction": 0.012102919744882808,
+          "ocean_fraction": 0.0,
+          "coastal_land_km2": 0.0,
+          "coastal_freeboard_p10_m": 0.0,
+          "spill_potential_km2": 0.995328,
+          "shore_freeboard_p10_m": 0.4375,
+          "shallow_fraction": 0.021636145089443542,
+          "thin_fraction": 0.4530156261047868,
+          "narrow_film_km2": 0.091648,
+          "inlet_wet_fraction": 0.0,
+          "inlet_shallow_fraction": 0.0,
+          "emitter_exposure_km2": 0.000512,
+          "source_density": 34.80078484055717,
+          "input_output_ratio": 0.1270815643330503,
+          "input_only_fraction": 0.0,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.8111279769101098,
+          "adverse_profile_fraction": 0.1257202453012768,
+          "unforced_fraction": 0.14492697497151943,
+          "profile_overbank_p95_m": 3.2390675046843,
+          "sea_present": 0.0
+        },
+        "outside_calibration": [
+          "adverse_profile_fraction",
+          "bank_limited_fraction",
+          "input_only_fraction"
+        ],
+        "notes": [
+          "14% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "c1b9a094c522664f66a6ae27ab7bdedd24d6a755888d05fa010146694ba9bb94",
+          "water.u16": "653f1799bc546b3ed85f41822c8352856bb4770724c27bafe23a8f7e68975ce4",
+          "hydrology.json": "ca66aac9519b3dd6c2681fdaf3b897338fcf9a7c27cf67d82e77ab296aa44b44"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "start",
+      "square": {
+        "slug": "hong-kong-northeast",
+        "name": "hong-kong northeast holdout",
+        "lat": 22.79,
+        "lon": 114.67,
+        "parent_slug": "hong-kong",
+        "selection_hash": "6b62f80f5d5086999a6cd22be3ef6bb22df07bc773279c39c5a0c3c6c1de1065",
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true,
+        "sm": 1,
+        "rd": 10,
+        "rw": 40,
+        "ld": 4
+      },
+      "split": "held_out",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": null,
+      "oracle": "exact_start_witness_v1",
+      "predicted": null,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 1.0 m above sea level."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "73% of mapped channel length needs local water-level corrections.",
+              "0.0397 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 1.0 m above sea level.",
+          "Drying risk flagged.",
+          "73% of mapped channel length needs local water-level corrections.",
+          "0.0397 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "1% of water controls only withdraw water.",
+          "Nominal withdrawal capacity is 0.0 times supply capacity.",
+          "20% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 481.078125,
+          "slope_p95": 0.5009282555444031,
+          "wet_fraction": 0.010917701343789499,
+          "ocean_fraction": 0.3440547819069779,
+          "coastal_land_km2": 3.804416,
+          "coastal_freeboard_p10_m": 1.0,
+          "spill_potential_km2": 0.398848,
+          "shore_freeboard_p10_m": 0.96875,
+          "shallow_fraction": 0.018968490358990436,
+          "thin_fraction": 0.3295187333437843,
+          "narrow_film_km2": 0.03968,
+          "inlet_wet_fraction": 0.002116319172284057,
+          "inlet_shallow_fraction": 7.838219156607619e-05,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 42.25290014108794,
+          "input_output_ratio": 0.04033642477677885,
+          "input_only_fraction": 0.007246376811594203,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.7323063075017757,
+          "adverse_profile_fraction": 0.20679132019130902,
+          "unforced_fraction": 0.20450155117602173,
+          "profile_overbank_p95_m": 7.5895146469466255,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [
+          "input_only_fraction",
+          "input_output_ratio"
+        ],
+        "notes": [
+          "20% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "69d1e80a63f6294e58dcd00f081afc6b4770a11c1533e3035fc06edc43245a1f",
+          "water.u16": "82b558f204df508eb138caa1c21865269ef8acbf7d8bd788c4732cd35a9135ba",
+          "hydrology.json": "e7fa4b4a3a52f4743d50a6b00ab387d3f6d93d27488cd2de7c3a4ba26263e669"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    },
+    {
+      "capability_id": "water",
+      "square": {
+        "slug": "hong-kong-northeast",
+        "name": "hong-kong northeast holdout",
+        "lat": 22.79,
+        "lon": 114.67,
+        "parent_slug": "hong-kong",
+        "selection_hash": "6b62f80f5d5086999a6cd22be3ef6bb22df07bc773279c39c5a0c3c6c1de1065",
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true,
+        "sm": 1,
+        "rd": 10,
+        "rw": 40,
+        "ld": 4
+      },
+      "split": "held_out",
+      "observed_at": null,
+      "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+      "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+      "artifact_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+      "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+      "witness_sha256": "9087f96665b13bcb3a9bf86f1c461bc7279a9a6e3049142de7c95a1532afeeab",
+      "oracle": "native_surface_load_v2",
+      "predicted": true,
+      "observed": null,
+      "evidence": [],
+      "scope": "Specified witness only; rejection is not geographic incapability",
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "unscored_reason": "no_completed_native_attempt",
+      "water_risk": {
+        "schema": 1,
+        "model": "water-risk-v1",
+        "status": "warning",
+        "native_tested": false,
+        "risks": {
+          "flood": {
+            "level": "flagged",
+            "reasons": [
+              "Low coastal land can flood.",
+              "Lower coastal land sits 1.0 m above sea level."
+            ]
+          },
+          "drying": {
+            "level": "flagged",
+            "reasons": [
+              "73% of mapped channel length needs local water-level corrections.",
+              "0.0397 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away."
+            ]
+          }
+        },
+        "reasons": [
+          "Flooding risk flagged.",
+          "Low coastal land can flood.",
+          "Lower coastal land sits 1.0 m above sea level.",
+          "Drying risk flagged.",
+          "73% of mapped channel length needs local water-level corrections.",
+          "0.0397 km\u00b2 of inland water starts at most 25 cm deep in one-cell-wide corridors; these thin films can drain away.",
+          "This square has water/terrain patterns outside the calibration range.",
+          "1% of water controls only withdraw water.",
+          "Nominal withdrawal capacity is 0.0 times supply capacity.",
+          "20% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "features": {
+          "relief_m": 481.078125,
+          "slope_p95": 0.5009282555444031,
+          "wet_fraction": 0.010917701343789499,
+          "ocean_fraction": 0.3440547819069779,
+          "coastal_land_km2": 3.804416,
+          "coastal_freeboard_p10_m": 1.0,
+          "spill_potential_km2": 0.398848,
+          "shore_freeboard_p10_m": 0.96875,
+          "shallow_fraction": 0.018968490358990436,
+          "thin_fraction": 0.3295187333437843,
+          "narrow_film_km2": 0.03968,
+          "inlet_wet_fraction": 0.002116319172284057,
+          "inlet_shallow_fraction": 7.838219156607619e-05,
+          "emitter_exposure_km2": 0.0,
+          "source_density": 42.25290014108794,
+          "input_output_ratio": 0.04033642477677885,
+          "input_only_fraction": 0.007246376811594203,
+          "output_only_fraction": 0.0,
+          "bank_limited_fraction": 0.7323063075017757,
+          "adverse_profile_fraction": 0.20679132019130902,
+          "unforced_fraction": 0.20450155117602173,
+          "profile_overbank_p95_m": 7.5895146469466255,
+          "sea_present": 1.0
+        },
+        "outside_calibration": [
+          "input_only_fraction",
+          "input_output_ratio"
+        ],
+        "notes": [
+          "20% of mapped channel length is left uncarved and unforced because its fitted water profile is infeasible."
+        ],
+        "calibration": {
+          "runs": 68,
+          "squares": 5,
+          "complete_60_runs": 50,
+          "method": "Retrospective calibration of one shared conservative rule; no independent geographic holdout.",
+          "native_simulation": false,
+          "results": {
+            "flood": {
+              "tp": 12,
+              "fp": 18,
+              "tn": 19,
+              "fn": 1,
+              "precision": 0.4,
+              "recall": 0.9230769230769231,
+              "specificity": 0.5135135135135135,
+              "positive_runs": 13,
+              "negative_runs": 37
+            },
+            "drying": {
+              "tp": 50,
+              "fp": 0,
+              "tn": 0,
+              "fn": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "specificity": null,
+              "positive_runs": 50,
+              "negative_runs": 0
+            }
+          },
+          "registry_entries": 161,
+          "complete_60_registry_runs": 57,
+          "unscored_complete_60_runs": 7,
+          "unscored_complete_60_positive_outcomes": {
+            "flood": 0,
+            "drying": 7
+          }
+        },
+        "scope": "Input-based screen, not a native simulation or a guarantee that every stream stays wet.",
+        "inputs_sha256": {
+          "terrain.u16": "69d1e80a63f6294e58dcd00f081afc6b4770a11c1533e3035fc06edc43245a1f",
+          "water.u16": "82b558f204df508eb138caa1c21865269ef8acbf7d8bd788c4732cd35a9135ba",
+          "hydrology.json": "e7fa4b4a3a52f4743d50a6b00ab387d3f6d93d27488cd2de7c3a4ba26263e669"
+        },
+        "tool_sha256": {
+          "water_risk.py": "a67be0cee73d08d7cd8f8c4dba44ea0ee085b376a39b5cbaad18c4cabdc4beea",
+          "water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0"
+        }
+      }
+    }
+  ],
+  "summary": {
+    "fitting": {
+      "start": {
+        "registered_squares": 8,
+        "positive_predictions": 3,
+        "agreed": 2,
+        "disagreed": 1,
+        "unscored_positive": 0,
+        "positive_witness_agreement": 0.6666666666666666
+      },
+      "water": {
+        "registered_squares": 8,
+        "positive_predictions": 3,
+        "agreed": 3,
+        "disagreed": 0,
+        "unscored_positive": 0,
+        "positive_witness_agreement": 1.0
+      }
+    },
+    "held_out": {
+      "start": {
+        "registered_squares": 3,
+        "positive_predictions": 0,
+        "agreed": 0,
+        "disagreed": 0,
+        "unscored_positive": 0,
+        "positive_witness_agreement": null
+      },
+      "water": {
+        "registered_squares": 3,
+        "positive_predictions": 2,
+        "agreed": 0,
+        "disagreed": 0,
+        "unscored_positive": 2,
+        "positive_witness_agreement": null
+      }
+    }
+  },
+  "limits": [
+    "Positive-witness agreement, not overall accuracy or sensitivity",
+    "Fitting and regional holdouts remain separate; absent attempts are null",
+    "Post-construction start paths are not fresh-map outside-road certificates",
+    "Native-unit water load has conditional auxiliary power and a finite horizon",
+    "No launch-context certificate, promise or physical exporter gain is implied"
+  ]
+}

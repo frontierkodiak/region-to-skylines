@@ -90,22 +90,31 @@ archived v1's 1/3; neither is held-out or overall classification accuracy.
 All three cleanup receipts are empty and all nine actual panel/opening/Areas
 captures were viewed and hash-reviewed. The qualified player is unchanged.
 
-## Water fitting progress
+## Water fitting observations
 
-The first two frozen positive water witnesses completed the fixed load:
+All three frozen positive water witnesses completed the fixed load:
 
 | Fitting square | Scored minutes / cycles | Water / sewage quantities | Polluted deliveries |
 |---|---:|---:|---:|
 | Asheville | 60.0083 / 843 | 843000 / 843000 | 0 |
 | Innsbruck | 60.0053 / 843 | 843000 / 843000 | 0 |
+| Pittsburgh | 60.0047 / 843 | 843000 / 843000 | 0 |
 
-Both have qualified auxiliaries/timing and empty cleanup. These are conditional
+All have qualified auxiliaries/timing and empty cleanup. These are conditional
 service agreements at the declared native-unit load and finite horizon, not
 first-hour player scores, power-generation proofs or indefinite guarantees.
 Raw recovered cycles, actual image reviews, selected receipt bindings and
-telemetry are under `native-v2-surface/`. Pittsburgh remains unscored here.
+telemetry are under `native-v2-surface/`. Positive-witness water fitting agreement
+is **3/3**, not held-out or overall accuracy.
 
-The remaining product water observation, held-out first-hour baseline attempts and the
+`fitting-observations.json` freezes all 22 registered rows after the six fitting
+attempts. `fitting-decision.json` records the unchanged-model decision at
+2026-11-21T06:51:04.486208Z, before any registered holdout native outcome. The
+retained start counterexample does not trigger a named-square repair, new model
+or promise. The two positive regional water holdouts will use the same model,
+source, DLL and load protocol; Grand Canyon northeast remains unknown/unscored.
+
+Held-out capability observations, held-out first-hour baseline attempts and the
 fresh eleven-square candidate player arm remain pending. The latter will use
 the immutable 4a4 player, not the capability DLL. Byte-identical candidate maps
 mean any repeat-run difference cannot be attributed to physical exporter rules.
