@@ -1,0 +1,205 @@
+{
+  "files": [
+    {
+      "bytes": 103816,
+      "gzip_sha256": "45001589cd90dc8cf74a3c9bd78d552984897e2a0c28dd2eb11e81d7b2d8d0ba",
+      "path": "raw/asheville/game.log",
+      "sha256": "c0e90b1c730182b65f06713c4b841cda5b1e78a3c79604f4868ac65efee10d05"
+    },
+    {
+      "bytes": 2235,
+      "gzip_sha256": "7ce4ccb1ef1627957fbee1cafa79aef39be52bd01f7668bf517627e8878844a1",
+      "path": "raw/asheville/gpu.csv",
+      "sha256": "2a1b568c07e2c8b00217e59c23bef2426fe9d6fdb5d22c3e8c021456aab71d84"
+    },
+    {
+      "bytes": 5726513,
+      "gzip_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+      "path": "raw/asheville/networks.json",
+      "sha256": "eadf48d9c0037862790b60063b62353b9254c434f64b851128ae5bde8e8d6d12"
+    },
+    {
+      "bytes": 239047,
+      "gzip_sha256": "70bcebdfc5d06d9d825e5b9a4022a1f7c5459fd5f63341f2d75e9c641d5ee072",
+      "path": "raw/asheville/observation.json",
+      "sha256": "d8ad8658966775557eb7b5ff06b8dcff833d816eaeb4827b5acab692bc1750fb"
+    },
+    {
+      "bytes": 3663,
+      "gzip_sha256": "1d28facfab0d25f09702a21b313a739ce3c8895d6c3dc013f53577353ff24bca",
+      "path": "raw/asheville/panel.json",
+      "sha256": "01727ca5c3b25929d3aa7a2b9d7d092d91a6de9a3947ccdbc3d54fd08fd8bccc"
+    },
+    {
+      "bytes": 28901,
+      "gzip_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+      "path": "raw/asheville/query-freeze.json",
+      "sha256": "b287635c428991da07922ec32acb72a36587b8320c5ad17e79a126ecc883ef77"
+    },
+    {
+      "bytes": 103979,
+      "gzip_sha256": "358fc16226ae8284cac1be9548448d289229ddf1afde61c1772615a61159b89a",
+      "path": "raw/innsbruck/game.log",
+      "sha256": "c28fcb96b71cba0d6fe16337cc89b586c70a7807e2ccb1116c6c923f9d8c2996"
+    },
+    {
+      "bytes": 2309,
+      "gzip_sha256": "ad7aa13729a133e6f72bbb956d62fa5c1b546e60fdcecfc03bf577d9ba07b20c",
+      "path": "raw/innsbruck/gpu.csv",
+      "sha256": "4ca5188fff7d02a7e18c51aff41f2bc4f2cd141a3e1d282d237b7d9ffcf9e9a0"
+    },
+    {
+      "bytes": 3613136,
+      "gzip_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+      "path": "raw/innsbruck/networks.json",
+      "sha256": "3471843c0281e75506f93190666a82484d5bcd09645ce6069a9c0368d4faed8c"
+    },
+    {
+      "bytes": 203599,
+      "gzip_sha256": "5b24cb6699484bbf11f14698dcd7a2957597464fd49b266aaeafc6c1719bc198",
+      "path": "raw/innsbruck/observation.json",
+      "sha256": "72580e0d1c67c331d6442a4660543f53d5509c9795821d1dac7a1b8ce00b5ca6"
+    },
+    {
+      "bytes": 3687,
+      "gzip_sha256": "a775fa819b583162b310a25965f8d58e7d41ea52211d905b7baa19850e7fb2cf",
+      "path": "raw/innsbruck/panel.json",
+      "sha256": "a72586b0813d8a38f417cf8103f658e8284809502739435b8a6389659467a78f"
+    },
+    {
+      "bytes": 35824,
+      "gzip_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+      "path": "raw/innsbruck/query-freeze.json",
+      "sha256": "a6e7a252c43d4192b9ced8bb1b7a9d6369c3f674149a1c1593129d24f9d689fb"
+    },
+    {
+      "bytes": 1071,
+      "gzip_sha256": "ce0525b059c45cb09540d8de55d9fe6cda630b24e4ff64ed0d6b8500dc0be582",
+      "path": "raw/rio/observation.json",
+      "sha256": "0b1eb958ba840c53412bedecaf6323fc8536c3492bcaeea1b7bce31e589aca2c"
+    },
+    {
+      "bytes": 103782,
+      "gzip_sha256": "16dcea8caad80acb959e6f447c1cd8a1166699af0dee1bda218cdd8fc4630a9c",
+      "path": "raw/stock-1/game.log",
+      "sha256": "11414e40d3e5b27ea2444bf332ebfa5e5aaecd0d25219ac196eb19235705e876"
+    },
+    {
+      "bytes": 2104,
+      "gzip_sha256": "0e4bf73fcbc3cd1fc470aaeb87f476883ab5673ccb5302747ecb29060dc14078",
+      "path": "raw/stock-1/gpu.csv",
+      "sha256": "4fdc8a26dc95258753d281c28573c3540f983629e4c4680aadc2c098914dac18"
+    },
+    {
+      "bytes": 3005384,
+      "gzip_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+      "path": "raw/stock-1/networks.json",
+      "sha256": "bc1f09f7a31437b5d389ac787078ace910d2beb1fdf4206dcda8ec22af914b6f"
+    },
+    {
+      "bytes": 410889,
+      "gzip_sha256": "23e31086b16c072594be93ebe56031b7a713bae2cf1b7dfec6f0be7531387c5b",
+      "path": "raw/stock-1/observation.json",
+      "sha256": "9d6889555ab31c2c57a4387b796c757d37784e62c42698f117e69ed7b9573c8e"
+    },
+    {
+      "bytes": 3618,
+      "gzip_sha256": "49b8fa34ecaaa8bba5f2476c26a4986b46e1908192d48b11a49f1d3274ff5a76",
+      "path": "raw/stock-1/panel.json",
+      "sha256": "72e3c960aeba67e9d3b2e31bcc28f5151bb41320ea7e89140184d302fd546261"
+    },
+    {
+      "bytes": 24004,
+      "gzip_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7",
+      "path": "raw/stock-1/query-freeze.json",
+      "sha256": "7b11714a52cc0a6ad3c1a2fc7b19c30baca4c30bfc8153055285c8c4af9a102a"
+    },
+    {
+      "bytes": 149171,
+      "gzip_sha256": "b7837183c5bd7520e5dfb288e048fc06b7a1a405226f8354049daa909a49611a",
+      "path": "raw/stock-1/ship-water-at-opening.json",
+      "sha256": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370"
+    },
+    {
+      "bytes": 103748,
+      "gzip_sha256": "f89647e678e72006ca41f3489b1f0fc9f784bd8a3a496a8c880717b63c791a8d",
+      "path": "raw/stock-2/game.log",
+      "sha256": "03a58f7b4550597aa7a99a0fae0e14e6ab584ef636b112320e873d2194b1974b"
+    },
+    {
+      "bytes": 2309,
+      "gzip_sha256": "ef32ab2a2ec9c142d24831d88d14d3ca4fd8ac9406e2ce23815ba4c7dca4a54a",
+      "path": "raw/stock-2/gpu.csv",
+      "sha256": "ad28ffccd0de07be83447dd8961990d57b1c3cc10939725c0cd8deef56c59ece"
+    },
+    {
+      "bytes": 3686823,
+      "gzip_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+      "path": "raw/stock-2/networks.json",
+      "sha256": "0690640093062e6666624d0317f02f687548777b2d7c120b4f9f6e37a6c0ee04"
+    },
+    {
+      "bytes": 351519,
+      "gzip_sha256": "6d4672c2698344b243bcc4ebaf406055ec50faa5be9147a996297d0f32cde9f1",
+      "path": "raw/stock-2/observation.json",
+      "sha256": "2cd7b3a4829238699414d1e5a83feb188153159602c6e256bdb57594abee4011"
+    },
+    {
+      "bytes": 3614,
+      "gzip_sha256": "66a9ecd6ae53228a304b8e9ed7c54cb977a53596ce6a3ef2353519768da5a9ac",
+      "path": "raw/stock-2/panel.json",
+      "sha256": "4fc8afe0aad804e46b4c7eb7b212406da98912019fd48c1fbcdad5a2f942f959"
+    },
+    {
+      "bytes": 37054,
+      "gzip_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81",
+      "path": "raw/stock-2/query-freeze.json",
+      "sha256": "ad91a75b5a182e7ab81cefb9d953cb86aa049e910b659c4017d263859ba6f152"
+    },
+    {
+      "bytes": 182232,
+      "gzip_sha256": "1961abe9e99b778f05c21a095a553974cfea03d916994ca74f727073187cfcb5",
+      "path": "raw/stock-2/ship-water-at-opening.json",
+      "sha256": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+    },
+    {
+      "bytes": 1051,
+      "gzip_sha256": "4193461190090ccbfe94a3c92f7455ebfafcfc67ee9cfded1934fe57f7049f03",
+      "path": "raw/telemetry/cohort/collector.log",
+      "sha256": "7f466f8d9fc2b6a4692e8005d3eb6242284ae42bd4c5e50060c29014bf967dac"
+    },
+    {
+      "bytes": 645,
+      "gzip_sha256": "93296dfe6364a0febcaa3b15d730a6406aa64406435e5de37029fb8385522750",
+      "path": "raw/telemetry/cohort/driver.json",
+      "sha256": "5458e2c6482774462401a5477bf32f600dd468d9d5625c349d140ff9f2d2d763"
+    },
+    {
+      "bytes": 68533,
+      "gzip_sha256": "8ae000e749f7d14bdf07d60707ca73309b2c6ae85cdac840f874343866a18032",
+      "path": "raw/telemetry/cohort/process-gpu.jsonl",
+      "sha256": "84b13430a7ecee916bc7718c5cf1fa647656665a444498c8934d0a024b17eb67"
+    },
+    {
+      "bytes": 956,
+      "gzip_sha256": "2f35589116bb0397c1bf543f70df95576e4ebb8e26713b1ab4115827bcaca3bc",
+      "path": "raw/telemetry/controls/collector.log",
+      "sha256": "78d0fbbf6cc8a3d00ed090745dd2e3e8bcdc2f717d6ca43935bce05d6099c33b"
+    },
+    {
+      "bytes": 647,
+      "gzip_sha256": "85caeba7b251b46a4deb9aa22c51b44a0a0ca3d2d79f8addeeae8e9d23f201be",
+      "path": "raw/telemetry/controls/driver.json",
+      "sha256": "7df1ef3143aef36cf57ad225f56f9c7ea8b70b59549e84d91c9e41a236cb15be"
+    },
+    {
+      "bytes": 66868,
+      "gzip_sha256": "a233206f30d72e63e34465667761f4a40c16788f9ad5a78bfb34fd89e31e0b3c",
+      "path": "raw/telemetry/controls/process-gpu.jsonl",
+      "sha256": "d1b1d504cb184a3e3e892265b5d4bd46d4fb61d80e4690deb8c15be537f74ca2"
+    }
+  ],
+  "retained_at": "2026-11-21T14:30:53.422757+00:00",
+  "selection_sha256": "57a6c222c816ecb683fb6142316938a88dddbd9b10029738787f0e95817ca7f5",
+  "verifier_sha256": "11025581b7570d89b663e6fd6149ac48dba27b464d2244edbfcd630cf626ca53"
+}

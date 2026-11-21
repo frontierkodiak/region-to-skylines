@@ -233,9 +233,23 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
       .split("\n").map((line) => "    " + line).join("\n");
     original = original.slice(0, begin) + replacement + original.slice(end);
   }
-  const studyMarker = original.indexOf('\n  "witness_studies":');
-  if (studyMarker >= 0) original = original.slice(0, studyMarker - 1) + "\n}\n";
   const addition = JSON.stringify(ledger.witness_studies, null, 2).split("\n")
     .map((line, i) => i ? "  " + line : line).join("\n");
-  writeFileSync(file, original.trimEnd().slice(0, -1).trimEnd() + ',\n  "witness_studies": ' + addition + "\n}\n");
+  if (original.includes('"witness_studies"')) {
+    // Replace only this owned block; later top-level studies keep their place.
+    const marker = original.indexOf('"witness_studies"');
+    const start = original.indexOf("{", marker);
+    let depth = 0, end = -1;
+    for (let index = start; index < original.length; index++) {
+      if (original[index] === "{") depth++;
+      else if (original[index] === "}") {
+        if (--depth === 0) { end = index + 1; break; }
+      }
+    }
+    if (end < 0) throw new Error("unbalanced witness_studies block");
+    original = original.slice(0, start) + addition + original.slice(end);
+    writeFileSync(file, original);
+  } else {
+    writeFileSync(file, original.trimEnd().slice(0, -1).trimEnd() + ',\n  "witness_studies": ' + addition + "\n}\n");
+  }
 }

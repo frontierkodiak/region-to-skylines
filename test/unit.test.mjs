@@ -93,7 +93,7 @@ test("current partial fixture contract binds all five native packages without cl
 });
 
 test("current fixture contract refuses stale writers, missing regions and fabricated qualification", async () => {
-  await assert.rejects(loadFixtureContract(readFixture, async (name) => name.endsWith("region.py") ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
+  await assert.rejects(loadFixtureContract(readFixture, async (name) => name === "tools/map-factory/region.py" ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
   await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/asheville/terrain.u16.gz" ? new Uint8Array([0]) : readFixture(name), readContractSource), /historical fixture terrain.u16.gz changed/);
   const active = JSON.parse(await readFixture("fixtures/active.json"));
   const currentPath = "fixtures/" + active.current;

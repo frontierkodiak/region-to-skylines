@@ -24,6 +24,8 @@ test("import is reproducible; every unowned ledger byte and all four certificate
     const end = text.indexOf("\n    }",marker) + "\n    }".length;
     text = text.slice(0,begin) + text.slice(end);
   }
+  // The directed-rail adapter owns its Rail reference; it is a separate producer.
+  text = text.replace('      "rail_study": "directed-rail-v3",\n', "");
   text = text.slice(0,text.indexOf('\n  "witness_studies":') - 1) + "\n}\n";
   assert.equal(sha(text), "af7d9bf2754e61f9fff9c5845272c2317b485076ebb8b2c102e642375355ce97", "exact parent bytes outside owned fragments");
   assert.equal(ledger.native_path_certificates.length,4);

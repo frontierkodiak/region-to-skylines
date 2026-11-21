@@ -25280,6 +25280,7 @@
     },
     {
       "id": "rail",
+      "rail_study": "directed-rail-v3",
       "name": "Rail",
       "icon": "rail",
       "status": "native_scored_not_boundary_fitted",
@@ -57945,6 +57946,400 @@
           "interpretation": "Same player, judge, query bytes and physical maps; any repeated-game rate difference is not physical exporter improvement"
         }
       }
+    }
+  },
+  "rail_studies": {
+    "directed-rail-v3": {
+      "kind": "directed_rail_control_and_cohort_study",
+      "study": "directed-rail-v3",
+      "source_commit": "1a0e45c65745ba5f05cf22f947da2e88fed25277",
+      "source_base": "29b095475ba2f93c7e918fefc08c736493670304",
+      "source_issue": "01a1fe64-7010-7533-bf2d-34ed498286c7",
+      "projection_file": "tools/map-factory/capability-evidence/rail-study.json",
+      "projection_sha256": "16fdc0007236477f02ea28fd3b2e677f459b00d9d425ba626ee7701674c67c84",
+      "projection_tool_file": "tools/map-factory/integrate_rail_evidence.py",
+      "projection_tool_sha256": "4f8a0b8483acb11997c1154791f5a6a1095aff3f13e48f3ac7f4de50a2dc0b4c",
+      "source_closure_manifest": "tools/map-factory/capability-evidence/rail-native-sources/manifest.json",
+      "source_closure_sha256": "b9ab05084e613605dc1cc5b97368bba864e9e87afc7153e55cf7ab7217ff6134",
+      "frozen_predictions_file": "tools/map-factory/capability-evidence/pl1119-v3-predictions.json",
+      "frozen_predictions_sha256": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03",
+      "raw_files": 111,
+      "final_protocol_raw_files": 83,
+      "earlier_revision_raw_files": 28,
+      "runtime_openings": 11,
+      "controls": [
+        {
+          "slug": "stock-1",
+          "file": "AP Asanu Beach.crp",
+          "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+          "selected_boundary": 8,
+          "distinct_edge_successes": 8,
+          "same_edge_successes": 0,
+          "selected_failures": 0,
+          "reciprocal_positives": true,
+          "invalid_vehicle_pair_rejected": true,
+          "observed_at": "2026-11-21T14:17:04.738299+00:00"
+        },
+        {
+          "slug": "stock-2",
+          "file": "AP Hanami Bay.crp",
+          "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+          "selected_boundary": 24,
+          "distinct_edge_successes": 8,
+          "same_edge_successes": 0,
+          "selected_failures": 16,
+          "reciprocal_positives": true,
+          "invalid_vehicle_pair_rejected": true,
+          "observed_at": "2026-11-21T14:19:41.839396+00:00"
+        }
+      ],
+      "totals": {
+        "selected_boundary": 244,
+        "distinct_edge_successes": 9,
+        "same_edge_successes": 2,
+        "selected_failures": 233,
+        "unqueried_boundary_candidates": 112,
+        "sampled_positive": 4,
+        "unknown": 5
+      },
+      "cohort": [
+        {
+          "slug": "asheville",
+          "square": {
+            "lat": 35.58,
+            "lon": -82.555,
+            "name": "Asheville",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "asheville"
+          },
+          "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+          "status": "sampled_positive",
+          "frozen_model_level": "likely",
+          "attempts": [
+            {
+              "attempt": "asheville",
+              "observed_at": "2026-11-21T14:23:04.406267+00:00",
+              "finished_at": "2026-11-21T14:25:49.634242+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 12,
+              "distinct_edge_successes": 2,
+              "same_edge_successes": 0,
+              "selected_failures": 10,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": null
+            }
+          ]
+        },
+        {
+          "slug": "innsbruck",
+          "square": {
+            "lat": 47.27,
+            "lon": 11.4,
+            "name": "Innsbruck",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "innsbruck"
+          },
+          "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+          "status": "sampled_positive",
+          "frozen_model_level": "likely",
+          "attempts": [
+            {
+              "attempt": "innsbruck",
+              "observed_at": "2026-11-21T14:25:50.345478+00:00",
+              "finished_at": "2026-11-21T14:28:42.818415+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 20,
+              "distinct_edge_successes": 2,
+              "same_edge_successes": 0,
+              "selected_failures": 18,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": null
+            }
+          ]
+        },
+        {
+          "slug": "rio",
+          "square": {
+            "lat": -22.94,
+            "lon": -43.205,
+            "name": "Rio de Janeiro",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "rio"
+          },
+          "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+          "status": "Unknown",
+          "frozen_model_level": "likely",
+          "attempts": [
+            {
+              "attempt": "rio",
+              "observed_at": "2026-11-21T14:28:42.837865+00:00",
+              "finished_at": "2026-11-21T14:28:42.851804+00:00",
+              "completed": false,
+              "error": "1 older waiters are ahead in the slot queue",
+              "selected_boundary": 0,
+              "distinct_edge_successes": 0,
+              "same_edge_successes": 0,
+              "selected_failures": 0,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": null
+            },
+            {
+              "attempt": "rio-attempt-2",
+              "observed_at": "2026-11-21T15:04:53.647359+00:00",
+              "finished_at": "2026-11-21T15:07:32.467630+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 6,
+              "distinct_edge_successes": 0,
+              "same_edge_successes": 0,
+              "selected_failures": 6,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": null
+            }
+          ]
+        },
+        {
+          "slug": "pittsburgh",
+          "square": {
+            "lat": 40.44,
+            "lon": -80,
+            "name": "Pittsburgh",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "pittsburgh"
+          },
+          "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+          "status": "sampled_positive",
+          "frozen_model_level": "likely",
+          "attempts": [
+            {
+              "attempt": "pittsburgh-attempt-1",
+              "observed_at": "2026-11-21T15:07:33.183334+00:00",
+              "finished_at": "2026-11-21T15:11:59.015601+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 128,
+              "distinct_edge_successes": 3,
+              "same_edge_successes": 0,
+              "selected_failures": 125,
+              "unqueried_boundary_candidates": 112,
+              "missing_reason": null
+            }
+          ]
+        },
+        {
+          "slug": "charleston",
+          "square": {
+            "lat": 32.78,
+            "lon": -79.93,
+            "name": "Charleston",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "charleston"
+          },
+          "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+          "status": "Unknown",
+          "frozen_model_level": "not_possible_here",
+          "attempts": [
+            {
+              "attempt": "charleston-attempt-1",
+              "observed_at": "2026-11-21T15:11:59.726298+00:00",
+              "finished_at": "2026-11-21T15:14:30.772797+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 0,
+              "distinct_edge_successes": 0,
+              "same_edge_successes": 0,
+              "selected_failures": 0,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": "no_pair_or_directed_lane"
+            }
+          ]
+        },
+        {
+          "slug": "grand-canyon",
+          "square": {
+            "lat": 36.08,
+            "lon": -112.11,
+            "name": "Grand Canyon",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "grand-canyon"
+          },
+          "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+          "status": "Unknown",
+          "frozen_model_level": "not_possible_here",
+          "attempts": [
+            {
+              "attempt": "grand-canyon-attempt-1",
+              "observed_at": "2026-11-21T15:14:31.476360+00:00",
+              "finished_at": "2026-11-21T15:17:02.153804+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 0,
+              "distinct_edge_successes": 0,
+              "same_edge_successes": 0,
+              "selected_failures": 0,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": "no_pair_or_directed_lane"
+            }
+          ]
+        },
+        {
+          "slug": "hong-kong",
+          "square": {
+            "lat": 22.29,
+            "lon": 114.17,
+            "name": "Hong Kong",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "hong-kong"
+          },
+          "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+          "status": "Unknown",
+          "frozen_model_level": "likely",
+          "attempts": [
+            {
+              "attempt": "hong-kong-attempt-1",
+              "observed_at": "2026-11-21T15:17:02.879206+00:00",
+              "finished_at": "2026-11-21T15:19:40.367602+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 6,
+              "distinct_edge_successes": 0,
+              "same_edge_successes": 0,
+              "selected_failures": 6,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": null
+            }
+          ]
+        },
+        {
+          "slug": "yosemite",
+          "square": {
+            "lat": 37.735,
+            "lon": -119.575,
+            "name": "Yosemite Valley",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "yosemite"
+          },
+          "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+          "status": "Unknown",
+          "frozen_model_level": "not_possible_here",
+          "attempts": [
+            {
+              "attempt": "yosemite-attempt-1",
+              "observed_at": "2026-11-21T15:19:41.085380+00:00",
+              "finished_at": "2026-11-21T15:22:13.054776+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 0,
+              "distinct_edge_successes": 0,
+              "same_edge_successes": 0,
+              "selected_failures": 0,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": "no_pair_or_directed_lane"
+            }
+          ]
+        },
+        {
+          "slug": "boston",
+          "square": {
+            "lat": 42.36,
+            "lon": -71.057,
+            "name": "Boston",
+            "rotation": 0,
+            "scale": 1,
+            "slug": "boston"
+          },
+          "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+          "status": "sampled_positive",
+          "frozen_model_level": "likely",
+          "attempts": [
+            {
+              "attempt": "boston-attempt-1",
+              "observed_at": "2026-11-21T15:22:13.766358+00:00",
+              "finished_at": "2026-11-21T15:25:58.738081+00:00",
+              "completed": true,
+              "error": null,
+              "selected_boundary": 72,
+              "distinct_edge_successes": 2,
+              "same_edge_successes": 2,
+              "selected_failures": 68,
+              "unqueried_boundary_candidates": 0,
+              "missing_reason": null
+            }
+          ]
+        }
+      ],
+      "documents": [
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v1/README.md",
+          "sha256": "7f07f766881b43a25cf644432893b564e55ee8ab314ff1383bff43ba39d0d79f"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3/README.md",
+          "sha256": "774209edaba739ddb89e83a31f7b9d74d54b2abaf83559b0404c07773fc78277"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3/REPRODUCE.md",
+          "sha256": "681fa79b7fafc3293ddc4b40e9563f9a89e31e5c6d56772a650c595da99b8cdf"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3/RESULTS.md",
+          "sha256": "596d725f3c0ab0f74fa46d1ac9a05cda1fc73530e8297fb9c307361c2c68455c"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3/selection.json",
+          "sha256": "57a6c222c816ecb683fb6142316938a88dddbd9b10029738787f0e95817ca7f5"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/README.md",
+          "sha256": "ad89646eb70c2b526569362de3084be22b27ff54ce2793313f468d451184236e"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/RESULTS.md",
+          "sha256": "9186e822ca885232699e58286ea8f39657492e836fccaf5595a0e3b5113d469a"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/cleanup-audit.json",
+          "sha256": "2c6098841da0640b4593c6c71c4a5a9a197e5608937396a4b4e8d155450c36ee"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/strict-verifier-failure.txt",
+          "sha256": "d93b203d5068cf8fa20e4c23cf3fbc59be12a04793cfe80d69f0b1a7e829fac3"
+        },
+        {
+          "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/verification.json",
+          "sha256": "779485e519408fb1f0f395b24bea83c214741a40340e4f53bf610fe0e1d69fbc"
+        }
+      ],
+      "cleanup": {
+        "audited_at": "2026-11-21T15:28:55.028957+00:00",
+        "degraded": true,
+        "findings": [
+          {
+            "attempt": "pittsburgh-attempt-1",
+            "raw_cleanup": {
+              "game": [],
+              "steam_instances": [
+                "3933505219"
+              ],
+              "units_active": []
+            },
+            "later_state": "Steam listed at teardown; later audit proves listed instance absent"
+          }
+        ],
+        "coverage": "every observation's game PID/start, telemetry owner PID and reported teardown remainder; audit time after every observation; other owners' Steam untouched"
+      },
+      "certificates": "none",
+      "limits": "Reviewed directed-rail native path study, not accuracy, blind holdout, geographic negative or a place-level rail promise. Selected requests are a bounded sample at opening in this exact loaded-file and plugin context; a failed query or an empty candidate list is Unknown, never absence. Pittsburgh's fixed cap left 112 candidates unqueried and Boston's two same-edge successes are not distinct-edge witnesses. The four positive cells agree with the preserved frozen-v3 rail candidates by exact artifact hash and CPU receipt lineage; that is positive-witness agreement on an already observed cohort, not accuracy. Native raw receipts bind CRP bytes, not freshly rehashed prepared inputs: the three input hashes are reused frozen lineage. File identity is not in-memory code attestation or strict no-mods; dynamic assemblies are excluded and three DLC-panel errors are retained at every opening. enabled_mod_count=0 does not mean unloaded/no mods: CitiesBridge, the harness and built-ins are loaded. No rail service, train spawning, station/port, editor/gameplay parity, sustained gameplay or human play is established. No native rail certificate is issued and no live Yes is claimed."
     }
   }
 }
