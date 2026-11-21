@@ -1,0 +1,843 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "fail",
+  "failed": [
+    "ground_truth"
+  ],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "pass",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-charleston.crp",
+          "selected_index": 12,
+          "map_name": "Charleston - Ready to Play",
+          "author": "",
+          "published": true,
+          "buildableArea": 58,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 563,
+            "realtime": 16.31846046447754,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.3423435389995575,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.3423435389995575,
+                "target_value": 0.3423435389995575,
+                "amount": 579085,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.38357415795326233,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.38357415795326233,
+                "target_value": 0.38357415795326233,
+                "amount": 845992,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.40357422828674316,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.40357422828674316,
+                "target_value": 0.40357422828674316,
+                "amount": 3360330,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.5125874280929565,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.5125874280929565,
+                "target_value": 0.5125874280929565,
+                "amount": 2223796,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.634951651096344,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.634951651096344,
+                "target_value": 0.634951651096344,
+                "amount": 8317952,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 579085,
+            "oreAmount": 845992,
+            "forestAmount": 3360330,
+            "fertileLandAmount": 2223796,
+            "waterAmount": 8317952
+          },
+          "connections": {
+            "incomingRoads": 7,
+            "outgoingRoads": 7,
+            "incomingTrainTracks": 1,
+            "outgoingTrainTracks": 1,
+            "incomingShipPath": 2,
+            "outgoingShipPath": 2,
+            "incomingPlanePath": 2,
+            "outgoingPlanePath": 2
+          },
+          "imageRef": {
+            "name": "Charleston - Ready to Play_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "Charleston - Ready to Play_SteamPreview",
+            "resolved": true,
+            "width": 1800,
+            "height": 1008
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 58 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": "Sol xhigh; actual PNG viewed",
+        "problems": [],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native listing and rendered selection reviewed"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "skip",
+      "value": null,
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "not requested"
+    },
+    {
+      "name": "startup_views",
+      "status": "pass",
+      "value": {
+        "views": {
+          "opening": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-opening.png",
+            "sha256": "0156a046bf5a01ce29714e245ab8f87f3213b7d3bde1ffa2d6754d930e309e1d",
+            "current_position": [
+              -3840,
+              160.59130859375,
+              0
+            ],
+            "target_position": [
+              -3840,
+              160.59130859375,
+              0
+            ],
+            "expected_center": {
+              "x": -3840,
+              "z": 0,
+              "tolerance_m": 64
+            }
+          },
+          "area_zoom": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-area_zoom.png",
+            "sha256": "b0a29d2e9d628bb0a7130cb7d891c18fe79dcf034a2e193bf144eb065732552b"
+          }
+        },
+        "problems": []
+      },
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "native headings and actual opening/Areas PNGs reviewed"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.11,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "pass",
+      "value": {
+        "wet": 2214,
+        "required": 2214,
+        "fraction": 1.0,
+        "dry": []
+      },
+      "threshold": ">= 95% of required probes",
+      "detail": "6028 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "pass",
+      "value": {
+        "required": 2214,
+        "samples": 13,
+        "observations": 28782,
+        "wet_throughout": 2208,
+        "fraction": 0.9973,
+        "without_water_probes": 6,
+        "without_water_names": [
+          "geography:unnamed waterway [river] @426,705",
+          "geography:unnamed waterway [river] @426,706",
+          "geography:unnamed waterway [river] @426,707",
+          "unnamed waterway [river] #6:00",
+          "unnamed waterway [river] #6:01",
+          "unnamed waterway [river] #6:02"
+        ],
+        "without_water_names_truncated": 0,
+        "exact_dry": {
+          "probes": 45,
+          "observations": 165,
+          "names": [
+            "geography:Ashley River [river] @384,540",
+            "geography:Molasses Creek [river] @791,298",
+            "geography:unnamed waterway [river] @323,768",
+            "geography:unnamed waterway [river] @422,780",
+            "geography:unnamed waterway [river] @423,743",
+            "geography:unnamed waterway [river] @423,744",
+            "geography:unnamed waterway [river] @423,745",
+            "geography:unnamed waterway [river] @423,746",
+            "geography:unnamed waterway [river] @424,748",
+            "geography:unnamed waterway [river] @426,705",
+            "geography:unnamed waterway [river] @426,706",
+            "geography:unnamed waterway [river] @426,707",
+            "geography:unnamed waterway [river] @427,703",
+            "geography:unnamed waterway [river] @427,704",
+            "geography:unnamed waterway [river] @428,697",
+            "geography:unnamed waterway [river] @428,698",
+            "geography:unnamed waterway [river] @428,702",
+            "geography:unnamed waterway [river] @429,696",
+            "geography:unnamed waterway [river] @430,696",
+            "geography:unnamed waterway [river] @437,697",
+            "geography:unnamed waterway [river] @438,697",
+            "geography:unnamed waterway [river] @443,671",
+            "geography:unnamed waterway [river] @443,694",
+            "geography:unnamed waterway [river] @443,695",
+            "geography:unnamed waterway [river] @443,696",
+            "geography:unnamed waterway [river] @444,691",
+            "geography:unnamed waterway [river] @444,692",
+            "geography:unnamed waterway [river] @444,693",
+            "geography:unnamed waterway [river] @445,688",
+            "geography:unnamed waterway [river] @445,689",
+            "geography:unnamed waterway [river] @445,690",
+            "unnamed waterway [river] #6:00",
+            "unnamed waterway [river] #6:01",
+            "unnamed waterway [river] #6:02",
+            "unnamed waterway [river] #6:03",
+            "unnamed waterway [river] #6:04",
+            "unnamed waterway [river] #6:05",
+            "unnamed waterway [river] #6:25",
+            "unnamed waterway [river] #6:26",
+            "unnamed waterway [river] #6:27"
+          ],
+          "names_truncated": 5
+        },
+        "native_no_nearby": {
+          "probes": 6,
+          "observations": 6,
+          "names": [
+            "geography:unnamed waterway [river] @426,705",
+            "geography:unnamed waterway [river] @426,706",
+            "geography:unnamed waterway [river] @426,707",
+            "unnamed waterway [river] #6:00",
+            "unnamed waterway [river] #6:01",
+            "unnamed waterway [river] #6:02"
+          ],
+          "names_truncated": 0
+        },
+        "native_nearby_observations": 28782,
+        "native_nearby_wet_observations": 28776,
+        "sampled_minutes": [
+          0.0,
+          60.11222535731891
+        ],
+        "largest_sample_gap_minutes": 5.14444471274813,
+        "coordinate_identity_tolerance_m": 0.001,
+        "per_sample": [
+          {
+            "frame": 202252,
+            "minute": 0.0,
+            "label": "t000",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 220721,
+            "minute": 5.13,
+            "label": "t005",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 238766,
+            "minute": 10.143,
+            "label": "t010",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 256761,
+            "minute": 15.141,
+            "label": "t015",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 274282,
+            "minute": 20.008,
+            "label": "t020",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 292802,
+            "minute": 25.153,
+            "label": "t025",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 310314,
+            "minute": 30.017,
+            "label": "t030",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 328382,
+            "minute": 35.036,
+            "label": "t035",
+            "without_water": 6,
+            "names": [
+              "unnamed waterway [river] #6:00",
+              "unnamed waterway [river] #6:01",
+              "unnamed waterway [river] #6:02",
+              "geography:unnamed waterway [river] @426,705",
+              "geography:unnamed waterway [river] @426,706",
+              "geography:unnamed waterway [river] @426,707"
+            ]
+          },
+          {
+            "frame": 346334,
+            "minute": 40.023,
+            "label": "t040",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 364297,
+            "minute": 45.013,
+            "label": "t045",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 382746,
+            "minute": 50.137,
+            "label": "t050",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 400598,
+            "minute": 55.096,
+            "label": "t055",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 418656,
+            "minute": 60.112,
+            "label": "t060",
+            "without_water": 0,
+            "names": []
+          }
+        ]
+      },
+      "threshold": ">= 95% of required probes wet exactly OR natively within64m at every observed sample",
+      "detail": "Sampled evidence only, not continuous/every-frame wetness; no inferred legacy nearby values."
+    },
+    {
+      "name": "no_flooding",
+      "status": "pass",
+      "value": {
+        "worst_km2": 0.0059,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.0059
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.0036
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.0049
+          }
+        ],
+        "reference": "the run's first water dump union hash-bound mapped_water",
+        "reference_sha256": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "5af74268d52e4cbf07036daa4d88062869a91254f84b7981bbbb4ac163f7b63b",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 190801
+        },
+        "failing_grids": [],
+        "initial_only_diagnostic": {
+          "worst_km2": 0.0735,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0735
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.0699
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.0724
+            }
+          ],
+          "would_fail": true,
+          "status": "fail",
+          "reference_cells": 385293,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "pass",
+      "value": {
+        "initial": 0,
+        "final": 347,
+        "growth": 347,
+        "first_observed_minute": 1.477
+      },
+      "threshold": ">= 50 new residents by minute 5, retained at the end",
+      "detail": ""
+    },
+    {
+      "name": "outside_connection",
+      "status": "pass",
+      "value": {
+        "complete": true,
+        "directions": [
+          "inbound",
+          "outbound"
+        ],
+        "paths_checked": 14
+      },
+      "threshold": "native passenger-car paths grid -> highway edge and edge -> grid, released",
+      "detail": ""
+    },
+    {
+      "name": "utilities",
+      "status": "pass",
+      "value": {
+        "broken": []
+      },
+      "threshold": "power, water and sewage active, native pipe nodes connected, no connection or supply problems",
+      "detail": ""
+    },
+    {
+      "name": "first_hour",
+      "status": "pass",
+      "value": {
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "land": {
+          "samples": 3600,
+          "dry_flat_samples": 2890,
+          "sample_spacing_m": 32,
+          "max_axis_slope": 0.15000000596046448,
+          "dry_flat_km2": 2.959359884262085,
+          "dry_flat_fraction": 0.8027777671813965
+        },
+        "traffic_last_15_minutes": [
+          {
+            "minute": 45.012502347584814,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 3,
+              "moving": 3,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 50.13722483708212,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 55.096113984597224,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 60.11222535731891,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 1,
+              "moving": 1,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          }
+        ],
+        "map_panel": {
+          "name": "new_game_panel",
+          "status": "pass",
+          "value": {
+            "observed": {
+              "source": "native NewGamePanel",
+              "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-charleston.crp",
+              "selected_index": 12,
+              "map_name": "Charleston - Ready to Play",
+              "author": "",
+              "published": true,
+              "buildableArea": 58,
+              "selection_refreshed": false,
+              "resource_bars": {
+                "schema": 1,
+                "source": "native UIProgressBar.value / NewGamePanel resource targets",
+                "frame": 563,
+                "realtime": 16.31846046447754,
+                "bars": {
+                  "oil": {
+                    "component": "ResourceBarOil",
+                    "value": 0.3423435389995575,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.3423435389995575,
+                    "target_value": 0.3423435389995575,
+                    "amount": 579085,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "ore": {
+                    "component": "ResourceBarOre",
+                    "value": 0.38357415795326233,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.38357415795326233,
+                    "target_value": 0.38357415795326233,
+                    "amount": 845992,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "forest": {
+                    "component": "ResourceBarForestry",
+                    "value": 0.40357422828674316,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.40357422828674316,
+                    "target_value": 0.40357422828674316,
+                    "amount": 3360330,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "fertility": {
+                    "component": "ResourceBarFarming",
+                    "value": 0.5125874280929565,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.5125874280929565,
+                    "target_value": 0.5125874280929565,
+                    "amount": 2223796,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "water": {
+                    "component": "ResourceBarWater",
+                    "value": 0.634951651096344,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.634951651096344,
+                    "target_value": 0.634951651096344,
+                    "amount": 8317952,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  }
+                }
+              },
+              "resources": {
+                "maxResourceAmount": 20631704,
+                "oilAmount": 579085,
+                "oreAmount": 845992,
+                "forestAmount": 3360330,
+                "fertileLandAmount": 2223796,
+                "waterAmount": 8317952
+              },
+              "connections": {
+                "incomingRoads": 7,
+                "outgoingRoads": 7,
+                "incomingTrainTracks": 1,
+                "outgoingTrainTracks": 1,
+                "incomingShipPath": 2,
+                "outgoingShipPath": 2,
+                "incomingPlanePath": 2,
+                "outgoingPlanePath": 2
+              },
+              "imageRef": {
+                "name": "Charleston - Ready to Play_Snapshot",
+                "resolved": true,
+                "width": 400,
+                "height": 224
+              },
+              "steamPreviewRef": {
+                "name": "Charleston - Ready to Play_SteamPreview",
+                "resolved": true,
+                "width": 1800,
+                "height": 1008
+              },
+              "snapshot_texture_present": true,
+              "author_label": "Created by xxx",
+              "author_visible": false,
+              "buildable_label": "Suitable area for building: 58 %",
+              "ok": true
+            },
+            "screenshot": "new-game-panel.png",
+            "reviewer": "Sol xhigh; actual PNG viewed",
+            "problems": [],
+            "resource_bars_required": true,
+            "resource_bars_verified": true
+          },
+          "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+          "detail": "native listing and rendered selection reviewed"
+        }
+      },
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "Services and traffic are sampled, not continuous. Traffic uses native current-path segments on the roads built by this scenario; movement does not rule out individual bottlenecks. Land is a 32 m start-tile sample at <=15% axis slope plus actual native city construction; it is not the game's New Game buildable-area score. Water-soak gates remain independent."
+    },
+    {
+      "name": "paths",
+      "status": "pass",
+      "value": {
+        "checked": 10,
+        "broken": []
+      },
+      "threshold": "every native path found, no expected segment missing",
+      "detail": ""
+    },
+    {
+      "name": "no_terracing",
+      "status": "pass",
+      "value": 0.0781,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 9,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "fail",
+      "value": {
+        "orientation": "as is",
+        "correlation_as_is": 0.6877,
+        "best_other": 0.2185,
+        "landmarks": [
+          {
+            "name": "highest DEM point",
+            "x": 3776.0,
+            "z": 6464.0,
+            "dem_m": 41.5,
+            "game_m": 107.8,
+            "dem_from_game_m": 10.5,
+            "error_m": -31.0
+          },
+          {
+            "name": "lowest DEM point",
+            "x": -1856.0,
+            "z": 7296.0,
+            "dem_m": -75.6,
+            "game_m": 91.0,
+            "dem_from_game_m": 3.6,
+            "error_m": 79.2
+          }
+        ]
+      },
+      "threshold": "terrain correlates with the real DEM >= 0.9 as is, and beats every rotation or mirror by >= 0.15",
+      "detail": "the game shows the world as is"
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 0.0,
+        "facing": "north"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 15,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+  "harness": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "failed checks: ground_truth",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

@@ -1,0 +1,1215 @@
+{
+  "schema": 1,
+  "scope": "Collected first-hour evidence; no Steam/audio/launch logs. Every failure retained. Total-card peak is not game-only memory.",
+  "cases": [
+    {
+      "square": "asheville",
+      "summary_sha256": "981057005aba96e21f7f79713b1a2b9ea190ef2bbb4ccbb15222062e313d95e4",
+      "first_hour": "pass",
+      "overall": "pass",
+      "map_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 235,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 147.27,
+        "peak_temperature_c": 61.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 15:11:38.347",
+        "last_telemetry_local": "2026/11/20 15:31:10.089"
+      }
+    },
+    {
+      "square": "charleston",
+      "summary_sha256": "d3627b53ed77e95a6070c10ae1d9fcc70cbd663c8ca73fa610fc1fe26bc3ae6b",
+      "first_hour": "pass",
+      "overall": "fail",
+      "map_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 225,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 138.98,
+        "peak_temperature_c": 60.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 16:33:18.923",
+        "last_telemetry_local": "2026/11/20 16:52:00.633"
+      }
+    },
+    {
+      "square": "grand-canyon",
+      "summary_sha256": "eecd7b82736bad650eec94a589d9ba9345efa15d1b54288ebfb69c6a924ee72e",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 32,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 119.29,
+        "peak_temperature_c": 47.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 17:11:06.659",
+        "last_telemetry_local": "2026/11/20 17:13:46.193"
+      }
+    },
+    {
+      "square": "grand-canyon-northeast",
+      "summary_sha256": "27ce81b6da6f5c9f6e272444a4c1b9302cc654be9a02dad4ff8df0eba9d0cd27",
+      "first_hour": "pass",
+      "overall": "pass",
+      "map_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 223,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 141.7,
+        "peak_temperature_c": 63.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1620
+        ],
+        "first_telemetry_local": "2026/11/21 03:19:05.694",
+        "last_telemetry_local": "2026/11/21 03:37:37.197"
+      }
+    },
+    {
+      "square": "hong-kong",
+      "summary_sha256": "6ab69a8cdadf46efd0364d92f934b14794eba036c6ca93dea9f27ed6a6c135fe",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 36,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 197.07,
+        "peak_temperature_c": 49.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 17:44:10.566",
+        "last_telemetry_local": "2026/11/20 17:47:12.513"
+      }
+    },
+    {
+      "square": "hong-kong-northeast",
+      "summary_sha256": "e45f9e2581f23a6a4f61a1ca515c91067a4eb08d654c4bb885b0d44efcfe6e8a",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "691f13d6793ab1d53c6fc8b8a3f1fde9fba9a59ae4cafa17be4920e26f0a3f8d",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 31,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 117.58,
+        "peak_temperature_c": 47.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/21 04:01:35.758",
+        "last_telemetry_local": "2026/11/21 04:04:06.039"
+      }
+    },
+    {
+      "square": "innsbruck",
+      "summary_sha256": "7cfd3646ed3f04646fe70a4629fcd6dae05ba77fd8db632f001c82643d57a3f5",
+      "first_hour": "pass",
+      "overall": "pass",
+      "map_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 224,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 156.55,
+        "peak_temperature_c": 60.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 15:50:07.743",
+        "last_telemetry_local": "2026/11/20 16:08:44.249"
+      }
+    },
+    {
+      "square": "pittsburgh",
+      "summary_sha256": "8457899b205aa5754fde33e95f512a1c59bcb277c2f3ec25101e6174420cd9f8",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 32,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 120.52,
+        "peak_temperature_c": 48.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1592
+        ],
+        "first_telemetry_local": "2026/11/20 16:30:32.673",
+        "last_telemetry_local": "2026/11/20 16:33:15.557"
+      }
+    },
+    {
+      "square": "rio",
+      "summary_sha256": "87e93f24ed5538833b98d4975fe6d9810d6eb3f3aaf58c14ffeb7e3bec872110",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 31,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 125.26,
+        "peak_temperature_c": 46.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 16:27:49.867",
+        "last_telemetry_local": "2026/11/20 16:30:20.145"
+      }
+    },
+    {
+      "square": "rio-northeast",
+      "summary_sha256": "6f02b6eebaaa28f1de9afd43cf668bea50e711b4a61cae797d2fc64c1386996a",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "bf438cbecab6f03635bfc6c6b6093c9ccef0bb91efceeba2df74eee11ea9dc54",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 32,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 118.78,
+        "peak_temperature_c": 50.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/21 03:37:58.370",
+        "last_telemetry_local": "2026/11/21 03:40:37.006"
+      }
+    },
+    {
+      "square": "yosemite",
+      "summary_sha256": "4c94b8139bd16908a885314c1ce3b1d16db4e03795b8d7cdbaca7bfb5fd9c544",
+      "first_hour": "fail",
+      "overall": "error",
+      "map_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 31,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 114.83,
+        "peak_temperature_c": 47.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 18:10:17.469",
+        "last_telemetry_local": "2026/11/20 18:12:47.708"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "asheville/gpu.csv",
+      "sha256": "2009cc923f562e61e8b6c51d6932d7af1c18faaad5acf9ede37881b28ba6215a",
+      "bytes": 16041
+    },
+    {
+      "path": "asheville/ground-truth.json.gz",
+      "sha256": "142f13255750c92c1bd06f0dcca978f0d00ba95dab45901b1dd3f45f74e4a1f3",
+      "bytes": 782
+    },
+    {
+      "path": "asheville/harness-source.json",
+      "sha256": "d8318f44fa333e1b03f14eede8abb9a67b33b392a61e0931bb9c63618051de1c",
+      "bytes": 77
+    },
+    {
+      "path": "asheville/networks-t000.json.gz",
+      "sha256": "0f980914f95e6c6c0bb7890cfb23bdd78de029682ef2f0e5f32c4b8918a92d8b",
+      "bytes": 306851
+    },
+    {
+      "path": "asheville/networks-t060.json.gz",
+      "sha256": "27da0454aa853d56337c78114c5bfb1e50b0feabd8d249f695c6aeb6d2f3cca8",
+      "bytes": 306914
+    },
+    {
+      "path": "asheville/new-game-panel-review.json",
+      "sha256": "51e6a454e3e6a2333326128dd227109a9096bb7c33e3df98fcdf31a42b808c4d",
+      "bytes": 599
+    },
+    {
+      "path": "asheville/new-game-panel.json.gz",
+      "sha256": "8f290b03e51abad5b79a87e1018b215f75d6cc4e3bb45ac61370ea5e3619699e",
+      "bytes": 2023
+    },
+    {
+      "path": "asheville/new-game-panel.png",
+      "sha256": "64134e388c3e51f04be72cd3b9c71529d8aeb15b1c835ed1aa3ff5dee9448cbb",
+      "bytes": 1197121
+    },
+    {
+      "path": "asheville/probes.json",
+      "sha256": "b8a13eb5ef2da1f0552ac38f10266244d453201ee7ee5a2eb1e5aa7e65c77c96",
+      "bytes": 845527
+    },
+    {
+      "path": "asheville/receipt-bindings.json",
+      "sha256": "faf96f9d2cba9f9b1ea8d4f4c1c949057dd2c26765057b272c5608cef21aefe5",
+      "bytes": 892
+    },
+    {
+      "path": "asheville/report.json.gz",
+      "sha256": "d5c3b6f46a557494d24abaaa9707ca5cf7a0c2ad5e31f1241c4746e878ed653e",
+      "bytes": 161159
+    },
+    {
+      "path": "asheville/scenario.json.gz",
+      "sha256": "8d80ac0d8c1838ef80807a8cbe52a349cfad536af4fc56f4350524dd0ae3217c",
+      "bytes": 4116
+    },
+    {
+      "path": "asheville/startup-area_zoom.png",
+      "sha256": "36ab89770921f7bb97c056025a7d510ff827f1491513896bd9b099e4c14d4a4b",
+      "bytes": 2572214
+    },
+    {
+      "path": "asheville/startup-opening.png",
+      "sha256": "f7d4096b56df899ae3319aa5b988fb53d2bdaf24aad155d710ba785c773d82f3",
+      "bytes": 2382713
+    },
+    {
+      "path": "asheville/startup-views-review.json",
+      "sha256": "c35d83986f515e51479ae919dc222c1bf8401c5699e201dfec9ff0b87592427b",
+      "bytes": 737
+    },
+    {
+      "path": "asheville/startup-views.json.gz",
+      "sha256": "2efa597fec2f1c81ee7c547fef82c8558fa6e2f968afc3dc983629d76fc63b22",
+      "bytes": 2088
+    },
+    {
+      "path": "asheville/startup-world.json.gz",
+      "sha256": "c282bed64cd91d49d8f845513580f6204b8eeb601a43ee1af26a7fec0483b42d",
+      "bytes": 808
+    },
+    {
+      "path": "asheville/summary.json",
+      "sha256": "981057005aba96e21f7f79713b1a2b9ea190ef2bbb4ccbb15222062e313d95e4",
+      "bytes": 13592
+    },
+    {
+      "path": "asheville/timeline.jsonl.gz",
+      "sha256": "1d937c3d9a1f34e4406565985088cd5de2f7f65d53246296d324adbbd7390281",
+      "bytes": 3253204
+    },
+    {
+      "path": "asheville/verdict.json",
+      "sha256": "0da18c80771f3ea6f2b1fc59882f4700f22a5e3cb27a6ecbed55fd8f547970c2",
+      "bytes": 30687
+    },
+    {
+      "path": "charleston/gpu.csv",
+      "sha256": "7d0224be773777a308b023a219f16065817abcbfb1e081b981a2240af1652bf0",
+      "bytes": 15354
+    },
+    {
+      "path": "charleston/ground-truth.json.gz",
+      "sha256": "23924a38c6d7640a2ec9d5d23e4f8eca05673065846b19ebf468a303cf2c0a66",
+      "bytes": 616
+    },
+    {
+      "path": "charleston/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "charleston/networks-t000.json.gz",
+      "sha256": "215f8c8e2c671d519c2c7f48890967d55d5499a205913b2463e749775584b670",
+      "bytes": 248842
+    },
+    {
+      "path": "charleston/networks-t060.json.gz",
+      "sha256": "b5946e817655d5ee508decaa98d21fc471f4e42696e4936e20bfb6232114d858",
+      "bytes": 248956
+    },
+    {
+      "path": "charleston/new-game-panel-review.json",
+      "sha256": "d2baca086c4b4d2169324a46db61e85f9b8accb5ecefd87f39cd4854be1e9904",
+      "bytes": 610
+    },
+    {
+      "path": "charleston/new-game-panel.json.gz",
+      "sha256": "a5a6a5c4cdd602103fe722bc7c73f07edd1927ca3c375985caada886fde42e52",
+      "bytes": 2006
+    },
+    {
+      "path": "charleston/new-game-panel.png",
+      "sha256": "a0431499f4c355dee48dd5296f95ef942098752a519efbbdcd8fbc0301ba8a70",
+      "bytes": 1155220
+    },
+    {
+      "path": "charleston/probes.json",
+      "sha256": "e8c32bf27b895417bef2e37048235b63bda5fd15afa26da53fe60fb93b007dec",
+      "bytes": 970107
+    },
+    {
+      "path": "charleston/receipt-bindings.json",
+      "sha256": "f5935a8b6065c11b001ae6c5a5d1ab1e9783efc80847bcb53c70662e139e47da",
+      "bytes": 893
+    },
+    {
+      "path": "charleston/report.json.gz",
+      "sha256": "3b58255efa0f116a5a2cb98479d1dab32ccb9fcce222f15ce5552e6dd06b3cd0",
+      "bytes": 198177
+    },
+    {
+      "path": "charleston/scenario.json.gz",
+      "sha256": "6facd32b65c63671bb1db7afb672dfce166c2384db12d5dc264f080e5c95a8b2",
+      "bytes": 7032
+    },
+    {
+      "path": "charleston/startup-area_zoom.png",
+      "sha256": "1c9914d50aa2a5fa440092cec07db2067f2f10c4742af9a23d35a637522cbb31",
+      "bytes": 2688077
+    },
+    {
+      "path": "charleston/startup-opening.png",
+      "sha256": "79fa4e792ac69dca8380f4030333d1906a8cec1050ee37fc357a64f5ac0685d1",
+      "bytes": 2759722
+    },
+    {
+      "path": "charleston/startup-views-review.json",
+      "sha256": "c9ad1aef79131e1af89db8067542af7c883d5ba2c3b10ddfc835151d5b80abd6",
+      "bytes": 661
+    },
+    {
+      "path": "charleston/startup-views.json.gz",
+      "sha256": "5e8b69abad90dcf99adf3f265d9710da573f9e0fa30f33eb5dea1438c31c98d1",
+      "bytes": 2096
+    },
+    {
+      "path": "charleston/startup-world.json.gz",
+      "sha256": "05b89cb38be4d6369228d7ebfad2c8de0b9bb173e81c0dfddfb19ca1304d78e6",
+      "bytes": 514
+    },
+    {
+      "path": "charleston/summary.json",
+      "sha256": "d3627b53ed77e95a6070c10ae1d9fcc70cbd663c8ca73fa610fc1fe26bc3ae6b",
+      "bytes": 13613
+    },
+    {
+      "path": "charleston/timeline.jsonl.gz",
+      "sha256": "90e9394d8804e8fe489870726900a0a7a34a6ebf4b2cc4aaba9bb078768b7ae2",
+      "bytes": 4820259
+    },
+    {
+      "path": "charleston/verdict.json",
+      "sha256": "135a8cc4acbee5d2e3144e3ad885de84ec7e945142ab3b04ee15daaf2030359a",
+      "bytes": 28161
+    },
+    {
+      "path": "grand-canyon/gpu.csv",
+      "sha256": "63268be5d217ba0059615955f127e595a71c92bff5557e162718390b75d700d2",
+      "bytes": 2231
+    },
+    {
+      "path": "grand-canyon/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "grand-canyon/new-game-panel-review.json",
+      "sha256": "d1a47d7ed210a3abebae0c7f77281512ff8ec1e71f1c42430135d43949f2a25c",
+      "bytes": 613
+    },
+    {
+      "path": "grand-canyon/new-game-panel.json.gz",
+      "sha256": "f75f5a5f482c65c5f95f7ddcd712d2ced5069c40538ea7f8c60e17209c1c2e59",
+      "bytes": 2017
+    },
+    {
+      "path": "grand-canyon/new-game-panel.png",
+      "sha256": "5cba8a199853344a9f02e9cc3dc14c352ad540603b454e90f2e3c16f8140ed96",
+      "bytes": 1198694
+    },
+    {
+      "path": "grand-canyon/probes.json",
+      "sha256": "782afbf482132cbd45d02a286eb260bf5a712f9c61791c1e99ab80773d49e7c9",
+      "bytes": 512451
+    },
+    {
+      "path": "grand-canyon/receipt-bindings.json",
+      "sha256": "c8164b99db9d4ebc9e7b871ab72601e786cae9abd1c4afb0a222ec81a5560911",
+      "bytes": 895
+    },
+    {
+      "path": "grand-canyon/scenario.json.gz",
+      "sha256": "6b50bbc9b341d3ebd01ac3def2b37d522b9f5d684803d0646dc632762e1ddd1c",
+      "bytes": 426
+    },
+    {
+      "path": "grand-canyon/startup-area_zoom.png",
+      "sha256": "797e8ca76436245e8aa42864c3147c08ae30bab7a0317e072eac825a0e27f2d8",
+      "bytes": 2324229
+    },
+    {
+      "path": "grand-canyon/startup-opening.png",
+      "sha256": "68d5418b23578871421a79a0279ce0cd124b9bc33a94d9ad96e8c49740064288",
+      "bytes": 2348185
+    },
+    {
+      "path": "grand-canyon/startup-views-review.json",
+      "sha256": "00026957032875a7b683789ddfa1cb6083cf96b1098e7b66084eab9fd51a6e7e",
+      "bytes": 798
+    },
+    {
+      "path": "grand-canyon/startup-views.json.gz",
+      "sha256": "e5dd9654080a786b1c6ed6ca17ad27d7237010a3a0059fb3e7f5dfdfb7fdd37e",
+      "bytes": 2086
+    },
+    {
+      "path": "grand-canyon/startup-world.json.gz",
+      "sha256": "4357c5df78b31ae75824c38e045b4ede93697603482cabd11b6f3db3d1196a68",
+      "bytes": 512
+    },
+    {
+      "path": "grand-canyon/summary.json",
+      "sha256": "eecd7b82736bad650eec94a589d9ba9345efa15d1b54288ebfb69c6a924ee72e",
+      "bytes": 5450
+    },
+    {
+      "path": "grand-canyon/timeline.jsonl.gz",
+      "sha256": "3823eae3e4b52ad910a571bb234d2f9d818059dea3db1f39b92e1b6df32682ab",
+      "bytes": 2259
+    },
+    {
+      "path": "grand-canyon/verdict.json",
+      "sha256": "27fb7f0ddcd33f067df1fe9b6abe395656bc9384293798a7b2f3f66451e29c0f",
+      "bytes": 2189
+    },
+    {
+      "path": "grand-canyon-northeast/gpu.csv",
+      "sha256": "9cdab90e36b7fa97c6ae871ac0ea25009a8380cbf460d5182fe580100a13ffed",
+      "bytes": 15205
+    },
+    {
+      "path": "grand-canyon-northeast/ground-truth.json.gz",
+      "sha256": "021097be5b48f718ae829c0f7d6607b7a8a87f3640b01b554b81daf2c522b021",
+      "bytes": 612
+    },
+    {
+      "path": "grand-canyon-northeast/harness-source.json",
+      "sha256": "c59780b1aa78f5776e557f02aa59620690a25cbd18e621277907bfaf054d3fe7",
+      "bytes": 77
+    },
+    {
+      "path": "grand-canyon-northeast/networks-t000.json.gz",
+      "sha256": "0e3c0f10970e45ed549ca9ccdb6d9a7388dc7c4c499d83b90002c8d822fb4b96",
+      "bytes": 54795
+    },
+    {
+      "path": "grand-canyon-northeast/networks-t060.json.gz",
+      "sha256": "c6c7499012458e6e80759f5426e52950d2b0d036026d09f0d2015931eeca2500",
+      "bytes": 54874
+    },
+    {
+      "path": "grand-canyon-northeast/new-game-panel-review.json",
+      "sha256": "9e766445455bbd74158ac3b5161da253dff12b5d443c1f6bdb90ae3d80e77fab",
+      "bytes": 655
+    },
+    {
+      "path": "grand-canyon-northeast/new-game-panel.json.gz",
+      "sha256": "f50a2086ccc442840f11c1c8e3a65a9eda7b14865685c6fa76fe804c426a081e",
+      "bytes": 2056
+    },
+    {
+      "path": "grand-canyon-northeast/new-game-panel.png",
+      "sha256": "3163494a253e0010430f59dced9b22fa375a40b99efea4ab2fece27063351e86",
+      "bytes": 1157387
+    },
+    {
+      "path": "grand-canyon-northeast/probes.json",
+      "sha256": "c0db98ff0182d5150c03f8de17dca673edd6ed61b13e27d0be290fddd8ef2fc9",
+      "bytes": 280195
+    },
+    {
+      "path": "grand-canyon-northeast/receipt-bindings.json",
+      "sha256": "e67173790d7f4f79ac4b762231d93544b603648b237c36a224c4e5b3c6f79f4d",
+      "bytes": 878
+    },
+    {
+      "path": "grand-canyon-northeast/report.json.gz",
+      "sha256": "0fc33986f7fbf96e7cc265a49c27e00fbc95b4ca2964d2ec70754d4c9403b333",
+      "bytes": 61833
+    },
+    {
+      "path": "grand-canyon-northeast/scenario.json.gz",
+      "sha256": "c9e9e8c61ccb0130bc0d21a783d5c3caa6d8d556759ca97050465e1312ec44be",
+      "bytes": 3532
+    },
+    {
+      "path": "grand-canyon-northeast/startup-area_zoom.png",
+      "sha256": "781d49a30a56786aafed34dd2e14956f32838a508a7da60d2de7b91e23a036c4",
+      "bytes": 2049741
+    },
+    {
+      "path": "grand-canyon-northeast/startup-opening.png",
+      "sha256": "26144a9c0e64485985fa0d48d32a4b400c195896cc98951983673bc62c6d8654",
+      "bytes": 2059204
+    },
+    {
+      "path": "grand-canyon-northeast/startup-views-review.json",
+      "sha256": "a2fb5bea374ada04b349d2fe60999f9c5c0018782256c599b6e63f0e3b693ff6",
+      "bytes": 706
+    },
+    {
+      "path": "grand-canyon-northeast/startup-views.json.gz",
+      "sha256": "6c9f500ac46fd4650bf8e73f2256af9888ad6e395f618163ecceb15b1438583c",
+      "bytes": 2089
+    },
+    {
+      "path": "grand-canyon-northeast/startup-world.json.gz",
+      "sha256": "a82776340302765a623e476664d6b050205edb6778197e2d4a9e9c3a447f4b96",
+      "bytes": 513
+    },
+    {
+      "path": "grand-canyon-northeast/summary.json",
+      "sha256": "27ce81b6da6f5c9f6e272444a4c1b9302cc654be9a02dad4ff8df0eba9d0cd27",
+      "bytes": 13838
+    },
+    {
+      "path": "grand-canyon-northeast/timeline.jsonl.gz",
+      "sha256": "eda30ec63a86aecc50e7094bb71a8232d511fd295e0d3558dc94d7868b6ffc51",
+      "bytes": 772771
+    },
+    {
+      "path": "grand-canyon-northeast/verdict-before-visual-review.json",
+      "sha256": "fc48fe86961b2a4536995a2cdc4bc14adc758d248a5e810f252b1ef071450a0e",
+      "bytes": 23717
+    },
+    {
+      "path": "grand-canyon-northeast/verdict.json",
+      "sha256": "0463a9f2afc3df6576b9dca72c1954fda77ce9198b4ba0df690d8613ff15b5ff",
+      "bytes": 21387
+    },
+    {
+      "path": "hong-kong/gpu.csv",
+      "sha256": "edaa81f24ab13abfe6b7349925c57e76f97b4b272d57be34ffaaa9171167e28f",
+      "bytes": 2500
+    },
+    {
+      "path": "hong-kong/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "hong-kong/new-game-panel-review.json",
+      "sha256": "bb312445d91222d030c948fec0240ef0b3e9e09f3ed0aa36d0b8104203dafe3a",
+      "bytes": 652
+    },
+    {
+      "path": "hong-kong/new-game-panel.json.gz",
+      "sha256": "f1c6c839869857b81788888751c2508ad0d057b781c2271ef6947b1896f7cc15",
+      "bytes": 2048
+    },
+    {
+      "path": "hong-kong/new-game-panel.png",
+      "sha256": "ead3c73adcd334b9045a5d3fb7ef1deadf14c514c68cef3a8ca459ed674d9a86",
+      "bytes": 993462
+    },
+    {
+      "path": "hong-kong/probes.json",
+      "sha256": "1c49cf5d037b6fd294b3040d1b2e3dd155a3f3a31d72e11b607d0b408a0f077e",
+      "bytes": 222122
+    },
+    {
+      "path": "hong-kong/receipt-bindings.json",
+      "sha256": "539bafe2611a0327593c451a5fc56a18238e8776ddf5a7158cd6525f24095529",
+      "bytes": 892
+    },
+    {
+      "path": "hong-kong/scenario.json.gz",
+      "sha256": "ad99e1d02165ac20ce4d05374ac2482464c460be325aac15c562f3c0b8e62b72",
+      "bytes": 1363
+    },
+    {
+      "path": "hong-kong/startup-area_zoom.png",
+      "sha256": "da048de37ea615f2c562c75101c5a9682626dfb7bbcaa714fa928e3999d069d1",
+      "bytes": 3051702
+    },
+    {
+      "path": "hong-kong/startup-opening.png",
+      "sha256": "3ccf61249222f71ac6d2d8549d6376691ca4f14322459aa3aee64a6686545c91",
+      "bytes": 3226402
+    },
+    {
+      "path": "hong-kong/startup-views-review.json",
+      "sha256": "5f0a0b71f1d1f7a30cad96877ca5fd7ad955abfb070cb15137140f8bc9c7752d",
+      "bytes": 827
+    },
+    {
+      "path": "hong-kong/startup-views.json.gz",
+      "sha256": "81618210a3c19a71ac62bcee7e35c9ccbf122d96fb8a7785d130c340505f8977",
+      "bytes": 2048
+    },
+    {
+      "path": "hong-kong/startup-world.json.gz",
+      "sha256": "25ad492d34ebcc37393dfa5d41fbe858226c97be0a2052692f942295470c490c",
+      "bytes": 527
+    },
+    {
+      "path": "hong-kong/summary.json",
+      "sha256": "6ab69a8cdadf46efd0364d92f934b14794eba036c6ca93dea9f27ed6a6c135fe",
+      "bytes": 5599
+    },
+    {
+      "path": "hong-kong/timeline.jsonl.gz",
+      "sha256": "56ebe13d6578b1b7b8eb60f8d31e5f5bcb58b5f86bfa17a810bfad5bd605feed",
+      "bytes": 2259
+    },
+    {
+      "path": "hong-kong/verdict.json",
+      "sha256": "45baa244c3a6b05f42496c381e169343bed4b6594ed84a6f09b93d0902253d10",
+      "bytes": 2495
+    },
+    {
+      "path": "hong-kong-northeast/gpu.csv",
+      "sha256": "1d1a9a06ad0b2894c6f5005f239fcbdc5403a5512e593fa9213320bd27e2cdfe",
+      "bytes": 2168
+    },
+    {
+      "path": "hong-kong-northeast/harness-source.json",
+      "sha256": "c59780b1aa78f5776e557f02aa59620690a25cbd18e621277907bfaf054d3fe7",
+      "bytes": 77
+    },
+    {
+      "path": "hong-kong-northeast/new-game-panel-review.json",
+      "sha256": "751206bdde6b81f7c7bf34246dc8aa27c62ffdfa78fddd541498ed42b83e5698",
+      "bytes": 604
+    },
+    {
+      "path": "hong-kong-northeast/new-game-panel.json.gz",
+      "sha256": "48e1eb48380a14889eea89bc025901d517527fb68c1cc745adab23bfdec0199a",
+      "bytes": 2054
+    },
+    {
+      "path": "hong-kong-northeast/new-game-panel.png",
+      "sha256": "8e8509d8cc0094ea46421204f89767595630c47d030ba8f8b712debd99f0815f",
+      "bytes": 1236482
+    },
+    {
+      "path": "hong-kong-northeast/probes.json",
+      "sha256": "d981b3255f49589abd9d3efa4bb8a2e223b73fc5ba8d291c801ede0e338ec74e",
+      "bytes": 347269
+    },
+    {
+      "path": "hong-kong-northeast/receipt-bindings.json",
+      "sha256": "33870ee0ec220f36673726980c3770a8c5de2bd9abda7a90273fc8baa40c637a",
+      "bytes": 875
+    },
+    {
+      "path": "hong-kong-northeast/scenario.json.gz",
+      "sha256": "fc51d39e35194396f2e3826b5337cc3eac42c95844fffa59a5a52f0d9b05b60e",
+      "bytes": 1469
+    },
+    {
+      "path": "hong-kong-northeast/startup-area_zoom.png",
+      "sha256": "face72260574c149a55fffa6fbb211a786d9e4d6de9f9eb4e87b6285f5485cd1",
+      "bytes": 2799606
+    },
+    {
+      "path": "hong-kong-northeast/startup-opening.png",
+      "sha256": "2d94b74cd3e413fa284118a99fa58f512ce09da3a56cc27124b2dee46ae4ed98",
+      "bytes": 2494273
+    },
+    {
+      "path": "hong-kong-northeast/startup-views-review.json",
+      "sha256": "3c3722a461530f9b215a0753e5c22527ce52405bf7486367108d22381bb1f323",
+      "bytes": 716
+    },
+    {
+      "path": "hong-kong-northeast/startup-views.json.gz",
+      "sha256": "ba60c0bd97016846d66f6fa13024b1d9665db486f93cb7b95bb04cff618c5b96",
+      "bytes": 2076
+    },
+    {
+      "path": "hong-kong-northeast/startup-world.json.gz",
+      "sha256": "705786d6e9d3df33e8030e8fd434d22c503980c069ffef8bdd1fa7fd75c2d00e",
+      "bytes": 512
+    },
+    {
+      "path": "hong-kong-northeast/summary.json",
+      "sha256": "e45f9e2581f23a6a4f61a1ca515c91067a4eb08d654c4bb885b0d44efcfe6e8a",
+      "bytes": 5835
+    },
+    {
+      "path": "hong-kong-northeast/timeline.jsonl.gz",
+      "sha256": "ce766c7e99f5601d624c17ca46bb06eb07da8e2fa30e8f6f6fb271d87917b99a",
+      "bytes": 2270
+    },
+    {
+      "path": "hong-kong-northeast/verdict.json",
+      "sha256": "b0331972b9634ddaa95d4ce269afa7b993e3423a9a9aa30c07f779651b24dd40",
+      "bytes": 2963
+    },
+    {
+      "path": "innsbruck/gpu.csv",
+      "sha256": "4ef377d48eb9d2e2351384eb586a4893bc605a8c9426aac5f4fb308d11ecb7ec",
+      "bytes": 15299
+    },
+    {
+      "path": "innsbruck/ground-truth.json.gz",
+      "sha256": "5c29f60e9b1e2c9252597f01b57e615d81536c1614314177d8894b932f862cd6",
+      "bytes": 607
+    },
+    {
+      "path": "innsbruck/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "innsbruck/networks-t000.json.gz",
+      "sha256": "d3301539795181a3c5470b9aff6ad2ad6d35944f5931c7c01c10080eb6d173fd",
+      "bytes": 205987
+    },
+    {
+      "path": "innsbruck/networks-t060.json.gz",
+      "sha256": "a79bcf98b82e1b344bb3c77da88bbf89c7be5416fcf4f08e33039c405c3ba730",
+      "bytes": 206070
+    },
+    {
+      "path": "innsbruck/new-game-panel-review.json",
+      "sha256": "ea1614afa8b03e9b63a9e1ef482dcb8cacb35fe3de87c5234ee0c1d3901be47c",
+      "bytes": 637
+    },
+    {
+      "path": "innsbruck/new-game-panel.json.gz",
+      "sha256": "9da27f20707cb1d3a58b766cc85f709b7dbb4a92deb30d80553628817d788da1",
+      "bytes": 2023
+    },
+    {
+      "path": "innsbruck/new-game-panel.png",
+      "sha256": "3f670723f7fdc530263d0049e1338b40d4becb7e9b36bf6707700db0ebbc9569",
+      "bytes": 888030
+    },
+    {
+      "path": "innsbruck/probes.json",
+      "sha256": "17f056921bbeb0416567a49e62c8737e7988da622a5f1b697f94e1a2fd61b3fe",
+      "bytes": 436996
+    },
+    {
+      "path": "innsbruck/receipt-bindings.json",
+      "sha256": "16076f652232167b198294a9ff1f0fb7b4fb501c874a3d6ffce7dcc639329baf",
+      "bytes": 892
+    },
+    {
+      "path": "innsbruck/report.json.gz",
+      "sha256": "ac721dcd310f4225149cad7db1867b774805e1d1313176a5f1ef881cde0175c7",
+      "bytes": 89748
+    },
+    {
+      "path": "innsbruck/scenario.json.gz",
+      "sha256": "29ca0bd42c85b100259cb8a50b7ad2863d99ba3e484f045b358a2b0bbc409d34",
+      "bytes": 4333
+    },
+    {
+      "path": "innsbruck/startup-area_zoom.png",
+      "sha256": "d3aa8783025365ec71258f4f808c264d13e504679d54e1c81c0b29854b46696e",
+      "bytes": 2251741
+    },
+    {
+      "path": "innsbruck/startup-opening.png",
+      "sha256": "43264ecb1d03070582eadbced25cba94ac9cc1350a18cd19e8d878f8d8037c87",
+      "bytes": 1877924
+    },
+    {
+      "path": "innsbruck/startup-views-review.json",
+      "sha256": "40ecc3fbfa523004279bbe024a1a5bcaf7cc03617d306a0386ac4b6efdc44d4d",
+      "bytes": 728
+    },
+    {
+      "path": "innsbruck/startup-views.json.gz",
+      "sha256": "d55e8bf91950437fa8bbc95ec72516ac5b3a101b261f50cb34090a46a5cc506d",
+      "bytes": 2069
+    },
+    {
+      "path": "innsbruck/startup-world.json.gz",
+      "sha256": "9a779c02fb971676b5f218e07aa3c2af41e662539a235e36ee80e6537f5dc170",
+      "bytes": 516
+    },
+    {
+      "path": "innsbruck/summary.json",
+      "sha256": "7cfd3646ed3f04646fe70a4629fcd6dae05ba77fd8db632f001c82643d57a3f5",
+      "bytes": 13590
+    },
+    {
+      "path": "innsbruck/timeline.jsonl.gz",
+      "sha256": "9238e669cca59a3e8a9a0a04f4f81b2743297113fca0b7ee59999540f00c706b",
+      "bytes": 1687227
+    },
+    {
+      "path": "innsbruck/verdict.json",
+      "sha256": "fbb26ff1ba74e0de69f825e929ab75455bd4d369b117ff6988cf82c764839f77",
+      "bytes": 26471
+    },
+    {
+      "path": "pittsburgh/gpu.csv",
+      "sha256": "279235cdde366f98560a5cc49b93559c7bc0e179a385947c259f4824fa07b470",
+      "bytes": 2239
+    },
+    {
+      "path": "pittsburgh/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "pittsburgh/new-game-panel-review.json",
+      "sha256": "4d390a4e6f0048f9144f7a0deaea1a3a8eb3963ac32c0ebac0edc95e738a19ca",
+      "bytes": 629
+    },
+    {
+      "path": "pittsburgh/new-game-panel.json.gz",
+      "sha256": "8391ec370f6d15dc4583946977e9117d0f7d6f33631aecfde804a2ecedbdab2e",
+      "bytes": 2053
+    },
+    {
+      "path": "pittsburgh/new-game-panel.png",
+      "sha256": "6bb6fbe43bec5f07dfba090bc158c790155ab2c2576ecc72bbb939931f4d2442",
+      "bytes": 930824
+    },
+    {
+      "path": "pittsburgh/probes.json",
+      "sha256": "c9bd0d22005c8215eb1238dd1c30ac041e6eb937139a6f33be1bb907eaf12536",
+      "bytes": 765536
+    },
+    {
+      "path": "pittsburgh/receipt-bindings.json",
+      "sha256": "f912c9549df890c91b96ee66e5089701c6945674173bd6e36d04c5ee1610dea1",
+      "bytes": 893
+    },
+    {
+      "path": "pittsburgh/scenario.json.gz",
+      "sha256": "9dbcc84462e28623c7e0155b205c1f63d1fd712fca60323ec54c3b8953165a7b",
+      "bytes": 1533
+    },
+    {
+      "path": "pittsburgh/startup-area_zoom.png",
+      "sha256": "6963c05a30a426ad3342d65a2bf96c5a620d02e9d422a9bd1358ef0e21406773",
+      "bytes": 2828185
+    },
+    {
+      "path": "pittsburgh/startup-opening.png",
+      "sha256": "dbbdde03f64d8da971e43f427b75bdfc751293ce4aa7a45bd00e2fac1501f8af",
+      "bytes": 2569986
+    },
+    {
+      "path": "pittsburgh/startup-views-review.json",
+      "sha256": "2a9039f0ced84396bcfc2ac191194f746bc1b8564208c998437ecf2868618862",
+      "bytes": 780
+    },
+    {
+      "path": "pittsburgh/startup-views.json.gz",
+      "sha256": "3c8390cdc1450147b48688754cbf2e69e6db902760a8aadc66032726583e6728",
+      "bytes": 2055
+    },
+    {
+      "path": "pittsburgh/startup-world.json.gz",
+      "sha256": "3475954b98ea617705a5085fd490e7187943d477deb5e9dcff0905718d92c460",
+      "bytes": 515
+    },
+    {
+      "path": "pittsburgh/summary.json",
+      "sha256": "8457899b205aa5754fde33e95f512a1c59bcb277c2f3ec25101e6174420cd9f8",
+      "bytes": 5652
+    },
+    {
+      "path": "pittsburgh/timeline.jsonl.gz",
+      "sha256": "bc7d9a0c20b4caaee4966f1ec10ef88a6c2ec1fe236b1e5a4da58d550ba847fd",
+      "bytes": 2259
+    },
+    {
+      "path": "pittsburgh/verdict.json",
+      "sha256": "caa9f7434eed7ff797ef283c6b2e6ef578276862a8d81c1350b484bb26b8184c",
+      "bytes": 2599
+    },
+    {
+      "path": "rio/gpu.csv",
+      "sha256": "a88faee90967641dc9567563d9bb9810a9ce0648058d0f0159bcb555b38d9f61",
+      "bytes": 2169
+    },
+    {
+      "path": "rio/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "rio/new-game-panel-review.json",
+      "sha256": "0aee4931907c064a2172378731b5558b1f7c736cc0f99b74e20e33d56c2d5977",
+      "bytes": 615
+    },
+    {
+      "path": "rio/new-game-panel.json.gz",
+      "sha256": "094d704094f3fa2f0e0d4eb412a9854ecf316592c2d3a3a7988a09d6d83e2c2e",
+      "bytes": 2052
+    },
+    {
+      "path": "rio/new-game-panel.png",
+      "sha256": "b85ca5dc2e721c0d4428043b65f825efa9e89d209cf17b40e9a6e021a08d8a59",
+      "bytes": 988804
+    },
+    {
+      "path": "rio/probes.json",
+      "sha256": "566b5f6fa0450682984f1db6ee99ada0f988bd2c29e1bfc49f2be9e41f384a1e",
+      "bytes": 485743
+    },
+    {
+      "path": "rio/receipt-bindings.json",
+      "sha256": "8aee4a13167af87a5f3b941cb0a571de53b849ab6ce36d3a310b2c2c2cf5c396",
+      "bytes": 886
+    },
+    {
+      "path": "rio/scenario.json.gz",
+      "sha256": "412735a3910fc77c43b2b014777b7f4555960e391ea0404811418d7b3307b10e",
+      "bytes": 1313
+    },
+    {
+      "path": "rio/startup-area_zoom.png",
+      "sha256": "66c314ac74afdf2b7c7bde3ed3474c212fd801fb61c61235c44273cd72564ca1",
+      "bytes": 2594251
+    },
+    {
+      "path": "rio/startup-opening.png",
+      "sha256": "7b1e6c398d8d36faa2d89b8e02829cd838e4ecdeaf4f67e44f94421ced7c011f",
+      "bytes": 2670685
+    },
+    {
+      "path": "rio/startup-views-review.json",
+      "sha256": "3b1009b497462717303e10835367761fec81d777228b2ac320d4c578b8568dc9",
+      "bytes": 820
+    },
+    {
+      "path": "rio/startup-views.json.gz",
+      "sha256": "b8bdf3e0768b9ece8c2b175d9d44330108ef97912925cff5b3c759222325e8b7",
+      "bytes": 2091
+    },
+    {
+      "path": "rio/startup-world.json.gz",
+      "sha256": "d74366ff93adf2f1a567c11fe3a64c2c48e858fa4602635a311e2dcddb6274ff",
+      "bytes": 515
+    },
+    {
+      "path": "rio/summary.json",
+      "sha256": "87e93f24ed5538833b98d4975fe6d9810d6eb3f3aaf58c14ffeb7e3bec872110",
+      "bytes": 5588
+    },
+    {
+      "path": "rio/timeline.jsonl.gz",
+      "sha256": "542a8c256d67354290069141ec497e5cd1121a9a586275753bd893845f7d9eeb",
+      "bytes": 2259
+    },
+    {
+      "path": "rio/verdict.json",
+      "sha256": "526ef562334882fc953d84b4eb77b91bb8e169a6a24ff1a9a45ae1cfe23e745b",
+      "bytes": 2490
+    },
+    {
+      "path": "rio-northeast/gpu.csv",
+      "sha256": "fe9ec332159ed31abe71264f522c776595f06a463e828a108c0ebcdbb53c4956",
+      "bytes": 2234
+    },
+    {
+      "path": "rio-northeast/harness-source.json",
+      "sha256": "c59780b1aa78f5776e557f02aa59620690a25cbd18e621277907bfaf054d3fe7",
+      "bytes": 77
+    },
+    {
+      "path": "rio-northeast/new-game-panel-review.json",
+      "sha256": "645659dd8746f5f87fd3e91d09aedf98e406a7f494dc5630c019ab5d2a81ee70",
+      "bytes": 619
+    },
+    {
+      "path": "rio-northeast/new-game-panel.json.gz",
+      "sha256": "3d2ecf582575ed211db9ed7b1606c8b20c411840f2ffa7dd5f36d3624bdfa83c",
+      "bytes": 2037
+    },
+    {
+      "path": "rio-northeast/new-game-panel.png",
+      "sha256": "ad797f156c0f1a03983af7b4f5b1a58676952fc9f38e23e60fabcec05435c0b1",
+      "bytes": 897196
+    },
+    {
+      "path": "rio-northeast/probes.json",
+      "sha256": "f8fcf33c507204eaf9f956c030cc3375a1431efa7915d8e7bf7cbca2e3f60705",
+      "bytes": 494770
+    },
+    {
+      "path": "rio-northeast/receipt-bindings.json",
+      "sha256": "dbe4a9631cabf105fb4d07f719e78574afadac2065423e7fe7b7c1139613e276",
+      "bytes": 869
+    },
+    {
+      "path": "rio-northeast/scenario.json.gz",
+      "sha256": "244ba49e7676eae07df9a6ef81e592748869b93cea30ef24c2197d5ded6cdc49",
+      "bytes": 423
+    },
+    {
+      "path": "rio-northeast/startup-area_zoom.png",
+      "sha256": "9e64448bf9c67e40a655ea5b293cb5cf6882fab0e70d5afaa227a9abee8cf88c",
+      "bytes": 2608251
+    },
+    {
+      "path": "rio-northeast/startup-opening.png",
+      "sha256": "499204adc58e45da51333d601a7a37433abefcf858ed5d102bc0cceff0e1980a",
+      "bytes": 2714519
+    },
+    {
+      "path": "rio-northeast/startup-views-review.json",
+      "sha256": "95be5048ca1aafdc0b41b9ba6dba84dc871f7e2a619e04bcb07a5c780f8a7b1f",
+      "bytes": 681
+    },
+    {
+      "path": "rio-northeast/startup-views.json.gz",
+      "sha256": "4565ae4bc33133ae06d94d49ed5ef8a954fd2fc5a847ee772f362a1e5b2e870f",
+      "bytes": 2095
+    },
+    {
+      "path": "rio-northeast/startup-world.json.gz",
+      "sha256": "cf6b3975b1c032f5e7182a14e438f6997f8d63d746fc56102776ae77302b0cfc",
+      "bytes": 513
+    },
+    {
+      "path": "rio-northeast/summary.json",
+      "sha256": "6f02b6eebaaa28f1de9afd43cf668bea50e711b4a61cae797d2fc64c1386996a",
+      "bytes": 5425
+    },
+    {
+      "path": "rio-northeast/timeline.jsonl.gz",
+      "sha256": "7cca5cc2e930dd956d49ef8b3c7ba2547b94ff70d84ed2c6e97675634d022ee8",
+      "bytes": 2266
+    },
+    {
+      "path": "rio-northeast/verdict.json",
+      "sha256": "b4effe37d32f301d8f0d5c2c6c932eedda3d9eec936aba67668e85f6dbc7fc9c",
+      "bytes": 2164
+    },
+    {
+      "path": "yosemite/gpu.csv",
+      "sha256": "552e0b4a5deb3d30405052e8f156ba12bc1098bb4849140c81e007d5b953d7b9",
+      "bytes": 2170
+    },
+    {
+      "path": "yosemite/harness-source.json",
+      "sha256": "fef4182859dcdd6c2674ac9f858d8876936ea571152fd911e7f6a77fa0ef76ea",
+      "bytes": 77
+    },
+    {
+      "path": "yosemite/new-game-panel-review.json",
+      "sha256": "ee989b922f958393f2698ae12dad1aee6f46b02aa1d77be211c35246ac31f7f8",
+      "bytes": 583
+    },
+    {
+      "path": "yosemite/new-game-panel.json.gz",
+      "sha256": "af366e88e8a11ab67d15cdd1f32b0ea6342e60322d57b4ac95f87c69a854413c",
+      "bytes": 2042
+    },
+    {
+      "path": "yosemite/new-game-panel.png",
+      "sha256": "36ffbc653966f160011a8252e53ec75e0046a28e33af11ac057f9be5924c9c33",
+      "bytes": 987516
+    },
+    {
+      "path": "yosemite/probes.json",
+      "sha256": "8583656156504996e287ce9ea775ba2e61059b343b4cf8cedeff3213a21fd469",
+      "bytes": 513106
+    },
+    {
+      "path": "yosemite/receipt-bindings.json",
+      "sha256": "9d905b5bca40916ef5f7ef6f7e5c87688ce17bd2fbf9cd0343cd12f2641269ad",
+      "bytes": 891
+    },
+    {
+      "path": "yosemite/scenario.json.gz",
+      "sha256": "342df387eeab82f0bd76083a15c26fccebf82e5838d184d64c16a19044009c74",
+      "bytes": 424
+    },
+    {
+      "path": "yosemite/startup-area_zoom.png",
+      "sha256": "74dce0772328858855bbe2af35f3ade7ed7315d46363b869ba6c0a8f2778fe2b",
+      "bytes": 2531764
+    },
+    {
+      "path": "yosemite/startup-opening.png",
+      "sha256": "ad65327820c067b3141e4cd7ea7c5d2d230d06462d87313fda3986fc2f6e0f4d",
+      "bytes": 2449067
+    },
+    {
+      "path": "yosemite/startup-views-review.json",
+      "sha256": "7a43d74ea4f398c2b1bd3e99871a0917d8971bc723419c1baf2e757c7c97974b",
+      "bytes": 603
+    },
+    {
+      "path": "yosemite/startup-views.json.gz",
+      "sha256": "c65788594bb5bad0fe6ce7f4919c14f4c2cd8f0530e15a2a6335ffc1e63a9ff9",
+      "bytes": 2070
+    },
+    {
+      "path": "yosemite/startup-world.json.gz",
+      "sha256": "d0ee27dada09e812989cf9197d566f25455e9bd343e050fd47b2b9b617f54d8d",
+      "bytes": 511
+    },
+    {
+      "path": "yosemite/summary.json",
+      "sha256": "4c94b8139bd16908a885314c1ce3b1d16db4e03795b8d7cdbaca7bfb5fd9c544",
+      "bytes": 5443
+    },
+    {
+      "path": "yosemite/timeline.jsonl.gz",
+      "sha256": "bbd0ee92bee9c9a1ccaa6f36b4ffecd5a5e29f674be05ffbfb8f424b690d6a41",
+      "bytes": 2262
+    },
+    {
+      "path": "yosemite/verdict.json",
+      "sha256": "491c0bf6af4151474cfd2dea00bb03529efcaeebc7fab228d3e0a5197ac2a265",
+      "bytes": 2187
+    }
+  ]
+}
