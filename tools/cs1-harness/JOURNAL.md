@@ -36,7 +36,7 @@ Source settings/flow readbacks are not integrated physical supply/demand units.
 Each complete run hit a post-judgment registry AttributeError on scalar flood
 value73, overwriting verdict.json with error. Original raw verdicts/logs remain
 unchanged. Separate read-only frozen-rule judge replays produce failing
-verdicts, preserving that flood-reference failure. Four scalar-type guards
+verdicts, preserving that flood-reference failure. Two scalar-type guards
 fix indexing;2new tests plus all3actual derived-report replays pass without
 rewriting any verdict. No new native trial on this reporting-only fix. Prior
 158harness tests/build/doctor carried; full Ruff/format pass.
