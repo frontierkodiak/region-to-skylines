@@ -3306,3 +3306,35 @@ record and Charleston's self-plan collision remain in the static fitting report.
 At06:51:04.486208Z the fitting decision froze the unchanged provisional model
 before any registered holdout native run. No physical map, player, judge,
 default or promise changed. The following held-out phase cannot tune the model.
+
+## PL-1078 locked regional water holdouts — 2026-11-21
+
+The unchanged modelBB/snapshotFD/source83fa/DLLf916 was tested on its two
+preregistered positive water holdouts. Parent batch collected exit0; both
+placements/fixtures/timing/auxiliaries qualified and cleanup was empty.
+
+| Holdout | Scored game-minutes | Water fetched / requested | Sewage accepted | Short water cycles | Service |
+|---|---:|---:|---:|---:|---|
+| Rio northeast | 60.0038920 | 843000 / 843000 | 843000 | 0 | true |
+| Hong Kong northeast | 60.0050031 | 713000 / 843000 | 843000 | 130 | false |
+
+Both used29 loaded settling and843 scored cycles; zero polluted deliveries,
+sewage shortfalls, auxiliary failures or timing faults. HK northeast's130 zero
+water responses span scored indices2..833 and all show intake problemsNone.
+The fixed witness/load fails; root mechanism and other possible plans remain
+unresolved. It is retained as a held-out false positive, not a geographic
+incapability or an excuse for a named-square patch. Water positive-witness
+agreement1/2held-out versus3/3fitting; no pooling or global accuracy claim.
+No held-out start positive exists; the third water holdout remains unknown.
+
+Rio native observed07:45:39.435224Z, controller3213.62s inclqueue; HK08:16:18.038506Z,
+controller1837.41s. Whole-card telemetry: Rio388samples10821MiB/134.32W/63C,
+Nov21local02:14:23.208–02:46:51.822; HK364samples10821MiB/136.60W/63C,
+02:47:02.928–03:17:29.291. Recorded200W cap unchanged; game menu1574/1620MiB are
+not continuous game-only peaks. All6 actual PNGs viewed/hash-reviewed. Rio's
+panel has all outside modes absent; clean water does not establish road access.
+
+The complete22-row report retains every warning, prediction and null. A
+separate pre-player-arm identity audit confirms all11 probe pairs byte-identical,
+A4a4 DLL unchanged, and first_hour.py/verdict.py byte-identical to landed PR58.
+Fresh remaining first-hour attempts use that player, not this capability DLL.

@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "verified_at": "2026-11-21T07:50:00.502831+00:00",
+  "scope": "Before remaining first-hour attempts; identity audit only, not another capability inventory",
+  "qualified_player_dll_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+  "unchanged_judges": {
+    "tools/cs1-harness/cs1_harness/first_hour.py": {
+      "sha256": "74ffbc7b6596c17cdd92b821ba3dd7735ad28e612b24aabc1fabfa6ca9d26093",
+      "unchanged_from_merged_PR58": true
+    },
+    "tools/cs1-harness/cs1_harness/verdict.py": {
+      "sha256": "f9cb1c4e0a07680ab1eed55fb5414ba6054f50090565712c99dc5801e3cfd5dd",
+      "unchanged_from_merged_PR58": true
+    }
+  },
+  "baseline_cpu_receipt_sha256": "654a0422b86c185af13cac5d05338325ce9fc7f7c40a0cb260f7b026b438851c",
+  "candidate_cpu_receipt_sha256": "ddf16de69ffac1f43c75a2e84b99d05f3c458740d9d038cf662f23a1409c5811",
+  "rows": [
+    {
+      "slug": "asheville",
+      "probes_sha256": "b8a13eb5ef2da1f0552ac38f10266244d453201ee7ee5a2eb1e5aa7e65c77c96",
+      "byte_identical": true
+    },
+    {
+      "slug": "charleston",
+      "probes_sha256": "e8c32bf27b895417bef2e37048235b63bda5fd15afa26da53fe60fb93b007dec",
+      "byte_identical": true
+    },
+    {
+      "slug": "grand-canyon",
+      "probes_sha256": "782afbf482132cbd45d02a286eb260bf5a712f9c61791c1e99ab80773d49e7c9",
+      "byte_identical": true
+    },
+    {
+      "slug": "grand-canyon-northeast",
+      "probes_sha256": "c0db98ff0182d5150c03f8de17dca673edd6ed61b13e27d0be290fddd8ef2fc9",
+      "byte_identical": true
+    },
+    {
+      "slug": "hong-kong",
+      "probes_sha256": "1c49cf5d037b6fd294b3040d1b2e3dd155a3f3a31d72e11b607d0b408a0f077e",
+      "byte_identical": true
+    },
+    {
+      "slug": "hong-kong-northeast",
+      "probes_sha256": "d981b3255f49589abd9d3efa4bb8a2e223b73fc5ba8d291c801ede0e338ec74e",
+      "byte_identical": true
+    },
+    {
+      "slug": "innsbruck",
+      "probes_sha256": "17f056921bbeb0416567a49e62c8737e7988da622a5f1b697f94e1a2fd61b3fe",
+      "byte_identical": true
+    },
+    {
+      "slug": "pittsburgh",
+      "probes_sha256": "c9bd0d22005c8215eb1238dd1c30ac041e6eb937139a6f33be1bb907eaf12536",
+      "byte_identical": true
+    },
+    {
+      "slug": "rio",
+      "probes_sha256": "566b5f6fa0450682984f1db6ee99ada0f988bd2c29e1bfc49f2be9e41f384a1e",
+      "byte_identical": true
+    },
+    {
+      "slug": "rio-northeast",
+      "probes_sha256": "f8fcf33c507204eaf9f956c030cc3375a1431efa7915d8e7bf7cbca2e3f60705",
+      "byte_identical": true
+    },
+    {
+      "slug": "yosemite",
+      "probes_sha256": "8583656156504996e287ce9ea775ba2e61059b343b4cf8cedeff3213a21fd469",
+      "byte_identical": true
+    }
+  ],
+  "interpretation": "Same player, judge, query bytes and physical maps; any repeated-game rate difference is not physical exporter improvement"
+}
