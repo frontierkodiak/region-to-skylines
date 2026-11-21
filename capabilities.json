@@ -35623,6 +35623,10 @@
       "runtime_model": {
         "id": "pl1210-start-port-v1",
         "source_study": "9a4aad77101fbdb0190c7ceaa11ec643065bec56",
+        "historical_projection": {
+          "file": "tools/map-factory/capability-evidence/pl1208-projection/start-water-study.mjs",
+          "sha256": "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b"
+        },
         "relationship": "Start-only port; frozen search/parameters. Missing tile abstains. Live footprint omits road obstruction/hookup and uses initial capture depth. No native score transfer.",
         "parameters": {
           "footprint_half_m": 192,
@@ -48529,7 +48533,7 @@
       },
       "projection": {
         "file": "start-water-study.mjs",
-        "sha256": "4409cad3517ce1935b00d6dc5b6b3e14bc6c9b7e925a716b14ebe247efc2d14b"
+        "sha256": "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b"
       },
       "report": {
         "schema": 1,

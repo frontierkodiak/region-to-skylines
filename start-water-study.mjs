@@ -11,10 +11,13 @@ export const START_WATER_SOURCE = "9a4aad77101fbdb0190c7ceaa11ec643065bec56";
 export const START_WATER_MANIFEST = "tools/map-factory/capability-evidence/pl1078-files.json";
 export const START_WATER_MANIFEST_SHA = "7cd7e6b2f2dd0d78e6443b8ff8cddd9d5df4ffbdf29d5d7c51fed0ae66092a58";
 export const START_WATER_PREFIX = "tools/map-factory/capability-evidence/PL-1078-start-water-v2/";
+const HISTORICAL_PROJECTION = "tools/map-factory/capability-evidence/pl1208-projection/start-water-study.mjs";
+const HISTORICAL_PROJECTION_SHA = "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b";
 const sha = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const read = (file) => readFileSync(ROOT + file);
 
 export function startWaterStudy(load = read) {
+  if (sha(load(HISTORICAL_PROJECTION)) !== HISTORICAL_PROJECTION_SHA) throw new Error("Historical Start/water projection changed");
   const manifestBytes = load(START_WATER_MANIFEST);
   if (sha(manifestBytes) !== START_WATER_MANIFEST_SHA) throw new Error("Changed start/water file manifest");
   const manifest = JSON.parse(manifestBytes);
@@ -62,7 +65,7 @@ export function startWaterStudy(load = read) {
         runtime_adoption: false})),
       source_url: `https://github.com/frontierkodiak/region-to-skylines/tree/${START_WATER_SOURCE}/${START_WATER_PREFIX}`,
     },
-    projection: {file: "start-water-study.mjs", sha256: sha(load("start-water-study.mjs"))},
+    projection: {file: "start-water-study.mjs", sha256: HISTORICAL_PROJECTION_SHA},
     report, predictions, artifact_bindings: artifactBindings,
     reference_quantity: json("reference-controls/quantity-qualification.json"),
     interrupted_reference: json("history/mixed-api-reference/observation.json"),
@@ -79,6 +82,7 @@ export function startWaterStudy(load = read) {
 export function activeStartModel(load = read) {
   const files = ["start-model.js", "tools/map-factory/start_model.py", "tools/map-factory/capabilities.py", "tools/map-factory/real_roads.py", "tools/map-factory/crp.py", "capability-inputs.js"];
   return { id: START_MODEL, source_study: START_WATER_SOURCE,
+    historical_projection: {file: HISTORICAL_PROJECTION, sha256: HISTORICAL_PROJECTION_SHA},
     relationship: "Start-only port; frozen search/parameters. Missing tile abstains. Live footprint omits road obstruction/hookup and uses initial capture depth. No native score transfer.",
     parameters: START_PARAMETERS,
     prepared_fidelity: "prepared_16m_south_first", live_fidelity: "capture_16m_initial_depth_estimate",

@@ -122,14 +122,26 @@ class ActualExportTests(unittest.TestCase):
             {k: v["level"] for k, v in check(data, activated)["capabilities"].items()}
             for data in cases
         ]
-        script = "import fs from 'node:fs';import {checkCapabilities} from './capability-model.js';const p=JSON.parse(fs.readFileSync(0,'utf8'));console.log(JSON.stringify(p.cases.map(d=>Object.fromEntries(Object.entries(checkCapabilities(d,p.ledger).capabilities).map(([k,v])=>[k,v.level])))));"
-        actual = json.loads(
-            subprocess.check_output(
-                ["node", "--input-type=module", "-e", script],
-                input=json.dumps({"cases": cases, "ledger": activated}).encode(),
-                cwd=ROOT,
-            )
-        )
+        # Complete Start grids make the former single JSON payload exceed V8's
+        # string limit. Stream one normalized input at a time, retaining every
+        # real-input and certificate mutation check at full fidelity.
+        script = "import {createInterface} from 'node:readline';import {checkCapabilities} from './capability-model.js';for await(const line of createInterface({input:process.stdin})){const p=JSON.parse(line);console.log(JSON.stringify(Object.fromEntries(Object.entries(checkCapabilities(p.data,p.ledger).capabilities).map(([k,v])=>[k,v.level]))));}"
+        actual = []
+        with subprocess.Popen(
+            ["node", "--input-type=module", "-e", script],
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            text=True,
+            cwd=ROOT,
+        ) as process:
+            for data in cases:
+                process.stdin.write(
+                    json.dumps({"data": data, "ledger": activated}) + "\n"
+                )
+                process.stdin.flush()
+                actual.append(json.loads(process.stdout.readline()))
+            process.stdin.close()
+            self.assertEqual(process.wait(), 0)
         self.assertEqual(actual, expected)
         browser_output = os.environ.get("OUTSIDE_V2_BROWSER_INPUTS")
         if browser_output:

@@ -9,6 +9,7 @@ FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
+    "tools/map-factory/capability-evidence/pl1208-projection/start-water-study.mjs",
     "start-model.js",
     "tools/map-factory/start_model.py",
     "start-water-study.mjs",
