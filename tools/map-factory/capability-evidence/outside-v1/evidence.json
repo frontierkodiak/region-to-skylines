@@ -157544,6 +157544,12 @@
               "original_path": "/home/caleb/experiments/PL-1142-native-v2/native-retry-1/rio/game.log",
               "original_sha256": "c3bbc5f3f57440dacfc89aff0795c54e041dcac0bd7414dd0a44e3815d3e09e2",
               "extraction": "Unchanged engine renderer, harness and exception-header lines only. Full game log stays in the run holding; account and DLC lines are not redistributed."
+            },
+            "process-gpu.jsonl": {
+              "path": "raw/rio/native-v2-2/process-gpu.jsonl.gz",
+              "sha256": "e2897e639ada2c977482932a44ef466838a026da0b9256394bd9bfeec8278573",
+              "encoding": "gzip",
+              "original_path": "/home/caleb/experiments/PL-1142-native-v2/native-retry-1-gpu-processes.jsonl"
             }
           },
           "completed": true,
