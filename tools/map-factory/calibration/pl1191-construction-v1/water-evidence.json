@@ -905,5 +905,29 @@
     "stable_water_promise": "unknown",
     "physical_package": null,
     "native_observation": false
+  },
+  "complete_source_interfaces": {
+    "freeze": "stream-interface-freeze-v1.json",
+    "summary": "development/phase9-interface-summary.json",
+    "verification": "development/phase9-ledger-verification.json",
+    "source_line_rows": 1370,
+    "mandatory_stream_parts": 583,
+    "bound_existing_control_records": 155,
+    "prepared_stream_initial_contracts": 726,
+    "prepared_stream_initial_failures": 698,
+    "prepared_parts_in_source_radius_model": [
+      0,
+      0,
+      9
+    ],
+    "prepared_part_counts": [
+      4,
+      2,
+      536
+    ],
+    "retained_unprepared_cases": 2,
+    "decision": "Forcing-only changes do not repair mandatory initial failures; direction-only does not repair83local Asian bank conflicts. Complete source geometry/outlets, explicit bounded physical supply and fresh initialization needed before a stream candidate.",
+    "scope": "Authored-grid/control/geometry diagnostics only; no new native outcome or holdout prefilter.",
+    "stable_water_promise": "unknown"
   }
 }

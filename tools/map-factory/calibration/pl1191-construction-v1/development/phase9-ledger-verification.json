@@ -1,0 +1,51 @@
+{
+  "schema": "polli.pl1191-interface-ledger-independent-path-check/1",
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "complete_source_rows_and_clips": true,
+      "sector_ids_preserved": true,
+      "literal_geographic_incidences_verified": 28,
+      "raw43_control_records_verified": 58,
+      "initial_contracts_checked_by_global_nearest_wet_tree": 49,
+      "physical_support_unknown_preserved": false
+    },
+    {
+      "slug": "dry-upland-europe",
+      "complete_source_rows_and_clips": true,
+      "sector_ids_preserved": true,
+      "literal_geographic_incidences_verified": 1161,
+      "raw43_control_records_verified": 48,
+      "initial_contracts_checked_by_global_nearest_wet_tree": 85,
+      "physical_support_unknown_preserved": false
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "complete_source_rows_and_clips": true,
+      "sector_ids_preserved": true,
+      "literal_geographic_incidences_verified": 52,
+      "raw43_control_records_verified": 0,
+      "initial_contracts_checked_by_global_nearest_wet_tree": 0,
+      "physical_support_unknown_preserved": true
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "complete_source_rows_and_clips": true,
+      "sector_ids_preserved": true,
+      "literal_geographic_incidences_verified": 1855,
+      "raw43_control_records_verified": 49,
+      "initial_contracts_checked_by_global_nearest_wet_tree": 855,
+      "physical_support_unknown_preserved": false
+    },
+    {
+      "slug": "mountain-river-asia",
+      "complete_source_rows_and_clips": true,
+      "sector_ids_preserved": true,
+      "literal_geographic_incidences_verified": 102,
+      "raw43_control_records_verified": 0,
+      "initial_contracts_checked_by_global_nearest_wet_tree": 0,
+      "physical_support_unknown_preserved": true
+    }
+  ],
+  "scope": "Separate code path within author run, not independent peer/native review."
+}

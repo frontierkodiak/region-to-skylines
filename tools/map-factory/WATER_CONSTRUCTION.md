@@ -503,6 +503,61 @@ not rerun. No physical stream candidate, native trial, rate tuning, holdout
 access, default change, qualification or ledger adoption occurs in this tranche.
 Every supply/outlet/junction and product promise remains unresolved/unknown.
 
+## Complete source interfaces and configured forcing support
+
+`stream_support_ledger.py` adds a separate read-only ledger over all three
+prepared v3 protocols and their unchanged physical generation/package files.
+`unprepared_stream_ledger.py` records complete captured geometry/prospective
+contracts for both retained base refusals, with floor, configured controls and
+initialization **unknown**, never a fabricated dry grid or empty control table.
+The five cases retain1370 line rows,296 polygon rows,1227 clipped line parts
+and583 mandatory stream parts. Every source row/hash, clipped endpoint,
+branch/shared-part node, original sector and original full probe JSON survives.
+Both base refusals remain refusals, not geographic-impossibility claims.
+
+`waterway_incidence.py` distinguishes literal captured geographic equality from
+exact integer/rational intersections in the declared projected1um model,
+nearest16m vertex/raster contact and128m proximity. It retains crossings,
+overlaps, singletons and polygon holes. None of these classes automatically
+creates a hydraulic junction, outlet or flow direction; names do not merge
+features. All scopes/outside/unsupported records remain explicit.
+
+The ledger binds155 existing controls (Asia58, Europe48, South America49) to
+their physical CRPs, unchanged terrain/depth/hydrology/geometry/probes and
+original generation records. All43 encoded bytes per control are retained and
+round-trip checked. This is authored package evidence, not native readback or
+full runtime identity. Configured rates and source-radius footprints are not
+integrated physical supply units or feature ownership.
+
+Mandatory stream-sector authored initialization fails8/8 in Asia,3/3 in Europe
+and687/715 in South America:698/726 in total. These are unchanged source-grid
+diagnostics, not native feature observations, a historical rescore or a holdout
+prefilter. Direct source-radius-model node contacts cover0/4,0/2 and9/536 stream
+parts respectively. Lack of direct contact does not rule out downstream or
+other dynamic supply. All supply/outlet/junction support stays unresolved.
+
+**Decision:** a forcing-only edit to these packages cannot repair the mandatory
+startup failures; direction-only fitting cannot repair the83 local Asian bank
+conflicts under the same model. The one-node/full-bank geometry model and lake
+rate128 are not a complete general flowing-water constructor. Keep all masks,
+no-fill/cut<=3m/source-footprint bounds and refusals. A fresh complete plan must
+cover every sector/branch, initialization, protected interfaces/open outlets and
+an explicit bounded source model before native admission. No physical stream
+candidate is produced. Next measurement should be a predeclared new source/
+open-channel response diagnostic with reviewed owned telemetry/protocol, not
+another observation of an unchanged dry geographic package.
+
+All five new protocols replay. Fourteen new tests cover geometry incidence,
+holes/overlap/large integer products, source-versus-model identity, complete
+sectors/branches, missing physical support, wrong physical/control cohorts and
+coherent omissions. A separate author-run code path verifies complete rows/
+clips/sectors,3198 literal geographic incidences,155 raw control records and
+989 natural initial contracts using a global nearest-wet-node tree. It is not
+independent peer/native review. Prior271-suite/one skip,17 targeted stream tests
+and20JS/10fixtures are carried forward, not rerun. Shipping bytes/defaults are
+unchanged; every promise remains unknown. See `stream-interface-freeze-v1.json`
+and `development/phase9-interface-summary.json`.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged
