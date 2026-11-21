@@ -150,6 +150,7 @@ export function importStartWater(ledger) {
   };
   start.limits = "Prepared plan is advisory and unscored in this runtime; native placement, collisions and passenger paths remain unverified. A negative scopes only the current authored directed plan. Live footprint uses initial capture terrain/depth, not finished water or an authored start tile; hookup Unknown. Stock: Not comparable. Historical 2/3 positive-witness fitting agreement is not this port's accuracy; holdout not estimable.";
   const water = ledger.capabilities.find((c) => c.id === "water");
+  water.name = "Water";
   water.status = "prepared_surface_witness_unscored_live_shore_estimate";
   water.definition = "A deterministic paired upstream intake/downstream outlet and nearby-bank plan on the current prepared channel route and selected tile, with a fixed consumer, pipe plan and finite native load. Live capture estimates only a local shore/bank opportunity; service, directed flow, quality and hookup remain Unknown.";
   water.exporter_check = "tools/map-factory/water_model.py:evaluate_water";

@@ -202,11 +202,17 @@ def evaluate_water(data):
     tile = native.get("tile")
     if type(tile) is not int or not 0 <= tile < 25:
         return {**water, "reason": "missing_start_tile"}
-    routes = data.get("water_plan", {}).get("samples")
+    plan = data.get("water_plan")
+    routes = plan.get("samples") if isinstance(plan, dict) else None
     if not isinstance(routes, dict) or not routes:
         return {**water, "reason": "missing_directed_channel_routes"}
     for line in routes.values():
-        a = np.asarray(line, dtype=float)
+        try:
+            a = np.asarray(line)
+        except (TypeError, ValueError):
+            return {**water, "reason": "partial_channel_routes"}
+        if not np.issubdtype(a.dtype, np.number):
+            return {**water, "reason": "partial_channel_routes"}
         if a.ndim != 2 or a.shape[0] < 2 or a.shape[1] != 3 or not np.isfinite(a).all():
             return {**water, "reason": "partial_channel_routes"}
     ground, depth = (a.reshape(GRID, GRID) for a in arrays)

@@ -35574,7 +35574,7 @@
     },
     {
       "id": "water",
-      "name": "Fresh water",
+      "name": "Water",
       "icon": "water",
       "status": "prepared_surface_witness_unscored_live_shore_estimate",
       "definition": "A deterministic paired upstream intake/downstream outlet and nearby-bank plan on the current prepared channel route and selected tile, with a fixed consumer, pipe plan and finite native load. Live capture estimates only a local shore/bank opportunity; service, directed flow, quality and hookup remain Unknown.",
@@ -35637,7 +35637,7 @@
         "source_sha256": {
           "water-model.js": "901ddc820d41d927ba54f8ad23f0722d4ee8b8fe05053e79425dbe80cd2ce3dd",
           "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
-          "tools/map-factory/water_model.py": "5c3290b182bfa5d73bc52143ed232bb24d5998f3ab609d71205d1525ceeba83e",
+          "tools/map-factory/water_model.py": "c753c79ddd1c7b040e6fb73e9a82a22fe0884ad49ae9f8bad3f46ea5e2d7316a",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
           "tools/map-factory/capabilities.py": "8b5c24108d768a52acbe2a147eb35d7dc5c9f846fbb427a5ceb34288a30dd28c",

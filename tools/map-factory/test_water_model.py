@@ -84,6 +84,10 @@ class WaterTests(unittest.TestCase):
         for change in (
             lambda d: d["start_input"].pop("tile"),
             lambda d: d.pop("water_plan"),
+            lambda d: d.update(water_plan=None),
+            lambda d: d["water_plan"]["samples"].update(
+                channel=[["0", 0, 0], [320, 0, 0]]
+            ),
             lambda d: d.update(planner_enabled={"water": False}),
             lambda d: d["start_input"].update(fidelity="coarse"),
             lambda d: d["start_input"].update(terrain_m=[0]),
