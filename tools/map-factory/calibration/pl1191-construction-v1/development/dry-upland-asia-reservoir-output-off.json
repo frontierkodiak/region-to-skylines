@@ -1,0 +1,477 @@
+{
+  "schema": "polli.water-development-intervention/1",
+  "mode": "reservoir-output-off",
+  "qualification": "causal development comparison only; NOT a stable-water promise or holdout result",
+  "package_sha256": "61dcbf2f43db7195cc22990a44ad018eeba5a0ba8892dd4dbcafeb13a9258813",
+  "source_package_sha256": "4bac9961d22b00924b77789160f47ea4f73ed816822573609233cc6edf2e4fa7",
+  "changed_output_indices": [
+    57
+  ],
+  "game_minutes": 60.10416980134323,
+  "harness_source": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+  "baseline": {
+    "labels": {
+      "flood": true,
+      "drying": false
+    },
+    "original_dry_gate_failed": false,
+    "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+    "flood_worst_km2": 0.2452,
+    "required": 50,
+    "required_wet_end": 50,
+    "required_water_loss": false,
+    "initialized_observations": 1255,
+    "initialized_water_loss_end": 0,
+    "exact_point_wet_loss_end": 279,
+    "original_native_water_failures": [
+      "no_flooding"
+    ]
+  },
+  "intervention": {
+    "labels": {
+      "flood": false,
+      "drying": true
+    },
+    "original_dry_gate_failed": false,
+    "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+    "flood_worst_km2": 0.0133,
+    "required": 50,
+    "required_wet_end": 49,
+    "required_water_loss": true,
+    "initialized_observations": 1255,
+    "initialized_water_loss_end": 6,
+    "exact_point_wet_loss_end": 283,
+    "original_native_water_failures": []
+  },
+  "baseline_flood_grids": [
+    {
+      "grid": "t000-water.u16",
+      "km2": 0.0
+    },
+    {
+      "grid": "t005-water.u16",
+      "km2": 0.223
+    },
+    {
+      "grid": "t015-water.u16",
+      "km2": 0.2424
+    },
+    {
+      "grid": "t030-water.u16",
+      "km2": 0.2409
+    },
+    {
+      "grid": "t045-water.u16",
+      "km2": 0.2452
+    },
+    {
+      "grid": "t060-water.u16",
+      "km2": 0.2414
+    }
+  ],
+  "intervention_flood_grids": [
+    {
+      "grid": "t000-water.u16",
+      "km2": 0.0
+    },
+    {
+      "grid": "t005-water.u16",
+      "km2": 0.0133
+    },
+    {
+      "grid": "t015-water.u16",
+      "km2": 0.0
+    },
+    {
+      "grid": "t030-water.u16",
+      "km2": 0.0
+    },
+    {
+      "grid": "t045-water.u16",
+      "km2": 0.0
+    },
+    {
+      "grid": "t060-water.u16",
+      "km2": 0.0
+    }
+  ],
+  "native_curve": [
+    {
+      "minute": 0.0,
+      "game_time": "2026-11-21T03:42:02",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 5038,
+      "volume_m3": 1208852,
+      "max_depth_m": 12.34375
+    },
+    {
+      "minute": 5.13,
+      "game_time": "2026-12-22T16:02:18",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2992,
+      "volume_m3": 871768,
+      "max_depth_m": 5.953125
+    },
+    {
+      "minute": 10.13,
+      "game_time": "2027-01-22T11:15:59",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2889,
+      "volume_m3": 861044,
+      "max_depth_m": 6.015625
+    },
+    {
+      "minute": 15.14,
+      "game_time": "2027-02-22T06:20:00",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2874,
+      "volume_m3": 861764,
+      "max_depth_m": 5.921875
+    },
+    {
+      "minute": 20.06,
+      "game_time": "2027-03-24T13:21:33",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2865,
+      "volume_m3": 852968,
+      "max_depth_m": 6
+    },
+    {
+      "minute": 25.11,
+      "game_time": "2027-04-24T14:59:47",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2866,
+      "volume_m3": 854684,
+      "max_depth_m": 6.015625
+    },
+    {
+      "minute": 30.13,
+      "game_time": "2027-05-25T11:12:06",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2865,
+      "volume_m3": 859952,
+      "max_depth_m": 5.90625
+    },
+    {
+      "minute": 35.06,
+      "game_time": "2027-06-24T18:56:47",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2888,
+      "volume_m3": 863752,
+      "max_depth_m": 5.84375
+    },
+    {
+      "minute": 40.05,
+      "game_time": "2027-07-25T13:21:32",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2857,
+      "volume_m3": 852144,
+      "max_depth_m": 5.953125
+    },
+    {
+      "minute": 45.11,
+      "game_time": "2027-08-25T15:23:50",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2869,
+      "volume_m3": 854848,
+      "max_depth_m": 5.90625
+    },
+    {
+      "minute": 50.05,
+      "game_time": "2027-09-25T00:53:03",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2869,
+      "volume_m3": 859708,
+      "max_depth_m": 5.8125
+    },
+    {
+      "minute": 55.05,
+      "game_time": "2027-10-25T19:21:32",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2870,
+      "volume_m3": 854612,
+      "max_depth_m": 5.90625
+    },
+    {
+      "minute": 60.1,
+      "game_time": "2027-11-25T21:20:14",
+      "population": 0,
+      "buildings": 288,
+      "wet_cells": 2869,
+      "volume_m3": 857296,
+      "max_depth_m": 6.03125
+    }
+  ],
+  "isolated_initialized_losses": [
+    {
+      "name": "initial-lattice:768,808",
+      "x": 4288,
+      "z": 3648,
+      "depth_start": 1.47,
+      "depth_end": 0
+    },
+    {
+      "name": "initial-lattice:768,812",
+      "x": 4352,
+      "z": 3648,
+      "depth_start": 3.69,
+      "depth_end": 0
+    },
+    {
+      "name": "initial-lattice:768,816",
+      "x": 4416,
+      "z": 3648,
+      "depth_start": 12.11,
+      "depth_end": 0
+    },
+    {
+      "name": "initial-lattice:772,812",
+      "x": 4352,
+      "z": 3712,
+      "depth_start": 1.88,
+      "depth_end": 0
+    },
+    {
+      "name": "initial-lattice:772,816",
+      "x": 4416,
+      "z": 3712,
+      "depth_start": 1.88,
+      "depth_end": 0
+    },
+    {
+      "name": "constructed-reservoir",
+      "x": 4336,
+      "z": 3696,
+      "depth_start": 2.5,
+      "depth_end": 0
+    }
+  ],
+  "required_retention_checks": {
+    "probes_wet_end": {
+      "status": "pass",
+      "value": {
+        "wet": 49,
+        "required": 50,
+        "fraction": 0.98,
+        "dry": [
+          "constructed-reservoir"
+        ]
+      }
+    },
+    "probes_wet_throughout": {
+      "status": "pass",
+      "value": {
+        "required": 50,
+        "samples": 13,
+        "observations": 650,
+        "wet_throughout": 49,
+        "fraction": 0.98,
+        "without_water_probes": 1,
+        "without_water_names": [
+          "constructed-reservoir"
+        ],
+        "without_water_names_truncated": 0,
+        "exact_dry": {
+          "probes": 3,
+          "observations": 35,
+          "names": [
+            "constructed-reservoir",
+            "geography:\u0f58\u0f0b\u0f53\u0f58\u0f0b\u0f42\u0f59\u0f44\u0f0b\u0f54\u0f7c \u739b\u90ce\u66f2 [river] @253,247",
+            "geography:\u0f58\u0f0b\u0f53\u0f58\u0f0b\u0f42\u0f59\u0f44\u0f0b\u0f54\u0f7c \u739b\u90ce\u66f2 [river] @254,246"
+          ],
+          "names_truncated": 0
+        },
+        "native_no_nearby": {
+          "probes": 1,
+          "observations": 12,
+          "names": [
+            "constructed-reservoir"
+          ],
+          "names_truncated": 0
+        },
+        "native_nearby_observations": 650,
+        "native_nearby_wet_observations": 638,
+        "sampled_minutes": [
+          0.0,
+          60.10416980134323
+        ],
+        "largest_sample_gap_minutes": 5.125278045081844,
+        "coordinate_identity_tolerance_m": 0.001,
+        "per_sample": [
+          {
+            "frame": 202252,
+            "minute": 0.0,
+            "label": "t000",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 220703,
+            "minute": 5.125,
+            "label": "t005",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 238732,
+            "minute": 10.133,
+            "label": "t010",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 256757,
+            "minute": 15.14,
+            "label": "t015",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 274475,
+            "minute": 20.062,
+            "label": "t020",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 292661,
+            "minute": 25.114,
+            "label": "t025",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 310709,
+            "minute": 30.127,
+            "label": "t030",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 328454,
+            "minute": 35.056,
+            "label": "t035",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 346448,
+            "minute": 40.054,
+            "label": "t040",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 364630,
+            "minute": 45.105,
+            "label": "t045",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 382420,
+            "minute": 50.047,
+            "label": "t050",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 400427,
+            "minute": 55.049,
+            "label": "t055",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          },
+          {
+            "frame": 418627,
+            "minute": 60.104,
+            "label": "t060",
+            "without_water": 1,
+            "names": [
+              "constructed-reservoir"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "native_overall_verdict": "fail",
+  "native_failed_checks": [
+    "startup_views"
+  ],
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "native_files_sha256": {
+    "report.json": "90f8dc707182675831987de144ddc90b14e294db6e11da9411edb838ab51f3df",
+    "verdict.json": "3e3f43e608941d69e2851a1bde1af0a08ae8b4e8e4c572e32425cddaa1a96eba",
+    "harness-source.json": "fa02d0a70453cfef236a448374cf9b41ad8bb0835aebe09ef1c381a360cba244",
+    "probes.json": "908c866f4c95caa78a378ae88c328b58ebbebf5675d5f6628f679ec5987f163d",
+    "mapped-water.u8": "cfb425b6ff85ec9d45be34221348799cb06f18d119e4ad77eed2389f47fdeafd",
+    "reference-water.u16": "83648db59cd36792674f7836b25e7c755475b335e41e46b04816f02b57f0cb8e"
+  },
+  "baseline_files_sha256": {
+    "report.json": "d1df338d7054784c186f361c6fee00b1196936fe607281b2f3e6248f7d612d3c",
+    "verdict.json": "deb0335cdbfd3a9e41cedcf901461866ceaec463bcd255515eff47208973a587",
+    "probes.json": "908c866f4c95caa78a378ae88c328b58ebbebf5675d5f6628f679ec5987f163d",
+    "mapped-water.u8": "cfb425b6ff85ec9d45be34221348799cb06f18d119e4ad77eed2389f47fdeafd",
+    "reference-water.u16": "83648db59cd36792674f7836b25e7c755475b335e41e46b04816f02b57f0cb8e"
+  },
+  "diagnostic_sha256": "7ec8a711cc6d48a20355b4313739fff879042a08929c2441e6b4eecccd710cf9",
+  "matched_observation_inputs": true,
+  "loaded_source_readback": {
+    "baseline": {
+      "samples": 13,
+      "sources_per_sample": 58,
+      "timeline_sha256": "395ee1918a62559773c54d849e68f534f8ddb91af6d461272c6d447db4b69da6"
+    },
+    "intervention": {
+      "samples": 13,
+      "sources_per_sample": 58,
+      "timeline_sha256": "9fc84a6ef98e4c95be8e3a8f6661ea0397efa99a2b9612a67c55b8211db87945"
+    },
+    "scope": "Configured rates/positions/targets, not measured flux"
+  },
+  "thresholds_sha256": "5f349c06473e4c5127e2f82aae66ed605fcdf15f912ada3091a00b32aac2bf5c",
+  "limits": [
+    "One development intervention does not identify every failure mechanism.",
+    "Thirteen samples do not prove continuous retention.",
+    "No human, populated-city, long-term or release qualification."
+  ]
+}

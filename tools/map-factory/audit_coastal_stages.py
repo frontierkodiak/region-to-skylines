@@ -14,7 +14,7 @@ from numpy.lib.stride_tricks import sliding_window_view
 from PIL import Image
 
 
-def plateau_measure(metres):
+def plateau_measure(metres, fitted_levels=()):
     raw = np.floor(metres * 64 + 0.5).astype(np.int32)
     window = sliding_window_view(np.pad(raw, 2, mode="edge"), (5, 5))
     sloped = window.max(axis=(2, 3)) - window.min(axis=(2, 3)) > 4 * 64
@@ -22,10 +22,13 @@ def plateau_measure(metres):
     equal = (np.diff(raw, axis=1) == 0) & pairs
     total = int(equal.sum())
     levels = {}
-    for level in (80, 91):
-        count = int((equal & (raw[:, :-1] == level * 64)).sum())
+    for level in fitted_levels:
+        fixed = int(np.floor(level * 64 + 0.5))
+        count = int((equal & (raw[:, :-1] == fixed)).sum())
         levels[str(level)] = {
-            "cell_fraction": float((raw == level * 64).mean()),
+            "fitted_level_m": level,
+            "native_quantized_level_m": fixed / 64,
+            "cell_fraction": float((raw == fixed).mean()),
             "equal_sloped_pairs": count,
             "fraction_of_equal_sloped_pairs": count / total if total else None,
         }
@@ -36,7 +39,7 @@ def plateau_measure(metres):
         "equal_pair_fraction_on_slopes": total / int(pairs.sum())
         if pairs.any()
         else None,
-        "diagnostic_fixed_levels_m_not_acceptance_masks": levels,
+        "diagnostic_fitted_levels_m_not_acceptance_masks": levels,
     }
 
 
@@ -278,6 +281,14 @@ def audit(capture, staged, native):
         name = source["name"]
         source_counts[name] = source_counts.get(name, 0) + 1
     sea = geometry.get("seaLevel")
+    fitted_levels = (
+        ()
+        if sea is None
+        else (
+            sea - 10 * geometry["fit"]["verticalScale"],
+            sea + geometry["fit"]["verticalScale"],
+        )
+    )
     unregulated = []
     for name, points in hydro["samples"].items():
         if " [river]" not in name:
@@ -315,7 +326,7 @@ def audit(capture, staged, native):
         "staged_native_terrain_bytes_identical": paths["staged_terrain"].read_bytes()
         == paths["native_terrain"].read_bytes(),
         "plateau_measures": {
-            key: plateau_measure(value) for key, value in stages.items()
+            key: plateau_measure(value, fitted_levels) for key, value in stages.items()
         },
         "internal_stage_correlations_not_ground_truth": {
             key: float(

@@ -394,5 +394,49 @@
     "No nine-square certificate is reissued by this file.",
     "Missing water, capture failure, skipped checks and geometric refusal remain unknown.",
     "Human visual acceptance, populated-city behavior, continuous retention and long-term stability are not verified."
+  ],
+  "native_development": [
+    {
+      "source": "calibration/pl1191-construction-v1/development/dry-upland-asia-reservoir-output-off.json",
+      "sha256": "8809bbe80d445ec08252045ed02aa58ebdf9ba874b87e9110e28382c3f443b91",
+      "game_minutes": 60.10416980134323,
+      "mode": "reservoir-output-off",
+      "baseline": {
+        "labels": {
+          "flood": true,
+          "drying": false
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.2452,
+        "required": 50,
+        "required_wet_end": 50,
+        "required_water_loss": false,
+        "initialized_observations": 1255,
+        "initialized_water_loss_end": 0,
+        "exact_point_wet_loss_end": 279,
+        "original_native_water_failures": [
+          "no_flooding"
+        ]
+      },
+      "intervention": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0133,
+        "required": 50,
+        "required_wet_end": 49,
+        "required_water_loss": true,
+        "initialized_observations": 1255,
+        "initialized_water_loss_end": 6,
+        "exact_point_wet_loss_end": 283,
+        "original_native_water_failures": []
+      },
+      "stable_water_promise": "unknown",
+      "limits": "Reservoir output off lowers flood but empties the engineered pond; no construction or holdout qualification."
+    }
   ]
 }

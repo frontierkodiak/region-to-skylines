@@ -60,6 +60,14 @@ def audit(root, square):
     ]
     hydro, report, verdict = [json.loads(p.read_text()) for p in paths[:3]]
     sources = hydro["sources"]
+    timeline = native / "timeline.jsonl"
+    paths.append(timeline)
+    with timeline.open() as stream:
+        loaded = next(
+            json.loads(line) for line in stream if json.loads(line)["kind"] == "sample"
+        )["water"]["sources"]
+    if len(loaded) != len(sources):
+        raise ValueError("Native source count differs from hydrology")
     flood = next(c["value"] for c in verdict["checks"] if c["name"] == "no_flooding")
     worst = max(flood["grids"], key=lambda g: g["km2"])
     worst_path = native / "grids" / worst["grid"]
@@ -115,13 +123,19 @@ def audit(root, square):
         )
     floor = grid(paths[5])
     reservoirs = []
-    for source in sources:
+    for source_index, source in enumerate(sources):
         if source["class"] != "reservoir":
             continue
         x, _, z = source["position"]
         row, col = round((z + 8640) / CELL), round((x + 8640) / CELL)
         center = row * N + col
-        target = source["target"] * 64
+        actual = loaded[source_index]
+        if (
+            actual["id"] != source_index + 1
+            or [actual["x"], actual["z"]] != source["position"][::2]
+        ):
+            raise ValueError("Native reservoir source position/identity differs")
+        target = actual["target"] * 64
         visited = {center} if floor[center] < target else set()
         queue = deque(visited)
         while queue:
@@ -139,7 +153,8 @@ def audit(root, square):
         reservoirs.append(
             {
                 "position": source["position"],
-                "target_m": source["target"],
+                "target_m": actual["target"],
+                "requested_target_m": source["target"],
                 "native_center_floor_m": floor[center] / 64,
                 "nominal_96m_rim_min_floor_m": min(ring),
                 "below_target_connected_cells": len(visited),

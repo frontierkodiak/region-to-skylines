@@ -3297,3 +3297,36 @@ unchanged. These CPU fixture checks are not new native panel games or current-
 tree native qualification. Both predictors remain rejected as discriminators,
 human-only checks not verified, exporter release held. Final evidence/integration
 review is separate from the already consumed preparation/collector reviews.
+
+## 2026-11-21 · PL-1191 reservoir-output development ablation
+
+Blade, RTX 2080 Ti at 05:00.0. Retained dry-upland Asia package with only
+reservoir output disabled completed 60.104 game minutes in 17.15 measured
+observation wall minutes, excluding queue/boot/teardown. Peak total VRAM
+10,821 MiB against 8,008 MiB before launch. The 2,813 MiB difference is an
+estimate, not a sampled game peak. Peak power 132.72 W; peak temperature 53 C.
+No power settings changed. Pinned clean harness 6949182, mod SHA6cedb7ee.
+
+Flood drops from 0.2452 to 0.0133 km² under the unchanged masked gate. Required
+retention drops from 50/50 to 49/50; the engineered reservoir and five nearby
+initialized lattice locations dry. Both 95% retention gates pass, but the
+unchanged full drying target fails. All 58 configured source controls match
+their encoded package at all 13 samples in both baseline and intervention.
+No other source, terrain, initial water, probe, reference, or acceptance
+threshold changed. Raw overall verdict remains failed for startup views.
+Producer inspected the two actual t060 start views without changing verdicts.
+
+First attempt stopped before Steam/game launch because the new isolated
+checkout lacked a mod build. It remains a failed bootstrap, not an observation.
+Built that checkout's mod before the fresh second attempt; DLL hash matches
+the original cohort. The failed attempt's global Steam-instance listing was
+not an owned client: the failure precedes Steam launch; no foreign process
+was killed. Its owned display/bus units ended. The full second attempt has
+empty game, Steam, and unit cleanup, and its foreground waiter was collected.
+
+Source-bound result: map-factory calibration/pl1191-construction-v1/development/
+dry-upland-asia-reservoir-output-off.json. This is development evidence, not a
+constructed-map qualification or a new holdout result. Exporter defaults,
+historical native verdicts, and release hold remain unchanged. Human-only
+checks, loaded-assembly identity beyond the old mod's observations, and
+long-term/populated operation remain unverified.
