@@ -82,7 +82,7 @@ try {
       // scoped No for trees and Unknown for resources, never a resource No.
       assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "unknown");
       await page.locator('[data-capability="trees"]').focus();
-      assert.match(await page.locator(".capability-detail").textContent(), /No tree-supporting cover in this 40 m WorldCover sample/);
+      assert.match(await page.locator(".capability-detail").textContent(), /No tree-supporting cover in this 40 m WorldCover sampling/);
       await page.locator('[data-capability="resources"]').focus();
       assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "unknown");
       assert.match(await page.locator(".capability-detail").textContent(), /A missing record is not absence/);
@@ -121,7 +121,7 @@ try {
       await page.locator('[data-capability="trees"]').focus();
       assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "likely");
       assert.match(await page.locator(".capability-detail").textContent(), /Land cover, not the export's planted trees/);
-      assert.match(await page.locator(".capability-detail").textContent(), /WorldCover samples/);
+      assert.match(await page.locator(".capability-detail").textContent(), /WorldCover sampling/);
       assert.match(await page.locator(".capability-detail").textContent(), /Tree cover on 100% of the central tiles/);
       // Grassland below the tree candidate level is Unknown, and the fertility
       // detail names cropland separately from the weighted suitability.
