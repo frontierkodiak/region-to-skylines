@@ -103,6 +103,11 @@ def surface_observation(row):
     if labels["observed_surface_service"] is not None:
         qualified = (
             row.get("fixture_qualified") is True
+            and row.get("consumer_api") == "spatial_water_and_sewage"
+            and row.get("settling_has_load") is True
+            and len(row.get("settling_samples") or []) == row.get("expected_settling_cycles")
+            and row.get("expected_settling_cycles", 0) > 0
+            and all(c.get("loaded") is False for c in row["settling_samples"])
             and labels["observed_native_placement"] is True
             and row.get("observed_horizon_game_minutes", 0) >= 60
             and row.get("cycles", 0) > 0
@@ -117,6 +122,8 @@ def surface_observation(row):
         if len(samples) != row["cycles"]:
             raise HarnessError("Native surface service lacks complete raw cycle records")
         for cycle in samples:
+            if cycle.get("loaded") is not True:
+                raise HarnessError("Settling cannot be counted as scored load service")
             if cycle.get("auxiliary_valid") is not True or cycle.get("consumer_pipe_valid") is not True:
                 raise HarnessError("Native surface service has unqualified auxiliary/pipe state")
             for role in ("intake", "outlet"):
@@ -173,7 +180,7 @@ def run(cfg, args):
     stage = staging(cfg, out)
     result = {
         "schema": 1,
-        "oracle": "native_surface_load_v1" if args.mode == "surface" else "exact_start_witness_v1",
+        "oracle": "native_surface_load_v2" if args.mode == "surface" else "exact_start_witness_v1",
         "controller_started_at": datetime.now(timezone.utc).isoformat(),
         "observed_at": None,
         "model_sha256": args.model_sha256,

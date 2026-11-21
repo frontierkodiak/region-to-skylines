@@ -130,6 +130,10 @@ class SurfaceLabels(unittest.TestCase):
             "observed_surface_service": True,
             "observed_water_capability": True,
             "fixture_qualified": True,
+            "consumer_api": "spatial_water_and_sewage",
+            "settling_has_load": True,
+            "settling_samples": [{"loaded": False}] * 29,
+            "expected_settling_cycles": 29,
             "observed_horizon_game_minutes": 60.01,
             "cycles": 843,
             "expected_load_cycles": 843,
@@ -156,6 +160,7 @@ class SurfaceLabels(unittest.TestCase):
                 "sewage": 1000,
                 "pollution_native": 0,
                 "auxiliary_valid": True,
+                "loaded": True,
                 "consumer_pipe_valid": True,
                 "intake": copy.deepcopy(facility),
                 "outlet": copy.deepcopy(facility),
@@ -172,6 +177,9 @@ class SurfaceLabels(unittest.TestCase):
             ("auxiliary_failure_cycles", 1),
             ("expected_load_cycles", 844),
             ("fixture_qualified", False),
+            ("consumer_api", "pipe_node_sewage"),
+            ("settling_has_load", False),
+            ("expected_settling_cycles", 30),
         ]:
             with self.subTest(key=key), self.assertRaises(HarnessError):
                 surface_observation({**self.row, key: value})
