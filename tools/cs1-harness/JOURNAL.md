@@ -2944,3 +2944,62 @@ independent visual acceptance. Twenty-one of 28 exports collected; seven remain,
 plus two preserved missing captures. No holdout score, model/probe/writer/gate
 change, cutoff promotion or release claim. Evidence excludes proprietary
 binaries, decompiled code, saves and raw account logs.
+
+## 2026-11-21 UTC — PL-1072 final two lakes and first two coasts
+
+Blade RTX 2080 Ti, bus 05:00.0, clean pinned runtime `6949182`. Four fresh
+attempts in frozen order, respecting FIFO with PL-1078 and PL-1142 between
+squares. Every card peak was 10821 MiB and pre-launch baseline 8004 MiB, giving
+an estimated increment of 2817 MiB. Recorded power caps were 200 W, unchanged;
+no other workload was modified. Wall seconds below cover the simulation soak,
+not queue/startup. Peaks span the recorded whole-card session samples.
+
+| Frozen square | GPU samples | Menu MiB | Peak W | Peak °C | Soak wall s | Game min | Native water result |
+|---|---:|---:|---:|---:|---:|---:|---|
+| Lake shore, Asia | 261 | 1574 | 142.96 | 58 | 1073.449007 | 60.050836 | flood .0000 km² pass; required end/all-sample 381/381 pass |
+| Lake shore, Oceania | 235 | 1574 | 137.96 | 53 | 951.184320 | 60.018892 | flood .0394 km² pass; required end/all-sample 200/200 pass |
+| Low coast, North America | 237 | 1574 | 140.87 | 58 | 964.570716 | 60.097781 | flood .0079 km² pass; required gates skipped, no required cohort |
+| Low coast, South America | 257 | 1592 | 136.99 | 57 | 1060.026745 | 60.122503 | flood .0000 km² pass; required end/all-sample 135/230 fail |
+
+The VRAM increment is baseline subtraction, **not a directly sampled game
+peak**; no causal memory/power comparison is claimed. Required throughout
+counts cover all 13 sampled epochs, not every frame. North America's null/skipped
+required checks are not 0/0 passes or evidence of required-water availability.
+The unchanged gates remain 95% required retention and .05 km² sampled flooding.
+
+Initialized/exact-dry/isolated-dry endpoint counts: Asia 1839/294/11, Oceania
+1411/461/230, North America 57562/485/424, South America 24950/1235/1134. No
+nearby endpoint readings are unknown. Dried/newly-wet grid areas at .1 m are
+.60/.02, .63/.40, 1.80/.00 and 2.17/.01 km². These are raw observations, not
+interim labels or the separate deeper/masked flood measurement.
+
+North America's original no-terracing metric .4477 fails .08; as-is DEM
+correlation .5265 fails .9, and the highest DEM landmark reconstructs 32.6 m low.
+These failures are retained in the original verdict and curated evidence.
+Exact native input/source bindings match; no gate, terrain or probe was changed.
+
+All 280 staged files, 21 writer files and twenty-five native package/grid/probe/
+mask/reference/harness binding sets revalidate. Every original report/verdict
+hash matches the ledger. All twenty-five sessions retain pinned mod SHA
+`6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd`.
+Fresh carbon and continuous read-only offline guards passed; additional carbon
+spot checks found no Steam game at check time. Every owned cleanup is empty.
+All 1,120 recorded session/waiter PID numbers are absent; the earlier unrelated
+kernel-worker reuse has also ended. New CLI/waiters 1092294, 1225745, 1450166
+and 1537787 are absent. Collector exec 84522 exited zero and was collected.
+Games 1139962, 1358002, 1464708 and 1554056 needed normal quit-grace termination,
+not spontaneous-crash recovery. No owned child remains active.
+
+All twelve actual opening/Areas/t060 PNGs were inspected. Separate producer
+startup-view sidecars pass without rewriting original overall failures. Asia's
+dim views show angular terrain/rail-support features; Oceania's opening shows a
+road-deck gap. North America's final start looks wet/submerged despite the
+passing frozen flood gate; South America's final view poorly frames the road.
+These are retained image/state observations, not dry-start, geometry-quality,
+water-safety, human or independent acceptance. The CPU summary helper now
+preserves null/skipped checks; frozen outcome/native code is unchanged.
+
+Twenty-five of 28 exports collected; three low coasts remain, plus two original
+capture failures. No interim/full holdout score, model/probe/writer/gate change,
+cutoff promotion or release claim. Evidence excludes proprietary binaries,
+decompiled code, saves and raw account logs.

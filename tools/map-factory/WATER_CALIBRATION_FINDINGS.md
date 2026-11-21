@@ -1,6 +1,6 @@
 # Water-calibration findings: no demonstrated safe-square class
 
-Latest collection: **21 of 28 exportable squares complete; 7 remain**, plus two
+Latest collection: **25 of 28 exportable squares complete; 3 remain**, plus two
 original capture failures. The full one-shot holdout score has not run.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
@@ -355,6 +355,72 @@ physical writer, models and native gates are unchanged. Drying remains
 always-warn, combined/deployed clearance is empty and the flood cutoffs have no
 contrasting case. Full scoring and the PL-912 recommendation remain pending;
 exporter release is still held.
+
+## Native collection: final two lakes and first two coasts
+
+The seventh tranche completed on November 21 UTC through unchanged, clean
+harness `6949182`. All four exceeded 60 game minutes, with FIFO handoffs to
+PL-1078 and PL-1142. No square was repaired or complete water failure retried.
+
+| Frozen square | Game minutes | Worst sampled flood, km² | Flood gate | Required wet at end | Required wet at all 13 samples |
+|---|---:|---:|---|---|---|
+| Lake shore, Asia | 60.050836 | 0.0000 | pass | 381/381, pass | 381/381, pass |
+| Lake shore, Oceania | 60.018892 | 0.0394 | pass | 200/200, pass | 200/200, pass |
+| Low coast, North America | 60.097781 | 0.0079 | pass | skipped: no required cohort | skipped: no required cohort |
+| Low coast, South America | 60.122503 | 0.0000 | pass | 135/230, fail | 135/230, fail |
+
+The unchanged flood limit is 0.05 km²; required-water retention is 95%.
+North America's null/skipped required-water checks are not 0/0 passes or safe
+negatives. South America's endpoint and all-sample losses remain failures.
+These are sampled measurements, not every-frame guarantees or interim labels.
+
+| Square | Initialized wet monitored points | Exactly dry at end | No wet native neighbor within 64 m at end | Grid area dried / newly wet, km² |
+|---|---:|---:|---:|---:|
+| Asian lake shore | 1839 | 294 | 11 | 0.60 / 0.02 |
+| Oceanian lake shore | 1411 | 461 | 230 | 0.63 / 0.40 |
+| North American low coast | 57562 | 485 | 424 | 1.80 / 0.00 |
+| South American low coast | 24950 | 1235 | 1134 | 2.17 / 0.01 |
+
+No nearby endpoint readings are unknown. Grid deltas use the separate 0.1 m
+threshold. They and the image appearance do not replace the deeper/masked flood
+gate or the full frozen drying outcome. No subset score was computed.
+
+North America's original verdict also fails terracing (metric 0.4477 versus
+0.08) and terrain ground truth (as-is correlation 0.5265 versus 0.9; highest DEM
+landmark reconstructs 32.6 m low). The original values and failures are retained
+in curated evidence. Exact package/input/probe/reference/source bindings match;
+no quality gate was waived or square relabelled to repair the result.
+
+All twelve actual opening/Areas/t060 PNGs were inspected. Separate hash-bound
+producer startup-view reviews pass without rewriting original overall failures:
+both lakes fail solely for startup-unreviewed, North America also for terracing
+and ground truth, South America also for both required-water gates. Asia's views
+are dim/hazy with angular terrain/rail-support features; Oceania's opening has
+a road-deck gap. North America's final start area looks wet/submerged despite
+the passing frozen flood gate; this is not dry-start acceptance or an override
+of that gate. South America's final overview poorly frames the road. All are
+retained without repair, geometry-quality, water-safety, human or independent
+acceptance. A producer image/state review is not a playability pass.
+
+All 280 staged files, 21 writer files and twenty-five completed native binding
+sets revalidate. Original report/verdict hashes match the collection ledger;
+all twenty-five sessions retain the pinned mod hash. Fresh carbon/read-only
+offline guards passed and owned cleanup is empty. All 1,120 recorded session/
+waiter PID numbers are now absent, including the formerly reused kernel-worker
+number. Collector session 84522 exited zero and its final result was collected.
+All four games needed normal quit-grace termination, not spontaneous-crash
+recovery. No native lifecycle guard changed.
+
+The CPU-only display helper now retains null/skipped water checks instead of
+crashing on them; the unchanged frozen outcome function already handles nulls.
+The curator retains non-water failures and persists verified delivery ZIPs under
+the experiment output. Neither change alters native observations or labels.
+
+Only the European, Asian and Oceanian low coasts remain, plus both original
+capture failures. Frozen inputs, physical writer, models and native gates are
+unchanged. Drying remains always-warn; combined/deployed clearance is empty and
+the flood cutoffs have no contrasting case. Full one-shot scoring and the
+PL-912 recommendation remain pending; exporter release stays held.
 
 ## Remaining work and release hold
 
