@@ -1,0 +1,10 @@
+{
+  "evidence_sha256": "7f1c0f3317887783ccb0b684a1d5fe3aaeb3267fb84c3bc7f2040a1f81e116ba",
+  "water_support_sha256": "8582aebf15decdc63737a4ae83e048133eabfeaf3a2ca8d62b93fed29ab36b13",
+  "rows": 619,
+  "raw_files_verified": 98,
+  "native_attempts": 10,
+  "selected_squares_attempted": 9,
+  "native_completed": 9,
+  "scope": "Data integrity and deterministic raster reproduction, not independent game reruns or geographic/service acceptance."
+}

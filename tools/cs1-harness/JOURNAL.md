@@ -2891,3 +2891,59 @@ packages. Therefore neither the Amherst baseline nor aborted Boston attempt
 qualifies the final PL-1074 heads. Fresh four-case native gates remain required.
 The final four source-derived packages are diagnostic-only: all retain the
 landed water-risk warnings; no public export/install or risk waiver is claimed.
+
+## 2026-11-20 — PL-1121 outside-connection oracle (blade, completed)
+
+The fixed cohort is the five unchanged fixtures, every other preset sorted by
+slug, and central Boston. Eight archived CRPs reproduced byte-for-byte at
+`0986cf1`; Boston uses a fresh immutable capture with runway capture enabled.
+All water-risk screens remain unchanged. Study rows, source versions, hashes,
+and raw observations are in `tools/map-factory/capability-evidence/outside-v1`.
+
+Native calls use the RTX 2080 Ti at `05:00.0`. The figures below are sampled
+peaks: device memory, power, and temperature every 5 s; game-process memory
+separately every 2 s while this collector owns the slot. Wall time excludes
+queue waiting. No GPU power setting was changed.
+
+| Package | Device/game VRAM MiB | Peak W | Peak °C | Wall s | Result |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Asheville, attempt 1 | 9579 / 1574 | 82.78 | 40 | 676.2 | Steam startup transport error 0x3000; original 600 s menu deadline expired; no package opened; unknown, not a map rejection |
+| Innsbruck, attempt 1 | 10821 / 2815 | 120.79 | 48 | 181.4 | Native panel and path calls completed; 4 car, 1 train, and 2 aircraft requests succeeded; all failed lane-position requests retained |
+| Rio, attempt 1 | 10821 / 2815 | 127.05 | 51 | 180.0 | Native ship and aircraft paths passed in both directions at boundary and midpoint positions; selected rail requests failed at both positions |
+
+| Pittsburgh, attempt 1 | 10821 / 2815 | 116.86 | 52 | 182.3 | Named car/train witnesses; generic pairs failed; aircraft witnesses |
+| Charleston, attempt 1 | 10821 / 2815 | 122.35 | 49 | 178.5 | Car, ship, and aircraft witnesses; one rail endpoint is not a route |
+| Grand Canyon, attempt 1 | 10821 / 2815 | 83.76 | 43 | 153.0 | Opening completed; no paired requests; traversal unknown |
+| Hong Kong, attempt 1 | 10821 / 2815 | 118.86 | 49 | 163.6 | Ship witnesses; selected car/train probes failed |
+| Yosemite, attempt 1 | 10821 / 2815 | 89.02 | 44 | 150.0 | Opening completed; no paired requests; traversal unknown |
+| Boston, attempt 1 | 10821 / 2815 | 126.55 | 53 | 183.1 | Named car/train, ship, and aircraft witnesses; generic car/train pairs failed |
+| Asheville, attempt 2 | 10821 / 2815 | 122.06 | 50 | 174.0 | Clean opening and car/train/aircraft witnesses; no generated ship route |
+
+All ten sessions reported empty game, Steam-instance, and transient-unit cleanup.
+The failed startup's renderer and mod-listening lines are retained separately
+from account and DLC log content. Its owned Steam unit was restarted after
+fresh offline and carbon-idle checks; no account or Cloud-conflict prompt was
+answered. The next queued owner subsequently produced native simulation samples.
+
+Innsbruck's named car/train paths passed while generic exact-boundary requests
+failed. The collector now also tests offset-128 controls on identical segments,
+lanes, and directions. Both protocols and their source hashes are retained;
+this change precedes Boston's native result. It changes probes, not maps.
+
+`path_start` supports car, train, ship, and plane vehicle types. Existing `rail`
+callers remain supported. Actual terminal service, strict no-mods behavior,
+continuous ship clearance, and sustained water safety are not established.
+
+Rio's 498 ship-route opening samples were wet, with minimum sampled depth
+9.203125 m. This is point coverage at opening, not continuous curve clearance
+or sustained water acceptance. Midpoint controls did not resolve Rio's selected
+rail-pair failures. No geometry or package was repaired to improve a result.
+
+The final study contains 619 rows and 98 hash-verified raw files. Nine selected
+packages completed native observations across ten retained attempts. Ship paths
+passed both directions and both tested positions on Rio, Charleston, Hong Kong,
+and held-out Boston. The 6 m authored-raster test found two-edge witnesses on
+those four squares only; that exporter choice is not a native fitted limit.
+No aggregate accuracy or geographic impossibility is inferred. Local harness
+159 tests, root 17 tests, qualification/eligibility 13 tests, study 2 tests,
+C# build, ordinary build, doctor, and final raw-data verifier passed.

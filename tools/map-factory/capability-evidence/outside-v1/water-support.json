@@ -1,0 +1,430 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "slug": "asheville",
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/asheville/water.u16",
+      "water_sha256": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+      "raw_evidence": {
+        "path": "raw/asheville/prepared-water.u16.gz",
+        "sha256": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 4.703125,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 0.25,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "innsbruck",
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/innsbruck/water.u16",
+      "water_sha256": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375",
+      "raw_evidence": {
+        "path": "raw/innsbruck/prepared-water.u16.gz",
+        "sha256": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 2.234375,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 0.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "rio",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/rio/water.u16",
+      "water_sha256": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540",
+      "raw_evidence": {
+        "path": "raw/rio/prepared-water.u16.gz",
+        "sha256": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "west"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "west"
+            ],
+            [
+              "north",
+              "east"
+            ],
+            [
+              "west",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 20.546875,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "west"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "west"
+            ],
+            [
+              "north",
+              "east"
+            ],
+            [
+              "west",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 20.546875,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "pittsburgh",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/pittsburgh/water.u16",
+      "water_sha256": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0",
+      "raw_evidence": {
+        "path": "raw/pittsburgh/prepared-water.u16.gz",
+        "sha256": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 3.15625,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 0.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "charleston",
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/charleston/water.u16",
+      "water_sha256": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+      "raw_evidence": {
+        "path": "raw/charleston/prepared-water.u16.gz",
+        "sha256": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "west"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "west"
+            ],
+            [
+              "north",
+              "east"
+            ],
+            [
+              "west",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 10.859375,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "west"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "west"
+            ],
+            [
+              "north",
+              "east"
+            ],
+            [
+              "west",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 10.6875,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "grand-canyon",
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/grand-canyon/water.u16",
+      "water_sha256": "6bca756264c0ec275f82b711fae839b942778a0f5ec8ec0d15c649c9bda01b97",
+      "raw_evidence": {
+        "path": "raw/grand-canyon/prepared-water.u16.gz",
+        "sha256": "6bca756264c0ec275f82b711fae839b942778a0f5ec8ec0d15c649c9bda01b97",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 0.25,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 0.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "hong-kong",
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/water.u16",
+      "water_sha256": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29",
+      "raw_evidence": {
+        "path": "raw/hong-kong/prepared-water.u16.gz",
+        "sha256": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "west"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "west"
+            ],
+            [
+              "north",
+              "east"
+            ],
+            [
+              "west",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 10.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "west"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "west"
+            ],
+            [
+              "north",
+              "east"
+            ],
+            [
+              "west",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 10.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "yosemite",
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "water_path": "/mango/training/experiments/PL-1066-eligibility/maps/yosemite/water.u16",
+      "water_sha256": "fe1f0c8d145fba8e6fc92e987f06d61a4df2a95dd51853dd2d4fab6f187e701b",
+      "raw_evidence": {
+        "path": "raw/yosemite/prepared-water.u16.gz",
+        "sha256": "fe1f0c8d145fba8e6fc92e987f06d61a4df2a95dd51853dd2d4fab6f187e701b",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 1.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [],
+          "maximum_bottleneck_depth_m": 0.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    },
+    {
+      "slug": "boston",
+      "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+      "water_path": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/water.u16",
+      "water_sha256": "e64f85c0ce0be3577763bd47a5029ba99664006bcd7c9fb2a05e8682e111b6fd",
+      "raw_evidence": {
+        "path": "raw/boston/prepared-water.u16.gz",
+        "sha256": "e64f85c0ce0be3577763bd47a5029ba99664006bcd7c9fb2a05e8682e111b6fd",
+        "encoding": "gzip"
+      },
+      "native_order": "south-first",
+      "depth_unit_m": 0.015625,
+      "rasters": [
+        {
+          "cell_spacing_m": 16,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 10.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        },
+        {
+          "cell_spacing_m": 64,
+          "deep_6m_edge_pairs": [
+            [
+              "south",
+              "north"
+            ],
+            [
+              "south",
+              "east"
+            ],
+            [
+              "north",
+              "east"
+            ]
+          ],
+          "maximum_bottleneck_depth_m": 10.0,
+          "meaning": "Largest positive depth threshold with an 8-connected raster component touching two distinct edges, each 320m away from corners. Zero means none at any positive encoded depth."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "6m is the existing exporter choice, not a fitted native minimum.",
+    "A raster witness is not continuous curve clearance, a shore/terminal approach, or sustained water support.",
+    "No raster witness rules out only this raster/depth/edge-pair criterion, not every possible ship connection or a changed hydrology plan.",
+    "Eight-neighbor steps may cut a diagonal corner; this is not a ship-width or turning-radius test."
+  ]
+}
