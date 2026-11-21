@@ -25,6 +25,12 @@ for (const f of PAGE) {
 }
 const ledger = JSON.parse(readFileSync("capabilities.json", "utf8"));
 validateLedger(ledger);
+// Serve the exact staged/active receipt bytes alongside the single ledger.
+for (const certificate of [...(ledger.native_path_certificates ?? []), ...(ledger.evidence_studies?.["outside-targeted-v2"]?.qualification_candidates ?? [])]) {
+  const file = certificate.runtime_identity_evidence.file;
+  mkdirSync(dirname(`dist/${file}`), { recursive: true });
+  copyFileSync(file, `dist/${file}`);
+}
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
 // the map writer the worker runs (tools/map-factory), byte for byte
 for (const f of FACTORY_FILES) {

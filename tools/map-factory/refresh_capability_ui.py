@@ -18,6 +18,11 @@ ADDITIONS = [
     "capability-ui.js",
     "tools/map-factory/capabilities.py",
     "tools/map-factory/integrate_outside_evidence.py",
+    "tools/map-factory/integrate_outside_v2.py",
+    "tools/map-factory/capability-evidence/runtime-identities/25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0.json",
+    "tools/map-factory/capability-evidence/runtime-identities/3499552b48486b2822a80e5ab101af8ad0e1cd70c4512f606c5299d7fe65eb00.json",
+    "tools/map-factory/capability-evidence/runtime-identities/b844c6cd44dd32189294b52f03b40fd2e7eb4e8a0e6b51374d3ad29ea584e4c9.json",
+    "tools/map-factory/capability-evidence/runtime-identities/b8cc86a4540f96db8628d742afc534caa69679f7c29dac5764ee3c46a14a628d.json",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json",
 ]
 

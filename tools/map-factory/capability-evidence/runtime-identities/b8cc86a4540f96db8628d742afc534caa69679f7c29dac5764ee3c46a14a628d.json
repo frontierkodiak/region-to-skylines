@@ -1,0 +1,635 @@
+{
+  "schema": 1,
+  "scope": "sampled_native_lane_paths_at_opening",
+  "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+  "inputs_sha256": {
+    "terrain.u16": "54d5d480d85955ff3420c2cb079664e652f1c46bcec87120c8884808e017b013",
+    "water.u16": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29",
+    "hydrology.json": "ce0c44e636cb811d9cd48a22d493de6de408818728add1dad5f015d4084abdf2"
+  },
+  "native_context": {
+    "game_assemblies": {
+      "mscorlib.dll": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+      "System.dll": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+      "System.Core.dll": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+      "UnityEngine.dll": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+      "UnityEngine.UI.dll": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+      "ColossalManaged.dll": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+      "ICities.dll": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+      "Assembly-CSharp.dll": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+    },
+    "runtime_game_assemblies": {
+      "mscorlib.dll": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+      "System.dll": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+      "System.Core.dll": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+      "UnityEngine.dll": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+      "UnityEngine.UI.dll": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+      "ColossalManaged.dll": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+      "ICities.dll": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+      "Assembly-CSharp.dll": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+    },
+    "runtime_game_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+    "mod_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+    "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+    "collector_sources": {
+      "connections.py": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+      "runtime_identity.py": "609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f"
+    },
+    "build_receipt": {
+      "dll": "/home/caleb/dev/frontierkodiak/region-to-skylines/PL-1142-native-v2/tools/cs1-harness/.build/Cs1Harness.dll",
+      "dll_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+      "sources": {
+        "CheckOps.cs": "b05f18afd257f73a93625f61667e37ed407541fb4ebe3313a6eb603111258011",
+        "CityOps.cs": "0320e35b391cdc52ff664b6c50469d52c6d9fe02f2350a972fb668768f056a7c",
+        "CoreOps.cs": "ee16212b8d10fcce9cf2bd400856bbb30f374a12474c7fe19a84758850ccd826",
+        "DumpOps.cs": "02ac58f3c16150b2158fb380351cd273620fcf9e5d6dd7534676a9a7c695fcf9",
+        "EditorOps.cs": "8d2f030a69a2eed15247a7c42ab00557b4d902cd8ee65c05fc705f094b35f536",
+        "Harness.cs": "abaf8e32ee4432734688cf44b4f6121f1be288d2a24631e7002d5141b0a6b766",
+        "Jobs.cs": "02285b8d553d9857feb1b4e400e78b11ea4ff2c299b80bbbd98c8a9002cbf113",
+        "Json.cs": "3f05ed8308976e26de590d83e36a3660a3c8ac1105fd3f9b5167cd1018381884",
+        "NetworkOps.cs": "d644218e8969f40737ce08367a3a3e4c9adb6a550ba145fb3bf220ffa5f23813",
+        "PanelOps.cs": "724a2bc21faa0bd18aedc3a97279483adf32c9391e1fa3d2c1866c6aba50e9f3",
+        "Readback.cs": "c8793d06360f01b32accd6ffd0c2f9b9834e3bfcb24f5de47b7c1b07c7d1471e",
+        "ScenarioOps.cs": "0bea0d39df13fd4f906f0e7cd8d2db022173c09e2819e8bb2b1cda57fca10cf1",
+        "TemplateOps.cs": "b8abeb4f5904d21dd029a81c98227f0ecc0c0b7c498961092f36f1d162a03f3f",
+        "TraceIL.cs": "1d75c1f5f6518ea6584346cbdade3aee69f76d2983a43c6524ec7b079f1cb6ef",
+        "TraceOps.cs": "fabb166d9a4a306a8e843f657f553bf8fb03f20f37793a6b2b590d3a170f96ba",
+        "TraceRecorder.cs": "42f879f776b91c675eefb2fa227314908515ba46d9ee4851df12802a3beb2fa4",
+        "WorldOps.cs": "6a35766794c9252c5672d15955d3c5e616b36fc38b243f41effb59ed61d06da6"
+      },
+      "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+      "game_assemblies": {
+        "mscorlib.dll": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f",
+        "System.dll": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec",
+        "System.Core.dll": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398",
+        "UnityEngine.dll": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d",
+        "UnityEngine.UI.dll": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df",
+        "ColossalManaged.dll": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9",
+        "ICities.dll": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90",
+        "Assembly-CSharp.dll": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+      },
+      "trace": null
+    },
+    "launch_runtime_identity": {
+      "observed_at": "2026-11-21T05:43:36.370958+00:00",
+      "host_pid": 2574299,
+      "namespace_pid": 957,
+      "process_start_ticks": "133232471",
+      "executable": {
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca"
+      },
+      "command_line": [
+        "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "-screen-width",
+        "1920",
+        "-screen-height",
+        "1080",
+        "-screen-fullscreen",
+        "1",
+        "--noWorkshop",
+        "-logFile",
+        "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/hong-kong-1788542/game.log",
+        ""
+      ],
+      "assemblies": [
+        {
+          "name": "Cs1Harness",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness/Cs1Harness.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "cf1052f9-3ae9-41b6-9230-9553a430ea40",
+          "sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7"
+        },
+        {
+          "name": "CitiesBridge",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge/CitiesBridge.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "5185ad4e-7e03-41bf-9e4e-67820e778c05",
+          "sha256": "02c27404df6afe8cf31c74ca5f1962b22bae4cdabf6f7b596cf597b4c52a6683"
+        },
+        {
+          "name": "UnlockAll",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll/UnlockAll.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "e629942e-a063-4292-b233-2911e326d70b",
+          "sha256": "c0baf3d040e695bd0b10e1b088dd45a2d3eb7e9e2d2f92fcae4bf85471eef4ce"
+        },
+        {
+          "name": "UnlimitedSoil",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil/UnlimitedSoil.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "b03f610f-ee01-4732-b3be-b005cdd35ef7",
+          "sha256": "e79d4059049fc0b4dcd33c2e152bf64b0e9478bbc8132208ac4dfa1cad790691"
+        },
+        {
+          "name": "UnlimitedOilAndOre",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre/UnlimitedOilAndOre.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "ae561466-1421-4139-a51b-2f487b908266",
+          "sha256": "51f6c70f43350556a39a4c0e11fbba1c448fac697760b79a5e260cfc58fb97e9"
+        },
+        {
+          "name": "UnlimitedMoney2",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney/UnlimitedMoney.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "5e982c3b-5e7e-4d4d-95c6-5ab5d35679c0",
+          "sha256": "4b78c666a85b352adbe542150c4031775d8d39cb7a591dd335ca2f210fbbe117"
+        },
+        {
+          "name": "HardMode0",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode/HardMode.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "c9107a63-c4e3-4426-9743-a77a5d5f86e2",
+          "sha256": "f2a220ae1f7e6303a0ea3b17369da3379b2e72933defb62ee126cb70ff967424"
+        },
+        {
+          "name": "System.Xml",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.Xml.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "437db0cd-d183-46ab-bf14-f32adbef6ddc",
+          "sha256": "03d7c5bf3f27841084e80545b5f41ffe9405f66facdee6d8e2ec41536a93720a"
+        },
+        {
+          "name": "System.Configuration",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.Configuration.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "70a0a3e4-e028-4b2a-80da-61b562116ae0",
+          "sha256": "d45b7328fcdc60c20e64815fa8d6f97d43ff0a9057ad886523f8dddf73ccc679"
+        },
+        {
+          "name": "Mono.Security",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Mono.Security.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "1d9ffbea-430d-4e4d-b032-a66b3982381b",
+          "sha256": "236f9b46e2463089e37a88872d71fcdfc2aadf312c281962eed813bbbd88db37"
+        },
+        {
+          "name": "System",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "bf97ac0e-2fa3-4ad1-83ed-08c0c84d4e2f",
+          "sha256": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec"
+        },
+        {
+          "name": "System.Core",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.Core.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "5a5249d3-7c9c-43ef-b9ba-a266d18ebe82",
+          "sha256": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398"
+        },
+        {
+          "name": "EOSSDK",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/EOSSDK.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "e0f3f9bb-ddbe-4730-9b4d-4ccc53432a83",
+          "sha256": "3c1c3e654c3b55cb5dcbee24b8efd2e69a6638eb89e4c4e0c7e9bff962b6e9f6"
+        },
+        {
+          "name": "PopsApiWrapper",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/PopsApiWrapper.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "f42fe592-c531-4bde-ab11-9ab4df88cd7c",
+          "sha256": "0fa513a182484f5eb0c7a777c472b2455714dc5154012fca84d27172786b8643"
+        },
+        {
+          "name": "ICities",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/ICities.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "875f438c-9ca5-412e-87c6-2c419391ab50",
+          "sha256": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90"
+        },
+        {
+          "name": "ICSharpCode.SharpZipLib",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/ICSharpCode.SharpZipLib.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "d9fb63b0-8900-49ca-b50c-005f7ecc1adc",
+          "sha256": "085b581aa2c11311cb4f78f1786d408fd600e4235b1ba03ad253686153b363a7"
+        },
+        {
+          "name": "ColossalManaged",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/ColossalManaged.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "9ba4048a-69aa-454a-abc4-c1c47e9b3e86",
+          "sha256": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9"
+        },
+        {
+          "name": "UnityEngine.Networking",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/UnityEngine.Networking.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "2764c8dc-d0bf-4edb-ab9a-3223f7914916",
+          "sha256": "40d978b09d93a97693a747ef8c92a075b682b80a681cbf3ce06ed4d9d3ddc18c"
+        },
+        {
+          "name": "UnityEngine.UI",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/UnityEngine.UI.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "06ea306e-b256-48ac-935a-8744469e5ce8",
+          "sha256": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df"
+        },
+        {
+          "name": "Assembly-CSharp",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Assembly-CSharp.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "dfdbd2a3-d411-405b-b161-0caa98a9bdb2",
+          "sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+        },
+        {
+          "name": "Assembly-CSharp-firstpass",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Assembly-CSharp-firstpass.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "bf72a8df-8ccf-4d35-9f0e-cabd1a3f241f",
+          "sha256": "82936d27dfc77585dceed008648e4b5f67247c2ed9d368d28c3cff0636c35bed"
+        },
+        {
+          "name": "UnityEngine",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/UnityEngine.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "01be0a3c-854c-4b6f-96dc-499088b2ee9b",
+          "sha256": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d"
+        },
+        {
+          "name": "mscorlib",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/mscorlib.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "4c71866c-3fc6-420d-b142-94ded840cd70",
+          "sha256": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f"
+        }
+      ],
+      "unresolved_loaded_assemblies": [],
+      "build_matches": true,
+      "launch_args": [
+        "-silent",
+        "-applaunch",
+        "255710",
+        "-screen-width",
+        "1920",
+        "-screen-height",
+        "1080",
+        "-screen-fullscreen",
+        "1",
+        "--noWorkshop",
+        "-logFile",
+        "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/hong-kong-1788542/game.log"
+      ],
+      "scope": "Loaded assembly file bytes at menu readiness, not an in-memory code attestation."
+    },
+    "opening_runtime_identity": {
+      "observed_at": "2026-11-21T05:44:17.537206+00:00",
+      "host_pid": 2574299,
+      "namespace_pid": 957,
+      "process_start_ticks": "133232471",
+      "executable": {
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca"
+      },
+      "command_line": [
+        "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+        "-screen-width",
+        "1920",
+        "-screen-height",
+        "1080",
+        "-screen-fullscreen",
+        "1",
+        "--noWorkshop",
+        "-logFile",
+        "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/hong-kong-1788542/game.log",
+        ""
+      ],
+      "assemblies": [
+        {
+          "name": "Cs1Harness",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness/Cs1Harness.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "cf1052f9-3ae9-41b6-9230-9553a430ea40",
+          "sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7"
+        },
+        {
+          "name": "CitiesBridge",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge/CitiesBridge.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "5185ad4e-7e03-41bf-9e4e-67820e778c05",
+          "sha256": "02c27404df6afe8cf31c74ca5f1962b22bae4cdabf6f7b596cf597b4c52a6683"
+        },
+        {
+          "name": "UnlockAll",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll/UnlockAll.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "e629942e-a063-4292-b233-2911e326d70b",
+          "sha256": "c0baf3d040e695bd0b10e1b088dd45a2d3eb7e9e2d2f92fcae4bf85471eef4ce"
+        },
+        {
+          "name": "UnlimitedSoil",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil/UnlimitedSoil.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "b03f610f-ee01-4732-b3be-b005cdd35ef7",
+          "sha256": "e79d4059049fc0b4dcd33c2e152bf64b0e9478bbc8132208ac4dfa1cad790691"
+        },
+        {
+          "name": "UnlimitedOilAndOre",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre/UnlimitedOilAndOre.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "ae561466-1421-4139-a51b-2f487b908266",
+          "sha256": "51f6c70f43350556a39a4c0e11fbba1c448fac697760b79a5e260cfc58fb97e9"
+        },
+        {
+          "name": "UnlimitedMoney2",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney/UnlimitedMoney.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "5e982c3b-5e7e-4d4d-95c6-5ab5d35679c0",
+          "sha256": "4b78c666a85b352adbe542150c4031775d8d39cb7a591dd335ca2f210fbbe117"
+        },
+        {
+          "name": "HardMode0",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode/HardMode.dll",
+          "binding": "native_plugin_owner_and_matching_loaded_module_mvid",
+          "loaded_module_mvid": "c9107a63-c4e3-4426-9743-a77a5d5f86e2",
+          "sha256": "f2a220ae1f7e6303a0ea3b17369da3379b2e72933defb62ee126cb70ff967424"
+        },
+        {
+          "name": "System.Xml",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.Xml.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "437db0cd-d183-46ab-bf14-f32adbef6ddc",
+          "sha256": "03d7c5bf3f27841084e80545b5f41ffe9405f66facdee6d8e2ec41536a93720a"
+        },
+        {
+          "name": "System.Configuration",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.Configuration.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "70a0a3e4-e028-4b2a-80da-61b562116ae0",
+          "sha256": "d45b7328fcdc60c20e64815fa8d6f97d43ff0a9057ad886523f8dddf73ccc679"
+        },
+        {
+          "name": "Mono.Security",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Mono.Security.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "1d9ffbea-430d-4e4d-b032-a66b3982381b",
+          "sha256": "236f9b46e2463089e37a88872d71fcdfc2aadf312c281962eed813bbbd88db37"
+        },
+        {
+          "name": "System",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "bf97ac0e-2fa3-4ad1-83ed-08c0c84d4e2f",
+          "sha256": "0c085a45cd9704019cfbd14f797eada2ba5027398b40e4b144b9b6660c36b7ec"
+        },
+        {
+          "name": "System.Core",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/System.Core.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "5a5249d3-7c9c-43ef-b9ba-a266d18ebe82",
+          "sha256": "bee0286ae2fd663a44ace8c89380dd7d3d41c8a40a4f782eff3c4b4bd36ca398"
+        },
+        {
+          "name": "EOSSDK",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/EOSSDK.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "e0f3f9bb-ddbe-4730-9b4d-4ccc53432a83",
+          "sha256": "3c1c3e654c3b55cb5dcbee24b8efd2e69a6638eb89e4c4e0c7e9bff962b6e9f6"
+        },
+        {
+          "name": "PopsApiWrapper",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/PopsApiWrapper.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "f42fe592-c531-4bde-ab11-9ab4df88cd7c",
+          "sha256": "0fa513a182484f5eb0c7a777c472b2455714dc5154012fca84d27172786b8643"
+        },
+        {
+          "name": "ICities",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/ICities.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "875f438c-9ca5-412e-87c6-2c419391ab50",
+          "sha256": "466586adb50dcc2e1382d9f7683fa50feba82a376d736fb65f1c34a53d0b9c90"
+        },
+        {
+          "name": "ICSharpCode.SharpZipLib",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/ICSharpCode.SharpZipLib.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "d9fb63b0-8900-49ca-b50c-005f7ecc1adc",
+          "sha256": "085b581aa2c11311cb4f78f1786d408fd600e4235b1ba03ad253686153b363a7"
+        },
+        {
+          "name": "ColossalManaged",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/ColossalManaged.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "9ba4048a-69aa-454a-abc4-c1c47e9b3e86",
+          "sha256": "34701f61def31f5f9df79d573ce19e0bc52575879bcc395d51b39f6d746a58b9"
+        },
+        {
+          "name": "UnityEngine.Networking",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/UnityEngine.Networking.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "2764c8dc-d0bf-4edb-ab9a-3223f7914916",
+          "sha256": "40d978b09d93a97693a747ef8c92a075b682b80a681cbf3ce06ed4d9d3ddc18c"
+        },
+        {
+          "name": "UnityEngine.UI",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/UnityEngine.UI.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "06ea306e-b256-48ac-935a-8744469e5ce8",
+          "sha256": "7d8093c850bd6d034796770c01489e00ab610bf95ad73484df605d89c53a15df"
+        },
+        {
+          "name": "Assembly-CSharp",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Assembly-CSharp.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "dfdbd2a3-d411-405b-b161-0caa98a9bdb2",
+          "sha256": "c7f0e723dfe867d10aef73f14268bcf9f5ea4bab1c5ce4987897ed27f46511a1"
+        },
+        {
+          "name": "Assembly-CSharp-firstpass",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/Assembly-CSharp-firstpass.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "bf72a8df-8ccf-4d35-9f0e-cabd1a3f241f",
+          "sha256": "82936d27dfc77585dceed008648e4b5f67247c2ed9d368d28c3cff0636c35bed"
+        },
+        {
+          "name": "UnityEngine",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/UnityEngine.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "01be0a3c-854c-4b6f-96dc-499088b2ee9b",
+          "sha256": "8bc1e80ec39ae7d2a49620ab337c3fbbbbc6f4b6026f3a2a5271736bbc57621d"
+        },
+        {
+          "name": "mscorlib",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities_Data/Managed/mscorlib.dll",
+          "binding": "loaded_assembly_location",
+          "loaded_module_mvid": "4c71866c-3fc6-420d-b142-94ded840cd70",
+          "sha256": "57e3a820a75c409fa1965a550d8f0d74eb4e1364d98afd0424a7f617c7b4487f"
+        }
+      ],
+      "unresolved_loaded_assemblies": [],
+      "build_matches": true,
+      "launch_args": [
+        "-silent",
+        "-applaunch",
+        "255710",
+        "-screen-width",
+        "1920",
+        "-screen-height",
+        "1080",
+        "-screen-fullscreen",
+        "1",
+        "--noWorkshop",
+        "-logFile",
+        "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/hong-kong-1788542/game.log"
+      ],
+      "scope": "Loaded assembly file bytes at menu readiness, not an in-memory code attestation."
+    },
+    "menu_plugins": [
+      {
+        "name": "HardMode",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+      },
+      {
+        "name": "UnlimitedMoney",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+      },
+      {
+        "name": "UnlimitedOilAndOre",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+      },
+      {
+        "name": "UnlimitedSoil",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+      },
+      {
+        "name": "UnlockAll",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+      },
+      {
+        "name": "CitiesBridge",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+      },
+      {
+        "name": "Cs1Harness",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+      }
+    ],
+    "opening_plugins": [
+      {
+        "name": "HardMode",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+      },
+      {
+        "name": "UnlimitedMoney",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+      },
+      {
+        "name": "UnlimitedOilAndOre",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+      },
+      {
+        "name": "UnlimitedSoil",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+      },
+      {
+        "name": "UnlockAll",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+      },
+      {
+        "name": "CitiesBridge",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+      },
+      {
+        "name": "Cs1Harness",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+      }
+    ],
+    "opening_errors": [
+      "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+      "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+    ],
+    "opening_error_count": 3,
+    "dynamic_assembly_scope": "CoreOps.RuntimeIdentity excludes AssemblyBuilder dynamic assemblies; this inventory covers resolved loaded files only.",
+    "menu_enabled_mod_count": 0,
+    "opening_enabled_mod_count": 0,
+    "actual_native_context": {
+      "observed_at": "2026-11-21T05:44:16.900517+00:00",
+      "update_mode": "NewGameFromMap",
+      "invert_traffic": "False",
+      "frame": 202252,
+      "no_workshop": true,
+      "mods_enabled": true
+    },
+    "new_game_protocol": {
+      "loading": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-hong-kong.crp",
+      "map_name": "Hong Kong - Ready to Play",
+      "published": true,
+      "update_mode": "NewGameFromMap",
+      "invert_traffic": "False",
+      "ok": true
+    },
+    "installed_map": {
+      "source": "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/PL857-hong-kong.crp",
+      "installed": "/home/caleb/.var/app/com.valvesoftware.Steam/.local/share/Colossal Order/Cities_Skylines/Maps/PL857-hong-kong.crp",
+      "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+    },
+    "listed_map": {
+      "name": "PL848-Asheville-final-template",
+      "package": "PL857-hong-kong",
+      "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-hong-kong.crp",
+      "map_name": "Hong Kong - Ready to Play",
+      "published": true
+    },
+    "package_binding": "Retained hash-bound collector selects the listed map with Path.samefile(installed), then opens that exact listed path; host/Flatpak aliases need not be textually equal.",
+    "cleanup": {
+      "game": [],
+      "steam_instances": [],
+      "units_active": []
+    },
+    "protocol": {
+      "entry": "NewGameFromMap",
+      "no_workshop": true,
+      "strict_disable_mods": false,
+      "inverted_traffic": false
+    },
+    "identity_limits": "Full resolved loaded-file inventory, not in-memory code attestation or strict no-mods."
+  },
+  "observation_sha256": "1a49dce9e098f78c05ef6b42a0c7531435ec8ccc4cd9fb5c48e519172ba26c8a",
+  "observed_at": "2026-11-21T05:47:02.180576+00:00",
+  "observation_started_at": "2026-11-21T05:42:09.405328+00:00",
+  "source_commit": "29b095475ba2f93c7e918fefc08c736493670304",
+  "evidence": [
+    {
+      "url": "https://github.com/frontierkodiak/region-to-skylines/blob/29b095475ba2f93c7e918fefc08c736493670304/tools/map-factory/capability-evidence/outside-v1/raw/hong-kong/native-v2-5/observation.json.gz",
+      "sha256": "1a49dce9e098f78c05ef6b42a0c7531435ec8ccc4cd9fb5c48e519172ba26c8a",
+      "hash_of": "decompressed_bytes"
+    },
+    {
+      "url": "https://github.com/frontierkodiak/region-to-skylines/blob/29b095475ba2f93c7e918fefc08c736493670304/tools/map-factory/capability-evidence/outside-v1/raw/hong-kong/native-v2-5/networks.json.gz",
+      "sha256": "ab0be31b1bb9286efddb3e7afe22f3a64212771930b68962445a5d1d6dc7b760",
+      "hash_of": "decompressed_bytes"
+    }
+  ],
+  "limitations": "Targeted retrospective follow-up, not accuracy, negative fitting or a blind holdout. Only sampled native lane paths at opening, in this exact loaded-file and plugin context. File identity is not in-memory code attestation; the native collector excludes AssemblyBuilder dynamic assemblies. Three missing DLC-panel assembly errors at every opening are retained, not clean whole-game acceptance. enabled_mod_count=0 does not mean unloaded/no mods: CitiesBridge, the harness and built-ins are loaded. No air v2 controls, actual terminal service, strict no-mods, native depth/width fit, geographic negatives or sustained water. All nine water screens warn; failures and omitted pairs remain Unknown."
+}

@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "dafc14b1978a17c7f7e637ec6e5431a3acf9a7877bf4d824682ef3ab2469dc15"
+      "current_sha256": "59b6f52bec6564e6d4219a23ec43e05de872ad95f3e485aa19969754feccc603"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "98549204be60109cefbb2b63e5f788d7d51dd62e2cf59018e6b62b7e10722127"
+      "current_sha256": "017cc971d69e6ae639866825511ded2c6000a1ea1106cb74d78dc5561ba0182c"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -26,15 +26,20 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "03f25d4538bd2c6435e00a8aaf5d5c2a93fda685754e9f7bccdb615a6ff07c88",
+    "capabilities.json": "662aa446de63613f0bd75af464a6bdb0516cef05d9a5666a7224f38a86aa5b8d",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "b000938703729b0e1bb62f8d781d40737841ef4b18fbf4def0c5b08825f67700",
-    "capability-ledger.mjs": "ae09933ea788245064c091d04c9ac783c952c00bad83224023150fde0c7bafa9",
+    "capability-ledger.mjs": "4e3d94dbc24f80f4ffb445730a49eba76447670d5af6ef6daea8ee0c826ddaaa",
     "capability-model.js": "81327e3ebf686b29991f311d8fa9c11e97afd884235dea7d1b26d7d90ebb667d",
     "capability-ui.js": "7ea69f193eaf0ad7334c3bcb584d61761d80e4c5904202982de0c4e597303955",
     "tools/map-factory/capabilities.py": "8c6ab0a7acd7dabd64c8f82f10e21fdec29928bec1d545cbf90ddcfbdd4f9c66",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
+    "tools/map-factory/integrate_outside_v2.py": "239d3ea6e0f1e149446d6a32fbe9eb565c066db55ab25875f06ab9f9890cbd03",
+    "tools/map-factory/capability-evidence/runtime-identities/25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0.json": "25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0",
+    "tools/map-factory/capability-evidence/runtime-identities/3499552b48486b2822a80e5ab101af8ad0e1cd70c4512f606c5299d7fe65eb00.json": "3499552b48486b2822a80e5ab101af8ad0e1cd70c4512f606c5299d7fe65eb00",
+    "tools/map-factory/capability-evidence/runtime-identities/b844c6cd44dd32189294b52f03b40fd2e7eb4e8a0e6b51374d3ad29ea584e4c9.json": "b844c6cd44dd32189294b52f03b40fd2e7eb4e8a0e6b51374d3ad29ea584e4c9",
+    "tools/map-factory/capability-evidence/runtime-identities/b8cc86a4540f96db8628d742afc534caa69679f7c29dac5764ee3c46a14a628d.json": "b8cc86a4540f96db8628d742afc534caa69679f7c29dac5764ee3c46a14a628d",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
   }
 }

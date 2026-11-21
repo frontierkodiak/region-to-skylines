@@ -231,15 +231,15 @@ test("native verification needs exact package, inputs, explicit environment and 
 });
 
 test("native scoring retains failures and unknowns without substituting panels or player runs", () => {
-  const road = ledger.capabilities.find((c) => c.id === "road").game_agreement;
-  const ship = ledger.capabilities.find((c) => c.id === "ship").game_agreement;
+  const road = ledger.capabilities.find((c) => c.id === "road").game_agreement.filter((r) => r.study === "outside-v1");
+  const ship = ledger.capabilities.find((c) => c.id === "ship").game_agreement.filter((r) => r.study === "outside-v1");
   assert.ok(road.some((r) => r.oracle === "native_probe_boundary_selected_pair" && r.predicted === null && r.observed === false));
   assert.ok(road.some((r) => r.oracle === "native_attempt_error" && r.observed === null));
   assert.ok(road.filter((r) => ["native_panel", "native_path_archived_player", "native_path_fresh_named"].includes(r.oracle)).every((r) => r.predicted === null));
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === true).length, 4);
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === null).length, 5);
-  assert.equal(ledger.native_path_certificates.length, 0, "runtime launch identity remains unbound");
-  const primary = ledger.capabilities.flatMap((c) => c.game_agreement.filter((r) => r.oracle === "native_two_edge_witness"));
+  assert.equal(ledger.native_path_certificates.length, 0, "new candidates await independent review; v1 stays unbound");
+  const primary = ledger.capabilities.flatMap((c) => c.game_agreement.filter((r) => r.study === "outside-v1" && r.oracle === "native_two_edge_witness"));
   assert.equal(primary.filter((r) => r.observed === true).length, 11);
   assert.equal(primary.filter((r) => r.observed === null).length, 25);
   const stale = structuredClone(ledger);
