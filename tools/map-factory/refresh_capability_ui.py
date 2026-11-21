@@ -50,7 +50,7 @@ def refresh():
         }
     adoption = {
         "schema": 1,
-        "scope": "Capability UI and standalone checks only; no new native qualification or physical writer",
+        "scope": "Capability checks and four retained exact-context path certificates; physical writers and historical native qualification unchanged",
         "predecessor_active_sha256": sha(active_raw),
         "predecessor_contract_sha256": sha(current_raw),
         "archived_gates": gates,

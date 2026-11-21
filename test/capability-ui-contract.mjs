@@ -1,5 +1,5 @@
-// Explicit UI-only source evolution. The predecessor keeps its original bytes,
-// physical writers and native receipts; it is checked against archived UI bytes.
+// Nonphysical capability-source evolution. The predecessor retains its original
+// writer/native bytes; exact-context path certificates do not qualify that baseline.
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
@@ -9,7 +9,7 @@ const GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 export async function capabilityUISources({ read, readSource, activeBytes, currentBytes, current }) {
   const adoption = parse(await read("fixtures/contracts/pl1119-capability-ui-v1/adoption.json"));
   assert.equal(adoption.schema, 1);
-  assert.equal(adoption.scope, "Capability UI and standalone checks only; no new native qualification or physical writer");
+  assert.equal(adoption.scope, "Capability checks and four retained exact-context path certificates; physical writers and historical native qualification unchanged");
   assert.equal(adoption.predecessor_active_sha256, sha(activeBytes), "capability predecessor active pointer changed");
   assert.equal(adoption.predecessor_contract_sha256, sha(currentBytes), "capability predecessor contract changed");
   assert.deepEqual(Object.keys(adoption.archived_gates).sort(), GATES.sort());

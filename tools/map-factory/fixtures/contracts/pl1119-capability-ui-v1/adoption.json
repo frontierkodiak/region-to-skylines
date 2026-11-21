@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Capability UI and standalone checks only; no new native qualification or physical writer",
+  "scope": "Capability checks and four retained exact-context path certificates; physical writers and historical native qualification unchanged",
   "predecessor_active_sha256": "610f43cb1d8265763afb418a6aae663b02379eea6e3efbd4ed5b320d87058aab",
   "predecessor_contract_sha256": "cc2f7327e2148a999ac0f8b14053c620612805e9f11a57279321aef182c5123a",
   "archived_gates": {
