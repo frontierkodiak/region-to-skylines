@@ -3436,3 +3436,15 @@ Owned game3956935 absent; foreground command collected, owned cleanup empty.
 Runtime sidecar proves running executable/on-disk references, not full loaded
 assembly identity. Stable-water promise remains unknown. Natural coverage,
 nine-square, other development maps and the untouched holdout remain open.
+
+## 2026-11-21 · PL-1191 enclosed Europe and lowland South America
+
+Blade RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. dry-upland-europe: 60.113 game minutes in 15.91 observation wall minutes. Peak total VRAM 10821 MiB against 8008 MiB baseline, 2813 MiB estimated increment; menu 1574 MiB. Peak 137.81 W, 50.0 C. No power change.
+
+Anchor minimum 1.34375 m at all 13 samples; masked flood 0.0 km². Full historical drying remains positive: 113/482 initialized nearby losses, 166 exact-point losses. Actual floors pass t000/t005; eleven later floors unknown. All 20 controls match at thirteen samples. Owned game 4114346 absent; foreground collection complete, cleanup empty. Raw new_game_panel/startup_views failures retained. Running executable/on-disk reference sidecar is not full loaded-assembly identity.
+
+Blade RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. lowland-river-south-america: 60.012 game minutes in 15.82 observation wall minutes. Peak total VRAM 10821 MiB against 8008 MiB baseline, 2813 MiB estimated increment; menu 1574 MiB. Peak 145.32 W, 57.0 C. No power change.
+
+Anchor minimum 1.3125 m at all 13 samples; masked flood 0.0 km². Full historical drying remains positive: 72/1144 initialized nearby losses, 125 exact-point losses. Actual floors pass t000/t005; eleven later floors unknown. All 36 controls match at thirteen samples. Owned game 4183235 absent; foreground collection complete, cleanup empty. Raw new_game_panel/startup_views failures retained. Running executable/on-disk reference sidecar is not full loaded-assembly identity.
+
+Both changed packages are development data, not matched source-only arms or historical qualification. No failed water result rerun until green. Natural-water inventories compiled afterward under the unchanged definition; new-cohort native results remain absent. Holdout untouched, promises unknown.

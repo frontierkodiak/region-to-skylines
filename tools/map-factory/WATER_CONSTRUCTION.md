@@ -142,8 +142,9 @@ and missing mandatory features remain unresolved and prevent an overall promise.
 Keep the broad historical drying label as a separate unchanged comparator.
 
 `outcome-freeze.json` binds the definition and unchanged panel hashes. The
-feature-inventory compiler and evaluator must still be implemented and bound
-before holdout access. This specification does not promote a product promise.
+feature-inventory compiler and evaluator are now implemented separately and
+bound by `inventory-freeze.json` before holdout input access. Development
+inventories retain unsupported coverage; this does not promote a product promise.
 
 `maintained_water.py` implements only the engineered-reservoir anchor check.
 It requires the bound definition, full duration and sample coverage, and exact
@@ -252,9 +253,70 @@ inspection does not rewrite them or supply human acceptance.
 
 This is a different physical package and authored probe cohort, not a matched
 source-only intervention or a rescore of PL-1072. It justifies further development
-testing of the enclosed rule, not product adoption. The complete natural-feature
-compiler, other prepared maps, nine-square nonregression, full runtime identity
-and untouched holdout are still required. Every feed promise stays unknown.
+testing of the enclosed rule, not product adoption. The other prepared maps and
+the natural-feature compiler are reported below. Natural-water construction,
+nine-square nonregression, full runtime identity and the untouched holdout are
+still required. Every feed promise stays unknown.
+
+## Other enclosed-storage observations
+
+Both remaining frozen cases completed once, without changing their bound
+validators. Each retains its reservoir at all thirteen samples and has zero
+masked flood under the original definition. Both still have positive full
+historical drying labels on their own frozen package cohorts.
+
+| Case | Game minutes | Minimum anchor depth | Required endpoint | Initialized nearby losses | Exact-point wet losses |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Dry-upland Europe | 60.113 | 1.34375 m | 1/1 | 113/482 | 166 |
+| Lowland-river South America | 60.012 | 1.3125 m | 1/1 | 72/1144 | 125 |
+
+All 20 European and 36 South American configured controls match their packages
+at all thirteen samples. Actual hydraulic floors pass at t000/t005; eleven
+later floors remain unknown in each run. Teardown is empty. Raw new-game-panel
+and startup-view failures remain unchanged. Europe's endpoint views are
+blue/occluded; producer inspection does not establish visual acceptance.
+The old runtime still lacks full loaded-assembly identity. These are changed
+physical packages, not source-only arms or historical certificate renewals.
+
+## Source-only maintained-water inventory
+
+`maintained_water_inventory.py` compiles captured rivers and streams into
+clipped sectors of at most 512 m, with at most 64 m between planned probes.
+Each captured polygon piece retains separate eight-neighbour native-16 m
+components. Body probes use a world-aligned 64 m lattice after a padded 32 m
+raster erosion. A small component retains an actual polygon-interior point.
+Names never pool denominators. Explicit intermittent water and underground
+pieces remain auditable exclusions from surface-perennial scope.
+
+Every source entry is accounted for. Missing or unsupported features remain
+unresolved, including authored omissions and infeasible streams. Old authored
+plans identify omitted reaches by name/class rather than source-piece ID;
+every matching piece conservatively remains unresolved, with its compiled
+contracts retained. Unclipped or unsupported geometry is also unresolved.
+No observed water pixel selects or removes a probe.
+
+`maintained_water_plan.py stage FOLDER OUTPUT` creates a fresh physical protocol
+with the inventory, probes, source/dependency-lock hashes and original flood
+thresholds. `preflight OUTPUT` reproduces that compilation. `collect OUTPUT
+NATIVE` requires the exact new native cohort, checks every engineered anchor
+and every natural sector/body at initialization and every later sample, and
+retains the original full drying and pooled gates as separate comparators.
+A real prior Asian observation is rejected for its different probe hash.
+No historical observation is rescored as a prospective feature result.
+
+| Development inventory | Source entries | Unresolved entries | New probes | Authored initial natural-contract failures |
+| --- | ---: | ---: | ---: | ---: |
+| Europe | 528 | 27 | 280 | 76/85 |
+| Asia | 82 | 9 | 365 | 8/49 |
+| Lowland South America | 1034 | 646 | 15639 | 771/855 |
+
+These initialization checks inspect the frozen authored depth grids only.
+They are not new native observations, a holdout prefilter or a maintained-water
+qualification. They show why a retained starter pond cannot establish complete
+natural-water coverage. All three prospective feature protocols pass identity
+preflight but retain incomplete support. None has a new native feature result.
+The compiler is fixed at `81f301a`; the primary definition and twelve-square
+panel hashes are unchanged. Holdout inputs remain unopened.
 
 ## Reproduce the diagnosis
 

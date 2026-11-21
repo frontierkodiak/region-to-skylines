@@ -1,0 +1,69 @@
+{
+  "schema": "polli.maintained-water-development-inventories/1",
+  "compiler_source_revision": "81f301ab8b900ebd37bbb91507c372d30efdd3bf",
+  "compiler_freeze_sha256": "0eed64a8efbd8d3924ab7cb56a9da3aecb95d645a7a1c9a1a03b80de242a73a8",
+  "holdout_inputs_accessed": false,
+  "scope": "Authored initialization diagnostics, not new native feature observations or a predictor prefilter. Unsupported same-name/class reaches conservatively remain unresolved; no denominator pooling.",
+  "plans": [
+    {
+      "slug": "dry-upland-europe",
+      "plan_sha256": "ee5d315cd47cc67d7b9181a9282984969895332f36aa1014d012114bfb40e3e4",
+      "inventory_sha256": "45faf2ec90c3da08668683f8a0910e0007a0b9462015d4d1349222df37020beb",
+      "authored_initialization_sha256": "6484168f188dc640b0e5b7c393261f9b90cc5d3c5513fee4e70895f271206492",
+      "package_sha256": "55d8209174c2b8479a7cb1783106a16a198ae705fbb8c76874b11e3172665bb9",
+      "entries": 528,
+      "entry_status_counts": {
+        "excluded": 399,
+        "unresolved": 27,
+        "compiled": 83,
+        "natural_control": 19
+      },
+      "probe_count": 280,
+      "natural_contracts": 85,
+      "authored_initialization_failed_contracts": 76,
+      "coverage_complete": false,
+      "new_native_feature_observation": false,
+      "stable_water_promise": "unknown"
+    },
+    {
+      "slug": "dry-upland-asia",
+      "plan_sha256": "3c9c793afe66a082fc4b8a410d570ae2e37b1c01f5091697e3b9c1345996fbf0",
+      "inventory_sha256": "7c8eeb631c90960b35874cb10688be80c12613fff5919a05775861acf47c0d7e",
+      "authored_initialization_sha256": "6c9ff2c78c7831705cd14ea9a165180cdee82a9fa156998e022fc735198bdc95",
+      "package_sha256": "8f7e60aabb80bd5dd38227b36f90859b9a18ffae02655337cb8df28abf47d5d8",
+      "entries": 82,
+      "entry_status_counts": {
+        "unresolved": 9,
+        "compiled": 14,
+        "excluded": 2,
+        "natural_control": 57
+      },
+      "probe_count": 365,
+      "natural_contracts": 49,
+      "authored_initialization_failed_contracts": 8,
+      "coverage_complete": false,
+      "new_native_feature_observation": false,
+      "stable_water_promise": "unknown"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "plan_sha256": "56e27c0f7a150bfbc236e41013197287fd7eb73eeab905e672e7bc2eb33f5f2e",
+      "inventory_sha256": "bd1eabf31fcc7fa276132d8d516cb2d448817aa0b7c4e37540664c1edba4ae44",
+      "authored_initialization_sha256": "6c087447b1146066272d7da44d47bf3ea38c9ee2b11e2c44aa23768fdabe7e67",
+      "package_sha256": "82177e71de5572fc8848b3164346629d93ee98ecdc8342a37f05213a49faf4d8",
+      "entries": 1034,
+      "entry_status_counts": {
+        "unresolved": 646,
+        "compiled": 118,
+        "excluded": 235,
+        "natural_control": 35
+      },
+      "probe_count": 15639,
+      "natural_contracts": 855,
+      "authored_initialization_failed_contracts": 771,
+      "coverage_complete": false,
+      "new_native_feature_observation": false,
+      "stable_water_promise": "unknown"
+    }
+  ]
+}

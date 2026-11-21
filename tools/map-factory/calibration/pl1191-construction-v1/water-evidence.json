@@ -632,7 +632,7 @@
   "maintained_water_definition": {
     "source": "calibration/pl1191-construction-v1/maintained-water-definition.json",
     "sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
-    "status": "definition fixed before holdout access; engineered-reservoir anchor evaluator implemented; natural inventory/compiler/evaluator not yet bound",
+    "status": "definition unchanged; source-only compiler and evaluator implemented and frozen before holdout inputs; all three development inventories retain unresolved support and authored initialization failures; no prospective native feature result",
     "promises_issued": 0
   },
   "derived_development_comparators": [
@@ -694,6 +694,101 @@
       },
       "stable_water_promise": "unknown",
       "limits": "Different physical package and authored probe cohort, not matched source-only. Natural inventory, later hydraulic floors and full runtime/holdout qualification remain open."
+    },
+    {
+      "source": "calibration/pl1191-construction-v1/development/dry-upland-europe-closed-storage.json",
+      "sha256": "dddbb5d4eea1871a8a39cef4b97ce7e704270a7d278f7b1fbb6fe6d774500f04",
+      "game_minutes": 60.11333646848797,
+      "water_outcome_original_definition": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0,
+        "required": 1,
+        "required_wet_end": 1,
+        "required_water_loss": false,
+        "initialized_observations": 482,
+        "initialized_water_loss_end": 113,
+        "exact_point_wet_loss_end": 166,
+        "original_native_water_failures": []
+      },
+      "engineered_storage": {
+        "schema": "polli.engineered-storage-outcome/1",
+        "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+        "status": "pass",
+        "anchors": [
+          {
+            "source_index": 19,
+            "position_xz": [
+              -768.0,
+              -4304.0
+            ],
+            "status": "pass",
+            "minimum_exact_depth_m": 1.34375,
+            "failed_samples": [],
+            "missing_samples": []
+          }
+        ],
+        "observation_complete": true,
+        "largest_sample_gap_game_minutes": 5.0730558201360205,
+        "scope": "Authored reservoir anchors only; natural-feature coverage and overall maintained-water qualification are not assessed."
+      },
+      "stable_water_promise": "unknown",
+      "limits": "Different physical package and frozen cohort. Full historical drying remains positive despite retained reservoir. Only t000/t005 actual floors; later floors, full runtime and natural-feature qualification unverified."
+    },
+    {
+      "source": "calibration/pl1191-construction-v1/development/lowland-river-south-america-closed-storage.json",
+      "sha256": "c831b38885c0f1893727e30a39d1e4199bae5e886fedf168693196e13ee0e0f2",
+      "game_minutes": 60.012225352103506,
+      "water_outcome_original_definition": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0,
+        "required": 1,
+        "required_wet_end": 1,
+        "required_water_loss": false,
+        "initialized_observations": 1144,
+        "initialized_water_loss_end": 72,
+        "exact_point_wet_loss_end": 125,
+        "original_native_water_failures": []
+      },
+      "engineered_storage": {
+        "schema": "polli.engineered-storage-outcome/1",
+        "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+        "status": "pass",
+        "anchors": [
+          {
+            "source_index": 35,
+            "position_xz": [
+              -1584.0,
+              544.0
+            ],
+            "status": "pass",
+            "minimum_exact_depth_m": 1.3125,
+            "failed_samples": [],
+            "missing_samples": []
+          }
+        ],
+        "observation_complete": true,
+        "largest_sample_gap_game_minutes": 5.15111137976249,
+        "scope": "Authored reservoir anchors only; natural-feature coverage and overall maintained-water qualification are not assessed."
+      },
+      "stable_water_promise": "unknown",
+      "limits": "Different physical package and frozen cohort. Full historical drying remains positive despite retained reservoir. Only t000/t005 actual floors; later floors, full runtime and natural-feature qualification unverified."
     }
-  ]
+  ],
+  "maintained_water_inventory": {
+    "source": "calibration/pl1191-construction-v1/development/maintained-inventory-plans.json",
+    "sha256": "c4d2f64b42c891c478743d4f4c3befae50c7faf3638d645ed13a020feb4981e3",
+    "compiler_freeze": "calibration/pl1191-construction-v1/inventory-freeze.json",
+    "compiler_freeze_sha256": "0eed64a8efbd8d3924ab7cb56a9da3aecb95d645a7a1c9a1a03b80de242a73a8",
+    "stable_water_promise": "unknown"
+  }
 }
