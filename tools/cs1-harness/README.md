@@ -42,9 +42,20 @@ The opt-in runtime record lists loaded-module metadata and current location
 hashes, **not** full loaded-image/JIT identity or runtime health. Missing named
 fields stay unavailable. No hooks or game-state writes are added.
 
-This build is prepared for independent pre-native review. In-game smoke and
-sampling performance are **not verified**: PL-1191 explicitly requires review
-and a frozen physical protocol before launching this new runtime.
+PL-1191 collected three frozen synthetic empty-map hours on exact20efcf7 after
+the user authorized measurement in parallel with review. PL-1226 independently
+passed preparation review. All723 snapshots retain complete probes/controls,
+named counters and full floors; maximum observed gaps are0.315–0.333 game
+minutes, so the stricter0.30-minute cadence flag remains false. Reads remain
+bracketed, not atomic; runtime health/full loaded-image identity is unverified.
+
+The small73-cell reference retains the original flood-gate failure. Its scalar
+check value exposed a post-run registry bug which replaced each completed
+verdict with an error. Raw files are preserved; separate unchanged-rule judge
+replays retain failing verdicts and an indeterminate flood label. The registry
+now accepts scalar failed-check values without inventing metrics. That fix is
+CPU/native-report replay verified, not a new game trial. Independent results
+review remains required before adoption; no geographic qualification is made.
 
 ```sh
 cd tools/cs1-harness

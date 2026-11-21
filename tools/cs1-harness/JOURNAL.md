@@ -1,5 +1,53 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1191 three frozen branched-channel native observations
+
+User authorized guarded measurement in parallel with preparation review;
+PL-1226 subsequently passed that exact preparation. Three source-only arms
+ran once each on clean20efcf7/DLL368955b1 through the fair queue, offline and
+carbon-idle guards. No package, rate, cohort, source or runtime change between
+arms. All3intakes128 fixed; two upstream outputs0/32/128, outlet output0 fixed.
+All73channel nodes/24probes retained. No native repeat or tuning.
+
+| Outputs | Game minutes | Sim wall seconds | Card peak MiB | W max | C max |
+|---|---:|---:|---:|---:|---:|
+|0|60.134448|931.072|10821|134.08|44|
+|32|60.044170|925.854|10821|130.66|47|
+|128|60.075281|928.963|10821|132.98|47|
+
+Blade RTX2080Ti05:00.0,11264MiB total;7974MiB held before each launch,
+1574MiB game at menu. Game-only continuous peak unmeasured; total-minus-baseline
+2847MiB is only an estimate. Recorded power limit200W is unchanged; no power
+setting changed. Owned games1109392/1174185/1232163 needed normal quit-grace
+termination. All three teardown receipts empty, no other issue touched.
+
+241new snapshots per arm/723total, all3controls match every snapshot, all four
+named fields available. All actual-floor authored-stage checks pass; one full
+hydraulic-floor hash across arms/times. Not between-sample stability or atomic
+read proof. Strict cadence false on all arms: maximum gaps0.314722/0.333333/
+0.333333minutes despite zero missed slots. Original primary sampling complete.
+
+Output0dries: all6contracts fail, full grid first captured dry at7.561945min.
+Outputs32/128pass all3natural sectors and3exact ports for60minutes; minimum
+exact port depth1.109375/1.140625m respectively. Small original73-cell reference
+fails the100-cell flood gate; flood label remains indeterminate on every arm.
+Source settings/flow readbacks are not integrated physical supply/demand units.
+
+Each complete run hit a post-judgment registry AttributeError on scalar flood
+value73, overwriting verdict.json with error. Original raw verdicts/logs remain
+unchanged. Separate read-only frozen-rule judge replays produce failing
+verdicts, preserving that flood-reference failure. Four scalar-type guards
+fix indexing;2new tests plus all3actual derived-report replays pass without
+rewriting any verdict. No new native trial on this reporting-only fix. Prior
+158harness tests/build/doctor carried; full Ruff/format pass.
+
+Bridge/TypeLoad logs and raw visual statuses retained. Eight current location
+reference hashes match the build receipt; Cs1Harness loaded location is empty
+and its current-location hash remains unknown. Installed DLL sidecar and module
+metadata are NOT full loaded-image/JIT identity or runtime health. Independent
+results review remains open before adoption. No holdout, default or promise
+adoption. No proprietary code/decompilation delivered.
+
 ## 2026-11-21 — PL-1191 opt-in source-response telemetry preparation
 
 Owned worktree from6949182; old pinned checkout/build untouched. Ordinary mod

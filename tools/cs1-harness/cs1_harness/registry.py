@@ -50,6 +50,10 @@ def entry(out: pathlib.Path) -> dict:
     session = doc.get("session") or {}
     wet = check_value(v, "probes_wet_end") or {}
     flood = check_value(v, "no_flooding") or {}
+    if not isinstance(wet, dict):
+        wet = {}
+    if not isinstance(flood, dict):
+        flood = {}
     curve = run.get("curve") or []
     gpu = run.get("gpu") or {}
     finished = None
