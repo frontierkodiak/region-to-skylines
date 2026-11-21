@@ -40,6 +40,9 @@ def query_domain(geometry, paths):
         source |= mask
     corridor = np.zeros_like(source)
     by_id = {entry["id"]: entry for entry, _ in domains}
+    ids = [feature["id"] for feature in paths["features"]]
+    if len(ids) != len(set(ids)) or set(ids) != set(by_id):
+        raise ValueError("Complete source-piece/branch ledger differs")
     for feature in paths["features"]:
         original = by_id[feature["id"]]
         if (
@@ -137,7 +140,13 @@ def prepare(parent, witness, review, output, harness):
     output.mkdir(parents=True)
     shutil.copytree(parent / "physical", output / "physical")
     shutil.copyfile(parent / "native-plan.json", output / "parent-native-plan.json")
+    receipt = load(witness / "analysis/receipt.json")
+    if sha(witness / "analysis/paths.json") != receipt["files_sha256"]["paths.json"]:
+        raise ValueError("Reviewed geometric path bytes changed")
     shutil.copyfile(witness / "analysis/paths.json", output / "geometric-paths.json")
+    shutil.copyfile(
+        witness / "analysis/receipt.json", output / "geometric-result-receipt.json"
+    )
     shutil.copyfile(
         witness / "prospective-freeze.json", output / "geometric-input-freeze.json"
     )
