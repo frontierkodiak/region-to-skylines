@@ -3771,3 +3771,63 @@ New runs below: blade,NVIDIA GeForce RTX2080Ti at05:00.0. Whole-card peak includ
 | after/yosemite | fail / error | n/a | 157.71 | 10821 / 1592 | 120.36 / 47 |
 
 Every child and the parent comparison process was collected. All24 stock/before/repeat cleanup receipts are empty. All available actual map-panel/startup PNGs were viewed and hash-reviewed; genuine gameplay/ground-truth failures and every warning remain. Only normal completed reports were rejudged after visual QA, using unchanged PR58 judge files. Seven newer normal runs retain pre-visual backups; the three earlier original-eight normal cases retain final reviewed verdicts only. Construction errors are untouched. Proof-bundle manifests, all24 raw verdicts, exact original8 freeze and comparison are in `tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/`. No preview, browser or run-owned game/waiter remains.
+
+## PL-1074 completed frozen-package native evaluation — 2026-11-21
+
+The remaining three integrated packages were run once, unchanged, after the
+previous install owners released the slot. All four outcomes are now collected,
+but four-place passing acceptance is NOT met. Asheville's original 60.0178-minute
+flooding failure (0.2744 km² vs 0.05 km²) is unchanged and was not rerun.
+Its 0.49 km² newly-wet/0.99 km² dried endpoints are different measurements.
+
+| Case | Game-minutes | Result | Command / soak seconds | Card samples / span seconds | Card peak MiB / W / C | Owned-game peak MiB / samples |
+|---|---:|---|---:|---:|---|---|
+| amherst-center | 60.1305587 | pass (11 pass / 7 skip) | 1197.487 / 958.252 | 237 / 1189.634 | 10821 / 135.86 / 56 | 2845 / 87 |
+| central-boston | 60.0086142 | fail: terracing, DEM (9 pass / 2 fail / 7 skip) | 1188.418 / 953.433 | 235 / 1173.045 | 10821 / 144.14 / 57 | 2845 / 85 |
+| charleston-center | 60.1266698 | fail: terracing, DEM (9 pass / 2 fail / 7 skip) | 1134.947 / 953.358 | 225 / 1126.558 | 10821 / 141.21 / 56 | 2845 / 86 |
+
+Boston terracing 0.2344 and Charleston 0.4273 exceed the unchanged 0.08 limit.
+Boston DEM correlation 0.8294 misses 0.9, despite passing the orientation margin
+(0.8294−0.6339=0.1955 vs 0.15). Charleston misses both: correlation 0.5202 and
+orientation margin 0.5202−0.4898=0.0304. Offline rejudges retain these failures.
+No threshold, source, probe, map or water-control repair/positive retry occurred.
+
+All three skip required-wetness checks because no required cohort is declared.
+Passing flood rows do not certify drying/supply; endpoint dried areas are
+0.24/1.52/0.64 km² for Amherst/Boston/Charleston. No first-hour scenario ran;
+population, scenario outside links/utilities, explicit terrain landmarks and
+Clef remain skipped. This is not sustained river-flow or first-hour play proof.
+All four product screens remain WARN/refused; sealed blind scores remain
+0/100/all abstentions on original captures, with no new identity claim.
+
+Generator reader `1fbcbb68` / model main `a56fab58` / package 0.3.1 remain separate from
+native controller `dc8b6f2d`. Mod SHA-256:
+`37b8ac6a1ad98567804815580f0e9890e7d446cb4ef5fc9003a9fc8820d5603f`.
+Only our dangling Git metadata link was recovered after comparing every tracked
+file with an exact fetch of `dc8`; no controller source changed. Build/doctor pass
+on that frozen controller, not the newer journal-base controller. The read-only
+PR58 offline guard and wrapper hashes remain pinned separately. Carbon process
+checks ran before every launch. No Steam preference or shared GPU/service edit.
+
+Actual panel/opening/Areas/final PNGs were viewed and hash-reviewed. All
+foreground results and teardown were collected. Cleanup lists are empty and
+offline/telemetry errors absent. Native log-category warnings remain in reports;
+the passing `game_errors` filter does not mean an empty log. The final read-only
+audit reverified all 98 source files, four packages/probes and artifact bindings,
+including the original Asheville failure. PL-1191 took the released FIFO slot;
+no PL-1074 game/waiter remains. Peer work was not changed.
+
+Host blade, RTX 2080 Ti at 05:00.0. Card samples every 5 s include resident allocation
+(approximately 7974 MiB before this turn), setup/cleanup and other workloads.
+Owned graphics memory is sampled nominally every 10 s after menu reachability.
+These are sampled maxima, not continuous/game-only peaks or speed comparisons.
+The recorded existing 200 W cap was unchanged, not substituted with the older
+generic 150 W journal guidance. Recorded host-local sample windows:
+
+- amherst-center: 2026/11/21 16:13:15.436–2026/11/21 16:33:05.070
+- central-boston: 2026/11/21 16:33:44.442–2026/11/21 16:53:17.487
+- charleston-center: 2026/11/21 16:54:02.175–2026/11/21 17:12:48.733
+
+Hash-bound private reports/PNG reviews/telemetry are attached to PL-1074.
+No CRPs, model tables, saves, raw Steam/account logs or proprietary source are
+published here. This entry supersedes prior pending-case notes, not failures.
