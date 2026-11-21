@@ -1,0 +1,13 @@
+## Independent Sol bounded projection review — accepted
+
+Exact source: `394eba30ff6f28d63f88374fdf23a95e98a5244c` in `PL-1078-capability-evidence`, compared with `97c41c33f0e7a57be21c3710635a51aa243fe515`. Reviewed all four changed files; this is projection/provenance review, not a new classifier, collector or native-judge review.
+
+**No material false-qualification, dropped-case, fairness or provenance finding. Accepted for static projection of the pinned study.**
+
+- Snapshot/export-receipt pinning and per-attempt model/map/prediction/DLL/clean collector-source checks prevent another frozen study or oracle series from contributing labels. Held-out collector starts must be at or after the pinned freeze. Job witness/mode binding and water collector/job label consistency are checked without inventing a replacement surface-service judge.
+- Missing attempts and controller/cleanup/incomplete-job outcomes stay null. Exact start negatives require either rejected native placement or the audited collector's path result. A claimed path success is withheld unless returned endpoints match both literal outside boundaries and the declared grid midpoint. This remains post-construction passenger-car evidence, not fresh-map outside connectivity, continuous capacity or first-hour acceptance.
+- All registered rows/risk dictionaries survive projection. Fitting and held-out positive-witness agreement have separate denominators and explicit unscored-positive counts; the report does not call this overall accuracy or turn unknown/negative predictions into measured negatives. PL-1119's live ledger and promise/default authority are unchanged.
+
+Verification: independently passed all **5 reporter tests** and `git diff --check`. Reproduced the real pre-native projection in memory only after confirming its22 target observation files were absent:22 rows,8 fitting and3 held-out squares per capability, every observation null, all agreement rates null, and all risk dictionaries retained. All11 published `export-identities-and-warnings.json` case fields equal the frozen R export receipt, whose hash also matches. No actual v2 native outcome was read.
+
+Residual scope: source/identity fields are bindings to the audited collector series, not a newly established launch-time identity certificate. This postprocessor intentionally trusts that collector's validated native labels; it does not independently rerun cycle qualification or prove fixture calibration. No native/controller/process operation, source implementation, delegation, held-out inspection, compile or full-suite repetition was performed. Reference qualification and subsequent native observations remain separate work.
