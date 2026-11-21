@@ -48,6 +48,7 @@ try {
       const page = await context.newPage();
       // Construction is deliberately explicit: these are controlled UI inputs.
       await page.route("**/capability-inputs.js", (route) => route.fulfill({ contentType: "text/javascript", body: `
+        import {liveShore} from "/water-model.js";
         import {liveFootprint} from "/start-model.js";
         const comparable = {
           terrain_relief_m: {comparable:true, basis:'capture_heightmap'},
@@ -69,8 +70,11 @@ try {
           const depth = new Array(total).fill([1, 6, 7].includes(sq.lat) ? 0 : 8);
           const terrain=new Float64Array(1081**2).fill(100), initialDepth=new Float64Array(1081**2).fill(sq.lat===5?1:0);
           const footprint=liveFootprint(terrain,initialDepth);
+          const wg=new Float64Array(1081**2).fill(sq.lat===1?103:120),wd=new Float64Array(1081**2);
+          for(let r=560;r<=564;r++)for(let c=0;c<1081;c++){wg[r*1081+c]=100;wd[r*1081+c]=2;}
+          const water=liveShore(wg,wd);
           return { square:sq,
-            input:{start_footprint:footprint,schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq)},
+            input:{water_opportunity:water,start_footprint:footprint,schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq)},
             stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
         }` }));
       await page.goto(origin + "/__ui_probe");
@@ -78,6 +82,12 @@ try {
       assert.equal(await page.locator("[data-level=loading]").count(), 8);
       assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
       await page.evaluate(() => window.capabilityProbe.update({ lat: 1, lon: 0 }));
+      await page.locator('[data-capability="water"]').focus();
+      assert.equal(await page.locator('[data-capability="water"]').getAttribute("data-level"),"likely");
+      assert.match(await page.locator(".capability-detail").textContent(),/Shore.bank opportunity: candidate.*Service.*Unknown.*Not comparable/);
+      assert.equal(await page.locator(".capability-detail a").getAttribute("href"),"./capabilities.html#water");
+      await page.keyboard.press("Enter");
+      assert.equal(await page.locator(".capability-detail a").evaluate((e)=>e===document.activeElement),true);
       await page.locator('[data-capability="buildable"]').focus();
       assert.match(await page.locator(".capability-detail").textContent(), /384 × 384 m candidate.*Hookup: Unknown/);
       assert.equal(await page.locator('.start-footprint a').getAttribute('href'), './capabilities.html#start');
@@ -194,6 +204,15 @@ try {
       await page.locator('[data-capability="buildable"]').tap();
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
       await page.screenshot({path:resolve(out,`${name}-start-320.png`)});
+      for(const width of [320,390]) {
+        await page.setViewportSize({width,height:844});
+        await page.evaluate(()=>window.capabilityProbe.update({lat:1,lon:0}));
+        await page.locator('[data-capability="water"]').tap();
+        assert.match(await page.locator(".capability-detail").textContent(),/Shore.bank opportunity: candidate/);
+        assert.ok(await page.locator(".capability-detail a").isVisible());
+        await page.screenshot({path:resolve(out,name+"-water-"+width+".png")});
+      }
+
       await page.unroute("**/capability-inputs.js");
       await page.goto(origin + "/capabilities.html");
       assert.equal(await page.locator("article").count(), 12);
@@ -226,6 +245,10 @@ try {
         assert.deepEqual(errors, []);
         await page.locator('[data-capability="buildable"]').focus();
         assert.match(await page.locator('.capability-detail').textContent(),/Start footprint:.*Hookup: Unknown.*Not comparable/);
+        await page.locator('[data-capability="water"]').focus();
+        assert.match(await page.locator(".capability-detail").textContent(),/Shore.bank opportunity:.*Service.*Unknown.*Not comparable/);
+        item.live.water_detail=await page.locator(".capability-detail").textContent();
+        item.live.water_level=await page.locator('[data-capability="water"]').getAttribute("data-level");
         item.live.start_detail=await page.locator('.capability-detail').textContent();
         await page.screenshot({ path: resolve(out, `${name}-boston-live.png`) });
         const box = await page.locator("#map").boundingBox();
@@ -235,6 +258,8 @@ try {
         await page.waitForFunction(() => document.querySelectorAll('.capability-row [data-level="loading"]').length === 8 && document.querySelectorAll('.stock-row[data-state="checking"]').length === 3);
         await page.mouse.up();
         await page.waitForFunction(() => /estimate|unavailable/.test(document.querySelector(".capability-status")?.textContent ?? ""), undefined, { timeout: 120000 });
+        item.live.pan_water_detail=await page.locator('[data-capability="water"]').getAttribute("title");
+        assert.match(item.live.pan_water_detail,/Shore.bank opportunity:.*Unknown/);
         item.live.pan_start_detail=await page.locator('[data-capability="buildable"]').getAttribute('title');
         assert.match(item.live.pan_start_detail,/Hookup: Unknown/);
         item.live.pan_status = await page.locator(".capability-status").textContent();

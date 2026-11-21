@@ -75,9 +75,9 @@ function access(graph) {
     ),
   };
 }
-function sample(grid, [x, z]) {
+function sample(grid, [x, z], northFirst = false) {
   const c = Math.max(0, Math.min(N - 1, (x + H) / S)),
-    r = Math.max(0, Math.min(N - 1, (z + H) / S));
+    r = Math.max(0, Math.min(N - 1, ((northFirst ? -z : z) + H) / S));
   const i = Math.floor(r),
     j = Math.floor(c),
     y = r - i,
@@ -536,3 +536,6 @@ export function evaluateStart(data) {
     witness: null,
   });
 }
+
+// Shared native-grid sampling and tile geometry; Start behavior is unchanged.
+export { sample, position, tileOf };

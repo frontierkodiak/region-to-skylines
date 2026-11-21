@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "19f07bbcd3e36ed9d30813a696454b3ca1ac1df6e018af2679bada4813d5b1f1"
+      "current_sha256": "cce41814c06373e65d67a267149ea08b86ed2d8516788f626122811cc783baf5"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "527f394fc409a0a7caaa93a43e3aaf211e56f7b3ed9ac8dbdd6b37b56f92723e"
+      "current_sha256": "2a5e113414820efd10acf74166b68ed22aa8a716c4cf8d3bdfed1933b5391246"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -26,10 +26,12 @@
     }
   },
   "added_files_sha256": {
+    "water-model.js": "901ddc820d41d927ba54f8ad23f0722d4ee8b8fe05053e79425dbe80cd2ce3dd",
+    "tools/map-factory/water_model.py": "5c3290b182bfa5d73bc52143ed232bb24d5998f3ab609d71205d1525ceeba83e",
     "tools/map-factory/capability-evidence/pl1208-projection/start-water-study.mjs": "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b",
-    "start-model.js": "53b3eb323eecc5da139aa42671b6e41bc7079e4778a5710b4ccd1cb0cffe5eb9",
+    "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
     "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
-    "start-water-study.mjs": "f116b56c4b6d1dca5e4e222e0d83ad7f8bb5e24186bd8532c4d14b1e7c61a11a",
+    "start-water-study.mjs": "9be869f327b2c176d5c14fce21b56ac9a172f05eddfd72eeaba0b455bb8cd727",
     "tools/map-factory/capability-evidence/pl1078-files.json": "7cd7e6b2f2dd0d78e6443b8ff8cddd9d5df4ffbdf29d5d7c51fed0ae66092a58",
     "tools/map-factory/capability-evidence/PL-1078-start-water-v2/README.md": "0d4eeb3e14a664249ea43a031aaff8553b54a26c7f1d7154889ab94476f8531c",
     "tools/map-factory/capability-evidence/PL-1078-start-water-v2/export-identities-and-warnings.json": "35a9c73cbc6271f67e7d5ac99497ba8439c11aef6342eca11b95c8e3fb299054",
@@ -254,14 +256,14 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "5f88f3f205b721ff26c0f1da24453a2e66dacdeeb7aadc8c5f856eb20a4f32f3",
+    "capabilities.json": "1effc6012ba88059b5c1a196ead2a4973ab7c6c6cd5b4f0303185aab04e3ca83",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
-    "capability-inputs.js": "c1c6aa6f631f7b4c4ea62c6f59254686f555c5eb398f68ff88d5ec6dac0c4ee3",
-    "capability-ledger.mjs": "17ffcc935757c6061ad5aab5cbd2295f79dfb3b873d1679298eb7413d89d114b",
-    "capability-model.js": "a90d3103b426470c3b2cc50f041ecf3d026dbe31fe3cb3a9bef7974b45aa5d1c",
-    "capability-ui.js": "64d4b6629128e9e6fa389739985bc681014f333c1a157bfdaf94987dad92a8ee",
-    "tools/map-factory/capabilities.py": "ed8720a73d75b4898dadb763b7b48e4998b8641b1ad4c1b0b2263de15d662948",
+    "capability-inputs.js": "348bb2517d4886dd88819c960c4060c3494d8bf05a34e46843b1a861538abafc",
+    "capability-ledger.mjs": "d1e673a9f0c797e71037ab6cb2d8d374e8a98aa26a9566287c8cae7a262999ad",
+    "capability-model.js": "353360006afcab9dd65bad6cbaa1fe8dc06803692ae669e98051ccb78375e99c",
+    "capability-ui.js": "0b103072873e570cb136ec0c54a4547ee9d7c88b0c32ccd366a0f65fc3889ea5",
+    "tools/map-factory/capabilities.py": "8b5c24108d768a52acbe2a147eb35d7dc5c9f846fbb427a5ceb34288a30dd28c",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/integrate_outside_v2.py": "239d3ea6e0f1e149446d6a32fbe9eb565c066db55ab25875f06ab9f9890cbd03",
     "tools/map-factory/capability-evidence/runtime-identities/25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0.json": "25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0",

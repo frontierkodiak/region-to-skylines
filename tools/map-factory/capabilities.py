@@ -15,6 +15,7 @@ from pathlib import Path
 
 import numpy as np
 from start_model import evaluate_start, digest as start_digest
+from water_model import evaluate_water
 
 KINDS = {
     "road": {"highway", "ramp"},
@@ -663,6 +664,11 @@ def check(data, ledger):
         or data.get("planner_enabled", {}).get("start") is False
     ):
         result["start"] = evaluate_start(data)
+    if (
+        data.get("start_input") is not None
+        or data.get("planner_enabled", {}).get("water") is False
+    ):
+        result["water"] = evaluate_water(data)
     buildable = data.get("buildable_fraction")
     if buildable is not None and math.isfinite(buildable) and 0 <= buildable <= 1:
         result["buildable"] = {
@@ -878,6 +884,7 @@ def prepared_input(folder):
         "mode": "export",
         "graph": hydro.get("highways"),
         "start_input": start_input,
+        "water_plan": {"samples": hydro.get("samples")},
         "planner_enabled": {
             key: False
             for key in ("ship", "air")
@@ -996,6 +1003,34 @@ def assess_prepared(folder, native_context=None):
         "artifact_sha256": report.get("artifact_sha256"),
         "witness_sha256": start_digest(start["witness"])
         if start.get("witness")
+        else None,
+        "agreement": "unscored_new_runtime",
+    }
+    water = report["capabilities"]["water"]
+    water["binding"] = {
+        "model": "pl1212-surface-intake-port-v1",
+        "source_sha256": {
+            name: hashlib.sha256(
+                (Path(__file__).resolve().parents[2] / name).read_bytes()
+            ).hexdigest()
+            for name in (
+                "water-model.js",
+                "start-model.js",
+                "tools/map-factory/water_model.py",
+                "tools/map-factory/start_model.py",
+                "tools/map-factory/real_roads.py",
+                "tools/map-factory/capabilities.py",
+            )
+        },
+        "ledger_sha256": report["model_sha256"],
+        "tool_sha256": report["tool_sha256"],
+        "inputs_sha256": {
+            name: report["inputs_sha256"][name]
+            for name in ("terrain.u16", "water.u16", "hydrology.json")
+        },
+        "artifact_sha256": report.get("artifact_sha256"),
+        "witness_sha256": start_digest(water["witness"])
+        if water.get("witness")
         else None,
         "agreement": "unscored_new_runtime",
     }

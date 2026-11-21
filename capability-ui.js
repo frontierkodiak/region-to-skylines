@@ -51,6 +51,11 @@ const PLACE_DETAIL = {
 /** The exact text a capability detail shows; exported so tests read the copy itself. */
 export const placeDetail = (result) => (result?.evidence && PLACE_DETAIL[result.reason] ? PLACE_DETAIL[result.reason](result.evidence) : null);
 
+export function waterDetail(result) {
+  if (!result) return null;
+  return `Shore/bank opportunity: ${result.opportunity === "candidate" ? "candidate" : "Unknown"}. Central 1,920 m square; captured bank-minus-bed/coastal depth, not finished water. Service, directed flow, fresh/clean water and hookup: Unknown. Stock: Not comparable.`;
+}
+
 export function footprintDetail(result) {
   const found = result?.footprint === "candidate";
   return ` Start footprint: ${found ? "384 × 384 m candidate" : "Unknown"}. Hookup: Unknown. Central 1,920 m square; initial terrain/depth estimate. Stock: Not comparable.`;
@@ -68,7 +73,12 @@ export function mountCapabilities(root) {
   const startLink = document.createElement("a"); startLink.href = "./capabilities.html#start"; startLink.textContent = "Start footprint";
   const startValue = document.createElement("span");
   startReadout.append(startLink, startValue); row.after(startReadout);
-  const show = (button) => { active = button; detail.textContent = button.title; detail.hidden = false; };
+  const show = (button) => { active = button; detail.textContent = button.title;
+    if (button.dataset.capability === "water") {
+      const link = document.createElement("a"); link.href = "./capabilities.html#water";
+      link.textContent = " Water checks"; detail.append(link);
+    }
+    detail.hidden = false; };
   const hide = () => { active = null; detail.hidden = true; };
   for (const [id, name] of Object.entries(LABELS)) {
     const button = document.createElement("button");
@@ -76,6 +86,11 @@ export function mountCapabilities(root) {
     button.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg><span class="capability-name">${name}</span><span class="capability-mark" aria-hidden="true">…</span>`;
     button.addEventListener("pointerenter", () => show(button)); button.addEventListener("focus", () => show(button));
     button.addEventListener("click", () => show(button));
+    if (id === "water") button.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === "ArrowDown") {
+        event.preventDefault(); show(button); detail.querySelector("a").focus();
+      }
+    });
     buttons.set(id, button); row.append(button);
   }
   for (const [id, measure] of Object.entries(STOCK_MEASURES)) {
@@ -177,7 +192,7 @@ export function mountCapabilities(root) {
         button.dataset.level = result.level; button.querySelector(".capability-mark").textContent = mark;
         const area = id === "buildable" && result.fraction != null ? ` ${Math.round(result.fraction * 100)}% of sampled central land qualifies.` : "";
         const footprint = id === "buildable" ? footprintDetail(capture.input.start_footprint) : "";
-        button.title = `${cap.name}: ${name}. ${placeDetail(result) ?? REASONS[result.reason] ?? cap.limits}${area}${footprint}`;
+        button.title = `${cap.name}: ${name}. ${(id === "water" ? waterDetail(result) : placeDetail(result)) ?? REASONS[result.reason] ?? cap.limits}${area}${footprint}`;
         button.setAttribute("aria-label", button.title);
       }
       status.textContent = `${square.lat.toFixed(3)}, ${square.lon.toFixed(3)} · estimate`;

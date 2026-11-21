@@ -7,7 +7,7 @@ import { FACTORY_FILES } from "./mapgen.js";
 import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "start-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
+const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes

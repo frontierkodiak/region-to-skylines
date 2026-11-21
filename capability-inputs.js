@@ -1,3 +1,4 @@
+import { liveShore } from "./water-model.js";
 import { liveFootprint } from "./start-model.js";
 // The pan-time approximation uses captured initial terrain, not a water simulation.
 // Full export reports use final prepared grids through capabilities.py instead.
@@ -65,6 +66,7 @@ export function estimateInputs(capture, depth = captureDepth(capture), evidence 
     transport: { road: roads.some((r) => ["motorway", "trunk"].includes(r.class)), rail: roads.some((r) => r.class === "rail"), air: !!geometry.airport },
     buildable_fraction: central ? dry / central : null,
     start_footprint: liveFootprint(game, depth),
+    water_opportunity: liveShore(game, depth),
     place: {
       terrain_m: terrain,
       landcover: evidence.landcover ?? { status: "unavailable", source: LANDCOVER_SOURCE, fidelity: "unavailable", tiles: [], values: null },

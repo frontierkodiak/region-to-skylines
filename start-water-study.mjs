@@ -1,3 +1,4 @@
+import { WATER_MODEL, WATER_LOAD, WATER_BANK } from "./water-model.js";
 // Import saved, reviewed evidence only. Never execute the archived predictors or judges.
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
@@ -90,6 +91,20 @@ export function activeStartModel(load = read) {
     source_sha256: Object.fromEntries(files.map((file) => [file, sha(load(file))])) };
 }
 
+export function activeWaterModel(load = read) {
+  const files = ["water-model.js", "start-model.js", "tools/map-factory/water_model.py", "tools/map-factory/start_model.py", "tools/map-factory/real_roads.py", "tools/map-factory/capabilities.py", "capability-inputs.js"];
+  return {
+    id: WATER_MODEL, source_study: START_WATER_SOURCE,
+    historical_projection: {file: HISTORICAL_PROJECTION, sha256: HISTORICAL_PROJECTION_SHA},
+    relationship: "Water-only port: same route ordering, depth/drop/separation, bank search and fixed load. Missing tile/routes, partial routes and unsupported fidelity abstain. Live finite central shore search has no directed flow/start tile/service. No native score transfer.",
+    parameters: {load: WATER_LOAD, bank: WATER_BANK, route: {intake_depth_m: 1, sewage_separation_m: 320, surface_drop_strictly_above_m: 1/64}},
+    prepared_fidelity: "prepared_16m_south_first",
+    live_fidelity: "capture_16m_bank_minus_bed_or_coastal_depth",
+    agreement: "unscored_new_runtime", stock_comparison: "not_comparable",
+    source_sha256: Object.fromEntries(files.map((file) => [file, sha(load(file))])),
+  };
+}
+
 export function validateStartWaterStudy(ledger, load = read, expectedProjectionHash) {
   if (sha(load("start-water-study.mjs")) !== expectedProjectionHash) throw new Error("Start/water projection tool changed");
   if (!isDeepStrictEqual(ledger.witness_studies, {[START_WATER_STUDY]: startWaterStudy(load)}))
@@ -101,7 +116,10 @@ export function validateStartWaterStudy(ledger, load = read, expectedProjectionH
         cap.exporter_check === "tools/map-factory/start_model.py:evaluate_start" &&
         cap.browser_check === "start-model.js:evaluateStart" &&
         isDeepStrictEqual(cap.runtime_model, activeStartModel(load))
-      : cap.status === "saved_witness_study_live_unmodeled" && cap.exporter_check === null && cap.browser_check === null;
+      : cap.status === "prepared_surface_witness_unscored_live_shore_estimate" &&
+        cap.exporter_check === "tools/map-factory/water_model.py:evaluate_water" &&
+        cap.browser_check === "water-model.js:evaluateWater" &&
+        isDeepStrictEqual(cap.runtime_model, activeWaterModel(load));
     if (cap.witness_study !== START_WATER_STUDY || !current || cap.game_agreement.length)
       throw new Error("Start/water saved-study scope changed");
   }
@@ -131,6 +149,20 @@ export function importStartWater(ledger) {
     unknown: "No witness in this finite search, missing inputs, or capture-only footprint opportunity; hookup is not established.",
   };
   start.limits = "Prepared plan is advisory and unscored in this runtime; native placement, collisions and passenger paths remain unverified. A negative scopes only the current authored directed plan. Live footprint uses initial capture terrain/depth, not finished water or an authored start tile; hookup Unknown. Stock: Not comparable. Historical 2/3 positive-witness fitting agreement is not this port's accuracy; holdout not estimable.";
+  const water = ledger.capabilities.find((c) => c.id === "water");
+  water.status = "prepared_surface_witness_unscored_live_shore_estimate";
+  water.definition = "A deterministic paired upstream intake/downstream outlet and nearby-bank plan on the current prepared channel route and selected tile, with a fixed consumer, pipe plan and finite native load. Live capture estimates only a local shore/bank opportunity; service, directed flow, quality and hookup remain Unknown.";
+  water.exporter_check = "tools/map-factory/water_model.py:evaluate_water";
+  water.browser_check = "water-model.js:evaluateWater";
+  water.runtime_model = activeWaterModel();
+  water.metric_ids = [];
+  water.promise_levels = {
+    promised: "Never from this unscored runtime.",
+    likely: "Prepared paired route/bank/facility witness only; live Maybe means a scoped shore/bank candidate only.",
+    not_possible_here: "Never from finite-search misses.",
+    unknown: "Missing/partial/coarse inputs, disabled planner or finite-search miss; live service/flow/quality/hookup always Unknown.",
+  };
+  water.limits = "New runtime unscored. Prepared route ordering and initial surface drop are not simulated velocity; initial zero pollution is not geographic salinity or sustained clean water. Declared load: 1000 native water/sewage units per256frames, auxiliary power, 2 loaded settling minutes and 60 scored minutes, one shore snap per anchor and fixed pipes. No SI/population/indefinite-capacity conversion. Live captured bank-minus-bed/coastal depth is not finished water or an authored start tile. Stock: Not comparable. Archived 3/3 fitting and 1/2 regional holdout do not qualify this port.";
   return ledger;
 }
 
@@ -145,7 +177,7 @@ export function startWaterPage(study, id, escape) {
   const cohort = (v) => `${v.passed}/${v.planned}`;
   return `<section data-witness-study="${START_WATER_STUDY}" data-capability="${id}">
     <h3>Saved ${id === "start" ? "start-plan" : "surface-intake"} witnesses · advisory</h3>
-    <p>${id === "start" ? "Current Start port: prepared declared-plan search and live footprint approximation; new runtime unscored. The scores below belong only to the archived model." : "Live Water: unmodeled."} Positive-witness agreement, not overall accuracy or global prevalence.</p>
+    <p>${id === "start" ? "Current Start port: prepared declared-plan search and live footprint approximation; new runtime unscored. The scores below belong only to the archived model." : "Current Water port: prepared paired intake/outlet witness; live shore/bank opportunity only. Service, flow, quality and hookup Unknown; stock Not comparable. New runtime unscored. Archived scores below do not transfer."} Positive-witness agreement, not overall accuracy or global prevalence.</p>
     ${table(["Split", "Registered", "Positive predictions", "Agreed / scored", "Unscored positives", "Other unscored rows"],
       ["fitting", "held_out"].map((split) => {
         const s = study.report.summary[split][id];

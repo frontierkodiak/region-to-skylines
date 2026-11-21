@@ -1,3 +1,4 @@
+import { evaluateWater } from "./water-model.js";
 import { evaluateStart } from "./start-model.js";
 // Mirrored deterministic core: tools/map-factory/capabilities.py. No DOM or IO.
 const KINDS = { road: ["highway", "ramp"], rail: ["rail"], ship: ["ship"], air: ["air"] };
@@ -290,6 +291,8 @@ export function checkCapabilities(data, ledger) {
     }
   }
   for (const key of ["water", "start", "buildable", "resources", "trees", "water_risk"]) result[key] = { level: "unknown", reason: "not_evaluated" };
+  if (data.start_input != null || data.planner_enabled?.water === false) result.water = evaluateWater(data);
+  else if (data.mode === "estimate" && data.water_opportunity) result.water = data.water_opportunity;
   if (data.start_input != null || data.planner_enabled?.start === false) result.start = evaluateStart(data);
   const buildable = data.buildable_fraction;
   if (buildable != null && Number.isFinite(buildable) && buildable >= 0 && buildable <= 1)
