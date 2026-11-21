@@ -176,3 +176,27 @@ For a source-bound offline comparison of canonical DEM, fitted banks, input PNG
 and prepared native terrain, see [terrain fidelity attribution](TERRAIN_FIDELITY.md).
 It uses unchanged frozen terrain metrics, separates source/reference disagreement
 from exporter edits, and does not replace native qualification.
+
+## Opt-in source-faithful terrain experiment (PL-1244)
+
+`--terrain-policy source-faithful-v2` selects the experimental correction.
+The default remains `legacy`; the browser/CLI shipping capture and its byte
+contracts are unchanged. The same rule applies to every place, with no city
+names, per-place settings, source replacement or judge changes.
+
+- Carving depth is the lesser of the existing 10 source metres and the greater
+  of 3 game metres or 10% of the source's p5–p95 relief. Lake flattening may not
+  exceed that same source-height cut budget. This is a candidate engineering
+  rule, not a calibrated flow/depth guarantee.
+- Existing below-sea terrain is retained. Explicit ocean polygons receive only
+  a shallow 0.125–0.25 game-metre minimum with a 64 game-metre shoreline ramp
+  and smooth transition. The 10 m ocean shelf is removed.
+- Source low land is not raised to a fabricated +1 m shelf. Uncarved banks are
+  the actual smoothed source elevations under the recorded affine fit.
+- Receipts count coastal edits and cut-budget conflicts, and make no flood,
+  bathymetry, sustained-wetness or native-qualification claim. In particular,
+  retaining real low land can expose flooding that an invented shelf concealed.
+
+The existing water-risk decision still runs and may refuse export. The
+experimental policy does not accept, suppress or waive those warnings.
+The frozen Charleston DEM failure remains a failure even when terracing improves.

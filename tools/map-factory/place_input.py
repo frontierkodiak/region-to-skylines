@@ -322,9 +322,11 @@ def compile_geometry(place, manifest, frame):
     return geometry
 
 
-def preprocess(place, output):
+def preprocess(place, output, *, terrain_policy="legacy"):
     """Validate first, then return input PNG, geometry JSON, banks and landcover paths."""
     place, output = Path(place), Path(output)
+    if terrain_policy not in {"legacy", "source-faithful-v2"}:
+        raise ValueError("Unknown terrain policy")
     if not {"transportation_semantics", "hydrography_flowpaths"} <= SCHEMAS.keys():
         raise ValueError(
             "This reader needs polli-place-model >=0.3 with transportation semantics and river flowpaths"
@@ -360,7 +362,10 @@ def preprocess(place, output):
         work = Path(temporary)
         terrain.astype("<f8").tofile(work / "elevation.f64")
         write_json(work / "geometry.json", geometry)
-        subprocess.run(["node", str(ROOT / "place_input.mjs"), str(work)], check=True)
+        subprocess.run(
+            ["node", str(ROOT / "place_input.mjs"), str(work), terrain_policy],
+            check=True,
+        )
         for name in ["input.png", "geometry.json", "banks.f32"]:
             shutil.copyfile(work / name, output / name)
     (output / "landcover.u8.gz").write_bytes(
@@ -372,7 +377,9 @@ def preprocess(place, output):
     )
 
 
-def export(place, output, *, inputs_only=False, allow_water_risk=False):
+def export(
+    place, output, *, inputs_only=False, allow_water_risk=False, terrain_policy="legacy"
+):
     """Use the existing generator and water-risk decision; never install a map."""
     from generate import generate
     from water_risk import assess
@@ -381,7 +388,9 @@ def export(place, output, *, inputs_only=False, allow_water_risk=False):
     # Refuse mixing fresh inputs with a previously exported package/receipt.
     if output.exists() and any(output.iterdir()):
         raise ValueError("OUTPUT must be empty; choose a new directory")
-    png, geometry, banks, landcover = preprocess(place, output / "inputs")
+    png, geometry, banks, landcover = preprocess(
+        place, output / "inputs", terrain_policy=terrain_policy
+    )
     report = {
         "place_input": json.loads(geometry.read_text())["placeInput"],
         "inputs_only": inputs_only,
@@ -447,6 +456,12 @@ def main():
         "--inputs-only",
         action="store_true",
         help="Compile codecs without generating a CRP",
+    )
+    parser.add_argument(
+        "--terrain-policy",
+        choices=["legacy", "source-faithful-v2"],
+        default="legacy",
+        help="Opt-in terrain experiment; legacy remains the shipping byte contract",
     )
     parser.add_argument(
         "--allow-water-risk",
