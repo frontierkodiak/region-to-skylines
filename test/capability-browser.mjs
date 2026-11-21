@@ -182,7 +182,7 @@ try {
       assert.match(await page.locator("#trees").textContent(), /Place evidence measures/);
       assert.match(await page.locator("#trees").textContent(), /Sources, coverage and fidelity/);
       assert.match(await page.locator("#resources").textContent(), /balanced ore\/oil top-up/i);
-      assert.match(await page.locator("#resources").textContent(), /Missing records are missing coverage, not absence/);
+      assert.match(await page.locator("#resources").textContent(), /Missing records are not evidence of absence/);
       await page.screenshot({ path: resolve(out, `${name}-ledger-phone.png`) });
       const item = { browser: name, version: browser.version(), synthetic_states: "pass", ledger_page: "pass", live: "not_run" };
       if (process.argv.includes("--live")) {
