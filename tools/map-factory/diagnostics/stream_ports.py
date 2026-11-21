@@ -34,6 +34,17 @@ def load(path):
     return json.loads(path.read_text())
 
 
+def review_basis(receipt):
+    if (
+        receipt.get("status") != "pass"
+        or receipt.get("review_issue", {}).get("id")
+        != "01a1ffaf-049d-7aa3-9e93-21b1c11725fd"
+        or receipt.get("tested_bytes", {}).get("protocol_sha256")
+        != "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc"
+    ):
+        raise ValueError("Expected exact independent synthetic results receipt")
+
+
 def graph_profile(nodes, edges, floor, water):
     """Quantized grade and full-bank bounds; no direction/budget inference here."""
     if (
@@ -358,11 +369,7 @@ def stage(source, output, review):
         source
     )
     receipt = load(review)
-    if (
-        receipt["status"] != "pass"
-        or receipt["review_issue"] != "01a1ffaf-049d-7aa3-9e93-21b1c11725fd"
-    ):
-        raise ValueError("Expected exact independent synthetic results receipt")
+    review_basis(receipt)
     output.mkdir(parents=True)
     shutil.copytree(source, output / "input")
     shutil.copyfile(review, output / "results-review.json")
@@ -427,6 +434,7 @@ def preflight(folder):
     ):
         raise ValueError("Original interface protocol or results receipt changed")
     ledger = load(folder / "input/ledger.json")
+    review_basis(load(folder / "results-review.json"))
     (refused_preflight if "retained_base_refusal" in ledger else prepared_preflight)(
         folder / "input"
     )

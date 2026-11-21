@@ -3,12 +3,27 @@ import unittest
 
 import numpy as np
 
-from stream_ports import ROOT, graph_profile
+from stream_ports import ROOT, graph_profile, review_basis
 from synthetic_source_response import channel
 from waterway_pieces import catalog
 
 
 class StreamPortRecipeTests(unittest.TestCase):
+    def test_results_basis_binds_actual_receipt_schema_issue_and_physical_protocol(
+        self,
+    ):
+        receipt = {
+            "status": "pass",
+            "review_issue": {"id": "01a1ffaf-049d-7aa3-9e93-21b1c11725fd"},
+            "tested_bytes": {
+                "protocol_sha256": "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc"
+            },
+        }
+        review_basis(receipt)
+        receipt["tested_bytes"]["protocol_sha256"] = "different"
+        with self.assertRaisesRegex(ValueError, "exact independent"):
+            review_basis(receipt)
+
     @classmethod
     def setUpClass(cls):
         cls.layout = json.loads((ROOT / "templates/native-corridors.json").read_text())
