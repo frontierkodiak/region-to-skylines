@@ -1,0 +1,59 @@
+"""Bind UI-only evolution without rewriting any historical/native contract."""
+
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+FOLDER = ROOT / "tools/map-factory/fixtures"
+PREFIX = "contracts/pl1119-capability-ui-v1"
+GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
+ADDITIONS = [
+    "capabilities.json",
+    "capability-inputs.js",
+    "capability-ledger.mjs",
+    "capability-model.js",
+    "tools/map-factory/capabilities.py",
+    "tools/map-factory/integrate_outside_evidence.py",
+    "tools/map-factory/capability-evidence/pl1119-v3-predictions.json",
+]
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def refresh():
+    active_raw = (FOLDER / "active.json").read_bytes()
+    current_raw = (FOLDER / json.loads(active_raw)["current"]).read_bytes()
+    current = json.loads(current_raw)
+    gates = {}
+    for name in GATES:
+        relative = f"{PREFIX}/baseline/{name}"
+        baseline = FOLDER / relative
+        # Only accept the original archived gate, never today's changed source.
+        if not baseline.exists():
+            raise ValueError(f"Archive the predecessor source first: {relative}")
+        if sha(baseline.read_bytes()) != current["export_gate_files_sha256"][name]:
+            raise ValueError(f"Historical gate mismatch: {name}")
+        gates[name] = {
+            "file": relative,
+            "current_sha256": sha((ROOT / name).read_bytes()),
+        }
+    adoption = {
+        "schema": 1,
+        "scope": "Capability UI and standalone checks only; no new native qualification or physical writer",
+        "predecessor_active_sha256": sha(active_raw),
+        "predecessor_contract_sha256": sha(current_raw),
+        "archived_gates": gates,
+        "added_files_sha256": {
+            name: sha((ROOT / name).read_bytes()) for name in ADDITIONS
+        },
+    }
+    (FOLDER / PREFIX / "adoption.json").write_text(
+        json.dumps(adoption, indent=2) + "\n"
+    )
+
+
+if __name__ == "__main__":
+    refresh()

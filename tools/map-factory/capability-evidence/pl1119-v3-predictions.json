@@ -1,0 +1,785 @@
+{
+  "schema": 1,
+  "model": "square-capabilities-v3",
+  "model_source_head": "f9368399d232a433b27c886ccb603a83040c75c7",
+  "model_source_files_sha256": {
+    "capabilities.json": "275ddf4a1099bfa53cf82f50ca154bac9c4297d8e1869bc4a4a4ada0b96c553a",
+    "tools/map-factory/capabilities.py": "b361999d2381ad553bcb3a9183f616f5929b7544d756a70ff5df661bb107af8e"
+  },
+  "freeze_tool_sha256": "26d93575c78483b6db183f9fac53aace3bff12f59db4a6784ed2cbb53aacc109",
+  "selection_sha256": "892dc05174e498237a970db42fc7ca40421534899f18cde3bddc20cb1edfa0c9",
+  "selection_rule": "Five unchanged fixtures, all other PRESETS sorted by slug unchanged, then central Boston (-71.057,42.36), rotation 0 scale 1. Fixed in assignment before results.",
+  "frozen_at": "2026-11-20T22:56:40.986166+00:00",
+  "scope": "Predictions only. No game-label file is read, no fitting is performed, and no game agreement is claimed. Some oracle runs may already exist; this is not a claim that all predictions predate all observations.",
+  "cases": [
+    {
+      "square": {
+        "name": "Asheville",
+        "slug": "asheville",
+        "lon": -82.555,
+        "lat": 35.58,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "f70236327038371148df83c7b130b895ce63b0b879d264c8c065a5c7fd72daf4",
+        "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+        "hydrology.json": "0d396d1cdfcda129be31e525cbd921a287d1eaac8deb025f77c0d885552aef9a"
+      },
+      "normalized_input_sha256": "64ea8d0a9ea0ad5d15d618888fb762b49108a72b976183903f75fd92aa344198",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 4,
+            "outgoing": 4,
+            "endpoints": [
+              824,
+              882
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 4,
+            "outgoing": 4,
+            "endpoints": [
+              1840,
+              1961
+            ]
+          },
+          "predicted": true
+        },
+        "ship": {
+          "level": "not_possible_here",
+          "reason": "no_authored_ship_route_or_initial_deep_corridor",
+          "witness": {
+            "candidate": false,
+            "endpoints": [],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "air": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              2344,
+              2536
+            ]
+          },
+          "predicted": true
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Innsbruck",
+        "slug": "innsbruck",
+        "lon": 11.4,
+        "lat": 47.27,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "79aa3d9f97bad3d31463b1ac7755cd2e1c9b0848e5818bcbe8ef9556defe54d5",
+        "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375",
+        "hydrology.json": "4a544cca94dd3b0e49a6f45e02fa6a674eb4633d3d63e0519bf1de9a54856135"
+      },
+      "normalized_input_sha256": "ee23c15629876d819bf28bc35354e0b302a16e4dd3fe715a468dea18668743ad",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 3,
+            "outgoing": 3,
+            "endpoints": [
+              0,
+              189
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 5,
+            "outgoing": 5,
+            "endpoints": [
+              814,
+              1369
+            ]
+          },
+          "predicted": true
+        },
+        "ship": {
+          "level": "not_possible_here",
+          "reason": "no_authored_ship_route_or_initial_deep_corridor",
+          "witness": {
+            "candidate": false,
+            "endpoints": [],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "air": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              1506,
+              1689
+            ]
+          },
+          "predicted": true
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "0bd6f24ea5912802d90043ff35055657f65f3b189a4143e7e3685903e027435b",
+        "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540",
+        "hydrology.json": "0b91900c4d7222d34cc12ddc87d79eab6bd5bc80d8dda8e4251930c02d938e1e"
+      },
+      "normalized_input_sha256": "70378abefa62b69c4d06996cee8bd2a75ae15811922bc1f8dc318df663ef4321",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 10,
+            "outgoing": 10,
+            "endpoints": [
+              268,
+              294
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 3,
+            "outgoing": 3,
+            "endpoints": [
+              2488,
+              2706
+            ]
+          },
+          "predicted": true
+        },
+        "ship": {
+          "level": "likely",
+          "reason": "authored_ship_route",
+          "witness": {
+            "candidate": true,
+            "endpoints": [
+              72357,
+              73440
+            ],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              3048,
+              3297
+            ]
+          },
+          "predicted": true
+        },
+        "air": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              2866,
+              3047
+            ]
+          },
+          "predicted": true
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Pittsburgh",
+        "slug": "pittsburgh",
+        "lon": -80,
+        "lat": 40.44,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "7ecc9ea1ae96216712210690eb8cdf1a90bfc8e222ac91b1316d783cf3a39120",
+        "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0",
+        "hydrology.json": "7076a0d1918e5d2f0491bc9a9d2a0cc160a1db1176cb18a2a4129775d7727977"
+      },
+      "normalized_input_sha256": "4d858139a0a4b7658b1994e3d18ac239b5483cc0c9523e35acd37ffb80174ada",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 14,
+            "outgoing": 15,
+            "endpoints": [
+              38,
+              7
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 16,
+            "outgoing": 16,
+            "endpoints": [
+              3683,
+              5608
+            ]
+          },
+          "predicted": true
+        },
+        "ship": {
+          "level": "not_possible_here",
+          "reason": "no_authored_ship_route_or_initial_deep_corridor",
+          "witness": {
+            "candidate": false,
+            "endpoints": [],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "air": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              5760,
+              5941
+            ]
+          },
+          "predicted": true
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Charleston",
+        "slug": "charleston",
+        "lon": -79.93,
+        "lat": 32.78,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "0b8f91e15ebbd6d16cfe077ff19da3e50f830f6142c15e3f7a1fcc78116ec3c6",
+        "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+        "hydrology.json": "109ad2af6b8a2977354f2940d5752ddd0663c54003ceb3fcccc62d0dcbe5790e"
+      },
+      "normalized_input_sha256": "4515b727d38c9141973c0d09ebad6ec3ee100176f4ed0d973488c31a42dba86e",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 7,
+            "outgoing": 7,
+            "endpoints": [
+              38,
+              26
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 1,
+            "outgoing": 1,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "ship": {
+          "level": "likely",
+          "reason": "authored_ship_route",
+          "witness": {
+            "candidate": true,
+            "endpoints": [
+              100,
+              73440
+            ],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              1873,
+              2220
+            ]
+          },
+          "predicted": true
+        },
+        "air": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              1658,
+              1872
+            ]
+          },
+          "predicted": true
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Grand Canyon",
+        "slug": "grand-canyon",
+        "lon": -112.11,
+        "lat": 36.08,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "e137dcc96546d8a26d84c606b61625770a3e0a50ab745fdd2d07b190d8eac5ed",
+        "water.u16": "6bca756264c0ec275f82b711fae839b942778a0f5ec8ec0d15c649c9bda01b97",
+        "hydrology.json": "7f9a19495a0adc955d63137bef041154e3b71f7107981d76fcc2d79e8273fb46"
+      },
+      "normalized_input_sha256": "590af4d83efc2603b0df03989b2b3bcebc7e7e2b18c387681017d4d64e910334",
+      "predictions": {
+        "road": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "rail": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 1,
+            "outgoing": 1,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "ship": {
+          "level": "not_possible_here",
+          "reason": "no_authored_ship_route_or_initial_deep_corridor",
+          "witness": {
+            "candidate": false,
+            "endpoints": [],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "air": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Hong Kong",
+        "slug": "hong-kong",
+        "lon": 114.17,
+        "lat": 22.29,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "54d5d480d85955ff3420c2cb079664e652f1c46bcec87120c8884808e017b013",
+        "water.u16": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29",
+        "hydrology.json": "ce0c44e636cb811d9cd48a22d493de6de408818728add1dad5f015d4084abdf2"
+      },
+      "normalized_input_sha256": "cdaa5fe624aca71471878dc41d7d1ccc7729b9b575c2d572c3ee9b64a40e6d24",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 10,
+            "outgoing": 9,
+            "endpoints": [
+              0,
+              26
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 3,
+            "outgoing": 3,
+            "endpoints": [
+              4032,
+              4214
+            ]
+          },
+          "predicted": true
+        },
+        "ship": {
+          "level": "likely",
+          "reason": "authored_ship_route",
+          "witness": {
+            "candidate": true,
+            "endpoints": [
+              12195,
+              47966
+            ],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              4664,
+              5004
+            ]
+          },
+          "predicted": true
+        },
+        "air": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Yosemite Valley",
+        "slug": "yosemite",
+        "lon": -119.575,
+        "lat": 37.735,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "exporter_source_sha": null,
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "cpu_receipt_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "inputs_sha256": {
+        "terrain.u16": "eed4f040b070a4f6f70160d1b927bf86b5dfbea296d92877423ccff707edd197",
+        "water.u16": "fe1f0c8d145fba8e6fc92e987f06d61a4df2a95dd51853dd2d4fab6f187e701b",
+        "hydrology.json": "4c173d39adacd4d0be88c26626ae7bafd1edde0d6703c0d5b68c6161b21d5777"
+      },
+      "normalized_input_sha256": "7660558c9e8fc4dc1c011e0889d7935db746eebefa12359ea3e3c2ea1b31c3dd",
+      "predictions": {
+        "road": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "rail": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "ship": {
+          "level": "not_possible_here",
+          "reason": "no_authored_ship_route_or_initial_deep_corridor",
+          "witness": {
+            "candidate": false,
+            "endpoints": [],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        },
+        "air": {
+          "level": "not_possible_here",
+          "reason": "no_authored_edge_to_edge_route",
+          "witness": {
+            "candidate": false,
+            "incoming": 0,
+            "outgoing": 0,
+            "endpoints": []
+          },
+          "predicted": false
+        }
+      }
+    },
+    {
+      "square": {
+        "name": "Boston",
+        "slug": "boston",
+        "lon": -71.057,
+        "lat": 42.36,
+        "rotation": 0,
+        "scale": 1
+      },
+      "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "source_revision_limitation": [],
+      "cpu_receipt_sha256": "cba2cd6eb977c79f94ec7d3578aca93a88563c1f81dbe59668ae939abc993a2a",
+      "inputs_sha256": {
+        "terrain.u16": "1e1ffd73314c428b95378d6596ebece042b1895c007738679de247a47261799e",
+        "water.u16": "e64f85c0ce0be3577763bd47a5029ba99664006bcd7c9fb2a05e8682e111b6fd",
+        "hydrology.json": "7d3732db9081d371cda29d080f2cb30a342325969ac3fd82671f66711f32dd5e"
+      },
+      "normalized_input_sha256": "1efd3024a306f0708b7d8321c956377abc363cfcd8587e972aeb43954917528a",
+      "predictions": {
+        "road": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 14,
+            "outgoing": 13,
+            "endpoints": [
+              50,
+              49
+            ]
+          },
+          "predicted": true
+        },
+        "rail": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 9,
+            "outgoing": 9,
+            "endpoints": [
+              4120,
+              4711
+            ]
+          },
+          "predicted": true
+        },
+        "ship": {
+          "level": "likely",
+          "reason": "authored_ship_route",
+          "witness": {
+            "candidate": true,
+            "endpoints": [
+              73356,
+              73440
+            ],
+            "clearance_m": 64,
+            "depth_m": 6
+          },
+          "authored_route": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              5485,
+              5789
+            ]
+          },
+          "predicted": true
+        },
+        "air": {
+          "level": "likely",
+          "reason": "authored_edge_to_edge_route",
+          "witness": {
+            "candidate": true,
+            "incoming": 2,
+            "outgoing": 2,
+            "endpoints": [
+              5300,
+              5484
+            ]
+          },
+          "predicted": true
+        }
+      }
+    }
+  ]
+}

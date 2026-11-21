@@ -2,6 +2,7 @@
 import assert from "node:assert/strict";
 import { loadWaterRiskContract } from "./water-risk-fixture-contract.mjs";
 import { loadRunwayContract } from "./runway-fixture-contract.mjs";
+import { capabilityUISources } from "./capability-ui-contract.mjs";
 import { loadTransientContract } from "./transient-fixture-contract.mjs";
 import { FACTORY_FILES } from "../mapgen.js";
 import { createHash } from "node:crypto";
@@ -13,10 +14,11 @@ export async function loadFixtureContract(read, readSource) {
   const historicalNativeBytes = await read("fixtures/native-qualification.json");
   const historical = parse(historicalBytes);
   const historicalNativeCases = Object.fromEntries(parse(historicalNativeBytes).cases.map((c) => [c.slug, c]));
-  const active = parse(await read("fixtures/active.json"));
+  const activeBytes = await read("fixtures/active.json"), active = parse(activeBytes);
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
-  const current = parse(await read("fixtures/" + active.current));
+  const currentBytes = await read("fixtures/" + active.current), current = parse(currentBytes);
+  readSource = await capabilityUISources({ read, readSource, activeBytes, currentBytes, current });
   if (current.version === "pl1066-optional-runways-v1")
     return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
   if (current.version === "pl912-water-risk-v1")
