@@ -121,6 +121,24 @@ outcome on development data, and freeze that definition before accessing the
 new holdout. Do not choose a denominator or omission rule after its outcomes.
 No such replacement definition or native promise is adopted in this checkpoint.
 
+`calibration/pl1191-construction-v1/maintained-water-definition.json` now fixes
+the development definition before holdout access. Require every engineered
+storage anchor to retain at least 0.5 m of exact native depth at every sample.
+Apply 95% nearby-water retention separately to each natural reach sector and
+water-body component, including initialization, instead of pooling the map.
+Explicit intermittent water is outside a perennial promise. Unsupported streams
+and missing mandatory features remain unresolved and prevent an overall promise.
+Keep the broad historical drying label as a separate unchanged comparator.
+
+`outcome-freeze.json` binds the definition and unchanged panel hashes. The
+feature-inventory compiler and evaluator must still be implemented and bound
+before holdout access. This specification does not promote a product promise.
+
+The coastal development mode `below-sea-intake-off` changes only positive intake
+rates whose encoded target is strictly below encoded sea level. It retains all
+outputs, positions, targets, initial grids and observations. It is an intake
+intervention, not source deletion or a proposed default policy.
+
 ## Reproduce the diagnosis
 
 Run these read-only commands with the retained experiment root on blade:

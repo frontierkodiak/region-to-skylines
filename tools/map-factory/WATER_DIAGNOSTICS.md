@@ -43,6 +43,11 @@ Both preserve the complete original initial grid and every other source field.
 Use unchanged original probes and mapped-water references for matched native
 comparisons. See [construction diagnosis](WATER_CONSTRUCTION.md).
 
+`below-sea-intake-off` is a third explicit mode. It zeros positive intakes only
+where the encoded control target is strictly below encoded sea level. All
+outputs, targets, positions, initial water and observations remain fixed.
+This tests low-stage withdrawal without also removing continuing supply.
+
 The exporter first replays the **original** terrain, initial water, hydrology
 and frozen resource plan through the existing writer/resource encoder. It
 requires the entire replayed CRP to equal the generation-bound source CRP,

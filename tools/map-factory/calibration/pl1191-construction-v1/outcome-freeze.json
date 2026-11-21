@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-21T09:30:19.354540+00:00",
+  "definition_sha256": "fa627850ab1547c09617de18da5eb14b2f716294cc47a6341cfa056527b58434",
+  "selection_panel_sha256": "181c2fd902b910668f340ef5ca97f2e08788e6fa3b60c41399d0faeca486636c",
+  "inputs_fetched": false,
+  "native_holdout_observations": 0,
+  "historical_comparator_preserved": true,
+  "feature_compiler_status": "not implemented or qualified; must be bound before holdout access",
+  "promises_issued": 0
+}

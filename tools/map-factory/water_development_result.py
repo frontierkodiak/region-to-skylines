@@ -48,19 +48,62 @@ def verify_loaded_sources(native, expected):
     }
 
 
+def verify_source_factor(diagnostic, decoded):
+    """Reject a changed target, position, rate direction, or initial grid."""
+    mode = diagnostic["mode"]
+    before = diagnostic["source_controls"]
+    if mode in {"reservoir-output-off", "all-output-off"}:
+        field, indices_key, other_key = (
+            "output_rate",
+            "changed_output_indices",
+            "changed_intake_indices",
+        )
+        classes = {
+            row["index"]: row["class"] for row in diagnostic["control_classification"]
+        }
+        selected = {
+            row["index"]
+            for row in before
+            if row[field] > 0
+            and (mode == "all-output-off" or classes[row["index"]] == "reservoir")
+        }
+    elif mode == "below-sea-intake-off":
+        field, indices_key, other_key = (
+            "intake_rate",
+            "changed_intake_indices",
+            "changed_output_indices",
+        )
+        selected = {
+            row["index"]
+            for row in before
+            if row[field] > 0 and row["target_fixed"] / 64 < diagnostic["sea_level_m"]
+        }
+    else:
+        raise ValueError("Unsupported source-only intervention")
+    if (
+        set(diagnostic[indices_key]) != selected
+        or diagnostic[other_key]
+        or diagnostic["initial_water_changed_cells"]
+        or digest(decoded["depth"].astype("<u2").tobytes())
+        != diagnostic["initial_water_before_sha256"]
+        or decoded["sea_level_m"] != diagnostic["sea_level_m"]
+        or len(before) != len(decoded["sources"])
+    ):
+        raise ValueError("Intervention differs from its declared source-only factor")
+    for original, actual in zip(before, decoded["sources"]):
+        expected = {**original, **({field: 0} if original["index"] in selected else {})}
+        if actual != expected:
+            raise ValueError("Unexpected field change in source-only factor")
+    return {"field": field, "indices": sorted(selected)}
+
+
 def result(baseline, staged, native, harness_source):
     """Bind native inputs/cleanup and retain the unchanged original water gates."""
     diagnostic = json.loads((staged / "diagnostic.json").read_text())
     hydro = json.loads((staged / "hydrology.json").read_text())
     package = hydro["map_id"] + ".crp"
-    if diagnostic["mode"] not in {"reservoir-output-off", "all-output-off"}:
-        raise ValueError("This comparison requires an output-only intervention")
-    if (
-        diagnostic["changed_intake_indices"]
-        or diagnostic["initial_water_changed_cells"]
-        or sha(staged / package) != diagnostic["crp_sha256"]
-    ):
-        raise ValueError("Intervention differs from its declared source-only factor")
+    if sha(staged / package) != diagnostic["crp_sha256"]:
+        raise ValueError("Diagnostic package hash changed")
     payload = next(
         a["payload"]
         for a in read_package((staged / package).read_bytes())[1]
@@ -68,6 +111,7 @@ def result(baseline, staged, native, harness_source):
     )
     decoded = decode_water(payload)
     bind_sources(decoded, hydro)
+    factor = verify_source_factor(diagnostic, decoded)
     original_report = json.loads((baseline / "report.json").read_text())
     original_verdict = json.loads((baseline / "verdict.json").read_text())
     original_source = json.loads((baseline / "harness-source.json").read_text())
@@ -106,6 +150,8 @@ def result(baseline, staged, native, harness_source):
         "package_sha256": diagnostic["crp_sha256"],
         "source_package_sha256": diagnostic["source_crp_sha256"],
         "changed_output_indices": diagnostic["changed_output_indices"],
+        "changed_intake_indices": diagnostic["changed_intake_indices"],
+        "verified_factor": factor,
         "game_minutes": report["game_minutes"],
         "harness_source": harness_source,
         "baseline": native_outcome(original_report, original_verdict),

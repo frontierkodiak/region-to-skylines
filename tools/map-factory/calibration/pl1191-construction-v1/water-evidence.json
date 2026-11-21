@@ -438,5 +438,11 @@
       "stable_water_promise": "unknown",
       "limits": "Reservoir output off lowers flood but empties the engineered pond; no construction or holdout qualification."
     }
-  ]
+  ],
+  "maintained_water_definition": {
+    "source": "calibration/pl1191-construction-v1/maintained-water-definition.json",
+    "sha256": "fa627850ab1547c09617de18da5eb14b2f716294cc47a6341cfa056527b58434",
+    "status": "definition fixed before holdout access; compiler/evaluator not yet bound",
+    "promises_issued": 0
+  }
 }

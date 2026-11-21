@@ -7,9 +7,18 @@ import unittest
 
 import numpy as np
 
-from crp import N, metadata_bytes, read_package, string, water_payload, write_package
+from crp import (
+    N,
+    metadata_bytes,
+    patch_metadata,
+    read_package,
+    string,
+    water_payload,
+    write_package,
+)
 from template import manager_tag
 from water_diagnostics import decode_water, transform
+from water_development_result import verify_source_factor
 
 
 class WaterDiagnosticTests(unittest.TestCase):
@@ -245,6 +254,46 @@ class WaterDiagnosticTests(unittest.TestCase):
         hydro["sources"][1]["underground_portal"] = "surface_inlet_to_tunnel"
         with self.assertRaisesRegex(ValueError, "frozen original portal intake"):
             transform(self.source, hydro, self.terrain, "portal-intake-original")
+
+    def test_below_sea_intake_off_preserves_outputs_and_equal_level_controls(self):
+        hydro = copy.deepcopy(self.hydro)
+        hydro["sea_level_m"] = 101
+        package, assets = read_package(self.source)
+        simulation = (
+            self.prefix
+            + manager_tag("WaterSimulation")
+            + water_payload(self.depth, hydro["sources"], 123, 101)
+            + b"\0\0"
+            + self.suffix
+        )
+        assets[0]["payload"] = simulation
+        assets[1]["payload"] = patch_metadata(
+            assets[1]["payload"], hashlib.md5(simulation).hexdigest()
+        )
+        source = write_package(package, assets)
+        changed, _, depth, receipt = transform(
+            source, hydro, self.terrain, "below-sea-intake-off"
+        )
+        before_assets, _, before = self.unpack(source)
+        after_assets, _, after = self.unpack(changed)
+        self.assertEqual(receipt["changed_intake_indices"], [1])
+        self.assertEqual(receipt["changed_output_indices"], [])
+        self.assertEqual(receipt["frozen_original_intake_rates"], {})
+        self.assertEqual(
+            verify_source_factor(receipt, after),
+            {"field": "intake_rate", "indices": [1]},
+        )
+        for index, (old, new) in enumerate(zip(before["sources"], after["sources"])):
+            self.assertEqual(new, {**old, **({"intake_rate": 0} if index == 1 else {})})
+        np.testing.assert_array_equal(depth, self.depth)
+        self.assertEqual(
+            [a for a in before_assets if a["kind"] == 3],
+            [a for a in after_assets if a["kind"] == 3],
+        )
+        altered = copy.deepcopy(after)
+        altered["sources"][0]["output_rate"] += 1
+        with self.assertRaisesRegex(ValueError, "Unexpected field change"):
+            verify_source_factor(receipt, altered)
 
 
 if __name__ == "__main__":

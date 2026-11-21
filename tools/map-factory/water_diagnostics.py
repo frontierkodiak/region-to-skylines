@@ -40,7 +40,12 @@ from template import manager_tag
 
 ROOT = Path(__file__).resolve().parent
 DEFAULT_MODES = ("short-output-off", "sea-only", "portal-intake-original")
-MODES = (*DEFAULT_MODES, "all-output-off", "reservoir-output-off")
+MODES = (
+    *DEFAULT_MODES,
+    "all-output-off",
+    "reservoir-output-off",
+    "below-sea-intake-off",
+)
 
 
 def digest(data):
@@ -180,7 +185,7 @@ def transform(source, hydro, terrain, mode):
         raise ValueError("Native initial-water decoding does not round-trip exactly")
     depth = water["depth"].copy()
     changed_indices = []
-    restored_intakes = {}
+    changed_intakes = {}
     new_hydro = copy.deepcopy(hydro)
     if mode in {"short-output-off", "all-output-off", "reservoir-output-off"}:
         for i, (actual, expected) in enumerate(zip(water["sources"], hydro["sources"])):
@@ -216,7 +221,18 @@ def transform(source, hydro, terrain, mode):
                 if original_rate != actual["intake_rate"]:
                     controls[i]["capacity"] = original_rate / 65535
                     new_hydro["sources"][i]["capacity"] = original_rate / 65535
-                    restored_intakes[i] = original_rate
+                    changed_intakes[i] = original_rate
+    elif mode == "below-sea-intake-off":
+        if not math.isfinite(water["sea_level_m"]):
+            raise ValueError("Nonfinite encoded sea level")
+        for i, actual in enumerate(water["sources"]):
+            if (
+                actual["target_fixed"] / 64 < water["sea_level_m"]
+                and actual["intake_rate"] > 0
+            ):
+                controls[i]["capacity"] = 0
+                new_hydro["sources"][i]["capacity"] = 0
+                changed_intakes[i] = 0
     else:
         sea = hydro["sea_level_m"]
         if not math.isfinite(sea):
@@ -268,14 +284,14 @@ def transform(source, hydro, terrain, mode):
             )
             intake_change = (
                 set(difference) == {"intake_rate"}
-                and restored_intakes.get(actual["index"]) == actual["intake_rate"]
+                and changed_intakes.get(actual["index"]) == actual["intake_rate"]
             )
             if not (output_change or intake_change):
                 raise ValueError("Unexpected encoded water-control difference")
             differences.append({"index": actual["index"], **difference})
     if len(after["sources"]) != len(before_controls) or len(differences) != len(
         changed_indices
-    ) + len(restored_intakes):
+    ) + len(changed_intakes):
         raise ValueError("Unexpected encoded source count/differences")
     if not np.array_equal(after["depth"], depth):
         raise ValueError("Encoded diagnostic water differs from requested grid")
@@ -285,8 +301,11 @@ def transform(source, hydro, terrain, mode):
         "crp_sha256": digest(result),
         "source_count": len(before_controls),
         "changed_output_indices": changed_indices,
-        "changed_intake_indices": list(restored_intakes),
-        "frozen_original_intake_rates": restored_intakes,
+        "changed_intake_indices": list(changed_intakes),
+        "frozen_original_intake_rates": changed_intakes
+        if mode == "portal-intake-original"
+        else {},
+        "diagnostic_intake_rates": changed_intakes,
         "encoded_source_changes": differences,
         "assets": [
             {
@@ -339,10 +358,14 @@ def transform(source, hydro, terrain, mode):
             "previews",
             "source count/positions/targets",
         ]
-        + (["intake rates"] if mode != "portal-intake-original" else [])
+        + (
+            ["intake rates"]
+            if mode not in {"portal-intake-original", "below-sea-intake-off"}
+            else []
+        )
         + (
             ["bounded output rates"]
-            if mode in {"sea-only", "portal-intake-original"}
+            if mode in {"sea-only", "portal-intake-original", "below-sea-intake-off"}
             else []
         ),
         "limitations": [
