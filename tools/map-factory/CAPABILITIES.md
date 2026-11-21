@@ -133,21 +133,21 @@ model cannot drift from the writer silently.
 
 ### What the pan-time read costs
 
-Measured on the five committed squares from carbon, cold, one square each:
-three HTTP range requests per square, 197 kB to 328 kB, 0.3 s to 0.9 s for land
-cover, and one MRDS request at about 0.3 s. The chosen overview was 73.7 m per
-pixel at four squares and 36.9 m at Rio; the read is bounded, cancellable, and
-runs in `capability-evidence-worker.js`, which the view terminates on pan.
+Measured once per square on the five committed squares from carbon: three or
+four HTTP range requests, 197 kB to 459 kB, 0.30 s to 0.95 s for land cover, and
+one MRDS request at 0.19 s to 0.37 s. The chosen overview was 73.7 m per pixel at
+four squares and 36.9 m at Rio. The read is bounded, cancellable, and runs in
+`capability-evidence-worker.js`, which the view terminates on pan.
 
 ### What it is worth
 
 The 271-node lattice reproduces the central window's 10 m WorldCover shares
-within 0.0025 absolute on all five committed squares for tree cover, crop cover
+within 0.0022 absolute on all five committed squares for tree cover, crop cover
 and vegetated share, while reading 2.4 percent of the cells. The overview read
-used at pan time reproduced the same 10 m tree-cover share within 0.032, crop
-within 0.001, and found no no-data cells. Both are measured in
-`test_capabilities.py`; the overview comparison is recorded here because it
-needs the network.
+used at pan time stayed within 0.036 of that 10 m tree-cover share, 0.003 on crop
+and 0.011 on vegetated share, and found no no-data cells. The lattice check runs
+in `test_capabilities.py`; the overview comparison needs the network and is
+recorded in `CAPABILITIES.md` and the run receipt, not as a test.
 
 Neither number makes this a plan or a native check. Patch coherence, the tree
 budget, balanced top-ups, reserve size and gameplay remain outside it.
