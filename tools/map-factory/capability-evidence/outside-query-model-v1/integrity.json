@@ -1,0 +1,183 @@
+{
+ "all_ok": true,
+ "anomalies": [
+  {
+   "attempt_id": "attempt-1",
+   "kind": "missing_networks",
+   "slug": "asheville"
+  },
+  {
+   "attempt_id": "native-v2-2",
+   "kind": "missing_networks",
+   "slug": "pittsburgh"
+  },
+  {
+   "attempt_id": "native-v2-1",
+   "kind": "missing_networks",
+   "slug": "rio"
+  }
+ ],
+ "assertions": [
+  {
+   "detail": {
+    "file": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6",
+    "protocol": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6"
+   },
+   "name": "protocol_binds_this_predictions_file",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "frozen_rules_match_model",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "frozen_primary_rule",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "requests_sha_matches_protocol",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "inventory_source_evidence_unchanged",
+   "ok": true
+  },
+  {
+   "detail": {
+    "predictions": 378,
+    "requests": 378
+   },
+   "name": "prediction_count_matches_requests",
+   "ok": true
+  },
+  {
+   "detail": [],
+   "name": "no_duplicate_predictions",
+   "ok": true
+  },
+  {
+   "detail": [],
+   "name": "every_prediction_has_an_inventory_query",
+   "ok": true
+  },
+  {
+   "detail": [],
+   "name": "every_eligible_query_has_a_prediction",
+   "ok": true
+  },
+  {
+   "detail": [],
+   "name": "predictions_repeat_the_exact_request",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "every_eligible_query_has_an_observed_label",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "eligible_queries_are_all_frozen_strata",
+   "ok": true
+  },
+  {
+   "detail": "directed_segment",
+   "name": "global_best_is_in_frozen_family",
+   "ok": true
+  },
+  {
+   "detail": {
+    "agree": 8,
+    "pairs": 8
+   },
+   "name": "rewritten_packages_repeat_consistently",
+   "ok": true
+  },
+  {
+   "detail": {
+    "agree": 378,
+    "pairs": 378
+   },
+   "name": "midpoint_repeats_agree",
+   "ok": true
+  },
+  {
+   "detail": 0.3321056612562376,
+   "name": "max_length_lower_bound_never_binds",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "chord_bridge_error_cannot_flip_the_length_test",
+   "ok": true
+  }
+ ],
+ "counts": {
+  "anomalies": 3,
+  "by_exclusion": {
+   "midpoint_diagnostic_unscored": 378,
+   "no_request_recorded": 56,
+   "protocol_fields_absent": 64
+  },
+  "by_mode": {
+   "air": 33,
+   "road": 802,
+   "ship": 41
+  },
+  "by_stratum": {
+   "midpoint_diagnostic": 378,
+   "primary_distinct_edge": 342,
+   "same_edge": 36,
+   "unclassified_protocol": 64,
+   "unrequested": 56
+  },
+  "eligible": 378,
+  "eligible_by_mode": {
+   "air": 10,
+   "road": 352,
+   "ship": 16
+  },
+  "eligible_by_stratum": {
+   "primary_distinct_edge": 342,
+   "same_edge": 36
+  },
+  "labels": {
+   "False": 276,
+   "True": 102
+  },
+  "labels_by_mode": {
+   "air": {
+    "True": 10
+   },
+   "road": {
+    "False": 276,
+    "True": 76
+   },
+   "ship": {
+    "True": 16
+   }
+  },
+  "midpoint_agree": 378,
+  "midpoint_pairs": 378,
+  "openings": 17,
+  "queries": 876
+ },
+ "hashes": {
+  "bridge.json": "8e0505ff4cd76fd38f0cacad1e19d2be50f68c71c3ce8d3df17d127dde7edc4b",
+  "catalogs.json": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc",
+  "evaluation.json": "0c6bf22df2f0691958e48c438198433f96121f7af87d9afb49f1af513716bf27",
+  "evidence.json": "ea2e27fc65ae4d60e7fddb918a9dba59237b6a9c25d50b6be763b7c2b1263b32",
+  "inventory.json": "4a1a674cfe741b5e809ae996816a509d7b0609d9084635aabbdde0304452a537",
+  "manifest.json": "03316c3f940d1ecc1d2d8a9f18c7418b19527cbc6d5e1b4175905c65912193b9",
+  "packages.json": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
+  "predictions.json": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6",
+  "protocol.json": "4b2c508b5bcb8ad18577d53557bf29c4692f8fa674ba15c920142ea235ecef9e",
+  "requests.json": "1ebea0fe8ddee4a56c24840998a07ebeb472fe35dc47c28f08fbb71d9d6436dd"
+ },
+ "schema": 1,
+ "study": "outside-query-model-v1"
+}
