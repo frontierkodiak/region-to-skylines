@@ -1,0 +1,78 @@
+{
+  "freeze_sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+  "note": "freeze strata.zero_power means empty package selection only. All strata here have zero discordant requests. No new native result read.",
+  "observed_at": "2026-11-21T21:52:55.563368+00:00",
+  "old_selection_exclusion_audit": [
+    {
+      "excluded_package_hashes": [
+        "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+        "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+        "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+      ],
+      "sha256": "dce33184b1a083235c5d5b48dbd6782ae0ade2687b0d6e008ca55c973e3a539a",
+      "source": "tools/map-factory/capability-evidence/rail-v1/selection.json"
+    },
+    {
+      "excluded_package_hashes": [
+        "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+        "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+        "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+      ],
+      "sha256": "22cbb7923877ac44860c6a45f06736449f011b35fdb9f7d4fb9f5d15f2e2f45c",
+      "source": "tools/map-factory/capability-evidence/rail-v2/selection.json"
+    },
+    {
+      "excluded_package_hashes": [
+        "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+        "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+        "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+      ],
+      "sha256": "57a6c222c816ecb683fb6142316938a88dddbd9b10029738787f0e95817ca7f5",
+      "source": "tools/map-factory/capability-evidence/rail-v3/selection.json"
+    }
+  ],
+  "strata": {
+    "no_pair_difference": {
+      "discordant_predictions": 0,
+      "selected_packages": 4,
+      "selected_requests": 32,
+      "zero_power_to_prefer_one_rule_by_request_labels": true
+    },
+    "pair_difference": {
+      "discordant_predictions": 0,
+      "selected_packages": 2,
+      "selected_requests": 16,
+      "zero_power_to_prefer_one_rule_by_request_labels": true
+    },
+    "unsupported_or_no_pair": {
+      "discordant_predictions": 0,
+      "selected_packages": 4,
+      "selected_requests": 0,
+      "zero_power_to_prefer_one_rule_by_request_labels": true
+    }
+  }
+}
