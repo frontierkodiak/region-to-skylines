@@ -68,6 +68,15 @@ mean any repeat-run difference cannot be attributed to physical exporter rules.
 
 ## Raw evidence and integration
 
+`report_start_water.py` projects the frozen snapshot plus retained native/run
+archive into ledger-compatible rows. It pins the snapshot, export receipt,
+collector and DLL, keeps every registered square and risk record, and separates
+positive-witness agreement by fitting/held-out role. It preserves the audited
+collector's labels rather than changing the native or first-hour judges. A
+returned-boundary audit can withhold an unsupported start-path success.
+`export-identities-and-warnings.json` publishes exact selected identities and
+complete risk records without publishing raw source inputs.
+
 Large cycle JSON is gzip-compressed without changing its recovered bytes.
 `summary.json` binds both compressed and decompressed hashes. Other public
 evidence locators resolve relative to the containing study directory. Receipt
