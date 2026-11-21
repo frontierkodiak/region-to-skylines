@@ -92,7 +92,11 @@ def screen_refresh_predecessor(folder, current):
     assert current["cases"] == predecessor["cases"]
     corrected = (folder / current["corpus_file"]).read_bytes()
     assert hashlib.sha256(corrected).hexdigest() == prepared["corpus_sha256"]
-    original = json.loads((folder / predecessor["corpus_file"]).read_text())
+    original_raw = (folder / predecessor["corpus_file"]).read_bytes()
+    assert hashlib.sha256(original_raw).hexdigest() == predecessor["corpus_sha256"], (
+        "original corpus changed"
+    )
+    original = json.loads(original_raw)
 
     def stable(row):
         return {**row, "features": {**row["features"], "narrow_film_km2": None}}

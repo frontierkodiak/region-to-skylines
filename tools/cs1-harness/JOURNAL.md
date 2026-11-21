@@ -3297,3 +3297,82 @@ unchanged. These CPU fixture checks are not new native panel games or current-
 tree native qualification. Both predictors remain rejected as discriminators,
 human-only checks not verified, exporter release held. Final evidence/integration
 review is separate from the already consumed preparation/collector reviews.
+
+## 2026-11-21 · PL-1191 reservoir-output development ablation
+
+Blade, RTX 2080 Ti at 05:00.0. Retained dry-upland Asia package with only
+reservoir output disabled completed 60.104 game minutes in 17.15 measured
+observation wall minutes, excluding queue/boot/teardown. Peak total VRAM
+10,821 MiB against 8,008 MiB before launch. The 2,813 MiB difference is an
+estimate, not a sampled game peak. Peak power 132.72 W; peak temperature 53 C.
+No power settings changed. Pinned clean harness 6949182, mod SHA6cedb7ee.
+
+Flood drops from 0.2452 to 0.0133 km² under the unchanged masked gate. Required
+retention drops from 50/50 to 49/50; the engineered reservoir and five nearby
+initialized lattice locations dry. Both 95% retention gates pass, but the
+unchanged full drying target fails. All 58 configured source controls match
+their encoded package at all 13 samples in both baseline and intervention.
+No other source, terrain, initial water, probe, reference, or acceptance
+threshold changed. Raw overall verdict remains failed for startup views.
+Producer inspected the two actual t060 start views without changing verdicts.
+
+First attempt stopped before Steam/game launch because the new isolated
+checkout lacked a mod build. It remains a failed bootstrap, not an observation.
+Built that checkout's mod before the fresh second attempt; DLL hash matches
+the original cohort. The failed attempt's global Steam-instance listing was
+not an owned client: the failure precedes Steam launch; no foreign process
+was killed. Its owned display/bus units ended. The full second attempt has
+empty game, Steam, and unit cleanup, and its foreground waiter was collected.
+
+Source-bound result: map-factory calibration/pl1191-construction-v1/development/
+dry-upland-asia-reservoir-output-off.json. This is development evidence, not a
+constructed-map qualification or a new holdout result. Exporter defaults,
+historical native verdicts, and release hold remain unchanged. Human-only
+checks, loaded-assembly identity beyond the old mod's observations, and
+long-term/populated operation remain unverified.
+
+## 2026-11-21 · PL-1191 lake all-output development ablation
+
+Blade, RTX 2080 Ti at 05:00.0. The output-only lake-shore-Europe intervention
+completed 60.147 game minutes in 15.87 observation wall minutes, excluding
+queue/boot/teardown. Peak total VRAM 10,821 MiB against 8,008 MiB before launch;
+the 2,813 MiB increment is an estimate, not a sampled game peak. Game share at
+menu was 1,574 MiB. Peak power 146.35 W and temperature 60 C. No power settings
+changed. Clean pinned harness 6949182, mod SHA6cedb7ee.
+
+All 221 configured controls match the baseline and intervention packages in
+all 13 samples. Only 190 positive output rates changed. Intakes remain active;
+terrain, initial grids, targets, positions, probes, masks and thresholds are
+fixed. Flood 0.0627→0 km², but endpoint retention 911/918→0/918; all 5,809
+initially wet probe locations lose nearby water. The original full drying
+target and both required-retention gates fail. This identifies ongoing supply
+dependence, not river-versus-lake origin or a qualified fix. Raw startup_views
+also remains failed. Producer inspected actual start/end water maps without
+rewriting the verdict. Human acceptance is not verified.
+
+Foreground run collected; empty game, Steam and unit cleanup. Owned game PID
+2465626 is absent. The shared slot then passed to PL-1078; the separate coastal
+intake-only experiment joined FIFO rather than preempting it. Old-mod loaded-
+assembly identity limitations remain; no new native qualification is claimed.
+
+## 2026-11-21 · PL-1191 coast below-sea intake ablation
+
+Blade, RTX 2080 Ti at 05:00.0. Completed60.034 game minutes in16.15 observation
+wall minutes, excluding FIFO/boot/teardown. Peak total VRAM10,821MiB against
+8,008MiB before launch;2,813MiB increment is an estimate, not a sampled game
+peak. Game share at menu1,574MiB. Peak power141.72W, temperature59C. No power
+settings changed. Clean pinned harness6949182, mod SHA6cedb7ee.
+
+Only99 encoded below-sea intakes disabled; all167 outputs and remaining68
+intakes unchanged. Every167-control table matches its package at all13 samples
+in baseline/intervention. Original grids, probes, masks and thresholds fixed.
+Endpoint987→988/1149; throughout978→980/1149; both95% gates and full drying fail.
+Flood remains0.0003km². Original lost cohort:1/68 Main Drain wet at endpoint,
+0/68 throughout;0/94 Bulimba wet at endpoint or throughout. Not a general fix.
+Producer inspected actual t060 views; startup_views failure is not rewritten.
+
+Foreground command collected. Game2609423 ignored quit; the harness terminated
+that exact owned PID. It and waiter2535781 are absent; game/Steam/unit cleanup
+is empty. Runtime sidecar captures the running executable and matching on-disk
+compile references, not full loaded-assembly identity. Old baselines receive no
+new identity claim. Holdout, native nine-square and human acceptance remain open.

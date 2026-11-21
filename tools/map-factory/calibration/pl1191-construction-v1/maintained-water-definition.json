@@ -1,0 +1,48 @@
+{
+  "schema": "polli.maintained-water-definition/1",
+  "version": "PL-1191-maintained-water-v1",
+  "status": "development_definition_frozen_before_holdout",
+  "product_adopted": false,
+  "implementation_status": "candidate feature-inventory generator and evaluator still required",
+  "promise": "The declared maintained water in this exact authored package survives the sampled empty-map observation without flooding. This does not establish intake capacity, populated-city demand or continuous/long-term behavior.",
+  "inventory": {
+    "authority": "The captured surface-water geometry plus the complete authored water plan, before native outcomes. Bind geometry, terrain, initial water, package, probes, source revision and this definition by SHA256.",
+    "mandatory_features": [
+      "Every captured surface waterway not explicitly tagged intermittent, including rivers and streams",
+      "Every captured lake and ocean component clipped to the square",
+      "Every constructed reservoir or other authored maintained water body"
+    ],
+    "ephemeral_or_unmodeled": "Only explicitly intermittent water is outside the perennial promise. Unsupported streams and other mandatory features remain unresolved, not ephemeral and not pass. Never infer ephemeral status from observed drying. Report optional initial films separately without treating their disappearance as maintained-water success.",
+    "completeness": "Every mandatory source feature must have a maintained contract or an explicit unresolved entry. Missing, unresolved, unbound or insufficiently sampled coverage prevents an overall maintained-water promise. A missing source or failed capture is not geographic impossibility. Individual passing feature checks may be reported with their exact scope, but partial coverage cannot become an all-map promise.",
+    "probes": "Fix probes on the source geometry or authored engineering plan, not on observed wet pixels. Subdivide river reaches into at-most-512m sectors and sample their planned centerlines at no more than64m spacing. Sample mapped water-body interiors on a64m lattice after a fixed32m boundary erosion. Keep nonempty small features as explicit point contracts rather than silently dropping them. Bind that compilation algorithm before holdout input capture."
+  },
+  "native_observation": {
+    "game_minutes_min": 60,
+    "samples_min": 13,
+    "nominal_interval_game_minutes": 5,
+    "largest_gap_game_minutes_max": 6,
+    "scope": "Instrumented empty-map New Game, including initialization and all later samples. Bind actual package, inputs, control table, runtime, protocol and clean teardown. Missing evidence is unknown, not pass."
+  },
+  "primary_checks": {
+    "flood": "Retain the original no_flooding limit: at most0.05km2 deeper than0.5m outside the frozen initial/mapped-water references and128m exclusions. Do not expand expected-water masks from outcomes.",
+    "engineered_storage": "Every designated storage/intake anchor must have at least0.5m exact native depth at every sample, including initialization. Require every engineered feature, not a pooled95% across all map probes. This tests retained water, not pump service capacity.",
+    "maintained_natural_water": "For each river sector and each water-body component separately, at least95% of its fixed probe locations must have water deeper than0.1m within64m at every sample, including initialization. Do not pool a failed small reach into a large healthy river or ocean.",
+    "decision": "Pass requires complete bound inventory and all primary checks. Observed violation is fail. Missing/unsupported coverage, insufficient observation or identity mismatch is unknown. Native check pass alone does not issue a product promise or waive terrain, terracing, connection, start, or human-only acceptance."
+  },
+  "comparators": {
+    "historical_full_drying": "Always report the unchanged water_risk_corpus.native_outcome drying label alongside the primary result. PL-1072 labels and score remain immutable.",
+    "original_required_gates": "Report the original endpoint and throughout95% required-water gates separately, including skips. A passing pooled gate cannot hide loss of the only engineered reservoir.",
+    "optional_initialization_loss": "Report exact-point thinning and initialized optional-water loss separately. Sixteen of27 historical positives arise only through optional loss; those broad labels are correct under their original definition, not relabelled here."
+  },
+  "rationale": "Use the existing native flood and95% geometry-tolerance conventions, but apply retention per declared feature and require every engineered storage anchor. The development source-off trial passes the pooled95% gates while its engineered pond empties, so pooled retention is not a storage promise. Ignore no lost mandatory feature because another body is large. Optional films remain a separate comparator, not the primary maintained-water claim.",
+  "change_policy": "This definition and the deterministic feature compiler must be fixed before holdout access. Do not tune them on holdout outcomes. A result-changing revision after unblinding requires a new disjoint holdout; it cannot relabel or rescore the old panel.",
+  "thresholds": {
+    "storage_exact_depth_m_min": 0.5,
+    "natural_depth_m_min_exclusive": 0.1,
+    "natural_nearby_radius_m": 64,
+    "natural_fraction_per_feature_min": 0.95,
+    "flood_km2_max": 0.05,
+    "flood_depth_m_min_exclusive": 0.5,
+    "flood_exclusion_m": 128
+  }
+}

@@ -72,7 +72,9 @@ standing in for a dry channel bank. This changes 22 of 72 old input-bound featur
 rows, including the two fixture areas above. No old classification or native
 label changes. The [independent calibration protocol](WATER_CALIBRATION.md) fixes
 a new 30-square panel and a separate old-data-only candidate before game outcomes.
-That candidate is not the deployed model, and has no new native results yet.
+The [completed native study](calibration/pl1072-frozen/HOLDOUT_REPORT.md) rejects
+both candidates for clearance. Flood flags do not reduce observed risk; drying
+equals always-warn. Neither candidate replaces the deployed warning model.
 
 ### Coastal margin above sea level
 
