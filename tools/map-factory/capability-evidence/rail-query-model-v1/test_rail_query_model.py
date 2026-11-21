@@ -410,6 +410,39 @@ class FrozenResultTest(unittest.TestCase):
         self.assertAlmostEqual(fitted["precision"], 26 / 30)
         self.assertAlmostEqual(fitted["recall"], 26 / 27)
 
+    def test_controls_and_cohort_groups(self):
+        """The stock controls are the study's own check: they must be exact."""
+        result = json.loads((HERE / "evaluation.json").read_text())["result"]
+        stock = {
+            "tp": 0,
+            "fp": 0,
+            "tn": 0,
+            "fn": 0,
+        }
+        cohort = {"tp": 0, "fp": 0, "tn": 0, "fn": 0}
+        for entry in result["packages"].values():
+            target = stock if entry["split"] == "stock_controls" else cohort
+            for key in target:
+                target[key] += entry["rules"][model.FITTED_RULE][key]
+        self.assertEqual(stock, {"tp": 16, "fp": 0, "tn": 16, "fn": 0})
+        self.assertEqual(cohort, {"tp": 10, "fp": 4, "tn": 229, "fn": 1})
+
+    def test_bridge_status_and_reachability_claim(self):
+        bridge_report = json.loads((HERE / "bridge.json").read_text())
+        self.assertEqual(bridge_report["status"], "bridge_established")
+        for field in bridge.MODEL_FIELDS:
+            self.assertEqual(bridge_report["fields"][field]["rate"], 1.0, field)
+        self.assertEqual(
+            bridge_report["prediction_agreement"]["queries"],
+            bridge_report["prediction_agreement"]["identical"],
+        )
+        # Cross-component requests are the one denial the export supports.
+        result = json.loads((HERE / "evaluation.json").read_text())["result"]
+        component = result["rules"]["weak_component"]
+        self.assertEqual(
+            (component["tp"], component["tn"], component["fn"]), (27, 51, 0)
+        )
+
     def test_fitted_errors_are_all_pittsburgh(self):
         evaluation = json.loads((HERE / "evaluation.json").read_text())["result"]
         errors = [

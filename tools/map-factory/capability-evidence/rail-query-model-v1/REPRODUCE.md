@@ -69,7 +69,7 @@ any number below changed the study.
 | `evaluation.json` | `1e345edcd5c2759b107847f5433308bd50de675e26cfb39921ffcad1ad455533` |
 | `bridge.json` | `cc1794b78600ca482528627d41a883a364e3ff93eef7f0251895116cc8fd711d` |
 | `catalogs.json` | `f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0` |
-| `integrity.json` | `c65edf54b0583649f6f3d169971f002e9ec8a30d5fcca755b0abc5d8fb82c93a` |
+| `integrity.json` | `8ce8c9bef003b998d6948d6afb9b5af84e9f81d3882c0c24fe2b3f0fe9228253` |
 
 `predict.py` writes `frozen_at`, so re-freezing a changed model or protocol
 changes `protocol.json` and `predictions.json`; `evaluate.py` and `bridge.py`
