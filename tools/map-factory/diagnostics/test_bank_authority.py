@@ -1,10 +1,26 @@
 import copy
 import unittest
 
-from bank_authority import corner_audit, deficits, synthetic_check
+from bank_authority import corner_audit, deficits, review_basis, synthetic_check
 
 
 class BankAuthorityTests(unittest.TestCase):
+    def test_actual_review_verdict_schema_and_frozen_source_are_bound(self):
+        receipt = {
+            "schema": "polli.pl1191-stream-port-recipe-review/1",
+            "review_issue": {"id": "01a1ffce-a05d-724a-976c-0365a699c6b4"},
+            "claim_recommendation": {"verdict": "pass"},
+            "bound_source": {
+                "global_freeze": {
+                    "sha256": "41d271ce72d0812d8408d6b2bbc4f5531329f500ce4320f3bd4365a8dc00dee7"
+                }
+            },
+        }
+        review_basis(receipt)
+        receipt["bound_source"]["global_freeze"]["sha256"] = "other"
+        with self.assertRaisesRegex(ValueError, "reviewed freeze"):
+            review_basis(receipt)
+
     def test_inside_corner_is_retired_original_bank_not_authorized_channel(self):
         nodes = [[100, 100], [100, 101], [101, 101]]
         original = copy.deepcopy(nodes)

@@ -29,6 +29,18 @@ DESIGN = (
 )
 
 
+def review_basis(receipt):
+    if (
+        receipt.get("schema") != "polli.pl1191-stream-port-recipe-review/1"
+        or receipt.get("review_issue", {}).get("id")
+        != "01a1ffce-a05d-724a-976c-0365a699c6b4"
+        or receipt.get("claim_recommendation", {}).get("verdict") != "pass"
+        or receipt.get("bound_source", {}).get("global_freeze", {}).get("sha256")
+        != "41d271ce72d0812d8408d6b2bbc4f5531329f500ce4320f3bd4365a8dc00dee7"
+    ):
+        raise ValueError("Expected exact PL-1230 review receipt and reviewed freeze")
+
+
 def corner_audit(nodes):
     """Single, non-iterated reviewer rule. Adjacency does not establish a bank."""
     own = set(map(tuple, nodes))
@@ -236,11 +248,7 @@ def stage(source, output, review):
     if output.exists():
         raise ValueError("Use a fresh read-only bank-authority protocol")
     receipt = load(review)
-    if (
-        receipt["review_issue"]["id"] != "01a1ffce-a05d-724a-976c-0365a699c6b4"
-        or receipt["status"] != "pass"
-    ):
-        raise ValueError("Expected exact PL-1230 review receipt")
+    review_basis(receipt)
     parent_preflight(source)
     output.mkdir(parents=True)
     shutil.copytree(source, output / "input")
@@ -301,6 +309,7 @@ def preflight(folder):
         or sha(folder / "review.json") != frozen["review_sha256"]
     ):
         raise ValueError("Previous protocol/review changed")
+    review_basis(load(folder / "review.json"))
     parent_preflight(folder / "input")
     report, features, query = analyze(folder)
     if report != load(folder / "bank-audit.json") or features != load(
