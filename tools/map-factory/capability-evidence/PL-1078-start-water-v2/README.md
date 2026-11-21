@@ -1,0 +1,82 @@
+# Frozen start and water study
+
+This is an immutable study snapshot, not a second capability inventory.
+PL-1119 owns `capabilities.json`, the browser and ledger integration.
+
+## Sources and ordering
+
+The final 4a4 player passed both registered first-hour stock controls. The
+original eight were then rerun and frozen before any capability implementation:
+3/8 first-hour passes, 2/8 strict full-map passes. Historical 1/8 is unqualified;
+the observed difference is player work, not exporter-rule improvement.
+
+All eleven regenerated CRPs, terrain/water grids and resource plans at exporter
+`56bd3ca582db7de026f9669b5fa42b6640fefef8` match the pre-rule baseline byte-for-byte.
+Every water-risk warning remains. Final assessment
+`83fa0ec27324dd4c4db8c6342e9600f76c3ddc41` changes oracle-protocol metadata on the
+same final inputs. It does not change a map or the qualified player.
+
+`predictions.json` was frozen before any holdout native outcome. Its SHA-256 is
+`fd3875416400e1d13cf94f3bd77a75e1c34da1f2ba5481a7ee5f7abec2679087`; combined
+model SHA-256 is `bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604`.
+The original eight are fitting data; the three hash/offset-selected regional
+holdouts are not a global random sample. Do not rewrite predictions after results.
+
+## Component interfaces
+
+| Component | Implementation | Native meaning |
+|:--|:--|:--|
+| Start/site/hookup | `start_capabilities.start_witness` | Exact declared road construction, then sampled passenger-car paths to literal outside endpoints |
+| Surface water | `surface_intake.assess_surface` | One declared native shore snap per anchor, checked facilities/pipes, fixed spatial consumer load |
+
+The exporter writes advisory `start-capabilities.json` before serialization.
+Limits and witness/model/input hashes travel with each capability fragment.
+Missing finite-search witnesses stay unknown. Missing authored outside anchors
+are negatives only for the present plan, not geography or every possible generator.
+Neither component emits `promised`.
+
+Start paths are **after the declared starter-road construction**. Do not import
+them into a fresh-map outside-road certificate or infer freight, spawning,
+continuous capacity or first-hour service from them. The archived v1 fitting
+study in `../PL-1078-start-v1/` retains both collision false positives; do not mix
+its model with current-model agreement. Group by model, oracle and fitting/holdout
+role. A rejected witness is not proof that the square has no other legal plan.
+
+The water load uses explicit auxiliary power, 1000 native water/sewage units per
+256 simulation frames, two minutes of loaded settling and sixty scored minutes.
+It is not a population or SI-rate conversion, a power-generation proof, an
+indefinite-flow guarantee or a groundwater-based surface-water positive.
+
+## Reference calibration
+
+The first mixed-API diagnostic was interrupted and remains unscored under
+`history/`. No hydrology fault is attributed to it.
+
+The revised Cliffside Bay reference completed 60.0103 scored minutes. All 843
+requests received full water and sewage quantities with healthy auxiliaries;
+733 deliveries were polluted. Thus quantity support is positive, but clean
+service is false. Reference anchors were selected geometrically and their
+upstream/cleanliness relationship was unpredicted (`predicted=null`), so this is
+not a model agreement score or a stock-map incapability claim. Cleanup is empty.
+Foggy Hills is still pending; product-water attribution waits for both references
+to support the quantity fixture.
+
+Product v2 native observations, held-out first-hour baseline attempts and the
+fresh eleven-square candidate player arm remain pending. The latter will use
+the immutable 4a4 player, not the capability DLL. Byte-identical candidate maps
+mean any repeat-run difference cannot be attributed to physical exporter rules.
+
+## Raw evidence and integration
+
+Large cycle JSON is gzip-compressed without changing its recovered bytes.
+`summary.json` binds both compressed and decompressed hashes. Other public
+evidence locators resolve relative to the containing study directory. Receipt
+bindings are selected map/mod/cleanup/resource fields, not launch-time identity
+certificates. Full Steam, audio and launch logs are retained privately, not
+published. Build-time game hashes alone cannot support promise promotion.
+
+PL-1119 can consume the capability fragments and run-bound observations by exact
+artifact/input/model hashes. Preserve `predicted`/`observed` nulls, partial steps,
+all warnings and fitting versus holdout roles. Keep archived player results,
+surface service and native opening paths as distinct oracles. No default or
+public landing is included here.

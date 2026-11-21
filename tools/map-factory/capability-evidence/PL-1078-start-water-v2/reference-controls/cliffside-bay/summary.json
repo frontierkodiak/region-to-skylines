@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "predicted": null,
+  "split": "fixture_reference",
+  "model_agreement_scored": false,
+  "observed_at": "2026-11-21T01:58:45.337718+00:00",
+  "quantity_supported": true,
+  "observed_surface_service": false,
+  "observed_water_capability": false,
+  "game_minutes": 60.01028090755765,
+  "cycles": 843,
+  "requested_native_units": 843000,
+  "fetched_native_units": 843000,
+  "sewage_accepted_native_units": 843000,
+  "polluted_delivery_cycles": 733,
+  "fixture_qualified": true,
+  "cleanup_qualified": true,
+  "evidence": [
+    {
+      "path": "observation.json",
+      "sha256": "0eed1d5369919e76b42beeb4b86689bc6717dbb6a4d53ee845fb9a11c08757cf"
+    },
+    {
+      "path": "prediction.json",
+      "sha256": "1dd23ff2fed4c613b08b9fb3928a4a4f9e1e442dc6d829c8a1310d47215391c3"
+    },
+    {
+      "path": "witness-job.json.gz",
+      "sha256": "6c0e12145b9cd88d1b3acec22e202dcc669bfc4d4e5592298288fc0b927c5726",
+      "decompressed_sha256": "52f6334013c83e8bb643476419b8208ae4080b2572e550834839b75bb3ac8c30",
+      "encoding": "gzip"
+    },
+    {
+      "path": "gpu.csv",
+      "sha256": "c936a60a830a993daa88812c7667434bb2180ad262ed5aeabc0b2da4d3b59f04"
+    },
+    {
+      "path": "new-game-panel.png",
+      "sha256": "6f3884d6a65aeab4ab342feec8fbf2a6d1f770ff90a6fef557c7322baf9785a9"
+    },
+    {
+      "path": "receipt-bindings.json",
+      "sha256": "79038ce96bf8e00106cea2a5fa1e4e14ae65f36080489caebe54cc135e4ae0cf"
+    },
+    {
+      "path": "new-game-panel-review.json",
+      "sha256": "0ae2d90693bec4821302229c008a6317f8a1900f02f49b06d81569f193c359d3"
+    }
+  ],
+  "limits": [
+    "Geometrically selected reference; cleanliness/downstream relationship was unpredicted",
+    "Full quantities do not clear the observed contamination",
+    "Controlled auxiliary power, native API units and finite horizon only; no promise"
+  ]
+}

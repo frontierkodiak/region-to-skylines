@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh, both actual PNGs viewed",
+  "notes": "Fresh empty Innsbruck city; river and road approaches visible in Areas view; Hello guide panel visible lower-left in both. Opening has no Areas overlay; zoom shows outlined start tile. These are captures before witness construction, not proof of its acceptance.",
+  "opening": {
+    "sha256": "293f65205aa7b5c00111058d3b54339aea0cc832fd89d7e6d4585fde1b5fdca6",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "3687e2c473d0cf64f9df409aa0556beadbfff9c5d24940dbcf94cc2ad21c91a0",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

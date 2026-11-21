@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "mode": "export",
+  "model": {
+    "id": "surface-stock-load-reference-v1",
+    "parameters": {
+      "consumer_api": "spatial_water_and_sewage",
+      "settling_has_load": true,
+      "native_units_per_cycle": 1000,
+      "cycle_frames": 256,
+      "settling_game_minutes": 2,
+      "horizon_game_minutes": 60,
+      "shore_snap_radius_m": 50,
+      "auxiliary_power_rate": 1000,
+      "max_pollution_native": 0
+    },
+    "reference_selection": {
+      "separation_m": 320,
+      "water_threshold_m": 0.1,
+      "shore_distance_m": 32,
+      "starting_tile_center_extent_m": 800,
+      "component_policy": "largest decoded body first; shared body preferred, not required for fixture plumbing"
+    },
+    "source_sha256": {
+      "prepare_surface_controls.py": "7c8d91dd9e44cbeca6262e973359a7bad1e1ea7dc7e4525967b3fafa5c98cbf4",
+      "surface_intake.py": "4cc4fa4f7ed72d538cf4c1319304b125cebc9f8e1625bf35460910c28d4863bf",
+      "start_capabilities.py": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe"
+    },
+    "sha256": "fd0622319c43bf0d4b0449b15da5f7e46ba84b3bea5a00305919e898f0c2068c"
+  },
+  "inputs_sha256": {
+    "terrain.u16": "d13052c9d44d712368d9bef81f37823c7bba56fb7ef129b0b288cd69adffb102",
+    "water.u16": "7830210a960210ef2bc1c878e39d4e60f2372ecb998110ec1a89aa552a224125",
+    "hydrology.json": "4a4396659a0d3e752d607d796c8f91ba9c21f6f46dd3da6ec8a0e6e7aae4a758"
+  },
+  "capabilities": {
+    "start": {
+      "level": "unknown",
+      "reason": "missing_authored_graph",
+      "predicted": null
+    },
+    "water": {
+      "level": "unknown",
+      "reason": "stock_load_reference_not_a_capability_prediction",
+      "predicted": null,
+      "witness": {
+        "schema": 1,
+        "start_tile": 8,
+        "facilities": [
+          {
+            "prefab": "Water Intake",
+            "anchor": [
+              2144,
+              0,
+              -2352
+            ],
+            "model_bank_candidate": [
+              2128,
+              42.078125,
+              -2352
+            ],
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          },
+          {
+            "prefab": "Water Outlet",
+            "anchor": [
+              2448,
+              0,
+              -2224
+            ],
+            "model_bank_candidate": [
+              2448,
+              42.265625,
+              -2208
+            ],
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          }
+        ],
+        "consumer_point": [
+          2288.0,
+          42.171875,
+          -2280.0
+        ],
+        "load": {
+          "consumer_api": "spatial_water_and_sewage",
+          "settling_has_load": true,
+          "native_units_per_cycle": 1000,
+          "cycle_frames": 256,
+          "settling_game_minutes": 2,
+          "horizon_game_minutes": 60,
+          "shore_snap_radius_m": 50,
+          "auxiliary_power_rate": 1000,
+          "max_pollution_native": 0
+        },
+        "auxiliary_power": "fixed native supply, fixture control only",
+        "channel_route": {
+          "intake_water_point": [
+            2144,
+            0,
+            -2352
+          ],
+          "outlet_water_point": [
+            2448,
+            0,
+            -2224
+          ],
+          "direction_basis": "Reference only: no initial cleanliness/downstream prediction"
+        }
+      },
+      "witness_sha256": "e2a9ba2eeef91e68bb61317314a2dc0c1773addbb36619cad90cb481869f0950",
+      "subchecks": {
+        "reference_geometry_frozen": true,
+        "quality": null,
+        "downstream": null,
+        "service": null
+      },
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ]
+    }
+  },
+  "artifact_sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+  "split": "fixture_control",
+  "square": {
+    "stock_map": "Cliffside Bay"
+  },
+  "source_sha": null,
+  "scope": "Stock package reference, not an exporter/model accuracy row"
+}

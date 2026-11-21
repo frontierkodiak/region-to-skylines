@@ -43,7 +43,7 @@ from the other ramp. All decisions are frozen on CPU, never selected by a
 native retry or a square name. It can therefore select another authored pair
 or abstain, without changing a map, start tile or the qualified player.
 
-Corridors are sampled every4m using a cubic with one-third-chord control
+Corridors use nominal4m chord-based samples on a cubic with one-third-chord control
 length. That curve length and the24m clearance are **provisional geometric
 approximations**, not recovered engine collision constants or prefab widths.
 The two deliberately joined stub segments are excluded from the unrelated

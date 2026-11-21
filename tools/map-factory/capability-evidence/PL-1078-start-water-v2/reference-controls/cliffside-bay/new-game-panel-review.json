@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "6f3884d6a65aeab4ab342feec8fbf2a6d1f770ff90a6fef557c7322baf9785a9",
+  "observed": {
+    "map_name": "Cliffside Bay",
+    "author": "",
+    "buildableArea": 53,
+    "base_theme": "European",
+    "selected_map_visible": true,
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true
+  },
+  "notes": "Coastal peninsula preview; all four connection icons enabled. Duplicate title visible, but the controller bound the exact installed stock bytes. Panel evidence is not a clean-service pass."
+}

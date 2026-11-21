@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "decided_at": "2026-11-21T01:10:19Z",
+  "controller_pid": 790754,
+  "verified_daemon_pid": 1376919,
+  "reason": "Fixture calibration exposed repeatable zero sewage acceptance on alternating node-pressure phases despite healthy facility auxiliaries. Water is fetched through the spatial consumer API but sewage used a pipe-node overload. Stop the incomplete reference; test consistent spatial-consumer calls before attributing hydrology faults.",
+  "scope": "Fixture/API investigation, not map failure or full-horizon service result",
+  "reference_prediction": null,
+  "service_observation": null,
+  "next_stock_foggy_hills": "not run by this interrupted series; wrapper stops on controller termination",
+  "retention": "Raw job samples, all setup/placement records, map/model/DLL identities and cleanup are retained unchanged"
+}
