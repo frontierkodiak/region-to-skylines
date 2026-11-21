@@ -3265,3 +3265,26 @@ Pittsburgh telemetry22:40:00.702–22:42:49.388local; Charleston23:04:24.948–
 owned-game menu1574MiB is not a game-only peak. All9 actual PNGs for this series
 were viewed and hash-reviewed. Existing dark bridge patches remain documented;
 start connectivity does not clear full-map visual/geographic acceptance.
+
+## PL-1078 first two water fitting observations — 2026-11-21
+
+Unchanged83fa/f916/modelBB fixed spatial load, conditional auxiliary power and
+normal native facility/pipe construction. Both full-hour results were collected
+with empty cleanup. Each has29 loaded settling cycles plus843 scored cycles,
+843000 water fetched and843000 sewage accepted; zero quantity shortfalls,
+polluted deliveries, auxiliary failures or timing faults. These are product
+fitting observations, not stock references or first-hour player scores.
+
+| Case | Scored game-minutes | Observation UTC | Controller seconds including queue | Whole-card samples / peak MiB / W / C |
+|---|---:|---|---:|---|
+| Asheville | 60.0083365 | 04:42:03.162047 | 2166.42 | 402 / 10821 / 131.57 / 59 |
+| Innsbruck | 60.0052809 | 05:41:40.610260 | 3525.23 | 434 / 10821 / 203.10 / 73 |
+
+Asheville telemetry23:09:39.819–23:43:15.733local Nov20; Innsbruck00:05:46.985–
+00:42:06.598local Nov21. RTX2080Ti05:00.0, actual recorded200W cap unchanged.
+The transient203.10W measurement is retained, not rounded down to the cap.
+Whole-card peaks include other allocation; owned-game menu1574MiB is not a
+continuous game-only peak. All6 actual panel/opening/Areas PNGs were viewed and
+hash-reviewed. Selected map/mod/cleanup receipt fields and lossless raw cycles
+are published with telemetry; private Steam/audio/launch logs are not.
+Pittsburgh water and every held-out native observation remain pending here.
