@@ -40,6 +40,8 @@ def bind_runtime(session, build):
         "command_line": (proc / "cmdline").read_bytes().decode().split("\0"),
         "assemblies": reported["assemblies"],
         "unresolved_loaded_assemblies": reported.get("unresolved_loaded_assemblies", []),
+        "excluded_dynamic_assemblies": reported.get("excluded_dynamic_assemblies"),
+        "status": session.client.call("status"),
         "build_matches": False,
         "launch_args": session.receipt["launch_args"],
         "scope": "Loaded assembly file bytes at menu readiness, not an in-memory code attestation.",
