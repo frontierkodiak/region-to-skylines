@@ -4,6 +4,8 @@ import gzip
 import hashlib
 import json
 import copy
+import os
+import sys
 import tempfile
 from pathlib import Path
 import random
@@ -16,6 +18,7 @@ from PIL import Image
 from capabilities import (
     STOCK_MEASURES,
     assess_prepared,
+    stock_measure_binding,
     check,
     place_capabilities,
     place_input,
@@ -650,6 +653,131 @@ class CapabilityParity(unittest.TestCase):
             terrain_interest_metrics(np.zeros((1080, 1081)))
         with self.assertRaises(ValueError):
             terrain_interest_metrics(np.full((1081, 1081), np.nan))
+
+    @staticmethod
+    def stock_nodes():
+        from terrain_interest import central_node_index
+
+        return [int(value) for value in central_node_index()]
+
+    @staticmethod
+    def stock_probe(prepared, pythonpath):
+        """One fresh interpreter: the imported helper, then a prepared report."""
+        code = (
+            "import json,sys\n"
+            "from pathlib import Path\n"
+            "import numpy as np\n"
+            "import terrain_interest\n"
+            "out={'nodes':[int(v) for v in terrain_interest.central_node_index()],"
+            "'helper_value':terrain_interest.terrain_interest_metrics("
+            "np.full((1081,1081),100.0))['terrain_roughness_percent']}\n"
+            "try:\n"
+            "    from capabilities import assess_prepared\n"
+            "    out['report']=assess_prepared(Path(sys.argv[1]))\n"
+            "except ValueError as error:\n"
+            "    out['refused']=str(error)\n"
+            "print(json.dumps(out))\n"
+        )
+        env = {
+            **os.environ,
+            "PYTHONPATH": pythonpath,
+            "PYTHONDONTWRITEBYTECODE": "1",
+        }
+        result = subprocess.run(
+            [sys.executable, "-B", "-c", code, str(prepared)],
+            cwd=str(ROOT),
+            env=env,
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return json.loads(result.stdout)
+
+    def test_stock_measure_source_mutation_is_refused(self):
+        """Changed actual helper/reader bytes cannot answer under the old fingerprint.
+
+        The probe starts a fresh interpreter for each case, mutates the real
+        dependency file in an isolated copy, and shows the answer would move:
+        the report must refuse instead of reporting a value under the old pin.
+        """
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            prepared = extract_fixture("asheville", root / "prepared")
+            factory = str(ROOT / "tools/map-factory")
+
+            clean = self.stock_probe(prepared, factory)
+            self.assertNotIn("refused", clean, clean.get("refused"))
+            report = clean["report"]
+            binding = report["stock_measures"]
+            self.assertEqual(binding["status"], "validated_against_ledger_stock_study")
+            self.assertEqual(
+                binding["ledger_sha256"],
+                hashlib.sha256((ROOT / "capabilities.json").read_bytes()).hexdigest(),
+            )
+            self.assertEqual(
+                binding["artifact_sha256"],
+                LEDGER["stock_reference"]["terrain_interest"]["artifact_sha256"],
+            )
+            for key, file in (
+                ("helper", "tools/map-factory/terrain_interest.py"),
+                ("reader", "tools/map-factory/survey/measure_maps.py"),
+            ):
+                self.assertEqual(binding["source_sha256"][key]["file"], file)
+                self.assertEqual(
+                    binding["source_sha256"][key]["sha256"],
+                    hashlib.sha256((ROOT / file).read_bytes()).hexdigest(),
+                )
+                self.assertTrue(binding["source_sha256"][key]["validated"])
+            roughness = report["metrics"]["terrain_roughness_percent"]
+            self.assertEqual(roughness["value"], 18.83)
+            self.assertEqual(clean["helper_value"], 0)  # flat synthetic grid
+            self.assertEqual(clean["nodes"], self.stock_nodes())
+
+            # The exact real helper file, with one line appended, in an isolated
+            # copy read by a fresh interpreter: 0 becomes 1000, so the report
+            # has to refuse instead of returning the old fingerprint.
+            helper = (
+                (ROOT / "tools/map-factory/terrain_interest.py").read_bytes()
+                + b"""
+_original_interest = terrain_interest_metrics
+def terrain_interest_metrics(ground):
+    result = _original_interest(ground)
+    result["terrain_roughness_percent"] += 1000
+    return result
+"""
+            )
+            helper_dir = root / "mutated-helper"
+            helper_dir.mkdir()
+            (helper_dir / "terrain_interest.py").write_bytes(helper)
+            changed = self.stock_probe(prepared, str(helper_dir) + os.pathsep + factory)
+            self.assertNotIn("report", changed, "a changed helper must refuse")
+            self.assertIn("Stock measure helper", changed["refused"])
+            self.assertIn(hashlib.sha256(helper).hexdigest(), changed["refused"])
+            self.assertEqual(changed["helper_value"], clean["helper_value"] + 1000)
+
+            # The consumed reader/predicate is bound too. A changed CELL moves the
+            # central node set and the report refuses the same way.
+            source = (ROOT / "tools/map-factory/survey/measure_maps.py").read_text()
+            self.assertIn("CELL = 33.75", source)
+            reader = source.replace("CELL = 33.75", "CELL = 30.0", 1).encode()
+            reader_dir = root / "mutated-reader"
+            (reader_dir / "survey").mkdir(parents=True)
+            (reader_dir / "survey" / "measure_maps.py").write_bytes(reader)
+            changed = self.stock_probe(prepared, str(reader_dir) + os.pathsep + factory)
+            self.assertNotIn("report", changed, "a changed reader must refuse")
+            self.assertIn("Stock measure reader", changed["refused"])
+            self.assertIn(hashlib.sha256(reader).hexdigest(), changed["refused"])
+            self.assertNotEqual(changed["nodes"], clean["nodes"])
+
+        # A missing or stale declared study refuses rather than guessing.
+        with self.assertRaises(ValueError):
+            stock_measure_binding({"stock_reference": {}}, b"{}")
+        stale = copy.deepcopy(LEDGER)
+        stale["stock_reference"]["terrain_interest"]["tool"]["measure_source"][
+            "sha256"
+        ] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "Stock measure helper"):
+            stock_measure_binding(stale, b"{}")
 
     @staticmethod
     def terrain_rows_sha(rows):

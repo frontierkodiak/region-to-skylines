@@ -125,6 +125,15 @@ not in a pass/fail gate. A central flat-terrain share was measured and set aside
 because it reads as buildability and sits close to a stock quartile at capture
 fidelity.
 
+A prepared report carries a separate `stock_measures` block, apart from the
+three physical input hashes and the native/exact-export identity: the actual
+`terrain_interest.py` helper and `survey/measure_maps.py` reader/predicate bytes
+the report read, validated against `capabilities.json`'s declared stock study,
+plus the ledger, artifact and row digests. Changing either dependency refuses
+the report with the changed digest instead of returning a number under the old
+fingerprint. The regression in `test_capabilities.py` starts a fresh interpreter
+per case and mutates the real file in an isolated copy.
+
 Regenerating the survey means the full command in `survey/README.md`, followed by
 `node capability-ledger.mjs --refresh-stock`. The readout clears on pan, a superseded or failed capture leaves no
 band, and its rows take the same hover, keyboard focus and tap as the icons.

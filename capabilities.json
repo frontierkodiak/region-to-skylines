@@ -35783,7 +35783,7 @@
           "tools/map-factory/water_model.py": "9eeb70313868e4457654b9b8a2f44939ca993a96056a96e07d5d2a97be05e43a",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
-          "tools/map-factory/capabilities.py": "437156b46b8f7f2cca00c7773aed12d64783c12a2938d0bffcb6e26723b88fea",
+          "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
           "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1"
         }
       }
@@ -35836,7 +35836,7 @@
         "source_sha256": {
           "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
-          "tools/map-factory/capabilities.py": "437156b46b8f7f2cca00c7773aed12d64783c12a2938d0bffcb6e26723b88fea",
+          "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
           "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
           "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1"

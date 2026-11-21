@@ -913,14 +913,73 @@ def prepared_input(folder):
     }
 
 
+STOCK_HELPER_FILE = "tools/map-factory/terrain_interest.py"
+STOCK_READER_FILE = "tools/map-factory/survey/measure_maps.py"
+
+
+def stock_measure_sources():
+    """The files the stock measures actually execute, resolved from the imports."""
+    import survey.measure_maps as measure_maps
+    import terrain_interest
+
+    return {
+        "helper": (STOCK_HELPER_FILE, Path(terrain_interest.__file__).resolve()),
+        "reader": (STOCK_READER_FILE, Path(measure_maps.__file__).resolve()),
+    }
+
+
+def stock_measure_binding(ledger, ledger_bytes):
+    """Current stock-measure algorithm bytes, validated against the declared study.
+
+    The three physical inputs and the native/exact-export identity keep their own
+    bindings. This block is only the measure dependency: the helper and the
+    survey reader/predicate it consumes. The bytes are hashed from the modules
+    actually imported, then checked against `capabilities.json`'s declared stock
+    study. A changed, stale or missing dependency refuses the report instead of
+    emitting a number under the old fingerprint.
+    """
+    study = ledger.get("stock_reference", {}).get("terrain_interest")
+    if not study:
+        raise ValueError("Stock measure study is missing from the capability ledger")
+    declared = study.get("tool", {})
+    bound = {}
+    for key, declared_key in (("helper", "measure_source"), ("reader", "reader")):
+        file, path = stock_measure_sources()[key]
+        if not path.is_file():
+            raise ValueError(f"Stock measure {key} dependency is missing: {path}")
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        expected = declared.get(declared_key, {}).get("sha256")
+        if not expected:
+            raise ValueError(
+                f"Stock measure {key} is not declared in the ledger stock study"
+            )
+        if digest != expected:
+            raise ValueError(
+                f"Stock measure {key} bytes do not match the ledger's declared "
+                f"study: {path} ({digest} != {expected})"
+            )
+        bound[key] = {"file": file, "sha256": digest, "validated": True}
+    return {
+        "version": study.get("version"),
+        "status": "validated_against_ledger_stock_study",
+        "ledger_sha256": hashlib.sha256(ledger_bytes).hexdigest(),
+        "artifact": study.get("artifact"),
+        "artifact_sha256": study.get("artifact_sha256"),
+        "rows_sha256": study.get("rows_sha256"),
+        "source_sha256": bound,
+    }
+
+
 def assess_prepared(folder, native_context=None):
     ledger_bytes = (
         Path(__file__).resolve().parents[2] / "capabilities.json"
     ).read_bytes()
     ledger = json.loads(ledger_bytes)
+    stock_binding = stock_measure_binding(ledger, ledger_bytes)
     report = check(prepared_input(folder), ledger)
     report["model_sha256"] = hashlib.sha256(ledger_bytes).hexdigest()
     report["tool_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    report["stock_measures"] = stock_binding
     report["inputs_sha256"] = {
         name: hashlib.sha256((folder / name).read_bytes()).hexdigest()
         for name in ("terrain.u16", "water.u16", "hydrology.json")
