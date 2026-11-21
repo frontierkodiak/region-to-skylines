@@ -52,9 +52,40 @@ The browser core and Python core consume the same normalized schema:
 `mode=estimate` means approximate initial terrain/water and mapped transport,
 not the final export. Missing graphs are unknown; an explicitly empty final
 graph is a negative for authored routes. Missing runway or rail observations
-never rule out synthetic routes. Neither core emits `promised` yet. Promise
-promotion requires an implemented evidence-qualification path, not manual
-editing of a level or a good retrospective agreement rate.
+never rule out synthetic routes. Version 4 can emit `promised` only for the narrow
+scope `sampled_native_lane_paths_at_opening`, through the exact-context path
+below. Geometry and retrospective agreement never promote a promise themselves.
+
+## Exact-export native qualification
+
+`check` / `checkCapabilities` accept an optional `export_identity` containing the
+exact CRP SHA-256, all three final terrain/water/hydrology hashes, and an explicit
+`native_context`: all recorded game-assembly hashes, mod and collector hashes,
+and the native protocol. The context must match the recorded controlled
+NewGameFromMap/noWorkshop/non-inverted-traffic run, not a strict no-mods run.
+Without that identity/context, results stay geometric candidates or Unknown.
+Pan-time estimates never carry an export identity and cannot inherit historical
+verification merely by sharing coordinates or a place name.
+
+The running executable and game-assembly hashes must be recorded at launch,
+with a bound runtime-identity receipt, and agree with the build-time references.
+The v1 study only recorded build-time game hashes. Its nine complete ship/air
+control sets remain **blocked qualification candidates**: no real certificate
+is issued and no real export currently becomes `promised`. Tests of successful
+promotion use explicitly constructed launch identities, not game observations.
+
+The prepared CLI computes package/input hashes itself. To request qualification,
+pass `--native-context expected-context.json`; it does not automatically select
+a context from the evidence. Changing package bytes, any prepared input, game,
+mod, collector or protocol prevents promotion. Only ship/air receipts with all
+four successful boundary/midpoint direction controls qualify. Missing, failed,
+archived/player-modified or partially covered controls do not. The qualifier
+also requires a current candidate; a disabled planner cannot be promoted.
+
+This verifies the recorded sampled lane paths **at opening**, not continuous
+ship clearance, sustained water, terminal service, landing or takeoff. No road
+or rail certificate is issued from the present selected-pair study. Actual
+water/start/hookup/intake qualification remains with its owning study.
 
 ## Score the game, without conflating oracles
 
@@ -78,6 +109,25 @@ start/hookup/intake rules and a stock-qualified first-hour player. Fold their
 results into this ledger rather than starting parallel live inventories.
 
 ## Compare interest, not just feasibility
+
+The fixed v1 outside study is integrated by artifact hash from immutable PR64
+source, not by place-name lookup. Regenerate it with:
+
+```sh
+uv run --project tools/map-factory python tools/map-factory/integrate_outside_evidence.py \
+  /path/to/exact-PR64/tools/map-factory/capability-evidence/outside-v1 \
+  --source-commit 4cef6fb620f403c603e597a46f3bb7d7e5feadb7
+```
+
+The committed v3 prediction snapshot remains byte-identical to the pre-import
+freeze. Current geometry is unchanged; v4 adds evidence qualification, not a
+native boundary fit. There are 19 fresh two-edge witnesses and 17 unknown cells.
+This is not 100-percent accuracy: no model-negative cell was tested natively.
+Same-role road pairs and generic rail failures cannot prove capability absence.
+Diagnostic failures, access legs, archived player runs, panels and prepared-water
+raster support remain distinct and cannot rescue one another into a global
+verdict. The upstream 619 rows/98 retained raw files remain available unchanged.
+All nine water-risk screens are warnings. No threshold or map was retuned.
 
 `node capability-ledger.mjs --refresh-stock` reads the original 104-map survey
 (excluding `CO.crp`) and records its hash, sample count, exact linear-interpolated

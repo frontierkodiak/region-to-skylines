@@ -26,10 +26,12 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "275ddf4a1099bfa53cf82f50ca154bac9c4297d8e1869bc4a4a4ada0b96c553a",
+    "capabilities.json": "4e78c65ecd5a741e3cced8a09526935da1ed06f7b99cb2bac86718e0856a944c",
     "capability-inputs.js": "c232a9414354631d8c9c3393524a48a23d918bf8b89895487ad3169b3fa683d1",
-    "capability-ledger.mjs": "d9d6decbbaf4518309b7446f81acd1e23e4622df90b0f3272fb62d85a5e572a5",
-    "capability-model.js": "7f9cd678aa020210a9e11c9ec308848fbcf9dea809e72753cdfe11e141ed1e52",
-    "tools/map-factory/capabilities.py": "c6f09c4009f391d95ac5eb1ccce3cf2f0ab2cc687b54e9bedb813b49c5730f50"
+    "capability-ledger.mjs": "2a32bb176bcfa034bd858880b0cba66600d64065eed18b4281d54a54db84080c",
+    "capability-model.js": "43966375160c786bdb2fd3055ba12ab2d2cb79b71579a39258a665150f53b3f6",
+    "tools/map-factory/capabilities.py": "111a389c36046e7f3ca2b7e0bffbd5e1b02d800d3156df8ae9dc0adc2a9126f4",
+    "tools/map-factory/integrate_outside_evidence.py": "f6e7246a5c3297dd57930a6bbfef1df3ae3100bba59a556211ff09a77bc5b05d",
+    "tools/map-factory/capability-evidence/pl1119-v3-predictions.json": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
   }
 }

@@ -2,6 +2,7 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { validNativeContext } from "./capability-model.js";
 
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];
@@ -48,6 +49,22 @@ export function validateLedger(ledger) {
       if (!row.square || !row.observed_at || !row.oracle || !/^[a-f0-9]{64}$/.test(row.artifact_sha256 ?? "") || !/^[a-f0-9]{40}$/.test(row.source_sha ?? "") || !Array.isArray(row.evidence) || !row.evidence.length || ![true, false, null].includes(row.observed) || ![true, false, null].includes(row.predicted)) throw new Error(`Unbound game evidence for ${cap.id}`);
     }
   }
+  for (const study of Object.values(ledger.evidence_studies ?? {})) {
+    if (!/^[a-f0-9]{40}$/.test(study.source_commit) || sha(readFileSync(ROOT + study.predictions_file)) !== study.predictions_sha256 ||
+      sha(readFileSync(ROOT + "tools/map-factory/integrate_outside_evidence.py")) !== study.projection_tool_sha256)
+      throw new Error("Stale native evidence projection binding");
+  }
+  for (const certificate of ledger.native_path_certificates ?? []) {
+    if (!["ship", "air"].includes(certificate.capability) || certificate.scope !== "sampled_native_lane_paths_at_opening" ||
+      !ledger.evidence_studies?.[certificate.study] || !validNativeContext(certificate.native_context) ||
+      certificate.blocked_by?.length || !/^[a-f0-9]{64}$/.test(certificate.runtime_identity_evidence?.sha256 ?? "") ||
+      JSON.stringify(Object.keys(certificate.controls ?? {}).sort()) !== JSON.stringify(["boundary_0", "boundary_1", "midpoint_0", "midpoint_1"]) ||
+      !Object.values(certificate.controls).every((v) => v === true) || !/^[a-f0-9]{64}$/.test(certificate.artifact_sha256 ?? "") ||
+      JSON.stringify(Object.keys(certificate.inputs_sha256 ?? {}).sort()) !== JSON.stringify(["hydrology.json", "terrain.u16", "water.u16"]) ||
+      !Object.values(certificate.inputs_sha256).every((v) => /^[a-f0-9]{64}$/.test(v)) ||
+      !certificate.observed_at || !certificate.evidence?.length || certificate.evidence.some((e) => !/^[a-f0-9]{64}$/.test(e.sha256 ?? "")))
+      throw new Error("Unbound native path certificate");
+  }
   const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
   const recorded = ledger.capabilities.find((c) => c.id === "water_risk").calibration;
   if (recorded.squares !== source.squares || recorded.scored_complete_runs !== source.complete_60_runs ||
@@ -63,18 +80,23 @@ export function agreementByOracle(rows) {
 
 export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
   const sourceLink = (ref) => `<a href="https://github.com/frontierkodiak/region-to-skylines/blob/${encodeURIComponent(revision)}/${escape(ref.split(":")[0])}">${escape(ref)}</a>`;
+  const scoreText = (a) => a.oracle === "native_two_edge_witness"
+    ? `${a.agree} witnessed positives consistent with ${a.scored} scored predictions; ${a.unscored} unknown; ${a.false_negative} model-negative witness mismatches. No native-negative accuracy measured.`
+    : a.scored === 0 ? `${a.unscored} diagnostic or unknown cells; not scored as the same capability predicate.`
+    : `${a.agree}/${a.scored} agree; ${a.unscored} unscored; ${a.false_positive} false positives, ${a.false_negative} false negatives.`;
   const caps = ledger.capabilities.map((c) => {
     const agreement = agreementByOracle(c.game_agreement);
     return `<article id="${escape(c.id)}"><div class="ledger-title"><h2>${escape(c.name)}</h2><span>${escape(label(c.status))}</span></div><p>${escape(c.definition)}</p>
       <details><summary>Checks and promise levels</summary><dl>${Object.entries(c.promise_levels).map(([k, v]) => `<dt>${escape(label(k))}</dt><dd>${escape(v)}</dd>`).join("")}</dl>
       <p>Exporter: ${c.exporter_check ? sourceLink(c.exporter_check) : "Not implemented"}<br>Browser: ${c.browser_check ? sourceLink(c.browser_check) : "Not implemented"}</p><p>Existing work: ${c.existing_checks.map(sourceLink).join(", ")}</p></details>
-      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(label(a.oracle))}: ${a.agree}/${a.scored} agree; ${a.unscored} unscored; ${a.false_positive} false positives, ${a.false_negative} false negatives.</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : "<p class=note>No scored observations for this model yet.</p>"}
+      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : "<p class=note>No scored observations for this model yet.</p>"}
       ${c.calibration ? `<details><summary>Existing water-screen calibration</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}
       <p class=note>${escape(c.limits)}</p></article>`;
   }).join("");
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Map capabilities · Region to Skylines</title><link rel="stylesheet" href="style.css"></head>
     <body class="ledger-page"><header><h1>Map capabilities</h1><a href="./">Choose a square</a><a href="capabilities.json">JSON ledger</a></header><main><section>
     <p>${escape(ledger.game)} · updated ${escape(ledger.updated_at)}</p><p>${escape(ledger.scope)}</p>
+    ${Object.values(ledger.evidence_studies ?? {}).map((s) => `<aside class=note><h2>Native study: what was scored</h2><p>Frozen predictor: ${escape(s.prediction_model)} at ${escape(s.prediction_source_sha)}. Current runtime adds exact-context qualification; it is not a new native boundary fit.</p><p>${escape(s.method)}</p><p>${escape(s.limits)}</p><a href="${escape(s.source_url)}">Immutable study, raw receipts and failures</a></aside>`).join("")}
     <nav aria-label="Capabilities">${ledger.capabilities.map((c) => `<a href="#${escape(c.id)}">${escape(c.name)}</a>`).join(" ")}</nav>${caps}
     <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div><details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>
     <article id="launch"><h2>Proposed launch bar</h2><ul>${ledger.launch_bar_proposal.required.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><h3>Describe, without gating</h3><ul>${ledger.launch_bar_proposal.descriptive_not_gates.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><p class=note>${escape(ledger.launch_bar_proposal.limits)}</p></article></section></main></body></html>`;

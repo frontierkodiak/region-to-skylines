@@ -138,8 +138,101 @@ def network_access(graph, capability):
     }
 
 
+def digest(value):
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(c in "0123456789abcdef" for c in value)
+    )
+
+
+def valid_native_context(context):
+    if not isinstance(context, dict):
+        return False
+    assemblies = context.get("game_assemblies", {})
+    protocol = context.get("protocol", {})
+    return (
+        isinstance(assemblies, dict)
+        and digest(assemblies.get("Assembly-CSharp.dll"))
+        and digest(assemblies.get("UnityEngine.dll"))
+        and all(digest(value) for value in assemblies.values())
+        and digest(context.get("mod_sha256"))
+        and digest(context.get("collector_sha256"))
+        and digest(context.get("runtime_game_sha256"))
+        and context.get("runtime_game_assemblies") == assemblies
+        and isinstance(protocol, dict)
+        and protocol.get("entry") == "NewGameFromMap"
+        and protocol.get("no_workshop") is True
+        and protocol.get("strict_disable_mods") is False
+        and protocol.get("inverted_traffic") is False
+    )
+
+
+def qualify_exact_export(report, identity, ledger):
+    """Qualify sampled native paths only, under an explicit exact environment."""
+    if (
+        report["mode"] != "export"
+        or not isinstance(identity, dict)
+        or not valid_native_context(identity.get("native_context"))
+    ):
+        return report
+    artifact = identity.get("artifact_sha256", "")
+    if not digest(artifact):
+        return report
+    inputs = identity.get("inputs_sha256", {})
+    if (
+        not isinstance(inputs, dict)
+        or set(inputs) != {"terrain.u16", "water.u16", "hydrology.json"}
+        or not all(digest(value) for value in inputs.values())
+    ):
+        return report
+    controls = {"boundary_0", "boundary_1", "midpoint_0", "midpoint_1"}
+
+    def canonical(value):
+        return json.dumps(value, sort_keys=True, separators=(",", ":"))
+
+    capabilities = dict(report["capabilities"])
+    for certificate in ledger.get("native_path_certificates", []):
+        key = certificate["capability"]
+        if (
+            key not in ("ship", "air")
+            or capabilities[key]["level"] != "likely"
+            or certificate.get("scope") != "sampled_native_lane_paths_at_opening"
+            or set(certificate.get("controls", {})) != controls
+            or not all(certificate["controls"][control] is True for control in controls)
+            or not certificate.get("evidence")
+            or certificate.get("blocked_by")
+            or not digest(
+                (certificate.get("runtime_identity_evidence") or {}).get("sha256")
+            )
+            or certificate["artifact_sha256"] != artifact
+            or canonical(certificate.get("inputs_sha256"))
+            != canonical(identity.get("inputs_sha256"))
+            or canonical(certificate.get("native_context"))
+            != canonical(identity.get("native_context"))
+        ):
+            continue
+        capabilities[key] = {
+            **capabilities[key],
+            "level": "promised",
+            "reason": "exact_export_sampled_native_paths",
+            "qualification": {
+                name: certificate[name]
+                for name in (
+                    "scope",
+                    "observed_at",
+                    "artifact_sha256",
+                    "native_context",
+                    "evidence",
+                    "limitations",
+                )
+            },
+        }
+    return {**report, "capabilities": capabilities}
+
+
 def check(data, ledger):
-    """Assess the normalized contract shared with JavaScript; never emits promised."""
+    """Assess normalized geometry; only exact-context native receipts qualify paths."""
     if data.get("schema") != 1 or data.get("mode") not in ("export", "estimate"):
         raise ValueError("Expected capability input schema 1 and export/estimate mode")
     grid = data.get("grid")
@@ -241,12 +334,16 @@ def check(data, ledger):
             "reason": "dry_low_slope_samples",
             "fraction": buildable,
         }
-    return {
-        "schema": 1,
-        "model": ledger["model"],
-        "mode": data["mode"],
-        "capabilities": result,
-    }
+    return qualify_exact_export(
+        {
+            "schema": 1,
+            "model": ledger["model"],
+            "mode": data["mode"],
+            "capabilities": result,
+        },
+        data.get("export_identity"),
+        ledger,
+    )
 
 
 def stock_band(value, metric):
@@ -298,7 +395,7 @@ def prepared_input(folder):
     }
 
 
-def assess_prepared(folder):
+def assess_prepared(folder, native_context=None):
     ledger = json.loads(
         (Path(__file__).resolve().parents[2] / "capabilities.json").read_text()
     )
@@ -308,7 +405,7 @@ def assess_prepared(folder):
         for name in ("terrain.u16", "water.u16", "hydrology.json")
     }
     report["scope"] = (
-        "Initial export geometry only. Native service, hydraulics, start hookups and game tool placement are not certified. No global or per-square promise is promoted."
+        "Initial export geometry. An explicit matching native context can qualify only recorded exact-export sampled lane paths at opening. Native service, hydraulics, start hookups and game tool placement are not certified."
     )
     from survey.measure_maps import CENTRAL, terrain_fields
 
@@ -376,12 +473,33 @@ def assess_prepared(folder):
         report["metrics"]["trees_total"]["basis"] = (
             "budgeted_export_plan_not_place_abundance"
         )
-    return report
+    return qualify_exact_export(
+        report,
+        {
+            "artifact_sha256": report.get("artifact_sha256"),
+            "inputs_sha256": {
+                name: report["inputs_sha256"][name]
+                for name in ("terrain.u16", "water.u16", "hydrology.json")
+            },
+            "native_context": native_context,
+        },
+        ledger,
+    )
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("prepared", type=Path)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument(
+        "--native-context",
+        type=Path,
+        help="Explicit expected game/mod/protocol context JSON; never inferred from coordinates",
+    )
     args = parser.parse_args()
-    args.out.write_text(json.dumps(assess_prepared(args.prepared), indent=2) + "\n")
+    context = (
+        json.loads(args.native_context.read_text()) if args.native_context else None
+    )
+    args.out.write_text(
+        json.dumps(assess_prepared(args.prepared, context), indent=2) + "\n"
+    )

@@ -1,5 +1,40 @@
 // Mirrored deterministic core: tools/map-factory/capabilities.py. No DOM or IO.
 const KINDS = { road: ["highway", "ramp"], rail: ["rail"], ship: ["ship"], air: ["air"] };
+const PATH_SCOPE = "sampled_native_lane_paths_at_opening";
+const CONTROLS = ["boundary_0", "boundary_1", "midpoint_0", "midpoint_1"];
+const INPUTS = ["hydrology.json", "terrain.u16", "water.u16"];
+const digest = (value) => typeof value === "string" && /^[a-f0-9]{64}$/.test(value);
+const canonical = (value) => JSON.stringify(value, (_, v) => v && typeof v === "object" && !Array.isArray(v)
+  ? Object.fromEntries(Object.keys(v).sort().map((key) => [key, v[key]])) : v);
+
+export function validNativeContext(context) {
+  const assemblies = context?.game_assemblies, protocol = context?.protocol;
+  return !!assemblies && digest(assemblies["Assembly-CSharp.dll"]) && digest(assemblies["UnityEngine.dll"]) &&
+    Object.values(assemblies).every(digest) && digest(context.mod_sha256) && digest(context.collector_sha256) &&
+    digest(context.runtime_game_sha256) && canonical(context.runtime_game_assemblies) === canonical(assemblies) &&
+    protocol?.entry === "NewGameFromMap" && protocol.no_workshop === true &&
+    protocol.strict_disable_mods === false && protocol.inverted_traffic === false;
+}
+
+export function qualifyExactExport(report, identity, ledger) {
+  if (report.mode !== "export" || !validNativeContext(identity?.native_context) || !digest(identity.artifact_sha256) ||
+    canonical(Object.keys(identity.inputs_sha256 ?? {}).sort()) !== canonical(INPUTS) || !Object.values(identity.inputs_sha256).every(digest)) return report;
+  const capabilities = { ...report.capabilities };
+  for (const certificate of ledger.native_path_certificates ?? []) {
+    const key = certificate.capability;
+    if (!["ship", "air"].includes(key) || capabilities[key]?.level !== "likely" || certificate.scope !== PATH_SCOPE ||
+      canonical(Object.keys(certificate.controls ?? {}).sort()) !== canonical([...CONTROLS].sort()) ||
+      !CONTROLS.every((control) => certificate.controls[control] === true) || !certificate.evidence?.length || certificate.blocked_by?.length ||
+      !digest(certificate.runtime_identity_evidence?.sha256) ||
+      certificate.artifact_sha256 !== identity.artifact_sha256 ||
+      canonical(certificate.inputs_sha256) !== canonical(identity.inputs_sha256) ||
+      canonical(certificate.native_context) !== canonical(identity.native_context)) continue;
+    capabilities[key] = { ...capabilities[key], level: "promised", reason: "exact_export_sampled_native_paths",
+      qualification: { scope: PATH_SCOPE, observed_at: certificate.observed_at, artifact_sha256: certificate.artifact_sha256,
+        native_context: certificate.native_context, evidence: certificate.evidence, limitations: certificate.limitations } };
+  }
+  return { ...report, capabilities };
+}
 
 export function shipCorridor(depth, size, spacing, rules) {
   const deep = Array.from(depth, (d) => d >= rules.min_initial_depth_m);
@@ -98,7 +133,7 @@ export function checkCapabilities(data, ledger) {
   const buildable = data.buildable_fraction;
   if (buildable != null && Number.isFinite(buildable) && buildable >= 0 && buildable <= 1)
     result.buildable = { level: buildable > 0 ? "likely" : data.mode === "export" ? "not_possible_here" : "unknown", reason: "dry_low_slope_samples", fraction: buildable };
-  return { schema: 1, model: ledger.model, mode: data.mode, capabilities: result };
+  return qualifyExactExport({ schema: 1, model: ledger.model, mode: data.mode, capabilities: result }, data.export_identity, ledger);
 }
 
 export function stockBand(value, metric) {

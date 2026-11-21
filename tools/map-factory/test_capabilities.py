@@ -1,6 +1,7 @@
 """Behavioral cross-runtime checks; no native game evidence is fabricated."""
 
 import json
+import copy
 import tempfile
 from pathlib import Path
 import random
@@ -14,6 +15,87 @@ from transport_paths import ship_path
 
 ROOT = Path(__file__).resolve().parents[2]
 LEDGER = json.loads((ROOT / "capabilities.json").read_text())
+
+
+def constructed_qualified_ledger():
+    """Constructed launch identity for gate tests, never real native evidence."""
+    ledger = copy.deepcopy(LEDGER)
+    ledger["native_path_certificates"] = copy.deepcopy(
+        ledger["evidence_studies"]["outside-v1"]["qualification_candidates"]
+    )
+    for certificate in ledger["native_path_certificates"]:
+        del certificate["blocked_by"]
+        context = certificate["native_context"]
+        context["runtime_game_sha256"] = "a" * 64
+        context["runtime_game_assemblies"] = copy.deepcopy(context["game_assemblies"])
+        certificate["runtime_identity_evidence"] = {
+            "url": "https://example.test/constructed-launch",
+            "sha256": "a" * 64,
+        }
+    return ledger
+
+
+QUALIFIED = constructed_qualified_ledger()
+
+
+def qualification_cases():
+    certificate = next(
+        c for c in QUALIFIED["native_path_certificates"] if c["capability"] == "ship"
+    )
+    identity = {
+        name: copy.deepcopy(certificate[name])
+        for name in ("artifact_sha256", "inputs_sha256", "native_context")
+    }
+    base = {
+        "schema": 1,
+        "mode": "export",
+        "graph": {
+            "nodes": [{"outside": "west"}, {"outside": "east"}],
+            "edges": [{"a": 0, "b": 1, "kind": "ship"}],
+        },
+        "export_identity": identity,
+    }
+    cases = [base]
+    for path, value in (
+        (("mode",), "estimate"),
+        (("export_identity",), None),
+        (("export_identity",), True),
+        (("export_identity", "artifact_sha256"), "0" * 64),
+        (("export_identity", "inputs_sha256"), {}),
+        (("export_identity", "inputs_sha256", "water.u16"), "0" * 64),
+        (("export_identity", "native_context"), None),
+        (("export_identity", "native_context"), {}),
+        (("export_identity", "native_context", "mod_sha256"), "0" * 64),
+        (("export_identity", "native_context", "collector_sha256"), "0" * 64),
+        (("export_identity", "native_context", "runtime_game_sha256"), None),
+        (("export_identity", "native_context", "runtime_game_assemblies"), None),
+        (
+            (
+                "export_identity",
+                "native_context",
+                "game_assemblies",
+                "Assembly-CSharp.dll",
+            ),
+            "0" * 64,
+        ),
+        (("export_identity", "native_context", "protocol", "no_workshop"), False),
+        (("planner_enabled",), {"ship": False}),
+        (("graph",), None),
+    ):
+        data = copy.deepcopy(base)
+        parent = data
+        for key in path[:-1]:
+            parent = parent[key]
+        parent[path[-1]] = value
+        cases.append(data)
+    air = next(
+        c for c in QUALIFIED["native_path_certificates"] if c["capability"] == "air"
+    )
+    data = copy.deepcopy(base)
+    data["graph"]["edges"][0]["kind"] = "air"
+    data["export_identity"] = {name: copy.deepcopy(air[name]) for name in identity}
+    cases.append(data)
+    return cases
 
 
 def narrow_ship_export(planner_report=None):
@@ -95,23 +177,23 @@ class CapabilityParity(unittest.TestCase):
                         },
                     }
                 )
+        inputs.extend(qualification_cases())
         javascript = """
           import {readFileSync} from 'node:fs';
           import {checkCapabilities} from './capability-model.js';
-          const ledger = JSON.parse(readFileSync('capabilities.json'));
-          const cases = JSON.parse(readFileSync(0, 'utf8'));
+          const {ledger,cases} = JSON.parse(readFileSync(0, 'utf8'));
           process.stdout.write(JSON.stringify(cases.map((input) => checkCapabilities(input, ledger))));
         """
         result = subprocess.run(
             ["node", "--input-type=module", "-e", javascript],
             cwd=ROOT,
-            input=json.dumps(inputs),
+            input=json.dumps({"ledger": QUALIFIED, "cases": inputs}),
             capture_output=True,
             text=True,
             check=True,
         )
         self.assertEqual(
-            json.loads(result.stdout), [check(data, LEDGER) for data in inputs]
+            json.loads(result.stdout), [check(data, QUALIFIED) for data in inputs]
         )
 
     def test_real_offline_ship_planner_is_not_vetoed_by_coarse_corridor(self):
@@ -133,6 +215,22 @@ class CapabilityParity(unittest.TestCase):
                 "above_p75",
                 "not_comparable",
             ],
+        )
+
+    def test_only_explicit_exact_native_context_qualifies_sampled_paths(self):
+        cases = qualification_cases()
+        self.assertEqual(
+            check(cases[0], QUALIFIED)["capabilities"]["ship"]["level"], "promised"
+        )
+        self.assertEqual(
+            check(cases[-1], QUALIFIED)["capabilities"]["air"]["level"], "promised"
+        )
+        for data in cases[1:-1]:
+            self.assertNotEqual(
+                check(data, QUALIFIED)["capabilities"]["ship"]["level"], "promised"
+            )
+        self.assertNotEqual(
+            check(cases[0], LEDGER)["capabilities"]["ship"]["level"], "promised"
         )
 
     def test_prepared_opt_out_is_unknown_not_a_negative(self):

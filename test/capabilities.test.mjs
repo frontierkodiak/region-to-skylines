@@ -16,7 +16,8 @@ test("ledger references real checks, calibrated seed and all 104 stock maps", ()
   const b = ledger.stock_reference.metrics.buildable_percent;
   assert.deepEqual([b.p25, b.median, b.p75], [57, 68, 76.25]);
   const page = ledgerPage(ledger, "test-source");
-  assert.match(page, /No scored observations for this model yet/);
+  assert.match(page, /Native study: what was scored/);
+  assert.match(page, /Negative feasibility is not validated/);
   assert.match(page, /104 shipped maps/);
   assert.match(page, /blob\/test-source\/tools\/map-factory\/capabilities.py/);
 });
@@ -140,4 +141,61 @@ test("UI adoption cannot hide changed live checks or rewritten historical gates"
   const source = async (name) => readFileSync(new URL(name, root));
   await assert.rejects(loadFixtureContract(read, async (name) => name === "capability-model.js" ? Buffer.from("changed") : source(name)), /capability source changed/);
   await assert.rejects(loadFixtureContract(async (name) => name.endsWith("pl1119-capability-ui-v1/baseline/build.mjs") ? Buffer.from("changed") : read(name), source), /archived gate changed/);
+});
+
+test("native verification needs exact package, inputs, explicit environment and every matched control", () => {
+  // Constructed launch identity tests the gate; it is NOT new game evidence.
+  const qualified = structuredClone(ledger);
+  const certificate = structuredClone(ledger.evidence_studies["outside-v1"].qualification_candidates.find((c) => c.capability === "ship"));
+  delete certificate.blocked_by;
+  certificate.native_context.runtime_game_sha256 = "a".repeat(64);
+  certificate.native_context.runtime_game_assemblies = structuredClone(certificate.native_context.game_assemblies);
+  certificate.runtime_identity_evidence = { url: "https://example.test/constructed-launch", sha256: "a".repeat(64) };
+  qualified.native_path_certificates = [certificate];
+  const identity = structuredClone({ artifact_sha256: certificate.artifact_sha256, inputs_sha256: certificate.inputs_sha256, native_context: certificate.native_context });
+  const input = { schema: 1, mode: "export", graph: { nodes: [node("west"), node("east")], edges: [edge(0, 1, "ship")] }, export_identity: identity };
+  assert.notEqual(checkCapabilities(input, ledger).capabilities.ship.level, "promised", "real receipts still lack runtime identity");
+  const result = checkCapabilities(input, qualified).capabilities.ship;
+  assert.equal(result.level, "promised");
+  assert.equal(result.qualification.scope, "sampled_native_lane_paths_at_opening");
+  const mutations = [
+    (d) => { d.mode = "estimate"; },
+    (d) => { delete d.export_identity; },
+    (d) => { d.export_identity = true; },
+    (d) => { d.export_identity.artifact_sha256 = "0".repeat(64); },
+    (d) => { delete d.export_identity.inputs_sha256; },
+    (d) => { d.export_identity.inputs_sha256["water.u16"] = "0".repeat(64); },
+    (d) => { delete d.export_identity.native_context; },
+    (d) => { d.export_identity.native_context = {}; },
+    (d) => { d.export_identity.native_context.mod_sha256 = "0".repeat(64); },
+    (d) => { d.export_identity.native_context.collector_sha256 = "0".repeat(64); },
+    (d) => { delete d.export_identity.native_context.runtime_game_sha256; },
+    (d) => { delete d.export_identity.native_context.runtime_game_assemblies; },
+    (d) => { d.export_identity.native_context.game_assemblies["Assembly-CSharp.dll"] = "0".repeat(64); },
+    (d) => { d.export_identity.native_context.protocol.no_workshop = false; },
+    (d) => { d.planner_enabled = { ship: false }; },
+    (d) => { d.graph = null; },
+  ];
+  for (const mutate of mutations) {
+    const candidate = structuredClone(input); mutate(candidate);
+    assert.notEqual(checkCapabilities(candidate, qualified).capabilities.ship.level, "promised");
+  }
+  const incomplete = structuredClone(qualified);
+  for (const c of incomplete.native_path_certificates) c.controls.midpoint_1 = false;
+  assert.equal(checkCapabilities(input, incomplete).capabilities.ship.level, "likely");
+  assert.throws(() => validateLedger(incomplete), /Unbound native path certificate/);
+});
+
+test("native scoring retains failures and unknowns without substituting panels or player runs", () => {
+  const road = ledger.capabilities.find((c) => c.id === "road").game_agreement;
+  const ship = ledger.capabilities.find((c) => c.id === "ship").game_agreement;
+  assert.ok(road.some((r) => r.oracle === "native_probe_boundary_selected_pair" && r.predicted === null && r.observed === false));
+  assert.ok(road.some((r) => r.oracle === "native_attempt_error" && r.observed === null));
+  assert.ok(road.filter((r) => ["native_panel", "native_path_archived_player", "native_path_fresh_named"].includes(r.oracle)).every((r) => r.predicted === null));
+  assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === true).length, 4);
+  assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === null).length, 5);
+  assert.equal(ledger.native_path_certificates.length, 0, "runtime launch identity remains unbound");
+  const stale = structuredClone(ledger);
+  stale.evidence_studies["outside-v1"].predictions_sha256 = "0".repeat(64);
+  assert.throws(() => validateLedger(stale), /Stale native evidence projection/);
 });
