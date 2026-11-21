@@ -16,7 +16,7 @@ from scipy import ndimage
 
 from prepare_start_controls import prepare as prepare_panels
 from start_capabilities import assess, digest
-from surface_intake import LOAD, bank_candidate
+from surface_intake import LOAD
 from survey.craft_anatomy import read_package
 from survey.measure_maps import (
     data_version,
@@ -26,17 +26,20 @@ from survey.measure_maps import (
 )
 
 
+REFERENCE_SEPARATION_M = 320
+
+
 def control_banks(ground, depth, tile):
-    """Nearest wet shoreline, then a separated point on the same wet component."""
-    wet = depth >= 1
+    """Two separated geometric references; no product/flow/quality prediction."""
+    wet = depth > 0.1
     labels, _ = ndimage.label(wet)
     distance = ndimage.distance_transform_edt(wet) * 16
     row, col = np.indices(wet.shape)
     x, z = col * 16 - 8640, row * 16 - 8640
     cx, cz = (tile % 5 - 2) * 1920, (tile // 5 - 2) * 1920
-    mask = wet & (distance <= 64) & (abs(x - cx) < 800) & (abs(z - cz) < 800)
+    mask = wet & (distance <= 32) & (abs(x - cx) < 800) & (abs(z - cz) < 800)
     coords = np.argwhere(mask)
-    sizes = np.bincount(labels[mask].ravel())
+    sizes = np.bincount(labels[wet].ravel())
     ordered = sorted(
         coords.tolist(),
         key=lambda p: (
@@ -49,19 +52,31 @@ def control_banks(ground, depth, tile):
     for r, c in ordered:
         if selected:
             first_r, first_c, _ = selected[0]
-            if (
-                labels[r, c] != labels[first_r, first_c]
-                or np.hypot(r - first_r, c - first_c) * 16 < 640
-            ):
+            if np.hypot(r - first_r, c - first_c) * 16 < REFERENCE_SEPARATION_M:
                 continue
         anchor = [c * 16 - 8640, 0, r * 16 - 8640]
-        bank = bank_candidate(
-            ground, depth, anchor, float(ground[r, c] + depth[r, c]), tile
-        )
-        if bank is not None:
-            selected.append((r, c, bank))
-            if len(selected) == 2:
-                break
+        # A fixture reference must not inherit the product model's bank slope,
+        # freeboard or lateral-path gates. Freeze a near-shore anchor and let
+        # the one declared native shore snap/placement report its own result.
+        dry = []
+        surface = ground[r, c] + depth[r, c]
+        for dr in range(-3, 4):
+            for dc in range(-3, 4):
+                rr, cc = r + dr, c + dc
+                if dr * dr + dc * dc <= 9 and depth[rr, cc] <= 0.1:
+                    dry.append(
+                        (dr * dr + dc * dc, abs(ground[rr, cc] - surface), rr, cc)
+                    )
+        if not dry:
+            continue
+        _, _, rr, cc = min(dry)
+        bank = {
+            "bank": [cc * 16 - 8640, float(ground[rr, cc]), rr * 16 - 8640],
+            "water_anchor": anchor,
+        }
+        selected.append((r, c, bank))
+        if len(selected) == 2:
+            break
     return selected
 
 
@@ -89,6 +104,13 @@ def prepare(cohort, stock, output):
         model = {
             "id": "surface-stock-load-reference-v1",
             "parameters": asdict(LOAD),
+            "reference_selection": {
+                "separation_m": REFERENCE_SEPARATION_M,
+                "water_threshold_m": 0.1,
+                "shore_distance_m": 32,
+                "starting_tile_center_extent_m": 800,
+                "component_policy": "largest decoded body first; shared body preferred, not required for fixture plumbing",
+            },
             "source_sha256": {
                 n: hashlib.sha256(Path(__file__).with_name(n).read_bytes()).hexdigest()
                 for n in [
@@ -154,6 +176,12 @@ def prepare(cohort, stock, output):
                 "reason": "stock_load_reference_not_a_capability_prediction",
                 "witness": witness,
                 "witness_sha256": digest(witness),
+                "subchecks": {
+                    "reference_geometry_frozen": True,
+                    "quality": None,
+                    "downstream": None,
+                    "service": None,
+                },
             }
         )
         prediction = output / f"{panel['slug']}.json"
