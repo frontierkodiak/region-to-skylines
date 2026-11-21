@@ -1,0 +1,146 @@
+{
+  "rail-v1": {
+    "stock-1": {
+      "wall_seconds_including_cleanup": 149.7,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": null,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 88.97,
+      "board_sample_peak_c": 38.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    "stock-2": {
+      "wall_seconds_including_cleanup": 152.4,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": null,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 116.35,
+      "board_sample_peak_c": 43.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    }
+  },
+  "rail-v2": {
+    "stock-1": {
+      "wall_seconds_including_cleanup": 155.1,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": null,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 115.85,
+      "board_sample_peak_c": 44.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    "stock-2": {
+      "wall_seconds_including_cleanup": 171.9,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": null,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 119.0,
+      "board_sample_peak_c": 50.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    }
+  },
+  "rail-v3": {
+    "asheville": {
+      "wall_seconds_including_cleanup": 165.2,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": 2811,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 120.32,
+      "board_sample_peak_c": 47.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    "innsbruck": {
+      "wall_seconds_including_cleanup": 172.5,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": 2811,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 122.89,
+      "board_sample_peak_c": 50.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    "rio": {
+      "wall_seconds_including_cleanup": 0.0,
+      "board_sample_peak_mib": null,
+      "game_sample_peak_mib": null,
+      "launch_game_mib_not_peak": 0,
+      "board_sample_peak_w": null,
+      "board_sample_peak_c": null,
+      "observed_power_limits_w": [],
+      "cleanup": null
+    },
+    "stock-1": {
+      "wall_seconds_including_cleanup": 156.4,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": 2811,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 115.03,
+      "board_sample_peak_c": 44.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    },
+    "stock-2": {
+      "wall_seconds_including_cleanup": 172.9,
+      "board_sample_peak_mib": 10821,
+      "game_sample_peak_mib": 2811,
+      "launch_game_mib_not_peak": 1574,
+      "board_sample_peak_w": 118.34,
+      "board_sample_peak_c": 50.0,
+      "observed_power_limits_w": [
+        200.0
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      }
+    }
+  }
+}

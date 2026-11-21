@@ -22,7 +22,7 @@ def report(root):
     for path in sorted(root.glob("raw/*/observation.json.gz")):
         observation = json.loads(unpack(path))
         label = Path(observation["package"]).name
-        owned = [r for r in samples if r["holder"]["label"] == label]
+        owned = [r for r in samples if r.get("holder", {}).get("label") == label]
         gpu_path = path.parent / "gpu.csv.gz"
         board = (
             list(csv.DictReader(io.StringIO(unpack(gpu_path)), skipinitialspace=True))

@@ -1,5 +1,51 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1215 stock-calibrated rail, first cohort batch (blade)
+
+The old rail failures did not have a stock-positive protocol control. My first
+new selector made a separate mistake: it compared enum display names and lost
+AvoidForward/AvoidBackward lanes. I retained both zero-query stock openings.
+Native numeric readback then showed Forward=1, Backward=2, AvoidForward=11 and
+AvoidBackward=7. Both avoidance aliases contain both travel bits. The second
+revision's composite masks were too broad for plain one-way values, so the
+final revision tests the two basic bits directly and cross-checks the result.
+The earlier revisions remain reproducible at their own commits, not relabeled.
+
+Final stock controls: Asanu 8/8 literal boundary paths; Hanami 8/24. Both have
+reciprocal exact endpoints and reject the explicit Train-to-car-lane query.
+The same final protocol on unchanged packages gives Asheville 2/12 and
+Innsbruck 2/20. Rio's next opening was refused behind an older fair-queue
+waiter, and the batch stopped. PL-1191 took its turn untouched. Seven cohort
+cases remain Unknown. No negative, accuracy, service or gameplay claim.
+
+All runs used blade's RTX 2080 Ti at 05:00.0. Values below are sampled peaks;
+wall seconds include cleanup. Early process peaks were not sampled, so their
+1574 MiB launch reading is not presented as a peak.
+
+| Revision / opening | Wall s | Board MiB | Game peak MiB | Peak W | Peak °C |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| v1 Asanu | 149.7 | 10821 | Not sampled | 88.97 | 38 |
+| v1 Hanami | 152.4 | 10821 | Not sampled | 116.35 | 43 |
+| v2 Asanu | 155.1 | 10821 | Not sampled | 115.85 | 44 |
+| v2 Hanami | 171.9 | 10821 | Not sampled | 119.00 | 50 |
+| v3 Asanu | 156.4 | 10821 | 2811 | 115.03 | 44 |
+| v3 Hanami | 172.9 | 10821 | 2811 | 118.34 | 50 |
+| v3 Asheville | 165.2 | 10821 | 2811 | 120.32 | 47 |
+| v3 Innsbruck | 172.5 | 10821 | 2811 | 122.89 | 50 |
+
+The recorded board power limit was 200 W, not the older 150 W description.
+I did not change it. Rio acquired no slot and launched no game. Each completed
+session has empty owned game/Steam/unit cleanup lists. All collectors and
+telemetry monitors were joined; no owned waiter remains. Sampling transitions
+without a labelled holder are excluded from per-case process peaks.
+
+Evidence and reproduction: `tools/map-factory/capability-evidence/rail-v3/`.
+Its telemetry script regenerates this table from retained gzip bytes. Original
+outside-v1 files remain unchanged and reproduce 1269 rows/143 raw files/17
+attempts. C# build, 171 Linux harness tests, full Ruff and seven old-study
+tests pass. This is a partial collection with a persisted continuation, not
+parent integration or a certificate.
+
 ## 2026-11-20 — PL-1066 frozen eight-square opening qualification (blade)
 
 PR58 keeps real connections experimental/opt-in. All five fixtures plus the

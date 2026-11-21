@@ -89,6 +89,20 @@ def verify():
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
         results = {}
+        for driver_path in unpacked.glob("raw/telemetry/*/driver.json"):
+            driver = json.loads(driver_path.read_text())
+            if (
+                driver["selection_sha256"] != integrity["selection_sha256"]
+                or driver["driver_sha256"]
+                != rail_study.digest(Path(__file__).with_name("run_foreground.py"))
+                or driver["sampler_sha256"]
+                != rail_study.digest(
+                    Path(__file__).parent.parent / "outside-v1/sample_gpu.py"
+                )
+            ):
+                raise ValueError(
+                    "foreground driver or telemetry source differs from its pre-query receipt"
+                )
         stock_gate = rail_study.controls_valid(unpacked)
         control_end = max(
             (
