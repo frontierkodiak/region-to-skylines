@@ -43,6 +43,21 @@ class WaterRiskTests(unittest.TestCase):
         self.assertAlmostEqual(features["narrow_film_km2"], 500 * 256 / 1e6)
         self.assertTrue(classify(features)["drying"])
 
+    def test_sea_neighbours_are_wet_not_dry_channel_sides(self):
+        terrain, water, hydro = self.inputs()
+        terrain[:] = 35 * 64
+        water[:] = 5 * 64
+        hydro.update(sea_level_m=40, sources=[])
+        # A shallow inland node surrounded by deep, boundary-connected sea.
+        # Excluding sea from the denominator must not turn it into dry banks.
+        water[500, 500] = 16
+        features = measure(terrain, water, hydro)
+        self.assertEqual(features["narrow_film_km2"], 0)
+        self.assertFalse(classify(features)["drying"])
+        # A real dry bank on both sides must still identify a thin channel.
+        water[500, 499] = water[500, 501] = 0
+        self.assertEqual(measure(terrain, water, hydro)["narrow_film_km2"], 256 / 1e6)
+
     def coastal_inputs(self, coastal_height):
         terrain, water, hydro = self.inputs()
         terrain[:100] = 35 * 64

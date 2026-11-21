@@ -2,6 +2,7 @@
 import assert from "node:assert/strict";
 import { loadWaterRiskContract } from "./water-risk-fixture-contract.mjs";
 import { loadRunwayContract } from "./runway-fixture-contract.mjs";
+import { loadSeaNeighbourContract } from "./sea-neighbour-fixture-contract.mjs";
 import { loadTransientContract } from "./transient-fixture-contract.mjs";
 import { FACTORY_FILES } from "../mapgen.js";
 import { createHash } from "node:crypto";
@@ -17,6 +18,8 @@ export async function loadFixtureContract(read, readSource) {
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const current = parse(await read("fixtures/" + active.current));
+  if (current.version === "pl1072-sea-neighbours-v1")
+    return loadSeaNeighbourContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
   if (current.version === "pl1066-optional-runways-v1")
     return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
   if (current.version === "pl912-water-risk-v1")

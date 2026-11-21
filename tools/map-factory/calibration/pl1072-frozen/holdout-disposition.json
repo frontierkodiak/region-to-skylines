@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "issue": "PL-1072",
+  "result": "holdout-score.json",
+  "result_sha256": "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b",
+  "not_a_new_score": true,
+  "flood": "rejected_as_qualified_discriminator: five of six floods missed; no demonstrated risk reduction among target-rule clears",
+  "drying": "rejected_as_discriminator: identical to always-warn",
+  "combined_candidate_clearance": "empty",
+  "deployed_product_clearance": "empty",
+  "safe_square_class_established": false,
+  "promote_3m_cutoff": false,
+  "frozen_model_role": "comparator_only",
+  "deployed_warning_guard": "retained",
+  "replacement": "general rework requires a new geography-disjoint holdout",
+  "release_recommendation": "hold",
+  "human_only_checks": "not_verified"
+}

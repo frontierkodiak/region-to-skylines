@@ -32,12 +32,18 @@ class HistoricalCaptureSource(unittest.TestCase):
             with self.subTest(name=name), tempfile.TemporaryDirectory() as temporary:
                 folder = Path(temporary)
                 shutil.copytree(ROOT / "fixtures" / PREFIX, folder / PREFIX)
+                refresh = Path("contracts/pl1072-sea-neighbours-v1")
+                shutil.copytree(ROOT / "fixtures" / refresh, folder / refresh)
                 shutil.copyfile(ROOT / "fixtures/active.json", folder / "active.json")
                 old = folder / "contracts/pl912-water-risk-v1"
                 old.mkdir()
                 shutil.copyfile(
                     ROOT / "fixtures/contracts/pl912-water-risk-v1/current.json",
                     old / "current.json",
+                )
+                shutil.copyfile(
+                    ROOT / "fixtures/contracts/pl912-water-risk-v1/corpus.json",
+                    old / "corpus.json",
                 )
                 target = folder / PREFIX / name
                 target.write_bytes(target.read_bytes() + b" ")
