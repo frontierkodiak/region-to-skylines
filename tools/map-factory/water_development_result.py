@@ -6,18 +6,21 @@ import math
 from pathlib import Path
 
 from crp import read_package
+from maintained_water import storage_outcome
 from run_water_panel import validate
 from water_diagnostics import bind_sources, decode_water, digest
 from water_risk_corpus import native_outcome, sha
 
 
-def verify_loaded_sources(native, expected):
+def read_samples(native):
+    with (native / "timeline.jsonl").open() as stream:
+        return [row for line in stream if (row := json.loads(line))["kind"] == "sample"]
+
+
+def verify_loaded_sources(samples, expected):
     """Check the configured native table at every recorded water sample."""
     count = 0
-    for line in (native / "timeline.jsonl").read_text().splitlines():
-        row = json.loads(line)
-        if row["kind"] != "sample":
-            continue
+    for row in samples:
         sources = row["water"]["sources"]
         if len(sources) != len(expected):
             raise ValueError("Loaded native source count differs from package")
@@ -44,7 +47,6 @@ def verify_loaded_sources(native, expected):
     return {
         "samples": count,
         "sources_per_sample": len(expected),
-        "timeline_sha256": sha(native / "timeline.jsonl"),
     }
 
 
@@ -52,7 +54,7 @@ def verify_source_factor(diagnostic, decoded):
     """Reject a changed target, position, rate direction, or initial grid."""
     mode = diagnostic["mode"]
     before = diagnostic["source_controls"]
-    if mode in {"reservoir-output-off", "all-output-off"}:
+    if mode in {"reservoir-output-off", "river-output-off", "all-output-off"}:
         field, indices_key, other_key = (
             "output_rate",
             "changed_output_indices",
@@ -65,7 +67,13 @@ def verify_source_factor(diagnostic, decoded):
             row["index"]
             for row in before
             if row[field] > 0
-            and (mode == "all-output-off" or classes[row["index"]] == "reservoir")
+            and (
+                mode == "all-output-off"
+                or classes[row["index"]]
+                == {"reservoir-output-off": "reservoir", "river-output-off": "river"}[
+                    mode
+                ]
+            )
         }
     elif mode == "below-sea-intake-off":
         field, indices_key, other_key = (
@@ -143,6 +151,7 @@ def result(baseline, staged, native, harness_source):
     baseline_checks = {c["name"]: c for c in original_verdict["checks"]}
     if verdict["thresholds"] != original_verdict["thresholds"]:
         raise ValueError("Native acceptance thresholds changed")
+    baseline_samples, native_samples = read_samples(baseline), read_samples(native)
     return {
         "schema": "polli.water-development-intervention/1",
         "mode": diagnostic["mode"],
@@ -152,6 +161,18 @@ def result(baseline, staged, native, harness_source):
         "changed_output_indices": diagnostic["changed_output_indices"],
         "changed_intake_indices": diagnostic["changed_intake_indices"],
         "verified_factor": factor,
+        "engineered_storage_comparator": {
+            "baseline": storage_outcome(
+                hydro,
+                original_report,
+                baseline_samples,
+            ),
+            "intervention": storage_outcome(
+                hydro,
+                report,
+                native_samples,
+            ),
+        },
         "game_minutes": report["game_minutes"],
         "harness_source": harness_source,
         "baseline": native_outcome(original_report, original_verdict),
@@ -199,8 +220,16 @@ def result(baseline, staged, native, harness_source):
         "diagnostic_sha256": sha(staged / "diagnostic.json"),
         "matched_observation_inputs": True,
         "loaded_source_readback": {
-            "baseline": verify_loaded_sources(baseline, diagnostic["source_controls"]),
-            "intervention": verify_loaded_sources(native, decoded["sources"]),
+            "baseline": {
+                **verify_loaded_sources(
+                    baseline_samples, diagnostic["source_controls"]
+                ),
+                "timeline_sha256": sha(baseline / "timeline.jsonl"),
+            },
+            "intervention": {
+                **verify_loaded_sources(native_samples, decoded["sources"]),
+                "timeline_sha256": sha(native / "timeline.jsonl"),
+            },
             "scope": "Configured rates/positions/targets, not measured flux",
         },
         "thresholds_sha256": digest(

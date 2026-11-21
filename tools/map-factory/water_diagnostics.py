@@ -44,6 +44,7 @@ MODES = (
     *DEFAULT_MODES,
     "all-output-off",
     "reservoir-output-off",
+    "river-output-off",
     "below-sea-intake-off",
 )
 
@@ -187,7 +188,12 @@ def transform(source, hydro, terrain, mode):
     changed_indices = []
     changed_intakes = {}
     new_hydro = copy.deepcopy(hydro)
-    if mode in {"short-output-off", "all-output-off", "reservoir-output-off"}:
+    if mode in {
+        "short-output-off",
+        "all-output-off",
+        "reservoir-output-off",
+        "river-output-off",
+    }:
         for i, (actual, expected) in enumerate(zip(water["sources"], hydro["sources"])):
             selected = (
                 mode == "all-output-off"
@@ -196,6 +202,7 @@ def transform(source, hydro, terrain, mode):
                     mode == "reservoir-output-off"
                     and expected.get("class") == "reservoir"
                 )
+                or (mode == "river-output-off" and expected.get("class") == "river")
             )
             if selected and actual["output_rate"] > 0:
                 controls[i]["output_capacity"] = 0

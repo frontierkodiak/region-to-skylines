@@ -437,12 +437,65 @@
       },
       "stable_water_promise": "unknown",
       "limits": "Reservoir output off lowers flood but empties the engineered pond; no construction or holdout qualification."
+    },
+    {
+      "source": "calibration/pl1191-construction-v1/development/lake-shore-europe-all-output-off.json",
+      "sha256": "a2798a3b50c2d4a924dddfd124b059dc1f602b9012b04d401186177cac30a574",
+      "game_minutes": 60.146669803559774,
+      "mode": "all-output-off",
+      "baseline": {
+        "labels": {
+          "flood": true,
+          "drying": true
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0627,
+        "required": 918,
+        "required_wet_end": 911,
+        "required_water_loss": true,
+        "initialized_observations": 5809,
+        "initialized_water_loss_end": 319,
+        "exact_point_wet_loss_end": 1029,
+        "original_native_water_failures": [
+          "no_flooding"
+        ]
+      },
+      "intervention": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": true,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0,
+        "required": 918,
+        "required_wet_end": 0,
+        "required_water_loss": true,
+        "initialized_observations": 5809,
+        "initialized_water_loss_end": 5809,
+        "exact_point_wet_loss_end": 5809,
+        "original_native_water_failures": [
+          "probes_wet_end",
+          "probes_wet_throughout"
+        ]
+      },
+      "stable_water_promise": "unknown",
+      "limits": "No measured flood with outputs off, but every required probe dries; not river-versus-lake attribution or a fix."
     }
   ],
   "maintained_water_definition": {
     "source": "calibration/pl1191-construction-v1/maintained-water-definition.json",
-    "sha256": "fa627850ab1547c09617de18da5eb14b2f716294cc47a6341cfa056527b58434",
-    "status": "definition fixed before holdout access; compiler/evaluator not yet bound",
+    "sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+    "status": "definition fixed before holdout access; engineered-reservoir anchor evaluator implemented; natural inventory/compiler/evaluator not yet bound",
     "promises_issued": 0
-  }
+  },
+  "derived_development_comparators": [
+    {
+      "source": "calibration/pl1191-construction-v1/development/dry-upland-asia-storage-comparator.json",
+      "sha256": "5beb4a81c549352f7a921989eea6e00abb66ae6d4da77cf10dc83c528a280d89",
+      "new_native_observation": false,
+      "scope": "Engineered reservoir exact-depth check under the development definition only; baseline pass, output-off fail. Original receipt and historical labels unchanged."
+    }
+  ]
 }

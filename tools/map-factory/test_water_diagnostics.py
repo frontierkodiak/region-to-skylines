@@ -181,9 +181,13 @@ class WaterDiagnosticTests(unittest.TestCase):
 
     def test_reservoir_output_off_preserves_every_other_field_and_initial_grid(self):
         hydro = copy.deepcopy(self.hydro)
+        hydro["sources"][0]["class"] = "river"
+        hydro["sources"][3]["class"] = "river"
+        hydro["sources"][2]["class"] = "stream"
         hydro["sources"][-1]["class"] = "reservoir"
         for mode, expected in [
             ("reservoir-output-off", [4]),
+            ("river-output-off", [0, 3]),
             ("all-output-off", [0, 2, 3, 4]),
         ]:
             with self.subTest(mode=mode):
@@ -194,6 +198,9 @@ class WaterDiagnosticTests(unittest.TestCase):
                 assets, simulation, after = self.unpack(package)
                 self.assertEqual(receipt["changed_output_indices"], expected)
                 self.assertEqual(receipt["changed_intake_indices"], [])
+                self.assertEqual(
+                    verify_source_factor(receipt, after)["indices"], expected
+                )
                 self.assertEqual(receipt["initial_water_changed_cells"], 0)
                 np.testing.assert_array_equal(depth, self.depth)
                 for index, (old, new) in enumerate(

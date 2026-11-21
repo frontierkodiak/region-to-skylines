@@ -35,5 +35,14 @@
     "optional_initialization_loss": "Report exact-point thinning and initialized optional-water loss separately. Sixteen of27 historical positives arise only through optional loss; those broad labels are correct under their original definition, not relabelled here."
   },
   "rationale": "Use the existing native flood and95% geometry-tolerance conventions, but apply retention per declared feature and require every engineered storage anchor. The development source-off trial passes the pooled95% gates while its engineered pond empties, so pooled retention is not a storage promise. Ignore no lost mandatory feature because another body is large. Optional films remain a separate comparator, not the primary maintained-water claim.",
-  "change_policy": "This definition and the deterministic feature compiler must be fixed before holdout access. Do not tune them on holdout outcomes. A result-changing revision after unblinding requires a new disjoint holdout; it cannot relabel or rescore the old panel."
+  "change_policy": "This definition and the deterministic feature compiler must be fixed before holdout access. Do not tune them on holdout outcomes. A result-changing revision after unblinding requires a new disjoint holdout; it cannot relabel or rescore the old panel.",
+  "thresholds": {
+    "storage_exact_depth_m_min": 0.5,
+    "natural_depth_m_min_exclusive": 0.1,
+    "natural_nearby_radius_m": 64,
+    "natural_fraction_per_feature_min": 0.95,
+    "flood_km2_max": 0.05,
+    "flood_depth_m_min_exclusive": 0.5,
+    "flood_exclusion_m": 128
+  }
 }

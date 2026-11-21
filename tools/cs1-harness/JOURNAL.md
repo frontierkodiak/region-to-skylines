@@ -3330,3 +3330,27 @@ constructed-map qualification or a new holdout result. Exporter defaults,
 historical native verdicts, and release hold remain unchanged. Human-only
 checks, loaded-assembly identity beyond the old mod's observations, and
 long-term/populated operation remain unverified.
+
+## 2026-11-21 · PL-1191 lake all-output development ablation
+
+Blade, RTX 2080 Ti at 05:00.0. The output-only lake-shore-Europe intervention
+completed 60.147 game minutes in 15.87 observation wall minutes, excluding
+queue/boot/teardown. Peak total VRAM 10,821 MiB against 8,008 MiB before launch;
+the 2,813 MiB increment is an estimate, not a sampled game peak. Game share at
+menu was 1,574 MiB. Peak power 146.35 W and temperature 60 C. No power settings
+changed. Clean pinned harness 6949182, mod SHA6cedb7ee.
+
+All 221 configured controls match the baseline and intervention packages in
+all 13 samples. Only 190 positive output rates changed. Intakes remain active;
+terrain, initial grids, targets, positions, probes, masks and thresholds are
+fixed. Flood 0.0627→0 km², but endpoint retention 911/918→0/918; all 5,809
+initially wet probe locations lose nearby water. The original full drying
+target and both required-retention gates fail. This identifies ongoing supply
+dependence, not river-versus-lake origin or a qualified fix. Raw startup_views
+also remains failed. Producer inspected actual start/end water maps without
+rewriting the verdict. Human acceptance is not verified.
+
+Foreground run collected; empty game, Steam and unit cleanup. Owned game PID
+2465626 is absent. The shared slot then passed to PL-1078; the separate coastal
+intake-only experiment joined FIFO rather than preempting it. Old-mod loaded-
+assembly identity limitations remain; no new native qualification is claimed.

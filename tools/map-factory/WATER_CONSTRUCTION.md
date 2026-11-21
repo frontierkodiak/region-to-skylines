@@ -119,7 +119,7 @@ failure. Seven fail the original dry gate. Preserve those historical labels.
 Define the replacement's maintained-water coverage and meaningful drying
 outcome on development data, and freeze that definition before accessing the
 new holdout. Do not choose a denominator or omission rule after its outcomes.
-No such replacement definition or native promise is adopted in this checkpoint.
+The development definition below is now fixed; no product promise is adopted.
 
 `calibration/pl1191-construction-v1/maintained-water-definition.json` now fixes
 the development definition before holdout access. Require every engineered
@@ -134,10 +134,32 @@ Keep the broad historical drying label as a separate unchanged comparator.
 feature-inventory compiler and evaluator must still be implemented and bound
 before holdout access. This specification does not promote a product promise.
 
+`maintained_water.py` implements only the engineered-reservoir anchor check.
+It requires the bound definition, full duration and sample coverage, and exact
+depth at every authored anchor. Missing evidence stays unknown. Applied to the
+earlier Asian development observations, the baseline passes (minimum 1.625 m)
+and the output-off intervention fails (0 m after initialization). This derived
+comparison does not replace the original native receipt or its drying labels.
+
 The coastal development mode `below-sea-intake-off` changes only positive intake
 rates whose encoded target is strictly below encoded sea level. It retains all
 outputs, positions, targets, initial grids and observations. It is an intake
 intervention, not source deletion or a proposed default policy.
+
+## Lake output development intervention
+
+The matched lake-shore-Europe `all-output-off` package completed 60.147 game
+minutes. Its 190 positive outputs were disabled; intake rates, targets, terrain,
+initial water, probes and references were fixed. All 221 configured controls
+matched their package at all 13 samples in both runs. Cleanup is empty.
+
+The unchanged masked flood area falls from 0.0627 km² to zero, but required
+endpoint retention falls from 911/918 to 0/918. All 5,809 initially wet probe
+locations lose nearby water. The full drying comparator and both original
+required-water gates fail. The intervention demonstrates dependence on ongoing
+supply, not a stable construction fix. It does not distinguish the two lakes
+from the river regulators. A separate `river-output-off` package preserves lake
+and stream outputs and every intake; it is prepared but not yet observed.
 
 ## Reproduce the diagnosis
 
