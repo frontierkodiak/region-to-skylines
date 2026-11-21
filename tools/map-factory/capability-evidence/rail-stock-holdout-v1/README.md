@@ -4,6 +4,10 @@ PL-1239 tests the fixed tangent continuation rule against its chord reference.
 The source is `49cf49516f4aa8b24a154d9923c1a6fd149bf1a3`.
 The accepted query and native sources remain unchanged.
 
+The [completed native report](RESULTS.md) records 40 successful and eight
+failed literal requests, matched by both rules. All twelve openings completed
+and cleaned up. The four unsupported holdouts have metadata captures only.
+
 ## Selection before native outcomes
 
 The installed Maps directory contains 105 CRPs. Excluding blank CO and the two
@@ -82,6 +86,8 @@ sampler. `collect.py` refuses changed sources, packages, builds, and controls.
 Run `evaluate.py --raw RAW --output REPORT.json` to bind and score observations.
 The raw directory needs uncompressed JSON files. Retained compressed copies
 can be expanded into task scratch without changing the originals.
+For this completed batch, use `raw/attempt-2/` as the expanded raw root.
+`raw/stock-1/` retains the earlier pre-launch denial and is not the scored batch.
 
 Stock packages have no prepared-input or CPU lineage. Preserved proprietary
 CRPs and compiled DLLs stay outside Git. The evidence binds their hashes only.
