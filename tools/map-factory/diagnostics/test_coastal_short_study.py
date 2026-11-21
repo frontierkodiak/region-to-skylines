@@ -1,9 +1,23 @@
 import unittest
 
-from coastal_short_study import control_mismatches, groups, metrics
+from coastal_short_study import (
+    DEFINITION,
+    OUTCOME_FREEZE,
+    ROOT,
+    control_mismatches,
+    groups,
+    load,
+    metrics,
+    sha,
+)
 
 
 class CoastalShortTests(unittest.TestCase):
+    def test_actual_primary_definition_location_and_hash_stay_fixed(self):
+        expected = "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886"
+        self.assertEqual(sha(ROOT / DEFINITION), expected)
+        self.assertEqual(load(ROOT / OUTCOME_FREEZE)["definition_sha256"], expected)
+
     def test_full_group_and_legacy_subset_are_not_merged(self):
         points = [
             {"name": "Main Drain [river] #0"},
@@ -59,4 +73,9 @@ class CoastalShortTests(unittest.TestCase):
         self.assertEqual(
             {p["field"] for p in control_mismatches(actual, expected)},
             {"output_position", "output_rate"},
+        )
+        actual[0]["output_position"] = []
+        self.assertIn(
+            "output_position",
+            {p["field"] for p in control_mismatches(actual, expected)},
         )

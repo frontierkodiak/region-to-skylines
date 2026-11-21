@@ -31,6 +31,8 @@ DESIGN = (
 )
 HARNESS = "0ec989dabbc89b0b2a429fa4247ec1f0ab36d888"
 DLL = "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346"
+DEFINITION = "calibration/pl1191-construction-v1/maintained-water-definition.json"
+OUTCOME_FREEZE = "calibration/pl1191-construction-v1/outcome-freeze.json"
 
 
 def git(harness, *args):
@@ -165,8 +167,8 @@ def prepare(audit, output, harness):
         DESIGN,
         "pyproject.toml",
         "uv.lock",
-        "maintained-water-definition.json",
-        "outcome-freeze.json",
+        DEFINITION,
+        OUTCOME_FREEZE,
     ):
         dependencies[name] = sha(ROOT / name)
     project = harness / "tools/cs1-harness"
@@ -258,25 +260,30 @@ def control_mismatches(actual, expected):
             ("input_rate", "intake_rate"),
             ("output_rate", "output_rate"),
         ):
-            if source[field] != original[key]:
+            if source.get(field) != original[key]:
                 problems.append(
                     {
                         "id": source["id"],
                         "field": field,
                         "expected": original[key],
-                        "actual": source[field],
+                        "actual": source.get(field),
                     }
                 )
         for field in ("input_position", "output_position"):
-            if any(
-                abs(a - b) > 0.001 for a, b in zip(source[field], original["position"])
+            if (
+                not isinstance(source.get(field), list)
+                or len(source[field]) != 3
+                or any(
+                    abs(a - b) > 0.001
+                    for a, b in zip(source[field], original["position"])
+                )
             ):
                 problems.append(
                     {
                         "id": source["id"],
                         "field": field,
                         "expected": original["position"],
-                        "actual": source[field],
+                        "actual": source.get(field),
                     }
                 )
     return problems
@@ -288,6 +295,8 @@ def collect(folder, native, harness, output):
         raise ValueError("Retain all collections; use a fresh output")
     decoded = decoded_package(folder)
     session = load(native / "session-receipt.json")
+    if load(native / "harness-source.json")["commit"] != HARNESS:
+        raise ValueError("Wrong recorded harness source provenance")
     if (
         session["map"]["sha256"] != PACKAGE_SHA
         or session["mod_sha256"] != DLL
