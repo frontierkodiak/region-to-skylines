@@ -19,6 +19,39 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def boundary_probe(path, segments):
+    """A named midpoint is not a boundary test, even on an outside segment."""
+    request = path["request"]
+    if (
+        request["name"] != "outside-to-outside"
+        or request["from"][0] == request["to"][0]
+    ):
+        return False
+    nodes = []
+    for key in ("from", "to"):
+        segment_id, _, offset = request[key]
+        segment = segments.get(segment_id)
+        end = {0: "start", 255: "end"}.get(offset)
+        if (
+            not segment
+            or not end
+            or "Outside" not in segment[end + "_flags"].split(", ")
+        ):
+            return False
+        nodes.append(segment[end])
+    if nodes[0] == nodes[1]:
+        return False
+    result = path.get("result", {})
+    if result.get("success") is True:
+        positions = result.get("positions", [])
+        return (
+            bool(positions)
+            and positions[0] == request["from"]
+            and positions[-1] == request["to"]
+        )
+    return True
+
+
 def project(evidence_root, predictions, source_commit):
     """One square/offset-kind row, not one vote per lane or archived player run."""
     tracked = subprocess.check_output(
@@ -186,6 +219,16 @@ def project(evidence_root, predictions, source_commit):
         ref = attempt["observation_evidence"]
         evidence_links = [link(ref)]
         collector_link = link(versions[observation["collector_sha256"]]["raw_source"])
+        launch_args = observation["session"].get("launch_args", [])
+        protocol = {
+            "entry": observation["loaded"].get("entry"),
+            "inverted_traffic": observation["loaded"].get("inverted_traffic"),
+            "no_workshop": "--noWorkshop" in launch_args,
+            "strict_disable_mods": "--disableMods" in launch_args,
+            "control_protocol_version": observation["session"]
+            .get("menu_status", {})
+            .get("protocol"),
+        }
         panel_ref = attempt["native_evidence"]["panel.json"]
         panel = json.loads(raw(panel_ref))
         network_ref = attempt["native_evidence"]["networks.json"]
@@ -222,6 +265,23 @@ def project(evidence_root, predictions, source_commit):
                 values = []
                 for path in subset:
                     result = path.get("result", {})
+                    request = path["request"]
+                    if position == "midpoint" and (
+                        request["from"][2] != 128 or request["to"][2] != 128
+                    ):
+                        raise ValueError("Midpoint control has non-midpoint offsets")
+                    if position == "boundary" and any(
+                        request[key][2] not in (0, 255) for key in ("from", "to")
+                    ):
+                        raise ValueError("Boundary control has interior offsets")
+                    if result.get("success") is True and (
+                        not result.get("positions")
+                        or result["positions"][0] != request["from"]
+                        or result["positions"][-1] != request["to"]
+                    ):
+                        raise ValueError(
+                            "Successful native control did not reach its requested endpoints"
+                        )
                     value = (
                         result.get("success")
                         if result.get("complete")
@@ -267,7 +327,7 @@ def project(evidence_root, predictions, source_commit):
                         and not p.get("error")
                         for p in group
                     )
-            two_edge_paths = [p for p in paths if two_edge(p)]
+            two_edge_paths = [p for p in paths if boundary_probe(p, segments)]
             successful = [
                 p
                 for p in two_edge_paths
@@ -276,6 +336,12 @@ def project(evidence_root, predictions, source_commit):
                 and p["result"].get("success") is True
                 and not p.get("error")
             ]
+            midpoint_only = any(
+                two_edge(p)
+                and p.get("result", {}).get("success") is True
+                and not boundary_probe(p, segments)
+                for p in paths
+            )
             rows[kind].append(
                 {
                     **common,
@@ -285,10 +351,12 @@ def project(evidence_root, predictions, source_commit):
                     "observed": True if successful else None,
                     "observation_status": "witness"
                     if successful
+                    else "midpoint_only"
+                    if midpoint_only
                     else "probe_limited"
                     if two_edge_paths
                     else "no_two_edge_request",
-                    "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+                    "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
                     "successful_requests": [p["request"] for p in successful],
                     "failed_requests": sum(
                         p.get("result", {}).get("complete") is True
@@ -341,6 +409,7 @@ def project(evidence_root, predictions, source_commit):
             if (
                 kind in ("ship", "air")
                 and all(controls.values())
+                and bool(successful)
                 and prediction["predictions"][kind]["predicted"] is True
             ):
                 build = observation["build_receipt"]
@@ -357,12 +426,16 @@ def project(evidence_root, predictions, source_commit):
                             "game_assemblies": build["game_assemblies"],
                             "mod_sha256": build["dll_sha256"],
                             "collector_sha256": observation["collector_sha256"],
-                            "protocol": evidence["native_protocol"],
+                            "protocol": protocol,
                         },
                         "collector_sha256": observation["collector_sha256"],
+                        "observation_sha256": ref["sha256"],
                         "observed_at": timestamp,
                         "controls": controls,
-                        "blocked_by": ["running_game_identity_not_recorded"],
+                        "blocked_by": [
+                            "running_game_identity_not_recorded",
+                            "per_run_entry_and_traffic_not_recorded",
+                        ],
                         "evidence": [
                             *evidence_links,
                             collector_link,
@@ -399,6 +472,18 @@ def project(evidence_root, predictions, source_commit):
                         "evidence": [link(archived[0]["raw_evidence"])],
                     }
                 )
+    primary = [
+        r
+        for group in rows.values()
+        for r in group
+        if r["oracle"] == "native_two_edge_witness"
+    ]
+    statuses = Counter(r["observation_status"] for r in primary)
+    unrequested_negatives = sum(
+        r["predicted"] is False and r["observation_status"] == "no_two_edge_request"
+        for r in primary
+    )
+    warnings = sum(a["water_risk_status"] == "warning" for a in artifacts.values())
     study = {
         "source_commit": source_commit,
         "source_url": base + "README.md",
@@ -413,8 +498,8 @@ def project(evidence_root, predictions, source_commit):
         "source_revision_basis": "source_sha is the native study's reproduced exporter revision, not a claim about an unresolved original archived-export revision. The immutable frozen prediction file retains its original null revisions and limitations.",
         "scope": evidence["scope"],
         "native_rows_retained_upstream": len(evidence["rows"]),
-        "method": "One scored cell per square/capability: a fresh successful path on segments at distinct outside nodes is a positive witness. No such witness is Unknown, not a negative. Selected-pair diagnostics, named access legs, archives and panels are separate; failed requests are retained and cannot be rescued into a global verdict.",
-        "limits": "Retrospective projection, not accuracy: some native runs predate prediction freeze; every model-negative cell lacks native testing, and generic failures are not exhaustive. Negative feasibility is not validated. No native depth/width/grade threshold fitted. All nine water-risk screens are warnings. Runtime game binary/assemblies were not launch-hashed, so exact-environment qualification is withheld. Service, sustained water and global impossibility remain unmeasured.",
+        "method": "One scored boundary cell per square/capability: only generic requests at exact outside-end offsets, with matching returned endpoints, qualify as positive witnesses. Named midpoint paths are unscored. No boundary witness is Unknown, not a negative; all failed requests remain diagnostics.",
+        "limits": f"Retrospective projection, not accuracy: some runs predate prediction freeze. There are {statuses['witness']} boundary witnesses and {len(primary) - statuses['witness']} unknown cells: {statuses['midpoint_only']} have midpoint-only successes, {statuses['probe_limited']} have non-exhaustive failed probes, {statuses['no_two_edge_request']} have no native requests. {unrequested_negatives} model-negative predictions are unrequested; no native negative is validated. No depth/width/grade threshold fitted. {warnings}/{len(artifacts)} water-risk screens warn. Launch identity and per-run entry/traffic are unbound, so qualification is withheld. Service, sustained water and global impossibility remain unmeasured.",
         "qualification_candidates": certificates,
         "unscored_upstream_oracles": [
             "captured_feature",

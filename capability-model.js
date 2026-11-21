@@ -16,6 +16,10 @@ export function validNativeContext(context) {
     protocol.strict_disable_mods === false && protocol.inverted_traffic === false;
 }
 
+export function validNativeIdentityRef(ref) {
+  return digest(ref?.sha256) && ref.file === `tools/map-factory/capability-evidence/runtime-identities/${ref.sha256}.json`;
+}
+
 export function qualifyExactExport(report, identity, ledger) {
   if (report.mode !== "export" || !validNativeContext(identity?.native_context) || !digest(identity.artifact_sha256) ||
     canonical(Object.keys(identity.inputs_sha256 ?? {}).sort()) !== canonical(INPUTS) || !Object.values(identity.inputs_sha256).every(digest)) return report;
@@ -25,13 +29,16 @@ export function qualifyExactExport(report, identity, ledger) {
     if (!["ship", "air"].includes(key) || capabilities[key]?.level !== "likely" || certificate.scope !== PATH_SCOPE ||
       canonical(Object.keys(certificate.controls ?? {}).sort()) !== canonical([...CONTROLS].sort()) ||
       !CONTROLS.every((control) => certificate.controls[control] === true) || !certificate.evidence?.length || certificate.blocked_by?.length ||
-      !digest(certificate.runtime_identity_evidence?.sha256) ||
+      !validNativeIdentityRef(certificate.runtime_identity_evidence) ||
+      !digest(certificate.observation_sha256) || !certificate.evidence.some((e) => e.sha256 === certificate.observation_sha256) ||
       certificate.artifact_sha256 !== identity.artifact_sha256 ||
       canonical(certificate.inputs_sha256) !== canonical(identity.inputs_sha256) ||
       canonical(certificate.native_context) !== canonical(identity.native_context)) continue;
     capabilities[key] = { ...capabilities[key], level: "promised", reason: "exact_export_sampled_native_paths",
       qualification: { scope: PATH_SCOPE, observed_at: certificate.observed_at, artifact_sha256: certificate.artifact_sha256,
-        native_context: certificate.native_context, evidence: certificate.evidence, limitations: certificate.limitations } };
+        native_context: certificate.native_context, runtime_identity_evidence: certificate.runtime_identity_evidence,
+        observation_sha256: certificate.observation_sha256,
+        evidence: certificate.evidence, limitations: certificate.limitations } };
   }
   return { ...report, capabilities };
 }

@@ -11,6 +11,7 @@ import unittest
 import numpy as np
 
 from capabilities import check, prepared_input, stock_band
+from integrate_outside_evidence import boundary_probe
 from transport_paths import ship_path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -28,8 +29,12 @@ def constructed_qualified_ledger():
         context = certificate["native_context"]
         context["runtime_game_sha256"] = "a" * 64
         context["runtime_game_assemblies"] = copy.deepcopy(context["game_assemblies"])
+        context["protocol"]["entry"] = "NewGameFromMap"
+        context["protocol"]["inverted_traffic"] = False
         certificate["runtime_identity_evidence"] = {
-            "url": "https://example.test/constructed-launch",
+            "file": "tools/map-factory/capability-evidence/runtime-identities/"
+            + "a" * 64
+            + ".json",
             "sha256": "a" * 64,
         }
     return ledger
@@ -120,6 +125,46 @@ def narrow_ship_export(planner_report=None):
 
 
 class CapabilityParity(unittest.TestCase):
+    def test_midpoints_and_unreached_endpoints_are_not_boundary_witnesses(self):
+        segments = {
+            1: {
+                "id": 1,
+                "start": 10,
+                "end": 11,
+                "start_flags": "Created, Outside",
+                "end_flags": "Created",
+            },
+            2: {
+                "id": 2,
+                "start": 12,
+                "end": 13,
+                "start_flags": "Created",
+                "end_flags": "Created, Outside",
+            },
+        }
+        path = {
+            "request": {
+                "name": "outside-to-outside",
+                "from": [1, 0, 0],
+                "to": [2, 0, 255],
+            },
+            "result": {"success": True, "positions": [[1, 0, 0], [2, 0, 255]]},
+        }
+        self.assertTrue(boundary_probe(path, segments))
+        midpoint = copy.deepcopy(path)
+        midpoint["request"]["from"][2] = 128
+        midpoint["result"]["positions"][0][2] = 128
+        self.assertFalse(boundary_probe(midpoint, segments))
+        unreached = copy.deepcopy(path)
+        unreached["result"]["positions"][-1][2] = 128
+        self.assertFalse(boundary_probe(unreached, segments))
+        named = copy.deepcopy(path)
+        named["request"]["name"] = "named-midpoint-probe"
+        self.assertFalse(boundary_probe(named, segments))
+        within = copy.deepcopy(path)
+        within["request"]["to"][0] = 1
+        self.assertFalse(boundary_probe(within, segments))
+
     def test_seeded_grids_and_directed_graphs_match_javascript(self):
         rng = random.Random(1119)
         inputs = []

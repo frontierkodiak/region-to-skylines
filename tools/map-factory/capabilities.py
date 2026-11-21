@@ -168,6 +168,15 @@ def valid_native_context(context):
     )
 
 
+def valid_native_identity_ref(ref):
+    return (
+        isinstance(ref, dict)
+        and digest(ref.get("sha256"))
+        and ref.get("file")
+        == f"tools/map-factory/capability-evidence/runtime-identities/{ref['sha256']}.json"
+    )
+
+
 def qualify_exact_export(report, identity, ledger):
     """Qualify sampled native paths only, under an explicit exact environment."""
     if (
@@ -202,8 +211,13 @@ def qualify_exact_export(report, identity, ledger):
             or not all(certificate["controls"][control] is True for control in controls)
             or not certificate.get("evidence")
             or certificate.get("blocked_by")
-            or not digest(
-                (certificate.get("runtime_identity_evidence") or {}).get("sha256")
+            or not valid_native_identity_ref(
+                certificate.get("runtime_identity_evidence")
+            )
+            or not digest(certificate.get("observation_sha256"))
+            or not any(
+                e.get("sha256") == certificate["observation_sha256"]
+                for e in certificate["evidence"]
             )
             or certificate["artifact_sha256"] != artifact
             or canonical(certificate.get("inputs_sha256"))
@@ -223,6 +237,8 @@ def qualify_exact_export(report, identity, ledger):
                     "observed_at",
                     "artifact_sha256",
                     "native_context",
+                    "runtime_identity_evidence",
+                    "observation_sha256",
                     "evidence",
                     "limitations",
                 )

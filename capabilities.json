@@ -285,28 +285,11 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T23:56:02.437716+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "road",
-              "name": "highway:east-in-to-south-out",
-              "from": [
-                846,
-                0,
-                128
-              ],
-              "to": [
-                1628,
-                0,
-                128
-              ],
-              "rail": false,
-              "expected_segments": []
-            }
-          ],
-          "failed_requests": 36,
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
+          "failed_requests": 18,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/asheville/attempt-2/observation.json.gz",
@@ -618,27 +601,10 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T22:50:18.405714+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "road",
-              "name": "highway:west-in-to-east-out",
-              "from": [
-                1,
-                0,
-                128
-              ],
-              "to": [
-                192,
-                0,
-                128
-              ],
-              "rail": false,
-              "expected_segments": []
-            }
-          ],
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
           "failed_requests": 18,
           "evidence": [
             {
@@ -933,26 +899,10 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "road",
-              "name": "highway:north-in-to-east-out",
-              "from": [
-                262,
-                0,
-                128
-              ],
-              "to": [
-                666,
-                0,
-                128
-              ],
-              "rail": false,
-              "expected_segments": []
-            },
-            {
-              "capability": "road",
               "name": "outside-to-outside",
               "direction": 0,
               "position_kind": "boundary",
@@ -965,22 +915,6 @@
                 666,
                 0,
                 255
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                0,
-                128
-              ],
-              "to": [
-                666,
-                0,
-                128
               ]
             },
             {
@@ -1003,22 +937,6 @@
               "capability": "road",
               "name": "outside-to-outside",
               "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                0,
-                128
-              ],
-              "to": [
-                666,
-                1,
-                128
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
               "position_kind": "boundary",
               "from": [
                 262,
@@ -1029,22 +947,6 @@
                 666,
                 2,
                 255
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                0,
-                128
-              ],
-              "to": [
-                666,
-                2,
-                128
               ]
             },
             {
@@ -1067,22 +969,6 @@
               "capability": "road",
               "name": "outside-to-outside",
               "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                1,
-                128
-              ],
-              "to": [
-                666,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
               "position_kind": "boundary",
               "from": [
                 262,
@@ -1099,22 +985,6 @@
               "capability": "road",
               "name": "outside-to-outside",
               "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                1,
-                128
-              ],
-              "to": [
-                666,
-                1,
-                128
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
               "position_kind": "boundary",
               "from": [
                 262,
@@ -1125,22 +995,6 @@
                 666,
                 2,
                 255
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                1,
-                128
-              ],
-              "to": [
-                666,
-                2,
-                128
               ]
             },
             {
@@ -1163,22 +1017,6 @@
               "capability": "road",
               "name": "outside-to-outside",
               "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                2,
-                128
-              ],
-              "to": [
-                666,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
               "position_kind": "boundary",
               "from": [
                 262,
@@ -1195,22 +1033,6 @@
               "capability": "road",
               "name": "outside-to-outside",
               "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                2,
-                128
-              ],
-              "to": [
-                666,
-                1,
-                128
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
               "position_kind": "boundary",
               "from": [
                 262,
@@ -1221,26 +1043,10 @@
                 666,
                 2,
                 255
-              ]
-            },
-            {
-              "capability": "road",
-              "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                262,
-                2,
-                128
-              ],
-              "to": [
-                666,
-                2,
-                128
               ]
             }
           ],
-          "failed_requests": 18,
+          "failed_requests": 9,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/rio/attempt-1/observation.json.gz",
@@ -1520,9 +1326,9 @@
           "predicted": true,
           "observed": null,
           "observation_status": "probe_limited",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
-          "failed_requests": 37,
+          "failed_requests": 18,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/pittsburgh/attempt-1/observation.json.gz",
@@ -1800,28 +1606,11 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T23:42:11.008309+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "road",
-              "name": "highway:north-in-to-west-out",
-              "from": [
-                144,
-                0,
-                128
-              ],
-              "to": [
-                876,
-                0,
-                128
-              ],
-              "rail": false,
-              "expected_segments": []
-            }
-          ],
-          "failed_requests": 36,
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
+          "failed_requests": 18,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/charleston/attempt-1/observation.json.gz",
@@ -2135,7 +1924,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -2316,9 +2105,9 @@
           "predicted": true,
           "observed": null,
           "observation_status": "probe_limited",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
-          "failed_requests": 13,
+          "failed_requests": 6,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/hong-kong/attempt-1/observation.json.gz",
@@ -2598,7 +2387,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -2777,28 +2566,11 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T23:53:06.391391+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "road",
-              "name": "highway:north-in-to-west-out",
-              "from": [
-                52,
-                0,
-                128
-              ],
-              "to": [
-                623,
-                0,
-                128
-              ],
-              "rail": false,
-              "expected_segments": []
-            }
-          ],
-          "failed_requests": 36,
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
+          "failed_requests": 18,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/boston/attempt-1/observation.json.gz",
@@ -3134,28 +2906,11 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T23:56:02.437716+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "rail",
-              "name": "rail:west-to-south",
-              "from": [
-                2012,
-                0,
-                128
-              ],
-              "to": [
-                2113,
-                1,
-                128
-              ],
-              "rail": true,
-              "expected_segments": []
-            }
-          ],
-          "failed_requests": 16,
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
+          "failed_requests": 8,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/asheville/attempt-2/observation.json.gz",
@@ -3387,27 +3142,10 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T22:50:18.405714+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "rail",
-              "name": "rail:east-to-south",
-              "from": [
-                835,
-                1,
-                128
-              ],
-              "to": [
-                1392,
-                1,
-                128
-              ],
-              "rail": true,
-              "expected_segments": []
-            }
-          ],
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
           "failed_requests": 8,
           "evidence": [
             {
@@ -3642,9 +3380,9 @@
           "predicted": true,
           "observed": null,
           "observation_status": "probe_limited",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
-          "failed_requests": 16,
+          "failed_requests": 8,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/rio/attempt-1/observation.json.gz",
@@ -3821,28 +3559,11 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T23:39:11.635056+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "rail",
-              "name": "rail:east-to-west",
-              "from": [
-                4977,
-                1,
-                128
-              ],
-              "to": [
-                5503,
-                0,
-                128
-              ],
-              "rail": true,
-              "expected_segments": []
-            }
-          ],
-          "failed_requests": 16,
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
+          "failed_requests": 8,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/pittsburgh/attempt-1/observation.json.gz",
@@ -4042,7 +3763,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -4223,7 +3944,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -4404,9 +4125,9 @@
           "predicted": true,
           "observed": null,
           "observation_status": "probe_limited",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
-          "failed_requests": 16,
+          "failed_requests": 8,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/hong-kong/attempt-1/observation.json.gz",
@@ -4585,7 +4306,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -4764,28 +4485,11 @@
           "oracle": "native_two_edge_witness",
           "observed_at": "2026-11-20T23:53:06.391391+00:00",
           "predicted": true,
-          "observed": true,
-          "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
-          "successful_requests": [
-            {
-              "capability": "rail",
-              "name": "rail:north-to-west",
-              "from": [
-                4640,
-                1,
-                128
-              ],
-              "to": [
-                4811,
-                0,
-                128
-              ],
-              "rail": true,
-              "expected_segments": []
-            }
-          ],
-          "failed_requests": 16,
+          "observed": null,
+          "observation_status": "midpoint_only",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
+          "successful_requests": [],
+          "failed_requests": 8,
           "evidence": [
             {
               "url": "https://github.com/frontierkodiak/region-to-skylines/blob/4cef6fb620f403c603e597a46f3bb7d7e5feadb7/tools/map-factory/capability-evidence/outside-v1/raw/boston/attempt-1/observation.json.gz",
@@ -5095,7 +4799,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -5327,7 +5031,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -5609,7 +5313,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "ship",
@@ -5630,22 +5334,6 @@
             {
               "capability": "ship",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                3176,
-                0,
-                128
-              ],
-              "to": [
-                3424,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -5657,22 +5345,6 @@
                 3176,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                3424,
-                0,
-                128
-              ],
-              "to": [
-                3176,
-                0,
-                128
               ]
             }
           ],
@@ -5906,7 +5578,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -6188,7 +5860,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "ship",
@@ -6209,22 +5881,6 @@
             {
               "capability": "ship",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                1912,
-                0,
-                128
-              ],
-              "to": [
-                2259,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -6236,22 +5892,6 @@
                 1912,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                2259,
-                0,
-                128
-              ],
-              "to": [
-                1912,
-                0,
-                128
               ]
             }
           ],
@@ -6485,7 +6125,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -6767,7 +6407,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "ship",
@@ -6788,22 +6428,6 @@
             {
               "capability": "ship",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                4766,
-                0,
-                128
-              ],
-              "to": [
-                5109,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -6815,22 +6439,6 @@
                 4766,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                5109,
-                0,
-                128
-              ],
-              "to": [
-                4766,
-                0,
-                128
               ]
             }
           ],
@@ -7064,7 +6672,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -7322,7 +6930,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "ship",
@@ -7343,22 +6951,6 @@
             {
               "capability": "ship",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                5735,
-                0,
-                128
-              ],
-              "to": [
-                6044,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -7370,22 +6962,6 @@
                 5735,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "ship",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                6044,
-                0,
-                128
-              ],
-              "to": [
-                5735,
-                0,
-                128
               ]
             }
           ],
@@ -7627,7 +7203,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "air",
@@ -7648,22 +7224,6 @@
             {
               "capability": "air",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                2397,
-                0,
-                128
-              ],
-              "to": [
-                2589,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -7675,22 +7235,6 @@
                 2397,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                2589,
-                0,
-                128
-              ],
-              "to": [
-                2397,
-                0,
-                128
               ]
             }
           ],
@@ -7873,7 +7417,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "air",
@@ -8085,7 +7629,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "air",
@@ -8106,22 +7650,6 @@
             {
               "capability": "air",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                2995,
-                0,
-                128
-              ],
-              "to": [
-                3175,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -8133,22 +7661,6 @@
                 2995,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                3175,
-                0,
-                128
-              ],
-              "to": [
-                2995,
-                0,
-                128
               ]
             }
           ],
@@ -8331,7 +7843,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "air",
@@ -8352,22 +7864,6 @@
             {
               "capability": "air",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                5931,
-                0,
-                128
-              ],
-              "to": [
-                6115,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -8379,22 +7875,6 @@
                 5931,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                6115,
-                0,
-                128
-              ],
-              "to": [
-                5931,
-                0,
-                128
               ]
             }
           ],
@@ -8577,7 +8057,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "air",
@@ -8598,22 +8078,6 @@
             {
               "capability": "air",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                1695,
-                0,
-                128
-              ],
-              "to": [
-                1911,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -8625,22 +8089,6 @@
                 1695,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                1911,
-                0,
-                128
-              ],
-              "to": [
-                1695,
-                0,
-                128
               ]
             }
           ],
@@ -8823,7 +8271,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -9004,7 +8452,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -9185,7 +8633,7 @@
           "predicted": false,
           "observed": null,
           "observation_status": "no_two_edge_request",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [],
           "failed_requests": 0,
           "evidence": [
@@ -9366,7 +8814,7 @@
           "predicted": true,
           "observed": true,
           "observation_status": "witness",
-          "claim": "A fresh completed native path joins segments at distinct outside nodes. No witness remains Unknown; a finite selected-pair failure cannot prove capability absence.",
+          "claim": "A fresh generic boundary request reaches the exact outside ends of distinct segments/nodes, confirmed by the returned path endpoints. Midpoint-only routes and finite failures remain Unknown for this predicate.",
           "successful_requests": [
             {
               "capability": "air",
@@ -9387,22 +8835,6 @@
             {
               "capability": "air",
               "name": "outside-to-outside",
-              "direction": 0,
-              "position_kind": "midpoint",
-              "from": [
-                5550,
-                0,
-                128
-              ],
-              "to": [
-                5734,
-                0,
-                128
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
               "direction": 1,
               "position_kind": "boundary",
               "from": [
@@ -9414,22 +8846,6 @@
                 5550,
                 0,
                 0
-              ]
-            },
-            {
-              "capability": "air",
-              "name": "outside-to-outside",
-              "direction": 1,
-              "position_kind": "midpoint",
-              "from": [
-                5734,
-                0,
-                128
-              ],
-              "to": [
-                5550,
-                0,
-                128
               ]
             }
           ],
@@ -9715,14 +9131,14 @@
       "water_support_sha256": "8582aebf15decdc63737a4ae83e048133eabfeaf3a2ca8d62b93fed29ab36b13",
       "predictions_file": "tools/map-factory/capability-evidence/pl1119-v3-predictions.json",
       "predictions_sha256": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03",
-      "projection_tool_sha256": "f6e7246a5c3297dd57930a6bbfef1df3ae3100bba59a556211ff09a77bc5b05d",
+      "projection_tool_sha256": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
       "prediction_model": "square-capabilities-v3",
       "prediction_source_sha": "f9368399d232a433b27c886ccb603a83040c75c7",
       "source_revision_basis": "source_sha is the native study's reproduced exporter revision, not a claim about an unresolved original archived-export revision. The immutable frozen prediction file retains its original null revisions and limitations.",
       "scope": "Experimental real-connections packages, not the public shipping writer or global geographic feasibility.",
       "native_rows_retained_upstream": 619,
-      "method": "One scored cell per square/capability: a fresh successful path on segments at distinct outside nodes is a positive witness. No such witness is Unknown, not a negative. Selected-pair diagnostics, named access legs, archives and panels are separate; failed requests are retained and cannot be rescued into a global verdict.",
-      "limits": "Retrospective projection, not accuracy: some native runs predate prediction freeze; every model-negative cell lacks native testing, and generic failures are not exhaustive. Negative feasibility is not validated. No native depth/width/grade threshold fitted. All nine water-risk screens are warnings. Runtime game binary/assemblies were not launch-hashed, so exact-environment qualification is withheld. Service, sustained water and global impossibility remain unmeasured.",
+      "method": "One scored boundary cell per square/capability: only generic requests at exact outside-end offsets, with matching returned endpoints, qualify as positive witnesses. Named midpoint paths are unscored. No boundary witness is Unknown, not a negative; all failed requests remain diagnostics.",
+      "limits": "Retrospective projection, not accuracy: some runs predate prediction freeze. There are 11 boundary witnesses and 25 unknown cells: 8 have midpoint-only successes, 4 have non-exhaustive failed probes, 13 have no native requests. 13 model-negative predictions are unrequested; no native negative is validated. No depth/width/grade threshold fitted. 9/9 water-risk screens warn. Launch identity and per-run entry/traffic are unbound, so qualification is withheld. Service, sustained water and global impossibility remain unmeasured.",
       "qualification_candidates": [
         {
           "study": "outside-v1",
@@ -9748,13 +9164,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "0be1924c7f2783ddf9d41cf31a01c3c4d06955208814e684f3c872184024f72c",
           "observed_at": "2026-11-20T23:56:02.437716+00:00",
           "controls": {
             "boundary_0": true,
@@ -9763,7 +9181,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -9808,13 +9227,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "8085e8bfbe4d1a7be77b4c2fd4c995e6d8a58d1a79c885a72e195499510a7233",
           "observed_at": "2026-11-20T23:16:00.933498+00:00",
           "controls": {
             "boundary_0": true,
@@ -9823,7 +9244,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -9868,13 +9290,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "8085e8bfbe4d1a7be77b4c2fd4c995e6d8a58d1a79c885a72e195499510a7233",
           "observed_at": "2026-11-20T23:16:00.933498+00:00",
           "controls": {
             "boundary_0": true,
@@ -9883,7 +9307,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -9928,13 +9353,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "109faf308c5c386b000d9d429af290bc787b556422dcbfe8513279b9a0c2c72d",
           "observed_at": "2026-11-20T23:39:11.635056+00:00",
           "controls": {
             "boundary_0": true,
@@ -9943,7 +9370,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -9988,13 +9416,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "04f38dd86ab853c17740410f6aa6812fdae69c9965592898f9cd04641fceaede",
           "observed_at": "2026-11-20T23:42:11.008309+00:00",
           "controls": {
             "boundary_0": true,
@@ -10003,7 +9433,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -10048,13 +9479,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "04f38dd86ab853c17740410f6aa6812fdae69c9965592898f9cd04641fceaede",
           "observed_at": "2026-11-20T23:42:11.008309+00:00",
           "controls": {
             "boundary_0": true,
@@ -10063,7 +9496,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -10108,13 +9542,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "4d473f93d5e3a5ca28ea8e680afe015ba57619542a8496bcfa648c767152f4c7",
           "observed_at": "2026-11-20T23:47:30.508640+00:00",
           "controls": {
             "boundary_0": true,
@@ -10123,7 +9559,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -10168,13 +9605,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "0775ca4ead41446c0743772a3e5117e1ef0b2b51f425893c70d0509122d72bbc",
           "observed_at": "2026-11-20T23:53:06.391391+00:00",
           "controls": {
             "boundary_0": true,
@@ -10183,7 +9622,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {
@@ -10228,13 +9668,15 @@
             "mod_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
             "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
             "protocol": {
-              "entry": "NewGameFromMap",
-              "inverted_traffic": false,
+              "entry": null,
+              "inverted_traffic": null,
               "no_workshop": true,
-              "strict_disable_mods": false
+              "strict_disable_mods": false,
+              "control_protocol_version": 1
             }
           },
           "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+          "observation_sha256": "0775ca4ead41446c0743772a3e5117e1ef0b2b51f425893c70d0509122d72bbc",
           "observed_at": "2026-11-20T23:53:06.391391+00:00",
           "controls": {
             "boundary_0": true,
@@ -10243,7 +9685,8 @@
             "midpoint_1": true
           },
           "blocked_by": [
-            "running_game_identity_not_recorded"
+            "running_game_identity_not_recorded",
+            "per_run_entry_and_traffic_not_recorded"
           ],
           "evidence": [
             {

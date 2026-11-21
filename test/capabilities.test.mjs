@@ -17,7 +17,7 @@ test("ledger references real checks, calibrated seed and all 104 stock maps", ()
   assert.deepEqual([b.p25, b.median, b.p75], [57, 68, 76.25]);
   const page = ledgerPage(ledger, "test-source");
   assert.match(page, /Native study: what was scored/);
-  assert.match(page, /Negative feasibility is not validated/);
+  assert.match(page, /no native negative is validated/i);
   assert.match(page, /104 shipped maps/);
   assert.match(page, /blob\/test-source\/tools\/map-factory\/capabilities.py/);
 });
@@ -150,7 +150,9 @@ test("native verification needs exact package, inputs, explicit environment and 
   delete certificate.blocked_by;
   certificate.native_context.runtime_game_sha256 = "a".repeat(64);
   certificate.native_context.runtime_game_assemblies = structuredClone(certificate.native_context.game_assemblies);
-  certificate.runtime_identity_evidence = { url: "https://example.test/constructed-launch", sha256: "a".repeat(64) };
+  certificate.native_context.protocol.entry = "NewGameFromMap";
+  certificate.native_context.protocol.inverted_traffic = false;
+  certificate.runtime_identity_evidence = { file: `tools/map-factory/capability-evidence/runtime-identities/${"a".repeat(64)}.json`, sha256: "a".repeat(64) };
   qualified.native_path_certificates = [certificate];
   const identity = structuredClone({ artifact_sha256: certificate.artifact_sha256, inputs_sha256: certificate.inputs_sha256, native_context: certificate.native_context });
   const input = { schema: 1, mode: "export", graph: { nodes: [node("west"), node("east")], edges: [edge(0, 1, "ship")] }, export_identity: identity };
@@ -158,6 +160,8 @@ test("native verification needs exact package, inputs, explicit environment and 
   const result = checkCapabilities(input, qualified).capabilities.ship;
   assert.equal(result.level, "promised");
   assert.equal(result.qualification.scope, "sampled_native_lane_paths_at_opening");
+  assert.deepEqual(result.qualification.runtime_identity_evidence, certificate.runtime_identity_evidence);
+  assert.throws(() => validateLedger(qualified), /Missing bound runtime identity receipt/);
   const mutations = [
     (d) => { d.mode = "estimate"; },
     (d) => { delete d.export_identity; },
@@ -195,6 +199,9 @@ test("native scoring retains failures and unknowns without substituting panels o
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === true).length, 4);
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === null).length, 5);
   assert.equal(ledger.native_path_certificates.length, 0, "runtime launch identity remains unbound");
+  const primary = ledger.capabilities.flatMap((c) => c.game_agreement.filter((r) => r.oracle === "native_two_edge_witness"));
+  assert.equal(primary.filter((r) => r.observed === true).length, 11);
+  assert.equal(primary.filter((r) => r.observed === null).length, 25);
   const stale = structuredClone(ledger);
   stale.evidence_studies["outside-v1"].predictions_sha256 = "0".repeat(64);
   assert.throws(() => validateLedger(stale), /Stale native evidence projection/);

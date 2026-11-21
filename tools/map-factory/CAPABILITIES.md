@@ -67,10 +67,16 @@ Without that identity/context, results stay geometric candidates or Unknown.
 Pan-time estimates never carry an export identity and cannot inherit historical
 verification merely by sharing coordinates or a place name.
 
-The running executable and game-assembly hashes must be recorded at launch,
-with a bound runtime-identity receipt, and agree with the build-time references.
+The running executable and game-assembly hashes must be recorded at launch;
+the assemblies must agree with build-time references. The executable hash is
+bound to the runtime receipt, not compared with a nonexistent build-time exe hash.
+The runtime-identity receipt must be a committed repository-relative JSON file,
+named by its SHA-256 under `capability-evidence/runtime-identities/`. Ledger
+validation reads those bytes and checks their artifact, input and context bindings;
+qualification reports expose the locator/hash. A digest with no receipt is rejected.
 The v1 study only recorded build-time game hashes. Its nine complete ship/air
-control sets remain **blocked qualification candidates**: no real certificate
+control sets remain **blocked qualification candidates**; entry/traffic state is
+also unrecorded per run (launch flags alone only establish noWorkshop/noMods): no real certificate
 is issued and no real export currently becomes `promised`. Tests of successful
 promotion use explicitly constructed launch identities, not game observations.
 
@@ -121,8 +127,10 @@ uv run --project tools/map-factory python tools/map-factory/integrate_outside_ev
 
 The committed v3 prediction snapshot remains byte-identical to the pre-import
 freeze. Current geometry is unchanged; v4 adds evidence qualification, not a
-native boundary fit. There are 19 fresh two-edge witnesses and 17 unknown cells.
-This is not 100-percent accuracy: no model-negative cell was tested natively.
+native boundary fit. There are 11 fresh boundary witnesses and 25 unknown cells.
+Eight have successful midpoint-only paths, four have only non-exhaustive failed
+probes, and thirteen were not requested. Those thirteen are the model-negative
+predictions. This is not accuracy; no native negative was established.
 Same-role road pairs and generic rail failures cannot prove capability absence.
 Diagnostic failures, access legs, archived player runs, panels and prepared-water
 raster support remain distinct and cannot rescue one another into a global

@@ -2,7 +2,8 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { validNativeContext } from "./capability-model.js";
+import { isDeepStrictEqual } from "node:util";
+import { validNativeContext, validNativeIdentityRef } from "./capability-model.js";
 
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];
@@ -57,13 +58,23 @@ export function validateLedger(ledger) {
   for (const certificate of ledger.native_path_certificates ?? []) {
     if (!["ship", "air"].includes(certificate.capability) || certificate.scope !== "sampled_native_lane_paths_at_opening" ||
       !ledger.evidence_studies?.[certificate.study] || !validNativeContext(certificate.native_context) ||
-      certificate.blocked_by?.length || !/^[a-f0-9]{64}$/.test(certificate.runtime_identity_evidence?.sha256 ?? "") ||
+      certificate.blocked_by?.length || !validNativeIdentityRef(certificate.runtime_identity_evidence) ||
+      !/^[a-f0-9]{64}$/.test(certificate.observation_sha256 ?? "") ||
+      !certificate.evidence?.some((e) => e.sha256 === certificate.observation_sha256) ||
       JSON.stringify(Object.keys(certificate.controls ?? {}).sort()) !== JSON.stringify(["boundary_0", "boundary_1", "midpoint_0", "midpoint_1"]) ||
       !Object.values(certificate.controls).every((v) => v === true) || !/^[a-f0-9]{64}$/.test(certificate.artifact_sha256 ?? "") ||
       JSON.stringify(Object.keys(certificate.inputs_sha256 ?? {}).sort()) !== JSON.stringify(["hydrology.json", "terrain.u16", "water.u16"]) ||
       !Object.values(certificate.inputs_sha256).every((v) => /^[a-f0-9]{64}$/.test(v)) ||
       !certificate.observed_at || !certificate.evidence?.length || certificate.evidence.some((e) => !/^[a-f0-9]{64}$/.test(e.sha256 ?? "")))
       throw new Error("Unbound native path certificate");
+    const ref = certificate.runtime_identity_evidence;
+    if (!existsSync(ROOT + ref.file)) throw new Error("Missing bound runtime identity receipt");
+    const raw = readFileSync(ROOT + ref.file), receipt = JSON.parse(raw);
+    if (sha(raw) !== ref.sha256 || receipt.artifact_sha256 !== certificate.artifact_sha256 ||
+      receipt.observation_sha256 !== certificate.observation_sha256 || receipt.observed_at !== certificate.observed_at ||
+      receipt.scope !== certificate.scope ||
+      !isDeepStrictEqual(receipt.inputs_sha256, certificate.inputs_sha256) ||
+      !isDeepStrictEqual(receipt.native_context, certificate.native_context)) throw new Error("Runtime identity receipt binding changed");
   }
   const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
   const recorded = ledger.capabilities.find((c) => c.id === "water_risk").calibration;
