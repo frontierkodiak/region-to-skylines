@@ -92,6 +92,7 @@ namespace Cs1Harness
             Application.logMessageReceived += OnLog;
             CoreOps.Register();
             CityOps.Register();
+            WaterStudyOps.Register();
             EditorOps.Register();
             CheckOps.Register();
             ScenarioOps.Register();

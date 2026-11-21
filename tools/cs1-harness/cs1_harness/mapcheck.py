@@ -55,6 +55,7 @@ class MapCheck:
         self.saves: list[dict] = []
         self.scenario = None
         self.scenario_observations: list[dict] = []
+        self.water_study_every: float | None = None
 
     def path_checks(self, label):
         """Use native pathfinding, retaining every returned position and missing segment."""
@@ -351,6 +352,13 @@ class MapCheck:
         self.dump("t000", terrain=True)
         self.world_heights()
         self.sample("t000")
+        study = None
+        if self.water_study_every is not None:
+            from .waterstudy import WaterStudy
+
+            self.record("water_study_runtime", self.c.call("water_study_runtime"))
+            study = WaterStudy(self.c, self.s.stage, self.points, self.water_study_every, self.record)
+            study.capture(0)
         paths_start = self.path_checks("t000")
         if not self.retain_opening_until_five:
             self.screenshots("t000")
@@ -388,6 +396,8 @@ class MapCheck:
                 raise HarnessError("simulation made no progress for 5 minutes")
             if m >= game_minutes:
                 break
+            if study is not None:
+                study.capture(m)
             tag = f"t{int(m):03d}"
             if self.retain_opening_until_five and opening_followup is None and m >= 5:
                 self.c.call("run", paused=True)
@@ -424,6 +434,8 @@ class MapCheck:
         end = f"t{int(round(game_minutes)):03d}"
         self.dump(end)
         final = self.sample(end)
+        if study is not None:
+            study.capture(minute(final["stats"]["frame"]), final=True)
         if scenario:
             fixture = {
                 **fixture,

@@ -1,5 +1,28 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1191 opt-in source-response telemetry preparation
+
+Owned worktree from6949182; old pinned checkout/build untouched. Ordinary mod
+build passes;158 harness tests and full Ruff/format pass. New three sampler
+tests cover unique subminute IDs, explicit missed slots and complete probes.
+Doctor exits0 on blade RTX2080Ti05:00.0/egl0, baseline7974/11264MiB VRAM.
+No game was launched or mod installed; game share/peak VRAM, power, temperature
+and in-game wall time are unmeasured. Doctor transient units were collected.
+Build receipt binds DLL368955b1 and installed reference hashes; no proprietary
+binaries or decompiled code are delivered. No hooks/game-state writes added.
+
+In-game up/status/down smoke is not verified because the current PL-1191
+instruction requires independent review and a frozen prospective protocol
+before launching the new runtime. This draft is for that pre-native review,
+not runtime acceptance. Loaded metadata/current file hashes do not establish
+complete loaded-image/JIT identity. Snapshot brackets do not prove atomicity,
+integrated source flux, evaporation cadence or between-sample behavior.
+
+Source audit correction: ordinary CityOps.Water.frame reads SimulationManager's
+current frame index, not a hydraulic counter. Historical raw observations are
+unchanged; the new opt-in operation reads named water fields separately and
+retains missing-field errors. It never retrofits these counters into old runs.
+
 ## 2026-11-20 — PL-1066 frozen eight-square opening qualification (blade)
 
 PR58 keeps real connections experimental/opt-in. All five fixtures plus the

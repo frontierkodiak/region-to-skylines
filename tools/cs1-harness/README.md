@@ -28,6 +28,24 @@ This is a shared tool: agents who use it improve it. See [AGENTS.md](AGENTS.md)
 for the limits and the layer layout, and [JOURNAL.md](JOURNAL.md) for what
 changed and why.
 
+## Optional water-study telemetry (PL-1191)
+
+`run --water-study-every 0.25` adds read-only snapshots with unique `ws000000`
+sequence names. Each contains full depth, raw terrain, current hydraulic floor
+and target floor grids, all authored probes and complete active control tables.
+Simulation and named water-counter reads bracket the snapshot; these reads are
+not proven atomic. Missed scheduled slots remain explicit, never backfilled.
+The ordinary sampler and defaults are unchanged. File hashes bind every new
+grid. Depth sums describe storage, not integrated source flux or evaporation.
+
+The opt-in runtime record lists loaded-module metadata and current location
+hashes, **not** full loaded-image/JIT identity or runtime health. Missing named
+fields stay unavailable. No hooks or game-state writes are added.
+
+This build is prepared for independent pre-native review. In-game smoke and
+sampling performance are **not verified**: PL-1191 explicitly requires review
+and a frozen physical protocol before launching this new runtime.
+
 ```sh
 cd tools/cs1-harness
 uv run cs1-harness build                 # compile the mod against the installed game

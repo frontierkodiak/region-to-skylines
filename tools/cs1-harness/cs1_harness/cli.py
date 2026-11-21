@@ -11,6 +11,7 @@ import argparse
 import contextlib
 import datetime
 import json
+import math
 import os
 import pathlib
 import shutil
@@ -272,6 +273,8 @@ def cmd_down(cfg, a):
 def cmd_run(cfg, a):
     if a.scenario == "first-hour" and (a.game_minutes != 60 or not 0 < a.sample_every <= 5 or a.from_save):
         raise SystemExit("first-hour requires a fresh New Game, --game-minutes 60 and --sample-every in (0, 5]")
+    if a.water_study_every is not None and (not math.isfinite(a.water_study_every) or not 0 < a.water_study_every <= 5):
+        raise SystemExit("water-study-every must be finite and in (0, 5] game-minutes")
     out = a.out.resolve()
     out.mkdir(parents=True, exist_ok=True)
     points, views = load_probe_file(a.probes)
@@ -309,6 +312,7 @@ def cmd_run(cfg, a):
                 )
                 s.dismiss_ordinary_guides = r.retain_opening_until_five
                 r.render_fps = a.render_fps
+                r.water_study_every = a.water_study_every
                 r.save_at = sorted(x for x in a.save_at if x >= 0)
                 r.save_end = a.save_end
                 r.save_on_dry = a.save_on_dry
@@ -754,6 +758,11 @@ def main(argv=None):
     r.add_argument("--sample-every", type=float, default=5, help="game-minutes between water/stat samples")
     r.add_argument("--screenshot-every", type=float, default=15, help="game-minutes between screenshot sets")
     r.add_argument("--dump-every", type=float, default=15, help="game-minutes between full water-grid dumps")
+    r.add_argument(
+        "--water-study-every",
+        type=float,
+        help="opt-in full depth/floor/probe/control snapshots every N game-minutes; named counters, not atomic/flux proof",
+    )
     r.add_argument("--load-timeout", type=float, default=900, help="seconds to wait for the city to load")
     r.add_argument(
         "--require-offline",
