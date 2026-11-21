@@ -3186,3 +3186,33 @@ GPU-only doctor passed at21:27Z, same GPU,3260MiB free; it did not launch Steam.
 The before-rule observation manifest is
 `tools/map-factory/cohorts/playable-start-v1-player-baseline.json`. Historical1/8
 remains explicitly unqualified. No candidate/exporter improvement is claimed.
+
+## PL-1078 fixed surface fixture stock references — 2026-11-21
+
+Source `83fa0ec27324dd4c4db8c6342e9600f76c3ddc41`, compiled mod
+`f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b`.
+Both cases used the same spatial consumer water/sewage APIs, 1000 native units
+per 256 simulation frames, two minutes of loaded settling and sixty scored
+minutes, with declared conditional auxiliary power and checked plumbing.
+
+| Reference | Scored minutes / cycles | Water / sewage units | Polluted deliveries | Clean service |
+|---|---:|---:|---:|---|
+| Cliffside Bay | 60.0103 / 843 | 843000 / 843000 | 733 | false |
+| Foggy Hills | 60.0119 / 843 | 843000 / 843000 | 0 | true |
+
+Neither case had quantity shortfalls, timing faults or auxiliary failure. Both
+cleanup receipts are empty; parent wrapper was collected exit0. Their anchors
+were selected geometrically, not predicted clean/upstream, so neither is a
+capability-model agreement score or a stock-map incapability claim. The fixture
+quantity check is supported; Cliffside's contamination remains a clean-service
+failure. The earlier mixed-API interrupted diagnostic remains unscored.
+
+Cliffside recorded 339 GPU samples, whole-card peak10821MiB/130.42W/60C;
+Foggy386 samples,10821MiB/130.43W/60C. Both RTX2080Ti05:00.0 with actual recorded
+200W cap unchanged; owned-game menu allocation1574MiB is not a game-only peak.
+Foggy telemetry21:25:00.785–21:57:20.539 local; controller3445.04s includes
+24.9min fair queue wait. Cliffside controller2647.34s likewise includes queue.
+Both actual NewGamePanel PNGs were viewed and hash-reviewed. Raw cycle JSON is
+published losslessly gzip-compressed under the map-factory study's
+`reference-controls/`, with selected map/mod/cleanup receipt bindings. These
+are not launch-bound runtime identity certificates and emit no promise.

@@ -58,8 +58,13 @@ requests received full water and sewage quantities with healthy auxiliaries;
 service is false. Reference anchors were selected geometrically and their
 upstream/cleanliness relationship was unpredicted (`predicted=null`), so this is
 not a model agreement score or a stock-map incapability claim. Cleanup is empty.
-Foggy Hills is still pending; product-water attribution waits for both references
-to support the quantity fixture.
+Foggy Hills completed 60.0119 scored minutes: all 843 requests received full
+water and sewage quantities, with no polluted delivery or auxiliary fault.
+Both references therefore support the fixed **quantity fixture**, while their
+clean-service outcomes differ. `reference-controls/quantity-qualification.json`
+retains both outcomes and binds the published raw cycles, selected runtime
+receipts, telemetry and actual panel reviews. This is neither final-player
+qualification (that used the unchanged 4a4 first-hour player) nor model accuracy.
 
 Product v2 native observations, held-out first-hour baseline attempts and the
 fresh eleven-square candidate player arm remain pending. The latter will use
