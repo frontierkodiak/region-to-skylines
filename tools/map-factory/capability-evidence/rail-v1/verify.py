@@ -111,12 +111,18 @@ def verify():
                 if case["artifact_sha256"] != result["artifact_sha256"]:
                     raise ValueError("observation package differs from selection")
                 observation = json.loads((case_dir / "observation.json").read_text())
-                if group == "cohort":
+                if group == "cohort" and (case_dir / "query-freeze.json").exists():
                     frozen = json.loads((case_dir / "query-freeze.json").read_text())
                     if not stock_gate or frozen["frozen_at"] < control_end:
                         raise ValueError(
                             "cohort query freeze predates stock-positive validation"
                         )
+                elif group == "cohort" and (
+                    observation.get("completed") or observation.get("paths")
+                ):
+                    raise ValueError(
+                        "cohort paths lack a frozen stock-validated protocol"
+                    )
                 if observation["observed_at"] < selection["frozen_at"]:
                     raise ValueError("opening predates prelaunch freeze")
                 session = observation.get("session", {})

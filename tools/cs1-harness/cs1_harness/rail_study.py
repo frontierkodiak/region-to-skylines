@@ -14,10 +14,10 @@ from . import connections
 from .config import Config
 
 ROOT = Path(__file__).resolve().parents[3]
-STUDY = ROOT / "tools/map-factory/capability-evidence/rail-v2"
+STUDY = ROOT / "tools/map-factory/capability-evidence/rail-v3"
 LIMIT = 128  # Boundary candidates, plus matching midpoint diagnostics.
 PROTOCOL = {
-    "id": "PL-1215-directed-rail-v2",
+    "id": "PL-1215-directed-rail-v3",
     "entry": "NewGameFromMap/noWorkshop/non-inverted/mods-enabled",
     "query": "NetworkOps.path_start mode=train; existing CreatePath overload",
     "lane_types": ["Vehicle", "TransportVehicle", "CargoVehicle"],
@@ -25,9 +25,9 @@ PROTOCOL = {
     "category": "All",
     "max_length": 100000,
     "random_seed": 857,
-    "rule": "source away from outside node, destination towards it; swap direction for segment Invert; use native forward/backward masks including AvoidForward/AvoidBackward, not enum display-name equality",
-    "order": "distinct-edge first, then source segment/node/lane, destination segment/node/lane; first 128 boundary requests",
-    "diagnostics": "midpoint for every selected directed pair; reverse first boundary request without changing lanes (wrong-direction)",
+    "rule": "source away from outside node, destination towards it; swap direction for segment Invert; test native Forward/Backward bits directly, not composite Avoid enum values or display names",
+    "order": "distinct-edge first, then lexicographic from/to [segment,lane,offset]; first 128 boundary requests",
+    "diagnostics": "midpoint per selected directed pair; reverse first boundary without changing lanes (not assumed invalid); Train query from first boundary source to smallest Car-but-not-Train segment/lane at offset128 (invalid vehicle pair)",
     "prediction": "direction-compatible candidates, not predicted native successes; all finite misses remain Unknown",
     "scope": "sampled_native_lane_paths_at_opening; file identity, not memory attestation or strict no-mods",
 }
@@ -66,6 +66,7 @@ def tokens(value):
 
 
 def inventory(networks):
+    directions = networks["direction_enum_values"]
     segments = {s["id"]: s for s in networks["segments"]}
     ends = connections.outside_endpoints(networks, "Train")
     for end in ends:
@@ -79,6 +80,10 @@ def inventory(networks):
                 <= lane.keys()
             ):
                 raise ValueError("incomplete native lane inventory")
+            if lane["forward"] != bool(lane["direction_bits"] & directions["Forward"]) or lane["backward"] != bool(
+                lane["direction_bits"] & directions["Backward"]
+            ):
+                raise ValueError("normalized lane direction differs from native bits")
     return sorted(ends, key=lambda end: (end["segment"], end["node"], end["offset"]))
 
 
@@ -137,6 +142,24 @@ def plan(networks):
                 "endpoint_edges": row["endpoint_edges"][::-1],
             }
         )
+        invalid_destinations = sorted(
+            [segment["id"], lane["index"], 128]
+            for segment in networks["segments"]
+            for lane in segment["lanes"]
+            if "Car" in tokens(lane["vehicle"]) and "Train" not in tokens(lane["vehicle"])
+        )
+        if invalid_destinations:
+            requests.append(
+                {
+                    **row,
+                    "name": "invalid-train-to-car-lane",
+                    "position_kind": "invalid_vehicle_pair",
+                    "diagnostic": True,
+                    "from": row["from"],
+                    "to": invalid_destinations[0],
+                    "endpoint_edges": [row["endpoint_edges"][0], None],
+                }
+            )
     return {"endpoints": ends, "candidate_boundary_count": len(boundary), "boundary_limit": LIMIT, "requests": requests}
 
 
@@ -228,7 +251,7 @@ def prepare(study, maps):
             "controls": controls,
             "original_selection_sha256": digest(selection),
             "cohort": original["cases"],
-            "cohort_gate": "both stock controls attempted; at least one bound exact directed literal-boundary success; freeze cohort enumeration only after this gate",
+            "cohort_gate": "both stock controls completed and bound; at least one exact directed literal-boundary success; each control rejects the invalid Train-to-Car query; freeze cohort enumeration only after this gate",
         },
     )
 
@@ -299,7 +322,14 @@ def controls_valid(study):
         if result["artifact_sha256"] != case["artifact_sha256"] or not result["completed"]:
             return False
         results.append(result)
-    return all(r["context_bound"] for r in results) and any(r["boundary_successes"] for r in results)
+    return all(
+        r["context_bound"]
+        and any(
+            d["request"]["name"] == "invalid-train-to-car-lane" and d["outcome"] == "selected_query_failure"
+            for d in r["diagnostics"]
+        )
+        for r in results
+    ) and any(r["boundary_successes"] for r in results)
 
 
 def collect_case(study, case):
@@ -318,6 +348,14 @@ def collect_case(study, case):
             raise ValueError("missing/unbound runtime or plugin inventory")
         planned = plan(networks)
         observation["protocol"] = PROTOCOL
+        observation["candidate_coverage"] = {
+            "rail": {
+                "candidate_boundary_requests": planned["candidate_boundary_count"],
+                "planned_boundary_requests": min(LIMIT, planned["candidate_boundary_count"]),
+                "diagnostic_requests": sum(r["diagnostic"] for r in planned["requests"]),
+                "boundary_limit": LIMIT,
+            }
+        }
         observation["query_freeze_sha256"] = freeze(
             out / "query-freeze.json",
             {

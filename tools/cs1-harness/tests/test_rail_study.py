@@ -48,7 +48,13 @@ def network():
             ],
         }
 
-    return {"segments": [segment(1, 1, 2, "start"), segment(2, 2, 3, "end")]}
+    road = segment(3, 4, 5, None)
+    for lane in road["lanes"]:
+        lane["vehicle"] = "Car"
+    return {
+        "segments": [segment(1, 1, 2, "start"), segment(2, 2, 3, "end"), road],
+        "direction_enum_values": {"Forward": 1, "Backward": 2, "AvoidForward": 11, "AvoidBackward": 7},
+    }
 
 
 class RailStudyTest(unittest.TestCase):
@@ -57,7 +63,7 @@ class RailStudyTest(unittest.TestCase):
         boundary = [r for r in frozen["requests"] if not r["diagnostic"]]
         self.assertEqual([(r["from"], r["to"]) for r in boundary], [([1, 0, 0], [2, 0, 255]), ([2, 1, 255], [1, 1, 0])])
         self.assertEqual(frozen["candidate_boundary_count"], 2)
-        diagnostic = frozen["requests"][-1]
+        diagnostic = next(r for r in frozen["requests"] if r["name"] == "reversed-positions-diagnostic")
         self.assertEqual(diagnostic["from"], [2, 0, 255])
         end = frozen["endpoints"][1]
         self.assertFalse(compatible(end, end["lanes"][0], source=True))
@@ -76,6 +82,20 @@ class RailStudyTest(unittest.TestCase):
                 lane["direction"] = "Avoid" + lane["direction"]
         boundary = [row for row in plan(net)["requests"] if not row["diagnostic"]]
         self.assertEqual(len(boundary), 2)
+
+    def test_composite_enum_and_wrong_vehicle_diagnostic(self):
+        net = network()
+        for segment in net["segments"][:2]:
+            for lane in segment["lanes"]:
+                lane.update(direction="AvoidForward", direction_bits=11, forward=True, backward=True)
+        self.assertEqual(plan(net)["candidate_boundary_count"], 8)
+        diagnostic = plan(net)["requests"][-1]
+        self.assertEqual(diagnostic["name"], "invalid-train-to-car-lane")
+        self.assertEqual(diagnostic["to"], [3, 0, 128])
+        net = network()
+        net["segments"][0]["lanes"][0]["backward"] = True
+        with self.assertRaisesRegex(ValueError, "native bits"):
+            plan(net)
 
     def test_no_lane_or_incomplete_inventory_does_not_guess(self):
         net = network()

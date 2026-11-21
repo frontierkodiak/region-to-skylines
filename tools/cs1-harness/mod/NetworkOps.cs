@@ -35,8 +35,8 @@ namespace Cs1Harness
                         "vehicle", l.m_vehicleType.ToString(), "category", l.vehicleCategory.ToString(),
                         "direction", l.m_finalDirection.ToString(), "direction_bits", (int)l.m_finalDirection,
                         "authored_direction", l.m_direction.ToString(),
-                        "forward", (l.m_finalDirection & (NetInfo.Direction.Forward | NetInfo.Direction.AvoidForward)) != 0,
-                        "backward", (l.m_finalDirection & (NetInfo.Direction.Backward | NetInfo.Direction.AvoidBackward)) != 0,
+                        "forward", (l.m_finalDirection & NetInfo.Direction.Forward) != 0,
+                        "backward", (l.m_finalDirection & NetInfo.Direction.Backward) != 0,
                         "flags", net.m_lanes.m_buffer[lane].m_flags.ToString()));
                     lane = net.m_lanes.m_buffer[lane].m_nextLane;
                 }
