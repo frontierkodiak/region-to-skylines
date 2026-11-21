@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty city with Hello guide panel. Opening shows grass between road and river bank; Areas view outlines start tile in the river valley with surrounding roads and hills. Captured before surface-fixture construction, not visual proof of sustained service.",
+  "opening": {
+    "sha256": "6d69d291c18358618b7fe0d1d29a1644ba96f4f75d5e757f59ea57dab36b0254",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "793f3d9a36146518a3c36e7b558aec541c230158aad96fbefe95219776ed37b9",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}
