@@ -1,11 +1,27 @@
+import json
 import unittest
 
 import numpy as np
 
-from source_line_alignment import compare, lonlat, ordered_vertices, world
+from source_line_alignment import (
+    compare,
+    lonlat,
+    ordered_vertices,
+    quantized_node_candidates,
+    world,
+)
 
 
 class SourceLineAlignmentTests(unittest.TestCase):
+    def test_coincident_quantized_nodes_keep_distinct_ids_and_serialize(self):
+        raw = [
+            ({"id": 100, "nodes": [201, 202]}, np.array([[10.1, 10.1], [11.1, 11.1]])),
+            ({"id": 101, "nodes": [301, 302]}, np.array([[10.2, 10.2], [11.2, 11.2]])),
+        ]
+        result = quantized_node_candidates(np.array([10, 10]), raw)
+        self.assertEqual({r["node"] for r in result}, {201, 301})
+        self.assertEqual(json.loads(json.dumps(result)), result)
+
     def test_decoder_grid_roundtrip_without_fitting_any_geographic_outcome(self):
         original = np.array([[22369621, 34123125], [22369622, 34123126]], float)
         self.assertTrue(

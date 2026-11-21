@@ -172,6 +172,16 @@ def compare(source, raw):
     return result
 
 
+def quantized_node_candidates(q, raw):
+    return [
+        {"way": e["id"], "node": e["nodes"][int(i)], "vertex_index": int(i)}
+        for e, ps in raw
+        for i in np.flatnonzero(
+            np.max(np.abs(np.floor(ps + 0.5) - np.rint(q)), axis=1) <= EPS
+        )
+    ]
+
+
 def analyze(folder):
     geometry = load(folder / "source/lowland-river-south-america/geometry.json")
     pieces = catalog(geometry)
@@ -255,13 +265,7 @@ def analyze(folder):
             )
         anchors = []
         for vertex_index, (point, q) in enumerate(zip(feature["pts"], source)):
-            matches = [
-                {"way": e["id"], "node": e["nodes"][i], "vertex_index": i}
-                for e, ps in raw
-                for i in np.flatnonzero(
-                    np.max(np.abs(np.floor(ps + 0.5) - np.rint(q)), axis=1) <= EPS
-                )
-            ]
+            matches = quantized_node_candidates(q, raw)
             key = tuple(point)
             incidence.setdefault(key, []).append(
                 {"row": record["id"], "vertex_index": vertex_index}
