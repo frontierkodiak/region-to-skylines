@@ -3747,7 +3747,7 @@ Fresh remaining first-hour attempts use that player, not this capability DLL.
 
 ## PL-1078 completed frozen-player comparison — 2026-11-21
 
-Both stock controls qualified the unchanged4a4 player. Original8 pre-rule baseline remains3/8 first-hour and2/8 strict. The completed11-square before/repeat comparison is4/11 versus3/11 first-hour,3/11 versus2/11 strict; zero unresolved attempts. The only changed first-hour label is Grand Canyon northeast: repeat qualifying population first observed at6.038min, after the unchanged5min deadline, despite final385/peak537. Keep the failure; no retry or policy/judge/model edit. Charleston keeps its independent DEM failure in both arms.
+Both stock controls qualified the unchanged4a4 player. Original8 pre-rule baseline remains3/8 first-hour and2/8 strict. The completed11-square before/repeat comparison is4/11 versus3/11 first-hour,3/11 versus2/11 strict; zero unresolved attempts. The only changed first-hour label is Grand Canyon northeast: repeat qualifying population first observed at6.038min, after the unchanged5min deadline, despite final385/peak540. Keep the failure; no retry or policy/judge/model edit. Charleston keeps its independent DEM failure in both arms.
 
 All maps, inputs, probes and qualified player are byte-identical across arms. These advisory checks demonstrate no physical exporter improvement. Construction failures are failed fixed openings, not universal geographic incapability.
 
