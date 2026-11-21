@@ -26,12 +26,13 @@ const BANDS = { below_p25: "Below p25", typical: "Typical", above_p75: "Above p7
 // Place evidence reasons state the measured values and their scope. "Land
 // cover", "recorded" and "suitability" are deliberate: none of these is the
 // export's planted trees, resource bytes or a native check.
-const pct = (value) => (Number.isFinite(value) ? `${Math.round(value * 100)}%` : "—");
+const pct = (value) => !Number.isFinite(value) ? "—" : value > 0 && value < 0.005 ? "<1%" : `${Math.round(value * 100)}%`;
 const score = (value) => (Number.isFinite(value) ? String(Number(value.toFixed(2))) : "—");
-const samples = (evidence) => evidence.landcover.sample_m ? `${Math.round(evidence.landcover.sample_m)} m WorldCover samples` : "WorldCover samples";
+const sampling = (evidence) => evidence.landcover.sample_m ? `${Math.round(evidence.landcover.sample_m)} m WorldCover sampling` : "WorldCover sampling";
 const PLACE_DETAIL = {
-  vegetation_suitability_candidate: (e) => `Tree cover on ${pct(e.vegetation.tree_cover_share_of_central_land)} of the central tiles' land, weighted suitability ${score(e.vegetation.tree_suitability)} at ${samples(e)}. Land cover, not the export's planted trees.`,
-  no_tree_supporting_cover: () => "Land cover in the central tiles supports no trees. The player can still plant them.",
+  vegetation_suitability_candidate: (e) => `Tree cover on ${pct(e.vegetation.tree_cover_share_of_central_land)} of the central tiles' land, weighted suitability ${score(e.vegetation.tree_suitability)} at ${sampling(e)}. Land cover, not the export's planted trees.`,
+  tree_support_below_candidate_threshold: (e) => `Tree cover on ${pct(e.vegetation.tree_cover_share_of_central_land)} of the central tiles' land, weighted suitability ${score(e.vegetation.tree_suitability)} at ${sampling(e)} — below the ${score(e.vegetation.candidate_min)} candidate level, so this stays unknown. Land cover, not the export's planted trees.`,
+  no_tree_support_in_sampled_landcover: (e) => `No tree-supporting cover in this ${sampling(e)}, so trees stay unknown. The player can still plant them.`,
   no_landcover_evidence: () => "Land cover could not be loaded, so trees are unknown. Move the square to retry.",
   landcover_coverage_incomplete: (e) => `Land cover covers ${pct(e.landcover.coverage_of_central_land)} of the central tiles' land, too little to judge.`,
   no_central_land: () => "The central tiles have no dry land to judge trees on.",
@@ -39,14 +40,16 @@ const PLACE_DETAIL = {
     e.deposits.ore.central ? `${e.deposits.ore.central} ore` : "",
     e.deposits.oil.central ? `${e.deposits.oil.central} oil` : "",
   ].filter(Boolean).join(" and ")} deposit${e.deposits.ore.central + e.deposits.oil.central === 1 ? "" : "s"} recorded in the central tiles (USGS MRDS). Records, not measured reserves.`,
-  crop_and_pasture_cover: (e) => `Crop and pasture cover on ${pct(e.fertility.crop_share_of_central_land)} of the central tiles suggests fertile land; ore and oil are not established.`,
+  fertile_land_suitability_candidate: (e) => `Fertile-land suitability ${score(e.fertility.suitability)} from crop, grass, wetland and shrub cover; cropland ${pct(e.fertility.crop_share_of_central_land)} of the central tiles' land. Ore and oil are not established.`,
+  fertile_cover_below_candidate_threshold: (e) => `Fertile-land suitability ${score(e.fertility.suitability)} and cropland ${pct(e.fertility.crop_share_of_central_land)} — below the ${score(e.fertility.candidate_min)} candidate level, too little support for a Maybe. Ore and oil are not established.`,
   recorded_deposit_outside_central_tiles: (e) => `${e.deposits.records} deposit${e.deposits.records === 1 ? "" : "s"} recorded in this square, none in the central tiles.`,
-  no_recorded_deposit_or_fertile_cover: () => "No deposit recorded and no crop or pasture cover in the central tiles. A missing record is not absence.",
+  no_recorded_deposit_or_fertile_cover: () => "No deposit recorded and no crop or pasture cover in this land-cover sample. A missing record is not absence.",
   deposit_evidence_unavailable: () => "No fertile cover found, and deposits could not be loaded. Unknown, not absent.",
   landcover_evidence_unavailable: () => "Deposits were checked; land cover could not be loaded, so fertile land is unknown.",
   no_place_evidence: () => "Neither land cover nor deposits could be loaded. Move the square to retry.",
 };
-const placeDetail = (result) => (result?.evidence && PLACE_DETAIL[result.reason] ? PLACE_DETAIL[result.reason](result.evidence) : null);
+/** The exact text a capability detail shows; exported so tests read the copy itself. */
+export const placeDetail = (result) => (result?.evidence && PLACE_DETAIL[result.reason] ? PLACE_DETAIL[result.reason](result.evidence) : null);
 
 export function mountCapabilities(root) {
   const row = root.querySelector(".capability-row"), detail = root.querySelector(".capability-detail"), status = root.querySelector(".capability-status");

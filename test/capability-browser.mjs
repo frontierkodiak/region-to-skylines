@@ -55,17 +55,19 @@ try {
         };
         const N = 17, total = N * N, flat = new Array(total).fill(100);
         const cover = (cls) => ({status:'available', source:'ESA WorldCover (constructed)', fidelity:'constructed', cell_m:10, sample_m:40, tiles:['N00E000'], values:new Array(total).fill(cls)});
-        const place = (sq, depth) => sq.lat === 5
+        const place = (sq) => sq.lat === 5
           ? {terrain_m:flat, landcover:{status:'unavailable', source:'ESA WorldCover (constructed)'}, deposits:{status:'unavailable', source:'USGS MRDS (constructed)', records:[]}}
           : sq.lat === 1
             ? {terrain_m:flat, landcover:cover(50), deposits:{status:'available', source:'USGS MRDS (constructed)', records:[]}}
-            : {terrain_m:flat, landcover:cover(10), deposits:{status:'available', source:'USGS MRDS (constructed)', records:[{kind:'ore',x:0,z:0,weight:1}]}};
+            : sq.lat === 7
+              ? {terrain_m:flat, landcover:cover(30), deposits:{status:'available', source:'USGS MRDS (constructed)', records:[]}}
+              : {terrain_m:flat, landcover:cover(10), deposits:{status:'available', source:'USGS MRDS (constructed)', records:[{kind:'ore',x:0,z:0,weight:1}]}};
         export async function captureEstimate(sq) {
           await new Promise((r) => setTimeout(r, sq.lat === 4 ? 1000 : 60));
           if (sq.lat === 3) throw new Error('constructed data failure');
-          const depth = new Array(total).fill(sq.lat === 1 || sq.lat === 6 ? 0 : 8);
+          const depth = new Array(total).fill([1, 6, 7].includes(sq.lat) ? 0 : 8);
           return { square:sq,
-            input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq, depth)},
+            input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq)},
             stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
         }` }));
       await page.goto(origin + "/__ui_probe");
@@ -78,9 +80,9 @@ try {
       assert.match(await page.locator(".capability-detail").textContent(), /No broad deep corridor/);
       // Constructed place evidence: built-up land with no deposit record is a
       // scoped No for trees and Unknown for resources, never a resource No.
-      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "not_possible_here");
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "unknown");
       await page.locator('[data-capability="trees"]').focus();
-      assert.match(await page.locator(".capability-detail").textContent(), /supports no trees/);
+      assert.match(await page.locator(".capability-detail").textContent(), /No tree-supporting cover in this 40 m WorldCover sample/);
       await page.locator('[data-capability="resources"]').focus();
       assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "unknown");
       assert.match(await page.locator(".capability-detail").textContent(), /A missing record is not absence/);
@@ -121,6 +123,17 @@ try {
       assert.match(await page.locator(".capability-detail").textContent(), /Land cover, not the export's planted trees/);
       assert.match(await page.locator(".capability-detail").textContent(), /WorldCover samples/);
       assert.match(await page.locator(".capability-detail").textContent(), /Tree cover on 100% of the central tiles/);
+      // Grassland below the tree candidate level is Unknown, and the fertility
+      // detail names cropland separately from the weighted suitability.
+      await page.evaluate(() => window.capabilityProbe.update({ lat: 7, lon: 0 }));
+      await page.locator('[data-capability="trees"]').focus();
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "unknown");
+      assert.match(await page.locator(".capability-detail").textContent(), /below the 0\.05 candidate level/);
+      await page.locator('[data-capability="resources"]').focus();
+      assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "likely");
+      assert.match(await page.locator(".capability-detail").textContent(), /Fertile-land suitability 0\.7/);
+      assert.match(await page.locator(".capability-detail").textContent(), /cropland 0%/);
+      assert.doesNotMatch(await page.locator(".capability-detail").textContent(), /Crop and pasture cover on 0%/);
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "typical");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "700 m");
       await page.evaluate(() => window.capabilityProbe.update({ lat: 5, lon: 0 }));

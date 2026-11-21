@@ -3,8 +3,9 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { checkCapabilities, measureStockMetrics, networkAccess, shipCorridor, stockBand, stockComparison, STOCK_MEASURES } from "../capability-model.js";
 import { validateLedger, ledgerPage, stockReference, agreementByOracle } from "../capability-ledger.mjs";
-import { estimateInputs } from "../capability-inputs.js";
-import { latticeLonLat, parseMrdsXml, PLACE_GRID, requestDeposits } from "../capability-evidence.js";
+import { captureEstimate, estimateInputs } from "../capability-inputs.js";
+import { latticeLonLat, parseMrdsXml, PLACE_GRID, requestDeposits, requestLandcover } from "../capability-evidence.js";
+import { placeDetail } from "../capability-ui.js";
 import { squareToLonLat } from "../terrain.js";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 
@@ -262,7 +263,8 @@ test("place evidence separates land cover from the export's tree budget", () => 
   assert.equal(trees.evidence.vegetation.slope_screened, false);
   const terrain_m = Array.from({ length: 9 }, (_, i) => 100 + Math.floor(i / 3) * 4800);
   const screened = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover, terrain_m } }, ledger).capabilities.trees;
-  assert.equal(screened.level, "not_possible_here");
+  assert.equal(screened.level, "unknown");
+  assert.equal(screened.reason, "no_tree_support_in_sampled_landcover");
   assert.equal(screened.evidence.vegetation.slope_screened, true);
 });
 
@@ -278,7 +280,8 @@ test("no place evidence is Unknown, never a No", () => {
   // not geographic absence.
   const built = { status: "available", source: "constructed", cell_m: 10, sample_m: 40, tiles: [], values: new Array(9).fill(50) };
   const none = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: built, deposits: { status: "available", records: [] } } }, ledger).capabilities;
-  assert.equal(none.trees.level, "not_possible_here");
+  assert.equal(none.trees.level, "unknown");
+  assert.equal(none.trees.reason, "no_tree_support_in_sampled_landcover");
   assert.equal(none.resources.level, "unknown");
   assert.equal(none.resources.reason, "no_recorded_deposit_or_fertile_cover");
   // A well record is not a deposit record.
@@ -359,4 +362,102 @@ test("the worker lattice matches the page's square transform", () => {
       assert.ok(Math.abs(lat[r * PLACE_GRID.size + c] - expectedLat) < 1e-12, `lat ${r},${c}`);
     }
   }
+});
+
+test("below-threshold or coarse tree evidence stays Unknown, never a No", () => {
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const run = (values) => checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: { status: "available", source: "constructed", cell_m: 10, sample_m: 74, tiles: [], values } } }, ledger).capabilities.trees;
+  // Pure grass: 0.03 weighted suitability, no tree-cover class.
+  const grass = run(new Array(9).fill(30));
+  assert.deepEqual([grass.level, grass.reason], ["unknown", "tree_support_below_candidate_threshold"]);
+  // 4 percent forest in the central 9 nodes is 0.44 here; use the 0.03 case as
+  // the below-threshold proof and a mixed one for a positive, non-zero cover.
+  const sparse = run(new Array(9).fill(50).map((value, i) => i === 0 ? 10 : value));
+  assert.equal(sparse.level, "likely");
+  // Built-up only: zero tree support in this sample, still Unknown.
+  const built = run(new Array(9).fill(50));
+  assert.deepEqual([built.level, built.reason], ["unknown", "no_tree_support_in_sampled_landcover"]);
+  // Incomplete coverage is Unknown even when the sampled cover is zero.
+  const partial = run([50, 50, 50, 50, 0, 0, 0, 0, 0]);
+  assert.deepEqual([partial.level, partial.reason], ["unknown", "landcover_coverage_incomplete"]);
+  for (const result of [grass, built, partial]) assert.notEqual(result.level, "not_possible_here");
+});
+
+test("fertility copy separates crop share from weighted suitability", () => {
+  const evidence = (vegetation, fertility) => ({
+    landcover: { sample_m: 74, coverage_of_central_land: 1 },
+    vegetation: { tree_cover_share_of_central_land: 0, tree_suitability: 0.03, candidate_min: 0.05, ...vegetation },
+    fertility: { suitability: 0.7, crop_share_of_central_land: 0, candidate_min: 0.02, ...fertility },
+    deposits: { status: "available", records: [], ore: { central: 0 }, oil: { central: 0 } },
+  });
+  const grass = placeDetail({ reason: "fertile_land_suitability_candidate", evidence: evidence() });
+  assert.match(grass, /suitability 0\.7/);
+  assert.match(grass, /cropland 0%/);
+  assert.doesNotMatch(grass, /Crop and pasture cover on 0%/);
+  const lowCrop = placeDetail({ reason: "fertile_cover_below_candidate_threshold", evidence: evidence({}, { suitability: 0.01, crop_share_of_central_land: 0.003 }) });
+  assert.match(lowCrop, /below the 0\.02 candidate level/);
+  assert.doesNotMatch(lowCrop, /no crop or pasture cover/i);
+  const lowTrees = placeDetail({ reason: "tree_support_below_candidate_threshold", evidence: evidence({ tree_cover_share_of_central_land: 0.04, tree_suitability: 0.04 }) });
+  assert.match(lowTrees, /below the 0\.05 candidate level/);
+  assert.doesNotMatch(lowTrees, /supports no trees|no supporting cover/i);
+});
+
+function fakeCapture() {
+  return {
+    game: new Float32Array(1081 * 1081),
+    banks: new Float32Array(1081 * 1081),
+    seaLevel: null,
+    geometry: { sq: { lon: 0, lat: 0, rotation: 0, scale: 1 }, oceans: [], roads: [] },
+  };
+}
+
+test("captureEstimate settles optional evidence on abort, failure and timeout", async () => {
+  const square = { lon: 0, lat: 0, rotation: 0, scale: 1 };
+  const unhandled = [];
+  const onUnhandled = (error) => unhandled.push(error);
+  process.on("unhandledRejection", onUnhandled);
+  try {
+    // Already aborted: one rejection for the caller, nothing extra.
+    const aborted = new AbortController();
+    aborted.abort(new Error("constructed pan abort"));
+    await assert.rejects(captureEstimate(square, { signal: aborted.signal, budgetMs: 50, sources: {
+      capture: async () => { throw aborted.signal.reason; },
+      landcover: async () => { throw aborted.signal.reason; },
+      deposits: async () => { throw aborted.signal.reason; },
+    } }), /constructed pan abort/);
+    // Terrain failure with untouched pending evidence: no hang, no unhandled.
+    await assert.rejects(captureEstimate(square, { budgetMs: 50, sources: {
+      capture: async () => { throw new Error("terrain down"); },
+      landcover: () => new Promise(() => {}),
+      deposits: () => new Promise(() => {}),
+    } }), /terrain down/);
+    // Stalled optional sources: the budget resolves them as unavailable while
+    // the terrain-backed checks still render.
+    const started = Date.now();
+    const stalled = await captureEstimate(square, { budgetMs: 40, sources: {
+      capture: async () => fakeCapture(),
+      landcover: () => new Promise(() => {}),
+      deposits: () => new Promise(() => {}),
+    } });
+    assert.ok(Date.now() - started < 2000, "the evidence budget bounds the pan");
+    assert.equal(stalled.input.place.landcover.status, "unavailable");
+    assert.equal(stalled.input.place.deposits.status, "unavailable");
+    assert.equal(stalled.input.place.terrain_m.length, 271 * 271);
+    assert.ok(stalled.stock.measures.terrain_relief_m != null);
+    // In-flight pan abort: the capture rejects and evidence settles.
+    const controller = new AbortController();
+    const pending = captureEstimate(square, { signal: controller.signal, budgetMs: 5000, sources: {
+      capture: (sq, { signal }) => new Promise((_, reject) => signal.addEventListener("abort", () => reject(signal.reason), { once: true })),
+      landcover: () => new Promise(() => {}),
+      deposits: () => new Promise(() => {}),
+    } });
+    setTimeout(() => controller.abort(new Error("panned")), 10);
+    await assert.rejects(pending, /panned/);
+    // A worker request that is already aborted never starts one.
+    assert.equal(await requestLandcover(square, { signal: aborted.signal }), null);
+  } finally {
+    process.off("unhandledRejection", onUnhandled);
+  }
+  await new Promise((resolve) => setTimeout(resolve, 30));
+  assert.deepEqual(unhandled, []);
 });

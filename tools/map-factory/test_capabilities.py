@@ -1,6 +1,7 @@
 """Behavioral cross-runtime checks; no native game evidence is fabricated."""
 
 import gzip
+import hashlib
 import json
 import copy
 import tempfile
@@ -128,6 +129,32 @@ def place_cases():
     cases.append(("deposit recorded outside the central tiles", outside))
     wells = case(values, records_=[records[3]])
     cases.append(("a well is not a deposit record", wells))
+    cases.append(
+        (
+            "pure grass is below the tree threshold",
+            case([30] * total, terrain=flat, records_=[]),
+        )
+    )
+    # A 21-node square so one cropland cell is 0.8 percent: nonzero fertile
+    # evidence below the candidate level, which must not read as absence.
+    sparse_side = 21
+    sparse = case(
+        [50] * (sparse_side * sparse_side),
+        terrain=[100] * (sparse_side * sparse_side),
+        records_=[],
+    )
+    sparse["grid"] = {
+        "size": sparse_side,
+        "spacing_m": 900,
+        "depth_m": [0] * (sparse_side * sparse_side),
+    }
+    sparse["place"]["landcover"]["values"] = [
+        40 if (r == 10 and c == 10) else 50
+        for r in range(sparse_side)
+        for c in range(sparse_side)
+    ]
+    sparse["place"]["terrain_m"] = [100] * (sparse_side * sparse_side)
+    cases.append(("one crop cell is below the fertile threshold", sparse))
     all_wet = copy.deepcopy(base)
     all_wet["grid"]["depth_m"] = [8] * total
     cases.append(("no central land to judge", all_wet))
@@ -607,30 +634,30 @@ class CapabilityParity(unittest.TestCase):
             ),
             "deposits missing, land cover present": (
                 ("likely", "vegetation_suitability_candidate"),
-                ("likely", "crop_and_pasture_cover"),
+                ("likely", "fertile_land_suitability_candidate"),
             ),
             "deposit source unavailable": (
                 ("likely", "vegetation_suitability_candidate"),
-                ("likely", "crop_and_pasture_cover"),
+                ("likely", "fertile_land_suitability_candidate"),
             ),
             "full tree cover": (
                 ("likely", "vegetation_suitability_candidate"),
                 ("likely", "recorded_deposit_in_central_tiles"),
             ),
             "built-up only, no deposit": (
-                ("not_possible_here", "no_tree_supporting_cover"),
+                ("unknown", "no_tree_support_in_sampled_landcover"),
                 ("unknown", "no_recorded_deposit_or_fertile_cover"),
             ),
             "sparse grass is below the tree threshold": (
-                ("not_possible_here", "no_tree_supporting_cover"),
-                ("likely", "crop_and_pasture_cover"),
+                ("unknown", "tree_support_below_candidate_threshold"),
+                ("likely", "fertile_land_suitability_candidate"),
             ),
             "shrub clears the tree threshold": (
                 ("likely", "vegetation_suitability_candidate"),
-                ("likely", "crop_and_pasture_cover"),
+                ("likely", "fertile_land_suitability_candidate"),
             ),
             "steep shrub is screened to no trees": (
-                ("not_possible_here", "no_tree_supporting_cover"),
+                ("unknown", "no_tree_support_in_sampled_landcover"),
                 ("unknown", "no_recorded_deposit_or_fertile_cover"),
             ),
             "no land-cover data at all": (
@@ -643,15 +670,23 @@ class CapabilityParity(unittest.TestCase):
             ),
             "no recorded deposit is not absence": (
                 ("likely", "vegetation_suitability_candidate"),
-                ("likely", "crop_and_pasture_cover"),
+                ("likely", "fertile_land_suitability_candidate"),
             ),
             "deposit recorded outside the central tiles": (
-                ("not_possible_here", "no_tree_supporting_cover"),
+                ("unknown", "no_tree_support_in_sampled_landcover"),
                 ("unknown", "recorded_deposit_outside_central_tiles"),
             ),
             "a well is not a deposit record": (
                 ("likely", "vegetation_suitability_candidate"),
-                ("likely", "crop_and_pasture_cover"),
+                ("likely", "fertile_land_suitability_candidate"),
+            ),
+            "pure grass is below the tree threshold": (
+                ("unknown", "tree_support_below_candidate_threshold"),
+                ("likely", "fertile_land_suitability_candidate"),
+            ),
+            "one crop cell is below the fertile threshold": (
+                ("unknown", "no_tree_support_in_sampled_landcover"),
+                ("unknown", "fertile_cover_below_candidate_threshold"),
             ),
             "no central land to judge": (
                 ("unknown", "no_central_land"),
@@ -727,7 +762,7 @@ class CapabilityParity(unittest.TestCase):
                     self.assertEqual(levels["resources"]["level"], "unknown", slug)
                     self.assertEqual(
                         levels["resources"]["reason"],
-                        "no_recorded_deposit_or_fertile_cover",
+                        "fertile_cover_below_candidate_threshold",
                         slug,
                     )
                 else:
@@ -789,6 +824,70 @@ class CapabilityParity(unittest.TestCase):
             check=True,
         )
         self.assertEqual(json.loads(result.stdout), parse_mrds(square, xml))
+
+    def test_evidence_inputs_are_bound_in_the_prepared_report(self):
+        """Changing only land cover or deposits must change its own binding."""
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = extract_fixture("asheville", Path(tmp) / "square")
+            (folder / "plan.npz").unlink()  # no final plan: place evidence decides
+            cover = folder / "landcover.u8.gz"
+            evidence = folder / "evidence.json"
+            evidence.write_text('{"evidence": []}\n')
+            cover.write_bytes(gzip.compress(bytes([10]) * (1728 * 1728), mtime=0))
+            forest = assess_prepared(folder)
+            built_at = hashlib.sha256(cover.read_bytes()).hexdigest()
+            self.assertEqual(
+                forest["evidence_inputs"]["landcover"],
+                {"file": "landcover.u8.gz", "status": "present", "sha256": built_at},
+            )
+            self.assertEqual(
+                set(forest["inputs_sha256"]) - {"plan.npz"},
+                {"terrain.u16", "water.u16", "hydrology.json"},
+                "the native certificate identity stays three physical inputs",
+            )
+            self.assertEqual(forest["capabilities"]["trees"]["level"], "likely")
+            cover.write_bytes(gzip.compress(bytes([50]) * (1728 * 1728), mtime=0))
+            built = assess_prepared(folder)
+            self.assertEqual(built["evidence_inputs"]["landcover"]["status"], "present")
+            self.assertNotEqual(
+                built["evidence_inputs"]["landcover"]["sha256"],
+                forest["evidence_inputs"]["landcover"]["sha256"],
+            )
+            for name in ("terrain.u16", "water.u16", "hydrology.json"):
+                self.assertEqual(
+                    forest["inputs_sha256"][name], built["inputs_sha256"][name]
+                )
+            self.assertNotEqual(
+                forest["capabilities"]["trees"]["level"],
+                built["capabilities"]["trees"]["level"],
+            )
+            self.assertEqual(built["capabilities"]["trees"]["level"], "unknown")
+            self.assertEqual(
+                built["capabilities"]["trees"]["reason"],
+                "no_tree_support_in_sampled_landcover",
+            )
+            before = built["evidence_inputs"]["deposits"]["sha256"]
+            evidence.write_text(
+                json.dumps({"evidence": [{"kind": "ore", "x": 0, "z": 0, "weight": 1}]})
+            )
+            deposited = assess_prepared(folder)
+            self.assertNotEqual(
+                deposited["evidence_inputs"]["deposits"]["sha256"], before
+            )
+            self.assertEqual(built["capabilities"]["resources"]["level"], "unknown")
+            self.assertEqual(deposited["capabilities"]["resources"]["level"], "likely")
+            cover.unlink()
+            evidence.unlink()
+            absent = assess_prepared(folder)
+            for key in ("landcover", "deposits"):
+                self.assertEqual(
+                    absent["evidence_inputs"][key],
+                    {
+                        "file": absent["evidence_inputs"][key]["file"],
+                        "status": "missing",
+                        "sha256": None,
+                    },
+                )
 
 
 if __name__ == "__main__":

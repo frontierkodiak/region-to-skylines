@@ -26,14 +26,14 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "e95888c3494d3c618498ea76f0980c7cc37e83a34996242b5aaa8b8aab823c75",
-    "capability-evidence.js": "5dd4d732c4797690a31ef1803c8e896bca9895e3b10ae810e15c5c6ccf800a83",
+    "capabilities.json": "e34c646dc2bb1aab283b935f8ca24d2ce46af724b11af8f04e416429ea5d4e34",
+    "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
-    "capability-inputs.js": "79248bda304776d6fffac93ac85414deef4e0e71549be0f84dffa1c011a6eec7",
+    "capability-inputs.js": "b000938703729b0e1bb62f8d781d40737841ef4b18fbf4def0c5b08825f67700",
     "capability-ledger.mjs": "ae09933ea788245064c091d04c9ac783c952c00bad83224023150fde0c7bafa9",
-    "capability-model.js": "a0db8aa2c2965f8da02166701350c6140dd23f8179aca928f27fc9922f11ca6d",
-    "capability-ui.js": "1636467c9b95b283e35c893370d8bee2e06775bc59113ca773e4ea9b0cee87aa",
-    "tools/map-factory/capabilities.py": "01fa005efa90fed89898d13e4316ed9c306ec460ae47c6a228a728b89645a5cc",
+    "capability-model.js": "81327e3ebf686b29991f311d8fa9c11e97afd884235dea7d1b26d7d90ebb667d",
+    "capability-ui.js": "7ea69f193eaf0ad7334c3bcb584d61761d80e4c5904202982de0c4e597303955",
+    "tools/map-factory/capabilities.py": "8c6ab0a7acd7dabd64c8f82f10e21fdec29928bec1d545cbf90ddcfbdd4f9c66",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/capability-evidence/pl1119-v3-predictions.json": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
   }

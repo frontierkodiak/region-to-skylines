@@ -116,16 +116,24 @@ model cannot drift from the writer silently.
   50 and above). It reports tree-cover share, vegetated share and a weighted
   suitability over the central 25 tiles' dry land. It does **not** report the
   exporter's planted tree count: 180,000 is a budget, not natural abundance.
+- **Trees never assert a No from place evidence.** The 0.05 suitability level
+  is a candidate threshold, not an impossibility boundary: a 90 percent covered
+  window is not complete coverage, and a 74 m overview can miss thin patches.
+  At or above it the icon is Maybe; below it, or with no tree-supporting cover
+  in the sample, it stays Unknown with the measured scope named. Only the
+  export plan's own empty tree list is a No, and that observation stays
+  separate (`final_plan_empty`).
 - **Resources** reports recorded deposits and fertile cover separately. A
-  deposit record in the central tiles, or crop/pasture cover above the candidate
-  threshold, makes a Maybe. Balanced ore/oil top-ups fill each export to stock
-  shares after this evidence is gathered; they are not evidence and never count
-  here.
+  deposit record in the central tiles, or fertile land at or above the candidate
+  threshold, makes a Maybe. The detail reports cropland share on its own, apart
+  from the weighted crop, grass, wetland and shrub suitability, so grassland
+  never reads as "crop cover". Below-threshold fertile support is Unknown, not
+  absent. Balanced ore/oil top-ups fill each export to stock shares after this
+  evidence is gathered; they are not evidence and never count here.
 - **Never a No for resources.** MRDS covers the United States only, and the
   exporter's other sources are not queried live, so a missing record is missing
-  coverage, not absence. The live check returns `unknown` where it cannot tell.
-  Trees return a scoped No only when complete land cover shows no
-  tree-supporting cover; the player can still plant trees.
+  coverage, not absence. The live check returns `unknown` where it cannot tell,
+  and the reason says what was sampled.
 - **No stock comparison.** The 104-map catalog measures the game's planted
   forest bytes and budgeted tree counts. WorldCover tree cover is not either
   quantity, so no bridge is claimed and no stock band is attached. The ledger
@@ -139,6 +147,13 @@ one MRDS request at 0.19 s to 0.37 s. The chosen overview was 73.7 m per pixel a
 four squares and 36.9 m at Rio. The read is bounded, cancellable, and runs in
 `capability-evidence-worker.js`, which the view terminates on pan.
 
+`captureEstimate` gives those optional reads a 15 s wall-clock budget. Every
+parallel read gets its handler before the terrain capture is awaited, the
+budget aborts the evidence controller (which terminates the worker and the
+request), and the terrain-backed icons and stock rows still render with
+unavailable evidence. A caller abort rejects once, with no unhandled evidence
+rejection and no process or worker left behind.
+
 ### What it is worth
 
 The 271-node lattice reproduces the central window's 10 m WorldCover shares
@@ -151,6 +166,16 @@ recorded in `CAPABILITIES.md` and the run receipt, not as a test.
 
 Neither number makes this a plan or a native check. Patch coherence, the tree
 budget, balanced top-ups, reserve size and gameplay remain outside it.
+
+### Evidence input binding
+
+`assess_prepared` reports `evidence_inputs`, one entry per place-evidence file
+the report consumed: `landcover` (`landcover.u8.gz`) and `deposits`
+(`evidence.json`), each with `status` `present` or `missing` and its SHA-256 when
+present. They are kept out of `inputs_sha256`, whose three physical inputs are
+what a native path certificate binds. Changing only land cover or only deposits
+therefore moves its own binding and can move the Trees or Resources level,
+without appearing to change the terrain, water or hydrology.
 
 ## Exact-export native qualification
 

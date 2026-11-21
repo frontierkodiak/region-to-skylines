@@ -204,12 +204,14 @@ export function placeEvidence(grid, place, rules) {
       vegetated_share_of_central_land: centralLand ? round4(vegetatedNodes / centralLand) : null,
       slope_screened: !!gx,
       slope_limit_percent: rules.tree_slope_limit_percent,
+      candidate_min: rules.tree_suitability_min,
     },
     fertility: {
       suitability: centralLand ? round4(fertileSum / centralLand) : null,
       crop_share_of_central_land: centralLand ? round4(cropNodes / centralLand) : null,
       slope_full_percent: rules.fertile_slope_full_percent,
       slope_none_percent: rules.fertile_slope_none_percent,
+      candidate_min: rules.fertile_suitability_min,
     },
     balanced_top_up: "not_evidence",
   };
@@ -226,18 +228,23 @@ export function placeCapabilities(grid, place, rules) {
   const centralLand = evidence.grid.central_land_nodes;
   const coverage = evidence.landcover.coverage_of_central_land ?? 0;
   const landcoverOk = evidence.landcover.status === "available" && centralLand > 0 && coverage >= rules.landcover_min_coverage;
-  const trees = evidence.landcover.status !== "available"
+  const suitability = evidence.vegetation.tree_suitability, trees = evidence.landcover.status !== "available"
     ? { level: "unknown", reason: "no_landcover_evidence" }
     : centralLand === 0 ? { level: "unknown", reason: "no_central_land" }
     : !landcoverOk ? { level: "unknown", reason: "landcover_coverage_incomplete" }
-    : evidence.vegetation.tree_suitability >= rules.tree_suitability_min
-      ? { level: "likely", reason: "vegetation_suitability_candidate" }
-      : { level: "not_possible_here", reason: "no_tree_supporting_cover" };
+    // The candidate threshold is not an impossibility boundary: a coarse
+    // overview, a 90 percent covered window or a thin patch can all read low.
+    // Only the export plan's own empty tree list can say No.
+    : suitability >= rules.tree_suitability_min ? { level: "likely", reason: "vegetation_suitability_candidate" }
+    : suitability > 0 ? { level: "unknown", reason: "tree_support_below_candidate_threshold" }
+    : { level: "unknown", reason: "no_tree_support_in_sampled_landcover" };
   const deposits = evidence.deposits, fertile = evidence.fertility.suitability;
+  const crop = evidence.fertility.crop_share_of_central_land ?? 0;
   const resources = deposits.status === "available" && (deposits.ore.central > 0 || deposits.oil.central > 0)
     ? { level: "likely", reason: "recorded_deposit_in_central_tiles" }
-    : landcoverOk && fertile >= rules.fertile_suitability_min ? { level: "likely", reason: "crop_and_pasture_cover" }
+    : landcoverOk && fertile >= rules.fertile_suitability_min ? { level: "likely", reason: "fertile_land_suitability_candidate" }
     : deposits.status === "available" && deposits.records > 0 ? { level: "unknown", reason: "recorded_deposit_outside_central_tiles" }
+    : landcoverOk && (fertile > 0 || crop > 0) ? { level: "unknown", reason: "fertile_cover_below_candidate_threshold" }
     : landcoverOk && deposits.status === "available" ? { level: "unknown", reason: "no_recorded_deposit_or_fertile_cover" }
     : landcoverOk ? { level: "unknown", reason: "deposit_evidence_unavailable" }
     : deposits.status === "available" ? { level: "unknown", reason: "landcover_evidence_unavailable" }

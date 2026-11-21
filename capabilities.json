@@ -9082,9 +9082,9 @@
       ],
       "promise_levels": {
         "promised": "Native resource readback matches the exact export; extraction is a separate test. No native receipt exists for this model.",
-        "likely": "A deposit record lies in the central 25 tiles, or land cover makes fertile land above the candidate threshold. The reason names which measure.",
+        "likely": "A deposit record lies in the central 25 tiles, or land cover makes fertile land at or above the candidate threshold. The reason names which measure and reports cropland separately from the weighted crop, grass, wetland and shrub suitability.",
         "not_possible_here": "A final export plan contains none of the resource grids. Place evidence cannot establish absence, so the live check never returns this level.",
-        "unknown": "No deposit record is not absence, and missing or incomplete land cover cannot rule a resource out."
+        "unknown": "No deposit record is not absence; below-threshold fertile support is not absence; and missing or incomplete land cover cannot rule a resource out."
       },
       "metric_ids": [
         "ore_central_land_fraction",
@@ -9126,7 +9126,7 @@
       },
       "fidelity": "The live check reads WorldCover cover and one MRDS record query per square. The exporter reads the full 10 m land cover plus MRDS, MSHA and NETL wells. Neither is a final resource plan: balanced mode tops ore and oil up to stock shares after this evidence is recorded.",
       "game_agreement": [],
-      "limits": "Recorded deposits are public records, not measured reserves, and absence of a record is not absence of a deposit. Balanced ore/oil top-ups, patch shape and extraction gameplay stay in the export plan. Cropland cover is one characteristic of fertile land, not a resource total."
+      "limits": "Recorded deposits are public records, not measured reserves, and absence of a record is not absence of a deposit. Balanced ore/oil top-ups, patch shape and extraction gameplay stay in the export plan. Cropland cover is one characteristic of fertile land, not a resource total; below-threshold fertile support stays Unknown."
     },
     {
       "id": "trees",
@@ -9143,9 +9143,9 @@
       ],
       "promise_levels": {
         "promised": "Exact-export native tree readback and a visual check pass. No native receipt exists for this model.",
-        "likely": "Land cover in the central 25 tiles supports trees above the candidate threshold, with its measured scope named. The export's own tree plan is separate evidence.",
-        "not_possible_here": "Complete land cover shows no tree-supporting cover in the central 25 tiles. The player can still plant trees there.",
-        "unknown": "No land cover, too little of the central land covered, no central land, or the evidence could not be loaded."
+        "likely": "Land cover in the central 25 tiles supports trees at or above the candidate threshold, with the measured scope named. The export's own tree plan is separate evidence.",
+        "not_possible_here": "A final export plan contains no trees. The live place-evidence check does not return this level: a 90 percent covered window and a coarse lattice cannot establish absence.",
+        "unknown": "No land cover, too little of the central land covered, no central land, or support below the candidate threshold. A coarse sample can miss thin cover, so low or zero cover is not a No."
       },
       "metric_ids": [
         "trees_total",
@@ -9181,7 +9181,7 @@
       },
       "fidelity": "The live check reads capture-time terrain and a WorldCover overview at the depth grid's 271 nodes. The exporter reads prepared terrain and the full 10 m land cover at the same nodes. Neither replaces the export plan or a native check.",
       "game_agreement": [],
-      "limits": "A suitability mean is not a tree count, biome correctness or visual quality. The tree budget (180,000 by default, editor cap 250,000) is a separate export decision, not natural abundance."
+      "limits": "A suitability mean is not a tree count, biome correctness or visual quality. The tree budget (180,000 by default, editor cap 250,000) is a separate export decision, not natural abundance. Below-threshold or zero sampled cover stays Unknown; only the export plan's own empty tree list can say No."
     },
     {
       "id": "water_risk",

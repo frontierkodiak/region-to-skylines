@@ -182,7 +182,7 @@ export async function collectLandcover(sq, { fromUrl, tileUrl, signal, size = PL
 
 /** Land cover in a bounded worker; null when it cannot be read or is aborted. */
 export function requestLandcover(sq, { signal } = {}) {
-  if (typeof Worker === "undefined") return Promise.resolve(null);
+  if (typeof Worker === "undefined" || signal?.aborted) return Promise.resolve(null);
   return new Promise((resolve) => {
     const worker = new Worker(new URL("./capability-evidence-worker.js", import.meta.url), { type: "module" });
     const finish = (value) => { signal?.removeEventListener("abort", abort); worker.terminate(); resolve(value); };

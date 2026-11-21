@@ -81,20 +81,57 @@ export function stockEstimate(capture, depth = captureDepth(capture)) {
   return { fidelity: "capture_estimate", measures: measureStockMetrics(southFirst(capture.game), southFirst(depth)), comparability: CAPTURE_STOCK };
 }
 
-export async function captureEstimate(sq, { signal } = {}) {
-  // One terrain capture feeds the icon row, the stock comparison and the slope
-  // screen; land cover and deposits are the only extra reads.
-  const capturePromise = captureInputs(sq, { signal, includeRunways: true });
-  const coverPromise = requestLandcover(sq, { signal });
-  const depositPromise = requestDeposits(sq, { signal }).catch((error) => {
-    if (signal?.aborted) throw error;
-    return { status: "unavailable", source: MRDS_SOURCE, records: [] };
+/** Optional place evidence never blocks the terrain-backed checks forever. */
+export const EVIDENCE_BUDGET_MS = 15000;
+const NO_DEPOSITS = () => ({ status: "unavailable", source: MRDS_SOURCE, records: [] });
+
+/**
+ * One terrain capture feeds the icon row, the stock comparison and the slope
+ * screen. Land cover and deposits are extra reads with their own abort and a
+ * wall-clock budget: a stalled worker or MRDS request leaves an Unknown icon
+ * row rather than holding every result hostage.
+ *
+ * `sources` is a test seam for those two optional reads and the capture.
+ */
+export async function captureEstimate(sq, { signal, budgetMs = EVIDENCE_BUDGET_MS, sources = {} } = {}) {
+  const capture = sources.capture ?? captureInputs;
+  const readLandcover = sources.landcover ?? requestLandcover;
+  const readDeposits = sources.deposits ?? requestDeposits;
+  const evidence = new AbortController();
+  const stop = () => evidence.abort(signal?.reason ?? new Error("place evidence stopped"));
+  if (signal?.aborted) stop(); else signal?.addEventListener("abort", stop, { once: true });
+  const timer = setTimeout(stop, budgetMs);
+  // Every optional read gets its handler now, before anything is awaited, and
+  // is bounded by the evidence controller rather than by trusting the source
+  // to honour abort: an aborted or failed capture never leaves an unhandled
+  // deposit rejection, and a stalled fetch or worker still settles as unknown.
+  const bounded = (start, fallback) => new Promise((resolve) => {
+    let settled = false;
+    const finish = (value) => {
+      if (settled) return;
+      settled = true;
+      evidence.signal.removeEventListener("abort", onAbort);
+      resolve(value);
+    };
+    const onAbort = () => finish(fallback);
+    evidence.signal.addEventListener("abort", onAbort, { once: true });
+    if (evidence.signal.aborted) { finish(fallback); return; }
+    Promise.resolve().then(start).then((value) => finish(value ?? fallback), () => finish(fallback));
   });
-  const capture = await capturePromise;
-  if (signal?.aborted) throw signal.reason;
-  const [landcover, deposits] = await Promise.all([coverPromise, depositPromise]);
-  if (signal?.aborted) throw signal.reason;
-  // One fetch and one depth pass feed both the icon row and the stock comparison.
-  const depth = captureDepth(capture);
-  return { input: estimateInputs(capture, depth, { landcover, deposits }), stock: stockEstimate(capture, depth), square: capture.geometry.sq };
+  const capturePromise = Promise.resolve().then(() => capture(sq, { signal, includeRunways: true }));
+  const coverPromise = bounded(() => readLandcover(sq, { signal: evidence.signal }), null);
+  const depositPromise = bounded(() => readDeposits(sq, { signal: evidence.signal }), NO_DEPOSITS());
+  try {
+    const captured = await capturePromise;
+    if (signal?.aborted) throw signal.reason;
+    const [landcover, deposits] = await Promise.all([coverPromise, depositPromise]);
+    if (signal?.aborted) throw signal.reason;
+    const depth = captureDepth(captured);
+    return { input: estimateInputs(captured, depth, { landcover, deposits }), stock: stockEstimate(captured, depth), square: captured.geometry.sq };
+  } finally {
+    clearTimeout(timer);
+    signal?.removeEventListener("abort", stop);
+    // Nothing this call started may outlive it, settled or not.
+    if (!evidence.signal.aborted) evidence.abort(new Error("place evidence settled"));
+  }
 }

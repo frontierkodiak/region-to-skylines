@@ -454,6 +454,7 @@ def place_evidence(grid, place, rules):
             else None,
             "slope_screened": gx is not None,
             "slope_limit_percent": rules["tree_slope_limit_percent"],
+            "candidate_min": rules["tree_suitability_min"],
         },
         "fertility": {
             "suitability": _round(fertile_sum / central_land, 4)
@@ -464,6 +465,7 @@ def place_evidence(grid, place, rules):
             else None,
             "slope_full_percent": rules["fertile_slope_full_percent"],
             "slope_none_percent": rules["fertile_slope_none_percent"],
+            "candidate_min": rules["fertile_suitability_min"],
         },
         "balanced_top_up": "not_evidence",
     }
@@ -486,22 +488,33 @@ def place_capabilities(grid, place, rules):
         trees = {"level": "unknown", "reason": "no_central_land"}
     elif not landcover_ok:
         trees = {"level": "unknown", "reason": "landcover_coverage_incomplete"}
+    # The candidate threshold is not an impossibility boundary: a coarse
+    # overview, a 90 percent covered window or a thin patch can all read low.
+    # Only the export plan's own empty tree list can say No.
     elif suitability >= rules["tree_suitability_min"]:
         trees = {"level": "likely", "reason": "vegetation_suitability_candidate"}
+    elif suitability > 0:
+        trees = {"level": "unknown", "reason": "tree_support_below_candidate_threshold"}
     else:
-        trees = {"level": "not_possible_here", "reason": "no_tree_supporting_cover"}
+        trees = {"level": "unknown", "reason": "no_tree_support_in_sampled_landcover"}
     deposits, fertile = evidence["deposits"], evidence["fertility"]["suitability"]
+    crop = evidence["fertility"]["crop_share_of_central_land"] or 0
     central_deposit = deposits["status"] == "available" and (
         deposits["ore"]["central"] > 0 or deposits["oil"]["central"] > 0
     )
     if central_deposit:
         resources = {"level": "likely", "reason": "recorded_deposit_in_central_tiles"}
     elif landcover_ok and fertile >= rules["fertile_suitability_min"]:
-        resources = {"level": "likely", "reason": "crop_and_pasture_cover"}
+        resources = {"level": "likely", "reason": "fertile_land_suitability_candidate"}
     elif deposits["status"] == "available" and deposits["records"] > 0:
         resources = {
             "level": "unknown",
             "reason": "recorded_deposit_outside_central_tiles",
+        }
+    elif landcover_ok and (fertile > 0 or crop > 0):
+        resources = {
+            "level": "unknown",
+            "reason": "fertile_cover_below_candidate_threshold",
         }
     elif landcover_ok and deposits["status"] == "available":
         resources = {
@@ -804,6 +817,27 @@ def place_input(folder, size=271):
     return place
 
 
+def evidence_inputs(folder):
+    """Bind every place-evidence file the report consumed, present or missing.
+
+    Kept out of `inputs_sha256`: a native path certificate binds exactly the
+    three physical inputs, and an evidence file must never be folded into an
+    old receipt. A missing file keeps explicit provenance rather than silence.
+    """
+    bound = {}
+    for key, name in (("landcover", "landcover.u8.gz"), ("deposits", "evidence.json")):
+        path = folder / name
+        present = path.exists()
+        bound[key] = {
+            "file": name,
+            "status": "present" if present else "missing",
+            "sha256": hashlib.sha256(path.read_bytes()).hexdigest()
+            if present
+            else None,
+        }
+    return bound
+
+
 def prepared_input(folder):
     """Read final south-first grids; conservatively block-min to north-first 64 m."""
     depth = (
@@ -854,6 +888,7 @@ def assess_prepared(folder, native_context=None):
         name: hashlib.sha256((folder / name).read_bytes()).hexdigest()
         for name in ("terrain.u16", "water.u16", "hydrology.json")
     }
+    report["evidence_inputs"] = evidence_inputs(folder)
     report["scope"] = (
         "Initial export geometry. An explicit matching native context can qualify only recorded exact-export sampled lane paths at opening. Native service, hydraulics, start hookups and game tool placement are not certified."
     )
