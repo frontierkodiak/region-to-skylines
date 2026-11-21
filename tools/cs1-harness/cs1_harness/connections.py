@@ -158,7 +158,7 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
     stage = staging(cfg, out)
     result = {
         "schema": 2,
-        "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
+        "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; no construction",
         "observed_at": datetime.datetime.now(datetime.UTC).isoformat(),
         "artifact_sha256": hashlib.sha256(package.read_bytes()).hexdigest(),
         "package": str(package),

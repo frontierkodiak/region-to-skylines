@@ -39,9 +39,12 @@ def bind_runtime(session, build):
         "executable": {"path": str(exe.readlink()), "sha256": digest(exe)},
         "command_line": (proc / "cmdline").read_bytes().decode().split("\0"),
         "assemblies": reported["assemblies"],
+        "unresolved_loaded_assemblies": reported.get("unresolved_loaded_assemblies", []),
+        "build_matches": False,
         "launch_args": session.receipt["launch_args"],
         "scope": "Loaded assembly file bytes at menu readiness, not an in-memory code attestation.",
     }
+    session.receipt["runtime_identity"] = identity
     for assembly in reported["assemblies"]:
         path = Path(assembly["path"])
         if not path.is_absolute() or digest(proc / "root" / path.relative_to("/")) != assembly["sha256"]:

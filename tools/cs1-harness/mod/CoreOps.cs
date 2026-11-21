@@ -57,21 +57,56 @@ namespace Cs1Harness
             Host.Register("render", Needs.Any, "throttle drawing (the simulation runs on): {fps (0 = unlimited), camera (false: the main camera stops drawing the world)}", Render);
         }
 
+        static string PluginAssemblyFile(System.Reflection.Assembly loaded)
+        {
+            string found = null;
+            foreach (var plugin in Singleton<PluginManager>.instance.GetPluginsInfo())
+            {
+                bool owns = false;
+                var pluginAssemblies = plugin.GetAssemblies();
+                if (pluginAssemblies == null) continue;
+                foreach (var assembly in pluginAssemblies)
+                    if (System.Object.ReferenceEquals(assembly, loaded)) owns = true;
+                if (!owns || !Directory.Exists(plugin.modPath)) continue;
+                foreach (string path in Directory.GetFiles(plugin.modPath, "*.dll", SearchOption.AllDirectories))
+                {
+                    var file = System.Reflection.Assembly.ReflectionOnlyLoadFrom(path);
+                    if (file.GetName().Name != loaded.GetName().Name ||
+                        file.ManifestModule.ModuleVersionId != loaded.ManifestModule.ModuleVersionId) continue;
+                    if (found != null && found != path) throw new Exception("ambiguous plugin assembly file: " + loaded.GetName().Name);
+                    found = path;
+                }
+            }
+            return found;
+        }
+
         static Dictionary<string, object> RuntimeIdentity()
         {
             var assemblies = new List<object>();
+            var unresolved = new List<object>();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
                 if (assembly is System.Reflection.Emit.AssemblyBuilder) continue;
                 string location = assembly.Location;
-                if (String.IsNullOrEmpty(location)) continue;
+                string binding = "loaded_assembly_location";
+                if (String.IsNullOrEmpty(location))
+                {
+                    location = PluginAssemblyFile(assembly);
+                    binding = "native_plugin_owner_and_matching_loaded_module_mvid";
+                }
+                if (String.IsNullOrEmpty(location))
+                {
+                    unresolved.Add(assembly.GetName().Name);
+                    continue;
+                }
                 using (var stream = File.OpenRead(location))
                 using (var hash = System.Security.Cryptography.SHA256.Create())
                     assemblies.Add(Host.Obj("name", assembly.GetName().Name, "path", location,
+                        "binding", binding, "loaded_module_mvid", assembly.ManifestModule.ModuleVersionId.ToString(),
                         "sha256", BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant()));
             }
             return Host.Obj("pid", System.Diagnostics.Process.GetCurrentProcess().Id,
-                "assemblies", assemblies);
+                "assemblies", assemblies, "unresolved_loaded_assemblies", unresolved);
         }
 
         static Camera s_mainCamera;

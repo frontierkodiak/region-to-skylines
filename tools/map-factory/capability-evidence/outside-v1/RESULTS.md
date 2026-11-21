@@ -47,3 +47,4 @@ Ship witnesses are sampled native paths, not terminal service, continuous cleara
 ## Retained attempt errors
 
 - asheville attempt-1: game did not reach the main menu within 600 s
+- rio native-v2-1: loaded assembly missing or differs from build: Cs1Harness.dll

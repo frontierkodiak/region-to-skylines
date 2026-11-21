@@ -142748,6 +142748,299 @@
         "south",
         "north"
       ]
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": true,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "road",
+      "oracle_type": "native_new_game_panel",
+      "prediction_basis": "Authored package connection counts, not geographic feasibility.",
+      "counts": null,
+      "expected_counts": [
+        10,
+        10
+      ],
+      "counts_match": null,
+      "raw_evidence": null,
+      "limitations": [
+        "Panel availability/count readback only; does not establish native lane path or service."
+      ],
+      "attempt_id": "native-v2-1"
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": null,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "road",
+      "oracle_type": "native_path",
+      "request": null,
+      "path_result": null,
+      "error": "loaded assembly missing or differs from build: Cs1Harness.dll",
+      "raw_evidence": {
+        "path": "raw/rio/native-v2-1/observation.json.gz",
+        "sha256": "38783dd0703c93be420f9d7a88f440058d8aa5de11089f443e6521ff43d1dfaa",
+        "encoding": "gzip",
+        "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/observation.json"
+      },
+      "limitations": [
+        "Only the named native lane endpoints/direction; no network repair. No request is unknown, not a failed path.",
+        "Path success does not establish ship water clearance, port/airport operation, passenger/cargo demand, or economic service."
+      ],
+      "attempt_id": "native-v2-1",
+      "capability_observed": null,
+      "capability_reason": "probe_limited",
+      "runtime_bound": false,
+      "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+      "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
+      "endpoint_roles": null,
+      "endpoint_edges": null,
+      "probe_kind": "not_requested",
+      "reason": "not_run"
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": true,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "rail",
+      "oracle_type": "native_new_game_panel",
+      "prediction_basis": "Authored package connection counts, not geographic feasibility.",
+      "counts": null,
+      "expected_counts": [
+        3,
+        3
+      ],
+      "counts_match": null,
+      "raw_evidence": null,
+      "limitations": [
+        "Panel availability/count readback only; does not establish native lane path or service."
+      ],
+      "attempt_id": "native-v2-1",
+      "counts_limitation": "Authored train_tracks is not independent directional panel counts."
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": null,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "rail",
+      "oracle_type": "native_path",
+      "request": null,
+      "path_result": null,
+      "error": "loaded assembly missing or differs from build: Cs1Harness.dll",
+      "raw_evidence": {
+        "path": "raw/rio/native-v2-1/observation.json.gz",
+        "sha256": "38783dd0703c93be420f9d7a88f440058d8aa5de11089f443e6521ff43d1dfaa",
+        "encoding": "gzip",
+        "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/observation.json"
+      },
+      "limitations": [
+        "Only the named native lane endpoints/direction; no network repair. No request is unknown, not a failed path.",
+        "Path success does not establish ship water clearance, port/airport operation, passenger/cargo demand, or economic service."
+      ],
+      "attempt_id": "native-v2-1",
+      "capability_observed": null,
+      "capability_reason": "probe_limited",
+      "runtime_bound": false,
+      "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+      "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
+      "endpoint_roles": null,
+      "endpoint_edges": null,
+      "probe_kind": "not_requested",
+      "reason": "not_run"
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": true,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "ship",
+      "oracle_type": "native_new_game_panel",
+      "prediction_basis": "Authored package connection counts, not geographic feasibility.",
+      "counts": null,
+      "expected_counts": [
+        2,
+        2
+      ],
+      "counts_match": null,
+      "raw_evidence": null,
+      "limitations": [
+        "Panel availability/count readback only; does not establish native lane path or service."
+      ],
+      "attempt_id": "native-v2-1"
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": null,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "ship",
+      "oracle_type": "native_path",
+      "request": null,
+      "path_result": null,
+      "error": "loaded assembly missing or differs from build: Cs1Harness.dll",
+      "raw_evidence": {
+        "path": "raw/rio/native-v2-1/observation.json.gz",
+        "sha256": "38783dd0703c93be420f9d7a88f440058d8aa5de11089f443e6521ff43d1dfaa",
+        "encoding": "gzip",
+        "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/observation.json"
+      },
+      "limitations": [
+        "Only the named native lane endpoints/direction; no network repair. No request is unknown, not a failed path.",
+        "Path success does not establish ship water clearance, port/airport operation, passenger/cargo demand, or economic service."
+      ],
+      "attempt_id": "native-v2-1",
+      "capability_observed": null,
+      "capability_reason": "probe_limited",
+      "runtime_bound": false,
+      "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+      "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
+      "endpoint_roles": null,
+      "endpoint_edges": null,
+      "probe_kind": "not_requested",
+      "reason": "not_run"
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": true,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "air",
+      "oracle_type": "native_new_game_panel",
+      "prediction_basis": "Authored package connection counts, not geographic feasibility.",
+      "counts": null,
+      "expected_counts": [
+        2,
+        2
+      ],
+      "counts_match": null,
+      "raw_evidence": null,
+      "limitations": [
+        "Panel availability/count readback only; does not establish native lane path or service."
+      ],
+      "attempt_id": "native-v2-1"
+    },
+    {
+      "square": {
+        "name": "Rio de Janeiro",
+        "slug": "rio",
+        "lon": -43.205,
+        "lat": -22.94,
+        "rotation": 0,
+        "scale": 1
+      },
+      "slug": "rio",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "exporter": "real_roads.generate",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "prediction": null,
+      "observed": null,
+      "observed_at": "2026-11-21T01:12:43.416647+00:00",
+      "capability_id": "air",
+      "oracle_type": "native_path",
+      "request": null,
+      "path_result": null,
+      "error": "loaded assembly missing or differs from build: Cs1Harness.dll",
+      "raw_evidence": {
+        "path": "raw/rio/native-v2-1/observation.json.gz",
+        "sha256": "38783dd0703c93be420f9d7a88f440058d8aa5de11089f443e6521ff43d1dfaa",
+        "encoding": "gzip",
+        "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/observation.json"
+      },
+      "limitations": [
+        "Only the named native lane endpoints/direction; no network repair. No request is unknown, not a failed path.",
+        "Path success does not establish ship water clearance, port/airport operation, passenger/cargo demand, or economic service."
+      ],
+      "attempt_id": "native-v2-1",
+      "capability_observed": null,
+      "capability_reason": "probe_limited",
+      "runtime_bound": false,
+      "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+      "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
+      "endpoint_roles": null,
+      "endpoint_edges": null,
+      "probe_kind": "not_requested",
+      "reason": "not_run"
     }
   ],
   "artifacts": [
@@ -143867,6 +144160,34 @@
           },
           "completed": true,
           "error": null
+        },
+        {
+          "attempt_id": "native-v2-1",
+          "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+          "observation_evidence": {
+            "path": "raw/rio/native-v2-1/observation.json.gz",
+            "sha256": "38783dd0703c93be420f9d7a88f440058d8aa5de11089f443e6521ff43d1dfaa",
+            "encoding": "gzip",
+            "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/observation.json"
+          },
+          "native_evidence": {
+            "gpu.csv": {
+              "path": "raw/rio/native-v2-1/gpu.csv.gz",
+              "sha256": "6379ae9f3b06521d667a7dafa9abfdbafbcf881aa7f344868211f0810879f9f6",
+              "encoding": "gzip",
+              "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/gpu.csv"
+            },
+            "game.log": {
+              "path": "raw/rio/native-v2-1/game.log.gz",
+              "sha256": "3f1f2e846c442ed7c3d0c6337d7075d419e58e6ca5bcbc8c61c66e8b0f8d705a",
+              "encoding": "gzip",
+              "original_path": "/home/caleb/experiments/PL-1142-native-v2/native/rio/game.log",
+              "original_sha256": "5ba2acfd09ed19cb7dbf39ba42efddd3b33367b3ab84db37e5fd4467428175eb",
+              "extraction": "Unchanged engine renderer, harness and exception-header lines only. Full game log stays in the run holding; account and DLC lines are not redistributed."
+            }
+          },
+          "completed": false,
+          "error": "loaded assembly missing or differs from build: Cs1Harness.dll"
         }
       ]
     },
@@ -146248,6 +146569,40 @@
         "path": "raw/source/collector-d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358.py.gz",
         "sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
         "encoding": "gzip"
+      }
+    },
+    {
+      "git_sha": "cd4b8734ab6cc7f536e3404fc0d48ddbf9999fe3",
+      "collector_sha256": "def2949aae40a790170635d8c81208990c2da9ad183dc112caec8b394dc1999c",
+      "protocol": "Focused v2: unchanged packages, NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs, all connected-component lane-pair candidates; fixed 256-request/mode round-robin budget; matched boundary/midpoint, both directions. Omitted candidates remain unknown.",
+      "raw_source": {
+        "path": "raw/source/connections.py-def2949aae40a790170635d8c81208990c2da9ad183dc112caec8b394dc1999c.gz",
+        "sha256": "def2949aae40a790170635d8c81208990c2da9ad183dc112caec8b394dc1999c",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd.gz",
+          "sha256": "a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd",
+          "encoding": "gzip"
+        }
+      }
+    },
+    {
+      "git_sha": "7c4fc196b3398c705fbd5e0023a7c09c3dbef3e9",
+      "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+      "protocol": "Focused v2: unchanged packages; NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs; connected-component candidate lanes; distinct-edge pairs first; fixed 256-request/mode round-robin budget; matched boundary/midpoint and both directions. Same-edge paths and omitted candidates cannot qualify as distinct-edge witnesses.",
+      "raw_source": {
+        "path": "raw/source/connections.py-818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1.gz",
+        "sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd.gz",
+          "sha256": "a87bc8acdc824ab51e344665c8ee4155badedb034a3e2c16af256706a8fde0dd",
+          "encoding": "gzip"
+        }
       }
     }
   ],

@@ -2978,3 +2978,19 @@ sweep retains those requests, but prioritizes distinct-edge pairs. Derived rows
 record edge sides from native outside-node coordinates. Same-edge positives stay
 separate from distinct-edge witnesses, so a local boundary return path cannot
 silently qualify as a cross-map witness.
+
+### 2026-11-20 — PL-1142, blade — first native v2 attempt
+
+The GPU doctor passed on the RTX 2080 Ti at 05:00.0. Rio's first v2 launch
+reached the main menu, then the identity gate rejected a missing loaded
+Cs1Harness.dll. The installed mod hash equals the build hash, but that alone
+is not runtime binding. No map or native path was observed. Teardown reports
+no game, Steam instance or active unit left. The failed raw attempt is retained.
+
+Mono can load a plugin from bytes without an Assembly.Location. I added a
+resolution path through the game's native PluginInfo.GetAssemblies ownership,
+requiring the installed file's module MVID to match the actual loaded module
+before hashing it. Missing/ambiguous ownership or a mismatched MVID still fails.
+Partial runtime identity is retained before validation, so a future rejection
+does not discard the diagnostic hashes. This fix is compiled and CPU-tested;
+it still needs a new native run. It does not attest in-memory code pages.
