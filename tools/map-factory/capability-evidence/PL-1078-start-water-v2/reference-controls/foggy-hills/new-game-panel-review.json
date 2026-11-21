@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "83fc3e26b3d618f97173af89f4b8b0e4f1429bfb8ac82b3b868f06fc24750eb4",
+  "observed": {
+    "map_name": "Foggy Hills",
+    "author": "",
+    "buildableArea": 74,
+    "base_theme": "European",
+    "selected_map_visible": true,
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true
+  },
+  "notes": "Winding river and wooded hilly terrain visible; all four outside-connection icons enabled. Duplicate title visible, but the controller bound the exact installed stock bytes. Actual resource bars match the captured settled targets. This panel alone is not a service verdict."
+}

@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "b866ef4b586f1dfc98316105f29df0ca43e48c932b184e0b2a39b18a35720000",
+  "observed": {
+    "map_name": "hong-kong northeast holdout - Ready to Play",
+    "author": "",
+    "buildableArea": 48,
+    "base_theme": "Tropical",
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  },
+  "notes": "Hilly coastal river/road preview; road, rail and ship icons enabled, air crossed out. Settled resource bars visually match captured targets."
+}

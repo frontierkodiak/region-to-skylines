@@ -5,6 +5,12 @@ import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
 import { validNativeContext, validNativeIdentityRef } from "./capability-model.js";
 
+import { WATER_STUDY, validateWaterStudy, waterStudyPage } from "./water-calibration.mjs";
+
+import { START_WATER_STUDY, validateStartWaterStudy, startWaterPage } from "./start-water-study.mjs";
+
+export const START_WATER_PROJECTION_SHA = "8117761d8c0fd3299f04405c25252812bb1238fa8848dc13a4b2f26fd762b076";
+export const WATER_PROJECTION_SHA = "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf";
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];
 const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -46,19 +52,28 @@ export function validateLedger(ledger) {
         throw new Error(`Missing check symbol ${ref}`);
     }
     for (const id of cap.metric_ids) if (!ledger.stock_reference.metrics[id]) throw new Error(`Missing stock metric ${id}`);
+    if (cap.evidence_metrics != null) {
+      if (typeof cap.evidence_metrics !== "object" || !Object.keys(cap.evidence_metrics).length) throw new Error(`Empty evidence metrics for ${cap.id}`);
+      for (const [id, measure] of Object.entries(cap.evidence_metrics))
+        if (!measure?.name || !measure?.definition || !measure?.unit) throw new Error(`Incomplete evidence metric ${cap.id}:${id}`);
+    }
+    if (cap.status === "place_evidence_candidate" && (!cap.source_coverage || !cap.fidelity)) throw new Error(`Missing place evidence provenance for ${cap.id}`);
     for (const row of cap.game_agreement) {
       if (!row.square || !row.observed_at || !row.oracle || !/^[a-f0-9]{64}$/.test(row.artifact_sha256 ?? "") || !/^[a-f0-9]{40}$/.test(row.source_sha ?? "") || !Array.isArray(row.evidence) || !row.evidence.length || ![true, false, null].includes(row.observed) || ![true, false, null].includes(row.predicted)) throw new Error(`Unbound game evidence for ${cap.id}`);
     }
   }
-  for (const study of Object.values(ledger.evidence_studies ?? {})) {
-    if (!/^[a-f0-9]{40}$/.test(study.source_commit) || sha(readFileSync(ROOT + study.predictions_file)) !== study.predictions_sha256 ||
-      sha(readFileSync(ROOT + "tools/map-factory/integrate_outside_evidence.py")) !== study.projection_tool_sha256)
+  for (const [id, study] of Object.entries(ledger.evidence_studies ?? {})) {
+    const tool = study.projection_tool_file ?? "tools/map-factory/integrate_outside_evidence.py";
+    const allowed = id === "outside-targeted-v2" ? "tools/map-factory/integrate_outside_v2.py" : "tools/map-factory/integrate_outside_evidence.py";
+    if (tool !== allowed || !/^[a-f0-9]{40}$/.test(study.source_commit) || sha(readFileSync(ROOT + study.predictions_file)) !== study.predictions_sha256 ||
+      sha(readFileSync(ROOT + tool)) !== study.projection_tool_sha256)
       throw new Error("Stale native evidence projection binding");
   }
-  for (const certificate of ledger.native_path_certificates ?? []) {
+  const staged = ledger.evidence_studies?.["outside-targeted-v2"]?.qualification_candidates ?? [];
+  for (const [certificate, candidate] of [...(ledger.native_path_certificates ?? []).map((c) => [c, false]), ...staged.map((c) => [c, true])]) {
     if (!["ship", "air"].includes(certificate.capability) || certificate.scope !== "sampled_native_lane_paths_at_opening" ||
       !ledger.evidence_studies?.[certificate.study] || !validNativeContext(certificate.native_context) ||
-      certificate.blocked_by?.length || !validNativeIdentityRef(certificate.runtime_identity_evidence) ||
+      (candidate ? !isDeepStrictEqual(certificate.blocked_by, ["independent_review_pending"]) : certificate.blocked_by?.length) || !validNativeIdentityRef(certificate.runtime_identity_evidence) ||
       !/^[a-f0-9]{64}$/.test(certificate.observation_sha256 ?? "") ||
       !certificate.evidence?.some((e) => e.sha256 === certificate.observation_sha256) ||
       JSON.stringify(Object.keys(certificate.controls ?? {}).sort()) !== JSON.stringify(["boundary_0", "boundary_1", "midpoint_0", "midpoint_1"]) ||
@@ -76,6 +91,8 @@ export function validateLedger(ledger) {
       !isDeepStrictEqual(receipt.inputs_sha256, certificate.inputs_sha256) ||
       !isDeepStrictEqual(receipt.native_context, certificate.native_context)) throw new Error("Runtime identity receipt binding changed");
   }
+  validateWaterStudy(ledger.capabilities.find((c) => c.id === "water_risk"), undefined, WATER_PROJECTION_SHA);
+  validateStartWaterStudy(ledger, undefined, START_WATER_PROJECTION_SHA);
   const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
   const recorded = ledger.capabilities.find((c) => c.id === "water_risk").calibration;
   if (recorded.squares !== source.squares || recorded.scored_complete_runs !== source.complete_60_runs ||
@@ -96,18 +113,29 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
     : a.scored === 0 ? `${a.unscored} diagnostic or unknown cells; not scored as the same capability predicate.`
     : `${a.agree}/${a.scored} agree; ${a.unscored} unscored; ${a.false_positive} false positives, ${a.false_negative} false negatives.`;
   const caps = ledger.capabilities.map((c) => {
-    const agreement = agreementByOracle(c.game_agreement);
+    const agreement = [...new Set(c.game_agreement.map((r) => r.study ?? "other"))].flatMap((study) =>
+      agreementByOracle(c.game_agreement.filter((r) => (r.study ?? "other") === study)).map((a) => ({ ...a, study })));
     return `<article id="${escape(c.id)}"><div class="ledger-title"><h2>${escape(c.name)}</h2><span>${escape(label(c.status))}</span></div><p>${escape(c.definition)}</p>
       <details><summary>Checks and promise levels</summary><dl>${Object.entries(c.promise_levels).map(([k, v]) => `<dt>${escape(label(k))}</dt><dd>${escape(v)}</dd>`).join("")}</dl>
       <p>Exporter: ${c.exporter_check ? sourceLink(c.exporter_check) : "Not implemented"}<br>Browser: ${c.browser_check ? sourceLink(c.browser_check) : "Not implemented"}</p><p>Existing work: ${c.existing_checks.map(sourceLink).join(", ")}</p></details>
-      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : "<p class=note>No scored observations for this model yet.</p>"}
-      ${c.calibration ? `<details><summary>Existing water-screen calibration</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}
+      ${c.evidence_metrics ? `<h3>Place evidence measures</h3><dl>${Object.entries(c.evidence_metrics).map(([id, m]) => `<dt>${escape(m.name)} (${escape(m.unit)})</dt><dd>${escape(m.definition)}</dd>`).join("")}</dl>` : ""}
+      ${c.source_coverage ? `<details><summary>Sources, coverage and fidelity</summary><dl>${Object.entries(c.source_coverage).map(([key, value]) => `<dt>${escape(label(key))}</dt><dd>${escape(value)}</dd>`).join("")}</dl><p>${escape(c.fidelity)}</p></details>` : ""}
+      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies || c.witness_study ? "" : "<p class=note>No scored observations for this model yet.</p>"}
+      ${c.runtime_model ? `<details><summary>Current Start model · unscored</summary><pre>${escape(JSON.stringify(c.runtime_model, null, 2))}</pre></details>` : ""}
+      ${c.witness_study ? startWaterPage(ledger.witness_studies[START_WATER_STUDY], c.id, escape) : ""}
+      ${c.calibration_studies ? waterStudyPage(c.calibration_studies[WATER_STUDY], escape) : ""}
+      ${c.calibration ? `<details><summary>Historical seed · 5 squares / 50 runs</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}
       <p class=note>${escape(c.limits)}</p></article>`;
   }).join("");
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Map capabilities · Region to Skylines</title><link rel="stylesheet" href="style.css"></head>
     <body class="ledger-page"><header><h1>Map capabilities</h1><a href="./">Choose a square</a><a href="capabilities.json">JSON ledger</a></header><main><section>
     <p>${escape(ledger.game)} · updated ${escape(ledger.updated_at)}</p><p>${escape(ledger.scope)}</p>
-    ${Object.values(ledger.evidence_studies ?? {}).map((s) => `<aside class=note><h2>Native study: what was scored</h2><p>Frozen predictor: ${escape(s.prediction_model)} at ${escape(s.prediction_source_sha)}. Current runtime adds exact-context qualification; it is not a new native boundary fit.</p><p>${escape(s.method)}</p><p>${escape(s.limits)}</p><a href="${escape(s.source_url)}">Immutable study, raw receipts and failures</a></aside>`).join("")}
+    ${Object.entries(ledger.evidence_studies ?? {}).map(([id, s]) => {
+      const active = (ledger.native_path_certificates ?? []).filter((c) => c.study === id);
+      const pending = (s.qualification_candidates ?? []).filter(({ blocked_by, ...candidate }) =>
+        blocked_by?.includes("independent_review_pending") && !active.some((certificate) => isDeepStrictEqual(certificate, candidate))).length;
+      return `<aside class=note data-study="${escape(id)}"><h2>Native study: what was scored · ${escape(id)}</h2><p>Frozen predictor: ${escape(s.prediction_model)} at ${escape(s.prediction_source_sha)}. Current runtime adds exact-context qualification; it is not a new native boundary fit.</p><p>${escape(s.method)}</p><p>${escape(s.limits)}</p><p>${s.qualification_candidates?.length ?? 0} retained control sets; ${pending} awaiting independent review. Active certificates: ${active.length}. Studies are not pooled as independent votes.</p><a href="${escape(s.source_url)}">Immutable study, raw receipts and failures</a></aside>`;
+    }).join("")}
     <nav aria-label="Capabilities">${ledger.capabilities.map((c) => `<a href="#${escape(c.id)}">${escape(c.name)}</a>`).join(" ")}</nav>${caps}
     <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div><details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>
     <article id="launch"><h2>Proposed launch bar</h2><ul>${ledger.launch_bar_proposal.required.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><h3>Describe, without gating</h3><ul>${ledger.launch_bar_proposal.descriptive_not_gates.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><p class=note>${escape(ledger.launch_bar_proposal.limits)}</p></article></section></main></body></html>`;

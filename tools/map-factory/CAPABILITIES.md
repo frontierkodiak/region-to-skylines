@@ -56,6 +56,131 @@ never rule out synthetic routes. Version 4 can emit `promised` only for the narr
 scope `sampled_native_lane_paths_at_opening`, through the exact-context path
 below. Geometry and retrospective agreement never promote a promise themselves.
 
+## Against the stock maps, live
+
+The preview adds an **Against stock maps** readout under the icon row. It reads the
+one `capabilities.json` `stock_reference` (104 shipped maps, p25 / median / p75)
+and the same metric definitions as `survey/measure_maps.py` and the prepared
+report, so a square is never scored inside a second catalog:
+
+| Measure | Definition |
+|---|---|
+| Terrain relief | highest minus lowest terrain over all 1081 x 1081 nodes, in metres |
+| Central land slope | median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent |
+| Central wet share | share of the central 25 tiles whose water depth is above 0.5 m |
+
+`measureStockMetrics` (JavaScript) and `stock_metrics` (Python) are mirrored
+cores; the Python parity test compares their definitions, values and bands on the
+five committed prepared fixtures and on a dyadic rounding tie. Bands are strictly
+below p25, inclusive typical, strictly above p75: they describe abundance and
+interest, not a launch bar.
+
+Pan-time input is the same capture the icon row already fetches, before the
+writer's preparation. On the five committed fixtures it reproduces whole-map
+relief within 1.1 m and the same band every time. It does **not** reproduce the
+other two: Asheville's central land slope reads 11.7% (typical) where the prepared
+export is 12.1% (above p75), and Pittsburgh's central wet share reads 0.090 (typical)
+where the prepared export is 0.047 (below p25). The capture has carved-bed depth,
+not the prepared water level, and it has not had the preparation's terrain edits.
+
+So the live readout compares relief only and leaves central land slope and central
+wet share **Not comparable**, naming the gap in each row's detail. Their
+comparison is the prepared report's. The policy is `CAPTURE_STOCK` in
+`capability-inputs.js`; the fidelity test fails if the measured evidence stops
+supporting it. The readout clears on pan, a superseded or failed capture leaves no
+band, and its rows take the same hover, keyboard focus and tap as the icons.
+
+## Vegetation and resources, live
+
+The Trees and Resources icons are a place-evidence candidate model, not the
+export plan. Both cores read one normalized `place` block on the same 271-node
+(64 m) lattice as the depth grid: `terrain_m`, `landcover.values`, and
+`deposits.records`. `capability-model.js:placeCapabilities` and
+`capabilities.py:place_capabilities` are mirrored; the Python parity test
+compares them byte for byte on constructed evidence and both parsers on a real
+MRDS response.
+
+| Evidence | Read at pan time | Read at export |
+|---|---|---|
+| Land cover | ESA WorldCover 2021 v200, the overview nearest the 64 m lattice, bounded to 262144 pixels per tile, sampled at the lattice nodes | the writer's own 1728-square 10 m `landcover.u8.gz`, sampled at the same nodes |
+| Deposits | USGS MRDS for the square's bounding box (the same browser reader the download path uses) | MRDS, MSHA Mines and NETL WELLS through `evidence.py` |
+| Terrain | the capture heightmap, for the tree-brush slope screen | the prepared terrain |
+
+Definitions and thresholds live in `capabilities.json:model_rules.place`; the
+tree and fertile weights are asserted equal to `resources.TREE_WEIGHT` and
+`FERTILE_WEIGHT`, and the slope cuts to `resources.py`'s own taper, so the live
+model cannot drift from the writer silently.
+
+- **Trees** weighs WorldCover classes by the writer's own tree weights and
+  multiplies by the game tree-brush taper (full below 40 percent slope, zero at
+  50 and above). It reports tree-cover share, vegetated share and a weighted
+  suitability over the central 25 tiles' dry land. It does **not** report the
+  exporter's planted tree count: 180,000 is a budget, not natural abundance.
+- **Trees never assert a No from place evidence.** The 0.05 suitability level
+  is a candidate threshold, not an impossibility boundary: a 90 percent covered
+  window is not complete coverage, and a 74 m overview can miss thin patches.
+  At or above it the icon is Maybe; below it, or with no tree-supporting cover
+  in the sample, it stays Unknown with the measured scope named. Only the
+  export plan's own empty tree list is a No, and that observation stays
+  separate (`final_plan_empty`).
+- **Resources** reports recorded deposits and fertile cover separately. A
+  deposit record in the central tiles, or fertile land at or above the candidate
+  threshold, makes a Maybe. The detail reports cropland share on its own, apart
+  from the weighted crop, grass, wetland and shrub suitability, so grassland
+  never reads as "crop cover". Below-threshold fertile support is Unknown, not
+  absent. Balanced ore/oil top-ups fill each export to stock shares after this
+  evidence is gathered; they are not evidence and never count here.
+- **Never a No for resources.** MRDS has worldwide legacy records with a U.S.
+  focus, uneven completeness and potentially outdated operating information
+  ([USGS catalog](https://data.usgs.gov/datacatalog/data/USGS%3A5d712a5ae4b0c4f70cfd4e54)).
+  The exporter's other sources are not queried live. A missing record is not
+  absence. The live check returns `unknown` where it cannot tell, and the reason
+  says what was sampled. The inherited `evidence.py` U.S.-only docstring is not
+  a coverage guarantee; its MRDS query has no U.S. gate. Physical writer bytes
+  and their historical contracts are unchanged by this metadata correction.
+- **No stock comparison.** The 104-map catalog measures the game's planted
+  forest bytes and budgeted tree counts. WorldCover tree cover is not either
+  quantity, so no bridge is claimed and no stock band is attached. The ledger
+  records this as the reason rather than showing a made-up band.
+
+### What the pan-time read costs
+
+Measured once per square on the five committed squares from carbon: three or
+four HTTP range requests, 197 kB to 459 kB, 0.30 s to 0.95 s for land cover, and
+one MRDS request at 0.19 s to 0.37 s. The chosen overview was 73.7 m per pixel at
+four squares and 36.9 m at Rio. The read is bounded, cancellable, and runs in
+`capability-evidence-worker.js`, which the view terminates on pan.
+
+`captureEstimate` gives those optional reads a 15 s wall-clock budget. Every
+parallel read gets its handler before the terrain capture is awaited, the
+budget aborts the evidence controller (which terminates the worker and the
+request), and the terrain-backed icons and stock rows still render with
+unavailable evidence. A caller abort rejects once, with no unhandled evidence
+rejection and no process or worker left behind.
+
+### What it is worth
+
+The 271-node lattice reproduces the central window's 10 m WorldCover shares
+within 0.0022 absolute on all five committed squares for tree cover, crop cover
+and vegetated share, while reading 2.4 percent of the cells. The overview read
+used at pan time stayed within 0.036 of that 10 m tree-cover share, 0.003 on crop
+and 0.011 on vegetated share, and found no no-data cells. The lattice check runs
+in `test_capabilities.py`; the overview comparison needs the network and is
+recorded in `CAPABILITIES.md` and the run receipt, not as a test.
+
+Neither number makes this a plan or a native check. Patch coherence, the tree
+budget, balanced top-ups, reserve size and gameplay remain outside it.
+
+### Evidence input binding
+
+`assess_prepared` reports `evidence_inputs`, one entry per place-evidence file
+the report consumed: `landcover` (`landcover.u8.gz`) and `deposits`
+(`evidence.json`), each with `status` `present` or `missing` and its SHA-256 when
+present. They are kept out of `inputs_sha256`, whose three physical inputs are
+what a native path certificate binds. Changing only land cover or only deposits
+therefore moves its own binding and can move the Trees or Resources level,
+without appearing to change the terrain, water or hydrology.
+
 ## Exact-export native qualification
 
 `check` / `checkCapabilities` accept an optional `export_identity` containing the
@@ -92,6 +217,17 @@ This verifies the recorded sampled lane paths **at opening**, not continuous
 ship clearance, sustained water, terminal service, landing or takeoff. No road
 or rail certificate is issued from the present selected-pair study. Actual
 water/start/hookup/intake qualification remains with its owning study.
+
+The preview row clears the previous square at pan start, aborts superseded
+requests and rejects late responses. A failed capture leaves Unknown, not stale
+green icons. Hover, keyboard focus and tap expose the reason. Its water estimate
+uses the input capture's explicit ocean geometry and bank-minus-bed excavation;
+it is not the Python preparation's final water or a flow simulation.
+
+`test/capability-browser.mjs` runs on blade in the matching official Playwright
+container. Synthetic state/abort/error/layout checks are labelled separately
+from real Boston capture and pan checks. Both Chromium and WebKit are required;
+the script closes its browsers and local server in `finally`.
 
 ## Score the game, without conflating oracles
 
@@ -169,3 +305,34 @@ physical writers, package goldens and native receipts remain byte-for-byte
 unchanged. After an intentional UI/check change, run
 `refresh_capability_ui.py`; it refuses to manufacture or replace a historical
 source snapshot. This is source evolution, not new native qualification.
+
+## Frozen independent water study (PL-1072)
+
+`water_risk.calibration_studies.pl1072-independent-geography` projects the
+original saved score, freeze, model, pre-score receipt, audit and disposition
+from publication `cd1aa8317205053895517bc2ac141a9f0240ee36`. The 5-square,
+50-run calibration remains a separate historical seed. The new study has 30
+purposive squares, 28 complete observations and two unknown capture failures.
+
+`node water-calibration.mjs` imports these immutable bytes, never runs the
+archived scorer or native-outcome code, and changes only the final water
+capability. Exact original files and historical source tools are served under
+`capability-evidence/pl1072-water/`. Constants pin their original hashes;
+`capability-ledger.mjs` independently pins the projection tool, and build
+validation compares the complete projection rather than an assembler boolean.
+Intentional importer changes require updating `WATER_PROJECTION_SHA`, importing,
+and refreshing the UI adoption pins. Neither capability core changes.
+
+This is a failed qualification, not current-product calibration. Flood misses
+five of six positives; drying equals always-warn and uses the original broad
+optional-initialized-water label. Combined candidate and the frozen study’s
+1.5 m deployed-screen comparator clear no squares: risk and reductions remain
+null, displayed as NOT ESTIMABLE. The post-score sea-neighbour contract layer
+is not imported. Observation dates absent from the score stay unknown; audit
+and pre-score times are not native dates. Fresh-water intake, start policy,
+human acceptance and playability are not qualified by this study.
+
+`npm test` covers original byte mutations, coherent projection tampering,
+counts/groups, null denominators and no live promotion. Static page/mobile and
+HTTP evidence checks run via `test/water-calibration-browser.mjs` on blade in
+the official Playwright 1.65 image, never carbon. No native run is implied.

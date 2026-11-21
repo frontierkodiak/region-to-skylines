@@ -1,0 +1,14 @@
+{
+  "verified_utc": "2026-11-21T07:16:48.873367+00:00",
+  "score_sha256": "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b",
+  "pre_score_receipt_sha256": "4ad563b6cb57cd6c4ce649c491d9610561046e70bc7b5183f2756772fe3dfecf",
+  "audit_source_sha256": "c6afe1498467802c2bded882202d8efc53e7a3eb34c8e0ad259f6f688a36cf80",
+  "native_hash_bindings_checked": 28,
+  "exact_rate_records_checked": 148,
+  "capture_failures_retained_unknown": [
+    "lake-shore-south-america",
+    "low-coast-africa"
+  ],
+  "native_failures_retained_unknown": [],
+  "scope": "Existing result arithmetic and provenance only; no prediction, native-outcome function, refit or scorer invocation."
+}

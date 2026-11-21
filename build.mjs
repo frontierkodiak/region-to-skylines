@@ -7,7 +7,7 @@ import { FACTORY_FILES } from "./mapgen.js";
 import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js"];
+const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes
@@ -25,6 +25,24 @@ for (const f of PAGE) {
 }
 const ledger = JSON.parse(readFileSync("capabilities.json", "utf8"));
 validateLedger(ledger);
+// Serve the exact staged/active receipt bytes alongside the single ledger.
+for (const certificate of [...(ledger.native_path_certificates ?? []), ...(ledger.evidence_studies?.["outside-targeted-v2"]?.qualification_candidates ?? [])]) {
+  const file = certificate.runtime_identity_evidence.file;
+  mkdirSync(dirname(`dist/${file}`), { recursive: true });
+  copyFileSync(file, `dist/${file}`);
+}
+for (const study of Object.values(ledger.witness_studies ?? {})) {
+  for (const {file} of [...study.provenance.files, study.provenance.manifest]) {
+    mkdirSync(dirname(`dist/${file}`), {recursive: true});
+    copyFileSync(file, `dist/${file}`);
+  }
+}
+for (const study of Object.values(ledger.capabilities.find((c) => c.id === "water_risk").calibration_studies)) {
+  for (const { file } of study.provenance.files) {
+    mkdirSync(dirname(`dist/${file}`), { recursive: true });
+    copyFileSync(file, `dist/${file}`);
+  }
+}
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
 // the map writer the worker runs (tools/map-factory), byte for byte
 for (const f of FACTORY_FILES) {

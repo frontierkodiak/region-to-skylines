@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty city with Hello guide overlay. Opening shows grassy land between ramp approaches; Areas view outlines the start tile among river crossings. Existing dark bridge gaps remain visible. Captured before the water fixture, not proof of measured service or full-map visual acceptance.",
+  "opening": {
+    "sha256": "3d0b3d4fbae15da33bad4d36e61c4dac84655bc1f1e3284f06d2e90ca064d955",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "57b2ddd89d43061ea286aa426dd4894310b95f6562a0e0bad7f9cdfd4167ea4b",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

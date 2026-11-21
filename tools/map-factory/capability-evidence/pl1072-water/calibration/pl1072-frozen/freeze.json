@@ -1,0 +1,135 @@
+{
+  "schema": 1,
+  "old_corpus_sha256": "a8231e35feb7d5fb2444667e7f16019876dabda6603864af1359e23254ce3c62",
+  "panel_sha256": "37d88f277973a709a61b496925bb911255bbeb201e863f61629377ca172c014e",
+  "model_sha256": "233534080d1f063fd96d5ca62167c3e3e2292503961184ed70f63a348a89e23d",
+  "selection": "36 fixed flood cutoff pairs; highest equal-landscape specificity with macro recall >=90%; ties by recall, distance from deployed values, then smaller cutoffs. Complete old runs only.",
+  "drying": "No old negative examples. Retain the corrected drying rule as an unvalidated comparator; no specificity fit is possible. Drop/rework after the one-shot holdout if it cannot beat always-warn.",
+  "old_training": {
+    "flood": {
+      "tp": 13,
+      "fp": 18,
+      "tn": 19,
+      "fn": 0,
+      "precision": 0.41935483870967744,
+      "recall": 1.0,
+      "specificity": 0.5135135135135135,
+      "positive_runs": 13,
+      "negative_runs": 37
+    },
+    "drying": {
+      "tp": 50,
+      "fp": 0,
+      "tn": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "specificity": null,
+      "positive_runs": 50,
+      "negative_runs": 0
+    }
+  },
+  "old_leave_one_landscape_out": [
+    {
+      "held_old_landscape": "Asheville",
+      "rules": {
+        "low_coastal_freeboard_m": 3,
+        "emitter_exposure_km2": 0.01,
+        "bank_limited_fraction": 0.1,
+        "input_output_ratio": 2.0
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 10,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "specificity": 1.0,
+        "positive_runs": 0,
+        "negative_runs": 10
+      }
+    },
+    {
+      "held_old_landscape": "Charleston",
+      "rules": {
+        "low_coastal_freeboard_m": 3,
+        "emitter_exposure_km2": 0.01,
+        "bank_limited_fraction": 0.1,
+        "input_output_ratio": 2.0
+      },
+      "metrics": {
+        "tp": 2,
+        "fp": 7,
+        "tn": 0,
+        "fn": 0,
+        "precision": 0.2222222222222222,
+        "recall": 1.0,
+        "specificity": 0.0,
+        "positive_runs": 2,
+        "negative_runs": 7
+      }
+    },
+    {
+      "held_old_landscape": "Innsbruck",
+      "rules": {
+        "low_coastal_freeboard_m": 3,
+        "emitter_exposure_km2": 0.01,
+        "bank_limited_fraction": 0.1,
+        "input_output_ratio": 2.0
+      },
+      "metrics": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 9,
+        "fn": 0,
+        "precision": null,
+        "recall": null,
+        "specificity": 1.0,
+        "positive_runs": 0,
+        "negative_runs": 9
+      }
+    },
+    {
+      "held_old_landscape": "Pittsburgh",
+      "rules": {
+        "low_coastal_freeboard_m": 3,
+        "emitter_exposure_km2": 0.01,
+        "bank_limited_fraction": 0.1,
+        "input_output_ratio": 2.0
+      },
+      "metrics": {
+        "tp": 1,
+        "fp": 9,
+        "tn": 0,
+        "fn": 0,
+        "precision": 0.1,
+        "recall": 1.0,
+        "specificity": 0.0,
+        "positive_runs": 1,
+        "negative_runs": 9
+      }
+    },
+    {
+      "held_old_landscape": "Rio de Janeiro",
+      "rules": {
+        "low_coastal_freeboard_m": 1.5,
+        "emitter_exposure_km2": 0.01,
+        "bank_limited_fraction": 0.1,
+        "input_output_ratio": 2.0
+      },
+      "metrics": {
+        "tp": 9,
+        "fp": 2,
+        "tn": 0,
+        "fn": 1,
+        "precision": 0.8181818181818182,
+        "recall": 0.9,
+        "specificity": 0.0,
+        "positive_runs": 10,
+        "negative_runs": 2
+      }
+    }
+  ],
+  "limits": "Five old landscapes only. Neither training nor these folds is the new geographic test. No new outcomes may change this model or panel."
+}

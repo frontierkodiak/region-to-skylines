@@ -1,0 +1,747 @@
+{
+  "verified_utc": "2026-11-21T07:15:24.737904+00:00",
+  "study_head": "cc9d541604ef05ddf49d08f73d7819f5cf931075",
+  "staging_sha256": "5b8da959bf43d46ab08edddf9b866011f72ab2dfaf88f48cda9609ed8e9d723c",
+  "panel_sha256": "37d88f277973a709a61b496925bb911255bbeb201e863f61629377ca172c014e",
+  "model_sha256": "233534080d1f063fd96d5ca62167c3e3e2292503961184ed70f63a348a89e23d",
+  "harness_source": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+  "writer_files_verified": 21,
+  "staged_files_verified": 280,
+  "collected_total": 28,
+  "remaining_exportable": 0,
+  "missing_or_quarantined": [
+    "lake-shore-south-america",
+    "low-coast-africa"
+  ],
+  "next_prepared": [],
+  "owned_pids_checked": 1260,
+  "owned_pids_still_present": [],
+  "explicit_waiter_pids_checked": [
+    510117,
+    599557,
+    677647,
+    868981,
+    1092294,
+    1225745,
+    1450166,
+    1537787,
+    1573908,
+    1701857,
+    1701888,
+    1701952,
+    1701955,
+    1856960,
+    1863870,
+    1863873,
+    1927695,
+    2225416,
+    2555132,
+    2590713,
+    2708052,
+    3173749,
+    3211763,
+    3211767,
+    3214842,
+    3287275,
+    3715708,
+    3842462
+  ],
+  "recorded_pid_numbers_present": [],
+  "positively_identified_pid_reuse": [],
+  "recorded_pid_numbers_absent_count": 1260,
+  "verifier_sha256": "96d6ff6a92fc04dbcfe6ae5a20ff3c798c275f0fd528c8d0a1bed0795ca520b1",
+  "holdout_score_exists": false,
+  "native_bindings": [
+    {
+      "slug": "dry-upland-north-america",
+      "game_minutes": 60.06278091029574,
+      "report_sha256": "729ae23d326413e8c7888136ff7bed63d8451c6ad5ed15d9f6a3e609e2f935e4",
+      "verdict_sha256": "c84eed70a94e4ab3d8023f9bbf3a3af62ff9db0f8d4a02e6a5e405fc203f7381",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T13:55:03Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "game_minutes": 60.03555868665377,
+      "report_sha256": "5fbed0f924111fb04cc69f30d4537a8e880a156616ab749e7d22ad988f296179",
+      "verdict_sha256": "6491eab4d3cba5abc565686b163f0afa1042b2c0c76febfac5f55053205f1220",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T14:38:11Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "dry-upland-europe",
+      "game_minutes": 60.05222535418967,
+      "report_sha256": "0c34388818ba5304d7757f734cbcb2f0415bd3162d8e1e29bea76b4672c6a92a",
+      "verdict_sha256": "0dd6eebda2f139bce049d16fa1f4b2ac2b852a4c61ad9b06ee6b947894202861",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T15:15:37Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "dry-upland-africa",
+      "game_minutes": 60.06166979912668,
+      "report_sha256": "91128276fdb1ecced7abf85e6534f86089ba50eb76bd52f4438591f3e52e87c9",
+      "verdict_sha256": "139edd2cba2b78f2c37f0143f50a82227760bfd019841e2e3aca7c1bd08eb011",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T15:34:31Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "dry-upland-asia",
+      "game_minutes": 60.03750313119963,
+      "report_sha256": "d1df338d7054784c186f361c6fee00b1196936fe607281b2f3e6248f7d612d3c",
+      "verdict_sha256": "deb0335cdbfd3a9e41cedcf901461866ceaec463bcd255515eff47208973a587",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T16:12:50Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "dry-upland-oceania",
+      "game_minutes": 60.014447574441625,
+      "report_sha256": "9e0b0beaa81698889bfc1982650579e5d482df93609376b9c342486ea65dac09",
+      "verdict_sha256": "55fc46230c4776be8af58858baa9ed4944d3d8d36405c1fdde312366cba948aa",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T16:52:56Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "mountain-river-north-america",
+      "game_minutes": 60.14166980329901,
+      "report_sha256": "629b92cc2379d36c480ee11ef9474fa934ddd8f905f997ff3ab30745adb251e4",
+      "verdict_sha256": "7e9d43e3d7608aaa96c7c461b3cd93b445462b357c9d228518c99bfc786b1acc",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T17:31:15Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "mountain-river-south-america",
+      "game_minutes": 60.146669803559774,
+      "report_sha256": "314758f3afc4153eeb3c132bc7871ae09a96ec988853ee5e4254a503beb091b9",
+      "verdict_sha256": "b170242591a385dda676bb4061339763f2b5c61a47e01f24636867604e88eb74",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T18:11:13Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "mountain-river-europe",
+      "game_minutes": 60.06000313237309,
+      "report_sha256": "9f0806d0f4efff66ee755979170fe043200b084992ac683375f283c7e4873536",
+      "verdict_sha256": "7108d66ca24bb38f05360fa2b5b160191b28b7745df823bdefa93a3ea32dc8b9",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T18:34:58Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "mountain-river-africa",
+      "game_minutes": 60.149169803690164,
+      "report_sha256": "d3f9d515e4d334b46a5d170380f28128d6aad4d21848712f5c43176ceb20f371",
+      "verdict_sha256": "a772d1bcf780142e8cbfe84579f2c86de236a54d7b4353373f3c3dfd56a3e1e5",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T19:13:25Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "mountain-river-asia",
+      "game_minutes": 60.10166980121284,
+      "report_sha256": "05e03c88264fb9b263ef1b7caa60df4294d15e5f34da4d2fdf7e506c8ffa881a",
+      "verdict_sha256": "22f8b6584dc9e0cffa2ece7b25524634df8f60015d2e8f1c96cd96f120ab68f6",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T19:51:56Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "mountain-river-oceania",
+      "game_minutes": 60.09333646744489,
+      "report_sha256": "e26c392568ae6dd137e72e55ef61df6b8318542030044d650253388407cfa642",
+      "verdict_sha256": "4f4902370eeb9169d659c8bc477d55d42c75bd810ff40c7575e98a7ee3eb4646",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T20:31:20Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lowland-river-north-america",
+      "game_minutes": 60.03778090899189,
+      "report_sha256": "620f7c0f9c0900618636172c25825711eca5dadef0ccd79812c9c4ad44f3bd9a",
+      "verdict_sha256": "542cdf7de85ffd677e464b1f72553484d0030b56d95a2841996bb72f431e31b6",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T21:08:55Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "game_minutes": 60.13666980303824,
+      "report_sha256": "0a0c155f33f0851fd3c6c5bcb1480759843c613732a221b9fef82c8b3a385c49",
+      "verdict_sha256": "e3b438b05eb10b90c1393d567f2452207a6d111d2e75d11125abf2f8470b4c9d",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T21:52:15Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lowland-river-europe",
+      "game_minutes": 60.068892021725574,
+      "report_sha256": "4255a02481cc404781c9761969b61349ac0d41a1e60ddf04f413291dbdf89931",
+      "verdict_sha256": "bdd9a746e9f6d982a5f79417544493736e546df4a51af18f8bb69b46e15857cf",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T22:25:07Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lowland-river-africa",
+      "game_minutes": 60.01528090781842,
+      "report_sha256": "7d932ee84f23e3b215a91ff85ca778ac6e5229c4c8e8f59e16562186aa7e6c87",
+      "verdict_sha256": "d50e357424ab8cd478a30f2c7bc9178a51e10df3f12c1453b3254a4f8671789e",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T22:50:20Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lowland-river-asia",
+      "game_minutes": 60.14083646992221,
+      "report_sha256": "2040420d823f670284568ac0ff46cf980bec4fd825e7e39d7829969e98131495",
+      "verdict_sha256": "01c07b69153021d2daf8e127f614b37c6055354aa8d95fedaedf75e1826e8c12",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T23:16:03Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lowland-river-oceania",
+      "game_minutes": 60.02889201963941,
+      "report_sha256": "88cb36abb6c3b34c5908f5eb6f3b0f951e2c8f0e8ebb7b10baa05ceae95496c4",
+      "verdict_sha256": "80f5b221dd73fcb9ab39b8d799b942e9d92655772d7afefe137d2ff5d36a5cab",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-20T23:58:48Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lake-shore-north-america",
+      "game_minutes": 60.09222535627583,
+      "report_sha256": "60f6b2a65a8a9c121ace33bf99b1a51fd49ad028f50b9b5fc5fbc70b1c299a12",
+      "verdict_sha256": "408a03a5347c376da96a3a58a79ffae8b78ae8d59fb71f7122e46d0ddfe3c1a8",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T00:20:24Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lake-shore-europe",
+      "game_minutes": 60.085558689261475,
+      "report_sha256": "7b252060d822e934f2b75078fd8dde9b29a9cea62444aa76dc6ac43a4e035158",
+      "verdict_sha256": "9711bd5d6807e7932c756a4a6e030bdc8fe5ebfdfab5a9a6c06b4af4c7bbf71c",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T00:42:13Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lake-shore-africa",
+      "game_minutes": 60.13444758070012,
+      "report_sha256": "d51ad84daf3338137cf07a9352947d014fb2daa19875aebab065e9f1d7f45e4d",
+      "verdict_sha256": "97b6a5abc6e9ec202fcc0fdb6856cc05db0da0bc196350c17d6ec917d81169ba",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T01:12:44Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lake-shore-asia",
+      "game_minutes": 60.05083646522834,
+      "report_sha256": "743f783fa0817655838801e06c6520db1afd627e53fe65b0034396689306cb0f",
+      "verdict_sha256": "33abf7d1dfae01e959a6bd26d770126c820363dfae0b45021aec3abe194b1421",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T02:00:09Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "lake-shore-oceania",
+      "game_minutes": 60.01889201911787,
+      "report_sha256": "e3409cdc14a6e51d425b1e844a219e8b1de674891e73c0deae6ad1a6b1dbd9b5",
+      "verdict_sha256": "81f95974d79d737d44ea76c59e75953f8f9f1d304a843a79b3547242bb4778f0",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T02:57:34Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "low-coast-north-america",
+      "game_minutes": 60.09778091212113,
+      "report_sha256": "e59e05f8a46e8f6bbf12f22db0846f2cc14917b8a43c1b4db4bd1b66b2c8dab0",
+      "verdict_sha256": "f0c14f97c20f1e9572cd9e298a039ce3c33b5d39426862b35a8ec2f91c800638",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T03:20:07Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "low-coast-south-america",
+      "game_minutes": 60.12250313563272,
+      "report_sha256": "e859e4ae3fde027ccbe853b8bed8c8748a70d30e9f03a0357d72831990a3906a",
+      "verdict_sha256": "8fcbeb361e0930fe3db40cc79042cf22c2e62155c19567445845b64a827b58a5",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T03:42:53Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "low-coast-europe",
+      "game_minutes": 60.03444757548471,
+      "report_sha256": "b6db6cc194b2d98ba7dfb3799e3b16cae41af7228d225d66a91c20e70cce6a58",
+      "verdict_sha256": "6fe74af3541c83ae592b832b38c3f10d86d7058ceca2142c00028cd3ee92e0f7",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T04:46:02Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "low-coast-asia",
+      "game_minutes": 60.067780910556515,
+      "report_sha256": "afbe306c4e63f7f25172547c41e78d88b960a1a60f457ca6fc90a53b22417f4c",
+      "verdict_sha256": "267b995ee4111ef26f537164095fb31614a6985909015233e32605081932a660",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T05:47:20Z"
+      },
+      "offline_error": null
+    },
+    {
+      "slug": "low-coast-oceania",
+      "game_minutes": 60.10805869043494,
+      "report_sha256": "9c1302204da0de88711ea610c1052e7fb6b9c7b482e88a6f9025b8c096e560eb",
+      "verdict_sha256": "db603c1700a107f043b202a67a0376df1a9836b4856dd651312c559554dc29f0",
+      "native_bindings": "pass",
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "harness": {
+        "commit": "6949182ccf3f8bf066fd24372e1bcfc31c8512f1",
+        "dirty": false
+      },
+      "carbon_preflight": {
+        "idle": true,
+        "checked_utc": "2026-11-21T06:54:12Z"
+      },
+      "offline_error": null
+    }
+  ],
+  "collector_exec_session": 14803,
+  "collector_exit_code": 0,
+  "collector_result_collected": true,
+  "collector_closed": true,
+  "all_mod_sha256": {
+    "dry-upland-north-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "dry-upland-south-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "dry-upland-europe": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "dry-upland-africa": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "dry-upland-asia": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "dry-upland-oceania": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "mountain-river-north-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "mountain-river-south-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "mountain-river-europe": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "mountain-river-africa": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "mountain-river-asia": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "mountain-river-oceania": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lowland-river-north-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lowland-river-south-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lowland-river-europe": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lowland-river-africa": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lowland-river-asia": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lowland-river-oceania": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lake-shore-north-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lake-shore-europe": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lake-shore-africa": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lake-shore-asia": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "lake-shore-oceania": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "low-coast-north-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "low-coast-south-america": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "low-coast-europe": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "low-coast-asia": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd",
+    "low-coast-oceania": "6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd"
+  },
+  "producer_startup_sidecars": {
+    "dry-upland-north-america": "pass",
+    "dry-upland-south-america": "pass",
+    "dry-upland-europe": "pass",
+    "dry-upland-africa": "pass",
+    "dry-upland-asia": "pass",
+    "dry-upland-oceania": "pass",
+    "mountain-river-north-america": "pass",
+    "mountain-river-south-america": "pass",
+    "mountain-river-europe": "pass",
+    "mountain-river-africa": "pass",
+    "mountain-river-asia": "pass",
+    "mountain-river-oceania": "pass",
+    "lowland-river-north-america": "pass",
+    "lowland-river-south-america": "pass",
+    "lowland-river-europe": "pass",
+    "lowland-river-africa": "pass",
+    "lowland-river-asia": "pass",
+    "lowland-river-oceania": "pass",
+    "lake-shore-north-america": "pass",
+    "lake-shore-europe": "pass",
+    "lake-shore-africa": "pass",
+    "lake-shore-asia": "pass",
+    "lake-shore-oceania": "pass",
+    "low-coast-north-america": "pass",
+    "low-coast-south-america": "pass",
+    "low-coast-europe": "pass",
+    "low-coast-asia": "pass",
+    "low-coast-oceania": "pass"
+  },
+  "original_overall_verdicts": {
+    "dry-upland-north-america": "fail",
+    "dry-upland-south-america": "fail",
+    "dry-upland-europe": "fail",
+    "dry-upland-africa": "fail",
+    "dry-upland-asia": "fail",
+    "dry-upland-oceania": "fail",
+    "mountain-river-north-america": "fail",
+    "mountain-river-south-america": "fail",
+    "mountain-river-europe": "fail",
+    "mountain-river-africa": "fail",
+    "mountain-river-asia": "fail",
+    "mountain-river-oceania": "fail",
+    "lowland-river-north-america": "fail",
+    "lowland-river-south-america": "fail",
+    "lowland-river-europe": "fail",
+    "lowland-river-africa": "fail",
+    "lowland-river-asia": "fail",
+    "lowland-river-oceania": "fail",
+    "lake-shore-north-america": "fail",
+    "lake-shore-europe": "fail",
+    "lake-shore-africa": "fail",
+    "lake-shore-asia": "fail",
+    "lake-shore-oceania": "fail",
+    "low-coast-north-america": "fail",
+    "low-coast-south-america": "fail",
+    "low-coast-europe": "fail",
+    "low-coast-asia": "fail",
+    "low-coast-oceania": "fail"
+  },
+  "collector_bytes_identical_to": "982fe3c3703e43c35135de773249e7f8a13290cf",
+  "native_outcome_module_bytes_identical_to": "4a4ec214d6e7bf5e0e1ad78dfb316a5a6546174e",
+  "scoring_source_files_sha256": {
+    "tools/map-factory/score_water_panel.py": "0344c9a6df8a1d793928dd80f35be46c14f7efda9e33f0459994d2b75fa1791e",
+    "tools/map-factory/water_risk_corpus.py": "5a892c19c5beb52fb5d3663730750526c72944c6bdb090fbc5e42a2d103f1a90",
+    "tools/map-factory/water_risk.py": "5108488a96cfc03330c940c66969ff4c708ba7465b5fe1abf89b56ab4773375b",
+    "tools/map-factory/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7"
+  },
+  "tranche_8_evidence_zip_sha256": "32b263b78da4fe77e24c24e95fa4651d436d7e2e7ee1385e21ea8c4a043880e1"
+}

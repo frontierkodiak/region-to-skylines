@@ -1,0 +1,121 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-21T02:57:40.362061+00:00",
+  "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "reference_model_sha256": "fd0622319c43bf0d4b0449b15da5f7e46ba84b3bea5a00305919e898f0c2068c",
+  "both_stock_quantity_supported": true,
+  "rows": [
+    {
+      "slug": "cliffside-bay",
+      "predicted": null,
+      "model_agreement_scored": false,
+      "quantity_supported": true,
+      "complete_fixture": true,
+      "all_scored_deliveries_clean": false,
+      "observed_surface_service": false,
+      "observed_at": "2026-11-21T01:58:45.337718+00:00",
+      "cycles": 843,
+      "horizon_game_minutes": 60.01028090755765,
+      "requested_native_units": 843000,
+      "fetched_native_units": 843000,
+      "sewage_accepted_native_units": 843000,
+      "short_water_cycles": 0,
+      "short_sewage_cycles": 0,
+      "polluted_delivery_cycles": 733,
+      "evidence": [
+        {
+          "path": "cliffside-bay/observation.json",
+          "sha256": "0eed1d5369919e76b42beeb4b86689bc6717dbb6a4d53ee845fb9a11c08757cf"
+        },
+        {
+          "path": "cliffside-bay/prediction.json",
+          "sha256": "1dd23ff2fed4c613b08b9fb3928a4a4f9e1e442dc6d829c8a1310d47215391c3"
+        },
+        {
+          "path": "cliffside-bay/witness-job.json.gz",
+          "sha256": "6c0e12145b9cd88d1b3acec22e202dcc669bfc4d4e5592298288fc0b927c5726",
+          "decompressed_sha256": "52f6334013c83e8bb643476419b8208ae4080b2572e550834839b75bb3ac8c30",
+          "encoding": "gzip"
+        },
+        {
+          "path": "cliffside-bay/gpu.csv",
+          "sha256": "c936a60a830a993daa88812c7667434bb2180ad262ed5aeabc0b2da4d3b59f04"
+        },
+        {
+          "path": "cliffside-bay/new-game-panel.png",
+          "sha256": "6f3884d6a65aeab4ab342feec8fbf2a6d1f770ff90a6fef557c7322baf9785a9"
+        },
+        {
+          "path": "cliffside-bay/receipt-bindings.json",
+          "sha256": "79038ce96bf8e00106cea2a5fa1e4e14ae65f36080489caebe54cc135e4ae0cf"
+        },
+        {
+          "path": "cliffside-bay/new-game-panel-review.json",
+          "sha256": "0ae2d90693bec4821302229c008a6317f8a1900f02f49b06d81569f193c359d3"
+        }
+      ]
+    },
+    {
+      "slug": "foggy-hills",
+      "predicted": null,
+      "model_agreement_scored": false,
+      "quantity_supported": true,
+      "complete_fixture": true,
+      "all_scored_deliveries_clean": true,
+      "observed_surface_service": true,
+      "observed_at": "2026-11-21T02:56:10.953285+00:00",
+      "cycles": 843,
+      "horizon_game_minutes": 60.01194757431124,
+      "requested_native_units": 843000,
+      "fetched_native_units": 843000,
+      "sewage_accepted_native_units": 843000,
+      "short_water_cycles": 0,
+      "short_sewage_cycles": 0,
+      "polluted_delivery_cycles": 0,
+      "evidence": [
+        {
+          "path": "foggy-hills/observation.json",
+          "sha256": "525b8f13b5626016775abaa34e6d6ae634f73722362eaadaa24b970e7765cfc1"
+        },
+        {
+          "path": "foggy-hills/prediction.json",
+          "sha256": "cdcdb6d6b0e5471e37bc1abc0717b6753ef06a86e6f3532dcdf764273f9546d8"
+        },
+        {
+          "path": "foggy-hills/native-water-points.json",
+          "sha256": "1c7c2e0bb3312b832cf490f1032246dc526017c9bd911d9042e32dfb12ddd878"
+        },
+        {
+          "path": "foggy-hills/gpu.csv",
+          "sha256": "7eb20b97893d20409984d6b5112ac2224c67d60acae403aad10bc9814e0d8266"
+        },
+        {
+          "path": "foggy-hills/new-game-panel.png",
+          "sha256": "83fc3e26b3d618f97173af89f4b8b0e4f1429bfb8ac82b3b868f06fc24750eb4"
+        },
+        {
+          "path": "foggy-hills/new-game-panel-review.json",
+          "sha256": "e711732f545c20e13d5e861ff0657cf773c62014b2a8b920c47182a299182b80"
+        },
+        {
+          "path": "foggy-hills/witness-job.json.gz",
+          "sha256": "5e325d2f2c40329cdcf573fee41e429b42499fd76870ec600cfed380437a3645",
+          "encoding": "gzip",
+          "decompressed_sha256": "dbf28e5468ecc31100a213a1fd5ee62aa256d9a799a65cbc3aa8c551063d0b47"
+        },
+        {
+          "path": "foggy-hills/receipt-bindings.json",
+          "sha256": "9ede63f319175c64fb0d0f83eb17dfc0573a406b7a545a378f6dce970210dc9d"
+        }
+      ]
+    }
+  ],
+  "scope": "The fixed spatial demand/plumbing/power fixture only; not stock cleanliness or capability-model accuracy",
+  "limits": [
+    "Reference shore anchors were selected geometrically; cleanliness/downstream relationship was unpredicted",
+    "Each reference retains its observed pollution and full-service result, including failure",
+    "Conditional auxiliary power and native API units; no population or SI-rate equivalence",
+    "Finite sixty-minute cyclic experiment, not a continuous or indefinite-flow guarantee"
+  ],
+  "raw_qualification_sha256": "b9e5dbcd9cf45be01a1a8261252762e7218bab6760f8210e967ad66f78d05d5f"
+}

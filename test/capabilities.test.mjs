@@ -1,8 +1,12 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { checkCapabilities, networkAccess, shipCorridor, stockBand } from "../capability-model.js";
+import { checkCapabilities, measureStockMetrics, networkAccess, shipCorridor, stockBand, stockComparison, STOCK_MEASURES } from "../capability-model.js";
 import { validateLedger, ledgerPage, stockReference, agreementByOracle } from "../capability-ledger.mjs";
+import { captureEstimate, estimateInputs } from "../capability-inputs.js";
+import { latticeLonLat, parseMrdsXml, PLACE_GRID, requestDeposits, requestLandcover } from "../capability-evidence.js";
+import { placeDetail } from "../capability-ui.js";
+import { squareToLonLat } from "../terrain.js";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const ledger = JSON.parse(readFileSync(new URL("../capabilities.json", import.meta.url)));
@@ -135,6 +139,42 @@ test("agreement separates oracle types and excludes missing labels", () => {
   assert.equal(stockBand(null, m), "not_comparable");
 });
 
+test("stock measures follow the prepared definitions, mask and wet threshold", () => {
+  const n = 1081, ground = new Float64Array(n ** 2), depth = new Float64Array(n ** 2);
+  // 1 m per 16 m row is exactly 6.25% slope; Python's round() takes the tie to 6.2.
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) ground[r * n + c] = r;
+  assert.deepEqual(measureStockMetrics(ground, depth), { terrain_relief_m: 1080, wet_central_fraction: 0, median_land_slope_percent: 6.2 });
+  ground.fill(100);
+  depth.fill(0.5); // the threshold is strictly above 0.5 m, as in terrain_fields()
+  assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 0);
+  depth.fill(0.6);
+  assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 1);
+  depth.fill(0);
+  for (let i = 0; i < n * n; i += 1) if (i % n < 100) depth[i] = 1; // water outside the central 25 tiles
+  assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 0);
+  assert.throws(() => measureStockMetrics(new Float64Array(4), depth), /1081-square/);
+});
+
+test("stock comparison withholds only the measures capture fidelity cannot support", () => {
+  const reference = ledger.stock_reference;
+  const values = { terrain_relief_m: 300, median_land_slope_percent: 9, wet_central_fraction: 0.2 };
+  const withheld = { median_land_slope_percent: { comparable: false }, wet_central_fraction: { comparable: false } };
+  const result = stockComparison(values, reference, withheld);
+  assert.equal(result.terrain_relief_m.value, 300);
+  assert.equal(result.terrain_relief_m.band, "below_p25");
+  assert.equal(result.terrain_relief_m.definition, STOCK_MEASURES.terrain_relief_m.definition);
+  assert.deepEqual([result.terrain_relief_m.p25, result.terrain_relief_m.median, result.terrain_relief_m.p75], [reference.metrics.terrain_relief_m.p25, reference.metrics.terrain_relief_m.median, reference.metrics.terrain_relief_m.p75]);
+  for (const id of ["median_land_slope_percent", "wet_central_fraction"]) {
+    assert.equal(result[id].comparable, false);
+    assert.equal(result[id].value, null, "a withheld measure carries no value to compare");
+    assert.equal(result[id].band, "not_comparable");
+    assert.ok(result[id].definition, "the definition still travels with the withheld measure");
+  }
+  assert.equal(result.median_land_slope_percent.label, "Central land slope");
+  const missing = stockComparison(null, reference);
+  for (const row of Object.values(missing)) { assert.equal(row.value, null); assert.equal(row.band, "not_comparable"); }
+});
+
 test("UI adoption cannot hide changed live checks or rewritten historical gates", async () => {
   const root = new URL("../", import.meta.url);
   const read = async (name) => readFileSync(new URL("tools/map-factory/" + name, root));
@@ -191,18 +231,234 @@ test("native verification needs exact package, inputs, explicit environment and 
 });
 
 test("native scoring retains failures and unknowns without substituting panels or player runs", () => {
-  const road = ledger.capabilities.find((c) => c.id === "road").game_agreement;
-  const ship = ledger.capabilities.find((c) => c.id === "ship").game_agreement;
+  const road = ledger.capabilities.find((c) => c.id === "road").game_agreement.filter((r) => r.study === "outside-v1");
+  const ship = ledger.capabilities.find((c) => c.id === "ship").game_agreement.filter((r) => r.study === "outside-v1");
   assert.ok(road.some((r) => r.oracle === "native_probe_boundary_selected_pair" && r.predicted === null && r.observed === false));
   assert.ok(road.some((r) => r.oracle === "native_attempt_error" && r.observed === null));
   assert.ok(road.filter((r) => ["native_panel", "native_path_archived_player", "native_path_fresh_named"].includes(r.oracle)).every((r) => r.predicted === null));
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === true).length, 4);
   assert.equal(ship.filter((r) => r.oracle === "native_two_edge_witness" && r.observed === null).length, 5);
-  assert.equal(ledger.native_path_certificates.length, 0, "runtime launch identity remains unbound");
-  const primary = ledger.capabilities.flatMap((c) => c.game_agreement.filter((r) => r.oracle === "native_two_edge_witness"));
+  assert.equal(ledger.native_path_certificates.filter((c) => c.study === "outside-v1").length, 0, "v1 stays unbound");
+  assert.equal(ledger.native_path_certificates.filter((c) => c.study === "outside-targeted-v2").length, 4);
+  const primary = ledger.capabilities.flatMap((c) => c.game_agreement.filter((r) => r.study === "outside-v1" && r.oracle === "native_two_edge_witness"));
   assert.equal(primary.filter((r) => r.observed === true).length, 11);
   assert.equal(primary.filter((r) => r.observed === null).length, 25);
   const stale = structuredClone(ledger);
   stale.evidence_studies["outside-v1"].predictions_sha256 = "0".repeat(64);
   assert.throws(() => validateLedger(stale), /Stale native evidence projection/);
+});
+
+test("place evidence separates land cover from the export's tree budget", () => {
+  const rules = ledger.model_rules.place;
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const landcover = { status: "available", source: "constructed", fidelity: "constructed", cell_m: 10, sample_m: 40, tiles: [], values: new Array(9).fill(10) };
+  const result = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover } }, ledger);
+  const trees = result.capabilities.trees;
+  assert.equal(trees.level, "likely");
+  assert.equal(trees.reason, "vegetation_suitability_candidate");
+  assert.equal(trees.evidence.balanced_top_up, "not_evidence");
+  assert.equal(trees.evidence.vegetation.tree_cover_share_of_central_land, 1);
+  assert.equal(trees.evidence.vegetation.tree_suitability, rules.tree_weight[10]);
+  assert.ok(!("trees_total" in trees), "the model must not invent the exporter's tree count");
+  // Without a slope grid the taper cannot hide the cover, and it says so.
+  assert.equal(trees.evidence.vegetation.slope_screened, false);
+  const terrain_m = Array.from({ length: 9 }, (_, i) => 100 + Math.floor(i / 3) * 4800);
+  const screened = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover, terrain_m } }, ledger).capabilities.trees;
+  assert.equal(screened.level, "unknown");
+  assert.equal(screened.reason, "no_tree_support_in_sampled_landcover");
+  assert.equal(screened.evidence.vegetation.slope_screened, true);
+});
+
+test("no place evidence is Unknown, never a No", () => {
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const bare = checkCapabilities({ schema: 1, mode: "estimate", grid }, ledger).capabilities;
+  assert.deepEqual([bare.resources.level, bare.resources.reason, bare.trees.level, bare.trees.reason], ["unknown", "not_evaluated", "unknown", "not_evaluated"]);
+  const unavailable = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { deposits: { status: "unavailable", records: [] } } }, ledger).capabilities;
+  assert.equal(unavailable.trees.reason, "no_landcover_evidence");
+  assert.equal(unavailable.resources.reason, "no_place_evidence");
+  assert.equal(unavailable.resources.level, "unknown");
+  // Built-up land with no deposit is still not a negative: a missing record is
+  // not geographic absence.
+  const built = { status: "available", source: "constructed", cell_m: 10, sample_m: 40, tiles: [], values: new Array(9).fill(50) };
+  const none = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: built, deposits: { status: "available", records: [] } } }, ledger).capabilities;
+  assert.equal(none.trees.level, "unknown");
+  assert.equal(none.trees.reason, "no_tree_support_in_sampled_landcover");
+  assert.equal(none.resources.level, "unknown");
+  assert.equal(none.resources.reason, "no_recorded_deposit_or_fertile_cover");
+  // A well record is not a deposit record.
+  const wells = checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: built, deposits: { status: "available", records: [{ kind: "well", x: 0, z: 0 }] } } }, ledger).capabilities.resources.evidence.deposits;
+  assert.deepEqual([wells.records, wells.wells], [0, 1]);
+});
+
+test("place evidence refuses mismatched arrays instead of guessing", () => {
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const short = { status: "available", values: [10, 10], source: "constructed" };
+  assert.throws(() => checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: short } }, ledger), /Land-cover evidence/);
+  assert.throws(() => checkCapabilities({ schema: 1, mode: "estimate", grid, place: { terrain_m: [1, 2] } }, ledger), /Terrain evidence/);
+  assert.throws(() => checkCapabilities({ schema: 1, mode: "estimate", place: { landcover: short } }, ledger), /needs a capability grid/);
+});
+
+test("deposits fail closed to unavailable, and an abort propagates", async () => {
+  const square = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1 };
+  const failed = await requestDeposits(square, { fetchImpl: async () => ({ ok: false, status: 500, text: async () => "" }) });
+  assert.deepEqual([failed.status, failed.records.length], ["unavailable", 0]);
+  const thrown = await requestDeposits(square, { fetchImpl: async () => { throw new Error("offline"); } });
+  assert.equal(thrown.status, "unavailable");
+  const controller = new AbortController();
+  controller.abort(new Error("panned"));
+  await assert.rejects(requestDeposits(square, { signal: controller.signal, fetchImpl: async () => { throw controller.signal.reason; } }), /panned/);
+});
+
+test("MRDS parsing keeps the writer's provenance rules", () => {
+  const square = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1 };
+  // The sample holds four records: an occurrence, a processing plant, a
+  // producer and a prospect outside the square. Only the producer counts.
+  const records = parseMrdsXml(readFileSync(new URL("./mrds-sample.xml", import.meta.url), "utf8"), square);
+  assert.deepEqual(records.map((r) => r.weight), [1], "occurrences, processing plants and out-of-square prospects are not deposits");
+  for (const record of records) assert.ok(Math.abs(record.x) <= 8640 && Math.abs(record.z) <= 8640);
+  assert.match(records[0].source, /^USGS MRDS \d+ .+ \(Producer, Surface\)$/);
+});
+
+test("the pan-time input samples the same lattice as the exporter", () => {
+  const capture = { game: new Float32Array(1081 * 1081), geometry: { roads: [], sq: {} } };
+  for (let i = 0; i < capture.game.length; i++) capture.game[i] = i % 977;
+  const depth = new Float64Array(1081 * 1081);
+  const input = estimateInputs(capture, depth);
+  assert.equal(input.grid.size, 271);
+  assert.equal(input.place.terrain_m.length, 271 * 271);
+  for (const [r, c] of [[0, 0], [1, 2], [270, 270]]) {
+    assert.equal(input.place.terrain_m[r * 271 + c], capture.game[(r * 4) * 1081 + c * 4]);
+  }
+  assert.equal(input.place.landcover.status, "unavailable");
+  assert.equal(input.place.deposits.status, "unavailable");
+});
+
+test("the ledger page carries the place measures, sources and fidelity", () => {
+  const page = ledgerPage(ledger, "test-source");
+  assert.match(page, /Place evidence measures/);
+  assert.match(page, /Tree suitability/);
+  assert.match(page, /Sources, coverage and fidelity/);
+  assert.match(page, /balanced ore\/oil top-up/i);
+  const incomplete = structuredClone(ledger);
+  delete incomplete.capabilities.find((c) => c.id === "trees").source_coverage;
+  assert.throws(() => validateLedger(incomplete), /place evidence provenance/);
+  const empty = structuredClone(ledger);
+  empty.capabilities.find((c) => c.id === "resources").evidence_metrics = {};
+  assert.throws(() => validateLedger(empty), /Empty evidence metrics/);
+});
+
+test("the worker lattice matches the page's square transform", () => {
+  // The worker cannot use the page's import map, so capability-evidence.js
+  // carries landcover.lonlat itself. This pins it to terrain.squareToLonLat.
+  const half = ((PLACE_GRID.size - 1) * PLACE_GRID.spacing_m) / 2;
+  for (const sq of [
+    { lon: -71.057, lat: 42.36, rotation: 0, scale: 1 },
+    { lon: 139.7, lat: 35.68, rotation: 33, scale: 1.5 },
+    { lon: -43.17, lat: -22.91, rotation: -90, scale: 0.5 },
+  ]) {
+    const { lon, lat } = latticeLonLat(sq);
+    for (const [r, c] of [[0, 0], [3, 7], [135, 135], [270, 270]]) {
+      const [expectedLon, expectedLat] = squareToLonLat(sq, (c * PLACE_GRID.spacing_m - half) * sq.scale, (half - r * PLACE_GRID.spacing_m) * sq.scale);
+      assert.ok(Math.abs(lon[r * PLACE_GRID.size + c] - expectedLon) < 1e-12, `lon ${r},${c}`);
+      assert.ok(Math.abs(lat[r * PLACE_GRID.size + c] - expectedLat) < 1e-12, `lat ${r},${c}`);
+    }
+  }
+});
+
+test("below-threshold or coarse tree evidence stays Unknown, never a No", () => {
+  const grid = { size: 3, spacing_m: 4800, depth_m: new Array(9).fill(0) };
+  const run = (values) => checkCapabilities({ schema: 1, mode: "estimate", grid, place: { landcover: { status: "available", source: "constructed", cell_m: 10, sample_m: 74, tiles: [], values } } }, ledger).capabilities.trees;
+  // Pure grass: 0.03 weighted suitability, no tree-cover class.
+  const grass = run(new Array(9).fill(30));
+  assert.deepEqual([grass.level, grass.reason], ["unknown", "tree_support_below_candidate_threshold"]);
+  // 4 percent forest in the central 9 nodes is 0.44 here; use the 0.03 case as
+  // the below-threshold proof and a mixed one for a positive, non-zero cover.
+  const sparse = run(new Array(9).fill(50).map((value, i) => i === 0 ? 10 : value));
+  assert.equal(sparse.level, "likely");
+  // Built-up only: zero tree support in this sample, still Unknown.
+  const built = run(new Array(9).fill(50));
+  assert.deepEqual([built.level, built.reason], ["unknown", "no_tree_support_in_sampled_landcover"]);
+  // Incomplete coverage is Unknown even when the sampled cover is zero.
+  const partial = run([50, 50, 50, 50, 0, 0, 0, 0, 0]);
+  assert.deepEqual([partial.level, partial.reason], ["unknown", "landcover_coverage_incomplete"]);
+  for (const result of [grass, built, partial]) assert.notEqual(result.level, "not_possible_here");
+});
+
+test("fertility copy separates crop share from weighted suitability", () => {
+  const evidence = (vegetation, fertility) => ({
+    landcover: { sample_m: 74, coverage_of_central_land: 1 },
+    vegetation: { tree_cover_share_of_central_land: 0, tree_suitability: 0.03, candidate_min: 0.05, ...vegetation },
+    fertility: { suitability: 0.7, crop_share_of_central_land: 0, candidate_min: 0.02, ...fertility },
+    deposits: { status: "available", records: [], ore: { central: 0 }, oil: { central: 0 } },
+  });
+  const grass = placeDetail({ reason: "fertile_land_suitability_candidate", evidence: evidence() });
+  assert.match(grass, /suitability 0\.7/);
+  assert.match(grass, /cropland 0%/);
+  assert.doesNotMatch(grass, /Crop and pasture cover on 0%/);
+  const lowCrop = placeDetail({ reason: "fertile_cover_below_candidate_threshold", evidence: evidence({}, { suitability: 0.01, crop_share_of_central_land: 0.003 }) });
+  assert.match(lowCrop, /below the 0\.02 candidate level/);
+  assert.doesNotMatch(lowCrop, /no crop or pasture cover/i);
+  const lowTrees = placeDetail({ reason: "tree_support_below_candidate_threshold", evidence: evidence({ tree_cover_share_of_central_land: 0.04, tree_suitability: 0.04 }) });
+  assert.match(lowTrees, /below the 0\.05 candidate level/);
+  assert.doesNotMatch(lowTrees, /supports no trees|no supporting cover/i);
+});
+
+function fakeCapture() {
+  return {
+    game: new Float32Array(1081 * 1081),
+    banks: new Float32Array(1081 * 1081),
+    seaLevel: null,
+    geometry: { sq: { lon: 0, lat: 0, rotation: 0, scale: 1 }, oceans: [], roads: [] },
+  };
+}
+
+test("captureEstimate settles optional evidence on abort, failure and timeout", async () => {
+  const square = { lon: 0, lat: 0, rotation: 0, scale: 1 };
+  const unhandled = [];
+  const onUnhandled = (error) => unhandled.push(error);
+  process.on("unhandledRejection", onUnhandled);
+  try {
+    // Already aborted: one rejection for the caller, nothing extra.
+    const aborted = new AbortController();
+    aborted.abort(new Error("constructed pan abort"));
+    await assert.rejects(captureEstimate(square, { signal: aborted.signal, budgetMs: 50, sources: {
+      capture: async () => { throw aborted.signal.reason; },
+      landcover: async () => { throw aborted.signal.reason; },
+      deposits: async () => { throw aborted.signal.reason; },
+    } }), /constructed pan abort/);
+    // Terrain failure with untouched pending evidence: no hang, no unhandled.
+    await assert.rejects(captureEstimate(square, { budgetMs: 50, sources: {
+      capture: async () => { throw new Error("terrain down"); },
+      landcover: () => new Promise(() => {}),
+      deposits: () => new Promise(() => {}),
+    } }), /terrain down/);
+    // Stalled optional sources: the budget resolves them as unavailable while
+    // the terrain-backed checks still render.
+    const started = Date.now();
+    const stalled = await captureEstimate(square, { budgetMs: 40, sources: {
+      capture: async () => fakeCapture(),
+      landcover: () => new Promise(() => {}),
+      deposits: () => new Promise(() => {}),
+    } });
+    assert.ok(Date.now() - started < 2000, "the evidence budget bounds the pan");
+    assert.equal(stalled.input.place.landcover.status, "unavailable");
+    assert.equal(stalled.input.place.deposits.status, "unavailable");
+    assert.equal(stalled.input.place.terrain_m.length, 271 * 271);
+    assert.ok(stalled.stock.measures.terrain_relief_m != null);
+    // In-flight pan abort: the capture rejects and evidence settles.
+    const controller = new AbortController();
+    const pending = captureEstimate(square, { signal: controller.signal, budgetMs: 5000, sources: {
+      capture: (sq, { signal }) => new Promise((_, reject) => signal.addEventListener("abort", () => reject(signal.reason), { once: true })),
+      landcover: () => new Promise(() => {}),
+      deposits: () => new Promise(() => {}),
+    } });
+    setTimeout(() => controller.abort(new Error("panned")), 10);
+    await assert.rejects(pending, /panned/);
+    // A worker request that is already aborted never starts one.
+    assert.equal(await requestLandcover(square, { signal: aborted.signal }), null);
+  } finally {
+    process.off("unhandledRejection", onUnhandled);
+  }
+  await new Promise((resolve) => setTimeout(resolve, 30));
+  assert.deepEqual(unhandled, []);
 });

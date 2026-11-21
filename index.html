@@ -33,6 +33,17 @@
     <aside id="panel">
       <div id="presets" role="group" aria-label="Presets"></div>
 
+      <section id="capabilities" aria-label="Square potential">
+        <div class="capability-heading"><strong>Square potential</strong><a href="capabilities.html">Capability ledger</a></div>
+        <div class="capability-row" role="group" aria-label="Map capabilities"></div>
+        <div class="stock-readout" aria-label="Against stock maps">
+          <div class="stock-heading"><strong>Against stock maps</strong><span class="stock-basis note">104 shipped maps</span></div>
+          <div class="stock-list" role="group" aria-label="Terrain and water compared with the stock maps"></div>
+        </div>
+        <p class="capability-status note" role="status" aria-live="polite">Checking this square…</p>
+        <p class="capability-detail note" hidden></p>
+      </section>
+
       <div class="controls">
         <label>Rotate <output id="rotOut">0°</output>
           <input id="rot" type="range" min="-180" max="180" step="1" value="0">

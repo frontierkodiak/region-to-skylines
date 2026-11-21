@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty wooded river valley with Hello guide panel. Opening shows forest and sandy river bank; Areas view outlines start tile beside a winding channel, with no road approaches visible. Captured before the water fixture; clean service does not establish outside-road access or whole-city playability.",
+  "opening": {
+    "sha256": "1ea05d38a0d88e4784b45e8839bda1edec9b963764d77b3d73655729e84b0422",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "b414ba81c59274649179742cb98291bcaa92cc9bd3f69bfbf4b108f9d5016720",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

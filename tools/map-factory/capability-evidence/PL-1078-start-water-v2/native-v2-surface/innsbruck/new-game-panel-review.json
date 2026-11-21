@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "5c0afbb0c27d0ab9285a3764b6762685aa282988810f8ac8bee1f989fda05e76",
+  "observed": {
+    "map_name": "Innsbruck - Ready to Play",
+    "author": "",
+    "buildableArea": 76,
+    "base_theme": "Boreal",
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  },
+  "notes": "Alpine valley river/road preview; road, rail and air enabled, ship crossed out. Settled resource bars visually match captured targets."
+}

@@ -1,0 +1,28 @@
+{
+  "raw_receipt_sha256": "73d5202c80c2df16d7bba5b3bab8aaac69efd33a436007b7ab3440b7912e2e87",
+  "scope": "Selected bindings; build-time hashes alone do not qualify running game identity",
+  "map_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+  "mod_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": "PL-1078 exact witness PL857-innsbruck",
+    "mem_used_before_mib": 8856,
+    "mem_total_mib": 11264
+  },
+  "game_gpu_at_menu": [
+    {
+      "bus": "05:00.0",
+      "pid": 1865533,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1574
+    }
+  ]
+}

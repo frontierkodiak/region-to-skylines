@@ -1,0 +1,377 @@
+{
+  "schema": 1,
+  "mode": "export",
+  "model": {
+    "id": "start-surface-v1",
+    "parameters": {
+      "footprint_half_m": 192,
+      "center_step_m": 64,
+      "max_depth_m": 0.1,
+      "max_slope": 0.15,
+      "max_relief_m": 8,
+      "min_segment_m": 40,
+      "max_hookup_m": 512,
+      "road_clearance_m": 24,
+      "intake_depth_m": 1,
+      "sewage_separation_m": 320
+    },
+    "source_sha256": {
+      "start_capabilities.py": "d36952754eba745a18caf0bb72c2b251b9f99c28e757ceb2cbe7c6fe9ce444f8",
+      "real_roads.py": "44d78f434beafb935aa30bc477c1d032a06c949cf118dfce1d726ba350bad30e"
+    },
+    "sha256": "1a937aa0babfc07ce23831a20878ed9dbcf36b25667dba844e88b06dcc8db8f5"
+  },
+  "inputs_sha256": {
+    "terrain.u16": "0b8f91e15ebbd6d16cfe077ff19da3e50f830f6142c15e3f7a1fcc78116ec3c6",
+    "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9",
+    "hydrology.json": "109ad2af6b8a2977354f2940d5752ddd0663c54003ceb3fcccc62d0dcbe5790e"
+  },
+  "capabilities": {
+    "start": {
+      "level": "likely",
+      "reason": "dry_footprint_and_directed_hookup_plan",
+      "predicted": true,
+      "scope": "Current authored directed graph and current start tile only; not all possible generators",
+      "witness": {
+        "schema": 1,
+        "start_tile": 10,
+        "center_xz": [
+          -3776.0,
+          320.0
+        ],
+        "footprint_half_m": 192,
+        "points": {
+          "g00": [
+            -3920.0,
+            93.046875,
+            176.0
+          ],
+          "g10": [
+            -3824.0,
+            91.0,
+            176.0
+          ],
+          "g20": [
+            -3728.0,
+            91.0,
+            176.0
+          ],
+          "g30": [
+            -3632.0,
+            91.0,
+            176.0
+          ],
+          "g01": [
+            -3920.0,
+            91.1875,
+            272.0
+          ],
+          "g11": [
+            -3824.0,
+            91.0,
+            272.0
+          ],
+          "g21": [
+            -3728.0,
+            91.0,
+            272.0
+          ],
+          "g31": [
+            -3632.0,
+            91.0,
+            272.0
+          ],
+          "g02": [
+            -3920.0,
+            91.0,
+            368.0
+          ],
+          "g12": [
+            -3824.0,
+            91.0,
+            368.0
+          ],
+          "g22": [
+            -3728.0,
+            91.0,
+            368.0
+          ],
+          "g32": [
+            -3632.0,
+            91.0,
+            368.0
+          ],
+          "g03": [
+            -3920.0,
+            91.0,
+            464.0
+          ],
+          "g13": [
+            -3824.0,
+            91.0,
+            464.0
+          ],
+          "g23": [
+            -3728.0,
+            91.0,
+            464.0
+          ],
+          "g33": [
+            -3632.0,
+            91.0,
+            464.0
+          ],
+          "join": [
+            -3527.0725097079453,
+            91.109375,
+            126.68007757005115
+          ],
+          "hook0": [
+            -3481.7821379383477,
+            91.10643014497889,
+            132.03865805309215
+          ],
+          "hook1": [
+            -3478.766762464,
+            91.07606885693085,
+            56.0120607552235
+          ]
+        },
+        "bindings": {
+          "hook0": {
+            "graph_node": 1218,
+            "position": [
+              -3481.7821379383477,
+              91.10643014497889,
+              132.03865805309215
+            ],
+            "segments": 1
+          },
+          "hook1": {
+            "graph_node": 1224,
+            "position": [
+              -3478.766762464,
+              91.07606885693085,
+              56.0120607552235
+            ],
+            "segments": 1
+          }
+        },
+        "steps": [
+          {
+            "from": "g00",
+            "to": "g10",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g10",
+            "to": "g20",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g20",
+            "to": "g30",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g01",
+            "to": "g11",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g11",
+            "to": "g21",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g21",
+            "to": "g31",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g02",
+            "to": "g12",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g12",
+            "to": "g22",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g22",
+            "to": "g32",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g03",
+            "to": "g13",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g13",
+            "to": "g23",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g23",
+            "to": "g33",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g00",
+            "to": "g01",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g01",
+            "to": "g02",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g02",
+            "to": "g03",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g10",
+            "to": "g11",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g11",
+            "to": "g12",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g12",
+            "to": "g13",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g20",
+            "to": "g21",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g21",
+            "to": "g22",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g22",
+            "to": "g23",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g30",
+            "to": "g31",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g31",
+            "to": "g32",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "g32",
+            "to": "g33",
+            "prefab": "Basic Road"
+          },
+          {
+            "from": "hook0",
+            "to": "join",
+            "prefab": "Basic Road",
+            "end_elevation": 0.0
+          },
+          {
+            "from": "hook1",
+            "to": "join",
+            "prefab": "Basic Road",
+            "end_elevation": 0
+          },
+          {
+            "from": "join",
+            "to": "g30",
+            "prefab": "Basic Road"
+          }
+        ],
+        "outside_graph_anchors": {
+          "incoming": [
+            38,
+            56,
+            58,
+            145,
+            222,
+            560,
+            859
+          ],
+          "outgoing": [
+            26,
+            57,
+            77,
+            156,
+            277,
+            572,
+            860
+          ]
+        },
+        "scope": "Fixed 4x4 road grid, then ordered two-stub shared junction; no grading or bridge fallback"
+      },
+      "witness_sha256": "4d3720d2b9ef0703f19bcf475da6bdab72896e61076adc6e8e237255a568c566",
+      "subchecks": {
+        "dry_footprint": true,
+        "directed_outside_graph": true,
+        "native_placement": null,
+        "native_outside_path": null
+      },
+      "limits": [
+        "16m footprint samples and 8m hookup water samples; between-sample terrain/collisions unresolved",
+        "Provisional length/slope/clearance limits, not recovered game constants"
+      ]
+    },
+    "water": {
+      "level": "unknown",
+      "reason": "surface_flow_quality_and_sewage_service_unverified",
+      "predicted": null,
+      "witness": null,
+      "witness_sha256": null,
+      "subchecks": {
+        "initial_wet_downstream_route": false,
+        "native_intake_placement": null,
+        "clean_intake": null,
+        "sustained_capacity": null,
+        "sewage_downstream_safe": null
+      },
+      "limits": [
+        "Initial wet channel/nominal source capacity is not sustained intake capacity",
+        "No salt/fresh or pollution inference from mapped water; no rate-unit conversion",
+        "Groundwater service is separate, never a positive surface-water label"
+      ]
+    }
+  },
+  "square": {
+    "slug": "charleston",
+    "lat": 32.78,
+    "lon": -79.93,
+    "package_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+    "input_files_sha256": {
+      "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+      "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+      "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+      "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+      "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+    }
+  },
+  "split": "fitting",
+  "source_sha": "cd7a5f128ea2ab1ce5da88a8117f05ad5924196f",
+  "assessment_source_sha": "7bad9711badd3a00c2e6713def2508de006cce05",
+  "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+  "raw_inputs_sha256": {
+    "geometry.json": "ab7a1de52ac6f772c9a5f50ea7d7ed03483e0f3769fcad0942a29f81767195f4",
+    "evidence.json": "f74b80bf552506e5316814b73db6f1cfdba5d289229952db5145d7e29d2abfaa",
+    "input.png": "31ad767804c06c9c91453c76a1715190166b211cd9485f70a5f210983b0cf3fe",
+    "banks.f32": "9783e5f35b3ccc5ef4b20ab85be59f3e917aa7454d27c4024954ee5daa0ecbed",
+    "landcover.u8.gz": "08ed7632df3944b4311cfe19d95adcccb6e5bb07eaaa34e6ecbb82d3bac95925"
+  }
+}
