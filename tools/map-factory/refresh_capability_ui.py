@@ -9,6 +9,24 @@ FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
+    "water-calibration.mjs",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/HOLDOUT_REPORT.md",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/final-pre-score-verification.json",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/freeze.json",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/holdout-disposition.json",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/holdout-score-audit.json",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/holdout-score.json",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/model.json",
+    "tools/map-factory/capability-evidence/pl1072-water/score_water_panel.py",
+    "tools/map-factory/capability-evidence/pl1072-water/fit_water_holdout.py",
+    "tools/map-factory/capability-evidence/pl1072-water/water-calibration-panel.json",
+    "tools/map-factory/capability-evidence/pl1072-water/water_calibration_panel.py",
+    "tools/map-factory/capability-evidence/pl1072-water/water_risk_corpus.py",
+    "tools/map-factory/capability-evidence/pl1072-water/water_risk.py",
+    "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json",
+    "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py",
+    "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py",
+
     "capabilities.json",
     "capability-evidence.js",
     "capability-evidence-worker.js",

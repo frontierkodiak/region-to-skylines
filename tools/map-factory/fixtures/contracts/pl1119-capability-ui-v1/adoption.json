@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "59b6f52bec6564e6d4219a23ec43e05de872ad95f3e485aa19969754feccc603"
+      "current_sha256": "7fbc88e9e4e9cdcf22aaca610f288e878cea3063d9f1f9f1839e999e42c0eaf2"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "017cc971d69e6ae639866825511ded2c6000a1ea1106cb74d78dc5561ba0182c"
+      "current_sha256": "a1e931ffcb5e8671d9110211b67015847b1bb046322d59220355aa208d52380f"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -26,11 +26,28 @@
     }
   },
   "added_files_sha256": {
-    "capabilities.json": "4134427e30572a6f3d1ac51119f1ad8847b173f00cd52796869b74322fc1d41c",
+    "water-calibration.mjs": "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/HOLDOUT_REPORT.md": "b7bd2e4cd288824e777eea9b51f40ef8e5ccb4babb2111c4aea860b0a3ccae0c",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/final-pre-score-verification.json": "4ad563b6cb57cd6c4ce649c491d9610561046e70bc7b5183f2756772fe3dfecf",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/freeze.json": "829b644cec6f04d2eb9a5fe21770eb49a4cc1c4e4becd420eb446ef75dafcd90",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/holdout-disposition.json": "41c0a25e803d6373e1f968b8a38039dab9ce5709b0ef4e782ed2f9334f5db0dd",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/holdout-score-audit.json": "f5e8fc5c918284fcc892bce52d65a65abe06f9fba04a2893192327ac3a659115",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/holdout-score.json": "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b",
+    "tools/map-factory/capability-evidence/pl1072-water/calibration/pl1072-frozen/model.json": "233534080d1f063fd96d5ca62167c3e3e2292503961184ed70f63a348a89e23d",
+    "tools/map-factory/capability-evidence/pl1072-water/score_water_panel.py": "0344c9a6df8a1d793928dd80f35be46c14f7efda9e33f0459994d2b75fa1791e",
+    "tools/map-factory/capability-evidence/pl1072-water/fit_water_holdout.py": "ed6f30910faf5891962e10ab21f7567cd07833f2fced1de8de5d9818c19a6e3a",
+    "tools/map-factory/capability-evidence/pl1072-water/water-calibration-panel.json": "37d88f277973a709a61b496925bb911255bbeb201e863f61629377ca172c014e",
+    "tools/map-factory/capability-evidence/pl1072-water/water_calibration_panel.py": "8499a9047bff93867724c532a325bbb24ba8a7715ee9d42577ce3fbaabff0595",
+    "tools/map-factory/capability-evidence/pl1072-water/water_risk_corpus.py": "5a892c19c5beb52fb5d3663730750526c72944c6bdb090fbc5e42a2d103f1a90",
+    "tools/map-factory/capability-evidence/pl1072-water/water_risk.py": "5108488a96cfc03330c940c66969ff4c708ba7465b5fe1abf89b56ab4773375b",
+    "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
+    "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
+    "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
+    "capabilities.json": "d3ac5f5707c8f9382c5410ef70dddfb17bf9578e9358cfe1d4d8fd0945734117",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "b000938703729b0e1bb62f8d781d40737841ef4b18fbf4def0c5b08825f67700",
-    "capability-ledger.mjs": "959157844d738849da57366e211ebcde3c7f57bb08d8075fee54177ef4875784",
+    "capability-ledger.mjs": "4b66bebd2beec69eef5543b94cf0a96e655872f15fb80851808d600cd426e352",
     "capability-model.js": "81327e3ebf686b29991f311d8fa9c11e97afd884235dea7d1b26d7d90ebb667d",
     "capability-ui.js": "7ea69f193eaf0ad7334c3bcb584d61761d80e4c5904202982de0c4e597303955",
     "tools/map-factory/capabilities.py": "8c6ab0a7acd7dabd64c8f82f10e21fdec29928bec1d545cbf90ddcfbdd4f9c66",

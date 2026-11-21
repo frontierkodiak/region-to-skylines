@@ -31,6 +31,12 @@ for (const certificate of [...(ledger.native_path_certificates ?? []), ...(ledge
   mkdirSync(dirname(`dist/${file}`), { recursive: true });
   copyFileSync(file, `dist/${file}`);
 }
+for (const study of Object.values(ledger.capabilities.find((c) => c.id === "water_risk").calibration_studies)) {
+  for (const { file } of study.provenance.files) {
+    mkdirSync(dirname(`dist/${file}`), { recursive: true });
+    copyFileSync(file, `dist/${file}`);
+  }
+}
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
 // the map writer the worker runs (tools/map-factory), byte for byte
 for (const f of FACTORY_FILES) {

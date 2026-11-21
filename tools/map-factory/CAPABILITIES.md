@@ -305,3 +305,34 @@ physical writers, package goldens and native receipts remain byte-for-byte
 unchanged. After an intentional UI/check change, run
 `refresh_capability_ui.py`; it refuses to manufacture or replace a historical
 source snapshot. This is source evolution, not new native qualification.
+
+## Frozen independent water study (PL-1072)
+
+`water_risk.calibration_studies.pl1072-independent-geography` projects the
+original saved score, freeze, model, pre-score receipt, audit and disposition
+from publication `cd1aa8317205053895517bc2ac141a9f0240ee36`. The 5-square,
+50-run calibration remains a separate historical seed. The new study has 30
+purposive squares, 28 complete observations and two unknown capture failures.
+
+`node water-calibration.mjs` imports these immutable bytes, never runs the
+archived scorer or native-outcome code, and changes only the final water
+capability. Exact original files and historical source tools are served under
+`capability-evidence/pl1072-water/`. Constants pin their original hashes;
+`capability-ledger.mjs` independently pins the projection tool, and build
+validation compares the complete projection rather than an assembler boolean.
+Intentional importer changes require updating `WATER_PROJECTION_SHA`, importing,
+and refreshing the UI adoption pins. Neither capability core changes.
+
+This is a failed qualification, not current-product calibration. Flood misses
+five of six positives; drying equals always-warn and uses the original broad
+optional-initialized-water label. Combined candidate and the frozen study’s
+1.5 m deployed-screen comparator clear no squares: risk and reductions remain
+null, displayed as NOT ESTIMABLE. The post-score sea-neighbour contract layer
+is not imported. Observation dates absent from the score stay unknown; audit
+and pre-score times are not native dates. Fresh-water intake, start policy,
+human acceptance and playability are not qualified by this study.
+
+`npm test` covers original byte mutations, coherent projection tampering,
+counts/groups, null denominators and no live promotion. Static page/mobile and
+HTTP evidence checks run via `test/water-calibration-browser.mjs` on blade in
+the official Playwright 1.65 image, never carbon. No native run is implied.
