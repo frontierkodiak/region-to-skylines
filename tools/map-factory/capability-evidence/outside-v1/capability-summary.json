@@ -2,22 +2,24 @@
   {
     "slug": "asheville",
     "capability": "road",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 36,
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 18,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 4,
     "archived_positives": 10
   },
   {
     "slug": "asheville",
     "capability": "rail",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 16,
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 8,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 0,
     "archived_positives": 2
   },
@@ -29,6 +31,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -40,28 +43,31 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
   {
     "slug": "innsbruck",
     "capability": "road",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
+    "observed": null,
+    "reason": "probe_limited",
     "fresh_failed_requests": 18,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 3,
     "archived_positives": 8
   },
   {
     "slug": "innsbruck",
     "capability": "rail",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
+    "observed": null,
+    "reason": "probe_limited",
     "fresh_failed_requests": 8,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 0,
     "archived_positives": 2
   },
@@ -73,6 +79,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -84,6 +91,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -92,9 +100,10 @@
     "capability": "road",
     "observed": true,
     "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 18,
+    "fresh_failed_requests": 9,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 10,
     "access_positives": 2,
     "archived_positives": 0
   },
@@ -103,9 +112,10 @@
     "capability": "rail",
     "observed": null,
     "reason": "probe_limited",
-    "fresh_failed_requests": 16,
+    "fresh_failed_requests": 8,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -117,6 +127,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -128,6 +139,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -136,20 +148,22 @@
     "capability": "road",
     "observed": null,
     "reason": "probe_limited",
-    "fresh_failed_requests": 37,
+    "fresh_failed_requests": 18,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 4,
     "archived_positives": 0
   },
   {
     "slug": "pittsburgh",
     "capability": "rail",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 16,
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 8,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -161,6 +175,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -172,17 +187,19 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
   {
     "slug": "charleston",
     "capability": "road",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 36,
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 18,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 4,
     "archived_positives": 10
   },
@@ -194,6 +211,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -205,6 +223,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -216,6 +235,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -227,6 +247,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -238,6 +259,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -249,6 +271,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -260,6 +283,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -268,9 +292,10 @@
     "capability": "road",
     "observed": null,
     "reason": "probe_limited",
-    "fresh_failed_requests": 13,
+    "fresh_failed_requests": 6,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -282,6 +307,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -293,6 +319,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -304,6 +331,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -315,6 +343,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -326,6 +355,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -337,6 +367,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -348,28 +379,31 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 0,
     "access_positives": 0,
     "archived_positives": 0
   },
   {
     "slug": "boston",
     "capability": "road",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 36,
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 18,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 4,
     "archived_positives": 0
   },
   {
     "slug": "boston",
     "capability": "rail",
-    "observed": true,
-    "reason": "sampled_two_edge_positive",
-    "fresh_failed_requests": 16,
+    "observed": null,
+    "reason": "probe_limited",
+    "fresh_failed_requests": 8,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 1,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -381,6 +415,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   },
@@ -392,6 +427,7 @@
     "fresh_failed_requests": 0,
     "runtime_bound_two_edge": false,
     "same_edge_positives": 0,
+    "midpoint_positives": 2,
     "access_positives": 0,
     "archived_positives": 0
   }

@@ -5,7 +5,7 @@ import json
 import unittest
 from unittest.mock import patch
 
-from annotate import HERE, annotations, summary
+from annotate import HERE, annotations, summary, path_endpoints
 from verify import verify
 
 
@@ -30,6 +30,38 @@ class AnnotationTest(unittest.TestCase):
         )
         self.assertTrue(
             all(c["observed"] in [True, None] for c in summary(evidence)[1])
+        )
+
+    def test_literal_boundary_and_midpoint_only_cells_are_separate(self):
+        cells = summary(annotations(copy.deepcopy(self.evidence)))[1]
+        self.assertEqual(sum(c["observed"] is True for c in cells), 11)
+        self.assertEqual(sum(c["observed"] is None for c in cells), 25)
+        self.assertEqual(
+            sum(c["observed"] is None and c["midpoint_positives"] > 0 for c in cells), 8
+        )
+
+    def test_returned_positions_not_segment_flags_define_witness(self):
+        segments = {
+            1: {"start": 10, "end": 11, "start_flags": "Outside"},
+            2: {"start": 20, "end": 21, "end_flags": "Outside"},
+        }
+        request = {"from": [1, 0, 0], "to": [2, 0, 255]}
+        self.assertEqual(
+            path_endpoints(request, {"positions": [[1, 0, 0], [2, 0, 255]]}, segments),
+            (True, True),
+        )
+        self.assertEqual(
+            path_endpoints(
+                request, {"positions": [[1, 0, 128], [2, 0, 128]]}, segments
+            ),
+            (True, False),
+        )
+        midpoint = {"from": [1, 0, 128], "to": [2, 0, 128]}
+        self.assertEqual(
+            path_endpoints(
+                midpoint, {"positions": [[1, 0, 128], [2, 0, 128]]}, segments
+            ),
+            (False, True),
         )
 
     def test_verifier_rejects_rewritten_raw_result(self):

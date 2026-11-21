@@ -131,3 +131,15 @@ Outside endpoints on the same map edge remain useful diagnostics but do not
 qualify as distinct-edge witnesses. Edge sides come from native outside-node
 coordinates (dominant absolute x/z axis). The sweep prioritizes distinct edges;
 the summary lists same-edge positives separately.
+
+A boundary-segment midpoint is not an outside endpoint. The literal-boundary
+predicate requires the requested offset to be the native outside end (0/255),
+distinct outside nodes and map edges, and exact returned first/last positions.
+Historical results contain 11 literal-boundary positive cells, 25 unknowns;
+eight of those unknowns have midpoint-only segment-path positives. The raw
+observations remain intact and no failed/unrequested cell becomes an absence.
+
+The collector also reads the loaded simulation's actual update mode and traffic
+inversion and rebinds runtime file identity at opening to the launch PID/start.
+Historical protocol descriptions remain recipes, not observed entry state;
+`session.menu_status.protocol` is the wire protocol, not traffic or entry mode.

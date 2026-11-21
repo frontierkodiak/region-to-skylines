@@ -158,7 +158,7 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
     stage = staging(cfg, out)
     result = {
         "schema": 2,
-        "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; no construction",
+        "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
         "observed_at": datetime.datetime.now(datetime.UTC).isoformat(),
         "artifact_sha256": hashlib.sha256(package.read_bytes()).hexdigest(),
         "package": str(package),
@@ -185,7 +185,7 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
             c = s.client
             from .runtime_identity import bind_runtime
 
-            result["runtime_identity"] = bind_runtime(s, result["build_receipt"])
+            result["launch_runtime_identity"] = bind_runtime(s, result["build_receipt"])
             entries = c.call("maps")["maps"]
             entry = next(m for m in entries if m.get("path") and Path(m["path"]).samefile(installed))
             result["listed"] = entry
@@ -209,6 +209,28 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
             result["loaded"] = c.wait(
                 lambda st: st.get("in_game") and not st.get("loading"), 600, "New Game", alive=s.alive
             )
+            stats = c.call("stats")
+            result["native_context"] = {
+                "observed_at": datetime.datetime.now(datetime.UTC).isoformat(),
+                "update_mode": stats["update_mode"],
+                "invert_traffic": stats["invert_traffic"],
+                "frame": stats["frame"],
+                "no_workshop": "--noWorkshop" in s.receipt["launch_args"],
+                "mods_enabled": s.receipt["control"] and "--disableMods" not in s.receipt["launch_args"],
+            }
+            if (
+                result["native_context"]["update_mode"] != "NewGameFromMap"
+                or result["native_context"]["invert_traffic"] != "False"
+            ):
+                raise ValueError("loaded simulation protocol differs from requested New Game context")
+            result["runtime_identity"] = bind_runtime(s, result["build_receipt"])
+            launch = result["launch_runtime_identity"]
+            opening = result["runtime_identity"]
+            if (launch["host_pid"], launch["process_start_ticks"]) != (
+                opening["host_pid"],
+                opening["process_start_ticks"],
+            ):
+                raise ValueError("native map observation is not in the launch-bound process")
             c.call("run", paused=True)
             networks = c.call("networks")
             dump(out / "networks.json", networks)

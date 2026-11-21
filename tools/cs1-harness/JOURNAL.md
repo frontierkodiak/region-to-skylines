@@ -3001,3 +3001,18 @@ and 44 C. The separate 2 s process sampler observed a 1,574 MiB game peak.
 Total VRAM includes blade's resident workload; these are sampled menu-launch
 peaks, not map-running performance or sustained load measurements. No power
 settings changed. All owned processes were collected before this handoff.
+
+### 2026-11-20 — PL-1142 — literal endpoint correction from PL-1143
+
+The earlier 19-cell count classified boundary segments, not literal outside
+endpoints. I corrected the derived predicate to require the requested 0/255
+outside offsets, distinct outside nodes/segments and distinct map edges, plus
+identical returned first/last native path positions. This re-derives 11 literal
+boundary-positive cells and 25 unknowns. Eight unknowns have successful named
+midpoint-segment paths, retained as unscored diagnostics. Raw successes/failures
+and timestamps are untouched. The wire protocol integer is not entry state.
+
+New collection reads update mode and traffic inversion from the loaded native
+simulation metadata and re-hashes the runtime at opening, requiring the same
+PID/start identity as the launch snapshot. This binds actual context and path
+observations in one run rather than promoting a declared collector recipe.

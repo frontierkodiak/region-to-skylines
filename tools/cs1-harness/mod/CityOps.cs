@@ -104,6 +104,8 @@ namespace Cs1Harness
             var water = Singleton<TerrainManager>.instance.WaterSimulation;
             return Host.Obj(
                 "frame", sm.m_currentFrameIndex,
+                "update_mode", sm.m_metaData.m_updateMode.ToString(),
+                "invert_traffic", sm.m_metaData.m_invertTraffic.ToString(),
                 "game_time", sm.m_currentGameTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                 "paused", sm.SimulationPaused,
                 "speed", sm.SelectedSimulationSpeed,

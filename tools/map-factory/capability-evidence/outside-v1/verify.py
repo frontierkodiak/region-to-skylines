@@ -186,6 +186,14 @@ def verify(require_nine_attempts=False):
                     or protocol.get("invert_traffic") != "False"
                 ):
                     raise ValueError("native New Game protocol is not bound")
+                context = observation.get("native_context", {})
+                if (
+                    context.get("update_mode") != "NewGameFromMap"
+                    or context.get("invert_traffic") != "False"
+                    or context.get("no_workshop") is not True
+                    or context.get("mods_enabled") is not True
+                ):
+                    raise ValueError("actual native simulation context is not bound")
                 runtime = observation.get("runtime_identity", {})
                 build = observation["build_receipt"]
                 if not runtime.get("build_matches") or runtime.get(

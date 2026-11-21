@@ -17,6 +17,31 @@ def raw_path(path):
     return json.loads(gzip.decompress((HERE / path).read_bytes()))
 
 
+def path_endpoints(request, result, segments):
+    boundary_nodes = []
+    for endpoint in [request["from"], request["to"]]:
+        segment, _, offset = endpoint
+        key = "start" if offset == 0 else "end" if offset == 255 else None
+        item = segments.get(segment, {})
+        boundary_nodes.append(
+            item.get(key)
+            if key and "Outside" in item.get(key + "_flags", "").split(", ")
+            else None
+        )
+    positions = result.get("positions", [])
+    returned_match = bool(
+        len(positions) >= 2
+        and positions[0] == request["from"]
+        and positions[-1] == request["to"]
+    )
+    boundary = (
+        None not in boundary_nodes
+        and boundary_nodes[0] != boundary_nodes[1]
+        and request["from"][0] != request["to"][0]
+    )
+    return boundary, returned_match
+
+
 def annotations(evidence):
     versions = {
         v["collector_sha256"]: v["protocol"] for v in evidence["collector_versions"]
@@ -57,6 +82,12 @@ def annotations(evidence):
             continue
         ref = row.get("raw_evidence")
         observation = raw(ref) if ref else {}
+        row["native_context"] = observation.get("native_context")
+        row["protocol_basis"] = (
+            "observed_native_context"
+            if row["native_context"]
+            else "collector_recipe_only_not_observed_entry_state"
+        )
         row["runtime_bound"] = bool(
             observation.get("runtime_identity", {}).get("build_matches")
         )
@@ -154,6 +185,33 @@ def annotations(evidence):
                 if lanes
                 else "no_lane"
             )
+        row["literal_boundary_request"] = False
+        row["literal_boundary_witness"] = False
+        row["returned_endpoints_match_request"] = None
+        row["midpoint_segment_witness"] = False
+        if request:
+            boundary, returned_match = path_endpoints(
+                request, row.get("path_result") or {}, segments
+            )
+            row["literal_boundary_request"] = boundary and edges[0] != edges[1]
+            row["returned_endpoints_match_request"] = returned_match
+            row["literal_boundary_witness"] = (
+                row["literal_boundary_request"]
+                and returned_match
+                and row["observed"] is True
+            )
+            row["midpoint_segment_witness"] = (
+                two_edge
+                and edges[0] != edges[1]
+                and returned_match
+                and all(p[2] == 128 for p in [request["from"], request["to"]])
+                and row["observed"] is True
+            )
+        row["capability_observed"] = True if row["literal_boundary_witness"] else None
+        if row["literal_boundary_witness"]:
+            row["capability_reason"] = "sampled_literal_boundary_positive"
+        elif row["midpoint_segment_witness"]:
+            row["capability_reason"] = "midpoint_segment_diagnostic_only"
         if (
             not request
             and observation.get("schema", 1) >= 2
@@ -168,13 +226,13 @@ def summary(evidence):
     lines = [
         "# Outside-connection evidence",
         "",
-        "Fresh distinct-edge positives, same-edge paths, access legs, archived player paths and panels are separate below.",
+        "Literal boundary witnesses require requested outside offsets and identical returned first/last path positions. Segment-midpoint successes are separate, unscored diagnostics.",
         "Every failed request remains a pair/lane observation, not a native capability negative. Missing or unexhausted coverage is unknown.",
         "All nine water-risk screens remain **warnings**. No native depth, width or grade threshold is fitted.",
         "Ship witnesses are sampled native paths, not terminal service, continuous clearance or sustained water safety.",
         "",
-        "| Square / mode | Fresh two-edge | Runtime-bound two-edge | Same-edge positives | Access positives | Archived positives | Panel observations |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| Square / mode | Literal boundary | Runtime-bound boundary | Midpoint positives | Same-edge positives | Access positives | Archived positives | Panel observations |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     cells = []
     for case in evidence["artifacts"]:
@@ -184,13 +242,12 @@ def summary(evidence):
                 for r in evidence["rows"]
                 if r["slug"] == case["slug"] and r["capability_id"] == mode
             ]
-            fresh = [
-                r
-                for r in rows
-                if r.get("probe_kind") in {"generic_pair", "legacy_two_edge"}
-            ]
-            positive = any(r["observed"] is True for r in fresh)
-            bound = any(r["observed"] is True and r.get("runtime_bound") for r in fresh)
+            fresh = [r for r in rows if r.get("literal_boundary_request")]
+            positive = any(r["literal_boundary_witness"] for r in fresh)
+            bound = any(
+                r["literal_boundary_witness"] and r.get("runtime_bound") for r in fresh
+            )
+            midpoint = sum(r.get("midpoint_segment_witness", False) for r in rows)
             access = sum(
                 r["observed"] is True
                 for r in rows
@@ -225,12 +282,13 @@ def summary(evidence):
                     "fresh_failed_requests": failed,
                     "runtime_bound_two_edge": bound,
                     "same_edge_positives": same_edge,
+                    "midpoint_positives": midpoint,
                     "access_positives": access,
                     "archived_positives": archived,
                 }
             )
             lines.append(
-                f"| {case['slug']} / {mode} | {'witness' if positive else 'unknown'} ({failed} failed) | {'witness' if bound else 'unknown'} | {same_edge} | {access} | {archived} | {panels} |"
+                f"| {case['slug']} / {mode} | {'witness' if positive else 'unknown'} ({failed} failed) | {'witness' if bound else 'unknown'} | {midpoint} | {same_edge} | {access} | {archived} | {panels} |"
             )
     lines += ["", "## Retained attempt errors", ""]
     lines += [
