@@ -385,14 +385,17 @@ class RealPackageInvarianceTest(unittest.TestCase):
 
 
 class FrozenResultTest(unittest.TestCase):
-    """Guard the measured result; these numbers are the study's recorded output."""
+    """Guard the corrected measured result; these are the study's recorded output."""
+
+    def setUp(self):
+        self.evaluation = json.loads(
+            (HERE / "corrected" / "evaluation.json").read_text()
+        )
 
     def test_recorded_confusions(self):
-        evaluation = json.loads((HERE / "evaluation.json").read_text())["result"][
-            "rules"
-        ]
-        primary = evaluation["lane:orientation_index:forbidden"]
-        fitted = evaluation["junction:continuation:any_lane"]
+        rules = self.evaluation["result"]["rules"]
+        primary = rules["lane:orientation_index:forbidden"]
+        fitted = rules["junction:continuation:any_lane"]
         self.assertEqual(
             (
                 primary["tp"],
@@ -401,7 +404,7 @@ class FrozenResultTest(unittest.TestCase):
                 primary["fn"],
                 primary["abstain"],
             ),
-            (13, 198, 51, 14, 0),
+            (11, 198, 51, 16, 0),
         )
         self.assertEqual(
             (fitted["tp"], fitted["fp"], fitted["tn"], fitted["fn"], fitted["abstain"]),
@@ -412,42 +415,44 @@ class FrozenResultTest(unittest.TestCase):
 
     def test_controls_and_cohort_groups(self):
         """The stock controls are the study's own check: they must be exact."""
-        result = json.loads((HERE / "evaluation.json").read_text())["result"]
-        stock = {
-            "tp": 0,
-            "fp": 0,
-            "tn": 0,
-            "fn": 0,
-        }
+        stock = {"tp": 0, "fp": 0, "tn": 0, "fn": 0}
         cohort = {"tp": 0, "fp": 0, "tn": 0, "fn": 0}
-        for entry in result["packages"].values():
+        for entry in self.evaluation["result"]["packages"].values():
             target = stock if entry["split"] == "stock_controls" else cohort
             for key in target:
                 target[key] += entry["rules"][model.FITTED_RULE][key]
         self.assertEqual(stock, {"tp": 16, "fp": 0, "tn": 16, "fn": 0})
         self.assertEqual(cohort, {"tp": 10, "fp": 4, "tn": 229, "fn": 1})
 
-    def test_bridge_status_and_reachability_claim(self):
-        bridge_report = json.loads((HERE / "bridge.json").read_text())
+    def test_zero_query_packages_are_unscored(self):
+        packages = self.evaluation["result"]["packages"]
+        for opening in ("charleston", "grand-canyon", "yosemite"):
+            scored = sum(packages[opening]["labels"].values())
+            self.assertEqual(scored, 0, opening)
+            for rule in self.evaluation["result"]["rules"]:
+                self.assertIsNone(packages[opening]["rules"][rule]["precision"], rule)
+                self.assertIsNone(packages[opening]["rules"][rule]["recall"], rule)
+
+    def test_bridge_status_and_model_domain(self):
+        bridge_report = json.loads((HERE / "corrected" / "bridge.json").read_text())
         self.assertEqual(bridge_report["status"], "bridge_established")
+        self.assertTrue(bridge_report["model_input_domain"]["digests_identical"])
         for field in bridge.MODEL_FIELDS:
             self.assertEqual(bridge_report["fields"][field]["rate"], 1.0, field)
         self.assertEqual(
             bridge_report["prediction_agreement"]["queries"],
             bridge_report["prediction_agreement"]["identical"],
         )
-        # Cross-component requests are the one denial the export supports.
-        result = json.loads((HERE / "evaluation.json").read_text())["result"]
-        component = result["rules"]["weak_component"]
+        # Cross-component requests are the one denial this retrospective set supports.
+        component = self.evaluation["result"]["rules"]["weak_component"]
         self.assertEqual(
             (component["tp"], component["tn"], component["fn"]), (27, 51, 0)
         )
 
     def test_fitted_errors_are_all_pittsburgh(self):
-        evaluation = json.loads((HERE / "evaluation.json").read_text())["result"]
         errors = [
             item
-            for item in evaluation["counterexamples"]
+            for item in self.evaluation["result"]["counterexamples"]
             if item["rule"] == model.FITTED_RULE
         ]
         self.assertEqual(len(errors), 5)
@@ -456,6 +461,12 @@ class FrozenResultTest(unittest.TestCase):
             self.assertIn(item["kind"], ("false_positive", "false_negative"))
             self.assertEqual(len(item["observation_sha256"]), 64)
             self.assertEqual(len(item["query_freeze_sha256"]), 64)
+
+    def test_binding_counts(self):
+        self.assertEqual(
+            self.evaluation["bindings"],
+            {"opening_bindings": 11, "query_bindings": 276, "rows_checked": 568},
+        )
 
 
 class EvaluatingTest(unittest.TestCase):
@@ -518,11 +529,23 @@ class EvaluatingTest(unittest.TestCase):
 
 
 class FreezeTest(unittest.TestCase):
-    def test_predictions_match_their_protocol_and_sources(self):
-        predictions = json.loads((HERE / "predictions.json").read_text())
-        protocol = (HERE / "protocol.json").read_bytes()
+    def test_reviewed_v1_artifacts_are_preserved_byte_for_byte(self):
+        for name, expected in predict.REVIEWED_ARTIFACTS.items():
+            self.assertEqual(
+                hashlib.sha256((HERE / name).read_bytes()).hexdigest(), expected, name
+            )
+
+    def test_corrected_predictions_match_their_protocol_and_sources(self):
+        predictions = json.loads((HERE / "corrected" / "predictions.json").read_text())
+        self.assertEqual(predictions["freeze"], predict.CORRECTED_FREEZE)
+        self.assertEqual(predictions["model_version"], model.MODEL_VERSION)
+        protocol = (HERE / "corrected" / "protocol.json").read_bytes()
         self.assertEqual(
             predictions["protocol_sha256"], hashlib.sha256(protocol).hexdigest()
+        )
+        self.assertEqual(
+            predictions["supersedes"]["head"],
+            "97e00389f4ad0eb30aa1ff1d775876c87f4ab27c",
         )
         for name, expected in predictions["sources"].items():
             self.assertEqual(
@@ -536,15 +559,17 @@ class FreezeTest(unittest.TestCase):
         for query in predictions["queries"]:
             self.assertEqual(set(query["predictions"]), set(predictions["rules"]))
 
-    def test_evaluation_matches_its_predictions(self):
-        evaluation = json.loads((HERE / "evaluation.json").read_text())
+    def test_corrected_evaluation_matches_its_predictions(self):
+        evaluation = json.loads((HERE / "corrected" / "evaluation.json").read_text())
         self.assertEqual(
             evaluation["predictions_sha256"],
-            hashlib.sha256((HERE / "predictions.json").read_bytes()).hexdigest(),
+            hashlib.sha256(
+                (HERE / "corrected" / "predictions.json").read_bytes()
+            ).hexdigest(),
         )
-        labels = evaluation["result"]["labels"]
         self.assertEqual(
-            labels, {"exact_path_success": 27, "selected_query_failure": 249}
+            evaluation["result"]["labels"],
+            {"exact_path_success": 27, "selected_query_failure": 249},
         )
         self.assertEqual(
             evaluation["result"]["exact_same_edge"]
@@ -563,6 +588,182 @@ class FreezeTest(unittest.TestCase):
             }
         }
         self.assertEqual([index for index, _ in predict.selected_requests(plan)], [0])
+
+
+class DomainContractTest(unittest.TestCase):
+    """Constructed cases that fail on the reviewed head and pass the correction."""
+
+    def test_car_only_middle_segment_blocks_a_train_path(self):
+        pkg = package(
+            [
+                segment(10, 1, 2, (0.0, 0.0, 0.0), (100.0, 0.0, 0.0)),
+                segment(11, 2, 3, (100.0, 0.0, 0.0), (200.0, 0.0, 0.0)),
+                segment(12, 3, 4, (200.0, 0.0, 0.0), (300.0, 0.0, 0.0)),
+            ]
+        )
+        for lane in pkg["segments"][11]["lanes"]:
+            lane["vehicle"] = ["Car"]
+        pkg["segments"][11]["prefab"] = "Car-only road"
+        self.assertEqual(
+            model.predict(pkg, request(10, 1, 0, 12, 1, 255), model.FITTED_RULE)[
+                "prediction"
+            ],
+            model.NO_PATH,
+        )
+        # A Car lane is not a Train lane of the request either.
+        self.assertEqual(
+            model.predict(pkg, request(11, 0, 0, 12, 1, 255), model.FITTED_RULE)[
+                "prediction"
+            ],
+            model.ABSTAIN,
+        )
+
+    def test_invert_swaps_the_required_travel_bit(self):
+        pkg = chain()
+        for item in pkg["segments"].values():
+            item["flags"].add("Invert")
+        self.assertTrue(
+            model.effective_forward(pkg["segments"][10], pkg["segments"][10]["start"])
+            is False
+        )
+        self.assertEqual(
+            model.predict(pkg, request(10, 1, 0, 11, 1, 255), model.FITTED_RULE)[
+                "prediction"
+            ],
+            model.NO_PATH,
+        )
+        self.assertEqual(
+            model.predict(pkg, request(10, 0, 0, 11, 0, 255), model.FITTED_RULE)[
+                "prediction"
+            ],
+            model.SUCCESS,
+        )
+
+    def test_equal_angle_junction_does_not_depend_on_ids(self):
+        pkg = package(
+            [
+                segment(10, 1, 2, (-1.0, 0.0, 0.0), (0.0, 0.0, 0.0)),
+                segment(11, 2, 3, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0)),
+                segment(12, 2, 4, (0.0, 0.0, 0.0), (2.0, 0.0, 0.0)),
+            ]
+        )
+        query = request(10, 1, 0, 11, 1, 255)
+        renamed, _, _ = rename(
+            pkg, {10: 10, 11: 30, 12: 11}, {key: key for key in pkg["nodes"]}
+        )
+        renamed_query = request(10, 1, 0, 30, 1, 255)
+        original = model.predict(pkg, query, model.FITTED_RULE)
+        renamed_result = model.predict(renamed, renamed_query, model.FITTED_RULE)
+        self.assertEqual(original, renamed_result)
+        # The resolution is genuinely symmetric, so the honest answer is to abstain.
+        self.assertEqual(original["prediction"], model.ABSTAIN)
+        self.assertEqual(original["detail"]["reason"], "ambiguous_junction_pairing")
+
+    def test_reversal_hypothesis_is_expressible(self):
+        pkg = package([segment(10, 1, 2, (0.0, 0.0, 0.0), (100.0, 0.0, 0.0))])
+        out_and_back = request(10, 1, 0, 10, 0, 0)
+        outcomes = {
+            uturn: model.predict(pkg, out_and_back, f"lane:any_lane:{uturn}")[
+                "prediction"
+            ]
+            for uturn in model.UTURNS
+        }
+        self.assertEqual(outcomes["forbidden"], model.NO_PATH)
+        self.assertEqual(outcomes["deadend"], model.SUCCESS)
+        self.assertEqual(outcomes["allowed"], model.SUCCESS)
+
+    def test_length_bound_rejects_an_oversized_path(self):
+        pkg = package([segment(10, 1, 2, (0.0, 0.0, 0.0), (100001.0, 0.0, 0.0))])
+        result = model.predict(pkg, request(10, 1, 0, 10, 1, 255), model.FITTED_RULE)
+        self.assertEqual(result["prediction"], model.NO_PATH)
+        self.assertEqual(
+            result["detail"]["reason"], "path_lower_bound_exceeds_max_length"
+        )
+        # The same segment just inside the bound is reachable.
+        short = package([segment(10, 1, 2, (0.0, 0.0, 0.0), (99999.0, 0.0, 0.0))])
+        self.assertEqual(
+            model.predict(short, request(10, 1, 0, 10, 1, 255), model.FITTED_RULE)[
+                "prediction"
+            ],
+            model.SUCCESS,
+        )
+
+    def test_length_bound_relaxes_to_a_shorter_alternative(self):
+        # The long parallel branch reaches the transfer state first by insertion
+        # order with a distance over the bound; only a relaxed search finds the
+        # short branch under it.
+        pkg = package(
+            [
+                segment(10, 1, 2, (0.0, 0.0, 0.0), (10.0, 0.0, 0.0)),
+                segment(20, 2, 3, (10.0, 0.0, 0.0), (99010.0, 0.0, 0.0)),
+                segment(21, 2, 3, (10.0, 0.0, 0.0), (1010.0, 0.0, 0.0)),
+                segment(30, 3, 4, (1010.0, 0.0, 0.0), (51010.0, 0.0, 0.0)),
+            ]
+        )
+        result = model.predict(
+            pkg, request(10, 1, 0, 30, 1, 255), "lane:any_lane:forbidden"
+        )
+        self.assertEqual(result["prediction"], model.SUCCESS)
+        self.assertLessEqual(
+            result["detail"]["path_lower_bound_length"], model.MAX_LENGTH
+        )
+        shuffled = copy.deepcopy(pkg)
+        shuffled["segments"] = dict(reversed(list(pkg["segments"].items())))
+        self.assertEqual(
+            model.predict(
+                shuffled, request(10, 1, 0, 30, 1, 255), "lane:any_lane:forbidden"
+            ),
+            result,
+        )
+
+
+class BindingContractTest(unittest.TestCase):
+    """A prediction is only scored against the exact record it is bound to."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.openings = json.loads((HERE / "openings.json").read_text())
+        cls.predictions = json.loads(
+            (HERE / "corrected" / "predictions.json").read_text()
+        )
+        cls.observations = evaluate.collect(cls.openings)
+
+    def test_mutated_request_fails_binding(self):
+        altered = copy.deepcopy(self.predictions)
+        altered["queries"][0]["request"]["from"][0] = -123456789
+        with self.assertRaises(evaluate.BindingError):
+            evaluate.bind(altered, self.observations, self.openings)
+
+    def test_mutated_row_request_fails_binding(self):
+        altered = copy.deepcopy(self.observations)
+        opening = altered["asheville"]
+        opening["rows"][0]["request"] = {"from": [1, 0, 0], "to": [2, 0, 0]}
+        with self.assertRaises(evaluate.BindingError):
+            evaluate.bind(self.predictions, altered, self.openings)
+
+    def test_changed_source_fails_binding(self):
+        altered = copy.deepcopy(self.predictions)
+        name = next(iter(altered["sources"]))
+        altered["sources"][name] = "0" * 64
+        with self.assertRaises(evaluate.BindingError):
+            evaluate.bind(altered, self.observations, self.openings)
+
+    def test_missing_success_fails_closed(self):
+        row = {
+            "request": {"from": [1, 0, 0], "to": [2, 0, 0]},
+            "result": {"complete": True, "released": True, "positions": []},
+        }
+        with self.assertRaises(evaluate.BindingError):
+            evaluate.classify(row)
+
+    def test_missing_row_is_unknown_not_a_failure(self):
+        self.assertEqual(evaluate.classify(None)[0], evaluate.UNKNOWN)
+
+    def test_real_binding_covers_every_query(self):
+        self.assertEqual(
+            evaluate.bind(self.predictions, self.observations, self.openings),
+            {"opening_bindings": 11, "query_bindings": 276, "rows_checked": 568},
+        )
 
 
 class BridgeTest(unittest.TestCase):

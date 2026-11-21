@@ -1,11 +1,15 @@
 # Rail query-scoped reachability: measured result
 
 A retrospective fit of one query-scoped rail reachability model to the accepted
-PL-1215 native study. It does not complete PL-1119, does not fit a place-level
-railway promise, and makes no geographic-accuracy, prevalence, "no rail"
-certificate, service or live "yes" claim. The aggregate counts below were
-already known from the accepted study; this work adds the model, the measured
-comparison and the offline bridge.
+PL-1215 native study. This is the corrected report (`rail-query-model-v2-corrected`)
+after the review of PR81 head `97e0038`; the reviewed report and its frozen
+artifacts are preserved at this prefix's root, and the correction record is
+[`corrected/CORRECTION.md`](corrected/CORRECTION.md).
+
+It does not complete PL-1119, does not fit a place-level railway promise, and
+makes no geographic-accuracy, prevalence, "no rail" certificate, service or live
+"yes" claim. The aggregate counts below were already known from the accepted
+study; this work adds the model, the measured comparison and the offline bridge.
 
 ## What is being predicted
 
@@ -23,23 +27,34 @@ Labels are exact successes, observed failures and Unknowns:
   that request/mode/flags/protocol, never a geographic negative;
 * Unknown: incomplete, unreleased or endpoint-mismatched. Never scored.
 
-The frozen primary set is 276 selected requests across the eleven accepted
+The frozen primary set is 276 selected requests across eleven accepted
 openings: 32 stock controls and 244 cohort. It resolves to **27 exact
 successes** (25 distinct-edge, 2 same-edge) and **249 observed failures**, with
 no Unknown rows. Pittsburgh selected 128 of its 240 candidate pairs; its 112
-unqueried candidates stay unqueried and are excluded. Charleston, Grand Canyon
-and Yosemite have no directed candidate pair, so they contribute no request; an
-empty candidate list is not scored as absence.
+unqueried candidates stay unqueried. Charleston, Grand Canyon and Yosemite have
+no directed candidate pair, so they contribute no request and are **unscored**;
+an empty candidate list is not scored as absence.
 
-## Freeze order
+## Freeze order and versions
 
-`protocol.json` and `predictions.json` were written from each opening's frozen
-network snapshot and query plan before `evaluate.py` opened any observation.
-`model.py` never reads an outcome, observation, verification file or old score;
-the test suite asserts that. The topology-only family was frozen first, scored,
-and reported below as-is. The junction family is a second, clearly labelled
-freeze, added because the first family failed to separate the classes; every
-member is reported and none is adopted.
+The reviewed head `97e0038` froze `protocol.json`, `predictions.json`,
+`evaluation.json`, `bridge.json`, `catalogs.json` and `integrity.json` at the
+prefix root. Those six files are preserved byte-for-byte, and a test pins their
+SHA-256 values. The corrected freeze is written beside them in `corrected/`:
+
+1. `corrected/protocol.json` and `corrected/predictions.json` are written from
+   each opening's frozen network snapshot and plan **before** the corrected
+   evaluator opens any observation.
+2. `evaluate.py --check` then binds every prediction to its plan request,
+   observed row, package hash, snapshot hash, protocol hash and model sources
+   before it scores anything.
+3. `corrected/evaluation.json` and `corrected/bridge.json` record the result.
+
+`model.py` has no path to an outcome, observation or old score, and a test
+asserts that. The topology-only family was frozen and scored first in v1; the
+junction family is a second labelled freeze added because the first failed to
+separate the classes. Both are reported in full, and the fitted rule is a
+hypothesis, not an adopted rule.
 
 This is an already-observed cohort, not a blind or prospective holdout, so no
 prediction here is a held-out accuracy estimate.
@@ -53,60 +68,77 @@ prediction here is a held-out accuracy estimate.
 | Asheville | cohort | 12 | 12 | 761 | 2 | 10 |
 | Innsbruck | cohort | 20 | 20 | 693 | 2 | 18 |
 | Boston | cohort | 72 | 72 | 1180 | 4 | 68 |
-| Charleston | cohort | 0 | 0 | 194 | 0 | 0 |
-| Grand Canyon | cohort | 0 | 0 | 149 | 0 | 0 |
+| Charleston | cohort | 0 | 0 | 194 | unscored | unscored |
+| Grand Canyon | cohort | 0 | 0 | 149 | unscored | unscored |
 | Hong Kong | cohort | 6 | 6 | 713 | 0 | 6 |
 | Pittsburgh | cohort | 128 | 240 | 2584 | 3 | 125 |
 | Rio | cohort | 6 | 6 | 500 | 0 | 6 |
-| Yosemite | cohort | 0 | 0 | 0 | 0 | 0 |
+| Yosemite | cohort | 0 | 0 | 0 | unscored | unscored |
 
 ## Model
 
 A directed reachability rule over `(segment, lane, node)` states. A path starts
 by travelling along the requested source lane away from its boundary node,
 alternates "travel a segment" with "continue at a node", and must arrive at the
-target node along the requested target lane. The rule reads only pre-query
-topology, geometry, lane direction bits, category, flags and the request. Place
-names, artifact ids, allocation ids and successful paths are never features;
-segment and node ids are graph references only. The invariance tests rename
-every id, reorder segments, and reverse every segment's orientation on a real
-frozen package without changing a prediction.
+target node along the requested target lane.
+
+Corrected domain: only Train-capable records are consumed. A segment joins the
+graph only when it has a Train lane of an accepted type; only those lanes are
+traversable or continuable; the requested lane must be one of them. Lane
+continuation is counted by ordinal among a segment's Train lanes, so raw lane
+indexes are never renumbered. Segment `Invert` swaps the required travel bit,
+following the accepted native planner. A crossing of a node is a straightest
+disjoint pairing, and equal-turn candidates are represented as alternatives
+rather than broken by allocation id.
+
+Length is the sum of segment chords, a lower bound on the native curve length.
+It is relaxed shortest-first, checked on the opening and every later traversal,
+and a path whose lower bound exceeds the protocol maximum is never a success.
+
+Inputs are pre-query topology, geometry, lane direction bits, category, flags
+and the request. No names, artifact ids, allocation ids or successful paths;
+ids are graph references only, and tests rename every id, reorder segments and
+reverse every segment orientation on a real frozen package without changing a
+prediction.
 
 Three unobservable native choices are named hypotheses:
 
 * **lane continuation** — `any_lane`, `index_same`, `index_mirror`,
   `orientation_index` (lateral side preserved), `orientation_mirror`;
-* **reversal** — `forbidden`, `deadend`, `allowed`;
-* **junction** — `all` (every pair), `continuation` (a node connects only a
-  disjoint straightest-first pairing), `single` (only its straightest pair).
+* **reversal** — `forbidden`, `deadend`, `allowed`, a real self-pair at the node;
+* **junction** — `all`, `continuation` (disjoint straightest-first pairing),
+  `single` (only the straightest pair).
 
 ## Measured result, all 276 selected queries
 
-| Rule | TP | FP | TN | FN | Precision | Recall |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| always-fail | 0 | 0 | 249 | 27 | null | 0.000 |
-| always-candidate | 27 | 249 | 0 | 0 | 0.098 | 1.000 |
-| weak_component | 27 | 198 | 51 | 0 | 0.120 | 1.000 |
-| lane:any_lane:forbidden | 27 | 198 | 51 | 0 | 0.120 | 1.000 |
-| lane:orientation_index:forbidden (pre-registered primary) | 13 | 198 | 51 | 14 | 0.062 | 0.481 |
-| lane:index_same:forbidden | 5 | 48 | 201 | 22 | 0.094 | 0.185 |
-| lane:index_mirror:forbidden / orientation_mirror:forbidden | 0 | 0 | 249 | 27 | null | 0.000 |
-| junction:single:any_lane | 24 | 4 | 245 | 3 | 0.857 | 0.889 |
-| **junction:continuation:any_lane (fitted)** | **26** | **4** | **245** | **1** | **0.867** | **0.963** |
-| junction:continuation:orientation_index | 12 | 4 | 245 | 15 | 0.750 | 0.444 |
+| Rule | TP | FP | TN | FN | Abstain | Precision | Recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| always-fail | 0 | 0 | 249 | 27 | 0 | null | 0.000 |
+| always-candidate | 27 | 249 | 0 | 0 | 0 | 0.098 | 1.000 |
+| weak_component | 27 | 198 | 51 | 0 | 0 | 0.120 | 1.000 |
+| lane:any_lane:forbidden (= the component rule) | 27 | 198 | 51 | 0 | 0 | 0.120 | 1.000 |
+| lane:orientation_index:forbidden (pre-registered primary) | 11 | 198 | 51 | 16 | 0 | 0.053 | 0.407 |
+| lane:index_same:forbidden | 5 | 48 | 201 | 22 | 0 | 0.094 | 0.185 |
+| lane:index_mirror:forbidden / orientation_mirror:forbidden | 0 | 0 | 249 | 27 | 0 | null | 0.000 |
+| junction:single:any_lane | 24 | 4 | 245 | 3 | 0 | 0.857 | 0.889 |
+| **junction:continuation:any_lane (fitted)** | **26** | **4** | **245** | **1** | **0** | **0.867** | **0.963** |
+| junction:continuation:orientation_index | 10 | 4 | 245 | 17 | 0 | 0.714 | 0.370 |
 
-Coverage is 1.000 and abstention is 0 for every rule here: each selected request
-names records present in its snapshot. The abstention path exists for missing or
-unbound inputs and is covered by tests, not exercised by this set. Precision and
-recall are null, not zero, when their denominator is empty; no always-fail
-percentage is headlined.
+All 28 rules are reported in `corrected/evaluation.json`, including every null
+and every hypothesis that scores nothing; the table above lists each distinct
+outcome. Coverage is 1.000 and abstention 0 for every rule on this set: no real package
+produces more than one junction resolution, so the corrected tie representation
+never had to abstain here. The abstention path exists for unresolved ties and
+missing inputs and is covered by tests. Precision and recall are null, not zero,
+when their denominator is empty; no always-fail percentage is headlined.
 
 Two facts about the upper bound matter more than its score. **Every observed
-success is inside one weak Train component** and every rule with zero false
-negatives is a component rule. **All 51 cross-component requests fail** — that
-is the only denial the export supports without further assumptions.
-Reachability is necessary and not sufficient; `always-candidate` is strictly
-dominated by the component rule (same recall, better precision).
+success in this selected set is inside one weak Train component**, and all 51
+selected cross-component requests failed. That is the one denial this
+retrospective set supports without further assumptions; it is not a general
+proof that such connections can never be joined natively. Reachability is
+necessary and not sufficient here, and `always-candidate` is strictly dominated
+by the component rule (same recall, better precision).
 
 ## The fitted rule and its groups
 
@@ -115,22 +147,23 @@ straightest-first into disjoint pairs and connect only those; a Train lane
 continues onto any Train lane of the connected segment; endpoint lanes must be
 usable in the requested direction; no reversal at a node.
 
-| Group | TP | FP | TN | FN | Precision | Recall |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| stock controls | 16 | 0 | 16 | 0 | 1.000 | 1.000 |
-| cohort | 10 | 4 | 229 | 1 | 0.714 | 0.909 |
+| Group | TP | FP | TN | FN | Abstain | Precision | Recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| stock controls | 16 | 0 | 16 | 0 | 0 | 1.000 | 1.000 |
+| cohort | 10 | 4 | 229 | 1 | 0 | 0.714 | 0.909 |
 
 Per opening, the fitted rule is exact on AP Asanu Beach, AP Hanami Bay,
-Asheville, Innsbruck, Boston, Hong Kong, Rio, Charleston, Grand Canyon and
-Yosemite. **All five errors are in Pittsburgh**: four false positives and one
-false negative, listed below. That is the honest boundary of the fit — the
-dense 16-outside-connection network is where the export-only junction rule stops
-tracking the native one, and where a 112-candidate cap leaves coverage partial.
+Asheville, Innsbruck, Boston, Hong Kong and Rio. Charleston, Grand Canyon and
+Yosemite have zero selected queries and are unscored. **All five errors are in
+Pittsburgh**: four false positives and one false negative, listed below. That is
+the honest boundary of the fit — the dense 16-outside-connection network is
+where the export-only junction rule stops tracking the native one, and where a
+112-candidate cap leaves coverage partial.
 
 ## Counterexamples, fitted rule
 
 Every error with its exact request and the hashes of the raw files it is scored
-against. Full detail is in `evaluation.json`.
+against. Full detail is in `corrected/evaluation.json`.
 
 | Kind | Query | From | To | Native result |
 | --- | --- | --- | --- | --- |
@@ -158,11 +191,14 @@ snapshot of the same opening:
 | Invert predicate | 6774 | 100 % |
 | Outside predicate | 6750 nodes | 100 % |
 
-All 244 cohort requests receive the same prediction from export bytes as from
-the native snapshot. The prefab lane template catalog and the integer flag-name
-catalog are hash-bound observed tables, not export bytes on their own; both are
-cross-validated leave-one-package-out: every package's Train prefabs are found
-in the other eight, and every lane, Outside and Invert field decodes correctly.
+The bridge also compares a canonical digest of exactly the records the model
+consumes — Train-capable segments and their incident nodes with every field above
+— and the digests are identical for all nine packages. All 244 cohort requests
+receive the same prediction from export bytes as from the native snapshot. The
+prefab lane template catalog and the integer flag-name catalog are hash-bound
+observed tables, not export bytes on their own; both are cross-validated
+leave-one-package-out: every package's Train prefabs are found in the other
+eight, and every lane, Outside and Invert field decodes correctly.
 
 Two limits are reported rather than smoothed. The game recomputes
 `OneWayIn`/`OneWayOut` on nodes at load, so a node flag value can name different
@@ -178,8 +214,9 @@ export-scoped model there, not a native-snapshot-only one.
 
 ## What this supports
 
-* A rigid export-only denial: two outside rail endpoints in different Train
-  components cannot be joined by a native path. 51 of 51 observed.
+* A rigid denial for the selected set: two outside rail endpoints in different
+  Train components were never joined by a native path here — 51 of 51 observed
+  failures. This is a retrospective statement about that set.
 * Reachability (same component, direction-compatible endpoint lanes) is
   necessary for success in this set, and the direction/lane-index refinements of
   the first family add nothing on their own.
@@ -198,6 +235,9 @@ export-scoped model there, not a native-snapshot-only one.
   is not the native junction rule everywhere.
 * Native lane-to-lane connectivity, junction behaviour, path cost and rejected
   pairs are still not observed directly; this study infers them from outcomes.
+* The 51 cross-component failures do not establish a general native
+  impossibility. An unpaused opening snapshot and an inferred junction rule
+  cannot prove that such connections could never be joined.
 * Opening graph precedes the unpaused queries and state may evolve. The 100000
   maximum path length, the 128-request cap, 112 Pittsburgh candidates left
   unqueried, dynamic-assembly exclusion, plugins, three DLC-panel errors and
@@ -212,3 +252,15 @@ relabelled or rewritten. No parent ledger, live model/UI, certificate, resource
 or default rule, main branch, Shelf or production deployment changed, and no
 browser or physical map rebuild was needed. PL-1191's water construction and
 holdout work was not touched.
+
+## Version history
+
+| Version | Where | Result |
+| --- | --- | --- |
+| v1, reviewed | root JSON at `97e0038`, preserved byte-for-byte | fitted 26/4/245/1; primary 13/198/51/14; five executable-domain defects |
+| v2, corrected | `corrected/` | fitted 26/4/245/1; primary 11/198/51/16; domain, tie, reversal, length and binding contracts fixed |
+
+The v1→v2 delta is in [`corrected/CORRECTION.md`](corrected/CORRECTION.md). The
+fitted rule's counts and counterexamples are unchanged; the primary and
+`junction:*:orientation_index` rules lose two stock-control successes to the
+`Invert` correction, which is the defect the reviewed head had.

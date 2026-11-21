@@ -10,27 +10,53 @@ The question is deliberately narrow: given one literal-boundary request
 `PathManager.CreatePath` with Train/All/laneTypes(Vehicle, TransportVehicle,
 CargoVehicle)/seed 857/maxLength 100000, was a complete path returned?
 
+Corrected domain (v2). The model consumes only Train-capable records:
+
+* a segment is in the graph only when it has at least one Train lane of an
+  accepted lane type, and only those lanes are traversable or continuable;
+* a requested lane must be one of them;
+* segment `Invert` swaps the required travel bit, following the accepted
+  native planner (`cs1_harness/rail_study.py`: `forward = (offset == 0) ==
+  source; if Invert: forward = not forward`). Lane indexes are never renumbered.
+
 The model is a directed reachability rule over `(segment, lane, node)` states.
-It differs between rules in three named choices, each an unobservable native
-junction fact rather than something assumed:
+Three unobservable native choices stay named hypotheses:
 
 * `PAIRINGS` - which lane of one segment continues onto which lane of another
-  segment at a shared node.
-* `UTURNS` - whether a train may reverse inside one node.
-* `JUNCTIONS` - which incident segment pairs a node connects at all. `all`
-  connects every pair (the upper bound). `continuation` connects only a
-  disjoint best-aligned pairing, as if the track can only pass straight through
-  a branching node. `single` connects only the single straightest pair.
+  segment at a shared node, counted by ordinal among the segment's Train lanes.
+* `UTURNS` - whether a train may reverse inside one node. A reversal is a
+  self-pair `(segment, segment)` at the node, so it must exist in the partner
+  map before the reversal branches can mean anything.
+* `JUNCTIONS` - which incident segment pairs a node connects at all. When a
+  junction's straightest candidates tie to within `TIE_TOLERANCE_DEGREES`, every
+  resolution is represented, so segment allocation ids never break a tie. A
+  query is `success` or `no_path` only when every resolution agrees, and
+  `abstain` when they disagree or the enumeration bound is exceeded.
+
+Length is the sum of segment chords, a lower bound on the native curve length.
+It is relaxed shortest-first, never checked only at the goal, and a path whose
+lower bound exceeds the protocol maximum is never a success.
 """
 
 from __future__ import annotations
 
+import heapq
+import itertools
 import math
-from collections import deque
+
+import topology
 
 SUCCESS = "success"
 NO_PATH = "no_path"
 ABSTAIN = "abstain"
+
+MODEL_VERSION = "rail-query-model-v2-corrected"
+
+# Two junction candidates closer than this (degrees) are a tie, and the tie is
+# resolved by representing every resolution rather than by comparing ids.
+TIE_TOLERANCE_DEGREES = 1e-6
+# Bound on the number of junction resolutions carried through one query.
+MAX_ALTERNATIVES = 32
 
 # A lane-continuation hypothesis. `orientation_*` uses the node role of the two
 # segments: at a shared node a segment can arrive at its start, its end, both or
@@ -39,13 +65,13 @@ ABSTAIN = "abstain"
 PAIRINGS = {
     # Every Train lane continues onto every Train lane at a node. This is the
     # upper bound: it makes reachability equal to weak component membership.
-    "any_lane": "all lane pairs continue",
-    # The same lane index continues (lane 0 -> lane 0, lane 1 -> lane 1).
-    "index_same": "lane i continues onto lane i",
-    # The mirrored index continues (lane 0 -> 1, 1 -> 0).
-    "index_mirror": "lane i continues onto lane n-1-i",
-    # Primary: lane index tracks the physical lateral side. Segments whose
-    # travel headings agree at the node (one starts, one ends) keep the index;
+    "any_lane": "all Train lane pairs continue",
+    # The same lane ordinal continues (first Train lane -> first Train lane).
+    "index_same": "Train lane ordinal i continues onto ordinal i",
+    # The mirrored ordinal continues (first -> last).
+    "index_mirror": "Train lane ordinal i continues onto ordinal n-1-i",
+    # Primary: lane ordinal tracks the physical lateral side. Segments whose
+    # travel headings agree at the node (one starts, one ends) keep the ordinal;
     # segments whose headings oppose (both start, or both end) mirror it.
     "orientation_index": "i at a mixed node, n-1-i at a same-sided node",
     # Complement of the primary, for the opposite lateral-order convention.
@@ -67,31 +93,21 @@ JUNCTIONS = {
 }
 
 BASELINES = ["always_fail", "always_candidate", "weak_component"]
-# The pre-registered topology-only family. Rule names are frozen: they were
-# scored before any junction rule existed.
+# The topology-only family. Rule names are frozen from the first freeze.
 LANE_RULES = [f"lane:{pairing}:{uturn}" for pairing in PAIRINGS for uturn in UTURNS]
-# The junction family. Added after the first family failed to separate observed
-# successes from observed failures; every member is reported, none is promoted.
+# The junction family, also frozen from the first freeze.
 JUNCTION_RULES = [
     f"junction:{junction}:{pairing}"
     for junction in ("continuation", "single")
     for pairing in PAIRINGS
 ]
 RULES = BASELINES + LANE_RULES + JUNCTION_RULES
-# Chosen before any prediction was scored, from the physical argument in the
-# module docstring and README: lateral side is preserved across a node, which is
-# `orientation_index`, and the frozen protocol never relies on a reversal.
+# Chosen before any prediction was scored in the first freeze.
 PRIMARY_RULE = "lane:orientation_index:forbidden"
-# The straightest-continuation junction rule with the any-lane continuation is
-# the best fitting export-only member. It is a hypothesis: it was selected after
-# the first family was scored, and the study makes no adoption claim. For a
-# single-track two-lane railway the lane index is a direction record on one
-# physical track, so "any lane continues" is also the physically motivated
-# reading; the junction pairing is what does the discriminating.
+# Best fitting member of the junction family; a hypothesis, not an adopted rule.
 FITTED_RULE = "junction:continuation:any_lane"
 
-# The frozen protocol's own maximum path length. Chord sums are a lower bound on
-# the native curve length, so the bound can only abstain on a lower bound.
+# The frozen protocol's own maximum path length.
 MAX_LENGTH = 100000.0
 
 
@@ -113,24 +129,28 @@ def parse_rule(rule):
     raise ValueError(f"unknown rule {rule}")
 
 
+def train_lanes(segment):
+    """The segment's Train-capable lanes, in prefab order."""
+    return topology.train_lanes(segment)
+
+
 def train_index(package):
     """Train-capable segments and the incident Train segments of each node."""
     segments = {
         segment_id: segment
         for segment_id, segment in package["segments"].items()
-        if any(lane for lane in segment["lanes"])
+        if train_lanes(segment)
     }
     incident = {}
     for segment_id, segment in segments.items():
-        for node in (segment["start"], segment["end"]):
+        for node in dict.fromkeys((segment["start"], segment["end"])):
             incident.setdefault(node, []).append(segment_id)
     return segments, incident
 
 
 def weak_components(package):
     """Undirected Train-segment components, returned as a node -> label map."""
-    _, incident = train_index(package)
-    segments = package["segments"]
+    segments, incident = train_index(package)
     labels = {}
     for start in incident:
         if start in labels:
@@ -157,33 +177,58 @@ def other_node(segment, node):
     return segment["end"] if segment["start"] == node else segment["start"]
 
 
+def effective_forward(segment, node):
+    """Is travel away from `node` forward once segment Invert is applied?"""
+    forward = node == segment["start"]
+    if "Invert" in segment["flags"]:
+        forward = not forward
+    return forward
+
+
 def can_travel(segment, lane, node):
     """Can this lane be used to move away from `node` to the segment's far end?"""
-    if node == segment["start"]:
-        return lane["forward"]
-    if node == segment["end"]:
-        return lane["backward"]
-    raise ValueError("node is not an end of the segment")
+    if node not in (segment["start"], segment["end"]):
+        raise ValueError("node is not an end of the segment")
+    return lane["forward"] if effective_forward(segment, node) else lane["backward"]
 
 
 def lane_at(segment, index):
-    for lane in segment["lanes"]:
+    for lane in train_lanes(segment):
         if lane["index"] == int(index):
             return lane
     return None
 
 
+def lane_ordinal(segment, index):
+    for ordinal, lane in enumerate(train_lanes(segment)):
+        if lane["index"] == int(index):
+            return ordinal
+    return None
+
+
 def continues(pairing, source, target, node, lane_index):
-    """Whether lane `lane_index` of `source` continues onto a lane of `target`."""
-    target_lanes = len(target["lanes"])
-    if lane_index >= target_lanes:
+    """Raw indexes of `target`'s Train lanes that `lane_index` continues onto."""
+    source_ordinal = lane_ordinal(source, lane_index)
+    if source_ordinal is None:
+        return ()
+    target_lanes = train_lanes(target)
+    if not target_lanes:
         return ()
     if pairing == "any_lane":
-        return tuple(lane["index"] for lane in target["lanes"])
+        return tuple(lane["index"] for lane in target_lanes)
     if pairing == "index_same":
-        return (lane_index,)
+        return (
+            (target_lanes[source_ordinal]["index"],)
+            if source_ordinal < len(target_lanes)
+            else ()
+        )
     if pairing == "index_mirror":
-        return (target_lanes - 1 - lane_index,)
+        ordinal = len(target_lanes) - 1 - source_ordinal
+        return (
+            (target_lanes[ordinal]["index"],)
+            if 0 <= ordinal < len(target_lanes)
+            else ()
+        )
     same_side = (source["start"] == node and target["start"] == node) or (
         source["end"] == node and target["end"] == node
     )
@@ -193,7 +238,8 @@ def continues(pairing, source, target, node, lane_index):
         mirrored = not same_side
     else:  # pragma: no cover - parse_rule guards this
         raise ValueError(f"unknown pairing {pairing}")
-    return (target_lanes - 1 - lane_index if mirrored else lane_index,)
+    ordinal = len(target_lanes) - 1 - source_ordinal if mirrored else source_ordinal
+    return (target_lanes[ordinal]["index"],) if 0 <= ordinal < len(target_lanes) else ()
 
 
 def chord(segment):
@@ -218,68 +264,118 @@ def turn_degrees(package, node, source_id, target_id):
     return math.degrees(math.acos(cosine))
 
 
-def node_partners(package, incident, junction):
-    """Directed (source, target) segment pairs this junction rule connects."""
-    partners = {}
+def _continuation_matchings(package, node, segment_ids):
+    """Every greedy straightest-first matching, all tie resolutions included.
+
+    Returns None when the number of resolutions exceeds `MAX_ALTERNATIVES`,
+    which the caller reports as an unresolved junction rather than guessing.
+    """
+    results = []
+    seen = set()
+    truncated = False
+
+    def record(chosen):
+        signature = frozenset(chosen)
+        if signature not in seen:
+            seen.add(signature)
+            results.append(signature)
+
+    def step(remaining, chosen):
+        nonlocal truncated
+        if truncated:
+            return
+        if len(remaining) < 2:
+            record(chosen)
+            if len(results) > MAX_ALTERNATIVES:
+                truncated = True
+            return
+        turns = []
+        for index, a in enumerate(remaining):
+            for b in remaining[index + 1 :]:
+                turns.append((turn_degrees(package, node, a, b), a, b))
+        best = min(turn for turn, _, _ in turns)
+        group = [(a, b) for turn, a, b in turns if turn - best <= TIE_TOLERANCE_DEGREES]
+        for a, b in group:
+            step([item for item in remaining if item not in (a, b)], chosen + [(a, b)])
+            if truncated:
+                return
+
+    step(list(segment_ids), [])
+    if truncated:
+        return None
+    return results
+
+
+def _node_alternatives(package, incident, junction, uturn):
+    """One or more partner maps, or None when a junction has no unique reading."""
+
+    def reversals_for(unique):
+        return {(a, a) for a in unique} if uturn != "forbidden" else set()
+
+    alternatives_per_node = {}
     for node, segment_ids in incident.items():
-        unique = sorted(set(segment_ids))
-        pairs = []
+        unique = list(dict.fromkeys(segment_ids))
+        reversals = reversals_for(unique)
         if junction == "all":
-            pairs = [(a, b) for a in unique for b in unique if a != b]
-        elif len(unique) >= 2:
-            candidates = sorted(
+            pairs = {(a, b) for a in unique for b in unique if a != b}
+            alternatives_per_node[node] = [pairs | reversals]
+            continue
+        if len(unique) < 2:
+            alternatives_per_node[node] = [reversals]
+            continue
+        if junction == "single":
+            turns = sorted(
                 (turn_degrees(package, node, a, b), a, b)
                 for index, a in enumerate(unique)
                 for b in unique[index + 1 :]
             )
-            if junction == "single":
-                pairs = [(candidates[0][1], candidates[0][2])]
-            elif junction == "continuation":
-                used = set()
-                for _, a, b in candidates:
-                    if a in used or b in used:
-                        continue
-                    used.update((a, b))
-                    pairs.append((a, b))
-            else:  # pragma: no cover - JUNCTIONS guards this
-                raise ValueError(f"unknown junction {junction}")
-        partners[node] = set(pairs) | {(b, a) for a, b in pairs}
+            best = turns[0][0]
+            alternatives_per_node[node] = [
+                {(a, b), (b, a)} | reversals
+                for turn, a, b in turns
+                if turn - best <= TIE_TOLERANCE_DEGREES
+            ]
+            continue
+        matchings = _continuation_matchings(package, node, unique)
+        if matchings is None:
+            return None
+        alternatives_per_node[node] = [
+            {(a, b) for a, b in matching} | {(b, a) for a, b in matching} | reversals
+            for matching in matchings
+        ]
+    nodes = sorted(alternatives_per_node)
+    total = 1
+    for node in nodes:
+        total *= max(1, len(alternatives_per_node[node]))
+        if total > MAX_ALTERNATIVES:
+            return None
+    partners = []
+    for combination in itertools.product(
+        *(alternatives_per_node[node] for node in nodes)
+    ):
+        partners.append(dict(zip(nodes, combination)))
     return partners
 
 
-def reachable(package, request, pairing, uturn, junction="all", max_length=MAX_LENGTH):
-    """Directed reachability from the request's from-position to its to-position.
+def _lookup(segments, request, side):
+    segment_id, lane_index = int(request[side][0]), int(request[side][1])
+    segment = segments.get(segment_id)
+    if segment is None:
+        raise LookupError(f"segment {segment_id} is not Train-capable here")
+    lane = lane_at(segment, lane_index)
+    if lane is None:
+        raise LookupError(f"segment {segment_id} has no Train lane {lane_index}")
+    return segment, lane
 
-    Returns (SUCCESS or NO_PATH, detail dict). Raises LookupError when the
-    request names a node, segment or lane the package does not have, which the
-    caller reports as ABSTAIN rather than as a failure.
 
-    States are (segment, lane, node, arrived): `arrived` is True when the state
-    was reached by travelling along that segment's lane to `node`, and False
-    when it was reached by continuing from another lane at `node`. A lane is
-    only entered by a traversal, so the path alternates continue/travel and no
-    chain of continues can cross a node without using its pairing rule.
-    """
-    segments, incident = train_index(package)
-    partners = node_partners(package, incident, junction)
-    source_id, source_lane_index, source_offset = (int(v) for v in request["from"])
-    target_id, target_lane_index, target_offset = (int(v) for v in request["to"])
-
-    def lookup(segment_id, lane_index):
-        segment = segments.get(segment_id)
-        if segment is None:
-            raise LookupError(f"segment {segment_id} is not Train-capable here")
-        lane = lane_at(segment, lane_index)
-        if lane is None:
-            raise LookupError(f"segment {segment_id} has no lane {lane_index}")
-        return segment, lane
-
-    source, source_lane = lookup(source_id, source_lane_index)
-    target, target_lane = lookup(target_id, target_lane_index)
-    start = endpoint_node(source, source_offset)
-    finish = endpoint_node(target, target_offset)
-    if start not in package["nodes"] or finish not in package["nodes"]:
-        raise LookupError("request endpoint node is absent from the package")
+def _reach(segments, incident, partners, request, pairing, uturn, max_length):
+    """Directed reachability under one junction resolution, shortest lower bound."""
+    source, source_lane = _lookup(segments, request, "from")
+    target, target_lane = _lookup(segments, request, "to")
+    start = endpoint_node(source, request["from"][2])
+    finish = endpoint_node(target, request["to"][2])
+    if start not in partners or finish not in partners:
+        raise LookupError("request endpoint node is absent from the Train graph")
     if not can_travel(source, source_lane, start):
         return NO_PATH, {"reason": "source_lane_cannot_leave_node"}
     # Arriving at the target node means travelling along the target lane from
@@ -287,18 +383,25 @@ def reachable(package, request, pairing, uturn, junction="all", max_length=MAX_L
     if not can_travel(target, target_lane, other_node(target, finish)):
         return NO_PATH, {"reason": "target_lane_cannot_reach_node"}
 
-    first = (source_id, source_lane_index, other_node(source, start), True)
-    distance = {first: chord(source)}
-    seen = {first}
-    queue = deque([first])
-    goal = (target_id, target_lane_index, finish, True)
+    first = (source["id"], source_lane["index"], other_node(source, start), True)
+    opening = chord(source)
+    if opening > max_length:
+        return NO_PATH, {"reason": "path_lower_bound_exceeds_max_length"}
+    goal = (target["id"], target_lane["index"], finish, True)
+    best = {first: opening}
+    queue = [(opening, first)]
     while queue:
-        segment_id, lane_index, node, arrived = queue.popleft()
-        length = distance[(segment_id, lane_index, node, arrived)]
+        length, state = heapq.heappop(queue)
+        if length > best.get(state, math.inf):
+            continue
+        if length > max_length:
+            continue
+        segment_id, lane_index, node, arrived = state
         segment = segments[segment_id]
         lane = lane_at(segment, lane_index)
+        if arrived and state == goal:
+            return SUCCESS, {"path_lower_bound_length": length}
         if arrived:
-            # Continue at this node; `uturn` may allow the same segment.
             degree = len(incident[node])
             for neighbour_id in incident[node]:
                 if neighbour_id == segment_id and uturn == "forbidden":
@@ -311,27 +414,51 @@ def reachable(package, request, pairing, uturn, junction="all", max_length=MAX_L
                 for next_index in continues(
                     pairing, segment, neighbour, node, lane_index
                 ):
-                    next_lane = lane_at(neighbour, next_index)
-                    if next_lane is None:
+                    if lane_at(neighbour, next_index) is None:
                         continue
-                    state = (neighbour_id, next_index, node, False)
-                    if state in seen:
-                        continue
-                    seen.add(state)
-                    distance[state] = length
-                    queue.append(state)
+                    next_state = (neighbour_id, next_index, node, False)
+                    if length < best.get(next_state, math.inf):
+                        best[next_state] = length
+                        heapq.heappush(queue, (length, next_state))
         else:
-            # Travel this lane away from the node.
             far = other_node(segment, node)
-            if can_travel(segment, lane, node) and length <= max_length:
-                state = (segment_id, lane_index, far, True)
-                if state not in seen:
-                    seen.add(state)
-                    distance[state] = length + chord(segment)
-                    queue.append(state)
-    if goal in seen:
-        return SUCCESS, {"path_lower_bound_length": distance[goal]}
-    return NO_PATH, {"reason": "no_directed_lane_path"}
+            if not can_travel(segment, lane, node):
+                continue
+            next_length = length + chord(segment)
+            if next_length > max_length:
+                continue
+            next_state = (segment_id, lane_index, far, True)
+            if next_length < best.get(next_state, math.inf):
+                best[next_state] = next_length
+                heapq.heappush(queue, (next_length, next_state))
+    return NO_PATH, {"reason": "no_directed_lane_path_within_max_length"}
+
+
+def reachable(package, request, pairing, uturn, junction="all", max_length=MAX_LENGTH):
+    """Directed reachability, combining every unresolved junction resolution."""
+    segments, incident = train_index(package)
+    resolutions = _node_alternatives(package, incident, junction, uturn)
+    if resolutions is None:
+        return ABSTAIN, {"reason": "ambiguous_junction_pairing"}
+    outcomes = [
+        _reach(segments, incident, partners, request, pairing, uturn, max_length)
+        for partners in resolutions
+    ]
+    predictions = {prediction for prediction, _ in outcomes}
+    if len(predictions) == 1:
+        prediction = predictions.pop()
+        if prediction == SUCCESS:
+            detail = min(
+                (detail for result, detail in outcomes if result == SUCCESS),
+                key=lambda detail: detail["path_lower_bound_length"],
+            )
+            return SUCCESS, detail
+        return NO_PATH, outcomes[0][1]
+    return ABSTAIN, {
+        "reason": "ambiguous_junction_pairing",
+        "resolutions": len(resolutions),
+        "outcomes": sorted(predictions),
+    }
 
 
 def predict(package, request, rule):

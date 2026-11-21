@@ -37,6 +37,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 MAP_FACTORY = HERE.parents[1]
 CAPABILITY = HERE.parent
+# The reviewed head's bridge report is preserved at the prefix root; the
+# corrected audit is written beside it.
+OUTPUT = HERE / "corrected"
 sys.path.insert(0, str(MAP_FACTORY))
 
 import netcodec as nc  # noqa: E402
@@ -355,6 +358,64 @@ def compare(built, native, train_only=False):
     return counts, {key: value for key, value in failures.items()}
 
 
+def model_input_digest(package):
+    """Canonical digest of exactly the records and fields the model consumes.
+
+    The model's domain is `model.train_index`: Train-capable segments and the
+    nodes incident to them. This digest covers segment identity, endpoints,
+    prefab, the Invert predicate, every Train lane's index/direction/type/
+    vehicle/category, and each incident node's Outside predicate and position,
+    so a bridge that merely passes a Train-only field sample cannot pass.
+    """
+    segments, _ = model.train_index(package)
+    rows = []
+    for segment_id in sorted(segments):
+        segment = segments[segment_id]
+        lanes = tuple(
+            sorted(
+                (
+                    lane["index"],
+                    lane["forward"],
+                    lane["backward"],
+                    lane["lane_type"],
+                    tuple(lane["vehicle"]),
+                    lane["category"],
+                )
+                for lane in model.train_lanes(segment)
+            )
+        )
+        rows.append(
+            (
+                "segment",
+                segment_id,
+                segment["start"],
+                segment["end"],
+                segment["prefab"],
+                "Invert" in segment["flags"],
+                lanes,
+            )
+        )
+    nodes = set()
+    for segment in segments.values():
+        nodes.update((segment["start"], segment["end"]))
+    for node_id in sorted(nodes):
+        node = package["nodes"][node_id]
+        rows.append(
+            (
+                "node",
+                node_id,
+                "Outside" in node["flags"],
+                tuple(round(value, 6) for value in node["position"]),
+            )
+        )
+    encoded = json.dumps(rows, sort_keys=True, default=str).encode()
+    return {
+        "sha256": hashlib.sha256(encoded).hexdigest(),
+        "segments": len(segments),
+        "nodes": len(nodes),
+    }
+
+
 def selected_requests(plan):
     return [
         request
@@ -422,6 +483,8 @@ def main():
         built = bridge_package(net, catalogs)
         counts, failures = compare(built, native, train_only=True)
         totals.update(counts)
+        native_digest = model_input_digest(native)
+        bridge_digest = model_input_digest(built)
         requests = selected_requests(load_json(raw_dir / "query-freeze.json.gz"))
         same = 0
         for request in requests:
@@ -445,6 +508,13 @@ def main():
             "field_checks": dict(counts),
             "field_failures": failures,
             "all_records": dict(compare(built, native, train_only=False)[0]),
+            "model_domain": {
+                "native_sha256": native_digest["sha256"],
+                "bridge_sha256": bridge_digest["sha256"],
+                "identical": native_digest == bridge_digest,
+                "segments": native_digest["segments"],
+                "nodes": native_digest["nodes"],
+            },
         }
 
     # Leave-one-package-out: rebuild both catalogs from the other ten packages,
@@ -505,10 +575,14 @@ def main():
         and row["invert_agree"] == row["invert_checked"]
         for row in loo.values()
     )
+    domain_ok = all(
+        package["model_domain"]["identical"] for package in report["packages"].values()
+    )
     established = (
         all(fields[field]["rate"] == 1.0 for field in MODEL_FIELDS)
         and agreement["queries"] == agreement["identical"]
         and loo_ok
+        and domain_ok
     )
     report.update(
         {
@@ -517,6 +591,14 @@ def main():
             "prediction_agreement": agreement,
             "prediction_disagreements": disagreements,
             "leave_one_package_out": loo,
+            "model_input_domain": {
+                "definition": "model.train_index segments and their incident nodes: id, endpoints, prefab, Invert, Train lane index/direction/type/vehicle/category, node Outside and position",
+                "digests_identical": domain_ok,
+                "segments": sum(
+                    package["model_domain"]["segments"]
+                    for package in report["packages"].values()
+                ),
+            },
             "status": "bridge_established" if established else "native_snapshot_only",
             "status_note": (
                 "Every model-used field is readable from the saved export: segment identity, endpoints, prefab, "
@@ -528,11 +610,12 @@ def main():
         }
     )
     if args.check:
-        frozen = json.loads((HERE / "bridge.json").read_text())
+        frozen = json.loads((OUTPUT / "bridge.json").read_text())
         for key in (
             "fields",
             "prediction_agreement",
             "leave_one_package_out",
+            "model_input_domain",
             "status",
         ):
             if frozen[key] != report[key]:
@@ -542,12 +625,13 @@ def main():
                 {
                     "checked": True,
                     "status": report["status"],
-                    "bridge_sha256": file_digest(HERE / "bridge.json"),
+                    "bridge_sha256": file_digest(OUTPUT / "bridge.json"),
                 }
             )
         )
         return
-    (HERE / "catalogs.json").write_text(
+    OUTPUT.mkdir(exist_ok=True)
+    (OUTPUT / "catalogs.json").write_text(
         json.dumps(
             {
                 "schema": 1,
@@ -587,7 +671,7 @@ def main():
         )
         + "\n"
     )
-    (HERE / "bridge.json").write_text(
+    (OUTPUT / "bridge.json").write_text(
         json.dumps(report, indent=2, sort_keys=True) + "\n"
     )
     print(
@@ -596,7 +680,7 @@ def main():
                 "status": report["status"],
                 "fields": {key: value["rate"] for key, value in fields.items()},
                 "prediction_agreement": agreement["queries"] - agreement["identical"],
-                "bridge_sha256": file_digest(HERE / "bridge.json"),
+                "bridge_sha256": file_digest(OUTPUT / "bridge.json"),
             }
         )
     )

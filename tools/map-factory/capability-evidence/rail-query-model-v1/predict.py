@@ -20,6 +20,19 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 CAPABILITY = HERE.parent
+# The reviewed head 97e0038 froze its artifacts at the prefix root. They are
+# preserved byte-for-byte; this corrected v2 freeze is written beside them.
+OUTPUT = HERE / "corrected"
+CORRECTED_FREEZE = "rail-query-model-v2-corrected"
+REVIEWED_HEAD = "97e00389f4ad0eb30aa1ff1d775876c87f4ab27c"
+REVIEWED_ARTIFACTS = {
+    "protocol.json": "1c736e72800d7d469d337be94f2588a366f9772a067e8a0b366cc7e57399699b",
+    "predictions.json": "2b7a0b0b6304a6bbf7010141cdb553a79909e2e83505a7c54442dc68155ea74d",
+    "evaluation.json": "1e345edcd5c2759b107847f5433308bd50de675e26cfb39921ffcad1ad455533",
+    "bridge.json": "cc1794b78600ca482528627d41a883a364e3ff93eef7f0251895116cc8fd711d",
+    "catalogs.json": "f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0",
+    "integrity.json": "8ce8c9bef003b998d6948d6afb9b5af84e9f81d3882c0c24fe2b3f0fe9228253",
+}
 
 
 def digest(data):
@@ -66,7 +79,14 @@ def freeze_protocol(openings, packages):
     import model
 
     return {
-        "schema": 1,
+        "schema": 2,
+        "freeze": CORRECTED_FREEZE,
+        "corrects": {
+            "reviewed_head": REVIEWED_HEAD,
+            "review": "changes requested on PR81 with constructed domain, tie, reversal, length and binding defects",
+            "artifacts_preserved_at_prefix_root": REVIEWED_ARTIFACTS,
+        },
+        "model_version": model.MODEL_VERSION,
         "frozen_at": datetime.datetime.now(datetime.UTC).isoformat(),
         "study": "rail-query-model-v1",
         "scope": "retrospective query-scoped rail reachability over the frozen PL-1215 native study",
@@ -168,7 +188,14 @@ def build(openings, packages, write):
                 }
             )
     document = {
-        "schema": 1,
+        "schema": 2,
+        "freeze": CORRECTED_FREEZE,
+        "supersedes": {
+            "head": REVIEWED_HEAD,
+            "protocol_sha256": REVIEWED_ARTIFACTS["protocol.json"],
+            "predictions_sha256": REVIEWED_ARTIFACTS["predictions.json"],
+        },
+        "model_version": model.MODEL_VERSION,
         "frozen_at": protocol["frozen_at"],
         "protocol_sha256": digest(encoded(protocol)),
         "sources": sources(),
@@ -179,8 +206,9 @@ def build(openings, packages, write):
         "queries": queries,
     }
     if write:
-        (HERE / "protocol.json").write_bytes(encoded(protocol))
-        (HERE / "predictions.json").write_bytes(encoded(document))
+        OUTPUT.mkdir(exist_ok=True)
+        (OUTPUT / "protocol.json").write_bytes(encoded(protocol))
+        (OUTPUT / "predictions.json").write_bytes(encoded(document))
     return protocol, document
 
 
@@ -202,7 +230,7 @@ def main():
             raise SystemExit(f"package {key}: bytes differ from the frozen SHA-256")
     protocol, document = build(openings, packages, not args.check)
     if args.check:
-        frozen = json.loads((HERE / "predictions.json").read_text())
+        frozen = json.loads((OUTPUT / "predictions.json").read_text())
         if frozen["queries"] != document["queries"]:
             raise SystemExit(
                 "predictions are not reproducible from the current sources"
@@ -213,7 +241,7 @@ def main():
                     "checked": True,
                     "queries": len(document["queries"]),
                     "rules": len(document["rules"]),
-                    "predictions_sha256": file_digest(HERE / "predictions.json"),
+                    "predictions_sha256": file_digest(OUTPUT / "predictions.json"),
                 }
             )
         )
@@ -224,7 +252,7 @@ def main():
                 "queries": len(document["queries"]),
                 "rules": len(document["rules"]),
                 "protocol_sha256": document["protocol_sha256"],
-                "predictions_sha256": file_digest(HERE / "predictions.json"),
+                "predictions_sha256": file_digest(OUTPUT / "predictions.json"),
             }
         )
     )
