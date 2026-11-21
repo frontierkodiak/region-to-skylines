@@ -1,0 +1,212 @@
+{
+  "schema": 1,
+  "version": "PL-1191-panel-v1",
+  "selection": "Twelve fixed anchors: one inland setting and one coast per world region; SHA256 offsets within +/-3 km. Frozen before any exporter change or input fetch. No replacement, per-square repair, or outcome-based exclusion.",
+  "estimand": "Gross construction failures on this purposive panel, not global safety or rare-failure prevalence. Six coasts, two dry uplands, two mountain rivers, one lowland river and one lake.",
+  "squares": [
+    {
+      "stratum": "dry_upland",
+      "world_region": "north_america",
+      "anchor_lat": 40.5,
+      "anchor_lon": -116.6,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "stable-dry-upland-north-america",
+        "name": "Stable water stable-dry-upland-north-america",
+        "lat": 40.50181462,
+        "lon": -116.63066944,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "south_america",
+      "anchor_lat": -32.8,
+      "anchor_lon": -70.2,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-mountain-river-south-america",
+        "name": "Stable water stable-mountain-river-south-america",
+        "lat": -32.81783234,
+        "lon": -70.20419804,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "europe",
+      "anchor_lat": 44.4,
+      "anchor_lon": 26.1,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-lowland-river-europe",
+        "name": "Stable water stable-lowland-river-europe",
+        "lat": 44.3945618,
+        "lon": 26.07171103,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "africa",
+      "anchor_lat": -14.0,
+      "anchor_lon": 34.9,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-lake-shore-africa",
+        "name": "Stable water stable-lake-shore-africa",
+        "lat": -14.01058578,
+        "lon": 34.91646393,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "dry_upland",
+      "world_region": "asia",
+      "anchor_lat": 46.5,
+      "anchor_lon": 103.5,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "stable-dry-upland-asia",
+        "name": "Stable water stable-dry-upland-asia",
+        "lat": 46.52608271,
+        "lon": 103.50837718,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "oceania",
+      "anchor_lat": -45.0,
+      "anchor_lon": 168.8,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-mountain-river-oceania",
+        "name": "Stable water stable-mountain-river-oceania",
+        "lat": -45.00216562,
+        "lon": 168.82937504,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "north_america",
+      "anchor_lat": 45.5,
+      "anchor_lon": -123.95,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-low-coast-north-america",
+        "name": "Stable water stable-low-coast-north-america",
+        "lat": 45.51624473,
+        "lon": -123.96129703,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "south_america",
+      "anchor_lat": -33.0,
+      "anchor_lon": -71.6,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-low-coast-south-america",
+        "name": "Stable water stable-low-coast-south-america",
+        "lat": -33.02475034,
+        "lon": -71.58853376,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "europe",
+      "anchor_lat": 43.5,
+      "anchor_lon": 16.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-low-coast-europe",
+        "name": "Stable water stable-low-coast-europe",
+        "lat": 43.50969893,
+        "lon": 16.37533668,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "africa",
+      "anchor_lat": -33.95,
+      "anchor_lon": 25.6,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-low-coast-africa",
+        "name": "Stable water stable-low-coast-africa",
+        "lat": -33.93714782,
+        "lon": 25.62482967,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "asia",
+      "anchor_lat": 18.5,
+      "anchor_lon": 109.0,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-low-coast-asia",
+        "name": "Stable water stable-low-coast-asia",
+        "lat": 18.52491621,
+        "lon": 109.00588141,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "oceania",
+      "anchor_lat": -35.0,
+      "anchor_lon": 117.9,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "stable-low-coast-oceania",
+        "name": "Stable water stable-low-coast-oceania",
+        "lat": -34.97635116,
+        "lon": 117.91752645,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    }
+  ]
+}
