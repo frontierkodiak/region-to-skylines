@@ -6,7 +6,6 @@
 // This reads the same 271-node (64 m) lattice as the capability grid: node
 // (r, c) sits at game metres x = (c - 135) * 64, z = (135 - r) * 64. It is not
 // the map writer: no CRP, no preparation, no tree plan.
-import { squareToLonLat } from "./terrain.js";
 import { roundTo } from "./capability-model.js";
 
 /** The capability grid's lattice, and the WorldCover document the writer uses. */
@@ -98,13 +97,22 @@ export async function requestDeposits(sq, { signal, fetchImpl = fetch } = {}) {
   }
 }
 
-/** Every lattice node's longitude and latitude, in the writer's own frame. */
+/**
+ * Every lattice node's longitude and latitude, in the writer's own frame.
+ *
+ * This is landcover.lonlat written without terrain.js: that module has bare
+ * package imports, and a module worker cannot resolve the page's import map.
+ * `test/capabilities.test.mjs` holds it equal to terrain.squareToLonLat.
+ */
 export function latticeLonLat(sq, size = PLACE_GRID.size) {
-  const half = ((size - 1) * PLACE_GRID.spacing_m) / 2;
+  const half = ((size - 1) * PLACE_GRID.spacing_m) / 2, a = 6378137, e2 = 0.00669437999014;
+  const w = 1 - e2 * Math.sin(sq.lat * RAD) ** 2, m = (a * (1 - e2)) / w ** 1.5, nc = (a / Math.sqrt(w)) * Math.cos(sq.lat * RAD);
+  const t = sq.rotation * RAD, cos = Math.cos(t), sin = Math.sin(t), scale = sq.scale * 180 / Math.PI;
   const lon = new Float64Array(size * size), lat = new Float64Array(size * size);
   for (let r = 0; r < size; r++) for (let c = 0; c < size; c++) {
-    const [lo, la] = squareToLonLat(sq, (c * PLACE_GRID.spacing_m - half) * sq.scale, (half - r * PLACE_GRID.spacing_m) * sq.scale);
-    lon[r * size + c] = lo; lat[r * size + c] = la;
+    const east = (c * PLACE_GRID.spacing_m - half) * scale, north = (half - r * PLACE_GRID.spacing_m) * scale;
+    lon[r * size + c] = sq.lon + (east * cos + north * sin) / nc;
+    lat[r * size + c] = sq.lat + (-east * sin + north * cos) / m;
   }
   return { lon, lat };
 }

@@ -4,7 +4,8 @@ import { readFileSync } from "node:fs";
 import { checkCapabilities, measureStockMetrics, networkAccess, shipCorridor, stockBand, stockComparison, STOCK_MEASURES } from "../capability-model.js";
 import { validateLedger, ledgerPage, stockReference, agreementByOracle } from "../capability-ledger.mjs";
 import { estimateInputs } from "../capability-inputs.js";
-import { parseMrdsXml, requestDeposits } from "../capability-evidence.js";
+import { latticeLonLat, parseMrdsXml, PLACE_GRID, requestDeposits } from "../capability-evidence.js";
+import { squareToLonLat } from "../terrain.js";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const ledger = JSON.parse(readFileSync(new URL("../capabilities.json", import.meta.url)));
@@ -340,4 +341,22 @@ test("the ledger page carries the place measures, sources and fidelity", () => {
   const empty = structuredClone(ledger);
   empty.capabilities.find((c) => c.id === "resources").evidence_metrics = {};
   assert.throws(() => validateLedger(empty), /Empty evidence metrics/);
+});
+
+test("the worker lattice matches the page's square transform", () => {
+  // The worker cannot use the page's import map, so capability-evidence.js
+  // carries landcover.lonlat itself. This pins it to terrain.squareToLonLat.
+  const half = ((PLACE_GRID.size - 1) * PLACE_GRID.spacing_m) / 2;
+  for (const sq of [
+    { lon: -71.057, lat: 42.36, rotation: 0, scale: 1 },
+    { lon: 139.7, lat: 35.68, rotation: 33, scale: 1.5 },
+    { lon: -43.17, lat: -22.91, rotation: -90, scale: 0.5 },
+  ]) {
+    const { lon, lat } = latticeLonLat(sq);
+    for (const [r, c] of [[0, 0], [3, 7], [135, 135], [270, 270]]) {
+      const [expectedLon, expectedLat] = squareToLonLat(sq, (c * PLACE_GRID.spacing_m - half) * sq.scale, (half - r * PLACE_GRID.spacing_m) * sq.scale);
+      assert.ok(Math.abs(lon[r * PLACE_GRID.size + c] - expectedLon) < 1e-12, `lon ${r},${c}`);
+      assert.ok(Math.abs(lat[r * PLACE_GRID.size + c] - expectedLat) < 1e-12, `lat ${r},${c}`);
+    }
+  }
 });

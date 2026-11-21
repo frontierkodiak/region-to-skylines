@@ -63,7 +63,7 @@ try {
         export async function captureEstimate(sq) {
           await new Promise((r) => setTimeout(r, sq.lat === 4 ? 1000 : 60));
           if (sq.lat === 3) throw new Error('constructed data failure');
-          const depth = new Array(total).fill(sq.lat === 1 ? 0 : 8);
+          const depth = new Array(total).fill(sq.lat === 1 || sq.lat === 6 ? 0 : 8);
           return { square:sq,
             input:{schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq, depth)},
             stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
@@ -104,21 +104,35 @@ try {
       await page.evaluate(() => window.capabilityProbe.update({ lat: 2, lon: 0 }));
       assert.equal(await page.locator('[data-capability="ship"]').getAttribute("data-level"), "likely");
       assert.match(await page.locator(".capability-detail").textContent(), /game's ship path/);
-      // A positive icon is only Maybe, and its detail names the land-cover
-      // measure and the recorded deposit separately from the export plan.
+      // This constructed square is all water, so trees cannot be judged while
+      // the recorded deposit still stands on its own.
       await page.locator('[data-capability="trees"]').focus();
-      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "likely");
-      assert.match(await page.locator(".capability-detail").textContent(), /Land cover, not the export's planted trees/);
-      assert.match(await page.locator(".capability-detail").textContent(), /WorldCover samples/);
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "unknown");
+      assert.match(await page.locator(".capability-detail").textContent(), /no dry land/);
       await page.locator('[data-capability="resources"]').focus();
       assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "likely");
       assert.match(await page.locator(".capability-detail").textContent(), /ore deposit recorded in the central tiles/);
       assert.match(await page.locator(".capability-detail").textContent(), /Records, not measured reserves/);
+      // A positive icon is only Maybe, and its detail names the land-cover
+      // measure separately from the export's planted trees.
+      await page.evaluate(() => window.capabilityProbe.update({ lat: 6, lon: 0 }));
+      await page.locator('[data-capability="trees"]').focus();
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "likely");
+      assert.match(await page.locator(".capability-detail").textContent(), /Land cover, not the export's planted trees/);
+      assert.match(await page.locator(".capability-detail").textContent(), /WorldCover samples/);
+      assert.match(await page.locator(".capability-detail").textContent(), /Tree cover on 100% of the central tiles/);
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "typical");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "700 m");
       await page.evaluate(() => window.capabilityProbe.update({ lat: 5, lon: 0 }));
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "above_p75");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "1200 m");
+      // Terrain loaded but land cover and deposits did not: Unknown, not No.
+      await page.locator('[data-capability="trees"]').focus();
+      assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "unknown");
+      assert.match(await page.locator(".capability-detail").textContent(), /Land cover could not be loaded/);
+      await page.locator('[data-capability="resources"]').focus();
+      assert.equal(await page.locator('[data-capability="resources"]').getAttribute("data-level"), "unknown");
+      assert.match(await page.locator(".capability-detail").textContent(), /Neither land cover nor deposits could be loaded/);
       await page.evaluate(() => window.capabilityProbe.reset());
       assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
       for (const id of ["trees", "resources"]) {
@@ -135,8 +149,7 @@ try {
       await page.evaluate(() => window.capabilityProbe.update({ lat: 3, lon: 0 }));
       assert.equal(await page.locator("[data-level=unknown]").count(), 8);
       assert.equal(await page.locator(".stock-row[data-state=unknown]").count(), 3, "a failed capture leaves no stock band behind");
-      await page.locator('[data-capability="trees"]').focus();
-      assert.match(await page.locator(".capability-detail").textContent(), /Land cover could not be loaded/);
+      assert.match(await page.locator('[data-capability="trees"]').getAttribute("title"), /Trees: unknown\. This square's data could not be loaded/);
       assert.match(await page.locator(".capability-status").textContent(), /unavailable/);
       assert.match(await page.locator(".capability-status").textContent(), /move the square to retry/);
       assert.ok(await page.locator(".capability-status").isVisible());
@@ -156,7 +169,7 @@ try {
       assert.match(await page.locator("#trees").textContent(), /Place evidence measures/);
       assert.match(await page.locator("#trees").textContent(), /Sources, coverage and fidelity/);
       assert.match(await page.locator("#resources").textContent(), /balanced ore\/oil top-up/i);
-      assert.match(await page.locator("#resources").textContent(), /A missing deposit record is not geographic absence/);
+      assert.match(await page.locator("#resources").textContent(), /Missing records are missing coverage, not absence/);
       await page.screenshot({ path: resolve(out, `${name}-ledger-phone.png`) });
       const item = { browser: name, version: browser.version(), synthetic_states: "pass", ledger_page: "pass", live: "not_run" };
       if (process.argv.includes("--live")) {
