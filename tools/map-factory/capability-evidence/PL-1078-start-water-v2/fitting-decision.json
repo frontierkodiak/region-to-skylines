@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "frozen_at": "2026-11-21T06:51:04.486208+00:00",
+  "decision": "Retain the unchanged provisional model and advance to the preregistered regional holdouts",
+  "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+  "snapshot_sha256": "fd3875416400e1d13cf94f3bd77a75e1c34da1f2ba5481a7ee5f7abec2679087",
+  "collector_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+  "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "fitting_summary": {
+    "start": {
+      "registered_squares": 8,
+      "positive_predictions": 3,
+      "agreed": 2,
+      "disagreed": 1,
+      "unscored_positive": 0,
+      "positive_witness_agreement": 0.6666666666666666
+    },
+    "water": {
+      "registered_squares": 8,
+      "positive_predictions": 3,
+      "agreed": 3,
+      "disagreed": 0,
+      "unscored_positive": 0,
+      "positive_witness_agreement": 1.0
+    }
+  },
+  "fitting_report": {
+    "path": "fitting-observations.json",
+    "sha256": "b6e0e9a0030063b72ac82073c458e4d013c65357d589cb82aa5e7860f7960a65"
+  },
+  "retained_failure": "Charleston start witness: final join link collided with an earlier grid step; not geographic incapability",
+  "held_out_native_seen": 0,
+  "holdout_scope": "Three fixed hash/offset regional squares; no global random-sample claim",
+  "no_change": [
+    "Model parameters and predictions",
+    "Original eight inputs and three selected holdouts",
+    "All physical CRPs, grids and resource plans",
+    "Qualified 4a4 player and PR58 first-hour verdict"
+  ],
+  "limits": [
+    "Fitting positive-witness agreement is not held-out or overall accuracy",
+    "Conditional native-unit finite-horizon water service, not population or indefinite capacity",
+    "No default, promise or public landing promotion"
+  ]
+}

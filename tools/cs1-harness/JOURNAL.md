@@ -3694,3 +3694,21 @@ continuous game-only peak. All6 actual panel/opening/Areas PNGs were viewed and
 hash-reviewed. Selected map/mod/cleanup receipt fields and lossless raw cycles
 are published with telemetry; private Steam/audio/launch logs are not.
 Pittsburgh water and every held-out native observation remain pending here.
+
+## PL-1078 fitting phase frozen before holdouts — 2026-11-21
+
+Pittsburgh water completed60.0047254 scored game-minutes with29 settling and843
+scored cycles,843000 water/sewage units and no shortfall, pollution, auxiliary
+or timing fault. Source83fa/DLLf916/modelBB unchanged; fixture qualified;
+cleanup empty. Native observed06:47:36.923687Z, controller4010.54s includes24.3min
+fair queue wait. Parent water batch collected exit0. GPU506samples, whole-card
+10821MiB/135.33W/62C; actual recorded200W cap unchanged, menu1574MiB not game-only
+peak. TelemetryNov21local01:06:28.486–01:48:50.191. All3 actual PNGs viewed and
+hash-reviewed, including retained dark bridge geometry patches.
+
+The completed fitting phase is start2/3 and water3/3 positive-witness agreement,
+not overall or held-out accuracy. All22 registered capability rows, every risk
+record and Charleston's self-plan collision remain in the static fitting report.
+At06:51:04.486208Z the fitting decision froze the unchanged provisional model
+before any registered holdout native run. No physical map, player, judge,
+default or promise changed. The following held-out phase cannot tune the model.
