@@ -1,5 +1,36 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1191 coastal short floor/transport observation
+
+One frozen15-minute diagnostic on unchanged all-intake-off package457905c4,
+full27386probes/167controls. Exact clean runtime0ec989d/DLL368955b1;
+no C#/driver/build change. Fair queue waited behind PL-1074; doctor passed
+after its own guarded wait. Offline/carbon/Steam guards retained. No shared
+config, power setting or another issue's work changed.
+
+Blade RTX2080Ti05:00.0; total peak10821/11264MiB, other-work baseline7974MiB,
+game menu1620MiB. Game-only continuous peak unmeasured; total-minus-baseline
+2847MiB is an estimate. Peak148.76W/57C, recorded limit200W unchanged.
+Simulation4.6wall minutes,15.150001game minutes; slot held about8m45s.
+Owned game1944013 required normal quit-grace termination; teardown receipt
+has no game/Steam/units. Subsequent shared holder PL-1239 was not touched.
+
+61study snapshots, zero missed slots, maximum gap0.338611min (requested0.25).
+All167full control tables match every sample; all four named water counters
+available. Actual full current floors share one hash, identical to old t000/
+t005. Targets equal current, raw terrain equals package. Forty native floor
+raises versus authored terrain are outside MainDrain/Bulimba source masks;
+these named features lose water while captured floors remain unchanged.
+Not between-sample stability, integrated flow or evaporation proof.
+
+Raw verdict FAIL on unreviewed startup views; ordinary water/flood gates pass
+this SHORT interval only. All60-minute primary acceptance remains incomplete/
+unknown; historical drying failures are untouched. Bridge/TypeLoad/raw visual
+failures retained despite advisory game-error pass. Loaded-image/JIT identity
+and runtime health remain unknown. No holdout/default/ledger/promise adoption.
+New map-factory observers:8focused tests/scopedRuff/format/diff passed before
+outcomes; unchanged harness broad/build checks carried, not repeated.
+
 ## 2026-11-21 — PL-1191 three frozen branched-channel native observations
 
 User authorized guarded measurement in parallel with preparation review;
