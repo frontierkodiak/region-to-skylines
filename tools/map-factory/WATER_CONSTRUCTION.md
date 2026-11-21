@@ -458,6 +458,51 @@ holdout prefilter. No stream CRP/native plan exists. The lake rate128 is not a
 flowing-water budget. See `stream-piece-freeze-v3.json` and phase-seven JSONs.
 Every product promise remains unknown; no default or capability-ledger adoption.
 
+## Exact stream-refusal witnesses
+
+`stream_witnesses.py` copies and replays the frozen stream protocols without
+changing their compiler, masks, geometry, inventories or probes. Every guarded
+node on each numeric-feasible graph is attributed to exact source clips or
+control/landing/corridor/mapped-water evidence, with the original fixed radius.
+Raw polyline distance is supplemental, not a replacement admission mask.
+
+The phase-seven collective "protection" shorthand was incomplete: **44** of
+South America's 45 numeric-feasible graphs contact foreign stream buffers;
+**four of those** also contact mapped water/corridors. The remaining graph,
+`stream-component:28` / `streams:145:clip:0`, has no such contact but reaches
+column1080: its full bank would leave the square. All45 remain refused.
+No mask is shrunk or refusal changed. Contact evidence covers255 graph/clip
+pairs. Of the44 buffer-contacting graphs,43 share exact captured vertices
+with explicit underground pieces;42 also approach a different surface source
+row. These categories overlap. All79 shared-vertex records are endpoints of
+the underground clips. This supports explicit mapped interface accounting,
+not known hydraulic connectivity, supply, geological identity or acceptance.
+No contact is another clipped fragment of the same captured source row.
+
+Asia has93 bound-violating nodes:83 already conflict with local exterior-bank
+limits,10 only after ancestor-stage propagation. Changing inferred direction
+alone cannot repair the83 local conflicts under the same node/bank model.
+The largest witness is streams:3 node[443,893], authored floor279.140625m,
+with untouched bank[442,892] at273.8125m. The bank-capped stage273.3125m
+would require6.828125m cut for1m depth, beyond the fixed3m. The largest
+propagation-only deficit is1.84375m along a five-node streams:5 path.
+
+All279 recorded Asian node/ancestor/limiting-bank records equal the rounded
+captured input; largest input rounding difference0.005184m and input-versus-
+captured-bank difference0.007796m. Exact geometry and authored-floor hashes
+match the retained fresh base. Later Python earthwork/scalar rounding do not
+explain these witnesses relative to captured inputs, which may already include
+browser fitting and are not independent raw DEM. This does not establish geographic
+impossibility: direction, nearest16m channel placement and exterior-bank model
+remain provisional. No older actual hydraulic-floor observation is used.
+
+See `stream-witness-freeze-v1.json` and `development/phase8-witness-summary.json`.
+All three protocols replay. Nine new behavioral tests and17 targeted stream
+tests pass; the unchanged271-test suite/one optional skip are carried forward,
+not rerun. No physical stream candidate, native trial, rate tuning, holdout
+access, default change, qualification or ledger adoption occurs in this tranche.
+Every supply/outlet/junction and product promise remains unresolved/unknown.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged

@@ -887,5 +887,23 @@
     "stream_admission": "unresolved",
     "stable_water_promise": "unknown",
     "holdout_inputs_accessed": false
+  },
+  "stream_refusal_witnesses": {
+    "freeze": "stream-witness-freeze-v1.json",
+    "summary": "development/phase8-witness-summary.json",
+    "south_numeric_profiles": 45,
+    "south_foreign_buffer_refusals": 44,
+    "south_infrastructure_also_refused": 4,
+    "south_boundary_only_refusals": 1,
+    "south_exact_vertex_underground_interfaces_graphs": 43,
+    "asia_violating_nodes": 93,
+    "asia_local_bound_conflicts": 83,
+    "asia_propagation_only_conflicts": 10,
+    "asia_largest_required_cut_m": 6.828125,
+    "asia_all_witness_records_equal_rounded_input": true,
+    "scope": "Authored quantized floor and provisional direction; no actual native-floor evidence or geographic-impossibility claim. Different source rows do not prove different hydraulic waterways. No masks changed.",
+    "stable_water_promise": "unknown",
+    "physical_package": null,
+    "native_observation": false
   }
 }

@@ -1,0 +1,24 @@
+{
+  "schema": "polli.pl1191-phase8-independent-replay-check/1",
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "exact_guard_node_sets_verified": 0,
+      "conditional_bound_certificates_verified": 93,
+      "protocol_replayed": true
+    },
+    {
+      "slug": "dry-upland-europe",
+      "exact_guard_node_sets_verified": 0,
+      "conditional_bound_certificates_verified": 1,
+      "protocol_replayed": true
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "exact_guard_node_sets_verified": 45,
+      "conditional_bound_certificates_verified": 2691,
+      "protocol_replayed": true
+    }
+  ],
+  "scope": "Independent code path within author run, NOT independent peer/native replication. No physical changes."
+}

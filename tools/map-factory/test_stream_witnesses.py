@@ -21,7 +21,8 @@ from stream_witnesses import (
     trace_bounds,
 )
 from test_maintained_water_inventory import coord, line
-from test_stream_construction import StreamProtocolTests, fixture
+import test_stream_construction as stream_fixture
+from test_stream_construction import fixture
 from waterway_pieces import catalog
 
 
@@ -171,12 +172,12 @@ class ContactWitnessTests(unittest.TestCase):
 class WitnessProtocolTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        StreamProtocolTests.setUpClass()
-        cls.addClassCleanup(StreamProtocolTests.temp.cleanup)
+        stream_fixture.StreamProtocolTests.setUpClass()
+        cls.addClassCleanup(stream_fixture.StreamProtocolTests.temp.cleanup)
         cls.temp = tempfile.TemporaryDirectory()
         cls.addClassCleanup(cls.temp.cleanup)
         cls.output = Path(cls.temp.name) / "witness"
-        stage(StreamProtocolTests.output, cls.output)
+        stage(stream_fixture.StreamProtocolTests.output, cls.output)
 
     def test_complete_frozen_protocol_is_retained_without_native_plan(self):
         preflight(self.output)
@@ -186,7 +187,7 @@ class WitnessProtocolTests(unittest.TestCase):
         self.assertFalse((self.output / "native-plan.json").exists())
         self.assertEqual(
             sha(self.output / "source/probes.json"),
-            sha(StreamProtocolTests.output / "probes.json"),
+            sha(stream_fixture.StreamProtocolTests.output / "probes.json"),
         )
 
     def test_coherent_contact_omission_and_dependency_omission_rejected(self):

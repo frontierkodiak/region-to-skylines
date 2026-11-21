@@ -1,0 +1,65 @@
+{
+  "schema": "polli.stream-refusal-witness-freeze/1",
+  "source_revision": "08a6a39d7c19c1d508a20eb4226326fe8475f773",
+  "source_files_sha256": {
+    "closed_storage_candidate.py": "4802b930f50f27f6d692960b5674629c4d2a44e8f773639293baa367f373cfa6",
+    "closed_storage_observation.py": "122e72da3b78357bdbdfbfb3d9cda88c69600fedc13e30ad34205b23f98e83e6",
+    "crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+    "maintained_water.py": "2676afc79079bafaaa7ebbe9ed2ee81fd5534dbb6bcc657f0fbd34389109b3ff",
+    "maintained_water_inventory.py": "11f27ab62545847cd647226d306b1579b236059630ecf91217cc773575b0268a",
+    "native-water-admission.json": "a78c1a40e6e7d289ac9a9def996cfda092a72b0975837b9f27e86185d9b5ccf2",
+    "natural_basins.py": "45ad104268abf256092b5f5ac145949d6aebc536a5eac007198911cfc13058c5",
+    "natural_storage_candidate.py": "c1b0d40d0fa6c35e4cd394e3fd9a691e63ff2d46456c6da4f7b8e630b16dba18",
+    "natural_storage_observation.py": "65019d4e945037752d988fe68041493a3b16cdbbea12b403f870d5dd1c49c67f",
+    "natural_water_inventory.py": "5179638e3e41298f70b86caa42173673cee16c33f527818bc1be3b33e707ca60",
+    "osm_highways.py": "82aaf6ec47cb94eab4ceacf3bbf16f88524289a24d3abcb17d46df1eebb98cf6",
+    "paint.py": "e0ad840e65658319e76903143870f7ee63e3cfc23fe290a62a9a17476981c269",
+    "prepare.py": "a693c93dd4cc186253c5bd1a7b3fb154af9ff4a7f7bf90dc50e0f48c00b4aac9",
+    "pyproject.toml": "a8200b8f9007e224587abd367a128b0d9fcd4c069e915d9429e8046e1057c8f3",
+    "region.py": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+    "reservoir_basin.py": "0c1d0912e097ae44b609b2328be5aa1ecfc4e6bbf3848183269f83d1af870614",
+    "resources.py": "ffeda676f19fb0d78fd52de256e52df335f21fb5eabdd44bd70ef997e0f1ed70",
+    "run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
+    "soak.py": "123f5448740f17366365639979ba5895e48631966823228ac78783099410491a",
+    "stream_construction.py": "c6cffa217f576d14bffaa1d23824d4f73722e99c64f79cef06afbf8c1e46823f",
+    "surface_water.py": "ef27044f834bf4e966b786c3455c4ab8ca27dc49486be20ae47a9de1c7be90b5",
+    "templates/native-corridors.crp": "d57c3fe972c17eda1dde34b3e0b500d9145b1e5c662e1c70445a372ce68bdf56",
+    "templates/native-corridors.json": "b1f3bb7c63e0b8043b824cf8a3b7ea86f805117b402b579f7ed8a474b0396d1b",
+    "uv.lock": "d55316b11ef8e0dc901720a5657e337dadd449d230f3f5b33b05abb3c265ec11",
+    "water_development_result.py": "b21a8c27ff8960b9aceb8cef179db60056b6fd8b2632ff07cd0b4ccb3468b35b",
+    "water_diagnostics.py": "0896b4b8909aebd696dc1e9d926958605ef7f1617fbd77e8442b512da02e4f39",
+    "water_risk_corpus.py": "5a892c19c5beb52fb5d3663730750526c72944c6bdb090fbc5e42a2d103f1a90",
+    "waterway_pieces.py": "05d5dae06265872879d7f3ba035285db9bdc65002ac623543344aeb2049bc70d",
+    "wet_reach_admission.py": "90ef3e934597faa2bafc49aeb1d2ec2aa14eb392a271443168031b544d418ffc",
+    "stream_witnesses.py": "bed1772f439a7a6297be9bb144092baa431bc4ebf18e4351a321051a489872bd"
+  },
+  "original_v3_freeze_sha256": "35442c9c4333e5019f7e98c427f76ae051c8fe1f9ab38f97d3515f7535b21992",
+  "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+  "panel_sha256": "181c2fd902b910668f340ef5ca97f2e08788e6fa3b60c41399d0faeca486636c",
+  "case_protocols": [
+    {
+      "slug": "dry-upland-asia",
+      "freeze_sha256": "32e7e4966ce18f71a6f617bdd8e490716ac266628f8ab25be890960a61d98295",
+      "witnesses_sha256": "cbe2976db51d02f32944316a081e5a35f9c78b37a1e1d9f2edb0327d7544abdf"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "freeze_sha256": "bff32b0ed303f8aea06a8cd17d0d1c911af7bdca60f1ffdc9677c0f907e69a6f",
+      "witnesses_sha256": "8be68451f10a9ce104f4d60cc1e2fc2a040d80bbbb7f1610a2d0f9a6f32ac7ef"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "freeze_sha256": "4a8a60210af268f92b0efcdb48a848c84ce7b979989b5ac6a5f7dbacfd9ad236",
+      "witnesses_sha256": "f50dac52017800fc97d5bb5fd457b91c89f7566b071ed86e640094e9ba3b0cf9"
+    }
+  ],
+  "summary_sha256": "0097073f97580b9410b77c3c84f04f5d4f99c1db7eeadef398027a7e12010122",
+  "summary_script_sha256": "bd9583509bc3ff4e4a64478e7711d1f64454ee44e9f0891696488493a9e2dbec",
+  "physical_package": null,
+  "native_observation": false,
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown",
+  "qualification": "Exact read-only contact and conditional DAG-bound witnesses; no compiler/construction/default/mask change and no stream admission.",
+  "verification_script_sha256": "ba7e9b3ef435f66528b59732f843f248842f27cfa55aad3b22ce65d7f43241b0",
+  "verification_sha256": "1432950e5a7fa46aa6ff9afc6c0ebbb44d8e624ee970d2e8527fbcde481d38aa"
+}
