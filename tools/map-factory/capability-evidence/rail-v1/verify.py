@@ -89,6 +89,17 @@ def verify():
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(data)
         results = {}
+        stock_gate = rail_study.controls_valid(unpacked)
+        control_end = max(
+            (
+                json.loads(
+                    (unpacked / "raw" / case["slug"] / "observation.json").read_text()
+                ).get("finished_at", "")
+                for case in selection["controls"]
+                if (unpacked / "raw" / case["slug"] / "observation.json").exists()
+            ),
+            default="",
+        )
         for group in ("controls", "cohort"):
             results[group] = {}
             for case in selection[group]:
@@ -100,6 +111,12 @@ def verify():
                 if case["artifact_sha256"] != result["artifact_sha256"]:
                     raise ValueError("observation package differs from selection")
                 observation = json.loads((case_dir / "observation.json").read_text())
+                if group == "cohort":
+                    frozen = json.loads((case_dir / "query-freeze.json").read_text())
+                    if not stock_gate or frozen["frozen_at"] < control_end:
+                        raise ValueError(
+                            "cohort query freeze predates stock-positive validation"
+                        )
                 if observation["observed_at"] < selection["frozen_at"]:
                     raise ValueError("opening predates prelaunch freeze")
                 session = observation.get("session", {})
@@ -113,16 +130,19 @@ def verify():
                     raise ValueError("completed observation lacks session teardown")
                 results[group][case["slug"]] = result
         return {
-            "stock_gate": rail_study.controls_valid(unpacked),
+            "stock_gate": stock_gate,
             "raw_files": len(integrity["files"]),
             **results,
         }
 
 
 def main():
+    global HERE
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--retain", type=Path)
+    parser.add_argument("--evidence", type=Path, default=rail_study.STUDY)
     args = parser.parse_args()
+    HERE = args.evidence.resolve()
     if args.retain:
         retain(args.retain)
     print(json.dumps(verify(), indent=2))

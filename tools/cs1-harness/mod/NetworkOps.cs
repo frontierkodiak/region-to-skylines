@@ -33,7 +33,11 @@ namespace Cs1Harness
                     var l = info.m_lanes[i];
                     lanes.Add(Host.Obj("index", i, "id", lane, "type", l.m_laneType.ToString(),
                         "vehicle", l.m_vehicleType.ToString(), "category", l.vehicleCategory.ToString(),
-                        "direction", l.m_finalDirection.ToString(), "flags", net.m_lanes.m_buffer[lane].m_flags.ToString()));
+                        "direction", l.m_finalDirection.ToString(), "direction_bits", (int)l.m_finalDirection,
+                        "authored_direction", l.m_direction.ToString(),
+                        "forward", (l.m_finalDirection & (NetInfo.Direction.Forward | NetInfo.Direction.AvoidForward)) != 0,
+                        "backward", (l.m_finalDirection & (NetInfo.Direction.Backward | NetInfo.Direction.AvoidBackward)) != 0,
+                        "flags", net.m_lanes.m_buffer[lane].m_flags.ToString()));
                     lane = net.m_lanes.m_buffer[lane].m_nextLane;
                 }
                 var a = net.m_nodes.m_buffer[s.m_startNode].m_position;
@@ -57,7 +61,9 @@ namespace Cs1Harness
                     "bounds_size", new object[] { bounds.size.x, bounds.size.y, bounds.size.z },
                     "render_parts", renderParts, "prefab", info == null ? null : info.name, "lanes", lanes));
             }
-            return Host.Obj("segments", segments);
+            return Host.Obj("segments", segments, "direction_enum_values", Host.Obj(
+                "Forward", (int)NetInfo.Direction.Forward, "Backward", (int)NetInfo.Direction.Backward,
+                "AvoidForward", (int)NetInfo.Direction.AvoidForward, "AvoidBackward", (int)NetInfo.Direction.AvoidBackward));
         }
 
         static PathUnit.Position Position(object input)

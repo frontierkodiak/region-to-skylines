@@ -1,0 +1,91 @@
+{
+  "files": [
+    {
+      "bytes": 103782,
+      "gzip_sha256": "4fa6b8e9b53d5ec1899c3edd80e77dee6e0fc9cc543e727fae92b523cea26640",
+      "path": "raw/stock-1/game.log",
+      "sha256": "141b49232b71a432463eb1dd6a0ed536860431020febf27021a53e1f6d9d7cd0"
+    },
+    {
+      "bytes": 2102,
+      "gzip_sha256": "87d0f3c9ca74ea3cb469624978364d713d15c1b6737b0cada5cb7b8fdb517bb2",
+      "path": "raw/stock-1/gpu.csv",
+      "sha256": "d17893b4a918bdd826c0fe27630559ec6c7bb7307f63ff249e0bec0017521676"
+    },
+    {
+      "bytes": 3002963,
+      "gzip_sha256": "4862ba535d2e4eecc467f9409f38d173af5ae271e15616dc4234cc0552260d55",
+      "path": "raw/stock-1/networks.json",
+      "sha256": "e50793bdb5d142bc47bf0a20cb8bd7a9db804ec20e7e194754370c1e90d7f065"
+    },
+    {
+      "bytes": 410057,
+      "gzip_sha256": "403e14b68fd6049e0161929096dcfe2eaf741de18bf3162bd316cbd512659c61",
+      "path": "raw/stock-1/observation.json",
+      "sha256": "9692b99a74ac6015806576af8cee1db2cddbe0f89aeecfa467e4eb846f4cf1a5"
+    },
+    {
+      "bytes": 3697,
+      "gzip_sha256": "fb3e577e06736ad10518b264177cdcd4815c6fb3f682bbfc8bed74733eb22564",
+      "path": "raw/stock-1/panel.json",
+      "sha256": "bfaf06a8cc3c8537244601b2b5ec561b5bda760935805e0d81926b78edb00bdb"
+    },
+    {
+      "bytes": 23539,
+      "gzip_sha256": "5002339e9587ed2c6a99ea2f53955dab50bb073de4797af57eaeac8b24d821c9",
+      "path": "raw/stock-1/query-freeze.json",
+      "sha256": "60974f0d1f0e1d909c6490ba10139f356eeae24451087c64d42210c221d4268f"
+    },
+    {
+      "bytes": 149171,
+      "gzip_sha256": "b7837183c5bd7520e5dfb288e048fc06b7a1a405226f8354049daa909a49611a",
+      "path": "raw/stock-1/ship-water-at-opening.json",
+      "sha256": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370"
+    },
+    {
+      "bytes": 103748,
+      "gzip_sha256": "8fc8e8f142697e7c7d58b2057c29e8d607b7591cb995ff6741c7f6bb47c21575",
+      "path": "raw/stock-2/game.log",
+      "sha256": "c2ee31cd8b6ecba5e4f88af3bf9b2c629bc08c32b7c83c45b97d7dec5e845199"
+    },
+    {
+      "bytes": 2373,
+      "gzip_sha256": "6a5f416247ac9674a114753a8303ca778a4fa7555696c7980129b851ab09be46",
+      "path": "raw/stock-2/gpu.csv",
+      "sha256": "335419fe11b3fc1277aee5fdbd53c5ddfaab879bb9d702bde43dcf145d1dfe4f"
+    },
+    {
+      "bytes": 3683839,
+      "gzip_sha256": "8dd9d56d1f01fb9cf8ff6614cfc1e981993004f409809e6d2235da1884fb994d",
+      "path": "raw/stock-2/networks.json",
+      "sha256": "01b097c60d4bab142f5ccd0ec38e9edafac5abdd4f43fc7e152a356f651fce64"
+    },
+    {
+      "bytes": 350684,
+      "gzip_sha256": "72319e8dcf3fb87cda5ceb8aa169278c8f631137bcf8d295efbb12cfa3aff5b0",
+      "path": "raw/stock-2/observation.json",
+      "sha256": "23a35592a0b3eb5b334633172acd7f51098a15f72a170e1c283b8d95da1d81a8"
+    },
+    {
+      "bytes": 3635,
+      "gzip_sha256": "095ebac6c453cf88c327a6609122dad0190822b15fc4b5abad0c4dccd0191686",
+      "path": "raw/stock-2/panel.json",
+      "sha256": "0d6a4248c130e133deacbb478bf71d6eb69f2fabb239f1ba4cc010d86115983e"
+    },
+    {
+      "bytes": 36589,
+      "gzip_sha256": "fb11a6fed2d7aab7ccbf6b2e5bbe05b6f8f65b1b36ff3ee0602113687ccba466",
+      "path": "raw/stock-2/query-freeze.json",
+      "sha256": "9f4bbba3ec9b96a479dadd54b2cc80d09fd89922b7a903d4c829fed0cd4a3de6"
+    },
+    {
+      "bytes": 182232,
+      "gzip_sha256": "1961abe9e99b778f05c21a095a553974cfea03d916994ca74f727073187cfcb5",
+      "path": "raw/stock-2/ship-water-at-opening.json",
+      "sha256": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+    }
+  ],
+  "retained_at": "2026-11-21T14:15:15.742643+00:00",
+  "selection_sha256": "22cbb7923877ac44860c6a45f06736449f011b35fdb9f7d4fb9f5d15f2e2f45c",
+  "verifier_sha256": "0911ff63c14ce7190b64ef4ebebbff0e8500298af6023a56cf34aee09beb0641"
+}

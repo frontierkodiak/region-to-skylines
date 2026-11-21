@@ -1,11 +1,23 @@
 """Observable rail qualification boundaries, independent of native success flags."""
 
 import copy
+import gzip
+import json
 import tempfile
 import unittest
 from pathlib import Path
 
-from cs1_harness.rail_study import classify, compatible, context_valid, controls_valid, freeze, plan
+from cs1_harness.rail_study import (
+    PROTOCOL,
+    ROOT,
+    classify,
+    compatible,
+    context_valid,
+    controls_valid,
+    digest,
+    freeze,
+    plan,
+)
 
 
 def network():
@@ -28,6 +40,9 @@ def network():
                     "category": "PassengerTrain, CargoTrain",
                     "flags": "Created",
                     "direction": direction,
+                    "direction_bits": 1 if i == 0 else 2,
+                    "forward": i == 0,
+                    "backward": i == 1,
                 }
                 for i, direction in enumerate(["Forward", "Backward"])
             ],
@@ -53,6 +68,14 @@ class RailStudyTest(unittest.TestCase):
         boundary = [r for r in plan(net)["requests"] if not r["diagnostic"]]
         self.assertEqual(boundary[0]["from"], [1, 1, 0])
         self.assertEqual(boundary[1]["to"], [1, 0, 0])
+
+    def test_avoid_direction_alias_does_not_drop_native_direction_bits(self):
+        net = network()
+        for segment in net["segments"]:
+            for lane in segment["lanes"]:
+                lane["direction"] = "Avoid" + lane["direction"]
+        boundary = [row for row in plan(net)["requests"] if not row["diagnostic"]]
+        self.assertEqual(len(boundary), 2)
 
     def test_no_lane_or_incomplete_inventory_does_not_guess(self):
         net = network()
@@ -125,6 +148,60 @@ class RailStudyTest(unittest.TestCase):
             self.assertFalse(controls_valid(study))
             with self.assertRaises(FileExistsError):
                 freeze(study / "selection.json", {})
+
+    def test_completed_control_failures_and_endpoint_mismatches_cannot_unlock_cohort(self):
+        # Real retained context; synthetic networks/results below are unit data,
+        # not new native witnesses. Exercise the complete qualification boundary.
+        raw = ROOT / "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/observation.json.gz"
+        template = json.loads(gzip.decompress(raw.read_bytes()))
+        with tempfile.TemporaryDirectory() as directory:
+            study = Path(directory)
+            freeze(
+                study / "selection.json",
+                {
+                    "build_receipt": template["build_receipt"],
+                    "controls": [
+                        {"slug": slug, "artifact_sha256": template["artifact_sha256"]}
+                        for slug in ["stock-1", "stock-2"]
+                    ],
+                },
+            )
+            for slug in ["stock-1", "stock-2"]:
+                out = study / "raw" / slug
+                freeze(out / "networks.json", network())
+                planned = plan(network())
+                observation = copy.deepcopy(template)
+                observation["paths"] = [
+                    {
+                        "request": r,
+                        "submitted_at": "2026-11-21T01:00:00Z",
+                        "result": {"complete": True, "released": True, "success": False, "positions": []},
+                    }
+                    for r in planned["requests"]
+                ]
+                observation["query_freeze_sha256"] = freeze(
+                    out / "query-freeze.json",
+                    {
+                        "selection_sha256": digest(study / "selection.json"),
+                        "frozen_at": "2026-11-21T00:00:00Z",
+                        "plan": planned,
+                        "networks_sha256": digest(out / "networks.json"),
+                        "protocol": PROTOCOL,
+                        "artifact_sha256": observation["artifact_sha256"],
+                        "runtime_identity": observation["runtime_identity"],
+                    },
+                )
+                freeze(out / "observation.json", observation)
+            self.assertFalse(controls_valid(study))
+            path = study / "raw/stock-1/observation.json"
+            observation = json.loads(path.read_text())
+            row = observation["paths"][0]
+            row["result"].update(success=True, positions=[row["request"]["from"], row["request"]["to"]])
+            path.write_text(json.dumps(observation))
+            self.assertTrue(controls_valid(study))
+            row["result"]["positions"][-1] = [2, 0, 128]
+            path.write_text(json.dumps(observation))
+            self.assertFalse(controls_valid(study))
 
 
 if __name__ == "__main__":

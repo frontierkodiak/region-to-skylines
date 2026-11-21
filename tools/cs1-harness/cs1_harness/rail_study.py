@@ -14,10 +14,10 @@ from . import connections
 from .config import Config
 
 ROOT = Path(__file__).resolve().parents[3]
-STUDY = ROOT / "tools/map-factory/capability-evidence/rail-v1"
+STUDY = ROOT / "tools/map-factory/capability-evidence/rail-v2"
 LIMIT = 128  # Boundary candidates, plus matching midpoint diagnostics.
 PROTOCOL = {
-    "id": "PL-1215-directed-rail-v1",
+    "id": "PL-1215-directed-rail-v2",
     "entry": "NewGameFromMap/noWorkshop/non-inverted/mods-enabled",
     "query": "NetworkOps.path_start mode=train; existing CreatePath overload",
     "lane_types": ["Vehicle", "TransportVehicle", "CargoVehicle"],
@@ -25,7 +25,7 @@ PROTOCOL = {
     "category": "All",
     "max_length": 100000,
     "random_seed": 857,
-    "rule": "source travels away from its outside node; destination towards its outside node; swap Forward/Backward for segment Invert",
+    "rule": "source away from outside node, destination towards it; swap direction for segment Invert; use native forward/backward masks including AvoidForward/AvoidBackward, not enum display-name equality",
     "order": "distinct-edge first, then source segment/node/lane, destination segment/node/lane; first 128 boundary requests",
     "diagnostics": "midpoint for every selected directed pair; reverse first boundary request without changing lanes (wrong-direction)",
     "prediction": "direction-compatible candidates, not predicted native successes; all finite misses remain Unknown",
@@ -74,7 +74,10 @@ def inventory(networks):
         end["node_flags"] = segment["start_flags" if end["offset"] == 0 else "end_flags"]
         end["lanes"] = sorted(end["lanes"], key=lambda lane: lane["index"])
         for lane in end["lanes"]:
-            if not {"direction", "type", "category", "id", "flags"} <= lane.keys():
+            if (
+                not {"direction", "direction_bits", "forward", "backward", "type", "category", "id", "flags"}
+                <= lane.keys()
+            ):
                 raise ValueError("incomplete native lane inventory")
     return sorted(ends, key=lambda end: (end["segment"], end["node"], end["offset"]))
 
@@ -85,7 +88,7 @@ def compatible(end, lane, *, source):
     forward = (end["offset"] == 0) == source
     if "Invert" in tokens(end["segment_flags"]):
         forward = not forward
-    return ("Forward" if forward else "Backward") in tokens(lane["direction"])
+    return lane["forward" if forward else "backward"]
 
 
 def plan(networks):
