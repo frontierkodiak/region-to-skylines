@@ -1,0 +1,18 @@
+{
+  "captured_full_actual_hydraulic_floors": [
+    {
+      "label": "t000",
+      "passive_sha256": "e3c04d8e9cb5024e3e1348a32589939bfa051f168ef3b4d4cce03f60bf6e4ac9",
+      "regulated_sha256": "e3c04d8e9cb5024e3e1348a32589939bfa051f168ef3b4d4cce03f60bf6e4ac9",
+      "equal": true
+    },
+    {
+      "label": "t005",
+      "passive_sha256": "e3c04d8e9cb5024e3e1348a32589939bfa051f168ef3b4d4cce03f60bf6e4ac9",
+      "regulated_sha256": "e3c04d8e9cb5024e3e1348a32589939bfa051f168ef3b4d4cce03f60bf6e4ac9",
+      "equal": true
+    }
+  ],
+  "later_floors": "unknown, not captured",
+  "scope": "Static geometry, not actual water depth or between-sample stability."
+}

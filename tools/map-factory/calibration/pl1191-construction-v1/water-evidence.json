@@ -833,5 +833,27 @@
     "compiler_freeze_sha256": "b47dea3ed0f2853862034eeb5a2f4b94fd7a68ca3867594f2f8f9e639f84fb18",
     "holdout_inputs_accessed": false,
     "stable_water_promise": "unknown"
+  },
+  "node_local_regulation": {
+    "status": "development_partial_not_qualified",
+    "policy": "node-local-mapped-lake-regulation-v1",
+    "pre_outcome_source": "0a1cc85cd971a3a68597769c68ffed2b541a7342",
+    "freeze": "replenishment-freeze-v1.json",
+    "observation": "development/phase6-europe-observation.json",
+    "matched_analysis": "development/phase6-matched-analysis.json",
+    "game_minutes": 60.07111424406369,
+    "lake_anchors_passing": 7,
+    "lake_anchors_total": 7,
+    "minimum_anchor_depth_m": 1.5,
+    "samples": 13,
+    "natural_contracts_passing": 9,
+    "natural_contracts_total": 85,
+    "full_historical_drying": true,
+    "worst_original_masked_flood_km2": 0,
+    "physical_flux_budget": "unknown",
+    "later_hydraulic_floors": "unknown",
+    "loaded_assembly_identity": "unknown",
+    "stable_water_promise": "unknown",
+    "holdout_inputs_accessed": false
   }
 }

@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "old_controls": 58,
+      "new_controls": 0,
+      "all_old_control_bytes_equal": true,
+      "outside_water_manager_bytes_equal": true,
+      "depth_and_velocity_equal": true,
+      "probe_points_equal": true,
+      "probe_count": 1350,
+      "probe_json_equal": true,
+      "all_old_inventory_entries_equal": true,
+      "new_natural_control_accounting_rows": 0,
+      "source_geometry_sha256": "668dd584b78a451190d0c017e50b1ea01f0fe527635ccb256c4528badf5a7ee8",
+      "natural_plan_sha256": "1dc3591e26ac950ebda4396d858b5506e3c171ab2fce158ef0d6f68e60b7a9fb",
+      "coverage_complete": false
+    },
+    {
+      "slug": "dry-upland-europe",
+      "old_controls": 20,
+      "new_controls": 28,
+      "all_old_control_bytes_equal": true,
+      "outside_water_manager_bytes_equal": true,
+      "depth_and_velocity_equal": true,
+      "probe_points_equal": true,
+      "probe_count": 2442,
+      "probe_json_equal": true,
+      "all_old_inventory_entries_equal": true,
+      "new_natural_control_accounting_rows": 28,
+      "source_geometry_sha256": "b35466602fc2ec647b76a551e5bd8b49d43cd602b79360ed73d6ffbcc78a5d76",
+      "natural_plan_sha256": "3a84c79b8e5f9d75b8a0a58615b4382220b1006c23510522b14d884e13431195",
+      "coverage_complete": false
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "old_controls": 36,
+      "new_controls": 13,
+      "all_old_control_bytes_equal": true,
+      "outside_water_manager_bytes_equal": true,
+      "depth_and_velocity_equal": true,
+      "probe_points_equal": true,
+      "probe_count": 19239,
+      "probe_json_equal": true,
+      "all_old_inventory_entries_equal": true,
+      "new_natural_control_accounting_rows": 13,
+      "source_geometry_sha256": "0f3d415a30bb17ece12ab46c09f06458685925aa45c2a4486ad852a3863a9153",
+      "natural_plan_sha256": "898d5652d6b6742b916bf3a51b7051a165f77bcb9c8ef497a3e40b7f07c6291f",
+      "coverage_complete": false
+    }
+  ],
+  "scope": "Structural source-only proof, not native nine-square requalification. Original authored contracts and all fixed geometry/resources retained.",
+  "stable_water_promise": "unknown",
+  "holdout_inputs_accessed": false
+}

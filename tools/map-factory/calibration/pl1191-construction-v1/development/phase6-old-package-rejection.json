@@ -1,0 +1,6 @@
+{
+  "status": "rejected_as_required",
+  "reason": "Native package does not match the frozen capture",
+  "old_native_report_sha256": "49e7b6aa62cc0891d43a15bc6853bc9e6e6e6c5d7e7d1c3ad63f51b686e5ba52",
+  "new_plan_sha256": "3d611445ec1f0e7f720707d1fde08b17e2d8df4b1c10587064a39a124e9214d7"
+}

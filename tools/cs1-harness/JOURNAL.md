@@ -3456,3 +3456,17 @@ Blade RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. Europe natural-storag
 Seven new passive anchors all start1.5m, fall to0.359375m at first five-minute sample, lose all nearby water by ten-minute sample. Actual floors t000/t005 byte-identical; static authored-stage/full-rim checks pass, later floors unknown. Uniform per-node loss, not identified evaporation flux. Masked flood0km²; required3/288 endpoint, full historical drying positive,127/497 initialized nearby losses,179 exact losses. All20 controls match at13samples; no new local controls. Raw visual/pooled failures retained, no rescore or rerun.
 
 Owned game211129/driver197879 absent, foreground command and collector complete, cleanup empty; final slot free. Executable/on-disk-reference sidecar is not complete loaded-assembly identity. Passive construction is not a sufficient maintenance rule; no product promise, new historical certificate, holdout input access or deployment.
+
+## 2026-11-21 · PL-1191 matched local lake regulation
+
+Blade, RTX 2080 Ti at 05:00.0; pinned clean harness 6949182/mod 6cedb7ee.
+One frozen 60.071-game-minute trial, 951.56 observation wall seconds. Seven
+constructed lake anchors hold exactly 1.5 m across 13 samples; passive matched
+anchors dry. All 48 reported controls match, original masked flood 0 km², but
+76/85 natural contracts fail and historical drying remains positive. Raw visual
+and runtime log failures are retained, not native acceptance. Full floors pass
+at t000/t005 only; later floors and full loaded-assembly identity unknown.
+Peak total VRAM 10821 MiB, baseline 8008, increment 2813; menu game 1574 MiB.
+Peak power 132.92 W, temperature 51 C; host-owned reported limit 200 W, unchanged.
+FIFO respected, no preemption/previews/tabs. Owned driver 431383/game 435238
+collected and absent; game/Steam/unit cleanup empty.

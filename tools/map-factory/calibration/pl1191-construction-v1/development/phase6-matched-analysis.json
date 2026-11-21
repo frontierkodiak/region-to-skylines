@@ -1,0 +1,2036 @@
+{
+  "schema": "polli.matched-local-regulation-analysis/1",
+  "bodies": [
+    {
+      "id": "lake-component:13",
+      "anchor_xz": [
+        6656,
+        -4048
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          },
+          {
+            "label": "t005",
+            "body_nodes": 6,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 2.15625
+          },
+          {
+            "label": "t015",
+            "body_nodes": 6,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 6,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 6,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 6,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          },
+          {
+            "label": "t005",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          },
+          {
+            "label": "t015",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 6,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 9.0
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    },
+    {
+      "id": "lake-component:21",
+      "anchor_xz": [
+        -8496,
+        -5312
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 1.078125
+          },
+          {
+            "label": "t015",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t015",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t030",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t045",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t060",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    },
+    {
+      "id": "lake-component:24",
+      "anchor_xz": [
+        -8128,
+        -5664
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 9,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 3.234375
+          },
+          {
+            "label": "t015",
+            "body_nodes": 9,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 9,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 9,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 9,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          },
+          {
+            "label": "t015",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          },
+          {
+            "label": "t030",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          },
+          {
+            "label": "t045",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          },
+          {
+            "label": "t060",
+            "body_nodes": 9,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 13.5
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    },
+    {
+      "id": "lake-component:28",
+      "anchor_xz": [
+        -8528,
+        -5808
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 1.078125
+          },
+          {
+            "label": "t015",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 3,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t015",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t030",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t045",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          },
+          {
+            "label": "t060",
+            "body_nodes": 3,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 4.5
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    },
+    {
+      "id": "lake-component:34",
+      "anchor_xz": [
+        -6608,
+        -6176
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          },
+          {
+            "label": "t005",
+            "body_nodes": 4,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 1.4375
+          },
+          {
+            "label": "t015",
+            "body_nodes": 4,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 4,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 4,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 4,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          },
+          {
+            "label": "t005",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          },
+          {
+            "label": "t015",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 4,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 6.0
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    },
+    {
+      "id": "lake-component:41",
+      "anchor_xz": [
+        -5136,
+        -6800
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          },
+          {
+            "label": "t005",
+            "body_nodes": 2,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 0.71875
+          },
+          {
+            "label": "t015",
+            "body_nodes": 2,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 2,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 2,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 2,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          },
+          {
+            "label": "t005",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          },
+          {
+            "label": "t015",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 2,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 3.0
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    },
+    {
+      "id": "lake-component:43",
+      "anchor_xz": [
+        -4096,
+        -6864
+      ],
+      "passive": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 0.359375,
+            "nearby_max_depth": 0.359375,
+            "water_frame": 220820,
+            "stats_frame": 220776
+          },
+          {
+            "label": "t010",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 238787,
+            "stats_frame": 238755
+          },
+          {
+            "label": "t015",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 256689,
+            "stats_frame": 256665
+          },
+          {
+            "label": "t020",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 274789,
+            "stats_frame": 274757
+          },
+          {
+            "label": "t025",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 292769,
+            "stats_frame": 292737
+          },
+          {
+            "label": "t030",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 310769,
+            "stats_frame": 310744
+          },
+          {
+            "label": "t035",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 328823,
+            "stats_frame": 328804
+          },
+          {
+            "label": "t040",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 346721,
+            "stats_frame": 346688
+          },
+          {
+            "label": "t045",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 364422,
+            "stats_frame": 364392
+          },
+          {
+            "label": "t050",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 382817,
+            "stats_frame": 382784
+          },
+          {
+            "label": "t055",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 400801,
+            "stats_frame": 400768
+          },
+          {
+            "label": "t060",
+            "depth": 0,
+            "nearby_max_depth": 0,
+            "water_frame": 418776,
+            "stats_frame": 418776
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 1,
+            "minimum_depth_m": 0.359375,
+            "maximum_depth_m": 0.359375,
+            "sum_node_depth_m": 0.359375
+          },
+          {
+            "label": "t015",
+            "body_nodes": 1,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t030",
+            "body_nodes": 1,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t045",
+            "body_nodes": 1,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          },
+          {
+            "label": "t060",
+            "body_nodes": 1,
+            "minimum_depth_m": 0.0,
+            "maximum_depth_m": 0.0,
+            "sum_node_depth_m": 0.0
+          }
+        ],
+        "minimum_anchor_depth_m": 0
+      },
+      "regulated": {
+        "series": [
+          {
+            "label": "t000",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 202252,
+            "stats_frame": 202252
+          },
+          {
+            "label": "t005",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 220613,
+            "stats_frame": 220571
+          },
+          {
+            "label": "t010",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 238578,
+            "stats_frame": 238557
+          },
+          {
+            "label": "t015",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 256531,
+            "stats_frame": 256494
+          },
+          {
+            "label": "t020",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 274549,
+            "stats_frame": 274529
+          },
+          {
+            "label": "t025",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 292573,
+            "stats_frame": 292533
+          },
+          {
+            "label": "t030",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 310570,
+            "stats_frame": 310540
+          },
+          {
+            "label": "t035",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 328603,
+            "stats_frame": 328562
+          },
+          {
+            "label": "t040",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 346595,
+            "stats_frame": 346556
+          },
+          {
+            "label": "t045",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 364590,
+            "stats_frame": 364565
+          },
+          {
+            "label": "t050",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 382517,
+            "stats_frame": 382496
+          },
+          {
+            "label": "t055",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 400540,
+            "stats_frame": 400499
+          },
+          {
+            "label": "t060",
+            "depth": 1.5,
+            "nearby_max_depth": 1.5,
+            "water_frame": 418508,
+            "stats_frame": 418508
+          }
+        ],
+        "body_depth_dumps": [
+          {
+            "label": "t000",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          },
+          {
+            "label": "t005",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          },
+          {
+            "label": "t015",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          },
+          {
+            "label": "t030",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          },
+          {
+            "label": "t045",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          },
+          {
+            "label": "t060",
+            "body_nodes": 1,
+            "minimum_depth_m": 1.5,
+            "maximum_depth_m": 1.5,
+            "sum_node_depth_m": 1.5
+          }
+        ],
+        "minimum_anchor_depth_m": 1.5
+      }
+    }
+  ],
+  "contracts_by_kind_status": {
+    "natural:fail": 76,
+    "natural:pass": 9,
+    "engineered:pass": 8
+  },
+  "coverage_complete": false,
+  "all_seven_passive_anchor_contracts_pass": false,
+  "all_seven_regulated_anchor_contracts_pass": true,
+  "loaded_source_readback": {
+    "samples": 13,
+    "sources_per_sample": 48
+  },
+  "bound_inputs_sha256": {
+    "/mango/training/experiments/PL-1191-stable-water/development-natural/regulated-v1/dry-upland-europe/native-plan.json": "3d611445ec1f0e7f720707d1fde08b17e2d8df4b1c10587064a39a124e9214d7",
+    "/mango/training/experiments/PL-1191-stable-water/development-natural/regulated-v1/dry-upland-europe/natural-plan.json": "3a84c79b8e5f9d75b8a0a58615b4382220b1006c23510522b14d884e13431195",
+    "/mango/training/experiments/PL-1191-stable-water/development-native/dry-upland-europe-natural-storage-attempt-1/timeline.jsonl": "1dd2781fd24cb8bb25a54c7928eb2f7fb6bfc35a8d1ff50a63a2040ac438fb8b",
+    "/mango/training/experiments/PL-1191-stable-water/development-native/dry-upland-europe-regulated-storage-attempt-1/timeline.jsonl": "e95530ddd12e7a58f185027279d88006ed15a67a4b929b2073ccd87e1317c582",
+    "/mango/training/experiments/PL-1191-stable-water/phase6-europe-observation.json": "2f3a32dc77cda0261fec9f64191cd96ba01b34cda5982c6d7c4ef45aff336c43"
+  },
+  "source_sha256": "f216fa13ceff56ac224a0c17efd5291cbda4a63b3f8759e94028fb9cc61e9d52",
+  "limits": "One trial per arm. Same physical geometry/initial water/probe JSON, new configured regulators jointly add intake and output. No isolated-output or evaporation mechanism claim. Later actual floors unknown.",
+  "stable_water_promise": "unknown"
+}

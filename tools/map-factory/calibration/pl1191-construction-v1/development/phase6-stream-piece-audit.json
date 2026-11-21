@@ -1,0 +1,120 @@
+{
+  "schema": "polli.authored-stream-piece-route-audit/1",
+  "pieces": [
+    {
+      "id": "streams:0",
+      "name": "",
+      "brunnel": "tunnel",
+      "mapped_nodes": 2,
+      "rejected_profiles": [
+        {
+          "profile_name": "unnamed waterway",
+          "profile_length_m": 2554.233764908629,
+          "profile_overbank_m": 1.6166191879607936,
+          "piece_nodes_in_profile_group_component": 0,
+          "piece_nodes_on_selected_centerline": 0,
+          "piece_nodes_within_48m_of_centerline": 0,
+          "piece_nodes_within_64m_of_centerline": 0
+        }
+      ]
+    },
+    {
+      "id": "streams:1",
+      "name": "",
+      "brunnel": null,
+      "mapped_nodes": 7,
+      "rejected_profiles": [
+        {
+          "profile_name": "unnamed waterway",
+          "profile_length_m": 2554.233764908629,
+          "profile_overbank_m": 1.6166191879607936,
+          "piece_nodes_in_profile_group_component": 7,
+          "piece_nodes_on_selected_centerline": 3,
+          "piece_nodes_within_48m_of_centerline": 7,
+          "piece_nodes_within_64m_of_centerline": 7
+        }
+      ]
+    },
+    {
+      "id": "streams:2",
+      "name": "",
+      "brunnel": null,
+      "mapped_nodes": 63,
+      "rejected_profiles": [
+        {
+          "profile_name": "unnamed waterway",
+          "profile_length_m": 2554.233764908629,
+          "profile_overbank_m": 1.6166191879607936,
+          "piece_nodes_in_profile_group_component": 63,
+          "piece_nodes_on_selected_centerline": 42,
+          "piece_nodes_within_48m_of_centerline": 63,
+          "piece_nodes_within_64m_of_centerline": 63
+        }
+      ]
+    },
+    {
+      "id": "streams:3",
+      "name": "",
+      "brunnel": null,
+      "mapped_nodes": 70,
+      "rejected_profiles": [
+        {
+          "profile_name": "unnamed waterway",
+          "profile_length_m": 2554.233764908629,
+          "profile_overbank_m": 1.6166191879607936,
+          "piece_nodes_in_profile_group_component": 70,
+          "piece_nodes_on_selected_centerline": 3,
+          "piece_nodes_within_48m_of_centerline": 15,
+          "piece_nodes_within_64m_of_centerline": 23
+        }
+      ]
+    },
+    {
+      "id": "streams:4",
+      "name": "",
+      "brunnel": null,
+      "mapped_nodes": 75,
+      "rejected_profiles": [
+        {
+          "profile_name": "unnamed waterway",
+          "profile_length_m": 2554.233764908629,
+          "profile_overbank_m": 1.6166191879607936,
+          "piece_nodes_in_profile_group_component": 75,
+          "piece_nodes_on_selected_centerline": 15,
+          "piece_nodes_within_48m_of_centerline": 75,
+          "piece_nodes_within_64m_of_centerline": 75
+        }
+      ]
+    },
+    {
+      "id": "streams:5",
+      "name": "",
+      "brunnel": null,
+      "mapped_nodes": 31,
+      "rejected_profiles": [
+        {
+          "profile_name": "unnamed waterway",
+          "profile_length_m": 2554.233764908629,
+          "profile_overbank_m": 1.6166191879607936,
+          "piece_nodes_in_profile_group_component": 31,
+          "piece_nodes_on_selected_centerline": 0,
+          "piece_nodes_within_48m_of_centerline": 0,
+          "piece_nodes_within_64m_of_centerline": 0
+        }
+      ]
+    }
+  ],
+  "rejected_profile_count": 1,
+  "replay_rejected_profiles_equal_retained": true,
+  "inputs_sha256": {
+    "geometry.json": "668dd584b78a451190d0c017e50b1ea01f0fe527635ccb256c4528badf5a7ee8",
+    "source-input.png": "a64748ff849a007776edfd404a085c485e7885d14597bdbe6259dce3224b1915",
+    "source-banks.f32": "b00e60f53a390089efee0380d48843bf324f41805122203d2dc527df0427094d",
+    "hydrology.json": "2bd4983d5a0b0c97a9bd3ddba4b1c074cece003783c0eea9b69d4c1609a3aea9"
+  },
+  "source_sha256": "3998c6715d106cca74c21d91ec76cda7193ebe829844f7bb4e8b924e57b64cf6",
+  "region_sha256": "98569a9dcc41fb593fbaafd3d662e7644dd7388e7508700f987a00efd6070394",
+  "scope": "Read-only source replay, not a new native observation, compiler relabeling, complete coverage proof or hydraulic feasibility result.",
+  "stable_water_promise": "unknown",
+  "holdout_inputs_accessed": false
+}

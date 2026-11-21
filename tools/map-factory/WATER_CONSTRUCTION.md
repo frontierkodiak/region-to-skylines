@@ -383,6 +383,43 @@ correlations use already-fitted banks, not raw independent DEM measurements.
 Static connectivity uses the native hydraulic floor, which differs from the
 rendered terrain near structures. None of these audits changes original labels.
 
+## Matched node-local regulation
+
+An explicit experimental variant adds one type-1 lake regulator to each of the
+28 constructed European body nodes. Both rates encode 128, with the existing
+target stage. The existing radius model gives 14.525 m, strictly below the
+16 m neighbour spacing; full node-footprint depth and the unchanged full rim
+are checked. This is an experimental setting, not a physical-unit supply budget.
+The general recipe also prepares 13 controls on the two South American bodies,
+and zero in Asia. All prior refusals remain. No shipping default changes.
+
+The matched European trial completes 60.071 game minutes. All seven anchors
+and every captured constructed-body depth node remain exactly 1.5 m; all eight
+engineered contracts pass. In the passive arm the seven new anchors dry.
+Terrain, initial depths/velocities, all old controls, geometry, resources,
+networks and full probe JSON are identical. Only the new controls and simulation
+asset reference change. The full actual floor grids match at t000/t005; eleven
+later floors remain unknown. Static stage-to-floor checks are not water depth.
+
+This supports local regulation for these seven bodies, not evaporation proof,
+isolated output-only causality, physical source-rate units or independent
+replication. All 48 reported control tables match at 13 samples. Instantaneous
+new-control flow ranges 0–1; it is not integrated flux. Natural contracts improve
+from 1/85 passing to 9/85, leaving 76 failures. Historical full drying remains
+positive: required endpoint 18/288, initialized nearby losses 117/497, exact
+losses 169. Original masked flood remains 0 km². Raw visual/pooled failures and
+runtime log errors remain. Every product promise is unknown.
+
+Source replay also distinguishes one rejected unnamed-stream profile from
+independent source-piece support. Five surface pieces share its grouped
+component, but one selected route does not cover all branches. Of streams:5's
+31 mapped nodes, none is within its 64 m initial-water route band; streams:3 has
+23/70 within it. Repairing the global overbank fit alone cannot establish
+complete stream coverage. This is geometric/source evidence, not hydraulic
+feasibility or historical relabeling. Future stream work needs precise clipped
+piece/branch contracts. See the phase-six development JSONs and the prospective
+`replenishment-freeze-v1.json`; v1/v2 code and freezes remain unchanged.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged
