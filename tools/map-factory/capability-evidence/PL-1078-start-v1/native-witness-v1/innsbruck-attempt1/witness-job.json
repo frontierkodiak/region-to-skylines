@@ -1,0 +1,534 @@
+{
+  "job": 1,
+  "kind": "capability_witness",
+  "state": "done",
+  "step": "done",
+  "error": null,
+  "seconds": 1.07,
+  "log": [
+    {
+      "t": 0,
+      "step": "validate bindings and execute exact recorded plan"
+    },
+    {
+      "t": 1.07,
+      "step": "done"
+    }
+  ],
+  "result": {
+    "witness_sha256": "c8a84acf9142ac3735d6385661bc124bbeb25891d56ddc615e7f66351e20c78d",
+    "mode": "exact_recorded_plan_no_search",
+    "observed_native_placement": false,
+    "observed_start": null,
+    "observed_surface_service": null,
+    "limitations": [
+      "Placement is not an outside car path or first-hour service verdict",
+      "No adaptive site, order, route, bridge, or groundwater fallback",
+      "Native tool terrain snapping is recorded at actual node poses"
+    ],
+    "steps": [
+      {
+        "index": 0,
+        "from_key": "g00",
+        "to_key": "g10",
+        "from_node": 16226,
+        "to_node": 20674,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          55.9609375,
+          -848
+        ],
+        "to_position": [
+          2320,
+          55.94921875,
+          -848
+        ],
+        "segment": 21353
+      },
+      {
+        "index": 1,
+        "from_key": "g10",
+        "to_key": "g20",
+        "from_node": 20674,
+        "to_node": 16788,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          55.94921875,
+          -848
+        ],
+        "to_position": [
+          2416,
+          55.68359375,
+          -848
+        ],
+        "segment": 35172
+      },
+      {
+        "index": 2,
+        "from_key": "g20",
+        "to_key": "g30",
+        "from_node": 16788,
+        "to_node": 11460,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.68359375,
+          -848
+        ],
+        "to_position": [
+          2512,
+          55.948646545410156,
+          -848
+        ],
+        "segment": 17218
+      },
+      {
+        "index": 3,
+        "from_key": "g01",
+        "to_key": "g11",
+        "from_node": 31676,
+        "to_node": 7815,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          56.2861328125,
+          -752
+        ],
+        "to_position": [
+          2320,
+          56.016910552978516,
+          -752
+        ],
+        "segment": 7322
+      },
+      {
+        "index": 4,
+        "from_key": "g11",
+        "to_key": "g21",
+        "from_node": 7815,
+        "to_node": 14589,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          56.016910552978516,
+          -752
+        ],
+        "to_position": [
+          2416,
+          55.966796875,
+          -752
+        ],
+        "segment": 17865
+      },
+      {
+        "index": 5,
+        "from_key": "g21",
+        "to_key": "g31",
+        "from_node": 14589,
+        "to_node": 24377,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.966796875,
+          -752
+        ],
+        "to_position": [
+          2512,
+          56.1845703125,
+          -752
+        ],
+        "segment": 22386
+      },
+      {
+        "index": 6,
+        "from_key": "g02",
+        "to_key": "g12",
+        "from_node": 14459,
+        "to_node": 10606,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          55.98874282836914,
+          -656
+        ],
+        "to_position": [
+          2320,
+          55.9609375,
+          -656
+        ],
+        "segment": 17664
+      },
+      {
+        "index": 7,
+        "from_key": "g12",
+        "to_key": "g22",
+        "from_node": 10606,
+        "to_node": 30194,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          55.9609375,
+          -656
+        ],
+        "to_position": [
+          2416,
+          55.78889083862305,
+          -656
+        ],
+        "segment": 11991
+      },
+      {
+        "index": 8,
+        "from_key": "g22",
+        "to_key": "g32",
+        "from_node": 30194,
+        "to_node": 25581,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.78889083862305,
+          -656
+        ],
+        "to_position": [
+          2512,
+          55.5263671875,
+          -656
+        ],
+        "segment": 26632
+      },
+      {
+        "index": 9,
+        "from_key": "g03",
+        "to_key": "g13",
+        "from_node": 19870,
+        "to_node": 6432,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          55.877174377441406,
+          -560
+        ],
+        "to_position": [
+          2320,
+          55.770572662353516,
+          -560
+        ],
+        "segment": 8318
+      },
+      {
+        "index": 10,
+        "from_key": "g13",
+        "to_key": "g23",
+        "from_node": 6432,
+        "to_node": 25045,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          55.770572662353516,
+          -560
+        ],
+        "to_position": [
+          2416,
+          55.63163757324219,
+          -560
+        ],
+        "segment": 18196
+      },
+      {
+        "index": 11,
+        "from_key": "g23",
+        "to_key": "g33",
+        "from_node": 25045,
+        "to_node": 20778,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.63163757324219,
+          -560
+        ],
+        "to_position": [
+          2512,
+          55.76396560668945,
+          -560
+        ],
+        "segment": 17944
+      },
+      {
+        "index": 12,
+        "from_key": "g00",
+        "to_key": "g01",
+        "from_node": 16226,
+        "to_node": 31676,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          55.9609375,
+          -848
+        ],
+        "to_position": [
+          2224,
+          56.2861328125,
+          -752
+        ],
+        "segment": 16088
+      },
+      {
+        "index": 13,
+        "from_key": "g01",
+        "to_key": "g02",
+        "from_node": 31676,
+        "to_node": 14459,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          56.2861328125,
+          -752
+        ],
+        "to_position": [
+          2224,
+          55.98874282836914,
+          -656
+        ],
+        "segment": 27928
+      },
+      {
+        "index": 14,
+        "from_key": "g02",
+        "to_key": "g03",
+        "from_node": 14459,
+        "to_node": 19870,
+        "status": "accepted",
+        "from_position": [
+          2224,
+          55.98874282836914,
+          -656
+        ],
+        "to_position": [
+          2224,
+          55.877174377441406,
+          -560
+        ],
+        "segment": 28592
+      },
+      {
+        "index": 15,
+        "from_key": "g10",
+        "to_key": "g11",
+        "from_node": 20674,
+        "to_node": 7815,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          55.94921875,
+          -848
+        ],
+        "to_position": [
+          2320,
+          56.016910552978516,
+          -752
+        ],
+        "segment": 28892
+      },
+      {
+        "index": 16,
+        "from_key": "g11",
+        "to_key": "g12",
+        "from_node": 7815,
+        "to_node": 10606,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          56.016910552978516,
+          -752
+        ],
+        "to_position": [
+          2320,
+          55.9609375,
+          -656
+        ],
+        "segment": 17387
+      },
+      {
+        "index": 17,
+        "from_key": "g12",
+        "to_key": "g13",
+        "from_node": 10606,
+        "to_node": 6432,
+        "status": "accepted",
+        "from_position": [
+          2320,
+          55.9609375,
+          -656
+        ],
+        "to_position": [
+          2320,
+          55.770572662353516,
+          -560
+        ],
+        "segment": 12642
+      },
+      {
+        "index": 18,
+        "from_key": "g20",
+        "to_key": "g21",
+        "from_node": 16788,
+        "to_node": 14589,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.68359375,
+          -848
+        ],
+        "to_position": [
+          2416,
+          55.966796875,
+          -752
+        ],
+        "segment": 28230
+      },
+      {
+        "index": 19,
+        "from_key": "g21",
+        "to_key": "g22",
+        "from_node": 14589,
+        "to_node": 30194,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.966796875,
+          -752
+        ],
+        "to_position": [
+          2416,
+          55.78889083862305,
+          -656
+        ],
+        "segment": 28726
+      },
+      {
+        "index": 20,
+        "from_key": "g22",
+        "to_key": "g23",
+        "from_node": 30194,
+        "to_node": 25045,
+        "status": "accepted",
+        "from_position": [
+          2416,
+          55.78889083862305,
+          -656
+        ],
+        "to_position": [
+          2416,
+          55.63163757324219,
+          -560
+        ],
+        "segment": 16114
+      },
+      {
+        "index": 21,
+        "from_key": "g30",
+        "to_key": "g31",
+        "from_node": 11460,
+        "to_node": 24377,
+        "status": "accepted",
+        "from_position": [
+          2512,
+          55.948646545410156,
+          -848
+        ],
+        "to_position": [
+          2512,
+          56.1845703125,
+          -752
+        ],
+        "segment": 9448
+      },
+      {
+        "index": 22,
+        "from_key": "g31",
+        "to_key": "g32",
+        "from_node": 24377,
+        "to_node": 25581,
+        "status": "accepted",
+        "from_position": [
+          2512,
+          56.1845703125,
+          -752
+        ],
+        "to_position": [
+          2512,
+          55.5263671875,
+          -656
+        ],
+        "segment": 28596
+      },
+      {
+        "index": 23,
+        "from_key": "g32",
+        "to_key": "g33",
+        "from_node": 25581,
+        "to_node": 20778,
+        "status": "accepted",
+        "from_position": [
+          2512,
+          55.5263671875,
+          -656
+        ],
+        "to_position": [
+          2512,
+          55.76396560668945,
+          -560
+        ],
+        "segment": 36140
+      },
+      {
+        "index": 24,
+        "from_key": "hook0",
+        "to_key": "join",
+        "from_node": 570,
+        "to_node": 0,
+        "status": "attempting"
+      }
+    ],
+    "bindings": {
+      "hook0": {
+        "node": 570,
+        "position": [
+          2689.722900390625,
+          62.3455810546875,
+          -741.152587890625
+        ],
+        "prefab": "HighwayRamp",
+        "flags": "Created, Original, End, Moveable, OnGround, OneWayIn"
+      },
+      "hook1": {
+        "node": 593,
+        "position": [
+          2651.970947265625,
+          60.28544616699219,
+          -731.4390258789062
+        ],
+        "prefab": "HighwayRamp",
+        "flags": "Created, Original, End, Moveable, OnGround, OneWayOut"
+      }
+    },
+    "site": {
+      "inside_start": true,
+      "native_relief_m": 1.609375,
+      "max_sampled_depth_m": 0,
+      "max_sampled_slope": 0.03938465937972069,
+      "spacing_m": 16
+    },
+    "observed_footprint_predicates": true,
+    "failure_kind": "native_tool_rejection",
+    "error": "Basic Road (2689.7, 62.3, -741.2) -> (2619.8, 61.7, -702.4) (elevation 0 -> 1.035462) [segment 592 HighwayRamp Created, Original, End]: ObjectCollision",
+    "tool_errors": "ObjectCollision",
+    "colliding_segments": [
+      592
+    ],
+    "colliding_buildings": []
+  },
+  "ok": true
+}

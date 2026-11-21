@@ -1,0 +1,558 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "unverified",
+  "failed": [],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "pass",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/Foggy Hills.crp",
+          "selected_index": 4,
+          "map_name": "Foggy Hills",
+          "author": "",
+          "published": true,
+          "buildableArea": 74,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 544,
+            "realtime": 16.298721313476562,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.35439354181289673,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.35439354181289673,
+                "target_value": 0.35439354181289673,
+                "amount": 649862,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.4879855215549469,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4879855215549469,
+                "target_value": 0.4879855215549469,
+                "amount": 1887520,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.3175656497478485,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.3175656497478485,
+                "target_value": 0.3175656497478485,
+                "amount": 2080665,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.4088648557662964,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4088648557662964,
+                "target_value": 0.4088648557662964,
+                "amount": 1046649,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.29436495900154114,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.29436495900154114,
+                "target_value": 0.29436495900154114,
+                "amount": 1787752,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 649862,
+            "oreAmount": 1887520,
+            "forestAmount": 2080665,
+            "fertileLandAmount": 1046649,
+            "waterAmount": 1787752
+          },
+          "connections": {
+            "incomingRoads": 3,
+            "outgoingRoads": 3,
+            "incomingTrainTracks": 3,
+            "outgoingTrainTracks": 3,
+            "incomingShipPath": 2,
+            "outgoingShipPath": 2,
+            "incomingPlanePath": 4,
+            "outgoingPlanePath": 4
+          },
+          "imageRef": {
+            "name": "Foggy Hills_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "Foggy Hills_SteamPreview",
+            "resolved": true,
+            "width": 644,
+            "height": 360
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 74 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": "Sol xhigh, PL-1078",
+        "problems": [],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native listing and rendered selection reviewed"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "skip",
+      "value": null,
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "not requested"
+    },
+    {
+      "name": "startup_views",
+      "status": "skip",
+      "value": null,
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "not requested"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.02,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no required probes"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no required probes in the declared cohort"
+    },
+    {
+      "name": "no_flooding",
+      "status": "pass",
+      "value": {
+        "worst_km2": 0.0,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.0
+          }
+        ],
+        "reference": "the run's first water dump"
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "pass",
+      "value": {
+        "initial": 0,
+        "final": 325,
+        "growth": 325,
+        "first_observed_minute": 1.766
+      },
+      "threshold": ">= 50 new residents by minute 5, retained at the end",
+      "detail": ""
+    },
+    {
+      "name": "outside_connection",
+      "status": "pass",
+      "value": {
+        "complete": true,
+        "directions": [
+          "inbound",
+          "outbound"
+        ],
+        "paths_checked": 6
+      },
+      "threshold": "native passenger-car paths grid -> highway edge and edge -> grid, released",
+      "detail": ""
+    },
+    {
+      "name": "utilities",
+      "status": "pass",
+      "value": {
+        "broken": []
+      },
+      "threshold": "power, water and sewage active, native pipe nodes connected, no connection or supply problems",
+      "detail": ""
+    },
+    {
+      "name": "first_hour",
+      "status": "pass",
+      "value": {
+        "checks": {
+          "population_growth": true,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "land": {
+          "samples": 3600,
+          "dry_flat_samples": 2248,
+          "sample_spacing_m": 32,
+          "max_axis_slope": 0.15000000596046448,
+          "dry_flat_km2": 2.3019518852233887,
+          "dry_flat_fraction": 0.6244444251060486
+        },
+        "traffic_last_15_minutes": [
+          {
+            "minute": 45.04722457161794,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 3,
+              "moving": 2,
+              "stationary": 1,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 50.01166927497834,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 3,
+              "moving": 3,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 55.01083620237186,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 60.015558685610685,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 27,
+              "vehicles": 3,
+              "moving": 3,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          }
+        ],
+        "map_panel": {
+          "name": "new_game_panel",
+          "status": "pass",
+          "value": {
+            "observed": {
+              "source": "native NewGamePanel",
+              "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/Foggy Hills.crp",
+              "selected_index": 4,
+              "map_name": "Foggy Hills",
+              "author": "",
+              "published": true,
+              "buildableArea": 74,
+              "selection_refreshed": false,
+              "resource_bars": {
+                "schema": 1,
+                "source": "native UIProgressBar.value / NewGamePanel resource targets",
+                "frame": 544,
+                "realtime": 16.298721313476562,
+                "bars": {
+                  "oil": {
+                    "component": "ResourceBarOil",
+                    "value": 0.35439354181289673,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.35439354181289673,
+                    "target_value": 0.35439354181289673,
+                    "amount": 649862,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "ore": {
+                    "component": "ResourceBarOre",
+                    "value": 0.4879855215549469,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.4879855215549469,
+                    "target_value": 0.4879855215549469,
+                    "amount": 1887520,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "forest": {
+                    "component": "ResourceBarForestry",
+                    "value": 0.3175656497478485,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.3175656497478485,
+                    "target_value": 0.3175656497478485,
+                    "amount": 2080665,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "fertility": {
+                    "component": "ResourceBarFarming",
+                    "value": 0.4088648557662964,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.4088648557662964,
+                    "target_value": 0.4088648557662964,
+                    "amount": 1046649,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "water": {
+                    "component": "ResourceBarWater",
+                    "value": 0.29436495900154114,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.29436495900154114,
+                    "target_value": 0.29436495900154114,
+                    "amount": 1787752,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  }
+                }
+              },
+              "resources": {
+                "maxResourceAmount": 20631704,
+                "oilAmount": 649862,
+                "oreAmount": 1887520,
+                "forestAmount": 2080665,
+                "fertileLandAmount": 1046649,
+                "waterAmount": 1787752
+              },
+              "connections": {
+                "incomingRoads": 3,
+                "outgoingRoads": 3,
+                "incomingTrainTracks": 3,
+                "outgoingTrainTracks": 3,
+                "incomingShipPath": 2,
+                "outgoingShipPath": 2,
+                "incomingPlanePath": 4,
+                "outgoingPlanePath": 4
+              },
+              "imageRef": {
+                "name": "Foggy Hills_Snapshot",
+                "resolved": true,
+                "width": 400,
+                "height": 224
+              },
+              "steamPreviewRef": {
+                "name": "Foggy Hills_SteamPreview",
+                "resolved": true,
+                "width": 644,
+                "height": 360
+              },
+              "snapshot_texture_present": true,
+              "author_label": "Created by xxx",
+              "author_visible": false,
+              "buildable_label": "Suitable area for building: 74 %",
+              "ok": true
+            },
+            "screenshot": "new-game-panel.png",
+            "reviewer": "Sol xhigh, PL-1078",
+            "problems": [],
+            "resource_bars_required": true,
+            "resource_bars_verified": true
+          },
+          "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+          "detail": "native listing and rendered selection reviewed"
+        }
+      },
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "Services and traffic are sampled, not continuous. Traffic uses native current-path segments on the roads built by this scenario; movement does not rule out individual bottlenecks. Land is a 32 m start-tile sample at <=15% axis slope plus actual native city construction; it is not the game's New Game buildable-area score. Water-soak gates remain independent."
+    },
+    {
+      "name": "paths",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "the probe file names no paths"
+    },
+    {
+      "name": "no_terracing",
+      "status": "pass",
+      "value": 0.0028,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 8,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "the probe file has no ground_truth region, so nothing checks the map against the world"
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 332.0,
+        "facing": "north-west"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 15,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+  "harness": {
+    "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "c200644366b36ee91f3c9cd811f33e88e833e289",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "no rule matched the reason",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "triage-steam.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

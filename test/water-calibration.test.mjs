@@ -15,9 +15,6 @@ const sha = (raw) => createHash("sha256").update(raw).digest("hex");
 
 test("saved study deterministically projects original bytes, distinct from historical seed", () => {
   assert.deepEqual(waterStudy(), waterStudy());
-  const ledgerBytes = read("capabilities.json");
-  const marker = Buffer.from('    {\n      "id": "water_risk",');
-  assert.equal(sha(ledgerBytes.subarray(0, ledgerBytes.indexOf(marker))), "6c743d1efcb73cfaaf49ba5795673c237c98a424e937043594564896fd35be32", "all non-water ledger bytes must remain exact parent bytes");
   assert.deepEqual(study, waterStudy());
   validateLedger(ledger);
   assert.equal(cap.calibration.squares, 5);

@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "scope": "Collected first-hour evidence; no Steam/audio/launch logs. Every failure retained. Total-card peak is not game-only memory.",
+  "cases": [
+    {
+      "square": "cliffside-bay",
+      "summary_sha256": "5a0ce2535c5364d57f660b431e5f24ef322fbf240a537c8dfac1b4280244824c",
+      "first_hour": "pass",
+      "overall": "unverified",
+      "map_sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 232,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 145.5,
+        "peak_temperature_c": 60.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1620
+        ],
+        "first_telemetry_local": "2026/11/20 13:53:59.480",
+        "last_telemetry_local": "2026/11/20 14:13:16.085"
+      }
+    },
+    {
+      "square": "foggy-hills",
+      "summary_sha256": "789efc9103b829eb973a2c34956633b7a562b09e43788dfeedad845f0873ae5f",
+      "first_hour": "pass",
+      "overall": "unverified",
+      "map_sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+      "player_mod_sha256": "4a4dbf3a133c50f7b8ead52265665b28fecb1db020f6986e638c83eda85b039b",
+      "resource_observation": {
+        "samples": 221,
+        "total_card_peak_mib": 10821.0,
+        "peak_power_w": 144.26,
+        "peak_temperature_c": 60.0,
+        "recorded_power_limit_w": [
+          200.0
+        ],
+        "game_menu_mib": [
+          1574
+        ],
+        "first_telemetry_local": "2026/11/20 14:33:21.715",
+        "last_telemetry_local": "2026/11/20 14:51:43.347"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "cliffside-bay/gpu.csv",
+      "sha256": "986902efa08a52d80c132e705227d30d4e0f5ad23255a3478fb222ad851c51d9",
+      "bytes": 15837
+    },
+    {
+      "path": "cliffside-bay/harness-source.json",
+      "sha256": "d8318f44fa333e1b03f14eede8abb9a67b33b392a61e0931bb9c63618051de1c",
+      "bytes": 77
+    },
+    {
+      "path": "cliffside-bay/new-game-panel-review.json",
+      "sha256": "bd6858b70659b0f83b6944665fbbfdb55724fd45188106ab3ff3cdcd2a54607b",
+      "bytes": 826
+    },
+    {
+      "path": "cliffside-bay/new-game-panel.json.gz",
+      "sha256": "8368d080004293e95fe013dbb89e1bd954e670e7127fb131871e4b15cf33fced",
+      "bytes": 2010
+    },
+    {
+      "path": "cliffside-bay/new-game-panel.png",
+      "sha256": "12c5acda5c1b07c30cc63af4e09d9105e478f6b142e4befbd3ba8f7be57a5c49",
+      "bytes": 1172274
+    },
+    {
+      "path": "cliffside-bay/probes.json",
+      "sha256": "400793e0ecbb103b7b104bcdb3584100df700fb54d74be3e3ab73500a004df5d",
+      "bytes": 842
+    },
+    {
+      "path": "cliffside-bay/receipt-bindings.json",
+      "sha256": "5089f6edd230920ac02ff8da09c71bafd11bb96e2788d8e2e8ae80efa05c6b05",
+      "bytes": 883
+    },
+    {
+      "path": "cliffside-bay/report.json.gz",
+      "sha256": "b79a28ed8647183ba93959046a2ad1371579db1cf33eb47c5beaf68c5f76836d",
+      "bytes": 22258
+    },
+    {
+      "path": "cliffside-bay/scenario.json.gz",
+      "sha256": "5adc6a314229a1b97c659378511aca9710baf7753a5d1bb9681bb4205216157f",
+      "bytes": 5284
+    },
+    {
+      "path": "cliffside-bay/startup-world.json.gz",
+      "sha256": "a202f1090d6fef853a9a39b1e1855b8bf06399a81146eb9105e545c730028928",
+      "bytes": 596
+    },
+    {
+      "path": "cliffside-bay/summary.json",
+      "sha256": "5a0ce2535c5364d57f660b431e5f24ef322fbf240a537c8dfac1b4280244824c",
+      "bytes": 11946
+    },
+    {
+      "path": "cliffside-bay/timeline.jsonl.gz",
+      "sha256": "987f5edb3d0d0c1be71edaaea253c3a20d2e3e3787469462eb969f017f0c7594",
+      "bytes": 9886
+    },
+    {
+      "path": "cliffside-bay/verdict.json",
+      "sha256": "51a756bd3d9c39c4da88d3128d65855b06aee525f5ee32eb268277c9c4b59fe9",
+      "bytes": 18654
+    },
+    {
+      "path": "foggy-hills/gpu.csv",
+      "sha256": "48fee1049309133d6d6bbfa1bea5df68c3c15a6d0a9d7c3159de16a61d812128",
+      "bytes": 15084
+    },
+    {
+      "path": "foggy-hills/harness-source.json",
+      "sha256": "d8318f44fa333e1b03f14eede8abb9a67b33b392a61e0931bb9c63618051de1c",
+      "bytes": 77
+    },
+    {
+      "path": "foggy-hills/new-game-panel-review.json",
+      "sha256": "94fe7fc61d69858ada395f3cd0241213acf5548567b64ac1df7357c8a6f199f7",
+      "bytes": 671
+    },
+    {
+      "path": "foggy-hills/new-game-panel.json.gz",
+      "sha256": "810e568ddbdb78f1c466acd0e4131478d1d167cd32d867463a9f7fa19fc32bfe",
+      "bytes": 1975
+    },
+    {
+      "path": "foggy-hills/new-game-panel.png",
+      "sha256": "ea0e4bb9dc86453aaebdb36196cf30bd1cb8a71a64ed70524e3b5c2f98e85172",
+      "bytes": 901423
+    },
+    {
+      "path": "foggy-hills/probes.json",
+      "sha256": "72a8aeb7271e31b5855a7a460f79c4cf3a65a72d4e88e452035d171411c8e4cd",
+      "bytes": 841
+    },
+    {
+      "path": "foggy-hills/receipt-bindings.json",
+      "sha256": "f79708ec55bf708249795657e2bb35129938e3e691ed0b927c5d5662c3f88777",
+      "bytes": 881
+    },
+    {
+      "path": "foggy-hills/report.json.gz",
+      "sha256": "82505e3f89c0517551a8313051baece7b1c9b61135f624f9dc4e320da1bf0976",
+      "bytes": 22800
+    },
+    {
+      "path": "foggy-hills/scenario.json.gz",
+      "sha256": "7491b63c2f53bd350ecdfdccc8e88ea05a48283f689dec5500b4ba14652dc888",
+      "bytes": 6131
+    },
+    {
+      "path": "foggy-hills/startup-world.json.gz",
+      "sha256": "95ef6b7c8356c78bf39a3648ff10fbd43f1f8a113ce688fdc734667f5c5e5e02",
+      "bytes": 596
+    },
+    {
+      "path": "foggy-hills/summary.json",
+      "sha256": "789efc9103b829eb973a2c34956633b7a562b09e43788dfeedad845f0873ae5f",
+      "bytes": 11935
+    },
+    {
+      "path": "foggy-hills/timeline.jsonl.gz",
+      "sha256": "0b6528b7d36811d38f9958dbd0ff072c63a585cce12449e57b05a0b6c2c64f4d",
+      "bytes": 10608
+    },
+    {
+      "path": "foggy-hills/verdict.json",
+      "sha256": "9adf9720299e4915fcf6651d8d664a72bc898053b02354e95d06a898bda1c797",
+      "bytes": 18637
+    }
+  ]
+}

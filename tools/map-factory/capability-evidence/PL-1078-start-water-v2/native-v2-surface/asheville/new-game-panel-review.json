@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "be73e191c859322779434e7fa909c1f707ab58d8d5ccb807e44269e1ba6adae3",
+  "observed": {
+    "map_name": "Asheville - Ready to Play",
+    "author": "",
+    "buildableArea": 73,
+    "base_theme": "Temperate",
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  },
+  "notes": "Mountain-valley river and roads preview; road, rail and air enabled, ship crossed out. Settled resource bars visually match captured targets."
+}

@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "223dc2eda5f1a37fea72eab4d183a6a118797e4a37cc256d25708f6ef31c3eed",
+  "observed": {
+    "map_name": "Pittsburgh - Ready to Play",
+    "author": "",
+    "buildableArea": 79,
+    "base_theme": "Temperate",
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  },
+  "notes": "Confluent rivers and road-network preview; road, rail and air enabled, ship crossed out. Visible settled resource bars match capture."
+}

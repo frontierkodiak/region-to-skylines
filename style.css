@@ -5,6 +5,7 @@
 }
 .ledger-page { height: auto; min-height: 100%; }
 .ledger-page header { flex-wrap: wrap; }
+.ledger-page li { overflow-wrap: anywhere; }
 .ledger-page a { color: var(--accent); }
 .ledger-page main { display: block; padding: 24px 16px; }
 .ledger-page main > section { max-width: 960px; margin: auto; }

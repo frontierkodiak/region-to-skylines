@@ -1,0 +1,655 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "fail",
+  "failed": [
+    "population_growth",
+    "first_hour"
+  ],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "pass",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-grand-canyon-northeast.crp",
+          "selected_index": 12,
+          "map_name": "grand-canyon northeast holdout - Ready to Play",
+          "author": "",
+          "published": true,
+          "buildableArea": 97,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 693,
+            "realtime": 18.043569564819336,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.3469124436378479,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.3469124436378479,
+                "target_value": 0.3469124436378479,
+                "amount": 605250,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.4155344069004059,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4155344069004059,
+                "target_value": 0.4155344069004059,
+                "amount": 1104651,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.14889921247959137,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.14889921247959137,
+                "target_value": 0.14889921247959137,
+                "amount": 457425,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.6998937726020813,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.6998937726020813,
+                "target_value": 0.6998937726020813,
+                "amount": 6280229,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.026029780507087708,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.026029780507087708,
+                "target_value": 0.026029780507087708,
+                "amount": 13979,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 605250,
+            "oreAmount": 1104651,
+            "forestAmount": 457425,
+            "fertileLandAmount": 6280229,
+            "waterAmount": 13979
+          },
+          "connections": {
+            "incomingRoads": 2,
+            "outgoingRoads": 2,
+            "incomingTrainTracks": 0,
+            "outgoingTrainTracks": 0,
+            "incomingShipPath": 0,
+            "outgoingShipPath": 0,
+            "incomingPlanePath": 0,
+            "outgoingPlanePath": 0
+          },
+          "imageRef": {
+            "name": "grand-canyon northeast holdout - Ready to Play_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "grand-canyon northeast holdout - Ready to Play_SteamPreview",
+            "resolved": true,
+            "width": 1800,
+            "height": 1008
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 97 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": "Sol xhigh; actual PNG viewed",
+        "problems": [],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native listing and rendered selection reviewed"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "skip",
+      "value": null,
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "not requested"
+    },
+    {
+      "name": "startup_views",
+      "status": "pass",
+      "value": {
+        "views": {
+          "opening": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-opening.png",
+            "sha256": "897f979de93b4690217c6c85820fa5bc5d1e50f8338ff8c93b9a85304c67a302",
+            "current_position": [
+              -1920,
+              294.8416748046875,
+              -1920
+            ],
+            "target_position": [
+              -1920,
+              294.8416748046875,
+              -1920
+            ],
+            "expected_center": {
+              "x": -1920,
+              "z": -1920,
+              "tolerance_m": 64
+            }
+          },
+          "area_zoom": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-area_zoom.png",
+            "sha256": "6671062439286a8642361de6751a2e26fcbab754172ab2b5158b2b6f8d468a6a"
+          }
+        },
+        "problems": []
+      },
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "native headings and actual opening/Areas PNGs reviewed"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.02,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no required probes"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no required probes in the declared cohort"
+    },
+    {
+      "name": "no_flooding",
+      "status": "pass",
+      "value": {
+        "worst_km2": 0.0,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.0
+          }
+        ],
+        "reference": "the run's first water dump union hash-bound mapped_water",
+        "reference_sha256": "ad7d2539712a1e4984d454ebabf572ec4ecad1e803b1520d33971a96ef938067",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "bbcf842740be368400cb89b098b00f91f309f53a37d790a1386b5cac35b72e53",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 29797
+        },
+        "failing_grids": [],
+        "initial_only_diagnostic": {
+          "worst_km2": 0.0,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.0
+            }
+          ],
+          "would_fail": false,
+          "status": "pass",
+          "reference_cells": 7536,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "fail",
+      "value": {
+        "initial": 0,
+        "final": 385,
+        "growth": 385,
+        "first_observed_minute": 6.038
+      },
+      "threshold": ">= 50 new residents by minute 5, retained at the end",
+      "detail": ""
+    },
+    {
+      "name": "outside_connection",
+      "status": "pass",
+      "value": {
+        "complete": true,
+        "directions": [
+          "inbound",
+          "outbound"
+        ],
+        "paths_checked": 4
+      },
+      "threshold": "native passenger-car paths grid -> highway edge and edge -> grid, released",
+      "detail": ""
+    },
+    {
+      "name": "utilities",
+      "status": "pass",
+      "value": {
+        "broken": []
+      },
+      "threshold": "power, water and sewage active, native pipe nodes connected, no connection or supply problems",
+      "detail": ""
+    },
+    {
+      "name": "first_hour",
+      "status": "fail",
+      "value": {
+        "checks": {
+          "population_growth": false,
+          "outside_connection": true,
+          "utilities": true,
+          "duration": true,
+          "sample_coverage": true,
+          "sampled_services": true,
+          "sampled_traffic_movement": true,
+          "starter_land": true,
+          "map_panel": true
+        },
+        "outages": [],
+        "land": {
+          "samples": 3600,
+          "dry_flat_samples": 2940,
+          "sample_spacing_m": 32,
+          "max_axis_slope": 0.15000000596046448,
+          "dry_flat_km2": 3.0105600357055664,
+          "dry_flat_fraction": 0.8166666626930237
+        },
+        "traffic_last_15_minutes": [
+          {
+            "minute": 45.035002348758276,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 26,
+              "vehicles": 4,
+              "moving": 4,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 50.00833594147116,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 26,
+              "vehicles": 3,
+              "moving": 3,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 55.0105584245796,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 26,
+              "vehicles": 2,
+              "moving": 1,
+              "stationary": 1,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          },
+          {
+            "minute": 60.02222535262505,
+            "traffic": {
+              "scope": "scenario road segments",
+              "segments": 26,
+              "vehicles": 2,
+              "moving": 2,
+              "stationary": 0,
+              "moving_velocity_squared_min": 0.009999999776482582
+            }
+          }
+        ],
+        "map_panel": {
+          "name": "new_game_panel",
+          "status": "pass",
+          "value": {
+            "observed": {
+              "source": "native NewGamePanel",
+              "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-grand-canyon-northeast.crp",
+              "selected_index": 12,
+              "map_name": "grand-canyon northeast holdout - Ready to Play",
+              "author": "",
+              "published": true,
+              "buildableArea": 97,
+              "selection_refreshed": false,
+              "resource_bars": {
+                "schema": 1,
+                "source": "native UIProgressBar.value / NewGamePanel resource targets",
+                "frame": 693,
+                "realtime": 18.043569564819336,
+                "bars": {
+                  "oil": {
+                    "component": "ResourceBarOil",
+                    "value": 0.3469124436378479,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.3469124436378479,
+                    "target_value": 0.3469124436378479,
+                    "amount": 605250,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "ore": {
+                    "component": "ResourceBarOre",
+                    "value": 0.4155344069004059,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.4155344069004059,
+                    "target_value": 0.4155344069004059,
+                    "amount": 1104651,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "forest": {
+                    "component": "ResourceBarForestry",
+                    "value": 0.14889921247959137,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.14889921247959137,
+                    "target_value": 0.14889921247959137,
+                    "amount": 457425,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "fertility": {
+                    "component": "ResourceBarFarming",
+                    "value": 0.6998937726020813,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.6998937726020813,
+                    "target_value": 0.6998937726020813,
+                    "amount": 6280229,
+                    "denominator": 20631704,
+                    "exponent": 0.30000001192092896,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  },
+                  "water": {
+                    "component": "ResourceBarWater",
+                    "value": 0.026029780507087708,
+                    "min_value": 0,
+                    "max_value": 1,
+                    "normalized_target": 0.026029780507087708,
+                    "target_value": 0.026029780507087708,
+                    "amount": 13979,
+                    "denominator": 20631704,
+                    "exponent": 0.5,
+                    "no_resource_visible": false,
+                    "expected_no_resource": false,
+                    "visible": true,
+                    "animating": false
+                  }
+                }
+              },
+              "resources": {
+                "maxResourceAmount": 20631704,
+                "oilAmount": 605250,
+                "oreAmount": 1104651,
+                "forestAmount": 457425,
+                "fertileLandAmount": 6280229,
+                "waterAmount": 13979
+              },
+              "connections": {
+                "incomingRoads": 2,
+                "outgoingRoads": 2,
+                "incomingTrainTracks": 0,
+                "outgoingTrainTracks": 0,
+                "incomingShipPath": 0,
+                "outgoingShipPath": 0,
+                "incomingPlanePath": 0,
+                "outgoingPlanePath": 0
+              },
+              "imageRef": {
+                "name": "grand-canyon northeast holdout - Ready to Play_Snapshot",
+                "resolved": true,
+                "width": 400,
+                "height": 224
+              },
+              "steamPreviewRef": {
+                "name": "grand-canyon northeast holdout - Ready to Play_SteamPreview",
+                "resolved": true,
+                "width": 1800,
+                "height": 1008
+              },
+              "snapshot_texture_present": true,
+              "author_label": "Created by xxx",
+              "author_visible": false,
+              "buildable_label": "Suitable area for building: 97 %",
+              "ok": true
+            },
+            "screenshot": "new-game-panel.png",
+            "reviewer": "Sol xhigh; actual PNG viewed",
+            "problems": [],
+            "resource_bars_required": true,
+            "resource_bars_verified": true
+          },
+          "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+          "detail": "native listing and rendered selection reviewed"
+        }
+      },
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "Services and traffic are sampled, not continuous. Traffic uses native current-path segments on the roads built by this scenario; movement does not rule out individual bottlenecks. Land is a 32 m start-tile sample at <=15% axis slope plus actual native city construction; it is not the game's New Game buildable-area score. Water-soak gates remain independent."
+    },
+    {
+      "name": "paths",
+      "status": "pass",
+      "value": {
+        "checked": 2,
+        "broken": []
+      },
+      "threshold": "every native path found, no expected segment missing",
+      "detail": ""
+    },
+    {
+      "name": "no_terracing",
+      "status": "pass",
+      "value": 0.003,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 9,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "pass",
+      "value": {
+        "orientation": "as is",
+        "correlation_as_is": 1.0,
+        "best_other": 0.3969,
+        "landmarks": [
+          {
+            "name": "highest DEM point",
+            "x": 2560.0,
+            "z": -5824.0,
+            "dem_m": 2178.7,
+            "game_m": 786.3,
+            "dem_from_game_m": 2176.0,
+            "error_m": -2.7
+          },
+          {
+            "name": "lowest DEM point",
+            "x": -5888.0,
+            "z": 7616.0,
+            "dem_m": 1472.4,
+            "game_m": 85.5,
+            "dem_from_game_m": 1475.1,
+            "error_m": 2.7
+          }
+        ]
+      },
+      "threshold": "terrain correlates with the real DEM >= 0.9 as is, and beats every rotation or mirror by >= 0.15",
+      "detail": ""
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 0.0,
+        "facing": "north"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 15,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "7bcdd0924fef7fe6ce5559c026ba80340ce56c7b76d6b97fa465bc8382d965c6",
+  "harness": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "failed checks: first_hour, population_growth",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

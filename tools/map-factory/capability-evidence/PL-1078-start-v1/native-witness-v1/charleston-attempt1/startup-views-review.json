@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh, both actual PNGs viewed",
+  "notes": "Fresh empty Charleston city, road approaches and dry-looking central ground beside estuary; Hello guide visible in both. Opening has no Areas overlay, area_zoom shows outlined start tile. Captured before witness construction; no full-map fidelity claim.",
+  "opening": {
+    "sha256": "c0fa8b1c581fc6422bf3a0bcb0f9bfa4b7c8d15b4f4289c428145af8c7dad3fd",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "6fb5c735bae66b33dff9c6a52db247667b46d623ef3d330e4472b17f3e1951db",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

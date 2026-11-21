@@ -7,6 +7,9 @@ import { validNativeContext, validNativeIdentityRef } from "./capability-model.j
 
 import { WATER_STUDY, validateWaterStudy, waterStudyPage } from "./water-calibration.mjs";
 
+import { START_WATER_STUDY, validateStartWaterStudy, startWaterPage } from "./start-water-study.mjs";
+
+export const START_WATER_PROJECTION_SHA = "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b";
 export const WATER_PROJECTION_SHA = "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf";
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
 const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];
@@ -89,6 +92,7 @@ export function validateLedger(ledger) {
       !isDeepStrictEqual(receipt.native_context, certificate.native_context)) throw new Error("Runtime identity receipt binding changed");
   }
   validateWaterStudy(ledger.capabilities.find((c) => c.id === "water_risk"), undefined, WATER_PROJECTION_SHA);
+  validateStartWaterStudy(ledger, undefined, START_WATER_PROJECTION_SHA);
   const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
   const recorded = ledger.capabilities.find((c) => c.id === "water_risk").calibration;
   if (recorded.squares !== source.squares || recorded.scored_complete_runs !== source.complete_60_runs ||
@@ -116,7 +120,8 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
       <p>Exporter: ${c.exporter_check ? sourceLink(c.exporter_check) : "Not implemented"}<br>Browser: ${c.browser_check ? sourceLink(c.browser_check) : "Not implemented"}</p><p>Existing work: ${c.existing_checks.map(sourceLink).join(", ")}</p></details>
       ${c.evidence_metrics ? `<h3>Place evidence measures</h3><dl>${Object.entries(c.evidence_metrics).map(([id, m]) => `<dt>${escape(m.name)} (${escape(m.unit)})</dt><dd>${escape(m.definition)}</dd>`).join("")}</dl>` : ""}
       ${c.source_coverage ? `<details><summary>Sources, coverage and fidelity</summary><dl>${Object.entries(c.source_coverage).map(([key, value]) => `<dt>${escape(label(key))}</dt><dd>${escape(value)}</dd>`).join("")}</dl><p>${escape(c.fidelity)}</p></details>` : ""}
-      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies ? "" : "<p class=note>No scored observations for this model yet.</p>"}
+      <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies || c.witness_study ? "" : "<p class=note>No scored observations for this model yet.</p>"}
+      ${c.witness_study ? startWaterPage(ledger.witness_studies[START_WATER_STUDY], c.id, escape) : ""}
       ${c.calibration_studies ? waterStudyPage(c.calibration_studies[WATER_STUDY], escape) : ""}
       ${c.calibration ? `<details><summary>Historical seed · 5 squares / 50 runs</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}
       <p class=note>${escape(c.limits)}</p></article>`;

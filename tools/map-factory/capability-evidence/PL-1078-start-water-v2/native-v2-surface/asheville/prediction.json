@@ -1,0 +1,228 @@
+{
+  "schema": 1,
+  "mode": "export",
+  "model": {
+    "id": "surface-intake-load-v1",
+    "parameters": {
+      "load": {
+        "consumer_api": "spatial_water_and_sewage",
+        "settling_has_load": true,
+        "native_units_per_cycle": 1000,
+        "cycle_frames": 256,
+        "settling_game_minutes": 2,
+        "horizon_game_minutes": 60,
+        "shore_snap_radius_m": 50,
+        "auxiliary_power_rate": 1000,
+        "max_pollution_native": 0
+      },
+      "bank": {
+        "search_radius_m": 192,
+        "radial_step_m": 16,
+        "directions": 16,
+        "lateral_sample_spacing_m": 8,
+        "minimum_wet_depth_m": 1,
+        "minimum_freeboard_m": 0.25,
+        "maximum_freeboard_m": 8,
+        "maximum_bank_slope": 0.15
+      }
+    },
+    "source_sha256": {
+      "surface_intake.py": "4cc4fa4f7ed72d538cf4c1319304b125cebc9f8e1625bf35460910c28d4863bf",
+      "start_capabilities.py": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe",
+      "real_roads.py": "2c20cb0138543d827bf04fd2adee4db02fbbc7d45b76f20f47925072d563748c",
+      "crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8"
+    },
+    "sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604"
+  },
+  "inputs_sha256": {
+    "terrain.u16": "f70236327038371148df83c7b130b895ce63b0b879d264c8c065a5c7fd72daf4",
+    "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c",
+    "hydrology.json": "0d396d1cdfcda129be31e525cbd921a287d1eaac8deb025f77c0d885552aef9a"
+  },
+  "capabilities": {
+    "start": {
+      "level": "unknown",
+      "reason": "no_witness_in_finite_plan_search",
+      "predicted": null,
+      "scope": "Current authored directed graph and current start tile only; not all possible generators",
+      "dry_footprint_candidates": 0,
+      "witness": null
+    },
+    "water": {
+      "level": "likely",
+      "reason": "initial_wet_downstream_route_with_nearby_bank_candidates",
+      "predicted": true,
+      "witness": {
+        "schema": 1,
+        "start_tile": 11,
+        "facilities": [
+          {
+            "prefab": "Water Intake",
+            "anchor": [
+              -1202.4358549596388,
+              0.0,
+              -419.75413016431713
+            ],
+            "initial_surface_m": 74.71875,
+            "model_bank_candidate": [
+              -1172.8717099192777,
+              78.87794865382823,
+              -407.50826032863426
+            ],
+            "bank_search": {
+              "lateral_offset_m": 31.99999999999998,
+              "lateral_min_depth_m": 1.9296980865581046,
+              "lateral_sample_count": 5
+            },
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          },
+          {
+            "prefab": "Water Outlet",
+            "anchor": [
+              -1128.0,
+              0.0,
+              384.0
+            ],
+            "initial_surface_m": 74.296875,
+            "model_bank_candidate": [
+              -1104.0,
+              77.1875,
+              384.0
+            ],
+            "bank_search": {
+              "lateral_offset_m": 40.0,
+              "lateral_min_depth_m": 1.7890625,
+              "lateral_sample_count": 6
+            },
+            "placement": "one_native_shore_snap",
+            "shore_snap_radius_m": 50
+          }
+        ],
+        "consumer_point": [
+          -1138.4358549596388,
+          77.8424276290854,
+          -11.754130164317132
+        ],
+        "load": {
+          "consumer_api": "spatial_water_and_sewage",
+          "settling_has_load": true,
+          "native_units_per_cycle": 1000,
+          "cycle_frames": 256,
+          "settling_game_minutes": 2,
+          "horizon_game_minutes": 60,
+          "shore_snap_radius_m": 50,
+          "auxiliary_power_rate": 1000,
+          "max_pollution_native": 0
+        },
+        "channel_route": {
+          "river": "French Broad River [river] #1",
+          "intake_sample_index": 16,
+          "outlet_sample_index": 17,
+          "intake_water_point": [
+            -1232.0,
+            0.0,
+            -432.0
+          ],
+          "outlet_water_point": [
+            -1168.0,
+            0.0,
+            384.0
+          ],
+          "along_route_separation_m": 818.5059559954352,
+          "initial_intake_depth_m": 5.609375,
+          "initial_surface_drop_m": 0.421875,
+          "direction_basis": "Prepared upstream-to-downstream channel route and initial surface drop; not simulated velocity",
+          "bank_placement": null,
+          "demand_native_units": null,
+          "horizon_game_minutes": 60
+        },
+        "auxiliary_power": "fixed native ElectricityManager supply, not a claim about map power generation",
+        "pipe_plan": "intake native pipe node -> consumer -> outlet native pipe node; no reroute",
+        "scope": "Specified surface intake/outlet anchors, one native shore snap each, controlled power and fixed load/horizon"
+      },
+      "witness_sha256": "e5273617193de9389a66b6dcd5abb45aca1e4532f4925b5a74887558104dafb8",
+      "subchecks": {
+        "initial_wet_downstream_route": true,
+        "native_intake_placement": null,
+        "clean_intake": null,
+        "sustained_capacity": null,
+        "sewage_downstream_safe": null
+      },
+      "limits": [
+        "Provisional geometric model; native shore snapping/placement may reject the specified anchors",
+        "Native demand units per256simulationframes; no m3/s or population conversion",
+        "Only a successful fixed-load native run can establish service at that demand/horizon",
+        "Power is held available as an explicit auxiliary fixture, not a whole-map gameplay promise",
+        "No global or long-horizon guarantee; no promise promotion"
+      ],
+      "channel_candidate": {
+        "river": "French Broad River [river] #1",
+        "intake_sample_index": 16,
+        "outlet_sample_index": 17,
+        "intake_water_point": [
+          -1232.0,
+          0.0,
+          -432.0
+        ],
+        "outlet_water_point": [
+          -1168.0,
+          0.0,
+          384.0
+        ],
+        "along_route_separation_m": 818.5059559954352,
+        "initial_intake_depth_m": 5.609375,
+        "initial_surface_drop_m": 0.421875,
+        "direction_basis": "Prepared upstream-to-downstream channel route and initial surface drop; not simulated velocity",
+        "bank_placement": null,
+        "demand_native_units": null,
+        "horizon_game_minutes": 60
+      },
+      "initial_quality_basis": "crp.water_payload initializes native water pollution to zero; not a real-world salinity claim"
+    }
+  },
+  "base_start_model": {
+    "id": "start-surface-v2",
+    "parameters": {
+      "footprint_half_m": 192,
+      "center_step_m": 64,
+      "max_depth_m": 0.1,
+      "max_slope": 0.15,
+      "max_relief_m": 8,
+      "min_segment_m": 40,
+      "max_hookup_m": 512,
+      "road_clearance_m": 24,
+      "intake_depth_m": 1,
+      "sewage_separation_m": 320
+    },
+    "source_sha256": {
+      "start_capabilities.py": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe",
+      "real_roads.py": "2c20cb0138543d827bf04fd2adee4db02fbbc7d45b76f20f47925072d563748c"
+    },
+    "sha256": "d9f7908d2329d67b3e3e2ce045f9c5d1246c7dd0fb8c36ef8df307086ad35ecc"
+  },
+  "square": {
+    "slug": "asheville",
+    "lat": 35.58,
+    "lon": -82.555,
+    "package_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+    "input_files_sha256": {
+      "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff",
+      "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+      "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+      "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+      "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c"
+    }
+  },
+  "split": "fitting",
+  "source_sha": "56bd3ca582db7de026f9669b5fa42b6640fefef8",
+  "assessment_source_sha": "83fa0ec27324dd4c4db8c6342e9600f76c3ddc41",
+  "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+  "raw_inputs_sha256": {
+    "banks.f32": "58eaa8664fbe814c515e43357399791c02d32fbe344503112e2c1aa43bad7eff",
+    "evidence.json": "70ccf12174adc441803e21257347433076df43751833c3546510ef152bd7c293",
+    "input.png": "7f9f4931367113ec8654204b83d53566dedcaa78f734449984d96dd3d39e7f89",
+    "geometry.json": "42e67fd38c2b77acd538116ddeb5128da549b49bed8800d6ae5edd4e1f7d81eb",
+    "landcover.u8.gz": "31fe3f8df9d42539a483ac1cda456dafd9894bf815f89a7bc162211e750dc12c"
+  }
+}

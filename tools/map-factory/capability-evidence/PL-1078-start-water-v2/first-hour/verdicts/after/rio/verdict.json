@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "error",
+  "failed": [],
+  "reason": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+  "exit_code": 1,
+  "issue": "PL-1078",
+  "label": "PL-1078 candidate-all rio",
+  "checks": [
+    {
+      "name": "first_hour",
+      "status": "fail",
+      "threshold": "completed scripted 60-minute opening",
+      "detail": "failed: test-city construction failed: System.Exception: no dry start-tile grid and hookup that pass native road placement checks\n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks, Boolean strict) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Site (System.Collections.Generic.List`1 hooks) [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps.Build () [0x00000] in <filename unknown>:0 \n  at Cs1Harness.ScenarioOps+<>c.<Start>b__46_0 () [0x00000] in <filename unknown>:0 ",
+      "value": {
+        "completed": false,
+        "phase": "construction",
+        "construction_state": "failed",
+        "land": {
+          "samples": 3600,
+          "dry_flat_samples": 1212,
+          "sample_spacing_m": 32,
+          "max_axis_slope": 0.15000000596046448,
+          "dry_flat_km2": 1.2410880327224731,
+          "dry_flat_fraction": 0.33666667342185974
+        },
+        "observations": [],
+        "evidence_errors": [],
+        "scope": "Partial observations only; no full-hour, end-path or healthy-utility qualification is implied."
+      }
+    }
+  ],
+  "requested_scenario": "first-hour",
+  "harness": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "c360286d884bd31772146937f8408feb65d1bddc",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "no rule matched the reason",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "triage-steam.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

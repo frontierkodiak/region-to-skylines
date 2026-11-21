@@ -1,0 +1,14 @@
+## Independent Sol current-start data review — accepted
+
+Exact source: `a27df9867b755b7a4d0c19e0b86f19846415178f` in `PL-1078-capability-evidence`. Reviewed current fitting observations, the three curated `native-v2-start` cases and the corresponding README/journal/definition changes. The published projection is directly at `PL-1078-start-water-v2/fitting-start-observations.json` (not in a nested `study/` directory).
+
+**Accepted. No result-changing math, identity, path-binding or interpretation finding.**
+
+- Innsbruck accepted27/27 steps;3 of6 path requests succeeded, with1 inbound/2 outbound. Pittsburgh accepted27/27;17 of29 requests succeeded, with8 inbound/9 outbound. Every successful returned path matches its requested literal outside segment/offset0or255 and grid segment/offset128. The3 and12 unsuccessful requests remain retained. These are post-construction passenger-car paths only.
+- Charleston accepted26/27, then normal native placement rejected `join -> g30` for `ObjectCollision` against Basic Road22296. The raw accepted step2 is `g20 -> g30`, segment22296. Footprint predicates passed. Reporting this as the frozen plan's false positive—not geography incapability, an oracle regression or a first-hour failure—is correct.
+- Recomputed positive-witness fitting agreement2/3. All22 unique registered capability rows remain, with correct8-fitting/3-held-out coverage per capability, all11 risk dictionaries preserved, and every water/held-out observation null. Projected outcome/source/time fields and aggregate summaries match their bound evidence. Archived v1's1/3 is a separate fitting-model result, not held-out accuracy or physical exporter improvement.
+- Verified51 projection/summary evidence-hash checks (including recovered gzip bytes),31 exact curated raw copies/decompressed payloads against R originals,9 image-review hash bindings, selected receipt identities/cleanup and GPU sample/peak arithmetic. All three requests equal the immutable snapshot predictions; modelBB/snapshotFD, exporter56bd3ca, assessment/collector83fa, DLLf916, map/witness hashes and empty cleanup match. Relevant classifier/collector sources remain unchanged.
+
+The corrected `surface_intake.py` assessment instruction and likely-forecast versus measured-service wording reflect the existing implementation; they do not alter a prediction or native verdict. The previously accepted stock-qualified4a4/original-eight ordering and player-only rates are not rerun, mixed with these oracle results or reattributed to exporter rules.
+
+No changes requested. Did not re-view the nine images, inspect held-out native outcomes, touch the active surface wrapper, operate native/controllers, compile, edit source or delegate. Selected receipt bindings still are not a launch-time identity certificate. `git diff --check` passed. This is acceptance of the current fitting evidence only; water, held-out and paired-player work remain outside this review.

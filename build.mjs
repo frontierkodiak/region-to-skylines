@@ -31,6 +31,12 @@ for (const certificate of [...(ledger.native_path_certificates ?? []), ...(ledge
   mkdirSync(dirname(`dist/${file}`), { recursive: true });
   copyFileSync(file, `dist/${file}`);
 }
+for (const study of Object.values(ledger.witness_studies ?? {})) {
+  for (const {file} of [...study.provenance.files, study.provenance.manifest]) {
+    mkdirSync(dirname(`dist/${file}`), {recursive: true});
+    copyFileSync(file, `dist/${file}`);
+  }
+}
 for (const study of Object.values(ledger.capabilities.find((c) => c.id === "water_risk").calibration_studies)) {
   for (const { file } of study.provenance.files) {
     mkdirSync(dirname(`dist/${file}`), { recursive: true });

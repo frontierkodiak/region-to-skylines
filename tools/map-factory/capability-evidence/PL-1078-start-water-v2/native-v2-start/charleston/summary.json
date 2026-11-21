@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "observed_at": "2026-11-21T04:06:38.221700+00:00",
+  "oracle": "exact_start_witness_v1",
+  "model_sha256": "bb2684981f33f5e578c2d9e1a3fba30e4bbab57e0fea332235c1d0e50e30e604",
+  "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+  "oracle_dll_sha256": "f916bdebb5bcef51a646b202b8db728d35f4e3fe811dedf530257d3cc79f1c2b",
+  "labels": {
+    "observed_start": false,
+    "observed_native_placement": false,
+    "observed_surface_service": null,
+    "observed_water_capability": null,
+    "fixture_qualified": null
+  },
+  "native_counts": {
+    "cycles": null,
+    "expected_load_cycles": null,
+    "observed_horizon_game_minutes": null,
+    "requested_native_units": null,
+    "fetched_native_units": null,
+    "sewage_accepted_native_units": null,
+    "short_water_cycles": null,
+    "short_sewage_cycles": null,
+    "polluted_delivery_cycles": null,
+    "auxiliary_failure_cycles": null,
+    "timing_failure": null
+  },
+  "error": null,
+  "cleanup_qualified": true,
+  "wall_seconds_including_queue": 1451.250789220212,
+  "resource_observation": {
+    "samples": 30,
+    "total_card_peak_mib": 10821.0,
+    "peak_power_w": 121.43,
+    "peak_temperature_c": 45.0,
+    "recorded_power_limit_w": [
+      200.0
+    ],
+    "game_menu_mib": [
+      1574
+    ],
+    "first_telemetry_local": "2026/11/20 23:04:24.948",
+    "last_telemetry_local": "2026/11/20 23:06:50.262"
+  },
+  "evidence": [
+    {
+      "path": "observation.json",
+      "sha256": "17ee955590e8a5abf0dbf509c8aaf52f3029ad15b8ff0885f363e6de2d3fd4b7"
+    },
+    {
+      "path": "prediction.json",
+      "sha256": "2ee2498934060a884b583516962af615c70e79e6c25c23dca660d917e69b62f4"
+    },
+    {
+      "path": "gpu.csv",
+      "sha256": "2437a399261813d1a93ef490f1159a9eec4c74778a265f5d40e53cfe544a69a6"
+    },
+    {
+      "path": "new-game-panel.png",
+      "sha256": "34672a809a3369b2aa06ff3c5611c83810a9d01532ed58fff594f0d509bc7a4d"
+    },
+    {
+      "path": "new-game-panel-review.json",
+      "sha256": "20cfda7ad9500641aee397436b310feba5dd7ce74eeac85ab9c5454eaaa048a9"
+    },
+    {
+      "path": "startup-opening.png",
+      "sha256": "fe2b8976c39f2cb6c225f4d1d7b2d0894eb9c106b674a2e8f98a715bdb377c54"
+    },
+    {
+      "path": "startup-area_zoom.png",
+      "sha256": "3687481266de5697fe7ec425f18a887170ac2e31303e91a13ba6171288b32dd8"
+    },
+    {
+      "path": "startup-views-review.json",
+      "sha256": "049790b073116ccd20fc667673f133e946f6fd68706b41333e3beab714867723"
+    },
+    {
+      "path": "witness-job.json.gz",
+      "sha256": "3436a569da0e928f8171abfefdcf005f99fae1d58c07ec8eb15829e24fbdf27d",
+      "encoding": "gzip",
+      "decompressed_sha256": "3381cfa792ea5f865467f2ebf3cec5328d268eccc3741b407c7b2597271ea068"
+    },
+    {
+      "path": "receipt-bindings.json",
+      "sha256": "2ce1900166349263f960596c47eed12a14bcaf35a29adda8417c48dab6075fe3"
+    }
+  ],
+  "limits": [
+    "Specified witness only; no geographic incapability or first-hour rerate",
+    "Selected receipt fields are not a launch-bound promise certificate",
+    "Menu game memory and total-card peak memory are different measurements"
+  ]
+}
