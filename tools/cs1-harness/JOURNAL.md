@@ -2884,3 +2884,63 @@ Seventeen of 28 exports collected, 11 remain, plus two preserved missing capture
 No interim/full score, model/probe/writer/gate change, cutoff promotion or release
 claim. Evidence excludes proprietary binaries, decompiled code, saves and account
 logs; offline curation uses flags/counts rather than raw logs.
+
+## 2026-11-21 UTC — PL-1072 final lowland river and three lakes
+
+Blade RTX 2080 Ti, bus 05:00.0, clean pinned runtime `6949182`. Four fresh
+attempts in frozen order, with FIFO handoffs to PL-1078, PL-1121 and PL-1142.
+All card peaks were 10821 MiB, baselines 8004 MiB, estimated increments 2817 MiB
+and menu readings 1574 MiB. Recorded power caps were 200 W, unchanged. No other
+workload was modified. Wall seconds below cover the simulation soak, excluding
+queue/startup; peaks span whole-card session samples, not isolated game usage.
+
+| Frozen square | GPU samples | Peak W | Peak °C | Soak wall s | Game min | Native water result |
+|---|---:|---:|---:|---:|---:|---|
+| Lowland river, Oceania | 223 | 137.78 | 58 | 951.420846 | 60.028892 | flood .0000 km² pass; required end 1238/1357 fail, all-sample 1237/1357 fail |
+| Lake shore, North America | 224 | 140.57 | 57 | 955.052113 | 60.092225 | flood .0000 km² pass; required end/all-sample 251/251 pass |
+| Lake shore, Europe | 227 | 138.14 | 57 | 951.796143 | 60.085559 | flood .0627 km² fail; required end/all-sample 911/918 pass |
+| Lake shore, Africa | 225 | 133.40 | 48 | 955.670884 | 60.134448 | flood .0177 km² pass; required end/all-sample 443/448 pass |
+
+The VRAM increment is card peak minus pre-launch baseline, **not a directly
+sampled game peak**. No causal memory or power comparison is claimed. Required
+throughout counts cover all 13 sampled epochs, not every frame. Endpoint
+recovery does not rescue Oceania's earlier sampled losses. The unchanged gates
+remain 95% required retention and .05 km² sampled flooding.
+
+Initialized/exact-dry/isolated-dry endpoint counts: Oceania 3535/1463/1046,
+North America 6575/1086/693, Europe 5809/1029/319, Africa 1202/282/140. No nearby
+endpoint readings are unknown. Dried/newly-wet grid areas at .1 m are 2.27/.01,
+2.11/7.18, 1.17/11.91 and .42/11.77 km² respectively. These are raw observations,
+not interim model labels or the separate deeper/masked flood measurement.
+
+North America's native ground-truth gate also fails: as-is correlation .9997
+versus best alternative .9751 gives .0246 separation, below .15. Africa's .8565
+as-is correlation fails .9; its highest DEM landmark reconstructs 78.2 m low.
+Both original failures and their actual measurements remain in curated evidence.
+Exact source/input bindings match; no gate or terrain correction was applied.
+
+All 280 staged files, 21 writer files and twenty-one native package/grid/probe/
+mask/reference/harness binding sets revalidate. Original report/verdict hashes
+match the ledger. All twenty-one sessions retain pinned mod SHA
+`6cedb7ee361d42f30e047fcf04cc1316a14e613435b5f9eaaf28836bc729fbfd`.
+Fresh carbon and continuous read-only offline guards passed; read-only carbon
+spot checks found no Steam game at check time. Each owned cleanup is empty.
+Foreground collector session 1146 exited zero and its final result was collected.
+
+All 940 recorded session/waiter PID numbers were checked: 939 absent; historical
+bwrap PID907019 is now an unrelated root kworker (PPID2, empty cmdline,
+PF_KTHREAD and PF_WQ_WORKER). The CPU-only verifier now records that positive
+identity evidence instead of confusing PID reuse with a surviving game child.
+Live/unknown userspace identities remain rejected; seven negative identity
+checks pass. No native guard changed or process was killed. Owned CLI/waiter
+PIDs 510117, 599557, 677647 and 868981 are absent; no owned child remains active.
+
+All twelve actual opening/Areas/t060 PNGs were inspected. Separate hash-bound
+producer startup-view sidecars pass; original overall failures remain unchanged.
+North America's close road decks/support pieces look fragmented. Europe's
+opening poorly frames the approach; Africa's close/final views are dim/hazy,
+with mainly trees in the close view. No geometry-quality, water-safety, human or
+independent visual acceptance. Twenty-one of 28 exports collected; seven remain,
+plus two preserved missing captures. No holdout score, model/probe/writer/gate
+change, cutoff promotion or release claim. Evidence excludes proprietary
+binaries, decompiled code, saves and raw account logs.

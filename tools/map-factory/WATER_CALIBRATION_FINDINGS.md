@@ -1,6 +1,6 @@
 # Water-calibration findings: no demonstrated safe-square class
 
-Latest collection: **17 of 28 exportable squares complete; 11 remain**, plus two
+Latest collection: **21 of 28 exportable squares complete; 7 remain**, plus two
 original capture failures. The full one-shot holdout score has not run.
 
 PL-1075 independently reviewed preparation at `bb2a1ec` against `4a4ec21`.
@@ -292,6 +292,69 @@ model, packages, probes, physical writer and native gates are unchanged. Drying
 still equals always-warn, combined/deployed clearance is empty and the two flood
 cutoffs have no contrasting case. Full scoring and the PL-912 recommendation
 remain pending; exporter release is still held.
+
+## Native collection: final lowland river and three lakes
+
+The sixth tranche completed on November 21 UTC through unchanged, clean harness
+`6949182`. All four exceeded 60 game minutes. The collector respected FIFO with
+PL-1078, PL-1121 and PL-1142; no water failure was repaired or retried.
+
+| Frozen square | Game minutes | Worst sampled flood, km² | Flood gate | Required wet at end | Required wet at all 13 samples |
+|---|---:|---:|---|---|---|
+| Lowland river, Oceania | 60.028892 | 0.0000 | pass | 1238/1357, fail | 1237/1357, fail |
+| Lake shore, North America | 60.092225 | 0.0000 | pass | 251/251, pass | 251/251, pass |
+| Lake shore, Europe | 60.085559 | 0.0627 | fail | 911/918, pass | 911/918, pass |
+| Lake shore, Africa | 60.134448 | 0.0177 | pass | 443/448, pass | 443/448, pass |
+
+The flood limit remains 0.05 km²; required-water retention remains 95%.
+Oceania's endpoint and throughout counts differ, and endpoint recovery does not
+erase earlier sampled loss. These are sampled observations, not every-frame
+guarantees or interim model labels.
+
+| Square | Initialized wet monitored points | Exactly dry at end | No wet native neighbor within 64 m at end | Grid area dried / newly wet, km² |
+|---|---:|---:|---:|---:|
+| Oceanian lowland river | 3535 | 1463 | 1046 | 2.27 / 0.01 |
+| North American lake shore | 6575 | 1086 | 693 | 2.11 / 7.18 |
+| European lake shore | 5809 | 1029 | 319 | 1.17 / 11.91 |
+| African lake shore | 1202 | 282 | 140 | 0.42 / 11.77 |
+
+No nearby endpoint readings are unknown. Grid changes use the separate 0.1 m
+threshold, not the flood gate's deeper/masked measurement. The full frozen
+drying definition, not these endpoint counts alone, supplies eventual labels.
+
+The North American and African lakes also fail the unchanged terrain
+ground-truth gate. North America's as-is correlation is 0.9997, but its best
+alternative is 0.9751: separation 0.0246 is below the required 0.15. Africa's
+as-is correlation is 0.8565, below 0.9; its highest DEM landmark reconstructs
+78.2 m lower than the source. These non-water failures remain in the original
+verdicts and curated evidence. Exact package/input/source bindings still match;
+no gate was waived or square relabelled to repair these results.
+
+All twelve actual opening/Areas/t060 PNGs were inspected. Separate hash-bound
+producer startup-view reviews pass without changing the original overall
+failures: Oceania also fails required water, Europe flooding, and both other
+lakes ground truth. North America's opening shows fragmented-looking road
+decks/support pieces. Europe's close view poorly frames the approach; Africa's
+close/final views are dim and hazy, and the close view shows mainly trees.
+These are retained image/state observations, not geometry quality, road
+usability, human or independent acceptance.
+
+All 280 staged files, 21 writer files and twenty-one native binding sets
+revalidate. Every original report/verdict hash matches the collection ledger;
+all sessions match the pinned mod hash. Fresh carbon/read-only offline guards
+passed and owned cleanup is empty. The foreground collector exited zero after
+all four results and teardown. Of 940 recorded session/waiter PID numbers, 939
+are absent; one historical bwrap PID was reused by an unrelated root kernel
+worker. The CPU-only verifier records positive kernel-thread/workqueue identity
+and rejects live or unknown userspace identities; it does not waive an owned
+process or change the native lifecycle guard. No process was killed for this
+diagnosis. No owned child remains active.
+
+Seven exports remain, plus both original capture failures. Frozen inputs,
+physical writer, models and native gates are unchanged. Drying remains
+always-warn, combined/deployed clearance is empty and the flood cutoffs have no
+contrasting case. Full scoring and the PL-912 recommendation remain pending;
+exporter release is still held.
 
 ## Remaining work and release hold
 
