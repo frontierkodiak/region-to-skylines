@@ -1,0 +1,57 @@
+{
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "stream_row_statuses": {
+        "excluded": 2,
+        "perennial_surface": 4
+      },
+      "eligible_source_rows": 4,
+      "clipped_parts": 4,
+      "components": 1,
+      "numeric_feasible_components": 0,
+      "numeric_feasible_protection_failures": {
+        "infrastructure_other_water": 0,
+        "foreign_streams": 0
+      },
+      "eligible_parts_all_accounted": true,
+      "all_admission": "unresolved"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "stream_row_statuses": {
+        "excluded": 394,
+        "perennial_surface": 2
+      },
+      "eligible_source_rows": 2,
+      "clipped_parts": 2,
+      "components": 2,
+      "numeric_feasible_components": 0,
+      "numeric_feasible_protection_failures": {
+        "infrastructure_other_water": 0,
+        "foreign_streams": 0
+      },
+      "eligible_parts_all_accounted": true,
+      "all_admission": "unresolved"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "stream_row_statuses": {
+        "outside_square": 41,
+        "perennial_surface": 536,
+        "excluded": 235
+      },
+      "eligible_source_rows": 536,
+      "clipped_parts": 536,
+      "components": 190,
+      "numeric_feasible_components": 45,
+      "numeric_feasible_protection_failures": {
+        "infrastructure_other_water": 4,
+        "foreign_streams": 44
+      },
+      "eligible_parts_all_accounted": true,
+      "all_admission": "unresolved"
+    }
+  ],
+  "scope": "Geometric/metadata diagnostics only; no omitted in-square source part and no native admission."
+}

@@ -1,0 +1,43 @@
+{
+  "bodies": [
+    {
+      "id": "lake-component:26",
+      "minimum": 1.5,
+      "series": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    },
+    {
+      "id": "lake-component:31",
+      "minimum": 1.5,
+      "series": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ]
+    }
+  ],
+  "scope": "Prospective absolute observation; no South American passive native comparator."
+}

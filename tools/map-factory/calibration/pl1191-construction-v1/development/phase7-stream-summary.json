@@ -1,0 +1,64 @@
+{
+  "cases": [
+    {
+      "slug": "dry-upland-asia",
+      "source_rows": 23,
+      "stream_clips": 4,
+      "components": 1,
+      "dispositions": {
+        "refused_or_unresolved": 1
+      },
+      "geometry_statuses": {
+        "infeasible_bounds": 1
+      },
+      "freeze_sha256": "70ac104786214d379618586c0e2b2e54ec2c7b251bde309f43e1ddeadf7e41c0",
+      "native_admission": "unresolved"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "source_rows": 401,
+      "stream_clips": 2,
+      "components": 2,
+      "dispositions": {
+        "refused_or_unresolved": 2
+      },
+      "geometry_statuses": {
+        "unresolved_direction_or_bank": 1,
+        "infeasible_bounds": 1
+      },
+      "freeze_sha256": "e5406f0c105226bd2e6c2c9f9f6929fca8c1f5c1053f0c0c573e9f9721cf978e",
+      "native_admission": "unresolved"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "source_rows": 839,
+      "stream_clips": 536,
+      "components": 190,
+      "dispositions": {
+        "refused_or_unresolved": 190
+      },
+      "geometry_statuses": {
+        "infeasible_bounds": 117,
+        "unresolved_cycle": 16,
+        "unresolved_direction_or_bank": 12,
+        "feasible": 45
+      },
+      "freeze_sha256": "98e9cbeb7b859febe6c4155bd3c2f08df998d214f3ed5d7e0179c7c27d6d5da7",
+      "native_admission": "unresolved"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "status": "original_fixed_bound_base_refusal_retained",
+      "new_stream_protocol": "not prepared; no completed parent floor/package, not geographic impossibility"
+    },
+    {
+      "slug": "mountain-river-asia",
+      "status": "original_fixed_bound_base_refusal_retained",
+      "new_stream_protocol": "not prepared; no completed parent floor/package, not geographic impossibility"
+    }
+  ],
+  "native_observation": false,
+  "qualification": "source-only geometric proposals, not materialized hydrology/supply or native admission",
+  "stable_water_promise": "unknown",
+  "holdout_inputs_accessed": false
+}

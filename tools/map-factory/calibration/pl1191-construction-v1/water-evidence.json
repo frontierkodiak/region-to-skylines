@@ -855,5 +855,37 @@
     "loaded_assembly_identity": "unknown",
     "stable_water_promise": "unknown",
     "holdout_inputs_accessed": false
+  },
+  "regulated_south_america": {
+    "status": "development_partial_not_qualified",
+    "observation": "development/phase7-south-america-observation.json",
+    "game_minutes": 60.06555868821839,
+    "lake_anchors_passing": 2,
+    "lake_anchors_total": 2,
+    "minimum_lake_anchor_depth_m": 1.5,
+    "samples": 13,
+    "reported_controls": 49,
+    "natural_contracts_passing": 65,
+    "natural_contracts_total": 855,
+    "historical_full_drying": true,
+    "worst_original_masked_flood_km2": 0,
+    "native_passive_comparator": null,
+    "later_full_floors": "unknown",
+    "full_loaded_assembly_identity": "unknown",
+    "stable_water_promise": "unknown"
+  },
+  "stream_piece_feasibility": {
+    "status": "source_only_refused_or_unresolved",
+    "compiler_schema": 3,
+    "freeze": "stream-piece-freeze-v3.json",
+    "summary": "development/phase7-stream-summary.json",
+    "accounting": "development/phase7-stream-accounting.json",
+    "physical_package": null,
+    "native_stream_observation": false,
+    "all_original_contract_points_retained": true,
+    "all_eligible_clipped_parts_accounted": true,
+    "stream_admission": "unresolved",
+    "stable_water_promise": "unknown",
+    "holdout_inputs_accessed": false
   }
 }

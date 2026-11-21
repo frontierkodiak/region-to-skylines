@@ -3470,3 +3470,16 @@ Peak total VRAM 10821 MiB, baseline 8008, increment 2813; menu game 1574 MiB.
 Peak power 132.92 W, temperature 51 C; host-owned reported limit 200 W, unchanged.
 FIFO respected, no preemption/previews/tabs. Owned driver 431383/game 435238
 collected and absent; game/Steam/unit cleanup empty.
+
+## 2026-11-21 · PL-1191 prospective South American local regulation
+
+Blade RTX 2080 Ti at 05:00.0, pinned clean harness 6949182/mod 6cedb7ee.
+60.066 game minutes in 955.32 observation wall seconds. Two regulated lake
+anchors stay 1.5 m at all 13 samples; all 49 reported controls match. Natural
+contracts fail 790/855; historical drying positive, masked flood 0 km², wet
+extent 12.11→35.63 km². No passive native comparator or whole-map promise.
+Full floors pass t000/t005 only; later floors/full loaded-assembly identity
+unknown. Raw visual/pooled and runtime log errors retained. Peak total VRAM
+10821 MiB, baseline 8008, increment 2813; menu 1574 MiB. Peak 137.98 W/55 C,
+reported host-owned 200 W limit unchanged. No preemption/previews/tabs.
+Driver 534857/game 538186 collected, absent; cleanup empty.

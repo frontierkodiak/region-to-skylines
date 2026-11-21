@@ -420,6 +420,44 @@ feasibility or historical relabeling. Future stream work needs precise clipped
 piece/branch contracts. See the phase-six development JSONs and the prospective
 `replenishment-freeze-v1.json`; v1/v2 code and freezes remain unchanged.
 
+## Prospective South American regulation and stream-piece feasibility
+
+The frozen South American regulated package completes 60.066 game minutes.
+Both new lake anchors stay exactly 1.5 m at all thirteen samples; all three
+engineered contracts pass, all 49 reported controls match. Natural contracts
+pass 65/855 and fail 790/855; historical drying remains positive. Required
+endpoint is 9592/15642, initialized nearby losses 123/4436, exact losses 227.
+Original masked deep flood is zero, but wet extent grows 12.11 to 35.63 km² at
+0.1 m. This is not a thin-film explanation or new flood definition. The passive
+South American package is unobserved: no matched native causal comparison is
+claimed. Actual floor checks pass only t000/t005; later full floors unknown.
+
+`waterway_pieces.py` and `stream_construction.py` add an explicit source-piece
+catalog and complete native stream-graph geometry model. Every independent
+clipped part and branch survives, including short/ambiguous parts; names never
+merge denominators. A quantized DAG solver checks no-fill, cut<=3m, preserved
+initial depth, >=1m channel-node depth and 0.5m untouched-bank clearance. Inferred
+endpoint direction/cycles are not geographic flow proof. Fixed controls,
+landing/corridors, all other water and other/excluded streams remain protected.
+Missing protection evidence cannot pass. No mask is relaxed after refusals.
+
+V3 inventory keeps the original contract points and adds exact source/clip/
+component provenance. Asia accounts for four eligible parts in one graph and
+refuses its bounds. Europe accounts for two in two graphs (one bound refusal,
+one direction/bank unknown). South America accounts for 536 in 190 graphs:
+45 numeric profiles feasible, 117 bound refusals, 16 cycles, 12 direction/bank
+unknowns. All 45 numerically feasible graphs still fail fixed protection (44
+other/excluded-stream contact, four infrastructure/other-water, overlapping).
+All proposals/admissions remain unresolved. The two original base refusals stay
+retained, not geographical-impossibility claims. Excluded/outside rows remain
+explicit; v1/v2 code and artifacts are unchanged.
+
+These are necessary authored-grid bounds, not materialized stream hydrology,
+integrated supply/outlet/junction proof, actual floors, native retention or a
+holdout prefilter. No stream CRP/native plan exists. The lake rate128 is not a
+flowing-water budget. See `stream-piece-freeze-v3.json` and phase-seven JSONs.
+Every product promise remains unknown; no default or capability-ledger adoption.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged
