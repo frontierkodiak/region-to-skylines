@@ -1112,5 +1112,22 @@
     "mechanism": "captured floors unchanged while water falls; integrated transport/sink mechanism unresolved",
     "independent_results_review": "required_before_adoption",
     "stable_water_promise": "unknown"
+  },
+  "coastal_boundary_witness": {
+    "freeze": "coastal-witness-freeze-v1.json",
+    "summary": "development/phase16-coastal-summary.json",
+    "review": "PL-1245 done/pass, limited phase15 evidence; reporting corrections retained",
+    "captured_wet_ocean_edge_H_m": 90,
+    "ocean_interior_storage_delta_endpoint_q": -5346696,
+    "non_ocean_storage_delta_endpoint_q": -7167453,
+    "main_rivers52_endpoint_wet_and_edge_connected": 9,
+    "main_rivers60_endpoint_wet_and_edge_connected": 0,
+    "bulimba_rivers50_initial_and_endpoint_edge_connected": 0,
+    "ocean_boundary_wet_nodes": 1778,
+    "loss_mechanism": "unresolved; wet-graph connection differs between pieces and does not establish replenishment capacity",
+    "source_attribution_erratum": "rivers50 is Bulimba Creek, not Main Drain; original archived report unchanged",
+    "new_native_observation": false,
+    "new_admissions": 0,
+    "stable_water_promise": "unknown"
   }
 }

@@ -160,7 +160,7 @@
     }
   },
   "source_heads": {
-    "Main Drain rivers50": {
+    "Bulimba Creek rivers50": {
       "initial_head_m": [
         90,
         90
@@ -170,7 +170,12 @@
         88.625
       ],
       "endpoint_nodes_below_authored_sea90": 92,
-      "scope": "authored source nearest16m nodes, not surveyed hydraulic width"
+      "scope": "authored source nearest16m nodes, not surveyed hydraulic width",
+      "static_ocean_connectivity_4adj_0_0_5_2m": [
+        0,
+        0,
+        0
+      ]
     }
   },
   "captured_floor_hashes": [
@@ -215,5 +220,12 @@
   "loaded_image_identity_and_runtime_health": "unknown; raw Bridge/TypeLoad and visual failures retained",
   "new_geographic_admissions": 0,
   "holdout_inputs_accessed": false,
-  "stable_water_promise": "unknown"
+  "stable_water_promise": "unknown",
+  "erratum_phase16": {
+    "review": "PL-1245",
+    "original_summary_sha256": "47590b106f4e9ff7612b68d863978041bfcee66a80bb3e0364aab82f8675aabf",
+    "correction": "rivers:50 is Bulimba Creek, not Main Drain; original archived report/summary remain historical. Main Drain source rows52/58/60 have49perennial nodes;59has3explicitly excluded tunnel nodes. Full Main probe92 count is a different diagnostic grouping.",
+    "review_receipt_sha256": "f5fbb42547091f6860499c69bcfa13c65fd3c23b5d46dabd6595ef8a3526ab51",
+    "native_rerun": false
+  }
 }

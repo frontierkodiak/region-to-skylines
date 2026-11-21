@@ -819,7 +819,7 @@ Clean owned runtime0ec989d/DLL368955b1 records61study snapshots over15.150001min
 All167full xyz/type/target/rate tables match every sample. All current floors
 share hash43f4be73…, identical to retained t000/t005; all targets equal current,
 all raw terrain equals package. Main nearby count92->87; Bulimba822->708.
-Main's source-node heads fall from90m to86.421875–88.625m with captured floors
+Bulimba's rivers:50 heads fall from90m to86.421875–88.625m with captured floors
 unchanged. This is not proof of integrated transport, evaporation, exclusive
 missing supply or geographic impossibility. Velocities are API readbacks,
 not physical supply/demand/discharge units. Between-sample behavior is unknown.
@@ -838,3 +838,43 @@ unchanged broad suites carried. Owned run collected and cleanup empty; subsequen
 shared holder PL-1239 untouched. Independent results review precedes adoption,
 not guarded measurement. See `coastal-floor-freeze-v1.json` and
 `development/phase15-coastal-summary.json` for exact prospective/source lineage.
+
+## Phase sixteen: wet boundary, transient interior, distinct channel connections
+
+PL-1245 independently passes the limited phase15 measurements with two non-result-
+changing findings; review child closed after use. Correction: rivers:50 is
+Bulimba Creek, not Main Drain. Original archived report/receipt remains unchanged;
+`development/phase16-erratum.json` corrects attribution. Main's source rows52/58/60
+have49perennial nodes; row59has3explicitly excluded tunnel nodes. These are not
+the full92Main probes. The archive's two traversal member names are repaired in
+an additive normalized v2 packet; member bytes preserved, standard GNU extraction
+passes. Neither reporting defect warrants a native rerun.
+
+A newly committed read-only method records every named source-node path and all
+61sample profiles. Labels come from source IDs/names/scope, never handwritten
+identity assumptions. Every branch, stream, excluded/outside/empty record and
+full27386probe timeline is retained. Floor-only shortest paths and conditional
+minimax sill witnesses are distinct, not hydraulic connectivity or bank authority.
+Sparse API velocities remain unknown off measured grid nodes; dry bed-plus-depth
+is not a fluid free surface. Separate wet-only gradients avoid that substitution.
+
+Using the exact exporter polygon raster: ocean boundary1780nodes,1778wet; the wet
+boundary remains exactly90m, while2dry boundary nodes are not water at90m.
+Ocean interior279009nodes draws down then partly rebounds; interior storage delta
+at5.01min -11,560,375q and15.15min -5,346,696q. Non-ocean storage keeps falling
+to -7,167,453q. These encoded depth sums are net storage, not measured source flux.
+The review's preliminary polygon denominator differs; its counts are not silently
+reused as this method's raster. Complete masks and method are explicitly bound.
+
+Full-grid wet connectivity (depth>0.1m,4/8neighbours) rules out conclusions from
+just one dry geometric path. Main row52starts10/10wet-connected to the boundary;
+at15.15min9/10remain wet-connected despite wet heads86.42–86.92m. Main row60loses
+wet connectivity while many nodes stay wet; row58partlydisconnects. Bulimba's
+source nodes are already boundary-disconnected initially. A single disconnection
+story does not explain every captured loss; sampled wet connection is not proof
+of adequate replenishment/discharge. No exclusive sink/evaporation cause follows.
+
+Nine new focused tests and complete core replay pass; old native/constructor/
+shipping/broad checks are carried. No game/install/Steam/holdout action occurred.
+All fixed masks/banks/limits/probes, historical failures and all promises remain
+unchanged/unknown. No geographic stream admission or complete candidate follows.

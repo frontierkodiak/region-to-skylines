@@ -1,0 +1,425 @@
+{
+  "schema": "polli.pl1191-phase16-coastal-summary/1",
+  "review_issue": "PL-1245",
+  "review_status": "done/pass with two non-result-changing findings",
+  "review_receipt_sha256": "f5fbb42547091f6860499c69bcfa13c65fd3c23b5d46dabd6595ef8a3526ab51",
+  "source_features": 23,
+  "source_node_incidences": 894,
+  "perennial_source_node_incidences": 891,
+  "complete_frozen_probe_count": 27386,
+  "snapshots": 61,
+  "route_union_nodes": 4378,
+  "core_protocol_freeze_sha256": "b8b3978c2626b3955bec22f4646d5d9ce772e66d4d61e488705bc6cfb18b2eac",
+  "core_result_sha256": "0686e832402088d61499bb14aca132423f70563f7b633cc3f47714c0bfaca148",
+  "core_full_replay": "byte-identical",
+  "profile_freeze_sha256": "a3eab828a8fdce698cbd4a7e50473684e9cb471e482559e865a3a821fbd8eb4b",
+  "profiles_sha256": "73803974b8d3560d240d6277e83d1c3f76a51a782bde5341166454969797fe28",
+  "wet_freeze_sha256": "98b5055e443b269363799ae37c0f63002390c851ea9eb9e1ff4d809a269f0bf1",
+  "wet_result_sha256": "f8d854bb92b43380e12563788012b8987599de113cb28bed31e89f06307458b0",
+  "ocean_boundary_all_nodes": 1780,
+  "ocean_boundary_wet_nodes_all_samples": 1778,
+  "wet_boundary_H_m_all_samples": 90,
+  "ocean_interior_nodes": 279009,
+  "ocean_storage_delta_endpoint_q": -5346696,
+  "non_ocean_storage_delta_endpoint_q": -7167453,
+  "full_grid_storage_partition_equals_native_depth_sum_all61": true,
+  "source_piece_endpoint": [
+    {
+      "id": "rivers:50",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 92,
+      "wet_nodes": 49,
+      "wet_only_H_m": {
+        "count": 49,
+        "min": 86.421875,
+        "median": 86.671875,
+        "max": 86.953125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:52",
+      "name": "Main Drain",
+      "scope": "perennial_surface",
+      "nodes": 10,
+      "wet_nodes": 9,
+      "wet_only_H_m": {
+        "count": 9,
+        "min": 86.421875,
+        "median": 86.75,
+        "max": 86.921875
+      },
+      "wet_connectivity": {
+        "4": 9,
+        "8": 9
+      }
+    },
+    {
+      "id": "rivers:58",
+      "name": "Main Drain",
+      "scope": "perennial_surface",
+      "nodes": 12,
+      "wet_nodes": 3,
+      "wet_only_H_m": {
+        "count": 3,
+        "min": 86.625,
+        "median": 86.703125,
+        "max": 86.71875
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:59",
+      "name": "Main Drain",
+      "scope": "excluded",
+      "nodes": 3,
+      "wet_nodes": 3,
+      "wet_only_H_m": {
+        "count": 3,
+        "min": 86.578125,
+        "median": 86.671875,
+        "max": 86.703125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:60",
+      "name": "Main Drain",
+      "scope": "perennial_surface",
+      "nodes": 27,
+      "wet_nodes": 24,
+      "wet_only_H_m": {
+        "count": 24,
+        "min": 86.515625,
+        "median": 86.65625,
+        "max": 86.78125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:62",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 13,
+      "wet_nodes": 13,
+      "wet_only_H_m": {
+        "count": 13,
+        "min": 89.171875,
+        "median": 89.375,
+        "max": 89.53125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:63",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 463,
+      "wet_nodes": 359,
+      "wet_only_H_m": {
+        "count": 359,
+        "min": 86.359375,
+        "median": 90.03125,
+        "max": 90.53125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:64",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 25,
+      "wet_nodes": 25,
+      "wet_only_H_m": {
+        "count": 25,
+        "min": 89.296875,
+        "median": 89.46875,
+        "max": 89.71875
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:65",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 4,
+      "wet_nodes": 4,
+      "wet_only_H_m": {
+        "count": 4,
+        "min": 89.3125,
+        "median": 89.3828125,
+        "max": 89.46875
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:66",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 11,
+      "wet_nodes": 11,
+      "wet_only_H_m": {
+        "count": 11,
+        "min": 89.28125,
+        "median": 89.421875,
+        "max": 89.8125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:74",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 3,
+      "wet_nodes": 0,
+      "wet_only_H_m": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "max": null
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:75",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 12,
+      "wet_nodes": 2,
+      "wet_only_H_m": {
+        "count": 2,
+        "min": 89.453125,
+        "median": 89.53125,
+        "max": 89.609375
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:76",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 20,
+      "wet_nodes": 19,
+      "wet_only_H_m": {
+        "count": 19,
+        "min": 89.234375,
+        "median": 89.484375,
+        "max": 89.671875
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:77",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 49,
+      "wet_nodes": 17,
+      "wet_only_H_m": {
+        "count": 17,
+        "min": 89.828125,
+        "median": 90.0,
+        "max": 90.203125
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:78",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 88,
+      "wet_nodes": 25,
+      "wet_only_H_m": {
+        "count": 25,
+        "min": 86.53125,
+        "median": 86.71875,
+        "max": 86.84375
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:79",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 18,
+      "wet_nodes": 0,
+      "wet_only_H_m": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "max": null
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:80",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 11,
+      "wet_nodes": 11,
+      "wet_only_H_m": {
+        "count": 11,
+        "min": 88.90625,
+        "median": 89.515625,
+        "max": 89.75
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:81",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 3,
+      "wet_nodes": 3,
+      "wet_only_H_m": {
+        "count": 3,
+        "min": 89.34375,
+        "median": 89.46875,
+        "max": 89.484375
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "rivers:82",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 27,
+      "wet_nodes": 26,
+      "wet_only_H_m": {
+        "count": 26,
+        "min": 89.1875,
+        "median": 89.4375,
+        "max": 89.71875
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "streams:400",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 3,
+      "wet_nodes": 3,
+      "wet_only_H_m": {
+        "count": 3,
+        "min": 89.53125,
+        "median": 89.625,
+        "max": 89.75
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "streams:401",
+      "name": "Bulimba Creek",
+      "scope": "outside_square",
+      "nodes": 0,
+      "wet_nodes": 0,
+      "wet_only_H_m": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "max": null
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "lakes:332",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 0,
+      "wet_nodes": 0,
+      "wet_only_H_m": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "max": null
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    },
+    {
+      "id": "lakes:347",
+      "name": "Bulimba Creek",
+      "scope": "perennial_surface",
+      "nodes": 0,
+      "wet_nodes": 0,
+      "wet_only_H_m": {
+        "count": 0,
+        "min": null,
+        "median": null,
+        "max": null
+      },
+      "wet_connectivity": {
+        "4": 0,
+        "8": 0
+      }
+    }
+  ],
+  "main_rivers60_first_zero4_minute": 1.3938889615858594,
+  "main_rivers60_first_zero8_minute": 2.5005556859696902,
+  "new_native_observation": false,
+  "new_geographic_admissions": 0,
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown"
+}
