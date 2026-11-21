@@ -2994,3 +2994,10 @@ before hashing it. Missing/ambiguous ownership or a mismatched MVID still fails.
 Partial runtime identity is retained before validation, so a future rejection
 does not discard the diagnostic hashes. This fix is compiled and CPU-tested;
 it still needs a new native run. It does not attest in-memory code pages.
+
+For the rejected Rio attempt, wall time from acquisition through cleanup was
+100.6 s. The retained 5 s GPU samples peaked at 9,625 MiB total VRAM, 63.76 W
+and 44 C. The separate 2 s process sampler observed a 1,574 MiB game peak.
+Total VRAM includes blade's resident workload; these are sampled menu-launch
+peaks, not map-running performance or sustained load measurements. No power
+settings changed. All owned processes were collected before this handoff.
