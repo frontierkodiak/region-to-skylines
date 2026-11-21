@@ -9,7 +9,7 @@ uv run python water_diagnostics.py EXACT_PREPARED_CANDIDATE FRESH_OUTPUT
 ```
 
 Use `--mode portal-intake-original` (repeatable) to export only selected modes;
-without this flag all modes are exported. Outputs are `OUTPUT/MODE/SLUG/`, each containing the
+without this flag the original three modes below are exported. Outputs are `OUTPUT/MODE/SLUG/`, each containing the
 exact CRP, initial grids, hydrology, frozen resource plan, generation-bound
 geometry, full geographic/routed probes and mapped-water reference. Top-level
 `diagnostics.json` gives exact hashes; each `diagnostic.json` retains decoded
@@ -33,20 +33,24 @@ per-asset payload hashes.
    This tests the intake/output interaction; it is not an inlet-field model or
    evidence that original intake is a correct default policy.
 
-Two additional modes require explicit `--mode`; they are not new defaults:
+Additional modes require explicit `--mode`; they are not new defaults:
 
 - **reservoir-output-off**: zero positive outputs only on controls classified
   as constructed reservoirs. Retain their intake rates.
 - **all-output-off**: zero every positive output, retaining every intake rate.
+- **river-output-off**: zero positive outputs only on river-class controls;
+  retain lake/stream outputs and every intake.
+- **below-sea-intake-off**: zero positive intakes only where the actual encoded
+  target is strictly below encoded sea level. Retain every output.
+- **all-intake-off**: zero all positive intakes, retaining every output.
 
-Both preserve the complete original initial grid and every other source field.
+They preserve the complete original initial grid and every other source field.
 Use unchanged original probes and mapped-water references for matched native
 comparisons. See [construction diagnosis](WATER_CONSTRUCTION.md).
 
-`below-sea-intake-off` is a third explicit mode. It zeros positive intakes only
-where the encoded control target is strictly below encoded sea level. All
-outputs, targets, positions, initial water and observations remain fixed.
-This tests low-stage withdrawal without also removing continuing supply.
+Intake-only modes freeze implicit outputs explicitly in the hydrology record
+before changing intake, so both that record and the actual CRP retain the
+original output rate. Neither source direction is a measured flux.
 
 The exporter first replays the **original** terrain, initial water, hydrology
 and frozen resource plan through the existing writer/resource encoder. It
