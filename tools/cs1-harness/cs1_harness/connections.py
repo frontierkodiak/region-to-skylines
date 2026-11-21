@@ -150,7 +150,7 @@ def planned_requests(networks, capability, vehicle):
     return ordered[:REQUEST_LIMIT], len(requests)
 
 
-def collect(package, probes, out, wait_minutes=60, capabilities=None):
+def collect(package, probes, out, wait_minutes=60, capabilities=None, *, request_plan=None, issue="PL-1142"):
     """Acquire/release the fair slot for ONE map; retain errors and cleanup."""
     capabilities = set(MODES) if capabilities is None else capabilities
     out.mkdir(parents=True, exist_ok=False)
@@ -172,7 +172,7 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
     }
     s = None
     try:
-        with slot(cfg, stage, wait_minutes, {"command": "connections", "issue": "PL-1142", "label": package.name}) as s:
+        with slot(cfg, stage, wait_minutes, {"command": "connections", "issue": issue, "label": package.name}) as s:
             result["observed_at"] = datetime.datetime.now(datetime.UTC).isoformat()
             result["build_receipt"] = json.loads((cfg.build_dir / "build-receipt.json").read_text())
             s.require_offline = True
@@ -260,12 +260,20 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
                 if capability not in capabilities:
                     continue
                 requests.extend(planned_requests(networks, capability, vehicle)[0])
+            if request_plan is not None:
+                # A study can freeze its own inventory before the first native query.
+                # Historical request selection and evidence remain unchanged.
+                requests = request_plan(networks, result, out)
             result["paths"] = []
             c.call("run", paused=False, speed=1)
             for request in requests:
                 s.check_offline()
                 mode = {"road": "car", "rail": "train", "ship": "ship", "air": "plane"}[request["capability"]]
-                row = {"request": request, "mode": mode}
+                row = {
+                    "request": request,
+                    "mode": mode,
+                    "submitted_at": datetime.datetime.now(datetime.UTC).isoformat(),
+                }
                 try:
                     started = c.call("path_start", **{"from": request["from"], "to": request["to"], "mode": mode})
                     deadline = time.monotonic() + 30

@@ -84,9 +84,14 @@ namespace Cs1Harness
         {
             var assemblies = new List<object>();
             var unresolved = new List<object>();
+            var dynamicAssemblies = new List<object>();
             foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
             {
-                if (assembly is System.Reflection.Emit.AssemblyBuilder) continue;
+                if (assembly is System.Reflection.Emit.AssemblyBuilder)
+                {
+                    dynamicAssemblies.Add(assembly.GetName().Name);
+                    continue;
+                }
                 string location = assembly.Location;
                 string binding = "loaded_assembly_location";
                 if (String.IsNullOrEmpty(location))
@@ -106,7 +111,8 @@ namespace Cs1Harness
                         "sha256", BitConverter.ToString(hash.ComputeHash(stream)).Replace("-", "").ToLowerInvariant()));
             }
             return Host.Obj("pid", System.Diagnostics.Process.GetCurrentProcess().Id,
-                "assemblies", assemblies, "unresolved_loaded_assemblies", unresolved);
+                "assemblies", assemblies, "unresolved_loaded_assemblies", unresolved,
+                "excluded_dynamic_assemblies", dynamicAssemblies);
         }
 
         static Camera s_mainCamera;

@@ -1,5 +1,95 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1215 append-only rail continuation (blade)
+
+The original final-protocol study and native source stay unchanged. A separate
+driver freezes missing-case output names and source hashes, reuses the stock
+calibration by reference, and skips completed cases regardless of outcome.
+Rio's original queue denial is retained beside rio-attempt-2. Seven new
+package-bound openings completed with fresh launch/opening FILE identities.
+
+Final cohort: 244 selected literal-boundary requests, 9 distinct-edge successes,
+2 Boston same-edge successes, 233 selected failures. Pittsburgh has 112
+unqueried candidates beyond the fixed cap. Four cases have distinct-edge
+witnesses; five remain Unknown. No native-negative, accuracy, service, train
+spawn or sustained-gameplay claim. Parent ledger/certificates remain untouched.
+
+Sampled telemetry on blade's RTX 2080 Ti at 05:00.0 follows. Wall includes
+cleanup; board/process figures are sampled peaks, not continuous maxima.
+
+| Opening | Wall s | Board MiB | Game MiB | Peak W | Peak °C |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Rio attempt 2 | 158.8 | 10821 | 2811 | 118.41 | 40 |
+| Pittsburgh | 265.8 | 10821 | 2811 | 132.28 | 58 |
+| Charleston | 151.0 | 10821 | 2811 | 114.90 | 45 |
+| Grand Canyon | 150.7 | 10821 | 2811 | 116.98 | 45 |
+| Hong Kong | 157.5 | 10821 | 2811 | 125.13 | 47 |
+| Yosemite | 152.0 | 10821 | 2811 | 113.63 | 45 |
+| Boston | 225.0 | 10821 | 2811 | 128.88 | 56 |
+
+The observed 200 W power limit was not changed. Pittsburgh's raw teardown has
+empty game/unit lists but lists Steam instance 3933505219. The frozen strict
+verifier therefore fails, and its error is retained. A separate read-only later
+audit proves that instance absent and all recorded owned game, collector and
+monitor processes gone. The raw receipt is not edited into a clean snapshot.
+The audited verifier keeps this finding visible and tests fail closed for a
+live/unbound Steam remainder, a game/unit remainder or missing facts.
+
+Every map released the fair slot; PL-1191 took its next turn after Boston and
+was not displaced. No owned game, waiter, browser, server or monitor remains.
+The one-shot wake has fired and is disabled. Evidence/reproduction is in
+`tools/map-factory/capability-evidence/rail-v3-followup-1/` (50 additional raw
+files, plus the unchanged initial 33). Original outside-v1 still reproduces
+1269 rows/143 raw files/17 attempts. Fresh checks pass 171 Linux harness tests,
+4 continuation tests, 3 cleanup-review tests, 7 original-study tests and Ruff.
+No broad native-Python macOS suite-green claim.
+
+## 2026-11-21 — PL-1215 stock-calibrated rail, first cohort batch (blade)
+
+The old rail failures did not have a stock-positive protocol control. My first
+new selector made a separate mistake: it compared enum display names and lost
+AvoidForward/AvoidBackward lanes. I retained both zero-query stock openings.
+Native numeric readback then showed Forward=1, Backward=2, AvoidForward=11 and
+AvoidBackward=7. Both avoidance aliases contain both travel bits. The second
+revision's composite masks were too broad for plain one-way values, so the
+final revision tests the two basic bits directly and cross-checks the result.
+The earlier revisions remain reproducible at their own commits, not relabeled.
+
+Final stock controls: Asanu 8/8 literal boundary paths; Hanami 8/24. Both have
+reciprocal exact endpoints and reject the explicit Train-to-car-lane query.
+The same final protocol on unchanged packages gives Asheville 2/12 and
+Innsbruck 2/20. Rio's next opening was refused behind an older fair-queue
+waiter, and the batch stopped. PL-1191 took its turn untouched. Seven cohort
+cases remain Unknown. No negative, accuracy, service or gameplay claim.
+
+All runs used blade's RTX 2080 Ti at 05:00.0. Values below are sampled peaks;
+wall seconds include cleanup. Early process peaks were not sampled, so their
+1574 MiB launch reading is not presented as a peak.
+
+| Revision / opening | Wall s | Board MiB | Game peak MiB | Peak W | Peak °C |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| v1 Asanu | 149.7 | 10821 | Not sampled | 88.97 | 38 |
+| v1 Hanami | 152.4 | 10821 | Not sampled | 116.35 | 43 |
+| v2 Asanu | 155.1 | 10821 | Not sampled | 115.85 | 44 |
+| v2 Hanami | 171.9 | 10821 | Not sampled | 119.00 | 50 |
+| v3 Asanu | 156.4 | 10821 | 2811 | 115.03 | 44 |
+| v3 Hanami | 172.9 | 10821 | 2811 | 118.34 | 50 |
+| v3 Asheville | 165.2 | 10821 | 2811 | 120.32 | 47 |
+| v3 Innsbruck | 172.5 | 10821 | 2811 | 122.89 | 50 |
+
+The recorded board power limit was 200 W, not the older 150 W description.
+I did not change it. Rio acquired no slot and launched no game. Each completed
+session has empty owned game/Steam/unit cleanup lists. All collectors and
+telemetry monitors were joined; no owned waiter remains. Sampling transitions
+without a labelled holder are excluded from per-case process peaks.
+
+Evidence and reproduction: `tools/map-factory/capability-evidence/rail-v3/`.
+Its telemetry script regenerates this table from retained gzip bytes. Original
+outside-v1 files remain unchanged and reproduce 1269 rows/143 raw files/17
+attempts. C# build, 171 Linux harness tests, full Ruff and seven old-study
+tests pass. This is a partial collection with a persisted continuation, not
+parent integration or a certificate.
+
 ## 2026-11-20 — PL-1066 frozen eight-square opening qualification (blade)
 
 PR58 keeps real connections experimental/opt-in. All five fixtures plus the
