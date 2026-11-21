@@ -1,5 +1,60 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1078 frozen capability witnesses and load references (blade)
+
+The original-eight player baseline was frozen before capability implementation:
+stock-qualified immutable4a4 DLL, first-hour3/8, strict full-map2/8. Historical1/8
+is unqualified. No capability observation below changes those player results.
+
+Version1's three positive fitting start predictions were executed exactly.
+Innsbruck accepted24/25 steps then rejected the first hookup for collision;
+Pittsburgh accepted27/27 with native car paths in both directions;
+Charleston accepted25/26 then rejected the second hookup for collision. All
+three native footprint predicates passed. These are witness outcomes, not
+geographic impossibility or first-hour service outcomes. Pittsburgh's17
+successful path results reach the requested literal outside offsets0/255;
+all12 unsuccessful path requests remain in the raw file. The paths are after
+the declared starter-road construction, not fresh-map outside-road certificates.
+
+| Fitting case | Card peak MiB / W / °C | GPU samples | Controller wall including queue |
+|:--|--:|--:|--:|
+| Innsbruck |10821 /118.82 /46|32|1226.548s|
+| Pittsburgh |10821 /123.26 /49|34|1158.207s|
+| Charleston |10821 /114.83 /48|35|1306.286s|
+
+All nine panel/opening/Areas PNGs were actually viewed and their review hashes
+rechecked. Every session cleaned up fully. Game-at-menu VRAM was1574MiB, not
+a continuously measured game-only peak. Observed card limit200W and other
+workloads were unchanged. Build-time c7 game hashes are not launch identity.
+
+The first surface reference (Cliffside Bay, c7ce DLL, mixed spatial-water and
+pipe-node sewage calls) was stopped for fixture diagnosis. Its last retained
+snapshot has13.008 loaded minutes/183 cycles: water full/clean throughout,
+92 short sewage responses despite healthy auxiliaries. It is incomplete and
+unscored; Foggy Hills was not attempted in that series. Exact controller
+termination and empty cleanup are recorded. GPU114 samples:10821MiB/129.66W/60°C;
+controller wall1062.947s including queue, menu1574MiB. No hydrology fault is
+attributed to that uncalibrated fixture.
+
+The reviewed f916 DLL uses consistent spatial consumer calls and an explicit
+two-minute loaded settling period before sixty scored minutes. The first
+revised reference completed60.0103 minutes/843 scored cycles:843000 native
+water units and843000 accepted sewage units, no short quantities or auxiliary
+faults.733 deliveries were polluted, so full clean service is FALSE. The
+reference's upstream/cleanliness relationship was deliberately unpredicted;
+quantity support is not a clean-water positive or a model agreement score.
+Cleanup is empty; normal quit timed out and the harness terminated its owned
+game PID. GPU339 samples:10821MiB/130.42W/60°C; telemetry20:31:35–20:59:57 local,
+controller wall2647.336s including queue; menu1574MiB. Cap200W unchanged.
+
+Foggy Hills, version2 product witnesses, registered holdouts and the fresh
+eleven-square paired player arm are still pending. Model/witness identities
+were frozen before any held-out native observation. Source/DLLs for the
+player, v1 oracle and running v2 collector remain separately immutable.
+Curated evidence is under `tools/map-factory/capability-evidence/`; raw Steam,
+audio and launch logs are not published. No preview, default or promise is
+promoted. PL-1119 owns ledger integration and Caleb owns public landing.
+
 ## 2026-11-20 — PL-1066 frozen eight-square opening qualification (blade)
 
 PR58 keeps real connections experimental/opt-in. All five fixtures plus the

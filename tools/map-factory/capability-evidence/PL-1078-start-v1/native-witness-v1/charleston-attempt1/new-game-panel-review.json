@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh, actual PNG viewed",
+  "notes": "Charleston selected; coastal inlet/river/road preview, Temperate58%; all4outside icons enabled, no author. Resource bars visually match native panel.",
+  "sha256": "3a6fee29cba94ba2498e781477c49b878c0ffc087b7c8533f19626a8396048c5",
+  "observed": {
+    "map_name": "Charleston - Ready to Play",
+    "author": "",
+    "buildableArea": 58,
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  }
+}

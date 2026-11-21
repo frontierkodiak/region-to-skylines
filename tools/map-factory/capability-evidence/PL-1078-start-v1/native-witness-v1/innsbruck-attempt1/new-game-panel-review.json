@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh, actual PNG viewed",
+  "notes": "Innsbruck selected; Alpine valley/river/road preview, Boreal76%; road/rail/air enabled, ship crossed out, no author. Resource bars visually match the native panel.",
+  "sha256": "d839d4a71492801fc1744661bd2285b5de97187ff4b317a0f1554f26c76a891f",
+  "observed": {
+    "map_name": "Innsbruck - Ready to Play",
+    "author": "",
+    "buildableArea": 76,
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  }
+}
