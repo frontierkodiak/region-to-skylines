@@ -1082,5 +1082,35 @@
     "new_geographic_admissions": 0,
     "global_freeze_sha256": "357581946d957dea3f7fbd6625983e8c1c095dc7ad8e352f7b78f8cf00c95544",
     "stable_water_promise": "unknown"
+  },
+  "coastal_floor_transport_diagnostic": {
+    "freeze": "coastal-floor-freeze-v1.json",
+    "summary": "development/phase15-coastal-summary.json",
+    "package_sha256": "457905c4a00cc6e83ab1f40a84feb2fa8888fa50de1bf4702bb082f1a55ed563",
+    "probes_sha256": "0953f2ceb51ab045fea0172b23e4787ee62f54e146162005178d98e735c82d77",
+    "snapshots": 61,
+    "game_minutes": 15.15000079013407,
+    "full_probe_count": 27386,
+    "all_167_controls_match": true,
+    "full_actual_floor_hashes": [
+      "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+    ],
+    "native_vs_authored_changed_floor_nodes": 40,
+    "named_source_feature_floor_changes": 0,
+    "main_nearby_diagnostic_count": [
+      92,
+      87
+    ],
+    "bulimba_nearby_diagnostic_count": [
+      822,
+      708
+    ],
+    "old_velocity_fields_exist": true,
+    "raw_verdict": "fail",
+    "raw_startup_visual_failure_retained": true,
+    "sixty_minute_primary_acceptance": "incomplete/unknown; short diagnostic only",
+    "mechanism": "captured floors unchanged while water falls; integrated transport/sink mechanism unresolved",
+    "independent_results_review": "required_before_adoption",
+    "stable_water_promise": "unknown"
   }
 }

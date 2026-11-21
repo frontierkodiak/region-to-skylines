@@ -1,0 +1,219 @@
+{
+  "schema": "polli.pl1191-phase15-coastal-summary/1",
+  "global_evidence_binding_sha256": "da3889ce25d473393047ec92c325dbff890275cd80ab3520f90c1231a95811f0",
+  "retained_floor_result": {
+    "package_raw_terrain_differences": 0,
+    "native_current_floor_raises": 40,
+    "largest_raise_m": 15.109375,
+    "full_probe_floor_differences": 1,
+    "main_bulimba_source_node_floor_differences": 0,
+    "current_equals_target_both_samples": true,
+    "t000_equals_t005": true
+  },
+  "old_velocity_fields_exist": true,
+  "new_question": "During first15minutes, do captured actual-floor changes coincide with drying, and what sub-five-minute velocity/head/depth readbacks occur?",
+  "package_or_forcing_changed": false,
+  "snapshots": 61,
+  "game_minutes": 15.15000079013407,
+  "full_probe_count": 27386,
+  "full_named_group_counts": {
+    "Main Drain": 92,
+    "Bulimba Creek": 822
+  },
+  "secondary_failure_selected_cohort": 162,
+  "group_results": {
+    "all_frozen_probes": {
+      "points": 27386,
+      "initial": {
+        "points": 27386,
+        "native_wet_flag": 26098,
+        "depth_gt_0_1m": 26098,
+        "nearby_depth_gt_0_1m": 26187,
+        "horizontal_velocity_nonzero_api": 0,
+        "max_horizontal_velocity_api": 0.0,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "endpoint": {
+        "points": 27386,
+        "native_wet_flag": 25014,
+        "depth_gt_0_1m": 25014,
+        "nearby_depth_gt_0_1m": 25826,
+        "horizontal_velocity_nonzero_api": 24337,
+        "max_horizontal_velocity_api": 21.213041599261174,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "minimum_captured_nearby_count": 25826,
+      "first_captured_count_below_start": {
+        "depth_gt_0_1m": {
+          "minute": 0.3019444601920744,
+          "count": 25757
+        },
+        "nearby_depth_gt_0_1m": {
+          "minute": 0.3019444601920744,
+          "count": 26172
+        }
+      },
+      "maximum_captured_horizontal_velocity_api": 21.213203435596427,
+      "diagnostic_only_not_natural_feature_acceptance": true
+    },
+    "Main Drain": {
+      "points": 92,
+      "initial": {
+        "points": 92,
+        "native_wet_flag": 92,
+        "depth_gt_0_1m": 92,
+        "nearby_depth_gt_0_1m": 92,
+        "horizontal_velocity_nonzero_api": 0,
+        "max_horizontal_velocity_api": 0.0,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "endpoint": {
+        "points": 92,
+        "native_wet_flag": 66,
+        "depth_gt_0_1m": 66,
+        "nearby_depth_gt_0_1m": 87,
+        "horizontal_velocity_nonzero_api": 56,
+        "max_horizontal_velocity_api": 3.2141754627461645,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "minimum_captured_nearby_count": 87,
+      "first_captured_count_below_start": {
+        "depth_gt_0_1m": {
+          "minute": 0.3019444601920744,
+          "count": 91
+        },
+        "nearby_depth_gt_0_1m": {
+          "minute": 11.052222798640528,
+          "count": 91
+        }
+      },
+      "maximum_captured_horizontal_velocity_api": 16.970174323615183,
+      "diagnostic_only_not_natural_feature_acceptance": true
+    },
+    "Bulimba Creek": {
+      "points": 822,
+      "initial": {
+        "points": 822,
+        "native_wet_flag": 822,
+        "depth_gt_0_1m": 822,
+        "nearby_depth_gt_0_1m": 822,
+        "horizontal_velocity_nonzero_api": 0,
+        "max_horizontal_velocity_api": 0.0,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "endpoint": {
+        "points": 822,
+        "native_wet_flag": 531,
+        "depth_gt_0_1m": 531,
+        "nearby_depth_gt_0_1m": 708,
+        "horizontal_velocity_nonzero_api": 509,
+        "max_horizontal_velocity_api": 14.999299049377441,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "minimum_captured_nearby_count": 708,
+      "first_captured_count_below_start": {
+        "depth_gt_0_1m": {
+          "minute": 0.3019444601920744,
+          "count": 753
+        },
+        "nearby_depth_gt_0_1m": {
+          "minute": 0.3019444601920744,
+          "count": 814
+        }
+      },
+      "maximum_captured_horizontal_velocity_api": 19.93152277088076,
+      "diagnostic_only_not_natural_feature_acceptance": true
+    },
+    "fixed_historical162": {
+      "points": 162,
+      "initial": {
+        "points": 162,
+        "native_wet_flag": 162,
+        "depth_gt_0_1m": 162,
+        "nearby_depth_gt_0_1m": 162,
+        "horizontal_velocity_nonzero_api": 0,
+        "max_horizontal_velocity_api": 0.0,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "endpoint": {
+        "points": 162,
+        "native_wet_flag": 92,
+        "depth_gt_0_1m": 92,
+        "nearby_depth_gt_0_1m": 141,
+        "horizontal_velocity_nonzero_api": 77,
+        "max_horizontal_velocity_api": 5.054262688028717,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "minimum_captured_nearby_count": 141,
+      "first_captured_count_below_start": {
+        "depth_gt_0_1m": {
+          "minute": 0.3019444601920744,
+          "count": 161
+        },
+        "nearby_depth_gt_0_1m": {
+          "minute": 11.052222798640528,
+          "count": 160
+        }
+      },
+      "maximum_captured_horizontal_velocity_api": 15.656856954020824,
+      "diagnostic_only_not_natural_feature_acceptance": true
+    }
+  },
+  "source_heads": {
+    "Main Drain rivers50": {
+      "initial_head_m": [
+        90,
+        90
+      ],
+      "endpoint_head_m": [
+        86.421875,
+        88.625
+      ],
+      "endpoint_nodes_below_authored_sea90": 92,
+      "scope": "authored source nearest16m nodes, not surveyed hydraulic width"
+    }
+  },
+  "captured_floor_hashes": [
+    "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+  ],
+  "all_target_floors_equal_current": true,
+  "all_raw_terrain_equal_package": true,
+  "all_control_tables_match": true,
+  "controls": 167,
+  "max_trigger_gap_minutes": 0.33861112877105626,
+  "requested_cadence_minutes": 0.25,
+  "missed_slots": 0,
+  "four_named_counter_fields_all_available": true,
+  "reads": "bracketed, not proven atomic; water counters and stats counters differ",
+  "raw_verdict": "fail",
+  "raw_check_status": {
+    "new_game_panel": "skip",
+    "terrain_landmarks": "skip",
+    "startup_views": "fail",
+    "completed": "pass",
+    "probes_wet_end": "pass",
+    "probes_wet_throughout": "pass",
+    "no_flooding": "pass",
+    "population_growth": "skip",
+    "outside_connection": "skip",
+    "utilities": "skip",
+    "first_hour": "skip",
+    "paths": "pass",
+    "no_terracing": "pass",
+    "screenshots": "pass",
+    "frame_kinds": "skip",
+    "ground_truth": "pass",
+    "opening_camera": "pass",
+    "cleanup": "pass",
+    "game_errors": "pass"
+  },
+  "raw_masked_deep_flood_worst_km2": 0.0082,
+  "full_hour_acceptance": "incomplete/unknown",
+  "floor_change_mechanism": "no captured floor/head-route change on this package; between-sample unknown",
+  "loss_mechanism_integrated_flux_supply_budget": "unresolved",
+  "actual_runtime": "0ec989dabbc89b0b2a429fa4247ec1f0ab36d888",
+  "loaded_image_identity_and_runtime_health": "unknown; raw Bridge/TypeLoad and visual failures retained",
+  "new_geographic_admissions": 0,
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown"
+}

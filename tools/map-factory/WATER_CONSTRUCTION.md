@@ -797,3 +797,44 @@ was committed before the fresh final protocol, without changing the question/mod
 No game/Steam/install/holdout/preview/tab action occurred. See
 `source-line-freeze-v1.json` and `development/phase14-source-line-summary.json`.
 Shipping/defaults/liveledger and historical evidence remain unchanged; promises unknown.
+
+## Phase fifteen: coastal floors stay fixed while captured heads fall
+
+A new prospectively declared CPU audit binds the exact retained Oceanian
+all-intake-off package457905c4/full27386probes0953f2ce. At t000/t005 native raw
+terrain equals authored; actual current/target floors coincide and are unchanged
+between samples. Actual floors differ from authored at40nodes (raises up to
+15.109375m), affecting one full-cohort lattice probe but no MainDrain/Bulimba
+source-mask node. Full named groups92/822 are separate from the pre-existing
+failure-selected162. All source rows/excluded/outside/empty support are retained.
+Static ocean/head-margin route counts remain unchanged; they are not flow proof.
+
+Correction: all13old native samples already contain velocities. What was missing
+was sub-five-minute transition timing and full floors after5minutes. Retained
+nearby-water changes therefore warranted one new frozen15minute instrumented
+observation, not another60minute repair run. Package/terrain/initial water,
+167controls, source geometry, networks/resources and all probes remain fixed.
+
+Clean owned runtime0ec989d/DLL368955b1 records61study snapshots over15.150001min.
+All167full xyz/type/target/rate tables match every sample. All current floors
+share hash43f4be73…, identical to retained t000/t005; all targets equal current,
+all raw terrain equals package. Main nearby count92->87; Bulimba822->708.
+Main's source-node heads fall from90m to86.421875–88.625m with captured floors
+unchanged. This is not proof of integrated transport, evaporation, exclusive
+missing supply or geographic impossibility. Velocities are API readbacks,
+not physical supply/demand/discharge units. Between-sample behavior is unknown.
+
+Requested cadence0.25min; maximum actual gap0.338611min, no missed slots.
+All4named water counters available; reads bracketed, not proven atomic. Raw
+verdict FAIL on unreviewed startup views; Bridge/TypeLoad failures retained
+despite advisory game-error pass. Short original water/flood gates pass, but
+60minute primary acceptance remains INCOMPLETE/UNKNOWN. Old historical drying
+failures/thresholds/scores are unchanged. Loaded-image/JIT identity/runtimehealth
+and human-only checks remain unknown. No holdout/default/ledger/promise adoption.
+
+One preparation path failure retained; fix/tests committed before fresh final
+protocol, no native repeat. Eight focused tests/scopedRuff/format/diff pass;
+unchanged broad suites carried. Owned run collected and cleanup empty; subsequent
+shared holder PL-1239 untouched. Independent results review precedes adoption,
+not guarded measurement. See `coastal-floor-freeze-v1.json` and
+`development/phase15-coastal-summary.json` for exact prospective/source lineage.
