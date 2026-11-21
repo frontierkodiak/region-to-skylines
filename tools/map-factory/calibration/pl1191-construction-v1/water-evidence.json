@@ -1,0 +1,398 @@
+{
+  "schema": "polli.water-construction-evidence/1",
+  "capability_id": "water_risk",
+  "status": "construction_in_development",
+  "stable_water_promise": "unknown",
+  "definition": "The exact authored package retains required mapped water and meets the unchanged native flooding and full drying gates over the stated observation period.",
+  "rejected_calibration": {
+    "source": "calibration/pl1072-frozen/holdout-score.json",
+    "source_sha256": "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b",
+    "coverage": {
+      "planned": 30,
+      "complete": 28,
+      "unscored": [
+        "lake-shore-south-america",
+        "low-coast-africa"
+      ]
+    },
+    "metrics": {
+      "flood": {
+        "tp": 1,
+        "fp": 4,
+        "tn": 18,
+        "fn": 5,
+        "precision": {
+          "n": 5,
+          "events": 1,
+          "rate": 0.2,
+          "ci95": [
+            0.0050507633794680575,
+            0.7164179361180895
+          ]
+        },
+        "recall": {
+          "n": 6,
+          "events": 1,
+          "rate": 0.16666666666666666,
+          "ci95": [
+            0.00421074451448947,
+            0.6412345789976748
+          ]
+        },
+        "specificity": {
+          "n": 22,
+          "events": 18,
+          "rate": 0.8181818181818182,
+          "ci95": [
+            0.5971542169221286,
+            0.9481327006875631
+          ]
+        },
+        "always_warn_precision": {
+          "n": 28,
+          "events": 6,
+          "rate": 0.21428571428571427,
+          "ci95": [
+            0.0829606123876385,
+            0.4095310265058281
+          ]
+        },
+        "always_warn_recall": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 23,
+          "events": 5,
+          "rate": 0.21739130434782608,
+          "ci95": [
+            0.07460340764880372,
+            0.4370307262368146
+          ]
+        },
+        "unknown_squares": [
+          "lake-shore-south-america",
+          "low-coast-africa"
+        ],
+        "identical_to_always_warn": false,
+        "misses": [
+          "dry-upland-south-america",
+          "dry-upland-europe",
+          "dry-upland-asia",
+          "mountain-river-asia",
+          "lowland-river-south-america"
+        ],
+        "false_alarms": [
+          "low-coast-north-america",
+          "low-coast-south-america",
+          "low-coast-asia",
+          "low-coast-oceania"
+        ]
+      },
+      "drying": {
+        "tp": 27,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 28,
+          "events": 27,
+          "rate": 0.9642857142857143,
+          "ci95": [
+            0.8165224024553763,
+            0.999096201244342
+          ]
+        },
+        "recall": {
+          "n": 27,
+          "events": 27,
+          "rate": 1.0,
+          "ci95": [
+            0.8722971323845676,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "always_warn_precision": {
+          "n": 28,
+          "events": 27,
+          "rate": 0.9642857142857143,
+          "ci95": [
+            0.8165224024553763,
+            0.999096201244342
+          ]
+        },
+        "always_warn_recall": {
+          "n": 27,
+          "events": 27,
+          "rate": 1.0,
+          "ci95": [
+            0.8722971323845676,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [
+          "lake-shore-south-america",
+          "low-coast-africa"
+        ],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": [
+          "dry-upland-asia"
+        ]
+      }
+    },
+    "limits": "PL-1072 is now development data. Flood flags did not reduce cleared risk; drying equals always-warn. No release promotion or qualified prefilter."
+  },
+  "development_maps": [
+    {
+      "slug": "dry-upland-north-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "flood": true,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "flood": true,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "dry-upland-africa",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "dry-upland-asia",
+      "flood": true,
+      "drying": false,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "dry-upland-oceania",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "mountain-river-north-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "mountain-river-south-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "mountain-river-europe",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "mountain-river-africa",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "mountain-river-asia",
+      "flood": true,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "mountain-river-oceania",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lowland-river-north-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "flood": true,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lowland-river-europe",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lowland-river-africa",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lowland-river-asia",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lowland-river-oceania",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lake-shore-north-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lake-shore-south-america",
+      "flood": null,
+      "drying": null,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lake-shore-europe",
+      "flood": true,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lake-shore-africa",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lake-shore-asia",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "lake-shore-oceania",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "low-coast-north-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "low-coast-south-america",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "low-coast-europe",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "low-coast-africa",
+      "flood": null,
+      "drying": null,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "low-coast-asia",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    },
+    {
+      "slug": "low-coast-oceania",
+      "flood": false,
+      "drying": true,
+      "stable_water_promise": "unknown",
+      "scope": "Historical development package outcome, not geographic impossibility or a result for a changed export"
+    }
+  ],
+  "holdout": {
+    "panel": "stable-water-panel.json",
+    "panel_sha256": "181c2fd902b910668f340ef5ca97f2e08788e6fa3b60c41399d0faeca486636c",
+    "squares": 12,
+    "native_observations": 0,
+    "inputs_fetched": false,
+    "minimum_centre_separation_km": 131.24414377880876,
+    "status": "frozen_before_exporter_changes"
+  },
+  "construction": {
+    "source": "reservoir_basin.py",
+    "qualification": "geometric tests only, not native water stability",
+    "product_defaults_changed": false
+  },
+  "mechanisms": "WATER_CONSTRUCTION.md",
+  "limits": [
+    "No nine-square certificate is reissued by this file.",
+    "Missing water, capture failure, skipped checks and geometric refusal remain unknown.",
+    "Human visual acceptance, populated-city behavior, continuous retention and long-term stability are not verified."
+  ]
+}

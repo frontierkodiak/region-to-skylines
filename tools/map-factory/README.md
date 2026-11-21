@@ -467,6 +467,10 @@ they are not fabricated by the listing writer.
 
 ## Water and terrain limits
 
+The [construction diagnosis](WATER_CONSTRUCTION.md) records PL-1072's retained
+failure mechanisms, the frozen new holdout, and the diagnostic closed-reservoir
+constructor. It does not qualify a stable-water class or change exporter defaults.
+
 Water surfaces come from a monotone fit to uncarved elevations, not a running
 minimum of the already carved bed. Terrain-aware routing can move around DEM
 obstructions inside the mapped corridor. The channels start filled. Streams

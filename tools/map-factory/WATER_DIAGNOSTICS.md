@@ -33,6 +33,16 @@ per-asset payload hashes.
    This tests the intake/output interaction; it is not an inlet-field model or
    evidence that original intake is a correct default policy.
 
+Two additional modes require explicit `--mode`; they are not new defaults:
+
+- **reservoir-output-off**: zero positive outputs only on controls classified
+  as constructed reservoirs. Retain their intake rates.
+- **all-output-off**: zero every positive output, retaining every intake rate.
+
+Both preserve the complete original initial grid and every other source field.
+Use unchanged original probes and mapped-water references for matched native
+comparisons. See [construction diagnosis](WATER_CONSTRUCTION.md).
+
 The exporter first replays the **original** terrain, initial water, hydrology
 and frozen resource plan through the existing writer/resource encoder. It
 requires the entire replayed CRP to equal the generation-bound source CRP,

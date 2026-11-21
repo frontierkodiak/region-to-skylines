@@ -39,7 +39,8 @@ from soak import (
 from template import manager_tag
 
 ROOT = Path(__file__).resolve().parent
-MODES = ("short-output-off", "sea-only", "portal-intake-original")
+DEFAULT_MODES = ("short-output-off", "sea-only", "portal-intake-original")
+MODES = (*DEFAULT_MODES, "all-output-off", "reservoir-output-off")
 
 
 def digest(data):
@@ -181,9 +182,17 @@ def transform(source, hydro, terrain, mode):
     changed_indices = []
     restored_intakes = {}
     new_hydro = copy.deepcopy(hydro)
-    if mode == "short-output-off":
+    if mode in {"short-output-off", "all-output-off", "reservoir-output-off"}:
         for i, (actual, expected) in enumerate(zip(water["sources"], hydro["sources"])):
-            if expected.get("short_surface_river") and actual["output_rate"] > 0:
+            selected = (
+                mode == "all-output-off"
+                or (mode == "short-output-off" and expected.get("short_surface_river"))
+                or (
+                    mode == "reservoir-output-off"
+                    and expected.get("class") == "reservoir"
+                )
+            )
+            if selected and actual["output_rate"] > 0:
                 controls[i]["output_capacity"] = 0
                 new_hydro["sources"][i]["output_capacity"] = 0
                 changed_indices.append(i)
@@ -331,7 +340,11 @@ def transform(source, hydro, terrain, mode):
             "source count/positions/targets",
         ]
         + (["intake rates"] if mode != "portal-intake-original" else [])
-        + (["bounded output rates"] if mode != "short-output-off" else []),
+        + (
+            ["bounded output rates"]
+            if mode in {"sea-only", "portal-intake-original"}
+            else []
+        ),
         "limitations": [
             "matched hydraulic diagnostic, NOT qualification",
             "resource water/listing/preview bytes intentionally frozen, not recomputed for sea-only initial water",
@@ -341,7 +354,7 @@ def transform(source, hydro, terrain, mode):
     return result, new_hydro, depth, receipt
 
 
-def export(source, output, modes=MODES):
+def export(source, output, modes=DEFAULT_MODES):
     source, output = Path(source), Path(output)
     if output.exists():
         raise ValueError("Use a fresh diagnostic output directory")
@@ -521,7 +534,11 @@ if __name__ == "__main__":
         "--mode",
         choices=MODES,
         action="append",
-        help="export only selected mode(s); default: all",
+        help="export only selected mode(s); default: the three historical modes",
     )
     args = parser.parse_args()
-    print(json.dumps(export(args.source, args.output, args.mode or MODES), indent=2))
+    print(
+        json.dumps(
+            export(args.source, args.output, args.mode or DEFAULT_MODES), indent=2
+        )
+    )

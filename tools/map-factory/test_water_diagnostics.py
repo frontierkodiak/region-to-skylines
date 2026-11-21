@@ -170,6 +170,39 @@ class WaterDiagnosticTests(unittest.TestCase):
             simulation.startswith(self.prefix) and simulation.endswith(self.suffix)
         )
 
+    def test_reservoir_output_off_preserves_every_other_field_and_initial_grid(self):
+        hydro = copy.deepcopy(self.hydro)
+        hydro["sources"][-1]["class"] = "reservoir"
+        for mode, expected in [
+            ("reservoir-output-off", [4]),
+            ("all-output-off", [0, 2, 3, 4]),
+        ]:
+            with self.subTest(mode=mode):
+                package, _, depth, receipt = transform(
+                    self.source, hydro, self.terrain, mode
+                )
+                original_assets, _, before = self.unpack(self.source)
+                assets, simulation, after = self.unpack(package)
+                self.assertEqual(receipt["changed_output_indices"], expected)
+                self.assertEqual(receipt["changed_intake_indices"], [])
+                self.assertEqual(receipt["initial_water_changed_cells"], 0)
+                np.testing.assert_array_equal(depth, self.depth)
+                for index, (old, new) in enumerate(
+                    zip(before["sources"], after["sources"])
+                ):
+                    self.assertEqual(
+                        new,
+                        {**old, **({"output_rate": 0} if index in expected else {})},
+                    )
+                self.assertTrue(
+                    simulation.startswith(self.prefix)
+                    and simulation.endswith(self.suffix)
+                )
+                self.assertEqual(
+                    [a for a in assets if a["kind"] == 3],
+                    [a for a in original_assets if a["kind"] == 3],
+                )
+
     def test_control_receipt_mismatch_fails_closed(self):
         bad = copy.deepcopy(self.hydro)
         bad["sources"][0]["capacity"] = 0.5
