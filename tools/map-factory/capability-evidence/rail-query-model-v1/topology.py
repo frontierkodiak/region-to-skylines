@@ -23,6 +23,9 @@ LANE_TYPES = frozenset({"Vehicle", "TransportVehicle", "CargoVehicle"})
 
 
 def tokens(value):
+    """Split a comma-separated flag string, or pass an already-split record through."""
+    if isinstance(value, (list, tuple, set, frozenset)):
+        return frozenset(value)
     return frozenset(part for part in (value or "").split(", ") if part)
 
 
@@ -32,7 +35,7 @@ def train_lanes(segment):
         lane
         for lane in segment["lanes"]
         if tokens(lane["vehicle"]) & {"Train"}
-        and tokens(lane["type"]) & LANE_TYPES
+        and tokens(lane.get("type", lane.get("lane_type"))) & LANE_TYPES
     ]
 
 
@@ -96,21 +99,3 @@ def load_native(path, name=""):
     if networks.get("segments") is None:
         raise ValueError(f"{path} is not a network snapshot")
     return from_native(networks, name or path.parent.name)
-
-
-def load_plan(path):
-    path = Path(path)
-    if path.suffix == ".gz":
-        with gzip.open(path, "rt", encoding="utf8") as stream:
-            frozen = json.load(stream)
-    else:
-        frozen = json.loads(path.read_text())
-    return frozen
-
-
-def outside_nodes(package):
-    return {
-        node_id
-        for node_id, node in package["nodes"].items()
-        if "Outside" in node["flags"]
-    }

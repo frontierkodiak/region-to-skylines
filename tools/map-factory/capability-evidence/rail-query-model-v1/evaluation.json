@@ -144,9 +144,9 @@
       "query_freeze_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1"
     }
   },
-  "predictions_sha256": "6a2230597200f905ee13e8d174af29132d584f7f880073f1a931cf97b41dbbcc",
+  "predictions_sha256": "2b7a0b0b6304a6bbf7010141cdb553a79909e2e83505a7c54442dc68155ea74d",
   "primary_rule": "lane:orientation_index:forbidden",
-  "protocol_sha256": "615d3096ffba56e3ded634549fd45a5f2422ff1edec480723ad38b63dfbf37f8",
+  "protocol_sha256": "1c736e72800d7d469d337be94f2588a366f9772a067e8a0b366cc7e57399699b",
   "result": {
     "counterexamples": [
       {
@@ -185,7 +185,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
@@ -223,7 +224,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
@@ -261,7 +263,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
@@ -299,7 +302,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
@@ -337,7 +341,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
@@ -375,7 +380,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
@@ -413,7 +419,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -451,7 +458,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -489,7 +497,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -527,7 +536,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -565,7 +575,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -603,7 +614,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -641,7 +653,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
@@ -679,7 +692,8 @@
             1,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -718,7 +732,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -757,7 +772,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -796,7 +812,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -835,7 +852,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -874,7 +892,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -913,7 +932,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -952,7 +972,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -991,7 +1012,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -1030,7 +1052,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
@@ -1069,7 +1092,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1108,7 +1132,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1147,7 +1172,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1186,7 +1212,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1225,7 +1252,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1264,7 +1292,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1303,7 +1332,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1342,7 +1372,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1381,7 +1412,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1420,7 +1452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1459,7 +1492,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1498,7 +1532,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1537,7 +1572,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1576,7 +1612,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1615,7 +1652,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1654,7 +1692,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1693,7 +1732,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1732,7 +1772,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
@@ -1771,7 +1812,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -1810,7 +1852,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -1849,7 +1892,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -1888,7 +1932,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -1927,7 +1972,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -1966,7 +2012,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2005,7 +2052,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2044,7 +2092,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2083,7 +2132,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2122,7 +2172,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2161,7 +2212,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2200,7 +2252,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2239,7 +2292,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2278,7 +2332,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2317,7 +2372,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2356,7 +2412,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2395,7 +2452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2434,7 +2492,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2473,7 +2532,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2512,7 +2572,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2551,7 +2612,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2590,7 +2652,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2629,7 +2692,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2668,7 +2732,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2707,7 +2772,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2746,7 +2812,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2785,7 +2852,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2824,7 +2892,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2863,7 +2932,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2902,7 +2972,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2941,7 +3012,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -2980,7 +3052,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3019,7 +3092,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3058,7 +3132,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3097,7 +3172,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3136,7 +3212,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3175,7 +3252,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3214,7 +3292,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3253,7 +3332,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3292,7 +3372,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3331,7 +3412,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3370,7 +3452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3409,7 +3492,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3448,7 +3532,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3487,7 +3572,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3526,7 +3612,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3565,7 +3652,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3604,7 +3692,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3643,7 +3732,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3682,7 +3772,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3721,7 +3812,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3760,7 +3852,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
@@ -3799,7 +3892,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
@@ -3838,7 +3932,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
@@ -3877,7 +3972,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -3916,7 +4012,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -3955,7 +4052,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -3994,7 +4092,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4033,7 +4132,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4072,7 +4172,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4111,7 +4212,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4150,7 +4252,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4189,7 +4292,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4228,7 +4332,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4267,7 +4372,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4306,7 +4412,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4345,7 +4452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4384,7 +4492,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4423,7 +4532,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4462,7 +4572,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4501,7 +4612,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4540,7 +4652,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4579,7 +4692,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4618,7 +4732,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4657,7 +4772,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4696,7 +4812,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4735,7 +4852,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4774,7 +4892,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4813,7 +4932,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4852,7 +4972,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4891,7 +5012,48 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
+      },
+      {
+        "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "group": "pittsburgh",
+        "kind": "false_positive",
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+        "observed": "selected_query_failure",
+        "observed_detail": {
+          "flags": 8,
+          "length": 100000,
+          "reason": "native_no_path"
+        },
+        "opening": "pittsburgh",
+        "predicted_detail": {
+          "path_lower_bound_length": 22191.927551065604
+        },
+        "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "query_id": "pittsburgh:54",
+        "request": {
+          "capability": "rail",
+          "diagnostic": false,
+          "endpoint_edges": [
+            "east",
+            "west"
+          ],
+          "from": [
+            4506,
+            0,
+            255
+          ],
+          "name": "directed-outside-to-outside",
+          "position_kind": "boundary",
+          "to": [
+            5693,
+            1,
+            255
+          ]
+        },
+        "rule": "junction:continuation:any_lane"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4930,7 +5092,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -4969,7 +5132,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5008,7 +5172,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5047,7 +5212,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5086,7 +5252,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5125,7 +5292,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5164,7 +5332,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5203,7 +5372,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5242,7 +5412,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5281,7 +5452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5320,7 +5492,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5359,7 +5532,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5398,7 +5572,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5437,7 +5612,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5476,7 +5652,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5515,7 +5692,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5554,7 +5732,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5593,7 +5772,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5632,7 +5812,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5671,7 +5852,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5710,7 +5892,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5749,7 +5932,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5788,7 +5972,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5827,7 +6012,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5866,7 +6052,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5905,7 +6092,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5944,7 +6132,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -5983,7 +6172,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6022,7 +6212,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6061,7 +6252,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6100,7 +6292,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6139,7 +6332,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6178,7 +6372,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6217,7 +6412,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6256,7 +6452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6295,7 +6492,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6334,7 +6532,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6373,7 +6572,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6412,7 +6612,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6451,7 +6652,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6490,7 +6692,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6529,7 +6732,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6568,7 +6772,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6607,7 +6812,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6646,7 +6852,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6685,7 +6892,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6724,7 +6932,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6763,7 +6972,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6802,7 +7012,48 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
+      },
+      {
+        "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "group": "pittsburgh",
+        "kind": "false_positive",
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+        "observed": "selected_query_failure",
+        "observed_detail": {
+          "flags": 8,
+          "length": 100000,
+          "reason": "native_no_path"
+        },
+        "opening": "pittsburgh",
+        "predicted_detail": {
+          "path_lower_bound_length": 33319.146635847406
+        },
+        "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "query_id": "pittsburgh:166",
+        "request": {
+          "capability": "rail",
+          "diagnostic": false,
+          "endpoint_edges": [
+            "east",
+            "west"
+          ],
+          "from": [
+            5093,
+            1,
+            0
+          ],
+          "name": "directed-outside-to-outside",
+          "position_kind": "boundary",
+          "to": [
+            5748,
+            1,
+            255
+          ]
+        },
+        "rule": "junction:continuation:any_lane"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6841,7 +7092,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6880,7 +7132,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6919,7 +7172,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6958,7 +7212,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -6997,7 +7252,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7036,7 +7292,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7075,7 +7332,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7114,7 +7372,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7153,7 +7412,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7192,7 +7452,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7231,7 +7492,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7270,7 +7532,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7309,7 +7572,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7348,7 +7612,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7387,7 +7652,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7426,7 +7692,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7465,7 +7732,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7504,7 +7772,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7543,7 +7812,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7582,7 +7852,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7621,7 +7892,48 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
+      },
+      {
+        "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "group": "pittsburgh",
+        "kind": "false_positive",
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+        "observed": "selected_query_failure",
+        "observed_detail": {
+          "flags": 8,
+          "length": 100000,
+          "reason": "native_no_path"
+        },
+        "opening": "pittsburgh",
+        "predicted_detail": {
+          "path_lower_bound_length": 22191.927551065593
+        },
+        "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "query_id": "pittsburgh:220",
+        "request": {
+          "capability": "rail",
+          "diagnostic": false,
+          "endpoint_edges": [
+            "west",
+            "east"
+          ],
+          "from": [
+            5693,
+            0,
+            255
+          ],
+          "name": "directed-outside-to-outside",
+          "position_kind": "boundary",
+          "to": [
+            4506,
+            1,
+            255
+          ]
+        },
+        "rule": "junction:continuation:any_lane"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7660,7 +7972,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7699,7 +8012,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7738,7 +8052,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7777,7 +8092,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7816,7 +8132,47 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
+      },
+      {
+        "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "group": "pittsburgh",
+        "kind": "false_negative",
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+        "observed": "exact_path_success",
+        "observed_detail": {
+          "flags": 4,
+          "length": 21488.46484375
+        },
+        "opening": "pittsburgh",
+        "predicted_detail": {
+          "reason": "no_directed_lane_path"
+        },
+        "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "query_id": "pittsburgh:232",
+        "request": {
+          "capability": "rail",
+          "diagnostic": false,
+          "endpoint_edges": [
+            "west",
+            "east"
+          ],
+          "from": [
+            5693,
+            0,
+            255
+          ],
+          "name": "directed-outside-to-outside",
+          "position_kind": "boundary",
+          "to": [
+            5758,
+            0,
+            0
+          ]
+        },
+        "rule": "junction:continuation:any_lane"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7855,7 +8211,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7894,7 +8251,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7933,7 +8291,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -7972,7 +8331,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -8011,7 +8371,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -8050,7 +8411,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -8089,7 +8451,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -8128,7 +8491,48 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
+      },
+      {
+        "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "group": "pittsburgh",
+        "kind": "false_positive",
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+        "observed": "selected_query_failure",
+        "observed_detail": {
+          "flags": 8,
+          "length": 100000,
+          "reason": "native_no_path"
+        },
+        "opening": "pittsburgh",
+        "predicted_detail": {
+          "path_lower_bound_length": 33319.146635847384
+        },
+        "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "query_id": "pittsburgh:252",
+        "request": {
+          "capability": "rail",
+          "diagnostic": false,
+          "endpoint_edges": [
+            "west",
+            "east"
+          ],
+          "from": [
+            5748,
+            0,
+            255
+          ],
+          "name": "directed-outside-to-outside",
+          "position_kind": "boundary",
+          "to": [
+            5093,
+            0,
+            0
+          ]
+        },
+        "rule": "junction:continuation:any_lane"
       },
       {
         "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -8167,7 +8571,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
@@ -8206,7 +8611,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
@@ -8245,7 +8651,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
@@ -8284,7 +8691,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
@@ -8323,7 +8731,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
@@ -8362,7 +8771,8 @@
             0,
             0
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       },
       {
         "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
@@ -8401,7 +8811,8 @@
             1,
             255
           ]
-        }
+        },
+        "rule": "lane:orientation_index:forbidden"
       }
     ],
     "exact_distinct_edge": 25,
@@ -8424,6 +8835,136 @@
             "tp": 2
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -8676,6 +9217,136 @@
             "tn": 68,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9714285714285714,
+            "precision": 1.0,
+            "recall": 0.5,
+            "scored": 72,
+            "tn": 68,
+            "tp": 2
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9714285714285714,
+            "precision": 1.0,
+            "recall": 0.5,
+            "scored": 72,
+            "tn": 68,
+            "tp": 2
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -8904,6 +9575,136 @@
             "tp": 0
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -9156,6 +9957,136 @@
             "tn": 18,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -9384,6 +10315,136 @@
             "tp": 3
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.4444444444444444,
+            "fn": 1,
+            "fp": 4,
+            "negative_precision": 0.9918032786885246,
+            "precision": 0.3333333333333333,
+            "recall": 0.6666666666666666,
+            "scored": 128,
+            "tn": 121,
+            "tp": 2
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 2,
+            "negative_precision": 0.9761904761904762,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 123,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.4444444444444444,
+            "fn": 1,
+            "fp": 4,
+            "negative_precision": 0.9918032786885246,
+            "precision": 0.3333333333333333,
+            "recall": 0.6666666666666666,
+            "scored": 128,
+            "tn": 121,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 4,
+            "negative_precision": 0.9758064516129032,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 121,
+            "tp": 0
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 2,
+            "negative_precision": 0.9761904761904762,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 123,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 4,
+            "negative_precision": 0.9758064516129032,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 121,
+            "tp": 0
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -9636,6 +10697,136 @@
             "tn": 6,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -9864,6 +11055,136 @@
             "tp": 16
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 16,
+            "fp": 0,
+            "negative_precision": 0.5,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 16
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 16,
+            "fp": 0,
+            "negative_precision": 0.5,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 16,
+            "fp": 0,
+            "negative_precision": 0.5,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.2222222222222222,
+            "fn": 14,
+            "fp": 0,
+            "negative_precision": 0.5333333333333333,
+            "precision": 1.0,
+            "recall": 0.125,
+            "scored": 32,
+            "tn": 16,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 16,
+            "fp": 0,
+            "negative_precision": 0.5,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 16
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 16,
+            "fp": 0,
+            "negative_precision": 0.5,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 16,
+            "fp": 0,
+            "negative_precision": 0.5,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 32,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.2222222222222222,
+            "fn": 14,
+            "fp": 0,
+            "negative_precision": 0.5333333333333333,
+            "precision": 1.0,
+            "recall": 0.125,
+            "scored": 32,
+            "tn": 16,
+            "tp": 2
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -10126,6 +11447,136 @@
             "tn": 10,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 2
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.8333333333333334,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 12,
+            "tn": 10,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -10370,6 +11821,136 @@
             "tn": 68,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9714285714285714,
+            "precision": 1.0,
+            "recall": 0.5,
+            "scored": 72,
+            "tn": 68,
+            "tp": 2
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.6666666666666666,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9714285714285714,
+            "precision": 1.0,
+            "recall": 0.5,
+            "scored": 72,
+            "tn": 68,
+            "tp": 2
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 4
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 4,
+            "fp": 0,
+            "negative_precision": 0.9444444444444444,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 72,
+            "tn": 68,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -10601,6 +12182,136 @@
             "tp": 0
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -10857,6 +12568,136 @@
             "tn": 18,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 2
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 2,
+            "fp": 0,
+            "negative_precision": 0.9,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 20,
+            "tn": 18,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -11089,6 +12930,136 @@
             "tp": 3
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.4444444444444444,
+            "fn": 1,
+            "fp": 4,
+            "negative_precision": 0.9918032786885246,
+            "precision": 0.3333333333333333,
+            "recall": 0.6666666666666666,
+            "scored": 128,
+            "tn": 121,
+            "tp": 2
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 2,
+            "negative_precision": 0.9761904761904762,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 123,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.4444444444444444,
+            "fn": 1,
+            "fp": 4,
+            "negative_precision": 0.9918032786885246,
+            "precision": 0.3333333333333333,
+            "recall": 0.6666666666666666,
+            "scored": 128,
+            "tn": 121,
+            "tp": 2
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 4,
+            "negative_precision": 0.9758064516129032,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 121,
+            "tp": 0
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 0,
+            "negative_precision": 0.9765625,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 125,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 2,
+            "negative_precision": 0.9761904761904762,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 123,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 3,
+            "fp": 4,
+            "negative_precision": 0.9758064516129032,
+            "precision": 0.0,
+            "recall": 0.0,
+            "scored": 128,
+            "tn": 121,
+            "tp": 0
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -11344,6 +13315,136 @@
             "tn": 6,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": null,
+            "recall": null,
+            "scored": 6,
+            "tn": 6,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -11575,6 +13676,136 @@
             "tp": 8
           },
           "always_fail": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 0
+          },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": null,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 8
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.2222222222222222,
+            "fn": 7,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": 1.0,
+            "recall": 0.125,
+            "scored": 8,
+            "tn": 0,
+            "tp": 1
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": null,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 8
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 8,
+            "tn": 0,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.2222222222222222,
+            "fn": 7,
+            "fp": 0,
+            "negative_precision": 0.0,
+            "precision": 1.0,
+            "recall": 0.125,
+            "scored": 8,
+            "tn": 0,
+            "tp": 1
+          },
+          "junction:single:orientation_mirror": {
             "abstain": 0,
             "coverage": 1.0,
             "f1": null,
@@ -11831,6 +14062,136 @@
             "tn": 16,
             "tp": 0
           },
+          "junction:continuation:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 8
+          },
+          "junction:continuation:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.6666666666666666,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:continuation:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.6666666666666666,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:continuation:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.2222222222222222,
+            "fn": 7,
+            "fp": 0,
+            "negative_precision": 0.6956521739130435,
+            "precision": 1.0,
+            "recall": 0.125,
+            "scored": 24,
+            "tn": 16,
+            "tp": 1
+          },
+          "junction:continuation:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.6666666666666666,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:single:any_lane": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "negative_precision": 1.0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 8
+          },
+          "junction:single:index_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.6666666666666666,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:single:index_same": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.6666666666666666,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 0
+          },
+          "junction:single:orientation_index": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": 0.2222222222222222,
+            "fn": 7,
+            "fp": 0,
+            "negative_precision": 0.6956521739130435,
+            "precision": 1.0,
+            "recall": 0.125,
+            "scored": 24,
+            "tn": 16,
+            "tp": 1
+          },
+          "junction:single:orientation_mirror": {
+            "abstain": 0,
+            "coverage": 1.0,
+            "f1": null,
+            "fn": 8,
+            "fp": 0,
+            "negative_precision": 0.6666666666666666,
+            "precision": null,
+            "recall": 0.0,
+            "scored": 24,
+            "tn": 16,
+            "tp": 0
+          },
           "lane:any_lane:allowed": {
             "abstain": 0,
             "coverage": 1.0,
@@ -12058,6 +14419,136 @@
         "tp": 27
       },
       "always_fail": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": null,
+        "fn": 27,
+        "fp": 0,
+        "negative_precision": 0.9021739130434783,
+        "precision": null,
+        "recall": 0.0,
+        "scored": 276,
+        "tn": 249,
+        "tp": 0
+      },
+      "junction:continuation:any_lane": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": 0.912280701754386,
+        "fn": 1,
+        "fp": 4,
+        "negative_precision": 0.9959349593495935,
+        "precision": 0.8666666666666667,
+        "recall": 0.9629629629629629,
+        "scored": 276,
+        "tn": 245,
+        "tp": 26
+      },
+      "junction:continuation:index_mirror": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": null,
+        "fn": 27,
+        "fp": 0,
+        "negative_precision": 0.9021739130434783,
+        "precision": null,
+        "recall": 0.0,
+        "scored": 276,
+        "tn": 249,
+        "tp": 0
+      },
+      "junction:continuation:index_same": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": 0.24242424242424243,
+        "fn": 23,
+        "fp": 2,
+        "negative_precision": 0.9148148148148149,
+        "precision": 0.6666666666666666,
+        "recall": 0.14814814814814814,
+        "scored": 276,
+        "tn": 247,
+        "tp": 4
+      },
+      "junction:continuation:orientation_index": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": 0.5581395348837209,
+        "fn": 15,
+        "fp": 4,
+        "negative_precision": 0.9423076923076923,
+        "precision": 0.75,
+        "recall": 0.4444444444444444,
+        "scored": 276,
+        "tn": 245,
+        "tp": 12
+      },
+      "junction:continuation:orientation_mirror": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": null,
+        "fn": 27,
+        "fp": 0,
+        "negative_precision": 0.9021739130434783,
+        "precision": null,
+        "recall": 0.0,
+        "scored": 276,
+        "tn": 249,
+        "tp": 0
+      },
+      "junction:single:any_lane": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": 0.8727272727272727,
+        "fn": 3,
+        "fp": 4,
+        "negative_precision": 0.9879032258064516,
+        "precision": 0.8571428571428571,
+        "recall": 0.8888888888888888,
+        "scored": 276,
+        "tn": 245,
+        "tp": 24
+      },
+      "junction:single:index_mirror": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": null,
+        "fn": 27,
+        "fp": 0,
+        "negative_precision": 0.9021739130434783,
+        "precision": null,
+        "recall": 0.0,
+        "scored": 276,
+        "tn": 249,
+        "tp": 0
+      },
+      "junction:single:index_same": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": 0.24242424242424243,
+        "fn": 23,
+        "fp": 2,
+        "negative_precision": 0.9148148148148149,
+        "precision": 0.6666666666666666,
+        "recall": 0.14814814814814814,
+        "scored": 276,
+        "tn": 247,
+        "tp": 4
+      },
+      "junction:single:orientation_index": {
+        "abstain": 0,
+        "coverage": 1.0,
+        "f1": 0.4878048780487805,
+        "fn": 17,
+        "fp": 4,
+        "negative_precision": 0.9351145038167938,
+        "precision": 0.7142857142857143,
+        "recall": 0.37037037037037035,
+        "scored": 276,
+        "tn": 245,
+        "tp": 10
+      },
+      "junction:single:orientation_mirror": {
         "abstain": 0,
         "coverage": 1.0,
         "f1": null,

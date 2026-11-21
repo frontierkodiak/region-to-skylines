@@ -33,6 +33,8 @@ ROOT = HERE.parents[2]
 CAPABILITY = HERE.parent
 
 EXACT = "exact_path_success"
+# The rules whose individual errors the report shows in full.
+FOCUS_RULES = ("lane:orientation_index:forbidden", "junction:continuation:any_lane")
 FAILURE = "selected_query_failure"
 UNKNOWN = "unknown"
 
@@ -64,7 +66,11 @@ def classify(row):
         }
     positions = result.get("positions") or []
     request = row.get("request") or {}
-    if not positions or positions[0] != request.get("from") or positions[-1] != request.get("to"):
+    if (
+        not positions
+        or positions[0] != request.get("from")
+        or positions[-1] != request.get("to")
+    ):
         return UNKNOWN, {"reason": "returned_endpoint_mismatch"}
     return EXACT, {"flags": result.get("flags"), "length": result.get("length")}
 
@@ -98,11 +104,15 @@ def ratios(confusion):
         "precision": precision,
         "recall": recall,
         "negative_precision": negative_precision,
-        "f1": (None if precision is None or recall in (None, 0) else 2 * precision * recall / (precision + recall)),
+        "f1": (
+            None
+            if precision is None or recall in (None, 0)
+            else 2 * precision * recall / (precision + recall)
+        ),
     }
 
 
-def collect(predictions, openings):
+def collect(openings):
     observations = {}
     for entry in openings["openings"]:
         raw = CAPABILITY / entry["raw"]
@@ -119,7 +129,12 @@ def collect(predictions, openings):
             "completed": observation.get("completed"),
             "context": {
                 key: observation.get("native_context", {}).get(key)
-                for key in ("update_mode", "invert_traffic", "no_workshop", "mods_enabled")
+                for key in (
+                    "update_mode",
+                    "invert_traffic",
+                    "no_workshop",
+                    "mods_enabled",
+                )
             },
         }
     return observations
@@ -136,7 +151,11 @@ def evaluate(predictions, observations, openings):
     for query in predictions["queries"]:
         opening = query["opening"]
         observation = observations[opening]
-        row = observation["rows"][query["plan_index"]] if query["plan_index"] < len(observation["rows"]) else None
+        row = (
+            observation["rows"][query["plan_index"]]
+            if query["plan_index"] < len(observation["rows"])
+            else None
+        )
         observed, detail = classify(row)
         labels[observed] += 1
         if observed == EXACT:
@@ -161,14 +180,22 @@ def evaluate(predictions, observations, openings):
             add(by_rule[rule], predicted, observed)
             add(per_package[opening]["by_rule"][rule], predicted, observed)
             by_group.setdefault(
-                (query["split"], group), {r: empty_confusion() for r in predictions["rules"]}
+                (query["split"], group),
+                {r: empty_confusion() for r in predictions["rules"]},
             )
             add(by_group[(query["split"], group)][rule], predicted, observed)
-            if rule == predictions["primary_rule"] and observed in (EXACT, FAILURE):
-                if (predicted == "success") != (observed == EXACT) and len(counterexamples) < 400:
+            if (
+                rule in FOCUS_RULES
+                and observed in (EXACT, FAILURE)
+                and predicted != "abstain"
+            ):
+                if (predicted == "success") != (observed == EXACT):
                     counterexamples.append(
                         {
-                            "kind": "false_positive" if predicted == "success" else "false_negative",
+                            "rule": rule,
+                            "kind": "false_positive"
+                            if predicted == "success"
+                            else "false_negative",
                             "query_id": query["query_id"],
                             "opening": opening,
                             "group": group,
@@ -225,7 +252,7 @@ def main():
     args = parser.parse_args()
     openings = json.loads((HERE / "openings.json").read_text())
     predictions = load_json(HERE / "predictions.json")
-    observations = collect(predictions, openings)
+    observations = collect(openings)
     report = evaluate(predictions, observations, openings)
     document = {
         "schema": 1,
@@ -242,9 +269,20 @@ def main():
         frozen = json.loads((HERE / "evaluation.json").read_text())
         if frozen["result"] != report:
             raise SystemExit("evaluation is not reproducible")
-        print(json.dumps({"checked": True, "evaluation_sha256": digest((HERE / "evaluation.json").read_bytes())}))
+        print(
+            json.dumps(
+                {
+                    "checked": True,
+                    "evaluation_sha256": digest(
+                        (HERE / "evaluation.json").read_bytes()
+                    ),
+                }
+            )
+        )
         return
-    (HERE / "evaluation.json").write_text(json.dumps(document, indent=2, sort_keys=True) + "\n")
+    (HERE / "evaluation.json").write_text(
+        json.dumps(document, indent=2, sort_keys=True) + "\n"
+    )
     primary = report["rules"][predictions["primary_rule"]]
     print(
         json.dumps(

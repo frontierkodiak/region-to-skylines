@@ -80,18 +80,36 @@ def freeze_protocol(openings, packages):
         "features_forbidden": "place names, artifact ids, special segment ids, successful paths, observation bytes, old scores",
         "splits": {
             "stock_controls": {
-                "packages": [o["package"] for o in openings["openings"] if o["split"] == "stock_controls"],
+                "packages": [
+                    o["package"]
+                    for o in openings["openings"]
+                    if o["split"] == "stock_controls"
+                ],
                 "role": "separate control group; never pooled with the cohort as independent votes",
             },
             "cohort": {
-                "packages": [o["package"] for o in openings["openings"] if o["split"] == "cohort"],
+                "packages": [
+                    o["package"] for o in openings["openings"] if o["split"] == "cohort"
+                ],
                 "role": "evaluation group; every selected query of a package stays in that package's group",
             },
         },
         "rules": model.RULES,
         "primary_rule": model.PRIMARY_RULE,
+        "fitted_rule": model.FITTED_RULE,
         "pairings": model.PAIRINGS,
         "uturns": model.UTURNS,
+        "junctions": model.JUNCTIONS,
+        "families": {
+            "topology_only": {
+                "rules": model.BASELINES + model.LANE_RULES,
+                "frozen": "before any prediction was scored",
+            },
+            "junction": {
+                "rules": model.JUNCTION_RULES,
+                "frozen": "after the topology-only family failed to separate observed successes from observed failures; every member is reported and none is adopted",
+            },
+        },
         "max_length": model.MAX_LENGTH,
         "estimable": "precision and recall are null when their denominator is zero; no always-fail accuracy headline",
         "packages": {
@@ -120,10 +138,14 @@ def build(openings, packages, write):
             "selected_requests": len(requests),
             "candidate_boundary_requests": plan["plan"]["candidate_boundary_count"],
             "unqueried_boundary_candidates": max(
-                0, plan["plan"]["candidate_boundary_count"] - plan["plan"]["boundary_limit"]
+                0,
+                plan["plan"]["candidate_boundary_count"]
+                - plan["plan"]["boundary_limit"],
             ),
             "train_segments": sum(
-                1 for segment in package["segments"].values() if segment["lanes"]
+                1
+                for segment in package["segments"].values()
+                if topology.train_lanes(segment)
             ),
             "networks_sha256": file_digest(networks_path),
             "query_freeze_sha256": file_digest(plan_path),
@@ -151,6 +173,7 @@ def build(openings, packages, write):
         "protocol_sha256": digest(encoded(protocol)),
         "sources": sources(),
         "primary_rule": model.PRIMARY_RULE,
+        "fitted_rule": model.FITTED_RULE,
         "rules": model.RULES,
         "openings": per_opening,
         "queries": queries,
@@ -163,7 +186,11 @@ def build(openings, packages, write):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="verify the frozen files instead of writing")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="verify the frozen files instead of writing",
+    )
     args = parser.parse_args()
     openings = json.loads((HERE / "openings.json").read_text())
     packages = json.loads((HERE / "packages.json").read_text())
@@ -177,7 +204,9 @@ def main():
     if args.check:
         frozen = json.loads((HERE / "predictions.json").read_text())
         if frozen["queries"] != document["queries"]:
-            raise SystemExit("predictions are not reproducible from the current sources")
+            raise SystemExit(
+                "predictions are not reproducible from the current sources"
+            )
         print(
             json.dumps(
                 {

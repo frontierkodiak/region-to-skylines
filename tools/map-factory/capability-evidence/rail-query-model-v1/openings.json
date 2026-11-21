@@ -97,5 +97,29 @@
       "raw": "rail-v3/raw/rio",
       "reason": "fair-queue denial before launch: no network snapshot and no query plan, so there is nothing to predict. Retained as an attempt, never overwritten."
     }
-  ]
+  ],
+  "bridge": {
+    "packages": [
+      "asheville",
+      "innsbruck",
+      "boston",
+      "charleston",
+      "grand-canyon",
+      "hong-kong",
+      "pittsburgh",
+      "rio",
+      "yosemite"
+    ],
+    "excluded": [
+      {
+        "package": "stock-1",
+        "reason": "Steam-install copy whose package container is CRP format 8; the offline bridge reads the format-12 container of the nine unchanged cohort packages. The stock control is a model control, not a bridge subject."
+      },
+      {
+        "package": "stock-2",
+        "reason": "same as stock-1: CRP format 8 container"
+      }
+    ],
+    "note": "The bridge audits the nine unchanged cohort packages only, as the issue asks. The two stock controls stay native-snapshot only and are reported that way."
+  }
 }

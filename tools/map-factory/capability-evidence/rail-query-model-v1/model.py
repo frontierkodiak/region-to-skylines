@@ -11,10 +11,16 @@ The question is deliberately narrow: given one literal-boundary request
 CargoVehicle)/seed 857/maxLength 100000, was a complete path returned?
 
 The model is a directed reachability rule over `(segment, lane, node)` states.
-It differs between rules only in which lane of one segment may continue onto
-which lane of another segment at a shared node, and whether a train may reverse
-at a node. Those are the native junction facts the study cannot observe
-offline, so each choice is a named hypothesis, not assumed truth.
+It differs between rules in three named choices, each an unobservable native
+junction fact rather than something assumed:
+
+* `PAIRINGS` - which lane of one segment continues onto which lane of another
+  segment at a shared node.
+* `UTURNS` - whether a train may reverse inside one node.
+* `JUNCTIONS` - which incident segment pairs a node connects at all. `all`
+  connects every pair (the upper bound). `continuation` connects only a
+  disjoint best-aligned pairing, as if the track can only pass straight through
+  a branching node. `single` connects only the single straightest pair.
 """
 
 from __future__ import annotations
@@ -46,24 +52,43 @@ PAIRINGS = {
     "orientation_mirror": "n-1-i at a mixed node, i at a same-sided node",
 }
 
-# Whether a train may reverse inside one node. "forbidden" and "deadend" are the
-# two readings that keep a boundary-to-boundary path from becoming trivial.
+# Whether a train may reverse inside one node.
 UTURNS = {
     "forbidden": "a train never reverses at a node",
     "deadend": "a train reverses only at a node with one incident Train segment",
     "allowed": "a train may reverse at any node",
 }
 
+# Which incident segment pairs a node connects at all.
+JUNCTIONS = {
+    "all": "every incident Train segment pair continues",
+    "continuation": "a disjoint pairing, straightest first: a node passes one continuation per segment",
+    "single": "only the single straightest incident pair continues",
+}
+
 BASELINES = ["always_fail", "always_candidate", "weak_component"]
-LANE_RULES = [
-    f"lane:{pairing}:{uturn}" for pairing in PAIRINGS for uturn in UTURNS
+# The pre-registered topology-only family. Rule names are frozen: they were
+# scored before any junction rule existed.
+LANE_RULES = [f"lane:{pairing}:{uturn}" for pairing in PAIRINGS for uturn in UTURNS]
+# The junction family. Added after the first family failed to separate observed
+# successes from observed failures; every member is reported, none is promoted.
+JUNCTION_RULES = [
+    f"junction:{junction}:{pairing}"
+    for junction in ("continuation", "single")
+    for pairing in PAIRINGS
 ]
-RULES = BASELINES + LANE_RULES
+RULES = BASELINES + LANE_RULES + JUNCTION_RULES
 # Chosen before any prediction was scored, from the physical argument in the
 # module docstring and README: lateral side is preserved across a node, which is
 # `orientation_index`, and the frozen protocol never relies on a reversal.
 PRIMARY_RULE = "lane:orientation_index:forbidden"
-SENSITIVITY_RULES = [rule for rule in RULES if rule != PRIMARY_RULE]
+# The straightest-continuation junction rule with the any-lane continuation is
+# the best fitting export-only member. It is a hypothesis: it was selected after
+# the first family was scored, and the study makes no adoption claim. For a
+# single-track two-lane railway the lane index is a direction record on one
+# physical track, so "any lane continues" is also the physically motivated
+# reading; the junction pairing is what does the discriminating.
+FITTED_RULE = "junction:continuation:any_lane"
 
 # The frozen protocol's own maximum path length. Chord sums are a lower bound on
 # the native curve length, so the bound can only abstain on a lower bound.
@@ -71,14 +96,21 @@ MAX_LENGTH = 100000.0
 
 
 def parse_rule(rule):
-    if rule.startswith("lane:"):
-        _, pairing, uturn = rule.split(":")
+    """Return (kind, pairing, uturn, junction) for a rule name."""
+    if rule in BASELINES:
+        return rule, None, None, None
+    parts = rule.split(":")
+    if parts[0] == "lane" and len(parts) == 3:
+        _, pairing, uturn = parts
         if pairing not in PAIRINGS or uturn not in UTURNS:
             raise ValueError(f"unknown rule {rule}")
-        return pairing, uturn
-    if rule not in {"always_fail", "always_candidate", "weak_component"}:
-        raise ValueError(f"unknown rule {rule}")
-    return None, None
+        return "lane", pairing, uturn, "all"
+    if parts[0] == "junction" and len(parts) == 3:
+        _, junction, pairing = parts
+        if junction not in JUNCTIONS or pairing not in PAIRINGS:
+            raise ValueError(f"unknown rule {rule}")
+        return "junction", pairing, "forbidden", junction
+    raise ValueError(f"unknown rule {rule}")
 
 
 def train_index(package):
@@ -97,7 +129,8 @@ def train_index(package):
 
 def weak_components(package):
     """Undirected Train-segment components, returned as a node -> label map."""
-    segments, incident = train_index(package)
+    _, incident = train_index(package)
+    segments = package["segments"]
     labels = {}
     for start in incident:
         if start in labels:
@@ -168,7 +201,53 @@ def chord(segment):
     return math.dist(a, b)
 
 
-def reachable(package, request, pairing, uturn, max_length=MAX_LENGTH):
+def _unit(a, b):
+    vx, vz = b[0] - a[0], b[2] - a[2]
+    length = math.hypot(vx, vz)
+    return (vx / length, vz / length) if length else (0.0, 0.0)
+
+
+def turn_degrees(package, node, source_id, target_id):
+    """Heading change from arriving along `source` to leaving along `target`."""
+    nodes = package["nodes"]
+    source = package["segments"][source_id]
+    target = package["segments"][target_id]
+    into = _unit(nodes[other_node(source, node)]["position"], nodes[node]["position"])
+    out = _unit(nodes[node]["position"], nodes[other_node(target, node)]["position"])
+    cosine = max(-1.0, min(1.0, into[0] * out[0] + into[1] * out[1]))
+    return math.degrees(math.acos(cosine))
+
+
+def node_partners(package, incident, junction):
+    """Directed (source, target) segment pairs this junction rule connects."""
+    partners = {}
+    for node, segment_ids in incident.items():
+        unique = sorted(set(segment_ids))
+        pairs = []
+        if junction == "all":
+            pairs = [(a, b) for a in unique for b in unique if a != b]
+        elif len(unique) >= 2:
+            candidates = sorted(
+                (turn_degrees(package, node, a, b), a, b)
+                for index, a in enumerate(unique)
+                for b in unique[index + 1 :]
+            )
+            if junction == "single":
+                pairs = [(candidates[0][1], candidates[0][2])]
+            elif junction == "continuation":
+                used = set()
+                for _, a, b in candidates:
+                    if a in used or b in used:
+                        continue
+                    used.update((a, b))
+                    pairs.append((a, b))
+            else:  # pragma: no cover - JUNCTIONS guards this
+                raise ValueError(f"unknown junction {junction}")
+        partners[node] = set(pairs) | {(b, a) for a, b in pairs}
+    return partners
+
+
+def reachable(package, request, pairing, uturn, junction="all", max_length=MAX_LENGTH):
     """Directed reachability from the request's from-position to its to-position.
 
     Returns (SUCCESS or NO_PATH, detail dict). Raises LookupError when the
@@ -182,6 +261,7 @@ def reachable(package, request, pairing, uturn, max_length=MAX_LENGTH):
     chain of continues can cross a node without using its pairing rule.
     """
     segments, incident = train_index(package)
+    partners = node_partners(package, incident, junction)
     source_id, source_lane_index, source_offset = (int(v) for v in request["from"])
     target_id, target_lane_index, target_offset = (int(v) for v in request["to"])
 
@@ -219,15 +299,18 @@ def reachable(package, request, pairing, uturn, max_length=MAX_LENGTH):
         lane = lane_at(segment, lane_index)
         if arrived:
             # Continue at this node; `uturn` may allow the same segment.
-            same = segment_id
             degree = len(incident[node])
             for neighbour_id in incident[node]:
-                if neighbour_id == same and uturn == "forbidden":
+                if neighbour_id == segment_id and uturn == "forbidden":
                     continue
-                if neighbour_id == same and uturn == "deadend" and degree != 1:
+                if neighbour_id == segment_id and uturn == "deadend" and degree != 1:
+                    continue
+                if (segment_id, neighbour_id) not in partners[node]:
                     continue
                 neighbour = segments[neighbour_id]
-                for next_index in continues(pairing, segment, neighbour, node, lane_index):
+                for next_index in continues(
+                    pairing, segment, neighbour, node, lane_index
+                ):
                     next_lane = lane_at(neighbour, next_index)
                     if next_lane is None:
                         continue
@@ -250,8 +333,9 @@ def reachable(package, request, pairing, uturn, max_length=MAX_LENGTH):
         return SUCCESS, {"path_lower_bound_length": distance[goal]}
     return NO_PATH, {"reason": "no_directed_lane_path"}
 
+
 def predict(package, request, rule):
-    """One prediction. Returns {prediction, rule, detail}."""
+    """One prediction. Returns {prediction, detail}."""
     if rule == "always_fail":
         return {"prediction": NO_PATH, "detail": {"reason": "baseline"}}
     if rule == "always_candidate":
@@ -268,11 +352,13 @@ def predict(package, request, rule):
         same = labels.get(source_node) == labels.get(target_node)
         return {
             "prediction": SUCCESS if same else NO_PATH,
-            "detail": {"reason": "same_weak_component" if same else "different_weak_component"},
+            "detail": {
+                "reason": "same_weak_component" if same else "different_weak_component"
+            },
         }
-    pairing, uturn = parse_rule(rule)
+    _, pairing, uturn, junction = parse_rule(rule)
     try:
-        prediction, detail = reachable(package, request, pairing, uturn)
+        prediction, detail = reachable(package, request, pairing, uturn, junction)
     except LookupError as error:
         return {"prediction": ABSTAIN, "detail": {"reason": str(error)}}
     return {"prediction": prediction, "detail": detail}
