@@ -1,0 +1,5666 @@
+{
+ "answer": "yes",
+ "catalog": {
+  "node_flag_values": 31,
+  "node_name_conflicts": {
+   "20971649": {
+    "Created + Junction + OneWayIn + Original": 553,
+    "Created + Junction + OneWayOut + Original": 563,
+    "Created + Junction + Original": 119
+   },
+   "20988033": {
+    "Created + Junction + OnGround + OneWayIn + OneWayOut + Original": 196,
+    "Created + Junction + OnGround + OneWayIn + Original": 1965,
+    "Created + Junction + OnGround + OneWayOut + Original": 1891,
+    "Created + Junction + OnGround + Original": 754
+   },
+   "21495937": {
+    "Created + Junction + OneWayIn + OneWayOut + Original + Underground": 186,
+    "Created + Junction + OneWayIn + Original + Underground": 3
+   },
+   "268452129": {
+    "Created + DisableOnlyMiddle + Middle + Moveable + OnGround + Original": 2244,
+    "Created + DisableOnlyMiddle + Middle + OnGround + Original": 228
+   }
+  },
+  "outside_values": [
+   17409,
+   4211713,
+   16794625,
+   268452865
+  ],
+  "prefab_variants": {
+   "Airplane Path": 1,
+   "Highway": 1,
+   "Highway Bridge": 1,
+   "Highway Slope": 1,
+   "Highway Tunnel": 1,
+   "HighwayRamp": 1,
+   "HighwayRampElevated": 1,
+   "Ship Path": 1,
+   "Train Track": 1,
+   "Train Track Elevated": 1,
+   "Train Track Slope": 1,
+   "Train Track Tunnel": 1
+  },
+  "prefabs": 12,
+  "segment_flag_values": 2,
+  "segment_name_conflicts": {
+   "1": {
+    "Created + Flooded + Original": 33,
+    "Created + NameVisible1 + NameVisible2 + Original": 1040,
+    "Created + Original": 25144
+   }
+  },
+  "sha256_catalogs_json": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc"
+ },
+ "fold_cross_validation": {
+  "asheville": {
+   "compare": {
+    "chord_relative_error_max": 0.03759087583220216,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.000605334207931211,
+    "chords_equal_within_20pct": 2568,
+    "chords_equal_within_2pct": 2563,
+    "lanes_equal": 2568,
+    "missing": [
+     "node_flag_value:16793729"
+    ],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 18,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 45,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 52,
+      "outside_agrees": true
+     },
+     {
+      "built": [],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 85,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 95,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 111,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 115,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 137,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 144,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 167,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 194,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 241,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 260,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 269,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 272,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 307,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 313,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 328,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 335,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 340,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 78,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 2537,
+    "nodes_native": 2537,
+    "outside_nodes_equal": 2537,
+    "positions_within_tolerance": 2376,
+    "prefab_equal": 2568,
+    "segment_ids_equal": true,
+    "segments_built": 2568,
+    "segments_native": 2568,
+    "start_end_equal": 2568
+   },
+   "node_flag_values_uncovered": [
+    16793729
+   ],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "boston": {
+   "compare": {
+    "chord_relative_error_max": 0.01340828665038983,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.0,
+    "chords_equal_within_20pct": 5993,
+    "chords_equal_within_2pct": 5993,
+    "lanes_equal": 5993,
+    "missing": [],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 2,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 3,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 60,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 71,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 75,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 79,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 81,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 84,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 88,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 89,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 99,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 130,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 150,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 179,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 192,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 252,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 261,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 263,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 274,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 289,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 312,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 5790,
+    "nodes_native": 5790,
+    "outside_nodes_equal": 5790,
+    "positions_within_tolerance": 5797,
+    "prefab_equal": 5993,
+    "segment_ids_equal": true,
+    "segments_built": 5993,
+    "segments_native": 5993,
+    "start_end_equal": 5993
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "charleston": {
+   "compare": {
+    "chord_relative_error_max": 0.0021756700003547715,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 3.797577986355292e-07,
+    "chords_equal_within_20pct": 2241,
+    "chords_equal_within_2pct": 2241,
+    "lanes_equal": 2241,
+    "missing": [],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 9,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 17,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 49,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 57,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 89,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 112,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 122,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 139,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 143,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 178,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 205,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 210,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 259,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 305,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 327,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 358,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 375,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 417,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 462,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 478,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 95,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 2221,
+    "nodes_native": 2221,
+    "outside_nodes_equal": 2221,
+    "positions_within_tolerance": 2015,
+    "prefab_equal": 2241,
+    "segment_ids_equal": true,
+    "segments_built": 2241,
+    "segments_native": 2241,
+    "start_end_equal": 2241
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "grand-canyon": {
+   "compare": {
+    "chord_relative_error_max": 0.0,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.0,
+    "chords_equal_within_20pct": 149,
+    "chords_equal_within_2pct": 149,
+    "lanes_equal": 149,
+    "missing": [],
+    "node_flags_differ": [],
+    "node_flags_differ_count": 0,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 150,
+    "nodes_native": 150,
+    "outside_nodes_equal": 150,
+    "positions_within_tolerance": 149,
+    "prefab_equal": 149,
+    "segment_ids_equal": true,
+    "segments_built": 149,
+    "segments_native": 149,
+    "start_end_equal": 149
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "hong-kong": {
+   "compare": {
+    "chord_relative_error_max": 0.0020225545196878238,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.0,
+    "chords_equal_within_20pct": 5069,
+    "chords_equal_within_2pct": 5069,
+    "lanes_equal": 5069,
+    "missing": [
+     "node_flag_value:273",
+     "node_flag_value:4194369"
+    ],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 4,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 11,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 21,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 23,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 41,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 42,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 45,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 47,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "Original"
+      ],
+      "node": 51,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 54,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 59,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 61,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 63,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 78,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 90,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "Original"
+      ],
+      "node": 119,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 135,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 147,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 190,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 203,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 308,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 5005,
+    "nodes_native": 5005,
+    "outside_nodes_equal": 5005,
+    "positions_within_tolerance": 5046,
+    "prefab_equal": 5069,
+    "segment_ids_equal": true,
+    "segments_built": 5069,
+    "segments_native": 5069,
+    "start_end_equal": 5069
+   },
+   "node_flag_values_uncovered": [
+    273,
+    4194369
+   ],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "innsbruck": {
+   "compare": {
+    "chord_relative_error_max": 0.0026203361161004756,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 1.9603825061509986e-06,
+    "chords_equal_within_20pct": 1706,
+    "chords_equal_within_2pct": 1706,
+    "lanes_equal": 1706,
+    "missing": [],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 27,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 55,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 68,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 99,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 100,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 105,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "Original"
+      ],
+      "node": 106,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 114,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 160,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 204,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 213,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 218,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 244,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 304,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 322,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 332,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 371,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 373,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 375,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 412,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 48,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 1690,
+    "nodes_native": 1690,
+    "outside_nodes_equal": 1690,
+    "positions_within_tolerance": 1523,
+    "prefab_equal": 1706,
+    "segment_ids_equal": true,
+    "segments_built": 1706,
+    "segments_native": 1706,
+    "start_end_equal": 1706
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "pittsburgh": {
+   "compare": {
+    "chord_relative_error_max": 0.15229451741699696,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.0,
+    "chords_equal_within_20pct": 6064,
+    "chords_equal_within_2pct": 6024,
+    "lanes_equal": 6064,
+    "missing": [],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 39,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 58,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 61,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 67,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 71,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 108,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 118,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 131,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 144,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 228,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 269,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 270,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 278,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 301,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 315,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 341,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 357,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 372,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 421,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 422,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 185,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 5942,
+    "nodes_native": 5942,
+    "outside_nodes_equal": 5942,
+    "positions_within_tolerance": 5883,
+    "prefab_equal": 6064,
+    "segment_ids_equal": true,
+    "segments_built": 6064,
+    "segments_native": 6064,
+    "start_end_equal": 6064
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "rio": {
+   "compare": {
+    "chord_relative_error_max": 0.13772739588920094,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.0,
+    "chords_equal_within_20pct": 3401,
+    "chords_equal_within_2pct": 3391,
+    "lanes_equal": 3401,
+    "missing": [],
+    "node_flags_differ": [
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 1,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 4,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 16,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 37,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 42,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 49,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 67,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 71,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OneWayOut",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OneWayIn",
+       "Original"
+      ],
+      "node": 104,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 122,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 165,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 171,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 172,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 183,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 189,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 193,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 197,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "Original"
+      ],
+      "node": 199,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 202,
+      "outside_agrees": true
+     },
+     {
+      "built": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayIn",
+       "Original"
+      ],
+      "native": [
+       "Created",
+       "Junction",
+       "OnGround",
+       "OneWayOut",
+       "Original"
+      ],
+      "node": 203,
+      "outside_agrees": true
+     }
+    ],
+    "node_flags_differ_count": 202,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 3298,
+    "nodes_native": 3298,
+    "outside_nodes_equal": 3298,
+    "positions_within_tolerance": 3204,
+    "prefab_equal": 3401,
+    "segment_ids_equal": true,
+    "segments_built": 3401,
+    "segments_native": 3401,
+    "start_end_equal": 3401
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  },
+  "yosemite": {
+   "compare": {
+    "chord_relative_error_max": 0.0,
+    "chord_relative_error_median": 0.0,
+    "chord_relative_error_p95": 0.0,
+    "chords_equal_within_20pct": 0,
+    "chords_equal_within_2pct": 0,
+    "lanes_equal": 0,
+    "missing": [],
+    "node_flags_differ": [],
+    "node_flags_differ_count": 0,
+    "node_flags_differ_outside_disagreements": 0,
+    "nodes_built": 0,
+    "nodes_native": 0,
+    "outside_nodes_equal": 0,
+    "positions_within_tolerance": 0,
+    "prefab_equal": 0,
+    "segment_ids_equal": true,
+    "segments_built": 0,
+    "segments_native": 0,
+    "start_end_equal": 0
+   },
+   "node_flag_values_uncovered": [],
+   "prefab_uncovered": [],
+   "segment_flag_values_uncovered": []
+  }
+ },
+ "limitations": [
+  "The lane templates are captured from the same native snapshots the model was fitted on; they are a fixed catalog, not an independent read of the game's prefab assets.",
+  "Node OneWayIn/OneWayOut flags are recomputed by the game at load; only the Outside bit is used by this study's eligibility stratum, and it agrees on every node.",
+  "Segment endpoint positions are compared with a 0.5 m tolerance. Airplane-path and some movable segments differ beyond it because the snapshot records the segment's own endpoints while the save stores node centres; 99.80% of segments still have a chord length within 2% and 100.00% within 20%. The model uses chord length only in the protocol's maxLength lower-bound check, and `evaluation.json` reports that no eligible query comes within 60% of the cap, so this difference cannot change a prediction."
+ ],
+ "packages": {
+  "asheville": {
+   "bytes": 6894275,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/asheville/PL857-asheville.crp",
+   "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870"
+  },
+  "boston": {
+   "bytes": 6478866,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp",
+   "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54"
+  },
+  "charleston": {
+   "bytes": 6789679,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/charleston/PL857-charleston.crp",
+   "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff"
+  },
+  "grand-canyon": {
+   "bytes": 6348292,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/grand-canyon/PL857-grand-canyon.crp",
+   "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19"
+  },
+  "hong-kong": {
+   "bytes": 6531657,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/hong-kong/PL857-hong-kong.crp",
+   "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+  },
+  "innsbruck": {
+   "bytes": 5976093,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/innsbruck/PL857-innsbruck.crp",
+   "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6"
+  },
+  "pittsburgh": {
+   "bytes": 7393376,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/pittsburgh/PL857-pittsburgh.crp",
+   "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424"
+  },
+  "rio": {
+   "bytes": 6561930,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/rio/PL857-rio.crp",
+   "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff"
+  },
+  "yosemite": {
+   "bytes": 5849190,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/yosemite/PL857-yosemite.crp",
+   "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+  }
+ },
+ "packages_report": {
+  "asheville": {
+   "chord_relative_error_max": 0.03759087583220216,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.000605334207931211,
+   "chords_equal_within_20pct": 2568,
+   "chords_equal_within_2pct": 2563,
+   "lanes_equal": 2568,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "8364a2affa3a15807962cae09a1551f47e33ed72a2f61ed09ed3de52c41b4f98",
+     "native": "8364a2affa3a15807962cae09a1551f47e33ed72a2f61ed09ed3de52c41b4f98"
+    },
+    "road": {
+     "bridge": "c3714b30132ede2987c1bb1de07cd3917700a7758a6afd16eb7c509d4db80dda",
+     "native": "c3714b30132ede2987c1bb1de07cd3917700a7758a6afd16eb7c509d4db80dda"
+    },
+    "ship": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 192,
+    "road": 1615,
+    "ship": 0
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 18,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 45,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 52,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 95,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 111,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 115,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 137,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 144,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 167,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 194,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 241,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 260,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 269,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 272,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 307,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 313,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 328,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 335,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 340,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 350,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 77,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 2537,
+   "nodes_native": 2537,
+   "outside_nodes_equal": 2537,
+   "positions_within_tolerance": 2376,
+   "prefab_equal": 2568,
+   "segment_ids_equal": true,
+   "segments_built": 2568,
+   "segments_native": 2568,
+   "start_end_equal": 2568
+  },
+  "boston": {
+   "chord_relative_error_max": 0.01340828665038983,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.0,
+   "chords_equal_within_20pct": 5993,
+   "chords_equal_within_2pct": 5993,
+   "lanes_equal": 5993,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "658c26894780c87774b6a96d7b3934c4bce43ffeda9b91c00991ecd1317f6c85",
+     "native": "658c26894780c87774b6a96d7b3934c4bce43ffeda9b91c00991ecd1317f6c85"
+    },
+    "road": {
+     "bridge": "d0652073ec6ffe0bb8e4340e06a014808070885bf7d9c7df777054153065062e",
+     "native": "d0652073ec6ffe0bb8e4340e06a014808070885bf7d9c7df777054153065062e"
+    },
+    "ship": {
+     "bridge": "c70b6ee4088316ae48c15742cc9e087dd3023a3c3a8752d7dc4364f43c2b893b",
+     "native": "c70b6ee4088316ae48c15742cc9e087dd3023a3c3a8752d7dc4364f43c2b893b"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 184,
+    "road": 4325,
+    "ship": 304
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 2,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 3,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 60,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 71,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 75,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 79,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 81,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 84,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 88,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 89,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 99,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 130,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 150,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 179,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 192,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 252,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 261,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 263,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 274,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 289,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 306,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 5790,
+   "nodes_native": 5790,
+   "outside_nodes_equal": 5790,
+   "positions_within_tolerance": 5797,
+   "prefab_equal": 5993,
+   "segment_ids_equal": true,
+   "segments_built": 5993,
+   "segments_native": 5993,
+   "start_end_equal": 5993
+  },
+  "charleston": {
+   "chord_relative_error_max": 0.0021756700003547715,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 3.797577986355292e-07,
+   "chords_equal_within_20pct": 2241,
+   "chords_equal_within_2pct": 2241,
+   "lanes_equal": 2241,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "f765eb52497aa0bff6e35f6b63eaaedb5b31acb67d73970656922d9b64164189",
+     "native": "f765eb52497aa0bff6e35f6b63eaaedb5b31acb67d73970656922d9b64164189"
+    },
+    "road": {
+     "bridge": "4f0d35946826d7c6706ba18175a931ec9efafabde519bed29d47676229a168b0",
+     "native": "4f0d35946826d7c6706ba18175a931ec9efafabde519bed29d47676229a168b0"
+    },
+    "ship": {
+     "bridge": "a4900b8ebcf69c768eae3d185f560f0136bb44713812e9503ed396cfec1da600",
+     "native": "a4900b8ebcf69c768eae3d185f560f0136bb44713812e9503ed396cfec1da600"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 214,
+    "road": 1486,
+    "ship": 347
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 9,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 17,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 49,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 57,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 89,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 112,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 122,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 139,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 143,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 178,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 205,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 210,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 259,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 305,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 327,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 358,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 375,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 417,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 462,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 478,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 95,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 2221,
+   "nodes_native": 2221,
+   "outside_nodes_equal": 2221,
+   "positions_within_tolerance": 2015,
+   "prefab_equal": 2241,
+   "segment_ids_equal": true,
+   "segments_built": 2241,
+   "segments_native": 2241,
+   "start_end_equal": 2241
+  },
+  "grand-canyon": {
+   "chord_relative_error_max": 0.0,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.0,
+   "chords_equal_within_20pct": 149,
+   "chords_equal_within_2pct": 149,
+   "lanes_equal": 149,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "road": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "ship": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 0,
+    "road": 0,
+    "ship": 0
+   },
+   "node_flags_differ": [],
+   "node_flags_differ_count": 0,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 150,
+   "nodes_native": 150,
+   "outside_nodes_equal": 150,
+   "positions_within_tolerance": 149,
+   "prefab_equal": 149,
+   "segment_ids_equal": true,
+   "segments_built": 149,
+   "segments_native": 149,
+   "start_end_equal": 149
+  },
+  "hong-kong": {
+   "chord_relative_error_max": 0.0020225545196878238,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.0,
+   "chords_equal_within_20pct": 5069,
+   "chords_equal_within_2pct": 5069,
+   "lanes_equal": 5069,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "road": {
+     "bridge": "5e791eacba19b379772334097940c95f406999c4e57dc6e94b43537ef8f12121",
+     "native": "5e791eacba19b379772334097940c95f406999c4e57dc6e94b43537ef8f12121"
+    },
+    "ship": {
+     "bridge": "b3e33d8492e373f068993a67fbddc6adfa52a3a556353dd0f65a6770a22dedc9",
+     "native": "b3e33d8492e373f068993a67fbddc6adfa52a3a556353dd0f65a6770a22dedc9"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 0,
+    "road": 4016,
+    "ship": 340
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 4,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 11,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 21,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 23,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 33,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 35,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 42,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 45,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 47,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 48,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "Original"
+     ],
+     "node": 51,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 63,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 79,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 82,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 91,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 114,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "Original"
+     ],
+     "node": 119,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 135,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 147,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 148,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 300,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 5005,
+   "nodes_native": 5005,
+   "outside_nodes_equal": 5005,
+   "positions_within_tolerance": 5046,
+   "prefab_equal": 5069,
+   "segment_ids_equal": true,
+   "segments_built": 5069,
+   "segments_native": 5069,
+   "start_end_equal": 5069
+  },
+  "innsbruck": {
+   "chord_relative_error_max": 0.0026203361161004756,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 1.9603825061509986e-06,
+   "chords_equal_within_20pct": 1706,
+   "chords_equal_within_2pct": 1706,
+   "lanes_equal": 1706,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "d409479d0450c74acf2bf5b6ae976ba2e0c9f8f9c77a0f0bda4f0ca6145e4b50",
+     "native": "d409479d0450c74acf2bf5b6ae976ba2e0c9f8f9c77a0f0bda4f0ca6145e4b50"
+    },
+    "road": {
+     "bridge": "4b5c023c811d75c78a3c90d1b681aaf477d0661dcf67c8f1bd49e5ab2e648dd4",
+     "native": "4b5c023c811d75c78a3c90d1b681aaf477d0661dcf67c8f1bd49e5ab2e648dd4"
+    },
+    "ship": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 183,
+    "road": 830,
+    "ship": 0
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 27,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 55,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 68,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 99,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 100,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 105,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "Original"
+     ],
+     "node": 106,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 114,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 160,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 204,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 213,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 218,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 244,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 304,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 322,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 332,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 371,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 373,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 375,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 412,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 48,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 1690,
+   "nodes_native": 1690,
+   "outside_nodes_equal": 1690,
+   "positions_within_tolerance": 1523,
+   "prefab_equal": 1706,
+   "segment_ids_equal": true,
+   "segments_built": 1706,
+   "segments_native": 1706,
+   "start_end_equal": 1706
+  },
+  "pittsburgh": {
+   "chord_relative_error_max": 0.15229451741699696,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.0,
+   "chords_equal_within_20pct": 6064,
+   "chords_equal_within_2pct": 6024,
+   "lanes_equal": 6064,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "f67a79046ea06d3caaecc18536c202c3e0b9c203e6bb6d15dcc770e9bfebfd39",
+     "native": "f67a79046ea06d3caaecc18536c202c3e0b9c203e6bb6d15dcc770e9bfebfd39"
+    },
+    "road": {
+     "bridge": "fbe1415e2270b79916efc93c4f610c1b6029d052facd1883d1313141bd7ea5cb",
+     "native": "fbe1415e2270b79916efc93c4f610c1b6029d052facd1883d1313141bd7ea5cb"
+    },
+    "ship": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 181,
+    "road": 3299,
+    "ship": 0
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 39,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 58,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 61,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 67,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 71,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 108,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 118,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 131,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 144,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 228,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 269,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 270,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 278,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 301,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 315,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 341,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 357,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 372,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 421,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 422,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 185,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 5942,
+   "nodes_native": 5942,
+   "outside_nodes_equal": 5942,
+   "positions_within_tolerance": 5883,
+   "prefab_equal": 6064,
+   "segment_ids_equal": true,
+   "segments_built": 6064,
+   "segments_native": 6064,
+   "start_end_equal": 6064
+  },
+  "rio": {
+   "chord_relative_error_max": 0.13772739588920094,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.0,
+   "chords_equal_within_20pct": 3401,
+   "chords_equal_within_2pct": 3391,
+   "lanes_equal": 3401,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "9749996809a558f371b0ae71745b21668e8a8c2941be23735d019e9e8999c348",
+     "native": "9749996809a558f371b0ae71745b21668e8a8c2941be23735d019e9e8999c348"
+    },
+    "road": {
+     "bridge": "ae3ddb5f35710c982520ecd578d5c500d27ee167cef0c3435880f190c025b8f6",
+     "native": "ae3ddb5f35710c982520ecd578d5c500d27ee167cef0c3435880f190c025b8f6"
+    },
+    "ship": {
+     "bridge": "ebb88a63125c86f075dffa5dc6dea7c1f0d42c19d6eaa2dbfd7f17cd8455e716",
+     "native": "ebb88a63125c86f075dffa5dc6dea7c1f0d42c19d6eaa2dbfd7f17cd8455e716"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 181,
+    "road": 2471,
+    "ship": 249
+   },
+   "node_flags_differ": [
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 1,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 4,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 16,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 37,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 42,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 49,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 67,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 71,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "Original"
+     ],
+     "node": 104,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 122,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 165,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 171,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 172,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 183,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 189,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 193,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 197,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+     ],
+     "node": 199,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 202,
+     "outside_agrees": true
+    },
+    {
+     "built": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+     ],
+     "native": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+     ],
+     "node": 203,
+     "outside_agrees": true
+    }
+   ],
+   "node_flags_differ_count": 202,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 3298,
+   "nodes_native": 3298,
+   "outside_nodes_equal": 3298,
+   "positions_within_tolerance": 3204,
+   "prefab_equal": 3401,
+   "segment_ids_equal": true,
+   "segments_built": 3401,
+   "segments_native": 3401,
+   "start_end_equal": 3401
+  },
+  "yosemite": {
+   "chord_relative_error_max": 0.0,
+   "chord_relative_error_median": 0.0,
+   "chord_relative_error_p95": 0.0,
+   "chords_equal_within_20pct": 0,
+   "chords_equal_within_2pct": 0,
+   "lanes_equal": 0,
+   "missing": [],
+   "mode_input_digests": {
+    "air": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "road": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "ship": {
+     "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+     "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+   },
+   "mode_inputs_equal": true,
+   "mode_segments": {
+    "air": 0,
+    "road": 0,
+    "ship": 0
+   },
+   "node_flags_differ": [],
+   "node_flags_differ_count": 0,
+   "node_flags_differ_outside_disagreements": 0,
+   "nodes_built": 0,
+   "nodes_native": 0,
+   "outside_nodes_equal": 0,
+   "positions_within_tolerance": 0,
+   "prefab_equal": 0,
+   "segment_ids_equal": true,
+   "segments_built": 0,
+   "segments_native": 0,
+   "start_end_equal": 0
+  }
+ },
+ "question": "Can every field the model reads be recovered from the saved .crp bytes plus a fixed captured prefab/lane catalog?",
+ "schema": 1,
+ "study": "outside-query-model-v1"
+}
