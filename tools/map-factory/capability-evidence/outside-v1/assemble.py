@@ -21,11 +21,22 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def write_new_raw(destination, raw):
+    """Existing raw bytes are immutable, including across repeated assembly."""
+    if destination.exists():
+        if gzip.decompress(destination.read_bytes()) != raw:
+            raise ValueError(
+                f"refusing to replace retained raw evidence: {destination.name}"
+            )
+        return
+    destination.write_bytes(gzip.compress(raw, mtime=0))
+
+
 def retain(source, target):
     raw = source.read_bytes()
     destination = HERE / "raw" / (target + ".gz")
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes(gzip.compress(raw, mtime=0))
+    write_new_raw(destination, raw)
     return {
         "path": str(destination.relative_to(HERE)),
         "sha256": sha(raw),
@@ -43,7 +54,7 @@ def retain_path_events(source, target):
     )
     destination = HERE / "raw" / (target + ".gz")
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes(gzip.compress(raw, mtime=0))
+    write_new_raw(destination, raw)
     return {
         "path": str(destination.relative_to(HERE)),
         "sha256": sha(raw),
@@ -62,7 +73,7 @@ def retain_game_events(source, target):
     )
     destination = HERE / "raw" / (target + ".gz")
     destination.parent.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes(gzip.compress(raw, mtime=0))
+    write_new_raw(destination, raw)
     return {
         "path": str(destination.relative_to(HERE)),
         "sha256": sha(raw),
@@ -135,6 +146,7 @@ def assemble(selection, native, reproduction, attempt_id="attempt-1"):
             "ship-water-at-opening.json",
             "gpu.csv",
             "game.log",
+            "queue-cancel.json",
         ]:
             path = folder / filename
             if path.exists():

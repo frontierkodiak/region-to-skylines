@@ -143,3 +143,18 @@ The collector also reads the loaded simulation's actual update mode and traffic
 inversion and rebinds runtime file identity at opening to the launch PID/start.
 Historical protocol descriptions remain recipes, not observed entry state;
 `session.menu_status.protocol` is the wire protocol, not traffic or entry mode.
+
+The first completed runtime-bound v2 observation is Rio `native-v2-2`, retained
+at `raw/rio/native-v2-2/observation.json.gz`. Its uncompressed SHA256 is
+`7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc`.
+`launch_runtime_identity` is captured at menu readiness; `runtime_identity` is
+captured again at opening in the same PID/start identity. `native_context` is
+read from the loaded simulation. Both snapshots, build references, actual file
+hashes and the complete control results are in those exact raw bytes. This is
+input evidence for the parent's qualifier, not a certificate issued here.
+
+Rio ship passed all four controls. Rio rail completed 48 failed selected requests
+and remains unknown. Pittsburgh's queued cancellation in the same collector
+batch is not a native observation; `queue-cancel.json` records its reason. Use a
+new output root and `--only pittsburgh charleston hong-kong boston` to continue
+without rerunning Rio. The raw writer refuses to replace any retained raw bytes.

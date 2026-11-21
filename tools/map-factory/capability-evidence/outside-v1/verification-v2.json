@@ -1,0 +1,19 @@
+{
+  "evidence_sha256": "a46ce1ad4b6ac2e2f59d921a28418b87e95e895fbdc81eb4318962d73882013b",
+  "water_support_sha256": "8582aebf15decdc63737a4ae83e048133eabfeaf3a2ca8d62b93fed29ab36b13",
+  "rows": 693,
+  "raw_files_verified": 115,
+  "native_attempts": 13,
+  "selected_squares_attempted": 9,
+  "native_completed": 9,
+  "runtime_bound_observations": [
+    {
+      "slug": "rio",
+      "attempt_id": "native-v2-2",
+      "observation_sha256": "7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "scope": "sampled_native_lane_paths_at_opening"
+    }
+  ],
+  "scope": "Data integrity and deterministic raster reproduction, not independent game reruns or geographic/service acceptance."
+}

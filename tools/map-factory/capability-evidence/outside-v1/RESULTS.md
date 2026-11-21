@@ -15,10 +15,10 @@ Ship witnesses are sampled native paths, not terminal service, continuous cleara
 | innsbruck / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 2 | 2 |
 | innsbruck / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
 | innsbruck / air | witness (0 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
-| rio / road | witness (9 failed) | unknown | 10 | 0 | 2 | 0 | 1 |
-| rio / rail | unknown (8 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
-| rio / ship | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
-| rio / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 1 |
+| rio / road | witness (9 failed) | unknown | 10 | 0 | 2 | 0 | 2 |
+| rio / rail | unknown (24 failed) | unknown | 0 | 0 | 0 | 0 | 2 |
+| rio / ship | witness (0 failed) | witness | 4 | 0 | 0 | 0 | 2 |
+| rio / air | witness (0 failed) | unknown | 2 | 0 | 0 | 0 | 2 |
 | pittsburgh / road | unknown (18 failed) | unknown | 0 | 0 | 4 | 0 | 1 |
 | pittsburgh / rail | unknown (8 failed) | unknown | 1 | 0 | 0 | 0 | 1 |
 | pittsburgh / ship | unknown (0 failed) | unknown | 0 | 0 | 0 | 0 | 1 |
@@ -48,3 +48,4 @@ Ship witnesses are sampled native paths, not terminal service, continuous cleara
 
 - asheville attempt-1: game did not reach the main menu within 600 s
 - rio native-v2-1: loaded assembly missing or differs from build: Cs1Harness.dll
+- pittsburgh native-v2-2: Remaining fair queue exceeds this turn; cancel before slot acquisition, retain completed Rio and continue remaining cases through a persisted wakeup.

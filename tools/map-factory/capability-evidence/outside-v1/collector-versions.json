@@ -71,6 +71,23 @@
           "encoding": "gzip"
         }
       }
+    },
+    {
+      "git_sha": "658f784d4430b5c5bbb408945882dbbe640d9bba",
+      "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+      "protocol": "Focused v2: unchanged packages; NewGameFromMap/noWorkshop/non-inverted; opposite-role road pairs; connected-component candidate lanes; distinct-edge pairs first; fixed 256-request/mode round-robin budget; matched boundary/midpoint and both directions. Same-edge paths and omitted candidates cannot qualify as distinct-edge witnesses.",
+      "raw_source": {
+        "path": "raw/source/connections.py-a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def.gz",
+        "sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+        "encoding": "gzip"
+      },
+      "dependencies": {
+        "runtime_identity.py": {
+          "path": "raw/source/runtime_identity.py-609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f.gz",
+          "sha256": "609916e297ea39151f7ac0481d11b1e78903d99a2c2e3c60a0e6902ed801201f",
+          "encoding": "gzip"
+        }
+      }
     }
   ]
 }

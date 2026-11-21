@@ -3016,3 +3016,31 @@ New collection reads update mode and traffic inversion from the loaded native
 simulation metadata and re-hashes the runtime at opening, requiring the same
 PID/start identity as the launch snapshot. This binds actual context and path
 observations in one run rather than promoting a declared collector recipe.
+
+### 2026-11-20 — PL-1142, blade — runtime-bound Rio v2
+
+The plugin-owner/MVID fix passed in the actual game. Rio completed 52 native
+requests: all four ship controls succeeded (boundary/midpoint in both directions,
+with exact returned endpoints), and all 48 enumerated rail requests failed.
+Rail remains unknown at capability level, not absent. Runtime executable,
+23 loaded-assembly files, mod and collector are recorded in the same observation;
+all eight compile-reference hashes match. Launch and opening PID/start identity
+match. Loaded native simulation metadata reports NewGameFromMap and non-inverted
+traffic. Launch arguments establish noWorkshop and mods enabled. No unresolved loaded assemblies remain.
+
+The uncompressed observation SHA256 is
+7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc.
+Wall time from acquisition through cleanup was 172.5 s, excluding queue wait.
+Sampled peaks: 10,821 MiB board VRAM (includes resident workload), 2,815 MiB game
+VRAM from 71 process samples, 125.91 W and 51 C from 34 board samples. Sampling
+intervals were 2 s for processes and 5 s for the board. These are opening-run
+sampled peaks, not a sustained-load benchmark. No power/service settings changed.
+Cleanup reports no game, Steam instance or active unit left.
+
+After Rio released, PL-1078 took the slot and PL-1072's Oceania batch was already
+waiting. I cancelled only the verified owned Pittsburgh queue waiter, before
+acquisition, rather than leave it beyond this turn. Its raw scheduler event and
+unknown/not-run observation are retained. The collector, wrapper and sampler
+were awaited to exit; foreign work was untouched. Remaining native cases are
+Pittsburgh, Charleston, Hong Kong and Boston. No certificate or native threshold
+is issued by this study.

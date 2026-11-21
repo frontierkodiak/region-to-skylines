@@ -1,6 +1,7 @@
 """Append diagnostic receipts without replacing any historical attempt or raw file."""
 
 import argparse
+import gzip
 import json
 from pathlib import Path
 
@@ -30,6 +31,19 @@ def import_attempts(native, reproduction, attempt_id):
     for case in incoming["artifacts"]:
         if case["slug"] not in observed:
             continue
+        if "queue-cancel.json" in case["native_evidence"]:
+            event = json.loads(
+                gzip.decompress(
+                    (
+                        HERE / case["native_evidence"]["queue-cancel.json"]["path"]
+                    ).read_bytes()
+                )
+            )
+            if case["completed"] or event["native_observation"] is not False:
+                raise ValueError(
+                    "queue cancellation cannot replace a completed native observation"
+                )
+            case["error"] = event["reason"]
         target = by_slug[case["slug"]]
         target["attempts"].append(
             {

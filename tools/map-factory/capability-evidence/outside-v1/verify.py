@@ -126,6 +126,7 @@ def verify(require_nine_attempts=False):
     for identity, version in versions.items():
         if digest(raw(version["raw_source"])) != identity:
             raise ValueError("collector source identity differs from retained source")
+    runtime_bound_observations = []
     seen_attempts = set()
     attempts = 0
     covered_cases = 0
@@ -195,6 +196,16 @@ def verify(require_nine_attempts=False):
                 ):
                     raise ValueError("actual native simulation context is not bound")
                 runtime = observation.get("runtime_identity", {})
+                launch = observation.get("launch_runtime_identity", {})
+                if not launch.get("build_matches") or (
+                    launch.get("host_pid"),
+                    launch.get("process_start_ticks"),
+                ) != (runtime.get("host_pid"), runtime.get("process_start_ticks")):
+                    raise ValueError(
+                        "opening observation differs from the launch-bound process"
+                    )
+                if runtime != observation["session"].get("runtime_identity"):
+                    raise ValueError("session and opening runtime identities differ")
                 build = observation["build_receipt"]
                 if not runtime.get("build_matches") or runtime.get(
                     "executable", {}
@@ -213,9 +224,19 @@ def verify(require_nine_attempts=False):
                         )
                 if (
                     "--noWorkshop" not in runtime["launch_args"]
-                    or "non-inverted" not in observation["protocol"]
+                    or "--disableMods" in runtime["launch_args"]
+                    or runtime["launch_args"] != observation["session"]["launch_args"]
                 ):
                     raise ValueError("unbound native launch protocol")
+                runtime_bound_observations.append(
+                    {
+                        "slug": case["slug"],
+                        "attempt_id": attempt["attempt_id"],
+                        "observation_sha256": ref["sha256"],
+                        "artifact_sha256": case["artifact_sha256"],
+                        "scope": "sampled_native_lane_paths_at_opening",
+                    }
+                )
             if observation.get("completed"):
                 session = observation["session"]
                 if session["map"]["sha256"] != case["artifact_sha256"]:
@@ -257,6 +278,7 @@ def verify(require_nine_attempts=False):
         "native_attempts": attempts,
         "selected_squares_attempted": covered_cases,
         "native_completed": sum(case["completed"] for case in cases.values()),
+        "runtime_bound_observations": runtime_bound_observations,
         "scope": "Data integrity and deterministic raster reproduction, not independent game reruns or geographic/service acceptance.",
     }
 

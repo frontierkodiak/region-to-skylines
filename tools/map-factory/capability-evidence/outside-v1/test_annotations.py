@@ -2,11 +2,14 @@
 
 import copy
 import json
+import tempfile
+from pathlib import Path
 import unittest
 from unittest.mock import patch
 
 from annotate import HERE, annotations, summary, path_endpoints
 from verify import verify
+from assemble import write_new_raw
 
 
 class AnnotationTest(unittest.TestCase):
@@ -31,6 +34,17 @@ class AnnotationTest(unittest.TestCase):
         self.assertTrue(
             all(c["observed"] in [True, None] for c in summary(evidence)[1])
         )
+
+    def test_retained_raw_cannot_be_replaced(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "raw.gz"
+            write_new_raw(path, b"original observation")
+            original = path.read_bytes()
+            write_new_raw(path, b"original observation")
+            self.assertEqual(path.read_bytes(), original)
+            with self.assertRaisesRegex(ValueError, "refusing to replace"):
+                write_new_raw(path, b"rewritten observation")
+            self.assertEqual(path.read_bytes(), original)
 
     def test_literal_boundary_and_midpoint_only_cells_are_separate(self):
         cells = summary(annotations(copy.deepcopy(self.evidence)))[1]
