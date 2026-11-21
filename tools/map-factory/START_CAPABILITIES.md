@@ -8,9 +8,14 @@ PL-1119 owns the single capability ledger and browser integration; this module
 supplies compatible `start` and `water` fragments, not a second live inventory.
 
 ```sh
-uv run --project tools/map-factory python tools/map-factory/start_capabilities.py \
+uv run --project tools/map-factory python tools/map-factory/surface_intake.py \
   /absolute/prepared-map --out /absolute/new-prediction.json
 ```
+
+`surface_intake.assess_surface` adds the fixed-load surface witness to the base
+`start_capabilities.assess` geometric report; it is the assessment used by the
+exporter. Running `start_capabilities.py` alone leaves compound water service
+unknown and reports only an initialized channel candidate.
 
 ## Definitions and scope
 
@@ -20,8 +25,11 @@ uv run --project tools/map-factory python tools/map-factory/start_capabilities.p
   and asks the native car pathfinder for both directions to outside edges.
 - **Water:** a usable clean surface intake with sustained capacity at a stated
   starting demand, and safe downstream sewage disposal. An initialized wet
-  route is only a candidate. The compound prediction stays unknown until
-  placement, flow, quality, demand and horizon are supported. Groundwater
+  route is only a candidate. The final model predicts `likely` when it also
+  finds nearby provisional banks and can declare a fixed load witness; absent
+  witnesses stay unknown. This is a forecast, not established service. Only
+  the native experiment can support placement, quantity and cleanliness at the
+  stated demand and horizon. Groundwater
   first-hour service is separate evidence, never a positive surface-water row.
 
 The geometric limits are provisional model choices, **not recovered game
@@ -84,7 +92,18 @@ are separate. Native readbacks of the model's footprint predicates are also
 separate: a predicate mismatch leaves unattempted tool placement unscored.
 Setup, binding, controller, resource, timeout and cleanup faults are
 unscored. A native rejection is a negative for the specified witness, not for
-all sites on Earth. Water samples do not score sustained service.
+all sites on Earth. Point water samples alone do not score sustained service.
+
+The separate `--mode surface` oracle uses one shore snap at each frozen anchor,
+normal facility/pipe construction, conditional native auxiliary power, and
+spatial consumer water/sewage APIs. It applies 1000 native units per 256 frames
+through two minutes of loaded settling and sixty scored minutes. Full raw
+cycles, facility-side auxiliary state and timing must qualify before a service
+label is scored. Quantity shortfalls and polluted deliveries remain failures;
+an auxiliary/setup fault is unscored, not hydrology incapability. Both stock
+references support this fixed quantity fixture; Cliffside Bay's 733 polluted
+deliveries remain a clean-service failure. No population, SI-rate, power
+generation or indefinite-capacity equivalence is claimed.
 
 The original eight are fitting data. Freeze the model code/parameters and all
 prediction/witness digests **before native results from the three registered

@@ -3622,3 +3622,24 @@ Both actual NewGamePanel PNGs were viewed and hash-reviewed. Raw cycle JSON is
 published losslessly gzip-compressed under the map-factory study's
 `reference-controls/`, with selected map/mod/cleanup receipt bindings. These
 are not launch-bound runtime identity certificates and emit no promise.
+
+## PL-1078 current-model start fitting, first case — 2026-11-21
+
+The frozen combined model's exact Innsbruck witness was accepted: all27 normal
+construction steps; footprint predicates true. Of6 native passenger-car path
+requests,1inbound and2outbound returned successful paths matching the requested
+literal outside segment/offset0or255 and grid segment/offset128. No retry,
+alternate site/order, grading or native collision waiver was used. This is one
+completed fitting agreement out of3 positive predictions; the other2 are still
+unscored here, not an overall or held-out accuracy claim. Start paths occur
+after the declared road construction, not on the untouched fresh map.
+
+Collector `83fa0ec`, DLLf916, exact map43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6,
+witness6ec184c289dd9ac22d16425fd9bbbe9ef5de12149e7a9993dee4c0b7bcd68088.
+Observed03:19:38.330049Z; controller1339.58s includes19.6min fair queue wait.
+Cleanup empty. GPU32samples/10821MiB whole-card/113.71W/47C, recorded200Wcap
+unchanged; owned-game menu1574MiB, not a game-only peak. Telemetry22:17:21.211–
+22:20:03.237local. All3 actual panel/opening/Areas PNGs were viewed and hash-
+reviewed. Raw construction/paths, telemetry, selected receipt bindings and
+captures are retained under the map-factory study's `native-v2-start/innsbruck`.
+The source, player and pre-rule first-hour results are unchanged.

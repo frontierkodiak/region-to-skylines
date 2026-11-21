@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty city with Hello guide panel; river and road approaches visible in Areas view, outlined start tile. Opening has no Areas overlay. These are before witness construction, not proof of native acceptance.",
+  "opening": {
+    "sha256": "52c027bc09a1f0c11887007d06f9764fa47bdc273b4fe33e032580eed9dd4171",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "ec5dd4fc6f95a7644412f6342056c13eaaa2cac1062e5cf3cde8684ef9410c66",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}
