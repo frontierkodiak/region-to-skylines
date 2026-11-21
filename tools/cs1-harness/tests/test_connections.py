@@ -2,7 +2,7 @@
 
 import unittest
 
-from cs1_harness.connections import outside_pair, outside_requests
+from cs1_harness.connections import outside_pair, outside_requests, planned_requests
 
 
 def segment(identity, start, end, a, b, *, outside_start=False, outside_end=False, vehicle="Ship"):
@@ -27,7 +27,7 @@ class OutsidePairTest(unittest.TestCase):
                 segment(3, 4, 5, 900, 1000, outside_end=True),
             ]
         }
-        self.assertEqual(len(outside_requests(networks, "ship", "Ship")), 12)
+        self.assertEqual(len(outside_requests(networks, "ship", "Ship")), 4)
         self.assertIsNone(outside_pair(networks, "Plane"))
 
     def test_midpoint_controls_keep_segments_lanes_and_direction_fixed(self):
@@ -59,6 +59,24 @@ class OutsidePairTest(unittest.TestCase):
         requests = outside_requests({"segments": [a, b]}, "road", "Car")
         self.assertEqual(len(requests), 4)
         self.assertEqual(requests[0]["endpoint_roles"], [["OneWayOut"], ["OneWayIn"]])
+
+    def test_budget_keeps_four_controls_and_rotates_endpoint_pairs(self):
+        segments = []
+        for index in range(20):
+            item = segment(index + 1, index + 2, 1, index * 100, 0, outside_start=True, vehicle="Car")
+            item["start_flags"] += ", OneWayOut" if index < 10 else ", OneWayIn"
+            item["lanes"] = [{"index": lane, "vehicle": "Car"} for lane in range(3)]
+            segments.append(item)
+        requests, total = planned_requests({"segments": segments}, "road", "Car")
+        self.assertEqual(total, 3600)
+        self.assertEqual(len(requests), 256)
+        self.assertEqual(len({r["pair_index"] for r in requests}), 64)
+        for start in range(0, len(requests), 4):
+            group = requests[start : start + 4]
+            self.assertEqual(
+                {(r["direction"], r["position_kind"]) for r in group},
+                {(d, p) for d in [0, 1] for p in ["boundary", "midpoint"]},
+            )
 
     def test_one_outside_node_is_not_a_pair(self):
         self.assertIsNone(outside_pair({"segments": [segment(1, 1, 2, 0, 100, outside_end=True)]}, "Ship"))

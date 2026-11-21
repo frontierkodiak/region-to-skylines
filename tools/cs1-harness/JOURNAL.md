@@ -2965,3 +2965,10 @@ against blade's installed game. No owned game was launched in this stage:
 PL-1072 held the fair slot and PL-1078 was already waiting. GPU/VRAM, power,
 temperature and game wall time are not measured here. Runtime binding and focused
 v2 receipts still require the subsequent native stage.
+
+Before the v2 game stage I counted candidate requests from the retained networks.
+The road cross-product was thousands of requests. I kept undirected-component
+filtering only as a probe selector, then fixed a 256-request/mode budget before
+new observations. Round-robin lane-pair selection preserves all four controls
+and spreads the budget across endpoint pairs. Incomplete coverage stays unknown;
+there is no native absence verdict. Ship and rail candidates fit within budget.

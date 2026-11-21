@@ -57,6 +57,9 @@ def annotations(evidence):
             continue
         ref = row.get("raw_evidence")
         observation = raw(ref) if ref else {}
+        row["runtime_bound"] = bool(
+            observation.get("runtime_identity", {}).get("build_matches")
+        )
         row["collector_sha256"] = observation.get("collector_sha256")
         row["protocol"] = observation.get("protocol") or versions.get(
             row["collector_sha256"], "not_run"
@@ -152,8 +155,8 @@ def summary(evidence):
         "All nine water-risk screens remain **warnings**. No native depth, width or grade threshold is fitted.",
         "Ship witnesses are sampled native paths, not terminal service, continuous clearance or sustained water safety.",
         "",
-        "| Square / mode | Fresh two-edge | Access positives | Archived positives | Panel observations |",
-        "| --- | --- | --- | --- | --- |",
+        "| Square / mode | Fresh two-edge | Runtime-bound two-edge | Access positives | Archived positives | Panel observations |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     cells = []
     for case in evidence["artifacts"]:
@@ -169,6 +172,7 @@ def summary(evidence):
                 if r.get("probe_kind") in {"generic_pair", "legacy_two_edge"}
             ]
             positive = any(r["observed"] is True for r in fresh)
+            bound = any(r["observed"] is True and r.get("runtime_bound") for r in fresh)
             access = sum(
                 r["observed"] is True
                 for r in rows
@@ -196,12 +200,13 @@ def summary(evidence):
                     if fresh
                     else "not_run",
                     "fresh_failed_requests": failed,
+                    "runtime_bound_two_edge": bound,
                     "access_positives": access,
                     "archived_positives": archived,
                 }
             )
             lines.append(
-                f"| {case['slug']} / {mode} | {'witness' if positive else 'unknown'} ({failed} failed) | {access} | {archived} | {panels} |"
+                f"| {case['slug']} / {mode} | {'witness' if positive else 'unknown'} ({failed} failed) | {'witness' if bound else 'unknown'} | {access} | {archived} | {panels} |"
             )
     lines += ["", "## Retained attempt errors", ""]
     lines += [

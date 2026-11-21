@@ -116,7 +116,8 @@
       "protocol": "Frozen named car/train probes plus all lanes at exact outside boundary offsets; first two attempts.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "not_run"
+      "reason": "not_run",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -266,7 +267,8 @@
       "protocol": "Frozen named car/train probes plus all lanes at exact outside boundary offsets; first two attempts.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "not_run"
+      "reason": "not_run",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -415,7 +417,8 @@
       "protocol": "Frozen named car/train probes plus all lanes at exact outside boundary offsets; first two attempts.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "not_run"
+      "reason": "not_run",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -564,7 +567,8 @@
       "protocol": "Frozen named car/train probes plus all lanes at exact outside boundary offsets; first two attempts.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "not_run"
+      "reason": "not_run",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -11500,7 +11504,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -11893,7 +11898,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -12331,7 +12337,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13292,7 +13299,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13365,7 +13373,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13438,7 +13447,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13511,7 +13521,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13584,7 +13595,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13657,7 +13669,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13730,7 +13743,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13803,7 +13817,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13876,7 +13891,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -13949,7 +13965,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14022,7 +14039,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14095,7 +14113,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14168,7 +14187,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14241,7 +14261,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14314,7 +14335,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14387,7 +14409,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14460,7 +14483,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14533,7 +14557,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -14606,7 +14631,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15543,7 +15569,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15614,7 +15641,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15685,7 +15713,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15756,7 +15785,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15827,7 +15857,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15898,7 +15929,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -15969,7 +16001,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -16040,7 +16073,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -16111,7 +16145,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -16268,7 +16303,8 @@
       "protocol": "Frozen named car/train probes plus all lanes at exact outside boundary offsets; first two attempts.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -17377,7 +17413,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -18369,7 +18406,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -26387,7 +26425,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -27395,7 +27434,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -27467,7 +27507,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -27539,7 +27580,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -28395,7 +28437,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -29250,7 +29293,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -30105,7 +30149,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -30960,7 +31005,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -31815,7 +31861,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -32670,7 +32717,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -33530,7 +33578,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -34385,7 +34434,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -35240,7 +35290,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -36095,7 +36146,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -36950,7 +37002,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -37805,7 +37858,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -38660,7 +38714,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -39515,7 +39570,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -40370,7 +40426,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -41225,7 +41282,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -42080,7 +42138,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -42935,7 +42994,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -43790,7 +43850,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -43864,7 +43925,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -43938,7 +44000,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44012,7 +44075,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44086,7 +44150,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44160,7 +44225,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44234,7 +44300,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44308,7 +44375,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44382,7 +44450,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44456,7 +44525,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44530,7 +44600,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44604,7 +44675,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44678,7 +44750,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44752,7 +44825,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44826,7 +44900,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44900,7 +44975,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -44974,7 +45050,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45048,7 +45125,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45122,7 +45200,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45312,7 +45391,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45384,7 +45464,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45456,7 +45537,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45528,7 +45610,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45600,7 +45683,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45672,7 +45756,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45744,7 +45829,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45816,7 +45902,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45888,7 +45975,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -45960,7 +46048,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -46032,7 +46121,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -46104,7 +46194,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -46176,7 +46267,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -46248,7 +46340,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -46320,7 +46413,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -46392,7 +46486,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -47832,7 +47927,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -49155,7 +49251,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -50478,7 +50575,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -51801,7 +51899,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -52901,7 +53000,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -53884,7 +53984,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -54867,7 +54968,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -55850,7 +55952,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -56701,7 +56804,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -57254,7 +57358,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -57792,7 +57897,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -58830,7 +58936,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -58905,7 +59012,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -58979,7 +59087,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59053,7 +59162,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59127,7 +59237,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59201,7 +59312,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59275,7 +59387,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59349,7 +59462,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59423,7 +59537,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59497,7 +59612,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59571,7 +59687,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59645,7 +59762,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59719,7 +59837,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59793,7 +59912,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59867,7 +59987,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -59941,7 +60062,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60015,7 +60137,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60089,7 +60212,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60163,7 +60287,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60237,7 +60362,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60311,7 +60437,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60385,7 +60512,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60459,7 +60587,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60533,7 +60662,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60607,7 +60737,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60681,7 +60812,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60755,7 +60887,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60829,7 +60962,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60903,7 +61037,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -60977,7 +61112,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61051,7 +61187,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61125,7 +61262,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61199,7 +61337,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61273,7 +61412,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61347,7 +61487,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61421,7 +61562,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61495,7 +61637,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -61569,7 +61712,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -62856,7 +63000,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -62928,7 +63073,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63000,7 +63146,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63072,7 +63219,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63144,7 +63292,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63216,7 +63365,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63288,7 +63438,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63360,7 +63511,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63432,7 +63584,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63504,7 +63657,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63576,7 +63730,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63648,7 +63803,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63720,7 +63876,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63792,7 +63949,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63864,7 +64022,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -63936,7 +64095,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -64008,7 +64168,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -64165,7 +64326,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -65265,7 +65427,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -66248,7 +66411,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -67231,7 +67395,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -68214,7 +68379,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -69310,7 +69476,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -70548,7 +70715,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -70886,7 +71054,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -71654,7 +71823,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -72685,7 +72855,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -72759,7 +72930,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -72833,7 +73005,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -72907,7 +73080,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -72981,7 +73155,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73055,7 +73230,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73129,7 +73305,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73203,7 +73380,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73277,7 +73455,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73351,7 +73530,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73425,7 +73605,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73499,7 +73680,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73573,7 +73755,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73647,7 +73830,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73721,7 +73905,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73795,7 +73980,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73869,7 +74055,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -73943,7 +74130,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74017,7 +74205,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74091,7 +74280,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74165,7 +74355,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74239,7 +74430,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74313,7 +74505,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74387,7 +74580,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74461,7 +74655,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74535,7 +74730,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74609,7 +74805,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74683,7 +74880,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74757,7 +74955,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74831,7 +75030,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74905,7 +75105,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -74979,7 +75180,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -75053,7 +75255,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -75127,7 +75330,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -75201,7 +75405,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -75275,7 +75480,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -75349,7 +75555,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -75507,7 +75714,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_pair"
+      "reason": "no_pair",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -77437,7 +77645,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -79250,7 +79459,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -81063,7 +81273,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -82876,7 +83087,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -84141,7 +84353,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -85289,7 +85502,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -86437,7 +86651,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -87585,7 +87800,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -96415,7 +96631,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -96573,7 +96790,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_pair"
+      "reason": "no_pair",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -96730,7 +96948,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -96887,7 +97106,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97192,7 +97412,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97264,7 +97485,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97336,7 +97558,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97408,7 +97631,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97483,7 +97707,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97557,7 +97782,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97631,7 +97857,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97705,7 +97932,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97779,7 +98007,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97853,7 +98082,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -97927,7 +98157,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98001,7 +98232,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98075,7 +98307,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98149,7 +98382,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98223,7 +98457,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98297,7 +98532,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98371,7 +98607,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98561,7 +98798,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98633,7 +98871,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98705,7 +98944,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98777,7 +99017,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98849,7 +99090,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98921,7 +99163,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -98993,7 +99236,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99065,7 +99309,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99137,7 +99382,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99209,7 +99455,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99281,7 +99528,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99353,7 +99601,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99425,7 +99674,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99497,7 +99747,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99569,7 +99820,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -99641,7 +99893,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -101536,7 +101789,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -103314,7 +103568,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -105092,7 +105347,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -106870,7 +107126,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -107027,7 +107284,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -107300,7 +107558,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -107458,7 +107717,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -107615,7 +107875,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -107772,7 +108033,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -108843,7 +109105,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -110026,7 +110289,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -110879,7 +111143,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -111337,7 +111602,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -111873,7 +112139,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -111947,7 +112214,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112021,7 +112289,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112095,7 +112364,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112169,7 +112439,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112243,7 +112514,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112317,7 +112589,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112391,7 +112664,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112465,7 +112739,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112539,7 +112814,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112613,7 +112889,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112687,7 +112964,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112761,7 +113039,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112835,7 +113114,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112909,7 +113189,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -112983,7 +113264,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113057,7 +113339,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113131,7 +113414,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113205,7 +113489,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113279,7 +113564,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113353,7 +113639,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113427,7 +113714,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113501,7 +113789,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113575,7 +113864,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113649,7 +113939,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113723,7 +114014,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113797,7 +114089,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113871,7 +114164,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -113945,7 +114239,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114019,7 +114314,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114093,7 +114389,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114167,7 +114464,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114241,7 +114539,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114315,7 +114614,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114389,7 +114689,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114463,7 +114764,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -114537,7 +114839,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -115789,7 +116092,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -115861,7 +116165,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -115933,7 +116238,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116005,7 +116311,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116077,7 +116384,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116149,7 +116457,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116221,7 +116530,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116293,7 +116603,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116365,7 +116676,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116437,7 +116749,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116509,7 +116822,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116581,7 +116895,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116653,7 +116968,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116725,7 +117041,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116797,7 +117114,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116869,7 +117187,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -116941,7 +117260,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -118656,7 +118976,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -120254,7 +120575,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -121852,7 +122174,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -123450,7 +123773,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -124565,7 +124889,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -125563,7 +125888,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -126561,7 +126887,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -127559,7 +127886,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -128223,7 +128551,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -128846,7 +129175,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -129344,7 +129674,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -129942,7 +130273,8 @@
       ],
       "probe_kind": "legacy_access_leg",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131108,7 +131440,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131182,7 +131515,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131256,7 +131590,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131330,7 +131665,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131404,7 +131740,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131478,7 +131815,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131552,7 +131890,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131626,7 +131965,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131700,7 +132040,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131774,7 +132115,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131848,7 +132190,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131922,7 +132265,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -131996,7 +132340,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132070,7 +132415,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132144,7 +132490,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132218,7 +132565,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132292,7 +132640,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132366,7 +132715,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132440,7 +132790,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132514,7 +132865,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132588,7 +132940,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132662,7 +133015,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132736,7 +133090,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132810,7 +133165,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132884,7 +133240,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -132958,7 +133315,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133032,7 +133390,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133106,7 +133465,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133180,7 +133540,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133254,7 +133615,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133328,7 +133690,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133402,7 +133765,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133476,7 +133840,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133550,7 +133915,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133624,7 +133990,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133698,7 +134065,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -133772,7 +134140,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "same_role_probe_limited"
+      "pair_status": "same_role_probe_limited",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135421,7 +135790,8 @@
       ],
       "probe_kind": "legacy_two_edge",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135493,7 +135863,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135565,7 +135936,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135637,7 +136009,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135709,7 +136082,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135781,7 +136155,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135853,7 +136228,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135925,7 +136301,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -135997,7 +136374,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136069,7 +136447,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136141,7 +136520,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136213,7 +136593,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136285,7 +136666,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136357,7 +136739,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136429,7 +136812,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136501,7 +136885,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136573,7 +136958,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -136652,7 +137038,8 @@
       "protocol": "Also matched midpoint (offset 128) controls on the identical selected segments, lanes and directions. Chosen after Innsbruck boundary failures, before Boston native results.",
       "endpoint_roles": null,
       "probe_kind": "not_requested",
-      "reason": "no_lane"
+      "reason": "no_lane",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -137729,7 +138116,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -138767,7 +139155,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -139805,7 +140194,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     },
     {
       "square": {
@@ -140843,7 +141233,8 @@
       ],
       "probe_kind": "generic_pair",
       "reason": null,
-      "pair_status": "candidate_only"
+      "pair_status": "candidate_only",
+      "runtime_bound": false
     }
   ],
   "artifacts": [

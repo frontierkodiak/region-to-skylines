@@ -22,6 +22,8 @@ FOCUSED_V2 = {
     "pittsburgh": {"road"},
 }
 
+REQUEST_LIMIT = 256  # Fixed diagnostic budget per mode; never an absence test.
+
 MODES = {"road": "Car", "rail": "Train", "ship": "Ship", "air": "Plane"}
 
 
@@ -48,16 +50,38 @@ def outside_endpoints(networks, vehicle):
     return ends
 
 
+def component_labels(networks, vehicle):
+    links = {}
+    for segment in networks["segments"]:
+        if not any(vehicle in lane["vehicle"].split(", ") for lane in segment["lanes"]):
+            continue
+        a, b = segment["start"], segment["end"]
+        links.setdefault(a, set()).add(b)
+        links.setdefault(b, set()).add(a)
+    labels = {}
+    for node in links:
+        pending = [node]
+        while pending:
+            current = pending.pop()
+            if current in labels:
+                continue
+            labels[current] = node
+            pending.extend(links[current])
+    return labels
+
+
 def outside_pairs(networks, vehicle):
     """Enumerate candidate outside pairs, never infer native reachability from node sharing.
 
     Road requires opposite OneWay roles. Rail includes every outside lane pair;
     the native pathfinder tests connectivity, with lane directions retained.
     """
+    labels = component_labels(networks, vehicle)
     return [
         (a, b)
         for a, b in itertools.combinations(outside_endpoints(networks, vehicle), 2)
-        if a["segment"] != b["segment"]
+        if labels[a["node"]] == labels[b["node"]]
+        and a["segment"] != b["segment"]
         and a["node"] != b["node"]
         and (vehicle != "Car" or ({*a["roles"], *b["roles"]} == {"OneWayIn", "OneWayOut"} and a["roles"] != b["roles"]))
     ]
@@ -93,6 +117,30 @@ def outside_requests(networks, capability, vehicle):
     return requests
 
 
+def planned_requests(networks, capability, vehicle):
+    """Round-robin lane pairs across endpoint pairs, keeping each four-control group.
+
+    The deterministic budget is set before new observations. A truncated sweep
+    remains probe-limited, including when every submitted request fails.
+    """
+    requests = outside_requests(networks, capability, vehicle)
+    groups = {}
+    for request in requests:
+        a, b = request["from"], request["to"]
+        lanes = (a[1], b[1]) if request["direction"] == 0 else (b[1], a[1])
+        groups.setdefault((request["pair_index"], lanes), []).append(request)
+    by_pair = {}
+    for (pair, lanes), controls in groups.items():
+        by_pair.setdefault(pair, []).append((lanes, controls))
+    ordered = []
+    for round_index in range(max((len(groups) for groups in by_pair.values()), default=0)):
+        for pair in sorted(by_pair):
+            groups = sorted(by_pair[pair])
+            if round_index < len(groups):
+                ordered.extend(groups[round_index][1])
+    return ordered[:REQUEST_LIMIT], len(requests)
+
+
 def collect(package, probes, out, wait_minutes=60, capabilities=None):
     """Acquire/release the fair slot for ONE map; retain errors and cleanup."""
     capabilities = set(MODES) if capabilities is None else capabilities
@@ -101,22 +149,22 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
     stage = staging(cfg, out)
     result = {
         "schema": 2,
-        "protocol": "NewGameFromMap/noWorkshop/non-inverted; all candidate outside lane pairs, boundary+midpoint, both directions; no construction",
+        "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
         "observed_at": datetime.datetime.now(datetime.UTC).isoformat(),
         "artifact_sha256": hashlib.sha256(package.read_bytes()).hexdigest(),
         "package": str(package),
         "requested_capabilities": sorted(capabilities),
         "limits": "New Game panel and native lane paths only; no port/airport service or editor-tool placement test.",
     }
+    result["collector_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    result["collector_sources"] = {
+        name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
+        for name in ["connections.py", "runtime_identity.py"]
+    }
     s = None
     try:
         with slot(cfg, stage, wait_minutes, {"command": "connections", "issue": "PL-1142", "label": package.name}) as s:
             result["observed_at"] = datetime.datetime.now(datetime.UTC).isoformat()
-            result["collector_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-            result["collector_sources"] = {
-                name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-                for name in ["connections.py", "runtime_identity.py"]
-            }
             result["build_receipt"] = json.loads((cfg.build_dir / "build-receipt.json").read_text())
             s.require_offline = True
             s.record = False
@@ -163,7 +211,11 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
             if route_points:
                 dump(out / "ship-water-at-opening.json", c.call("water", points=route_points))
             result["candidate_coverage"] = {
-                cap: len(outside_requests(networks, cap, vehicle))
+                cap: {
+                    "candidate_requests": planned_requests(networks, cap, vehicle)[1],
+                    "planned_requests": len(planned_requests(networks, cap, vehicle)[0]),
+                    "request_limit": REQUEST_LIMIT,
+                }
                 for cap, vehicle in MODES.items()
                 if cap in capabilities
             }
@@ -176,7 +228,7 @@ def collect(package, probes, out, wait_minutes=60, capabilities=None):
             for capability, vehicle in MODES.items():
                 if capability not in capabilities:
                     continue
-                requests.extend(outside_requests(networks, capability, vehicle))
+                requests.extend(planned_requests(networks, capability, vehicle)[0])
             result["paths"] = []
             c.call("run", paused=False, speed=1)
             for request in requests:

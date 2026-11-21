@@ -123,6 +123,9 @@ def verify(require_nine_attempts=False):
         version["collector_sha256"]: version
         for version in evidence["collector_versions"]
     }
+    for identity, version in versions.items():
+        if digest(raw(version["raw_source"])) != identity:
+            raise ValueError("collector source identity differs from retained source")
     seen_attempts = set()
     attempts = 0
     covered_cases = 0
@@ -153,6 +156,29 @@ def verify(require_nine_attempts=False):
                 observation["session"].get("cleanup", {}).values()
             ):
                 raise ValueError("native session did not clean up")
+            if observation.get("schema", 1) >= 2:
+                version = versions[observation["collector_sha256"]]
+                for name, source in version["dependencies"].items():
+                    if digest(raw(source)) != observation["collector_sources"].get(
+                        name
+                    ):
+                        raise ValueError(
+                            "collector helper differs from retained source"
+                        )
+                if observation.get("completed"):
+                    for mode, coverage in observation["candidate_coverage"].items():
+                        executed = sum(
+                            p["request"]["capability"] == mode
+                            and p["request"]["name"] == "outside-to-outside"
+                            for p in observation["paths"]
+                        )
+                        if (
+                            executed != coverage["planned_requests"]
+                            or executed > coverage["candidate_requests"]
+                        ):
+                            raise ValueError(
+                                "native candidate coverage differs from raw requests"
+                            )
             if observation.get("schema", 1) >= 2 and observation.get("completed"):
                 protocol = observation.get("new_game_protocol", {})
                 if (

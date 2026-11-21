@@ -93,8 +93,11 @@ uv run --directory tools/cs1-harness python -m cs1_harness.connections \
 The fixed selection is ship in Rio, Charleston, Hong Kong and Boston; additionally
 Rio rail, Pittsburgh road, and Hong Kong road/rail. The diagnostic subset had no
 successful fresh two-edge witness in the reviewed evidence. This is a diagnostic
-re-probe, not a new holdout, threshold fit or map repair. Each candidate outside
-lane pair is tested at boundary and midpoint in both directions. Road pairs
+re-probe, not a new holdout, threshold fit or map repair. Candidates are restricted to an undirected vehicle component for probe selection,
+not a native connectivity claim. A fixed 256-request/mode budget rotates across
+endpoint pairs before trying their other lane combinations. Each submitted lane
+pair keeps boundary/midpoint controls in both directions; omitted pairs remain
+unknown. All ship candidates fit within this budget. Road pairs
 require opposite OneWay roles. Native requests determine rail reachability.
 No failed request is a global capability negative.
 
@@ -109,3 +112,17 @@ Each batch releases the fair queue slot. If occupied, retain that attempt and
 arrange a persisted continuation. Never leave a waiter or game behind. Preserve
 all old attempts when importing new receipts with another `--retry-native`.
 Retain the new collector and runtime helper source hashes/version before import.
+
+Append each v2 batch without replacing historical attempts:
+
+```sh
+study=tools/map-factory/capability-evidence/outside-v1
+uv run --project tools/map-factory python "$study/import_v2.py" \
+  --native ~/experiments/PL-1142-native-v2/native \
+  --reproduction ~/experiments/PL-1121-outside-oracle/reproduction \
+  --attempt-id native-v2-1
+```
+
+Register the collector source version first in `collector-versions.json`. Keep
+every partial or failed batch with a distinct attempt ID. Runtime-bound fresh
+two-edge witnesses are separate from historical fresh witnesses in the summary.
