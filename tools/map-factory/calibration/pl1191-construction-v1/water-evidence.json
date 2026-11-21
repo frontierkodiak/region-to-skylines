@@ -1069,5 +1069,18 @@
     "new_geographic_admissions": 0,
     "complete_geographic_candidate": false,
     "stable_water_promise": "unknown"
+  },
+  "stream_source_precision_diagnostic": {
+    "status": "closed_no_source_precision_repair_justified",
+    "source_rows": 6,
+    "public_waterway_lines": 75,
+    "conditional_rounding_consistent_rows": 4,
+    "conditional_rounding_incompatible_rows": 2,
+    "consistent_rows_native_walk_changes": 0,
+    "historical_source_identity": "unresolved",
+    "bank_width_floor": "unknown",
+    "new_geographic_admissions": 0,
+    "global_freeze_sha256": "357581946d957dea3f7fbd6625983e8c1c095dc7ad8e352f7b78f8cf00c95544",
+    "stable_water_promise": "unknown"
   }
 }

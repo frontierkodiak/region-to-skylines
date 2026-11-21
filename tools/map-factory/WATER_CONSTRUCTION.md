@@ -763,3 +763,37 @@ No native/Steam/install/preview/tab action occurred. Shipping/defaults/liveledge
 and all prior evidence remain unchanged; holdout unopened, promises unknown.
 See `bank-authority-freeze-v1.json` and
 `development/phase13-bank-authority-summary.json` for exact source/data lineage.
+
+## Phase fourteen: conditional source-line correspondence closes no bank gap
+
+The captured stream writer discards featureID/tile/layerextent while preserving
+points and selected scope tags. The pinned decoder2.0.3 was downloaded and its
+package-lock SHA512 verified; it scales integer geometry by layerextent*2^zoom.
+The default4096 is not recovered historical extent, and the MVT specification
+does not establish the historical encoder's simplification/clipping error.
+
+A new committed read-only protocol compares every complete source row672/683/
+712/713/770/809 against all75public waterway lines in the retained phase13reply.
+All6source rows fit the conditional2^26lattice exactly. Under one fixed
+nearest-integer/no-simplification model,4rows are consistent (672/713/770/809),
+and their hypothetical raw-subchain native walks change ZERO nodes. Rows683/712
+reject rounding-only correspondence; sampled symmetric distance lower bounds are
+1.25043/0.78131gridunits, against a conditional0.70712radius. No tolerance was
+increased, historic identity assigned, source geometry moved or bank profile solved.
+
+All four shared captured vertices and current public node-ID candidates remain
+explicit. The two overlapping source rows770/809 correspond geometrically to
+subchains of the same current public way, but their original rows/contracts are
+not merged or dropped. Current way/node correspondence is not recovered historic
+provenance, geographic flow, hydraulic connectivity, lateral bank or width authority.
+
+The source-precision-as-bank-repair hypothesis is closed for these data. There is
+no justified geometry revision or geographic admission, and all old refusals
+remain. All5source/probe/refusal bindings retain583mandatory stream parts. Eight
+new focused tests, scopedRuff/format/diff and the full6row correspondence replay
+pass; unchanged constructor/native/broad suites are not rerun. The first attempt's
+NumPy index serialization error/prospective freeze are retained; a typed-index fix
+was committed before the fresh final protocol, without changing the question/model.
+No game/Steam/install/holdout/preview/tab action occurred. See
+`source-line-freeze-v1.json` and `development/phase14-source-line-summary.json`.
+Shipping/defaults/liveledger and historical evidence remain unchanged; promises unknown.

@@ -1,0 +1,298 @@
+{
+  "schema": "polli.pl1191-phase14-line-summary/1",
+  "source_commit": "de78158b5add7fdd23f615cdc05bfde1af860737",
+  "policy": "conditional-source-line-quantization-v1",
+  "prospective_freeze_sha256": "c63d96dcef63f51be6cc713bd7d428e437368cfeda46e5bc4ebd01e496ce713a",
+  "result_receipt_sha256": "b51aef78e420d8692f3f91d218d1c8451ea73e6b54c07e5bd9b48b8b94c75dec",
+  "alignment_sha256": "aa57d19f05652b4bb631ab088c4e152fffa8a318f39aaba4a6633f060ef83aad",
+  "conditional_grid_extent": 4096,
+  "conditional_world_grid": 67108864,
+  "historical_extent_rounding_generalization": "unknown; do not infer from lattice fit",
+  "conditional_radius_q": 0.7071167811865475,
+  "approx_ground_metres_per_q": 0.5962791262238427,
+  "public_way_count": 75,
+  "other_public_elements": 7,
+  "captured_source_rows": 6,
+  "rows": [
+    {
+      "source_row": "streams:672",
+      "source_sha256": "37ad821a523bfec1f304454853b7d353eb780ed85e038a3a28aa30afe5ff67a0",
+      "source_vertices": 4,
+      "vertices_with_public_quantized_node_candidates": 4,
+      "lattice_max_residual_q": 0.0,
+      "embeddings": [
+        {
+          "osm_way_id": 43224594,
+          "version": 4,
+          "timestamp": "2020-06-25T17:14:12Z",
+          "status": "consistent_under_conditional_rounding_model",
+          "sampled_lower_q": 0.41357793077884314,
+          "certified_upper_q": 0.47607793077884314,
+          "approx_ground_lower_m": 0.2466078871902735,
+          "approx_ground_upper_m": 0.2838753325792637,
+          "monotone_vertex_correspondence": true,
+          "native_walk_sensitivity": {
+            "original_nodes": 14,
+            "conditional_raw_nodes": 14,
+            "removed_original_nodes_rc": [],
+            "added_raw_nodes_rc": [],
+            "scope": "conditional read-only counterfactual, not a new authored graph"
+          }
+        }
+      ],
+      "historical_source_identity": "unresolved",
+      "bank_width_and_floor": "unknown"
+    },
+    {
+      "source_row": "streams:683",
+      "source_sha256": "c15c61004895681a657bf84964f572f02512a5cf238bd69fa02a0060f5d10386",
+      "source_vertices": 14,
+      "vertices_with_public_quantized_node_candidates": 14,
+      "lattice_max_residual_q": 0.0,
+      "embeddings": [
+        {
+          "osm_way_id": 628802287,
+          "version": 2,
+          "timestamp": "2018-09-28T14:30:08Z",
+          "status": "incompatible_under_conditional_rounding_model",
+          "sampled_lower_q": 1.2504327461527054,
+          "certified_upper_q": 1.3129327461527054,
+          "approx_ground_lower_m": 0.7456069452776153,
+          "approx_ground_upper_m": 0.7828743906666055,
+          "monotone_vertex_correspondence": false,
+          "native_walk_sensitivity": null
+        }
+      ],
+      "historical_source_identity": "unresolved",
+      "bank_width_and_floor": "unknown"
+    },
+    {
+      "source_row": "streams:712",
+      "source_sha256": "83c2729ec598916661af3f12023aa2262f9d0ec38b46ec37c99ba387f60fee13",
+      "source_vertices": 13,
+      "vertices_with_public_quantized_node_candidates": 13,
+      "lattice_max_residual_q": 0.0,
+      "embeddings": [
+        {
+          "osm_way_id": 440541324,
+          "version": 1,
+          "timestamp": "2016-09-04T03:20:46Z",
+          "status": "incompatible_under_conditional_rounding_model",
+          "sampled_lower_q": 0.7813067684745237,
+          "certified_upper_q": 0.8438067684745237,
+          "approx_ground_lower_m": 0.4658769172187632,
+          "approx_ground_upper_m": 0.5031443626077534,
+          "monotone_vertex_correspondence": false,
+          "native_walk_sensitivity": null
+        }
+      ],
+      "historical_source_identity": "unresolved",
+      "bank_width_and_floor": "unknown"
+    },
+    {
+      "source_row": "streams:713",
+      "source_sha256": "228ae32c2e518327fa3e3098e74d9e8b87042a73251e4a7d58de2a954ac13197",
+      "source_vertices": 17,
+      "vertices_with_public_quantized_node_candidates": 17,
+      "lattice_max_residual_q": 0.0,
+      "embeddings": [
+        {
+          "osm_way_id": 440541325,
+          "version": 1,
+          "timestamp": "2016-09-04T03:20:46Z",
+          "status": "consistent_under_conditional_rounding_model",
+          "sampled_lower_q": 0.2987024462302521,
+          "certified_upper_q": 0.3612024462302521,
+          "approx_ground_lower_m": 0.17811003363909908,
+          "approx_ground_upper_m": 0.21537747902808926,
+          "monotone_vertex_correspondence": true,
+          "native_walk_sensitivity": {
+            "original_nodes": 28,
+            "conditional_raw_nodes": 28,
+            "removed_original_nodes_rc": [],
+            "added_raw_nodes_rc": [],
+            "scope": "conditional read-only counterfactual, not a new authored graph"
+          }
+        }
+      ],
+      "historical_source_identity": "unresolved",
+      "bank_width_and_floor": "unknown"
+    },
+    {
+      "source_row": "streams:770",
+      "source_sha256": "c32493d1653b0450adbf7d5117376a0e5975f70285a70ea7fb94a0b827efd5b0",
+      "source_vertices": 4,
+      "vertices_with_public_quantized_node_candidates": 3,
+      "lattice_max_residual_q": 0.0,
+      "embeddings": [
+        {
+          "osm_way_id": 496308397,
+          "version": 1,
+          "timestamp": "2017-05-27T13:06:24Z",
+          "status": "consistent_under_conditional_rounding_model",
+          "sampled_lower_q": 0.5263653410738348,
+          "certified_upper_q": 0.5888653410738348,
+          "approx_ground_lower_m": 0.3138606656500212,
+          "approx_ground_upper_m": 0.3511281110390113,
+          "monotone_vertex_correspondence": true,
+          "native_walk_sensitivity": {
+            "original_nodes": 5,
+            "conditional_raw_nodes": 5,
+            "removed_original_nodes_rc": [],
+            "added_raw_nodes_rc": [],
+            "scope": "conditional read-only counterfactual, not a new authored graph"
+          }
+        }
+      ],
+      "historical_source_identity": "unresolved",
+      "bank_width_and_floor": "unknown"
+    },
+    {
+      "source_row": "streams:809",
+      "source_sha256": "dd66ac442abed7e7bdda5154d00920cd968ba6b1e630353b8bac8d45f99a30d6",
+      "source_vertices": 10,
+      "vertices_with_public_quantized_node_candidates": 10,
+      "lattice_max_residual_q": 0.0,
+      "embeddings": [
+        {
+          "osm_way_id": 496308397,
+          "version": 1,
+          "timestamp": "2017-05-27T13:06:24Z",
+          "status": "consistent_under_conditional_rounding_model",
+          "sampled_lower_q": 0.5397544360816833,
+          "certified_upper_q": 0.6022544360816833,
+          "approx_ground_lower_m": 0.3218443035222291,
+          "approx_ground_upper_m": 0.3591117489112192,
+          "monotone_vertex_correspondence": true,
+          "native_walk_sensitivity": {
+            "original_nodes": 24,
+            "conditional_raw_nodes": 24,
+            "removed_original_nodes_rc": [],
+            "added_raw_nodes_rc": [],
+            "scope": "conditional read-only counterfactual, not a new authored graph"
+          }
+        }
+      ],
+      "historical_source_identity": "unresolved",
+      "bank_width_and_floor": "unknown"
+    }
+  ],
+  "all_five_case_bindings": [
+    {
+      "slug": "dry-upland-asia",
+      "mandatory_parts": 4,
+      "line_rows": 23,
+      "polygon_rows": 1,
+      "old_status": "incomplete_geographic_candidate",
+      "old_freeze_sha256": "c875c6a47186d9c43e4dc0e690b44bded57bfa4ed5118aed197571f1fb850ce5",
+      "physical_support": "not_read_or_requalified"
+    },
+    {
+      "slug": "dry-upland-europe",
+      "mandatory_parts": 2,
+      "line_rows": 401,
+      "polygon_rows": 107,
+      "old_status": "incomplete_geographic_candidate",
+      "old_freeze_sha256": "fe1eab011c7e8cd0e4b3a357d00fd0fdb37444b3dbf7e267c0fa46c5f527cafc",
+      "physical_support": "not_read_or_requalified"
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "mandatory_parts": 9,
+      "line_rows": 27,
+      "polygon_rows": 0,
+      "old_status": "retained_base_refusal",
+      "old_freeze_sha256": "a8dde1382fb7047e24b094607023cb11bb481283206616a2324254590db5cfec",
+      "physical_support": null
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "mandatory_parts": 536,
+      "line_rows": 839,
+      "polygon_rows": 159,
+      "old_status": "incomplete_geographic_candidate",
+      "old_freeze_sha256": "095a3c6a9d98fb471e0cd82f69da6f02975668aaf96de2ac4c07c40c7cf65208",
+      "physical_support": "not_read_or_requalified"
+    },
+    {
+      "slug": "mountain-river-asia",
+      "mandatory_parts": 32,
+      "line_rows": 80,
+      "polygon_rows": 29,
+      "old_status": "retained_base_refusal",
+      "old_freeze_sha256": "1ce142addac5810ef5af0ec885258a5abb4debdf2f120ad8e501745181d187f4",
+      "physical_support": null
+    }
+  ],
+  "shared_source_vertices": [
+    {
+      "lonlat": [
+        -59.98927295207977,
+        -3.1408267729119217
+      ],
+      "incidences": [
+        {
+          "row": "streams:770",
+          "vertex_index": 1
+        },
+        {
+          "row": "streams:809",
+          "vertex_index": 7
+        }
+      ]
+    },
+    {
+      "lonlat": [
+        -59.98911201953888,
+        -3.14061251848824
+      ],
+      "incidences": [
+        {
+          "row": "streams:770",
+          "vertex_index": 2
+        },
+        {
+          "row": "streams:809",
+          "vertex_index": 8
+        }
+      ]
+    },
+    {
+      "lonlat": [
+        -59.988977909088135,
+        -3.1401840095089852
+      ],
+      "incidences": [
+        {
+          "row": "streams:770",
+          "vertex_index": 3
+        },
+        {
+          "row": "streams:809",
+          "vertex_index": 9
+        }
+      ]
+    },
+    {
+      "lonlat": [
+        -59.97814178466797,
+        -3.10570988816157
+      ],
+      "incidences": [
+        {
+          "row": "streams:712",
+          "vertex_index": 12
+        },
+        {
+          "row": "streams:713",
+          "vertex_index": 13
+        }
+      ]
+    }
+  ],
+  "hypothesis_disposition": "No source-precision repair justified. Four conditional correspondences change no native node; two reject rounding-only model. Missing historical identity/encoder policy and lateral bank authority remain. Close this repair hypothesis without changing geometry/masks.",
+  "new_geographic_admissions": 0,
+  "physical_package": null,
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown"
+}
