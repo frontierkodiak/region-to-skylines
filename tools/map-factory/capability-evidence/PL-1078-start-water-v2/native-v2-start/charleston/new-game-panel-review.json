@@ -1,0 +1,15 @@
+{
+  "reviewer": "Sol xhigh; actual PNG viewed",
+  "sha256": "34672a809a3369b2aa06ff3c5611c83810a9d01532ed58fff594f0d509bc7a4d",
+  "observed": {
+    "map_name": "Charleston - Ready to Play",
+    "author": "",
+    "buildableArea": 58,
+    "base_theme": "Temperate",
+    "preview_matches_map": true,
+    "resources_match": true,
+    "connections_match": true,
+    "selected_map_visible": true
+  },
+  "notes": "Coastal estuary and roads preview; all four connection icons enabled. Resource bars visually match settled captured targets."
+}

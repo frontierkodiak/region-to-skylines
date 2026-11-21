@@ -3643,3 +3643,31 @@ unchanged; owned-game menu1574MiB, not a game-only peak. Telemetry22:17:21.211�
 reviewed. Raw construction/paths, telemetry, selected receipt bindings and
 captures are retained under the map-factory study's `native-v2-start/innsbruck`.
 The source, player and pre-rule first-hour results are unchanged.
+
+## PL-1078 current-model start fitting completed — 2026-11-21
+
+All three frozen positive start witnesses have been attempted under unchanged
+source83fa/DLLf916/modelBB. Parent controller collected exit0; all cleanup empty.
+Innsbruck passed as above. Pittsburgh accepted27/27 steps and returned8inbound /
+9outbound literal outside paths from29requests; all12 unsuccessful requests
+remain. Charleston accepted26/27 steps, then normal NetTool rejected the final
+`join -> g30` link with `ObjectCollision` against Basic Road22296, created by
+the earlier grid step2 `g20 -> g30`. Native footprint predicates passed. This
+is a retained provisional-geometry false positive, not geographic incapability.
+No native search, order change, retries or named-square patch followed.
+
+Positive-witness fitting agreement2/3, versus archivedv1's1/3; not held-out or
+overall accuracy. No first-hour rate or physical package changed. Raw current
+observations and all22 registered capability rows are in the static fitting
+projection; unknown/unattempted rows remain null and all risk records remain.
+
+| Case | Native observation UTC | Controller seconds including queue | Whole-card samples / peak MiB / W / C |
+|---|---|---:|---|
+| Pittsburgh | 03:42:24.073120 | 1365.97 | 34 / 10821 / 122.96 / 49 |
+| Charleston | 04:06:38.221700 | 1451.25 | 30 / 10821 / 121.43 / 45 |
+
+Pittsburgh telemetry22:40:00.702–22:42:49.388local; Charleston23:04:24.948–
+23:06:50.262local. RTX2080Ti05:00.0; actual recorded200W cap unchanged;
+owned-game menu1574MiB is not a game-only peak. All9 actual PNGs for this series
+were viewed and hash-reviewed. Existing dark bridge patches remain documented;
+start connectivity does not clear full-map visual/geographic acceptance.

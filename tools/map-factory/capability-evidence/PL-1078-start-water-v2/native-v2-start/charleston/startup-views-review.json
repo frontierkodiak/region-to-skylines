@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty coastal city with Hello guide overlay; opening shows roads, ramps and grass near river bank. Areas view outlines the start tile beside the estuary, with visible dark bridge patches retained. These are before witness construction, not proof of hookup acceptance or full-map visual acceptance.",
+  "opening": {
+    "sha256": "fe2b8976c39f2cb6c225f4d1d7b2d0894eb9c106b674a2e8f98a715bdb377c54",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "3687481266de5697fe7ec425f18a887170ac2e31303e91a13ba6171288b32dd8",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

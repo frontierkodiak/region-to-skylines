@@ -1,0 +1,14 @@
+{
+  "reviewer": "Sol xhigh; both actual PNGs viewed",
+  "notes": "Fresh empty Pittsburgh city with Hello guide overlay. Opening shows grass between ramp approaches; Areas view outlines the start tile amid river crossings. Black gaps/patches on the existing bridge geometry remain visible. These captures precede witness construction and do not establish full-map visual acceptance.",
+  "opening": {
+    "sha256": "e55e91758e643c6ae0942cb89c65916fa3c4bb3a652445c8dda9164a681ed0a9",
+    "view_matches": true,
+    "areas_ui_visible": false
+  },
+  "area_zoom": {
+    "sha256": "1722db932fbcb07396b40900e67fcc555c76cd8fb617462ae33122032db11fcc",
+    "view_matches": true,
+    "areas_ui_visible": true
+  }
+}

@@ -46,6 +46,9 @@ The water load uses explicit auxiliary power, 1000 native water/sewage units per
 256 simulation frames, two minutes of loaded settling and sixty scored minutes.
 It is not a population or SI-rate conversion, a power-generation proof, an
 indefinite-flow guarantee or a groundwater-based surface-water positive.
+In raw cycle records, `loaded` marks the scored phase, not whether a request
+was applied: `settling_has_load=true` and `settling_samples` separately retain
+the same load during the unscored settling phase.
 
 ## Reference calibration
 
@@ -66,7 +69,28 @@ retains both outcomes and binds the published raw cycles, selected runtime
 receipts, telemetry and actual panel reviews. This is neither final-player
 qualification (that used the unchanged 4a4 first-hour player) nor model accuracy.
 
-Product v2 native observations, held-out first-hour baseline attempts and the
+## Start fitting observations
+
+`fitting-start-observations.json` retains all 22 registered capability rows,
+including unknowns and pending water/holdout outcomes, with the complete risk
+records. Its three positive start predictions produced:
+
+| Fitting square | Native construction | Matched literal outside paths | Agreement |
+|---|---:|---|---|
+| Innsbruck | 27/27 steps accepted | 1 inbound / 2 outbound | yes |
+| Pittsburgh | 27/27 steps accepted | 8 inbound / 9 outbound | yes |
+| Charleston | 26/27 steps accepted | not attempted | no |
+
+Charleston's final `join -> g30` link collided with Basic Road segment 22296,
+created by the earlier `g20 -> g30` grid step. The footprint predicates passed;
+the provisional hookup geometry did not predict this self-plan collision.
+The rejection is retained, not reclassified as bad geography or repaired by a
+native fallback. Current positive-witness fitting agreement is **2/3**, versus
+archived v1's 1/3; neither is held-out or overall classification accuracy.
+All three cleanup receipts are empty and all nine actual panel/opening/Areas
+captures were viewed and hash-reviewed. The qualified player is unchanged.
+
+Product water observations, held-out first-hour baseline attempts and the
 fresh eleven-square candidate player arm remain pending. The latter will use
 the immutable 4a4 player, not the capability DLL. Byte-identical candidate maps
 mean any repeat-run difference cannot be attributed to physical exporter rules.
