@@ -1,0 +1,2912 @@
+{
+  "controls": {
+    "stock-1": {
+      "cleanup": null,
+      "context_bound": false,
+      "error": "Blocked: another cs1-harness run holds the lock",
+      "paths": [],
+      "raw_sha256": "1e1b048e6a4ee0f6eb2433242d746da9e119e49b67ded465c6bcada5dabb28a7",
+      "state": "capture_failure"
+    },
+    "stock-2": {
+      "context_bound": false,
+      "paths": [],
+      "state": "not_attempted"
+    }
+  },
+  "controls_valid": false,
+  "counterexamples": [],
+  "freeze_sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+  "packages": {
+    "holdout-01": {
+      "audit": {},
+      "context_bound": false,
+      "file": "MM Weaving Waters.crp",
+      "selected_requests": 8,
+      "state": "not_attempted",
+      "stratum": "pair_difference",
+      "supported": true
+    },
+    "holdout-02": {
+      "audit": {},
+      "context_bound": false,
+      "file": "PU Narrow Passage.crp",
+      "selected_requests": 8,
+      "state": "not_attempted",
+      "stratum": "pair_difference",
+      "supported": true
+    },
+    "holdout-03": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCP Map 2.crp",
+      "selected_requests": 8,
+      "state": "not_attempted",
+      "stratum": "no_pair_difference",
+      "supported": true
+    },
+    "holdout-04": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCP Map 3.crp",
+      "selected_requests": 8,
+      "state": "not_attempted",
+      "stratum": "no_pair_difference",
+      "supported": true
+    },
+    "holdout-05": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCP Map 4.crp",
+      "selected_requests": 8,
+      "state": "not_attempted",
+      "stratum": "no_pair_difference",
+      "supported": true
+    },
+    "holdout-06": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCP Map 5.crp",
+      "selected_requests": 8,
+      "state": "not_attempted",
+      "stratum": "no_pair_difference",
+      "supported": true
+    },
+    "holdout-07": {
+      "audit": {},
+      "context_bound": false,
+      "file": "AP Noyou Port.crp",
+      "selected_requests": 0,
+      "state": "not_attempted",
+      "stratum": "unsupported_or_no_pair",
+      "supported": false
+    },
+    "holdout-08": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCMP2 Boreal Map 1.crp",
+      "selected_requests": 0,
+      "state": "not_attempted",
+      "stratum": "unsupported_or_no_pair",
+      "supported": false
+    },
+    "holdout-09": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCMP2 Boreal Map 2.crp",
+      "selected_requests": 0,
+      "state": "not_attempted",
+      "stratum": "unsupported_or_no_pair",
+      "supported": false
+    },
+    "holdout-10": {
+      "audit": {},
+      "context_bound": false,
+      "file": "CCMP2 Desert Map 1.crp",
+      "selected_requests": 0,
+      "state": "not_attempted",
+      "stratum": "unsupported_or_no_pair",
+      "supported": false
+    }
+  },
+  "rows": [
+    {
+      "id": "holdout-01:000",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "east"
+        ],
+        "from": [
+          19623,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          22220,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:001",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "south"
+        ],
+        "from": [
+          22220,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          19623,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:002",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "east"
+        ],
+        "from": [
+          19623,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          22220,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:003",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "south"
+        ],
+        "from": [
+          22220,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          19623,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:004",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "east"
+        ],
+        "from": [
+          19623,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          22220,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:005",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "south"
+        ],
+        "from": [
+          22220,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          19623,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:006",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950585
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "east"
+        ],
+        "from": [
+          19623,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          22220,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-01:007",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21625.545498950563
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "south"
+        ],
+        "from": [
+          22220,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          19623,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-01",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:000",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          8075,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          34887,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:001",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          34887,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          8075,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:002",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          8075,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          34887,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:003",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          34887,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          8075,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:004",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          8075,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          34887,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:005",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          34887,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          8075,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:006",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          8075,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          34887,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-02:007",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "reason": "no_directed_lane_path_within_max_length"
+          },
+          "prediction": "no_path"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          34887,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          8075,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-02",
+      "snapshot_matched": false,
+      "stratum": "pair_difference"
+    },
+    {
+      "id": "holdout-03:000",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          10909,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          20541,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:001",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          20541,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10909,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:002",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          10909,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          20541,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:003",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          20541,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10909,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:004",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          10909,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          20541,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:005",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          20541,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10909,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:006",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443304
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          10909,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          20541,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-03:007",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 21788.466843443308
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          20541,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10909,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-03",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:000",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3554,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10821,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:001",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10821,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3554,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:002",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3554,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10821,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:003",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10821,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3554,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:004",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3554,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10821,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:005",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10821,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3554,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:006",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.73833138672
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3554,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10821,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-04:007",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 19768.738331386725
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10821,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3554,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-04",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:000",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "north",
+          "south"
+        ],
+        "from": [
+          11448,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          26226,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:001",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "north"
+        ],
+        "from": [
+          26226,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          11448,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:002",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "north",
+          "south"
+        ],
+        "from": [
+          11448,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          26226,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:003",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "north"
+        ],
+        "from": [
+          26226,
+          0,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          11448,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:004",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "north",
+          "south"
+        ],
+        "from": [
+          11448,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          26226,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:005",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "north"
+        ],
+        "from": [
+          26226,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          11448,
+          0,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:006",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.567624172596
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "north",
+          "south"
+        ],
+        "from": [
+          11448,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          26226,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-05:007",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 18230.56762417259
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "south",
+          "north"
+        ],
+        "from": [
+          26226,
+          1,
+          0
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          11448,
+          1,
+          0
+        ]
+      },
+      "slug": "holdout-05",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:000",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3762,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10081,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:001",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10081,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3762,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:002",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3762,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10081,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:003",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10081,
+          0,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3762,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:004",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3762,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10081,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:005",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10081,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3762,
+          0,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:006",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.8578706194
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "east",
+          "west"
+        ],
+        "from": [
+          3762,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          10081,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    },
+    {
+      "id": "holdout-06:007",
+      "label": "unknown",
+      "observation": null,
+      "path_audit": null,
+      "predictions": {
+        "chord:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        },
+        "tangent:continuation:any_lane": {
+          "detail": {
+            "path_lower_bound_length": 17289.85787061942
+          },
+          "prediction": "success"
+        }
+      },
+      "request": {
+        "capability": "rail",
+        "diagnostic": false,
+        "endpoint_edges": [
+          "west",
+          "east"
+        ],
+        "from": [
+          10081,
+          1,
+          255
+        ],
+        "name": "directed-outside-to-outside",
+        "position_kind": "boundary",
+        "to": [
+          3762,
+          1,
+          255
+        ]
+      },
+      "slug": "holdout-06",
+      "snapshot_matched": false,
+      "stratum": "no_pair_difference"
+    }
+  ],
+  "tables": {
+    "all-complete intent-to-test": {
+      "all": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 48,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 48
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 48,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 48
+        }
+      },
+      "package:holdout-01": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        }
+      },
+      "package:holdout-02": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        }
+      },
+      "package:holdout-03": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        }
+      },
+      "package:holdout-04": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        }
+      },
+      "package:holdout-05": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        }
+      },
+      "package:holdout-06": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 8,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 8
+        }
+      },
+      "package:holdout-07": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-08": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-09": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-10": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "stratum:no_pair_difference": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 32,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 32
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 32,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 32
+        }
+      },
+      "stratum:pair_difference": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 16,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 16
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": 0.0,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 16,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 16
+        }
+      },
+      "stratum:unsupported_or_no_pair": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      }
+    },
+    "snapshot-matched": {
+      "all": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-01": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-02": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-03": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-04": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-05": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-06": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-07": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-08": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-09": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "package:holdout-10": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "stratum:no_pair_difference": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "stratum:pair_difference": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      },
+      "stratum:unsupported_or_no_pair": {
+        "chord:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        },
+        "tangent:continuation:any_lane": {
+          "abstain": 0,
+          "coverage": null,
+          "fn": 0,
+          "fp": 0,
+          "precision": null,
+          "recall": null,
+          "requests": 0,
+          "tn": 0,
+          "tp": 0,
+          "unknown": 0
+        }
+      }
+    }
+  }
+}
