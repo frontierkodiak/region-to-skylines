@@ -3376,3 +3376,63 @@ that exact owned PID. It and waiter2535781 are absent; game/Steam/unit cleanup
 is empty. Runtime sidecar captures the running executable and matching on-disk
 compile references, not full loaded-assembly identity. Old baselines receive no
 new identity claim. Holdout, native nine-square and human acceptance remain open.
+
+## 2026-11-21 · PL-1191 river-class output ablation
+
+Blade, RTX2080Ti05:00.0, clean harness6949182/mod6cedb7ee. Completed60.104 game
+minutes in15.95 observation wall minutes, excluding boot/teardown. Peak total
+VRAM10,821MiB against8,008MiB baseline:2,813MiB estimated increment, not a
+sampled game peak. Game menu share1,574MiB; peak138.06W and55C. No power change.
+
+Only187 river outputs disabled. Two lake outputs, one stream output and all221
+intakes remain. All221-control tables match both packages at13samples. Flood
+0.0627→0km²; required endpoint911/918→0/918; both drying gates/full drying fail.
+241 of5809 initialized locations retain nearby water. This supports river-
+supply contribution, not exclusive attribution or a playable remedy.
+
+Owned game2999718 and collector are gone; game/Steam/unit cleanup empty.
+Producer inspected t060 views without changing startup_views failure. Runtime
+sidecar binds executable/on-disk references only. Legacy collector records
+actual floors at t000/t005, not every water sample; later-floor checks must
+remain unknown. No historical identity or qualification is reissued.
+
+## 2026-11-21 · PL-1191 coast all-intake ablation
+
+Blade, RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. Completed60.096 game
+minutes in16.16 observation wall minutes. Peak total VRAM10,821MiB against
+8,008MiB baseline:2,813MiB estimated increment, not sampled game peak. Menu
+share1,592MiB; peak142.99W and56C. No power settings changed.
+
+All167 positive intakes zero; all167 outputs and original grids/probes fixed.
+All13 source tables match. Required endpoint988/1149, throughout980/1149; both
+gates/full drying fail. Original Main Drain cohort1/68 wet endpoint,0throughout;
+Bulimba0/94 at both. Flood0.0003to0.0079km², below unchanged0.05 gate. This
+rejects configured withdrawal as necessary for the bulk loss, not all possible
+source effects. Native sea level90 throughout both runs. Static head-margin
+sensitivity is diagnostic only, not dynamic replenishment or a new gate.
+
+Owned game3567619 absent; foreground collector closed, cleanup empty. Producer
+inspected t060 view without changing raw startup_views failure. Runtime sidecar
+binds running executable/on-disk references only; no loaded-assembly claim.
+
+## 2026-11-21 · PL-1191 fresh enclosed Asian storage
+
+Blade, RTX2080Ti05:00.0, pinned harness6949182/mod6cedb7ee. Completed60.112 game
+minutes in17.18 observation wall minutes. Peak total VRAM10,821MiB against
+8,008MiB baseline:2,813MiB estimated increment. Menu1,574MiB; peak134.45W and51C.
+No power change. Fresh package8f7e60aa, frozen plan3940e137, recipec84d8d2 and
+observerfd96f03; this is a new terrain/probe cohort, not a matched old-study arm.
+
+Exact reservoir anchor minimum1.375m across13samples, above frozen0.5m.
+All50 required probes and949 initialized observations retain nearby water;
+145 exact points lose wetness. Worst masked flood0km²; full drying false on
+this package's own frozen cohort. All58 controls match at13samples. Actual
+hydraulic floors at t000/t005 pass1.5m footprint depth and0.5m full-rim freeboard;
+later floors unavailable. Raw new_game_panel/startup_views remain failed for
+missing hash-bound visual adjudication. Producer inspected actual t060/map
+views; no human acceptance or historical certificate is claimed.
+
+Owned game3956935 absent; foreground command collected, owned cleanup empty.
+Runtime sidecar proves running executable/on-disk references, not full loaded
+assembly identity. Stable-water promise remains unknown. Natural coverage,
+nine-square, other development maps and the untouched holdout remain open.

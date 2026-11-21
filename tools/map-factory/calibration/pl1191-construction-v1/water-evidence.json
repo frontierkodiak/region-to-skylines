@@ -386,8 +386,16 @@
   },
   "construction": {
     "source": "reservoir_basin.py",
-    "qualification": "geometric tests only, not native water stability",
-    "product_defaults_changed": false
+    "qualification": "Experimental fresh-source preparation; no shipping adoption or native/global qualification is implied.",
+    "product_defaults_changed": false,
+    "experimental_exporter": "closed_storage_candidate.py",
+    "observer": "closed_storage_observation.py",
+    "prepared_source": "calibration/pl1191-construction-v1/development/closed-storage-preparation.json",
+    "prepared_sha256": "824ab29ccb069703401d62bd704805053ea6efbc7f66fd6dd20b77f18827be46",
+    "plans_source": "calibration/pl1191-construction-v1/development/closed-storage-native-plans.json",
+    "plans_sha256": "a2ce05ae8f1c8fb3df633b221d87786900e64e568744e7eab20ba86c8a738df5",
+    "geometrically_prepared": 3,
+    "refused_under_bounds": 2
   },
   "mechanisms": "WATER_CONSTRUCTION.md",
   "limits": [
@@ -528,6 +536,97 @@
       },
       "stable_water_promise": "unknown",
       "limits": "Disabling 99 below-sea intakes recovers only one of 68 lost Main Drain endpoints and none of 94 Bulimba endpoints; no throughout rescue. Not a sufficient general fix or holdout qualification."
+    },
+    {
+      "source": "calibration/pl1191-construction-v1/development/lake-shore-europe-river-output-off.json",
+      "sha256": "97c55f5f86929557863bdafe5ede942d54a25854d9fc88487c97100df6468276",
+      "game_minutes": 60.104447579135496,
+      "mode": "river-output-off",
+      "baseline": {
+        "labels": {
+          "flood": true,
+          "drying": true
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0627,
+        "required": 918,
+        "required_wet_end": 911,
+        "required_water_loss": true,
+        "initialized_observations": 5809,
+        "initialized_water_loss_end": 319,
+        "exact_point_wet_loss_end": 1029,
+        "original_native_water_failures": [
+          "no_flooding"
+        ]
+      },
+      "intervention": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": true,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0,
+        "required": 918,
+        "required_wet_end": 0,
+        "required_water_loss": true,
+        "initialized_observations": 5809,
+        "initialized_water_loss_end": 5568,
+        "exact_point_wet_loss_end": 5723,
+        "original_native_water_failures": [
+          "probes_wet_end",
+          "probes_wet_throughout"
+        ]
+      },
+      "stable_water_promise": "unknown",
+      "limits": "River-output removal eliminates measured flood while lake/stream outputs remain, but dries all required probes. Class-level contribution, not exclusive attribution or a playable fix."
+    },
+    {
+      "source": "calibration/pl1191-construction-v1/development/low-coast-oceania-all-intake-off.json",
+      "sha256": "37b78782939a841ff36f510bdda842694ef279641c91fe2e25b7d6ea2e9a0d8c",
+      "game_minutes": 60.09555868978301,
+      "mode": "all-intake-off",
+      "baseline": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": true,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0003,
+        "required": 1149,
+        "required_wet_end": 987,
+        "required_water_loss": true,
+        "initialized_observations": 26098,
+        "initialized_water_loss_end": 976,
+        "exact_point_wet_loss_end": 1666,
+        "original_native_water_failures": [
+          "probes_wet_end",
+          "probes_wet_throughout"
+        ]
+      },
+      "intervention": {
+        "labels": {
+          "flood": false,
+          "drying": true
+        },
+        "original_dry_gate_failed": true,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0079,
+        "required": 1149,
+        "required_wet_end": 988,
+        "required_water_loss": true,
+        "initialized_observations": 26098,
+        "initialized_water_loss_end": 907,
+        "exact_point_wet_loss_end": 1438,
+        "original_native_water_failures": [
+          "probes_wet_end",
+          "probes_wet_throughout"
+        ]
+      },
+      "stable_water_promise": "unknown",
+      "limits": "All withdrawal disabled; most original Main Drain and all Bulimba losses persist. Neither intake removal nor static ocean connectivity establishes maintained water."
     }
   ],
   "maintained_water_definition": {
@@ -549,6 +648,52 @@
       "source": "calibration/pl1191-construction-v1/development/low-coast-oceania-fixed-cohort.json",
       "sha256": "f9c94b60116c40db3a4dc58b88377c0d6c7c0fef467cb7bf9a66ad9510eb627e",
       "scope": "Previously lost development probes only; not a complete maintained-water inventory or new acceptance label."
+    }
+  ],
+  "construction_native_observations": [
+    {
+      "source": "calibration/pl1191-construction-v1/development/dry-upland-asia-closed-storage.json",
+      "sha256": "1502937b1fa6588e509dbf24f292047775da59b5ffe9c6b543d0c1d4b9197c4d",
+      "game_minutes": 60.11194757952665,
+      "water_outcome_original_definition": {
+        "labels": {
+          "flood": false,
+          "drying": false
+        },
+        "original_dry_gate_failed": false,
+        "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "flood_worst_km2": 0.0,
+        "required": 50,
+        "required_wet_end": 50,
+        "required_water_loss": false,
+        "initialized_observations": 949,
+        "initialized_water_loss_end": 0,
+        "exact_point_wet_loss_end": 145,
+        "original_native_water_failures": []
+      },
+      "engineered_storage": {
+        "schema": "polli.engineered-storage-outcome/1",
+        "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+        "status": "pass",
+        "anchors": [
+          {
+            "source_index": 57,
+            "position_xz": [
+              3200.0,
+              3696.0
+            ],
+            "status": "pass",
+            "minimum_exact_depth_m": 1.375,
+            "failed_samples": [],
+            "missing_samples": []
+          }
+        ],
+        "observation_complete": true,
+        "largest_sample_gap_game_minutes": 5.117500266898423,
+        "scope": "Authored reservoir anchors only; natural-feature coverage and overall maintained-water qualification are not assessed."
+      },
+      "stable_water_promise": "unknown",
+      "limits": "Different physical package and authored probe cohort, not matched source-only. Natural inventory, later hydraulic floors and full runtime/holdout qualification remain open."
     }
   ]
 }

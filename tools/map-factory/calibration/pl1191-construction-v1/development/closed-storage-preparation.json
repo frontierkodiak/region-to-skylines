@@ -1,0 +1,183 @@
+{
+  "schema": "polli.closed-storage-development-preparation/1",
+  "candidate_source_commit": "c84d8d2102fdf4d615f073997d6358306cc80dc2",
+  "holdout_accessed": false,
+  "stable_water_promise": "unknown",
+  "cases": [
+    {
+      "square": "dry-upland-south-america",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    {
+      "square": "dry-upland-europe",
+      "status": "prepared_not_native_qualified",
+      "package": {
+        "output": "/home/caleb/experiments/PL-1191-stable-water/development-construction/closed-storage-v1-attempt-2/dry-upland-europe/PL1191-dry-upland-europe-closed-storage.crp",
+        "sha256": "55d8209174c2b8479a7cb1783106a16a198ae705fbb8c76874b11e3172665bb9",
+        "bytes": 5477764,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "e1f30d20e971c8fc9581aef6fee7311b677c6ab88bbc8268bc72abe32ca7f265"
+      },
+      "final_static_check": {
+        "package_sha256": "55d8209174c2b8479a7cb1783106a16a198ae705fbb8c76874b11e3172665bb9",
+        "static_storage_checks": [
+          {
+            "source_index": 19,
+            "qualification": "static actual-control geometry only; NOT native retention",
+            "native_target_m": 302.359375,
+            "source_radius_m": 35.08226465054541,
+            "minimum_source_footprint_depth_m": 1.1875,
+            "minimum_rim_freeboard_m": 0.5,
+            "domain_cells": 54,
+            "domain_adjacency": 8,
+            "maximum_cut_m": 3.0,
+            "minimum_initial_footprint_depth_m": 1.1875
+          }
+        ],
+        "native_hydraulic_floor_check": "not observed; required before qualification"
+      },
+      "native_admission": {
+        "applied": false,
+        "fingerprint": "987ae9b58caec9076c90069d6e8dd6518552da65b65980c35da67992684176b6",
+        "native_qualified": false
+      }
+    },
+    {
+      "square": "dry-upland-asia",
+      "status": "prepared_not_native_qualified",
+      "package": {
+        "output": "/home/caleb/experiments/PL-1191-stable-water/development-construction/closed-storage-v1-attempt-2/dry-upland-asia/PL1191-dry-upland-asia-closed-storage.crp",
+        "sha256": "8f7e60aabb80bd5dd38227b36f90859b9a18ffae02655337cb8df28abf47d5d8",
+        "bytes": 4801176,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "d6d1af7a9621ecd4000d43147590c4fab881ad2c57cbb542dc78f3c82e6a1076"
+      },
+      "final_static_check": {
+        "package_sha256": "8f7e60aabb80bd5dd38227b36f90859b9a18ffae02655337cb8df28abf47d5d8",
+        "static_storage_checks": [
+          {
+            "source_index": 57,
+            "qualification": "static actual-control geometry only; NOT native retention",
+            "native_target_m": 433.015625,
+            "source_radius_m": 35.08226465054541,
+            "minimum_source_footprint_depth_m": 1.5,
+            "minimum_rim_freeboard_m": 0.5,
+            "domain_cells": 79,
+            "domain_adjacency": 8,
+            "maximum_cut_m": 3.0,
+            "minimum_initial_footprint_depth_m": 1.5
+          }
+        ],
+        "native_hydraulic_floor_check": "not observed; required before qualification"
+      },
+      "native_admission": {
+        "applied": false,
+        "fingerprint": "00c4e101d9b50847a7a4c3e0a8e2d63040d81e56e6cc043f66f156e658466ea1",
+        "native_qualified": false
+      }
+    },
+    {
+      "square": "mountain-river-asia",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    {
+      "square": "lowland-river-south-america",
+      "status": "prepared_not_native_qualified",
+      "package": {
+        "output": "/home/caleb/experiments/PL-1191-stable-water/development-construction/closed-storage-v1-attempt-2/lowland-river-south-america/PL1191-lowland-river-south-america-closed-storage.crp",
+        "sha256": "82177e71de5572fc8848b3164346629d93ee98ecdc8342a37f05213a49faf4d8",
+        "bytes": 5734600,
+        "regenerated": [
+          "terrain",
+          "water",
+          "sources",
+          "preview_images",
+          "package_author",
+          "network_geometry",
+          "start_tile",
+          "water_resources",
+          "north_facing_start_camera",
+          "natural_resources",
+          "trees",
+          "resource_amounts",
+          "environment",
+          "map_identity"
+        ],
+        "preserved": [
+          "network_topology",
+          "outside_connections",
+          "lane_ids"
+        ],
+        "preview_kind": "terrain/water grid rendering",
+        "simulation_sha256": "ebc745e69efd78ed7b2d42bd74cf69998c98b39dcb85862135f2a2aa64b234a2"
+      },
+      "final_static_check": {
+        "package_sha256": "82177e71de5572fc8848b3164346629d93ee98ecdc8342a37f05213a49faf4d8",
+        "static_storage_checks": [
+          {
+            "source_index": 35,
+            "qualification": "static actual-control geometry only; NOT native retention",
+            "native_target_m": 280.5625,
+            "source_radius_m": 35.08226465054541,
+            "minimum_source_footprint_depth_m": 1.0625,
+            "minimum_rim_freeboard_m": 0.5,
+            "domain_cells": 65,
+            "domain_adjacency": 8,
+            "maximum_cut_m": 3.0,
+            "minimum_initial_footprint_depth_m": 1.0625
+          }
+        ],
+        "native_hydraulic_floor_check": "not observed; required before qualification"
+      },
+      "native_admission": {
+        "applied": false,
+        "fingerprint": "fc93726aedef53d7f4733b770604271e060858af13591fa956a9a30161571471",
+        "native_qualified": false
+      }
+    }
+  ]
+}

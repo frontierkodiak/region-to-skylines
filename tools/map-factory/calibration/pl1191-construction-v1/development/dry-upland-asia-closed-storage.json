@@ -1,0 +1,165 @@
+{
+  "schema": "polli.closed-storage-development-observation/1",
+  "qualification": "Development candidate only; no complete natural-feature inventory, nine-square or holdout/runtime qualification",
+  "stable_water_promise": "unknown",
+  "plan_sha256": "3940e1374de6a31dfbad694511db9a928172ef1fdc94023bd4b6050a3c1bc941",
+  "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+  "game_minutes": 60.11194757952665,
+  "water_outcome_original_definition": {
+    "labels": {
+      "flood": false,
+      "drying": false
+    },
+    "original_dry_gate_failed": false,
+    "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+    "flood_worst_km2": 0.0,
+    "required": 50,
+    "required_wet_end": 50,
+    "required_water_loss": false,
+    "initialized_observations": 949,
+    "initialized_water_loss_end": 0,
+    "exact_point_wet_loss_end": 145,
+    "original_native_water_failures": []
+  },
+  "engineered_storage": {
+    "schema": "polli.engineered-storage-outcome/1",
+    "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+    "status": "pass",
+    "anchors": [
+      {
+        "source_index": 57,
+        "position_xz": [
+          3200.0,
+          3696.0
+        ],
+        "status": "pass",
+        "minimum_exact_depth_m": 1.375,
+        "failed_samples": [],
+        "missing_samples": []
+      }
+    ],
+    "observation_complete": true,
+    "largest_sample_gap_game_minutes": 5.117500266898423,
+    "scope": "Authored reservoir anchors only; natural-feature coverage and overall maintained-water qualification are not assessed."
+  },
+  "native_hydraulic_floor_checks": [
+    {
+      "label": "t000",
+      "sha256": "fc5e2447b320834284fca5affdf7aa575f761b09415e8c97fb306a37104a2361",
+      "status": "pass",
+      "sources": [
+        {
+          "source_index": 57,
+          "status": "pass",
+          "geometry": {
+            "qualification": "static actual-control geometry only; NOT native retention",
+            "native_target_m": 433.015625,
+            "source_radius_m": 35.08226465054541,
+            "minimum_source_footprint_depth_m": 1.5,
+            "minimum_rim_freeboard_m": 0.5,
+            "domain_cells": 79,
+            "domain_adjacency": 8
+          }
+        }
+      ]
+    },
+    {
+      "label": "t005",
+      "sha256": "fc5e2447b320834284fca5affdf7aa575f761b09415e8c97fb306a37104a2361",
+      "status": "pass",
+      "sources": [
+        {
+          "source_index": 57,
+          "status": "pass",
+          "geometry": {
+            "qualification": "static actual-control geometry only; NOT native retention",
+            "native_target_m": 433.015625,
+            "source_radius_m": 35.08226465054541,
+            "minimum_source_footprint_depth_m": 1.5,
+            "minimum_rim_freeboard_m": 0.5,
+            "domain_cells": 79,
+            "domain_adjacency": 8
+          }
+        }
+      ]
+    },
+    {
+      "label": "t010",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t015",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t020",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t025",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t030",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t035",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t040",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t045",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t050",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t055",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    },
+    {
+      "label": "t060",
+      "status": "unknown",
+      "reason": "missing actual native hydraulic floor"
+    }
+  ],
+  "loaded_source_readback": {
+    "samples": 13,
+    "sources_per_sample": 58
+  },
+  "native_failed_checks": [
+    "new_game_panel",
+    "startup_views"
+  ],
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "native_files_sha256": {
+    "report.json": "50aa4a82ae5def7d2c56c2b687dae1cf86030b285fbcd2cd07de9fd4efbfae56",
+    "verdict.json": "7e0325a872998aaae9bfa609d60c10666eac507fb5683c733cbd7cc06ede5cb9",
+    "harness-source.json": "fa02d0a70453cfef236a448374cf9b41ad8bb0835aebe09ef1c381a360cba244",
+    "timeline.jsonl": "262453f10001ee8933e9dbd3dd84412e988b9c556d252879c3f4e82066fb54b1",
+    "probes.json": "ed51349ac629b239329e082f5e79b96dcbe3e605a67ec863049b1e2bf25536d6",
+    "mapped-water.u8": "cfb425b6ff85ec9d45be34221348799cb06f18d119e4ad77eed2389f47fdeafd",
+    "reference-water.u16": "cddfcf1f3d32db018d12f40cad37e008abef6f5141d0c244b524d0a2e1b21dd3"
+  },
+  "runtime_loaded_assembly_qualification": "unverified by old protocol; never retrofitted onto historical observations"
+}

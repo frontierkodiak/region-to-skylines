@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "scope": "Development static head sensitivity only; these levels are NOT new outcome thresholds, native flow measurements or qualification.",
+  "floor_sha256": "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138",
+  "geometry_sha256": "f2c8b57316005311f86c7071c439447dc93a851917e260dd503fa7ced06ad77b",
+  "adjacency": 4,
+  "sea_level_m": 90,
+  "rows": [
+    {
+      "static_head_margin_m": 0,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 68
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 0.015625,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 68
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 0.0625,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 68
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 0.25,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 67
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 0.5,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 3
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 1,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 1
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 2,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 0
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    },
+    {
+      "static_head_margin_m": 4,
+      "groups": {
+        "Main Drain": {
+          "probes": 68,
+          "connected": 0
+        },
+        "Bulimba Creek": {
+          "probes": 94,
+          "connected": 0
+        }
+      }
+    }
+  ]
+}

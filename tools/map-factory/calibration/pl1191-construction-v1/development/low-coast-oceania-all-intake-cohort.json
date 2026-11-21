@@ -1,0 +1,30 @@
+{
+  "schema": "polli.coastal-development-cohort-comparison/1",
+  "cohort": "required, exact-wet at start, neither exact nor native-within64m-wet at endpoint",
+  "probes": 162,
+  "groups": {
+    "Main Drain": {
+      "baseline_lost": 68,
+      "baseline_static_ocean_connected_4": 68,
+      "baseline_static_ocean_connected_8": 68,
+      "intervention_wet_end": 1,
+      "intervention_dry_end": 67,
+      "intervention_wet_throughout": 0
+    },
+    "Bulimba Creek": {
+      "baseline_lost": 94,
+      "baseline_static_ocean_connected_4": 0,
+      "baseline_static_ocean_connected_8": 0,
+      "intervention_wet_end": 0,
+      "intervention_dry_end": 94,
+      "intervention_wet_throughout": 0
+    }
+  },
+  "files_sha256": {
+    "static_audit": "960be7d3247c7937755e47680a901effa00404021dd3cbe1cd504a156e678f66",
+    "validated_intervention": "37b78782939a841ff36f510bdda842694ef279641c91fe2e25b7d6ea2e9a0d8c",
+    "baseline_report": "9c1302204da0de88711ea610c1052e7fb6b9c7b482e88a6f9025b8c096e560eb",
+    "intervention_report": "c362b1df195c50c7d7cf272c33e9638207cf8b51f7c5af34ba2fa271361efb9e"
+  },
+  "qualification": "Previously lost development probes only; not complete maintained-water coverage or a new native qualification. Static ocean connectivity is not a flow observation."
+}

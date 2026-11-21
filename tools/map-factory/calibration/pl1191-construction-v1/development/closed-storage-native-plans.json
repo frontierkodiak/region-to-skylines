@@ -1,0 +1,26 @@
+{
+  "candidate_source_commit": "c84d8d2102fdf4d615f073997d6358306cc80dc2",
+  "validator_source_commit": "fd96f036cbf0428c44ebc94a03b07f8da424a345",
+  "holdout_accessed": false,
+  "stable_water_promise": "unknown",
+  "plans": [
+    {
+      "square": "dry-upland-europe",
+      "plan_sha256": "0c8b985582a5863399a650e2d548236026a66209d7c6613b31018363658fb648",
+      "package": "PL1191-dry-upland-europe-closed-storage.crp",
+      "package_sha256": "55d8209174c2b8479a7cb1783106a16a198ae705fbb8c76874b11e3172665bb9"
+    },
+    {
+      "square": "dry-upland-asia",
+      "plan_sha256": "3940e1374de6a31dfbad694511db9a928172ef1fdc94023bd4b6050a3c1bc941",
+      "package": "PL1191-dry-upland-asia-closed-storage.crp",
+      "package_sha256": "8f7e60aabb80bd5dd38227b36f90859b9a18ffae02655337cb8df28abf47d5d8"
+    },
+    {
+      "square": "lowland-river-south-america",
+      "plan_sha256": "2b67b38a76deb979ab55e78e06801c11bc3b9277ef128f2044a24902dfc7d5b0",
+      "package": "PL1191-lowland-river-south-america-closed-storage.crp",
+      "package_sha256": "82177e71de5572fc8848b3164346629d93ee98ecdc8342a37f05213a49faf4d8"
+    }
+  ]
+}

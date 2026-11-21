@@ -58,10 +58,11 @@ verdict remains failed for unreviewed startup views. No original verdict is
 rewritten. This supports the reservoir's contribution to the flood and shows
 why disabling its source is not a storage solution.
 
-The diagnostic closed-basin constructor finds feasible geometry in four of the
-five reservoir development start tiles under the stated protection and cut
-limits. It refuses mountain-river Asia. That is a construction-limit result,
-not geographic impossibility. No constructed candidate has run natively yet.
+The earlier retained-grid constructor diagnostic found feasible geometry in
+four of five start tiles under its supplied masks. Fresh-source preparation
+adds explicit geometry/network protections and prepares three, refusing dry-
+upland South America and mountain-river Asia. These are distinct construction-
+bound results, not geographic impossibility or native qualification.
 
 `water_development_result.py BASELINE STAGED NATIVE --harness-source SHA`
 validates package bindings, unchanged observation inputs and thresholds,
@@ -169,7 +170,42 @@ locations lose nearby water. The full drying comparator and both original
 required-water gates fail. The intervention demonstrates dependence on ongoing
 supply, not a stable construction fix. It does not distinguish the two lakes
 from the river regulators. A separate `river-output-off` package preserves lake
-and stream outputs and every intake; it is prepared but not yet observed.
+and stream outputs and every intake. That separate intervention completed
+60.104 game minutes. All 221 controls match both packages at all 13 samples.
+Disabling only 187 river outputs again reduces flooding to zero and dries all
+918 required probes, while 241 of 5,809 initially wet locations retain nearby
+water. Both required-water gates and full drying fail. This supports a river-
+supply contribution, not exclusive attribution or a playable fix.
+
+## Experimental enclosed-storage exporter
+
+`closed_storage_candidate.py` is a development entry point, not a shipping
+default. It reconstructs hydrology from captured PNG/geometry/banks without
+adding the legacy pond carve or prefill. It fits networks first, protects their
+corridors, landing, mapped water (unmodeled streams included) and existing
+controls, then searches inside the selected start tile. Resource planning
+follows any input-bound admission earthworks.
+
+The candidate binds preconstruction grids, actual final CRP terrain/water and
+encoded controls. Final checks require no fill, at most 3 m cut, an untouched
+full rim, 0.5 m freeboard, at least 1 m initial depth across the source footprint,
+and no new water outside the basin. Tests reject late rim cuts/fill and prefill
+removal even when the earlier constructor passed.
+
+Fresh preparation succeeds geometrically on dry-upland Europe and Asia and
+lowland-river South America. Both other predeclared cases remain refusals under
+the fixed bounds. Three physical packages and authored probes are frozen; no
+historical certificate transfers to them. Shipping source files remain
+unchanged. Natural-feature coverage and this path's nine-square nonregression
+are unfinished.
+
+`closed_storage_observation.py freeze` binds package/probes, original native
+thresholds, the meaningful-drying definition, validators and harness/mod before
+observation. `preflight` rejects altered packages, cohorts and validators before
+queueing. `collect` retains failures, checking exact reservoir depth and actual
+native hydraulic floors separately. The old collector records floors only at
+t000/t005; later-floor evidence remains unknown. All thirteen water/source
+samples remain required. Loaded-assembly identity limitations remain explicit.
 
 ## Coastal intake development intervention
 
@@ -182,15 +218,43 @@ Required endpoint retention changes from 987/1149 to 988/1149, and throughout
 from 978/1149 to 980/1149. Both original gates and full drying still fail.
 Flood remains 0.0003 km². In the original lost cohort, only 1/68 Main Drain
 probes is wet at the endpoint and none throughout; all 94 Bulimba probes still
-lose water. The below-sea intake factor does not rescue either domain. This
-does not prove all intake effects irrelevant: 68 intakes remain active, including
-eight in Main Drain's static marine component. A matched `all-intake-off`
-variant is prepared to isolate that broader factor, not observed or adopted.
+lose water. The below-sea intake factor does not rescue either domain. The
+subsequent matched `all-intake-off` run completed 60.096 game minutes with all
+167 positive intakes disabled and all outputs unchanged. Endpoint retention is
+again 988/1149 and throughout 980/1149. Only 1/68 original Main Drain endpoints
+is wet, none throughout; all 94 Bulimba probes remain lost. Flood increases to
+0.0079 km², below the unchanged 0.05 km² gate. All 167 controls match both
+packages at all 13 samples; teardown is empty. Configured withdrawal is not
+necessary for the bulk of these losses under this intervention. Dynamic
+replenishment, other source effects and isolated-domain missing supply remain
+unresolved.
 
 The generic intake transformer now preserves implicit output rates explicitly
 in its hydrology record before changing intake. A real-format regression failed
 before the fix and passes after it. The observed coastal variant is unaffected:
 all 99 changed controls already declared output separately.
+
+## First enclosed-storage native observation
+
+The fresh Asian candidate completed 60.112 game minutes. Its authored reservoir
+anchor retains at least 1.375 m exact depth across all 13 samples, passing the
+separate 0.5 m engineered-storage contract. All 50 required probes retain nearby
+water; none of 949 initialized observations loses nearby water. Original flood
+and full drying definitions are negative on this candidate's frozen cohort;
+worst masked flood is 0 km². There are still 145 exact-point wet losses.
+
+Actual native hydraulic floors at t000/t005 pass the encoded target/footprint
+and full-rim test (1.5 m footprint depth, 0.5 m freeboard); later floors were
+not captured and remain unknown. All 58 configured controls match the package
+at all 13 samples, and owned teardown is empty. Raw new-game-panel and startup
+view checks remain failed for missing hash-bound visual adjudication. Producer
+inspection does not rewrite them or supply human acceptance.
+
+This is a different physical package and authored probe cohort, not a matched
+source-only intervention or a rescore of PL-1072. It justifies further development
+testing of the enclosed rule, not product adoption. The complete natural-feature
+compiler, other prepared maps, nine-square nonregression, full runtime identity
+and untouched holdout are still required. Every feed promise stays unknown.
 
 ## Reproduce the diagnosis
 
