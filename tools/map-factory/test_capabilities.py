@@ -25,6 +25,7 @@ from capabilities import (
     stock_metrics,
 )
 from evidence import parse as parse_mrds
+from terrain_interest import terrain_interest_metrics
 from integrate_outside_evidence import boundary_probe
 from transport_paths import ship_path
 
@@ -484,54 +485,57 @@ class CapabilityParity(unittest.TestCase):
                 f"{slug}: stock bands drifted",
             )
 
-    def test_capture_fidelity_compares_only_whole_map_relief(self):
-        """Evidence for the pan-time policy: which measures keep their stock band."""
+    def test_capture_fidelity_keeps_only_matched_measures(self):
+        """Re-derive the pan-time policy and the ledger's comparability evidence."""
         metrics = LEDGER["stock_reference"]["metrics"]
-        fixtures = [
-            "asheville",
-            "innsbruck",
-            "pittsburgh",
-        ]  # inland: no ocean mask to replay
-        comparable, differed = set(), set()
+        fixtures = ["asheville", "charleston", "innsbruck", "pittsburgh", "rio"]
+        prepared_values, capture_values, fits = {}, {}, {}
         for slug in fixtures:
             source = ROOT / "tools/map-factory/fixtures" / slug
-            prepared = stock_metrics(
-                *[
-                    np.frombuffer(
-                        gzip.open(source / f"{name}.u16.gz").read(), dtype="<u2"
-                    )
-                    .reshape(1081, 1081)
-                    .astype(float)
-                    / 64
-                    for name in ("terrain", "water")
-                ]
-            )
-            game = (
-                np.asarray(Image.open(source / "input.png")).astype(float)
-                * 1024
-                / 65535
-            )
+            terrain, water = [
+                np.frombuffer(gzip.open(source / f"{name}.u16.gz").read(), dtype="<u2")
+                .reshape(1081, 1081)
+                .astype(float)
+                / 64
+                for name in ("terrain", "water")
+            ]
             banks = (
                 np.frombuffer(gzip.open(source / "banks.f32.gz").read(), dtype="<f4")
                 .reshape(1081, 1081)
                 .astype(float)
             )
-            capture = stock_metrics(
+            prepared_values[slug] = stock_metrics(terrain, water)
+            game = (
+                np.asarray(Image.open(source / "input.png")).astype(float)
+                * 1024
+                / 65535
+            )
+            capture_values[slug] = stock_metrics(
                 np.flipud(game), np.flipud(np.maximum(0.0, banks - game))
             )
-            for key in metrics:
-                if key not in STOCK_MEASURES:
-                    continue
-                if stock_band(prepared[key], metrics[key]) == stock_band(
-                    capture[key], metrics[key]
+            geometry = json.loads(gzip.open(source / "geometry.json.gz").read())
+            fits[slug] = geometry["fit"]["verticalScale"]
+        comparable, differed = set(), set()
+        for key in STOCK_MEASURES:
+            for slug in fixtures:
+                if stock_band(prepared_values[slug][key], metrics[key]) == stock_band(
+                    capture_values[slug][key], metrics[key]
                 ):
                     comparable.add(key)
                 else:
                     differed.add(key)
-        self.assertEqual(comparable - differed, {"terrain_relief_m"})
-        self.assertIn("wet_central_fraction", differed)
-        self.assertIn("median_land_slope_percent", differed)
-        # The pan-time policy must agree: only relief is compared.
+        self.assertEqual(
+            comparable - differed,
+            {
+                "terrain_relief_m",
+                "terrain_roughness_percent",
+                "central_terrain_diversity_m",
+            },
+        )
+        self.assertEqual(
+            differed, {"median_land_slope_percent", "wet_central_fraction"}
+        )
+        # The pan-time policy must agree with that measured split.
         policy = subprocess.run(
             [
                 "node",
@@ -550,7 +554,122 @@ class CapabilityParity(unittest.TestCase):
             for key, value in json.loads(policy.stdout).items()
             if value["comparable"]
         }
-        self.assertEqual(compared, {"terrain_relief_m"})
+        self.assertEqual(compared, comparable - differed)
+        # The committed fixtures already cover a default and a non-default height fit.
+        evidence = LEDGER["stock_reference"]["terrain_interest"]["comparability"][
+            "evidence"
+        ]
+        self.assertEqual(evidence["fixtures"], fixtures)
+        for slug in evidence["height_fit"]["default"]:
+            self.assertEqual(fits[slug], 1, slug)
+        self.assertEqual(
+            set(evidence["height_fit"]["non_default"]), {"innsbruck", "rio"}
+        )
+        for slug, scale in evidence["height_fit"]["non_default"].items():
+            self.assertAlmostEqual(fits[slug], scale, places=12)
+        # Every band that moved, and every largest difference, is the one the ledger records.
+        for key, row in evidence["result"].items():
+            moved = [
+                slug
+                for slug in fixtures
+                if stock_band(prepared_values[slug][key], metrics[key])
+                != stock_band(capture_values[slug][key], metrics[key])
+            ]
+            self.assertEqual(row["bands_differ"], moved, key)
+            if "max_abs_difference" in row:
+                self.assertAlmostEqual(
+                    row["max_abs_difference"],
+                    round(
+                        max(
+                            abs(prepared_values[slug][key] - capture_values[slug][key])
+                            for slug in fixtures
+                        ),
+                        2,
+                    ),
+                    places=2,
+                    msg=key,
+                )
+
+    def test_terrain_interest_artifact_is_source_bound(self):
+        """The survey artifact, its tools, rows and quartiles are all re-derivable."""
+        path = ROOT / "tools/map-factory/survey/terrain-interest.json"
+        raw = path.read_bytes()
+        study = json.loads(raw)
+        bound = LEDGER["stock_reference"]["terrain_interest"]
+        self.assertEqual(study["schema"], 1)
+        self.assertEqual(study["version"], bound["version"])
+        self.assertEqual(study["maps"]["read_only"], True)
+        self.assertEqual(study["maps"]["failures"], [])
+        names = [row["file"] for row in study["rows"]]
+        self.assertEqual(names, sorted(names))
+        self.assertEqual(len(names), len(set(names)))
+        self.assertEqual(study["maps"]["included"], len(names))
+        self.assertEqual(
+            study["maps"]["files_seen"],
+            len(names)
+            + len(study["maps"]["excluded"])
+            + len(study["maps"]["failures"]),
+        )
+        for key, file in (
+            ("reader", "tools/map-factory/survey/measure_maps.py"),
+            ("measure_tool", "tools/map-factory/survey/measure_terrain_interest.py"),
+            ("measure_source", "tools/map-factory/terrain_interest.py"),
+        ):
+            self.assertEqual(study["tool"][key]["file"], file)
+            self.assertEqual(
+                study["tool"][key]["sha256"],
+                hashlib.sha256((ROOT / file).read_bytes()).hexdigest(),
+            )
+        self.assertEqual(
+            bound["artifact"], "tools/map-factory/survey/terrain-interest.json"
+        )
+        self.assertEqual(bound["artifact_sha256"], hashlib.sha256(raw).hexdigest())
+        self.assertEqual(bound["rows_sha256"], self.terrain_rows_sha(study["rows"]))
+        for measure_id, measure in study["measures"].items():
+            self.assertEqual(measure["definition"], STOCK_MEASURES[measure_id])
+            self.assertEqual(measure["kind"], "terrain_shape")
+            values = sorted(row[measure_id] for row in study["rows"])
+
+            def q(p):
+                index = (len(values) - 1) * p
+                lo, hi = int(np.floor(index)), int(np.ceil(index))
+                return values[lo] + (values[hi] - values[lo]) * (index - lo)
+
+            declared = study["quantiles"][measure_id]
+            self.assertEqual(declared["n"], len(values))
+            self.assertEqual(declared["p25"], q(0.25))
+            self.assertEqual(declared["median"], q(0.5))
+            self.assertEqual(declared["p75"], q(0.75))
+            metric = LEDGER["stock_reference"]["metrics"][measure_id]
+            self.assertEqual(
+                [metric["p25"], metric["median"], metric["p75"]],
+                [declared["p25"], declared["median"], declared["p75"]],
+            )
+        # A malformed grid must fail closed rather than yield a false percentile.
+        with self.assertRaises(ValueError):
+            terrain_interest_metrics(np.zeros((1080, 1081)))
+        with self.assertRaises(ValueError):
+            terrain_interest_metrics(np.full((1081, 1081), np.nan))
+
+    @staticmethod
+    def terrain_rows_sha(rows):
+        """The same compact JSON bytes capability-ledger.mjs hashes."""
+        result = subprocess.run(
+            [
+                "node",
+                "--input-type=module",
+                "-e",
+                "import {createHash} from 'node:crypto';"
+                "import {readFileSync} from 'node:fs';"
+                "process.stdout.write(createHash('sha256').update(JSON.stringify(JSON.parse(readFileSync(0,'utf8')))).digest('hex'));",
+            ],
+            cwd=ROOT,
+            input=json.dumps(rows),
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+        return result.stdout
 
     def test_stock_band_boundaries(self):
         metric = {"p25": 1, "p75": 3}

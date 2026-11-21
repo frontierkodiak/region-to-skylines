@@ -78,6 +78,10 @@ export function mountCapabilities(root) {
       const link = document.createElement("a"); link.href = "./capabilities.html#water";
       link.textContent = " Water checks"; detail.append(link);
     }
+    if (button.dataset.metric) {
+      const link = document.createElement("a"); link.href = "./capabilities.html#stock";
+      link.textContent = " Stock measures"; detail.append(link);
+    }
     detail.hidden = false; };
   const hide = () => { active = null; detail.hidden = true; };
   for (const [id, name] of Object.entries(LABELS)) {
@@ -168,9 +172,11 @@ export function mountCapabilities(root) {
         button.title = `${metric.name}: unknown for this square.`;
       } else {
         const screening = policy?.basis?.includes("water_screening") ? " The dry mask uses capture-time water screening." : "";
+        const shape = metric.kind === "terrain_shape"
+          ? " Terrain shape over all terrain, including waterbeds; not buildable land." : "";
         button.dataset.state = "measured"; button.dataset.band = row.band;
         value.textContent = format(row.value, row.unit); band.textContent = BANDS[row.band];
-        button.title = `${metric.name}: ${format(row.value, row.unit)}, ${BANDS[row.band].toLowerCase()}. p25 ${format(row.p25, row.unit)}, median ${format(row.median, row.unit)}, p75 ${format(row.p75, row.unit)} across ${reference.maps} shipped maps. Capture estimate, not the finished map.${screening}`;
+        button.title = `${metric.name}: ${format(row.value, row.unit)}, ${BANDS[row.band].toLowerCase()}. p25 ${format(row.p25, row.unit)}, median ${format(row.median, row.unit)}, p75 ${format(row.p75, row.unit)} across ${reference.maps} shipped maps. Capture estimate, not the finished map.${shape}${screening}`;
       }
       button.setAttribute("aria-label", button.title);
     }

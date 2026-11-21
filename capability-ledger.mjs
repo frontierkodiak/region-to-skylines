@@ -3,7 +3,8 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { isDeepStrictEqual } from "node:util";
-import { validNativeContext, validNativeIdentityRef } from "./capability-model.js";
+import { STOCK_MEASURES, validNativeContext, validNativeIdentityRef } from "./capability-model.js";
+import { CAPTURE_STOCK } from "./capability-inputs.js";
 
 import { WATER_STUDY, validateWaterStudy, waterStudyPage } from "./water-calibration.mjs";
 
@@ -14,10 +15,94 @@ import { RAIL_STUDY, railStudy, validateRailStudy, railStudyPage } from "./rail-
 export const START_WATER_PROJECTION_SHA = "26f5a6cc0c9412970eb80888c0e378af11c316bf1ca3bd8501c8fc8ebf6b73da";
 export const WATER_PROJECTION_SHA = "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf";
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
+export const TERRAIN_INTEREST_ARTIFACT = "tools/map-factory/survey/terrain-interest.json";
+export const TERRAIN_INTEREST_VERSION = "pl1228-terrain-interest-v1";
+const TERRAIN_INTEREST_IDS = ["terrain_roughness_percent", "central_terrain_diversity_m"];
+const TERRAIN_INTEREST_TOOLS = {
+  reader: "tools/map-factory/survey/measure_maps.py",
+  measure_tool: "tools/map-factory/survey/measure_terrain_interest.py",
+  measure_source: "tools/map-factory/terrain_interest.py",
+};
 const LEVELS = ["likely", "not_possible_here", "promised", "unknown"];
 const escape = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const label = (s) => s.replaceAll("_", " ");
 const sha = (raw) => createHash("sha256").update(raw).digest("hex");
+
+function linearQuantile(values, p) {
+  const index = (values.length - 1) * p, lo = Math.floor(index), hi = Math.ceil(index);
+  return values[lo] + (values[hi] - values[lo]) * (index - lo);
+}
+
+/**
+ * The terrain-shape interest study. Its artifact is generated read-only from the
+ * shipped maps by `survey/measure_terrain_interest.py`, which imports the same
+ * measure function the prepared report uses. Validation here re-derives the
+ * quartiles from the artifact's rows, re-hashes every bound tool and refuses a
+ * stale artifact, so the ledger cannot cite a measurement it no longer owns.
+ */
+function terrainInterest() {
+  const path = TERRAIN_INTEREST_ARTIFACT, raw = readFileSync(ROOT + path), study = JSON.parse(raw);
+  if (study.schema !== 1 || study.version !== TERRAIN_INTEREST_VERSION) throw new Error("Invalid terrain interest artifact header");
+  if (study.maps?.read_only !== true || !Array.isArray(study.rows) || !study.rows.length) throw new Error("Terrain interest artifact is not a read-only survey");
+  const failures = study.maps.failures ?? [], excluded = study.maps.excluded ?? [];
+  if (failures.length) throw new Error(`Terrain interest survey has failures: ${failures.map((f) => f.file).join(", ")}`);
+  if (study.maps.included !== study.rows.length || study.maps.files_seen !== study.rows.length + excluded.length + failures.length) throw new Error("Terrain interest survey counts do not add up");
+  const names = study.rows.map((row) => row.file);
+  if (JSON.stringify(names) !== JSON.stringify([...names].sort()) || new Set(names).size !== names.length) throw new Error("Terrain interest rows are not sorted unique file names");
+  if (JSON.stringify(Object.keys(study.measures ?? {}).sort()) !== JSON.stringify([...TERRAIN_INTEREST_IDS].sort())) throw new Error("Terrain interest artifact measures changed");
+  for (const [key, file] of Object.entries(TERRAIN_INTEREST_TOOLS)) {
+    const tool = study.tool?.[key];
+    if (!tool || tool.file !== file || !/^[a-f0-9]{64}$/.test(tool.sha256 ?? "") || sha(readFileSync(ROOT + file)) !== tool.sha256) throw new Error(`Stale terrain interest tool binding: ${key}`);
+  }
+  const metrics = {};
+  for (const id of TERRAIN_INTEREST_IDS) {
+    const measure = study.measures[id];
+    if (measure.kind !== "terrain_shape" || measure.name !== STOCK_MEASURES[id].label || measure.definition !== STOCK_MEASURES[id].definition) throw new Error(`Terrain interest measure drifted from the shared edge: ${id}`);
+    const values = study.rows.map((row) => row[id]).filter(Number.isFinite).sort((a, b) => a - b);
+    if (values.length !== study.maps.included) throw new Error(`Terrain interest rows lack ${id}`);
+    const declared = study.quantiles?.[id];
+    if (!declared || declared.n !== values.length || declared.p25 !== linearQuantile(values, 0.25) || declared.median !== linearQuantile(values, 0.5) || declared.p75 !== linearQuantile(values, 0.75)) throw new Error(`Terrain interest quartiles are stale: ${id}`);
+    metrics[id] = { name: measure.name, unit: measure.unit, n: values.length, p25: declared.p25, median: declared.median, p75: declared.p75, definition: measure.definition, kind: measure.kind };
+  }
+  const evidence = {
+    fixtures: ["asheville", "charleston", "innsbruck", "pittsburgh", "rio"],
+    height_fit: {
+      default: ["asheville", "charleston", "pittsburgh"],
+      non_default: { innsbruck: 0.4469348561033608, rio: 0.9198811898929851 },
+      source: "fixtures/<slug>/geometry.json.gz fit.verticalScale",
+    },
+    method: "Each committed fixture's retained prepared terrain (terrain.u16 at 1/64 m) compared with that square's retained capture heightmap (input.png, rows north-first, flipped to the game's south-first order, read at the same 1/64 m unit), on the same predicate and this ledger's quartiles.",
+    result: {
+      terrain_relief_m: { max_abs_difference: 1.1, bands_differ: [] },
+      terrain_roughness_percent: { max_abs_difference: 0.39, bands_differ: [] },
+      central_terrain_diversity_m: { max_abs_difference: 0.5, bands_differ: [] },
+      median_land_slope_percent: { bands_differ: ["asheville"] },
+      wet_central_fraction: { bands_differ: ["charleston", "pittsburgh", "rio"] },
+    },
+    test: "tools/map-factory/test_capabilities.py:test_capture_fidelity_keeps_only_matched_measures",
+  };
+  return {
+    metrics,
+    study: {
+      artifact: path,
+      artifact_sha256: sha(raw),
+      version: study.version,
+      generated_at: study.generated_at,
+      scope: study.scope,
+      fidelity: study.fidelity,
+      quantiles_policy: study.quantiles_policy,
+      maps: study.maps,
+      tool: study.tool,
+      rows_sha256: sha(JSON.stringify(study.rows)),
+      measures: TERRAIN_INTEREST_IDS,
+      comparability: {
+        prepared_report: "Final prepared grids are the same 1081-square, 16 m, south-first terrain at 1/64 m the stock survey reads; every measure is comparable there.",
+        capture_estimate: CAPTURE_STOCK,
+        evidence,
+      },
+    },
+  };
+}
 
 export function stockReference() {
   const path = "tools/map-factory/survey/basemaps.json", raw = readFileSync(ROOT + path);
@@ -37,7 +122,8 @@ export function stockReference() {
     const q = (p) => { const index = (values.length - 1) * p, lo = Math.floor(index), hi = Math.ceil(index); return values[lo] + (values[hi] - values[lo]) * (index - lo); };
     metrics[key] = { name, unit, n: values.length, p25: q(0.25), median: q(0.5), p75: q(0.75) };
   }
-  return { source: path, sha256: sha(raw), maps: maps.length, excluded: "CO.crp: blank editor terrain system package", quantiles: "Linear interpolation at (n-1)*p; bands strictly below p25, inclusive typical, strictly above p75. Descriptive, not quality gates.", metrics };
+  const interest = terrainInterest();
+  return { source: path, sha256: sha(raw), maps: maps.length, excluded: "CO.crp: blank editor terrain system package", quantiles: "Linear interpolation at (n-1)*p; bands strictly below p25, inclusive typical, strictly above p75. Descriptive, not quality gates.", metrics: { ...metrics, ...interest.metrics }, terrain_interest: interest.study };
 }
 
 export function validateLedger(ledger) {
@@ -109,6 +195,33 @@ export function agreementByOracle(rows) {
   });
 }
 
+function terrainInterestPage(ledger, escape) {
+  const study = ledger.stock_reference.terrain_interest;
+  if (!study) return "";
+  const rows = study.measures.map((id) => {
+    const metric = ledger.stock_reference.metrics[id];
+    return `<tr><th>${escape(metric.name)}</th><td>${escape(metric.definition)}</td><td>${escape(metric.unit)}</td>${[metric.p25, metric.median, metric.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`;
+  }).join("");
+  const policy = study.comparability.capture_estimate;
+  const compared = study.measures.filter((id) => policy[id]?.comparable).map((id) => ledger.stock_reference.metrics[id].name);
+  const withheld = Object.entries(policy).filter(([, value]) => value?.comparable === false)
+    .map(([id, value]) => `${escape(ledger.stock_reference.metrics[id]?.name ?? id)} (${escape(value.reason)})`);
+  const evidence = study.comparability.evidence;
+  const evidenceRows = Object.entries(evidence.result).map(([id, row]) =>
+    `<tr><th>${escape(ledger.stock_reference.metrics[id]?.name ?? id)}</th><td>${escape(row.max_abs_difference != null ? `${row.max_abs_difference}` : "not measured")}</td><td>${escape(row.bands_differ.length ? row.bands_differ.join(", ") : "none")}</td></tr>`).join("");
+  return `<h3>Terrain-shape measures, live</h3><p>${escape(study.scope)} They use the same 1081-square, 16 m, south-first grid, the same 1/64 m height unit and the same central predicate as the prepared report and the stock survey.</p>
+    <div class="ledger-table"><table><thead><tr><th>Measure</th><th>What it measures</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p>At pan time the capture compares ${compared.map((s) => escape(s)).join(" and ")}. ${withheld.length ? `Not comparable there: ${withheld.join("; ")}.` : ""}</p>
+    <details><summary>Comparability evidence on the committed squares</summary><p>${escape(evidence.method)}</p><table><thead><tr><th>Measure</th><th>Largest prepared-vs-capture difference</th><th>Bands that differ</th></tr></thead><tbody>${evidenceRows}</tbody></table><p>Height fit: default on ${escape(evidence.height_fit.default.join(", "))}; non-default on ${Object.entries(evidence.height_fit.non_default).map(([slug, scale]) => `${escape(slug)} ${scale}x`).join(", ")}. Proof: <code>${escape(evidence.test)}</code>.</p></details>
+    <details><summary>Terrain-shape source, rows and tools</summary><p>Measured rows: <a href="./${escape(study.artifact)}">${escape(study.artifact)}</a> (${escape(study.artifact_sha256)}), served byte for byte.</p><pre>${escape(JSON.stringify({ artifact: study.artifact, artifact_sha256: study.artifact_sha256, version: study.version, generated_at: study.generated_at, fidelity: study.fidelity, quantiles_policy: study.quantiles_policy, maps: study.maps, tool: study.tool, rows_sha256: study.rows_sha256, rows: `${study.maps.included} measured rows bound by rows_sha256` }, null, 2))}</pre></details>`;
+}
+
+function terrainInterestLaunchBar(proposal, escape) {
+  if (!proposal) return "";
+  const recommended = proposal.recommended.map((id) => `<li>${escape(id)}</li>`).join("");
+  return `<h3>Terrain interest on the launch bar</h3><ul>${recommended}</ul><p>${escape(proposal.wording)}</p>${proposal.set_aside ? `<p class=note>${escape(proposal.set_aside)}</p>` : ""}<p class=note>${escape(proposal.limits)}</p>`;
+}
+
 export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
   const directedRail = railStudy();
   const sourceLink = (ref) => `<a href="https://github.com/frontierkodiak/region-to-skylines/blob/${encodeURIComponent(revision)}/${escape(ref.split(":")[0])}">${escape(ref)}</a>`;
@@ -142,8 +255,10 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
       return `<aside class=note data-study="${escape(id)}"><h2>Native study: what was scored · ${escape(id)}</h2><p>Frozen predictor: ${escape(s.prediction_model)} at ${escape(s.prediction_source_sha)}. Current runtime adds exact-context qualification; it is not a new native boundary fit.</p><p>${escape(s.method)}</p><p>${escape(s.limits)}</p><p>${s.qualification_candidates?.length ?? 0} retained control sets; ${pending} awaiting independent review. Active certificates: ${active.length}. Studies are not pooled as independent votes.</p><a href="${escape(s.source_url)}">Immutable study, raw receipts and failures</a></aside>`;
     }).join("")}
     <nav aria-label="Capabilities">${ledger.capabilities.map((c) => `<a href="#${escape(c.id)}">${escape(c.name)}</a>`).join(" ")}</nav>${caps}
-    <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div><details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>
-    <article id="launch"><h2>Proposed launch bar</h2><ul>${ledger.launch_bar_proposal.required.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><h3>Describe, without gating</h3><ul>${ledger.launch_bar_proposal.descriptive_not_gates.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><p class=note>${escape(ledger.launch_bar_proposal.limits)}</p></article></section></main></body></html>`;
+    <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    ${terrainInterestPage(ledger, escape)}
+    <details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>
+    <article id="launch"><h2>Proposed launch bar</h2><ul>${ledger.launch_bar_proposal.required.map((s) => `<li>${escape(s)}</li>`).join("")}</ul><h3>Describe, without gating</h3><ul>${ledger.launch_bar_proposal.descriptive_not_gates.map((s) => `<li>${escape(s)}</li>`).join("")}</ul>${terrainInterestLaunchBar(ledger.launch_bar_proposal.terrain_interest, escape)}<p class=note>${escape(ledger.launch_bar_proposal.limits)}</p></article></section></main></body></html>`;
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {

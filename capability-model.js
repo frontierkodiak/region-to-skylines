@@ -320,6 +320,14 @@ export const STOCK_MEASURES = {
     label: "Terrain relief",
     definition: "highest minus lowest terrain over all 1081 x 1081 nodes, in metres",
   },
+  terrain_roughness_percent: {
+    label: "Terrain roughness",
+    definition: "mean terrain gradient magnitude at 16 m spacing over all 1081 x 1081 nodes, in percent",
+  },
+  central_terrain_diversity_m: {
+    label: "Central height range",
+    definition: "90th minus 10th percentile of terrain height over the central 25 tiles' nodes, in metres",
+  },
   median_land_slope_percent: {
     label: "Central land slope",
     definition: "median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent",
@@ -336,6 +344,14 @@ const STOCK_CENTRAL = Array.from({ length: STOCK_RESOURCE }, (_, i) => {
 });
 const STOCK_NODE = Array.from({ length: STOCK_RESOURCE }, (_, i) =>
   Math.min(STOCK_GRID - 1, Math.max(0, Math.floor(((i - 256 + 0.5) * STOCK_CELL_M + 8640) / STOCK_SPACING_M + 0.5))));
+// The central 25 tiles' sampled node rows/columns. terrain_interest.py derives
+// the same list from survey.measure_maps.py's CENTRAL mask.
+const STOCK_CENTRAL_NODE = STOCK_NODE.filter((_, i) => STOCK_CENTRAL[i]);
+// Numpy's default 'linear' percentile: index (n-1)*p between the two neighbours.
+function percentile(sorted, p) {
+  const index = (sorted.length - 1) * p, lo = Math.floor(index), hi = Math.ceil(index);
+  return sorted[lo] + (sorted[hi] - sorted[lo]) * (index - lo);
+}
 // Python's round() on the exact decimal value of the double, ties to even, so the
 // two cores print the same number at a dyadic tie (e.g. 6.25 -> 6.2, not 6.3).
 function round(value, places) {
@@ -348,12 +364,22 @@ function round(value, places) {
   return (negative ? -head : head) / 10 ** places;
 }
 
-/** The three stock measures on 1081-square terrain/water metre grids in the game's south-first row order. */
+/**
+ * The five stock measures on 1081-square terrain/water metre grids in the game's
+ * south-first row order. The two terrain-shape measures read terrain only: no
+ * water mask, no dry filter, no buildability screen. Heights are quantized to
+ * the game's 1/64 m terrain unit first, as terrain_interest.py does.
+ */
 export function measureStockMetrics(ground, depth) {
   if (ground?.length !== STOCK_GRID ** 2 || depth?.length !== STOCK_GRID ** 2)
     throw new Error("Stock measures need 1081-square terrain and water grids");
   let low = Infinity, high = -Infinity;
-  for (let i = 0; i < ground.length; i++) { const h = ground[i]; if (h < low) low = h; if (h > high) high = h; }
+  const quantized = new Float64Array(ground.length);
+  for (let i = 0; i < ground.length; i++) {
+    const h = ground[i];
+    if (h < low) low = h; if (h > high) high = h;
+    quantized[i] = Math.floor(h * 64 + 0.5) / 64;
+  }
   const slopes = [];
   let wet = 0, central = 0;
   for (let r = 0; r < STOCK_RESOURCE; r++) {
@@ -373,8 +399,31 @@ export function measureStockMetrics(ground, depth) {
   const middle = slopes.length >> 1;
   const median = !slopes.length ? null
     : slopes.length % 2 ? slopes[middle] : (slopes[middle - 1] + slopes[middle]) / 2;
+  // Whole-map gradient, one-sided at the outer rows, same arithmetic as numpy.
+  let gradientSum = 0;
+  for (let r = 0; r < STOCK_GRID; r++) {
+    const row = r * STOCK_GRID;
+    for (let c = 0; c < STOCK_GRID; c++) {
+      const i = row + c;
+      const dz = r === 0 ? (quantized[i + STOCK_GRID] - quantized[i]) / STOCK_SPACING_M
+        : r === STOCK_GRID - 1 ? (quantized[i] - quantized[i - STOCK_GRID]) / STOCK_SPACING_M
+        : (quantized[i + STOCK_GRID] - quantized[i - STOCK_GRID]) / (2 * STOCK_SPACING_M);
+      const dx = c === 0 ? (quantized[i + 1] - quantized[i]) / STOCK_SPACING_M
+        : c === STOCK_GRID - 1 ? (quantized[i] - quantized[i - 1]) / STOCK_SPACING_M
+        : (quantized[i + 1] - quantized[i - 1]) / (2 * STOCK_SPACING_M);
+      gradientSum += Math.sqrt(dx * dx + dz * dz) * 100;
+    }
+  }
+  const nodes = STOCK_CENTRAL_NODE.length, centralValues = new Float64Array(nodes * nodes);
+  for (let r = 0; r < nodes; r++) {
+    const row = STOCK_CENTRAL_NODE[r] * STOCK_GRID;
+    for (let c = 0; c < nodes; c++) centralValues[r * nodes + c] = quantized[row + STOCK_CENTRAL_NODE[c]];
+  }
+  centralValues.sort();
   return {
     terrain_relief_m: Number.isFinite(high - low) ? round(high - low, 1) : null,
+    terrain_roughness_percent: Number.isFinite(gradientSum / quantized.length) ? round(gradientSum / quantized.length, 2) : null,
+    central_terrain_diversity_m: nodes ? round(percentile(centralValues, 0.9) - percentile(centralValues, 0.1), 1) : null,
     wet_central_fraction: central ? round(wet / central, 4) : null,
     median_land_slope_percent: median == null ? null : round(median, 1),
   };
@@ -388,10 +437,10 @@ export function measureStockMetrics(ground, depth) {
 export function stockComparison(values, reference, comparability = {}) {
   const metrics = reference?.metrics ?? {};
   return Object.fromEntries(Object.entries(STOCK_MEASURES).map(([id, measure]) => {
-    const metric = metrics[id], comparable = comparability[id]?.comparable !== false;
+    const metric = metrics[id], policy = comparability?.[id], comparable = policy?.comparable !== false;
     const value = comparable && Number.isFinite(values?.[id]) ? values[id] : null;
     return [id, {
-      value, comparable, definition: measure.definition, label: measure.label,
+      value, comparable, reason: comparable ? null : (policy?.reason ?? "not_comparable"), definition: measure.definition, label: measure.label,
       unit: metric?.unit ?? null, p25: metric?.p25 ?? null, median: metric?.median ?? null, p75: metric?.p75 ?? null,
       band: stockBand(value, metric),
     }];

@@ -50,6 +50,9 @@ for (const study of Object.values(ledger.capabilities.find((c) => c.id === "wate
   }
 }
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
+// The terrain-shape survey the stock reference cites, byte for byte.
+mkdirSync("dist/tools/map-factory/survey", { recursive: true });
+copyFileSync("tools/map-factory/survey/terrain-interest.json", "dist/tools/map-factory/survey/terrain-interest.json");
 // the map writer the worker runs (tools/map-factory), byte for byte
 for (const f of FACTORY_FILES) {
   mkdirSync(dirname(`dist/tools/map-factory/${f}`), { recursive: true });

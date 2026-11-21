@@ -15,6 +15,7 @@ from pathlib import Path
 
 import numpy as np
 from start_model import evaluate_start, digest as start_digest
+from terrain_interest import TERRAIN_INTEREST_MEASURES, terrain_interest_metrics
 from water_model import (
     MODEL as WATER_MODEL,
     evaluate_water,
@@ -707,20 +708,29 @@ def check(data, ledger):
 
 # Mirrored in capability-model.js STOCK_MEASURES. Same definitions as
 # survey/measure_maps.py: 1081 nodes, 16 m gradient, central 25-tile mask and
-# 0.5 m wet threshold. Strings are asserted equal across both cores by the
-# Python/JavaScript parity test.
+# 0.5 m wet threshold. The two terrain-shape measures live in
+# terrain_interest.py so the stock survey and this report import one function.
+# Strings are asserted equal across both cores by the Python/JavaScript parity
+# test.
 STOCK_MEASURES = {
     "terrain_relief_m": "highest minus lowest terrain over all 1081 x 1081 nodes, in metres",
+    "terrain_roughness_percent": TERRAIN_INTEREST_MEASURES["terrain_roughness_percent"][
+        "definition"
+    ],
+    "central_terrain_diversity_m": TERRAIN_INTEREST_MEASURES[
+        "central_terrain_diversity_m"
+    ]["definition"],
     "median_land_slope_percent": "median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent",
     "wet_central_fraction": "share of the central 25 tiles whose water depth is above 0.5 m",
 }
 
 
 def stock_metrics(ground, depth, field=None):
-    """The three stock measures on 1081-square terrain/water metre grids.
+    """The five stock measures on 1081-square terrain/water metre grids.
 
     `field` is an already-computed `survey.measure_maps.terrain_fields` when the
-    caller needs it for something else; the values are identical either way.
+    caller needs it for something else; the values are identical either way. The
+    two terrain-shape measures read terrain only and need no water mask.
     """
     if ground.shape != (1081, 1081) or depth.shape != (1081, 1081):
         raise ValueError("Stock measures need 1081-square terrain and water grids")
@@ -728,7 +738,7 @@ def stock_metrics(ground, depth, field=None):
 
     field = terrain_fields(ground, depth) if field is None else field
     land = CENTRAL & field["land"]
-    return {
+    values = {
         "terrain_relief_m": round(float(ground.max() - ground.min()), 1),
         "wet_central_fraction": round(
             float((CENTRAL & field["wet"]).sum() / CENTRAL.sum()), 4
@@ -737,6 +747,8 @@ def stock_metrics(ground, depth, field=None):
         if land.any()
         else None,
     }
+    values.update(terrain_interest_metrics(ground))
+    return values
 
 
 def stock_band(value, metric):

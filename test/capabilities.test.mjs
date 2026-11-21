@@ -1,9 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { checkCapabilities, measureStockMetrics, networkAccess, shipCorridor, stockBand, stockComparison, STOCK_MEASURES } from "../capability-model.js";
 import { validateLedger, ledgerPage, stockReference, agreementByOracle } from "../capability-ledger.mjs";
-import { captureEstimate, estimateInputs } from "../capability-inputs.js";
+import { CAPTURE_STOCK, captureEstimate, estimateInputs, stockEstimate } from "../capability-inputs.js";
 import { latticeLonLat, parseMrdsXml, PLACE_GRID, requestDeposits, requestLandcover } from "../capability-evidence.js";
 import { placeDetail } from "../capability-ui.js";
 import { squareToLonLat } from "../terrain.js";
@@ -24,6 +25,51 @@ test("ledger references real checks, calibrated seed and all 104 stock maps", ()
   assert.match(page, /no native negative is validated/i);
   assert.match(page, /104 shipped maps/);
   assert.match(page, /blob\/test-source\/tools\/map-factory\/capabilities.py/);
+  assert.match(page, /Terrain-shape measures, live/);
+  assert.match(page, /Comparability evidence on the committed squares/);
+  assert.match(page, /Terrain interest on the launch bar/);
+});
+
+test("the terrain-interest survey is row-, tool- and quartile-bound", () => {
+  const bound = ledger.stock_reference.terrain_interest;
+  const raw = readFileSync(new URL("../" + bound.artifact, import.meta.url));
+  assert.equal(bound.artifact_sha256, createHash("sha256").update(raw).digest("hex"));
+  const study = JSON.parse(raw);
+  assert.equal(study.version, "pl1228-terrain-interest-v1");
+  const names = study.rows.map((row) => row.file);
+  assert.deepEqual(names, [...names].sort());
+  assert.equal(new Set(names).size, names.length);
+  assert.equal(study.maps.read_only, true);
+  assert.equal(study.maps.included, study.rows.length);
+  assert.equal(study.maps.files_seen, study.rows.length + study.maps.excluded.length + study.maps.failures.length);
+  assert.deepEqual(study.maps.failures, []);
+  assert.deepEqual(bound.comparability.capture_estimate, CAPTURE_STOCK);
+  assert.deepEqual(bound.measures, ["terrain_roughness_percent", "central_terrain_diversity_m"]);
+  for (const [key, file] of Object.entries({
+    reader: "tools/map-factory/survey/measure_maps.py",
+    measure_tool: "tools/map-factory/survey/measure_terrain_interest.py",
+    measure_source: "tools/map-factory/terrain_interest.py",
+  })) assert.equal(bound.tool[key].sha256, createHash("sha256").update(readFileSync(new URL("../" + file, import.meta.url))).digest("hex"));
+  assert.equal(bound.rows_sha256, createHash("sha256").update(JSON.stringify(study.rows)).digest("hex"));
+  const q = (values, p) => { const index = (values.length - 1) * p, lo = Math.floor(index), hi = Math.ceil(index); return values[lo] + (values[hi] - values[lo]) * (index - lo); };
+  for (const id of bound.measures) {
+    const values = study.rows.map((row) => row[id]).sort((a, b) => a - b);
+    assert.equal(values.length, study.maps.included);
+    for (const [key, p] of [["p25", 0.25], ["median", 0.5], ["p75", 0.75]])
+      assert.equal(ledger.stock_reference.metrics[id][key], q(values, p), `${id} ${key}`);
+    assert.equal(ledger.stock_reference.metrics[id].definition, STOCK_MEASURES[id].definition);
+    assert.equal(ledger.stock_reference.metrics[id].name, STOCK_MEASURES[id].label);
+    assert.equal(ledger.stock_reference.metrics[id].kind, "terrain_shape");
+  }
+  // A changed quartile or a rewritten policy makes the stock reference stale.
+  for (const mutate of [
+    (candidate) => { candidate.stock_reference.metrics.terrain_roughness_percent.p25 = 0; },
+    (candidate) => { candidate.stock_reference.terrain_interest.comparability.capture_estimate.terrain_roughness_percent.basis = "changed"; },
+    (candidate) => { candidate.stock_reference.terrain_interest.rows_sha256 = "0".repeat(64); },
+  ]) {
+    const candidate = structuredClone(ledger); mutate(candidate);
+    assert.throws(() => validateLedger(candidate), /Stock reference is stale/);
+  }
 });
 
 test("outside counts do not establish directed road connectivity", () => {
@@ -143,7 +189,10 @@ test("stock measures follow the prepared definitions, mask and wet threshold", (
   const n = 1081, ground = new Float64Array(n ** 2), depth = new Float64Array(n ** 2);
   // 1 m per 16 m row is exactly 6.25% slope; Python's round() takes the tie to 6.2.
   for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) ground[r * n + c] = r;
-  assert.deepEqual(measureStockMetrics(ground, depth), { terrain_relief_m: 1080, wet_central_fraction: 0, median_land_slope_percent: 6.2 });
+  assert.deepEqual(measureStockMetrics(ground, depth), {
+    terrain_relief_m: 1080, terrain_roughness_percent: 6.25, central_terrain_diversity_m: 481,
+    wet_central_fraction: 0, median_land_slope_percent: 6.2,
+  });
   ground.fill(100);
   depth.fill(0.5); // the threshold is strictly above 0.5 m, as in terrain_fields()
   assert.equal(measureStockMetrics(ground, depth).wet_central_fraction, 0);
@@ -155,24 +204,70 @@ test("stock measures follow the prepared definitions, mask and wet threshold", (
   assert.throws(() => measureStockMetrics(new Float64Array(4), depth), /1081-square/);
 });
 
+test("terrain-shape measures are terrain only and read a constructed step", () => {
+  const n = 1081, depth = new Float64Array(n ** 2);
+  const flat = new Float64Array(n ** 2).fill(100);
+  const flatResult = measureStockMetrics(flat, new Float64Array(n ** 2).fill(500));
+  assert.equal(flatResult.terrain_roughness_percent, 0);
+  assert.equal(flatResult.central_terrain_diversity_m, 0);
+  // A single step down the middle: the central window spans both levels.
+  const step = new Float64Array(n ** 2);
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) step[r * n + c] = c < 540 ? 100 : 200;
+  const reference = measureStockMetrics(step, depth);
+  assert.ok(reference.terrain_roughness_percent > 0, "a step has roughness");
+  assert.equal(reference.central_terrain_diversity_m, 100, "the central window sees both levels");
+  // The terrain-shape measures never read depth.
+  assert.equal(measureStockMetrics(step, new Float64Array(n ** 2).fill(9)).terrain_roughness_percent, reference.terrain_roughness_percent);
+  assert.equal(measureStockMetrics(step, new Float64Array(n ** 2).fill(9)).central_terrain_diversity_m, reference.central_terrain_diversity_m);
+});
+
+test("a capture grid mismatch is Not comparable with a typed reason", () => {
+  const short = stockEstimate({ game: new Float32Array(4) }, new Float64Array(4));
+  assert.equal(short.measures, null);
+  assert.equal(short.comparability.terrain_roughness_percent.reason, "capture_grid_fidelity_mismatch");
+  const rows = stockComparison(short.measures, ledger.stock_reference, short.comparability);
+  for (const row of Object.values(rows)) {
+    assert.equal(row.comparable, false);
+    assert.equal(row.value, null);
+    assert.equal(row.band, "not_comparable");
+    assert.equal(row.reason, "capture_grid_fidelity_mismatch");
+  }
+});
+
 test("stock comparison withholds only the measures capture fidelity cannot support", () => {
   const reference = ledger.stock_reference;
-  const values = { terrain_relief_m: 300, median_land_slope_percent: 9, wet_central_fraction: 0.2 };
-  const withheld = { median_land_slope_percent: { comparable: false }, wet_central_fraction: { comparable: false } };
+  const values = {
+    terrain_relief_m: 300, terrain_roughness_percent: 25, central_terrain_diversity_m: 400,
+    median_land_slope_percent: 9, wet_central_fraction: 0.2,
+  };
+  const withheld = {
+    median_land_slope_percent: { comparable: false, reason: "capture_terrain_and_water_are_not_prepared" },
+    wet_central_fraction: { comparable: false, reason: "capture_bed_depth_is_not_prepared_water" },
+  };
   const result = stockComparison(values, reference, withheld);
   assert.equal(result.terrain_relief_m.value, 300);
   assert.equal(result.terrain_relief_m.band, "below_p25");
   assert.equal(result.terrain_relief_m.definition, STOCK_MEASURES.terrain_relief_m.definition);
   assert.deepEqual([result.terrain_relief_m.p25, result.terrain_relief_m.median, result.terrain_relief_m.p75], [reference.metrics.terrain_relief_m.p25, reference.metrics.terrain_relief_m.median, reference.metrics.terrain_relief_m.p75]);
+  assert.equal(result.terrain_roughness_percent.value, 25);
+  assert.equal(result.terrain_roughness_percent.band, "above_p75");
+  assert.equal(result.central_terrain_diversity_m.value, 400);
+  assert.equal(result.central_terrain_diversity_m.band, "above_p75");
   for (const id of ["median_land_slope_percent", "wet_central_fraction"]) {
     assert.equal(result[id].comparable, false);
     assert.equal(result[id].value, null, "a withheld measure carries no value to compare");
     assert.equal(result[id].band, "not_comparable");
+    assert.equal(result[id].reason, withheld[id].reason, "a withheld measure carries its typed reason");
     assert.ok(result[id].definition, "the definition still travels with the withheld measure");
   }
   assert.equal(result.median_land_slope_percent.label, "Central land slope");
+  assert.equal(result.terrain_roughness_percent.label, "Terrain roughness");
+  assert.equal(result.central_terrain_diversity_m.label, "Central height range");
+  assert.equal(Object.keys(result).length, Object.keys(STOCK_MEASURES).length);
   const missing = stockComparison(null, reference);
   for (const row of Object.values(missing)) { assert.equal(row.value, null); assert.equal(row.band, "not_comparable"); }
+  assert.deepEqual(CAPTURE_STOCK.terrain_roughness_percent.comparable, true);
+  assert.deepEqual(CAPTURE_STOCK.central_terrain_diversity_m.comparable, true);
 });
 
 test("UI adoption cannot hide changed live checks or rewritten historical gates", async () => {

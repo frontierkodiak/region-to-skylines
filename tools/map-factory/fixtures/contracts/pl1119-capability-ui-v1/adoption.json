@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "db8d610f1b0c7cd013031627741abf744888042c51668c63479bbbe53b1c9cea"
+      "current_sha256": "d9d81f92e446aa0967602875406c9c44db7dbdb61a679d98ef57560e689a70dd"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -256,14 +256,17 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "9acefe5dd77792e9f0bcc339589b9319b628127683ebd2265f3c6ad1040b8621",
+    "capabilities.json": "0e4655d608e9a185d8b1f7b2e29c763b0d8768bc97c32b26fb7a170740841022",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
-    "capability-inputs.js": "348bb2517d4886dd88819c960c4060c3494d8bf05a34e46843b1a861538abafc",
-    "capability-ledger.mjs": "44f57dd5a613ebc98581f6db61174a57bf73db338c27a1134407277ae4ba9c61",
-    "capability-model.js": "2be4f2fe25b2208b7cf272df144bacdf79de021f2a6bdf35babb7ff837f7630d",
-    "capability-ui.js": "0b103072873e570cb136ec0c54a4547ee9d7c88b0c32ccd366a0f65fc3889ea5",
-    "tools/map-factory/capabilities.py": "7d121c8e1151ecd6d46c774c9c1df216323436078549a7b1b60266e0a193ce7b",
+    "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1",
+    "capability-ledger.mjs": "5f14c6e560bc3a03566d76bf3ec83457fb40bb845c42f202c4e4f765a45c9240",
+    "capability-model.js": "0cca4b886eb22db30e5b95f0fe029dc3c186a7c9ff4b80149c40614cb78a17ea",
+    "capability-ui.js": "4ad29a27aea8e5e714503ec4e6bebc2e43e55e53c94d746a9e732805a873f853",
+    "tools/map-factory/capabilities.py": "437156b46b8f7f2cca00c7773aed12d64783c12a2938d0bffcb6e26723b88fea",
+    "tools/map-factory/terrain_interest.py": "a5b3a67e5d6c2e683160ddd86b3c69b7afc5f3fece576d562b5057019f822a77",
+    "tools/map-factory/survey/measure_terrain_interest.py": "d6061b7a428eba022b594443dc24aa512913020c8cddddae98be7b5fa57b8dfe",
+    "tools/map-factory/survey/terrain-interest.json": "f67e4bf00aedbe1b8d3a1da1bb714f800323b63e1ba0e2d83d01df4f70f1cc46",
     "tools/map-factory/integrate_outside_evidence.py": "0d69688e7852218b133a42d522f83ba713ee0df788a41ba56277f5a8f8f82cc3",
     "tools/map-factory/integrate_outside_v2.py": "239d3ea6e0f1e149446d6a32fbe9eb565c066db55ab25875f06ab9f9890cbd03",
     "tools/map-factory/capability-evidence/runtime-identities/25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0.json": "25eb5d7018f379e7dbb25fcd4a7e3ab72ef4155f3d54fca077257d6eefb7d8e0",

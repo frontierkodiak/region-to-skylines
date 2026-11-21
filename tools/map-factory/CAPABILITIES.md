@@ -66,28 +66,67 @@ report, so a square is never scored inside a second catalog:
 | Measure | Definition |
 |---|---|
 | Terrain relief | highest minus lowest terrain over all 1081 x 1081 nodes, in metres |
+| Terrain roughness | mean terrain gradient magnitude at 16 m spacing over all 1081 x 1081 nodes, in percent |
+| Central height range | 90th minus 10th percentile of terrain height over the central 25 tiles' nodes, in metres |
 | Central land slope | median terrain gradient at 16 m spacing over the central 25 tiles' dry samples, in percent |
 | Central wet share | share of the central 25 tiles whose water depth is above 0.5 m |
 
 `measureStockMetrics` (JavaScript) and `stock_metrics` (Python) are mirrored
-cores; the Python parity test compares their definitions, values and bands on the
-five committed prepared fixtures and on a dyadic rounding tie. Bands are strictly
-below p25, inclusive typical, strictly above p75: they describe abundance and
-interest, not a launch bar.
+cores, and both import the same two terrain-shape definitions from
+`terrain_interest.py`; the Python parity test compares their definitions, values
+and bands on the five committed prepared fixtures and on a dyadic rounding tie.
+Bands are strictly below p25, inclusive typical, strictly above p75: they
+describe abundance and interest, not a launch bar.
 
 Pan-time input is the same capture the icon row already fetches, before the
-writer's preparation. On the five committed fixtures it reproduces whole-map
-relief within 1.1 m and the same band every time. It does **not** reproduce the
-other two: Asheville's central land slope reads 11.7% (typical) where the prepared
-export is 12.1% (above p75), and Pittsburgh's central wet share reads 0.090 (typical)
-where the prepared export is 0.047 (below p25). The capture has carved-bed depth,
-not the prepared water level, and it has not had the preparation's terrain edits.
+writer's preparation. On the five committed fixtures, including the two
+non-default height fits (Innsbruck 0.447x, Rio 0.920x), it reproduces whole-map
+relief (within 1.1 m), terrain roughness (within 0.39 percentage points) and
+central height range (within 0.5 m), with the same stock band every time. It does
+**not** reproduce the other two: Asheville's central land slope reads 11.7%
+(typical) where the prepared export is 12.1% (above p75), and central wet share
+crosses a band on Charleston, Pittsburgh and Rio. The capture has carved-bed
+depth, not the prepared water level, and it has not had the preparation's terrain
+edits.
 
-So the live readout compares relief only and leaves central land slope and central
-wet share **Not comparable**, naming the gap in each row's detail. Their
-comparison is the prepared report's. The policy is `CAPTURE_STOCK` in
-`capability-inputs.js`; the fidelity test fails if the measured evidence stops
-supporting it. The readout clears on pan, a superseded or failed capture leaves no
+So the live readout compares relief and the two terrain-shape measures, and
+leaves central land slope and central wet share **Not comparable**, naming the
+typed reason in each row's detail. Their comparison is the prepared report's.
+The policy is `CAPTURE_STOCK` in `capability-inputs.js`; the fidelity test fails
+if the measured evidence stops supporting it. A capture that is not the full
+1081-square terrain/depth pair is Not comparable as well, with reason
+`capture_grid_fidelity_mismatch`.
+
+### Terrain-shape interest, from the shipped maps
+
+`terrain_interest.py` holds the two terrain-shape measures; `measureStockMetrics`
+(JavaScript) and `stock_metrics` (Python) are their two readers. Both measure
+terrain shape over all nodes, waterbeds included; neither reads a water mask, a
+dry filter or a buildability threshold. Heights are quantized to the game's
+1/64 m unit before measuring, and the central window is the same 25-tile node set
+the land measures already use.
+
+`survey/measure_terrain_interest.py` reads the 105 CRP files in the game's Maps
+folder read-only, sorted and SHA-256'd, and writes the new
+`survey/terrain-interest.json` artifact. It records the exact file names and
+hashes, package and data versions, the reader and measure-source hashes, the one
+exclusion (`CO.crp`, a blank editor system package), failures and all 104
+measured rows. It never rewrites the historical basemap survey. Quartiles use the
+ledger's linear `(n-1)*p` policy over the included rows.
+
+`capability-ledger.mjs` re-derives the quartiles from the artifact's rows and
+re-hashes all three bound tools, so a stale artifact or survey fails
+`validateLedger` instead of being cited. `capabilities.json` carries the
+definitions, source manifest, row digest, quartiles, comparability policy and the
+measured evidence on the five committed squares; the ledger page serves the
+artifact beside itself. The launch-bar proposal keeps both measures descriptive:
+terrain roughness and central height range belong in the context shown at launch,
+not in a pass/fail gate. A central flat-terrain share was measured and set aside
+because it reads as buildability and sits close to a stock quartile at capture
+fidelity.
+
+Regenerating the survey means the full command in `survey/README.md`, followed by
+`node capability-ledger.mjs --refresh-stock`. The readout clears on pan, a superseded or failed capture leaves no
 band, and its rows take the same hover, keyboard focus and tap as the icons.
 
 ## Vegetation and resources, live

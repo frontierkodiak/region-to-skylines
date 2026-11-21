@@ -52,8 +52,10 @@ try {
         import {liveFootprint} from "/start-model.js";
         const comparable = {
           terrain_relief_m: {comparable:true, basis:'capture_heightmap'},
-          median_land_slope_percent: {comparable:false, detail:'Slope needs the prepared terrain and water mask; constructed UI input only.'},
-          wet_central_fraction: {comparable:false, detail:'Carved-bed depth is not the prepared water level; constructed UI input only.'},
+          terrain_roughness_percent: {comparable:true, basis:'capture_terrain_1081_game_space'},
+          central_terrain_diversity_m: {comparable:true, basis:'capture_terrain_1081_game_space'},
+          median_land_slope_percent: {comparable:false, reason:'capture_terrain_and_water_are_not_prepared', detail:'Slope needs the prepared terrain and water mask; constructed UI input only.'},
+          wet_central_fraction: {comparable:false, reason:'capture_bed_depth_is_not_prepared_water', detail:'Carved-bed depth is not the prepared water level; constructed UI input only.'},
         };
         const N = 17, total = N * N, flat = new Array(total).fill(100);
         const cover = (cls) => ({status:'available', source:'ESA WorldCover (constructed)', fidelity:'constructed', cell_m:10, sample_m:40, tiles:['N00E000'], values:new Array(total).fill(cls)});
@@ -75,12 +77,16 @@ try {
           const water=liveShore(wg,wd);
           return { square:sq,
             input:{water_opportunity:water,start_footprint:footprint,schema:1,mode:'estimate',transport:{road:sq.lat !== 1},buildable_fraction:sq.lat === 5 ? 0.1 : 0.8,grid:{size:N,spacing_m:1080,depth_m:depth},place:place(sq)},
-            stock:{fidelity:'capture_estimate',measures:{terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
+            stock:{fidelity:'capture_estimate',measures:{
+              terrain_relief_m:sq.lat === 1 ? 300 : sq.lat === 5 ? 1200 : 700,
+              terrain_roughness_percent:sq.lat === 1 ? 5 : sq.lat === 5 ? 30 : 15,
+              central_terrain_diversity_m:sq.lat === 1 ? 50 : sq.lat === 5 ? 600 : 180,
+              median_land_slope_percent:9.9,wet_central_fraction:0.5},comparability:comparable} };
         }` }));
       await page.goto(origin + "/__ui_probe");
       await page.waitForFunction(() => !!window.capabilityProbe);
       assert.equal(await page.locator("[data-level=loading]").count(), 8);
-      assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
+      assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 5);
       await page.evaluate(() => window.capabilityProbe.update({ lat: 1, lon: 0 }));
       await page.locator('[data-capability="water"]').focus();
       assert.equal(await page.locator('[data-capability="water"]').getAttribute("data-level"),"likely");
@@ -110,6 +116,10 @@ try {
       // Constructed low/typical/high stock bands; the two capture-limited measures stay uncompared.
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "below_p25");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "300 m");
+      assert.equal(await page.locator('[data-metric="terrain_roughness_percent"]').getAttribute("data-band"), "below_p25");
+      assert.equal(await page.locator('[data-metric="terrain_roughness_percent"] .stock-value').textContent(), "5%");
+      assert.equal(await page.locator('[data-metric="central_terrain_diversity_m"]').getAttribute("data-band"), "below_p25");
+      assert.equal(await page.locator('[data-metric="central_terrain_diversity_m"] .stock-value').textContent(), "50 m");
       for (const id of ["median_land_slope_percent", "wet_central_fraction"]) {
         const row = page.locator(`[data-metric="${id}"]`);
         assert.equal(await row.getAttribute("data-state"), "not_comparable");
@@ -120,6 +130,10 @@ try {
       await page.locator('[data-metric="terrain_relief_m"]').focus();
       assert.match(await page.locator(".capability-detail").textContent(), /p25 595\.9 m/, "bounds show at display precision, not ledger float noise");
       assert.doesNotMatch(await page.locator(".capability-detail").textContent(), /9999/);
+      await page.locator('[data-metric="terrain_roughness_percent"]').focus();
+      assert.match(await page.locator(".capability-detail").textContent(), /p25 11\.3%/);
+      assert.match(await page.locator(".capability-detail").textContent(), /Terrain shape over all terrain, including waterbeds; not buildable land/);
+      assert.equal(await page.locator(".capability-detail a").getAttribute("href"), "./capabilities.html#stock", "a stock row links to its ledger section");
       await page.locator('[data-metric="median_land_slope_percent"]').focus();
       assert.match(await page.locator(".capability-detail").textContent(), /not comparable from this square's map-time capture/);
       assert.match(await page.locator(".capability-detail").textContent(), /prepared terrain and water mask/);
@@ -157,9 +171,17 @@ try {
       assert.doesNotMatch(await page.locator(".capability-detail").textContent(), /Crop and pasture cover on 0%/);
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "typical");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "700 m");
+      assert.equal(await page.locator('[data-metric="terrain_roughness_percent"]').getAttribute("data-band"), "typical");
+      assert.equal(await page.locator('[data-metric="terrain_roughness_percent"] .stock-value').textContent(), "15%");
+      assert.equal(await page.locator('[data-metric="central_terrain_diversity_m"]').getAttribute("data-band"), "typical");
+      assert.equal(await page.locator('[data-metric="central_terrain_diversity_m"] .stock-value').textContent(), "180 m");
       await page.evaluate(() => window.capabilityProbe.update({ lat: 5, lon: 0 }));
       assert.equal(await page.locator('[data-metric="terrain_relief_m"]').getAttribute("data-band"), "above_p75");
       assert.equal(await page.locator('[data-metric="terrain_relief_m"] .stock-value').textContent(), "1200 m");
+      assert.equal(await page.locator('[data-metric="terrain_roughness_percent"]').getAttribute("data-band"), "above_p75");
+      assert.equal(await page.locator('[data-metric="terrain_roughness_percent"] .stock-value').textContent(), "30%");
+      assert.equal(await page.locator('[data-metric="central_terrain_diversity_m"]').getAttribute("data-band"), "above_p75");
+      assert.equal(await page.locator('[data-metric="central_terrain_diversity_m"] .stock-value').textContent(), "600 m");
       // Terrain loaded but land cover and deposits did not: Unknown, not No.
       await page.locator('[data-capability="trees"]').focus();
       assert.equal(await page.locator('[data-capability="trees"]').getAttribute("data-level"), "unknown");
@@ -171,7 +193,7 @@ try {
       assert.match(await page.locator('.capability-detail').textContent(),/Start footprint: Unknown.*Hookup: Unknown/);
       await page.evaluate(() => window.capabilityProbe.reset());
       assert.doesNotMatch(await page.locator('[data-capability="buildable"]').getAttribute('title'),/candidate/);
-      assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 3);
+      assert.equal(await page.locator(".stock-row[data-state=checking]").count(), 5);
       for (const id of ["trees", "resources"]) {
         assert.equal(await page.locator(`[data-capability="${id}"]`).getAttribute("data-level"), "loading");
         assert.equal(await page.locator(`[data-capability="${id}"] .capability-mark`).textContent(), "…");
@@ -185,7 +207,7 @@ try {
       assert.match(await page.locator(".capability-detail").textContent(), /10%/);
       await page.evaluate(() => window.capabilityProbe.update({ lat: 3, lon: 0 }));
       assert.equal(await page.locator("[data-level=unknown]").count(), 8);
-      assert.equal(await page.locator(".stock-row[data-state=unknown]").count(), 3, "a failed capture leaves no stock band behind");
+      assert.equal(await page.locator(".stock-row[data-state=unknown]").count(), 5, "a failed capture leaves no stock band behind");
       assert.match(await page.locator('[data-capability="trees"]').getAttribute("title"), /Trees: unknown\. This square's data could not be loaded/);
       assert.match(await page.locator(".capability-status").textContent(), /unavailable/);
       assert.match(await page.locator(".capability-status").textContent(), /move the square to retry/);
@@ -217,11 +239,24 @@ try {
       await page.goto(origin + "/capabilities.html");
       assert.equal(await page.locator("article").count(), 12);
       assert.match(await page.title(), /Map capabilities/);
+      assert.match(await page.locator("#stock").textContent(), /Terrain-shape measures, live/);
+      assert.match(await page.locator("#stock").textContent(), /Comparability evidence on the committed squares/);
+      assert.match(await page.locator("#launch").textContent(), /Terrain interest on the launch bar/);
+      // The stock survey the ledger cites is served beside the page and its link resolves.
+      const served = await fetch(origin + "/tools/map-factory/survey/terrain-interest.json");
+      assert.equal(served.status, 200, "the cited terrain-interest survey is served");
+      assert.equal((await served.json()).version, "pl1228-terrain-interest-v1");
+      assert.equal(await page.locator('#stock a[href$="terrain-interest.json"]').getAttribute("href"), "./tools/map-factory/survey/terrain-interest.json");
       assert.match(await page.locator("#trees").textContent(), /Place evidence measures/);
       assert.match(await page.locator("#trees").textContent(), /Sources, coverage and fidelity/);
       assert.match(await page.locator("#resources").textContent(), /balanced ore\/oil top-up/i);
       assert.match(await page.locator("#resources").textContent(), /Missing records are not evidence of absence/);
       await page.screenshot({ path: resolve(out, `${name}-ledger-phone.png`) });
+      await page.setViewportSize({ width: 1280, height: 1400 });
+      await page.locator("#stock").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: resolve(out, `${name}-ledger-stock.png`) });
+      await page.locator("#launch").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: resolve(out, `${name}-ledger-launch.png`) });
       const item = { browser: name, version: browser.version(), synthetic_states: "pass", ledger_page: "pass", live: "not_run" };
       if (process.argv.includes("--live")) {
         const errors = []; page.on("pageerror", (e) => errors.push(e.message));
@@ -237,6 +272,11 @@ try {
         assert.doesNotMatch(`${place.trees.description} ${place.resources.description}`, /Verified/);
         const real = Object.fromEntries(item.live.stock.map((row) => [row.id, row]));
         assert.equal(real.terrain_relief_m.state, "measured", "real geography gives a real relief estimate, labelled as such");
+        for (const id of ["terrain_roughness_percent", "central_terrain_diversity_m"]) {
+          assert.equal(real[id].state, "measured", `real capture compares ${id}`);
+          assert.match(real[id].description, /Terrain shape over all terrain/);
+          assert.match(real[id].description, /p25/);
+        }
         assert.match(real.terrain_relief_m.description, /Capture estimate, not the finished map/);
         assert.match(real.terrain_relief_m.description, /p25/);
         for (const id of ["median_land_slope_percent", "wet_central_fraction"])
@@ -251,11 +291,12 @@ try {
         item.live.water_level=await page.locator('[data-capability="water"]').getAttribute("data-level");
         item.live.start_detail=await page.locator('.capability-detail').textContent();
         await page.screenshot({ path: resolve(out, `${name}-boston-live.png`) });
+        await page.screenshot({ path: resolve(out, `${name}-boston-before-pan.png`) });
         const box = await page.locator("#map").boundingBox();
         const x = box.x + box.width / 2, y = box.y + box.height / 2;
         await page.mouse.move(x, y); await page.mouse.down();
         await page.mouse.move(x + 80, y, { steps: 10 });
-        await page.waitForFunction(() => document.querySelectorAll('.capability-row [data-level="loading"]').length === 8 && document.querySelectorAll('.stock-row[data-state="checking"]').length === 3);
+        await page.waitForFunction(() => document.querySelectorAll('.capability-row [data-level="loading"]').length === 8 && document.querySelectorAll('.stock-row[data-state="checking"]').length === 5);
         await page.mouse.up();
         await page.waitForFunction(() => /estimate|unavailable/.test(document.querySelector(".capability-status")?.textContent ?? ""), undefined, { timeout: 120000 });
         item.live.pan_water_detail=await page.locator('[data-capability="water"]').getAttribute("title");
@@ -265,6 +306,7 @@ try {
         item.live.pan_status = await page.locator(".capability-status").textContent();
         assert.match(item.live.pan_status, /estimate/);
         assert.notEqual(item.live.pan_status, item.live.status, "pan must produce a different square, with stale indicators cleared first");
+        await page.screenshot({ path: resolve(out, `${name}-boston-after-pan.png`) });
       }
       results.browsers.push(item);
       console.log(`${name}: synthetic states, mobile layout and ledger passed; live=${typeof item.live === "string" ? item.live : item.live.status}`);

@@ -3,7 +3,7 @@ import { liveFootprint } from "./start-model.js";
 // The pan-time approximation uses captured initial terrain, not a water simulation.
 // Full export reports use final prepared grids through capabilities.py instead.
 import { captureInputs, oceanMask } from "./inputs.js";
-import { measureStockMetrics } from "./capability-model.js";
+import { measureStockMetrics, STOCK_MEASURES } from "./capability-model.js";
 import { LANDCOVER_SOURCE, MRDS_SOURCE, PLACE_GRID, requestDeposits, requestLandcover } from "./capability-evidence.js";
 
 /** The 271-node lattice the capability grid uses, sampled from a 1081-square grid. */
@@ -11,14 +11,27 @@ const NODES = PLACE_GRID.size;
 
 /**
  * What the stock maps' measures can honestly say at capture fidelity. Measured on
- * the five committed prepared fixtures: whole-map relief kept its stock band on
- * all five, but the capture estimate of central land slope crossed a band on
- * Asheville and central wet share crossed one on Pittsburgh. Those two need the
- * prepared terrain and water, which the pan-time capture does not have, so the
- * reason travels with the value and no caller can quietly compare them anyway.
+ * the five committed prepared fixtures, including the two non-default height
+ * fits (Innsbruck 0.447x, Rio 0.920x): whole-map relief and the two
+ * terrain-shape measures kept their stock band on every square. The capture
+ * estimate of central land slope crossed a band on Asheville and central wet
+ * share crossed one on Pittsburgh: those two need the prepared terrain and
+ * water, which the pan-time capture does not have, so the reason travels with
+ * the value and no caller can quietly compare them anyway. The three compared
+ * measures read terrain only; none needs an invented finished-water mask.
  */
 export const CAPTURE_STOCK = {
   terrain_relief_m: { comparable: true, basis: "capture_heightmap" },
+  terrain_roughness_percent: {
+    comparable: true,
+    basis: "capture_terrain_1081_game_space",
+    detail: "Read from the same 1081-square, 16 m capture terrain at the game's 1/64 m unit; the committed fixtures keep this measure's stock band with and without a non-default height fit.",
+  },
+  central_terrain_diversity_m: {
+    comparable: true,
+    basis: "capture_terrain_1081_game_space",
+    detail: "Read from the same central 25-tile nodes of the capture terrain at the game's 1/64 m unit; the committed fixtures keep this measure's stock band with and without a non-default height fit.",
+  },
   median_land_slope_percent: {
     comparable: false,
     reason: "capture_terrain_and_water_are_not_prepared",
@@ -81,7 +94,22 @@ function southFirst(grid, n = 1081) {
   return out;
 }
 
+const STOCK_GRID_NODES = 1081 ** 2;
+
+/** A capture that is not the full 1081-square pair cannot carry a stock band. */
+function stockGridMismatch(grid) {
+  return !grid || grid.length !== STOCK_GRID_NODES;
+}
+
 export function stockEstimate(capture, depth = captureDepth(capture)) {
+  if (stockGridMismatch(capture?.game) || stockGridMismatch(depth)) {
+    const comparability = Object.fromEntries(Object.keys(STOCK_MEASURES).map((id) => [id, {
+      comparable: false,
+      reason: "capture_grid_fidelity_mismatch",
+      detail: "The capture did not return the full 1081-square 16 m terrain and depth grids these measures are defined on.",
+    }]));
+    return { fidelity: "capture_estimate", measures: null, comparability };
+  }
   return { fidelity: "capture_estimate", measures: measureStockMetrics(southFirst(capture.game), southFirst(depth)), comparability: CAPTURE_STOCK };
 }
 
