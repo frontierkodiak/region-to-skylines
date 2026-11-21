@@ -929,5 +929,26 @@
     "decision": "Forcing-only changes do not repair mandatory initial failures; direction-only does not repair83local Asian bank conflicts. Complete source geometry/outlets, explicit bounded physical supply and fresh initialization needed before a stream candidate.",
     "scope": "Authored-grid/control/geometry diagnostics only; no new native outcome or holdout prefilter.",
     "stable_water_promise": "unknown"
+  },
+  "synthetic_source_response": {
+    "freeze": "synthetic-response-freeze-v1.json",
+    "summary": "development/phase10-synthetic-summary.json",
+    "scope": "Prepared synthetic branched source-only diagnostic; no native outcome or geographic qualification.",
+    "protocol_sha256": "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc",
+    "source_settings": [
+      0,
+      32,
+      128
+    ],
+    "intakes_fixed_active": true,
+    "channel_nodes": 73,
+    "probes": 24,
+    "natural_sectors": 3,
+    "engineered_port_anchors": 3,
+    "authored_initial_contracts_passing": 6,
+    "review_issue": "PL-1226",
+    "independent_pre_native_review": "pending",
+    "new_runtime_launched": false,
+    "stable_water_promise": "unknown"
   }
 }

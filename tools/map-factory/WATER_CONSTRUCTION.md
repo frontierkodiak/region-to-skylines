@@ -558,6 +558,63 @@ and20JS/10fixtures are carried forward, not rerun. Shipping bytes/defaults are
 unchanged; every promise remains unknown. See `stream-interface-freeze-v1.json`
 and `development/phase9-interface-summary.json`.
 
+## Synthetic branched source-response preparation (no native observation)
+
+`synthetic_source_response.py` prepares a separate synthetic diagnostic, not a
+geographic constructor or qualification. One768m main plus384m tributary has
+73 unique16m nodes, three complete natural sectors and three exact engineered
+port anchors (24 probes). All six contracts initialize passing. Authored stages
+fall99.5→99m, with1.5m initial depth; native flow is not yet observed. The
+downstream boundary is an explicit common intake port, not an assumed natural
+gravity outlet. No per-node lake regulators are used on the stream.
+
+The fixed placement search retains14attempts before selecting(-384,0). All73
+channel and152 full eight-neighbour rim nodes clear unchanged corridor/landing
+protection and remain in the start tile. No fill, maxcut2.5m, untouched banks,
+minfreeboard0.5m, and three single-node14.525m source-radius footprints with
+>=1m stage-to-bed depth pass. Resources are packed after static admission;
+final decoded terrain/water/control checks and byte-exact full resource-plan
+re-encoding pass. This does not establish native floors/resources/UI acceptance.
+
+Three source-only arms jointly set the two upstream outputs to0/32/128. ALL
+THREE intakes remain128, downstream output remains0. Positions, targets,
+terrain, depth/velocity, complete source geometry, probes, resource/network
+bytes and other package assets remain fixed. The output-zero arm is NOT
+all-controls-off. Encoded settings are not integrated physical flux or demand
+capacity; joint changes do not isolate one source. All arms remain UNOBSERVED.
+
+`synthetic_source_protocol.py` binds the complete physical/source/runtime
+preparation and requires a separate independent review receipt before native
+collection. The owned telemetry branch starts at exact6949182, not the old
+checkout/build. `--water-study-every 0.25` is opt-in;
+defaults/old collectors are unchanged. Unique sequence IDs retain missed
+slots, all probes/controls and full depth/raw/current-floor/target-floor grids
+at every new snapshot. Simulation/named water-counter brackets are not atomic
+read proof. Module metadata/current file hashes are NOT complete loaded-image/
+JIT identity or runtime health. No hooks, forcing or game-state writes added.
+
+**Clock correction, without rewriting old evidence:** `CityOps.Water.frame`
+reads SimulationManager's current counter. The previously reported18568
+water-reported frames and18524stats frames are separate simulation-counter
+reads, not a measured hydraulic clock. The73/64m net per-node loss remains
+measured; no evaporation period, flux units or cadence follows from it. New
+named-field availability/semantics require fresh native evidence, never retrofit.
+
+Ordinary owned build,158harness tests,8new synthetic tests, Ruff/format/diff
+and doctor pass. In-game smoke, cadence/performance, actual named counters,
+native floor stability and runtime health remain not verified. User instruction
+requires review/freeze before launching this runtime, so the normal in-game
+harness PR check is explicitly deferred. Review PL-1226 owns that independent
+pre-native judgment; it is not human-only testing or native replication.
+The synthetic reference has73wet nodes, below the unchanged original100cell
+reference gate; any original skip/unknown must be retained, not called a pass.
+
+See `synthetic-response-freeze-v1.json` and
+`development/phase10-synthetic-summary.json`. Holdout remains unopened, all old
+failures/refusals/protocols unchanged, shipping defaults/ledger unchanged and
+every product promise unknown. PR74 and telemetry PR80 remain draft/unmerged;
+both have base conflicts which this exact-source tranche does not rewrite.
+
 ## Acceptance still required
 
 Exporter adoption needs successful native development counterfactuals, unchanged

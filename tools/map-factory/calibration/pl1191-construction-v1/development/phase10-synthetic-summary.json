@@ -1,0 +1,294 @@
+{
+  "schema": "polli.pl1191-synthetic-preparation-summary/1",
+  "policy": "synthetic-branched-output-response-v1",
+  "protocol_sha256": "0d35d0ba72b36ab7b85a100c118b360d6b74b66163ee346e1f9de2ac93211abc",
+  "recipe_commit": "d9aeba8dcb502e53f4789f488a5160cd17cdc93b",
+  "harness_source": "20efcf7181e7a95e47da61ca2af1d6d4b983db39",
+  "mod_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+  "native_observation": false,
+  "geographic_candidate": false,
+  "stable_water_promise": "unknown",
+  "channel_nodes": 73,
+  "full_rim_nodes": 152,
+  "placement_attempts": [
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        -512
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 38
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        -384
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 35
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        -256
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 30
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        -128
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 26
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        0
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 23
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        128
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 21
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        256
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 20
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        384
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 17
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -512,
+        512
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 11
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -384,
+        -512
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 14
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -384,
+        -384
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 11
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -384,
+        -256
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 6
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -384,
+        -128
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 2
+    },
+    {
+      "turn": 0,
+      "translation_xz": [
+        -384,
+        0
+      ],
+      "full_envelope_in_start_tile": true,
+      "protected_hits": 0
+    }
+  ],
+  "maximum_cut_m": 2.5,
+  "minimum_freeboard_m": 0.5,
+  "source_radius_model_m": 14.525483399593906,
+  "source_count": 3,
+  "fixed_intake_rate_each": 128,
+  "joint_upstream_output_settings": [
+    0,
+    32,
+    128
+  ],
+  "fixed_downstream_output": 0,
+  "all_controls_off": false,
+  "physical_flow_units": "unknown",
+  "probe_count": 24,
+  "contracts": [
+    {
+      "id": "streams:0:0",
+      "kind": "natural",
+      "probe_names": [
+        "maintained:streams:0:0:0",
+        "maintained:streams:0:0:1",
+        "maintained:streams:0:0:2",
+        "maintained:streams:0:0:3",
+        "maintained:streams:0:0:4",
+        "maintained:streams:0:0:5",
+        "maintained:streams:0:0:6",
+        "maintained:streams:0:0:7",
+        "maintained:streams:0:0:8"
+      ]
+    },
+    {
+      "id": "streams:0:1",
+      "kind": "natural",
+      "probe_names": [
+        "maintained:streams:0:1:0",
+        "maintained:streams:0:1:1",
+        "maintained:streams:0:1:2",
+        "maintained:streams:0:1:3",
+        "maintained:streams:0:1:4"
+      ]
+    },
+    {
+      "id": "streams:1:0",
+      "kind": "natural",
+      "probe_names": [
+        "maintained:streams:1:0:0",
+        "maintained:streams:1:0:1",
+        "maintained:streams:1:0:2",
+        "maintained:streams:1:0:3",
+        "maintained:streams:1:0:4",
+        "maintained:streams:1:0:5",
+        "maintained:streams:1:0:6"
+      ]
+    },
+    {
+      "id": "synthetic-port:0",
+      "kind": "engineered",
+      "probe_names": [
+        "synthetic-port:0"
+      ]
+    },
+    {
+      "id": "synthetic-port:1",
+      "kind": "engineered",
+      "probe_names": [
+        "synthetic-port:1"
+      ]
+    },
+    {
+      "id": "synthetic-port:2",
+      "kind": "engineered",
+      "probe_names": [
+        "synthetic-port:2"
+      ]
+    }
+  ],
+  "authored_initialization": {
+    "schema": "polli.authored-natural-initialization-check/1",
+    "contracts": [
+      {
+        "id": "streams:0:0",
+        "wet": 9,
+        "total": 9,
+        "status": "pass"
+      },
+      {
+        "id": "streams:0:1",
+        "wet": 5,
+        "total": 5,
+        "status": "pass"
+      },
+      {
+        "id": "streams:1:0",
+        "wet": 7,
+        "total": 7,
+        "status": "pass"
+      }
+    ],
+    "scope": "Exact authored initial-grid diagnostic only; no new native observation, historical rescore, holdout prefilter or maintained-water qualification.",
+    "stable_water_promise": "unknown"
+  },
+  "arms": [
+    {
+      "setting": 0,
+      "folder": "output-000",
+      "package": "PL1191-synthetic-branch-output-000.crp",
+      "package_sha256": "c518c7faa2ca47fbd72efc45cdbfd2875d625a268183836048284cd5353b2f02"
+    },
+    {
+      "setting": 32,
+      "folder": "output-032",
+      "package": "PL1191-synthetic-branch-output-032.crp",
+      "package_sha256": "d16c7a72660faf9515d7f77d91a526d80b66c8d602f0ed2e385709abe9a68b2d"
+    },
+    {
+      "setting": 128,
+      "folder": "output-128",
+      "package": "PL1191-synthetic-branch-output-128.crp",
+      "package_sha256": "b2f0d2fcf0c8ec4cd1cba5895682ce8c13220fd4df4f8ede6a1a3e405afcac83"
+    }
+  ],
+  "resource_verification": {
+    "status": "pass",
+    "scope": "Full final parent CRP byte-exact resource-plan re-encoding after decoded terrain/control checks; all arm packages retain these bytes outside the declared water-control patch. Not native resource/UI acceptance.",
+    "parent_package_sha256": "b2f0d2fcf0c8ec4cd1cba5895682ce8c13220fd4df4f8ede6a1a3e405afcac83",
+    "resource_plan_sha256": "84754b68adf548f6ec6e9dd83a126368fc89030c3eeef72d4b8d6cbd5de05c9b",
+    "resource_listing": {
+      "ore": 0,
+      "oil": 0,
+      "forest": 0,
+      "fertility": 19649797,
+      "water": 5856
+    }
+  },
+  "local_checks": {
+    "new_synthetic_tests": 8,
+    "owned_harness_tests": 158,
+    "ordinary_build": "pass",
+    "doctor": "pass",
+    "ruff_format_diff": "pass",
+    "in_game_smoke": "not_verified_user_requires_pre_native_review_first",
+    "native_response": "unobserved",
+    "sampling_performance": "unknown",
+    "full_loaded_runtime_identity": "unknown",
+    "health": "unknown"
+  },
+  "review": {
+    "issue": "PL-1226",
+    "id": "01a1ff61-56f6-7a96-a0be-f41ba6a19352",
+    "status_at_delivery_preparation": "running",
+    "scope": "Independent pre-native source/protocol review, not native replication or merge authority"
+  },
+  "original_threshold_gate_note": "73initialized wet nodes below original reference_min_wet_cells100; retain all skips/unknowns, no changed flood definition."
+}
