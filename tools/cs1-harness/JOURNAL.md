@@ -2977,3 +2977,23 @@ pre-native doctor passed. No new JS/Pyodide/five-map full qualification. See
 FLOOD_REPORT.md; raw receipts and explicit Cloud exception are in the runroot
 /home/caleb/experiments/PL-912-flood-cloud. No proprietary binaries/decompile,
 Steam logs, video or downloaded save data delivered.
+
+### 2026-11-21 — PL-1191 source-record removal, blade
+
+One frozen 15-minute coastal diagnostic on exact clean a647354, own unchanged
+DLL368955b1…; later journal only, no driver/C# change. All167 serialized
+rate-zero records removed; sea90, terrain/initial water/velocity/full46202
+probes unchanged. 61captures/15.092779minutes report0sources, all20049dense
+nodes finite and unchanged actual-floor hash43f4be73… (targets=current).
+Fixed87259-node offshore early drawdown−0.221735m/game-min vs−0.222625 with
+zero-rate records retained. Records are not necessary for observed drawdown;
+not exclusive evaporation/sink, physical flux, boundary capacity or repair.
+RawFAIL/startup_views; Bridge/TypeLoad logs retained, 60minuteprimary unknown.
+Collector/fresh replay byte-identical; no game retry. Doctor/build/eightrefs,
+FIFO/offline/carbon guards passed. Driver3038681/game3041748 absent; normal
+quit-grace termination, game/Steam/units cleanup empty, finalFIFO free.
+Blade2080Ti05:00.0,116card samples: peak10821MiB/142.78W/55C. Baseline other
+7974MiB; game menu1574MiB and one running sample2604MiB, continuous game-only
+peak unknown. Observed200W cap unchanged. Slot20:41:57–20:51:13local,556s.
+No shared settings/preemption/previews/tabs. Independent RESULTS review before
+adoption; all promises unknown, defaults/ledger unchanged.
