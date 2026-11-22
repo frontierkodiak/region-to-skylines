@@ -1,7 +1,7 @@
-# Terrain fidelity: offline attribution (PL-1244)
+# Terrain fidelity: attribution and experimental correction (PL-1244)
 
-**Investigation only. No exporter policy or acceptance threshold has changed.
-Boston and Charleston are not qualified.**
+**The shipping policy and acceptance thresholds are unchanged. An opt-in
+source-faithful correction is implemented; full passing acceptance is not met.**
 
 The frozen four-place native results are recorded in the harness journal. This
 audit compares their exact prepared terrain with the exact canonical source
@@ -87,8 +87,20 @@ At the reference's maximum point, the canonical source is 3.393 m while zoom 13
 is 27.620 m. Diagnostic zoom 14 is 3.601 m there; it is **not substituted** for
 the frozen reference. The whole-grid zoom-14 contrast is only 0.8002 anyway.
 Zoom-15 diagnostic arrays contain extreme negative values and are retained as
-untrusted contrasts, not a proposed remedy. Which source is physically correct
-at each disagreement remains unresolved.
+untrusted contrasts, not a proposed remedy.
+
+Independent review identified a sharper reference defect, then the producer
+recomputed it. The zoom-13 tile boundary between `13/2276/3305` and
+`13/2277/3305` lies between sampled columns 52 and 53, at longitude
+−79.9365234375. The reference's mean absolute jump there is **2.828 m**, versus
+**0.058 m** in canonical 3DEP and **0.021 m** at zoom 14. On the western 19.56%
+strip, source/reference correlation is 0.3831 at zoom 13 but 0.9285 at zoom 14;
+the two reference zooms correlate only 0.5415 globally. This demonstrates a
+reference discontinuity aligned with the tile boundary, not a rotation error.
+Fresh downloads of both zoom-13 tiles match the frozen cache byte-for-byte;
+their server Last-Modified dates are 2017-11-12. This is not a stale local cache.
+It does not establish physical truth at every remaining disagreement, and
+zoom 14 still does not make the full square pass. No reference is substituted.
 
 ## Three new squares: source consistency, not map qualification
 
@@ -108,17 +120,105 @@ Norfolk reproduces the source/reference problem away from Charleston. This
 purposive sample is not a global pass-rate estimate and does not satisfy the
 issue's post-fix holdout requirement.
 
-## Next decision and remaining work
+## Opt-in correction: source-faithful-v2
+
+The [place reader](PLACE_INPUT.md#opt-in-source-faithful-terrain-experiment-pl-1244)
+now exposes one fixed experimental policy. Shipping remains `legacy`.
+
+An initial prototype retained a blanket 3 m ocean-depth target and a dry-land
+floor. Its ramp still produced equal-height contour bands: Boston terracing
+0.1959, Charleston 0.5843. That rejected prototype and all its outputs are
+retained; it was not retried under the same identity.
+
+Version 2 preserves existing below-sea terrain and source depressions, removes
+the dry-land shelf, and applies only a shallow engineered minimum where an
+explicit ocean polygon needs it. It bounds carving by robust relief and the
+existing depth ceiling. There is no added noise, orientation correction,
+per-city setting or changed acceptance mask.
+
+| Place | Legacy correlation / terracing | Candidate correlation / terracing | Mean absolute source error: legacy → candidate |
+| --- | --- | --- | --- |
+| Boston | 0.8294 / 0.2344 | **0.9143 / 0.0029** | 0.791 → 0.221 m |
+| Charleston | 0.5202 / 0.4273 | **0.5042 / 0.0000** | 2.269 → 0.097 m |
+| Amherst | 0.9965 / 0.0027 | 0.9965 / 0.0027 | Terrain bytes unchanged |
+| Asheville | 0.9792 / 0.0027 | 0.9792 / 0.0027 | Terrain bytes unchanged |
+
+Charleston remains a frozen DEM/orientation failure despite being much closer
+to the canonical source. The candidate's water-risk screen still warns in both
+coastal development cases. No product export approval or water-safety promise
+is inherited from these terrain improvements.
+
+Initial inundation is also reported separately from subsequent flood growth.
+At depth >0.5 game m, Boston has approximately 1.4915 game km² newly wet and
+1.0276 game km² no longer wet relative to legacy initialization; all newly wet
+vertices sample WorldCover's built-up class. Charleston has 0.0476 game km²
+newly wet (0.0192 built-up) and 1.5252 game km² no longer wet. These are
+vertex-area/dated-landcover diagnostics, not proof of real-world flooding.
+They must not be hidden by a growth-only flood check's use of the new initial
+water as its reference. No water-safety clearance or default activation is
+justified by terrain scores alone.
+
+### Three new exported squares
+
+The policy was fixed before their feature capture/export, with no subsequent
+tuning. The original source-only anchors were all retained. Each now has
+paired legacy/candidate CRPs, using its previously acquired 3DEP terrain and
+the common OpenFreeMap feature capture. They are **not** newly acquired full
+canonical place models; optional resource painting was not used for this
+terrain-only comparison. Source and feature provenance remain separate.
+
+| New square | Legacy correlation / terracing | Candidate correlation / terracing |
+| --- | --- | --- |
+| New Orleans | 0.4022 / 0.0000 | **0.9056 / 0.0000** |
+| Norfolk | 0.2075 / 0.0119 | **0.2761 / 0.0174** |
+| Savannah | 0.8519 / 0.0039 | **0.9026 / 0.0000** |
+
+Norfolk remains a failure, not an excluded or replaced holdout. These exported
+checks are offline evidence, not three new native qualifications.
+
+### Native observation
+
+Two immutable candidate packages completed through the shared FIFO slot,
+one at a time. Physical writer head is `874bf0298cafef9cb36c9f948e09f84a72942858`;
+the frozen controller is `dc8b6f2d675765d252e4c043f47821be79b58651`.
+All water/world sample points, route observations, mapped-water mask bytes and
+DEM thresholds are retained. Only package-derived panel/camera expectations
+are updated to match the new export. Both initial native terrain grids match
+their prepared inputs byte-for-byte.
+
+| Case | Game minutes | Native grid correlation / terracing | Native 1,600-point correlation | Frozen verdict |
+| --- | ---: | --- | ---: | --- |
+| Boston | 60.0883 | **0.9143 / 0.0029** | 0.9147 | Pass: 11 pass, 7 skip |
+| Charleston | 60.1067 | **0.5042 / 0.0000** | 0.5072 | Fail: ground truth; 10 pass, 1 fail, 7 skip |
+
+Identity margins are 0.2155 and 0.0750 respectively. Both have zero qualifying
+subsequent flood growth under the unchanged check; this does **not** clear the
+initial-inundation differences above. Required-wetness checks are skipped:
+there is no declared wet cohort. No first-hour scenario, utility/supply,
+population or Clef qualification is claimed.
+
+A separate diagnostic samples the original georeferenced 3DEP raster at all
+1,600 native world points: Boston correlation 0.9921, margin 0.3029, mean
+absolute source error 0.2915 m; Charleston 0.9745, margin 0.2677, error 0.1156 m.
+This uses the same primary acquisition, not an independent physical survey or
+an approved replacement gate. The frozen failures remain unchanged.
+
+Actual panel/opening/Areas/final PNGs were viewed and hash-reviewed. Both
+cleanup receipts are empty, with no offline or telemetry errors. No game,
+Steam instance or transient unit remains from either run. The shared slot was
+released between runs and PL-1191 subsequently took it. Resource measurements
+and the build/controller separation are recorded in the harness journal.
+
+## Acceptance decision and remaining work
 
 Resolve the source/reference contract before claiming that faithful canonical
 terrain must pass this independent surface-DEM correlation on every square.
-Keep the frozen failures and thresholds intact. Independently review the
-diagnosis first; then establish which DEM/bathymetry observations a general
-coastal rule must preserve, and implement that rule with source-error and
-water-footprint accounting together with PL-1191.
+Keep the frozen failures and thresholds intact. The diagnostic and frame
+attribution at PR86 head `721a14ec88d83e633b81dc36095a8b4f42ee07f6` received an
+independent Neon review. The new implementation still needs independent review.
+A source/reference acceptance decision is needed
+before a source-faithful Charleston export can be called qualified.
 
-No fixed-depth replacement, smoothing radius, vertical exaggeration, source
-substitution, mask, warning waiver or per-city repair is promoted here. No
-new native run was justified while Charleston fails even before exporter
-policy. Boston/Charleston native passing acceptance, post-fix controls and
-three-place exported holdout all remain outstanding.
+No shipping/default promotion, source substitution, mask, warning waiver or
+per-city repair is made here. Water safety remains separate from terrain
+fidelity and must continue to respect PL-1191's native evidence and constraints.

@@ -17,7 +17,7 @@ test("shore distance follows land, not artificial map edges", () => {
 });
 
 test("engineered sea is wet and uncarved land/banks retain source elevations", () => {
-  const raw = Float32Array.from({ length: CS1.px ** 2 }, (_, i) => 0.001 * (i % CS1.px) + 0.001 * Math.floor(i / CS1.px));
+  const raw = Float32Array.from({ length: CS1.px ** 2 }, (_, i) => -0.75 + 0.001 * (i % CS1.px) + 0.001 * Math.floor(i / CS1.px));
   const water = { ...empty, oceans: [polygon(0, -9000, 9000, 9000)] };
   const result = sourceFaithfulTerrain(raw, sq, water);
   let largestNeighbourStep = 0;

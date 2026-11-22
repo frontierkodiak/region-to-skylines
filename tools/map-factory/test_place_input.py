@@ -483,6 +483,26 @@ class PlaceInputTests(unittest.TestCase):
         self.assertIsNone(report["generation"]["package"]["output"])
         self.assertEqual(report["water_risk"]["reasons"], unavailable["reasons"])
 
+    def test_experimental_policy_is_opt_in_and_records_its_limits(self):
+        model(self.place)
+        report, code = export(
+            self.place,
+            self.root / "candidate",
+            inputs_only=True,
+            terrain_policy="source-faithful-v2",
+        )
+        self.assertEqual(code, 0)
+        policy = report["place_input"]["terrain_fit"]["policy"]
+        self.assertEqual(policy["version"], "source-faithful-v2")
+        self.assertFalse(policy["native_verified"])
+        self.assertEqual(policy["dry_land_raised_vertices"], 0)
+        self.assertFalse(list((self.root / "candidate").rglob("*.crp")))
+        legacy, _ = export(self.place, self.root / "legacy", inputs_only=True)
+        self.assertIsInstance(legacy["place_input"]["terrain_fit"]["policy"], str)
+        with self.assertRaisesRegex(ValueError, "Unknown terrain policy"):
+            preprocess(self.place, self.root / "unknown", terrain_policy="unknown")
+        self.assertFalse((self.root / "unknown").exists())
+
     def test_export_receipts_reference_delivered_package_not_quarantine(self):
         model(self.place)
         # This isolates delivery mechanics, not the water classifier. Existing
