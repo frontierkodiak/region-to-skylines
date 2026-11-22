@@ -1,5 +1,40 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1191 remaining-output-zero coastal diagnostic
+
+One new15.031390-minute run on exact clean9c41756/DLL368955b1, same runtime
+code/build as the prior e73138f dense observation. Fresh protocol165359fb;
+package5c69540a changes only all167 remaining output rates to0, intakes already0.
+All167 source records/type/targets/positions retained, NOT sources removed.
+Terrain/initialwater/resources/full46202queries byte-exact to the dense parent.
+
+Preflight/source/build/eight on-disk refs and guarded doctor pass. Fair slot was
+empty; no preemption. BladeRTX2080Ti05:00.0,7974MiB other-work baseline; menu
+game1574MiB. Card sampledpeak10821MiB/136.72W/54°C across105GPU samples. One late
+game snapshot2781MiB; continuous game-only peak unmeasured (2847MiB subtraction
+is only an estimate). Observed200W limit unchanged, not historical150W. Simulation
+300.069wall seconds,54113frames; slot roughly19:56:14–20:05:28. Owned game2891208
+needed normal quit-grace termination; game/Steam/units cleanup empty, PID absent.
+Final FIFO snapshot empty; no other issue's work changed.
+
+All61snapshots retain finite20049dense-node readbacks and matching167controls;
+all actual floors retain43f4be73 hash. Max triggergap0.353056min for0.25request;
+zero missed slots, bracketed not proven atomic, all four named counters present.
+Raw FAIL/startup_views and Bridge/TypeLoad logs retained;60minuteprimary unknown.
+Early distant deep-ocean median drawdown remains-0.222625m/game-min versus
+parent-0.220359 with outputs retained; Bulimba nearby retention is worse537/822
+versus709/822. Encoded positive outputs are not necessary for that offshore
+drawdown, not evidence all controls are semantically absent or evaporation proven.
+
+The experimental map-factory collector hit a postmeasurement missed-slot list
+aggregation TypeError. Raw native data/partial array and frozen source remain;
+an explicit read-only report adapter reproduces identical captured arrays and
+four byte-identical derived outputs on replay. No game rerun. Future-protocol
+Python reporting fix is outside this harness; no harness source/build/guard change.
+This journal edit follows all collection/replays, not the actual observed head.
+Full loaded-image/JIT identity/runtimehealth unknown. Independent RESULTS review
+before adoption; no holdout/default/ledger/promise change or public merge/deploy.
+
 ## 2026-11-21 — PL-1191 dense source-selected coastal diagnostic
 
 One new15-minute read-only observation on exact clean e73138f/DLL368955b1,
