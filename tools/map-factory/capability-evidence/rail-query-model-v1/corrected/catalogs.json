@@ -1,0 +1,627 @@
+{
+  "node_name_conflicts": {
+    "20971649": {
+      "Created, Junction, OneWayIn, Original": 553,
+      "Created, Junction, OneWayOut, Original": 563,
+      "Created, Junction, Original": 119
+    },
+    "20988033": {
+      "Created, Junction, OnGround, OneWayIn, OneWayOut, Original": 196,
+      "Created, Junction, OnGround, OneWayIn, Original": 1965,
+      "Created, Junction, OnGround, OneWayOut, Original": 1891,
+      "Created, Junction, OnGround, Original": 754
+    },
+    "21495937": {
+      "Created, Junction, OneWayIn, OneWayOut, Original, Underground": 186,
+      "Created, Junction, OneWayIn, Original, Underground": 3
+    },
+    "268452129": {
+      "Created, DisableOnlyMiddle, Middle, Moveable, OnGround, Original": 2244,
+      "Created, DisableOnlyMiddle, Middle, OnGround, Original": 228
+    }
+  },
+  "node_names": {
+    "129": [
+      "Created",
+      "Junction",
+      "Original"
+    ],
+    "16449": [
+      "Bend",
+      "Created",
+      "OnGround",
+      "Original"
+    ],
+    "16513": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+    ],
+    "16657": [
+      "Created",
+      "End",
+      "Moveable",
+      "OnGround",
+      "Original"
+    ],
+    "16673": [
+      "Created",
+      "Middle",
+      "Moveable",
+      "OnGround",
+      "Original"
+    ],
+    "16777281": [
+      "Bend",
+      "Created",
+      "Original"
+    ],
+    "16777489": [
+      "Created",
+      "End",
+      "Moveable",
+      "OneWayIn",
+      "Original"
+    ],
+    "16793665": [
+      "Bend",
+      "Created",
+      "OnGround",
+      "Original"
+    ],
+    "16793729": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "Original"
+    ],
+    "16793873": [
+      "Created",
+      "End",
+      "Moveable",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+    ],
+    "16794625": [
+      "Created",
+      "OnGround",
+      "OneWayIn",
+      "Original",
+      "Outside"
+    ],
+    "17409": [
+      "Created",
+      "OnGround",
+      "Original",
+      "Outside"
+    ],
+    "20971585": [
+      "Bend",
+      "Created",
+      "OneWayIn",
+      "OneWayOut",
+      "Original"
+    ],
+    "20971649": [
+      "Created",
+      "Junction",
+      "OneWayOut",
+      "Original"
+    ],
+    "20971809": [
+      "Created",
+      "Middle",
+      "Moveable",
+      "OneWayIn",
+      "OneWayOut",
+      "Original"
+    ],
+    "20987969": [
+      "Bend",
+      "Created",
+      "OnGround",
+      "OneWayIn",
+      "OneWayOut",
+      "Original"
+    ],
+    "20988033": [
+      "Created",
+      "Junction",
+      "OnGround",
+      "OneWayIn",
+      "Original"
+    ],
+    "20988193": [
+      "Created",
+      "Middle",
+      "Moveable",
+      "OnGround",
+      "OneWayIn",
+      "OneWayOut",
+      "Original"
+    ],
+    "21495937": [
+      "Created",
+      "Junction",
+      "OneWayIn",
+      "OneWayOut",
+      "Original",
+      "Underground"
+    ],
+    "21496097": [
+      "Created",
+      "Middle",
+      "Moveable",
+      "OneWayIn",
+      "OneWayOut",
+      "Original",
+      "Underground"
+    ],
+    "268452129": [
+      "Created",
+      "DisableOnlyMiddle",
+      "Middle",
+      "Moveable",
+      "OnGround",
+      "Original"
+    ],
+    "268452865": [
+      "Created",
+      "DisableOnlyMiddle",
+      "OnGround",
+      "Original",
+      "Outside"
+    ],
+    "273": [
+      "Created",
+      "End",
+      "Moveable",
+      "Original"
+    ],
+    "289": [
+      "Created",
+      "Middle",
+      "Moveable",
+      "Original"
+    ],
+    "4194369": [
+      "Bend",
+      "Created",
+      "Original"
+    ],
+    "4194577": [
+      "Created",
+      "End",
+      "Moveable",
+      "OneWayOut",
+      "Original"
+    ],
+    "4210753": [
+      "Bend",
+      "Created",
+      "OnGround",
+      "Original"
+    ],
+    "4210961": [
+      "Created",
+      "End",
+      "Moveable",
+      "OnGround",
+      "OneWayOut",
+      "Original"
+    ],
+    "4211713": [
+      "Created",
+      "OnGround",
+      "OneWayOut",
+      "Original",
+      "Outside"
+    ],
+    "524417": [
+      "Created",
+      "Junction",
+      "Original",
+      "Underground"
+    ],
+    "524577": [
+      "Created",
+      "Middle",
+      "Moveable",
+      "Original",
+      "Underground"
+    ]
+  },
+  "outside_values": [
+    17409,
+    4211713,
+    16794625,
+    268452865
+  ],
+  "prefab_lanes": {
+    "Airplane Path": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 3,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Plane"
+          }
+        ],
+        "observations": 1135
+      }
+    ],
+    "Highway": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 2,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 3,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 4,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 5,
+            "lane_type": "None",
+            "vehicle": "None"
+          }
+        ],
+        "observations": 8033
+      }
+    ],
+    "Highway Bridge": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 2,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 3,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 4,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 5,
+            "lane_type": "None",
+            "vehicle": "None"
+          }
+        ],
+        "observations": 3340
+      }
+    ],
+    "Highway Slope": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 2,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 3,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 4,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 5,
+            "lane_type": "None",
+            "vehicle": "None"
+          }
+        ],
+        "observations": 104
+      }
+    ],
+    "Highway Tunnel": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 2,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 3,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 4,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 5,
+            "lane_type": "None",
+            "vehicle": "None"
+          }
+        ],
+        "observations": 523
+      }
+    ],
+    "HighwayRamp": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 1,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 2,
+            "lane_type": "None",
+            "vehicle": "None"
+          }
+        ],
+        "observations": 4272
+      }
+    ],
+    "HighwayRampElevated": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Car"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 1,
+            "lane_type": "None",
+            "vehicle": "None"
+          },
+          {
+            "category": "All",
+            "direction_bits": 0,
+            "index": 2,
+            "lane_type": "None",
+            "vehicle": "None"
+          }
+        ],
+        "observations": 1770
+      }
+    ],
+    "Ship Path": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 3,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Ship"
+          }
+        ],
+        "observations": 1240
+      }
+    ],
+    "Train Track": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 2,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          }
+        ],
+        "observations": 5749
+      }
+    ],
+    "Train Track Elevated": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 2,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          }
+        ],
+        "observations": 747
+      }
+    ],
+    "Train Track Slope": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 2,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          }
+        ],
+        "observations": 44
+      }
+    ],
+    "Train Track Tunnel": [
+      {
+        "lanes": [
+          {
+            "category": "All",
+            "direction_bits": 2,
+            "index": 0,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          },
+          {
+            "category": "All",
+            "direction_bits": 1,
+            "index": 1,
+            "lane_type": "Vehicle",
+            "vehicle": "Train"
+          }
+        ],
+        "observations": 234
+      }
+    ]
+  },
+  "schema": 1,
+  "segment_name_conflicts": {
+    "1": {
+      "Created, Flooded, Original": 33,
+      "Created, NameVisible1, NameVisible2, Original": 1040,
+      "Created, Original": 25144
+    }
+  },
+  "segment_names": {
+    "1": [
+      "Created",
+      "Original"
+    ],
+    "65": [
+      "Created",
+      "End",
+      "Original"
+    ]
+  }
+}

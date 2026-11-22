@@ -1,0 +1,583 @@
+{
+  "baselines": [
+    "frozen:always_fail",
+    "frozen:always_candidate",
+    "frozen:weak_component"
+  ],
+  "bridge_scope": "the package container is read for every format the game writes; the two stock controls are format 8 and are decoded with their declared data version",
+  "excluded": [
+    {
+      "opening": "rio-queue-denial",
+      "raw": "rail-v3/raw/rio",
+      "reason": "fair-queue denial before launch: no network snapshot and no query plan, so there is nothing to predict. Retained as an attempt, never overwritten."
+    }
+  ],
+  "folds": {
+    "folds": [
+      {
+        "fold": "cohort:asheville",
+        "held_out": [
+          "asheville"
+        ],
+        "kind": "cohort_leave_one_package_out",
+        "selection_train": [
+          "innsbruck",
+          "boston",
+          "hong-kong",
+          "pittsburgh",
+          "rio"
+        ],
+        "train": [
+          "innsbruck",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "pittsburgh",
+          "rio",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "cohort:innsbruck",
+        "held_out": [
+          "innsbruck"
+        ],
+        "kind": "cohort_leave_one_package_out",
+        "selection_train": [
+          "asheville",
+          "boston",
+          "hong-kong",
+          "pittsburgh",
+          "rio"
+        ],
+        "train": [
+          "asheville",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "pittsburgh",
+          "rio",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "cohort:boston",
+        "held_out": [
+          "boston"
+        ],
+        "kind": "cohort_leave_one_package_out",
+        "selection_train": [
+          "asheville",
+          "innsbruck",
+          "hong-kong",
+          "pittsburgh",
+          "rio"
+        ],
+        "train": [
+          "asheville",
+          "innsbruck",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "pittsburgh",
+          "rio",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "cohort:hong-kong",
+        "held_out": [
+          "hong-kong"
+        ],
+        "kind": "cohort_leave_one_package_out",
+        "selection_train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "pittsburgh",
+          "rio"
+        ],
+        "train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "pittsburgh",
+          "rio",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "cohort:pittsburgh",
+        "held_out": [
+          "pittsburgh"
+        ],
+        "kind": "cohort_leave_one_package_out",
+        "selection_train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "hong-kong",
+          "rio"
+        ],
+        "train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "rio",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "cohort:rio",
+        "held_out": [
+          "rio"
+        ],
+        "kind": "cohort_leave_one_package_out",
+        "selection_train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "hong-kong",
+          "pittsburgh"
+        ],
+        "train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "pittsburgh",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "control:stock-1",
+        "held_out": [
+          "stock-1"
+        ],
+        "kind": "stock_control_held_out",
+        "selection_train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "hong-kong",
+          "pittsburgh",
+          "rio"
+        ],
+        "train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "pittsburgh",
+          "rio",
+          "yosemite"
+        ]
+      },
+      {
+        "fold": "control:stock-2",
+        "held_out": [
+          "stock-2"
+        ],
+        "kind": "stock_control_held_out",
+        "selection_train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "hong-kong",
+          "pittsburgh",
+          "rio"
+        ],
+        "train": [
+          "asheville",
+          "innsbruck",
+          "boston",
+          "charleston",
+          "grand-canyon",
+          "hong-kong",
+          "pittsburgh",
+          "rio",
+          "yosemite"
+        ]
+      }
+    ],
+    "zero_query": [
+      "charleston",
+      "grand-canyon",
+      "yosemite"
+    ]
+  },
+  "freeze": "rail-junction-fit-v1",
+  "frozen_at": "2026-11-21T20:13:46.692107+00:00",
+  "frozen_rules": [
+    "frozen:junction:continuation:any_lane",
+    "frozen:junction:continuation:orientation_index",
+    "frozen:junction:single:any_lane"
+  ],
+  "hypotheses": {
+    "junction_kinds": {
+      "continuation": "greedy disjoint straightest-first pairing of incident Train segments; equal-turn candidates are alternatives",
+      "turn": "every incident Train segment pair whose turn angle is at most the threshold"
+    },
+    "length": "sum of segment chords, a lower bound on the native curve length, never called native cost",
+    "max_alternatives": 32,
+    "max_length": 100000.0,
+    "measures": {
+      "chord": "turn angle from the chord between node positions (the accepted v2 geometry)",
+      "tangent": "turn angle from the export's authored endpoint directions"
+    },
+    "override_direction_limit": "read and recorded for every segment; never used by a rule, because its game semantics are unproven and every observed value is 0",
+    "pairings": {
+      "any_lane": "every Train lane continues onto every Train lane of the connected segment",
+      "orientation_index": "Train lane ordinal i continues onto ordinal i at a mixed node and n-i-1 at a same-sided node (the accepted v2 lateral-side rule)"
+    },
+    "tangent_convention": "the stored vector points from the named end into the segment, so start_direction is the outgoing heading at the start node and end_direction at the end node; proved against the export's own node positions",
+    "tangent_provenance": "export-derived and not native-attested: the accepted networks.json snapshot emits no endpoint tangents",
+    "threshold_tolerance_degrees": 1e-06,
+    "thresholds_degrees": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      30,
+      45,
+      60,
+      90,
+      120,
+      150,
+      180
+    ],
+    "tie_tolerance_degrees": 1e-06,
+    "uturn": "forbidden"
+  },
+  "labels": {
+    "negative": "complete and released selected request whose native result reports success=false; an observed failure for that exact request, mode, flags and protocol, never a geographic negative",
+    "positive": "complete and released native path whose returned first and last positions equal the requested literal offsets",
+    "unknown": "incomplete, unreleased, endpoint-mismatched or absent observed row; never scored"
+  },
+  "openings": {
+    "asheville": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 12,
+      "group": "asheville",
+      "networks_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+      "observation_sha256": "70bcebdfc5d06d9d825e5b9a4022a1f7c5459fd5f63341f2d75e9c641d5ee072",
+      "package": "asheville",
+      "plan_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+      "raw": "rail-v3/raw/asheville",
+      "selected_requests": 12,
+      "split": "cohort"
+    },
+    "boston": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 72,
+      "group": "boston",
+      "networks_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+      "observation_sha256": "c59dd390515d48727e058ed3dd605178806d273761fe4414b2ff7f94c1a3ea16",
+      "package": "boston",
+      "plan_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+      "raw": "rail-v3-followup-1/raw/boston-attempt-1",
+      "selected_requests": 72,
+      "split": "cohort"
+    },
+    "charleston": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 0,
+      "group": "charleston",
+      "networks_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+      "observation_sha256": "5b89ea2a7353426c4fb57f6b5b8c49c61c860d67a0f3af8764dadc401775ebad",
+      "package": "charleston",
+      "plan_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+      "raw": "rail-v3-followup-1/raw/charleston-attempt-1",
+      "selected_requests": 0,
+      "split": "cohort"
+    },
+    "grand-canyon": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 0,
+      "group": "grand-canyon",
+      "networks_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+      "observation_sha256": "749cc68dbf48ac2f262952a0f7ce97e0e71a8fcc30eea6e69f15b519d8c8fa28",
+      "package": "grand-canyon",
+      "plan_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1",
+      "selected_requests": 0,
+      "split": "cohort"
+    },
+    "hong-kong": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 6,
+      "group": "hong-kong",
+      "networks_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+      "observation_sha256": "ff9f13650a62440967d2c4e65df6cb72914103e76a0432415c56afdedcce6926",
+      "package": "hong-kong",
+      "plan_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1",
+      "selected_requests": 6,
+      "split": "cohort"
+    },
+    "innsbruck": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 20,
+      "group": "innsbruck",
+      "networks_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+      "observation_sha256": "5b24cb6699484bbf11f14698dcd7a2957597464fd49b266aaeafc6c1719bc198",
+      "package": "innsbruck",
+      "plan_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+      "raw": "rail-v3/raw/innsbruck",
+      "selected_requests": 20,
+      "split": "cohort"
+    },
+    "pittsburgh": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 240,
+      "group": "pittsburgh",
+      "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+      "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+      "package": "pittsburgh",
+      "plan_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1",
+      "selected_requests": 128,
+      "split": "cohort"
+    },
+    "rio": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 6,
+      "group": "rio",
+      "networks_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+      "observation_sha256": "7da2cec0d0ece85e1cc67b87335376106ed7116c5d5fd6e8b0db1c493bc8e466",
+      "package": "rio",
+      "plan_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+      "raw": "rail-v3-followup-1/raw/rio-attempt-2",
+      "selected_requests": 6,
+      "split": "cohort"
+    },
+    "stock-1": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 8,
+      "group": "stock",
+      "networks_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+      "observation_sha256": "23e31086b16c072594be93ebe56031b7a713bae2cf1b7dfec6f0be7531387c5b",
+      "package": "stock-1",
+      "plan_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7",
+      "raw": "rail-v3/raw/stock-1",
+      "selected_requests": 8,
+      "split": "stock_controls"
+    },
+    "stock-2": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 24,
+      "group": "stock",
+      "networks_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+      "observation_sha256": "6d4672c2698344b243bcc4ebaf406055ec50faa5be9147a996297d0f32cde9f1",
+      "package": "stock-2",
+      "plan_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81",
+      "raw": "rail-v3/raw/stock-2",
+      "selected_requests": 24,
+      "split": "stock_controls"
+    },
+    "yosemite": {
+      "boundary_limit": 128,
+      "candidate_boundary_requests": 0,
+      "group": "yosemite",
+      "networks_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+      "observation_sha256": "03dfa2cf1063d95dc529c2d486c4ec815a867f6ca51c5ed15e14c8816d3c33a4",
+      "package": "yosemite",
+      "plan_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1",
+      "selected_requests": 0,
+      "split": "cohort"
+    }
+  },
+  "packages": {
+    "asheville": {
+      "bytes": 6894275,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/asheville/PL857-asheville.crp",
+      "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870"
+    },
+    "boston": {
+      "bytes": 6478866,
+      "locator": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp",
+      "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54"
+    },
+    "charleston": {
+      "bytes": 6789679,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/charleston/PL857-charleston.crp",
+      "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff"
+    },
+    "grand-canyon": {
+      "bytes": 6348292,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/grand-canyon/PL857-grand-canyon.crp",
+      "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19"
+    },
+    "hong-kong": {
+      "bytes": 6531657,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/PL857-hong-kong.crp",
+      "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+    },
+    "innsbruck": {
+      "bytes": 5976093,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/innsbruck/PL857-innsbruck.crp",
+      "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6"
+    },
+    "pittsburgh": {
+      "bytes": 7393376,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/pittsburgh/PL857-pittsburgh.crp",
+      "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424"
+    },
+    "rio": {
+      "bytes": 6561930,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/rio/PL857-rio.crp",
+      "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff"
+    },
+    "stock-1": {
+      "bytes": 7146032,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Asanu Beach.crp",
+      "sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166"
+    },
+    "stock-2": {
+      "bytes": 4791928,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Hanami Bay.crp",
+      "sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+    },
+    "yosemite": {
+      "bytes": 5849190,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/yosemite/PL857-yosemite.crp",
+      "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+    }
+  },
+  "primary": {
+    "correspondence": "tangent:continuation:any_lane",
+    "question": "does the same fitted continuation rule predict better when the junction angle comes from the export's authored endpoint tangents instead of chords?",
+    "reference": "frozen:junction:continuation:any_lane"
+  },
+  "query_selection": {
+    "filter": "not diagnostic and position_kind == boundary",
+    "request": "literal [segment, lane, offset] endpoints, plan order preserved",
+    "source": "each opening's frozen query-freeze plan"
+  },
+  "rules": [
+    "frozen:always_fail",
+    "frozen:always_candidate",
+    "frozen:weak_component",
+    "frozen:junction:continuation:any_lane",
+    "frozen:junction:continuation:orientation_index",
+    "frozen:junction:single:any_lane",
+    "chord:continuation:any_lane",
+    "chord:continuation:orientation_index",
+    "tangent:continuation:any_lane",
+    "tangent:continuation:orientation_index",
+    "chord:turn:0:any_lane",
+    "chord:turn:0:orientation_index",
+    "chord:turn:5:any_lane",
+    "chord:turn:5:orientation_index",
+    "chord:turn:10:any_lane",
+    "chord:turn:10:orientation_index",
+    "chord:turn:15:any_lane",
+    "chord:turn:15:orientation_index",
+    "chord:turn:20:any_lane",
+    "chord:turn:20:orientation_index",
+    "chord:turn:30:any_lane",
+    "chord:turn:30:orientation_index",
+    "chord:turn:45:any_lane",
+    "chord:turn:45:orientation_index",
+    "chord:turn:60:any_lane",
+    "chord:turn:60:orientation_index",
+    "chord:turn:90:any_lane",
+    "chord:turn:90:orientation_index",
+    "chord:turn:120:any_lane",
+    "chord:turn:120:orientation_index",
+    "chord:turn:150:any_lane",
+    "chord:turn:150:orientation_index",
+    "chord:turn:180:any_lane",
+    "chord:turn:180:orientation_index",
+    "tangent:turn:0:any_lane",
+    "tangent:turn:0:orientation_index",
+    "tangent:turn:5:any_lane",
+    "tangent:turn:5:orientation_index",
+    "tangent:turn:10:any_lane",
+    "tangent:turn:10:orientation_index",
+    "tangent:turn:15:any_lane",
+    "tangent:turn:15:orientation_index",
+    "tangent:turn:20:any_lane",
+    "tangent:turn:20:orientation_index",
+    "tangent:turn:30:any_lane",
+    "tangent:turn:30:orientation_index",
+    "tangent:turn:45:any_lane",
+    "tangent:turn:45:orientation_index",
+    "tangent:turn:60:any_lane",
+    "tangent:turn:60:orientation_index",
+    "tangent:turn:90:any_lane",
+    "tangent:turn:90:orientation_index",
+    "tangent:turn:120:any_lane",
+    "tangent:turn:120:orientation_index",
+    "tangent:turn:150:any_lane",
+    "tangent:turn:150:orientation_index",
+    "tangent:turn:180:any_lane",
+    "tangent:turn:180:orientation_index"
+  ],
+  "schema": 1,
+  "scope": "retrospective, already-observed fitting of junction-connection rules over the frozen PL-1215 native rail study; not a blind or prospective holdout, a geographic impossibility, rail service or a product promise",
+  "selection": {
+    "control_protocol": "the stock controls are never training rows for any selection and are evaluated as held-out packages trained only on the cohort",
+    "criterion": "balanced_accuracy",
+    "eligible": "a rule abstains on nothing in the training rows and both classes are present there; abstentions are reported but never silently dropped from a decision",
+    "not_estimable": "a fold with no training row, or a fold whose training set lacks a class, selects nothing and its held-out rows are unscored; a fold with no positive or no negative held-out row reports a null precision or recall",
+    "ties": "higher precision, then higher recall, then the rule name; every tied rule is reported"
+  },
+  "source": {
+    "accepted_files": {
+      "bridge.py": "0963ff4a9cbbe3045adbf463a0749c7ef8f145d180f61d3d5e0587568f6bf78a",
+      "corrected/evaluation.json": "252e4d6cbf8276c061b9edd5d9cc1171d0f05dbddbbad2836bcfe64b374b52f8",
+      "corrected/integrity.json": "f6cfe4be004da17a66fe4bfd650de0fa585bb5f033f6cede860a15a3c249b2f7",
+      "corrected/predictions.json": "e8268d16fd5b69da88e6a6a2052a55b2282a7366d4c893c781080b3077286a74",
+      "corrected/protocol.json": "89665a2b7e067412f58ff851b8ccbc7ec61bbb569be37e2185f9108da1235c2a",
+      "model.py": "adad224e12968af755f72986d29cc8069f9dadf7d9e7dd611c36fad83ab8a950",
+      "openings.json": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+      "packages.json": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+      "topology.py": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d"
+    },
+    "accepted_head": "364628b81701c134e3f469f9e175c4fe40f7a311",
+    "accepted_merge": "d008778fd44cf448b2078738468267e8a7863af0",
+    "accepted_pr": 81,
+    "accepted_prefix": "tools/map-factory/capability-evidence/rail-query-model-v1",
+    "internal_branch": "PL-1142-native-v2",
+    "native_study": "1a0e45c65745ba5f05cf22f947da2e88fed25277",
+    "repo": "frontierkodiak/region-to-skylines"
+  },
+  "splits": {
+    "cohort": {
+      "packages": [
+        "asheville",
+        "innsbruck",
+        "boston",
+        "charleston",
+        "grand-canyon",
+        "hong-kong",
+        "pittsburgh",
+        "rio",
+        "yosemite"
+      ],
+      "role": "evaluation group; a package never appears in two folds"
+    },
+    "stock_controls": {
+      "packages": [
+        "stock-1",
+        "stock-2"
+      ],
+      "role": "separate control group; never a selection training row"
+    }
+  },
+  "study": "rail-junction-fit-v1"
+}

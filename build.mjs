@@ -6,6 +6,7 @@ import { dirname } from "node:path";
 import { FACTORY_FILES } from "./mapgen.js";
 import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
 import { railStudyFiles } from "./rail-study.mjs";
+import { railResearch, railResearchFiles } from "./rail-research.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
 const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
@@ -34,6 +35,12 @@ for (const certificate of [...(ledger.native_path_certificates ?? []), ...(ledge
 }
 // Serve the directed-rail study's own bytes: raw receipts, closure and projection.
 for (const file of railStudyFiles()) {
+  mkdirSync(dirname(`dist/${file}`), { recursive: true });
+  copyFileSync(file, `dist/${file}`);
+}
+// Serve the three accepted rail research publications' carried evidence, the
+// strict file-scope manifest and the projection the page renders from.
+for (const file of railResearchFiles(Object.values(railResearch().studies))) {
   mkdirSync(dirname(`dist/${file}`), { recursive: true });
   copyFileSync(file, `dist/${file}`);
 }

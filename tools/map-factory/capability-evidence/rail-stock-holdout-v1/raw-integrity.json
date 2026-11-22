@@ -1,0 +1,826 @@
+{
+  "earlier_denial": "raw/stock-1/observation.json.gz",
+  "files": {
+    "raw/attempt-2/holdout-01/game.log.gz": {
+      "original_bytes": 104783,
+      "original_sha256": "fa461d97fbd72472da5f895ef32465b556c078b57db0786820c785fe6bcaddcd",
+      "stored_bytes": 8712,
+      "stored_sha256": "05056d41bdaff5679684faaac559230220bfa92b8a714e1a7203e6c9ad90fe64"
+    },
+    "raw/attempt-2/holdout-01/gpu.csv.gz": {
+      "original_bytes": 2234,
+      "original_sha256": "c6f1182939b4c51e84cff6fde27521fa4da7bd702e3dcbf23b029bf3b60c80b5",
+      "stored_bytes": 675,
+      "stored_sha256": "ac879ee2a6ddf3bd55c8ada97e705dcd2079fa74a9873461ae54ea0265c1b186"
+    },
+    "raw/attempt-2/holdout-01/metadata-post.json.gz": {
+      "original_bytes": 418464,
+      "original_sha256": "a9d1e09a34224efa66760fc81c1980c640ae774f32bf2ad175dfe380a2ef9a5d",
+      "stored_bytes": 38102,
+      "stored_sha256": "ddc7f02812b9b759dcecea7a96798d69206547f3df92aa7093a5b25ae0543103"
+    },
+    "raw/attempt-2/holdout-01/metadata.json.gz": {
+      "original_bytes": 418464,
+      "original_sha256": "7da9bd7c118ba1a748a0a7100ff80dafa4840d1b9ae38ae9829483d390f9fd94",
+      "stored_bytes": 38102,
+      "stored_sha256": "a318b41db6de4881725fd98ddd3a06471ad8b5d13dcf85c53ee71efc5355f759"
+    },
+    "raw/attempt-2/holdout-01/networks-post.json.gz": {
+      "original_bytes": 3544338,
+      "original_sha256": "08a447a4371d1424214c5964eb3982d95335de7a50041cce708979c05c61b8bc",
+      "stored_bytes": 236680,
+      "stored_sha256": "20f6e7d3bb6a125291f98aeb43973623451ee3a89f6331eb9da94868b921b83e"
+    },
+    "raw/attempt-2/holdout-01/networks.json.gz": {
+      "original_bytes": 3544338,
+      "original_sha256": "08a447a4371d1424214c5964eb3982d95335de7a50041cce708979c05c61b8bc",
+      "stored_bytes": 236680,
+      "stored_sha256": "20f6e7d3bb6a125291f98aeb43973623451ee3a89f6331eb9da94868b921b83e"
+    },
+    "raw/attempt-2/holdout-01/observation.json.gz": {
+      "original_bytes": 356618,
+      "original_sha256": "9f424290a5fe96787a076751173c66794fc1bea07225c2281900d8fb13bf8530",
+      "stored_bytes": 34525,
+      "stored_sha256": "b757c56e5b14828ac36607f3e3aec5ea9913622afe8ad3b0d4dad8407b989140"
+    },
+    "raw/attempt-2/holdout-01/query-freeze.json.gz": {
+      "original_bytes": 31507,
+      "original_sha256": "143005a4d89c057d37c4234ee8e54558bbe5a9ca384e4e19464d5bbedbd338af",
+      "stored_bytes": 5574,
+      "stored_sha256": "d843eea0ec090c21ac49d11454b211523f24d02a55072c21282b568208b60f2c"
+    },
+    "raw/attempt-2/holdout-02/game.log.gz": {
+      "original_bytes": 108371,
+      "original_sha256": "9372c3f421dbc94795846c68688fc3c7fc306a386bde6e62aeacb80d05cee804",
+      "stored_bytes": 9105,
+      "stored_sha256": "44321eaef785c3da4a15ab08f753d59f11fa0558ac04a2072a52ea83a2bef6bb"
+    },
+    "raw/attempt-2/holdout-02/gpu.csv.gz": {
+      "original_bytes": 2233,
+      "original_sha256": "60cf29d6f188d90a160e67b4d292f41419a3d6548018feec9f9830adb49d29eb",
+      "stored_bytes": 659,
+      "stored_sha256": "38dfe6eb42972fccae04ad135fa5959ed15e96dccbb6763b528c9b7b69a7bbd4"
+    },
+    "raw/attempt-2/holdout-02/metadata-post.json.gz": {
+      "original_bytes": 257662,
+      "original_sha256": "5a3e82ceac0b135cb71ccebbf995734d71885a62aa0541dedd61fae53187d10e",
+      "stored_bytes": 23936,
+      "stored_sha256": "33cb86325406002dc9bf88a3acdcbd15434dd3cea1f623d946c55bdf91c4637e"
+    },
+    "raw/attempt-2/holdout-02/metadata.json.gz": {
+      "original_bytes": 257662,
+      "original_sha256": "abbbd2abc529dad46a49dae9022f978e201908a5fccde30c9ab95c86155a6451",
+      "stored_bytes": 23936,
+      "stored_sha256": "f40ebcc8b2772beb75757f52ec10a8d697bb70e5265a17cb8c9c3d50a2696213"
+    },
+    "raw/attempt-2/holdout-02/networks-post.json.gz": {
+      "original_bytes": 2766002,
+      "original_sha256": "dd86a7bfda183392d0d589307416ca83d1f4f212c09e3590dfca0956a1e6a61a",
+      "stored_bytes": 227903,
+      "stored_sha256": "5fb8952120eef827446509a6d2d0c6bb37613fc4474c41d05244de5436119842"
+    },
+    "raw/attempt-2/holdout-02/networks.json.gz": {
+      "original_bytes": 2766002,
+      "original_sha256": "dd86a7bfda183392d0d589307416ca83d1f4f212c09e3590dfca0956a1e6a61a",
+      "stored_bytes": 227903,
+      "stored_sha256": "5fb8952120eef827446509a6d2d0c6bb37613fc4474c41d05244de5436119842"
+    },
+    "raw/attempt-2/holdout-02/observation.json.gz": {
+      "original_bytes": 216720,
+      "original_sha256": "54a4905065d4d61d642456eca46ebae9130898e989294fb0a8bbb9f1a3a2836a",
+      "stored_bytes": 24775,
+      "stored_sha256": "2c2ef88272faf8700a2f8f0840b8ca2ba45dc62c83ddce19ef7ed39d2403f349"
+    },
+    "raw/attempt-2/holdout-02/query-freeze.json.gz": {
+      "original_bytes": 31505,
+      "original_sha256": "bc96afa89ac8e181dc51de36126f01e52a504160d6e280af1478d1386d203582",
+      "stored_bytes": 5579,
+      "stored_sha256": "1b3903e4d293138359ab995ed8f1aa65a6d2a85d702999e8cf6ab02ed8cc6a12"
+    },
+    "raw/attempt-2/holdout-03/game.log.gz": {
+      "original_bytes": 104989,
+      "original_sha256": "adb323cab01acf412c1f5c3e852a4a53836f1817f341a934b87209342babda90",
+      "stored_bytes": 8830,
+      "stored_sha256": "192c6ca767f725cc60408f3e84733a78dbbe504bd1dd88bfe5070b2101273a4c"
+    },
+    "raw/attempt-2/holdout-03/gpu.csv.gz": {
+      "original_bytes": 2297,
+      "original_sha256": "232934d4a22599140e8c8008ed49798985ca41a25b7d3d978ec79a1ef2dc4029",
+      "stored_bytes": 690,
+      "stored_sha256": "3dcf4ddafb079ad64d5e9d75e9dc559214e487f3e72810c36434693f91fb4282"
+    },
+    "raw/attempt-2/holdout-03/metadata-post.json.gz": {
+      "original_bytes": 337705,
+      "original_sha256": "44f4be4e62cc7804073b77878779445aa59c2f2239431c2c2a17b050ce1ffe62",
+      "stored_bytes": 27865,
+      "stored_sha256": "81b8dc09c8679852e1f4ab753c268f5c3086c9b34a64dcdb17004c581501ef4d"
+    },
+    "raw/attempt-2/holdout-03/metadata.json.gz": {
+      "original_bytes": 337705,
+      "original_sha256": "bd739469d2afd1e56fc5f24de7ab925abf6f335f0221250c24c0f075f7a2576a",
+      "stored_bytes": 27864,
+      "stored_sha256": "74f4ec251abb015cfb480e3bafb36b6a617b4f4c53ca7660c9baff1ca60a1c11"
+    },
+    "raw/attempt-2/holdout-03/networks-post.json.gz": {
+      "original_bytes": 3088652,
+      "original_sha256": "37c0dccdcfa930b3aa81d0045570a571fed9a5660b7ab1314f5e77d1fa50c1f6",
+      "stored_bytes": 242918,
+      "stored_sha256": "f525ff194d2e713ee3fec754adfec0e6aa571fcc28ca8f82f586206cba54021e"
+    },
+    "raw/attempt-2/holdout-03/networks.json.gz": {
+      "original_bytes": 3088675,
+      "original_sha256": "a8e8cc040446cec2c62f7ac0f134550ddf787b02d36bf75a8d192b6003fd9abb",
+      "stored_bytes": 242933,
+      "stored_sha256": "80c613b3286409300a92e22f200f63df1bdfcbe1ca67266669f962dbc4e821bf"
+    },
+    "raw/attempt-2/holdout-03/observation.json.gz": {
+      "original_bytes": 354196,
+      "original_sha256": "e953005072b27504dee85c63c3532d23b0d03cefa71a81609f0e9b20552595a0",
+      "stored_bytes": 34208,
+      "stored_sha256": "fc8222042892807f4f256f617ee36fa72bfb825121900087141009de9321bf2b"
+    },
+    "raw/attempt-2/holdout-03/query-freeze.json.gz": {
+      "original_bytes": 31511,
+      "original_sha256": "5de6a239411ace51a04fd365be1c4b0e0b9aaf814179540d28ad0fccd51678f8",
+      "stored_bytes": 5563,
+      "stored_sha256": "fe0a9d72f19970b146038b54b2e9ae882be421e4f3ddc7c1ac2b87a4ac53c4e8"
+    },
+    "raw/attempt-2/holdout-04/game.log.gz": {
+      "original_bytes": 104648,
+      "original_sha256": "1b50bc9d17409d74956629f2871821ee5a23c52276bb313114afa95c5935e54a",
+      "stored_bytes": 8822,
+      "stored_sha256": "9d1bf9bf99fa1e141c1334a2d782c0784209bcaab94a2782604fcc074ca4c827"
+    },
+    "raw/attempt-2/holdout-04/gpu.csv.gz": {
+      "original_bytes": 2235,
+      "original_sha256": "e0fdaef7c7084d45b4dfa6851fc60a268cffd3910ed2617b238a8e35bc03e431",
+      "stored_bytes": 657,
+      "stored_sha256": "953fdf66df9ceaded96c3306661ae95f193fc0e2a08cadc8530d3ddd41099862"
+    },
+    "raw/attempt-2/holdout-04/metadata-post.json.gz": {
+      "original_bytes": 304350,
+      "original_sha256": "9262cdc0bfcf5921cd008e859803df845e8e6f59f61f6c33b6c0aa79e4167cfa",
+      "stored_bytes": 26997,
+      "stored_sha256": "d157b0375bca18f24161292b765de147e6bdb75c1c8110a8eeb313b4cc92cb65"
+    },
+    "raw/attempt-2/holdout-04/metadata.json.gz": {
+      "original_bytes": 304350,
+      "original_sha256": "3231a003b416630c49e37940f9a76185519ac3f108d470d512ae6d0cfb7bd362",
+      "stored_bytes": 26997,
+      "stored_sha256": "9f3d37932f4ef16c0996de279a966b240d66e053689cd183677f82a58db95e81"
+    },
+    "raw/attempt-2/holdout-04/networks-post.json.gz": {
+      "original_bytes": 2136711,
+      "original_sha256": "f7f442259d4788af9a286670c6a25c98c22b4aecc4188da52a604f0d9d97aa3e",
+      "stored_bytes": 155734,
+      "stored_sha256": "b7df845e63a874343cfae8db4431a09821b7ad5c8a1b28c943dd7a967243ad8c"
+    },
+    "raw/attempt-2/holdout-04/networks.json.gz": {
+      "original_bytes": 2136711,
+      "original_sha256": "0edf3b16ebb2311eb62becc9464bc10c086e67b942dafaf0490903785e1bb1d1",
+      "stored_bytes": 155738,
+      "stored_sha256": "62120429074879f4d8359f6021468cf6cbd78f66bd2a43e1d492e91c255093e6"
+    },
+    "raw/attempt-2/holdout-04/observation.json.gz": {
+      "original_bytes": 340461,
+      "original_sha256": "4f669b5bf513a22fc30b0c83697a49f5ca26117cd430680b1ddea5b6f80ce4d9",
+      "stored_bytes": 33508,
+      "stored_sha256": "e13c5e68b6d360fd35e0293137253a75f54475d2297e3d443b2243880af67dbf"
+    },
+    "raw/attempt-2/holdout-04/query-freeze.json.gz": {
+      "original_bytes": 31502,
+      "original_sha256": "26680cd00542861a89b37880a0369e0119759a7b2b13e8116c24786c37c48a91",
+      "stored_bytes": 5575,
+      "stored_sha256": "44da8447e4b51ded7fa3f0b40cb2965047e481097f1369fd1aac8f064c4e2779"
+    },
+    "raw/attempt-2/holdout-05/game.log.gz": {
+      "original_bytes": 105173,
+      "original_sha256": "bf9b014c8b7cd22a6e2c098d9060a728f74e7dbbd736cfdffffa58ba33786dd3",
+      "stored_bytes": 8825,
+      "stored_sha256": "81d3f71df4cdb207aedfc619bbbd416f4e992a48fc77be84581f2a717bbf4fbd"
+    },
+    "raw/attempt-2/holdout-05/gpu.csv.gz": {
+      "original_bytes": 2238,
+      "original_sha256": "6bb29bc6016ef2979001f2d160d09ce5e64188be269d6f76a44323e326821648",
+      "stored_bytes": 669,
+      "stored_sha256": "0b1439b32baf19dbdc93b90210f003af4baa30f8adc1d43c573a67cd5a21b4a1"
+    },
+    "raw/attempt-2/holdout-05/metadata-post.json.gz": {
+      "original_bytes": 284645,
+      "original_sha256": "372388bf83374f8a805611548bd032792fd76c57c8ae40309b8adf034aa04066",
+      "stored_bytes": 25960,
+      "stored_sha256": "430348aab970231a25a0a6f9cc2e37e4e706eaa27dfd01aa52ac96ff8d9f812a"
+    },
+    "raw/attempt-2/holdout-05/metadata.json.gz": {
+      "original_bytes": 284645,
+      "original_sha256": "ac3762f45ce0a923fed4521913a8ac311fc090ce8ec62d736e6b4a257ef70e3e",
+      "stored_bytes": 25960,
+      "stored_sha256": "e164b2101fa7c5d007acf8b4ecc0bc5446dc166499998cd75b64512936cb338c"
+    },
+    "raw/attempt-2/holdout-05/networks-post.json.gz": {
+      "original_bytes": 1978303,
+      "original_sha256": "28189040d51f016eba7f9238b70a3602daac20e45e9063289b0e45a77ffdde5d",
+      "stored_bytes": 138968,
+      "stored_sha256": "03541e95213aaa8ae098d1189377c886caa91c19cbad19e50be5e08e0c9b4451"
+    },
+    "raw/attempt-2/holdout-05/networks.json.gz": {
+      "original_bytes": 1978303,
+      "original_sha256": "28189040d51f016eba7f9238b70a3602daac20e45e9063289b0e45a77ffdde5d",
+      "stored_bytes": 138968,
+      "stored_sha256": "03541e95213aaa8ae098d1189377c886caa91c19cbad19e50be5e08e0c9b4451"
+    },
+    "raw/attempt-2/holdout-05/observation.json.gz": {
+      "original_bytes": 332143,
+      "original_sha256": "13b6ba8ae61958c95dbea272dab386eccfce833eef8d4767983d2f1ff2bef38b",
+      "stored_bytes": 29063,
+      "stored_sha256": "66aacf0e99879988315c0c5ef2fee9ead4c9fa12465d196881f3bfbe2b4592bb"
+    },
+    "raw/attempt-2/holdout-05/query-freeze.json.gz": {
+      "original_bytes": 31493,
+      "original_sha256": "a6492b688495f22110483fffe16397951b0675673a49a09abe7d3439c32d5f0a",
+      "stored_bytes": 5563,
+      "stored_sha256": "7cfda5f032c8b49b9a3c3598301192fd2225bea1fd8ac0bfef7731a682b1e3f0"
+    },
+    "raw/attempt-2/holdout-06/game.log.gz": {
+      "original_bytes": 104895,
+      "original_sha256": "09de76e8c860f59bc2581f57d06ef4cc72ba99f802db7216906e8ed6d9991f10",
+      "stored_bytes": 8731,
+      "stored_sha256": "f4614e05e1a32a9914e607906012173f7ddd2379366f1b11c5f999969559483b"
+    },
+    "raw/attempt-2/holdout-06/gpu.csv.gz": {
+      "original_bytes": 2169,
+      "original_sha256": "676002bc9266fcbb61a475dc018afbddf700ef9eb44a0fbf84b5fbcebbab8542",
+      "stored_bytes": 648,
+      "stored_sha256": "c639c61f68609f58c59a200afba7961f9b09a51530d21c0a84614b510c458904"
+    },
+    "raw/attempt-2/holdout-06/metadata-post.json.gz": {
+      "original_bytes": 258228,
+      "original_sha256": "9d3be93f9d30a802fa150c96be7d0b80b76e36e781b71a9245af9af414f368d1",
+      "stored_bytes": 17592,
+      "stored_sha256": "f2f887e280036433cbaf7d5f5fc017d05e496993c0111bfdf4b0281f35572638"
+    },
+    "raw/attempt-2/holdout-06/metadata.json.gz": {
+      "original_bytes": 258228,
+      "original_sha256": "009f31de570a2f97ec19d160c070f57677d82a094c8acc83757bd5b30789f788",
+      "stored_bytes": 17591,
+      "stored_sha256": "762d64a1e5ccb2d0f4c8cff960fea9a4be678b2ce91168f343d62366c06ed9d0"
+    },
+    "raw/attempt-2/holdout-06/networks-post.json.gz": {
+      "original_bytes": 1994279,
+      "original_sha256": "6ef2d2fa9408920dd6e46492a755e89f811583819c7fa6fc92709f0316f5acd3",
+      "stored_bytes": 137362,
+      "stored_sha256": "3e7ea8db0df7ff2be7f0c6aef56524299dc20ce192708f8194a6eea74a3585eb"
+    },
+    "raw/attempt-2/holdout-06/networks.json.gz": {
+      "original_bytes": 1994279,
+      "original_sha256": "6ef2d2fa9408920dd6e46492a755e89f811583819c7fa6fc92709f0316f5acd3",
+      "stored_bytes": 137362,
+      "stored_sha256": "3e7ea8db0df7ff2be7f0c6aef56524299dc20ce192708f8194a6eea74a3585eb"
+    },
+    "raw/attempt-2/holdout-06/observation.json.gz": {
+      "original_bytes": 320502,
+      "original_sha256": "8901117fd08b9fc3a8af087a7b055c25e9e067abb66146ef41bbd59732d9eaba",
+      "stored_bytes": 28592,
+      "stored_sha256": "b50397ddcd6ec4bb22ae76f5396b01daf5b05aa1a8846fd779f92a5549990919"
+    },
+    "raw/attempt-2/holdout-06/query-freeze.json.gz": {
+      "original_bytes": 31503,
+      "original_sha256": "e580a840eaffb7db6c88c15ccb33471da2cc3b1969e69d0d0b2ee66700102515",
+      "stored_bytes": 5558,
+      "stored_sha256": "8e4f41d9e8f24164fe8a6d6422ea0305520cc65b7ed0a2e80a7c1bd2f4dd7da3"
+    },
+    "raw/attempt-2/holdout-07/game.log.gz": {
+      "original_bytes": 104953,
+      "original_sha256": "362dd4453a1c56b3e738f613caa6c4fce7761e6efcd3886bbe2b6932accfe89d",
+      "stored_bytes": 8826,
+      "stored_sha256": "bb5ea5c023d23ed9f69ca43d83587c0a35b6b39fefb26b1bfaea8cc2c8eba891"
+    },
+    "raw/attempt-2/holdout-07/gpu.csv.gz": {
+      "original_bytes": 2035,
+      "original_sha256": "5d88bf22b6f02cb2632adf3df2434652146fc637f11e176bf8dc6e82f7ee6381",
+      "stored_bytes": 626,
+      "stored_sha256": "1187f1472ed4a0ece6615ccd3135f3738639522d97fe7f19d26a06ccb34cbfc1"
+    },
+    "raw/attempt-2/holdout-07/metadata-post.json.gz": {
+      "original_bytes": 117858,
+      "original_sha256": "f1d39fa33ab1b350d0fa14d10ca5867d573eb01ae1aa8db9ecbfa57e82aaaceb",
+      "stored_bytes": 10328,
+      "stored_sha256": "cbec855867e4c9fe190d592b38381ea8c30be79c44a222469c71e333b3274ca5"
+    },
+    "raw/attempt-2/holdout-07/metadata.json.gz": {
+      "original_bytes": 117858,
+      "original_sha256": "3640e4ec9b40c03ba2d6f783a93b220a7e789babcf3889618fef95b9c63f8cf7",
+      "stored_bytes": 10326,
+      "stored_sha256": "ebc02d137f71efb7946b61682fdf98b39bbb464bf7631835305d4367410e8dc9"
+    },
+    "raw/attempt-2/holdout-07/networks-post.json.gz": {
+      "original_bytes": 3601082,
+      "original_sha256": "76099c3f1b6d1098a43e06254642be760088f5e63eaf26d1d59f15b864958679",
+      "stored_bytes": 273437,
+      "stored_sha256": "28c60dfa9a404326c81decbc9f1f7c2cc57dff4e5fa2d0164f5f1a539e1bfada"
+    },
+    "raw/attempt-2/holdout-07/networks.json.gz": {
+      "original_bytes": 3601082,
+      "original_sha256": "76099c3f1b6d1098a43e06254642be760088f5e63eaf26d1d59f15b864958679",
+      "stored_bytes": 273437,
+      "stored_sha256": "28c60dfa9a404326c81decbc9f1f7c2cc57dff4e5fa2d0164f5f1a539e1bfada"
+    },
+    "raw/attempt-2/holdout-07/observation.json.gz": {
+      "original_bytes": 205719,
+      "original_sha256": "bd20f580d71b74f1a8cfb9e9a96c0e7eed7629dc248698a62f3d3fdd24fc3315",
+      "stored_bytes": 20109,
+      "stored_sha256": "2b3ae3930effbf1fd2cce470ecfcb9a0f2d6f95ea941378747d8f30e7c96734c"
+    },
+    "raw/attempt-2/holdout-07/query-freeze.json.gz": {
+      "original_bytes": 28830,
+      "original_sha256": "fb98825218a531498df8bd109802d5297bb40b465b05d9760bd92464ed02b8ee",
+      "stored_bytes": 5395,
+      "stored_sha256": "fa5e8220196de33570811f7bb344bdac01c989d648aa01eb0e0bb9f1e8031d21"
+    },
+    "raw/attempt-2/holdout-08/game.log.gz": {
+      "original_bytes": 107366,
+      "original_sha256": "50c42d590025078c29ce80e8d49a78db407bf16cda57d1570cd7053b97cfac2e",
+      "stored_bytes": 9082,
+      "stored_sha256": "1f53b00692ec743dc3753366161fba450338bd9bc8d93f017d6dda5b66a4d23f"
+    },
+    "raw/attempt-2/holdout-08/gpu.csv.gz": {
+      "original_bytes": 2104,
+      "original_sha256": "17441e705abd12520f7fc605d2537f18cf25d7461ac12051adeca257571a76bc",
+      "stored_bytes": 635,
+      "stored_sha256": "547fbeb540570fd67421971042bbb2f75942fe0eb72a1bb080693de9a113b94c"
+    },
+    "raw/attempt-2/holdout-08/metadata-post.json.gz": {
+      "original_bytes": 595515,
+      "original_sha256": "a0b692bc36304b127740ac61cfe84e332a79d9f662f420d41a8b76650ef55098",
+      "stored_bytes": 54919,
+      "stored_sha256": "7a4dea175c0dcb3c5f525430d097a052530ccce41c7ee7445b220b47d5c37e3f"
+    },
+    "raw/attempt-2/holdout-08/metadata.json.gz": {
+      "original_bytes": 595515,
+      "original_sha256": "f055e3fd44a16602bfcefe1b9ae7c1a9d42769c2884e3613ce4aff053a91d29d",
+      "stored_bytes": 54919,
+      "stored_sha256": "04a5757f582af7f51062e4480a2b0da037969c2ae7356e01b510b21a4c0cc0d8"
+    },
+    "raw/attempt-2/holdout-08/networks-post.json.gz": {
+      "original_bytes": 3681118,
+      "original_sha256": "c23678a809fb49b34a2c2fd17c002501e5c8276e6c1bf227c42a677fa0889479",
+      "stored_bytes": 282266,
+      "stored_sha256": "a7edb4bd642eac1473997180d1656b5274d96a1c9a914cb9f8904cbd1c25c991"
+    },
+    "raw/attempt-2/holdout-08/networks.json.gz": {
+      "original_bytes": 3681118,
+      "original_sha256": "c23678a809fb49b34a2c2fd17c002501e5c8276e6c1bf227c42a677fa0889479",
+      "stored_bytes": 282266,
+      "stored_sha256": "a7edb4bd642eac1473997180d1656b5274d96a1c9a914cb9f8904cbd1c25c991"
+    },
+    "raw/attempt-2/holdout-08/observation.json.gz": {
+      "original_bytes": 205702,
+      "original_sha256": "ee46cf8b85adcbf9b91dd2a66be2370cc3bdd6fa39ecf0a5208f4a6dc97d4454",
+      "stored_bytes": 20095,
+      "stored_sha256": "5cca75403d7a35b9965222549fb18516eafb539c361e2372b6ebb97efe30b902"
+    },
+    "raw/attempt-2/holdout-08/query-freeze.json.gz": {
+      "original_bytes": 28817,
+      "original_sha256": "7c05a7286ae425395726fa40f93a241b7e2e8ad249fb832ae41b48392ca6e8a9",
+      "stored_bytes": 5375,
+      "stored_sha256": "d99654558067730319cdc7c8444ef603363dac84dfcc2b4a2fa77ae0233337cc"
+    },
+    "raw/attempt-2/holdout-09/game.log.gz": {
+      "original_bytes": 107167,
+      "original_sha256": "5c75974bdb3929b56516a95bf771963adbe4891e1b83eae8e0e1d8fe375406c1",
+      "stored_bytes": 9100,
+      "stored_sha256": "70e9dc3cd969473bb59313f3df5259bdb721173d38a32e73ff5698e6a31625e5"
+    },
+    "raw/attempt-2/holdout-09/gpu.csv.gz": {
+      "original_bytes": 2105,
+      "original_sha256": "8a866f7ff9970c01fdfbda721b32a2424aa819ff898643d157ebe670d310b63a",
+      "stored_bytes": 624,
+      "stored_sha256": "9a5ba33dfa66a2ed886562e1fd60463cd8e8bf534eadbe2f43792a1d7f7cbade"
+    },
+    "raw/attempt-2/holdout-09/metadata-post.json.gz": {
+      "original_bytes": 655488,
+      "original_sha256": "451706989519a94446ec4bda2a6c99b3802e8f6de3f986a7c61f416b63d764f1",
+      "stored_bytes": 59254,
+      "stored_sha256": "6dc7bd8d740b84264b35bf8a828dd52aef358daf9a75e891de36dec7f257c7e1"
+    },
+    "raw/attempt-2/holdout-09/metadata.json.gz": {
+      "original_bytes": 655488,
+      "original_sha256": "5774004bcaa8b116d8f8a998f874b05413d09a51cd383dc51261824c62a626c8",
+      "stored_bytes": 59254,
+      "stored_sha256": "279d4c0e3c2e5e972441961a9efca15d43fd47295a3330d8e8606488d4467646"
+    },
+    "raw/attempt-2/holdout-09/networks-post.json.gz": {
+      "original_bytes": 4867102,
+      "original_sha256": "3cb5c2943299cc82aa1321b2c779b770244d3cea3386282c952e046de46d3a06",
+      "stored_bytes": 383114,
+      "stored_sha256": "c14d706e00c23fa57896aa3e901a5db110858e42c2222869604ca961d6d7712b"
+    },
+    "raw/attempt-2/holdout-09/networks.json.gz": {
+      "original_bytes": 4867102,
+      "original_sha256": "3cb5c2943299cc82aa1321b2c779b770244d3cea3386282c952e046de46d3a06",
+      "stored_bytes": 383114,
+      "stored_sha256": "c14d706e00c23fa57896aa3e901a5db110858e42c2222869604ca961d6d7712b"
+    },
+    "raw/attempt-2/holdout-09/observation.json.gz": {
+      "original_bytes": 205712,
+      "original_sha256": "97bf2b4372af1f58a5b8d7a70701d46ea31e6e6cdfd6b6c3a3609b3ee17a8e58",
+      "stored_bytes": 20108,
+      "stored_sha256": "8a1ab3d80788ea51852ce4148be6c249eba4ef7dd038f24bb8d26b46fc192b75"
+    },
+    "raw/attempt-2/holdout-09/query-freeze.json.gz": {
+      "original_bytes": 28817,
+      "original_sha256": "14f50061c03bdada07dc4ed2b928bfe04b67220725be036852ab693e65ed6f02",
+      "stored_bytes": 5380,
+      "stored_sha256": "0ba734e8cd5aac6cc0179cc6f5f1341860a8b7264fd350862e8b46b95e2208d1"
+    },
+    "raw/attempt-2/holdout-10/game.log.gz": {
+      "original_bytes": 107073,
+      "original_sha256": "65ac415d5dee74f91e72928ec5ad9e24e116d4f09e972d853e49784e454be40f",
+      "stored_bytes": 9043,
+      "stored_sha256": "d9de6b4e8425446b669c4356eeda2c5074ca4ea5e470829b335bc7476af502ae"
+    },
+    "raw/attempt-2/holdout-10/gpu.csv.gz": {
+      "original_bytes": 2165,
+      "original_sha256": "647a7f561dacb11738766832e0580303cead4958e30aa10f43dc8ea4fae17a29",
+      "stored_bytes": 646,
+      "stored_sha256": "b12c4f055d6dc0ffad1ed75197157ba145c821f561d41a33104f6a7d5667be02"
+    },
+    "raw/attempt-2/holdout-10/metadata-post.json.gz": {
+      "original_bytes": 750022,
+      "original_sha256": "b36666feb1c3ad5f3210f3d46e20c756e9058a41e4bf2fb93861105147a92634",
+      "stored_bytes": 69381,
+      "stored_sha256": "29a0becaf71b590a52aa160e2d016f79349266a47dc691bdf83f9bcb1bd28716"
+    },
+    "raw/attempt-2/holdout-10/metadata.json.gz": {
+      "original_bytes": 750022,
+      "original_sha256": "87b3b1d8400f2d4337e6f0a3dd355a174158d01556941b81938ce56fa7790842",
+      "stored_bytes": 69380,
+      "stored_sha256": "e61d01e04ad456ebe200aa7e4a35b2c45efee8c95a98cbe9dc8efaee8d817478"
+    },
+    "raw/attempt-2/holdout-10/networks-post.json.gz": {
+      "original_bytes": 4612664,
+      "original_sha256": "f50dc0c2b2b84d44c72e947dda7f44fe01271142422871c763bf100c04e3280f",
+      "stored_bytes": 322230,
+      "stored_sha256": "a6120b2b64ebff9d46c1e8242c9d876cd7e04d2d18074d807303dd1efc652dea"
+    },
+    "raw/attempt-2/holdout-10/networks.json.gz": {
+      "original_bytes": 4612664,
+      "original_sha256": "f50dc0c2b2b84d44c72e947dda7f44fe01271142422871c763bf100c04e3280f",
+      "stored_bytes": 322230,
+      "stored_sha256": "a6120b2b64ebff9d46c1e8242c9d876cd7e04d2d18074d807303dd1efc652dea"
+    },
+    "raw/attempt-2/holdout-10/observation.json.gz": {
+      "original_bytes": 205705,
+      "original_sha256": "999c4041b0f4d5e38cea6374ee2224a784dbea707ae36ba12da3b7bb3acfc240",
+      "stored_bytes": 20093,
+      "stored_sha256": "620a8d1b93740a16ccb714b9f14556d4e4b00cbeb8cab2760d1ccf1bd033fe57"
+    },
+    "raw/attempt-2/holdout-10/query-freeze.json.gz": {
+      "original_bytes": 28818,
+      "original_sha256": "6b1c27810e6fd2b5822bf65b219853dae3ff9196fd17e929fd8bd3c6fde7c11c",
+      "stored_bytes": 5381,
+      "stored_sha256": "7a69647488311925bd5e33fa60d309783da18a2574e99ec59ae33bec4fda3673"
+    },
+    "raw/attempt-2/stock-1/game.log.gz": {
+      "original_bytes": 105181,
+      "original_sha256": "66df324da5dcfaa35e7efe0579a6bef1b7e515139dadddc9974bdb797a13d3e9",
+      "stored_bytes": 8830,
+      "stored_sha256": "d33d225f7bf6aedbab710f8f4e990c2bbf61c1cf3c6ee284e967603ddbca0aab"
+    },
+    "raw/attempt-2/stock-1/gpu.csv.gz": {
+      "original_bytes": 2307,
+      "original_sha256": "72fd864132ed74c2f567faa18f11958dc830e2ebd8ebb20f05d8cfa1b8e34486",
+      "stored_bytes": 679,
+      "stored_sha256": "502791e84169b4fdd8cc26a5ff25c098d6e6822d75291404af32fbf2c9be8cd1"
+    },
+    "raw/attempt-2/stock-1/metadata-post.json.gz": {
+      "original_bytes": 316596,
+      "original_sha256": "a041018b66134b145013743c1e018b6b74b47960381e4c1a2fc063671e79d1ca",
+      "stored_bytes": 29527,
+      "stored_sha256": "b5f97621ebf21136a4d4272057a041e59cc104feed6000c00f63e0cd0c65de58"
+    },
+    "raw/attempt-2/stock-1/metadata.json.gz": {
+      "original_bytes": 316596,
+      "original_sha256": "516f26d0bd57e3b70eb2d7466d0de5fa0dd8a9356bcbe4a7968fc5f198486d92",
+      "stored_bytes": 29526,
+      "stored_sha256": "3a8a6f5e9541b2bfbef290fa4664ae446c3618b0a16d373c3001b1aa62b75f52"
+    },
+    "raw/attempt-2/stock-1/networks-post.json.gz": {
+      "original_bytes": 3005384,
+      "original_sha256": "d202836ce88e4372e23db6d0d72ffdf3bf8afbf8f86f36a089da1e9b95379c6a",
+      "stored_bytes": 216833,
+      "stored_sha256": "602f1305bdf84403e6be8f1a98ec8deecabe5d04d92538edbcaedc28a65e2101"
+    },
+    "raw/attempt-2/stock-1/networks.json.gz": {
+      "original_bytes": 3005384,
+      "original_sha256": "d202836ce88e4372e23db6d0d72ffdf3bf8afbf8f86f36a089da1e9b95379c6a",
+      "stored_bytes": 216833,
+      "stored_sha256": "602f1305bdf84403e6be8f1a98ec8deecabe5d04d92538edbcaedc28a65e2101"
+    },
+    "raw/attempt-2/stock-1/observation.json.gz": {
+      "original_bytes": 497675,
+      "original_sha256": "acf8f1b24243241673bf5546d2427e00e4befb2dbb6c46eedf1c127dc98aa3a9",
+      "stored_bytes": 32809,
+      "stored_sha256": "3df789d4e09f4fc881ae502d1ff1d6f726d7cad645b394d16c02c638ad968c78"
+    },
+    "raw/attempt-2/stock-1/query-freeze.json.gz": {
+      "original_bytes": 34889,
+      "original_sha256": "4ad833bca2160c8425abd8f18a1cb31dd96e9ff3dbf378296bc7844167708127",
+      "stored_bytes": 5713,
+      "stored_sha256": "ec260eaad3877d9ee4b2d3e7728e7599ebc464f64b8adf2012d6b8591395b8d6"
+    },
+    "raw/attempt-2/stock-2/game.log.gz": {
+      "original_bytes": 105039,
+      "original_sha256": "9ce6ff2e7bb51cfed11e22669c6acd0e33abfed527bd8528a6b0b563aac11c72",
+      "stored_bytes": 8826,
+      "stored_sha256": "e28add10267a6924c9a7e6adac51df582701d0fd1b654a8be057ed2ddde2a401"
+    },
+    "raw/attempt-2/stock-2/gpu.csv.gz": {
+      "original_bytes": 2710,
+      "original_sha256": "fcdf9db9346d079b6b1c9288826917c20417305d1cb775cf98b20d44fcb9e257",
+      "stored_bytes": 780,
+      "stored_sha256": "f82577837ab4c55acd6c1fe64d28da2289fd6de7a23d4a826f6d286036a002b6"
+    },
+    "raw/attempt-2/stock-2/metadata-post.json.gz": {
+      "original_bytes": 331428,
+      "original_sha256": "2ee5a9d0bd897ecbd2b68cf9fa95d7a50f8c890badbbce38651658952118e20f",
+      "stored_bytes": 32861,
+      "stored_sha256": "0d3185468b3d029fe206902910b5394c4b8c2471f35ae5366ba4f2a1d2e96940"
+    },
+    "raw/attempt-2/stock-2/metadata.json.gz": {
+      "original_bytes": 331428,
+      "original_sha256": "98e5841d2f9aee55516ab2175d8340f8dfb874e04a99b90e8d96b6a5afbb580d",
+      "stored_bytes": 32860,
+      "stored_sha256": "2c20cff8ca7af308573847ef07e35d38d285adc9635a22a4dd23f880d5759541"
+    },
+    "raw/attempt-2/stock-2/networks-post.json.gz": {
+      "original_bytes": 3686823,
+      "original_sha256": "f2412a6eaa16710021f9080dc3c82fc4eb416bc657e251ee19d32030dd053519",
+      "stored_bytes": 273637,
+      "stored_sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885"
+    },
+    "raw/attempt-2/stock-2/networks.json.gz": {
+      "original_bytes": 3686823,
+      "original_sha256": "f2412a6eaa16710021f9080dc3c82fc4eb416bc657e251ee19d32030dd053519",
+      "stored_bytes": 273637,
+      "stored_sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885"
+    },
+    "raw/attempt-2/stock-2/observation.json.gz": {
+      "original_bytes": 459765,
+      "original_sha256": "c17ee0097f732b62074ba2f1d07353562b7313bda280b2aaa611b1228e549f47",
+      "stored_bytes": 32010,
+      "stored_sha256": "805cdd20e05c43d7cdec78b0437b2eaa95946ffbc3cbe06f55274fbb68cf8040"
+    },
+    "raw/attempt-2/stock-2/query-freeze.json.gz": {
+      "original_bytes": 45576,
+      "original_sha256": "558c87e7352c3ac8a7a4d983035cc242e3596140f85651aedfd8ff83a335cc4a",
+      "stored_bytes": 5902,
+      "stored_sha256": "d63ba50d0a0013aac773f7d262b94e49245f2ac292906746c8d5564c1d5f7342"
+    },
+    "raw/attempt-2/telemetry/holdout-01/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "b501278488dfe301975b37f99974563c3ed9a188e892f98817dd634f3dd3830c",
+      "stored_bytes": 353,
+      "stored_sha256": "80513924bf1cc7ac3edc6d11b285b9b97e6d6d9d72584e84cd44f43554b9acb8"
+    },
+    "raw/attempt-2/telemetry/holdout-01/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "f9b31e6ae761e2d2b12f2def06c20284d4ab40a8afb550b90ae9af0407c43642",
+      "stored_bytes": 363,
+      "stored_sha256": "593689fde0cbf6ca1a0962c6fef5eef8a8fed74275e0adb56a92ff3785273568"
+    },
+    "raw/attempt-2/telemetry/holdout-01/process-gpu.jsonl.gz": {
+      "original_bytes": 32521,
+      "original_sha256": "896e5e2532b3dc82dcdf9f4478cb41a07caa6ba7a0a214159fc517fc7d87a139",
+      "stored_bytes": 1214,
+      "stored_sha256": "b92da9190fceedfbcea5a5be7488e2658fc59453f1d8954bd318eabe8c843c32"
+    },
+    "raw/attempt-2/telemetry/holdout-02/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "6c7af7b8b487b691394566686eb36c3c205113c08dc703bb2bc34659118bcdd5",
+      "stored_bytes": 353,
+      "stored_sha256": "1b44f32021ae7b2d00b2a2999cb2bc34ff194c65f5cb47d92dac731902fc0f9c"
+    },
+    "raw/attempt-2/telemetry/holdout-02/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "1874cf44e8b203b389da4cc371ca4d01e0fb525d2494254e8bd4679274bcf8fd",
+      "stored_bytes": 363,
+      "stored_sha256": "490e9d1c6ed22a250e1dfb5dd7cd09ea55909844e9f842d063501fdb3b65a44a"
+    },
+    "raw/attempt-2/telemetry/holdout-02/process-gpu.jsonl.gz": {
+      "original_bytes": 32199,
+      "original_sha256": "83127d438c54cadf9b47f78c226c654a72352539168ff92dd63f1239c30e1431",
+      "stored_bytes": 1215,
+      "stored_sha256": "d477df8ca5b9bc527cade3d2a6c1de1debd5e52aedbbae5ae5e288f584c6430c"
+    },
+    "raw/attempt-2/telemetry/holdout-03/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "97f092a1a0afd3e38de9fd72749dd8097ebe2f017c733ac316c0a0ff650c71b8",
+      "stored_bytes": 353,
+      "stored_sha256": "37879f0224b4b3e494fd1f9576e1b339831eff7b4238cdd67680085c15eb8e34"
+    },
+    "raw/attempt-2/telemetry/holdout-03/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "d84e93364fc967088283515ccb04b3a1c8889a5fd51f97668a67dc6cf494992b",
+      "stored_bytes": 364,
+      "stored_sha256": "2b18f3d65e427cfbbb807680a388a266a5849d834fcd7d22b7508e405ca67bc9"
+    },
+    "raw/attempt-2/telemetry/holdout-03/process-gpu.jsonl.gz": {
+      "original_bytes": 33138,
+      "original_sha256": "c0f4b8ef5495ed0dfa163605d23612b1043ef40e77a94765e53c2390e6650941",
+      "stored_bytes": 1224,
+      "stored_sha256": "c5d97909c03cdebafd238f6df5c2ea391eb3ac6011f1a2902fd86b3df0a58152"
+    },
+    "raw/attempt-2/telemetry/holdout-04/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "5d1c39c50aa90adb1b2a725472163437d0ea25cda63273d65d6c2cd1148426b1",
+      "stored_bytes": 354,
+      "stored_sha256": "78f1d057e8aba7c5d83cf72c500b17cd27e0bfc726a002a97f4caf62c789d7ba"
+    },
+    "raw/attempt-2/telemetry/holdout-04/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "703813da9e467d2e9f30af7f19bcd855c05c0b7f0d63be729678cbbb525bece8",
+      "stored_bytes": 364,
+      "stored_sha256": "2ff71e267f7f49982db285f9583248a79f4738014dc03b466e0934baa30c29c4"
+    },
+    "raw/attempt-2/telemetry/holdout-04/process-gpu.jsonl.gz": {
+      "original_bytes": 32932,
+      "original_sha256": "80eaad2ecb84f5e63386a38e9c877322a1634a96b3ad2f4a6791b106cf35f6a1",
+      "stored_bytes": 1218,
+      "stored_sha256": "8fd6421fe70808697727f65aeba27114a50f738c03d1daf9059292d32b47f205"
+    },
+    "raw/attempt-2/telemetry/holdout-05/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "30cc93b823e78d4d8b9ed2f85816f6e5f2ecd1045621ddefe154799cf9c1e005",
+      "stored_bytes": 352,
+      "stored_sha256": "ca016e4c062a3fc017c269fa0ee2edca4f7e3a8967fdb524b3b771a22883f37b"
+    },
+    "raw/attempt-2/telemetry/holdout-05/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "9a4e4abf168bc686f7e3a170b5105e42f63f43959cff09f10b7a1aee9acd1c68",
+      "stored_bytes": 364,
+      "stored_sha256": "dd27596c24d27b799725dfc26eedd8384f8e1765fe8ff2101bd61b82302b4100"
+    },
+    "raw/attempt-2/telemetry/holdout-05/process-gpu.jsonl.gz": {
+      "original_bytes": 32490,
+      "original_sha256": "a3a75f07ce3409b911743ed7674f71821641acec9e6c6ce470ad7bad92cce7f2",
+      "stored_bytes": 1236,
+      "stored_sha256": "3649bb83d65a1a561b2da3db58d097596b435d64fb2e28532ce8b9427b6ac023"
+    },
+    "raw/attempt-2/telemetry/holdout-06/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "0232b026f4dee3857bdb58bb365ed680661672f7825e6e7f34ff24969045721e",
+      "stored_bytes": 356,
+      "stored_sha256": "ea5dbc36de126e558037345562c0b247b99f18e4a7c457c8bb9437e7abb155e3"
+    },
+    "raw/attempt-2/telemetry/holdout-06/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "069716988d7eb8ea0e3df9f314d8021d20be0e722eb99f495cb3e9acfbded970",
+      "stored_bytes": 364,
+      "stored_sha256": "087c4b751f4e79335a30eef009f3b37d487cfd4309de7865b639b2be256c1f80"
+    },
+    "raw/attempt-2/telemetry/holdout-06/process-gpu.jsonl.gz": {
+      "original_bytes": 32038,
+      "original_sha256": "f2d12870cb152a4d68fee5fb3359afa9dc86fa6aff9839194ee8220e8d9507f3",
+      "stored_bytes": 1196,
+      "stored_sha256": "30cfa599273dd20262c23c2a75763695bdc9267f3d673268a3d0003ea7f91286"
+    },
+    "raw/attempt-2/telemetry/holdout-07/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "3a65757aa7a3ddd7cc4b9edae1237252926d41cab9e1f339526d4661296241ba",
+      "stored_bytes": 353,
+      "stored_sha256": "fcb8caad467005d7a6ce4572e0c15f80bd8d71fc3ac254cbaef7fc84c6290595"
+    },
+    "raw/attempt-2/telemetry/holdout-07/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "7b34054de9fe7e6cce9f8cd90a64597ffeb25f5db18a9afc9b3f03410017421f",
+      "stored_bytes": 364,
+      "stored_sha256": "d2c617e1c88ec14ea4f450fcadb540b6a4ab41cad1a4bc5125dddef5c5e554bb"
+    },
+    "raw/attempt-2/telemetry/holdout-07/process-gpu.jsonl.gz": {
+      "original_bytes": 30713,
+      "original_sha256": "ecf2115b4cbc20017166999540d06cf93de45556e6b953c82f2d03477131c2d6",
+      "stored_bytes": 1171,
+      "stored_sha256": "2e4a85343b858a26c4bebea7bc0d12e047918749c9c125a0fcf0d9789945607e"
+    },
+    "raw/attempt-2/telemetry/holdout-08/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "22e993246992f317b8ad1c1dc8c048f9990990d415f0860c6bacb2555f7612c5",
+      "stored_bytes": 353,
+      "stored_sha256": "f6db888bdadc62c2a6368a062d3c9f9b9edd31e73300cbadb9e2dca4d63a5033"
+    },
+    "raw/attempt-2/telemetry/holdout-08/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "56275bf58db571fcd68651f8a9c4df136b4f73e17c514eaead5efdf1479367c8",
+      "stored_bytes": 364,
+      "stored_sha256": "96aa607f64b3cee6af97e412b26f02196728ca48fcf0824d5ac00de5586f39e1"
+    },
+    "raw/attempt-2/telemetry/holdout-08/process-gpu.jsonl.gz": {
+      "original_bytes": 30900,
+      "original_sha256": "ebc8341e5d7ad6e8c522e3fc816d242d73a0580a609ed043263452cb9b6046a7",
+      "stored_bytes": 1171,
+      "stored_sha256": "bf003d17298347737a20c5c56e6edee25110567ddb2243f8949152969679fb44"
+    },
+    "raw/attempt-2/telemetry/holdout-09/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "8b0c88e121dae26e256194bf0a2952414e1d296bfd21b17758d272da111ff7f2",
+      "stored_bytes": 352,
+      "stored_sha256": "4658de4f83adb7c49510f6fe6926bcf3d5444e9917a87b221b77438198ff8de7"
+    },
+    "raw/attempt-2/telemetry/holdout-09/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "97645f0fb7619bf4d151962334c7e7b3131b528f2dd0264369298d78ed9bcfad",
+      "stored_bytes": 364,
+      "stored_sha256": "00bfffbe12941184fc1dc1bac936276c5f30d37782214f8742bdeb8828509aee"
+    },
+    "raw/attempt-2/telemetry/holdout-09/process-gpu.jsonl.gz": {
+      "original_bytes": 31340,
+      "original_sha256": "fedfde96916608dfe141699ac2e232550fd1174f06f62014f4f3c1dfc89ba767",
+      "stored_bytes": 1167,
+      "stored_sha256": "2a971234e9272962a5e85e032994403ed2d0926241a4af6f0ebfa23d9faf42db"
+    },
+    "raw/attempt-2/telemetry/holdout-10/collector.log.gz": {
+      "original_bytes": 482,
+      "original_sha256": "e219c2caa7bbb3019d7202c3aa68ff8d51e8e7b8573c2f81b77630b30f7b22ab",
+      "stored_bytes": 355,
+      "stored_sha256": "31f731a6b6063044d0769979b084ecbf39f826acf08615877c803d362a46b568"
+    },
+    "raw/attempt-2/telemetry/holdout-10/driver.json.gz": {
+      "original_bytes": 604,
+      "original_sha256": "f108ed9900a6e561499b1cc33a7181751218b5525deb4032e9bdd398aca0d492",
+      "stored_bytes": 365,
+      "stored_sha256": "4e533db0515c7a53f402e479816fb723e6b236a86a16135b169bb60517ad30c8"
+    },
+    "raw/attempt-2/telemetry/holdout-10/process-gpu.jsonl.gz": {
+      "original_bytes": 31107,
+      "original_sha256": "29e832fe051cdad131f05988b97e6eba483adf862a5e74beb8e6f74f40dab12f",
+      "stored_bytes": 1159,
+      "stored_sha256": "465a8f945b131d3213f2eaf5b16a1379cbc6b175a239f04385a75237db32f102"
+    },
+    "raw/attempt-2/telemetry/stock-1/collector.log.gz": {
+      "original_bytes": 479,
+      "original_sha256": "0ea36d3fe689d312ba61cefd127c327af1228ee87b8b3c5167ab4e75a8094ffe",
+      "stored_bytes": 349,
+      "stored_sha256": "60c924756c6b7c367577dc4f128e4862bd68176ea40f794fab46424473b60fb2"
+    },
+    "raw/attempt-2/telemetry/stock-1/driver.json.gz": {
+      "original_bytes": 601,
+      "original_sha256": "c4cc3620754f8a118111252dbd74e3d10adabbee736e4609e0c8adad8b1d702d",
+      "stored_bytes": 364,
+      "stored_sha256": "b1bf16c4aba1382cb326f9781c160514ab403b60510908c575251db513f95cfc"
+    },
+    "raw/attempt-2/telemetry/stock-1/process-gpu.jsonl.gz": {
+      "original_bytes": 35127,
+      "original_sha256": "7d6f2c2a83b931dcbc1b88cb44dbd949e374eeb9e6c3cda646853f6dfe2532dc",
+      "stored_bytes": 1265,
+      "stored_sha256": "5a88b1c2b52af5c2f65a5b2be5bb54c8f0ae3b263c9f5c0024abd5f8fad3e7e3"
+    },
+    "raw/attempt-2/telemetry/stock-2/collector.log.gz": {
+      "original_bytes": 479,
+      "original_sha256": "4891c48f73b7a3ace77da56e64757624c1dcb75dd22835615879c3bed7d57afd",
+      "stored_bytes": 349,
+      "stored_sha256": "d5c5c13b2c22b48c85ddb08fe58662ac1ddabc9fe5d58510f69523b9eb4978b7"
+    },
+    "raw/attempt-2/telemetry/stock-2/driver.json.gz": {
+      "original_bytes": 601,
+      "original_sha256": "1e385a30b73baa169685811ff64b8930bcc8845f27bdab3797cc6333fd59afd7",
+      "stored_bytes": 364,
+      "stored_sha256": "9b526ba24ac8b63d966a0c717a22e79b268cdae33337ccc8db11c896fb670282"
+    },
+    "raw/attempt-2/telemetry/stock-2/process-gpu.jsonl.gz": {
+      "original_bytes": 40307,
+      "original_sha256": "5ed2ed58b4865fc25e85f5c1b1303e92d824dd89ba2c2da8b3e8040e80b4364d",
+      "stored_bytes": 1360,
+      "stored_sha256": "3013a299ecdd130c45a741b7540b978da99ca39f820fddd4a4995fcce126b837"
+    },
+    "raw/stock-1/observation.json.gz": {
+      "original_bytes": 3017,
+      "original_sha256": "1e1b048e6a4ee0f6eb2433242d746da9e119e49b67ded465c6bcada5dabb28a7",
+      "stored_bytes": 1587,
+      "stored_sha256": "0a5993ba30195ac4a0feee874f0df7acd16ad0028ff67e4b83e0fa358188f5af"
+    },
+    "raw/telemetry/stock-1/collector.log.gz": {
+      "original_bytes": 100,
+      "original_sha256": "5b316e0070910cc629c3db26bdbe6e8c5872dfb9a6926bde14b0d82eac9967c6",
+      "stored_bytes": 103,
+      "stored_sha256": "a3fb47fe8466f045928dc46538d13291399357fbaf449f721a2e809873bec88b"
+    },
+    "raw/telemetry/stock-1/driver.json.gz": {
+      "original_bytes": 591,
+      "original_sha256": "37120c6f2bfd0ff50408e19519243e9e7460dc581cbd6b32d4ded76ce3489c71",
+      "stored_bytes": 356,
+      "stored_sha256": "e91501e814e57f2555d96c0858af699c563159d14a85aa10742aa77bf3959629"
+    },
+    "raw/telemetry/stock-1/process-gpu.jsonl.gz": {
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stored_bytes": 20,
+      "stored_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64"
+    }
+  },
+  "freeze_sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+  "original_bytes": 92974557,
+  "primary_raw": "raw/attempt-2",
+  "retained_at": "2026-11-21T23:01:50.133930+00:00",
+  "stored_bytes": 7152054
+}

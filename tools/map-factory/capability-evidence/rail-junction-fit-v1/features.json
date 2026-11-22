@@ -1,0 +1,1420 @@
+{
+  "definition": "per opening: the frozen export container and section lineage; the pre-query native topology hash; the export-derived tangents for every Train segment and their float precision; and the field-by-field agreement between export-derived and native model inputs",
+  "freeze": "rail-junction-fit-v1",
+  "frozen_at": "2026-11-21T20:13:46.692107+00:00",
+  "openings": {
+    "asheville": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "8f2e20497764c129086cb24f795cac798acac9edc15f5c3d3f70dcb433d0be01",
+          "identical": true,
+          "native_sha256": "8f2e20497764c129086cb24f795cac798acac9edc15f5c3d3f70dcb433d0be01",
+          "nodes": 762,
+          "segments": 761
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 762,
+            "checked": 762,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 761,
+            "checked": 761,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2775853,
+        "nodes": 2537,
+        "package_version": 0,
+        "prefabs": 244,
+        "read_only_older_layout": false,
+        "segments": 2568,
+        "simulator_asset_sha256": "ee77b49eb98a689eabdd911bf207b048ba0f36a524f24cc79718952d3bfc1cf9"
+      },
+      "native": {
+        "networks_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+        "plan_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+        "train_segments": 761
+      },
+      "package": "asheville",
+      "raw": "rail-v3/raw/asheville",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0040433467652286,
+            "min": 0.9999999811535489
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 2568
+          },
+          "segments": 2568,
+          "segments_with_non_unit_magnitude": 2325,
+          "start_magnitude": {
+            "max": 1.008160219929145,
+            "min": 0.9999999811535489
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000392435056,
+            "end_min": 0.9999999614889613,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000400412175,
+            "start_min": 0.9999999614889613
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 761,
+          "sha256": "74cb54e447bf3293baa43344f4db7f4b3859a0ecba4a50b951eed06d8e483b19"
+        },
+        "train_segments_covered": 761,
+        "versus_chord": {
+          "ends": 1522,
+          "max_degrees": 16.75622341091724,
+          "mean_degrees": 1.713892904349698,
+          "p50_degrees": 0.9785197920330392,
+          "p90_degrees": 4.298420469830645,
+          "p99_degrees": 9.617191944132745,
+          "share_over_1_degree": 0.4980289093298292
+        }
+      }
+    },
+    "boston": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "ae54b768d07ecb4dddfd48cf17c47b4ff2f4ac0996c06de8b16bb0e65eac3936",
+          "identical": true,
+          "native_sha256": "ae54b768d07ecb4dddfd48cf17c47b4ff2f4ac0996c06de8b16bb0e65eac3936",
+          "nodes": 1180,
+          "segments": 1180
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 1180,
+            "checked": 1180,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2687285,
+        "nodes": 5790,
+        "package_version": 0,
+        "prefabs": 246,
+        "read_only_older_layout": false,
+        "segments": 5993,
+        "simulator_asset_sha256": "abd8ab043031c5b34b0d71d918a94dc078f784e3a18125a0d2ba1eef552712c3"
+      },
+      "native": {
+        "networks_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+        "plan_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+        "train_segments": 1180
+      },
+      "package": "boston",
+      "raw": "rail-v3-followup-1/raw/boston-attempt-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.005199865235764,
+            "min": 0.9999999643533297
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 5993
+          },
+          "segments": 5993,
+          "segments_with_non_unit_magnitude": 4628,
+          "start_magnitude": {
+            "max": 1.0047400503565749,
+            "min": 0.9999999638587707
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000410713392,
+            "end_min": 0.9999999596879042,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000407384144,
+            "start_min": 0.9999999596879042
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 1180,
+          "sha256": "7b2f43a9a38091c4dd0c80a0d75ef78d0cc89a36716e004ce4732997673dead0"
+        },
+        "train_segments_covered": 1180,
+        "versus_chord": {
+          "ends": 2360,
+          "max_degrees": 99.32381516983268,
+          "mean_degrees": 1.105960722480995,
+          "p50_degrees": 0.163092692878094,
+          "p90_degrees": 2.695311067821648,
+          "p99_degrees": 11.163476610733662,
+          "share_over_1_degree": 0.2911016949152542
+        }
+      }
+    },
+    "charleston": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "3af3ebc1284bec2845b4439c64a5558a78bc914683245a868ab3bda81a10f5dd",
+          "identical": true,
+          "native_sha256": "3af3ebc1284bec2845b4439c64a5558a78bc914683245a868ab3bda81a10f5dd",
+          "nodes": 195,
+          "segments": 194
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 195,
+            "checked": 195,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 194,
+            "checked": 194,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 3085233,
+        "nodes": 2221,
+        "package_version": 0,
+        "prefabs": 246,
+        "read_only_older_layout": false,
+        "segments": 2241,
+        "simulator_asset_sha256": "94c770a855d62328342197a64de9d006ec982c69c2c478edd26518b7f9dbb139"
+      },
+      "native": {
+        "networks_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+        "plan_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+        "train_segments": 194
+      },
+      "package": "charleston",
+      "raw": "rail-v3-followup-1/raw/charleston-attempt-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0035090520284378,
+            "min": 0.9999999626910772
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 2241
+          },
+          "segments": 2241,
+          "segments_with_non_unit_magnitude": 1183,
+          "start_magnitude": {
+            "max": 1.0035090520284378,
+            "min": 0.9999999626910772
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000390845127,
+            "end_min": 0.9999999611617972,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000390845127,
+            "start_min": 0.9999999610478351
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 194,
+          "sha256": "ef16f6d9cadf4a69de7db0d2cbaa88829a647a1051cddc1b023b1cd7ed3c5c65"
+        },
+        "train_segments_covered": 194,
+        "versus_chord": {
+          "ends": 388,
+          "max_degrees": 25.647391331033393,
+          "mean_degrees": 1.3175006174054058,
+          "p50_degrees": 0.2762859649919593,
+          "p90_degrees": 3.5482879820869138,
+          "p99_degrees": 10.636281456730504,
+          "share_over_1_degree": 0.38402061855670105
+        }
+      }
+    },
+    "grand-canyon": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "11358164c3f45da4ce92db468ddc586b03591fb6e533d47efaf836f6f6b6b8d6",
+          "identical": true,
+          "native_sha256": "11358164c3f45da4ce92db468ddc586b03591fb6e533d47efaf836f6f6b6b8d6",
+          "nodes": 150,
+          "segments": 149
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 150,
+            "checked": 150,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 149,
+            "checked": 149,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2673916,
+        "nodes": 150,
+        "package_version": 0,
+        "prefabs": 238,
+        "read_only_older_layout": false,
+        "segments": 149,
+        "simulator_asset_sha256": "a51d6fcfcb9d31e190850ca761293954f71534ee00a1c95393afeaa89c49db03"
+      },
+      "native": {
+        "networks_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+        "plan_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+        "train_segments": 149
+      },
+      "package": "grand-canyon",
+      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0006183169245648,
+            "min": 0.9999999777824959
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 149
+          },
+          "segments": 149,
+          "segments_with_non_unit_magnitude": 144,
+          "start_magnitude": {
+            "max": 1.0006183169245648,
+            "min": 0.9999999777824959
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000370241022,
+            "end_min": 0.9999999632389234,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000370241022,
+            "start_min": 0.9999999632389234
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 149,
+          "sha256": "ba6db0aa32d7a1e6e858a5ffbddda22194f60646119f029dc744872a802908c5"
+        },
+        "train_segments_covered": 149,
+        "versus_chord": {
+          "ends": 298,
+          "max_degrees": 10.087442061256256,
+          "mean_degrees": 1.9064254196745196,
+          "p50_degrees": 0.8366116491544807,
+          "p90_degrees": 5.2401242027292225,
+          "p99_degrees": 9.893630256765084,
+          "share_over_1_degree": 0.4664429530201342
+        }
+      }
+    },
+    "hong-kong": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "c3e787123de82d89042e1ee4a144da3bbececca3c7fbbe532f1397a656df5d9c",
+          "identical": true,
+          "native_sha256": "c3e787123de82d89042e1ee4a144da3bbececca3c7fbbe532f1397a656df5d9c",
+          "nodes": 712,
+          "segments": 713
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 712,
+            "checked": 712,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 713,
+            "checked": 713,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2306004,
+        "nodes": 5005,
+        "package_version": 0,
+        "prefabs": 248,
+        "read_only_older_layout": false,
+        "segments": 5069,
+        "simulator_asset_sha256": "0a35f8a36f2d09f7424e31e7528b0a2fe1c1f62f5e9615aa4f8d75bd55305b07"
+      },
+      "native": {
+        "networks_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+        "plan_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+        "train_segments": 713
+      },
+      "package": "hong-kong",
+      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0106320451591162,
+            "min": 0.9999999615744325
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 5069
+          },
+          "segments": 5069,
+          "segments_with_non_unit_magnitude": 4408,
+          "start_magnitude": {
+            "max": 1.0106320346950504,
+            "min": 0.9999999615744325
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000393021022,
+            "end_min": 0.9999999582677495,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000393021022,
+            "start_min": 0.9999999582677495
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 713,
+          "sha256": "0e2736adc2a7fa08da74a5ac3ace8745a94008faf31cfae26ea0fcb83215a6aa"
+        },
+        "train_segments_covered": 713,
+        "versus_chord": {
+          "ends": 1426,
+          "max_degrees": 85.802250518797,
+          "mean_degrees": 1.4282080569295195,
+          "p50_degrees": 0.21422643985045733,
+          "p90_degrees": 3.7368269448147533,
+          "p99_degrees": 15.18147593215184,
+          "share_over_1_degree": 0.32047685834502104
+        }
+      }
+    },
+    "innsbruck": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "413771253ecbd369d537df911446b05c077de38e89627e97bb26676c62fd6240",
+          "identical": true,
+          "native_sha256": "413771253ecbd369d537df911446b05c077de38e89627e97bb26676c62fd6240",
+          "nodes": 692,
+          "segments": 693
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 692,
+            "checked": 692,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 693,
+            "checked": 693,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2530022,
+        "nodes": 1690,
+        "package_version": 0,
+        "prefabs": 248,
+        "read_only_older_layout": false,
+        "segments": 1706,
+        "simulator_asset_sha256": "614c1b97ffa0969ef05f4f6839c398aa1d66ae310a85f1ed7510aed46a567818"
+      },
+      "native": {
+        "networks_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+        "plan_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+        "train_segments": 693
+      },
+      "package": "innsbruck",
+      "raw": "rail-v3/raw/innsbruck",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.003366354628652,
+            "min": 0.9999999698065789
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 1706
+          },
+          "segments": 1706,
+          "segments_with_non_unit_magnitude": 1188,
+          "start_magnitude": {
+            "max": 1.0033663391036896,
+            "min": 0.9999999698065789
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000369850703,
+            "end_min": 0.9999999603408717,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000369850703,
+            "start_min": 0.9999999603408717
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 693,
+          "sha256": "b809aca7e97d8773269a5aff275224df87583f894168e2299859f0e5fd66a188"
+        },
+        "train_segments_covered": 693,
+        "versus_chord": {
+          "ends": 1386,
+          "max_degrees": 19.536431195988577,
+          "mean_degrees": 1.6421971234257475,
+          "p50_degrees": 0.6401167915197196,
+          "p90_degrees": 5.127335293724124,
+          "p99_degrees": 9.978337786262292,
+          "share_over_1_degree": 0.4126984126984127
+        }
+      }
+    },
+    "pittsburgh": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "6aa4a3b2b6f9f1a295f5828dc7aa38fc0573be359ee29261cb0dc47dd358760f",
+          "identical": true,
+          "native_sha256": "6aa4a3b2b6f9f1a295f5828dc7aa38fc0573be359ee29261cb0dc47dd358760f",
+          "nodes": 2569,
+          "segments": 2584
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 2569,
+            "checked": 2569,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 2584,
+            "checked": 2584,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2755351,
+        "nodes": 5942,
+        "package_version": 0,
+        "prefabs": 248,
+        "read_only_older_layout": false,
+        "segments": 6064,
+        "simulator_asset_sha256": "1922e915567d9a89c7b26e3b9f1106a54a6f82affc9c900fd24f91e388a96a34"
+      },
+      "native": {
+        "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+        "plan_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+        "train_segments": 2584
+      },
+      "package": "pittsburgh",
+      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0376385472477316,
+            "min": 0.9999999733196099
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 6064
+          },
+          "segments": 6064,
+          "segments_with_non_unit_magnitude": 5572,
+          "start_magnitude": {
+            "max": 1.03763855903726,
+            "min": 0.9999999733196099
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000402687368,
+            "end_min": 0.9999999605515831,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000402687368,
+            "start_min": 0.9999999605515831
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 2584,
+          "sha256": "a9204db9d7fe73685ecc7871e38b903aacd5be35e33f4b0ae91effaeea2a836e"
+        },
+        "train_segments_covered": 2584,
+        "versus_chord": {
+          "ends": 5168,
+          "max_degrees": 32.97126776300566,
+          "mean_degrees": 1.6460230455977645,
+          "p50_degrees": 0.636905778208148,
+          "p90_degrees": 4.3016812759285,
+          "p99_degrees": 13.280966459038822,
+          "share_over_1_degree": 0.4136996904024768
+        }
+      }
+    },
+    "rio": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "9e6d688b7230d1a0f2e49cd95c900f3f98f1eef470e992ee93dd558a7447a0f0",
+          "identical": true,
+          "native_sha256": "9e6d688b7230d1a0f2e49cd95c900f3f98f1eef470e992ee93dd558a7447a0f0",
+          "nodes": 490,
+          "segments": 500
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 490,
+            "checked": 490,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 500,
+            "checked": 500,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2691762,
+        "nodes": 3298,
+        "package_version": 0,
+        "prefabs": 248,
+        "read_only_older_layout": false,
+        "segments": 3401,
+        "simulator_asset_sha256": "e0acee48f6c670607df9e2e128aaf257f8b24e773333fdbe1be268979d194a2c"
+      },
+      "native": {
+        "networks_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+        "plan_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+        "train_segments": 500
+      },
+      "package": "rio",
+      "raw": "rail-v3-followup-1/raw/rio-attempt-2",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0079575638083682,
+            "min": 0.9999999658471109
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 3401
+          },
+          "segments": 3401,
+          "segments_with_non_unit_magnitude": 2664,
+          "start_magnitude": {
+            "max": 1.0079575593874568,
+            "min": 0.9999999658471109
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000411332346,
+            "end_min": 0.9999999607791273,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000411332346,
+            "start_min": 0.9999999607791273
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 500,
+          "sha256": "27f5bca7870576d28ad518cc73d7cd96be98cafb4939647b03edf718e4ee40aa"
+        },
+        "train_segments_covered": 500,
+        "versus_chord": {
+          "ends": 1000,
+          "max_degrees": 104.52226286173476,
+          "mean_degrees": 2.6350143884728654,
+          "p50_degrees": 0.6571763604258626,
+          "p90_degrees": 8.00359686444261,
+          "p99_degrees": 24.02178964289388,
+          "share_over_1_degree": 0.423
+        }
+      }
+    },
+    "stock-1": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "2121279423976ac370971ec273bef951a30ce526c04c7bc6d185ca3493fdede0",
+          "identical": true,
+          "native_sha256": "2121279423976ac370971ec273bef951a30ce526c04c7bc6d185ca3493fdede0",
+          "nodes": 220,
+          "segments": 217
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 220,
+            "checked": 220,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 217,
+            "checked": 217,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 8,
+        "crp_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+        "current_version_section": false,
+        "data_version": 114007,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2129224,
+        "nodes": 1457,
+        "package_version": 0,
+        "prefabs": 402,
+        "read_only_older_layout": true,
+        "segments": 1449,
+        "simulator_asset_sha256": "291506bf856a9a71fbab27556d65eeb1aa59ae6486c58ec0866f8a79bb62b199"
+      },
+      "native": {
+        "networks_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+        "plan_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7",
+        "train_segments": 217
+      },
+      "package": "stock-1",
+      "raw": "rail-v3/raw/stock-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.1550667494456168,
+            "min": 0.999999917371076
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 1449
+          },
+          "segments": 1449,
+          "segments_with_non_unit_magnitude": 996,
+          "start_magnitude": {
+            "max": 1.0785034272918226,
+            "min": 0.9999183085371668
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.000000118886554,
+            "end_min": 0.9999999155075305,
+            "non_unit_share": 0.0006901311249137336,
+            "start_max": 1.0000000853934559,
+            "start_min": 0.9992788810431976
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 217,
+          "sha256": "1b7f1515a859728e5da482d6e0a99703fee454eb34174d8298a898b60f8c0668"
+        },
+        "train_segments_covered": 217,
+        "versus_chord": {
+          "ends": 434,
+          "max_degrees": 32.579147162728596,
+          "mean_degrees": 0.8173689946153366,
+          "p50_degrees": 0.29028115992611214,
+          "p90_degrees": 1.1704890613084629,
+          "p99_degrees": 7.923724685533561,
+          "share_over_1_degree": 0.17050691244239632
+        }
+      }
+    },
+    "stock-2": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "5cfa8390c421f0b3ada2922c76a7c002a349157f9f76d06105d44cea32bcf93a",
+          "identical": true,
+          "native_sha256": "5cfa8390c421f0b3ada2922c76a7c002a349157f9f76d06105d44cea32bcf93a",
+          "nodes": 228,
+          "segments": 225
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          },
+          "invert": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          },
+          "lanes": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          },
+          "node_outside": {
+            "agree": 228,
+            "checked": 228,
+            "rate": 1.0
+          },
+          "position": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          },
+          "prefab": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          },
+          "segment_present": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          },
+          "start": {
+            "agree": 225,
+            "checked": 225,
+            "rate": 1.0
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 8,
+        "crp_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+        "current_version_section": false,
+        "data_version": 114009,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2062376,
+        "nodes": 1752,
+        "package_version": 0,
+        "prefabs": 403,
+        "read_only_older_layout": true,
+        "segments": 1743,
+        "simulator_asset_sha256": "ecf61c097580713937ca4be9730518df66eae945bd0e001174c6d47297f95d3e"
+      },
+      "native": {
+        "networks_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+        "plan_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81",
+        "train_segments": 225
+      },
+      "package": "stock-2",
+      "raw": "rail-v3/raw/stock-2",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": 1.0280014085256324,
+            "min": 0.9999999179024524
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {
+            "0": 1743
+          },
+          "segments": 1743,
+          "segments_with_non_unit_magnitude": 1336,
+          "start_magnitude": {
+            "max": 1.0285533430259115,
+            "min": 0.9999999179024524
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": 1.0000000908390068,
+            "end_min": 0.9999999055110171,
+            "non_unit_share": 0.0,
+            "start_max": 1.0000000908390068,
+            "start_min": 0.9999999179024524
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 225,
+          "sha256": "b81f7ba475fce904bc8de2dc2a79c5144c6cdbaf009164f3efc72fd83c8ec251"
+        },
+        "train_segments_covered": 225,
+        "versus_chord": {
+          "ends": 450,
+          "max_degrees": 28.447475842169883,
+          "mean_degrees": 0.953250524580843,
+          "p50_degrees": 0.6191142398233076,
+          "p90_degrees": 2.383392111642425,
+          "p99_degrees": 3.581477283335329,
+          "share_over_1_degree": 0.2822222222222222
+        }
+      }
+    },
+    "yosemite": {
+      "bridge": {
+        "export_only_needs_catalog": [],
+        "failures": {},
+        "model_input_digest": {
+          "export_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "identical": true,
+          "native_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "nodes": 0,
+          "segments": 0
+        },
+        "train_only_fields": {
+          "end": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "invert": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "lanes": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "node_outside": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "position": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "prefab": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "segment_present": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          },
+          "start": {
+            "agree": 0,
+            "checked": 0,
+            "rate": null
+          }
+        }
+      },
+      "crp": {
+        "crp_format": 12,
+        "crp_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+        "current_version_section": true,
+        "data_version": 121034,
+        "netcodec_current_version": 121034,
+        "netmanager_offset": 2564441,
+        "nodes": 0,
+        "package_version": 0,
+        "prefabs": 236,
+        "read_only_older_layout": false,
+        "segments": 0,
+        "simulator_asset_sha256": "83f0910bad00081589533639d3fde65a5adaa801a8702d119c329272478002dd"
+      },
+      "native": {
+        "networks_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+        "plan_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+        "train_segments": 0
+      },
+      "package": "yosemite",
+      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1",
+      "tangents": {
+        "missing_train_segments": [],
+        "report": {
+          "end_magnitude": {
+            "max": null,
+            "min": null
+          },
+          "float_precision": {
+            "encoding": "IEEE-754 binary32 (struct '>3f')",
+            "position_components_same_width": true,
+            "relative_resolution": 5.960464477539063e-08
+          },
+          "override_direction_limit_values": {},
+          "segments": 0,
+          "segments_with_non_unit_magnitude": 0,
+          "start_magnitude": {
+            "max": null,
+            "min": null
+          },
+          "xz_magnitude": {
+            "definition": "the horizontal projection the turn angle uses; unit to float32 if this is a direction",
+            "end_max": null,
+            "end_min": null,
+            "non_unit_share": null,
+            "start_max": null,
+            "start_min": null
+          }
+        },
+        "source": "export-derived hypothesis; absent from the native snapshot",
+        "table_digest": {
+          "segments": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "train_segments_covered": 0,
+        "versus_chord": {
+          "ends": 0
+        }
+      }
+    }
+  },
+  "protocol_sha256": "f7607cff8807170da70f0152d1752617e0930561cf1fe648537b8b1610ffccce",
+  "schema": 1,
+  "sources": {
+    "accepted": {
+      "bridge.py": "0963ff4a9cbbe3045adbf463a0749c7ef8f145d180f61d3d5e0587568f6bf78a",
+      "model.py": "adad224e12968af755f72986d29cc8069f9dadf7d9e7dd611c36fad83ab8a950",
+      "topology.py": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d"
+    },
+    "accepted_artifacts": {
+      "bridge.py": "0963ff4a9cbbe3045adbf463a0749c7ef8f145d180f61d3d5e0587568f6bf78a",
+      "corrected/evaluation.json": "252e4d6cbf8276c061b9edd5d9cc1171d0f05dbddbbad2836bcfe64b374b52f8",
+      "corrected/integrity.json": "f6cfe4be004da17a66fe4bfd650de0fa585bb5f033f6cede860a15a3c249b2f7",
+      "corrected/predictions.json": "e8268d16fd5b69da88e6a6a2052a55b2282a7366d4c893c781080b3077286a74",
+      "corrected/protocol.json": "89665a2b7e067412f58ff851b8ccbc7ec61bbb569be37e2185f9108da1235c2a",
+      "model.py": "adad224e12968af755f72986d29cc8069f9dadf7d9e7dd611c36fad83ab8a950",
+      "openings.json": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+      "packages.json": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+      "topology.py": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d"
+    },
+    "own": {
+      "binding.py": "6d6ac8a1aab8731a39ab15b3f29f2e448db1aed72ff90d02c0a5bf6d2065e1f8",
+      "export_topology.py": "1a38d06199a2cc6dc89fcab0937f8a9e42039edb0cabdfb4a5e287135f69d822",
+      "freeze.py": "b8a658ae25ac3722b64abed760a138c2fae476e5913e77f524ce14620ccbefda",
+      "junction_model.py": "aef0dd0a353bbd9d92f219fa19d69b135770fd69ce0ae201cbcb92b0b18f62ad",
+      "manifest.json": "3ec070f05c74c14bc0d4613dc0ea6a8cba4a1ce1281b11dbe5fd6867a25b5aa7"
+    }
+  },
+  "study": "rail-junction-fit-v1",
+  "tangents": {
+    "covered": 7216,
+    "formats": {
+      "12": 9,
+      "8": 2
+    },
+    "missing": 0,
+    "train_segments": 7216
+  },
+  "totals": {
+    "end": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    },
+    "invert": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    },
+    "lanes": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    },
+    "node_outside": {
+      "agree": 7198,
+      "checked": 7198,
+      "rate": 1.0
+    },
+    "position": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    },
+    "prefab": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    },
+    "segment_present": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    },
+    "start": {
+      "agree": 7216,
+      "checked": 7216,
+      "rate": 1.0
+    }
+  }
+}

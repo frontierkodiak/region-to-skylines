@@ -12,6 +12,8 @@ import { START_WATER_STUDY, validateStartWaterStudy, startWaterPage } from "./st
 
 import { RAIL_STUDY, railStudy, validateRailStudy, railStudyPage } from "./rail-study.mjs";
 
+import { railResearch as loadRailResearch, railResearchPage, validateRailResearch } from "./rail-research.mjs";
+
 export const START_WATER_PROJECTION_SHA = "26f5a6cc0c9412970eb80888c0e378af11c316bf1ca3bd8501c8fc8ebf6b73da";
 export const WATER_PROJECTION_SHA = "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf";
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
@@ -180,6 +182,7 @@ export function validateLedger(ledger) {
       !isDeepStrictEqual(receipt.native_context, certificate.native_context)) throw new Error("Runtime identity receipt binding changed");
   }
   validateRailStudy(ledger);
+  validateRailResearch(ledger);
   validateWaterStudy(ledger.capabilities.find((c) => c.id === "water_risk"), undefined, WATER_PROJECTION_SHA);
   validateStartWaterStudy(ledger, undefined, START_WATER_PROJECTION_SHA);
   const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
@@ -224,6 +227,7 @@ function terrainInterestLaunchBar(proposal, escape) {
 
 export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
   const directedRail = railStudy();
+  const railResearch = loadRailResearch();
   const sourceLink = (ref) => `<a href="https://github.com/frontierkodiak/region-to-skylines/blob/${encodeURIComponent(revision)}/${escape(ref.split(":")[0])}">${escape(ref)}</a>`;
   const scoreText = (a) => a.oracle === "native_two_edge_witness"
     ? `${a.agree} witnessed positives consistent with ${a.scored} scored predictions; ${a.unscored} unknown; ${a.false_negative} model-negative witness mismatches. No native-negative accuracy measured.`
@@ -239,7 +243,7 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
       ${c.source_coverage ? `<details><summary>Sources, coverage and fidelity</summary><dl>${Object.entries(c.source_coverage).map(([key, value]) => `<dt>${escape(label(key))}</dt><dd>${escape(value)}</dd>`).join("")}</dl><p>${escape(c.fidelity)}</p></details>` : ""}
       <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies || c.witness_study ? "" : "<p class=note>No scored observations for this model yet.</p>"}
       ${c.runtime_model ? `<details><summary>Current Start model · unscored</summary><pre>${escape(JSON.stringify(c.runtime_model, null, 2))}</pre></details>` : ""}
-      ${c.id === "rail" ? railStudyPage(directedRail, escape) : ""}
+      ${c.id === "rail" ? `${railStudyPage(directedRail, escape)}${railResearchPage(railResearch, escape)}` : ""}
       ${c.witness_study ? startWaterPage(ledger.witness_studies[START_WATER_STUDY], c.id, escape) : ""}
       ${c.calibration_studies ? waterStudyPage(c.calibration_studies[WATER_STUDY], escape) : ""}
       ${c.calibration ? `<details><summary>Historical seed · 5 squares / 50 runs</summary><pre>${escape(JSON.stringify(c.calibration, null, 2))}</pre></details>` : ""}

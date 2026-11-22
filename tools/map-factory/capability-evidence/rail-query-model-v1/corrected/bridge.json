@@ -1,0 +1,673 @@
+{
+  "built_at": "2026-11-21T19:20:46.342278+00:00",
+  "catalogs": {
+    "node_flag_values": 31,
+    "node_name_conflicts": {
+      "20971649": {
+        "Created, Junction, OneWayIn, Original": 553,
+        "Created, Junction, OneWayOut, Original": 563,
+        "Created, Junction, Original": 119
+      },
+      "20988033": {
+        "Created, Junction, OnGround, OneWayIn, OneWayOut, Original": 196,
+        "Created, Junction, OnGround, OneWayIn, Original": 1965,
+        "Created, Junction, OnGround, OneWayOut, Original": 1891,
+        "Created, Junction, OnGround, Original": 754
+      },
+      "21495937": {
+        "Created, Junction, OneWayIn, OneWayOut, Original, Underground": 186,
+        "Created, Junction, OneWayIn, Original, Underground": 3
+      },
+      "268452129": {
+        "Created, DisableOnlyMiddle, Middle, Moveable, OnGround, Original": 2244,
+        "Created, DisableOnlyMiddle, Middle, OnGround, Original": 228
+      }
+    },
+    "outside_values": [
+      17409,
+      4211713,
+      16794625,
+      268452865
+    ],
+    "prefabs": 12,
+    "segment_flag_values": 2,
+    "segment_name_conflicts": {
+      "1": {
+        "Created, Flooded, Original": 33,
+        "Created, NameVisible1, NameVisible2, Original": 1040,
+        "Created, Original": 25144
+      }
+    }
+  },
+  "fields": {
+    "end": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    },
+    "invert": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    },
+    "lanes": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    },
+    "node_outside": {
+      "agree": 6750,
+      "checked": 6750,
+      "rate": 1.0
+    },
+    "position": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    },
+    "prefab": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    },
+    "segment_present": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    },
+    "start": {
+      "agree": 6774,
+      "checked": 6774,
+      "rate": 1.0
+    }
+  },
+  "leave_one_package_out": {
+    "asheville": {
+      "field_failures": {},
+      "invert_agree": 761,
+      "invert_checked": 761,
+      "lane_agree": 761,
+      "lane_checked": 761,
+      "outside_agree": 762,
+      "outside_checked": 762,
+      "unseen_prefabs": []
+    },
+    "boston": {
+      "field_failures": {},
+      "invert_agree": 1180,
+      "invert_checked": 1180,
+      "lane_agree": 1180,
+      "lane_checked": 1180,
+      "outside_agree": 1180,
+      "outside_checked": 1180,
+      "unseen_prefabs": []
+    },
+    "charleston": {
+      "field_failures": {},
+      "invert_agree": 194,
+      "invert_checked": 194,
+      "lane_agree": 194,
+      "lane_checked": 194,
+      "outside_agree": 195,
+      "outside_checked": 195,
+      "unseen_prefabs": []
+    },
+    "grand-canyon": {
+      "field_failures": {},
+      "invert_agree": 149,
+      "invert_checked": 149,
+      "lane_agree": 149,
+      "lane_checked": 149,
+      "outside_agree": 150,
+      "outside_checked": 150,
+      "unseen_prefabs": []
+    },
+    "hong-kong": {
+      "field_failures": {},
+      "invert_agree": 713,
+      "invert_checked": 713,
+      "lane_agree": 713,
+      "lane_checked": 713,
+      "outside_agree": 712,
+      "outside_checked": 712,
+      "unseen_prefabs": []
+    },
+    "innsbruck": {
+      "field_failures": {},
+      "invert_agree": 693,
+      "invert_checked": 693,
+      "lane_agree": 693,
+      "lane_checked": 693,
+      "outside_agree": 692,
+      "outside_checked": 692,
+      "unseen_prefabs": []
+    },
+    "pittsburgh": {
+      "field_failures": {},
+      "invert_agree": 2584,
+      "invert_checked": 2584,
+      "lane_agree": 2584,
+      "lane_checked": 2584,
+      "outside_agree": 2569,
+      "outside_checked": 2569,
+      "unseen_prefabs": []
+    },
+    "rio": {
+      "field_failures": {},
+      "invert_agree": 500,
+      "invert_checked": 500,
+      "lane_agree": 500,
+      "lane_checked": 500,
+      "outside_agree": 490,
+      "outside_checked": 490,
+      "unseen_prefabs": []
+    },
+    "yosemite": {
+      "field_failures": {},
+      "invert_agree": 0,
+      "invert_checked": 0,
+      "lane_agree": 0,
+      "lane_checked": 0,
+      "outside_agree": 0,
+      "outside_checked": 0,
+      "unseen_prefabs": []
+    }
+  },
+  "model_input_domain": {
+    "definition": "model.train_index segments and their incident nodes: id, endpoints, prefab, Invert, Train lane index/direction/type/vehicle/category, node Outside and position",
+    "digests_identical": true,
+    "segments": 6774
+  },
+  "packages": {
+    "asheville": {
+      "all_records": {
+        "end:agree": 2568,
+        "end:checked": 2568,
+        "invert:agree": 2568,
+        "invert:checked": 2568,
+        "lanes:agree": 2568,
+        "lanes:checked": 2568,
+        "node_outside:agree": 2537,
+        "node_outside:checked": 2537,
+        "position:agree": 2376,
+        "position:checked": 2568,
+        "prefab:agree": 2568,
+        "prefab:checked": 2568,
+        "segment_present:agree": 2568,
+        "segment_present:checked": 2568,
+        "start:agree": 2568,
+        "start:checked": 2568
+      },
+      "field_checks": {
+        "end:agree": 761,
+        "end:checked": 761,
+        "invert:agree": 761,
+        "invert:checked": 761,
+        "lanes:agree": 761,
+        "lanes:checked": 761,
+        "node_outside:agree": 762,
+        "node_outside:checked": 762,
+        "position:agree": 761,
+        "position:checked": 761,
+        "prefab:agree": 761,
+        "prefab:checked": 761,
+        "segment_present:agree": 761,
+        "segment_present:checked": 761,
+        "start:agree": 761,
+        "start:checked": 761
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "8f2e20497764c129086cb24f795cac798acac9edc15f5c3d3f70dcb433d0be01",
+        "identical": true,
+        "native_sha256": "8f2e20497764c129086cb24f795cac798acac9edc15f5c3d3f70dcb433d0be01",
+        "nodes": 762,
+        "segments": 761
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+      "query_freeze_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+      "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870"
+    },
+    "boston": {
+      "all_records": {
+        "end:agree": 5993,
+        "end:checked": 5993,
+        "invert:agree": 5993,
+        "invert:checked": 5993,
+        "lanes:agree": 5993,
+        "lanes:checked": 5993,
+        "node_outside:agree": 5790,
+        "node_outside:checked": 5790,
+        "position:agree": 5795,
+        "position:checked": 5993,
+        "prefab:agree": 5993,
+        "prefab:checked": 5993,
+        "segment_present:agree": 5993,
+        "segment_present:checked": 5993,
+        "start:agree": 5993,
+        "start:checked": 5993
+      },
+      "field_checks": {
+        "end:agree": 1180,
+        "end:checked": 1180,
+        "invert:agree": 1180,
+        "invert:checked": 1180,
+        "lanes:agree": 1180,
+        "lanes:checked": 1180,
+        "node_outside:agree": 1180,
+        "node_outside:checked": 1180,
+        "position:agree": 1180,
+        "position:checked": 1180,
+        "prefab:agree": 1180,
+        "prefab:checked": 1180,
+        "segment_present:agree": 1180,
+        "segment_present:checked": 1180,
+        "start:agree": 1180,
+        "start:checked": 1180
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "ae54b768d07ecb4dddfd48cf17c47b4ff2f4ac0996c06de8b16bb0e65eac3936",
+        "identical": true,
+        "native_sha256": "ae54b768d07ecb4dddfd48cf17c47b4ff2f4ac0996c06de8b16bb0e65eac3936",
+        "nodes": 1180,
+        "segments": 1180
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+      "query_freeze_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+      "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54"
+    },
+    "charleston": {
+      "all_records": {
+        "end:agree": 2241,
+        "end:checked": 2241,
+        "invert:agree": 2241,
+        "invert:checked": 2241,
+        "lanes:agree": 2241,
+        "lanes:checked": 2241,
+        "node_outside:agree": 2221,
+        "node_outside:checked": 2221,
+        "position:agree": 2011,
+        "position:checked": 2241,
+        "prefab:agree": 2241,
+        "prefab:checked": 2241,
+        "segment_present:agree": 2241,
+        "segment_present:checked": 2241,
+        "start:agree": 2241,
+        "start:checked": 2241
+      },
+      "field_checks": {
+        "end:agree": 194,
+        "end:checked": 194,
+        "invert:agree": 194,
+        "invert:checked": 194,
+        "lanes:agree": 194,
+        "lanes:checked": 194,
+        "node_outside:agree": 195,
+        "node_outside:checked": 195,
+        "position:agree": 194,
+        "position:checked": 194,
+        "prefab:agree": 194,
+        "prefab:checked": 194,
+        "segment_present:agree": 194,
+        "segment_present:checked": 194,
+        "start:agree": 194,
+        "start:checked": 194
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "3af3ebc1284bec2845b4439c64a5558a78bc914683245a868ab3bda81a10f5dd",
+        "identical": true,
+        "native_sha256": "3af3ebc1284bec2845b4439c64a5558a78bc914683245a868ab3bda81a10f5dd",
+        "nodes": 195,
+        "segments": 194
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+      "query_freeze_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+      "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff"
+    },
+    "grand-canyon": {
+      "all_records": {
+        "end:agree": 149,
+        "end:checked": 149,
+        "invert:agree": 149,
+        "invert:checked": 149,
+        "lanes:agree": 149,
+        "lanes:checked": 149,
+        "node_outside:agree": 150,
+        "node_outside:checked": 150,
+        "position:agree": 149,
+        "position:checked": 149,
+        "prefab:agree": 149,
+        "prefab:checked": 149,
+        "segment_present:agree": 149,
+        "segment_present:checked": 149,
+        "start:agree": 149,
+        "start:checked": 149
+      },
+      "field_checks": {
+        "end:agree": 149,
+        "end:checked": 149,
+        "invert:agree": 149,
+        "invert:checked": 149,
+        "lanes:agree": 149,
+        "lanes:checked": 149,
+        "node_outside:agree": 150,
+        "node_outside:checked": 150,
+        "position:agree": 149,
+        "position:checked": 149,
+        "prefab:agree": 149,
+        "prefab:checked": 149,
+        "segment_present:agree": 149,
+        "segment_present:checked": 149,
+        "start:agree": 149,
+        "start:checked": 149
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "11358164c3f45da4ce92db468ddc586b03591fb6e533d47efaf836f6f6b6b8d6",
+        "identical": true,
+        "native_sha256": "11358164c3f45da4ce92db468ddc586b03591fb6e533d47efaf836f6f6b6b8d6",
+        "nodes": 150,
+        "segments": 149
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+      "query_freeze_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+      "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19"
+    },
+    "hong-kong": {
+      "all_records": {
+        "end:agree": 5069,
+        "end:checked": 5069,
+        "invert:agree": 5069,
+        "invert:checked": 5069,
+        "lanes:agree": 5069,
+        "lanes:checked": 5069,
+        "node_outside:agree": 5005,
+        "node_outside:checked": 5005,
+        "position:agree": 5032,
+        "position:checked": 5069,
+        "prefab:agree": 5069,
+        "prefab:checked": 5069,
+        "segment_present:agree": 5069,
+        "segment_present:checked": 5069,
+        "start:agree": 5069,
+        "start:checked": 5069
+      },
+      "field_checks": {
+        "end:agree": 713,
+        "end:checked": 713,
+        "invert:agree": 713,
+        "invert:checked": 713,
+        "lanes:agree": 713,
+        "lanes:checked": 713,
+        "node_outside:agree": 712,
+        "node_outside:checked": 712,
+        "position:agree": 713,
+        "position:checked": 713,
+        "prefab:agree": 713,
+        "prefab:checked": 713,
+        "segment_present:agree": 713,
+        "segment_present:checked": 713,
+        "start:agree": 713,
+        "start:checked": 713
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "c3e787123de82d89042e1ee4a144da3bbececca3c7fbbe532f1397a656df5d9c",
+        "identical": true,
+        "native_sha256": "c3e787123de82d89042e1ee4a144da3bbececca3c7fbbe532f1397a656df5d9c",
+        "nodes": 712,
+        "segments": 713
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+      "query_freeze_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+      "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+    },
+    "innsbruck": {
+      "all_records": {
+        "end:agree": 1706,
+        "end:checked": 1706,
+        "invert:agree": 1706,
+        "invert:checked": 1706,
+        "lanes:agree": 1706,
+        "lanes:checked": 1706,
+        "node_outside:agree": 1690,
+        "node_outside:checked": 1690,
+        "position:agree": 1523,
+        "position:checked": 1706,
+        "prefab:agree": 1706,
+        "prefab:checked": 1706,
+        "segment_present:agree": 1706,
+        "segment_present:checked": 1706,
+        "start:agree": 1706,
+        "start:checked": 1706
+      },
+      "field_checks": {
+        "end:agree": 693,
+        "end:checked": 693,
+        "invert:agree": 693,
+        "invert:checked": 693,
+        "lanes:agree": 693,
+        "lanes:checked": 693,
+        "node_outside:agree": 692,
+        "node_outside:checked": 692,
+        "position:agree": 693,
+        "position:checked": 693,
+        "prefab:agree": 693,
+        "prefab:checked": 693,
+        "segment_present:agree": 693,
+        "segment_present:checked": 693,
+        "start:agree": 693,
+        "start:checked": 693
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "413771253ecbd369d537df911446b05c077de38e89627e97bb26676c62fd6240",
+        "identical": true,
+        "native_sha256": "413771253ecbd369d537df911446b05c077de38e89627e97bb26676c62fd6240",
+        "nodes": 692,
+        "segments": 693
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+      "query_freeze_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+      "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6"
+    },
+    "pittsburgh": {
+      "all_records": {
+        "end:agree": 6064,
+        "end:checked": 6064,
+        "invert:agree": 6064,
+        "invert:checked": 6064,
+        "lanes:agree": 6064,
+        "lanes:checked": 6064,
+        "node_outside:agree": 5942,
+        "node_outside:checked": 5942,
+        "position:agree": 5883,
+        "position:checked": 6064,
+        "prefab:agree": 6064,
+        "prefab:checked": 6064,
+        "segment_present:agree": 6064,
+        "segment_present:checked": 6064,
+        "start:agree": 6064,
+        "start:checked": 6064
+      },
+      "field_checks": {
+        "end:agree": 2584,
+        "end:checked": 2584,
+        "invert:agree": 2584,
+        "invert:checked": 2584,
+        "lanes:agree": 2584,
+        "lanes:checked": 2584,
+        "node_outside:agree": 2569,
+        "node_outside:checked": 2569,
+        "position:agree": 2584,
+        "position:checked": 2584,
+        "prefab:agree": 2584,
+        "prefab:checked": 2584,
+        "segment_present:agree": 2584,
+        "segment_present:checked": 2584,
+        "start:agree": 2584,
+        "start:checked": 2584
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "6aa4a3b2b6f9f1a295f5828dc7aa38fc0573be359ee29261cb0dc47dd358760f",
+        "identical": true,
+        "native_sha256": "6aa4a3b2b6f9f1a295f5828dc7aa38fc0573be359ee29261cb0dc47dd358760f",
+        "nodes": 2569,
+        "segments": 2584
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+      "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+      "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424"
+    },
+    "rio": {
+      "all_records": {
+        "end:agree": 3401,
+        "end:checked": 3401,
+        "invert:agree": 3401,
+        "invert:checked": 3401,
+        "lanes:agree": 3401,
+        "lanes:checked": 3401,
+        "node_outside:agree": 3298,
+        "node_outside:checked": 3298,
+        "position:agree": 3204,
+        "position:checked": 3401,
+        "prefab:agree": 3401,
+        "prefab:checked": 3401,
+        "segment_present:agree": 3401,
+        "segment_present:checked": 3401,
+        "start:agree": 3401,
+        "start:checked": 3401
+      },
+      "field_checks": {
+        "end:agree": 500,
+        "end:checked": 500,
+        "invert:agree": 500,
+        "invert:checked": 500,
+        "lanes:agree": 500,
+        "lanes:checked": 500,
+        "node_outside:agree": 490,
+        "node_outside:checked": 490,
+        "position:agree": 500,
+        "position:checked": 500,
+        "prefab:agree": 500,
+        "prefab:checked": 500,
+        "segment_present:agree": 500,
+        "segment_present:checked": 500,
+        "start:agree": 500,
+        "start:checked": 500
+      },
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "9e6d688b7230d1a0f2e49cd95c900f3f98f1eef470e992ee93dd558a7447a0f0",
+        "identical": true,
+        "native_sha256": "9e6d688b7230d1a0f2e49cd95c900f3f98f1eef470e992ee93dd558a7447a0f0",
+        "nodes": 490,
+        "segments": 500
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+      "query_freeze_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+      "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff"
+    },
+    "yosemite": {
+      "all_records": {},
+      "field_checks": {},
+      "field_failures": {},
+      "missing": [],
+      "model_domain": {
+        "bridge_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "identical": true,
+        "native_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "nodes": 0,
+        "segments": 0
+      },
+      "netmanager_version": 121034,
+      "networks_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+      "query_freeze_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+      "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+    }
+  },
+  "prediction_agreement": {
+    "by_package": {
+      "asheville": {
+        "identical": 12,
+        "queries": 12
+      },
+      "boston": {
+        "identical": 72,
+        "queries": 72
+      },
+      "charleston": {
+        "identical": 0,
+        "queries": 0
+      },
+      "grand-canyon": {
+        "identical": 0,
+        "queries": 0
+      },
+      "hong-kong": {
+        "identical": 6,
+        "queries": 6
+      },
+      "innsbruck": {
+        "identical": 20,
+        "queries": 20
+      },
+      "pittsburgh": {
+        "identical": 128,
+        "queries": 128
+      },
+      "rio": {
+        "identical": 6,
+        "queries": 6
+      },
+      "yosemite": {
+        "identical": 0,
+        "queries": 0
+      }
+    },
+    "identical": 244,
+    "queries": 244
+  },
+  "prediction_disagreements": {},
+  "schema": 1,
+  "scope": "read the nine unchanged cohort packages and the two stock controls; never rebuild, recapture or repair",
+  "status": "bridge_established",
+  "status_note": "Every model-used field is readable from the saved export: segment identity, endpoints, prefab, node position, lane type/vehicle/category/direction and the Outside and Invert predicates. The prefab lane template and the flag-name tables are hash-bound observed catalogs rather than export bytes on their own, and both are cross-validated leave-one-package-out. Node OneWayIn/OneWayOut names are recomputed by the game at load and are not claimed as export bytes.",
+  "totals": {
+    "end:agree": 6774,
+    "end:checked": 6774,
+    "invert:agree": 6774,
+    "invert:checked": 6774,
+    "lanes:agree": 6774,
+    "lanes:checked": 6774,
+    "node_outside:agree": 6750,
+    "node_outside:checked": 6750,
+    "position:agree": 6774,
+    "position:checked": 6774,
+    "prefab:agree": 6774,
+    "prefab:checked": 6774,
+    "segment_present:agree": 6774,
+    "segment_present:checked": 6774,
+    "start:agree": 6774,
+    "start:checked": 6774
+  }
+}

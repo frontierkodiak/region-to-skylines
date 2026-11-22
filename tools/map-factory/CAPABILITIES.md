@@ -277,6 +277,50 @@ container. Synthetic state/abort/error/layout checks are labelled separately
 from real Boston capture and pan checks. Both Chromium and WebKit are required;
 the script closes its browsers and local server in `finally`.
 
+## Rail research evidence, kept separate
+
+Three accepted rail research publications are carried as distinct typed studies
+under the Rail capability: a query-scoped reachability fit, an export-tangent
+junction fit and a frozen stock holdout. They are **evidence only**: no runtime
+model, promise level, qualification gate, prepared input, physical writer or old
+contract changes, and none is pooled with the directed-rail native study or with
+each other. No research code runs as a product check.
+
+Each publication is pinned by its own commit and keeps its own freeze, scope,
+limits and sources. The ledger cites:
+
+- `rail-query-model-v1`: fitted 26 TP / 4 FP / 245 TN / 1 FN over 276 selected
+  literal requests, with stock controls 16/0/16/0 separate from the cohort's
+  10/4/229/1. All attempts at retuning it are retrospective; no native junction
+  law is identified.
+- `rail-junction-fit-v1`: tangent continuation fits 27/0/249/0, but strict
+  package-held-out selection is 10/4/229/1 (no improvement), and the tangent
+  rule rejects two transitions on a real successful Pittsburgh path. Tangents
+  are export-derived, not native-attested.
+- `rail-stock-holdout-v1`: both frozen rules score 40 TP / 8 TN on 48 completed
+  holdout requests. Their predictions were identical before any query, so the
+  study does not prefer tangent over chord. Four unsupported packages stay
+  metadata-only; the eight failures are one package's requests, not geographic
+  absence.
+
+Regression and bounds stay explicit: every null denominator stays null, every
+unobserved or unsupported request stays Unknown, and no row becomes a rail
+service, activation candidate or promise. The projection is regenerated from
+archived bytes with:
+
+```sh
+python3 tools/map-factory/integrate_rail_research.py
+python3 tools/map-factory/integrate_rail_research.py --check
+```
+
+The importer never runs the research models or the game. It re-checks each
+publication's complete file scope through `capability-evidence/rail-research-sources.json`
+(every file pinned by SHA-256 and Git blob id: files carried here byte for byte,
+and bulk predictions/raw data linked as immutable blobs), then writes
+`capability-evidence/rail-research-studies.json`, whose hash is pinned in
+`rail-research.mjs`. `npm test` re-derives the same summary and refuses changed
+evidence, a changed ledger binding or a changed source chain.
+
 ## Score the game, without conflating oracles
 
 Each capability's `game_agreement` is an array of observations. A row includes

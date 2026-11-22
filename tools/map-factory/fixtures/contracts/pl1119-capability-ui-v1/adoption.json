@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Capability checks, four retained exact-context path certificates and one reviewed directed-rail evidence study; physical writers and historical native qualification unchanged",
+  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study and three accepted rail research publications; physical writers and historical native qualification unchanged",
   "predecessor_active_sha256": "610f43cb1d8265763afb418a6aae663b02379eea6e3efbd4ed5b320d87058aab",
   "predecessor_contract_sha256": "cc2f7327e2148a999ac0f8b14053c620612805e9f11a57279321aef182c5123a",
   "archived_gates": {
@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "d9d81f92e446aa0967602875406c9c44db7dbdb61a679d98ef57560e689a70dd"
+      "current_sha256": "3fdd00b5dfa23cd790c0862094f821829c11747f415e5923e65cf7a69a23d819"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,11 +18,11 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "91ea5d5ba76338e9984a298ca354421fb673a44a040aced728fbb0ab013edf8f"
+      "current_sha256": "b48c3a207fd2f0722f42b1737dd3da1a5d4ff7fd79b1d08ace87b92e8392c262"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
-      "current_sha256": "d5a21f8506fcb1946334683441141947a5ca95d8b124a5d1fbb5e964ccaae854"
+      "current_sha256": "7c5a4e08802927c7027d151a387a020e31f0e9f6becf80b761f717e64da916d7"
     }
   },
   "added_files_sha256": {
@@ -256,11 +256,11 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "3192f8a14870cbc7ff6460b88a337e1e1d42ef0e85b91373a6e885b345550ad7",
+    "capabilities.json": "d68a583394eaa91c655eabe82eeb0dc8ecb0e486d178d0bf9f83540d70fb7f6a",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1",
-    "capability-ledger.mjs": "d46cf5596fa9ff2970a87ae0267a5935c6e5bdbf66c5b8cc1f1bad8e38f1b602",
+    "capability-ledger.mjs": "d982da91ae360b361b1c5985b884d3376eae1bd26082d6f0344ab119c4dbdcef",
     "capability-model.js": "0cca4b886eb22db30e5b95f0fe029dc3c186a7c9ff4b80149c40614cb78a17ea",
     "capability-ui.js": "4ad29a27aea8e5e714503ec4e6bebc2e43e55e53c94d746a9e732805a873f853",
     "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
@@ -470,6 +470,55 @@
     "tools/map-factory/capability-evidence/rail-v3/telemetry-initial.json": "ed8a4f8d9699e36df8ec45167f527d33a026ad9210b84236b132c3f8a5189ebc",
     "tools/map-factory/capability-evidence/rail-v3/telemetry.py": "39f457717b7574af8771a701801e7fd9050614de549de6ebbd94add5ec278092",
     "tools/map-factory/capability-evidence/rail-v3/test_followup.py": "8c5c88a2fca29476accd8e8fdb55b462164b16603ae7836bb0c7820f3206aa1d",
-    "tools/map-factory/capability-evidence/rail-v3/verification-initial.json": "ed359273ff12f7bf55135aa9690e618071c63147badd5552c15a4a122ef5013d"
+    "tools/map-factory/capability-evidence/rail-v3/verification-initial.json": "ed359273ff12f7bf55135aa9690e618071c63147badd5552c15a4a122ef5013d",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/README.md": "7dfe5a1527b88403bcd58b4e7a7609858d5b00641ad60ccda7296370cad67f55",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/REPRODUCE.md": "473ae7afadf033ab5f24e543b0d7589173d472c3e884cb00f5bf31faf215fc8e",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/RESULTS.md": "4c5dddef52c75a4d94c5c2a8bda97901202d4116ce794045308ecadf340828a5",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/CORRECTION.md": "94e7442fce6b2df604881eab7f0ede1c650a3c4bbbe14a4b19a2e9c1b8d3e315",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/bridge.json": "94398542221512b71dca71021a5c3609d56b72e9383badc3425d07fe1b1ff6c9",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/catalogs.json": "f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/evaluation.json": "252e4d6cbf8276c061b9edd5d9cc1171d0f05dbddbbad2836bcfe64b374b52f8",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/evidence/binding-probe-at-97e.log": "9425d5c975fe18c13e262c83e7381978609ed7f843fcbbb33da30c4955faca04",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/evidence/binding-probe-at-corrected.log": "ba5d132229793e360d94d42f8c2208868f3dfb38a4884a865f3a4b6061491ee8",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/evidence/binding-probe.py": "66d3ade02c63acb0e94993c160d78041327a9e197a2b652eb289d53959d49f18",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/evidence/domain-and-binding-contract-at-corrected.log": "b20411bef93f4de40ac846ae99598a3d0de88a8048d9e4d96fc9e2133ada93cc",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/evidence/domain-contract-at-97e.log": "492d33f509a4635a5639e9ef4cad06731d4ead742c01bb25c5750fa12bb6b87a",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/integrity.json": "f6cfe4be004da17a66fe4bfd650de0fa585bb5f033f6cede860a15a3c249b2f7",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/predictions.json": "e8268d16fd5b69da88e6a6a2052a55b2282a7366d4c893c781080b3077286a74",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/corrected/protocol.json": "89665a2b7e067412f58ff851b8ccbc7ec61bbb569be37e2185f9108da1235c2a",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/integrity.json": "8ce8c9bef003b998d6948d6afb9b5af84e9f81d3882c0c24fe2b3f0fe9228253",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/openings.json": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/packages.json": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+    "tools/map-factory/capability-evidence/rail-query-model-v1/protocol.json": "1c736e72800d7d469d337be94f2588a366f9772a067e8a0b366cc7e57399699b",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/README.md": "b670b3683930014c5be177e76ab15541edbd455a3762cca0cfd7301520bfaabe",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/REPRODUCE.md": "1ff4bb33733fffb6d9804bd7c287860b85cd020555b84b1dfceb7aff992e76c0",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/RESULTS.md": "18b1e7a702a126f0284d4c8da25c53eeda7f32c87cd971942017ace2e72790a0",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/bridge-audit.json": "cb49abcac5ad8a305e62a4a07ea71550613b566e19ccbfda226b7a5ffbbc4d78",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/diagnostics.json": "d35953f1f5d3899cd481df020e672da4da753c74c7abb61bb5883c477bc58b8e",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/evaluation.json": "64cfbe21495771acc9362ab8c9a8daa6ab286aded34d450c402e5535876d9dcc",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/features.json": "d38cf3e634d75d0ed69d08f35444f6548e621bf2fdd9b85f43a9b2d8f0d07551",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/manifest.json": "3ec070f05c74c14bc0d4613dc0ea6a8cba4a1ce1281b11dbe5fd6867a25b5aa7",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/predictions.json": "ce0830d379f344697f958bca12161bd3a2e53f5aef87678b2a78d144ccfbcbd4",
+    "tools/map-factory/capability-evidence/rail-junction-fit-v1/protocol.json": "f7607cff8807170da70f0152d1752617e0930561cf1fe648537b8b1610ffccce",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/README.md": "370ad32eed85c75ed387dcb10cc0d59fb8c33ab83c94f5ef8b4be72c4e35598b",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/RESULTS.md": "8a4a01ec14ad0f9272e241719dc397a74e8685001e92003cbc477b7cf79e6c04",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/RailMetadata.cs": "5dcef64acd5df80b80e1250ffb372d9b8d73772639f771ca86244ab4e0a221c8",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/catalogs.json": "3b2136cd959f23cc77cfb8d28821e58b9a046300ee5f0e9f9e179ca1bf577241",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/collection-deferred.json": "a820eb42aa98e4cf350bf020a0ccccb5ec56fd1240295b6462178ee4c4765f00",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/evaluation.json": "3f27a3055727b9c8ecd3943b6a5c9a4427b5542d526712a855297b97f23b19ee",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/freeze.json": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/history/pre-native-RESULTS.md.gz": "0db3ca889b46cc43e9be21a7123528fe022b7aa76dfadf8b7483b91d97347ff8",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/history/pre-native-evaluation.json.gz": "b9dd6acacdddf41b85af1c2af1a04c4e30d5ca481a403316b4d0fbe6958a9748",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/metadata-build.json": "2427b6f327f002c39720e96d252e37618b95c61df78421ac7984384176a692f1",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/native-verification.json": "7b484347e54e178977d118d98951607b629004d7e4e90e4f92026d9976caf426",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/pre-native-correction.zip": "91d813b4bb954cc90421dc9412698866dccacbe9543b2f7535b93249dba44173",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/public-prefab-facts.json": "cf80ad8cd784bd03c7a03314387c1c4e697c7a37074ef5380246c729ad8d8b18",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/raw-integrity.json": "5cb5f510962ea08c2682f5a41448980dc5cc260a3607473dfa2e3a608a9680df",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/resource-journal.json": "a0c509e41000f7cf1a682e83a309f8d2016653a7dfc259ca71ae1f4a9c90b549",
+    "tools/map-factory/capability-evidence/rail-stock-holdout-v1/selection-power.json": "ef21e93a4281b4e2feeec82ad3752a893d6fd55e01d3a18562413972cfa3e7ae",
+    "rail-research.mjs": "ab28404e7696b482a590ddbb75c136dc7bca1bcb23e4feef87a164c824ffe910",
+    "tools/map-factory/integrate_rail_research.py": "8fb669751b340aeabe9280632a95380b0e3359ecf0d1dbe52767694989b9f129",
+    "tools/map-factory/capability-evidence/rail-research-sources.json": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
+    "tools/map-factory/capability-evidence/rail-research-studies.json": "43c7a9bc0085f30e63f79fba2b905d93630705c7d41c3ad3e70e37f7d149cd63"
   }
 }
