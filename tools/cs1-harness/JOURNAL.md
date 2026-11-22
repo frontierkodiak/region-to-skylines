@@ -1,5 +1,35 @@
 # cs1-harness journal
 
+## 2026-11-21 — PL-1191 dense source-selected coastal diagnostic
+
+One new15-minute read-only observation on exact clean e73138f/DLL368955b1,
+same C#/build as prior0ec989d. Frozen package457905c4/167controls/terrain/
+resources unchanged; original27386points retained,18816source-selected queries
+added, total46202. No wet-outcome path/component used for query selection.
+Preflight/source/build/eight reference hashes pass; guarded doctor passed after
+fair wait behind PL-1244. Native job waited separately, no preemption.
+
+Blade RTX2080Ti05:00.0; card peak10821/11264MiB,7974MiB other-work baseline,
+game menu1574MiB. Continuous game-only peak unmeasured; subtraction2847MiB
+is only an estimate. Peak142.25W/56C, recorded limit200W unchanged. Simulation
+4.9wall minutes,15.027779game minutes; slot held about9m12s. Owned game2594894
+needed normal quit-grace termination; teardown game/Steam/units empty, PID absent.
+Final FIFO snapshot empty. No power/shared-config/install action outside guards.
+
+61snapshots,20049dense domain nodes, all finite API arrays, all167fullcontrol
+tables match. Full current floors remain43f4be73…, targets=current, rawterrain=
+package. Max trigger gap0.323611min vs0.25requested, zero missed slots; all four
+named counters available. Main52fixed geometric path now754/754API nodes measured
+vs28before, but dry stretches/model routing still prevent discharge inference.
+Source-node wet surface medians Main52/60 and Bulimba50end86.76/86.70/86.69m.
+Not calibrated flux/evaporation proof, geographic qualification or source budget.
+
+RawFAIL/unreviewed startup/Bridge-TypeLoad errors retained; short water/flood
+passes do not qualify60minute primary. Loaded-image/JIT identity/runtimehealth
+unknown. Four new observer tests pass; collection and portable input-path replay
+result/receipt/binary byte-identical. No native repeat/tuning, holdout or promise
+adoption. Later journal head is NOT this observation's runtime provenance.
+
 ## 2026-11-21 — PL-1191 coastal short floor/transport observation
 
 One frozen15-minute diagnostic on unchanged all-intake-off package457905c4,
