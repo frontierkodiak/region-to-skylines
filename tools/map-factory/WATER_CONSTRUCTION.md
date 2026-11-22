@@ -1038,3 +1038,20 @@ Phase20 packaging erratum: original prospective ZIP328entries/326unique; two ide
 Phase20 supplemental strips accidentally varied CONTROL distance while labeled boundary distance (IDs76/77/78/79). Correct boundary strips holding controlfar are67/71/75/79, counts12678/36162/112065/87259. Originalreport/plots/JSON preserved; main79 far-from-both and all128early values unchanged. Fresh full3arm/61capture audit/byte-identical replay confirms literal1780ocean-edge nodes:1778wet heads90m,2dry notfree surfaces. All128metadataaxes and dry/missing support retained. No exact256-frame evaporation period or exclusive sink/flux inferred.
 
 One new sea90→0-only15minute diagnostic, source table0/initialwater/velocity/terrain/fullgeometry/masks/full46202probes fixed. 61captures over15.065556min; primary79 actualpairedheadrate-0.22035947692768262m/game-min; endpointliteral-edgewet0/1780. Sea-parameter sensitivity only, not geographicrepair, budget, calibratedboundaryflow or60minutequalification. Rawfail/['startup_views'], runtimeerrors/cadencelimits retained. Newrecipe/source/prospectiveplan precede outcomes; actualruntimeddbff801ec6e4e89b4a1f12093ec06b9ed566d1c. PL1258limitedreview consumed; newlydiscoveredaxiserratum explicit. NewRESULTSreview required beforeadoption; allpromisesunknown. Seephase21summary/postcollectionbinding/axiserratum.
+
+## Phase twenty-two: source-only local-supply envelopes
+
+PL1259 passes the limited phase21 data and additive correction; already closed.
+A new committed/frozen read-only method checks all five fixed development cases
+plus every coastal source row, not just the failed named probes. All583 original
+mandatory stream parts and both null-support base refusals remain. Both4/8-adjacent
+full sub-stage floor envelopes are retained, not assumed hydraulic components.
+At unchanged90m head, the Bulimba rivers50 envelope has1465nodes,307unmapped;
+Main rivers52 reaches329323nodes,4227unmapped and the square edge. Those off-mask
+nodes are already initialized wet, not predicted new flood or surveyed land.
+Neither has the fixed half-metre full-rim witness; this does not make an open
+channel a failed pond. Explicit open ports and water/land authority remain needed.
+No source placement, CRP, new game, mask/bank/threshold/default change or admission.
+This bounds the unchanged-head footprint-only proposal, not all supply designs
+or geographic possibility. Four new tests and complete byte-identical CPU replay
+pass. Seephase22policy/summary and postanalysis supply-envelope binding.

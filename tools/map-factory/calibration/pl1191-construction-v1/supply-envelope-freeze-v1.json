@@ -1,0 +1,10 @@
+{
+  "schema": "polli.pl1191-postanalysis-supply-envelope-binding/1",
+  "prospective_freeze_sha256": "03bb0ddf97ee3449ba3c24ed0d98baf363589ffb8e9b33d50b37600371fcf4d6",
+  "summary_sha256": "9e9588c8314d92ee1e387cfe82f27298373cc4f3e87b424374a9b187473cf3f1",
+  "results_receipt_sha256": "5c149a3909c5c5f1c50731eb8df7f31378b186bdc4ad2f62c3431485cb2fe302",
+  "postanalysis_not_prospective": true,
+  "new_physical_or_native": false,
+  "holdout_inputs_accessed": false,
+  "promise": "unknown"
+}

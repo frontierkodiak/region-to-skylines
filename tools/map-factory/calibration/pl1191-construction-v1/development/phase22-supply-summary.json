@@ -1,0 +1,198 @@
+{
+  "schema": "polli.pl1191-phase22-supply-envelope-summary/1",
+  "prior_review": {
+    "issue": "PL-1259",
+    "id": "01a2011c-b4e2-7ae9-95b5-82438345c5d2",
+    "already_done": true,
+    "thread_sha256": "b95c67800f910905db95146d88c677604193d5e42481c40a0e2544c994ac0ef3",
+    "judgment": "limited results pass; no result-changing defect and no native retry. Strong passive-wave-sufficiency inference not adopted."
+  },
+  "method_commit": "4db1ef967d2ce6b6ca88226280e110999ebcb3e1",
+  "prospective_CPU_freeze_sha256": "03bb0ddf97ee3449ba3c24ed0d98baf363589ffb8e9b33d50b37600371fcf4d6",
+  "method_committed_then_inputs_frozen_before_new_CPU_outputs": true,
+  "earlier_native_outcomes_known": true,
+  "cases": [
+    {
+      "case": "dry-upland-asia",
+      "rows": 24,
+      "line_rows": 23,
+      "polygon_rows": 1,
+      "mandatory_stream_parts": 4,
+      "source_nodes_depth_at_least_1m": 895,
+      "distinct_unchanged_initial_heads": 848,
+      "four_and_eight_adjacency_envelopes": 1710,
+      "envelopes_without_the_three_geometric_issues": 0,
+      "geometry_issue_counts_overlapping": {
+        "open_square_boundary_requires_explicit_port_plan": 1441,
+        "full_untouched_exterior_half_metre_freeboard_not_met": 1708,
+        "substage_domain_includes_unmapped_ground": 1706
+      },
+      "original_base_refusal": null,
+      "controls_retained": 58,
+      "physical_admission": false
+    },
+    {
+      "case": "dry-upland-europe",
+      "rows": 508,
+      "line_rows": 401,
+      "polygon_rows": 107,
+      "mandatory_stream_parts": 2,
+      "source_nodes_depth_at_least_1m": 28,
+      "distinct_unchanged_initial_heads": 7,
+      "four_and_eight_adjacency_envelopes": 14,
+      "envelopes_without_the_three_geometric_issues": 14,
+      "geometry_issue_counts_overlapping": {},
+      "original_base_refusal": null,
+      "controls_retained": 48,
+      "physical_admission": false
+    },
+    {
+      "case": "dry-upland-south-america",
+      "rows": 27,
+      "line_rows": 27,
+      "polygon_rows": 0,
+      "mandatory_stream_parts": 9,
+      "source_nodes_depth_at_least_1m": null,
+      "distinct_unchanged_initial_heads": null,
+      "four_and_eight_adjacency_envelopes": null,
+      "envelopes_without_the_three_geometric_issues": null,
+      "geometry_issue_counts_overlapping": null,
+      "original_base_refusal": {
+        "square": "dry-upland-south-america",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "controls_retained": null,
+      "physical_admission": false
+    },
+    {
+      "case": "low-coast-oceania",
+      "rows": 1061,
+      "line_rows": 547,
+      "polygon_rows": 514,
+      "mandatory_stream_parts": 254,
+      "source_nodes_depth_at_least_1m": 50591,
+      "distinct_unchanged_initial_heads": 348,
+      "four_and_eight_adjacency_envelopes": 1417,
+      "envelopes_without_the_three_geometric_issues": 0,
+      "geometry_issue_counts_overlapping": {
+        "open_square_boundary_requires_explicit_port_plan": 581,
+        "full_untouched_exterior_half_metre_freeboard_not_met": 1413,
+        "substage_domain_includes_unmapped_ground": 1371
+      },
+      "original_base_refusal": null,
+      "controls_retained": 167,
+      "physical_admission": false
+    },
+    {
+      "case": "lowland-river-south-america",
+      "rows": 998,
+      "line_rows": 839,
+      "polygon_rows": 159,
+      "mandatory_stream_parts": 536,
+      "source_nodes_depth_at_least_1m": 45433,
+      "distinct_unchanged_initial_heads": 517,
+      "four_and_eight_adjacency_envelopes": 1428,
+      "envelopes_without_the_three_geometric_issues": 6,
+      "geometry_issue_counts_overlapping": {
+        "full_untouched_exterior_half_metre_freeboard_not_met": 1422,
+        "open_square_boundary_requires_explicit_port_plan": 930,
+        "substage_domain_includes_unmapped_ground": 642
+      },
+      "original_base_refusal": null,
+      "controls_retained": 49,
+      "physical_admission": false
+    },
+    {
+      "case": "mountain-river-asia",
+      "rows": 109,
+      "line_rows": 80,
+      "polygon_rows": 29,
+      "mandatory_stream_parts": 32,
+      "source_nodes_depth_at_least_1m": null,
+      "distinct_unchanged_initial_heads": null,
+      "four_and_eight_adjacency_envelopes": null,
+      "envelopes_without_the_three_geometric_issues": null,
+      "geometry_issue_counts_overlapping": null,
+      "original_base_refusal": {
+        "square": "mountain-river-asia",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "controls_retained": null,
+      "physical_admission": false
+    }
+  ],
+  "source_ordered_examples_at_90m": {
+    "Bulimba_rivers50": {
+      "id": "stage:5760:adj:8:component:16",
+      "stage_q": 5760,
+      "adjacency": 8,
+      "nodes": 1465,
+      "nodes_i32_sha256": "e91b28e6008658d65557c814a7713b46354bbd90d63a73ba0e42ee442d8f320e",
+      "unmapped_nodes": 307,
+      "initially_dry_unmapped_nodes": 0,
+      "first_unmapped_node": 211364,
+      "first_dry_unmapped_node": null,
+      "touches_square_boundary": false,
+      "full_rim_freeboard_q": 0,
+      "rim_witness_rc": [
+        233,
+        541
+      ],
+      "geometry_reasons": [
+        "full_untouched_exterior_half_metre_freeboard_not_met",
+        "substage_domain_includes_unmapped_ground"
+      ],
+      "static_envelope_only": true,
+      "hydraulic_connectivity_and_budget": "unknown"
+    },
+    "Main_rivers52": {
+      "id": "stage:5760:adj:8:component:1",
+      "stage_q": 5760,
+      "adjacency": 8,
+      "nodes": 329323,
+      "nodes_i32_sha256": "9cf32ffd2a9e5ee3f60f906ec869fe2a95e32dfb99a294b656ae54168f1e3aa8",
+      "unmapped_nodes": 4227,
+      "initially_dry_unmapped_nodes": 0,
+      "first_unmapped_node": 128,
+      "first_dry_unmapped_node": null,
+      "touches_square_boundary": true,
+      "full_rim_freeboard_q": 0,
+      "rim_witness_rc": [
+        4,
+        965
+      ],
+      "geometry_reasons": [
+        "open_square_boundary_requires_explicit_port_plan",
+        "full_untouched_exterior_half_metre_freeboard_not_met",
+        "substage_domain_includes_unmapped_ground"
+      ],
+      "static_envelope_only": true,
+      "hydraulic_connectivity_and_budget": "unknown"
+    }
+  },
+  "all_five_original_stream_parts": 583,
+  "new_native": false,
+  "new_physical_package": null,
+  "engineering_decision": "Do not serialize the proposed unchanged-head local coastal supply from a source footprint or closed-lake validator alone. The complete conditional domain and open-port/water-land authority must be declared. No geographic impossibility or rejection of all lower-stage/open-channel designs is claimed.",
+  "important_limit": "Unmapped does not mean surveyed dry land or a predicted flood. Main52 and Bulimba50 90m off-mask nodes are already initialized wet. Raster envelope membership is not measured hydraulic connectivity, transport capacity, surveyed width or calibrated source budget. No new acceptance gate.",
+  "old_refusals_protection_and_source_cohorts_retained": true,
+  "replay": {
+    "all_seven_files_byte_identical": true,
+    "files_sha256": {
+      "dry-upland-asia.json": "4108eaab10bd09c1afc8f210aa5b620aa1da48e4f3beb3cdcd8788ae87f07ce2",
+      "dry-upland-europe.json": "7d2b5cb300959b859b3d5d1cdc87a8b38b49a42f3c8df896e267daff5f6c9026",
+      "dry-upland-south-america.json": "dc680b8d0f75bf8f68539154e8efac864ac58365449fac843f40b8ff85ccab31",
+      "low-coast-oceania.json": "52f9b223ec7c720b97fef8d36fe129d438656f425b27950f10216e77b1cabb09",
+      "lowland-river-south-america.json": "e7c00292a885677613d9b3de6c23c1d7ae9a435122a814d397f2aa35e3de6413",
+      "mountain-river-asia.json": "5e1c7262967c862e0ea20328d05123f973d9e2716829cdb81a1c86ba1da01fd6",
+      "receipt.json": "5c149a3909c5c5f1c50731eb8df7f31378b186bdc4ad2f62c3431485cb2fe302"
+    }
+  },
+  "new_tests_passed": 4,
+  "full_hour_qualification": "unknown",
+  "all_promises": "unknown",
+  "holdout_accessed": false,
+  "defaults_or_live_ledger_changed": false
+}
