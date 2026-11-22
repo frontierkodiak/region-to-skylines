@@ -1,0 +1,499 @@
+{
+  "schema": "polli.pl1191-stage-contract-summary/1",
+  "source_method_commit": "5ffb108",
+  "prospective_freeze_sha256": "c678165c09de47b19c8dcdc92796ba98d8d23e0e4495cd5a23e431550d494a32",
+  "cases": [
+    {
+      "case": "dry-upland-asia",
+      "entries": 83,
+      "points": 365,
+      "contracts": 50,
+      "entry_status_counts": {
+        "outside_square": 5,
+        "compiled": 14,
+        "excluded": 2,
+        "unresolved": 5,
+        "natural_control": 57
+      },
+      "coverage_complete": false,
+      "original_base_refusal": null,
+      "models": [
+        {
+          "adjacency": 4,
+          "natural_contracts": 49,
+          "engineered_contracts": 1,
+          "initial_fail_natural": 8,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 5,
+          "own_raster_numeric_fits": 5,
+          "own_raster_with_any_same_entry_1m_source_fits": 4,
+          "source_footprint_rows": 17,
+          "perennial_ocean_rows_explicitly_supported": 0
+        },
+        {
+          "adjacency": 8,
+          "natural_contracts": 49,
+          "engineered_contracts": 1,
+          "initial_fail_natural": 8,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 5,
+          "own_raster_numeric_fits": 5,
+          "own_raster_with_any_same_entry_1m_source_fits": 4,
+          "source_footprint_rows": 17,
+          "perennial_ocean_rows_explicitly_supported": 0
+        }
+      ]
+    },
+    {
+      "case": "dry-upland-europe",
+      "entries": 619,
+      "points": 287,
+      "contracts": 93,
+      "entry_status_counts": {
+        "excluded": 399,
+        "unresolved": 62,
+        "compiled": 90,
+        "outside_square": 21,
+        "natural_control": 47
+      },
+      "coverage_complete": false,
+      "original_base_refusal": null,
+      "models": [
+        {
+          "adjacency": 4,
+          "natural_contracts": 85,
+          "engineered_contracts": 8,
+          "initial_fail_natural": 68,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 22,
+          "own_raster_numeric_fits": 19,
+          "own_raster_with_any_same_entry_1m_source_fits": 10,
+          "source_footprint_rows": 84,
+          "perennial_ocean_rows_explicitly_supported": 0
+        },
+        {
+          "adjacency": 8,
+          "natural_contracts": 85,
+          "engineered_contracts": 8,
+          "initial_fail_natural": 68,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 22,
+          "own_raster_numeric_fits": 19,
+          "own_raster_with_any_same_entry_1m_source_fits": 10,
+          "source_footprint_rows": 84,
+          "perennial_ocean_rows_explicitly_supported": 0
+        }
+      ]
+    },
+    {
+      "case": "lowland-river-south-america",
+      "entries": 1094,
+      "points": 15641,
+      "contracts": 858,
+      "entry_status_counts": {
+        "outside_square": 73,
+        "compiled": 116,
+        "unresolved": 622,
+        "excluded": 235,
+        "natural_control": 48
+      },
+      "coverage_complete": false,
+      "original_base_refusal": null,
+      "models": [
+        {
+          "adjacency": 4,
+          "natural_contracts": 855,
+          "engineered_contracts": 3,
+          "initial_fail_natural": 769,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 390,
+          "own_raster_numeric_fits": 314,
+          "own_raster_with_any_same_entry_1m_source_fits": 273,
+          "source_footprint_rows": 649,
+          "perennial_ocean_rows_explicitly_supported": 0
+        },
+        {
+          "adjacency": 8,
+          "natural_contracts": 855,
+          "engineered_contracts": 3,
+          "initial_fail_natural": 769,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 380,
+          "own_raster_numeric_fits": 303,
+          "own_raster_with_any_same_entry_1m_source_fits": 263,
+          "source_footprint_rows": 649,
+          "perennial_ocean_rows_explicitly_supported": 0
+        }
+      ]
+    },
+    {
+      "case": "dry-upland-south-america",
+      "entries": 28,
+      "points": 414,
+      "contracts": 55,
+      "entry_status_counts": {
+        "unresolved": 19,
+        "outside_square": 5,
+        "excluded": 4
+      },
+      "coverage_complete": false,
+      "original_base_refusal": {
+        "square": "dry-upland-south-america",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "models": []
+    },
+    {
+      "case": "mountain-river-asia",
+      "entries": 110,
+      "points": 2312,
+      "contracts": 174,
+      "entry_status_counts": {
+        "outside_square": 29,
+        "unresolved": 60,
+        "compiled": 21
+      },
+      "coverage_complete": false,
+      "original_base_refusal": {
+        "square": "mountain-river-asia",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "models": []
+    },
+    {
+      "case": "low-coast-oceania",
+      "entries": 1270,
+      "points": 23113,
+      "contracts": 962,
+      "entry_status_counts": {
+        "compiled": 496,
+        "outside_square": 75,
+        "excluded": 142,
+        "unresolved": 390,
+        "natural_control": 167
+      },
+      "coverage_complete": false,
+      "original_base_refusal": null,
+      "models": [
+        {
+          "adjacency": 4,
+          "natural_contracts": 962,
+          "engineered_contracts": 0,
+          "initial_fail_natural": 496,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 579,
+          "own_raster_numeric_fits": 486,
+          "own_raster_with_any_same_entry_1m_source_fits": 423,
+          "source_footprint_rows": 754,
+          "perennial_ocean_rows_explicitly_supported": 42
+        },
+        {
+          "adjacency": 8,
+          "natural_contracts": 962,
+          "engineered_contracts": 0,
+          "initial_fail_natural": 496,
+          "initial_unknown_engineered": 0,
+          "initial_fail_engineered": 0,
+          "optimistic_numeric_fits": 556,
+          "own_raster_numeric_fits": 460,
+          "own_raster_with_any_same_entry_1m_source_fits": 400,
+          "source_footprint_rows": 754,
+          "perennial_ocean_rows_explicitly_supported": 42
+        }
+      ]
+    }
+  ],
+  "coastal_8adj_examples_not_complete_denominators": {
+    "rivers:50": [
+      {
+        "id": "rivers:50:0",
+        "initial_wet_points": 9,
+        "total_points": 9,
+        "optimistic_any_nearby_raster": {
+          "required_points": 9,
+          "maximum_simultaneous_points": 9,
+          "common_stage_intervals_q": [
+            [
+              5597,
+              5734
+            ]
+          ],
+          "earliest_common_stage_q": 5597,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5597,
+              5734
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        },
+        "restricted_own_source_raster": {
+          "required_points": 9,
+          "maximum_simultaneous_points": 9,
+          "common_stage_intervals_q": [
+            [
+              5597,
+              5734
+            ]
+          ],
+          "earliest_common_stage_q": 5597,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5597,
+              5734
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        }
+      },
+      {
+        "id": "rivers:50:1",
+        "initial_wet_points": 9,
+        "total_points": 9,
+        "optimistic_any_nearby_raster": {
+          "required_points": 9,
+          "maximum_simultaneous_points": 9,
+          "common_stage_intervals_q": [
+            [
+              5597,
+              5734
+            ]
+          ],
+          "earliest_common_stage_q": 5597,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5597,
+              5734
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        },
+        "restricted_own_source_raster": {
+          "required_points": 9,
+          "maximum_simultaneous_points": 9,
+          "common_stage_intervals_q": [
+            [
+              5598,
+              5734
+            ]
+          ],
+          "earliest_common_stage_q": 5598,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5598,
+              5734
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        }
+      },
+      {
+        "id": "rivers:50:2",
+        "initial_wet_points": 8,
+        "total_points": 8,
+        "optimistic_any_nearby_raster": {
+          "required_points": 8,
+          "maximum_simultaneous_points": 8,
+          "common_stage_intervals_q": [
+            [
+              5583,
+              5734
+            ]
+          ],
+          "earliest_common_stage_q": 5583,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5583,
+              5734
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        },
+        "restricted_own_source_raster": {
+          "required_points": 8,
+          "maximum_simultaneous_points": 8,
+          "common_stage_intervals_q": [
+            [
+              5583,
+              5734
+            ]
+          ],
+          "earliest_common_stage_q": 5583,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5583,
+              5734
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        }
+      }
+    ],
+    "rivers:52": [
+      {
+        "id": "rivers:52:0",
+        "initial_wet_points": 4,
+        "total_points": 4,
+        "optimistic_any_nearby_raster": {
+          "required_points": 4,
+          "maximum_simultaneous_points": 3,
+          "common_stage_intervals_q": [],
+          "earliest_common_stage_q": null,
+          "numeric_fit_only": false,
+          "same_stage_with_any_own_1m_source_intervals_q": [],
+          "same_stage_with_own_source_numeric_fit_only": false
+        },
+        "restricted_own_source_raster": {
+          "required_points": 4,
+          "maximum_simultaneous_points": 3,
+          "common_stage_intervals_q": [],
+          "earliest_common_stage_q": null,
+          "numeric_fit_only": false,
+          "same_stage_with_any_own_1m_source_intervals_q": [],
+          "same_stage_with_own_source_numeric_fit_only": false
+        }
+      }
+    ],
+    "rivers:58": [
+      {
+        "id": "rivers:58:0",
+        "initial_wet_points": 5,
+        "total_points": 5,
+        "optimistic_any_nearby_raster": {
+          "required_points": 5,
+          "maximum_simultaneous_points": 3,
+          "common_stage_intervals_q": [],
+          "earliest_common_stage_q": null,
+          "numeric_fit_only": false,
+          "same_stage_with_any_own_1m_source_intervals_q": [],
+          "same_stage_with_own_source_numeric_fit_only": false
+        },
+        "restricted_own_source_raster": {
+          "required_points": 5,
+          "maximum_simultaneous_points": 3,
+          "common_stage_intervals_q": [],
+          "earliest_common_stage_q": null,
+          "numeric_fit_only": false,
+          "same_stage_with_any_own_1m_source_intervals_q": [],
+          "same_stage_with_own_source_numeric_fit_only": false
+        }
+      }
+    ],
+    "rivers:60": [
+      {
+        "id": "rivers:60:0",
+        "initial_wet_points": 8,
+        "total_points": 8,
+        "optimistic_any_nearby_raster": {
+          "required_points": 8,
+          "maximum_simultaneous_points": 8,
+          "common_stage_intervals_q": [
+            [
+              5489,
+              5690
+            ]
+          ],
+          "earliest_common_stage_q": 5489,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5489,
+              5690
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        },
+        "restricted_own_source_raster": {
+          "required_points": 8,
+          "maximum_simultaneous_points": 8,
+          "common_stage_intervals_q": [
+            [
+              5489,
+              5690
+            ]
+          ],
+          "earliest_common_stage_q": 5489,
+          "numeric_fit_only": true,
+          "same_stage_with_any_own_1m_source_intervals_q": [
+            [
+              5489,
+              5690
+            ]
+          ],
+          "same_stage_with_own_source_numeric_fit_only": true
+        }
+      }
+    ]
+  },
+  "replay_all_files_byte_identical": true,
+  "replay_files": 23,
+  "escape_field_full_grid_verification": [
+    {
+      "case": "dry-upland-asia",
+      "adjacency": 4,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "dry-upland-asia",
+      "adjacency": 8,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "dry-upland-europe",
+      "adjacency": 4,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "dry-upland-europe",
+      "adjacency": 8,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "lowland-river-south-america",
+      "adjacency": 4,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "lowland-river-south-america",
+      "adjacency": 8,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "low-coast-oceania",
+      "adjacency": 4,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    },
+    {
+      "case": "low-coast-oceania",
+      "adjacency": 8,
+      "full_grid_Bellman_and_parent_checks_pass": true,
+      "vertices": 1168561
+    }
+  ],
+  "no_admission_native_or_holdout": true,
+  "independently_reviewed": false,
+  "all_promises": "unknown",
+  "scope": "Common-stage conditional escape-margin compatibility only, not a variable-stage flowing channel refusal, hydraulic outlet, bank width, capacity, new acceptance gate or source selection."
+}

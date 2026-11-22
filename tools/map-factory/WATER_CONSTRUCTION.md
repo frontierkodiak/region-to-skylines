@@ -1076,3 +1076,27 @@ earthwork/mask/probe/default change. Four new tests/full7file byte-identical rep
 pass. Next prepared work is stage-ceiling vs complete source-contract compatibility,
 not another offshore repetition. New CPU results not yet independently accepted;
 all promisesunknown. Seephase23policy/summary/postanalysisbinding.
+
+## Phase twenty-four: complete contracts against conditional escape ceilings
+
+A new source-only compiler envelope retains every existing contract/point and
+compiles the complete coastal cohort:962natural contracts/23113points, including
+all42literal ocean rows.496coastal contracts fail authored initialization; this
+is a source-grid diagnostic, not native acceptance or a historical rescore.
+All5fixed cases plus coast retain branches/unsupported coverage and bothNULL
+base refusals. Conditional whole-square4/8minimax escape ceilings minus0.5m are
+compared with >=.5m exact engineered/95%natural >.1m nearby support and >=1m source
+footprint intervals. No bank/protection/physical/probe change or stream admission.
+
+Bulimba50's3sectors share a conditional own-raster interval87.46875–89.59375m
+under8adjacency, including an undeployed1m source footprint. This is NOT a chosen
+control/flow budget or known hydraulic outlet. A common-stage mismatch cannot
+prove a varying-stage open channel impossible. Complete lateral water/land,
+junction/inlet/outlet roles and supply remain unresolved; every promiseunknown.
+
+Initial setup failure and NumPy JSON failure are retained. Freshv2 binds typed
+JSON normalization without changing v1 arithmetic; freshv3 adds previously missing
+per-ocean source masks/footprint accounting (all optimistic intervals/counts and
+non-ocean contracts unchanged). Methods/freezes precede their own outputs; earlier
+outputs known, not outcome-blind. Ten focused tests/scopedchecks, full23file replay
+and8whole-grid Bellman/parent checks pass. Seephase24policy/summary/binding/report.

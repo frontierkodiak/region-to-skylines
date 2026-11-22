@@ -1196,5 +1196,15 @@
     "results_receipt_sha256": "c7f8cf352d77b52d9c334b30c210c12f0b04a7a8d613686e4366a84f04927c44",
     "new_physical_or_native": false,
     "promise": "unknown"
+  },
+  "phase24_complete_contract_stage_compatibility": {
+    "schema": "polli.pl1191-postanalysis-stage-contract-binding/1",
+    "postanalysis_not_prospective": true,
+    "prospective_freeze_sha256": "c678165c09de47b19c8dcdc92796ba98d8d23e0e4495cd5a23e431550d494a32",
+    "summary_sha256": "b1adf86e35d22159f9c0bce909c4b4e89aa00bfce6c599afa6672050a40c84a4",
+    "results_receipt_sha256": "21adaca66ee6480b89239772c08b918e67c2f91cfe4a4756b6efbc7a61eb21db",
+    "new_physical_or_native": false,
+    "independently_reviewed": false,
+    "promise": "unknown"
   }
 }
