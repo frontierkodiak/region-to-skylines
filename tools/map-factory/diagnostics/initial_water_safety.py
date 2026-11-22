@@ -88,6 +88,20 @@ def retention(mask, values):
     }
 
 
+def probe_scope(probes, checks):
+    return {
+        "full_original_probe_count": len(probes),
+        "explicit_required_true_overrides": sum(
+            p.get("required") is True for p in probes
+        ),
+        "old_native_water_gate_status": {
+            name: checks[name]["status"]
+            for name in ["probes_wet_end", "probes_wet_throughout"]
+        },
+        "primary_natural_sector_coverage": "not established by these legacy point counts",
+    }
+
+
 def preflight(folder):
     freeze = load(folder / "freeze.json")
     for base, field in [(folder, "files_sha256"), (ROOT, "source_files_sha256")]:
@@ -250,8 +264,7 @@ def evaluate(folder, output):
                 "undergroundWaterways",
             ]
         },
-        "full_original_probe_count": len(probes),
-        "legacy_required_probe_count": sum(p.get("required", True) for p in probes),
+        "probe_scope": probe_scope(probes, checks),
         "footprints": {name: count(mask) for name, mask in groups.items()},
         "new_deep_equal_quantized_sea_minus_authored_terrain": count(sea_equal),
         "new_deep_inside_old_initial_water_reference": count(new & t0_expected),

@@ -5,10 +5,21 @@ import unittest
 
 import numpy as np
 
-from initial_water_safety import cover_native, masks, retention
+from initial_water_safety import cover_native, masks, probe_scope, retention
 
 
 class InitialSafetyTests(unittest.TestCase):
+    def test_stream_points_without_required_flags_do_not_manufacture_a_qualified_cohort(
+        self,
+    ):
+        checks = {
+            n: {"status": "skip"} for n in ["probes_wet_end", "probes_wet_throughout"]
+        }
+        scope = probe_scope([{"name": "edge stream"}], checks)
+        self.assertEqual(scope["full_original_probe_count"], 1)
+        self.assertEqual(scope["explicit_required_true_overrides"], 0)
+        self.assertEqual(set(scope["old_native_water_gate_status"].values()), {"skip"})
+
     def test_initial_reference_cannot_clear_new_deep_built_up_water(self):
         before = np.zeros((3, 3), dtype=np.uint16)
         after = before.copy()
