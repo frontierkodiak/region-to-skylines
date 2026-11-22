@@ -226,6 +226,7 @@ def stage(parent, output):
     if output.exists():
         raise ValueError("Fresh protocol required")
     output.mkdir(parents=True)
+    (output / "inventories").mkdir()
     shutil.copytree(parent, output / "parent")
     for slug in load(parent / "freeze.json")["cases"]:
         case = output / "parent/parent-protocol" / slug

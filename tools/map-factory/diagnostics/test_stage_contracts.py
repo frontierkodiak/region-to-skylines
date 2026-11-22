@@ -1,11 +1,42 @@
 import unittest
+import json
+from pathlib import Path
+import tempfile
+from unittest.mock import patch
 
 import numpy as np
 
-from stage_contracts import common_stage, contract_model, escape_field, merge_intervals
+from stage_contracts import (
+    common_stage,
+    contract_model,
+    escape_field,
+    merge_intervals,
+    stage,
+)
 
 
 class StageTests(unittest.TestCase):
+    def test_protocol_creates_inventory_before_freezing_outputs(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            parent = Path(temporary) / "parent"
+            case = parent / "parent-protocol/case"
+            (case / "input/source").mkdir(parents=True)
+            (case / "case.json").write_text(json.dumps({"kind": "geographic"}))
+            (case / "input/source/geometry.json").write_text("{}")
+            original = {"schema": "old", "entries": [], "points": []}
+            (case / "input/ledger.json").write_text(
+                json.dumps({"source_contract_inventory": original})
+            )
+            (parent / "freeze.json").write_text(
+                json.dumps({"cases": ["case"], "source_files_sha256": {}})
+            )
+            output = Path(temporary) / "fresh"
+            with patch("stage_contracts.parent_preflight"):
+                stage(parent, output)
+            frozen = json.loads((output / "freeze.json").read_text())
+            self.assertIn("inventories/case.json", frozen["files_sha256"])
+            self.assertTrue(frozen["complete_inventory_before_stage_outputs"])
+
     def test_minimax_finds_saddle_not_nearest_high_bank(self):
         floor = np.full((5, 5), 160, np.int64)
         floor[2, 2], floor[2, 0:2] = 0, 96
