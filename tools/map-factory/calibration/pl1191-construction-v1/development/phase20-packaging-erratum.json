@@ -1,0 +1,33 @@
+{
+  "schema": "polli.phase20-additive-prospective-normalization/2",
+  "archive": "phase20-source-absent-prospective-normalized-v2.zip",
+  "bytes": 21882346,
+  "sha256": "22af7898ca8334aef6e0730321178f5cc001857dfebfb8104c318e18716c5b98",
+  "members": 326,
+  "all_member_SHA_CRC_and_unique_canonical_regular_paths": "verified",
+  "scope": "POST-observation packaging-only normalization of the immutable prospective ZIP. Not a new prospective physical preparation/runtime or altered native measurement. Every unique member byte remains identical, including nativeplan and existing membermanifest.",
+  "original": {
+    "archive": "phase20-source-absent-prospective.zip",
+    "bytes": 21947273,
+    "sha256": "b204c712e07601d3af1f654805be44be36ac2dd53d1677c7c61a2341c577ec7d",
+    "actual_members": 328,
+    "unique_members": 326,
+    "old_receipt_members326_meant_unique_not_actual_entries": true,
+    "duplicates": {
+      "observed-runtime/tools/cs1-harness/.build/Cs1Harness.dll": {
+        "copies": 2,
+        "all_copies_byte_identical": true,
+        "sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346"
+      },
+      "observed-runtime/tools/cs1-harness/.build/build-receipt.json": {
+        "copies": 2,
+        "all_copies_byte_identical": true,
+        "sha256": "f92c04c751919d0bb094bdf024c11988e70e04348200380cc05249590c81738e"
+      }
+    },
+    "original_preserved": true
+  },
+  "native_package_plan_probe_source_runtime_changed": false,
+  "native_retry": false,
+  "all_unique_original_member_bytes_preserved": true
+}
