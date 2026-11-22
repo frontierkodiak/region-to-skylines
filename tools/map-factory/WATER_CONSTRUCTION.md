@@ -878,3 +878,39 @@ Nine new focused tests and complete core replay pass; old native/constructor/
 shipping/broad checks are carried. No game/install/Steam/holdout action occurred.
 All fixed masks/banks/limits/probes, historical failures and all promises remain
 unchanged/unknown. No geographic stream admission or complete candidate follows.
+
+## Phase seventeen: dense source-selected interface readbacks
+
+PL-1247 passes the limited phase16CPU results and is closed after use. Its old
+derived-manifest CLI paths remain historical; the new protocol/result omit CLI
+paths and replay byte-identically under changed input path strings. Its trough
+timing note is retained: the prior interior-storage minimum was7.570834min,
+not the cited5.01sample (which was not declared the minimum).
+
+A fresh native diagnostic addresses sparse vectors, not a repair/retry. All
+27386original point objects/metadata remain;18816queries are added,46202total.
+The20049node domain is selected from ALL MainDrain/Bulimba source geometry with
+128mquery buffers plus32maround all static Main corridors. No wet component,
+endpoint wet path or outcome-selected steps400–560 select probes. Query buffers
+do not change banks/protection masks, source geometry or a surveyed basin width.
+All167intakes remain zero, outputs/targets/positions/terrain/initialwater/
+resources/networks/reference masks unchanged; package457905c4byte-identical.
+
+Clean owned runtimee73138f/DLL368955b1 captures61snapshots over15.027779minutes.
+All20049dense API nodes finite at every sample; all167full control tables match.
+Current floors remain43f4be73…, targets=current, rawterrain=physicalterrain.
+On the fixed754node Main52geometric path every API node is now measured (prior
+endpoint28), but421are wet at endpoint and this is not a complete hydraulic
+corridor. Its339wet adjacent pairs have model-parent-projected velocity median
+-1.091API units (range-13.160to6.249), while source wet surfaces keep falling.
+This is not integrated inflow/discharge, exclusive evaporation or a source budget.
+
+Requested cadence0.25min, max actual gap0.323611min, no missed slots; all4named
+counters available, reads not proven atomic. RawFAIL/startup/Bridge-TypeLoad
+statuses retained. Short water/flood passes do not qualify60minute primary;
+old60minute failures/gates/scores remain. Loaded-image/JIT identity/runtimehealth
+and human-only/long-term/between-sample acceptance unknown. No new geographic
+admission/holdout/default/ledger/promise adoption. Four new focused tests and
+preflight/collection/portable replay pass; unchanged broad suites carried.
+Owned game2594894and all helpers collected, teardown and final FIFO empty.
+See `dense-interface-freeze-v1.json` and `development/phase17-dense-summary.json`.

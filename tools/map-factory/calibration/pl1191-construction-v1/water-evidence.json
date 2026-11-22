@@ -1129,5 +1129,27 @@
     "new_native_observation": false,
     "new_admissions": 0,
     "stable_water_promise": "unknown"
+  },
+  "coastal_dense_interface_observation": {
+    "freeze": "dense-interface-freeze-v1.json",
+    "summary": "development/phase17-dense-summary.json",
+    "native_plan_sha256": "ec4b88258310808f7a558c10c8368a384abd99bede88f5864441079b892e130f",
+    "game_minutes": 15.027778561537463,
+    "snapshots": 61,
+    "original_probes_retained": 27386,
+    "new_diagnostic_queries": 18816,
+    "full_probes": 46202,
+    "dense_domain_nodes": 20049,
+    "all_dense_values_finite": true,
+    "all_167_controls_match": true,
+    "floor_hashes": [
+      "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+    ],
+    "source_selection": "full geometry/fixed corridors; no native wet component or selected outcome-path segment",
+    "raw_verdict": "fail",
+    "full_hour_acceptance": "incomplete/unknown",
+    "physical_flux_evaporation_source_budget": "unresolved",
+    "independent_results_review": "required before adoption, not before guarded measurement",
+    "stable_water_promise": "unknown"
   }
 }
