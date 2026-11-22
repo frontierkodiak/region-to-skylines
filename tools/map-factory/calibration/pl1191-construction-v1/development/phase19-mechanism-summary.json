@@ -1,0 +1,271 @@
+{
+  "schema": "polli.pl1191-phase19-mechanism-summary/1",
+  "scope": "Compact projection, not the complete per-stratum/full-time data",
+  "projection_of_full_comparison_sha256": "57ed84a7158b383d15d0d900a55a74bc4712a049d5a8e1db81a0645ce18d17cf",
+  "projection_of_full_strata_result_sha256": "5e2020a685420cd464d996bb385d8773b10064d8a7b4566a3585f63c86ed9d7d",
+  "PL1253_review_used": "pass limited phase17 measurements, already accepted/closed in prior child run",
+  "review_receipt_sha256": "8ebe3803fba3efda30f72a19a6f0786ef917f96dacf796070911c3aa666b3368",
+  "acceptance_receipt_sha256": "b34b7ff95149b16f82c1af64bcef6293274e8c11d014adb96e523c14c2ae7259",
+  "strata_full_grid_vertices": 1168561,
+  "strata_partition_complete": true,
+  "strata_supported_near_far_contrasts": 10,
+  "strata_total_near_far_contrasts": 32,
+  "new_physical_forcing": "all167 positive outputs to0, all167 intakes already0; source records/type/positions/targets remain",
+  "all_nonforcing_physical_and_full_probe_bytes_equal": true,
+  "all_four_named_counters_available_every_bracket": true,
+  "arms": {
+    "outputs retained; intakes zero": {
+      "snapshots": 61,
+      "elapsed_minutes": 15.027778561537463,
+      "early_interval_minutes": 4.821666918136179,
+      "distant_control_boundary_deep_ocean_early": {
+        "all_vertices": 87259,
+        "initial_wet": 87259,
+        "final_wet": 87259,
+        "net_depth_change_q": -5918723,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.24304354072906173,
+          "p10": -0.22035947692768262,
+          "median": -0.22035947692768262,
+          "p90": -0.22035947692768262,
+          "max": -0.1717507687818703,
+          "count": 87259
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.24304354072906173,
+          "p10": -0.22035947692768262,
+          "median": -0.22035947692768262,
+          "p90": -0.22035947692768262,
+          "max": -0.1717507687818703,
+          "count": 87259
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      "far_deep_early": {
+        "all_vertices": 248212,
+        "initial_wet": 248212,
+        "final_wet": 248212,
+        "net_depth_change_q": -10294807,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.25600586290127836,
+          "p10": -0.22035947692768262,
+          "median": -0.14906670498049118,
+          "p90": -0.016202902715270782,
+          "max": 0.10693915792078716,
+          "count": 248212
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.25600586290127836,
+          "p10": -0.22035947692768262,
+          "median": -0.14906670498049118,
+          "p90": -0.016202902715270782,
+          "max": 0.10693915792078716,
+          "count": 248212
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      "endpoint_original_groups": {
+        "original_all": {
+          "points": 27386,
+          "native_wet_flag": 25004,
+          "depth_gt_0_1m": 25004,
+          "nearby_depth_gt_0_1m": 25828,
+          "horizontal_velocity_nonzero_api": 24303,
+          "max_horizontal_velocity_api": 21.213041597254655,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        },
+        "dense_domain": {
+          "points": 20049,
+          "native_wet_flag": 4415,
+          "depth_gt_0_1m": 4415,
+          "nearby_depth_gt_0_1m": 11311,
+          "horizontal_velocity_nonzero_api": 4238,
+          "max_horizontal_velocity_api": 18.027448233138472,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        },
+        "original_Main Drain": {
+          "points": 92,
+          "native_wet_flag": 65,
+          "depth_gt_0_1m": 65,
+          "nearby_depth_gt_0_1m": 88,
+          "horizontal_velocity_nonzero_api": 57,
+          "max_horizontal_velocity_api": 2.999779869770285,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        },
+        "original_Bulimba Creek": {
+          "points": 822,
+          "native_wet_flag": 529,
+          "depth_gt_0_1m": 529,
+          "nearby_depth_gt_0_1m": 709,
+          "horizontal_velocity_nonzero_api": 496,
+          "max_horizontal_velocity_api": 14.99948501586914,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        }
+      },
+      "actual_floor_hashes": [
+        "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+      ],
+      "all_target_equals_floor": true,
+      "all_raw_terrain_equals_physical": true,
+      "all_control_tables_match": true,
+      "dense_nonfinite_values": 0,
+      "max_trigger_gap_minutes": 0.32361112798874575,
+      "missed_slots": 0,
+      "raw_verdict": "fail",
+      "raw_failed": [
+        "startup_views"
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "legacy_water_end": {
+        "wet": 1129,
+        "required": 1149,
+        "fraction": 0.983
+      },
+      "old_masked_flood_km2": 0.0079
+    },
+    "all encoded rates zero": {
+      "snapshots": 61,
+      "elapsed_minutes": 15.031389672836909,
+      "early_interval_minutes": 4.84277803034832,
+      "distant_control_boundary_deep_ocean_early": {
+        "all_vertices": 87259,
+        "initial_wet": 87259,
+        "final_wet": 87259,
+        "net_depth_change_q": -6001761,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2581163109617256,
+          "p10": -0.22262531820448833,
+          "median": -0.22262531820448833,
+          "p90": -0.22262531820448833,
+          "max": -0.1710020560121432,
+          "count": 87259
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2581163109617256,
+          "p10": -0.22262531820448833,
+          "median": -0.22262531820448833,
+          "p90": -0.22262531820448833,
+          "max": -0.1710020560121432,
+          "count": 87259
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      "far_deep_early": {
+        "all_vertices": 248212,
+        "initial_wet": 248212,
+        "final_wet": 248212,
+        "net_depth_change_q": -10451820,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2581163109617256,
+          "p10": -0.22262531820448833,
+          "median": -0.1516433326900138,
+          "p90": -0.01613226943510785,
+          "max": 0.10969943215873337,
+          "count": 248212
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2581163109617256,
+          "p10": -0.22262531820448833,
+          "median": -0.1516433326900138,
+          "p90": -0.01613226943510785,
+          "max": 0.10969943215873337,
+          "count": 248212
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      "endpoint_original_groups": {
+        "original_all": {
+          "points": 27386,
+          "native_wet_flag": 23632,
+          "depth_gt_0_1m": 23632,
+          "nearby_depth_gt_0_1m": 25048,
+          "horizontal_velocity_nonzero_api": 22919,
+          "max_horizontal_velocity_api": 20.524287959026726,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        },
+        "dense_domain": {
+          "points": 20049,
+          "native_wet_flag": 3320,
+          "depth_gt_0_1m": 3320,
+          "nearby_depth_gt_0_1m": 8965,
+          "horizontal_velocity_nonzero_api": 3199,
+          "max_horizontal_velocity_api": 19.091672027662298,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        },
+        "original_Main Drain": {
+          "points": 92,
+          "native_wet_flag": 67,
+          "depth_gt_0_1m": 67,
+          "nearby_depth_gt_0_1m": 88,
+          "horizontal_velocity_nonzero_api": 54,
+          "max_horizontal_velocity_api": 2.307408332824707,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        },
+        "original_Bulimba Creek": {
+          "points": 822,
+          "native_wet_flag": 268,
+          "depth_gt_0_1m": 268,
+          "nearby_depth_gt_0_1m": 537,
+          "horizontal_velocity_nonzero_api": 233,
+          "max_horizontal_velocity_api": 11.785482406616211,
+          "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+        }
+      },
+      "actual_floor_hashes": [
+        "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+      ],
+      "all_target_equals_floor": true,
+      "all_raw_terrain_equals_physical": true,
+      "all_control_tables_match": true,
+      "dense_nonfinite_values": 0,
+      "max_trigger_gap_minutes": 0.35305557396883813,
+      "missed_slots": 0,
+      "raw_verdict": "fail",
+      "raw_failed": [
+        "startup_views"
+      ],
+      "cleanup": {
+        "game": [],
+        "steam_instances": [],
+        "units_active": []
+      },
+      "legacy_water_end": {
+        "wet": 1119,
+        "required": 1149,
+        "fraction": 0.974
+      },
+      "old_masked_flood_km2": 0.0
+    }
+  },
+  "interpretation": "Positive encoded outputs are not necessary for observed early offshore drawdown under these matched inputs. Local Bulimba nearby retention is lower in the rates-zero arm. Not all controls removed, unique sink/evaporation/physical flux proof, independent native replication, source budget or geographic qualification.",
+  "reporting_failure_and_derivation": {
+    "frozen_collector_failed_exit": 1,
+    "error": "TypeError: unsupported operand type(s) for +: 'int' and 'list'",
+    "expression": "sum(r[\"missed_slots\"] for r in rows)",
+    "failed_output": "development-coast/remaining-output-zero-v1-results",
+    "partial_array_retained": true,
+    "physical_or_measurement_defect": false,
+    "native_rerun": false,
+    "corrected_report_output": "development-coast/remaining-output-zero-v1-derived-results",
+    "old_bound_source_or_native_files_modified": false
+  },
+  "derived_lineage_sha256": "983e42efe018f2541af18c67b86b1dd7a473b9c2a1e680c661fcddff4d62e4f9",
+  "derived_replay": {
+    "all_four_derived_files_byte_identical": true,
+    "files_sha256": {
+      "result.json": "5cd42310060dcea6a549ab1a72d04df4336ad6c48e29df7af625e8b6a1162171",
+      "receipt.json": "58bb22a6c4bdba2d3b30bf7e10a243b18a82c9d175f9d397f54c9ed18a4d7316",
+      "dense-api.f64": "bef9073ac5f8cba45be6115563795d0c1d2a515a6ba2fa11abea3a8537af51ea",
+      "lineage.json": "983e42efe018f2541af18c67b86b1dd7a473b9c2a1e680c661fcddff4d62e4f9"
+    }
+  },
+  "future_collector_fix": "post-observation typed missed-slot list-length aggregation; old physical protocol requires own exact9ba351c recipe +9c41756 runtime for replay, not the current modified heads",
+  "old_gates_inputs_labels_reports_scores_or_certificates_changed": false,
+  "holdout_inputs_accessed": false,
+  "full_hour_acceptance": "incomplete/unknown",
+  "stable_water_promise": "unknown"
+}

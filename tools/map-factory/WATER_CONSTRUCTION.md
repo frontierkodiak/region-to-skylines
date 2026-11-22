@@ -959,3 +959,66 @@ Inundation/retention values are unchanged; no native retry. See
 and `diagnostics/initial_water_safety.py`. The original five construction cases,
 583 mandatory stream parts/refusals/null support and PL-1191 holdout are unchanged.
 Defaults/live ledger unchanged, source-faithful-v2 stays opt-in, all promises unknown.
+
+
+## Phase nineteen: configured output rates and offshore drawdown
+
+PL-1253 independently passes the limited phase17 measurements; its review and
+acceptance receipts are authenticated, and the child was already closed. No
+substantive physical/cohort/measurement defect warranted repeating that arm.
+All six earlier review children are closed, but overall water construction is
+not complete; there is no later waiting stage or complete geographic candidate.
+
+New committed retained-data analysis partitions all1,168,561vertices into128
+geometry/floor/control-distance/ocean-boundary strata, including empty support.
+The time-selected early interval is0–4.821667min. Far from controls AND boundary,
+87,259 deep literal-ocean vertices have median/p10/p90 head change-0.220359m per
+game minute; near the boundary the median is zero. Only10/32near/far comparisons
+have common floor/boundary support. This is not a universal ocean drawdown rate,
+calibrated influence radius, causal sink attribution or physical source budget.
+
+One genuinely new source-only observation zeroed all167remaining positive output
+rates; all167intakes were already zero. Source records/type/targets/input-output
+positions remain, so call it all ENCODED RATES zero, not sources removed or all
+engine forcing off. Terrain/initial depth+velocity/resources/networks/full source
+geometry/masks/full46202probe JSON remain exact. Only rate bytes in WaterSimulation
+and its asset reference change; source-only package replay passes. No rate sweep,
+new carve/fill/mask, repair or repeat-to-green. Exact native recipe57ac856;
+protocol165359fb/package5c69540a, observed clean runtime9c41756/DLL368955b1.
+
+The new15.031390minute run has61snapshots, finite20049dense-node values throughout,
+all167controltables matching both zero rates at every sample, and the same actual
+floor43f4be73hash at all times. Targets=current, rawterrain=physicalterrain. In
+the fixed87,259-node stratum, early median/p10/p90 drawdown is-0.222625m per game
+minute over0–4.842778min. Positive encoded outputs are therefore not necessary for
+this observed drawdown. This does not prove passive control records irrelevant,
+evaporation, integrated flux or a unique implicit/boundary mechanism. The two
+actual windows/cadences differ slightly; no invented matched-time samples.
+
+Local response is not unchanged: full Bulimba nearby retention is537/822 versus
+709/822 in the output-enabled parent; Main is88/92 in both (exact67versus65).
+Original full27386cohort nearby25048 versus25828. These are diagnostic groups,
+not new natural-sector qualification denominators or a60minute drying rescore.
+Raw FAIL/startup_views, Bridge11/TypeLoad3/ReflectionTypeLoad1 logs remain despite
+advisory game-error pass. Short old water1119/1149 and masked deep flood0pass their
+old gates;60minute primary remains incomplete/unknown. Requested0.25min cadence,
+maxgap0.353056,zero missed slots, all four counters available; bracketed not atomic.
+Both compared arms retain raw failures and later/between-sample/runtime unknowns.
+
+The frozen experimental collector failed AFTER measurements/teardown and writing
+the dense array: it added missed-slot lists as numbers. Failed output is retained.
+A committed post-observation read-only adapter corrects exactly that aggregation
+without changing frozen source, package, native data or thresholds. Derived array
+equals the failed partial array; all four derived files reproduce byte-for-byte.
+This is a reporting repair, not a new native run or raw-verdict rewrite. Only
+after all replays, the future collector was fixed; replay of old plans now needs
+own exact9ba351c recipe plus9c41756harness, not current modified heads.
+
+Four strata, two pre-native rate, two adapter and two future-reporting behavioral
+tests pass; scoped Ruff/format/diff and full CPU/physical/derived replays pass.
+Old broad suites carried unchanged;22shippingfiles/default/liveledger and original
+study remain unchanged. Owned game2891208/driver2888593 collected; teardown and
+final FIFO empty, no preemption. No complete loaded-image/JIT/runtime-health or
+human/populated-city/long-term acceptance. No holdout access or promises/adoption.
+Phase18Boston/Charleston initialization constraints remain. Independent RESULTS
+review precedes any adoption; this is not geographic qualification or a water fix.

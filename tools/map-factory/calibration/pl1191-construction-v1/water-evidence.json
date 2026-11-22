@@ -1159,5 +1159,12 @@
     "new_native": false,
     "historical_score_changed": false,
     "stable_water_promise": "unknown"
+  },
+  "coastal_remaining_output_zero_diagnostic": {
+    "summary": "development/phase19-mechanism-summary.json",
+    "binding": "coastal-rate-response-freeze-v1.json",
+    "scope": "One new15minute source-only configured-rate necessity diagnostic, not qualification",
+    "reporting": "frozen collector failed after partial array; explicit derived reporting repair, original source/raw data retained",
+    "stable_water_promise": "unknown"
   }
 }

@@ -1,0 +1,29 @@
+{
+  "schema": "polli.pl1191-phase19-evidence-binding/1",
+  "scope": "POST-collection binding, NOT prospective. CPU method/input freezes and physical/native plan/archive predate their outputs; analysis used known prior outcomes.",
+  "CPU_method_commit": "09988fb49b88548e4e055f777299c713d740b657",
+  "native_recipe_commit": "57ac85609a2b5a9c0ba337b601e2e4b87f30ef5f",
+  "reporting_adapter_commit": "9ba351cf5b341ca1f4f8e74a737ed1f2de0c883e",
+  "actual_observed_runtime": "9c41756c9eb364ef99789aec00d173333e73833b",
+  "DLL_sha256": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+  "CPU_input_freeze_sha256": "d7eee16f3f281e5f479bc963de5b7635fb9d579bb7af3175ae9165d00ec97afd",
+  "native_plan_sha256": "165359fb140c717f39e40b4ac5584b8dabb07ef6ed221d7fd8cf5e0c6a60a409",
+  "summary_sha256": "177f2d829f57a85e5addc5a15235ffd5d42abe5171c2d1c8c014e794f16919b3",
+  "full_comparison_sha256": "57ed84a7158b383d15d0d900a55a74bc4712a049d5a8e1db81a0645ce18d17cf",
+  "derived_result_sha256": "5cd42310060dcea6a549ab1a72d04df4336ad6c48e29df7af625e8b6a1162171",
+  "derived_lineage_sha256": "983e42efe018f2541af18c67b86b1dd7a473b9c2a1e680c661fcddff4d62e4f9",
+  "raw_verdict_sha256": "1260d8bdfa767aa7799eb61c29b52f933e1e8047c2b93414cb104f0c4518143c",
+  "prospective_archive": {
+    "archive": "phase19-rate-zero-prospective.zip",
+    "bytes": 14928433,
+    "sha256": "f99fdc1801df7d4c95e07f649819ef473c93e885fc1ae37b91ea0fe2270f4bc4",
+    "members": 305,
+    "complete_member_SHA_CRC_path_safety": "verified",
+    "native_plan_sha256": "165359fb140c717f39e40b4ac5584b8dabb07ef6ed221d7fd8cf5e0c6a60a409",
+    "before_new_native_outcomes": true
+  },
+  "old_physical_or_gate_changes": false,
+  "new_geographic_admission": false,
+  "holdout_inputs_accessed": false,
+  "stable_water_promise": "unknown"
+}
