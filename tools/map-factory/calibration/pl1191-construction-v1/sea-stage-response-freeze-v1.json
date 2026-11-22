@@ -1,0 +1,27 @@
+{
+  "schema": "polli.pl1191-phase21-postcollection-binding/1",
+  "scope": "POSTcollection evidence binding, not prospective physical freeze",
+  "CPU_method_commit": "c339e2f",
+  "native_recipe_commit": "a345b208e815a0e3e062383251d898f0d71792c6",
+  "actual_runtime": "ddbff801ec6e4e89b4a1f12093ec06b9ed566d1c",
+  "native_plan_sha256": "0e6bc6c8bc897c0a284edaf2b1ad6a08a31d7c147c900ff11ca9fe8c7007d149",
+  "prospective_archive": {
+    "archive": "phase21-sea-stage-prospective.zip",
+    "bytes": 28845558,
+    "sha256": "2d9abc5cb0628ae99e5bb0e40c0d149e9501d380f6a9458a674de7ab29a4779c",
+    "members": 353,
+    "all_member_SHA_integrity_and_canonical_regular_paths": "verified",
+    "prospective_before_new_native_outcomes": true,
+    "native_plan_sha256": "0e6bc6c8bc897c0a284edaf2b1ad6a08a31d7c147c900ff11ca9fe8c7007d149",
+    "recipe_commit": "a345b20",
+    "actual_runtime_commit": "ddbff801ec6e4e89b4a1f12093ec06b9ed566d1c",
+    "unique_input_member_names_before_writing": true
+  },
+  "retained_audit_freeze_sha256": "f5bd2d5e308f250ef9944e1dbc4da96b26bb98b1d856da8011d3045db7f2e8ff",
+  "retained_audit_result_sha256": "1dadc9bc6b5b27eac3466a16e5e297da89a4559807fd19f5d43435080943a0b8",
+  "axis_erratum_sha256": "4dea16292157cfa86713548c2941ed3816763c1ad716f3516ec8a62dcb39e60c",
+  "summary_sha256": "e0125b19d55fd1c7de16f37c27a9288737061e720696356f176259679a70934a",
+  "comparison_sha256": "1b3525467075eb65ad1659a3dbdb275777a1c5c8ca310839891f538fa31389e7",
+  "result_sha256": "2286dea65615a7dd5f61f5930334d833448dbbd2a6577b8f566b2e08d51359ac",
+  "raw_verdict_sha256": "aa968472edf8ff29e2cfd74d2b8f67e37146d63a34c5fe192cb57f76e2602b0a"
+}

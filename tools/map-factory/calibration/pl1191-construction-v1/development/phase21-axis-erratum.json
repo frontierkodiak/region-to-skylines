@@ -1,0 +1,35 @@
+{
+  "schema": "polli.phase21-additive-axis-erratum/1",
+  "old_comparison_sha256": "ce9eab95c56ba391973c0f0107e2d9ff66411a625308b53855f765ed9c5d9f97",
+  "old_fields": "all_depth_traces[].complete_four_boundary_bins and corresponding thirdplot/prose, including phase20summary copies",
+  "actual_old_domain_ids": [
+    76,
+    77,
+    78,
+    79
+  ],
+  "actual_old_fixed_axis": {
+    "boundary_bin": 3
+  },
+  "actual_old_varied_axis": "control_bin0/1/2/3",
+  "wrong_old_labels": "control_bin fixed3, boundary_bin0/1/2/3",
+  "correct_boundary_domain_ids": [
+    67,
+    71,
+    75,
+    79
+  ],
+  "correct_boundary_counts": [
+    12678,
+    36162,
+    112065,
+    87259
+  ],
+  "primary_stratum79_and_all128_early_metrics_unchanged": true,
+  "raw_physical_cohort_native_measurements_and_original_artifacts_unchanged": true,
+  "old_zero_support_was": "controlnear<128 at boundaryfar\u22652048, NOT boundarynear at controlfar",
+  "new_CPU_method_commit": "c339e2f",
+  "new_CPU_result_sha256": "1dadc9bc6b5b27eac3466a16e5e297da89a4559807fd19f5d43435080943a0b8",
+  "native_retry_to_fix_labels": false,
+  "exact256frame_evaporation_period_claim": "not adopted; sparse counter correlations and uniform sampled deltas do not prove mechanism/cadence"
+}

@@ -1,0 +1,372 @@
+{
+  "schema": "polli.pl1191-phase21-summary/1",
+  "primary": "new sea90to0 parameter sensitivity, not repair or geographic qualification",
+  "PL1258_review_consumed_closed": true,
+  "PL1258_review_thread_sha256": "2e528eae919c8e249579370374e8ed7ed86d92097141ad42179a088ad9bce5b5",
+  "axis_erratum": {
+    "schema": "polli.phase21-additive-axis-erratum/1",
+    "old_comparison_sha256": "ce9eab95c56ba391973c0f0107e2d9ff66411a625308b53855f765ed9c5d9f97",
+    "old_fields": "all_depth_traces[].complete_four_boundary_bins and corresponding thirdplot/prose, including phase20summary copies",
+    "actual_old_domain_ids": [
+      76,
+      77,
+      78,
+      79
+    ],
+    "actual_old_fixed_axis": {
+      "boundary_bin": 3
+    },
+    "actual_old_varied_axis": "control_bin0/1/2/3",
+    "wrong_old_labels": "control_bin fixed3, boundary_bin0/1/2/3",
+    "correct_boundary_domain_ids": [
+      67,
+      71,
+      75,
+      79
+    ],
+    "correct_boundary_counts": [
+      12678,
+      36162,
+      112065,
+      87259
+    ],
+    "primary_stratum79_and_all128_early_metrics_unchanged": true,
+    "raw_physical_cohort_native_measurements_and_original_artifacts_unchanged": true,
+    "old_zero_support_was": "controlnear<128 at boundaryfar\u22652048, NOT boundarynear at controlfar",
+    "new_CPU_method_commit": "c339e2f",
+    "new_CPU_result_sha256": "1dadc9bc6b5b27eac3466a16e5e297da89a4559807fd19f5d43435080943a0b8",
+    "native_retry_to_fix_labels": false,
+    "exact256frame_evaporation_period_claim": "not adopted; sparse counter correlations and uniform sampled deltas do not prove mechanism/cadence"
+  },
+  "retained_audit_result_sha256": "1dadc9bc6b5b27eac3466a16e5e297da89a4559807fd19f5d43435080943a0b8",
+  "retained_audit_replay": {
+    "all_two_outputs_byte_identical": true,
+    "files_sha256": {
+      "result.json": "1dadc9bc6b5b27eac3466a16e5e297da89a4559807fd19f5d43435080943a0b8",
+      "receipt.json": "abf61997f8b3b190cc105b2583f6c844a5654eb69212bf7f32c69fd3ed70c43c"
+    },
+    "all_three_primary_stratum79_metrics_unchanged": true
+  },
+  "new_recipe_commit": "a345b208e815a0e3e062383251d898f0d71792c6",
+  "actual_runtime": "ddbff801ec6e4e89b4a1f12093ec06b9ed566d1c",
+  "DLL": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+  "native_plan_sha256": "0e6bc6c8bc897c0a284edaf2b1ad6a08a31d7c147c900ff11ca9fe8c7007d149",
+  "package_sha256": "43cab06a5f4ffba00e4174de4681df23d00a8dc7437c4ae32fae4a280e887681",
+  "full_probes_sha256": "8b375da5c1db35e486a50931217cc8ccb50ae73cfe1fc8f7a0b185c2eee1daf5",
+  "new_minutes": 15.065556341285506,
+  "new_snapshots": 61,
+  "early_minutes": 4.821666918136179,
+  "early_stratum79": {
+    "id": 79,
+    "all_vertices": 87259,
+    "initial_wet": 87259,
+    "final_wet": 87259,
+    "net_depth_change_q": -8159624,
+    "all_vertex_depth_change_m_per_game_min": {
+      "min": -1.5619598217521034,
+      "p10": -0.3240580543054156,
+      "median": -0.22035947692768262,
+      "p90": -0.22035947692768262,
+      "max": -0.19767541312630355,
+      "count": 87259
+    },
+    "paired_wet_head_change_m_per_game_min": {
+      "min": -1.5619598217521034,
+      "p10": -0.3240580543054156,
+      "median": -0.22035947692768262,
+      "p90": -0.22035947692768262,
+      "max": -0.19767541312630355,
+      "count": 87259
+    },
+    "unobserved_paired_head_vertices": 0,
+    "actual_paired_wet_head_change_m_per_game_min": {
+      "min": -1.5619598217521034,
+      "p10": -0.3240580543054156,
+      "median": -0.22035947692768262,
+      "p90": -0.22035947692768262,
+      "max": -0.19767541312630355,
+      "count": 87259
+    }
+  },
+  "old_stratum79": {
+    "id": 79,
+    "all_vertices": 87259,
+    "initial_wet": 87259,
+    "final_wet": 87259,
+    "net_depth_change_q": -5999701,
+    "all_vertex_depth_change_m_per_game_min": {
+      "min": -0.25065697961460554,
+      "p10": -0.2217350204283049,
+      "median": -0.2217350204283049,
+      "p90": -0.2217350204283049,
+      "max": -0.17031820409710377,
+      "count": 87259
+    },
+    "paired_wet_head_change_m_per_game_min": {
+      "min": -0.25065697961460554,
+      "p10": -0.2217350204283049,
+      "median": -0.2217350204283049,
+      "p90": -0.2217350204283049,
+      "max": -0.17031820409710377,
+      "count": 87259
+    },
+    "unobserved_paired_head_vertices": 0,
+    "actual_paired_wet_head_change_m_per_game_min": {
+      "min": -0.25065697961460554,
+      "p10": -0.2217350204283049,
+      "median": -0.2217350204283049,
+      "p90": -0.2217350204283049,
+      "max": -0.17031820409710377,
+      "count": 87259
+    }
+  },
+  "new_edge_endpoint": {
+    "all_nodes": 1780,
+    "wet_nodes": 0,
+    "wet_surface_m": {
+      "count": 0,
+      "min": null,
+      "p10": null,
+      "median": null,
+      "p90": null,
+      "max": null
+    },
+    "depth_delta_m": {
+      "min": -10.0,
+      "p10": -10.0,
+      "median": -10.0,
+      "p90": -10.0,
+      "max": 0.0,
+      "count": 1780
+    },
+    "dry_nodes_not_free_surface": 1780
+  },
+  "old_edge_endpoint": {
+    "all_nodes": 1780,
+    "wet_nodes": 1778,
+    "wet_surface_m": {
+      "min": 90.0,
+      "p10": 90.0,
+      "median": 90.0,
+      "p90": 90.0,
+      "max": 90.0,
+      "count": 1778
+    },
+    "depth_delta_m": {
+      "min": 0.0,
+      "p10": 0.0,
+      "median": 0.0,
+      "p90": 0.0,
+      "max": 0.0,
+      "count": 1780
+    },
+    "dry_nodes_not_free_surface": 2
+  },
+  "new_endpoint_groups": {
+    "original_all": {
+      "points": 27386,
+      "native_wet_flag": 8929,
+      "depth_gt_0_1m": 8929,
+      "nearby_depth_gt_0_1m": 12653,
+      "horizontal_velocity_nonzero_api": 8665,
+      "max_horizontal_velocity_api": 21.203488268885213,
+      "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+    },
+    "dense_domain": {
+      "points": 20049,
+      "native_wet_flag": 2267,
+      "depth_gt_0_1m": 2267,
+      "nearby_depth_gt_0_1m": 7817,
+      "horizontal_velocity_nonzero_api": 2156,
+      "max_horizontal_velocity_api": 16.128900574402422,
+      "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+    },
+    "original_Main Drain": {
+      "points": 92,
+      "native_wet_flag": 66,
+      "depth_gt_0_1m": 66,
+      "nearby_depth_gt_0_1m": 88,
+      "horizontal_velocity_nonzero_api": 55,
+      "max_horizontal_velocity_api": 15.116506163704257,
+      "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+    },
+    "original_Bulimba Creek": {
+      "points": 822,
+      "native_wet_flag": 261,
+      "depth_gt_0_1m": 261,
+      "nearby_depth_gt_0_1m": 520,
+      "horizontal_velocity_nonzero_api": 229,
+      "max_horizontal_velocity_api": 14.999985694885254,
+      "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+    }
+  },
+  "all_source_counts": [
+    0
+  ],
+  "all_tables_match": true,
+  "dense_nonfinite_values": 0,
+  "floor_hashes": [
+    "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+  ],
+  "targets_equal_current": true,
+  "rawterrain_equals_physical": true,
+  "initial_native_water_hashes": {
+    "sea90": "c41b149b2eb6da80ae631558de3e2b59918a0a66afb1c355219e9bac3fdf5416",
+    "sea0": "c41b149b2eb6da80ae631558de3e2b59918a0a66afb1c355219e9bac3fdf5416"
+  },
+  "ordinary_sea_readbacks": [
+    {
+      "label": "t000",
+      "water_frame": 202252,
+      "sea_level": 0
+    },
+    {
+      "label": "t005",
+      "water_frame": 220901,
+      "sea_level": 0
+    },
+    {
+      "label": "t010",
+      "water_frame": 238530,
+      "sea_level": 0
+    },
+    {
+      "label": "t015",
+      "water_frame": 256488,
+      "sea_level": 0
+    }
+  ],
+  "all_ordinary_sea_reads_match": true,
+  "maxgap": 0.3447222402008858,
+  "missed_slots": 0,
+  "all122brackets_four_counters_available": true,
+  "raw_verdict": "fail",
+  "raw_failed": [
+    "startup_views"
+  ],
+  "raw_logs": {
+    "Bridge": 11,
+    "TypeLoadException": 3,
+    "ReflectionTypeLoadException": 1
+  },
+  "short_old_flood_check": {
+    "name": "no_flooding",
+    "status": "pass",
+    "value": {
+      "worst_km2": 0.0,
+      "grids": [
+        {
+          "grid": "t000-water.u16",
+          "km2": 0.0
+        },
+        {
+          "grid": "t005-water.u16",
+          "km2": 0.0
+        },
+        {
+          "grid": "t015-water.u16",
+          "km2": 0.0
+        }
+      ],
+      "reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "reference_sha256": "c41b149b2eb6da80ae631558de3e2b59918a0a66afb1c355219e9bac3fdf5416",
+      "mapped_water": {
+        "file": "mapped-water.u8",
+        "sha256": "ee77bbbfeb24e0a3a14a80d6f3fcb480681e0b63bcfdee8f44c5b587a27cdf06",
+        "format": "cs1-water-mask-u8-v1",
+        "cells": 65650
+      },
+      "failing_grids": [],
+      "initial_only_diagnostic": {
+        "worst_km2": 0.0,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 0.0
+          }
+        ],
+        "would_fail": false,
+        "status": "pass",
+        "reference_cells": 340728,
+        "gating": false
+      }
+    },
+    "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+    "detail": ""
+  },
+  "short_old_water_check": {
+    "name": "probes_wet_end",
+    "status": "pass",
+    "value": {
+      "wet": 1118,
+      "required": 1149,
+      "fraction": 0.973,
+      "dry": [
+        "Main Drain [river] #1:05",
+        "Pound Drain [river] #1:00",
+        "Pound Drain [river] #1:01",
+        "Pound Drain [river] #1:02",
+        "geography:Bulimba Creek [river] @518,805",
+        "geography:Bulimba Creek [river] @519,805",
+        "geography:Bulimba Creek [river] @520,806",
+        "geography:Bulimba Creek [river] @521,806",
+        "geography:Bulimba Creek [river] @522,807",
+        "geography:Bulimba Creek [river] @523,807",
+        "geography:Bulimba Creek [river] @524,808",
+        "geography:Bulimba Creek [river] @524,809",
+        "geography:Bulimba Creek [river] @524,810",
+        "geography:Bulimba Creek [river] @524,811",
+        "geography:Bulimba Creek [river] @543,819",
+        "geography:Bulimba Creek [river] @544,819",
+        "geography:Bulimba Creek [river] @545,819",
+        "geography:Bulimba Creek [river] @546,819",
+        "geography:Bulimba Creek [river] @547,819",
+        "geography:Bulimba Creek [river] @548,819",
+        "geography:Bulimba Creek [river] @566,834",
+        "geography:Main Drain [river] @600,764",
+        "geography:Main Drain [river] @601,764",
+        "geography:Main Drain [river] @601,765",
+        "geography:Pound Drain [river] @293,523",
+        "geography:Pound Drain [river] @293,524",
+        "geography:Pound Drain [river] @294,525",
+        "geography:Pound Drain [river] @294,526",
+        "geography:Pound Drain [river] @294,527",
+        "geography:Pound Drain [river] @295,528",
+        "geography:Schulz Canal [river] @369,479"
+      ]
+    },
+    "threshold": ">= 95% of required probes",
+    "detail": "45053 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+  },
+  "result_sha256": "2286dea65615a7dd5f61f5930334d833448dbbd2a6577b8f566b2e08d51359ac",
+  "comparison_sha256": "1b3525467075eb65ad1659a3dbdb275777a1c5c8ca310839891f538fa31389e7",
+  "new_replay": {
+    "all_three_outputs_byte_identical": true,
+    "sha256": {
+      "result.json": "2286dea65615a7dd5f61f5930334d833448dbbd2a6577b8f566b2e08d51359ac",
+      "receipt.json": "c604c2ade5d40163bf52f49b85cff00c7bcf281b1325335508a96cb4fdf83206",
+      "dense-api.f64": "1a642e13124f4c9db81cb0f326fad5f929e019eccbd52034d938dbc01a7678c0"
+    }
+  },
+  "card_samples": 125,
+  "card_peaks_memory_mib_power_w_temp_c": [
+    10821.0,
+    138.6,
+    55.0
+  ],
+  "observed_power_limit_w_unchanged": [
+    200.0
+  ],
+  "continuous_game_only_peak": "unmeasured; menu/single running sample reported separately",
+  "full_hour_acceptance": "incomplete/unknown",
+  "stable_water_promise": "unknown",
+  "bounded_interpretation": "Sea90to0 dries all1780literal edge nodes, abolishes the parent recovery and changes later interior drawdown; early median remainsclose but p10loss broadens, so it does not isolate an unchanged uniform sink or prove evaporation/period/flux. Nativeinitialwater/floors match."
+}

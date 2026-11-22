@@ -1171,5 +1171,11 @@
     "summary": "development/phase20-mechanism-summary.json",
     "binding": "source-record-response-freeze-v1.json",
     "stable_water_promise": "unknown"
+  },
+  "phase21_sea_stage_response": {
+    "summary": "development/phase21-mechanism-summary.json",
+    "binding": "sea-stage-response-freeze-v1.json",
+    "axis_erratum": "development/phase21-axis-erratum.json",
+    "all_promises": "unknown"
   }
 }
