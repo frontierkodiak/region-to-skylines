@@ -1151,5 +1151,13 @@
     "physical_flux_evaporation_source_budget": "unresolved",
     "independent_results_review": "required before adoption, not before guarded measurement",
     "stable_water_promise": "unknown"
+  },
+  "source_faithful_initial_water_counterexamples": {
+    "summary": "development/phase18-initial-safety-summary.json",
+    "binding": "initial-safety-counterexample-v1.json",
+    "status": "not cleared; separate initialization safety required, no growth-gate waiver",
+    "new_native": false,
+    "historical_score_changed": false,
+    "stable_water_promise": "unknown"
   }
 }

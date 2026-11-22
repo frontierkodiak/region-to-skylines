@@ -1,0 +1,587 @@
+{
+  "schema": "polli.pl1191-initial-safety-summary/1",
+  "origin_issue": "PL-1244",
+  "trigger_comment": "01a2009a-5cff-771d-840f-09891995f8cf",
+  "scope": "Supplementary retained development counterexamples, not a replacement panel or new native measurement",
+  "writer": "874bf0298cafef9cb36c9f948e09f84a72942858",
+  "final_method_commit": "0bdc854d7870a8450d9570e00e76f4ccdd9bb7a1",
+  "cases": {
+    "central-boston": {
+      "schema": "polli.initial-water-safety-result/1",
+      "input_freeze_sha256": "3590490a3339fce7b9e91de1e91e04175ba5c304747e4fd5a40308d1b67a15be",
+      "package_sha256": "6565703d7a9e9d59cbf7abb47c0db3cc2b6d32e035676834916afb37e1eeb5cf",
+      "native_initial_terrain_and_water_exact_package": true,
+      "source_rows": {
+        "rivers": 0,
+        "streams": 1,
+        "lakes": 2,
+        "riverAreas": 6,
+        "oceans": 2,
+        "undergroundWaterways": 0
+      },
+      "probe_scope": {
+        "full_original_probe_count": 31,
+        "explicit_required_true_overrides": 0,
+        "old_native_water_gate_status": {
+          "probes_wet_end": "skip",
+          "probes_wet_throughout": "skip"
+        },
+        "primary_natural_sector_coverage": "not established by these legacy point counts"
+      },
+      "footprints": {
+        "baseline_deep": {
+          "vertices": 97340,
+          "game_vertex_area_km2": 24.91904
+        },
+        "candidate_deep": {
+          "vertices": 99152,
+          "game_vertex_area_km2": 25.382912
+        },
+        "new_deep": {
+          "vertices": 5826,
+          "game_vertex_area_km2": 1.491456
+        },
+        "no_longer_deep": {
+          "vertices": 4014,
+          "game_vertex_area_km2": 1.027584
+        },
+        "new_deep_dated_built_up": {
+          "vertices": 5826,
+          "game_vertex_area_km2": 1.491456
+        },
+        "new_deep_outside_mapped_water": {
+          "vertices": 5826,
+          "game_vertex_area_km2": 1.491456
+        },
+        "new_deep_outside_literal_ocean": {
+          "vertices": 5826,
+          "game_vertex_area_km2": 1.491456
+        },
+        "new_deep_built_up_outside_mapped": {
+          "vertices": 5826,
+          "game_vertex_area_km2": 1.491456
+        },
+        "new_deep_built_up_outside_ocean": {
+          "vertices": 5826,
+          "game_vertex_area_km2": 1.491456
+        },
+        "initial_shallow_0_125_to_0_25m": {
+          "vertices": 4246,
+          "game_vertex_area_km2": 1.086976
+        }
+      },
+      "new_deep_equal_quantized_sea_minus_authored_terrain": {
+        "vertices": 5826,
+        "game_vertex_area_km2": 1.491456
+      },
+      "new_deep_inside_old_initial_water_reference": {
+        "vertices": 5826,
+        "game_vertex_area_km2": 1.491456
+      },
+      "old_flood_growth_check_unchanged": {
+        "name": "no_flooding",
+        "status": "pass",
+        "value": {
+          "worst_km2": 0.0,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t015-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t045-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.0
+            }
+          ],
+          "reference": "the run's first water dump union hash-bound mapped_water",
+          "reference_sha256": "8eee3d80f4b21106cba28a320600fca36ba7939d1c15dfa09da0d34a4a9117c7",
+          "mapped_water": {
+            "file": "mapped-water.u8",
+            "sha256": "c803cb8be595fdc08165b8dec7676da0e52e9c72500581d61c8b30b57a3bcc01",
+            "format": "cs1-water-mask-u8-v1",
+            "cells": 99527
+          },
+          "failing_grids": [],
+          "initial_only_diagnostic": {
+            "worst_km2": 0.0,
+            "grids": [
+              {
+                "grid": "t000-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t005-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t015-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t030-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t045-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t060-water.u16",
+                "km2": 0.0
+              }
+            ],
+            "would_fail": false,
+            "status": "pass",
+            "reference_cells": 109531,
+            "gating": false
+          }
+        },
+        "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+        "detail": ""
+      },
+      "native_water_samples": [
+        {
+          "grid": "t000-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 5826,
+              "exact_wet": 5826,
+              "nearby_wet_within64m": 5826
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 5826,
+              "exact_wet": 5826,
+              "nearby_wet_within64m": 5826
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 4246,
+              "exact_wet": 4246,
+              "nearby_wet_within64m": 4246
+            }
+          }
+        },
+        {
+          "grid": "t005-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 5826,
+              "exact_wet": 2601,
+              "nearby_wet_within64m": 3718
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 5826,
+              "exact_wet": 2601,
+              "nearby_wet_within64m": 3718
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 4246,
+              "exact_wet": 612,
+              "nearby_wet_within64m": 2524
+            }
+          }
+        },
+        {
+          "grid": "t015-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 5826,
+              "exact_wet": 958,
+              "nearby_wet_within64m": 1882
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 5826,
+              "exact_wet": 958,
+              "nearby_wet_within64m": 1882
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 4246,
+              "exact_wet": 1280,
+              "nearby_wet_within64m": 2332
+            }
+          }
+        },
+        {
+          "grid": "t030-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 5826,
+              "exact_wet": 152,
+              "nearby_wet_within64m": 362
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 5826,
+              "exact_wet": 152,
+              "nearby_wet_within64m": 362
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 4246,
+              "exact_wet": 1719,
+              "nearby_wet_within64m": 2473
+            }
+          }
+        },
+        {
+          "grid": "t045-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 5826,
+              "exact_wet": 160,
+              "nearby_wet_within64m": 358
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 5826,
+              "exact_wet": 160,
+              "nearby_wet_within64m": 358
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 4246,
+              "exact_wet": 1703,
+              "nearby_wet_within64m": 2462
+            }
+          }
+        },
+        {
+          "grid": "t060-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 5826,
+              "exact_wet": 186,
+              "nearby_wet_within64m": 380
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 5826,
+              "exact_wet": 186,
+              "nearby_wet_within64m": 380
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 4246,
+              "exact_wet": 1343,
+              "nearby_wet_within64m": 2479
+            }
+          }
+        }
+      ],
+      "sea_level_game_m": 90.0,
+      "configured_control_count": 0,
+      "construction_constraint": "Retaining source low land cannot be cleared by a growth-only flood pass or later drying; separate source-authoritative initialization and sustained-water evidence required. No shelf restoration or selective water removal is validated here.",
+      "interpretation": "The extra initial depth is already serialized; engine runtime auto-fill is not necessary to explain t000. A global sea-stage initialization path exists in the exact writer. Sea-depth equality is attribution evidence, not full browser-to-writer replay or exclusive later drying mechanism.",
+      "limits": "Dated WorldCover and 16m vertex-area approximation, not surveyed flood area or source-water exclusion authority. Literal ocean/mapped masks differ and are diagnostic partitions, not new acceptance thresholds. Shallow cohort is not a complete natural feature inventory. No physical flux or evaporation proof.",
+      "water_safety": "not cleared; counterexample retained",
+      "full_natural_water_qualification": "unknown; mandatory source-sector protocol not measured by this audit",
+      "holdout_accessed": false,
+      "stable_water_promise": "unknown"
+    },
+    "charleston-center": {
+      "schema": "polli.initial-water-safety-result/1",
+      "input_freeze_sha256": "4664f46a4c80b1c92054ac7448d4a8acafb651f9eb462583c4b2d4bf10fa9ff1",
+      "package_sha256": "2427ec50d39688cb4026b2fc032158dce7a543527b9131c6d8a66bd24ec172a1",
+      "native_initial_terrain_and_water_exact_package": true,
+      "source_rows": {
+        "rivers": 0,
+        "streams": 0,
+        "lakes": 1,
+        "riverAreas": 58,
+        "oceans": 2,
+        "undergroundWaterways": 0
+      },
+      "probe_scope": {
+        "full_original_probe_count": 0,
+        "explicit_required_true_overrides": 0,
+        "old_native_water_gate_status": {
+          "probes_wet_end": "skip",
+          "probes_wet_throughout": "skip"
+        },
+        "primary_natural_sector_coverage": "not established by these legacy point counts"
+      },
+      "footprints": {
+        "baseline_deep": {
+          "vertices": 309420,
+          "game_vertex_area_km2": 79.21152
+        },
+        "candidate_deep": {
+          "vertices": 303648,
+          "game_vertex_area_km2": 77.733888
+        },
+        "new_deep": {
+          "vertices": 186,
+          "game_vertex_area_km2": 0.047616
+        },
+        "no_longer_deep": {
+          "vertices": 5958,
+          "game_vertex_area_km2": 1.525248
+        },
+        "new_deep_dated_built_up": {
+          "vertices": 75,
+          "game_vertex_area_km2": 0.0192
+        },
+        "new_deep_outside_mapped_water": {
+          "vertices": 185,
+          "game_vertex_area_km2": 0.04736
+        },
+        "new_deep_outside_literal_ocean": {
+          "vertices": 84,
+          "game_vertex_area_km2": 0.021504
+        },
+        "new_deep_built_up_outside_mapped": {
+          "vertices": 75,
+          "game_vertex_area_km2": 0.0192
+        },
+        "new_deep_built_up_outside_ocean": {
+          "vertices": 32,
+          "game_vertex_area_km2": 0.008192
+        },
+        "initial_shallow_0_125_to_0_25m": {
+          "vertices": 2064,
+          "game_vertex_area_km2": 0.528384
+        }
+      },
+      "new_deep_equal_quantized_sea_minus_authored_terrain": {
+        "vertices": 186,
+        "game_vertex_area_km2": 0.047616
+      },
+      "new_deep_inside_old_initial_water_reference": {
+        "vertices": 186,
+        "game_vertex_area_km2": 0.047616
+      },
+      "old_flood_growth_check_unchanged": {
+        "name": "no_flooding",
+        "status": "pass",
+        "value": {
+          "worst_km2": 0.0,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t015-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t045-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.0
+            }
+          ],
+          "reference": "the run's first water dump union hash-bound mapped_water",
+          "reference_sha256": "738dda435365dbf61a45ea7abe393cabde67372e228d9e4fce7b0096e5357034",
+          "mapped_water": {
+            "file": "mapped-water.u8",
+            "sha256": "751eb8efcb656ac90193e16e177f5ff1a34bd3cb3c159a72dc535241b646b3f0",
+            "format": "cs1-water-mask-u8-v1",
+            "cells": 46136
+          },
+          "failing_grids": [],
+          "initial_only_diagnostic": {
+            "worst_km2": 0.0,
+            "grids": [
+              {
+                "grid": "t000-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t005-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t015-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t030-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t045-water.u16",
+                "km2": 0.0
+              },
+              {
+                "grid": "t060-water.u16",
+                "km2": 0.0
+              }
+            ],
+            "would_fail": false,
+            "status": "pass",
+            "reference_cells": 309668,
+            "gating": false
+          }
+        },
+        "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+        "detail": ""
+      },
+      "native_water_samples": [
+        {
+          "grid": "t000-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 186,
+              "exact_wet": 186,
+              "nearby_wet_within64m": 186
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 75,
+              "exact_wet": 75,
+              "nearby_wet_within64m": 75
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 2064,
+              "exact_wet": 2064,
+              "nearby_wet_within64m": 2064
+            }
+          }
+        },
+        {
+          "grid": "t005-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 186,
+              "exact_wet": 3,
+              "nearby_wet_within64m": 170
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 75,
+              "exact_wet": 0,
+              "nearby_wet_within64m": 72
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 2064,
+              "exact_wet": 55,
+              "nearby_wet_within64m": 540
+            }
+          }
+        },
+        {
+          "grid": "t015-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 186,
+              "exact_wet": 177,
+              "nearby_wet_within64m": 183
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 75,
+              "exact_wet": 73,
+              "nearby_wet_within64m": 75
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 2064,
+              "exact_wet": 596,
+              "nearby_wet_within64m": 940
+            }
+          }
+        },
+        {
+          "grid": "t030-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 186,
+              "exact_wet": 182,
+              "nearby_wet_within64m": 186
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 75,
+              "exact_wet": 73,
+              "nearby_wet_within64m": 75
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 2064,
+              "exact_wet": 1119,
+              "nearby_wet_within64m": 1803
+            }
+          }
+        },
+        {
+          "grid": "t045-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 186,
+              "exact_wet": 169,
+              "nearby_wet_within64m": 186
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 75,
+              "exact_wet": 66,
+              "nearby_wet_within64m": 75
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 2064,
+              "exact_wet": 447,
+              "nearby_wet_within64m": 1208
+            }
+          }
+        },
+        {
+          "grid": "t060-water.u16",
+          "groups": {
+            "new_deep": {
+              "cohort_vertices": 186,
+              "exact_wet": 183,
+              "nearby_wet_within64m": 186
+            },
+            "new_deep_dated_built_up": {
+              "cohort_vertices": 75,
+              "exact_wet": 75,
+              "nearby_wet_within64m": 75
+            },
+            "initial_shallow_0_125_to_0_25m": {
+              "cohort_vertices": 2064,
+              "exact_wet": 584,
+              "nearby_wet_within64m": 1588
+            }
+          }
+        }
+      ],
+      "sea_level_game_m": 90.0,
+      "configured_control_count": 0,
+      "construction_constraint": "Retaining source low land cannot be cleared by a growth-only flood pass or later drying; separate source-authoritative initialization and sustained-water evidence required. No shelf restoration or selective water removal is validated here.",
+      "interpretation": "The extra initial depth is already serialized; engine runtime auto-fill is not necessary to explain t000. A global sea-stage initialization path exists in the exact writer. Sea-depth equality is attribution evidence, not full browser-to-writer replay or exclusive later drying mechanism.",
+      "limits": "Dated WorldCover and 16m vertex-area approximation, not surveyed flood area or source-water exclusion authority. Literal ocean/mapped masks differ and are diagnostic partitions, not new acceptance thresholds. Shallow cohort is not a complete natural feature inventory. No physical flux or evaporation proof.",
+      "water_safety": "not cleared; counterexample retained",
+      "full_natural_water_qualification": "unknown; mandatory source-sector protocol not measured by this audit",
+      "holdout_accessed": false,
+      "stable_water_promise": "unknown"
+    }
+  },
+  "first_attempt_erratum": "counterexamples-v1 retained: legacy_required_probe_count incorrectly defaulted absent flags to true without the frozen geographic/stream selector. Replaced in fresh attempt2 with explicit overrides and raw gate status; both native wet gates actually skip. Inundation/depth/retention measurements unchanged. No native rerun.",
+  "qualification_constraints": [
+    "Source-faithful terrain is not water safety; no invented dry-land shelf or source DEM replacement to hide a failure.",
+    "Evaluate startup inundation against independently source-authoritative land/infrastructure and intended surface water, not candidate initial water used as its own expected mask.",
+    "Retain absolute baseline and candidate hazards plus changes; no later drying or net/negative wet-area change cancels initial harm.",
+    "Final decoded package and native startup must match the authored initial-water plan; engine-only attribution is not established when the package already contains the water.",
+    "Mapped/literal ocean/dated cover discrepancies are unresolved source evidence, not surveyed exclusions or authority for selective water deletion, fills or retired banks.",
+    "Shallow ocean/dock retention requires complete source-derived natural sectors including initialization and all branches, not zero growth or a sparse/no required-probe soak.",
+    "Keep source-faithful-v2 opt-in; no default or stable-water adoption until separate initial-safety and sustained-water evidence is accepted."
+  ],
+  "old_thresholds_inputs_reports_and_verdicts_changed": false,
+  "new_native_or_install_action": false,
+  "PL1191_holdout_inputs_accessed": false,
+  "water_safety": "not cleared",
+  "stable_water_promise": "unknown"
+}

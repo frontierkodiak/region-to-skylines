@@ -914,3 +914,48 @@ admission/holdout/default/ledger/promise adoption. Four new focused tests and
 preflight/collection/portable replay pass; unchanged broad suites carried.
 Owned game2594894and all helpers collected, teardown and final FIFO empty.
 See `dense-interface-freeze-v1.json` and `development/phase17-dense-summary.json`.
+
+
+## Phase eighteen: initial-inundation counterexamples from PL-1244
+
+The opt-in source-faithful-v2 terrain policy is not water-safety qualified.
+A new read-only audit of retained Boston/Charleston packages binds exact writer
+874bf029, full source geometry/probes, native map identities and every saved depth
+grid. Package terrain AND initial water equal native t000 bytes on both cases.
+No game, install, source-input change, shelf restoration or terrain-branch edit.
+
+Boston adds 5,826 >0.5m vertices (1.491456 approximate GAME km²), all sampled as
+built-up by dated WorldCover and outside both fixed mapped-water and literal
+captured ocean masks. Every added depth exactly equals quantized sea stage minus
+authored terrain. Exact writer region.py starts a whole-grid sea-stage surface
+and serializes max(0,surface-ground); the extra water is already in the package.
+Runtime auto-fill is therefore not required to explain t000. This is not a full
+browser-to-writer replay, surveyed inundation area or proof of a later loss sink.
+By t060 only 186/5826 remain exactly wet and 380 retain nearby water; later drying
+does not clear the initialization hazard. Baseline absolute hazards remain too.
+
+The old growth-only judge includes t000 >0.1m water in its own expected reference:
+all introduced >0.5m nodes are inside that reference. Its zero-growth verdict is
+retained, not accepted as startup safety or rewritten under a new flood label.
+Initial inundation needs a separate source-authoritative land/infrastructure vs
+surface-water plan and final decoded/native startup checks. Do not hide failures
+with a dry-land shelf, delete selected water without a declared rule, relax masks
+or use a negative net area/later drying as a waiver. Source fidelity and safe
+initialization are separate obligations. No constructor/admission follows here.
+
+Charleston's complete authored 0.125–0.25m diagnostic cohort has 2064 vertices;
+t005 exact/nearby wet is 55/540, t060 is 584/1588. All samples and rebounds remain.
+This supports the retained shallow-water drying concern, not an independent
+spatial dock/slip attribution, evaporation proof or complete natural-sector score.
+Boston has 31 legacy points, Charleston zero; both native required-water gates
+skip. All streams/branches/source rows remain, but full natural qualification is
+unknown. No old probe/threshold/report/score/certificate is relabeled.
+
+Six focused tests, source/physical bindings and fresh CPU analyses pass. First
+CPU attempt is retained: an incorrect absent-flag required-count shorthand is
+corrected before fresh attempt2, preserving the native gates' actual skip status.
+Inundation/retention values are unchanged; no native retry. See
+`initial-safety-counterexample-v1.json`, `development/phase18-initial-safety-summary.json`
+and `diagnostics/initial_water_safety.py`. The original five construction cases,
+583 mandatory stream parts/refusals/null support and PL-1191 holdout are unchanged.
+Defaults/live ledger unchanged, source-faithful-v2 stays opt-in, all promises unknown.

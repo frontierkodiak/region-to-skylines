@@ -1,0 +1,21 @@
+{
+  "schema": "polli.pl1191-initial-safety-evidence-binding/1",
+  "scope": "POST-analysis binding, not a prospective declaration. Each committed method/input freeze predates its CPU outputs; PL-1244 outcomes were already known.",
+  "summary_sha256": "5fbe009bae6b9939afb6b9c57239dc132139d1cb1d4511cca1b093790b1e8e93",
+  "cases": {
+    "central-boston": {
+      "prospective_method_input_freeze_sha256": "3590490a3339fce7b9e91de1e91e04175ba5c304747e4fd5a40308d1b67a15be",
+      "result_sha256": "db93b0d45c87b6e375a1af7d0e0642711256fd71bb62d2a26e22125d9919c565",
+      "receipt_sha256": "29152a52422721c65c92d615d01d14da38ba23e2a23a697055d530fba9bb63bf"
+    },
+    "charleston-center": {
+      "prospective_method_input_freeze_sha256": "4664f46a4c80b1c92054ac7448d4a8acafb651f9eb462583c4b2d4bf10fa9ff1",
+      "result_sha256": "64efa20745741c5e40244d4232acd61a770d8dafb1f028cc5f4e1ff3997a508c",
+      "receipt_sha256": "ff3f3bed3c6f1700f268f84b16cbabee101b5e94c00995c08f2c933a14221215"
+    }
+  },
+  "definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+  "old_gates_or_physical_packages_changed": false,
+  "new_geographic_candidate_or_qualification": false,
+  "stable_water_promise": "unknown"
+}
