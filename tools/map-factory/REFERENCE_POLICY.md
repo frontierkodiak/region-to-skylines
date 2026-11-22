@@ -45,3 +45,33 @@ The protocol is deliberately conservative and may leave real defects unresolved.
 
 Boston initial inundation belongs to PL-1191. No detector result clears water
 safety, first-hour services, product warnings or default activation.
+
+## Version 1 observations and preregistered version 2
+
+Version 1 was executed on all ten registered squares without changing its
+thresholds. It detects Charleston's seam but refuses replacement: small OSM
+pools/ponds far from the coast dominate perimeter-weighted shore distances.
+Its Charleston area agreement is 0.9596, but shoreline p90 is 568 m. Norfolk
+has no v1 alarm (z13/z14 r=0.9150, centered RMS=0.854 m). Both failures remain
+in the retained version-1 receipts; none is relabelled as a pass.
+
+The version-2 method is registered before its evaluation, in a separate JSON
+file. **All numerical thresholds stay identical.** Two structural corrections:
+
+- Register **coasts**, using only edge-connected water components in both
+  independently acquired vector and canonical hydro-flat footprints. Interior
+  pools/ponds are not coastal registration features. This does not remove any
+  point from any DEM correlation, orientation or terracing calculation.
+- Test the third reference relationship explicitly: z13/canonical correlation
+  below 0.9 plus centered RMS >=1 m is also an alarm. Two zooms of the same
+  product may share a content defect. This arm still requires the higher-fidelity
+  canonical acquisition's provenance and independent coastal registration;
+  poor exporter agreement cannot itself trigger replacement. Constant vertical
+  offsets do not trigger it. The physical cause of a content disagreement need
+  not be falsely labelled a tile seam or DSM.
+
+The three v1 prospective squares remain recorded; Portsmouth NH, New Haven CT
+and Pensacola FL are newly registered before acquisition for v2. All results
+remain, including inconclusive coasts. This is a purposive protocol check, not
+a measured global sensitivity/specificity claim. No further v2 tuning after
+observing results, and no change to the exporter, game or frozen judge.
