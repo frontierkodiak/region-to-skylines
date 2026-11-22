@@ -3882,3 +3882,26 @@ waited eight minutes behind PL-1191, then exited 75 with the lock still held:
 **doctor blocked, not passed**. No session launched and no waiter remains.
 This does not invalidate the two collected frozen-controller observations,
 but the current-head pre-PR doctor requirement remains outstanding.
+
+## PL-1244 approved reference assessment — 2026-11-22
+
+The lead approved a general, preregistered reference-defect protocol with both
+scores retained and unchanged 0.9 correlation / 0.15 margin / 0.08 terracing
+limits. No physical writer or frozen judge changed and no game was rerun.
+V1's inconclusive shoreline results remain. V2 uses independently projected
+OSM edge-connected coasts, source provenance and reference-only comparisons;
+the detailed protocol, all seven dual-score export rows and six prospective
+source checks are in `tools/map-factory/TERRAIN_FIDELITY.md`.
+
+Charleston's native frozen r=0.5072 remains a failure. Its separately bound
+original georeferenced 3DEP/native 1,600-point score is r=0.9745, margin=0.2677,
+with passing independent coastal registration and unchanged zero terracing.
+Boston keeps its frozen native pass. These are assessments of retained data,
+not new runs or water qualification. Boston initial inundation is handed to
+PL-1191; the source-faithful policy remains opt-in until that lane clears it.
+
+The deferred current-head doctor was retried once after the slot cleared:
+pass on blade, RTX 2080 Ti bus05:00.0/egl0, 7974 MiB pre-existing card use out
+of11264 MiB. Doctor only, no Steam/game or performance measurement; its private
+display/bus context exited normally. The earlier eight-minute blocked attempt
+is not rewritten. Existing current-source build/Ruff receipts remain valid.

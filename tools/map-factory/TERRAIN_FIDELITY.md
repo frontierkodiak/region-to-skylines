@@ -1,7 +1,8 @@
 # Terrain fidelity: attribution and experimental correction (PL-1244)
 
-**The shipping policy and acceptance thresholds are unchanged. An opt-in
-source-faithful correction is implemented; full passing acceptance is not met.**
+**Shipping defaults and acceptance thresholds are unchanged. The opt-in terrain
+candidate passes the approved dual-reference protocol's checks; the new
+protocol still needs independent review. Water safety is not qualified.**
 
 The frozen four-place native results are recorded in the harness journal. This
 audit compares their exact prepared terrain with the exact canonical source
@@ -209,15 +210,98 @@ Steam instance or transient unit remains from either run. The shared slot was
 released between runs and PL-1191 subsequently took it. Resource measurements
 and the build/controller separation are recorded in the harness journal.
 
-## Acceptance decision and remaining work
+## Approved reference assessment (2026-11-22)
 
-Resolve the source/reference contract before claiming that faithful canonical
-terrain must pass this independent surface-DEM correlation on every square.
-Keep the frozen failures and thresholds intact. The diagnostic and frame
-attribution at PR86 head `721a14ec88d83e633b81dc36095a8b4f42ee07f6` received an
-independent Neon review. The new implementation still needs independent review.
-A source/reference acceptance decision is needed
-before a source-faithful Charleston export can be called qualified.
+The lead approved a general defect detector, both scores on every square,
+unchanged limits and independent geographic registration before reference
+replacement. [Protocol and preregistration](REFERENCE_POLICY.md) preserve the
+initial v1 refusal and the structural v2 correction; the numerical limits did
+not change. Commits `d58eb93` and `edfd900` register each method before its
+evaluation and each new source cohort before acquisition. These are purposive
+checks, not a global detector-accuracy estimate.
+
+V2 compares z13/z14, tile-boundary jumps and z13/canonical source disagreement.
+Selection never reads generated terrain. It additionally requires hash-bound
+eligible bare-earth source provenance and independent OSM/OpenFreeMap coastal
+registration through pyproj/rasterio, not the writer's water mask. Registration
+uses edge-connected coastal components; interior pools are not coastline.
+Every DEM score still uses all 73,441 points and all eight orientations, without
+land/water exclusion. The canonical source is the exporter's fidelity target,
+not an independent physical survey; geographic registration is separate.
+
+| Exported square | Frozen z13 r | Canonical-source r | z14 contrast r | Terracing | Selected reference / margin |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Amherst | 0.9965 | 1.0000 | 0.9964 | 0.0027 | Frozen / 0.4648 |
+| Asheville | 0.9792 | 0.9999 | 0.9791 | 0.0027 | Frozen / 0.3933 |
+| Boston | 0.9143 | 0.9925 | 0.9118 | 0.0029 | Frozen / 0.2155 |
+| Charleston | **0.5042** | **0.9745** | 0.7547 | 0.0000 | Canonical / 0.2670 |
+| New Orleans | 0.9056 | 0.9095 | 0.9084 | 0.0000 | Frozen / 0.2735 |
+| Norfolk | **0.2761** | **0.9510** | 0.2916 | 0.0174 | Canonical / 0.3814 |
+| Savannah | 0.9026 | 0.9897 | 0.9038 | 0.0000 | Frozen / 0.3749 |
+
+All seven selected terrain assessments meet r>=0.9, margin>=0.15 and
+terracing<=0.08. The canonical source is original USGS 3DEP except Asheville's
+original county-derived terrain, whose bytes remain private and unchanged.
+Both the failing frozen scores and the unselected canonical scores are kept.
+Zoom 14 is a contrast, not an automatic replacement.
+
+Charleston fires the seam, cross-zoom and canonical-disagreement arms. Norfolk
+does **not** fire the seam/cross-zoom arms: z13/z14 r=0.9150 and centered RMS
+0.854 m. It fires the same canonical-disagreement arm applied to every square:
+source/z13 r=0.3418, centered RMS=2.075 m. Its two zooms share disagreement with
+registered bare-earth terrain; no unsupported DSM-cause label is required.
+The candidate's source score 0.9510 still has to clear the unchanged 0.9 gate.
+
+| Defective-reference square | Independent coast median / p90 distance | Balanced accuracy / orientation advantage |
+| --- | --- | --- |
+| Charleston | 10.48 / 74.11 source m | 0.9661 / 0.0817 |
+| Norfolk | 7.41 / 16.56 source m | 0.9511 / 0.1076 |
+
+The fixed registration limits are median<=30 m, p90<=90 m, accuracy>=0.8 and
+advantage>=0.05, with minimum support checks. These geometric limits are not
+substituted for the unchanged DEM orientation margin of 0.15.
+
+### Prospective source checks, all retained
+
+These six locations have no newly exported maps or native runs. Correlations
+below compare the newly acquired canonical source with each reference, not an
+export with itself. The first three were registered for v1; the last three
+were registered before v2 acquisition. All appear in the receipts.
+
+| Source-only square | Canonical vs z13 / z14 | V2 registration | V2 reference assessment |
+| --- | --- | --- | --- |
+| Wilmington NC | 0.9998 / 0.9999 | Unresolved | No alarm |
+| Providence RI | 0.9994 / 0.9994 | Unresolved | No alarm |
+| Baltimore MD | 0.9979 / 0.9978 | Pass | No alarm |
+| Portsmouth NH | 0.9859 / 0.9855 | Unresolved | No alarm |
+| New Haven CT | 0.9545 / 0.9534 | Unresolved | No alarm |
+| Pensacola FL | 0.7938 / 0.7037 | **Unresolved** | **Alarm, no replacement allowed** |
+
+Pensacola's shoreline distances miss the fixed limits. It stays unresolved;
+no source exclusion, threshold adjustment or positive map qualification is
+made. Inconclusive registration on a no-alarm square never authorizes fallback.
+
+### Retained native observations under the approved contract
+
+No game was rerun and no original frozen verdict was edited. A separate receipt
+binds the reference assessment to all 1,600 original native world-sampler points.
+Boston retains its frozen native r=0.9147; Charleston retains frozen r=0.5072
+and additionally passes against original georeferenced 3DEP at r=0.9745,
+margin=0.2677. Both native terracing checks pass. Original Charleston's frozen
+verdict remains a failure, not a rewritten historical pass.
+
+## Review and remaining limits
+
+Neon independently passed the diagnostic head `721a14e` and the opt-in exporter
+implementation at `dc0a646`. The reference-assessment implementation and v2
+method need a fresh independent review. Ten new behavioral checks cover
+reference selection, shared-product defects, missing provenance, real cliffs,
+constant datum shifts, rotated/shifted shores and nonfinite coverage. The
+current-head harness doctor subsequently passed after the shared slot cleared;
+the earlier blocked attempt remains recorded.
+
+The lead routed Boston's initial-inundation counterexample to PL-1191, with
+exact inputs and measurements. Do not repair it by changing terrain here.
 
 No shipping/default promotion, source substitution, mask, warning waiver or
 per-city repair is made here. Water safety remains separate from terrain

@@ -75,3 +75,30 @@ and Pensacola FL are newly registered before acquisition for v2. All results
 remain, including inconclusive coasts. This is a purposive protocol check, not
 a measured global sensitivity/specificity claim. No further v2 tuning after
 observing results, and no change to the exporter, game or frozen judge.
+
+## Reproduce the fixed checks
+
+```sh
+uv run --project tools/map-factory \
+  python -m unittest discover -s tools/map-factory -p test_reference_quality.py -v
+uv run --project tools/map-factory python tools/map-factory/reference_quality.py \
+  qualified-bundle.npz NEW-RECEIPT.json --policy-version 2
+```
+
+Bundles contain full north-up `canonical`, `z13`, `z14`, z13 `tile_x`/`tile_y`,
+independently rasterized `vector_water`, source `spacing_m`, JSON `metadata`,
+and optional exported `game`/`terracing`. CLI receipts bind bundle, policy and
+assessor hashes. Canonical eligibility requires an acquisition SHA-256 plus
+the declared `canonical_reference_kind` (`usgs-3dep-bare-earth` or
+`county-lidar-terrain`). This checks the receipt boundary, not authenticity of
+arbitrary user-supplied claims; acquisition/manifests remain reviewable evidence.
+Missing eligibility cannot authorize replacement. The canonical acquisition
+is the source-fidelity target; independent geography comes from OpenFreeMap,
+not a claim of a second independent elevation survey.
+
+`capture_reference_shores.mjs PLAN.json NEW-SHORE.geojson` acquires water vectors
+without fetching elevation or invoking the writer. `PLAN.json` supplies the
+z14 `tile_box` (`x0`, `x1`, `y0`, `y1`) obtained from independently projected
+sample coordinates. The retained driver projects GeoJSON with pyproj and
+rasterio, records source hashes and preserves unavailable coverage as unknown.
+Neither command overwrites an existing output receipt.
