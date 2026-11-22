@@ -3831,3 +3831,77 @@ generic 150 W journal guidance. Recorded host-local sample windows:
 Hash-bound private reports/PNG reviews/telemetry are attached to PL-1074.
 No CRPs, model tables, saves, raw Steam/account logs or proprietary source are
 published here. This entry supersedes prior pending-case notes, not failures.
+
+## PL-1244 source-faithful-v2 native terrain experiment — 2026-11-21
+
+Experimental writer `874bf0298cafef9cb36c9f948e09f84a72942858`, default legacy
+policy unchanged. Two fixed candidate packages completed once through the FIFO
+queue, with no preemption of PL-1191. Frozen controller `dc8b6f2d` and mod
+`37b8ac6a1ad98567804815580f0e9890e7d446cb4ef5fc9003a9fc8820d5603f`
+remain separate from the writer. No judge, threshold, route, fixed world/water
+point or mapped-water mask changed; only package-derived panel/camera
+expectations changed. Native initial terrain exactly matches prepared bytes.
+
+| Case | Game minutes | Frozen verdict | Grid DEM / terracing | Command / soak wall s | Card / owned-game samples | Card peak MiB / W / C | Owned-game peak MiB |
+|---|---:|---|---|---:|---|---|---:|
+| central-boston | 60.0883 | pass: 11 pass / 7 skip | 0.9143 / 0.0029 | 1190.642 / 956.913 | 86 / 86 | 10821 / 119.06 / 52 | 2845 |
+| charleston-center | 60.1067 | fail: ground truth; 10 pass / 1 fail / 7 skip | 0.5042 / 0.0000 | 1133.343 / 951.824 | 86 / 86 | 10821 / 112.97 / 53 | 2845 |
+
+Host blade, RTX 2080 Ti at 05:00.0. Samples nominally every 10 s after menu
+reachability; these are sampled maxima, not continuous/game-only peaks or a
+speed comparison. Card totals include unrelated resident allocations. The
+observed existing 200 W cap was untouched, not set to the older generic cap
+guidance. Controller wall includes setup/cleanup, not queue residence.
+
+Native 1,600-point correlations are Boston 0.9147 and Charleston 0.5072.
+Charleston remains a failure against the frozen zoom-13 reference. Fresh tile
+downloads reproduce its retained seam; no reference is substituted. Separate
+original-3DEP/native-world-point contrasts are 0.9921 and 0.9745, diagnostic
+only, not independent physical truth or an accepted replacement gate.
+
+Both unchanged subsequent-flood-growth rows pass at 0 km². They do not judge
+initial inundation: relative to legacy, Boston has approximately 1.4915 game
+km² newly >0.5 m wet (WorldCover built-up), and Charleston 0.0476 km². These
+vertex-area/dated-landcover diagnostics are not real-world flood verdicts, but
+prevent a water-safe claim. Product risk warnings remain; no default promotion.
+Required wetness, first-hour services/population, explicit landmarks and Clef
+are unqualified/skipped. This is terrain evidence, not a playable-city pass.
+
+Actual panel/opening/Areas/final PNGs were viewed and hash-reviewed; original
+pre-visual verdicts retained. Read-only offline/Steam guards and carbon-idle
+checks passed. No Steam preference or shared-service change. Offline and
+telemetry errors are absent, both teardown lists empty. All foreground run
+results collected; slot released between cases and then taken by PL-1191.
+Private evidence and replay inputs are attached to PL-1244; raw Steam/account
+logs, saves, game assemblies and private Asheville grids are not published.
+
+Current-head harness build against the installed c7 assemblies passes; its
+f916 DLL was not substituted for the frozen observation mod. Full harness
+Ruff check and format pass (57 files). A separate current-head doctor attempt
+waited eight minutes behind PL-1191, then exited 75 with the lock still held:
+**doctor blocked, not passed**. No session launched and no waiter remains.
+This does not invalidate the two collected frozen-controller observations,
+but the current-head pre-PR doctor requirement remains outstanding.
+
+## PL-1244 approved reference assessment — 2026-11-22
+
+The lead approved a general, preregistered reference-defect protocol with both
+scores retained and unchanged 0.9 correlation / 0.15 margin / 0.08 terracing
+limits. No physical writer or frozen judge changed and no game was rerun.
+V1's inconclusive shoreline results remain. V2 uses independently projected
+OSM edge-connected coasts, source provenance and reference-only comparisons;
+the detailed protocol, all seven dual-score export rows and six prospective
+source checks are in `tools/map-factory/TERRAIN_FIDELITY.md`.
+
+Charleston's native frozen r=0.5072 remains a failure. Its separately bound
+original georeferenced 3DEP/native 1,600-point score is r=0.9745, margin=0.2677,
+with passing independent coastal registration and unchanged zero terracing.
+Boston keeps its frozen native pass. These are assessments of retained data,
+not new runs or water qualification. Boston initial inundation is handed to
+PL-1191; the source-faithful policy remains opt-in until that lane clears it.
+
+The deferred current-head doctor was retried once after the slot cleared:
+pass on blade, RTX 2080 Ti bus05:00.0/egl0, 7974 MiB pre-existing card use out
+of11264 MiB. Doctor only, no Steam/game or performance measurement; its private
+display/bus context exited normally. The earlier eight-minute blocked attempt
+is not rewritten. Existing current-source build/Ruff receipts remain valid.
