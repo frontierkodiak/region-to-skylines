@@ -107,6 +107,23 @@ def near_far_comparison(near, far):
 def stage(parent, native, result, review, acceptance, output):
     if output.exists():
         raise ValueError("Fresh read-only protocol required")
+    if (
+        sha(parent / "native-plan.json")
+        != "ec4b88258310808f7a558c10c8368a384abd99bede88f5864441079b892e130f"
+        or sha(result / "result.json")
+        != "2b52060635addd2d36149e34f6516309910e035e839ebb555a3728f986efab75"
+        or load(result / "receipt.json")["result_sha256"] != sha(result / "result.json")
+    ):
+        raise ValueError("Wrong reviewed physical/query/measurement cohort")
+    parent_plan = load(parent / "native-plan.json")
+    if (
+        sha(parent / "physical/PL857-low-coast-oceania.crp")
+        != parent_plan["package_sha256"]
+        or sha(parent / "physical/probes.json") != parent_plan["probes_sha256"]
+        or load(result / "result.json")["native_plan_sha256"]
+        != sha(parent / "native-plan.json")
+    ):
+        raise ValueError("Reviewed parent identities differ")
     output.mkdir(parents=True)
     manifest = load(result / "receipt.json")["native_files_sha256"]
     data = load(result / "result.json")
