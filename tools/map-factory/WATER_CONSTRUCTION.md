@@ -1022,3 +1022,10 @@ final FIFO empty, no preemption. No complete loaded-image/JIT/runtime-health or
 human/populated-city/long-term acceptance. No holdout access or promises/adoption.
 Phase18Boston/Charleston initialization constraints remain. Independent RESULTS
 review precedes any adoption; this is not geographic qualification or a water fix.
+
+
+## Phase twenty: zero serialized source records
+
+One frozen source-only15-minute arm removes all167zero-rate records, with sea90, terrain/initialwater/velocity/geometry/masks/full46202probes unchanged. 61captures report[0]active sources. Fixed87,259-node early drawdown median-0.221735020m/game-min vs rate-zero parent-0.222625318; source-record necessity is tested under these inputs, not exclusive evaporation/flux/boundary mechanism or geographic qualification. Full128strata/actual-time traces retained.
+
+All captured floors43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138, targets=current/rawterrain=physical. Maxgap0.338889min vs requested.25; bracketed notatomic, between-sampleunknown. Rawfail/['startup_views'], Bridge/TypeLoad/visualfailures retained. Sixty-minuteprimary incomplete/unknown. Allcontrolsremoved is not all engine forcing off: implicit oceanboundary remains. No native retry/reportrewrite. New result requires independentRESULTSacceptance, not pre-nativepermission. PL1255limitedphase19review consumed/closed; allpromisesunknown. Seephase20summary/postcollectionbinding; prior physical/native/sourceprotocols unchanged.

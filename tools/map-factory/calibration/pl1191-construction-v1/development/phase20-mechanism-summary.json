@@ -1,0 +1,5794 @@
+{
+  "schema": "polli.pl1191-phase20-mechanism-summary/1",
+  "scope": "new source-record-absence diagnostic, not repair or geographic qualification",
+  "PL1255_review": "DONE/pass limited phase19; no result-changing defects, original review receipt authenticated",
+  "new_native_recipe": "3f917996137d301e6f59d9adc80ac5fcf687fcec",
+  "actual_runtime": "a647354b767aff17c880a2d07585fd9dcfb9d768",
+  "DLL": "368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346",
+  "native_plan_sha256": "e18c9bd344721b93dbbf898d90ae12f278cb9e31dc97039f9fdff0189a24b366",
+  "package_sha256": "16ba7e118a18ffaf4ac1c8307a53320ac872cf11b37cffce03d89e2df366335d",
+  "full_probe_sha256": "8b375da5c1db35e486a50931217cc8ccb50ae73cfe1fc8f7a0b185c2eee1daf5",
+  "removed167source_records": true,
+  "all_non_source_physical_probe_bytes_unchanged": true,
+  "new_measured": {
+    "result_sha256": "491bc6f9ab327761d17c7c4d823f067c2dc77f80f3edc5e144ade16fe78d6307",
+    "snapshots": 61,
+    "minutes": 15.092778564927478,
+    "early_minutes": 4.862222475806872,
+    "all128_strata_early": [
+      {
+        "id": 0,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 1,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 2,
+        "all_vertices": 2,
+        "initial_wet": 2,
+        "final_wet": 2,
+        "net_depth_change_q": -1,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.003213551020700071,
+          "p10": -0.0028921959186300637,
+          "median": -0.0016067755103500354,
+          "p90": -0.000321355102070007,
+          "max": 0.0,
+          "count": 2
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.003213551020700071,
+          "p10": -0.0028921959186300637,
+          "median": -0.0016067755103500354,
+          "p90": -0.000321355102070007,
+          "max": 0.0,
+          "count": 2
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 3,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 4,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 5,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 6,
+        "all_vertices": 17,
+        "initial_wet": 17,
+        "final_wet": 17,
+        "net_depth_change_q": -171,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.08355232653820184,
+          "p10": -0.05463036735190121,
+          "median": -0.03856261224840085,
+          "p90": 0.0006427102041400177,
+          "max": 0.006427102041400142,
+          "count": 17
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.08355232653820184,
+          "p10": -0.05463036735190121,
+          "median": -0.03856261224840085,
+          "p90": 0.0006427102041400177,
+          "max": 0.006427102041400142,
+          "count": 17
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 7,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 8,
+        "all_vertices": 8,
+        "initial_wet": 8,
+        "final_wet": 8,
+        "net_depth_change_q": -238,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.14139624491080313,
+          "p10": -0.12115087348039268,
+          "median": -0.08997942857960198,
+          "p90": -0.07616115919059169,
+          "max": -0.07391167347610163,
+          "count": 8
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.14139624491080313,
+          "p10": -0.12115087348039268,
+          "median": -0.08997942857960198,
+          "p90": -0.07616115919059169,
+          "max": -0.07391167347610163,
+          "count": 8
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 9,
+        "all_vertices": 35,
+        "initial_wet": 35,
+        "final_wet": 35,
+        "net_depth_change_q": -2266,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2924331428837065,
+          "p10": -0.2564413714518657,
+          "median": -0.22816212246970505,
+          "p90": -0.10604718368310233,
+          "max": -0.044989714289800996,
+          "count": 35
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2924331428837065,
+          "p10": -0.2564413714518657,
+          "median": -0.22816212246970505,
+          "p90": -0.10604718368310233,
+          "max": -0.044989714289800996,
+          "count": 35
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 10,
+        "all_vertices": 737,
+        "initial_wet": 737,
+        "final_wet": 737,
+        "net_depth_change_q": -25077,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.28279248982160626,
+          "p10": -0.16067755103500356,
+          "median": -0.10604718368310234,
+          "p90": -0.05655849796432132,
+          "max": 0.019281306124200426,
+          "count": 737
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.28279248982160626,
+          "p10": -0.16067755103500356,
+          "median": -0.10604718368310234,
+          "p90": -0.05655849796432132,
+          "max": 0.019281306124200426,
+          "count": 737
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 11,
+        "all_vertices": 132,
+        "initial_wet": 132,
+        "final_wet": 132,
+        "net_depth_change_q": -7971,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.23458922451110517,
+          "p10": -0.2217350204283049,
+          "median": -0.19763338777305436,
+          "p90": -0.16099890613707354,
+          "max": -0.09640653062100213,
+          "count": 132
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.23458922451110517,
+          "p10": -0.2217350204283049,
+          "median": -0.19763338777305436,
+          "p90": -0.16099890613707354,
+          "max": -0.09640653062100213,
+          "count": 132
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 12,
+        "all_vertices": 127,
+        "initial_wet": 127,
+        "final_wet": 127,
+        "net_depth_change_q": -1148,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.28279248982160626,
+          "p10": -0.19859745307926438,
+          "median": -0.003213551020700071,
+          "p90": 0.03663448163598083,
+          "max": 0.06748457143470149,
+          "count": 127
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.28279248982160626,
+          "p10": -0.19859745307926438,
+          "median": -0.003213551020700071,
+          "p90": 0.03663448163598083,
+          "max": 0.06748457143470149,
+          "count": 127
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 13,
+        "all_vertices": 1839,
+        "initial_wet": 1839,
+        "final_wet": 1839,
+        "net_depth_change_q": -111927,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.32778220411140724,
+          "p10": -0.2538705306353056,
+          "median": -0.21530791838690475,
+          "p90": -0.05141681633120113,
+          "max": 0.10283363266240227,
+          "count": 1839
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.32778220411140724,
+          "p10": -0.2538705306353056,
+          "median": -0.21530791838690475,
+          "p90": -0.05141681633120113,
+          "max": 0.10283363266240227,
+          "count": 1839
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 14,
+        "all_vertices": 13196,
+        "initial_wet": 13196,
+        "final_wet": 13196,
+        "net_depth_change_q": -899169,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.33420930615280736,
+          "p10": -0.23780277553180526,
+          "median": -0.2217350204283049,
+          "p90": -0.1992401632834044,
+          "max": 0.016067755103500354,
+          "count": 13196
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.33420930615280736,
+          "p10": -0.23780277553180526,
+          "median": -0.2217350204283049,
+          "p90": -0.1992401632834044,
+          "max": 0.016067755103500354,
+          "count": 13196
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 15,
+        "all_vertices": 8073,
+        "initial_wet": 8073,
+        "final_wet": 8073,
+        "net_depth_change_q": -557014,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2795789388009062,
+          "p10": -0.22816212246970505,
+          "median": -0.2217350204283049,
+          "p90": -0.21530791838690475,
+          "max": -0.15746400001430347,
+          "count": 8073
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2795789388009062,
+          "p10": -0.22816212246970505,
+          "median": -0.2217350204283049,
+          "p90": -0.21530791838690475,
+          "max": -0.15746400001430347,
+          "count": 8073
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 16,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 17,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 18,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 19,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 20,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 21,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 22,
+        "all_vertices": 46,
+        "initial_wet": 46,
+        "final_wet": 46,
+        "net_depth_change_q": -468,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.0996200816417022,
+          "p10": -0.06427102041400141,
+          "median": -0.033742285717350745,
+          "p90": 0.0048203265310501064,
+          "max": 0.03213551020700071,
+          "count": 46
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.0996200816417022,
+          "p10": -0.06427102041400141,
+          "median": -0.033742285717350745,
+          "p90": 0.0048203265310501064,
+          "max": 0.03213551020700071,
+          "count": 46
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 23,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 24,
+        "all_vertices": 330,
+        "initial_wet": 330,
+        "final_wet": 330,
+        "net_depth_change_q": -26432,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.5945069388295131,
+          "p10": -0.5048488653519811,
+          "median": -0.23780277553180526,
+          "p90": -0.08676587755890192,
+          "max": -0.019281306124200426,
+          "count": 330
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.5945069388295131,
+          "p10": -0.5048488653519811,
+          "median": -0.23780277553180526,
+          "p90": -0.08676587755890192,
+          "max": -0.019281306124200426,
+          "count": 330
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 25,
+        "all_vertices": 385,
+        "initial_wet": 385,
+        "final_wet": 385,
+        "net_depth_change_q": -34435,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.6105746939330134,
+          "p10": -0.5141681633120113,
+          "median": -0.25708408165600566,
+          "p90": -0.12211493878660269,
+          "max": 0.03534906122770078,
+          "count": 385
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.6105746939330134,
+          "p10": -0.5141681633120113,
+          "median": -0.25708408165600566,
+          "p90": -0.12211493878660269,
+          "max": 0.03534906122770078,
+          "count": 385
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 26,
+        "all_vertices": 1267,
+        "initial_wet": 1267,
+        "final_wet": 1267,
+        "net_depth_change_q": -51872,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.3309957551321073,
+          "p10": -0.2538705306353056,
+          "median": -0.11890138776590263,
+          "p90": -0.03856261224840085,
+          "max": 0.06427102041400141,
+          "count": 1267
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.3309957551321073,
+          "p10": -0.2538705306353056,
+          "median": -0.11890138776590263,
+          "p90": -0.03856261224840085,
+          "max": 0.06427102041400141,
+          "count": 1267
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 27,
+        "all_vertices": 2350,
+        "initial_wet": 2350,
+        "final_wet": 2350,
+        "net_depth_change_q": -85376,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2313756734904051,
+          "p10": -0.17353175511780383,
+          "median": -0.11568783674520255,
+          "p90": -0.05784391837260128,
+          "max": 0.019281306124200426,
+          "count": 2350
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2313756734904051,
+          "p10": -0.17353175511780383,
+          "median": -0.11568783674520255,
+          "p90": -0.05784391837260128,
+          "max": 0.019281306124200426,
+          "count": 2350
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 28,
+        "all_vertices": 2580,
+        "initial_wet": 2580,
+        "final_wet": 2580,
+        "net_depth_change_q": -105885,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.42740228575310946,
+          "p10": -0.22494857144900496,
+          "median": -0.15103689797290334,
+          "p90": 0.006427102041400142,
+          "max": 0.10604718368310234,
+          "count": 2580
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.42740228575310946,
+          "p10": -0.22494857144900496,
+          "median": -0.15103689797290334,
+          "p90": 0.006427102041400142,
+          "max": 0.10604718368310234,
+          "count": 2580
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 29,
+        "all_vertices": 3038,
+        "initial_wet": 3038,
+        "final_wet": 3038,
+        "net_depth_change_q": -158026,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.3085008979872068,
+          "p10": -0.24422987757320538,
+          "median": -0.19602661226270432,
+          "p90": -0.025708408165600567,
+          "max": 0.08997942857960199,
+          "count": 3038
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.3085008979872068,
+          "p10": -0.24422987757320538,
+          "median": -0.19602661226270432,
+          "p90": -0.025708408165600567,
+          "max": 0.08997942857960199,
+          "count": 3038
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 30,
+        "all_vertices": 10239,
+        "initial_wet": 10239,
+        "final_wet": 10239,
+        "net_depth_change_q": -669041,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.3213551020700071,
+          "p10": -0.24101632655250532,
+          "median": -0.2217350204283049,
+          "p90": -0.1767453061385039,
+          "max": 0.0771252244968017,
+          "count": 10239
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.3213551020700071,
+          "p10": -0.24101632655250532,
+          "median": -0.2217350204283049,
+          "p90": -0.1767453061385039,
+          "max": 0.0771252244968017,
+          "count": 10239
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 31,
+        "all_vertices": 3212,
+        "initial_wet": 3212,
+        "final_wet": 3212,
+        "net_depth_change_q": -221473,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.32456865309070715,
+          "p10": -0.22494857144900496,
+          "median": -0.2217350204283049,
+          "p90": -0.21852146940760483,
+          "max": -0.17353175511780383,
+          "count": 3212
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.32456865309070715,
+          "p10": -0.22494857144900496,
+          "median": -0.2217350204283049,
+          "p90": -0.21852146940760483,
+          "max": -0.17353175511780383,
+          "count": 3212
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 32,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 33,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 34,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 35,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 36,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 37,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 38,
+        "all_vertices": 7,
+        "initial_wet": 7,
+        "final_wet": 7,
+        "net_depth_change_q": -37,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.07069812245540157,
+          "p10": -0.05720120816846126,
+          "median": -0.012854204082800283,
+          "p90": 0.017353175511780384,
+          "max": 0.019281306124200426,
+          "count": 7
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.07069812245540157,
+          "p10": -0.05720120816846126,
+          "median": -0.012854204082800283,
+          "p90": 0.017353175511780384,
+          "max": 0.019281306124200426,
+          "count": 7
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 39,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 40,
+        "all_vertices": 256,
+        "initial_wet": 256,
+        "final_wet": 159,
+        "net_depth_change_q": -23246,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.584866285767413,
+          "p10": -0.5157749388223614,
+          "median": -0.2169146938972548,
+          "p90": -0.16228432654535357,
+          "max": 0.061057469393301346,
+          "count": 256
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.584866285767413,
+          "p10": -0.5340921796403517,
+          "median": -0.3438499592149076,
+          "p90": -0.11890138776590263,
+          "max": 0.061057469393301346,
+          "count": 159
+        },
+        "unobserved_paired_head_vertices": 97
+      },
+      {
+        "id": 41,
+        "all_vertices": 279,
+        "initial_wet": 274,
+        "final_wet": 175,
+        "net_depth_change_q": -21208,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.5977204898502132,
+          "p10": -0.5141681633120113,
+          "median": -0.20566726532480453,
+          "p90": -0.04820326531050079,
+          "max": 0.04177616326910092,
+          "count": 279
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.5977204898502132,
+          "p10": -0.5257369469865316,
+          "median": -0.23780277553180526,
+          "p90": -0.10604718368310234,
+          "max": 0.04177616326910092,
+          "count": 175
+        },
+        "unobserved_paired_head_vertices": 104
+      },
+      {
+        "id": 42,
+        "all_vertices": 480,
+        "initial_wet": 452,
+        "final_wet": 288,
+        "net_depth_change_q": -15767,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.3117144490079069,
+          "p10": -0.2217350204283049,
+          "median": -0.0996200816417022,
+          "p90": -0.009640653062100213,
+          "max": 0.061057469393301346,
+          "count": 480
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.3117144490079069,
+          "p10": -0.2217350204283049,
+          "median": -0.10926073470380242,
+          "p90": -0.002249485714490013,
+          "max": 0.061057469393301346,
+          "count": 288
+        },
+        "unobserved_paired_head_vertices": 192
+      },
+      {
+        "id": 43,
+        "all_vertices": 609,
+        "initial_wet": 507,
+        "final_wet": 383,
+        "net_depth_change_q": -15575,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.21530791838690475,
+          "p10": -0.1446097959315032,
+          "median": -0.08033877551750178,
+          "p90": -0.009640653062100213,
+          "max": -0.003213551020700071,
+          "count": 609
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.21530791838690475,
+          "p10": -0.15746400001430347,
+          "median": -0.10283363266240227,
+          "p90": -0.05141681633120113,
+          "max": -0.006427102041400142,
+          "count": 383
+        },
+        "unobserved_paired_head_vertices": 226
+      },
+      {
+        "id": 44,
+        "all_vertices": 2047,
+        "initial_wet": 2037,
+        "final_wet": 1228,
+        "net_depth_change_q": -105499,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.41454808167030915,
+          "p10": -0.20566726532480453,
+          "median": -0.1863859592006041,
+          "p90": -0.08997942857960199,
+          "max": 0.10926073470380242,
+          "count": 2047
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.41454808167030915,
+          "p10": -0.20888081634550462,
+          "median": -0.1542504489936034,
+          "p90": -0.06427102041400141,
+          "max": 0.10926073470380242,
+          "count": 1228
+        },
+        "unobserved_paired_head_vertices": 819
+      },
+      {
+        "id": 45,
+        "all_vertices": 1764,
+        "initial_wet": 1712,
+        "final_wet": 944,
+        "net_depth_change_q": -77985,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.33420930615280736,
+          "p10": -0.2217350204283049,
+          "median": -0.15746400001430347,
+          "p90": -0.02892195918630064,
+          "max": 0.07391167347610163,
+          "count": 1764
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.33420930615280736,
+          "p10": -0.2217350204283049,
+          "median": -0.15746400001430347,
+          "p90": -0.025708408165600567,
+          "max": 0.07391167347610163,
+          "count": 944
+        },
+        "unobserved_paired_head_vertices": 820
+      },
+      {
+        "id": 46,
+        "all_vertices": 3031,
+        "initial_wet": 2900,
+        "final_wet": 1287,
+        "net_depth_change_q": -146410,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2795789388009062,
+          "p10": -0.2217350204283049,
+          "median": -0.18317240817990404,
+          "p90": -0.03534906122770078,
+          "max": 0.03856261224840085,
+          "count": 3031
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2795789388009062,
+          "p10": -0.2313756734904051,
+          "median": -0.2217350204283049,
+          "p90": -0.16067755103500356,
+          "max": 0.03856261224840085,
+          "count": 1286
+        },
+        "unobserved_paired_head_vertices": 1745
+      },
+      {
+        "id": 47,
+        "all_vertices": 1504,
+        "initial_wet": 1422,
+        "final_wet": 552,
+        "net_depth_change_q": -72035,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2538705306353056,
+          "p10": -0.2217350204283049,
+          "median": -0.18317240817990404,
+          "p90": -0.03534906122770078,
+          "max": -0.003213551020700071,
+          "count": 1504
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2538705306353056,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.2217350204283049,
+          "max": -0.18317240817990404,
+          "count": 552
+        },
+        "unobserved_paired_head_vertices": 952
+      },
+      {
+        "id": 48,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 49,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 50,
+        "all_vertices": 66,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 66
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 66
+      },
+      {
+        "id": 51,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 52,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 53,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 54,
+        "all_vertices": 1406,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 1406
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 1406
+      },
+      {
+        "id": 55,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 56,
+        "all_vertices": 1553,
+        "initial_wet": 201,
+        "final_wet": 9,
+        "net_depth_change_q": -12844,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.5591578776018123,
+          "p10": -0.10540447347896227,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.06748457143470149,
+          "count": 1553
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.5334494694362117,
+          "p10": -0.5064556408623312,
+          "median": -0.45311069391871,
+          "p90": -0.2217350204283049,
+          "max": -0.2217350204283049,
+          "count": 5
+        },
+        "unobserved_paired_head_vertices": 1548
+      },
+      {
+        "id": 57,
+        "all_vertices": 7691,
+        "initial_wet": 137,
+        "final_wet": 8,
+        "net_depth_change_q": -8983,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.543090122498312,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.08033877551750178,
+          "count": 7691
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.48524620412571073,
+          "p10": -0.4836394286153607,
+          "median": -0.4772123265739605,
+          "p90": -0.2217350204283049,
+          "max": -0.2217350204283049,
+          "count": 6
+        },
+        "unobserved_paired_head_vertices": 7685
+      },
+      {
+        "id": 58,
+        "all_vertices": 15257,
+        "initial_wet": 13,
+        "final_wet": 0,
+        "net_depth_change_q": -263,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.16067755103500356,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.006427102041400142,
+          "count": 15257
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 15257
+      },
+      {
+        "id": 59,
+        "all_vertices": 9810,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 9810
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 9810
+      },
+      {
+        "id": 60,
+        "all_vertices": 16137,
+        "initial_wet": 2989,
+        "final_wet": 366,
+        "net_depth_change_q": -131570,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.6266424490365138,
+          "p10": -0.19281306124200426,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.7037676735333155,
+          "count": 16137
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": -0.2217350204283049,
+          "median": -0.0771252244968017,
+          "p90": 0.3329238857445274,
+          "max": 0.7037676735333155,
+          "count": 365
+        },
+        "unobserved_paired_head_vertices": 15772
+      },
+      {
+        "id": 61,
+        "all_vertices": 116527,
+        "initial_wet": 889,
+        "final_wet": 28,
+        "net_depth_change_q": -37686,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.17995885715920398,
+          "count": 116527
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": -0.15489315919774344,
+          "median": -0.011247428572450247,
+          "p90": 0.15103689797290334,
+          "max": 0.17995885715920398,
+          "count": 28
+        },
+        "unobserved_paired_head_vertices": 116499
+      },
+      {
+        "id": 62,
+        "all_vertices": 475804,
+        "initial_wet": 104,
+        "final_wet": 2,
+        "net_depth_change_q": -2439,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.20566726532480453,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.03213551020700071,
+          "count": 475804
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.02892195918630064,
+          "p10": -0.02892195918630064,
+          "median": -0.02892195918630064,
+          "p90": -0.02892195918630064,
+          "max": -0.02892195918630064,
+          "count": 1
+        },
+        "unobserved_paired_head_vertices": 475803
+      },
+      {
+        "id": 63,
+        "all_vertices": 185931,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 185931
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 185931
+      },
+      {
+        "id": 64,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 65,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 66,
+        "all_vertices": 1526,
+        "initial_wet": 1526,
+        "final_wet": 1526,
+        "net_depth_change_q": -3297,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.11890138776590263,
+          "p10": -0.046596489800151034,
+          "median": -0.003213551020700071,
+          "p90": 0.03213551020700071,
+          "max": 0.08997942857960199,
+          "count": 1526
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.11890138776590263,
+          "p10": -0.046596489800151034,
+          "median": -0.003213551020700071,
+          "p90": 0.03213551020700071,
+          "max": 0.08997942857960199,
+          "count": 1526
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 67,
+        "all_vertices": 12678,
+        "initial_wet": 12678,
+        "final_wet": 12678,
+        "net_depth_change_q": -21436,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.12211493878660269,
+          "p10": -0.04177616326910092,
+          "median": 0.0,
+          "p90": 0.02892195918630064,
+          "max": 0.10604718368310234,
+          "count": 12678
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.12211493878660269,
+          "p10": -0.04177616326910092,
+          "median": 0.0,
+          "p90": 0.02892195918630064,
+          "max": 0.10604718368310234,
+          "count": 12678
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 68,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 69,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 70,
+        "all_vertices": 5601,
+        "initial_wet": 5601,
+        "final_wet": 5601,
+        "net_depth_change_q": -43768,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.1446097959315032,
+          "p10": -0.06748457143470149,
+          "median": -0.025708408165600567,
+          "p90": 0.019281306124200426,
+          "max": 0.09319297960030205,
+          "count": 5601
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.1446097959315032,
+          "p10": -0.06748457143470149,
+          "median": -0.025708408165600567,
+          "p90": 0.019281306124200426,
+          "max": 0.09319297960030205,
+          "count": 5601
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 71,
+        "all_vertices": 36162,
+        "initial_wet": 36162,
+        "final_wet": 36162,
+        "net_depth_change_q": -314560,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.15103689797290334,
+          "p10": -0.06748457143470149,
+          "median": -0.02892195918630064,
+          "p90": 0.012854204082800283,
+          "max": 0.11247428572450248,
+          "count": 36162
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.15103689797290334,
+          "p10": -0.06748457143470149,
+          "median": -0.02892195918630064,
+          "p90": 0.012854204082800283,
+          "max": 0.11247428572450248,
+          "count": 36162
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 72,
+        "all_vertices": 53,
+        "initial_wet": 53,
+        "final_wet": 53,
+        "net_depth_change_q": -1161,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.13496914286940298,
+          "p10": -0.10926073470380242,
+          "median": -0.0771252244968017,
+          "p90": -0.03277822041114071,
+          "max": 0.0,
+          "count": 53
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.13496914286940298,
+          "p10": -0.10926073470380242,
+          "median": -0.0771252244968017,
+          "p90": -0.03277822041114071,
+          "max": 0.0,
+          "count": 53
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 73,
+        "all_vertices": 1913,
+        "initial_wet": 1913,
+        "final_wet": 1913,
+        "net_depth_change_q": -60388,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.25065697961460554,
+          "p10": -0.17995885715920398,
+          "median": -0.09319297960030205,
+          "p90": -0.03534906122770078,
+          "max": 0.048203265310501064,
+          "count": 1913
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.25065697961460554,
+          "p10": -0.17995885715920398,
+          "median": -0.09319297960030205,
+          "p90": -0.03534906122770078,
+          "max": 0.048203265310501064,
+          "count": 1913
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 74,
+        "all_vertices": 15158,
+        "initial_wet": 15158,
+        "final_wet": 15158,
+        "net_depth_change_q": -493731,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.26993828573880596,
+          "p10": -0.1863859592006041,
+          "median": -0.10283363266240227,
+          "p90": -0.022494857144900498,
+          "max": 0.08676587755890192,
+          "count": 15158
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.26993828573880596,
+          "p10": -0.1863859592006041,
+          "median": -0.10283363266240227,
+          "p90": -0.022494857144900498,
+          "max": 0.08676587755890192,
+          "count": 15158
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 75,
+        "all_vertices": 112065,
+        "initial_wet": 112065,
+        "final_wet": 112065,
+        "net_depth_change_q": -4067469,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.25065697961460554,
+          "p10": -0.19281306124200426,
+          "median": -0.11890138776590263,
+          "p90": -0.03856261224840085,
+          "max": 0.09319297960030205,
+          "count": 112065
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.25065697961460554,
+          "p10": -0.19281306124200426,
+          "median": -0.11890138776590263,
+          "p90": -0.03856261224840085,
+          "max": 0.09319297960030205,
+          "count": 112065
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 76,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 77,
+        "all_vertices": 84,
+        "initial_wet": 84,
+        "final_wet": 84,
+        "net_depth_change_q": -5739,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2892195918630064,
+          "p10": -0.26029763267670575,
+          "median": -0.2169146938972548,
+          "p90": -0.1863859592006041,
+          "max": -0.15746400001430347,
+          "count": 84
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2892195918630064,
+          "p10": -0.26029763267670575,
+          "median": -0.2169146938972548,
+          "p90": -0.1863859592006041,
+          "max": -0.15746400001430347,
+          "count": 84
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 78,
+        "all_vertices": 6579,
+        "initial_wet": 6579,
+        "final_wet": 6579,
+        "net_depth_change_q": -450407,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2956466939044065,
+          "p10": -0.2313756734904051,
+          "median": -0.2217350204283049,
+          "p90": -0.20566726532480453,
+          "max": -0.13175559184870292,
+          "count": 6579
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2956466939044065,
+          "p10": -0.2313756734904051,
+          "median": -0.2217350204283049,
+          "p90": -0.20566726532480453,
+          "max": -0.13175559184870292,
+          "count": 6579
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 79,
+        "all_vertices": 87259,
+        "initial_wet": 87259,
+        "final_wet": 87259,
+        "net_depth_change_q": -5999701,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.25065697961460554,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.2217350204283049,
+          "max": -0.17031820409710377,
+          "count": 87259
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.25065697961460554,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.2217350204283049,
+          "max": -0.17031820409710377,
+          "count": 87259
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 80,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 81,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 82,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 83,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 84,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 85,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 86,
+        "all_vertices": 7,
+        "initial_wet": 7,
+        "final_wet": 7,
+        "net_depth_change_q": -24,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.061057469393301346,
+          "p10": -0.04370429388152096,
+          "median": -0.012854204082800283,
+          "p90": 0.02506569796146057,
+          "max": 0.048203265310501064,
+          "count": 7
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.061057469393301346,
+          "p10": -0.04370429388152096,
+          "median": -0.012854204082800283,
+          "p90": 0.02506569796146057,
+          "max": 0.048203265310501064,
+          "count": 7
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 87,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 88,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 89,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 90,
+        "all_vertices": 4,
+        "initial_wet": 4,
+        "final_wet": 4,
+        "net_depth_change_q": -96,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.13818269389010304,
+          "p10": -0.13047017144042286,
+          "median": -0.0723048979657516,
+          "p90": -0.02763653877802061,
+          "max": -0.025708408165600567,
+          "count": 4
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.13818269389010304,
+          "p10": -0.13047017144042286,
+          "median": -0.0723048979657516,
+          "p90": -0.02763653877802061,
+          "max": -0.025708408165600567,
+          "count": 4
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 91,
+        "all_vertices": 15,
+        "initial_wet": 15,
+        "final_wet": 15,
+        "net_depth_change_q": -899,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.21530791838690475,
+          "p10": -0.21080894695792465,
+          "median": -0.19281306124200426,
+          "p90": -0.17995885715920398,
+          "max": -0.16067755103500356,
+          "count": 15
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.21530791838690475,
+          "p10": -0.21080894695792465,
+          "median": -0.19281306124200426,
+          "p90": -0.17995885715920398,
+          "max": -0.16067755103500356,
+          "count": 15
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 92,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 93,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 94,
+        "all_vertices": 3,
+        "initial_wet": 3,
+        "final_wet": 3,
+        "net_depth_change_q": -217,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.26993828573880596,
+          "p10": -0.2596549224725657,
+          "median": -0.21852146940760483,
+          "p90": -0.21080894695792465,
+          "max": -0.20888081634550462,
+          "count": 3
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.26993828573880596,
+          "p10": -0.2596549224725657,
+          "median": -0.21852146940760483,
+          "p90": -0.21080894695792465,
+          "max": -0.20888081634550462,
+          "count": 3
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 95,
+        "all_vertices": 33,
+        "initial_wet": 33,
+        "final_wet": 33,
+        "net_depth_change_q": -2277,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.2217350204283049,
+          "max": -0.2217350204283049,
+          "count": 33
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.2217350204283049,
+          "max": -0.2217350204283049,
+          "count": 33
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 96,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 97,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 98,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 99,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 100,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 101,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 102,
+        "all_vertices": 4,
+        "initial_wet": 4,
+        "final_wet": 4,
+        "net_depth_change_q": -14,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.02892195918630064,
+          "p10": -0.026029763267670574,
+          "median": -0.017674530613850388,
+          "p90": 0.008676587755890199,
+          "max": 0.019281306124200426,
+          "count": 4
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.02892195918630064,
+          "p10": -0.026029763267670574,
+          "median": -0.017674530613850388,
+          "p90": 0.008676587755890199,
+          "max": 0.019281306124200426,
+          "count": 4
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 103,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 104,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 105,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 106,
+        "all_vertices": 1,
+        "initial_wet": 1,
+        "final_wet": 1,
+        "net_depth_change_q": -22,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.07069812245540157,
+          "p10": -0.07069812245540157,
+          "median": -0.07069812245540157,
+          "p90": -0.07069812245540157,
+          "max": -0.07069812245540157,
+          "count": 1
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.07069812245540157,
+          "p10": -0.07069812245540157,
+          "median": -0.07069812245540157,
+          "p90": -0.07069812245540157,
+          "max": -0.07069812245540157,
+          "count": 1
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 107,
+        "all_vertices": 68,
+        "initial_wet": 66,
+        "final_wet": 49,
+        "net_depth_change_q": -1605,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.19602661226270432,
+          "p10": -0.14011082450252307,
+          "median": -0.06748457143470149,
+          "p90": -0.03245686530907067,
+          "max": -0.003213551020700071,
+          "count": 68
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.19602661226270432,
+          "p10": -0.12468577960316271,
+          "median": -0.06748457143470149,
+          "p90": -0.03856261224840085,
+          "max": -0.022494857144900498,
+          "count": 49
+        },
+        "unobserved_paired_head_vertices": 19
+      },
+      {
+        "id": 108,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 109,
+        "all_vertices": 1,
+        "initial_wet": 1,
+        "final_wet": 0,
+        "net_depth_change_q": -22,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.07069812245540157,
+          "p10": -0.07069812245540157,
+          "median": -0.07069812245540157,
+          "p90": -0.07069812245540157,
+          "max": -0.07069812245540157,
+          "count": 1
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 1
+      },
+      {
+        "id": 110,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 111,
+        "all_vertices": 3,
+        "initial_wet": 3,
+        "final_wet": 2,
+        "net_depth_change_q": -159,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.09833466123342216,
+          "max": -0.06748457143470149,
+          "count": 3
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "min": -0.2217350204283049,
+          "p10": -0.2217350204283049,
+          "median": -0.2217350204283049,
+          "p90": -0.2217350204283049,
+          "max": -0.2217350204283049,
+          "count": 2
+        },
+        "unobserved_paired_head_vertices": 1
+      },
+      {
+        "id": 112,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 113,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 114,
+        "all_vertices": 8,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 8
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 8
+      },
+      {
+        "id": 115,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 116,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 117,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 118,
+        "all_vertices": 40,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 40
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 40
+      },
+      {
+        "id": 119,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 120,
+        "all_vertices": 3,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 3
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 3
+      },
+      {
+        "id": 121,
+        "all_vertices": 34,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 34
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 34
+      },
+      {
+        "id": 122,
+        "all_vertices": 52,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 52
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 52
+      },
+      {
+        "id": 123,
+        "all_vertices": 389,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 389
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 389
+      },
+      {
+        "id": 124,
+        "all_vertices": 0,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 0
+      },
+      {
+        "id": 125,
+        "all_vertices": 2,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 2
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 2
+      },
+      {
+        "id": 126,
+        "all_vertices": 102,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 102
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 102
+      },
+      {
+        "id": 127,
+        "all_vertices": 942,
+        "initial_wet": 0,
+        "final_wet": 0,
+        "net_depth_change_q": 0,
+        "all_vertex_depth_change_m_per_game_min": {
+          "min": 0.0,
+          "p10": 0.0,
+          "median": 0.0,
+          "p90": 0.0,
+          "max": 0.0,
+          "count": 942
+        },
+        "paired_wet_head_change_m_per_game_min": {
+          "count": 0,
+          "min": null,
+          "p10": null,
+          "median": null,
+          "p90": null,
+          "max": null
+        },
+        "unobserved_paired_head_vertices": 942
+      }
+    ],
+    "stratum79_early": {
+      "all_vertices": 87259,
+      "initial_wet": 87259,
+      "final_wet": 87259,
+      "net_depth_change_q": -5999701,
+      "all_vertex_depth_change_m_per_game_min": {
+        "min": -0.25065697961460554,
+        "p10": -0.2217350204283049,
+        "median": -0.2217350204283049,
+        "p90": -0.2217350204283049,
+        "max": -0.17031820409710377,
+        "count": 87259
+      },
+      "paired_wet_head_change_m_per_game_min": {
+        "min": -0.25065697961460554,
+        "p10": -0.2217350204283049,
+        "median": -0.2217350204283049,
+        "p90": -0.2217350204283049,
+        "max": -0.17031820409710377,
+        "count": 87259
+      },
+      "unobserved_paired_head_vertices": 0
+    },
+    "all_depth_traces": [
+      {
+        "minute": 0,
+        "full_depth_sum_q": 201954154,
+        "deep_distant_depth_change_m": 0.0,
+        "far_deep_depth_change_m": 0.0,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": 0.0,
+              "median": 0.0,
+              "p90": 0.0
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": 0.0,
+              "median": 0.0,
+              "p90": 0.0
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": 0.0,
+              "median": 0.0,
+              "p90": 0.0
+            }
+          }
+        ]
+      },
+      {
+        "minute": 0.3022222379843394,
+        "full_depth_sum_q": 200279433,
+        "deep_distant_depth_change_m": -0.078125,
+        "far_deep_depth_change_m": -0.078125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.078125,
+              "median": -0.078125,
+              "p90": -0.078125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.078125,
+              "median": -0.078125,
+              "p90": -0.078125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.078125,
+              "median": -0.078125,
+              "p90": -0.078125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 0.6258333659730851,
+        "full_depth_sum_q": 199019282,
+        "deep_distant_depth_change_m": -0.140625,
+        "far_deep_depth_change_m": -0.140625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.140625,
+              "median": -0.140625,
+              "p90": -0.140625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.140625,
+              "median": -0.140625,
+              "p90": -0.140625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.140625,
+              "median": -0.140625,
+              "p90": -0.140625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 0.7972222638006011,
+        "full_depth_sum_q": 198092817,
+        "deep_distant_depth_change_m": -0.1875,
+        "far_deep_depth_change_m": -0.1875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.1875,
+              "median": -0.1875,
+              "p90": -0.1875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.1875,
+              "median": -0.1875,
+              "p90": -0.1875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.1875,
+              "median": -0.1875,
+              "p90": -0.1875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 1.1108333912678063,
+        "full_depth_sum_q": 196960800,
+        "deep_distant_depth_change_m": -0.25,
+        "far_deep_depth_change_m": -0.25,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.25,
+              "median": -0.25,
+              "p90": -0.19218749999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.25,
+              "median": -0.25,
+              "p90": -0.25
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.25,
+              "median": -0.25,
+              "p90": -0.25
+            }
+          }
+        ]
+      },
+      {
+        "minute": 1.281666733510792,
+        "full_depth_sum_q": 196425347,
+        "deep_distant_depth_change_m": -0.28125,
+        "far_deep_depth_change_m": -0.28125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.34375,
+              "median": -0.265625,
+              "p90": -0.20781249999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.28125,
+              "median": -0.28125,
+              "p90": -0.28125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.28125,
+              "median": -0.28125,
+              "p90": -0.28125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 1.5972223055238524,
+        "full_depth_sum_q": 195080526,
+        "deep_distant_depth_change_m": -0.359375,
+        "far_deep_depth_change_m": -0.359375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.390625,
+              "median": -0.3125,
+              "p90": -0.23906249999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.359375,
+              "median": -0.359375,
+              "p90": -0.359375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.359375,
+              "median": -0.359375,
+              "p90": -0.359375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 1.7652778698441882,
+        "full_depth_sum_q": 194602470,
+        "deep_distant_depth_change_m": -0.390625,
+        "far_deep_depth_change_m": -0.390625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4375,
+              "median": -0.359375,
+              "p90": -0.28125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.390625,
+              "median": -0.390625,
+              "p90": -0.390625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.390625,
+              "median": -0.390625,
+              "p90": -0.390625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 2.0816667752340434,
+        "full_depth_sum_q": 193363609,
+        "deep_distant_depth_change_m": -0.46875,
+        "far_deep_depth_change_m": -0.46875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.5421875,
+              "median": -0.4375,
+              "p90": -0.31718749999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.46875,
+              "median": -0.46875,
+              "p90": -0.46875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.46875,
+              "median": -0.46875,
+              "p90": -0.46875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 2.3975001250393686,
+        "full_depth_sum_q": 192526797,
+        "deep_distant_depth_change_m": -0.53125,
+        "far_deep_depth_change_m": -0.53125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.640625,
+              "median": -0.515625,
+              "p90": -0.41093749999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.53125,
+              "median": -0.53125,
+              "p90": -0.53125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.53125,
+              "median": -0.53125,
+              "p90": -0.53125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 2.5652779115674393,
+        "full_depth_sum_q": 192133180,
+        "deep_distant_depth_change_m": -0.5625,
+        "far_deep_depth_change_m": -0.5625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.703125,
+              "median": -0.578125,
+              "p90": -0.44218749999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.5625,
+              "median": -0.5625,
+              "p90": -0.5625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.5625,
+              "median": -0.5625,
+              "p90": -0.5625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 2.8816668169572948,
+        "full_depth_sum_q": 191057485,
+        "deep_distant_depth_change_m": -0.640625,
+        "far_deep_depth_change_m": -0.640625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.7921875,
+              "median": -0.6796875,
+              "p90": -0.5625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.640625,
+              "median": -0.640625,
+              "p90": -0.640625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.640625,
+              "median": -0.640625,
+              "p90": -0.640625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 3.0491668256931006,
+        "full_depth_sum_q": 190747935,
+        "deep_distant_depth_change_m": -0.671875,
+        "far_deep_depth_change_m": -0.671875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.8125,
+              "median": -0.6875,
+              "p90": -0.53125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.671875,
+              "median": -0.671875,
+              "p90": -0.671875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.671875,
+              "median": -0.671875,
+              "p90": -0.671875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 3.3652779532906907,
+        "full_depth_sum_q": 189735450,
+        "deep_distant_depth_change_m": -0.75,
+        "far_deep_depth_change_m": -0.734375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.859375,
+              "median": -0.75,
+              "p90": -0.59375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.75,
+              "median": -0.75,
+              "p90": -0.75
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.75,
+              "median": -0.75,
+              "p90": -0.75
+            }
+          }
+        ]
+      },
+      {
+        "minute": 3.5352779621568815,
+        "full_depth_sum_q": 189481625,
+        "deep_distant_depth_change_m": -0.78125,
+        "far_deep_depth_change_m": -0.71875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.875,
+              "median": -0.75,
+              "p90": -0.578125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.78125,
+              "median": -0.78125,
+              "p90": -0.765625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.78125,
+              "median": -0.78125,
+              "p90": -0.78125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 3.8486113118318217,
+        "full_depth_sum_q": 188609007,
+        "deep_distant_depth_change_m": -0.859375,
+        "far_deep_depth_change_m": -0.734375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.96875,
+              "median": -0.84375,
+              "p90": -0.6921875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.875,
+              "median": -0.859375,
+              "p90": -0.828125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.859375,
+              "median": -0.859375,
+              "p90": -0.859375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 4.061944656291355,
+        "full_depth_sum_q": 188173836,
+        "deep_distant_depth_change_m": -0.90625,
+        "far_deep_depth_change_m": -0.734375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.046875,
+              "median": -0.890625,
+              "p90": -0.7593749999999999
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.921875,
+              "median": -0.90625,
+              "p90": -0.875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.90625,
+              "median": -0.90625,
+              "p90": -0.90625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 4.377222450512151,
+        "full_depth_sum_q": 187684937,
+        "deep_distant_depth_change_m": -0.96875,
+        "far_deep_depth_change_m": -0.734375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.125,
+              "median": -0.9609375,
+              "p90": -0.8015625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.0,
+              "median": -0.96875,
+              "p90": -0.921875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -0.96875,
+              "median": -0.96875,
+              "p90": -0.96875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 4.548611348339667,
+        "full_depth_sum_q": 187539972,
+        "deep_distant_depth_change_m": -1.0,
+        "far_deep_depth_change_m": -0.71875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.171875,
+              "median": -1.0,
+              "p90": -0.8328125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.046875,
+              "median": -1.0,
+              "p90": -0.9375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.0,
+              "median": -1.0,
+              "p90": -1.0
+            }
+          }
+        ]
+      },
+      {
+        "minute": 4.862222475806872,
+        "full_depth_sum_q": 186857625,
+        "deep_distant_depth_change_m": -1.078125,
+        "far_deep_depth_change_m": -0.71875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.265625,
+              "median": -1.0546875,
+              "p90": -0.90625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.125,
+              "median": -1.078125,
+              "p90": -1.0
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.078125,
+              "median": -1.078125,
+              "p90": -1.078125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 5.032778040257592,
+        "full_depth_sum_q": 186704604,
+        "deep_distant_depth_change_m": -1.109375,
+        "far_deep_depth_change_m": -0.71875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.171875,
+              "median": -1.03125,
+              "p90": -0.875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.140625,
+              "median": -1.109375,
+              "p90": -1.0
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.109375,
+              "median": -1.109375,
+              "p90": -1.09375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 5.371666946820914,
+        "full_depth_sum_q": 186162815,
+        "deep_distant_depth_change_m": -1.1875,
+        "far_deep_depth_change_m": -0.71875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.1984375,
+              "median": -0.9765625,
+              "p90": -0.8640625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.203125,
+              "median": -1.1875,
+              "p90": -1.015625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.1875,
+              "median": -1.1875,
+              "p90": -1.09375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 5.545000289194285,
+        "full_depth_sum_q": 186109215,
+        "deep_distant_depth_change_m": -1.21875,
+        "far_deep_depth_change_m": -0.703125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.140625,
+              "median": -0.96875,
+              "p90": -0.796875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.21875,
+              "median": -1.21875,
+              "p90": -0.984375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.21875,
+              "median": -1.21875,
+              "p90": -1.078125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 5.858333638869226,
+        "full_depth_sum_q": 185587138,
+        "deep_distant_depth_change_m": -1.296875,
+        "far_deep_depth_change_m": -0.71875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.109375,
+              "median": -0.953125,
+              "p90": -0.75
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.296875,
+              "median": -1.234375,
+              "p90": -0.984375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.296875,
+              "median": -1.296875,
+              "p90": -1.09375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 6.028611425527681,
+        "full_depth_sum_q": 185508147,
+        "deep_distant_depth_change_m": -1.328125,
+        "far_deep_depth_change_m": -0.703125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.109375,
+              "median": -0.96875,
+              "p90": -0.765625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.328125,
+              "median": -1.234375,
+              "p90": -0.96875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.328125,
+              "median": -1.328125,
+              "p90": -1.078125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 6.344166997540742,
+        "full_depth_sum_q": 185050344,
+        "deep_distant_depth_change_m": -1.40625,
+        "far_deep_depth_change_m": -0.703125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.0578125,
+              "median": -0.90625,
+              "p90": -0.6609375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.40625,
+              "median": -1.234375,
+              "p90": -0.953125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.40625,
+              "median": -1.40625,
+              "p90": -1.078125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 6.511944784068812,
+        "full_depth_sum_q": 185002665,
+        "deep_distant_depth_change_m": -1.4375,
+        "far_deep_depth_change_m": -0.703125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.1046875,
+              "median": -0.8828125,
+              "p90": -0.7078125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.4375,
+              "median": -1.21875,
+              "p90": -0.921875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.4375,
+              "median": -1.4375,
+              "p90": -1.078125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 6.828333689458668,
+        "full_depth_sum_q": 184940946,
+        "deep_distant_depth_change_m": -1.46875,
+        "far_deep_depth_change_m": -0.6875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.0421875,
+              "median": -0.859375,
+              "p90": -0.671875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.5,
+              "median": -1.171875,
+              "p90": -0.875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.5,
+              "median": -1.46875,
+              "p90": -1.0625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 7.143889261471728,
+        "full_depth_sum_q": 184588381,
+        "deep_distant_depth_change_m": -1.484375,
+        "far_deep_depth_change_m": -0.6875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -1.0015625,
+              "median": -0.765625,
+              "p90": -0.6140625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.5,
+              "median": -1.15625,
+              "p90": -0.84375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.578125,
+              "median": -1.484375,
+              "p90": -1.0625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 7.311944825792064,
+        "full_depth_sum_q": 184590123,
+        "deep_distant_depth_change_m": -1.46875,
+        "far_deep_depth_change_m": -0.671875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.975,
+              "median": -0.734375,
+              "p90": -0.5406249999999999
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.5,
+              "median": -1.125,
+              "p90": -0.8125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.609375,
+              "median": -1.46875,
+              "p90": -1.046875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 7.625278175467004,
+        "full_depth_sum_q": 184288294,
+        "deep_distant_depth_change_m": -1.484375,
+        "far_deep_depth_change_m": -0.671875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.9703124999999999,
+              "median": -0.796875,
+              "p90": -0.5625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.484375,
+              "median": -1.09375,
+              "p90": -0.7625000000000028
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.6875,
+              "median": -1.484375,
+              "p90": -1.03125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 7.793611517579604,
+        "full_depth_sum_q": 184390290,
+        "deep_distant_depth_change_m": -1.46875,
+        "far_deep_depth_change_m": -0.65625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.9375,
+              "median": -0.703125,
+              "p90": -0.5
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.453125,
+              "median": -1.0625,
+              "p90": -0.71875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.71875,
+              "median": -1.46875,
+              "p90": -1.015625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 8.11555597881476,
+        "full_depth_sum_q": 184134304,
+        "deep_distant_depth_change_m": -1.46875,
+        "far_deep_depth_change_m": -0.65625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.953125,
+              "median": -0.65625,
+              "p90": -0.453125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.40625,
+              "median": -1.015625,
+              "p90": -0.6875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.796875,
+              "median": -1.46875,
+              "p90": -1.0
+            }
+          }
+        ]
+      },
+      {
+        "minute": 8.291389321318517,
+        "full_depth_sum_q": 184259009,
+        "deep_distant_depth_change_m": -1.453125,
+        "far_deep_depth_change_m": -0.640625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.928125,
+              "median": -0.640625,
+              "p90": -0.36406249999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.359375,
+              "median": -0.984375,
+              "p90": -0.640625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.828125,
+              "median": -1.453125,
+              "p90": -0.984375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 8.607778226708373,
+        "full_depth_sum_q": 184291849,
+        "deep_distant_depth_change_m": -1.4375,
+        "far_deep_depth_change_m": -0.625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.834375,
+              "median": -0.546875,
+              "p90": -0.3374999999999999
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.296875,
+              "median": -0.921875,
+              "p90": -0.578125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.890625,
+              "median": -1.4375,
+              "p90": -0.9375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 8.775833791028708,
+        "full_depth_sum_q": 184108652,
+        "deep_distant_depth_change_m": -1.4375,
+        "far_deep_depth_change_m": -0.625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.8125,
+              "median": -0.515625,
+              "p90": -0.296875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.265625,
+              "median": -0.90625,
+              "p90": -0.5625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -1.9375,
+              "median": -1.4375,
+              "p90": -0.9375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 9.089722696288177,
+        "full_depth_sum_q": 184176571,
+        "deep_distant_depth_change_m": -1.40625,
+        "far_deep_depth_change_m": -0.609375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.765625,
+              "median": -0.515625,
+              "p90": -0.3125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.203125,
+              "median": -0.859375,
+              "p90": -0.5
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.0,
+              "median": -1.40625,
+              "p90": -0.890625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 9.260556038531163,
+        "full_depth_sum_q": 184014717,
+        "deep_distant_depth_change_m": -1.390625,
+        "far_deep_depth_change_m": -0.609375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.7921875,
+              "median": -0.515625,
+              "p90": -0.234375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.1875,
+              "median": -0.828125,
+              "p90": -0.484375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.046875,
+              "median": -1.390625,
+              "p90": -0.875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 9.572778277037044,
+        "full_depth_sum_q": 184200052,
+        "deep_distant_depth_change_m": -1.34375,
+        "far_deep_depth_change_m": -0.578125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.703125,
+              "median": -0.421875,
+              "p90": -0.17656249999999996
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.125,
+              "median": -0.78125,
+              "p90": -0.421875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.109375,
+              "median": -1.34375,
+              "p90": -0.828125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 9.887778293465574,
+        "full_depth_sum_q": 184326579,
+        "deep_distant_depth_change_m": -1.3125,
+        "far_deep_depth_change_m": -0.5625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.578125,
+              "median": -0.3984375,
+              "p90": -0.11874999999999991
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.0625,
+              "median": -0.71875,
+              "p90": -0.375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.171875,
+              "median": -1.3125,
+              "p90": -0.78125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 10.05583385778591,
+        "full_depth_sum_q": 184198567,
+        "deep_distant_depth_change_m": -1.28125,
+        "far_deep_depth_change_m": -0.5625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.609375,
+              "median": -0.359375,
+              "p90": -0.1499999999999999
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.046875,
+              "median": -0.703125,
+              "p90": -0.34375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.21875,
+              "median": -1.28125,
+              "p90": -0.765625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 10.263056090815613,
+        "full_depth_sum_q": 184248008,
+        "deep_distant_depth_change_m": -1.265625,
+        "far_deep_depth_change_m": -0.546875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.5625,
+              "median": -0.328125,
+              "p90": -0.08749999999999991
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -1.015625,
+              "median": -0.671875,
+              "p90": -0.3125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.265625,
+              "median": -1.265625,
+              "p90": -0.75
+            }
+          }
+        ]
+      },
+      {
+        "minute": 10.579444996205469,
+        "full_depth_sum_q": 184426549,
+        "deep_distant_depth_change_m": -1.203125,
+        "far_deep_depth_change_m": -0.53125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.609375,
+              "median": -0.34375,
+              "p90": -0.035937499999999956
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.96875,
+              "median": -0.625,
+              "p90": -0.265625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.328125,
+              "median": -1.203125,
+              "p90": -0.703125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 10.895000568218528,
+        "full_depth_sum_q": 184390235,
+        "deep_distant_depth_change_m": -1.15625,
+        "far_deep_depth_change_m": -0.515625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.5421875,
+              "median": -0.328125,
+              "p90": -0.109375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.90625,
+              "median": -0.578125,
+              "p90": -0.234375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.40625,
+              "median": -1.15625,
+              "p90": -0.65625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 11.061389465785274,
+        "full_depth_sum_q": 184544101,
+        "deep_distant_depth_change_m": -1.140625,
+        "far_deep_depth_change_m": -0.5,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.640625,
+              "median": -0.3828125,
+              "p90": -0.078125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.875,
+              "median": -0.5625,
+              "p90": -0.203125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.4375,
+              "median": -1.140625,
+              "p90": -0.625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 11.37611170442154,
+        "full_depth_sum_q": 184867581,
+        "deep_distant_depth_change_m": -1.078125,
+        "far_deep_depth_change_m": -0.46875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.5421875,
+              "median": -0.25,
+              "p90": -0.015625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.828125,
+              "median": -0.515625,
+              "p90": -0.171875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.5,
+              "median": -1.078125,
+              "p90": -0.5625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 11.544722824326405,
+        "full_depth_sum_q": 184802905,
+        "deep_distant_depth_change_m": -1.046875,
+        "far_deep_depth_change_m": -0.46875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4953125,
+              "median": -0.2578125,
+              "p90": 0.026562500000000044
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.796875,
+              "median": -0.484375,
+              "p90": -0.15625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.546875,
+              "median": -1.046875,
+              "p90": -0.546875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 11.859722840754936,
+        "full_depth_sum_q": 185069546,
+        "deep_distant_depth_change_m": -0.984375,
+        "far_deep_depth_change_m": -0.4375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.421875,
+              "median": -0.2109375,
+              "p90": 0.078125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.75,
+              "median": -0.4375,
+              "p90": -0.109375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.609375,
+              "median": -0.984375,
+              "p90": -0.484375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 12.035278405466427,
+        "full_depth_sum_q": 185022949,
+        "deep_distant_depth_change_m": -0.96875,
+        "far_deep_depth_change_m": -0.4375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.475,
+              "median": -0.203125,
+              "p90": 0.078125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.734375,
+              "median": -0.421875,
+              "p90": -0.109375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.65625,
+              "median": -0.96875,
+              "p90": -0.453125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 12.346945088387777,
+        "full_depth_sum_q": 185418402,
+        "deep_distant_depth_change_m": -0.90625,
+        "far_deep_depth_change_m": -0.40625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.5109375,
+              "median": -0.2265625,
+              "p90": 0.026562500000000044
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.6875,
+              "median": -0.375,
+              "p90": -0.0625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.71875,
+              "median": -0.90625,
+              "p90": -0.390625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 12.517222875046233,
+        "full_depth_sum_q": 185626273,
+        "deep_distant_depth_change_m": -0.875,
+        "far_deep_depth_change_m": -0.390625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.5265625,
+              "median": -0.25,
+              "p90": -0.004687499999999956
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.65625,
+              "median": -0.34375,
+              "p90": -0.046875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.734375,
+              "median": -0.875,
+              "p90": -0.359375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 12.837222891735534,
+        "full_depth_sum_q": 185738727,
+        "deep_distant_depth_change_m": -0.828125,
+        "far_deep_depth_change_m": -0.375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.421875,
+              "median": -0.1484375,
+              "p90": 0.042187500000000044
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.625,
+              "median": -0.3125,
+              "p90": 0.0
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.78125,
+              "median": -0.828125,
+              "p90": -0.3125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 13.003889567094545,
+        "full_depth_sum_q": 186066256,
+        "deep_distant_depth_change_m": -0.78125,
+        "far_deep_depth_change_m": -0.34375,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.390625,
+              "median": -0.125,
+              "p90": 0.125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.59375,
+              "median": -0.28125,
+              "p90": 0.03125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.796875,
+              "median": -0.78125,
+              "p90": -0.265625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 13.318889583523074,
+        "full_depth_sum_q": 186113405,
+        "deep_distant_depth_change_m": -0.75,
+        "far_deep_depth_change_m": -0.328125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.3859375,
+              "median": -0.109375,
+              "p90": 0.15156250000000004
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.5625,
+              "median": -0.25,
+              "p90": 0.046875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.84375,
+              "median": -0.75,
+              "p90": -0.21875
+            }
+          }
+        ]
+      },
+      {
+        "minute": 13.633056266574808,
+        "full_depth_sum_q": 186595482,
+        "deep_distant_depth_change_m": -0.6875,
+        "far_deep_depth_change_m": -0.296875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4640625,
+              "median": -0.109375,
+              "p90": 0.1875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.53125,
+              "median": -0.21875,
+              "p90": 0.09375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.859375,
+              "median": -0.6875,
+              "p90": -0.140625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 13.800556275310615,
+        "full_depth_sum_q": 186839533,
+        "deep_distant_depth_change_m": -0.65625,
+        "far_deep_depth_change_m": -0.265625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.459375,
+              "median": -0.15625,
+              "p90": 0.1312500000000001
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.515625,
+              "median": -0.1875,
+              "p90": 0.125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.875,
+              "median": -0.65625,
+              "p90": -0.109375
+            }
+          }
+        ]
+      },
+      {
+        "minute": 14.11527851394688,
+        "full_depth_sum_q": 187013071,
+        "deep_distant_depth_change_m": -0.609375,
+        "far_deep_depth_change_m": -0.25,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4328125,
+              "median": -0.140625,
+              "p90": 0.15625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.484375,
+              "median": -0.15625,
+              "p90": 0.15625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.90625,
+              "median": -0.609375,
+              "p90": -0.0625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 14.2913896342429,
+        "full_depth_sum_q": 187366846,
+        "deep_distant_depth_change_m": -0.5625,
+        "far_deep_depth_change_m": -0.21875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.421875,
+              "median": -0.140625,
+              "p90": 0.140625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.453125,
+              "median": -0.125,
+              "p90": 0.203125
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.90625,
+              "median": -0.5625,
+              "p90": -0.015625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 14.602500761579721,
+        "full_depth_sum_q": 187553168,
+        "deep_distant_depth_change_m": -0.515625,
+        "far_deep_depth_change_m": -0.203125,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4484375,
+              "median": -0.078125,
+              "p90": 0.18281250000000004
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.421875,
+              "median": -0.09375,
+              "p90": 0.234375
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.921875,
+              "median": -0.515625,
+              "p90": 0.03125
+            }
+          }
+        ]
+      },
+      {
+        "minute": 14.773056326030442,
+        "full_depth_sum_q": 187812977,
+        "deep_distant_depth_change_m": -0.484375,
+        "far_deep_depth_change_m": -0.1875,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4484375,
+              "median": -0.0859375,
+              "p90": 0.171875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.40625,
+              "median": -0.078125,
+              "p90": 0.265625
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.921875,
+              "median": -0.484375,
+              "p90": 0.0625
+            }
+          }
+        ]
+      },
+      {
+        "minute": 15.092778564927478,
+        "full_depth_sum_q": 188019739,
+        "deep_distant_depth_change_m": -0.453125,
+        "far_deep_depth_change_m": -0.15625,
+        "complete_four_boundary_bins": [
+          {
+            "frozen_boundary_distance_bin": 0,
+            "vertices": 0,
+            "depth_change_quantiles_m": null
+          },
+          {
+            "frozen_boundary_distance_bin": 1,
+            "vertices": 84,
+            "depth_change_quantiles_m": {
+              "p10": -0.4828124999999999,
+              "median": -0.1953125,
+              "p90": 0.08437500000000009
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 2,
+            "vertices": 6579,
+            "depth_change_quantiles_m": {
+              "p10": -0.375,
+              "median": -0.03125,
+              "p90": 0.296875
+            }
+          },
+          {
+            "frozen_boundary_distance_bin": 3,
+            "vertices": 87259,
+            "depth_change_quantiles_m": {
+              "p10": -2.9375,
+              "median": -0.453125,
+              "p90": 0.125
+            }
+          }
+        ]
+      }
+    ],
+    "endpoint_groups": {
+      "original_all": {
+        "points": 27386,
+        "native_wet_flag": 23631,
+        "depth_gt_0_1m": 23631,
+        "nearby_depth_gt_0_1m": 25043,
+        "horizontal_velocity_nonzero_api": 22928,
+        "max_horizontal_velocity_api": 20.835895607698298,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "dense_domain": {
+        "points": 20049,
+        "native_wet_flag": 3320,
+        "depth_gt_0_1m": 3320,
+        "nearby_depth_gt_0_1m": 8974,
+        "horizontal_velocity_nonzero_api": 3196,
+        "max_horizontal_velocity_api": 15.817112772564117,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "original_Main Drain": {
+        "points": 92,
+        "native_wet_flag": 67,
+        "depth_gt_0_1m": 67,
+        "nearby_depth_gt_0_1m": 88,
+        "horizontal_velocity_nonzero_api": 59,
+        "max_horizontal_velocity_api": 3.529327630996704,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "original_Bulimba Creek": {
+        "points": 822,
+        "native_wet_flag": 274,
+        "depth_gt_0_1m": 274,
+        "nearby_depth_gt_0_1m": 540,
+        "horizontal_velocity_nonzero_api": 237,
+        "max_horizontal_velocity_api": 9.544960021972656,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      }
+    },
+    "actual_floor_hashes": [
+      "43f4be737024a039fa72c8ed651b4091272e1a9772238e53923d2a995443b138"
+    ],
+    "target_equals_current_every_capture": true,
+    "raw_terrain_equals_fixed_package_every_capture": true,
+    "initial_captured_depth_sha256": "c41b149b2eb6da80ae631558de3e2b59918a0a66afb1c355219e9bac3fdf5416",
+    "reported_controls_each_capture": [
+      0
+    ],
+    "all_control_tables_match": true,
+    "dense_nonfinite_values": 0,
+    "max_gap": 0.33888890656332205,
+    "missed_slots": 0,
+    "raw_verdict": "fail",
+    "raw_failed": [
+      "startup_views"
+    ],
+    "original_flood_check": {
+      "name": "no_flooding",
+      "status": "pass",
+      "value": {
+        "worst_km2": 0.0,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 0.0
+          }
+        ],
+        "reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+        "reference_sha256": "c41b149b2eb6da80ae631558de3e2b59918a0a66afb1c355219e9bac3fdf5416",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "ee77bbbfeb24e0a3a14a80d6f3fcb480681e0b63bcfdee8f44c5b587a27cdf06",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 65650
+        },
+        "failing_grids": [],
+        "initial_only_diagnostic": {
+          "worst_km2": 0.0,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t015-water.u16",
+              "km2": 0.0
+            }
+          ],
+          "would_fail": false,
+          "status": "pass",
+          "reference_cells": 340728,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    "original_water_check": {
+      "name": "probes_wet_end",
+      "status": "pass",
+      "value": {
+        "wet": 1117,
+        "required": 1149,
+        "fraction": 0.972,
+        "dry": [
+          "Main Drain [river] #1:05",
+          "Main Drain [river] #1:06",
+          "Pound Drain [river] #1:00",
+          "Pound Drain [river] #1:01",
+          "Pound Drain [river] #1:02",
+          "geography:Bulimba Creek [river] @517,805",
+          "geography:Bulimba Creek [river] @518,805",
+          "geography:Bulimba Creek [river] @519,805",
+          "geography:Bulimba Creek [river] @520,806",
+          "geography:Bulimba Creek [river] @521,806",
+          "geography:Bulimba Creek [river] @522,807",
+          "geography:Bulimba Creek [river] @523,807",
+          "geography:Bulimba Creek [river] @524,808",
+          "geography:Bulimba Creek [river] @524,809",
+          "geography:Bulimba Creek [river] @524,810",
+          "geography:Bulimba Creek [river] @524,811",
+          "geography:Bulimba Creek [river] @543,819",
+          "geography:Bulimba Creek [river] @544,819",
+          "geography:Bulimba Creek [river] @545,819",
+          "geography:Bulimba Creek [river] @546,819",
+          "geography:Bulimba Creek [river] @547,819",
+          "geography:Bulimba Creek [river] @548,819",
+          "geography:Bulimba Creek [river] @566,834",
+          "geography:Main Drain [river] @600,764",
+          "geography:Main Drain [river] @601,764",
+          "geography:Pound Drain [river] @293,523",
+          "geography:Pound Drain [river] @293,524",
+          "geography:Pound Drain [river] @294,525",
+          "geography:Pound Drain [river] @294,526",
+          "geography:Pound Drain [river] @294,527",
+          "geography:Pound Drain [river] @295,528",
+          "geography:Schulz Canal [river] @369,479"
+        ]
+      },
+      "threshold": ">= 95% of required probes",
+      "detail": "45053 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+    },
+    "cleanup": {
+      "game": [],
+      "steam_instances": [],
+      "units_active": []
+    }
+  },
+  "parent_rate_zero_reference": {
+    "minutes": 15.031389672836909,
+    "early_minutes": 4.84277803034832,
+    "stratum79_early": {
+      "all_vertices": 87259,
+      "initial_wet": 87259,
+      "final_wet": 87259,
+      "net_depth_change_q": -6001761,
+      "all_vertex_depth_change_m_per_game_min": {
+        "min": -0.2581163109617256,
+        "p10": -0.22262531820448833,
+        "median": -0.22262531820448833,
+        "p90": -0.22262531820448833,
+        "max": -0.1710020560121432,
+        "count": 87259
+      },
+      "paired_wet_head_change_m_per_game_min": {
+        "min": -0.2581163109617256,
+        "p10": -0.22262531820448833,
+        "median": -0.22262531820448833,
+        "p90": -0.22262531820448833,
+        "max": -0.1710020560121432,
+        "count": 87259
+      },
+      "unobserved_paired_head_vertices": 0
+    },
+    "endpoint_groups": {
+      "original_all": {
+        "points": 27386,
+        "native_wet_flag": 23632,
+        "depth_gt_0_1m": 23632,
+        "nearby_depth_gt_0_1m": 25048,
+        "horizontal_velocity_nonzero_api": 22919,
+        "max_horizontal_velocity_api": 20.524287959026726,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "dense_domain": {
+        "points": 20049,
+        "native_wet_flag": 3320,
+        "depth_gt_0_1m": 3320,
+        "nearby_depth_gt_0_1m": 8965,
+        "horizontal_velocity_nonzero_api": 3199,
+        "max_horizontal_velocity_api": 19.091672027662298,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "original_Main Drain": {
+        "points": 92,
+        "native_wet_flag": 67,
+        "depth_gt_0_1m": 67,
+        "nearby_depth_gt_0_1m": 88,
+        "horizontal_velocity_nonzero_api": 54,
+        "max_horizontal_velocity_api": 2.307408332824707,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      },
+      "original_Bulimba Creek": {
+        "points": 822,
+        "native_wet_flag": 268,
+        "depth_gt_0_1m": 268,
+        "nearby_depth_gt_0_1m": 537,
+        "horizontal_velocity_nonzero_api": 233,
+        "max_horizontal_velocity_api": 11.785482406616211,
+        "velocity_units": "API readback only; not integrated discharge or physical supply budget"
+      }
+    },
+    "reported_controls_each_capture": [
+      167
+    ]
+  },
+  "raw_runtime_log_counts": {
+    "Bridge": 11,
+    "TypeLoadException": 3,
+    "ReflectionTypeLoadException": 1
+  },
+  "results_sha256": "491bc6f9ab327761d17c7c4d823f067c2dc77f80f3edc5e144ade16fe78d6307",
+  "comparison_sha256": "ce9eab95c56ba391973c0f0107e2d9ff66411a625308b53855f765ed9c5d9f97",
+  "interpretation": "Source-record necessity is judged from observed response under these fixed inputs. A persistent decline with zero serialized/active sources refutes their necessity; it does not identify an exclusive mechanism, calibrate flux, disable implicit sea-boundary behavior or qualify a geographic candidate. No statistical equivalence or rate-tuning claim.",
+  "full_hour_acceptance": "incomplete/unknown",
+  "stable_water_promise": "unknown"
+}

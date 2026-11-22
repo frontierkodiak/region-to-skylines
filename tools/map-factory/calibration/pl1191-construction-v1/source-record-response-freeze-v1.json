@@ -1,0 +1,22 @@
+{
+  "schema": "polli.pl1191-phase20-postcollection-binding/1",
+  "scope": "POSTcollection binding, NOT prospective; method/policy/physical/runtime plan and prospectivearchive preceded outcomes, with earlier outcomes known.",
+  "summary_sha256": "dee20d45c7ad2791b951ffd2beb3395b5b332b9a56406b2f3a632ab9add4cf18",
+  "comparison_sha256": "ce9eab95c56ba391973c0f0107e2d9ff66411a625308b53855f765ed9c5d9f97",
+  "prospective_archive": {
+    "archive": "phase20-source-absent-prospective.zip",
+    "bytes": 21947273,
+    "sha256": "b204c712e07601d3af1f654805be44be36ac2dd53d1677c7c61a2341c577ec7d",
+    "members": 326,
+    "native_plan_sha256": "e18c9bd344721b93dbbf898d90ae12f278cb9e31dc97039f9fdff0189a24b366",
+    "recipe_commit": "3f917996137d301e6f59d9adc80ac5fcf687fcec",
+    "runtime_commit": "a647354b767aff17c880a2d07585fd9dcfb9d768",
+    "prospective_before_new_native_outcomes": true,
+    "member_SHA_CRC_and_path_checks": "pass"
+  },
+  "actual_runtime": "a647354b767aff17c880a2d07585fd9dcfb9d768",
+  "native_plan_sha256": "e18c9bd344721b93dbbf898d90ae12f278cb9e31dc97039f9fdff0189a24b366",
+  "results_sha256": "491bc6f9ab327761d17c7c4d823f067c2dc77f80f3edc5e144ade16fe78d6307",
+  "raw_verdict_sha256": "368b3ec407088328cfa5841c14d73c8df989e481f3aba4999ce4c3b61292e99c",
+  "PL1255_authenticated_review_sha256": "025c26ff97cb57f448c0a834cf49d7031dbdf03b256f2a4de56216de6f3c0374"
+}
