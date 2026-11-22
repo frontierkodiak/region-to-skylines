@@ -1,0 +1,208 @@
+{
+  "schema": "polli.pl1191-phase23-spill-port-summary/1",
+  "PL1260_review_consumed_done": true,
+  "PL1260_review_thread_sha256": "72ba134e2b1344729e5d8ed3d9fcfbfe2e64f2522763a758658a40fa6c02a912",
+  "method_commit": "a29d3eb02615b8dac752d1d0f80a9df1c4c1f43f",
+  "CPU_input_freeze_sha256": "290beb5aa2b80fa2ab96d931ec4ee392eb66b66937ab5fbd220a1f15382facb1",
+  "method_and_inputs_precede_new_CPU_outputs": true,
+  "earlier_outcomes_known": true,
+  "cases": [
+    {
+      "case": "dry-upland-asia",
+      "original_rows": 24,
+      "mandatory_stream_parts": 4,
+      "envelopes": 1710,
+      "topology_counts": {
+        "map_edge_open_at_elevated_stage": 1556,
+        "interior_at_elevated_stage": 154
+      },
+      "interior_to_open_checks": 115,
+      "checks_intersecting_original_stream_bank_union_in_annulus": 0,
+      "bank_authority": "unchanged full8-neighbour original stream-graph bank union; not a new physical mask",
+      "network_protection_authority": {
+        "all_packed_node_xyz_match_declared_hydro": true,
+        "nodes": 288,
+        "control_records": 58,
+        "layout_sha256": "3d89682a35fcdd6815faa5e22a88bccba480d99ab2aeda465eec3a38365232b4",
+        "source_budget": "unknown; protected incidence not discharge/flood proof"
+      },
+      "base_refusal": null,
+      "physical_admission": false
+    },
+    {
+      "case": "dry-upland-europe",
+      "original_rows": 508,
+      "mandatory_stream_parts": 2,
+      "envelopes": 14,
+      "topology_counts": {
+        "interior_at_elevated_stage": 14
+      },
+      "interior_to_open_checks": 0,
+      "checks_intersecting_original_stream_bank_union_in_annulus": 0,
+      "bank_authority": "unchanged full8-neighbour original stream-graph bank union; not a new physical mask",
+      "network_protection_authority": {
+        "all_packed_node_xyz_match_declared_hydro": true,
+        "nodes": 288,
+        "control_records": 48,
+        "layout_sha256": "3d89682a35fcdd6815faa5e22a88bccba480d99ab2aeda465eec3a38365232b4",
+        "source_budget": "unknown; protected incidence not discharge/flood proof"
+      },
+      "base_refusal": null,
+      "physical_admission": false
+    },
+    {
+      "case": "dry-upland-south-america",
+      "original_rows": 27,
+      "mandatory_stream_parts": 9,
+      "envelopes": null,
+      "topology_counts": null,
+      "interior_to_open_checks": null,
+      "checks_intersecting_original_stream_bank_union_in_annulus": null,
+      "bank_authority": null,
+      "network_protection_authority": null,
+      "base_refusal": {
+        "square": "dry-upland-south-america",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "physical_admission": false
+    },
+    {
+      "case": "low-coast-oceania",
+      "original_rows": 1061,
+      "mandatory_stream_parts": 254,
+      "envelopes": 1417,
+      "topology_counts": {
+        "map_edge_open_at_elevated_stage": 722,
+        "interior_at_elevated_stage": 695
+      },
+      "interior_to_open_checks": 141,
+      "checks_intersecting_original_stream_bank_union_in_annulus": null,
+      "bank_authority": "no previous stream construction-bank model for coast; no invented banks",
+      "network_protection_authority": {
+        "all_packed_node_xyz_match_declared_hydro": true,
+        "nodes": 288,
+        "control_records": 167,
+        "layout_sha256": "3d89682a35fcdd6815faa5e22a88bccba480d99ab2aeda465eec3a38365232b4",
+        "source_budget": "unknown; protected incidence not discharge/flood proof"
+      },
+      "base_refusal": null,
+      "physical_admission": false
+    },
+    {
+      "case": "lowland-river-south-america",
+      "original_rows": 998,
+      "mandatory_stream_parts": 536,
+      "envelopes": 1428,
+      "topology_counts": {
+        "interior_at_elevated_stage": 458,
+        "map_edge_open_at_elevated_stage": 970
+      },
+      "interior_to_open_checks": 40,
+      "checks_intersecting_original_stream_bank_union_in_annulus": 454,
+      "bank_authority": "unchanged full8-neighbour original stream-graph bank union; not a new physical mask",
+      "network_protection_authority": {
+        "all_packed_node_xyz_match_declared_hydro": true,
+        "nodes": 288,
+        "control_records": 49,
+        "layout_sha256": "3d89682a35fcdd6815faa5e22a88bccba480d99ab2aeda465eec3a38365232b4",
+        "source_budget": "unknown; protected incidence not discharge/flood proof"
+      },
+      "base_refusal": null,
+      "physical_admission": false
+    },
+    {
+      "case": "mountain-river-asia",
+      "original_rows": 109,
+      "mandatory_stream_parts": 32,
+      "envelopes": null,
+      "topology_counts": null,
+      "interior_to_open_checks": null,
+      "checks_intersecting_original_stream_bank_union_in_annulus": null,
+      "bank_authority": null,
+      "network_protection_authority": null,
+      "base_refusal": {
+        "square": "mountain-river-asia",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "physical_admission": false
+    }
+  ],
+  "same_90m_examples_checked_at_90point5": {
+    "stage:5760:adj:8:component:1": {
+      "parent_id": "stage:5760:adj:8:component:1",
+      "stage_q": 5760,
+      "elevated_stage_q": 5792,
+      "adjacency": 8,
+      "base_nodes": 329323,
+      "elevated_nodes": 332528,
+      "elevated_nodes_i32_sha256": "f3c88bcf0d3cfb02ff597e3add9dfdfb2b574ff4a73b20f236d6502350a95426",
+      "added_diagnostic_nodes": 3205,
+      "off_mask_nodes": 5645,
+      "off_mask_initially_dry_nodes": 835,
+      "off_mask_already_initialized_nodes": 4810,
+      "new_envelope_initially_dry_nodes": 1236,
+      "old_source_bank_nodes_in_diagnostic_annulus": 0,
+      "first_original_source_bank_rc": null,
+      "protected_incidence": {
+        "landing_128m": 0,
+        "old_control_radius_plus64m": 5174,
+        "old_corridor_112m": 1234
+      },
+      "topology": "map_edge_open_at_elevated_stage",
+      "closed_basin_or_stream_admission": false,
+      "port_arcs": 6,
+      "boundary_nodes": 1816,
+      "literal_ocean_mask_boundary_nodes": 1778,
+      "raster_source_endpoint_incidences": 4
+    },
+    "stage:5760:adj:8:component:16": {
+      "parent_id": "stage:5760:adj:8:component:16",
+      "stage_q": 5760,
+      "elevated_stage_q": 5792,
+      "adjacency": 8,
+      "base_nodes": 1465,
+      "elevated_nodes": 332528,
+      "elevated_nodes_i32_sha256": "f3c88bcf0d3cfb02ff597e3add9dfdfb2b574ff4a73b20f236d6502350a95426",
+      "added_diagnostic_nodes": 331063,
+      "off_mask_nodes": 5645,
+      "off_mask_initially_dry_nodes": 835,
+      "off_mask_already_initialized_nodes": 4810,
+      "new_envelope_initially_dry_nodes": 1236,
+      "old_source_bank_nodes_in_diagnostic_annulus": 0,
+      "first_original_source_bank_rc": null,
+      "protected_incidence": {
+        "landing_128m": 0,
+        "old_control_radius_plus64m": 5174,
+        "old_corridor_112m": 1234
+      },
+      "topology": "map_edge_open_at_elevated_stage",
+      "closed_basin_or_stream_admission": false,
+      "port_arcs": 6,
+      "boundary_nodes": 1816,
+      "literal_ocean_mask_boundary_nodes": 1778,
+      "raster_source_endpoint_incidences": 4
+    }
+  },
+  "replay": {
+    "all_seven_outputs_byte_identical": true,
+    "files_sha256": {
+      "dry-upland-asia.json": "4c0e064c183c048d2eaf027870c9489437fe4279dbd5933bdd623553b191c30c",
+      "dry-upland-europe.json": "dd562544d806478dd7a9049591146834b39b6e31da4cb90369c79f166a0bd726",
+      "dry-upland-south-america.json": "b62cb35e2c8f175f1b782c0167b3091a75bb7082d5f1dabb8b2f11efd5668cb7",
+      "low-coast-oceania.json": "9c0123b789343f6b71e9a91d419af9ca25b58ac505a066885ffd7fa4b537679d",
+      "lowland-river-south-america.json": "1de3f3dbd428077eb84686bdac57a7a3d3c607531847bd5bb5994da7c60dcc94",
+      "mountain-river-asia.json": "e87c27b125cd1a3c4c8836af9561fb3fb728b789c5cf9ed69e9ed16d2fa29be2",
+      "receipt.json": "c7f8cf352d77b52d9c334b30c210c12f0b04a7a8d613686e4366a84f04927c44"
+    }
+  },
+  "new_tests": 4,
+  "new_native": false,
+  "new_physical_package": null,
+  "interpretation": "Elevated-stage raster connectivity separates an immediate sloping shoreline from potential spill/open-edge topology. NOT a new admissible footprint, hydraulic connectivity/capacity, flood prediction, bank retirement or qualified stage/source budget.",
+  "next_prepared_policy": "calibration/pl1191-construction-v1/development/phase23-next-stage-policy.md",
+  "phase23_CPU_results_independently_reviewed": false,
+  "adoption_or_holdout_access": false,
+  "promise": "unknown"
+}

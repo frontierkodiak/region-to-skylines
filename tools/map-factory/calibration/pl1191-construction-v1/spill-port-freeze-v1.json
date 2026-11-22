@@ -1,0 +1,9 @@
+{
+  "schema": "polli.pl1191-postanalysis-spill-port-binding/1",
+  "postanalysis_not_prospective": true,
+  "prospective_freeze_sha256": "290beb5aa2b80fa2ab96d931ec4ee392eb66b66937ab5fbd220a1f15382facb1",
+  "summary_sha256": "f7a97e276d7a0aaf29bd204bc3745c08c8bb6f1a060915826dac4cbcf4d4837d",
+  "results_receipt_sha256": "c7f8cf352d77b52d9c334b30c210c12f0b04a7a8d613686e4366a84f04927c44",
+  "new_physical_or_native": false,
+  "promise": "unknown"
+}

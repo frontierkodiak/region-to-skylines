@@ -1055,3 +1055,24 @@ No source placement, CRP, new game, mask/bank/threshold/default change or admiss
 This bounds the unchanged-head footprint-only proposal, not all supply designs
 or geographic possibility. Four new tests and complete byte-identical CPU replay
 pass. Seephase22policy/summary and postanalysis supply-envelope binding.
+
+## Phase twenty-three: elevated spill envelopes and open ports
+
+PL1260 passes the limited phase22 audit; consumed/closed. The immediate exterior
+rim of floor<stage can approach zero on a sloping shoreline, so it is not itself
+a surveyed containment failure. A newly committed/frozen read-only method checks
+every prior head/component at stage+0.5m, BOTH4/8adjacency across all6inputs, retaining
+583original mandatory stream parts and bothNULL base refusals. It never replaces
+an original construction footprint or retires banks.
+
+At90.5m, Bulimba rivers50's1465node base region joins the SAME332528node map-edge
+region as Main rivers52. It includes835initially-dry off-mask nodes and intersects
+the old control/corridor guards. These are conditional raster witnesses, NOT
+predicted flooding, hydraulic reach, capacity or a new gate. Every open boundary
+arc and exact raster source-endpoint incidence is retained; upstream supply and
+unmeasured stage/outlet capacity remainNULL/unknown. All288packed network-node xyz
+bytes match declared hydrology in each of4physical cases. No game/CRP/control/
+earthwork/mask/probe/default change. Four new tests/full7file byte-identical replay
+pass. Next prepared work is stage-ceiling vs complete source-contract compatibility,
+not another offshore repetition. New CPU results not yet independently accepted;
+all promisesunknown. Seephase23policy/summary/postanalysisbinding.
