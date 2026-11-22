@@ -1,0 +1,47 @@
+# Reference-defect protocol v1 (PL-1244)
+
+This protocol and its JSON thresholds are committed before evaluating the new
+detector. The seven existing squares are development evidence, not an unseen
+validation set. Wilmington NC, Providence RI and Baltimore MD are registered
+before acquiring their new source checks; all results, failures and missing
+coverage remain. No retuning under version 1 after observing its results.
+
+Run the same detector on every square, independently of exported-map scores.
+An alarm requires either:
+
+- A z13/z14 full-grid correlation below 0.9 **and** centered difference RMS
+  at least 1 source metre; or
+- A z13 tile-boundary median absolute jump at least 1 m and at least five times
+  both the z14 and canonical jumps (0.1 m comparison floor), over at least
+  32 adjacent sample pairs of the same tile boundary.
+
+A reference alarm is not permission to pass an export. It permits using the
+hash-bound higher-fidelity USGS 3DEP bare-earth reference **only after** an
+independent OpenStreetMap/OpenFreeMap water-shore registration passes. Neither
+Terrarium zoom is assumed to be true merely because it is finer. Missing
+3DEP, missing coastline/water geometry, ambiguous registration or insufficient
+coverage means **unresolved**, not an inferred pass. No forced z14 fallback.
+
+Registration uses an independently projected vector-water footprint, not the
+exporter's fitted ocean mask. The canonical raster's dominant 0.1 m elevation
+bin defines a possible hydro-flattened water level; points within 0.25 m form
+the DEM's candidate water footprint. This is a geometric feature, not a sea
+level or water-safety claim. Require both classes to cover at least 5%, at least
+64 interior shoreline cells, balanced land/water agreement at least 0.8 and an
+identity advantage of 0.05 over every other rotation/reflection. Symmetric
+interior-shore distances must have median <=30 source m and p90 <=90 source m.
+Artificial map edges are not shorelines. No water/land filtering of DEM scores.
+
+Every result reports the frozen z13 score, canonical-source score, z14 contrast,
+defect evidence, registration result and selected reference. Evaluate complete
+grids, eight orientations and any retained native world-sampler points; the
+correlation >=0.9, orientation margin >=0.15 and terracing <=0.08 limits do not
+change. Native receipts and original frozen verdicts remain immutable. A new
+reference-assessment receipt cannot be relabelled as the original frozen pass.
+
+If Norfolk does not meet the reference-defect rule, it remains a frozen-gate
+exporter failure requiring diagnosis; low agreement alone is not an exception.
+The protocol is deliberately conservative and may leave real defects unresolved.
+
+Boston initial inundation belongs to PL-1191. No detector result clears water
+safety, first-hour services, product warnings or default activation.

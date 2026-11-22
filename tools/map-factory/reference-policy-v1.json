@@ -1,0 +1,14 @@
+{
+  "version": "terrain-reference-policy/1",
+  "frozen_before_evaluation": "2026-11-22",
+  "canonical_reference": "Hash-bound USGS 3DEP bare-earth raster; no fallback if missing or registration is inconclusive",
+  "zoom_disagreement": {"maximum_correlation": 0.9, "minimum_centered_rmse_m": 1.0},
+  "seam": {"minimum_pairs": 32, "minimum_median_jump_m": 1.0, "minimum_jump_ratio": 5.0, "comparison_floor_m": 0.1},
+  "registration": {"mode_bin_m": 0.1, "water_level_tolerance_m": 0.25, "minimum_class_fraction": 0.05, "minimum_shore_cells": 64, "maximum_median_shore_distance_m": 30.0, "maximum_p90_shore_distance_m": 90.0, "minimum_balanced_accuracy": 0.8, "minimum_orientation_margin": 0.05},
+  "acceptance": {"minimum_correlation": 0.9, "minimum_orientation_margin": 0.15, "maximum_terracing": 0.08},
+  "prospective_source_checks": [
+    {"slug": "wilmington-nc", "lat": 34.2257, "lon": -77.9447, "size_m": 2000},
+    {"slug": "providence-ri", "lat": 41.8240, "lon": -71.4128, "size_m": 2000},
+    {"slug": "baltimore-md", "lat": 39.2904, "lon": -76.6122, "size_m": 2000}
+  ]
+}
