@@ -2997,3 +2997,25 @@ Blade2080Ti05:00.0,116card samples: peak10821MiB/142.78W/55C. Baseline other
 peak unknown. Observed200W cap unchanged. Slot20:41:57–20:51:13local,556s.
 No shared settings/preemption/previews/tabs. Independent RESULTS review before
 adoption; all promises unknown, defaults/ledger unchanged.
+
+### 2026-11-21 — PL-1191 sea-parameter counterfactual, blade
+
+One frozen sea90→0-only arm on clean exactddbff80/unchanged ownDLL368955b1…;
+sourcecount0/initialwater/velocity/terrain/full46202probes fixed. No driver/C#
+change; laterJOURNAL is not observedruntime. Completed15.065556minutes/61captures;
+all0source tables, all20049dense nodes finite, all61floorhash43f4be73…,
+targets=current/rawterrain=physical; initialnativewaterhash matches parent.
+All4ordinary sea reads0. Literal oceanedge1780/1780dry endpoint vs1778wet at90
+inparent; earlyfar median−.220359vs−.221735m/game-min, but newp10−.324058:
+spatialresponse changes, not isolated uniform sink/evaporation/physicalflux proof.
+RawFAIL/startup_views/Bridge+TypeLoadlogs retained; maxgap.344722min vs.25request,
+0missedslots, bracketednotatomic;60minuteprimary unknown. Newcollector/replay
+byte-identical; physicalplan replay byte-identical with sortedmanifestkeys.
+Doctor/buildsources/eightrefs/FIFO/offline/carbon guards pass. Driver3180739/
+game3186306 absent; normalquitgrace termination, game/Steam/units empty/finalFIFO
+free. Slot21:16:12–21:25:21local(549s). Blade2080Ti05:00.0,125card samples:
+peak10821MiB/138.6W/55C; baselineother7974MiB, game menu1620MiB and onerunning
+sample2590MiB, continuous game-only peak unknown. Observed200Wcap unchanged.
+No sharedconfig/power/preemption/previews/tabs. Producer also additively corrects
+phase20supplemental control/boundary-axis labels; primary79/nativeunchanged.
+IndependentRESULTSreview beforeadoption; allpromisesunknown/defaultsunchanged.
