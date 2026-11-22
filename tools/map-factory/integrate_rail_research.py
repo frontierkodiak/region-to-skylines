@@ -430,6 +430,7 @@ def opening_native() -> dict:
                 "query_freeze_sha256": sha(plan_bytes),
                 "networks_sha256": sha(net_bytes),
             },
+            "artifact_sha256": json.loads(obs_bytes)["artifact_sha256"],
             "plan": json.loads(plan_bytes)["plan"]["requests"],
             "paths": json.loads(obs_bytes)["paths"],
         }
@@ -523,6 +524,7 @@ def query_study(native: dict, publication: dict) -> dict:
     integrity = load_json(base / "corrected/integrity.json")
     earlier_integrity = load_json(base / "integrity.json")
     openings = load_json(base / "openings.json")
+    packages = load_json(base / "packages.json")["packages"]
     expect(
         evaluation["schema"] == 2
         and evaluation["model_version"] == "rail-query-model-v2-corrected",
@@ -592,6 +594,24 @@ def query_study(native: dict, publication: dict) -> dict:
     )
     for relative in integrity["evidence"]:
         expect((base / relative).is_file(), f"query study evidence lost {relative}")
+    for name, record in native.items():
+        package = packages[record["entry"]["package"]]
+        expect(
+            package["sha256"] == record["artifact_sha256"],
+            f"query study package hash differs from the native opening: {name}",
+        )
+    for name, entry in evaluation["openings"].items():
+        expect(
+            entry["artifact_sha256"] == native[name]["artifact_sha256"],
+            f"query study opening {name} names another package",
+        )
+        expect(
+            entry["observation_sha256"] == native[name]["stored"]["observation_sha256"]
+            and entry["query_freeze_sha256"]
+            == native[name]["stored"]["query_freeze_sha256"]
+            and entry["networks_sha256"] == native[name]["stored"]["networks_sha256"],
+            f"query study opening {name} names another raw receipt",
+        )
 
     result = evaluation["result"]
     expect(
@@ -785,8 +805,27 @@ def query_study(native: dict, publication: dict) -> dict:
             "labels": result["labels"],
             "openings": [
                 {
-                    key: entry[key]
-                    for key in ("opening", "split", "group", "label", "package", "raw")
+                    **{
+                        key: entry[key]
+                        for key in (
+                            "opening",
+                            "split",
+                            "group",
+                            "label",
+                            "package",
+                            "raw",
+                        )
+                    },
+                    "artifact_sha256": packages[entry["package"]]["sha256"],
+                    "observation_sha256": native[entry["opening"]]["stored"][
+                        "observation_sha256"
+                    ],
+                    "networks_sha256": native[entry["opening"]]["stored"][
+                        "networks_sha256"
+                    ],
+                    "query_freeze_sha256": native[entry["opening"]]["stored"][
+                        "query_freeze_sha256"
+                    ],
                 }
                 for entry in openings["openings"]
             ],
@@ -1124,7 +1163,7 @@ def junction_study(
                 "note": "Pittsburgh's 112 unqueried candidates stay unqueried and are not failures.",
             },
             "folds": evaluation["folds"],
-            "openings": [entry for entry in query["selection"]["openings"]],
+            "openings": [dict(entry) for entry in query["selection"]["openings"]],
         },
         "rules": {
             "reference": frozen,
@@ -1524,10 +1563,20 @@ def stock_study(native: dict, publication: dict) -> dict:
         },
         "selection": {
             "selected_queries": 48,
-            "packages": 10,
+            "package_count": 10,
             "supported_packages": len(supported),
             "unsupported_packages": len(unsupported),
             "inventory": len(freeze["inventory"]),
+            "selected_packages": [
+                {
+                    "file": entry["file"],
+                    "stratum": entry["stratum"],
+                    "crp_sha256": entry["lineage"]["crp_sha256"],
+                    "bytes": entry["bytes"],
+                    "locator": entry["locator"],
+                }
+                for entry in freeze["selected"]
+            ],
             "excluded_hashes": freeze["excluded_hashes"],
             "strata": strata,
             "freeze_schema": freeze["protocol"],

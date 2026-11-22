@@ -213,7 +213,11 @@
       "group": "stock",
       "label": "stock: AP Asanu Beach",
       "package": "stock-1",
-      "raw": "rail-v3/raw/stock-1"
+      "raw": "rail-v3/raw/stock-1",
+      "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+      "observation_sha256": "23e31086b16c072594be93ebe56031b7a713bae2cf1b7dfec6f0be7531387c5b",
+      "networks_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+      "query_freeze_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7"
      },
      {
       "opening": "stock-2",
@@ -221,7 +225,11 @@
       "group": "stock",
       "label": "stock: AP Hanami Bay",
       "package": "stock-2",
-      "raw": "rail-v3/raw/stock-2"
+      "raw": "rail-v3/raw/stock-2",
+      "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+      "observation_sha256": "6d4672c2698344b243bcc4ebaf406055ec50faa5be9147a996297d0f32cde9f1",
+      "networks_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+      "query_freeze_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81"
      },
      {
       "opening": "asheville",
@@ -229,7 +237,11 @@
       "group": "asheville",
       "label": "cohort: Asheville",
       "package": "asheville",
-      "raw": "rail-v3/raw/asheville"
+      "raw": "rail-v3/raw/asheville",
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "observation_sha256": "70bcebdfc5d06d9d825e5b9a4022a1f7c5459fd5f63341f2d75e9c641d5ee072",
+      "networks_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+      "query_freeze_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d"
      },
      {
       "opening": "innsbruck",
@@ -237,7 +249,11 @@
       "group": "innsbruck",
       "label": "cohort: Innsbruck",
       "package": "innsbruck",
-      "raw": "rail-v3/raw/innsbruck"
+      "raw": "rail-v3/raw/innsbruck",
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "observation_sha256": "5b24cb6699484bbf11f14698dcd7a2957597464fd49b266aaeafc6c1719bc198",
+      "networks_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+      "query_freeze_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b"
      },
      {
       "opening": "boston",
@@ -245,7 +261,11 @@
       "group": "boston",
       "label": "cohort: Boston",
       "package": "boston",
-      "raw": "rail-v3-followup-1/raw/boston-attempt-1"
+      "raw": "rail-v3-followup-1/raw/boston-attempt-1",
+      "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+      "observation_sha256": "c59dd390515d48727e058ed3dd605178806d273761fe4414b2ff7f94c1a3ea16",
+      "networks_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+      "query_freeze_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299"
      },
      {
       "opening": "charleston",
@@ -253,7 +273,11 @@
       "group": "charleston",
       "label": "cohort: Charleston",
       "package": "charleston",
-      "raw": "rail-v3-followup-1/raw/charleston-attempt-1"
+      "raw": "rail-v3-followup-1/raw/charleston-attempt-1",
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "observation_sha256": "5b89ea2a7353426c4fb57f6b5b8c49c61c860d67a0f3af8764dadc401775ebad",
+      "networks_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+      "query_freeze_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720"
      },
      {
       "opening": "grand-canyon",
@@ -261,7 +285,11 @@
       "group": "grand-canyon",
       "label": "cohort: Grand Canyon",
       "package": "grand-canyon",
-      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1"
+      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1",
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "observation_sha256": "749cc68dbf48ac2f262952a0f7ce97e0e71a8fcc30eea6e69f15b519d8c8fa28",
+      "networks_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+      "query_freeze_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5"
      },
      {
       "opening": "hong-kong",
@@ -269,7 +297,11 @@
       "group": "hong-kong",
       "label": "cohort: Hong Kong",
       "package": "hong-kong",
-      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1"
+      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1",
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "observation_sha256": "ff9f13650a62440967d2c4e65df6cb72914103e76a0432415c56afdedcce6926",
+      "networks_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+      "query_freeze_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6"
      },
      {
       "opening": "pittsburgh",
@@ -277,7 +309,11 @@
       "group": "pittsburgh",
       "label": "cohort: Pittsburgh",
       "package": "pittsburgh",
-      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1"
+      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+      "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+      "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a"
      },
      {
       "opening": "rio",
@@ -285,7 +321,11 @@
       "group": "rio",
       "label": "cohort: Rio",
       "package": "rio",
-      "raw": "rail-v3-followup-1/raw/rio-attempt-2"
+      "raw": "rail-v3-followup-1/raw/rio-attempt-2",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "observation_sha256": "7da2cec0d0ece85e1cc67b87335376106ed7116c5d5fd6e8b0db1c493bc8e466",
+      "networks_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+      "query_freeze_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2"
      },
      {
       "opening": "yosemite",
@@ -293,7 +333,11 @@
       "group": "yosemite",
       "label": "cohort: Yosemite",
       "package": "yosemite",
-      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1"
+      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1",
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "observation_sha256": "03dfa2cf1063d95dc529c2d486c4ec815a867f6ca51c5ed15e14c8816d3c33a4",
+      "networks_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+      "query_freeze_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1"
      }
     ],
     "excluded": [
@@ -14022,7 +14066,11 @@
       "group": "stock",
       "label": "stock: AP Asanu Beach",
       "package": "stock-1",
-      "raw": "rail-v3/raw/stock-1"
+      "raw": "rail-v3/raw/stock-1",
+      "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+      "observation_sha256": "23e31086b16c072594be93ebe56031b7a713bae2cf1b7dfec6f0be7531387c5b",
+      "networks_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+      "query_freeze_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7"
      },
      {
       "opening": "stock-2",
@@ -14030,7 +14078,11 @@
       "group": "stock",
       "label": "stock: AP Hanami Bay",
       "package": "stock-2",
-      "raw": "rail-v3/raw/stock-2"
+      "raw": "rail-v3/raw/stock-2",
+      "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+      "observation_sha256": "6d4672c2698344b243bcc4ebaf406055ec50faa5be9147a996297d0f32cde9f1",
+      "networks_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+      "query_freeze_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81"
      },
      {
       "opening": "asheville",
@@ -14038,7 +14090,11 @@
       "group": "asheville",
       "label": "cohort: Asheville",
       "package": "asheville",
-      "raw": "rail-v3/raw/asheville"
+      "raw": "rail-v3/raw/asheville",
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "observation_sha256": "70bcebdfc5d06d9d825e5b9a4022a1f7c5459fd5f63341f2d75e9c641d5ee072",
+      "networks_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+      "query_freeze_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d"
      },
      {
       "opening": "innsbruck",
@@ -14046,7 +14102,11 @@
       "group": "innsbruck",
       "label": "cohort: Innsbruck",
       "package": "innsbruck",
-      "raw": "rail-v3/raw/innsbruck"
+      "raw": "rail-v3/raw/innsbruck",
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "observation_sha256": "5b24cb6699484bbf11f14698dcd7a2957597464fd49b266aaeafc6c1719bc198",
+      "networks_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+      "query_freeze_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b"
      },
      {
       "opening": "boston",
@@ -14054,7 +14114,11 @@
       "group": "boston",
       "label": "cohort: Boston",
       "package": "boston",
-      "raw": "rail-v3-followup-1/raw/boston-attempt-1"
+      "raw": "rail-v3-followup-1/raw/boston-attempt-1",
+      "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+      "observation_sha256": "c59dd390515d48727e058ed3dd605178806d273761fe4414b2ff7f94c1a3ea16",
+      "networks_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+      "query_freeze_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299"
      },
      {
       "opening": "charleston",
@@ -14062,7 +14126,11 @@
       "group": "charleston",
       "label": "cohort: Charleston",
       "package": "charleston",
-      "raw": "rail-v3-followup-1/raw/charleston-attempt-1"
+      "raw": "rail-v3-followup-1/raw/charleston-attempt-1",
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "observation_sha256": "5b89ea2a7353426c4fb57f6b5b8c49c61c860d67a0f3af8764dadc401775ebad",
+      "networks_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+      "query_freeze_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720"
      },
      {
       "opening": "grand-canyon",
@@ -14070,7 +14138,11 @@
       "group": "grand-canyon",
       "label": "cohort: Grand Canyon",
       "package": "grand-canyon",
-      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1"
+      "raw": "rail-v3-followup-1/raw/grand-canyon-attempt-1",
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "observation_sha256": "749cc68dbf48ac2f262952a0f7ce97e0e71a8fcc30eea6e69f15b519d8c8fa28",
+      "networks_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+      "query_freeze_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5"
      },
      {
       "opening": "hong-kong",
@@ -14078,7 +14150,11 @@
       "group": "hong-kong",
       "label": "cohort: Hong Kong",
       "package": "hong-kong",
-      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1"
+      "raw": "rail-v3-followup-1/raw/hong-kong-attempt-1",
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "observation_sha256": "ff9f13650a62440967d2c4e65df6cb72914103e76a0432415c56afdedcce6926",
+      "networks_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+      "query_freeze_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6"
      },
      {
       "opening": "pittsburgh",
@@ -14086,7 +14162,11 @@
       "group": "pittsburgh",
       "label": "cohort: Pittsburgh",
       "package": "pittsburgh",
-      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1"
+      "raw": "rail-v3-followup-1/raw/pittsburgh-attempt-1",
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "observation_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+      "networks_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+      "query_freeze_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a"
      },
      {
       "opening": "rio",
@@ -14094,7 +14174,11 @@
       "group": "rio",
       "label": "cohort: Rio",
       "package": "rio",
-      "raw": "rail-v3-followup-1/raw/rio-attempt-2"
+      "raw": "rail-v3-followup-1/raw/rio-attempt-2",
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "observation_sha256": "7da2cec0d0ece85e1cc67b87335376106ed7116c5d5fd6e8b0db1c493bc8e466",
+      "networks_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+      "query_freeze_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2"
      },
      {
       "opening": "yosemite",
@@ -14102,7 +14186,11 @@
       "group": "yosemite",
       "label": "cohort: Yosemite",
       "package": "yosemite",
-      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1"
+      "raw": "rail-v3-followup-1/raw/yosemite-attempt-1",
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "observation_sha256": "03dfa2cf1063d95dc529c2d486c4ec815a867f6ca51c5ed15e14c8816d3c33a4",
+      "networks_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+      "query_freeze_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1"
      }
     ]
    },
@@ -38517,10 +38605,82 @@
    },
    "selection": {
     "selected_queries": 48,
-    "packages": 10,
+    "package_count": 10,
     "supported_packages": 6,
     "unsupported_packages": 4,
     "inventory": 105,
+    "selected_packages": [
+     {
+      "file": "MM Weaving Waters.crp",
+      "stratum": "pair_difference",
+      "crp_sha256": "85ec60c4da7fd67fb44bbed892c5f5d2d0acac5f84643185c49d2c6dbdeeede1",
+      "bytes": 4780999,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/MM Weaving Waters.crp"
+     },
+     {
+      "file": "PU Narrow Passage.crp",
+      "stratum": "pair_difference",
+      "crp_sha256": "0ab5716c40a77d352a3ed22132bd760ac863997652562a388f066c7e2432ac0e",
+      "bytes": 5811082,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/PU Narrow Passage.crp"
+     },
+     {
+      "file": "CCP Map 2.crp",
+      "stratum": "no_pair_difference",
+      "crp_sha256": "f6ca9905fda298fce7cc8f8f68abb24ecf1d4778e573d2562fe04725dc355f45",
+      "bytes": 5382022,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCP Map 2.crp"
+     },
+     {
+      "file": "CCP Map 3.crp",
+      "stratum": "no_pair_difference",
+      "crp_sha256": "cf0c06953158a5e5e3daded78da2ff86bf32a90468b6b7e4e4aa0aac7613d4b0",
+      "bytes": 3646254,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCP Map 3.crp"
+     },
+     {
+      "file": "CCP Map 4.crp",
+      "stratum": "no_pair_difference",
+      "crp_sha256": "ec6dd74b34f4033d076b480f8144e7ab9a0d7dabaf7d39899658ed34070d9175",
+      "bytes": 4064527,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCP Map 4.crp"
+     },
+     {
+      "file": "CCP Map 5.crp",
+      "stratum": "no_pair_difference",
+      "crp_sha256": "ec61b55714b3fe9749681f910eb8d973fd0eaf56195e3c88c6653b5494bb8d8b",
+      "bytes": 3328179,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCP Map 5.crp"
+     },
+     {
+      "file": "AP Noyou Port.crp",
+      "stratum": "unsupported_or_no_pair",
+      "crp_sha256": "991d55217c6d9fbaddcdcf3dbeedd216109201c17347aa5d29b4db5d5d447381",
+      "bytes": 5014378,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Noyou Port.crp"
+     },
+     {
+      "file": "CCMP2 Boreal Map 1.crp",
+      "stratum": "unsupported_or_no_pair",
+      "crp_sha256": "8eb2a4fa6a1544cd740887ad3347d19aca810d7373257ab9c783a3ded00fb725",
+      "bytes": 4497197,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCMP2 Boreal Map 1.crp"
+     },
+     {
+      "file": "CCMP2 Boreal Map 2.crp",
+      "stratum": "unsupported_or_no_pair",
+      "crp_sha256": "4183237b98074318b28b2677810f591526f8b78b9f449bb6e626ac3b52258ccb",
+      "bytes": 5044997,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCMP2 Boreal Map 2.crp"
+     },
+     {
+      "file": "CCMP2 Desert Map 1.crp",
+      "stratum": "unsupported_or_no_pair",
+      "crp_sha256": "95f5f8c2f661d8d512baaaabb936f9998560b89f7949617baa997288fdbd1e59",
+      "bytes": 3765153,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/CCMP2 Desert Map 1.crp"
+     }
+    ],
     "excluded_hashes": [
      "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
      "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",

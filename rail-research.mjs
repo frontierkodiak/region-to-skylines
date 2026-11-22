@@ -16,9 +16,9 @@ const read = (file) => readFileSync(ROOT + file);
 
 export const RAIL_RESEARCH_STUDIES = ["rail-query-model-v1", "rail-junction-fit-v1", "rail-stock-holdout-v1"];
 export const RAIL_RESEARCH_PROJECTION = "tools/map-factory/capability-evidence/rail-research-studies.json";
-export const RAIL_RESEARCH_PROJECTION_SHA = "43c7a9bc0085f30e63f79fba2b905d93630705c7d41c3ad3e70e37f7d149cd63";
+export const RAIL_RESEARCH_PROJECTION_SHA = "e826c5938ed3c7b1ee15487f1773157e95559aaaa849c617c55a0d4db1e21c63";
 export const RAIL_RESEARCH_TOOL = "tools/map-factory/integrate_rail_research.py";
-export const RAIL_RESEARCH_TOOL_SHA = "8fb669751b340aeabe9280632a95380b0e3359ecf0d1dbe52767694989b9f129";
+export const RAIL_RESEARCH_TOOL_SHA = "284aefe21179ced207f12104c668a7ae499f83d42371300b534614764a4bafd2";
 export const RAIL_RESEARCH_SOURCES = "tools/map-factory/capability-evidence/rail-research-sources.json";
 export const RAIL_RESEARCH_SOURCES_SHA = "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b";
 export const RAIL_EVIDENCE_PREFIX = "tools/map-factory/capability-evidence/";
@@ -416,7 +416,7 @@ function stockPage(escape, study) {
     ${table(escape, ["Rule", "All-complete intent-to-test", "Snapshot-matched"], ruleRows, "data-rail-research-rules")}
     <p>Both rules score ${escape(counts(tables["all-complete intent-to-test"].all[rules.rules[0]]))} on ${escape(String(study.selection.selected_queries))} completed requests. <strong>Their pre-query predictions were identical for all ${escape(String(study.selection.selected_queries))}, so this selection does not prefer tangent over chord.</strong> The eight failures all belong to one package (holdout-02) and are not eight independent votes.</p>
     ${table(escape, ["Stratum", "Available", "Selected", "Requests", "Success", "Failure", "Packages"], stratumRows, "data-rail-research-strata")}
-    <p>Supported package coverage is ${escape(String(study.selection.supported_packages))}/${escape(String(study.selection.packages))}. The ${escape(String(study.selection.unsupported_packages))} unsupported packages keep metadata-only captures and selected zero requests; they are not dropped or replaced.</p>
+    <p>Supported package coverage is ${escape(String(study.selection.supported_packages))}/${escape(String(study.selection.package_count))}. The ${escape(String(study.selection.unsupported_packages))} unsupported packages keep metadata-only captures and selected zero requests; they are not dropped or replaced.</p>
     ${table(escape, ["Control", "Boundary successes / requests", "Invalid pair", "Context", "Cleanup"], controlRows, "data-rail-research-controls")}
     <p>All ${escape(String(study.runtime.native_verification.openings.length))} openings have fresh process identities and empty game, Steam-instance and unit cleanup lists. The supported packages' 1,277 Train segments have no used-field mismatches; the unsupported packages retain ${escape(field.unsupported.map((entry) => `${entry.package}: ${entry.opening_mismatches}`).join(", "))} opening mismatches as coverage gaps, not scored failures.</p>
     <details><summary>All ${escape(String(Object.keys(rules.tables["all-complete intent-to-test"].packages).length))} package and stratum tables, with every null kept</summary>${detail(escape, "Scored tables as data", rules.tables)}</details>

@@ -58498,87 +58498,87 @@
       "limits": "Reviewed directed-rail native path study, not accuracy, blind holdout, geographic negative or a place-level rail promise. Selected requests are a bounded sample at opening in this exact loaded-file and plugin context; a failed query or an empty candidate list is Unknown, never absence. Pittsburgh's fixed cap left 112 candidates unqueried and Boston's two same-edge successes are not distinct-edge witnesses. The four positive cells agree with the preserved frozen-v3 rail candidates by exact artifact hash and CPU receipt lineage; that is positive-witness agreement on an already observed cohort, not accuracy. Native raw receipts bind CRP bytes, not freshly rehashed prepared inputs: the three input hashes are reused frozen lineage. File identity is not in-memory code attestation or strict no-mods; dynamic assemblies are excluded and three DLC-panel errors are retained at every opening. enabled_mod_count=0 does not mean unloaded/no mods: CitiesBridge, the harness and built-ins are loaded. No rail service, train spawning, station/port, editor/gameplay parity, sustained gameplay or human play is established. No native rail certificate is issued and no live Yes is claimed."
     }
   },
-    "rail_research_studies": {
-      "rail-query-model-v1": {
-        "kind": "query_scoped_rail_reachability_study",
-        "study": "rail-query-model-v1",
-        "source_commit": "364628b81701c134e3f469f9e175c4fe40f7a311",
-        "source_base": "1a0e45c65745ba5f05cf22f947da2e88fed25277",
-        "source_issue": "01a1ff50-0902-76c7-98ca-3818031097b6",
-        "pull_request": 81,
-        "internal_merge": "d008778fd44cf448b2078738468267e8a7863af0",
-        "publication_files": 29,
-        "copied_files": 19,
-        "linked_files": 10,
-        "projection_file": "tools/map-factory/capability-evidence/rail-research-studies.json",
-        "projection_sha256": "43c7a9bc0085f30e63f79fba2b905d93630705c7d41c3ad3e70e37f7d149cd63",
-        "projection_tool_file": "tools/map-factory/integrate_rail_research.py",
-        "projection_tool_sha256": "8fb669751b340aeabe9280632a95380b0e3359ecf0d1dbe52767694989b9f129",
-        "source_manifest_file": "tools/map-factory/capability-evidence/rail-research-sources.json",
-        "source_manifest_sha256": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
-        "freeze": {
-          "name": "rail-query-model-v2-corrected",
-          "sha256": null,
-          "frozen_before_observations": true,
-          "discordant_predictions": null
-        },
-        "selected_queries": 276,
-        "evidence_files_sha256": "81c0d4ef4e4c2ad932f49109a94b8fbd16f068a24dea7c02748c14a98707740e",
-        "certificates": "none"
+  "rail_research_studies": {
+    "rail-query-model-v1": {
+      "kind": "query_scoped_rail_reachability_study",
+      "study": "rail-query-model-v1",
+      "source_commit": "364628b81701c134e3f469f9e175c4fe40f7a311",
+      "source_base": "1a0e45c65745ba5f05cf22f947da2e88fed25277",
+      "source_issue": "01a1ff50-0902-76c7-98ca-3818031097b6",
+      "pull_request": 81,
+      "internal_merge": "d008778fd44cf448b2078738468267e8a7863af0",
+      "publication_files": 29,
+      "copied_files": 19,
+      "linked_files": 10,
+      "projection_file": "tools/map-factory/capability-evidence/rail-research-studies.json",
+      "projection_sha256": "e826c5938ed3c7b1ee15487f1773157e95559aaaa849c617c55a0d4db1e21c63",
+      "projection_tool_file": "tools/map-factory/integrate_rail_research.py",
+      "projection_tool_sha256": "284aefe21179ced207f12104c668a7ae499f83d42371300b534614764a4bafd2",
+      "source_manifest_file": "tools/map-factory/capability-evidence/rail-research-sources.json",
+      "source_manifest_sha256": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
+      "freeze": {
+        "name": "rail-query-model-v2-corrected",
+        "sha256": null,
+        "frozen_before_observations": true,
+        "discordant_predictions": null
       },
-      "rail-junction-fit-v1": {
-        "kind": "export_tangent_junction_study",
-        "study": "rail-junction-fit-v1",
-        "source_commit": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
-        "source_base": "364628b81701c134e3f469f9e175c4fe40f7a311",
-        "source_issue": "01a1ffa9-451f-7c0d-ac3c-aa4b85954785",
-        "pull_request": 82,
-        "internal_merge": "fef279efb339d26d3cc86eddcf588f3f7611e290",
-        "publication_files": 18,
-        "copied_files": 10,
-        "linked_files": 8,
-        "projection_file": "tools/map-factory/capability-evidence/rail-research-studies.json",
-        "projection_sha256": "43c7a9bc0085f30e63f79fba2b905d93630705c7d41c3ad3e70e37f7d149cd63",
-        "projection_tool_file": "tools/map-factory/integrate_rail_research.py",
-        "projection_tool_sha256": "8fb669751b340aeabe9280632a95380b0e3359ecf0d1dbe52767694989b9f129",
-        "source_manifest_file": "tools/map-factory/capability-evidence/rail-research-sources.json",
-        "source_manifest_sha256": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
-        "freeze": {
-          "name": "rail-junction-fit-v1",
-          "sha256": null,
-          "frozen_before_observations": true,
-          "discordant_predictions": null
-        },
-        "selected_queries": 276,
-        "evidence_files_sha256": "5bba4203b7ac51493ef6a8725a415c98422f6ece15ee7e0d8ce38a9ddf0bf6f5",
-        "certificates": "none"
+      "selected_queries": 276,
+      "evidence_files_sha256": "81c0d4ef4e4c2ad932f49109a94b8fbd16f068a24dea7c02748c14a98707740e",
+      "certificates": "none"
+    },
+    "rail-junction-fit-v1": {
+      "kind": "export_tangent_junction_study",
+      "study": "rail-junction-fit-v1",
+      "source_commit": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
+      "source_base": "364628b81701c134e3f469f9e175c4fe40f7a311",
+      "source_issue": "01a1ffa9-451f-7c0d-ac3c-aa4b85954785",
+      "pull_request": 82,
+      "internal_merge": "fef279efb339d26d3cc86eddcf588f3f7611e290",
+      "publication_files": 18,
+      "copied_files": 10,
+      "linked_files": 8,
+      "projection_file": "tools/map-factory/capability-evidence/rail-research-studies.json",
+      "projection_sha256": "e826c5938ed3c7b1ee15487f1773157e95559aaaa849c617c55a0d4db1e21c63",
+      "projection_tool_file": "tools/map-factory/integrate_rail_research.py",
+      "projection_tool_sha256": "284aefe21179ced207f12104c668a7ae499f83d42371300b534614764a4bafd2",
+      "source_manifest_file": "tools/map-factory/capability-evidence/rail-research-sources.json",
+      "source_manifest_sha256": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
+      "freeze": {
+        "name": "rail-junction-fit-v1",
+        "sha256": null,
+        "frozen_before_observations": true,
+        "discordant_predictions": null
       },
-      "rail-stock-holdout-v1": {
-        "kind": "frozen_stock_rule_holdout_study",
-        "study": "rail-stock-holdout-v1",
-        "source_commit": "914c153687106197e5f3a745d3ff7e181181ea8a",
-        "source_base": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
-        "source_issue": "01a20005-783b-7b01-b1c8-d4bbda7929cb",
-        "pull_request": 84,
-        "internal_merge": null,
-        "publication_files": 159,
-        "copied_files": 16,
-        "linked_files": 143,
-        "projection_file": "tools/map-factory/capability-evidence/rail-research-studies.json",
-        "projection_sha256": "43c7a9bc0085f30e63f79fba2b905d93630705c7d41c3ad3e70e37f7d149cd63",
-        "projection_tool_file": "tools/map-factory/integrate_rail_research.py",
-        "projection_tool_sha256": "8fb669751b340aeabe9280632a95380b0e3359ecf0d1dbe52767694989b9f129",
-        "source_manifest_file": "tools/map-factory/capability-evidence/rail-research-sources.json",
-        "source_manifest_sha256": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
-        "freeze": {
-          "name": "PL-1239-stock-holdout-v1",
-          "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
-          "frozen_before_observations": true,
-          "discordant_predictions": 0
-        },
-        "selected_queries": 48,
-        "evidence_files_sha256": "b37c40e095891873ec9d56408643f022affdee6f26ebd38c097dc852b03599b1",
-        "certificates": "none"
-      }
+      "selected_queries": 276,
+      "evidence_files_sha256": "5bba4203b7ac51493ef6a8725a415c98422f6ece15ee7e0d8ce38a9ddf0bf6f5",
+      "certificates": "none"
+    },
+    "rail-stock-holdout-v1": {
+      "kind": "frozen_stock_rule_holdout_study",
+      "study": "rail-stock-holdout-v1",
+      "source_commit": "914c153687106197e5f3a745d3ff7e181181ea8a",
+      "source_base": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
+      "source_issue": "01a20005-783b-7b01-b1c8-d4bbda7929cb",
+      "pull_request": 84,
+      "internal_merge": null,
+      "publication_files": 159,
+      "copied_files": 16,
+      "linked_files": 143,
+      "projection_file": "tools/map-factory/capability-evidence/rail-research-studies.json",
+      "projection_sha256": "e826c5938ed3c7b1ee15487f1773157e95559aaaa849c617c55a0d4db1e21c63",
+      "projection_tool_file": "tools/map-factory/integrate_rail_research.py",
+      "projection_tool_sha256": "284aefe21179ced207f12104c668a7ae499f83d42371300b534614764a4bafd2",
+      "source_manifest_file": "tools/map-factory/capability-evidence/rail-research-sources.json",
+      "source_manifest_sha256": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
+      "freeze": {
+        "name": "PL-1239-stock-holdout-v1",
+        "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+        "frozen_before_observations": true,
+        "discordant_predictions": 0
+      },
+      "selected_queries": 48,
+      "evidence_files_sha256": "b37c40e095891873ec9d56408643f022affdee6f26ebd38c097dc852b03599b1",
+      "certificates": "none"
     }
+  }
 }
