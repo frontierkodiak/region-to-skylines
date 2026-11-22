@@ -1,10 +1,19 @@
 import copy
 import unittest
 
-from coastal_rate_zero_study import rate_only_change
+from coastal_rate_zero_study import missed_slot_count, rate_only_change
 
 
 class RateZeroTests(unittest.TestCase):
+    def test_future_protocol_reporting_counts_actual_missed_slot_entries(self):
+        self.assertEqual(
+            missed_slot_count([{"missed_slots": []}, {"missed_slots": [2, 3]}]), 2
+        )
+
+    def test_future_protocol_reporting_keeps_wrong_counter_shape_unknown(self):
+        with self.assertRaises(ValueError):
+            missed_slot_count([{"missed_slots": 0}])
+
     def test_only_outputs_change_and_original_targets_positions_are_retained(self):
         before = [
             {

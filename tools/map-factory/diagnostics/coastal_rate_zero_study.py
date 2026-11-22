@@ -37,6 +37,12 @@ def rate_only_change(before, after):
             raise ValueError("Only all167 positive encoded output rates may change")
 
 
+def missed_slot_count(rows):
+    if any(not isinstance(r.get("missed_slots"), list) for r in rows):
+        raise ValueError("Missing/malformed missed-slot lists remain unknown")
+    return sum(len(r["missed_slots"]) for r in rows)
+
+
 def patch(parent):
     physical = parent / "physical"
     source = (physical / "PL857-low-coast-oceania.crp").read_bytes()
@@ -269,7 +275,7 @@ def collect(folder, native, harness, output):
         "max_trigger_gap_minutes": float(np.diff([r["minute"] for r in rows]).max())
         if len(rows) > 1
         else None,
-        "missed_slots": sum(r["missed_slots"] for r in rows),
+        "missed_slots": missed_slot_count(rows),
         "all_control_tables_match": all(not r["control_mismatches"] for r in rows),
         "runtime_metadata": runtime,
         "raw_verdict_sha256": sha(native / "verdict.json"),
