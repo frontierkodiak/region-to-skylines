@@ -69,13 +69,13 @@ def validate_records(acceptance, budget, request, frozen):
     return True
 
 
-def native_record(comment_id):
+def native_record(comment_id, frozen):
     """Only the authenticated CLI supplies provider actor and record identity."""
     if type(comment_id) is not str or len(comment_id) != 36:
         raise Unknown("explicit parent comment id required")
     result = subprocess.run(
         [
-            "multica",
+            frozen["native"]["tools"]["multica"]["path"],
             "issue",
             "comment",
             "list",
@@ -111,8 +111,8 @@ class ParentAuthority:
         if request.purpose != "NATIVE":
             raise Unknown("native authority cannot be used for constructed facts")
         return validate_records(
-            native_record(self.acceptance_comment),
-            native_record(self.budget_comment),
+            native_record(self.acceptance_comment, frozen),
+            native_record(self.budget_comment, frozen),
             request,
             frozen,
         )

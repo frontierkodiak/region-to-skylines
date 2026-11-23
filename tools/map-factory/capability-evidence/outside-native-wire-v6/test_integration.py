@@ -212,6 +212,56 @@ class Integration(unittest.TestCase):
                 self.assertFalse(result["result"]["structural_pass"])
                 self.assertFalse(any(r["op"] == "path_start" for r in result["trace"]))
 
+    def test_partial_submission_and_stalled_handle_remain_unresolved(self):
+        for kind in ("partial-request", "stalled"):
+            script = script_for(self.native, self.store)
+            if kind == "partial-request":
+                next(r for r in script if r["op"] == "path_start")["mode"] = kind
+            else:
+                index = next(
+                    i for i, r in enumerate(script) if r["op"] == "path_result"
+                )
+                pending = copy.deepcopy(script[index])
+                pending["reply"].update(
+                    flags=1,
+                    complete=False,
+                    released=False,
+                    success=False,
+                    positions=[],
+                    length=0,
+                )
+                script[index] = pending
+                stalled = copy.deepcopy(pending)
+                stalled["mode"] = "blocked"
+                script.insert(index + 1, stalled)
+            limits = dict(self.native.descriptor["limits"], query_seconds=2)
+            result = self.exercise(script, limits)
+            self.assertFalse(result["result"]["structural_pass"])
+            self.assertIsNotNone(result["pending"])
+            self.assertEqual(sum(r["op"] == "path_start" for r in result["trace"]), 1)
+            if kind == "partial-request":
+                self.assertTrue(
+                    any(r.get("partial_request_hex") for r in result["server_calls"])
+                )
+            else:
+                polls = [r for r in result["trace"] if r["op"] == "path_result"]
+                self.assertEqual(len(polls), 2)
+                self.assertEqual(polls[0]["args"], polls[1]["args"])
+
+    def test_complete_constructed_study_keeps_admission_unknown(self):
+        from exercise import study_run
+
+        with tempfile.TemporaryDirectory(dir=self.root) as temp:
+            result = study_run(self.frozen, self.store, Path(temp))
+        self.assertEqual(result["control_admission"], "Unknown")
+        self.assertEqual(result["native_requests"], 0)
+        self.assertEqual(result["planned_unobserved"], [])
+        self.assertGreaterEqual(len(result["cases"]), 3)
+        self.assertTrue(all(r["result"]["structural_pass"] for r in result["cases"]))
+        self.assertTrue(
+            all(r["result"]["control_admission"] == "Unknown" for r in result["cases"])
+        )
+
     @classmethod
     def tearDownClass(cls):
         (cls.root / "pre-effect-refusals.json").write_bytes(

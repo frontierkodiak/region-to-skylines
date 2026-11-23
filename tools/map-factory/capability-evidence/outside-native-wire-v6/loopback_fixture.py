@@ -83,6 +83,18 @@ def serve(fd, plan):
         conn, _ = listener.accept()
         conn.settimeout(0.5)
         with conn:
+            row = next(script, None)
+            if row and row.get("mode") == "partial-request":
+                prefix = conn.recv(5)
+                calls.append(
+                    dict(
+                        expected_op=row["op"],
+                        partial_request_hex=prefix.hex(),
+                        accepted=time.monotonic(),
+                    )
+                )
+                save()
+                continue
             buf = bytearray()
             while b"\n" not in buf and len(buf) <= 1 << 20:
                 data = conn.recv(4096)
@@ -94,13 +106,11 @@ def serve(fd, plan):
             request = decode(bytes(buf))
             calls.append(dict(request=request, accepted=time.monotonic()))
             save()  # A stall cannot be asserted solely from the client's timeout.
-            row = next(
-                script,
-                {
+            if row is None:
+                row = {
                     "op": request["op"],
                     "reply": {"ok": False, "error": "script exhausted"},
-                },
-            )
+                }
             if row["op"] != request["op"] or (
                 "args" in row
                 and row["args"] != {k: v for k, v in request.items() if k != "op"}

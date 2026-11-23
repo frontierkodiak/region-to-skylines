@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import subprocess
+import sys
 
 import accepted_api as api
 from wire import Unknown, decode
@@ -19,6 +20,11 @@ NAMES = frozenset(
         "authority.py",
         "wire_supervisor.py",
         "roles.py",
+        "wire_study.py",
+        "lease.py",
+        "native_context.py",
+        "owned_flatpak.py",
+        "native_cli.py",
         "native_session.py",
         "exercise.py",
         "wire_check.py",
@@ -137,7 +143,7 @@ def closure(revision):
     return sorted(paths)
 
 
-def prepare(store, revision, maps):
+def prepare(store, revision, maps, freeze_file):
     revision = git("rev-parse", revision + "^{commit}").decode().strip()
     if git("merge-base", PIN, revision).decode().strip() != PIN:
         raise Unknown("candidate source does not descend from pin")
@@ -151,6 +157,9 @@ def prepare(store, revision, maps):
     old_freeze = api.spec.read(api.V5 / "adapter-freeze.json")
     native = api.adapter_spec.validate(old_freeze, store)
     values = inventory(maps, store)
+    from wire_study import holdout_cases
+
+    values["holdout_cases"] = holdout_cases(native, values, store)
     result = dict(
         version=6,
         purpose="UNRUN_INPUT_ONLY_NOT_LAUNCH_AUTHORITY",
@@ -171,6 +180,9 @@ def prepare(store, revision, maps):
             "opening-budget",
         ],
         old_holdout_cells="Unknown",
+        native=__import__("native_context").build_descriptor(
+            native, store, api.HERE, freeze_file
+        ),
     )
     return result
 
@@ -192,6 +204,7 @@ def validate(value, store):
             "controls",
             "required_parent_acceptance",
             "old_holdout_cells",
+            "native",
         },
         "v6 candidate",
     )
@@ -217,6 +230,14 @@ def validate(value, store):
             raise Unknown("source/retained/revision bytes differ: " + path)
     if d["v5"] != api.spec.read(api.V5 / "adapter-freeze.json"):
         raise Unknown("reused build/spec differs from accepted source475 artifact")
+    for name, module in tuple(sys.modules.items()):
+        if name == "cs1_harness" or name.startswith("cs1_harness."):
+            expected = api.ROOT / "tools/cs1-harness" / Path(*name.split("."))
+            filename = Path(getattr(module, "__file__", "")).resolve()
+            if filename not in {expected.with_suffix(".py"), expected / "__init__.py"}:
+                raise Unknown(
+                    "native dependency imported from another checkout: " + name
+                )
     native = api.adapter_spec.validate(d["v5"], store)
     if (
         d["limits"] != api.adapter_spec.LIMITS
@@ -240,6 +261,7 @@ def validate(value, store):
             "holdout",
             "predictions",
             "input_graphs",
+            "holdout_cases",
         },
         "input roles",
     )
@@ -279,6 +301,13 @@ def validate(value, store):
             raise Unknown("holdout package/budget differs")
         graph = values["input_graphs"][row["package_sha256"]]
         input_graph(store, graph, "holdout input graph")
+    from wire_study import holdout_cases
+
+    if values["holdout_cases"] != holdout_cases(native, values, store, retain=False):
+        raise Unknown("frozen holdout case construction differs")
+    from native_context import validate as validate_native
+
+    validate_native(d["native"], native, store, api.HERE)
     return native, values
 
 

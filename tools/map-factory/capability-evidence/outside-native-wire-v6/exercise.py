@@ -49,7 +49,58 @@ class FixtureSession:
         )
 
 
-def script_for(native, store):
+def fixture_networks(case, store):
+    graph = store.json(case["exact_graph_sha256"], "CONSTRUCTED input graph")
+    rows = {}
+    directions = {
+        (True, False): "Forward",
+        (False, True): "Backward",
+        (True, True): "Both",
+        (False, False): "None",
+    }
+    for values in graph.values():
+        for segment in values:
+            raw = rows.setdefault(
+                segment["id"],
+                dict(
+                    id=segment["id"],
+                    start=segment["start"],
+                    end=segment["end"],
+                    a=segment["a"],
+                    b=segment["b"],
+                    prefab=segment["prefab"],
+                    flags="Created" + (", Invert" if segment["invert"] else ""),
+                    start_flags="Outside" if segment["outside"][0] else "None",
+                    end_flags="Outside" if segment["outside"][1] else "None",
+                    lanes={},
+                ),
+            )
+            for lane in segment["lanes"]:
+                value = dict(
+                    index=lane["index"],
+                    type=lane["lane_type"],
+                    vehicle=", ".join(lane["vehicle"]),
+                    category=lane["category"],
+                    direction=directions[(lane["forward"], lane["backward"])],
+                )
+                if (
+                    lane["index"] in raw["lanes"]
+                    and raw["lanes"][lane["index"]] != value
+                ):
+                    raise Unknown("constructed input graph has conflicting lanes")
+                raw["lanes"][lane["index"]] = value
+    for raw in rows.values():
+        raw["lanes"] = [v for _, v in sorted(raw["lanes"].items())]
+    result = dict(ok=True, segments=[v for _, v in sorted(rows.items())])
+    if (
+        api.spec.digest(api.collect_v2.graph_value(result))
+        != case["exact_graph_sha256"]
+    ):
+        raise Unknown("constructed wire graph does not round-trip frozen inputs")
+    return result
+
+
+def script_for(native, store, cases=None):
     script = []
 
     def add(op, reply=None, **args):
@@ -59,15 +110,18 @@ def script_for(native, store):
         add("runtime_identity", dict(fixture="CONSTRUCTED"))
         add("status", dict(loading=False, in_game=True))
 
-    for control in native.value["controls"]:
+    for control in native.value["controls"] if cases is None else cases:
         path = "/CONSTRUCTED/" + control["case_id"]
         # Public input network snapshot; not historical path outcomes.
-        file = (
-            api.spec.CAP
-            / "outside-stock-budget-v1"
-            / ("control-" + control["case_id"] + "-networks.json.gz")
-        )
-        networks = api.spec.decode(gzip.decompress(file.read_bytes()))
+        if control["case_id"] in {c["case_id"] for c in native.value["controls"]}:
+            file = (
+                api.spec.CAP
+                / "outside-stock-budget-v1"
+                / ("control-" + control["case_id"] + "-networks.json.gz")
+            )
+            networks = api.spec.decode(gzip.decompress(file.read_bytes()))
+        else:
+            networks = fixture_networks(control, store)
         graph = api.collect_v2.graph_value(networks)
         if api.spec.digest(graph) != control["exact_graph_sha256"]:
             raise Unknown("published control input graph differs")
@@ -121,7 +175,11 @@ def script_for(native, store):
                     "max_length": 100000,
                 },
             )
-            positive = plan["kind"] == "positive"
+            positive = (
+                (plan["kind"] == "positive")
+                if plan["kind"] != "holdout"
+                else control["predictions"][plan["query_id"]] == "success"
+            )
             add(
                 "path_result",
                 dict(
@@ -151,15 +209,31 @@ class Factory:
     def __init__(self, directory, script=None, limits=None, inventory_override=None):
         self.directory, self.script, self.limits = directory, script, limits
         self.inventory_override = inventory_override
+        self.cases = None
+        self.study_end = None
         self.effects = []
         self.trace = []
+
+    def bind(self, frozen, inputs):
+        if self.cases is not None:
+            allowed = frozen["controls"] + inputs["holdout_cases"]
+            if not self.cases or any(
+                not any(c == a for a in allowed) for c in self.cases
+            ):
+                raise Unknown("constructed selection/request differs from frozen cases")
 
     @contextmanager
     def open(self, native, inputs, request, store, total):
         self.effects.append("constructed session owner")
-        script = self.script if self.script is not None else script_for(native, store)
+        script = (
+            self.script
+            if self.script is not None
+            else script_for(native, store, self.cases)
+        )
         limits = self.limits or native.descriptor["limits"]
         total = Deadline.after(limits["total_seconds"], total)
+        if self.study_end is not None:
+            total = Deadline(min(total.end, self.study_end))
         first_opening = Deadline.after(limits["opening_seconds"], total)
         initial_load = Deadline.after(limits["load_seconds"], first_opening)
         with server(script, self.directory / "server") as game:
@@ -179,6 +253,14 @@ class ConnectedFixture:
     def __init__(self, config, trace):
         self.config, self.trace = config, trace
 
+    def bind(self, frozen, inputs):
+        cases = self.config.get("cases")
+        if cases is not None and (
+            not cases
+            or any(c not in frozen["controls"] + inputs["holdout_cases"] for c in cases)
+        ):
+            raise Unknown("worker case selection/request drift")
+
     @contextmanager
     def open(self, native, inputs, request, store, total):
         from exercise import FixtureSession
@@ -193,6 +275,7 @@ class ConnectedFixture:
         yield session
 
 
+@__import__("wire_supervisor").reap_children
 def run(frozen, store, request, authority, factory):
     """External owner; collection, handoff, audit and monitoring run in four workers."""
     from entry import enter
@@ -237,6 +320,7 @@ def run(frozen, store, request, authority, factory):
                     opening_end=session.first_opening.end,
                     load_end=session.initial_load.end,
                     limits=factory.limits or native.descriptor["limits"],
+                    cases=factory.cases,
                 ),
             )
             # Reaping the collector lets the independent driver observe its exit.
@@ -299,10 +383,18 @@ def run(frozen, store, request, authority, factory):
             record["observed"]["cleanup"] = cleanup
             record["observed"]["owned_processes"] = cleanup
         policy = api.pipeline.runtime_policy(native, native.descriptor["inventory"])
-        bundle = api.adapter.bundle(
-            native, native.bindings(), records, policy, receipt, store
-        )
-        result = api.adapter.gate(bundle, frozen["v5"], store)
+        if factory.cases is None:
+            bundle = api.adapter.bundle(
+                native, native.bindings(), records, policy, receipt, store
+            )
+            result = api.adapter.gate(bundle, frozen["v5"], store)
+        else:
+            from wire_study import constructed_case_gate
+
+            bundle = None
+            result = constructed_case_gate(
+                native, factory.cases[0], records, policy, cleanup, store
+            )
         result.update(
             fresh_build=False,
             build_scope="reused accepted compile, no compiler invocation",
@@ -324,4 +416,46 @@ def run(frozen, store, request, authority, factory):
         inventory_captures=collected.get("inventories", []),
         source_revision=frozen["source_revision"],
         freeze_sha256=api.spec.digest(frozen),
+    )
+
+
+def study_run(frozen, store, directory):
+    """Complete protocol simulation. Structural continuation is NOT real admission."""
+    from wire_check import request_for
+    from wire_study import controls_gate
+    import candidate
+
+    native, inputs = candidate.validate(frozen, store)
+    request = request_for(frozen)
+    cases = frozen["controls"] + inputs["holdout_cases"]
+    controls, cleanups, results = [], {}, []
+    total = Deadline.after(frozen["limits"]["total_seconds"])
+    for index, case in enumerate(cases):
+        if index == 2:
+            controls_gate(
+                native,
+                controls,
+                api.pipeline.runtime_policy(native, native.descriptor["inventory"]),
+                cleanups,
+                store,
+            )
+        factory = Factory(directory / case["case_id"])
+        factory.cases = [case]
+        factory.study_end = total.end
+        result = run(frozen, store, request, ConstructedAuthority(request), factory)
+        results.append(result)
+        if not result["result"]["structural_pass"] or result["pending"]:
+            break
+        if index < 2:
+            controls.extend(copy.deepcopy(result["records"]))
+            cleanups[case["case_id"]] = result["lifecycle"]["cleanup"]
+    return dict(
+        kind="CONSTRUCTED",
+        control_admission="Unknown",
+        export_qualification="Unknown",
+        native_requests=0,
+        game_openings=0,
+        cases=results,
+        planned_unobserved=[c["case_id"] for c in cases[len(results) :]],
+        old_holdout_cells="Unknown",
     )

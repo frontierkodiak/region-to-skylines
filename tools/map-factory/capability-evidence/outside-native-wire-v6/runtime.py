@@ -127,7 +127,11 @@ class Transport:
             wanted = {"positive": "success", "invalid-vehicle": "no_path"}.get(
                 plan["kind"]
             )
-            if wanted is None or decision.literal_label.value != wanted:
+            if plan["kind"] == "holdout":
+                if decision.literal_label.value not in {"success", "no_path"}:
+                    raise Unknown("literal holdout result remains Unknown")
+                row["literal_label"] = decision.literal_label.value
+            elif wanted is None or decision.literal_label.value != wanted:
                 raise Unknown(
                     "literal result Unknown/control failure: " + decision.reason
                 )
@@ -145,11 +149,13 @@ class Transport:
             raise
 
 
-def collect(transport, births, limits):
+def collect(transport, births, limits, cases=None):
     """Fresh literal controls; constructed admission never opens a holdout."""
     api, native = transport.api, transport.native
     total = transport.session.total
-    for index, control in enumerate(native.value["controls"]):
+    for index, control in enumerate(
+        native.value["controls"] if cases is None else cases
+    ):
         opening = (
             transport.session.first_opening
             if index == 0
@@ -179,7 +185,7 @@ def collect(transport, births, limits):
         )
         record = dict(
             case_id=control["case_id"],
-            kind="CONSTRUCTED",
+            kind=transport.session.purpose,
             binding=native.bindings(),
             observed=observed,
         )

@@ -30,7 +30,7 @@ def collector(config, directory, deadline):
         encoded(raw["binding"]),
         raw["session"],
         encoded(raw["limits"]),
-        "CONSTRUCTED",
+        raw["purpose"],
     )
     trace, transport, error = [], None, None
 
@@ -38,27 +38,40 @@ def collector(config, directory, deadline):
         atomic(
             directory / "collector.json",
             dict(
-                kind="CONSTRUCTED",
+                kind=request.purpose,
                 records=transport.records if transport else [],
                 pending=transport.pending if transport else None,
                 trace=trace,
                 inventories=transport.inventory_captures if transport else [],
+                births=config["births"],
                 error=error,
                 done=done,
             ),
         )
 
+    if request.purpose == "NATIVE":
+        from authority import ParentAuthority
+        from native_session import NativeSession
+
+        authority = ParentAuthority(config["acceptance"], config["budget"])
+        factory = NativeSession(directory, api, trace, config["case"], config)
+    else:
+        authority = ConstructedAuthority(request)
+        factory = ConnectedFixture(config, trace)
     try:
-        with enter(
-            frozen,
-            store,
-            request,
-            ConstructedAuthority(request),
-            ConnectedFixture(config, trace),
-        ) as session:
+        with enter(frozen, store, request, authority, factory) as session:
+            if request.purpose == "NATIVE":
+                session.births = config["births"]
             transport = Transport(session, session.native, store, api)
             transport.snapshot = snapshot
-            collect(transport, config["births"], config["limits"])
+            collect(
+                transport,
+                config["births"],
+                config["limits"],
+                cases=[config["case"]]
+                if request.purpose == "NATIVE"
+                else config.get("cases"),
+            )
     except BaseException as failure:
         error = f"{type(failure).__name__}: {failure}"
     finally:
@@ -71,9 +84,9 @@ def driver(config, directory, deadline):
         deadline.pause(0.01)
     value = decode(await_file(directory / "collector.json", deadline))
     payload = dict(
-        kind="CONSTRUCTED",
+        kind=config["request"]["purpose"],
         binding=config["binding"],
-        births=config["births"],
+        births=value.get("births", config["births"]),
         driver_pid=config["births"]["driver"]["pid"],
         records=value["records"],
     )
@@ -82,7 +95,9 @@ def driver(config, directory, deadline):
 
 def auditor(config, directory, deadline):
     payload = decode(await_file(directory / "driver.json", deadline))
-    if payload["binding"] != config["binding"] or payload["births"] != config["births"]:
+    expected = dict(config["births"])
+    expected["game"] = payload["births"].get("game")
+    if payload["binding"] != config["binding"] or payload["births"] != expected:
         raise Unknown("driver changed input bindings")
     atomic(
         directory / "auditor.json",
@@ -99,13 +114,26 @@ def auditor(config, directory, deadline):
 def monitor(config, directory, deadline):
     birth = config["births"]["collector"]
     samples = []
+    games = []
     while True:
         current = identity(birth["pid"])
         samples.append(dict(at=time.monotonic(), identity=current))
+        file = directory / "collector.json"
+        if file.exists():
+            value = decode(file.read_bytes())
+            game = value.get("births", {}).get("game")
+            if game:
+                games.append(
+                    dict(
+                        reported=game, actual=identity(game["pid"]), at=time.monotonic()
+                    )
+                )
         if current != birth:
             break
         deadline.pause(0.02)
-    atomic(directory / "monitor.json", dict(collector=birth, samples=samples))
+    atomic(
+        directory / "monitor.json", dict(collector=birth, samples=samples, games=games)
+    )
 
 
 def main():

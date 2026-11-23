@@ -171,6 +171,62 @@ class ExternalWorkerTests(unittest.TestCase):
                 owned.birth = real
                 owned.stop()
 
+    def test_cancelled_worker_descendants_are_externally_reaped(self):
+        import sys
+        from wire_supervisor import Owned, await_file, child_reaper
+        from loopback_fixture import identity
+
+        with tempfile.TemporaryDirectory() as temp, child_reaper():
+            root = Path(temp)
+            code = (
+                "import subprocess,sys,pathlib,time; p=subprocess.Popen([sys.executable,'-c','import time; time.sleep(30)']); "
+                "pathlib.Path(sys.argv[1]).write_text(str(p.pid)); time.sleep(30)"
+            )
+            owned = Owned.start(
+                [sys.executable, "-c", code, str(root / "child")], "collector", root
+            )
+            try:
+                pid = int(await_file(root / "child", Deadline.after(2), owned.birth))
+                birth = identity(pid)
+                self.assertIsNotNone(birth)
+                owned.capture_descendants()
+                owned.stop(grace=0.05)
+                self.assertIsNone(identity(pid))
+                self.assertIsNone(owned.receipt()["after"])
+            finally:
+                owned.stop()
+
+    def test_external_lease_survives_worker_exit_until_cleanup(self):
+        import fcntl
+        import sys
+        from lease import Lease
+        from wire_supervisor import Owned, await_file
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            code = (
+                "import pathlib,fcntl,sys,time; f=open(sys.argv[1],'w'); "
+                "fcntl.flock(f,fcntl.LOCK_EX); pathlib.Path(sys.argv[2]).write_text('held'); time.sleep(30)"
+            )
+            owned = Owned.start(
+                [sys.executable, "-c", code, str(root / "lock"), str(root / "ready")],
+                "collector",
+                root,
+            )
+            lease = Lease(owned.birth, root / "lock")
+            try:
+                await_file(root / "ready", Deadline.after(2), owned.birth)
+                self.assertTrue(lease.pin())
+                owned.stop()
+                with (root / "lock").open("r") as other:
+                    with self.assertRaises(BlockingIOError):
+                        fcntl.flock(other, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    lease.close()
+                    fcntl.flock(other, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            finally:
+                owned.stop()
+                lease.close()
+
 
 class ConstructedAuthorityParserTests(unittest.TestCase):
     def test_records_are_exact_separate_and_ordered(self):

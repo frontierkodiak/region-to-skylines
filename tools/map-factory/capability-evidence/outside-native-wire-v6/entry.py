@@ -60,6 +60,12 @@ def preflight(frozen, store, request, authority=None, factory=None):
         valid_factories = (Factory, ConnectedFixture)
     if type(factory) not in valid_factories:
         raise Unknown("unbound session factory")
+    if request.purpose == "NATIVE":
+        if request.session != frozen["native"]["session_id"]:
+            raise Unknown("wrong native study session")
+        factory.bind(frozen, inputs)
+    else:
+        factory.bind(frozen, inputs)
     expected_authority = (
         ParentAuthority if request.purpose == "NATIVE" else ConstructedAuthority
     )

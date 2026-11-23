@@ -26,7 +26,7 @@ def request_for(frozen):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("action", choices=["prepare", "exercise"])
+    p.add_argument("action", choices=["prepare", "exercise", "exercise-study"])
     p.add_argument("--store", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--source-revision")
@@ -37,7 +37,7 @@ def main():
     if a.action == "prepare":
         if not a.source_revision or a.maps is None:
             p.error("prepare requires explicit --source-revision and --maps")
-        value = candidate.prepare(store, a.source_revision, a.maps)
+        value = candidate.prepare(store, a.source_revision, a.maps, a.out)
         with a.out.open("xb") as f:
             f.write(encoded(value))
         print(
@@ -56,9 +56,19 @@ def main():
         frozen = api.spec.read(a.freeze)
         request = request_for(frozen)
         factory = Factory(a.out)
-        value = run(frozen, store, request, ConstructedAuthority(request), factory)
+        if a.action == "exercise-study":
+            from exercise import study_run
+
+            value = study_run(frozen, store, a.out)
+        else:
+            value = run(frozen, store, request, ConstructedAuthority(request), factory)
         (a.out / "proof.json").write_bytes(encoded(value))
-        print(encoded(value["result"]).decode())
+        summary = (
+            value["result"]
+            if "result" in value
+            else {k: value[k] for k in ("kind", "control_admission", "native_requests")}
+        )
+        print(encoded(summary).decode())
 
 
 if __name__ == "__main__":
