@@ -1400,3 +1400,22 @@ needs a fresh explicit role model and complete startup/continuity/port reasoning
 not silent relaxation or another gradient/rate sweep. Alloldrefusals, mandatory
 coverage, banks/protections/holdout and unknownpromises remain. See phase36policy,
 summary/erratum and postanalysis immutable-initialization-freeze-v1.json.
+
+## Phase thirty-seven: immutable existing-water role v2
+
+The predeclared role change produces NOnew numeric reach plan. Protected fields
+remain exact; already>=1m protected water need not be forced to1.5m, while new
+unprotected channel nodes retain96q. This is a NEWdesign role, not an old gate
+rewrite or1mretention promise. All263oldsourcebytes unchanged;267source/202input
+freeze precedes newoutputs acrossallsixcases. Of418supportedcomponents:379direct
+64qrole refusals,33boundsfail,5unknownlateral,1numeric. Nineold96qrefusals become
+boundsrefusals; onlyfit is stillcoast109/2nodes/constantstage/0pins, exactsame
+physicalfieldvalues asphase36. CloseTHISlever; no32/7qfollowups or tinypond fallback.
+
+Legacy96qflags remain separately labeled; explicitrolechecks/serializedsourceT
+and nativefloor=null fields prevent oldfalse/nativeidentity reinterpretation.
+BothNULLcases nowhave components=null with full4/18source topology retained.
+Ninefocusedtests/full7filebyte replay and producer pin/ancestor-bound/physical-
+identity checks pass. No grids/CRP/controls/native plan/game/admission. Combined
+phase36/37needs independentRESULTSacceptance beforeadoption; allstartup failures,
+refusals/primary/banks/protections/Boston/Charleston/holdout/promises unchanged.

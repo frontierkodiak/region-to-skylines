@@ -1,0 +1,118 @@
+{
+  "type": "PRODUCER_complete_sparse_field_pin_and_reverse_ancestor_bound_verifier_not_independent_acceptance",
+  "source_files": 267,
+  "copied_inputs": 202,
+  "cases": {
+    "dry-upland-asia": {
+      "refused_protected_initial_depth_below_fixed64q": 3,
+      "infeasible_bounds": 1
+    },
+    "dry-upland-europe": {
+      "refused_protected_initial_depth_below_fixed64q": 1,
+      "infeasible_bounds": 1
+    },
+    "lowland-river-south-america": {
+      "refused_protected_initial_depth_below_fixed64q": 235,
+      "infeasible_bounds": 7,
+      "unresolved_exterior_lateral_bank": 3
+    },
+    "dry-upland-south-america": {
+      "physical_support": null,
+      "conditional_profiles": null,
+      "source_components_retained": 4
+    },
+    "mountain-river-asia": {
+      "physical_support": null,
+      "conditional_profiles": null,
+      "source_components_retained": 18
+    },
+    "low-coast-oceania": {
+      "infeasible_bounds": 24,
+      "refused_protected_initial_depth_below_fixed64q": 140,
+      "unresolved_exterior_lateral_bank": 2,
+      "feasible": 1
+    }
+  },
+  "new_status_counts": {
+    "refused_protected_initial_depth_below_fixed64q": 379,
+    "infeasible_bounds": 33,
+    "unresolved_exterior_lateral_bank": 5,
+    "feasible": 1
+  },
+  "protected_depth_conflict_node_occurrences": 7346,
+  "physical_admission": false,
+  "old_refusals_and_NULLs_retained": true,
+  "policy": "immutable-existing-water-role-reach-v2",
+  "actual_CPU_source": "8aaf2b4",
+  "input_freeze_sha256": "29c93575a6068a51c070fa828be5c9cd64315a9f295c9d7907ba3d633aa1c1c9",
+  "result_receipt_sha256": "b610e431c3262f3f637991a77cd8ebf0ca374e6ff261d2278753d94782d4e3d3",
+  "new_numeric_profiles": 0,
+  "lever_closed": true,
+  "only_numeric_piece_unchanged": [
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:109",
+      "nodes": 2,
+      "pins": 0,
+      "field_values_identical_phase36": true
+    }
+  ],
+  "old96_to_new_bounds_refusals": [
+    {
+      "case": "dry-upland-asia",
+      "component": "source-component:1",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:1",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:2",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:6",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:7",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:10",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:25",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:26",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    },
+    {
+      "case": "low-coast-oceania",
+      "component": "source-component:131",
+      "old": "refused_protected_initial_depth_below_design96q",
+      "new": "infeasible_bounds"
+    }
+  ],
+  "new_physical_or_native": false,
+  "independent_phase36_37_acceptance": false
+}

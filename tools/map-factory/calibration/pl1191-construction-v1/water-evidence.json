@@ -1376,5 +1376,16 @@
     "report_sha256": "c092d3cc81a261e02459325b1121666f95527172a852c6149f119e8a9b50a688",
     "new_physical_or_native": false,
     "adopted": false
+  },
+  "phase37_existing_protected_water_role": {
+    "status": "POSTANALYSIS_not_prospective",
+    "actual_CPU_source": "8aaf2b4",
+    "input_freeze_sha256": "29c93575a6068a51c070fa828be5c9cd64315a9f295c9d7907ba3d633aa1c1c9",
+    "result_receipt_sha256": "b610e431c3262f3f637991a77cd8ebf0ca374e6ff261d2278753d94782d4e3d3",
+    "summary_sha256": "d9384f8e9256594fe473bcf3ca7f2d2dab2ea1b1361ee015884cc791db0ded47",
+    "report_sha256": "cb3a2e00e670d200e0202e7f5173a73018cf622f2114a5f9c0f7b65f341b1f02",
+    "lever_closed_no_new_numeric_profile": true,
+    "physical_or_native": false,
+    "adopted": false
   }
 }
