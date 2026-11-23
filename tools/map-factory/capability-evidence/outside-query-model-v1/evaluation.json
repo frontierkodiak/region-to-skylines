@@ -2291,7 +2291,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 29859.997868
+     "path_lower_bound_length": 29778.33346
     },
     "native": {
      "complete": true,
@@ -2337,6 +2337,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2356,7 +2357,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 21994.86315
+     "path_lower_bound_length": 21913.198742
     },
     "native": {
      "complete": true,
@@ -2402,6 +2403,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2421,7 +2423,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 29756.758657
+     "path_lower_bound_length": 29645.056392
     },
     "native": {
      "complete": true,
@@ -2467,6 +2469,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2486,7 +2489,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 21891.623938
+     "path_lower_bound_length": 21779.921674
     },
     "native": {
      "complete": true,
@@ -2532,6 +2535,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2551,7 +2555,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 29711.0289
+     "path_lower_bound_length": 29600.470139
     },
     "native": {
      "complete": true,
@@ -2597,6 +2601,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2616,7 +2621,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 21845.894181
+     "path_lower_bound_length": 21735.335421
     },
     "native": {
      "complete": true,
@@ -2662,6 +2667,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2681,7 +2687,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28501.338656
+     "path_lower_bound_length": 28398.235303
     },
     "native": {
      "complete": true,
@@ -2727,6 +2733,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2746,7 +2753,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 25696.117963
+     "path_lower_bound_length": 25593.121819
     },
     "native": {
      "complete": true,
@@ -2792,6 +2799,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2811,7 +2819,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28521.197294
+     "path_lower_bound_length": 28418.09394
     },
     "native": {
      "complete": true,
@@ -2857,6 +2865,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2876,7 +2885,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 23892.057985
+     "path_lower_bound_length": 23828.488128
     },
     "native": {
      "complete": true,
@@ -2922,6 +2931,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -2941,7 +2951,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 26723.455293
+     "path_lower_bound_length": 26620.35194
     },
     "native": {
      "complete": true,
@@ -2987,6 +2997,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3006,7 +3017,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28818.438567
+     "path_lower_bound_length": 28715.335213
     },
     "native": {
      "complete": true,
@@ -3052,6 +3063,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3071,7 +3083,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 27564.190349
+     "path_lower_bound_length": 27474.819795
     },
     "native": {
      "complete": true,
@@ -3117,6 +3129,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3136,7 +3149,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 25128.870834
+     "path_lower_bound_length": 25018.870885
     },
     "native": {
      "complete": true,
@@ -3182,6 +3195,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3201,7 +3215,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 25135.183374
+     "path_lower_bound_length": 25023.984123
     },
     "native": {
      "complete": true,
@@ -3247,6 +3261,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3266,7 +3281,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 23583.344505
+     "path_lower_bound_length": 23497.318908
     },
     "native": {
      "complete": true,
@@ -3312,6 +3327,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3331,7 +3347,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28157.409952
+     "path_lower_bound_length": 28054.306599
     },
     "native": {
      "complete": true,
@@ -3377,6 +3393,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3396,7 +3413,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28116.368498
+     "path_lower_bound_length": 28013.265145
     },
     "native": {
      "complete": true,
@@ -3442,6 +3459,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3461,7 +3479,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 31019.343141
+     "path_lower_bound_length": 30916.239788
     },
     "native": {
      "complete": true,
@@ -3507,6 +3525,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    }
   ],
@@ -3528,7 +3547,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 29859.997868
+     "path_lower_bound_length": 29778.33346
     },
     "native": {
      "complete": true,
@@ -3574,6 +3593,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3593,7 +3613,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 21994.86315
+     "path_lower_bound_length": 21913.198742
     },
     "native": {
      "complete": true,
@@ -3639,6 +3659,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3658,7 +3679,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 29756.758657
+     "path_lower_bound_length": 29645.056392
     },
     "native": {
      "complete": true,
@@ -3704,6 +3725,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3723,7 +3745,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 21891.623938
+     "path_lower_bound_length": 21779.921674
     },
     "native": {
      "complete": true,
@@ -3769,6 +3791,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3788,7 +3811,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 29711.0289
+     "path_lower_bound_length": 29600.470139
     },
     "native": {
      "complete": true,
@@ -3834,6 +3857,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3853,7 +3877,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 21845.894181
+     "path_lower_bound_length": 21735.335421
     },
     "native": {
      "complete": true,
@@ -3899,6 +3923,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3918,7 +3943,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28501.338656
+     "path_lower_bound_length": 28398.235303
     },
     "native": {
      "complete": true,
@@ -3964,6 +3989,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -3983,7 +4009,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 25696.117963
+     "path_lower_bound_length": 25593.121819
     },
     "native": {
      "complete": true,
@@ -4029,6 +4055,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4048,7 +4075,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28521.197294
+     "path_lower_bound_length": 28418.09394
     },
     "native": {
      "complete": true,
@@ -4094,6 +4121,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4113,7 +4141,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 23892.057985
+     "path_lower_bound_length": 23828.488128
     },
     "native": {
      "complete": true,
@@ -4159,6 +4187,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4178,7 +4207,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 26723.455293
+     "path_lower_bound_length": 26620.35194
     },
     "native": {
      "complete": true,
@@ -4224,6 +4253,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4243,7 +4273,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28818.438567
+     "path_lower_bound_length": 28715.335213
     },
     "native": {
      "complete": true,
@@ -4289,6 +4319,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4308,7 +4339,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 27564.190349
+     "path_lower_bound_length": 27474.819795
     },
     "native": {
      "complete": true,
@@ -4354,6 +4385,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4373,7 +4405,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 25128.870834
+     "path_lower_bound_length": 25018.870885
     },
     "native": {
      "complete": true,
@@ -4419,6 +4451,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4438,7 +4471,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 25135.183374
+     "path_lower_bound_length": 25023.984123
     },
     "native": {
      "complete": true,
@@ -4484,6 +4517,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4503,7 +4537,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 23583.344505
+     "path_lower_bound_length": 23497.318908
     },
     "native": {
      "complete": true,
@@ -4549,6 +4583,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4568,7 +4603,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28157.409952
+     "path_lower_bound_length": 28054.306599
     },
     "native": {
      "complete": true,
@@ -4614,6 +4649,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4633,7 +4669,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 28116.368498
+     "path_lower_bound_length": 28013.265145
     },
     "native": {
      "complete": true,
@@ -4679,6 +4715,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    },
    {
@@ -4698,7 +4735,7 @@
     ],
     "mode": "road",
     "model": {
-     "path_lower_bound_length": 31019.343141
+     "path_lower_bound_length": 30916.239788
     },
     "native": {
      "complete": true,
@@ -4744,6 +4781,7 @@
       255
      ]
     },
+    "returned_endpoints_match": false,
     "stratum": "primary_distinct_edge"
    }
   ]
@@ -5229,7 +5267,7 @@
    ]
   ]
  },
- "inventory_sha256": "4a1a674cfe741b5e809ae996816a509d7b0609d9084635aabbdde0304452a537",
+ "inventory_sha256": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
  "leave_one_package_out": [
   {
    "estimable": true,
@@ -5493,7 +5531,7 @@
    "recall": 1.0
   }
  },
- "predictions_sha256": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6",
+ "predictions_sha256": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
  "primary_rule": "lane:any_lane:forbidden",
  "primary_rule_metrics": {
   "FN": 0,
@@ -5515,7 +5553,7 @@
   "recall": 1.0,
   "scored": 342
  },
- "protocol_sha256": "4b2c508b5bcb8ad18577d53557bf29c4692f8fa674ba15c920142ea235ecef9e",
+ "protocol_sha256": "7a87a7299173456e5cf9fa72a5a94924973cf309e8e208f6ddd1fb1779b23828",
  "repeats": {
   "cross_opening": [
    {

@@ -116,52 +116,54 @@ def shortest_undirected(prepared, request):
     return None
 
 
-def main():
-    protocol = load_json("protocol.json")
-    predictions_doc = load_json("predictions.json")
-    inventory = load_json("inventory.json")
-    requests_doc = load_json("requests.json")
+def validate(protocol, predictions_doc, inventory, requests_doc, predictions_sha):
+    """Every binding that must hold before a label may be read.
 
+    Returns a list of named assertions. `main` refuses to score when any of them
+    fails, so a changed prediction, request map or inventory cannot be scored
+    against a stale protocol.
+    """
     assertions = []
 
     def check(name, ok, detail=None):
         assertions.append({"name": name, "ok": bool(ok), "detail": detail})
         return bool(ok)
 
-    predictions_sha = sha((HERE / "predictions.json").read_bytes())
     check(
         "protocol_binds_this_predictions_file",
         protocol.get("predictions_sha256") == predictions_sha,
         {"protocol": protocol.get("predictions_sha256"), "file": predictions_sha},
     )
-    check("frozen_rules_match_model", protocol["rules"] == model.RULES)
-    check("frozen_primary_rule", protocol["primary_rule"] == model.PRIMARY_RULE)
     check(
-        "requests_sha_matches_protocol",
-        protocol["sources"]["requests"] == sha((HERE / "requests.json").read_bytes()),
+        "protocol_binds_this_requests_file",
+        protocol.get("sources", {}).get("requests")
+        == sha((HERE / "requests.json").read_bytes())
+        if (HERE / "requests.json").exists()
+        else False,
     )
+    check("frozen_rules_match_model", protocol.get("rules") == model.RULES)
+    check("frozen_primary_rule", protocol.get("primary_rule") == model.PRIMARY_RULE)
     check(
         "inventory_source_evidence_unchanged",
-        requests_doc["source_evidence_sha256"] == inventory["source"]["evidence_sha256"],
+        requests_doc.get("source_evidence_sha256")
+        == inventory.get("source", {}).get("evidence_sha256"),
     )
+    prediction_rows = predictions_doc.get("predictions") or []
+    request_rows = requests_doc.get("requests") or []
+    query_rows = inventory.get("queries") or []
     check(
         "prediction_count_matches_requests",
-        len(predictions_doc["predictions"]) == len(requests_doc["requests"]),
-        {
-            "predictions": len(predictions_doc["predictions"]),
-            "requests": len(requests_doc["requests"]),
-        },
+        len(prediction_rows) == len(request_rows),
+        {"predictions": len(prediction_rows), "requests": len(request_rows)},
     )
 
-    by_query = {query["query_id"]: query for query in inventory["queries"]}
+    by_query = {query["query_id"]: query for query in query_rows}
     eligible = {
-        query["query_id"]: query
-        for query in inventory["queries"]
-        if query["eligible"]
+        query["query_id"]: query for query in query_rows if query["eligible"]
     }
     predicted = {}
     duplicates = []
-    for record in predictions_doc["predictions"]:
+    for record in prediction_rows:
         if record["query_id"] in predicted:
             duplicates.append(record["query_id"])
         predicted[record["query_id"]] = record
@@ -176,20 +178,67 @@ def main():
         set(eligible) <= set(predicted),
         sorted(set(eligible) - set(predicted))[:10],
     )
+    check(
+        "prediction_query_ids_are_unique_against_inventory",
+        len(by_query) == len(query_rows),
+        len(query_rows) - len(by_query),
+    )
     request_mismatches = [
         query_id
         for query_id, record in predicted.items()
         if query_id in by_query and record["request"] != by_query[query_id]["request"]
     ]
-    check("predictions_repeat_the_exact_request", not request_mismatches, request_mismatches[:10])
     check(
-        "every_eligible_query_has_an_observed_label",
-        all(eligible[query_id]["observed"] in (True, False) for query_id in eligible),
+        "predictions_repeat_the_exact_request",
+        not request_mismatches,
+        request_mismatches[:10],
+    )
+    check(
+        "every_eligible_query_has_a_strict_boolean_label",
+        all(
+            type(eligible[query_id]["observed"]) is bool
+            for query_id in eligible
+        ),
     )
     check(
         "eligible_queries_are_all_frozen_strata",
         all(query["stratum"] in STRATA for query in eligible.values()),
     )
+    return assertions
+
+
+def refuse_if_failed(assertions, stage):
+    """Fail closed: a failed binding or check stops the run before it writes."""
+    failed = [item for item in assertions if not item["ok"]]
+    if failed:
+        print(json.dumps({"refused": True, "stage": stage, "failed": failed}, indent=1))
+        raise SystemExit(2)
+    return assertions
+
+
+def main():
+    protocol = load_json("protocol.json")
+    predictions_doc = load_json("predictions.json")
+    inventory = load_json("inventory.json")
+    requests_doc = load_json("requests.json")
+
+    predictions_sha = sha((HERE / "predictions.json").read_bytes())
+    assertions = validate(
+        protocol, predictions_doc, inventory, requests_doc, predictions_sha
+    )
+    refuse_if_failed(assertions, "binding")
+
+    by_query = {query["query_id"]: query for query in inventory["queries"]}
+    eligible = {
+        query["query_id"]: query
+        for query in inventory["queries"]
+        if query["eligible"]
+    }
+    predicted = {record["query_id"]: record for record in predictions_doc["predictions"]}
+
+    def check(name, ok, detail=None):
+        assertions.append({"name": name, "ok": bool(ok), "detail": detail})
+        return bool(ok)
 
     # Per-mode prepared topology, only for the independent length check.
     prepared = {}
@@ -316,6 +365,7 @@ def main():
                         "request": query["request"],
                         "endpoint_roles": query["endpoint_roles"],
                         "endpoint_edges": query["endpoint_edges"],
+                        "returned_endpoints_match": query["returned_endpoints_match"],
                         "native": query["result"],
                         "model": detail["detail"],
                     }
@@ -350,10 +400,14 @@ def main():
                 continue
             native = item["native"]
             length_denial = native["flags"] == 8 and native["length"] == model.MAX_LENGTH
+            endpoint_mismatch = item["returned_endpoints_match"] is False
             if item["relation"] == "false_positive" and not (
-                length_denial or item["returned_endpoints_match"] is False
+                length_denial or endpoint_mismatch
             ):
                 unexplained.append(item)
+            elif item["relation"] == "false_negative":
+                unexplained.append(item)
+    check("no_unexplained_disagreement", not unexplained, unexplained[:10])
 
     # Correlated repeats asked in two openings of the same unchanged package.
     repeat_pairs = []
@@ -536,6 +590,8 @@ def main():
             "exact protocol, never evidence that a place cannot support the mode.",
         ],
     }
+    refuse_if_failed(assertions, "checks")
+
     (HERE / "evaluation.json").write_text(
         json.dumps(evaluation, indent=1, sort_keys=True) + "\n"
     )

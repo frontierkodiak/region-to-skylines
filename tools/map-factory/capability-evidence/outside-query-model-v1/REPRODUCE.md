@@ -47,9 +47,9 @@ catalog's SHA-256. `predict.py` reads only `requests.json` and the retained
 pre-query snapshots. `evaluate.py` refuses to run unless `protocol.json` already
 records the SHA-256 of the `predictions.json` on disk.
 
-The two freeze commits are separate on purpose: the predictions and their
-protocol were committed before `evaluate.py` existed, so the order in git shows
-the freeze rather than asserting it.
+Each freeze commit carries the predictions and their protocol before the
+evaluation code that scores them, so the order in git shows the freeze rather
+than asserting it.
 
 ## What to check
 

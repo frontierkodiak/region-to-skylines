@@ -6,7 +6,8 @@ outside-connection request, does `PathManager.CreatePath` return a complete path
 whose first and last positions equal the requested offsets?
 
 The model sees only what a saved map contains before any query: segment and node
-identity, endpoint positions, prefab, and each lane's index, type, vehicle,
+identity, endpoint positions, prefab, segment flags (including `Invert`, which
+swaps which end counts as forward), and each lane's index, type, vehicle,
 category and recorded direction. It never sees an outcome, a returned path, a
 panel count or a request's own `endpoint_roles` metadata.
 
@@ -23,8 +24,9 @@ reproduction is [`REPRODUCE.md`](REPRODUCE.md).
 unchanged packages: the PL-1121 first attempts and the PL-1142 targeted second
 attempts. 378 of them are literal boundary requests (342 on distinct map edges,
 36 on one edge); 378 are offset-128 midpoint diagnostics; 64 are the earliest
-collector version without a `position_kind` field; 56 are placeholder rows where
-no request was made.
+collector version without a `position_kind` field; 28 are archived first-hour
+player-run probes with no literal request; and 28 are placeholder rows where no
+request was made.
 
 Only the 378 literal boundary requests are scored. 102 of them are observed
 successes and 276 observed failures. A failure is an observed failure of that
@@ -143,13 +145,14 @@ change a prediction.
 | `requests.json` | the label-free model inputs |
 | `manifest.json` | source hashes, openings, counts and exclusions |
 | `protocol.json`, `predictions.json`, `evaluation.json`, `integrity.json` | the freeze and its scored result |
-| `test_outside_query_model.py` | 62 tests: domain, direction, ties, abstention, binding, freeze, metrics, bridge |
+| `test_outside_query_model.py` | 78 tests: domain, direction, `Invert`, allocation-id independence, abstention, binding, freeze, metrics, bridge |
 
 ## Order and hashes
 
 Run `inventory.py`, then `bridge.py`, then `predict.py`, then `evaluate.py`.
 `predict.py` reads only `requests.json` and the retained pre-query snapshots, and
 `evaluate.py` refuses to run unless `protocol.json` already records the SHA-256
-of the `predictions.json` on disk. The two freeze commits are separate on
-purpose: the predictions were committed before the evaluation code existed.
+of the `predictions.json` on disk; a failed binding exits non-zero before any
+report is written. Each freeze is committed before the evaluation code that
+scores it, so the order in git shows the freeze rather than asserting it.
 `integrity.json` re-checks every binding and hash and records the result.

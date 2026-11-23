@@ -20,10 +20,15 @@
  "assertions": [
   {
    "detail": {
-    "file": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6",
-    "protocol": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6"
+    "file": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
+    "protocol": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11"
    },
    "name": "protocol_binds_this_predictions_file",
+   "ok": true
+  },
+  {
+   "detail": null,
+   "name": "protocol_binds_this_requests_file",
    "ok": true
   },
   {
@@ -34,11 +39,6 @@
   {
    "detail": null,
    "name": "frozen_primary_rule",
-   "ok": true
-  },
-  {
-   "detail": null,
-   "name": "requests_sha_matches_protocol",
    "ok": true
   },
   {
@@ -70,13 +70,18 @@
    "ok": true
   },
   {
+   "detail": 0,
+   "name": "prediction_query_ids_are_unique_against_inventory",
+   "ok": true
+  },
+  {
    "detail": [],
    "name": "predictions_repeat_the_exact_request",
    "ok": true
   },
   {
    "detail": null,
-   "name": "every_eligible_query_has_an_observed_label",
+   "name": "every_eligible_query_has_a_strict_boolean_label",
    "ok": true
   },
   {
@@ -87,6 +92,11 @@
   {
    "detail": "directed_segment",
    "name": "global_best_is_in_frozen_family",
+   "ok": true
+  },
+  {
+   "detail": [],
+   "name": "no_unexplained_disagreement",
    "ok": true
   },
   {
@@ -120,7 +130,8 @@
   "anomalies": 3,
   "by_exclusion": {
    "midpoint_diagnostic_unscored": 378,
-   "no_request_recorded": 56,
+   "no_request_recorded": 28,
+   "player_construction_not_unchanged_map": 28,
    "protocol_fields_absent": 64
   },
   "by_mode": {
@@ -129,11 +140,12 @@
    "ship": 41
   },
   "by_stratum": {
+   "archived_player_run": 28,
    "midpoint_diagnostic": 378,
    "primary_distinct_edge": 342,
    "same_edge": 36,
    "unclassified_protocol": 64,
-   "unrequested": 56
+   "unrequested": 28
   },
   "eligible": 378,
   "eligible_by_mode": {
@@ -167,16 +179,16 @@
   "queries": 876
  },
  "hashes": {
-  "bridge.json": "8e0505ff4cd76fd38f0cacad1e19d2be50f68c71c3ce8d3df17d127dde7edc4b",
+  "bridge.json": "1028b1c138d508f1edf0f0532f415666ae9a782347291cdf8502ece33874f98c",
   "catalogs.json": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc",
-  "evaluation.json": "0c6bf22df2f0691958e48c438198433f96121f7af87d9afb49f1af513716bf27",
+  "evaluation.json": "5fc3d707802faf9db7830e6bb5a3991814c73cba86c71aeb357fe597f63cbc78",
   "evidence.json": "ea2e27fc65ae4d60e7fddb918a9dba59237b6a9c25d50b6be763b7c2b1263b32",
-  "inventory.json": "4a1a674cfe741b5e809ae996816a509d7b0609d9084635aabbdde0304452a537",
-  "manifest.json": "03316c3f940d1ecc1d2d8a9f18c7418b19527cbc6d5e1b4175905c65912193b9",
+  "inventory.json": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
+  "manifest.json": "e34f2b3bdb34e8d7ed8f2fbfd341117dcabfe2d3d239a03d5c49b172568fffc2",
   "packages.json": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
-  "predictions.json": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6",
-  "protocol.json": "4b2c508b5bcb8ad18577d53557bf29c4692f8fa674ba15c920142ea235ecef9e",
-  "requests.json": "1ebea0fe8ddee4a56c24840998a07ebeb472fe35dc47c28f08fbb71d9d6436dd"
+  "predictions.json": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
+  "protocol.json": "7a87a7299173456e5cf9fa72a5a94924973cf309e8e208f6ddd1fb1779b23828",
+  "requests.json": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447"
  },
  "schema": 1,
  "study": "outside-query-model-v1"

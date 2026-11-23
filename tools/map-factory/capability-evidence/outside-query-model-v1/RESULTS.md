@@ -24,13 +24,17 @@ failure of that exact request, never a geographic negative.
 | same-edge literal boundary | 36 | yes (separate) | the two ends sit on one map edge |
 | midpoint diagnostic (offset 128) | 378 | no | each is the correlated repeat of one boundary request |
 | earliest collector, no `position_kind` | 64 | no | protocol fields absent: unknown, not a failure |
-| no request recorded | 56 | no | coverage gap, not a failure |
+| archived first-hour player run | 28 | no | named probe on a player-constructed map, no literal request |
+| no request recorded | 28 | no | coverage gap, not a failure |
 | **total** | **876** | | |
 
-All 876 rows bind to their raw observation bytes: the recorded SHA-256 of every
-observation and network snapshot matches the decompressed file, every assembled
-row equals exactly one raw `paths` entry with the same request and the same
-result, and the label recomputed from the raw result equals the recorded one.
+All 820 rows that carry a literal request bind to their raw observation bytes:
+the recorded SHA-256 of every observation and network snapshot matches the
+decompressed file, every assembled row equals exactly one raw `paths` entry with
+the same request and the same result, and the label recomputed from the raw
+result equals the recorded one. The 28 archived rows come from the accepted
+study's byte-bound archived report and timeline; they carry no literal request,
+so they are excluded rather than scored.
 Three openings (asheville attempt-1, pittsburgh native-v2-2, rio native-v2-1)
 failed before a network snapshot existed; they carry no usable request and are
 recorded as anomalies.
