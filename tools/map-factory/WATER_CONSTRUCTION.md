@@ -1185,3 +1185,30 @@ sets are retained, including 12 multiring polygons. No source/probe/mask or nati
 result changed. Use these continuous membership counts for literal point claims;
 Pillow raster counts remain a separate model. Eight focused tests, both two-file
 replays and 220 bound dependencies pass. No physical admission or old refusal change.
+
+## Phase twenty-eight: exact operations and literal exterior ports
+
+New committed/frozen ledgers cover all six inputs, 967 eligible river/stream parts,
+every contract/branch/probe and 322 unchanged control records. Conditional field
+changes have exact uint16 grid bytes/offsets, not compressed CRP offsets. Undeployed
+43-byte head/terminal proposals use experimental intake128/headoutput32/terminal0;
+no physical supply budget. Contacts and actual proposed edits are separate; no
+old refusal is cleared or mask shrunk.
+
+The exterior-face rule removes zero in-square banks. Of 35 old open-port cases,
+28 still fail bounds, two are cyclic and five lack exterior lateral evidence.
+It adds no numeric profile. Existing 37 numeric plans imply 240 terrain and 240
+depth-change occurrences; 234 touch operation-protected cells. One South cell has
+conflicting independent plans; no combined map is materialized. Of 37 plans, 36
+fail operation checks. The sole bounds-only fit is the same two-node constant-stage
+coastal piece, not a flowing-water candidate. No geographic admission.
+
+One coastal profile has serialized-bank margin 19q versus reference-native 32q,
+so it fails source-space freeboard. No native-floor identity is transferred to
+serialization. Both full seven-file replays match on exact f9ac1f8 source. A frozen
+unit test expected the wrong solver status label; only two test literals changed
+AFTER replays for future protocols. Eleven current focused tests pass. Frozen
+source/failure/results remain, with no numerical or game retry. No CRP/grid/control
+installation, native, default, ledger or holdout action. Coastal initialization
+still fails 496/962 contracts; all promises remain unknown. Independent review
+covers these combined construction results, not permission before measurement.

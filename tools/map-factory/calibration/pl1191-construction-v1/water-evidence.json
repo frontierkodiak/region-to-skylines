@@ -1255,5 +1255,18 @@
     "raster_v1_unchanged": true,
     "new_physical_or_native": false,
     "promise": "unknown"
+  },
+  "phase28_open_interface_operations": {
+    "schema": "polli.pl1191-postanalysis-operation-binding/2",
+    "postanalysis_not_prospective": true,
+    "v1_prospective_freeze_sha256": "6563ac56e96cd7e69a129c8ee6d208aa6005397c3a3c229dda6153d039344a0b",
+    "v2_prospective_freeze_sha256": "c106b8232595ef38651e1f73102d6165ec85500681834bcf4fdc3a5ac843b7f7",
+    "actual_CPU_recipe_commit": "f9ac1f8",
+    "v1_method_before_outputs": "5556cc4",
+    "v2_method_before_outputs": "f9ac1f8",
+    "summary_sha256": "6bd85d8fc352bd73a0d55f977532339d3c58e6c1200fbdc168371e9d5cef3c4d",
+    "future_test_label_only_fix_commit": "4af0e89",
+    "new_physical_or_native": false,
+    "promise": "unknown"
   }
 }

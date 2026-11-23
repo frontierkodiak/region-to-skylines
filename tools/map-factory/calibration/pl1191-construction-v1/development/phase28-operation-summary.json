@@ -1,0 +1,215 @@
+{
+  "schema": "polli.pl1191-phase28-operation-results/2",
+  "cases": [
+    {
+      "case": "dry-upland-asia",
+      "eligible_line_parts": 16,
+      "geometric_components": 4,
+      "physical_support": true,
+      "original_contracts": 50,
+      "admission": false,
+      "old_configured_controls": 58,
+      "numeric_operations": 0,
+      "operation_bounds_only": 0,
+      "new_open_face_statuses": {
+        "infeasible_bounds": 2
+      },
+      "proposed_terrain_change_occurrences": 0,
+      "proposed_depth_change_occurrences": 0,
+      "protected_edit_occurrences": 0,
+      "undeployed_control_proposals": 0,
+      "cross_component_conflicts": [],
+      "old_primary_initialization_unchanged": true,
+      "protected_edits_by_overlapping_mask": {}
+    },
+    {
+      "case": "dry-upland-europe",
+      "eligible_line_parts": 2,
+      "geometric_components": 2,
+      "physical_support": true,
+      "original_contracts": 93,
+      "admission": false,
+      "old_configured_controls": 48,
+      "numeric_operations": 0,
+      "operation_bounds_only": 0,
+      "new_open_face_statuses": {
+        "infeasible_bounds": 1
+      },
+      "proposed_terrain_change_occurrences": 0,
+      "proposed_depth_change_occurrences": 0,
+      "protected_edit_occurrences": 0,
+      "undeployed_control_proposals": 0,
+      "cross_component_conflicts": [],
+      "old_primary_initialization_unchanged": true,
+      "protected_edits_by_overlapping_mask": {}
+    },
+    {
+      "case": "lowland-river-south-america",
+      "eligible_line_parts": 548,
+      "geometric_components": 245,
+      "physical_support": true,
+      "original_contracts": 858,
+      "admission": false,
+      "old_configured_controls": 49,
+      "numeric_operations": 19,
+      "operation_bounds_only": 0,
+      "new_open_face_statuses": {
+        "infeasible_bounds": 10,
+        "unresolved_exterior_or_lateral_bank_no_literal_port": 3
+      },
+      "proposed_terrain_change_occurrences": 104,
+      "proposed_depth_change_occurrences": 104,
+      "protected_edit_occurrences": 103,
+      "undeployed_control_proposals": 41,
+      "cross_component_conflicts": [
+        {
+          "node_rc": [
+            530,
+            214
+          ],
+          "component_stage_bed_depth_q": [
+            [
+              "source-component:154",
+              17460,
+              17364,
+              96
+            ],
+            [
+              "source-component:155",
+              17446,
+              17350,
+              96
+            ]
+          ]
+        }
+      ],
+      "old_primary_initialization_unchanged": true,
+      "protected_edits_by_overlapping_mask": {
+        "all_current_graph_bank_union": 25,
+        "all_other_or_excluded_lines_128m": 103,
+        "original_stream_bank_union": 20,
+        "old_corridor_112m": 7
+      }
+    },
+    {
+      "case": "dry-upland-south-america",
+      "eligible_line_parts": 18,
+      "geometric_components": 4,
+      "physical_support": false,
+      "original_contracts": 55,
+      "admission": false,
+      "old_configured_controls": null,
+      "numeric_operations": null,
+      "operation_bounds_only": null,
+      "retained_base_refusal": {
+        "square": "dry-upland-south-america",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      }
+    },
+    {
+      "case": "mountain-river-asia",
+      "eligible_line_parts": 51,
+      "geometric_components": 18,
+      "physical_support": false,
+      "original_contracts": 174,
+      "admission": false,
+      "old_configured_controls": null,
+      "numeric_operations": null,
+      "operation_bounds_only": null,
+      "retained_base_refusal": {
+        "square": "mountain-river-asia",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      }
+    },
+    {
+      "case": "low-coast-oceania",
+      "eligible_line_parts": 332,
+      "geometric_components": 167,
+      "physical_support": true,
+      "original_contracts": 962,
+      "admission": false,
+      "old_configured_controls": 167,
+      "numeric_operations": 18,
+      "operation_bounds_only": 1,
+      "new_open_face_statuses": {
+        "infeasible_bounds": 15,
+        "unresolved_exterior_or_lateral_bank_no_literal_port": 2,
+        "unresolved_cycle": 2
+      },
+      "proposed_terrain_change_occurrences": 136,
+      "proposed_depth_change_occurrences": 136,
+      "protected_edit_occurrences": 131,
+      "undeployed_control_proposals": 37,
+      "cross_component_conflicts": [],
+      "old_primary_initialization_unchanged": true,
+      "protected_edits_by_overlapping_mask": {
+        "all_current_graph_bank_union": 22,
+        "all_other_or_excluded_lines_128m": 125,
+        "old_mapped_body_128m": 32,
+        "old_corridor_112m": 12
+      }
+    }
+  ],
+  "all_eligible_line_parts": 967,
+  "all_geometric_components": 440,
+  "old_control_records_unchanged": 322,
+  "new_open_face_statuses": {
+    "infeasible_bounds": 28,
+    "unresolved_exterior_or_lateral_bank_no_literal_port": 5,
+    "unresolved_cycle": 2
+  },
+  "protected_edit_occurrences_by_overlapping_mask": {
+    "all_current_graph_bank_union": 47,
+    "all_other_or_excluded_lines_128m": 228,
+    "original_stream_bank_union": 20,
+    "old_corridor_112m": 19,
+    "old_mapped_body_128m": 32
+  },
+  "new_in_square_banks_removed": 0,
+  "CRP_control_table_or_physical_grid_written": false,
+  "no_new_native": true,
+  "operation_bounds_only_not_admission": "Only coast source-component:109/streams:316:clip:0,2nodes/constantstage. Not a flowing-water diagnostic/candidate substitute.",
+  "old_refusals_and_contracts_unchanged": true,
+  "both_7file_replays": {
+    "open-interface-operations-v1": {
+      "all7outputs_byte_identical": true,
+      "files_sha256": {
+        "dry-upland-europe.json": "1d42e27a27b27f6ae5b5668149138663b25f0920a88534fd3e7774a6463c9eb4",
+        "dry-upland-asia.json": "85f588c1c5f6942fbfeedf46da4aebe35bf906dea9a98499f998b6a2d20eea48",
+        "mountain-river-asia.json": "ed5b8c802cb32d0b8546602bd2b67f3c247dc82c905a1d6310930124f48cbac5",
+        "dry-upland-south-america.json": "63929acb2a0f5320da0e8c27a8751d2aab3fa4dd3fb80ea74775f3b9304d4316",
+        "receipt.json": "09c4239b63dc931f1c6336993ff78e7f412ff0cbcf8539b664f49e3198f0d082",
+        "low-coast-oceania.json": "919de40e7b8ffb4174819e095343f465edf74c9b7c8a9f393de0225cb3ff3b2f",
+        "lowland-river-south-america.json": "f122b650fb0e22a96d0260de5dddde9fc52000a6e88ac814ef131ab7744e1f6f"
+      }
+    },
+    "open-face-operations-v2": {
+      "all7outputs_byte_identical": true,
+      "files_sha256": {
+        "lowland-river-south-america.json": "32a1aaf5678079d4d76e6ef6dbf236fe41aae41e39a164ee0301d83a1ecae832",
+        "dry-upland-europe.json": "0d835f788ae5b14bc97d52f797704ca4ce904bec27b0fc6d2775e3a911af1819",
+        "receipt.json": "111e2490c215a484e7fb9e4ea8ece390fe18a0358ac3e7fae0c563db7bc62bf2",
+        "dry-upland-asia.json": "4f91ca9b8c6b2873b38f2ab4f2574b9bd8b46a23adfbed2d2dd4d622bd95ae1b",
+        "low-coast-oceania.json": "36c878df71ca29ea22c52a88ea05fa61bb059755b666f784b16e796c8d77967d",
+        "mountain-river-asia.json": "9a6ad8ab72f7b9eaa18c3be8debcb158ddac05db24283f5447abedc5f388dac3",
+        "dry-upland-south-america.json": "40cb44c90fe573c04804a93ffa95b25ffc99aa3768457774afec6e506eab479b"
+      }
+    }
+  },
+  "test_label_lineage": {
+    "schema": "polli.pl1191-phase28-test-label-lineage/1",
+    "observed_cpu_and_replay_source_commit": "f9ac1f852f61c901a23f215612a9307aebdbe8a1",
+    "future_test_fix_commit": "4af0e89c7a2aac26ccc8c49f8dbbbd65e527b77d",
+    "frozen_v2_tests": "3pass/1expected-status-label assertion fails; real solver returns infeasible_bounds",
+    "future_v2_tests": "4pass after correcting two test label literals only",
+    "both_recipe_method_files_byte_identical": true,
+    "CPU_results_not_recomputed_after_future_test_fix": true,
+    "native_retry": false
+  },
+  "current_new_focused_tests": 11,
+  "frozen_v2_unit_assertion_label_mismatch_preserved": true,
+  "stable_water_promise": "unknown",
+  "independent_acceptance": false
+}
