@@ -10,11 +10,12 @@ import numpy as np
 from interface_observation import SIZE, hash_file, preflight as parent_preflight
 from water_codec_audit import ROOT, check_files, load, write
 
-POLICY = "source-walk-interface-continuity-v1"
+POLICY = "source-walk-interface-continuity-v2"
 FILES = (
     "diagnostics/source_interface_continuity.py",
     "diagnostics/test_source_interface_continuity.py",
     "calibration/pl1191-construction-v1/development/phase35-continuity-policy.md",
+    "calibration/pl1191-construction-v1/development/phase35-continuity-policy-v2.md",
 )
 
 
@@ -56,9 +57,33 @@ def source_domain(boundary, old_cohort=None):
         for a, b in zip(walk, walk[1:]):
             if a != b:
                 edges.add(tuple(sorted((a, b))))
-    joins, unresolved = set(), []
+    joins, unresolved, mappings = set(), [], []
+    # conditional_surface_equality_nodes indexes PRE-QUOTIENT keys, not t['nodes'].
+    # Resolve captured incidence through exact own source aliases in the quotient.
+    aliases = {
+        tuple(a): i for i, node in enumerate(t["nodes"]) for a in node["source_aliases"]
+    }
     for ji, j in enumerate(t["literal_source_junctions"]):
-        ids = j["conditional_surface_equality_nodes"]
+        ids = []
+        for incidence in j["incidence"]:
+            clip = incidence["clip_id"]
+            if clip not in t["eligible_clip_ids"]:
+                continue
+            x, z = t["clips"][clip]["points_xz"][incidence["clip_vertex"]]
+            key = (clip, round((8640 - z) / 16), round((x + 8640) / 16))
+            if key not in aliases:
+                raise ValueError(
+                    "Literal incidence absent from exact original graph aliases"
+                )
+            ids.append(aliases[key])
+        ids = sorted(set(ids))
+        mappings.append(
+            {
+                "junction_index": ji,
+                "pre_quotient_indices": j["conditional_surface_equality_nodes"],
+                "resolved_graph_ids": ids,
+            }
+        )
         if not ids or not j["joined_in_geometric_hypothesis"]:
             unresolved.append(ji)
         elif len({graph_cells[i] for i in ids}) != 1:
@@ -79,6 +104,7 @@ def source_domain(boundary, old_cohort=None):
         "walk_edges": [list(e) for e in sorted(edges)],
         "literal_same_cell_joins": [list(e) for e in sorted(joins)],
         "unresolved_literal_junction_indices": unresolved,
+        "literal_junction_index_lineage": mappings,
         "components": t["components"],
         "all_sites": boundary["all_boundary_sites"],
         "old_observation_sites": old_cohort["sites"] if old_cohort else None,

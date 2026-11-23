@@ -69,6 +69,49 @@ class SourceInterfaceContinuityTests(unittest.TestCase):
         )
         self.assertEqual(b[0]["wet_induced_components"], 1)
 
+    def test_literal_prequotient_ids_never_index_merged_graph(self):
+        t = {
+            "clips": {
+                "a": {
+                    "nodes_rc": [[540, 540]],
+                    "points_xz": [[0, 0]],
+                    "source_scope": "perennial_surface",
+                },
+                "b": {
+                    "nodes_rc": [[540, 540]],
+                    "points_xz": [[0, 0]],
+                    "source_scope": "perennial_surface",
+                },
+            },
+            "eligible_clip_ids": ["a", "b"],
+            "nodes": [
+                {
+                    "node_rc": [540, 540],
+                    "source_aliases": [["a", 540, 540], ["b", 540, 540]],
+                }
+            ],
+            "walks": {"a": [0], "b": [0]},
+            "components": [[0]],
+            "literal_source_junctions": [
+                {
+                    "conditional_surface_equality_nodes": [5, 99],
+                    "joined_in_geometric_hypothesis": True,
+                    "incidence": [
+                        {"clip_id": "a", "clip_vertex": 0},
+                        {"clip_id": "b", "clip_vertex": 0},
+                    ],
+                }
+            ],
+        }
+        d = source_domain(
+            {"case": "x", "complete_source_topology": t, "all_boundary_sites": []}
+        )
+        self.assertEqual(
+            d["literal_junction_index_lineage"][0]["resolved_graph_ids"], [0]
+        )
+        self.assertEqual(d["literal_same_cell_joins"], [])
+        self.assertEqual(d["unresolved_literal_junction_indices"], [])
+
     def test_excluded_part_and_unknown_site_remain_in_domain(self):
         t = {
             "clips": {
@@ -76,7 +119,7 @@ class SourceInterfaceContinuityTests(unittest.TestCase):
                 "b": {"nodes_rc": [[2, 0]], "source_scope": "excluded"},
             },
             "eligible_clip_ids": ["a"],
-            "nodes": [{"node_rc": [0, 0]}],
+            "nodes": [{"node_rc": [0, 0], "source_aliases": [["a", 0, 0]]}],
             "walks": {"a": [0]},
             "literal_source_junctions": [],
             "components": [[0]],
