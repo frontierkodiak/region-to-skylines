@@ -21,8 +21,10 @@ It authors every captured visible river/stream, lakes, river areas and ocean:
   Both the requested catchment setting and any geometric reduction are recorded.
 - A source-space drainage tree chooses outlets at sea or the map edge where
   available. Short captured gaps up to 160 m can join; explicit underground gaps
-  cannot. Closed captured components use an explicit terminal sink. They are
-  **not** represented as real edge outlets.
+  cannot. Closed captured components are recorded explicitly; an intake-only
+  terminal is placed where the existing source-spacing rule permits it. These
+  are **not** represented as real edge outlets, and a recorded terminal does
+  not prove that a sink was placed or that its capacity is sufficient.
 - Local surface limits prevent a high captured sill from raising a whole river
   or cutting an entire valley down. This can leave cascades; it is not a claim
   that all branches form one gently graded hydraulic reach.

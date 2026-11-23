@@ -6,6 +6,7 @@ import { loadPyodide } from "pyodide";
 import { startFactory, buildMap, clearWork } from "../mapgen.js";
 
 const root = process.argv[2];
+const version = process.argv[3] ?? "v4";
 if (!root) throw new Error("Usage: node test/gameplay-parity.mjs RUN_ROOT");
 const sha = bytes => createHash("sha256").update(bytes).digest("hex");
 const factory = await startFactory({ loadPyodide,
@@ -25,9 +26,9 @@ for (const slug of cases) {
     banks: new Float32Array(banks.buffer, banks.byteOffset, banks.byteLength / 4),
     landcover: "/work/landcover.u8.gz", evidence: "/work/evidence.json",
   });
-  const expected = JSON.parse(await readFile(root + "/after-v3/" + slug + "/generation.json"));
+  const expected = JSON.parse(await readFile(root + "/after-" + version + "/" + slug + "/generation.json"));
   assert.equal(sha(result.bytes), expected.package.sha256, slug + ": CPython/Pyodide package equality");
   proof.push({ square: slug, sha256: sha(result.bytes), bytes: result.bytes.length });
-  await writeFile(root + "/pyodide-parity.json", JSON.stringify(proof, null, 2) + "\n");
+  await writeFile(root + "/pyodide-parity-" + version + ".json", JSON.stringify(proof, null, 2) + "\n");
   console.log(slug + " package exact", result.bytes.length);
 }
