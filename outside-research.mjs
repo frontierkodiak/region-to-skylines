@@ -79,11 +79,12 @@ const counts = (confusion) => {
   const c = confusion.counts ?? confusion;
   return [`TP ${c.tp}`, `FP ${c.fp}`, `TN ${c.tn}`, `FN ${c.fn}`].join(" · ");
 };
+const rate = (value) => (value === null || value === undefined ? "null" : Number(value).toFixed(3));
 const rates = (confusion) => {
   const r = confusion.rates ?? confusion;
   const parts = [];
   for (const key of ["precision", "recall", "f1", "coverage"]) {
-    if (key in r) parts.push(`${key} ${r[key] === null ? "null" : r[key]}`);
+    if (key in r) parts.push(`${key} ${rate(r[key])}`);
   }
   return parts.join(" · ");
 };
@@ -432,7 +433,7 @@ function modeRows(escape, study) {
       String(record.successes),
       String(record.failures),
       counts(conf),
-      conf.rates.precision === null ? "null" : String(conf.rates.precision),
+      rate(conf.rates.precision),
       record.discrimination_estimable ? "two classes" : "one class only",
     ];
   });

@@ -520,7 +520,7 @@
     "tools/map-factory/integrate_rail_research.py": "a49282eeb69b970f5204fa734cf5f46709b61f5c72af32a66dacda7ccde27f26",
     "tools/map-factory/capability-evidence/rail-research-sources.json": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
     "tools/map-factory/capability-evidence/rail-research-studies.json": "f9ad71df4d1ff436324d02c5c875a06e3c01882e8d7a5090926eb430d0db2b75",
-    "outside-research.mjs": "8125f9a54ca057c1fbefd3975c7a94d3d019d731081922e5cc2fe1acb62bce66",
+    "outside-research.mjs": "24a19618ba4be2d7d8ea79f0e02f3a845e19b1542b92db43f02d48ce395cb71f",
     "tools/map-factory/integrate_outside_research.py": "4ac7e82fe17bd4a04fab4ceb9201bc3e9c219d0cea5f34477fe7ad92e509662b",
     "tools/map-factory/capability-evidence/outside-research-sources.json": "bfe001f5a450fb8166ff9131dba92de1a313883694920cf1450ef31c4bf63f7e",
     "tools/map-factory/capability-evidence/outside-research-studies.json": "8c3e785d26bf864f325d78de8b543008870d2816f8608a940c1b94947cb115e4",
