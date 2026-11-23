@@ -1,0 +1,15 @@
+{
+  "head": "d39a31ea8636967e4c398d09ed5c7994d399260e",
+  "finding_comment": "01a208ad-0791-7f11-80ae-b1eb2ee2bf48",
+  "attachment_ids": [
+    "01a208ad-073c-7436-822b-c6edafadb6e8",
+    "01a208ad-0762-7556-aa8e-0fa1b99e8626",
+    "01a208ad-0786-7959-96e7-d6658c34db4b"
+  ],
+  "raw_bundle_sha256": "68864ff4d675f1a66b8e170e98987228ca0842688b961ed54278e5517e3229b5",
+  "result": "five failing subtests at rejected head; not a corrected-head PASS",
+  "raw_log_sha256": {
+    "acceptance-regressions.log": "b7d20efd20059fc9af0fd925e774fa17492c27e21553fa2798760ecb77b00f7f",
+    "local-reproduction.log": "e44fdf3bf07a6f5927845af448ca2463958e314362cfa5d91f818fcff48adca9"
+  }
+}

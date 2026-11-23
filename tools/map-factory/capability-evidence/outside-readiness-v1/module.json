@@ -1,17 +1,28 @@
 {
   "files": {
     "CONTRACT.md": "b977d518f485ae7f301a4305d5878019dc8d2deda960ace5f261f9ee8a29cc1f",
-    "NEXT-STUDY.md": "59685c0c80fe6ed67c4b53a95e166a2ceb09047233b9d8651d3526da65ef47a2",
-    "README.md": "faeef0704a99678e4c8aa27cfc32c5c523586a73137332af943378d81ffebe86",
+    "NEXT-STUDY.md": "9a0a9e67cd1666a5bc87686f72c1ef66234a62739f4863a00e116f9e4f509306",
+    "README.md": "8c4b1a83e0b984ab10e1a11454246b939c2eec4f7e5e350c6b2540a2edc7e66a",
+    "SCHEMA.md": "792ef5b0dc2c810c521169cc10cfb0570e0a7e366749712188f6389d2609807c",
     "bind.py": "006f07c8cb38beb41dd038a300479d7686f2b65c4b6111d9f4264cc74983d84c",
     "bindings.json": "ffb4523a97684db21758e96436e95488689c6983854b55489db0931417e2e164",
     "bridge_contract.py": "7a8c0ac8dfd1ad8f893d4b991099d0c6d33d9a39d5139f12090594b8040f712f",
-    "check.py": "c2b9e8f162cdf925ca57276b11169722d98022a1b82233725f179c176b3c4435",
+    "check.py": "4fa05f01bbc36f52fea28ee10e19adc1ba863b963b8d78bea4014c02861ad2db",
+    "evidence.py": "b65a11f25515b982bfb18622fa3a7e80a4d270141006a57bbf62b2dbb284d525",
     "fixtures.py": "b2492d27639e9d4faeffa67e4205e7c27e81c01aeb0cdba9dcf6944897c97ab2",
     "protocol.py": "615efae9140a850e59dfc5986763a6c3448bb2dc427ee6d75d9acb075a45340e",
-    "readiness.py": "09a3d0e52cbbaf94625981b591fd1a82201d2ae52f1288768006093d9d00f227",
-    "test_protocol.py": "413801ea3f8fa26d1bafe7ceb9da5035e1e3835e1b3211a114fc826478b3371e",
-    "test_readiness.py": "a09d9547ab825475815e64429ce84d14518bc8496cceaa8a56a8e1aa370e11c3"
+    "readiness.py": "ae84a4aa146bf7a1cc59e079e050492009b9348c7df528698813df165fcc6582",
+    "rejected-d39/CONSTRUCTED-missing-artifact-bundle.json.gz": "6cb533e4cd21d806f9ecdfc959956c80c8cf8cc432978b09eb36bcf49d925615",
+    "rejected-d39/README.md": "94b5c685c6b8b1ed26ac5dbccb95865baa8079eea493c0fa603f770daed971d6",
+    "rejected-d39/acceptance-regressions.log.gz": "2529c103e941271017a3130d5aaaeb291683fcf8fc4a94c08e1e4034ca2895fb",
+    "rejected-d39/acceptance-regressions.py": "8f0e4cd0d74ff7a33a164f56148ac97bb5c9a11d6e8b8f5e9164ae6b545a3520",
+    "rejected-d39/local-reproduction.log.gz": "9e3d439b57a0e0be7effdca09a326be1e53dc7bfff7e2a678e1e02fb394ad572",
+    "rejected-d39/provenance.json": "5c298394a502c96e221da7c784b41fe860e88c7f0306917d3196954d2391186c",
+    "schema.py": "6c44f08c14539614049a92f007f2df43e85623ccf1159e10952201e6d81d3d73",
+    "test_acceptance.py": "1b41744a19d87c7e9f805ff0fd96216b6aae0f09743c378e8b460c3c76e83ecd",
+    "test_protocol.py": "fd55f3a8b6f6f2e4624a9044ced159e992a9108c88bdf40b817eeedf5a788b37",
+    "test_readiness.py": "6c80e764f8468a23bcef99dcaaba2a76871112832e443b970094287242f9cc75",
+    "test_support.py": "1ea982a76e0f2b12b707c4e6d84d19b1a8f08182fe726b23427af06fec24597e"
   },
   "version": 1
 }

@@ -7,6 +7,7 @@ from unittest.mock import patch
 import zipfile
 
 import fixtures
+from evidence import ArtifactStore
 import protocol as p
 import readiness as r
 
@@ -200,7 +201,9 @@ class Controls(unittest.TestCase):
             c["case_id"]: fixtures.observation(name)
             for c, name in zip(freeze["controls"], ("asanu", "hanami"))
         }
-        result = r.check(freeze["controls"], observations, {}, set())
+        result = r.check(
+            freeze["controls"], observations, {}, set(), ArtifactStore(fixtures.HERE)
+        )
         self.assertFalse(result.ready_for_measurement)
         self.assertEqual(result.pre_export_qualification, "unknown")
         self.assertTrue(any("failed/incomplete" in x for x in result.reasons))

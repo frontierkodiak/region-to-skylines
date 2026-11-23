@@ -1,4 +1,4 @@
-"""Offline CLI: verify bindings, diagnose retained controls, or check a v1 bundle."""
+"""Offline CLI: verify bindings, diagnose retained controls, or check a byte-backed v2 bundle."""
 
 import argparse
 from dataclasses import asdict
@@ -10,6 +10,8 @@ import subprocess
 import fixtures
 from protocol import ProtocolError, decode, exact
 from readiness import check
+from evidence import ArtifactStore
+from schema import strings
 
 HERE = fixtures.HERE
 ROOT = fixtures.ROOT
@@ -47,6 +49,13 @@ def verify():
     if any(not path.startswith(prefix) for path in changes):
         raise ValueError("change outside new readiness prefix")
     manifest = json.loads((HERE / "module.json").read_bytes())
+    module_files = {
+        str(p.relative_to(HERE))
+        for p in HERE.rglob("*")
+        if p.is_file() and "__pycache__" not in p.parts and p.name != "module.json"
+    }
+    if module_files != set(manifest["files"]):
+        raise ValueError("new module file key set differs")
     for name, expected in manifest["files"].items():
         if hashlib.sha256((HERE / name).read_bytes()).hexdigest() != expected:
             raise ValueError(f"new module binding changed: {name}")
@@ -62,6 +71,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", choices=["verify", "retained-controls", "bundle"])
     parser.add_argument("--input", type=Path)
+    parser.add_argument("--evidence-root", type=Path)
     args = parser.parse_args()
     try:
         receipt = verify()
@@ -74,7 +84,7 @@ def main():
                 c["case_id"]: fixtures.observation(name)
                 for c, name in zip(controls, ("asanu", "hanami"))
             }
-            result = check(controls, observations, {}, set())
+            result = check(controls, observations, {}, set(), ArtifactStore(HERE))
         else:
             if args.input is None:
                 raise ProtocolError("--input required")
@@ -83,13 +93,19 @@ def main():
                 {"version", "controls", "observations", "policy", "prior_sessions"},
                 "bundle",
             )
-            if type(bundle["version"]) is not int or bundle["version"] != 1:
+            if type(bundle["version"]) is not int or bundle["version"] != 2:
                 raise ProtocolError("unsupported bundle version")
+            if args.evidence_root is None:
+                raise ProtocolError(
+                    "--evidence-root required; hash declarations are not evidence"
+                )
+            sessions = strings(bundle["prior_sessions"], "prior_sessions", empty=True)
             result = check(
                 bundle["controls"],
                 bundle["observations"],
                 bundle["policy"],
-                set(bundle["prior_sessions"]),
+                set(sessions),
+                ArtifactStore(args.evidence_root),
             )
         print(json.dumps(asdict(result), sort_keys=True))
         return 0 if result.ready_for_measurement else 2

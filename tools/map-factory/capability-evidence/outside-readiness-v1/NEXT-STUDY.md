@@ -107,9 +107,11 @@ collector's own review, worktree and authorization.
 
 ## Readiness bundle and stop rules
 
-`check.py bundle --input BUNDLE.json` consumes version 1, controls, observations,
-frozen runtime policy and prior session IDs. It has no holdout-label input.
-`test_readiness.constructed` is the executable schema example, clearly marked
+`check.py bundle --input BUNDLE.json --evidence-root DIRECTORY` consumes version 2,
+controls, observations, frozen runtime policy and prior session IDs.
+[SCHEMA.md](SCHEMA.md) defines the exact schema and required retained artifacts.
+Version 1 from rejected head `d39a31e` is not a collection prerequisite. It has no holdout-label input.
+`test_support.constructed(store)` is the executable schema example, clearly marked
 CONSTRUCTED. Its readiness result never activates a real certificate.
 
 Each frozen control supplies requests, exact graph hash, source-file map and hash,
@@ -119,9 +121,11 @@ assembly maps, dynamic exclusions, source/DLL/protocol hashes and all five proce
 roles. Each observation supplies fresh session ID, exact bindings, entry context,
 three runtime inventories, opening/post graph hashes, full control paths with
 pre/post context and graph hashes, independent pre-build index, and PID/start
-cleanup maps. Evidence hashes must be computed from retained byte artifacts by
-the future collector adapter, not accepted as self-attested strings. This checker
-validates their declared equality; it cannot attest a caller's measurements.
+cleanup maps. The future collector adapter must retain the referenced byte artifacts. The
+checker rehashes those bytes, validates required facts before equality, and
+derives consumed-field values from the retained inputs. It cannot authenticate
+a caller's measurements or attest executing code. Extending the collector/source
+closure requires a reviewed schema version and a new pre-control freeze.
 
 Stop Unknown on a missing field, missing source, decode/catalog ambiguity,
 changed context, changed graph, failed control, mismatched request, incomplete

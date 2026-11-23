@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+
+from evidence import ArtifactStore
+from schema import CONSUMED_COVERAGE, validate_opening
 import hashlib
 import json
 
@@ -39,27 +42,7 @@ class Readiness:
     )
 
 
-CONSUMED_COVERAGE = frozenset(
-    {
-        "segment_ids",
-        "node_ids",
-        "endpoint_xyz",
-        "segment_invert",
-        "lane_index",
-        "lane_type",
-        "lane_vehicle",
-        "lane_category",
-        "lane_direction",
-        "prefab_catalog",
-        "outside_roles",
-        "literal_request",
-        "rule_constants",
-        "reader_helper_closure",
-    }
-)
-
-
-def coverage(expected: dict, actual: dict, where: str) -> None:
+def coverage(expected: object, actual: object, where: str) -> None:
     if not expected or actual != expected:
         raise ProtocolError(f"{where}: incomplete or changed coverage")
 
@@ -71,8 +54,6 @@ def runtime(policy: dict, phases: object) -> None:
     Process coverage includes driver/collector/auditor/monitor outside the game.
     """
     phases = exact(phases, {"launch", "pre", "post"}, "runtime phases")
-    if any(value is not True for value in policy["roots"].values()):
-        raise ProtocolError("missing required inventory root")
     if set(policy["process_roles"]) != {
         "game",
         "driver",
@@ -97,6 +78,8 @@ def runtime(policy: dict, phases: object) -> None:
                 "source_sha256",
                 "dll_sha256",
                 "protocol_sha256",
+                "executable_path",
+                "dll_path",
             },
             phase,
         )
@@ -107,7 +90,14 @@ def runtime(policy: dict, phases: object) -> None:
         if identity is not None and current != identity:
             raise ProtocolError("runtime PID/start changed")
         identity = current
-        for key in ("files", "roots", "plugins", "assemblies"):
+        for key in (
+            "files",
+            "roots",
+            "plugins",
+            "assemblies",
+            "executable_path",
+            "dll_path",
+        ):
             coverage(policy[key], row[key], f"{phase}.{key}")
         if (
             row["unresolved"] != []
@@ -120,11 +110,16 @@ def runtime(policy: dict, phases: object) -> None:
 
 
 def opening(
-    frozen: dict, observed: dict, policy: dict, prior_sessions: set[str]
+    frozen: dict,
+    observed: dict,
+    policy: dict,
+    prior_sessions: set[str],
+    store: ArtifactStore,
 ) -> None:
     """Validate one fresh control opening against pre-label inputs only."""
     if observed.get("error") or strict_bool(observed.get("completed")) is not True:
         raise ProtocolError("control opening failed/incomplete (no replacement)")
+    validate_opening(frozen, observed, policy, store)
     if (
         type(observed.get("session_id")) is not str
         or not observed["session_id"]
@@ -225,19 +220,49 @@ def opening(
 
 
 def check(
-    controls: list[dict], observations: dict, policy: dict, prior_sessions: set[str]
+    controls: list[dict],
+    observations: dict,
+    policy: dict,
+    prior_sessions: set[str],
+    store: ArtifactStore | None = None,
 ) -> Readiness:
     reasons = []
-    if not controls:
-        reasons.append("no controls frozen")
-    if set(observations) != {c["case_id"] for c in controls}:
-        reasons.append("control opening set differs; no replacement permitted")
+    try:
+        if type(controls) is not list or not controls:
+            raise ProtocolError("no controls frozen (require nonempty list)")
+        if type(observations) is not dict:
+            raise ProtocolError("observations: require map")
+        if type(prior_sessions) is not set or any(
+            type(v) is not str or not v for v in prior_sessions
+        ):
+            raise ProtocolError("prior_sessions: require set of nonempty strings")
+        ids = []
+        for control in controls:
+            if (
+                type(control) is not dict
+                or type(control.get("case_id")) is not str
+                or not control["case_id"]
+            ):
+                raise ProtocolError("frozen control: missing nonempty case_id")
+            ids.append(control["case_id"])
+        if len(ids) != len(set(ids)):
+            raise ProtocolError("duplicate control opening")
+        if set(observations) != set(ids):
+            raise ProtocolError("control opening set differs; no replacement permitted")
+        if not isinstance(store, ArtifactStore):
+            raise ProtocolError(
+                "missing retained artifact store; declarations are not evidence"
+            )
+    except ProtocolError as error:
+        return Readiness(False, (str(error),))
     sessions = set(prior_sessions)
     for control in controls:
         try:
-            observed = observations.get(control["case_id"], {})
-            opening(control, observed, policy, sessions)
+            observed = observations[control["case_id"]]
+            if type(observed) is not dict:
+                raise ProtocolError("observed control: require map")
+            opening(control, observed, policy, sessions, store)
             sessions.add(observed["session_id"])
-        except (ProtocolError, KeyError, TypeError, ValueError) as error:
+        except (ProtocolError, KeyError, TypeError, ValueError, OverflowError) as error:
             reasons.append(f"{control['case_id']}: {error}")
     return Readiness(not reasons, tuple(reasons))
