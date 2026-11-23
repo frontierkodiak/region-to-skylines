@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication and one accepted outside-stock and budget publication; physical writers and historical native qualification unchanged",
+  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; physical writers and historical native qualification unchanged",
   "predecessor_active_sha256": "610f43cb1d8265763afb418a6aae663b02379eea6e3efbd4ed5b320d87058aab",
   "predecessor_contract_sha256": "cc2f7327e2148a999ac0f8b14053c620612805e9f11a57279321aef182c5123a",
   "archived_gates": {
@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "30fad688017551821074727a3388adae8fec0c375e007d89cdf6024eb71c4ed1"
+      "current_sha256": "0fc1158a1eeb9cbd65af18f7d32edb8e0caec0baf550a7ce5ed99dd2196c1097"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "16d5e3a3cf68291ad47233f2a71a402b55a388933edaa00036787bb10f42f0db"
+      "current_sha256": "c6471a145764ec7cb7825284ed10cadf43bf30725bd37bd2501c88cbc3987cc0"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -256,11 +256,11 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "383e4fb74df8f098fb1b34c24f9ab94883a14e546ec60426d038633c42483670",
+    "capabilities.json": "9c5dd48ca3ddedbc5d6a0cf22dd1659659e93c409d616f147db8ed5e0e5ebf3d",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1",
-    "capability-ledger.mjs": "3a8bc73440eb4de8b58bb232517d5c9a18e47b8afa06a36f2825dad9ebed5830",
+    "capability-ledger.mjs": "ce436d97dec619e62faf6d043724d35def0d1322b7083abf628f2dd1bd6b4182",
     "capability-model.js": "0cca4b886eb22db30e5b95f0fe029dc3c186a7c9ff4b80149c40614cb78a17ea",
     "capability-ui.js": "4ad29a27aea8e5e714503ec4e6bebc2e43e55e53c94d746a9e732805a873f853",
     "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
@@ -577,6 +577,40 @@
     "tools/map-factory/capability-evidence/outside-stock-budget-v1/run_one.py": "c0592f88c300fc7247aad29028e2f65a80436420a18236033edfc9a4224bcf6f",
     "tools/map-factory/capability-evidence/outside-stock-budget-v1/stock-exclusion-source.json": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
     "tools/map-factory/capability-evidence/outside-stock-budget-v1/study.py": "916f73503868c49d2dea4f5d36e1c79dcad9d80cc7c4da7f70cf1619547935f1",
-    "tools/map-factory/capability-evidence/outside-stock-budget-v1/test_study.py": "ce09c445eb4e7da2de9e9101ac878d240cc72b2552cb5b14f09fc063c14622f6"
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/test_study.py": "ce09c445eb4e7da2de9e9101ac878d240cc72b2552cb5b14f09fc063c14622f6",
+    "outside-readiness.mjs": "d789c5a6b861ae8f1584aa4d7b945e4274c6da7fa8d3176039d9bf43a4a542ee",
+    "tools/map-factory/integrate_outside_readiness.py": "31e820f4c97383bcb07f184bdfffff2d0bca635c6b3febfeab518083f5316e2a",
+    "tools/map-factory/capability-evidence/outside-readiness-sources.json": "c2af9f3b80b34dba6f6ba12a0cbd4dc18c6183c319ebfa3d770fc05eef343982",
+    "tools/map-factory/capability-evidence/outside-readiness-studies.json": "dfeb78c733b2f0f259e4c279030fe53334b58543773c69a22fed38320713b0c9",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/README.md": "b42218d0f06bcccf962d7ebeb97b8825317cd1a25cb258eb36110342c98ad7d1",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/RESULTS.md": "0c08b933443079b06dffe3fc36bd82d1524fd19be1265d8fc42f46f9f0a2c2b0",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/assemble_v2.py": "d8c41863b6ed62b02d3e6f9dfa3d0f55283d978850b9b6243183e163956a7961",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/audit_v2.py": "1a4ca1511c2d58cb2cdad8339009b609385e69a85ec8ce95da89b4b196d7f54c",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/build_v2.py": "fa8037e01f21080eddac064c271529e2f963147799f151e0e4a7aeee0f99d0f2",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle.json": "767de08aeb6df62a5e81dcc5d4ec98f03d282f6685347e39a07796e0df38018b",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle_v2.py": "509d61af5c10da0922c835aa7cd3827c94e2e0df0ea28a7c5430a7ed9f6a89d7",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/check_study.py": "fccf86d4a28dd185e632160f684830ac8a887a3fcbc0f5fba00b3674129e804b",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/collect_v2.py": "b1cae3fb77628fbb8e1c689a4470aff9b35a525d5d7c68a20d35a48bebd1ff81",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluate_v2.py": "722512d9fa51078b6cdd0b420b43703721fbec626f6dff652ae677587a8d0ef7",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluation.json": "fe1672bc713f8bd69ee2c9481b92c7cf76a27a27fc60532aeed2f136c302a609",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/exclusions.json": "8bd8392301c7f358b38af7c41e23c6d7702380f23f265bc8e03b9ff1babcc68b",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/finalize_v2.py": "14de2571eb62fa0d46a37c63010d4bdc2d9bef53ac03e47cf95cbdbd41898179",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/freeze.json": "8e8d6a52043adfb3a4e542991934325bcaba61721cbc31a1ab89ce4ea8c97d1f",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/inventory.json": "a9704585c2d4a008030d2d65c574badaf1157f0ece042b7e3e4e7730ad1f7ee5",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/module.json": "ff07df29fef1c820c52e03f912791da650fec3642c63f23d336f7b8a0b8d5730",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/predictions.json": "2f881983ae9bce49b387c90469a8bdc31ea17a26a42a446115a7c98f44635d7f",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/readiness_v3.py": "113c6d4e4b64da864318095a52b2e43c9412677184aed45318e04b4b73e3e99e",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/report_v2.py": "90f329a1bfcf6c870f3d4e77191b3a8af38f76a6b805036964b3171af28f3c90",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/requests.json": "e656ce84e6344c456bdeefefbb9e1809d92d261c402f6cf05b25030fbbbbef6d",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/run_v2.py": "b9151e3c0932e49726506d62b7ca449d27ea406fdaf0d42984bdb1779491997d",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/schema_v3.py": "76f4a1b7461fa8be8cae3ee29536fdb3109f097eaeea8e9525f2073a5c6e418e",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/selection.json": "50b44bb9ce7d76691974527db970b182d6968eb4a0cc3036493e943d0ae2a092",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/stock_v2.py": "51060fcf3309efbc2a97f60a980b078aeb02bafd59d8b4e8d8325ea83d7f5bcd",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/test_study_v2.py": "c5066d0eca39f5d4c5025284d19bab6ee1a09db9748b0271b975d54d2b7ee856",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-1/driver-launch.json.gz": "75b60736066aee84ac025022f394f915b54cad72bf0f678ad17c0be8c591d609",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-2/driver-launch.json.gz": "4a67fc09da6ae99ab6dfd2444d030e05feb2137ea57d8024c62a12ca2465e1e0",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/readiness-result.json.gz": "6300d3f4e9c8eee9c315f3c919cfbe0182deed138214ac88d63f6c037b092f2e",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-1/auditor-receipt.json.gz": "aa185d11eb7d9b9c1af7782beb4f54d093547623e170764cee34644eff79f00d",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz": "c37d2533c970bca57761bdf201b5a8cf4027eccc3867a46b95a71cada1161eea"
   }
 }

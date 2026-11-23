@@ -453,6 +453,83 @@ the four members declared only by the integrity record say so on the page.
 `npm test` re-derives the same summary and refuses changed evidence, a changed
 ledger binding, a changed derived fact or a changed source chain.
 
+## A stopped outside-readiness study, kept Unknown
+
+One accepted publication, `outside-readiness-stock-v2`, is carried as a third
+typed evidence study and referenced from **Road, Ship and Air**. It is the
+PL-1313 corrected-control continuation of the outside-query work, and its
+outcome is **Unknown**: both control openings ran exactly as frozen and returned
+the required labels, then the byte-backed readiness gate refused admission, so
+zero holdout requests were issued and all six planned mode/class cells stay
+Unknown. It is **evidence only**: no runtime model, admission repair, new
+calibration score, qualification gate, native certificate, physical writer,
+default, input, promise level or old contract changes, and it is not pooled with
+the outside-query, outside-stock, rail or native studies. No archived collector,
+driver, auditor, bundle builder, evaluator, reporter, scorer or game run is
+repeated here.
+
+The controls are real but are not holdout votes: six positive requests
+succeeded, six invalid-vehicle requests failed, every row is complete and
+released, the independent pre-request build index equals the request's
+effective argument on all twelve rows, the opening graph equals the post graph
+on both openings, each opening's three phase inventories agree (45 files, 11
+roots, 7 plugins, 23 assemblies), and all ten owned PID/start identities are
+gone after a post-exit audit. The frozen driver could not attest its own
+absence; that audit closes cleanup only, not source binding.
+
+The selection is frozen and tiny: rule `first_package_covering_six_strata`, a
+25-package ordered eligible pool, one selected package (`PL Cavern Coast.crp`)
+that covered all six cells, and six frozen holdout requests that were never
+issued. Every planned cell stays Unknown. Predictions of success or no_path are
+input hypotheses, not native labels; there is no holdout accuracy, precision or
+recall, and those denominators are null and not estimable, never 0%.
+
+The stop is structural and honestly recorded. `freeze.json` binds an 82-file
+study-tree source manifest
+(`03f7fb7c…f226d`). The accepted readiness contract requires
+`frozen.source_files` to be exactly the versioned 30-file closure and requires
+the runtime phase's `source_sha256` to equal its digest
+(`561e4b52…54860`). Every closure file is present in the frozen tree with the
+same hash, but the collector recorded the 82-file digest, so the two bindings
+cannot both be true of one measured opening. Correcting the recorded binding
+would rewrite a measured field; changing the closure would change the frozen
+source digest and require new controls, which the no-retry rule forbids. Both
+digests stay recorded, and `assemble_v2.py`, `finalize_v2.py` and `report_v2.py`
+were written after the controls, sit outside the frozen measurement closure, and
+measure and qualify nothing.
+
+Regenerate from the exact producer worktree and the same-owner raw holding,
+then verify:
+
+```sh
+python3 tools/map-factory/integrate_outside_readiness.py   --source ~/dev/frontierkodiak/region-to-skylines/PL-1313-stock-v2   --raw ~/experiments/PL-1313-stock-v2/raw
+python3 tools/map-factory/integrate_outside_readiness.py --check
+```
+
+The importer never runs the study's tools or the game. It re-checks the
+publication's exact 26-file scope through
+`capability-evidence/outside-readiness-sources.json` (every file pinned by
+SHA-256, byte length and Git blob id, with a separate pre-control record for the
+20 files that existed at `bd00a4c`), verifies the 25 module member hashes,
+re-derives the canonical 82-file and 30-file digests from the frozen map and the
+two constant declarations it parses as data, checks all 51 retained raw hashes,
+and refuses a changed binding. The 25 compact files are carried byte for byte
+(including documentation, the frozen plan, the readiness bundle and every
+study-local tool); the bulk frozen feature dump stays at the publication commit
+as an immutable blob. Five small raw files are carried gzip-compressed so the
+page can serve the observation windows and the verbatim refusal; every one
+decompresses to its recorded original bytes. Licensed game and CRP bytes stay in
+the same-owner private blade holding, are named by hash only, and are never
+copied into the repository or attached to the issue. A fresh clone cannot
+reproduce the full producer `check_study.py verify`: it expects the untracked
+`.build/Cs1Harness.dll` and the original absolute staged-source path. That
+limitation is reported, not presented as a geographic Unknown.
+
+`npm test` re-derives the same summary, refuses changed evidence, a changed raw
+byte, a changed ledger binding, a changed derived fact or a changed source
+chain, and asserts that regenerating this producer never rewrites an unowned
+ledger byte or the sibling studies.
+
 ## Score the game, without conflating oracles
 
 Each capability's `game_agreement` is an array of observations. A row includes

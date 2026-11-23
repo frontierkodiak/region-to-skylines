@@ -25423,6 +25423,9 @@
       ],
       "outside_stock_studies": [
         "outside-stock-budget-v1"
+      ],
+      "outside_readiness_studies": [
+        "outside-readiness-stock-v2"
       ]
     },
     {
@@ -33495,6 +33498,9 @@
       ],
       "outside_stock_studies": [
         "outside-stock-budget-v1"
+      ],
+      "outside_readiness_studies": [
+        "outside-readiness-stock-v2"
       ]
     },
     {
@@ -35735,6 +35741,9 @@
       ],
       "outside_stock_studies": [
         "outside-stock-budget-v1"
+      ],
+      "outside_readiness_studies": [
+        "outside-readiness-stock-v2"
       ]
     },
     {
@@ -58964,5 +58973,100 @@
     },
     "evidence_files_sha256": "47400ce528ab716cfb30f1bd44f605b9eee0c0f27402d17baf635144d4706b6f",
     "certificates": "none"
+  },
+  "outside_readiness_studies": {
+    "kind": "outside_readiness_stock_study",
+    "study": "outside-readiness-stock-v2",
+    "source_commit": "4eca4d291cc133513e8bac6484185d3a3b6e80ae",
+    "source_base": "86fee78d9517eff3c0e715813202b7b81b7e11d1",
+    "frozen_commit": "bd00a4cd1719afb32a67601949103ca8ef9cf76d",
+    "internal_merge": "10be1b73598d7080afae44010c9de8b99d295316",
+    "source_issue": "01a2097f-7ea5-7803-ad5b-21f13dc72289",
+    "pull_request": 93,
+    "publication_files": 26,
+    "copied_files": 25,
+    "linked_files": 1,
+    "raw_files": 51,
+    "raw_copied_files": 5,
+    "module_version": 3,
+    "module_members": 25,
+    "projection_file": "tools/map-factory/capability-evidence/outside-readiness-studies.json",
+    "projection_sha256": "dfeb78c733b2f0f259e4c279030fe53334b58543773c69a22fed38320713b0c9",
+    "projection_tool_file": "tools/map-factory/integrate_outside_readiness.py",
+    "source_manifest_file": "tools/map-factory/capability-evidence/outside-readiness-sources.json",
+    "source_manifest_sha256": "c2af9f3b80b34dba6f6ba12a0cbd4dc18c6183c319ebfa3d770fc05eef343982",
+    "result": "unknown",
+    "holdout": {
+      "planned": 6,
+      "observed": 0,
+      "unknown": 6
+    },
+    "controls": {
+      "openings": 2,
+      "requests": 12,
+      "successes": 6,
+      "failures": 6,
+      "pre_equals_effective": 12,
+      "owned_processes_gone": 10,
+      "inventories_per_opening": 3,
+      "inventory_files": 45
+    },
+    "freeze": {
+      "source_files": 82,
+      "source_sha256": "03f7fb7c8eb8e3d6dd94f6444c5cd0cbd2156c325148b1006b564776a34f226d",
+      "contract_source_files": 30,
+      "contract_source_sha256": "561e4b522bc27fe9c06eb59a0ed875461b47277a2379c18d5998b8e753854860",
+      "git_commit_at_freeze": "5e5343b6e254952a27e622df25028f3229c7c688",
+      "old_fact_count": 84,
+      "old_publication_files": 142,
+      "readiness_files": 24
+    },
+    "readiness": {
+      "ready_for_measurement": false,
+      "reasons": [
+        "stock-1: runtime policy differs from freeze",
+        "stock-2: runtime policy differs from freeze"
+      ],
+      "missing_native_fact": "No independently validated native decision law relating the consumed place/export fields to literal path results; chord parameter has no native-cost conversion."
+    },
+    "selection": {
+      "packages": 1,
+      "pool": 25,
+      "covered_cells": 6,
+      "missing_cells": 0,
+      "file": "PL Cavern Coast.crp"
+    },
+    "verification": {
+      "tests": 59,
+      "check_study_verify": "original_producer_build_context_only",
+      "fresh_clone_limit": "requires the untracked .build/Cs1Harness.dll and the original absolute staged-source path",
+      "retained_byte_replay": true
+    },
+    "observation_windows": [
+      {
+        "case_id": "stock-1",
+        "started_at": "2026-11-23T17:59:52.682228+00:00",
+        "finished_at": "2026-11-23T18:02:41.041863+00:00",
+        "source": [
+          "raw/drivers/stock-1/driver-launch.json",
+          "raw/stock-1/auditor-receipt.json"
+        ]
+      },
+      {
+        "case_id": "stock-2",
+        "started_at": "2026-11-23T18:03:35.454317+00:00",
+        "finished_at": "2026-11-23T18:06:27.677137+00:00",
+        "source": [
+          "raw/drivers/stock-2/driver-launch.json",
+          "raw/stock-2/auditor-receipt.json"
+        ]
+      }
+    ],
+    "evidence_files_sha256": "3c143f3a5692333a19340df7c395bde120491edc1871eaf4be761c1ac7ac3c0a",
+    "linked_files_sha256": "fcb8b823fceffb2a62b1fc5c67a79dabc44a36bb21f9e4ec5ddee33f59f3f483",
+    "raw_manifest_sha256": "1f7324fbda9b35dd0b597712009121b4e6dab7618980f725634d300234d056ae",
+    "raw_evidence_sha256": "6e9661c1ce29862b583b82de4aa9782857d57746e8daa976260aeda58c83eefb",
+    "certificates": "none",
+    "projection_tool_sha256": "31e820f4c97383bcb07f184bdfffff2d0bca635c6b3febfeab518083f5316e2a"
   }
 }

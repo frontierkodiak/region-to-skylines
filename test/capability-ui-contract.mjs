@@ -9,7 +9,7 @@ const GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 export async function capabilityUISources({ read, readSource, activeBytes, currentBytes, current }) {
   const adoption = parse(await read("fixtures/contracts/pl1119-capability-ui-v1/adoption.json"));
   assert.equal(adoption.schema, 1);
-  assert.equal(adoption.scope, "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication and one accepted outside-stock and budget publication; physical writers and historical native qualification unchanged");
+  assert.equal(adoption.scope, "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; physical writers and historical native qualification unchanged");
   assert.equal(adoption.predecessor_active_sha256, sha(activeBytes), "capability predecessor active pointer changed");
   assert.equal(adoption.predecessor_contract_sha256, sha(currentBytes), "capability predecessor contract changed");
   assert.deepEqual(Object.keys(adoption.archived_gates).sort(), GATES.sort());
@@ -574,7 +574,41 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     "tools/map-factory/terrain_interest.py",
     "tools/map-factory/water_model.py",
     "water-calibration.mjs",
-    "water-model.js"
+    "water-model.js",
+    "outside-readiness.mjs",
+    "tools/map-factory/integrate_outside_readiness.py",
+    "tools/map-factory/capability-evidence/outside-readiness-sources.json",
+    "tools/map-factory/capability-evidence/outside-readiness-studies.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/README.md",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/RESULTS.md",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/assemble_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/audit_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/build_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/bundle_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/check_study.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/collect_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluate_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/evaluation.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/exclusions.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/finalize_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/freeze.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/inventory.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/module.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/predictions.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/readiness_v3.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/report_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/requests.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/run_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/schema_v3.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/selection.json",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/stock_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2/test_study_v2.py",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-1/driver-launch.json.gz",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-2/driver-launch.json.gz",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/readiness-result.json.gz",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-1/auditor-receipt.json.gz",
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz",
   ].sort());
   for (const [name, digest] of Object.entries(adoption.added_files_sha256)) assert.equal(sha(await readSource(name)), digest, `${name}: capability source changed`);
   return (name) => archived[name] ?? readSource(name);

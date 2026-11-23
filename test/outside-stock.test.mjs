@@ -428,6 +428,7 @@ test("exact parent bytes outside every producer's owned fragments are unchanged"
   text = text.replace(',\n      "rail_research_studies": [\n        "rail-query-model-v1",\n        "rail-junction-fit-v1",\n        "rail-stock-holdout-v1"\n      ]', "");
   text = text.replaceAll(',\n      "outside_research_studies": [\n        "outside-query-model-v1"\n      ]', "");
   text = text.replaceAll(',\n      "outside_stock_studies": [\n        "outside-stock-budget-v1"\n      ]', "");
+  text = text.replaceAll(',\n      "outside_readiness_studies": [\n        "outside-readiness-stock-v2"\n      ]', "");
   text = text.slice(0, text.indexOf('\n  "witness_studies":') - 1) + "\n}\n";
   assert.equal(sha(Buffer.from(text)), "4f459361a10779d3a0a5ab4886da02307e65ffbf4ad9f5a73a4dea4d4b0e4eff",
     "exact parent bytes outside owned fragments");

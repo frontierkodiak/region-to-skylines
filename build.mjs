@@ -9,6 +9,7 @@ import { railStudyFiles } from "./rail-study.mjs";
 import { railResearch, railResearchFiles } from "./rail-research.mjs";
 import { outsideResearch, outsideResearchFiles } from "./outside-research.mjs";
 import { outsideStock, outsideStockFiles } from "./outside-stock.mjs";
+import { outsideReadiness, outsideReadinessFiles } from "./outside-readiness.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
 const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
@@ -58,6 +59,13 @@ for (const file of outsideResearchFiles()) {
 // preparation archives and raw gzip stay at the publication commit and are
 // linked, not copied.
 for (const file of outsideStockFiles()) {
+  mkdirSync(dirname(`dist/${file}`), { recursive: true });
+  copyFileSync(file, `dist/${file}`);
+}
+// Serve the accepted outside-readiness stopped study's carried evidence and the
+// projection, plus its small retained raw context. Its bulk frozen feature dump
+// stays at the publication commit and is linked, not copied.
+for (const file of outsideReadinessFiles()) {
   mkdirSync(dirname(`dist/${file}`), { recursive: true });
   copyFileSync(file, `dist/${file}`);
 }
