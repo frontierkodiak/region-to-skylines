@@ -1325,3 +1325,28 @@ complete producer cohort/algebra check pass. No game/shipping/holdout action.
 Next: source-selected complete interface observations from exact retained native
 grids, not a new run or an invented authoritative boundary condition. Phase33new
 results are not independently accepted/adopted; all promises remain unknown.
+
+## Phase thirty-four: complete retained interface observations
+
+A new source-selected cohort retains all2877coastal interface/end/body/authored
+site records.2281have in-square grid support;596retain explicit no-support status.
+The diagnostic uses25582native cells and ALL22120existing exact-grid API aliases
+(21731cells);389duplicate aliases stay separate,3851cells lack API vectors.
+No new query/probe/game or source/geometry change occurred.
+
+Across the retained61captures,23422cells have an observed wet head different from
+the serialized90m reference at least once;23362vary over observed wet samples.
+Dry cells have no reported free surface. Six cells remain wet/exact90m throughout.
+These are diagnostic cell counts, not hydraulic bodies, primary denominators,
+capacity or a prescribed boundary envelope. Every24literal outside endpoint is
+reported, including excluded pieces and dry support; exact-cell drying does not
+rescore the original nearby-water contract.
+
+Seven focused tests/full12file replay and direct producer verification pass.
+All289raw native files, original query objects/clocks/controls, actuale731runtime
+provenance and package/floor/source bytes are bound. No old runtime identity is
+retrofitted to the later05bjournal head. Otherfivecases stay authored-only/NULL.
+Combined phase33/34 needs independent RESULTS acceptance; no candidate, field edit,
+shipping/default/ledger/holdout or native change. Sampled stage ranges constrain
+a proposal; they do not supply missing direction/lateral/supply/outlet authority.
+Fullhour/runtime/visual/Boston/Charleston/original failure limits stay; promisesunknown.

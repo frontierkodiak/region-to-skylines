@@ -1,0 +1,353 @@
+{
+  "schema": "polli.pl1191-phase34-interface-summary/1",
+  "input_freeze_sha256": "03e759af4a72f90d272373aad3c4a594d026f223cc284d0024bacf5c766fa300",
+  "result_receipt_sha256": "bd64d6f1ab44b98390988956ac732d27cfb850b0eccd2d8e08a238879ad18e98",
+  "source_count": 256,
+  "copied_input_count": 809,
+  "site_records": 2877,
+  "sites_with_grid_support": 2281,
+  "no_support_by_kind": {
+    "line": 293,
+    "body-domain": 136,
+    "authored-plan-domain": 167
+  },
+  "unique_grid_nodes": 25582,
+  "api_query_aliases": 22120,
+  "api_unique_nodes": 21731,
+  "API_unknown_nodes": 3851,
+  "duplicate_API_aliases_retained": 389,
+  "source_occurrences_by_kind": {
+    "original_north_first_raster_contact": 5917,
+    "original_projected_intersection": 1339,
+    "literal_captured_vertex_alias": 1014,
+    "complete_clip_vertex_membership": 8469,
+    "original_clipped_endpoint": 878,
+    "complete_original_source_contract_point": 19840
+  },
+  "outside_occurrences_explicit": 0,
+  "nodes_nonreference_wet": 23422,
+  "nodes_variable_wet_heads": 23362,
+  "nodes_never_positive_depth": 2149,
+  "nodes_all61wet_exact90m": 6,
+  "API_nonfinite_vector_alias_samples": 0,
+  "full61captures_and_all12newfiles_replay_byte_identical": true,
+  "physical_or_native_change": false,
+  "independent_phase33_34_results_acceptance": false,
+  "promise": "unknown",
+  "actual_CPU_source": "5f102c6705c74d9657a9511bc1efe9b6e60ce92b",
+  "all_literal_outside_endpoints_compact_projection": [
+    {
+      "site_id": "endpoint:5",
+      "participants": [
+        "rivers:2:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        1167700
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5760
+    },
+    {
+      "site_id": "endpoint:6",
+      "participants": [
+        "rivers:2:clip:1"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        1167715
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5920
+    },
+    {
+      "site_id": "endpoint:7",
+      "participants": [
+        "rivers:2:clip:1"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        1167724
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5920
+    },
+    {
+      "site_id": "endpoint:8",
+      "participants": [
+        "rivers:2:clip:2"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        1167739
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5919
+    },
+    {
+      "site_id": "endpoint:58",
+      "participants": [
+        "rivers:30:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        481045
+      ],
+      "positive_depth_captures": 1,
+      "observed_head_q_min": 6106,
+      "observed_head_q_max": 6106
+    },
+    {
+      "site_id": "endpoint:76",
+      "participants": [
+        "rivers:42:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        302680
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5760
+    },
+    {
+      "site_id": "endpoint:122",
+      "participants": [
+        "rivers:67:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        35673
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5760
+    },
+    {
+      "site_id": "endpoint:132",
+      "participants": [
+        "rivers:72:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        127
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5760
+    },
+    {
+      "site_id": "endpoint:142",
+      "participants": [
+        "rivers:77:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        502
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5760
+    },
+    {
+      "site_id": "endpoint:154",
+      "participants": [
+        "rivers:86:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        965
+      ],
+      "positive_depth_captures": 61,
+      "observed_head_q_min": 5760,
+      "observed_head_q_max": 5936
+    },
+    {
+      "site_id": "endpoint:164",
+      "participants": [
+        "streams:16:clip:0"
+      ],
+      "active_perennial_piece": false,
+      "native_nodes": [
+        1167670
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:170",
+      "participants": [
+        "streams:32:clip:0"
+      ],
+      "active_perennial_piece": false,
+      "native_nodes": [
+        1167670
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:174",
+      "participants": [
+        "streams:41:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        1167770
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:214",
+      "participants": [
+        "streams:73:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        1133969
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:288",
+      "participants": [
+        "streams:117:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        989115
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:394",
+      "participants": [
+        "streams:178:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        793454
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:724",
+      "participants": [
+        "streams:369:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        156
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:754",
+      "participants": [
+        "streams:386:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        460
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:757",
+      "participants": [
+        "streams:387:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        454
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:778",
+      "participants": [
+        "streams:398:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        460
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:796",
+      "participants": [
+        "streams:411:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        713
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:828",
+      "participants": [
+        "streams:430:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        813
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:856",
+      "participants": [
+        "streams:444:clip:0"
+      ],
+      "active_perennial_piece": false,
+      "native_nodes": [
+        837
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    },
+    {
+      "site_id": "endpoint:864",
+      "participants": [
+        "streams:449:clip:0"
+      ],
+      "active_perennial_piece": true,
+      "native_nodes": [
+        873
+      ],
+      "positive_depth_captures": 0,
+      "observed_head_q_min": null,
+      "observed_head_q_max": null
+    }
+  ],
+  "full_summary_sha256": "d439a4716ebc369568523211b5fa6b2915b4bd37de2f53079614351d16c55ae8"
+}
