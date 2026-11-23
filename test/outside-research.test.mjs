@@ -414,3 +414,30 @@ test("file mutations to the projection, manifest, tool or carried evidence are r
     }
   }
 });
+
+test("re-pinning a changed source file in the manifest cannot defeat the canonical pin", () => {
+  // The adversarial case: change a carried evidence file AND the declared manifest
+  // together, as if the publication had been re-pinned to the new bytes.
+  const manifestPath = OUTSIDE_RESEARCH_SOURCES;
+  const carriedPath = `${study.closure.prefix}/evaluation.json`;
+  const manifestBytes = readFileSync(file(manifestPath));
+  const carriedBytes = readFileSync(file(carriedPath));
+  const manifest = JSON.parse(manifestBytes);
+  const changed = Buffer.concat([carriedBytes, Buffer.from(" ")]);
+  manifest.publications[OUTSIDE_RESEARCH_STUDY].files["evaluation.json"] = {
+    ...manifest.publications[OUTSIDE_RESEARCH_STUDY].files["evaluation.json"],
+    sha256: sha(changed),
+    bytes: changed.length,
+  };
+  try {
+    writeFileSync(file(carriedPath), changed);
+    writeFileSync(file(manifestPath), JSON.stringify(manifest, null, 1) + "\n");
+    assert.throws(() => validateLedger(JSON.parse(readFileSync(file("capabilities.json")))));
+    assert.throws(() => outsideResearch());
+  } finally {
+    writeFileSync(file(carriedPath), carriedBytes);
+    writeFileSync(file(manifestPath), manifestBytes);
+  }
+  // The restored bytes still validate.
+  validateOutsideResearch(JSON.parse(readFileSync(file("capabilities.json"))));
+});
