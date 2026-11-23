@@ -165,13 +165,19 @@ class Prepared:
         return self._weak
 
 
+def effective_forward(segment, node):
+    """Is travel away from `node` forward once the segment's `Invert` is applied?"""
+    forward = node == segment["start"]
+    if "Invert" in segment.get("flags", ()):
+        forward = not forward
+    return forward
+
+
 def can_travel(segment, lane, node):
     """Can this lane carry a vehicle away from `node` to the segment's far end?"""
-    if node == segment["start"]:
-        return lane["forward"]
-    if node == segment["end"]:
-        return lane["backward"]
-    raise ValueError("node is not an end of the segment")
+    if node not in (segment["start"], segment["end"]):
+        raise ValueError("node is not an end of the segment")
+    return lane["forward"] if effective_forward(segment, node) else lane["backward"]
 
 
 def continues(prepared, pairing, source_id, target_id, node, lane_index):
@@ -237,12 +243,14 @@ def _search(prepared, request, pairing, uturn, max_length, enforce_lanes):
     goal_lane = target_lane["index"] if enforce_lanes else None
     first = (source["id"], first_lane, start, False)
     goal = (target["id"], goal_lane, finish, True)
-    opening = chord(source)
-    if opening > max_length:
+    # Every path must traverse the source segment, so this is a cheap necessary
+    # condition. The length itself is added when the search crosses it; the
+    # start state carries zero length so the source chord is never counted twice.
+    if chord(source) > max_length:
         return NO_PATH, {"reason": "path_lower_bound_exceeds_max_length"}
 
-    best = {first: opening}
-    queue = [(opening, first)]
+    best = {first: 0.0}
+    queue = [(0.0, first)]
     while queue:
         length, state = heapq.heappop(queue)
         if length > best.get(state, math.inf):

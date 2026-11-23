@@ -139,7 +139,14 @@ def canonical(value):
 
 
 def classify(row, segments):
-    """Return (stratum, eligible, exclusion_reason, label_status)."""
+    """Return (stratum, eligible, exclusion_reason, label_status).
+
+    `label_status` is `eligible` for a scored request, `excluded` for an
+    observed request outside the scored strata, and `unknown` when the response
+    cannot label the query at all. A `success = true` result whose returned path
+    does not end at the requested offsets is unknown, not a positive: the label
+    contract in `protocol.json` requires the endpoints to match.
+    """
     request = row.get("request")
     result = row.get("path_result") or {}
     if row.get("archive_context"):
@@ -148,24 +155,38 @@ def classify(row, segments):
         return "unrequested", False, "no_request_recorded", "unknown"
     if "position_kind" not in request:
         # The earliest collector version recorded neither a position kind nor a
-        # direction, so its requests cannot be assigned to a stratum.
-        return "unclassified_protocol", False, "protocol_fields_absent", "excluded"
+        # direction, so its requests cannot be assigned to a stratum and stay
+        # unknown rather than becoming a label.
+        return "unclassified_protocol", False, "protocol_fields_absent", "unknown"
     if request.get("rail") is True or request.get("capability") == "rail":
         return "rail_flagged", False, "request_is_rail", "excluded"
     evidence = boundary_evidence(segments, request)
     if request.get("position_kind") == "midpoint":
-        return "midpoint_diagnostic", False, "midpoint_diagnostic_unscored", "excluded"
-    if not evidence["boundary"]:
-        return "non_boundary", False, "not_a_literal_boundary_request", "excluded"
-    complete = result.get("complete") is True
-    released = result.get("released") is True
-    if not (complete and released):
-        return "literal_boundary", False, "incomplete_or_unreleased_response", "unknown"
-    if evidence["same_edge"]:
+        stratum, eligible, exclusion = (
+            "midpoint_diagnostic",
+            False,
+            "midpoint_diagnostic_unscored",
+        )
+    elif not evidence["boundary"]:
+        stratum, eligible, exclusion = (
+            "non_boundary",
+            False,
+            "not_a_literal_boundary_request",
+        )
+    elif evidence["same_edge"]:
         # Same-edge pairs are literal boundary requests whose ends sit on one
         # map edge; scored as their own stratum, never pooled with distinct-edge.
-        return "same_edge", True, None, "eligible"
-    return "primary_distinct_edge", True, None, "eligible"
+        stratum, eligible, exclusion = "same_edge", True, None
+    else:
+        stratum, eligible, exclusion = "primary_distinct_edge", True, None
+    complete = type(result.get("complete")) is bool and result.get("complete")
+    released = type(result.get("released")) is bool and result.get("released")
+    success = type(result.get("success")) is bool and result.get("success")
+    if not (complete and released):
+        return stratum, False, "incomplete_or_unreleased_response", "unknown"
+    if success and not returned_match(request, result):
+        return stratum, False, "returned_endpoints_mismatch", "unknown"
+    return stratum, eligible, exclusion, ("eligible" if eligible else "excluded")
 
 
 def main():
@@ -191,23 +212,41 @@ def main():
     ):
         case = next(item for item in evidence["artifacts"] if item["slug"] == slug)
         if attempt_id is None:
-            # The collector's placeholder rows for a square/mode where no pair
-            # could be formed. They carry no request, so they are an unknown
-            # coverage gap, never a negative.
+            # Two kinds of row reach here. An archived first-hour player run
+            # carries a named probe result but no literal request and no opening;
+            # a placeholder row carries nothing at all. Neither is a negative.
             for index, row in enumerate(rows):
+                result = row.get("path_result") or {}
+                archived = bool(row.get("archive_context"))
+                complete = type(result.get("complete")) is bool and result.get("complete")
+                observed = (
+                    result.get("success")
+                    if archived and complete and type(result.get("success")) is bool
+                    else None
+                )
                 queries.append(
                     {
                         "query_id": f"{slug}/no-attempt/{row['capability_id']}/{index:03d}",
                         "slug": slug,
                         "attempt_id": None,
-                        "study": None,
+                        "study": "archive" if archived else None,
                         "mode": row["capability_id"],
-                        "stratum": "unrequested",
+                        "stratum": "archived_player_run" if archived else "unrequested",
                         "eligible": False,
-                        "exclusion": "no_request_recorded",
-                        "label_status": "unknown",
-                        "label": None,
-                        "observed": None,
+                        "exclusion": (
+                            "player_construction_not_unchanged_map"
+                            if archived
+                            else "no_request_recorded"
+                        ),
+                        "label_status": "excluded" if archived else "unknown",
+                        "label": (
+                            None
+                            if observed is None
+                            else "success"
+                            if observed is True
+                            else "failure"
+                        ),
+                        "observed": observed,
                         "request": None,
                         "position_kind": None,
                         "direction": None,
@@ -387,9 +426,9 @@ def main():
             request = row.get("request")
             mode = row["capability_id"]
             result = row.get("path_result") or {}
-            complete = result.get("complete") is True
-            released = result.get("released") is True
-            success = result.get("success")
+            complete = type(result.get("complete")) is bool and result.get("complete")
+            released = type(result.get("released")) is bool and result.get("released")
+            success = type(result.get("success")) is bool and result.get("success")
             observed = success if complete else None
             if observed != row.get("observed"):
                 anomalies.append(
@@ -461,7 +500,9 @@ def main():
                     "exclusion": exclusion,
                     "label_status": label_status,
                     "label": (
-                        "success"
+                        None
+                        if label_status == "unknown"
+                        else "success"
                         if observed is True
                         else "failure"
                         if observed is False

@@ -62,6 +62,7 @@
     "chord_relative_error_p95": 0.000605334207931211,
     "chords_equal_within_20pct": 2568,
     "chords_equal_within_2pct": 2563,
+    "invert_equal": 2568,
     "lanes_equal": 2568,
     "missing": [
      "node_flag_value:16793729"
@@ -446,6 +447,7 @@
     "chord_relative_error_p95": 0.0,
     "chords_equal_within_20pct": 5993,
     "chords_equal_within_2pct": 5993,
+    "invert_equal": 5993,
     "lanes_equal": 5993,
     "missing": [],
     "node_flags_differ": [
@@ -825,6 +827,7 @@
     "chord_relative_error_p95": 3.797577986355292e-07,
     "chords_equal_within_20pct": 2241,
     "chords_equal_within_2pct": 2241,
+    "invert_equal": 2241,
     "lanes_equal": 2241,
     "missing": [],
     "node_flags_differ": [
@@ -1208,6 +1211,7 @@
     "chord_relative_error_p95": 0.0,
     "chords_equal_within_20pct": 149,
     "chords_equal_within_2pct": 149,
+    "invert_equal": 149,
     "lanes_equal": 149,
     "missing": [],
     "node_flags_differ": [],
@@ -1234,6 +1238,7 @@
     "chord_relative_error_p95": 0.0,
     "chords_equal_within_20pct": 5069,
     "chords_equal_within_2pct": 5069,
+    "invert_equal": 5069,
     "lanes_equal": 5069,
     "missing": [
      "node_flag_value:273",
@@ -1611,6 +1616,7 @@
     "chord_relative_error_p95": 1.9603825061509986e-06,
     "chords_equal_within_20pct": 1706,
     "chords_equal_within_2pct": 1706,
+    "invert_equal": 1706,
     "lanes_equal": 1706,
     "missing": [],
     "node_flags_differ": [
@@ -1995,6 +2001,7 @@
     "chord_relative_error_p95": 0.0,
     "chords_equal_within_20pct": 6064,
     "chords_equal_within_2pct": 6024,
+    "invert_equal": 6064,
     "lanes_equal": 6064,
     "missing": [],
     "node_flags_differ": [
@@ -2371,6 +2378,7 @@
     "chord_relative_error_p95": 0.0,
     "chords_equal_within_20pct": 3401,
     "chords_equal_within_2pct": 3391,
+    "invert_equal": 3401,
     "lanes_equal": 3401,
     "missing": [],
     "node_flags_differ": [
@@ -2748,6 +2756,7 @@
     "chord_relative_error_p95": 0.0,
     "chords_equal_within_20pct": 0,
     "chords_equal_within_2pct": 0,
+    "invert_equal": 0,
     "lanes_equal": 0,
     "missing": [],
     "node_flags_differ": [],
@@ -2827,16 +2836,17 @@
    "chord_relative_error_p95": 0.000605334207931211,
    "chords_equal_within_20pct": 2568,
    "chords_equal_within_2pct": 2563,
+   "invert_equal": 2568,
    "lanes_equal": 2568,
    "missing": [],
    "mode_input_digests": {
     "air": {
-     "bridge": "8364a2affa3a15807962cae09a1551f47e33ed72a2f61ed09ed3de52c41b4f98",
-     "native": "8364a2affa3a15807962cae09a1551f47e33ed72a2f61ed09ed3de52c41b4f98"
+     "bridge": "c7316612c805f6842605c6215af02c196686acea8ee79f629b6a7cad5dbfd26c",
+     "native": "c7316612c805f6842605c6215af02c196686acea8ee79f629b6a7cad5dbfd26c"
     },
     "road": {
-     "bridge": "c3714b30132ede2987c1bb1de07cd3917700a7758a6afd16eb7c509d4db80dda",
-     "native": "c3714b30132ede2987c1bb1de07cd3917700a7758a6afd16eb7c509d4db80dda"
+     "bridge": "61b0fc880dec558d54cfc00c5d40c6f8ce82b4ae919b68340e76aaadf3dced53",
+     "native": "61b0fc880dec558d54cfc00c5d40c6f8ce82b4ae919b68340e76aaadf3dced53"
     },
     "ship": {
      "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -3229,20 +3239,21 @@
    "chord_relative_error_p95": 0.0,
    "chords_equal_within_20pct": 5993,
    "chords_equal_within_2pct": 5993,
+   "invert_equal": 5993,
    "lanes_equal": 5993,
    "missing": [],
    "mode_input_digests": {
     "air": {
-     "bridge": "658c26894780c87774b6a96d7b3934c4bce43ffeda9b91c00991ecd1317f6c85",
-     "native": "658c26894780c87774b6a96d7b3934c4bce43ffeda9b91c00991ecd1317f6c85"
+     "bridge": "4acc80577e99a9dd70b3bbe8d8eb5e18de4db97caf7c88516ba7b898f9364a1b",
+     "native": "4acc80577e99a9dd70b3bbe8d8eb5e18de4db97caf7c88516ba7b898f9364a1b"
     },
     "road": {
-     "bridge": "d0652073ec6ffe0bb8e4340e06a014808070885bf7d9c7df777054153065062e",
-     "native": "d0652073ec6ffe0bb8e4340e06a014808070885bf7d9c7df777054153065062e"
+     "bridge": "37fef3f3de4a2759e858fe2e76352e0cc463f592c9ae77f192f6d54676d380ab",
+     "native": "37fef3f3de4a2759e858fe2e76352e0cc463f592c9ae77f192f6d54676d380ab"
     },
     "ship": {
-     "bridge": "c70b6ee4088316ae48c15742cc9e087dd3023a3c3a8752d7dc4364f43c2b893b",
-     "native": "c70b6ee4088316ae48c15742cc9e087dd3023a3c3a8752d7dc4364f43c2b893b"
+     "bridge": "7b69e774792fcc693801058b906701ed8299b7d533022af26e59255d8eb37940",
+     "native": "7b69e774792fcc693801058b906701ed8299b7d533022af26e59255d8eb37940"
     }
    },
    "mode_inputs_equal": true,
@@ -3623,20 +3634,21 @@
    "chord_relative_error_p95": 3.797577986355292e-07,
    "chords_equal_within_20pct": 2241,
    "chords_equal_within_2pct": 2241,
+   "invert_equal": 2241,
    "lanes_equal": 2241,
    "missing": [],
    "mode_input_digests": {
     "air": {
-     "bridge": "f765eb52497aa0bff6e35f6b63eaaedb5b31acb67d73970656922d9b64164189",
-     "native": "f765eb52497aa0bff6e35f6b63eaaedb5b31acb67d73970656922d9b64164189"
+     "bridge": "9710d0553743aaa0ae38ab5a3ba0bfe56884e136cd8c22b4d5cb57a0bf11b5de",
+     "native": "9710d0553743aaa0ae38ab5a3ba0bfe56884e136cd8c22b4d5cb57a0bf11b5de"
     },
     "road": {
-     "bridge": "4f0d35946826d7c6706ba18175a931ec9efafabde519bed29d47676229a168b0",
-     "native": "4f0d35946826d7c6706ba18175a931ec9efafabde519bed29d47676229a168b0"
+     "bridge": "f49d6d103a2e7a30f877e2001ebcbfe3727c88a66b7716ab1ed0b16b6a6c5820",
+     "native": "f49d6d103a2e7a30f877e2001ebcbfe3727c88a66b7716ab1ed0b16b6a6c5820"
     },
     "ship": {
-     "bridge": "a4900b8ebcf69c768eae3d185f560f0136bb44713812e9503ed396cfec1da600",
-     "native": "a4900b8ebcf69c768eae3d185f560f0136bb44713812e9503ed396cfec1da600"
+     "bridge": "ef972701af1713289e937a78e1318087f6644b1bd60727adaab65193a385bd58",
+     "native": "ef972701af1713289e937a78e1318087f6644b1bd60727adaab65193a385bd58"
     }
    },
    "mode_inputs_equal": true,
@@ -4021,6 +4033,7 @@
    "chord_relative_error_p95": 0.0,
    "chords_equal_within_20pct": 149,
    "chords_equal_within_2pct": 149,
+   "invert_equal": 149,
    "lanes_equal": 149,
    "missing": [],
    "mode_input_digests": {
@@ -4062,6 +4075,7 @@
    "chord_relative_error_p95": 0.0,
    "chords_equal_within_20pct": 5069,
    "chords_equal_within_2pct": 5069,
+   "invert_equal": 5069,
    "lanes_equal": 5069,
    "missing": [],
    "mode_input_digests": {
@@ -4070,12 +4084,12 @@
      "native": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     "road": {
-     "bridge": "5e791eacba19b379772334097940c95f406999c4e57dc6e94b43537ef8f12121",
-     "native": "5e791eacba19b379772334097940c95f406999c4e57dc6e94b43537ef8f12121"
+     "bridge": "86afbc3b7241a71e8de6551440e2d232b6d29bf1c6f96c34637be02725d56ec9",
+     "native": "86afbc3b7241a71e8de6551440e2d232b6d29bf1c6f96c34637be02725d56ec9"
     },
     "ship": {
-     "bridge": "b3e33d8492e373f068993a67fbddc6adfa52a3a556353dd0f65a6770a22dedc9",
-     "native": "b3e33d8492e373f068993a67fbddc6adfa52a3a556353dd0f65a6770a22dedc9"
+     "bridge": "313b8d38a59a9549dad4c7a4a3b916e41f7f09b6c40e429b6fa551767926b2de",
+     "native": "313b8d38a59a9549dad4c7a4a3b916e41f7f09b6c40e429b6fa551767926b2de"
     }
    },
    "mode_inputs_equal": true,
@@ -4442,16 +4456,17 @@
    "chord_relative_error_p95": 1.9603825061509986e-06,
    "chords_equal_within_20pct": 1706,
    "chords_equal_within_2pct": 1706,
+   "invert_equal": 1706,
    "lanes_equal": 1706,
    "missing": [],
    "mode_input_digests": {
     "air": {
-     "bridge": "d409479d0450c74acf2bf5b6ae976ba2e0c9f8f9c77a0f0bda4f0ca6145e4b50",
-     "native": "d409479d0450c74acf2bf5b6ae976ba2e0c9f8f9c77a0f0bda4f0ca6145e4b50"
+     "bridge": "fbac5321854dca2146145d2f02d50357f55a6e3c904ea2b290b74c6d19954f27",
+     "native": "fbac5321854dca2146145d2f02d50357f55a6e3c904ea2b290b74c6d19954f27"
     },
     "road": {
-     "bridge": "4b5c023c811d75c78a3c90d1b681aaf477d0661dcf67c8f1bd49e5ab2e648dd4",
-     "native": "4b5c023c811d75c78a3c90d1b681aaf477d0661dcf67c8f1bd49e5ab2e648dd4"
+     "bridge": "4405a4d44d897224fe03f911afc79c20c65c9758cd6b3877e2004d704d68987c",
+     "native": "4405a4d44d897224fe03f911afc79c20c65c9758cd6b3877e2004d704d68987c"
     },
     "ship": {
      "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -4841,16 +4856,17 @@
    "chord_relative_error_p95": 0.0,
    "chords_equal_within_20pct": 6064,
    "chords_equal_within_2pct": 6024,
+   "invert_equal": 6064,
    "lanes_equal": 6064,
    "missing": [],
    "mode_input_digests": {
     "air": {
-     "bridge": "f67a79046ea06d3caaecc18536c202c3e0b9c203e6bb6d15dcc770e9bfebfd39",
-     "native": "f67a79046ea06d3caaecc18536c202c3e0b9c203e6bb6d15dcc770e9bfebfd39"
+     "bridge": "999891a660fe22be85206920269b676d7d4d545a9336a5e403d7c2a22773d5f0",
+     "native": "999891a660fe22be85206920269b676d7d4d545a9336a5e403d7c2a22773d5f0"
     },
     "road": {
-     "bridge": "fbe1415e2270b79916efc93c4f610c1b6029d052facd1883d1313141bd7ea5cb",
-     "native": "fbe1415e2270b79916efc93c4f610c1b6029d052facd1883d1313141bd7ea5cb"
+     "bridge": "068883d44a43b9fb8db5d3a3791eafcee07f7bebecf3b41a0c913ca07f9a5b0b",
+     "native": "068883d44a43b9fb8db5d3a3791eafcee07f7bebecf3b41a0c913ca07f9a5b0b"
     },
     "ship": {
      "bridge": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
@@ -5232,20 +5248,21 @@
    "chord_relative_error_p95": 0.0,
    "chords_equal_within_20pct": 3401,
    "chords_equal_within_2pct": 3391,
+   "invert_equal": 3401,
    "lanes_equal": 3401,
    "missing": [],
    "mode_input_digests": {
     "air": {
-     "bridge": "9749996809a558f371b0ae71745b21668e8a8c2941be23735d019e9e8999c348",
-     "native": "9749996809a558f371b0ae71745b21668e8a8c2941be23735d019e9e8999c348"
+     "bridge": "0ca5c0dfde42cbfb44de885c826b40c11ff191c2d9c130644cfd2316258ba164",
+     "native": "0ca5c0dfde42cbfb44de885c826b40c11ff191c2d9c130644cfd2316258ba164"
     },
     "road": {
-     "bridge": "ae3ddb5f35710c982520ecd578d5c500d27ee167cef0c3435880f190c025b8f6",
-     "native": "ae3ddb5f35710c982520ecd578d5c500d27ee167cef0c3435880f190c025b8f6"
+     "bridge": "7acd03fb189969678dc4f5c02354f24aaef6fe697777555fb6a6d469b210c93c",
+     "native": "7acd03fb189969678dc4f5c02354f24aaef6fe697777555fb6a6d469b210c93c"
     },
     "ship": {
-     "bridge": "ebb88a63125c86f075dffa5dc6dea7c1f0d42c19d6eaa2dbfd7f17cd8455e716",
-     "native": "ebb88a63125c86f075dffa5dc6dea7c1f0d42c19d6eaa2dbfd7f17cd8455e716"
+     "bridge": "d04f962722917f23681e6cdcf086351fce45fefba84899d62a2515413f138cdb",
+     "native": "d04f962722917f23681e6cdcf086351fce45fefba84899d62a2515413f138cdb"
     }
    },
    "mode_inputs_equal": true,
@@ -5624,6 +5641,7 @@
    "chord_relative_error_p95": 0.0,
    "chords_equal_within_20pct": 0,
    "chords_equal_within_2pct": 0,
+   "invert_equal": 0,
    "lanes_equal": 0,
    "missing": [],
    "mode_input_digests": {

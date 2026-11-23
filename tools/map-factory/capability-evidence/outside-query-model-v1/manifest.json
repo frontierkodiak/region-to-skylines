@@ -20,7 +20,8 @@
   "anomalies": 3,
   "by_exclusion": {
    "midpoint_diagnostic_unscored": 378,
-   "no_request_recorded": 56,
+   "no_request_recorded": 28,
+   "player_construction_not_unchanged_map": 28,
    "protocol_fields_absent": 64
   },
   "by_mode": {
@@ -29,11 +30,12 @@
    "ship": 41
   },
   "by_stratum": {
+   "archived_player_run": 28,
    "midpoint_diagnostic": 378,
    "primary_distinct_edge": 342,
    "same_edge": 36,
    "unclassified_protocol": 64,
-   "unrequested": 56
+   "unrequested": 28
   },
   "eligible": 378,
   "eligible_by_mode": {
@@ -79,74 +81,74 @@
  },
  "excluded": [
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/000",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/001",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/002",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/003",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/004",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/005",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/006",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/007",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/008",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "asheville/no-attempt/road/009",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
    "exclusion": "no_request_recorded",
@@ -178,35 +180,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "asheville/attempt-2/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "asheville/attempt-2/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "asheville/attempt-2/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "asheville/attempt-2/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "asheville/attempt-2/road/004",
    "stratum": "unclassified_protocol"
@@ -353,35 +355,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "boston/attempt-1/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "boston/attempt-1/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "boston/attempt-1/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "boston/attempt-1/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "boston/attempt-1/road/004",
    "stratum": "unclassified_protocol"
@@ -569,106 +571,106 @@
    "stratum": "midpoint_diagnostic"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/000",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/001",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/002",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/003",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/004",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/005",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/006",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/007",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/008",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "charleston/no-attempt/road/009",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "charleston/attempt-1/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "charleston/attempt-1/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "charleston/attempt-1/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "charleston/attempt-1/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "charleston/attempt-1/road/004",
    "stratum": "unclassified_protocol"
@@ -885,35 +887,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/attempt-1/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/attempt-1/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/attempt-1/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/attempt-1/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/attempt-1/road/004",
    "stratum": "unclassified_protocol"
@@ -983,35 +985,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/native-v2-5/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/native-v2-5/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/native-v2-5/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/native-v2-5/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "hong-kong/native-v2-5/road/004",
    "stratum": "unclassified_protocol"
@@ -1927,60 +1929,60 @@
    "stratum": "midpoint_diagnostic"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/000",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/001",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/002",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/003",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/004",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/005",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/006",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
-   "exclusion": "no_request_recorded",
-   "label": null,
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
    "mode": "road",
    "query_id": "innsbruck/no-attempt/road/007",
-   "stratum": "unrequested"
+   "stratum": "archived_player_run"
   },
   {
    "exclusion": "no_request_recorded",
@@ -1991,168 +1993,168 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/004",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/005",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/006",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/007",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/008",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/009",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/010",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/011",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/012",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/013",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/014",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/015",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/016",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/017",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/018",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/019",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/020",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "innsbruck/attempt-1/road/021",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "air",
    "query_id": "innsbruck/attempt-1/air/022",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "air",
    "query_id": "innsbruck/attempt-1/air/023",
    "stratum": "unclassified_protocol"
@@ -2166,35 +2168,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/attempt-1/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/attempt-1/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/attempt-1/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/attempt-1/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/attempt-1/road/004",
    "stratum": "unclassified_protocol"
@@ -2376,35 +2378,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/native-v2-6/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/native-v2-6/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/native-v2-6/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/native-v2-6/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "pittsburgh/native-v2-6/road/004",
    "stratum": "unclassified_protocol"
@@ -3307,35 +3309,35 @@
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "rio/attempt-1/road/000",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "rio/attempt-1/road/001",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "rio/attempt-1/road/002",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
+   "label": null,
    "mode": "road",
    "query_id": "rio/attempt-1/road/003",
    "stratum": "unclassified_protocol"
   },
   {
    "exclusion": "protocol_fields_absent",
-   "label": "success",
+   "label": null,
    "mode": "road",
    "query_id": "rio/attempt-1/road/004",
    "stratum": "unclassified_protocol"
@@ -3566,8 +3568,8 @@
   }
  ],
  "hashes": {
-  "inventory.json": "4a1a674cfe741b5e809ae996816a509d7b0609d9084635aabbdde0304452a537",
-  "requests.json": "1ebea0fe8ddee4a56c24840998a07ebeb472fe35dc47c28f08fbb71d9d6436dd"
+  "inventory.json": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
+  "requests.json": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447"
  },
  "midpoint_repeats": {
   "agree": 378,

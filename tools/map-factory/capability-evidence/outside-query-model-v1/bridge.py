@@ -174,6 +174,8 @@ def model_digest(package, mode):
                 "start": segment["start"],
                 "end": segment["end"],
                 "prefab": segment["prefab"],
+                # `Invert` swaps which end counts as forward for lane travel.
+                "invert": "Invert" in segment.get("flags", ()),
                 "lanes": [
                     [
                         lane["index"],
@@ -205,6 +207,7 @@ def compare(built, native):
         "start_end_equal": 0,
         "prefab_equal": 0,
         "lanes_equal": 0,
+        "invert_equal": 0,
         "positions_within_tolerance": 0,
         "outside_nodes_equal": 0,
         "nodes_native": len(native["nodes"]),
@@ -247,6 +250,10 @@ def compare(built, native):
         report["prefab_equal"] += int(segment["prefab"] == reference["prefab"])
         report["lanes_equal"] += int(
             built_lane_tuple(segment) == native_lane_tuple(reference)
+        )
+        report["invert_equal"] += int(
+            ("Invert" in segment.get("flags", set()))
+            == ("Invert" in reference.get("flags", set()))
         )
         a = built["nodes"][segment["start"]]["position"]
         b = built["nodes"][segment["end"]]["position"]
@@ -497,6 +504,7 @@ def main():
         and item["start_end_equal"] == item["segments_native"]
         and item["prefab_equal"] == item["segments_native"]
         and item["lanes_equal"] == item["segments_native"]
+        and item["invert_equal"] == item["segments_native"]
         and item["mode_inputs_equal"]
         and not item["missing"]
         for item in packages_report.values()

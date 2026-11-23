@@ -37,11 +37,12 @@
    "air": "Plane",
    "road": "Car",
    "ship": "Ship"
-  }
+  },
+  "segment_flags": "`Invert` is applied: travel away from a node counts as forward only when (node == segment start) XOR Invert."
  },
  "features_allowed": "pre-query network topology: segment id, start/end node ids, prefab, endpoint positions, and per-lane index, lane type, vehicle, category and recorded direction.",
  "features_forbidden": "place names, artifact ids, special segment ids, query outcomes, returned paths, panel counts, observation bytes, old scores, the request's own endpoint_roles/endpoint_edges/lane_directions metadata.",
- "frozen_at": "2026-11-21T23:45:37.476417+00:00",
+ "frozen_at": "2026-11-23T08:39:44.819507+00:00",
  "lane_rules": [
   "lane:any_lane:forbidden",
   "lane:any_lane:allowed",
@@ -63,8 +64,8 @@
  },
  "positive_label": "complete and released native path whose returned first and last positions equal the requested literal offsets",
  "prediction_count": 378,
- "predictions_bytes": 845327,
- "predictions_sha256": "8b4d55a376d03b33d703a75d618ecb062381281b039f8d5e75b873df04f2cac6",
+ "predictions_bytes": 845394,
+ "predictions_sha256": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
  "primary_rule": "lane:any_lane:forbidden",
  "primary_rule_basis": "registered before scoring: the weakest lane-continuation hypothesis (any lane continues onto any lane) with no reversal, matching the protocol's acceptance of every lane type and category All.",
  "protocol_copied_from_source": "PathManager.CreatePath; vehicle per mode (Car/Ship/Plane), category All, laneTypes Vehicle|TransportVehicle|CargoVehicle, seed 857, maxLength 100000, literal [segment,lane,offset] endpoints.",
@@ -301,9 +302,9 @@
  "sources": {
   "catalogs": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc",
   "evidence": "ea2e27fc65ae4d60e7fddb918a9dba59237b6a9c25d50b6be763b7c2b1263b32",
-  "inventory": "4a1a674cfe741b5e809ae996816a509d7b0609d9084635aabbdde0304452a537",
+  "inventory": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
   "packages": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
-  "requests": "1ebea0fe8ddee4a56c24840998a07ebeb472fe35dc47c28f08fbb71d9d6436dd"
+  "requests": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447"
  },
  "strata": {
   "midpoint_diagnostic": "not scored; correlated repeat of a boundary request",

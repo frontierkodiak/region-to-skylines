@@ -20,7 +20,8 @@
   "anomalies": 3,
   "by_exclusion": {
    "midpoint_diagnostic_unscored": 378,
-   "no_request_recorded": 56,
+   "no_request_recorded": 28,
+   "player_construction_not_unchanged_map": 28,
    "protocol_fields_absent": 64
   },
   "by_mode": {
@@ -29,11 +30,12 @@
    "ship": 41
   },
   "by_stratum": {
+   "archived_player_run": 28,
    "midpoint_diagnostic": 378,
    "primary_distinct_edge": 342,
    "same_edge": 36,
    "unclassified_protocol": 64,
-   "unrequested": 56
+   "unrequested": 28
   },
   "eligible": 378,
   "eligible_by_mode": {
@@ -3229,11 +3231,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/000",
    "raw": {
@@ -3248,8 +3250,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3257,11 +3259,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/001",
    "raw": {
@@ -3276,8 +3278,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3285,11 +3287,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/002",
    "raw": {
@@ -3304,8 +3306,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3313,11 +3315,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/003",
    "raw": {
@@ -3332,8 +3334,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3341,11 +3343,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/004",
    "raw": {
@@ -3360,8 +3362,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3369,11 +3371,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/005",
    "raw": {
@@ -3388,8 +3390,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3397,11 +3399,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/006",
    "raw": {
@@ -3416,8 +3418,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3425,11 +3427,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/007",
    "raw": {
@@ -3444,8 +3446,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3453,11 +3455,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/008",
    "raw": {
@@ -3472,8 +3474,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -3481,11 +3483,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "asheville/no-attempt/road/009",
    "raw": {
@@ -3500,8 +3502,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "asheville",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": "attempt-1",
@@ -3628,8 +3630,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -3684,8 +3686,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -3740,8 +3742,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -3796,8 +3798,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -3852,8 +3854,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -6304,8 +6306,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -6360,8 +6362,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -6416,8 +6418,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -6472,8 +6474,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -6528,8 +6530,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -9557,11 +9559,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/000",
    "raw": {
@@ -9576,8 +9578,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9585,11 +9587,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/001",
    "raw": {
@@ -9604,8 +9606,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9613,11 +9615,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/002",
    "raw": {
@@ -9632,8 +9634,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9641,11 +9643,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/003",
    "raw": {
@@ -9660,8 +9662,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9669,11 +9671,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/004",
    "raw": {
@@ -9688,8 +9690,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9697,11 +9699,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/005",
    "raw": {
@@ -9716,8 +9718,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9725,11 +9727,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/006",
    "raw": {
@@ -9744,8 +9746,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9753,11 +9755,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/007",
    "raw": {
@@ -9772,8 +9774,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9781,11 +9783,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/008",
    "raw": {
@@ -9800,8 +9802,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -9809,11 +9811,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "charleston/no-attempt/road/009",
    "raw": {
@@ -9828,8 +9830,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "charleston",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": "attempt-1",
@@ -9844,8 +9846,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -9900,8 +9902,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -9956,8 +9958,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -10012,8 +10014,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -10068,8 +10070,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -13216,8 +13218,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -13272,8 +13274,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -13328,8 +13330,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -13384,8 +13386,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -13440,8 +13442,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -14480,8 +14482,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -14537,8 +14539,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -14594,8 +14596,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -14651,8 +14653,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -14708,8 +14710,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -34763,11 +34765,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/000",
    "raw": {
@@ -34782,8 +34784,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34791,11 +34793,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/001",
    "raw": {
@@ -34810,8 +34812,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34819,11 +34821,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/002",
    "raw": {
@@ -34838,8 +34840,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34847,11 +34849,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/003",
    "raw": {
@@ -34866,8 +34868,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34875,11 +34877,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/004",
    "raw": {
@@ -34894,8 +34896,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34903,11 +34905,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/005",
    "raw": {
@@ -34922,8 +34924,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34931,11 +34933,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/006",
    "raw": {
@@ -34950,8 +34952,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": null,
@@ -34959,11 +34961,11 @@
    "eligible": false,
    "endpoint_edges": null,
    "endpoint_roles": null,
-   "exclusion": "no_request_recorded",
-   "label": null,
-   "label_status": "unknown",
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "label_status": "excluded",
    "mode": "road",
-   "observed": null,
+   "observed": true,
    "position_kind": null,
    "query_id": "innsbruck/no-attempt/road/007",
    "raw": {
@@ -34978,8 +34980,8 @@
    "returned_endpoints_match": null,
    "runtime_bound": null,
    "slug": "innsbruck",
-   "stratum": "unrequested",
-   "study": null
+   "stratum": "archived_player_run",
+   "study": "archive"
   },
   {
    "attempt_id": "attempt-1",
@@ -35022,8 +35024,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -35078,8 +35080,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -35134,8 +35136,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -35190,8 +35192,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -35252,8 +35254,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35314,8 +35316,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35376,8 +35378,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35438,8 +35440,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35500,8 +35502,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35562,8 +35564,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35624,8 +35626,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35686,8 +35688,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35748,8 +35750,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35810,8 +35812,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35872,8 +35874,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35934,8 +35936,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -35996,8 +35998,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -36058,8 +36060,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -36120,8 +36122,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -36182,8 +36184,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -36244,8 +36246,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -36306,8 +36308,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -36366,8 +36368,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "air",
    "observed": true,
    "position_kind": null,
@@ -36426,8 +36428,8 @@
     ]
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "air",
    "observed": true,
    "position_kind": null,
@@ -36510,8 +36512,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -36566,8 +36568,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -36622,8 +36624,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -36678,8 +36680,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -36734,8 +36736,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -39326,8 +39328,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -39383,8 +39385,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -39440,8 +39442,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -39497,8 +39499,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -39554,8 +39556,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -59324,8 +59326,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -59380,8 +59382,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,
@@ -59436,8 +59438,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -59492,8 +59494,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "failure",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": false,
    "position_kind": null,
@@ -59548,8 +59550,8 @@
     null
    ],
    "exclusion": "protocol_fields_absent",
-   "label": "success",
-   "label_status": "excluded",
+   "label": null,
+   "label_status": "unknown",
    "mode": "road",
    "observed": true,
    "position_kind": null,

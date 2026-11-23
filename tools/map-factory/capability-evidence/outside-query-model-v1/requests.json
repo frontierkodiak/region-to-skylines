@@ -1,5 +1,5 @@
 {
- "inventory_sha256": "4a1a674cfe741b5e809ae996816a509d7b0609d9084635aabbdde0304452a537",
+ "inventory_sha256": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
  "note": "Only pre-query fields: opening locator and SHA-256, mode, protocol stratum and the literal request. No label, result, path or panel field appears here.",
  "openings": [
   {

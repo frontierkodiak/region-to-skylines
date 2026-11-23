@@ -87,6 +87,9 @@ def _segment(record, prefab):
         "end": int(record["end"]),
         "a": tuple(float(v) for v in record["a"]),
         "b": tuple(float(v) for v in record["b"]),
+        # `Invert` swaps which end of the segment counts as forward for the
+        # lanes' travel grants; the model reads it through `effective_forward`.
+        "flags": set(tokens(record.get("flags", ""))),
         "prefab": str(prefab) if prefab is not None else "",
         "lanes": [_lane(lane) for lane in record["lanes"]],
     }

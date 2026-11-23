@@ -149,6 +149,10 @@ def main():
                 "not separate junction-pairing hypotheses, so those are not "
                 "searched."
             ),
+            "segment_flags": (
+                "`Invert` is applied: travel away from a node counts as forward "
+                "only when (node == segment start) XOR Invert."
+            ),
             "max_length": model.MAX_LENGTH,
             "length_measure": (
                 "sum of segment chord lengths, a lower bound on the native curve "
