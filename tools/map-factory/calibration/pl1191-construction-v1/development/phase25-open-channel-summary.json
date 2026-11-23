@@ -1,0 +1,391 @@
+{
+  "schema": "polli.pl1191-phase25-open-channel-summary/1",
+  "method_commit": "7206c21d04a9b8e2538b14ceba73ed053825d26d",
+  "prospective_freeze_sha256": "185a29d19d5fe317cbf1ebf20832cbc78da0ca25aff481c9d328cfa018199660",
+  "PL1261_consumed_closed": true,
+  "obsolete_PL1261_wait_disabled": true,
+  "cases": [
+    {
+      "case": "dry-upland-asia",
+      "all_line_rows": 23,
+      "all_clipped_parts": 18,
+      "mandatory_line_parts": 16,
+      "mandatory_stream_parts": 4,
+      "geometric_components": 4,
+      "conditional_profile_statuses": {
+        "unresolved_open_port_lateral_or_exterior_bank": 2,
+        "infeasible_bounds": 2
+      },
+      "literal_source_junction_hypotheses": 13,
+      "raster_coincidence_groups_not_joined": 11,
+      "contracts": 50,
+      "original_contract_points": 365,
+      "retained_base_refusal": null,
+      "all_construction_refused_or_unresolved": true,
+      "numeric_profiles": 0,
+      "variable_numeric_profiles": 0,
+      "control_records": 58,
+      "initial_fail_natural": 8,
+      "unresolved_roles": {
+        "head_inlet_proposal": 6,
+        "terminal_outlet_or_intake_proposal": 6,
+        "conditional_internal_junction": 4,
+        "unresolved_head_role": 0,
+        "unresolved_terminal_role": 0
+      },
+      "refusal_reason_counts": {
+        "flow_direction_not_source_authoritative": 4,
+        "lateral_bank_width_not_source_authoritative": 4,
+        "inlet_supply_and_outlet_capacity_unmeasured": 4,
+        "unresolved_open_port_lateral_or_exterior_bank": 2,
+        "fixed_infrastructure_or_control_protection_contact": 2,
+        "fixed_foreign_line_128m_protection_contact": 4,
+        "raster_only_contact_not_hydraulic_junction": 4,
+        "infeasible_bounds": 2
+      },
+      "reporting_notes": [
+        {
+          "adjacency": 4,
+          "zero_feasible_source_rows_now_explicit_null": 6,
+          "empty_rows_explicit_unknown": [],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 4,
+              "restricted_own_source_raster": 4
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 1,
+              "restricted_own_source_raster": 1
+            }
+          }
+        },
+        {
+          "adjacency": 8,
+          "zero_feasible_source_rows_now_explicit_null": 6,
+          "empty_rows_explicit_unknown": [],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 4,
+              "restricted_own_source_raster": 4
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 1,
+              "restricted_own_source_raster": 1
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "dry-upland-europe",
+      "all_line_rows": 401,
+      "all_clipped_parts": 359,
+      "mandatory_line_parts": 2,
+      "mandatory_stream_parts": 2,
+      "geometric_components": 2,
+      "conditional_profile_statuses": {
+        "unresolved_endpoint_direction": 1,
+        "unresolved_open_port_lateral_or_exterior_bank": 1
+      },
+      "literal_source_junction_hypotheses": 0,
+      "raster_coincidence_groups_not_joined": 0,
+      "contracts": 93,
+      "original_contract_points": 287,
+      "retained_base_refusal": null,
+      "all_construction_refused_or_unresolved": true,
+      "numeric_profiles": 0,
+      "variable_numeric_profiles": 0,
+      "control_records": 48,
+      "initial_fail_natural": 68,
+      "unresolved_roles": {
+        "head_inlet_proposal": 1,
+        "terminal_outlet_or_intake_proposal": 1,
+        "conditional_internal_junction": 0,
+        "unresolved_head_role": 1,
+        "unresolved_terminal_role": 1
+      },
+      "refusal_reason_counts": {
+        "flow_direction_not_source_authoritative": 2,
+        "lateral_bank_width_not_source_authoritative": 2,
+        "inlet_supply_and_outlet_capacity_unmeasured": 2,
+        "unresolved_endpoint_direction": 1,
+        "fixed_foreign_line_128m_protection_contact": 1,
+        "unresolved_open_port_lateral_or_exterior_bank": 1
+      },
+      "reporting_notes": [
+        {
+          "adjacency": 4,
+          "zero_feasible_source_rows_now_explicit_null": 73,
+          "empty_rows_explicit_unknown": [],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 14,
+              "restricted_own_source_raster": 11
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 8,
+              "restricted_own_source_raster": 8
+            }
+          }
+        },
+        {
+          "adjacency": 8,
+          "zero_feasible_source_rows_now_explicit_null": 73,
+          "empty_rows_explicit_unknown": [],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 14,
+              "restricted_own_source_raster": 11
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 8,
+              "restricted_own_source_raster": 8
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "lowland-river-south-america",
+      "all_line_rows": 839,
+      "all_clipped_parts": 778,
+      "mandatory_line_parts": 548,
+      "mandatory_stream_parts": 536,
+      "geometric_components": 245,
+      "conditional_profile_statuses": {
+        "infeasible_bounds": 189,
+        "unresolved_endpoint_direction": 14,
+        "unresolved_open_port_lateral_or_exterior_bank": 13,
+        "feasible": 19,
+        "unresolved_cycle": 10
+      },
+      "literal_source_junction_hypotheses": 510,
+      "raster_coincidence_groups_not_joined": 541,
+      "contracts": 858,
+      "original_contract_points": 15641,
+      "retained_base_refusal": null,
+      "all_construction_refused_or_unresolved": true,
+      "numeric_profiles": 19,
+      "variable_numeric_profiles": 17,
+      "control_records": 49,
+      "initial_fail_natural": 769,
+      "unresolved_roles": {
+        "head_inlet_proposal": 354,
+        "terminal_outlet_or_intake_proposal": 308,
+        "conditional_internal_junction": 372,
+        "unresolved_head_role": 435,
+        "unresolved_terminal_role": 430
+      },
+      "refusal_reason_counts": {
+        "flow_direction_not_source_authoritative": 245,
+        "lateral_bank_width_not_source_authoritative": 245,
+        "inlet_supply_and_outlet_capacity_unmeasured": 245,
+        "infeasible_bounds": 189,
+        "fixed_infrastructure_or_control_protection_contact": 45,
+        "fixed_foreign_line_128m_protection_contact": 234,
+        "mapped_body_interface_unresolved": 39,
+        "original_bank_nodes_in_proposed_channel_no_retirement_allowed": 128,
+        "raster_only_contact_not_hydraulic_junction": 123,
+        "unresolved_endpoint_direction": 14,
+        "unresolved_open_port_lateral_or_exterior_bank": 13,
+        "unresolved_cycle": 10
+      },
+      "reporting_notes": [
+        {
+          "adjacency": 4,
+          "zero_feasible_source_rows_now_explicit_null": 260,
+          "empty_rows_explicit_unknown": [],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 387,
+              "restricted_own_source_raster": 311
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 3,
+              "restricted_own_source_raster": 3
+            }
+          }
+        },
+        {
+          "adjacency": 8,
+          "zero_feasible_source_rows_now_explicit_null": 271,
+          "empty_rows_explicit_unknown": [],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 377,
+              "restricted_own_source_raster": 300
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 3,
+              "restricted_own_source_raster": 3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": "dry-upland-south-america",
+      "all_line_rows": 27,
+      "all_clipped_parts": 21,
+      "mandatory_line_parts": 18,
+      "mandatory_stream_parts": 9,
+      "geometric_components": 4,
+      "conditional_profile_statuses": null,
+      "literal_source_junction_hypotheses": 26,
+      "raster_coincidence_groups_not_joined": 32,
+      "contracts": 55,
+      "original_contract_points": 414,
+      "retained_base_refusal": {
+        "square": "dry-upland-south-america",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "all_construction_refused_or_unresolved": true,
+      "numeric_profiles": null,
+      "variable_numeric_profiles": null,
+      "control_records": null,
+      "initial_fail_natural": null
+    },
+    {
+      "case": "mountain-river-asia",
+      "all_line_rows": 80,
+      "all_clipped_parts": 51,
+      "mandatory_line_parts": 51,
+      "mandatory_stream_parts": 32,
+      "geometric_components": 18,
+      "conditional_profile_statuses": null,
+      "literal_source_junction_hypotheses": 49,
+      "raster_coincidence_groups_not_joined": 137,
+      "contracts": 174,
+      "original_contract_points": 2312,
+      "retained_base_refusal": {
+        "square": "mountain-river-asia",
+        "status": "refused_under_construction_bounds",
+        "reason": "No feasible enclosed reservoir within candidate/protected masks"
+      },
+      "all_construction_refused_or_unresolved": true,
+      "numeric_profiles": null,
+      "variable_numeric_profiles": null,
+      "control_records": null,
+      "initial_fail_natural": null
+    },
+    {
+      "case": "low-coast-oceania",
+      "all_line_rows": 547,
+      "all_clipped_parts": 439,
+      "mandatory_line_parts": 332,
+      "mandatory_stream_parts": 254,
+      "geometric_components": 167,
+      "conditional_profile_statuses": {
+        "unresolved_open_port_lateral_or_exterior_bank": 19,
+        "infeasible_bounds": 119,
+        "feasible": 18,
+        "unresolved_cycle": 7,
+        "unresolved_endpoint_direction": 4
+      },
+      "literal_source_junction_hypotheses": 279,
+      "raster_coincidence_groups_not_joined": 284,
+      "contracts": 962,
+      "original_contract_points": 23113,
+      "retained_base_refusal": null,
+      "all_construction_refused_or_unresolved": true,
+      "numeric_profiles": 18,
+      "variable_numeric_profiles": 16,
+      "control_records": 167,
+      "initial_fail_natural": 496,
+      "unresolved_roles": {
+        "head_inlet_proposal": 219,
+        "terminal_outlet_or_intake_proposal": 219,
+        "conditional_internal_junction": 179,
+        "unresolved_head_role": 37,
+        "unresolved_terminal_role": 35
+      },
+      "refusal_reason_counts": {
+        "flow_direction_not_source_authoritative": 167,
+        "lateral_bank_width_not_source_authoritative": 167,
+        "inlet_supply_and_outlet_capacity_unmeasured": 167,
+        "unresolved_open_port_lateral_or_exterior_bank": 19,
+        "fixed_infrastructure_or_control_protection_contact": 53,
+        "fixed_foreign_line_128m_protection_contact": 154,
+        "mapped_body_interface_unresolved": 97,
+        "raster_only_contact_not_hydraulic_junction": 104,
+        "infeasible_bounds": 119,
+        "unresolved_cycle": 7,
+        "unresolved_endpoint_direction": 4
+      },
+      "reporting_notes": [
+        {
+          "adjacency": 4,
+          "zero_feasible_source_rows_now_explicit_null": 320,
+          "empty_rows_explicit_unknown": [
+            "oceans:0"
+          ],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 579,
+              "restricted_own_source_raster": 486
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 0,
+              "restricted_own_source_raster": 0
+            }
+          }
+        },
+        {
+          "adjacency": 8,
+          "zero_feasible_source_rows_now_explicit_null": 326,
+          "empty_rows_explicit_unknown": [
+            "oceans:0"
+          ],
+          "numeric_fit_counts_by_kind": {
+            "natural": {
+              "optimistic_any_nearby_raster": 556,
+              "restricted_own_source_raster": 460
+            },
+            "engineered": {
+              "optimistic_any_nearby_raster": 0,
+              "restricted_own_source_raster": 0
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "all37numeric_profiles_geometry_checked": [
+    {
+      "case": "dry-upland-asia",
+      "all_feasible_numeric_profiles_rechecked_against_full_banks_cuts_and_edges": true,
+      "profiles": 0
+    },
+    {
+      "case": "dry-upland-europe",
+      "all_feasible_numeric_profiles_rechecked_against_full_banks_cuts_and_edges": true,
+      "profiles": 0
+    },
+    {
+      "case": "lowland-river-south-america",
+      "all_feasible_numeric_profiles_rechecked_against_full_banks_cuts_and_edges": true,
+      "profiles": 19
+    },
+    {
+      "case": "low-coast-oceania",
+      "all_feasible_numeric_profiles_rechecked_against_full_banks_cuts_and_edges": true,
+      "profiles": 18
+    }
+  ],
+  "replay": {
+    "all7outputs_byte_identical": true,
+    "files_sha256": {
+      "dry-upland-asia.json": "3d15fb06e885f705c20f047a486eefe4f7e25b94cee15b7c00a75d6bcb8702f0",
+      "dry-upland-europe.json": "f705267ff950fce397cbb688c90c1ee8b249b8c92ccdb3b8a0fde5937f6113fb",
+      "dry-upland-south-america.json": "7cd809bf7096bb9cbc6e4da8c82b96ff59e1e79e58a86195ed9a1d6164dc7898",
+      "low-coast-oceania.json": "5bf8808d2fd4a9fd6caff7b37156cd76bca916e7b967058f35e1ad5143f28eb0",
+      "lowland-river-south-america.json": "f43213992a46e9c5631249c731308db77d14f70778a6a8d63884ad4f8ee66543",
+      "mountain-river-asia.json": "43024190d13f71767033d94d83fb12fe279659b4bab4b0b72c7cc1ad9f5275b4",
+      "receipt.json": "a6129b3e69513a70d59b3b69a02f8b3c7939099633ebb9a012ae674517ecdd51"
+    }
+  },
+  "scope": "conditional complete source-piece/junction variable-stage construction plan; no physical admission, native observation or promise",
+  "no_holdout_or_default_or_ledger_change": true,
+  "promise": "unknown"
+}

@@ -1100,3 +1100,26 @@ per-ocean source masks/footprint accounting (all optimistic intervals/counts and
 non-ocean contracts unchanged). Methods/freezes precede their own outputs; earlier
 outputs known, not outcome-blind. Ten focused tests/scopedchecks, full23file replay
 and8whole-grid Bellman/parent checks pass. Seephase24policy/summary/binding/report.
+
+## Phase twenty-five: complete source-junction variable-stage construction plan
+
+PL1261's actual limited CPU/design PASS is consumed and child closed. Its status
+was stranded in_progress; obsolete in_review condition is disabled. Three bounded
+reporting notes are corrected ADDITIVELY: feasible-only source minimum (NULL when
+none), explicit empty ocean-raster uncertainty and natural/engineered counts split.
+All old phase24 source/protocols/results/reports/receipts remain unchanged.
+
+New committed/frozen method joins source pieces ONLY at literal shared geographic
+vertices, not raster coincidence/name/proximity. All5cases+coast/837mandatory stream
+parts, every river/branch/contract/probe and bothNULL base refusals retained. Complete
+coastal geometry-only interfaces are now included. Provisional endpoint-floor
+orientation drives a variable-stage potential, not a geographic flow assertion.
+
+Conditional numeric profiles: South19(17variable), coast18(16variable); Asia0,
+Europe0. Every profile still refused/unresolved for construction: no authoritative
+lateral water-land/direction/inlet supply/outlet capacity, plus exact guards/cycles/
+bank witnesses. No map-edge escape ceiling is misapplied as a closed-pond gate.
+All37numeric profiles recheck full8banks/no-fill/cut<=3m/1.5m depth. Seven new tests,
+scopedchecks and7file byte-identical replay pass; no game/CRP/control/mask change.
+Coastal authored initialization496/962 still fails. All promisesunknown. Seephase25
+policy/summary/report and postanalysisbinding; old evidence remains immutable.

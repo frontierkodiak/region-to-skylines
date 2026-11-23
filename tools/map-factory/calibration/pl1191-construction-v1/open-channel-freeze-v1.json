@@ -1,0 +1,10 @@
+{
+  "schema": "polli.pl1191-postanalysis-open-channel-binding/1",
+  "postanalysis_not_prospective": true,
+  "prospective_freeze_sha256": "185a29d19d5fe317cbf1ebf20832cbc78da0ca25aff481c9d328cfa018199660",
+  "summary_sha256": "e35275729fb0ca3280c1af708baaee1f5d46fa98b6307ea3b9bfcc6574d1bb55",
+  "results_receipt_sha256": "a6129b3e69513a70d59b3b69a02f8b3c7939099633ebb9a012ae674517ecdd51",
+  "PL1261_thread_sha256": "9a5bdda398d98fc923ee8f6141daff824d74a2150b2a8e171af24f266cc026ed",
+  "new_physical_or_native": false,
+  "promise": "unknown"
+}
