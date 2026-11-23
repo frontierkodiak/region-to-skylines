@@ -44,7 +44,7 @@
     "original_stream_bank_union",
     "all_current_graph_bank_union",
     "foreign_or_excluded_line_128m",
-    "other_polygon_water",
+    "other_water_or_excluded_geometry",
     "unknown_target_owner",
     "overlapping_polygon_buffers",
     "own_buffer_not_body",

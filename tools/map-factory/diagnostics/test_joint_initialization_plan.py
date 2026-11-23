@@ -23,7 +23,7 @@ class JointPlanTests(unittest.TestCase):
         for name in [
             "old_corridor_112m",
             "foreign_or_excluded_line_128m",
-            "other_polygon_water",
+            "other_water_or_excluded_geometry",
             "open_line_lateral_direction_unknown",
         ]:
             self.assertTrue(value & flag(name))
@@ -32,7 +32,7 @@ class JointPlanTests(unittest.TestCase):
         value = obligations([1, 8, 1, 0, 2, 0, 1, 0, 0], "lakes", False)
         for name in [
             "old_mapped_body_128m",
-            "other_polygon_water",
+            "other_water_or_excluded_geometry",
             "own_buffer_not_body",
             "overlapping_polygon_buffers",
         ]:

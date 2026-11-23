@@ -43,9 +43,11 @@ def obligations(witness, field, matching_component):
     _, oldbits, known, foreign, count, _, member, interior, _ = witness
     value = int(oldbits)
     if foreign:
-        value |= flag("foreign_or_excluded_line_128m") | flag("other_polygon_water")
+        value |= flag("foreign_or_excluded_line_128m") | flag(
+            "other_water_or_excluded_geometry"
+        )
     if count and (not member or count > 1):
-        value |= flag("other_polygon_water")
+        value |= flag("other_water_or_excluded_geometry")
     if not known:
         value |= flag("unknown_target_owner")
     if count > 1:
@@ -377,7 +379,16 @@ def analyze(folder, name):
                 matching = component == c["contract"].get("component")
                 ob = obligations(w, field, matching)
                 roles = []
-                if interior and matching:
+                if (
+                    field == "lakes"
+                    and interior
+                    and member
+                    and matching
+                    and known
+                    and bodycount == 1
+                    and not foreign
+                    and (oldbits & ~8) == 0
+                ):
                     roles.append("owned_target_interior")
                 if member and not interior:
                     roles.append("own_buffer_not_body")
