@@ -153,7 +153,7 @@ def analyze(folder, name, output):
     old = load(parent / "interface/prior-results" / f"{name}.json")
     case = parent / "interface/parent/cases" / name
     inventory = load(case / "complete-inventory.json")
-    if digest(inventory) != old["complete_inventory_sha256"]:
+    if sha(case / "complete-inventory.json") != old["complete_inventory_sha256"]:
         raise ValueError("Complete original inventory changed")
     contracts = [c for e in inventory["entries"] for c in e.get("contracts", [])]
     if [
