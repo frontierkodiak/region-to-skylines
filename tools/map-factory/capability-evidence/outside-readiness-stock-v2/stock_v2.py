@@ -747,8 +747,8 @@ def preflight():
         "control_requests": sum(len(c["requests"]) for c in freeze["controls"]),
         "old_facts": len(facts),
         "old_publication_files": len(old_publication_files()),
-        "readiness_files": len(readiness_files()) + 1,
-        "collection_ready": not freeze["selection"]["missing_cells"],
+        "readiness_files": len(readiness_files()),
+        "collection_ready": not selection["missing_cells"],
     }
 
 
