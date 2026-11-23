@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 import bridge as api
-from fixtures import server, identity
+from loopback_fixture import server, identity
 from runtime import Transport, collect
 from wire import Deadline, Wire, Unknown
 

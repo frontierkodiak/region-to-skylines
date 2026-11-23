@@ -12,7 +12,7 @@ NAMES = frozenset(
         "wire.py",
         "runtime.py",
         "bridge.py",
-        "fixtures.py",
+        "loopback_fixture.py",
         "test_wire.py",
         "candidate.py",
         "entry.py",

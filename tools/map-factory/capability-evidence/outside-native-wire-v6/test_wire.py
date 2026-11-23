@@ -5,7 +5,7 @@ import tempfile
 import time
 import unittest
 
-from fixtures import server
+from loopback_fixture import server
 from wire import Deadline, Wire, Unknown, decode
 
 
