@@ -4,7 +4,7 @@ from pathlib import Path
 import subprocess
 
 import accepted_api as api
-from wire import Unknown
+from wire import Unknown, decode
 
 PIN = "4751c49e0515a8af4c3f753a8bed09f6f55e39b2"
 NAMES = frozenset(
@@ -238,7 +238,7 @@ def validate(value, store):
         },
         "input roles",
     )
-    values = {k: store.json(key, "candidate " + k) for k, key in inputs.items()}
+    values = {k: decode(store.read(key, "candidate " + k)) for k, key in inputs.items()}
     rows = values["inventory"]
     if rows != sorted(rows, key=lambda r: (r["sha256"], r["locator"])):
         raise Unknown("inventory order differs")
