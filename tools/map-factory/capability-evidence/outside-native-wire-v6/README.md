@@ -35,7 +35,7 @@ else's store or put its package, DLL, compiler or reference bytes in Git.
 ```bash
 module=tools/map-factory/capability-evidence/outside-native-wire-v6
 run=~/experiments/PL-1321-native-wire
-PL1321_RUN="$run" PL1321_FREEZE=candidate-9.json \
+PL1321_RUN="$run" PL1321_FREEZE=candidate-11.json \
   uv run --offline --project tools/cs1-harness python -m unittest discover \
   -s "$module" -p 'test_*.py' -v
 ```
