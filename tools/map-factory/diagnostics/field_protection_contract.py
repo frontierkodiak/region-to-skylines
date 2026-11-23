@@ -2,6 +2,7 @@
 
 import argparse
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 import shutil
 
@@ -56,6 +57,11 @@ TRACE = {
 }
 
 
+@lru_cache(maxsize=1)
+def field_rules():
+    return load(ROOT / CONTRACT)["rules"]
+
+
 def obligation(
     field,
     changed,
@@ -66,7 +72,7 @@ def obligation(
 ):
     if not changed:
         return "identity_only_old_refusal_not_cleared"
-    rules = load(ROOT / CONTRACT)["rules"]
+    rules = field_rules()
     if field not in rules:
         raise ValueError("Unknown field, no implicit permission")
     if field in ("initial_velocity", "old_control_raw43", "new_control_raw43"):
