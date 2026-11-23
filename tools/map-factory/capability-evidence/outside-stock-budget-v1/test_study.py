@@ -7,6 +7,21 @@ import study
 import evaluate
 
 
+class Context(unittest.TestCase):
+    def test_native_metabool_string_is_not_a_python_boolean(self):
+        import collect
+
+        c = {
+            "invert_traffic": "False",
+            "update_mode": "NewGameFromMap",
+            "no_workshop": True,
+            "mods_enabled": True,
+        }
+        self.assertTrue(collect.entry_valid(c))
+        for value in ["True", True, False, None]:
+            self.assertFalse(collect.entry_valid(dict(c, invert_traffic=value)))
+
+
 class Labels(unittest.TestCase):
     def row(self):
         return {

@@ -96,6 +96,15 @@ def requests_for(case, kind):
     return rows
 
 
+def entry_valid(context):
+    return (
+        context["invert_traffic"] == "False"
+        and context["update_mode"] == "NewGameFromMap"
+        and context["no_workshop"] is True
+        and context["mods_enabled"] is True
+    )
+
+
 def collect(case, kind, raw):
     study.check()
     commit = subprocess.check_output(
@@ -182,11 +191,7 @@ def collect(case, kind, raw):
                     mods_enabled=session.receipt["control"]
                     and "--disableMods" not in session.receipt["launch_args"],
                 )
-                if (
-                    observation["native_context"]["invert_traffic"]
-                    or not observation["native_context"]["no_workshop"]
-                    or not observation["native_context"]["mods_enabled"]
-                ):
+                if not entry_valid(observation["native_context"]):
                     raise ValueError("unexpected entry protocol")
                 observation["runtime_identity"] = identity_with_files(session, build)
                 c.call("run", paused=True)

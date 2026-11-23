@@ -276,6 +276,7 @@
       "unavailable": {}
     }
   ],
+  "correction_scope": "collector schema guard and process-audit coverage only; exact request/prediction/intervention hashes unchanged; first control remains failed and modes remain unqualified",
   "excluded_hashes": {
     "0ab5716c40a77d352a3ed22132bd760ac863997652562a388f066c7e2432ac0e": [
       "PL-1239-selected-including-metadata"
@@ -348,7 +349,7 @@
     "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18"
   },
   "features_sha256": "af212ff420a1f5ce1121f8c62da7675fa135c83c346f000fbe1598668f759532",
-  "frozen_at": "2026-11-23T11:31:26.573177+00:00",
+  "frozen_at": "2026-11-23T11:36:28.930882+00:00",
   "intervention": [
     {
       "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
@@ -297871,6 +297872,15 @@
     "stock-2/ship/positive"
   ],
   "request_sha256": "3ea1d63df419e48a3d289d409b0e61ef80283355bd041082bfb4dee7c395a204",
+  "retained_prequery_failures": {
+    "stock-1": {
+      "freeze_sha256": "1417cf6c9e7a6796890d1a3981513cbd0b2a76a1cc13b0a894648f1430b09358",
+      "history_sha256": "74566e4b87ba07003d86c94dafafcd8c75e5226305750e272661a9eaa29040b0",
+      "observation_sha256": "b818acf2ac123a7de13f9426b8fd4769ddc7620bfb897b78c2f07798751fb63c",
+      "reason": "guard treated native MetaBool string False as truthy; stopped before any path request; no retry",
+      "source_commit": "a97f0f585a2726573351279d4f14894c3329bef3"
+    }
+  },
   "schema": 1,
   "selected": [
     {
@@ -350918,6 +350928,7 @@
     }
   ],
   "source": "030db86ce470b972b6ef3462a2698744dff40ebb",
+  "source_correction_at": "2026-11-23T11:36:28.930864+00:00",
   "sources": {
     "harness": {
       "tools/cs1-harness/cs1_harness/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
@@ -351005,12 +351016,13 @@
       "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62"
     },
     "study": {
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/audit_processes.py": "ceedb4362b6a32235ca81adfdef73671e37a9819b6c85a401b704bda1ced28b9",
       "tools/map-factory/capability-evidence/outside-stock-budget-v1/build_study.py": "8b5629cebac5bb9265e9c13492f3890920bf4f3aa4ba2d00b6d7d1edf1f05b6d",
-      "tools/map-factory/capability-evidence/outside-stock-budget-v1/collect.py": "edd01d64d460caa240d784c23d0fcf9c93751fecc5d7280f9bb07e0f9c7d5399",
-      "tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py": "af9895cb01667dc14c3191144675462b222877f8be2c12c3a2b4c0cccf79a5e9",
-      "tools/map-factory/capability-evidence/outside-stock-budget-v1/run_one.py": "dcfe8f436b202c74b45f4400c7b255507506c6107c3d9a92db459b58f1df32e6",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/collect.py": "8ce860916346b4fe2ea3312243807dc51a1377a83e241a84853f08130ae8a806",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py": "33e9389c24f36503cbf738137ae549b10f9ec4e9da3dc8b7354619a4ac553b62",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/run_one.py": "c0592f88c300fc7247aad29028e2f65a80436420a18236033edfc9a4224bcf6f",
       "tools/map-factory/capability-evidence/outside-stock-budget-v1/study.py": "916f73503868c49d2dea4f5d36e1c79dcad9d80cc7c4da7f70cf1619547935f1",
-      "tools/map-factory/capability-evidence/outside-stock-budget-v1/test_study.py": "e3d64190839af3770e384a637de81eefbdb6371ed52a8a549e51251e77e24bba"
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/test_study.py": "ce09c445eb4e7da2de9e9101ac878d240cc72b2552cb5b14f09fc063c14622f6"
     }
   }
 }

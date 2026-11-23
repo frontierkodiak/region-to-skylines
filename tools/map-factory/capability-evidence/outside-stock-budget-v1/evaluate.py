@@ -112,11 +112,17 @@ def read_observation(case, kind, raw, frozen):
     if not path.exists():
         return {"case_id": case["case_id"], "missing": True, "paths": []}
     obs = study.read(path)
-    if (
-        obs["artifact_sha256"] != case["sha256"]
-        or obs["freeze_sha256"] != study.sha(study.HERE / "freeze.json")
-        or obs["protocol"] != study.PROTOCOL
-    ):
+    if obs["freeze_sha256"] != study.sha(study.HERE / "freeze.json"):
+        allowed = frozen.get("retained_prequery_failures", {}).get(case["case_id"])
+        if (
+            not allowed
+            or study.sha(path) != allowed["observation_sha256"]
+            or obs["freeze_sha256"] != allowed["freeze_sha256"]
+            or obs["paths"]
+            or obs["completed"]
+        ):
+            raise ValueError("unbound historical observation")
+    if obs["artifact_sha256"] != case["sha256"] or obs["protocol"] != study.PROTOCOL:
         raise ValueError("raw package/freeze/protocol differs")
     expected = collect.requests_for(case, kind)
     recorded = [r["plan"] for r in obs["paths"]]

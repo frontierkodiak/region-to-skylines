@@ -42,16 +42,46 @@ def main():
                 "monitor": "no monitor process; session-owned GPU telemetry only",
             },
         )
+        auditor_command = [
+            sys.executable,
+            str(study.HERE / "audit_processes.py"),
+            str(out),
+            str(child.pid),
+        ]
+        auditor = subprocess.Popen(
+            auditor_command, stdout=log, stderr=subprocess.STDOUT, env=env
+        )
+        auditor_identity = collect.process_identity(auditor.pid)
+        if auditor_identity is None:
+            code = child.wait()
+            auditor.wait()
+            raise RuntimeError("auditor identity missing")
+        study.freeze(
+            out / "auditor-launch.json",
+            {
+                "source_sha256": study.sha(study.HERE / "audit_processes.py"),
+                "command": auditor_command,
+                "auditor": auditor_identity,
+            },
+        )
         code = child.wait()
+        auditor_code = auditor.wait(timeout=30)
     receipt = {
         "finished_at": study.now(),
         "returncode": code,
         "collector": identity,
         "collector_still_running": collect.still_running(identity),
+        "auditor": auditor_identity,
+        "auditor_still_running": collect.still_running(auditor_identity),
+        "auditor_returncode": auditor_code,
     }
     study.freeze(out / "completion.json", receipt)
     print((out / "collector.log").read_text())
-    if receipt["collector_still_running"]:
+    if (
+        receipt["collector_still_running"]
+        or receipt["auditor_still_running"]
+        or auditor_code
+    ):
         raise RuntimeError("collector cleanup failed")
     raise SystemExit(code)
 
