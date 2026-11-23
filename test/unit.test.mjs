@@ -3,6 +3,7 @@ import { test } from "node:test";
 import "./runway-inputs.test.mjs";
 import "./sea-neighbour-contract.test.mjs";
 import { loadFixtureContract } from "./fixture-contract.mjs";
+import { baselineSource } from "./baseline-writer.mjs";
 import assert from "node:assert/strict";
 import { readFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -79,9 +80,9 @@ test("presets with a failed game check say so; the others don't", () => {
 
 
 const readFixture = async (name) => readFileSync(root + "tools/map-factory/" + name);
-const readContractSource = async (name) => readFileSync(root + name);
+const readContractSource = baselineSource;
 
-test("current partial fixture contract binds all five native packages without claiming acceptance", async () => {
+test("retained baseline contract binds all five old native packages without qualifying the rewrite", async () => {
   const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource);
   assert.equal(manifest.cases.length, 5);
   assert.equal(current.status, "partial_not_accepted");
@@ -91,6 +92,10 @@ test("current partial fixture contract binds all five native packages without cl
   assert.deepEqual(nativeCases.rio.failed_checks, ["no_flooding"]);
   assert.deepEqual(nativeCases.charleston.failed_checks, ["ground_truth"]);
   assert.notEqual(manifest.cases[0].expected_crp_sha256, manifest.cases[0].shipping.expected_crp_sha256);
+});
+
+test("the changed water writer cannot inherit the old native qualification", async () => {
+  await assert.rejects(loadFixtureContract(readFixture, name => readFileSync(root + name)));
 });
 
 test("current fixture contract refuses stale writers, missing regions and fabricated qualification", async () => {

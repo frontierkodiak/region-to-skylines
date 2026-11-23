@@ -10,6 +10,8 @@ tools/map-factory/templates -export-ignore
 tools/map-factory/generate.py -export-ignore
 tools/map-factory/region.py -export-ignore
 tools/map-factory/prepare.py -export-ignore
+tools/map-factory/playable_water.py -export-ignore
+tools/map-factory/catchment.py -export-ignore
 tools/map-factory/surface_water.py -export-ignore
 tools/map-factory/crp.py -export-ignore
 tools/map-factory/template.py -export-ignore

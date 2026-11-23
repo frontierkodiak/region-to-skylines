@@ -4,12 +4,16 @@ import { loadWaterRiskContract } from "./water-risk-fixture-contract.mjs";
 import { loadRunwayContract } from "./runway-fixture-contract.mjs";
 import { loadSeaNeighbourContract } from "./sea-neighbour-fixture-contract.mjs";
 import { loadTransientContract } from "./transient-fixture-contract.mjs";
-import { FACTORY_FILES } from "../mapgen.js";
 import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
 
 export async function loadFixtureContract(read, readSource) {
+  const writer = new TextDecoder().decode(await readSource("mapgen.js"));
+  const files = writer.match(/export const FACTORY_FILES = (\[[\s\S]*?\]);/);
+  assert.ok(files, "reference writer dependency list is missing");
+  const FACTORY_FILES = JSON.parse(files[1].replace(/,\s*]/g, "]"));
+  assert.ok(FACTORY_FILES.every(f => typeof f === "string"));
   const historicalBytes = await read("fixtures/manifest.json");
   const historicalNativeBytes = await read("fixtures/native-qualification.json");
   const historical = parse(historicalBytes);

@@ -3,10 +3,11 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { loadFixtureContract } from "./fixture-contract.mjs";
+import { baselineSource } from "./baseline-writer.mjs";
 
 const PREFIX = "fixtures/contracts/pl1072-sea-neighbours-v1/";
 const read = name => readFile(new URL("../tools/map-factory/" + name, import.meta.url));
-const source = name => readFile(new URL("../" + name, import.meta.url));
+const source = baselineSource;
 const encode = value => Buffer.from(JSON.stringify(value, null, 2) + "\n");
 const sha = bytes => createHash("sha256").update(bytes).digest("hex");
 
