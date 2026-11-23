@@ -2,7 +2,14 @@ import unittest
 
 import numpy as np
 
-from playable_water import capacity, hydrology, section, source_walk, stage_tree
+from playable_water import (
+    capacity,
+    hydrology,
+    join_nearby_water,
+    section,
+    source_walk,
+    stage_tree,
+)
 
 
 class PlayableWaterTests(unittest.TestCase):
@@ -48,6 +55,32 @@ class PlayableWaterTests(unittest.TestCase):
         self.assertEqual(tuple(walk[0]), (540, 0))
         self.assertEqual(tuple(walk[-1]), (540, 1080))
         self.assertTrue(np.all(walk[:, 0] == 540))
+
+    def test_sill_is_deepened_not_propagated_as_a_wall(self):
+        mask = np.zeros((9, 9), bool)
+        mask[:, 4] = True
+        desired = np.full(mask.shape, 100.0)
+        desired[0, 4] = 20
+        desired[4, 4] = 400
+        desired[6, 4] = 50
+        stage, _, _ = stage_tree(
+            mask, desired, np.zeros_like(mask), np.zeros_like(mask)
+        )
+        self.assertLess(stage[4, 4], 50)
+        self.assertTrue(np.all(np.diff(stage[:, 4]) >= 0))
+
+    def test_short_authored_join_respects_an_underground_gap(self):
+        water = np.zeros((1081, 1081), bool)
+        water[540, 530:534] = True
+        water[540, 538:542] = True
+        joined, links = join_nearby_water(water, np.zeros_like(water))
+        self.assertEqual(len(links), 1)
+        self.assertTrue(joined[540, 530:542].all())
+        forbidden = np.zeros_like(water)
+        forbidden[:, 535] = True
+        blocked, links = join_nearby_water(water, forbidden)
+        self.assertFalse(links)
+        np.testing.assert_array_equal(blocked, water)
 
     def test_no_water_never_changes_measured_land(self):
         ground = np.full((1081, 1081), 100.0)

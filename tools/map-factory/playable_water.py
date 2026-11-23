@@ -51,6 +51,8 @@ def stage_tree(mask, desired, flat, sea_mask):
     stage = np.full(shape, np.nan)
     distance = np.zeros(shape)
     seen = np.zeros(shape, bool)
+    parent = np.full(shape, -1, np.int64)
+    order = []
     edge = np.zeros(shape, bool)
     edge[[0, -1], :] = True
     edge[:, [0, -1]] = True
@@ -79,6 +81,7 @@ def stage_tree(mask, desired, flat, sea_mask):
     height, width = shape
     while queue:
         level, row, col = heapq.heappop(queue)
+        order.append((row, col))
         for dy, dx in STEPS:
             r, c = row + dy, col + dx
             if not (0 <= r < height and 0 <= c < width):
@@ -86,6 +89,7 @@ def stage_tree(mask, desired, flat, sea_mask):
             if not mask[r, c] or seen[r, c]:
                 continue
             seen[r, c] = True
+            parent[r, c] = row * width + col
             length = SPACING * math.hypot(dy, dx)
             grade = 0 if flat[r, c] else length * 0.001
             stage[r, c] = max(float(desired[r, c]), level + grade)
@@ -93,7 +97,76 @@ def stage_tree(mask, desired, flat, sea_mask):
             heapq.heappush(queue, (float(stage[r, c]), r, c))
     if count and not np.all(np.isfinite(stage[mask])):
         raise ValueError("Incomplete water-system stage tree")
+    # Lower a bed sill rather than propagate it upstream as a raised water wall.
+    # Caps flow downstream first; the forward pass restores the gentle grade.
+    cap = desired.copy()
+    for r, c in reversed(order):
+        p = int(parent[r, c])
+        if p >= 0:
+            pr, pc = divmod(p, width)
+            grade = 0 if flat[r, c] else SPACING * math.hypot(r - pr, c - pc) * 0.001
+            cap[pr, pc] = min(cap[pr, pc], cap[r, c] - grade)
+    for r, c in order:
+        p = int(parent[r, c])
+        if sea_mask[r, c]:
+            stage[r, c] = desired[r, c]
+        elif p < 0:
+            stage[r, c] = max(8, cap[r, c])
+        else:
+            pr, pc = divmod(p, width)
+            grade = 0 if flat[r, c] else SPACING * math.hypot(r - pr, c - pc) * 0.001
+            stage[r, c] = max(8, cap[r, c], stage[pr, pc] + grade)
     return stage, distance, outlets
+
+
+def join_nearby_water(water, forbidden, maximum_gap_m=160):
+    """Author short confluences between captured pieces; never a cross-map canal."""
+    labels, count = ndimage.label(water, np.ones((3, 3)))
+    if count < 2:
+        return water.copy(), []
+    distance, nearest = ndimage.distance_transform_edt(~water, return_indices=True)
+    owner = labels[tuple(nearest)]
+    candidates = {}
+    for dy, dx in [(0, 1), (1, 0)]:
+        a = (slice(None, -1 if dy else None), slice(None, -1 if dx else None))
+        b = (slice(dy, None), slice(dx, None))
+        valid = (owner[a] != owner[b]) & (
+            (distance[a] + distance[b] + 1) * SPACING <= maximum_gap_m
+        )
+        for r, c in np.argwhere(valid):
+            rr, cc = int(r + dy), int(c + dx)
+            start = (int(nearest[0, r, c]), int(nearest[1, r, c]))
+            end = (int(nearest[0, rr, cc]), int(nearest[1, rr, cc]))
+            left, right = int(labels[start]), int(labels[end])
+            pair = tuple(sorted((left, right)))
+            length = SPACING * math.hypot(start[0] - end[0], start[1] - end[1])
+            if length <= maximum_gap_m and (
+                pair not in candidates or length < candidates[pair][0]
+            ):
+                candidates[pair] = (length, start, end)
+    parent = list(range(count + 1))
+
+    def root(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    result = water.copy()
+    links = []
+    for (left, right), (length, start, end) in sorted(
+        candidates.items(), key=lambda x: (x[1][0], x[0])
+    ):
+        a, b = root(left), root(right)
+        if a == b:
+            continue
+        path = source_walk(np.array([start[::-1], end[::-1]], float))
+        if forbidden[tuple(path.T)].any():
+            continue
+        result[tuple(path.T)] = True
+        parent[a] = b
+        links.append({"from_rc": list(start), "to_rc": list(end), "length_m": length})
+    return result, links
 
 
 def section(distance_m, half_width_m, depth_m):
@@ -129,6 +202,8 @@ def hydrology(ground, banks, geometry):
     areas = raster(sq, geometry.get("riverAreas", []), True)
     ocean = raster(sq, geometry.get("oceans", []), True)
     water = line | lakes | areas | ocean
+    underground = raster(sq, geometry.get("undergroundWaterways", []))
+    forbidden = ndimage.binary_dilation(underground, iterations=2) & ~water
     sources, samples, summaries = [], {}, []
     if not water.any():
         return np.zeros_like(ground), {
@@ -143,7 +218,7 @@ def hydrology(ground, banks, geometry):
         }
 
     # Depression filling is a drainage MODEL only. It never changes land.
-    contributing = local_catchment_area(banks) / 1_000_000
+    contributing = local_catchment_area(banks, SPACING * sq.get("scale", 1)) / 1_000_000
     contributing = ndimage.maximum_filter(contributing, size=5)
     bank_level = ndimage.median_filter(banks, size=5)
     desired = np.clip(bank_level - 1.5, 2, 1020)
@@ -156,7 +231,13 @@ def hydrology(ground, banks, geometry):
         level = float(np.clip(np.median(bank_level[box][own]) - 1.5, 2, 1020))
         desired[box][own] = max(sea, level) if sea else level
     desired[ocean] = sea
+    water, links = join_nearby_water(water, forbidden)
+    line |= water & ~(lakes | areas | ocean)
     stage, arc, outlets = stage_tree(water, desired, lakes | ocean, ocean)
+    for label, box in enumerate(ndimage.find_objects(lake_labels), 1):
+        if box is not None:
+            own = lake_labels[box] == label
+            stage[box][own] = np.min(stage[box][own])
 
     # Original mapped open-water polygons keep their shapes. Channel width grows
     # with local catchment; reported width/rate settings remain authoring heuristics.
@@ -172,8 +253,6 @@ def hydrology(ground, banks, geometry):
     )
     body_margin = ndimage.binary_dilation(lakes | areas, iterations=1)
     channel |= water | body_margin
-    underground = raster(sq, geometry.get("undergroundWaterways", []))
-    forbidden = ndimage.binary_dilation(underground, iterations=2) & ~water
     channel &= ~forbidden
     _, nearest = ndimage.distance_transform_edt(~water, return_indices=True)
     level = stage[tuple(nearest)]
@@ -335,6 +414,7 @@ def hydrology(ground, banks, geometry):
         "surface_water": visibility,
         "water_construction": "map-maker-v1",
         "unmodeled_short_surface_reaches": [],
+        "authored_confluence_links": links,
         "channel_design": {
             "minimum_depth_m": 8,
             "half_width_m": [24, 112],
