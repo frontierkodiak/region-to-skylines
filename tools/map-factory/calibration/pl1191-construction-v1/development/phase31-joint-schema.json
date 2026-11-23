@@ -1,0 +1,77 @@
+{
+  "schema": "polli.readonly-joint-initialization-plan/1",
+  "status": "conditional_intervals_not_an_executable_plan",
+  "physical_admission": false,
+  "proposed_terrain_delta_q": 0,
+  "chosen_stage_q": null,
+  "proposed_initial_depth_delta_q": null,
+  "velocity_values_delta": 0,
+  "velocity_packed_bytes_identity": null,
+  "old_controls": "all raw43 records unchanged; no reassignment as known supply",
+  "new_controls": null,
+  "minimum_design_depth_q": 96,
+  "source_footprint_minimum_q": 64,
+  "freeboard_q": 32,
+  "closed_body_model_scope": "original lakes raster component only; never river/stream/riverArea/ocean",
+  "numeric_interval_scope": "unique original own polygon interior, matching original contract component, no other protection/ownership conflict, complete dry in-square source-raster rim and no non-proximity source interface",
+  "interval_model": "bed fixed to serialized source terrain; stage >= bed + max(96, old depth); stage <= min(original untouched full8 rim terrain)-32 and65535; no uniform stage chosen or synchronized",
+  "packing_verifier_spec": {
+    "decode_before_and_after": [
+      "full depth values",
+      "three compact value arrays and their depth-dependent wet/vx/vz domains",
+      "all old raw43 controls in original order",
+      "sea level and header/frame fields",
+      "all non-water assets"
+    ],
+    "compare": [
+      "old control records exactly",
+      "non-water assets exactly except explicitly declared metadata asset reference",
+      "terrain and bank values unchanged",
+      "compact VALUES on persistent domains; explicit declared values for newly introduced domains",
+      "complete planned initial-depth delta and unchanged complement"
+    ],
+    "do_not_compare_as_identity": [
+      "compact array lengths",
+      "absolute source-table byte offsets after depth-topology change"
+    ],
+    "implemented_physical_writer": false
+  },
+  "obligation_bit_order": [
+    "landing_128m",
+    "old_control_radius_plus64m",
+    "old_corridor_112m",
+    "old_mapped_body_128m",
+    "original_stream_bank_union",
+    "all_current_graph_bank_union",
+    "foreign_or_excluded_line_128m",
+    "other_polygon_water",
+    "unknown_target_owner",
+    "overlapping_polygon_buffers",
+    "own_buffer_not_body",
+    "open_line_lateral_direction_unknown",
+    "different_original_body_component",
+    "external_boundary_stage_unknown",
+    "open_receiving_water_stage_unknown",
+    "source_interface_plan_unknown",
+    "inlet_supply_outlet_capacity_unknown",
+    "complete_startup_safety_plan_missing",
+    "native_retention_acceptance_missing",
+    "packing_roundtrip_required"
+  ],
+  "role_bit_order": [
+    "owned_target_interior",
+    "own_buffer_not_body",
+    "channel_bed",
+    "untouched_lateral_bank",
+    "open_receiving_water",
+    "provisional_head_inlet",
+    "internal_junction",
+    "provisional_terminal_outlet",
+    "literal_source_endpoint_fact",
+    "unresolved_support"
+  ],
+  "old_scalar_obligation_code_used_for_permission": false,
+  "old_b_view_used_for_permission": false,
+  "all_old_refusals_preserved": true,
+  "all_original_sources_contracts_probes_preserved": true
+}
