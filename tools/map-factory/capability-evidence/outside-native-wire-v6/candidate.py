@@ -129,6 +129,7 @@ def closure(revision):
 
 
 def prepare(store, revision, maps):
+    revision = git("rev-parse", revision + "^{commit}").decode().strip()
     if git("merge-base", PIN, revision).decode().strip() != PIN:
         raise Unknown("candidate source does not descend from pin")
     source = {}
