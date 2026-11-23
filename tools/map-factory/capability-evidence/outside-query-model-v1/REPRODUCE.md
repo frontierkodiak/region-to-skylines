@@ -56,9 +56,13 @@ than asserting it.
 - `integrity.json` lists every binding assertion and its result; `all_ok` must
   be `true`.
 - `predictions.json` is deterministic: re-running `predict.py` reproduces the
-  same bytes, and the protocol's `predictions_sha256` matches the file.
+  same bytes, and the protocol's `predictions_sha256` matches the file. The only
+  field a re-run changes is `protocol.json`'s `frozen_at`, and with it the
+  `protocol_sha256` in `evaluation.json` and the protocol hash in
+  `integrity.json`; compare those two hashes on a timestamp-insensitive basis.
 - `evaluation.json` binds `predictions_sha256`, so a changed prediction cannot
-  be scored against the old report.
+  be scored against the old report: a mismatch exits non-zero before any report
+  is written.
 - `bridge.json` answers whether the model's inputs are recoverable from the
   export bytes, per package and per mode, and lists the leave-one-package-out
   cross-validation.
