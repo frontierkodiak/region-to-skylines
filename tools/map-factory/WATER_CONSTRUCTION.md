@@ -1233,3 +1233,25 @@ field, shipping/default/ledger or holdout change. Coastal496/962 failures persis
 Next: field-specific protection authority and an explicit joint operation contract,
 not a provider search, rate sweep or quiet protected-water relaxation. New results
 need combined construction/results acceptance before adoption. Promises unknown.
+
+## Phase thirty: field-specific protection obligations
+
+A new frozen contract traces source scopes separately for terrain, initialized
+depth/velocity, old controls and new port proposals. Starter/stream whole-envelope
+exclusion is not a permanent geographic prohibition on target-water reconstruction;
+the natural-body constructor already distinguishes its own lake from other water.
+No lack of a field prohibition is treated as permission. Every original mask, bank,
+control byte and old refusal remains; no edit or candidate is authorized.
+
+All39394naturalpoints/1939487nearby-nodeoccurrences across six inputs are annotated.
+Original per-body buffer unions equal the old masks exactly. The first European
+lake witness separates30original-interior from17buffer-only nodes; neither is
+made editable. Own-buffer membership cannot become a water footprint. Open-stream
+other-water/junction/supply obligations remain. Both base refusals and engineered
+exact-sampling unknowns stay. Old496/962coastalstartupfailures are unchanged.
+
+Five focused tests and a complete15file replay pass. New field labels are not
+constructability, native acceptance or calibrated flow. A future depth writer must
+respect compact velocity-array packing, not assume stable offsets. No CRP/water/
+control serialization, game, shipping/default/ledger/holdout action. Combined new
+construction/results need independent acceptance; all promises remain unknown.

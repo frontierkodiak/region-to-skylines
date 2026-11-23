@@ -1,0 +1,148 @@
+{
+  "dry-upland-asia": {
+    "natural_contracts": 49,
+    "old_initialization_failures_unchanged": 8,
+    "original_a1_contract_obstructions_unchanged": 0,
+    "all_natural_points": 364,
+    "full_node_occurrences": 18234,
+    "old_a1_blocked_points": 0,
+    "old_a1_blocked_points_with_at_least_one_explicit_own_interior_obligation": 0,
+    "old_a1_blocked_point_node_obligation_counts": {},
+    "all_node_obligation_counts": {
+      "requires_complete_source_stage_initialization_and_safety_plan": 4368,
+      "no_water_edit_authority_inferred_from_terrain_mask": 6590,
+      "forbidden_under_retained_untouched_bank_policy": 7276
+    },
+    "first_source_ordered_obstruction_obligations": null
+  },
+  "dry-upland-europe": {
+    "natural_contracts": 85,
+    "old_initialization_failures_unchanged": 68,
+    "original_a1_contract_obstructions_unchanged": 65,
+    "all_natural_points": 279,
+    "full_node_occurrences": 13748,
+    "old_a1_blocked_points": 248,
+    "old_a1_blocked_points_with_at_least_one_explicit_own_interior_obligation": 100,
+    "old_a1_blocked_point_node_obligation_counts": {
+      "no_water_footprint_authority_from_own_body_buffer": 1037,
+      "requires_explicit_owned_body_stage_initialization_safety_plan": 2134,
+      "preserve_other_water_requires_explicit_joint_plan": 979,
+      "no_water_edit_authority_inferred_from_terrain_mask": 8058
+    },
+    "all_node_obligation_counts": {
+      "no_water_edit_authority_inferred_from_terrain_mask": 9001,
+      "forbidden_under_retained_untouched_bank_policy": 222,
+      "requires_complete_source_stage_initialization_and_safety_plan": 373,
+      "no_water_footprint_authority_from_own_body_buffer": 1039,
+      "requires_explicit_owned_body_stage_initialization_safety_plan": 2134,
+      "preserve_other_water_requires_explicit_joint_plan": 979
+    },
+    "first_source_ordered_obstruction_obligations": {
+      "contract": "lakes:0:0",
+      "point_xz": [
+        5168.779156,
+        8513.810624
+      ],
+      "nodes": 47,
+      "depth_obligation_node_occurrences": {
+        "no_water_footprint_authority_from_own_body_buffer": 17,
+        "requires_explicit_owned_body_stage_initialization_safety_plan": 30
+      },
+      "no_new_edit_authority": true
+    }
+  },
+  "lowland-river-south-america": {
+    "natural_contracts": 855,
+    "old_initialization_failures_unchanged": 769,
+    "original_a1_contract_obstructions_unchanged": 195,
+    "all_natural_points": 15638,
+    "full_node_occurrences": 771162,
+    "old_a1_blocked_points": 8477,
+    "old_a1_blocked_points_with_at_least_one_explicit_own_interior_obligation": 6489,
+    "old_a1_blocked_point_node_obligation_counts": {
+      "preserve_other_water_requires_explicit_joint_plan": 107914,
+      "forbidden_under_retained_untouched_bank_policy": 10784,
+      "no_water_edit_authority_inferred_from_terrain_mask": 12721,
+      "no_water_footprint_authority_from_own_body_buffer": 1925,
+      "requires_explicit_owned_body_stage_initialization_safety_plan": 282610
+    },
+    "all_node_obligation_counts": {
+      "forbidden_under_retained_untouched_bank_policy": 96553,
+      "no_water_edit_authority_inferred_from_terrain_mask": 85496,
+      "preserve_other_water_requires_explicit_joint_plan": 145424,
+      "requires_complete_source_stage_initialization_and_safety_plan": 70217,
+      "no_water_footprint_authority_from_own_body_buffer": 2030,
+      "requires_explicit_owned_body_stage_initialization_safety_plan": 371442
+    },
+    "first_source_ordered_obstruction_obligations": {
+      "contract": "streams:9:0",
+      "point_xz": [
+        -5033.361687,
+        8041.048969
+      ],
+      "nodes": 52,
+      "depth_obligation_node_occurrences": {
+        "preserve_other_water_requires_explicit_joint_plan": 31,
+        "forbidden_under_retained_untouched_bank_policy": 21
+      },
+      "no_new_edit_authority": true
+    }
+  },
+  "dry-upland-south-america": {
+    "original_base_refusal": {
+      "square": "dry-upland-south-america",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    "contracts": 55,
+    "field_operations": null
+  },
+  "mountain-river-asia": {
+    "original_base_refusal": {
+      "square": "mountain-river-asia",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    "contracts": 174,
+    "field_operations": null
+  },
+  "low-coast-oceania": {
+    "natural_contracts": 962,
+    "old_initialization_failures_unchanged": 496,
+    "original_a1_contract_obstructions_unchanged": 270,
+    "all_natural_points": 23113,
+    "full_node_occurrences": 1136343,
+    "old_a1_blocked_points": 411,
+    "old_a1_blocked_points_with_at_least_one_explicit_own_interior_obligation": 35,
+    "old_a1_blocked_point_node_obligation_counts": {
+      "no_water_edit_authority_inferred_from_terrain_mask": 5690,
+      "forbidden_under_retained_untouched_bank_policy": 4714,
+      "preserve_other_water_requires_explicit_joint_plan": 8439,
+      "requires_explicit_owned_body_stage_initialization_safety_plan": 583,
+      "no_water_footprint_authority_from_own_body_buffer": 1049
+    },
+    "all_node_obligation_counts": {
+      "preserve_other_water_requires_explicit_joint_plan": 311794,
+      "forbidden_under_retained_untouched_bank_policy": 81291,
+      "no_water_edit_authority_inferred_from_terrain_mask": 108571,
+      "requires_target_ownership_before_field_operation": 1003,
+      "requires_complete_source_stage_initialization_and_safety_plan": 28820,
+      "requires_explicit_owned_body_stage_initialization_safety_plan": 600966,
+      "no_water_footprint_authority_from_own_body_buffer": 3898
+    },
+    "first_source_ordered_obstruction_obligations": {
+      "contract": "streams:13:1",
+      "point_xz": [
+        -6807.445978,
+        8416.650758
+      ],
+      "nodes": 51,
+      "depth_obligation_node_occurrences": {
+        "no_water_edit_authority_inferred_from_terrain_mask": 27,
+        "forbidden_under_retained_untouched_bank_policy": 17,
+        "preserve_other_water_requires_explicit_joint_plan": 7
+      },
+      "no_new_edit_authority": true
+    }
+  }
+}

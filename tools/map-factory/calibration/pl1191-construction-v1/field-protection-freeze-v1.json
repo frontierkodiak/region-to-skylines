@@ -1,0 +1,12 @@
+{
+  "schema": "polli.pl1191-postanalysis-field-contract-binding/1",
+  "postanalysis_not_prospective": true,
+  "method_commit_before_freeze": "58ee5c7",
+  "input_freeze_sha256": "f6a1f551de44e469ed19cd8ccbe0c50dac5cfdd4647ee0a4eccc2c7c1fbd3ebd",
+  "result_receipt_sha256": "d534378a9461c8e9e0b0282f495db6169dfe786dfcf1f2f89172b09bc333b7bc",
+  "summary_sha256": "26f84896dbffd3c2e4bea67b3e709d905aae36d833b0224e160a158f7d69d906",
+  "report_sha256": "33d355a342798ac24cd46abadd3ddc5586c8ada67376d9072f34b96a62c16da2",
+  "no_old_availability_or_gate_changed": true,
+  "physical_admission": false,
+  "promise": "unknown"
+}
