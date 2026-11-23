@@ -647,7 +647,7 @@ def prepare():
         "old_facts_sha256": digest(facts),
         "old_fact_count": len(facts),
         "old_publication_sha256": digest(old_publication_files()),
-        "old_publication_files": len(old_publication_files()) + 1,
+        "old_publication_files": len(old_publication_files()),
         "readiness_sha256": digest(readiness_files()),
         "readiness_files": len(readiness_files()),
         "issues": {
@@ -729,9 +729,9 @@ def preflight():
         raise ValueError("old publication files changed")
     if digest(readiness_files()) != freeze["readiness_sha256"]:
         raise ValueError("accepted readiness files changed")
-    if len(old_publication_files()) + 1 != freeze["old_publication_files"]:
+    if len(old_publication_files()) != freeze["old_publication_files"]:
         raise ValueError("old publication file count differs")
-    if len(readiness_files()) + 1 != freeze["readiness_files"]:
+    if len(readiness_files()) != freeze["readiness_files"]:
         raise ValueError("readiness file count differs")
     if freeze["selection"]["digest"] != digest(read(HERE / "selection.json")):
         raise ValueError("selection digest differs")
@@ -746,7 +746,7 @@ def preflight():
         "holdout_requests": len(freeze["holdout"]),
         "control_requests": sum(len(c["requests"]) for c in freeze["controls"]),
         "old_facts": len(facts),
-        "old_publication_files": len(old_publication_files()) + 1,
+        "old_publication_files": len(old_publication_files()),
         "readiness_files": len(readiness_files()) + 1,
         "collection_ready": not freeze["selection"]["missing_cells"],
     }
