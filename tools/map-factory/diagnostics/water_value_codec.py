@@ -2,12 +2,16 @@
 
 from dataclasses import dataclass
 import math
+from pathlib import Path
 import struct
+import sys
 
 import numpy as np
 
-from crp import encode_u16
-from template import manager_tag
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from crp import encode_u16  # noqa: E402
+from template import manager_tag  # noqa: E402
 
 TAG = manager_tag("WaterSimulation")
 DOMAIN_NAMES = ("wet", "wet_or_east", "wet_or_south")

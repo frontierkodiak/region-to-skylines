@@ -6,11 +6,14 @@ import json
 from pathlib import Path
 import shutil
 import struct
+import sys
 
 import numpy as np
 
-from crp import decode_u16, read_package, write_package
-from water_value_codec import (
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from crp import decode_u16, read_package, write_package  # noqa: E402
+from water_value_codec import (  # noqa: E402
     DOMAIN_NAMES,
     TAG,
     WaterValues,
