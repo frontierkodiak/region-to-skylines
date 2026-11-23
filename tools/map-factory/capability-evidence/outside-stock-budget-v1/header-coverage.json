@@ -1,0 +1,1430 @@
+{
+  "formats": {
+    "4": 21,
+    "5": 2,
+    "6": 20,
+    "7": 4,
+    "8": 16,
+    "9": 16,
+    "10": 26
+  },
+  "packages": [
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "AP Asanu Beach.crp",
+      "pre_query_exclusion": [
+        "PL-1239-controls"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "AP Hanami Bay.crp",
+      "pre_query_exclusion": [
+        "PL-1239-controls"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "AP Noyou Port.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "991d55217c6d9fbaddcdcf3dbeedd216109201c17347aa5d29b4db5d5d447381"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Boreal Map 1.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "8eb2a4fa6a1544cd740887ad3347d19aca810d7373257ab9c783a3ded00fb725"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Boreal Map 2.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "4183237b98074318b28b2677810f591526f8b78b9f449bb6e626ac3b52258ccb"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Desert Map 1.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "95f5f8c2f661d8d512baaaabb936f9998560b89f7949617baa997288fdbd1e59"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Desert Map 2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:17842305",
+        "node_Outside:20988485",
+        "node_Outside:21495841",
+        "node_Outside:21512321",
+        "node_Outside:22036609",
+        "node_Outside:5259393",
+        "prefab:Gravel Road",
+        "prefab:Medium Road",
+        "prefab:Oneway Road",
+        "prefab:Pedestrian Gravel",
+        "prefab:Twoway Bus Only Expressway"
+      ],
+      "pre_query_supported": false,
+      "sha256": "2075eb1cfe094830881d29462e53d8d86b815f91f84f4945efd3d2a5ff91ff9d"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Euro Map 1.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:17842305",
+        "node_Outside:21495841",
+        "node_Outside:21512225",
+        "node_Outside:21512321",
+        "node_Outside:21512481",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "node_record:21264",
+        "node_record:35549",
+        "prefab:Medium Road",
+        "prefab:Oneway Road",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Gravel Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "b0acaaeafd51eb9815713a26b43a8ac2b69332f8979875763718e918390e8116"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Euro Map 2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:22036609",
+        "node_Outside:9453697",
+        "node_record:24150",
+        "prefab:Medium Road",
+        "prefab:Medium Road Elevated",
+        "prefab:Oneway Road",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Gravel Elevated",
+        "prefab:Quay"
+      ],
+      "pre_query_supported": false,
+      "sha256": "68d1f7fb7088885efc1b25b6bcd49b6b5424e911f5f7633e9cb31b1069fa757b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Temperate Map 1.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:21495841",
+        "node_Outside:21495873",
+        "node_Outside:21512225",
+        "node_Outside:21512321",
+        "node_Outside:268452113",
+        "prefab:Basic Road",
+        "prefab:Basic Road Elevated",
+        "prefab:Pedestrian Gravel",
+        "prefab:Quay",
+        "prefab:Twoway Bus Only Expressway"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e749530c4ccaaf17376b4528c79567d9d2be3b81490eba70a01ec3a19791fdc8"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Temperate Map 2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:17842305",
+        "node_Outside:21495841",
+        "node_Outside:21512321",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "prefab:Basic Road",
+        "prefab:Gravel Road",
+        "prefab:Gravel Road Bridge",
+        "prefab:Gravel Road Elevated",
+        "prefab:Highway with Bus Only Lane",
+        "prefab:Highway with Bus Only Lane Elevated",
+        "prefab:Large Road",
+        "prefab:Oneway Road",
+        "prefab:Pedestrian Elevated",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Gravel Elevated",
+        "prefab:Quay",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Twoway Bus Only Expressway"
+      ],
+      "pre_query_supported": false,
+      "sha256": "1ab6cd1115d210efbbeeabb9c61af65205755892437149efb1ff326cc7887d76"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Tropical Map 1.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:17842305",
+        "node_Outside:21495841",
+        "node_Outside:21512321",
+        "node_Outside:21512481",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "node_record:33189",
+        "prefab:Oneway Road",
+        "prefab:Pedestrian Elevated",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Pavement",
+        "prefab:Quay",
+        "prefab:Train Oneway Track",
+        "prefab:Twoway Bus Only Expressway",
+        "prefab:Twoway Bus Only Expressway Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e6c591bcff1dc43fb81b8a8998213ae04afb32f7ad96c05a248f6fdea0c263fb"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "CCMP2 Tropical Map 2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:268452113",
+        "prefab:Pedestrian Gravel",
+        "prefab:Twoway Bus Only Expressway"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e323308582a13625e5eae81af51fb6c53909ac41bbdecbf4a08c7c5a9d38885e"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 1.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "6d54e0ff803655322b61e7dbc9e14e6b42a0f799f5b7242d0d5b20b7d5743e7b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 2.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "f6ca9905fda298fce7cc8f8f68abb24ecf1d4778e573d2562fe04725dc355f45"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 3.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "cf0c06953158a5e5e3daded78da2ff86bf32a90468b6b7e4e4aa0aac7613d4b0"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 4.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "ec6dd74b34f4033d076b480f8144e7ab9a0d7dabaf7d39899658ed34070d9175"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 5.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "ec61b55714b3fe9749681f910eb8d973fd0eaf56195e3c88c6653b5494bb8d8b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 6.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "a5a455833df44d3c13c410a361e60fca4c44e103978b39732306dd37ca70ae51"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 7.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "3e9e55c7e2fdb0c5e1cc1e3b9a33fa884d4b0bd55eb57619ad98773f1803de1f"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "CCP Map 8.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "e82d32bccf7fd49154d47e14354585f5385f5a2a647863f63d5d7771f7577fa1"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "CL Marin Bay.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "be0e93a258f178d51e3874bffcb220a822b771fb174e89eb7a98e5bc6e985b5b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "CL Murky Coast.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "6714a11603a1faec2996cce750477bff9fdad28a5dbe0580942eebe7f1b373f6"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "CL Northwood Hills.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "prefab:Train Oneway Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "be2d3d29b41c32fe1fe35f21a6e4d4ffc6ffaa03248efab5134025e1aef95208"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "CL Roslyn Peninsula.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "56e9c5b67d0e49e4a40c8c4ec90c37fa38c41d2ad1c9309bf40474a0042dd7f2"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "CL Wolf Creek.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "8f2b88f997e35b295aa2761e183a9cffe498d01ea7357f5fe6530000f65a1d9c"
+    },
+    {
+      "asset_count": 53,
+      "crp_format": 10,
+      "file": "CO.crp",
+      "pre_query_exclusion": [
+        "blankCO"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "f26db724bbb1ae6ef3ef2fbfd684d3d0e42a354aab81fa8514cde4dfe09fcf0a"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Cliffside Bay.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "DN Azure Gulf.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433",
+        "prefab:Train Oneway Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "8ab34f5dc7b3616f912998de9eb6b785ff2a24be02e89a5c9af8beb0212863be"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 7,
+      "file": "DN Crater Falls.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "fc67a978d11786ffaba6e5449d4eee91f3b554a88eb78cc3f0cbaa77835ebc45"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 7,
+      "file": "DN Desert Oasis.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "3fa90904df708a337cc2f6c31e6917a3b444933f26681358b92557820b8f6315"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 7,
+      "file": "DN Fisher Enclave.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "bd2504849e9d7086298bc549c53bd45e3ebc921980c36af3ddf634a2e4640990"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 7,
+      "file": "DN Swamplands.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "7a70b3457d68b3e8d506c780b2b2672a453e0eaac734b07c8303d074da036c96"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "Eden Valley2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "b5f8fc541b0e402464f62b8035ce620152edbdbfbc0842592e166e3c8bc33aa1"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Foggy Hills.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 5,
+      "file": "Garden Rivers2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "0d9968aa7f32fc5d289b4f76005354fc3458b80a3320a3d99f99ea9c21f6f30c"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Grand River.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "cfb59ca03e6a7f856efe9031347ef97942a841d9cdae90dfc31b940a01bb552f"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "IN Green Peaks.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "46fd4a7e389faead5a3f90e4cde06161789de68be7faa4b6a35136b881123e3a"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "IN Marble Canyon.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "f9b5b60f2c0ab5bc4de59e5fccc4beb969af950848b901d2d0b3fe05ff8cd781"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "IN Pearl Bay.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "64fb595458d9b04363411ee97ef960c5b1e7fc39b2d1b2013390d7b2ed13840f"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "IN Twin Fjords.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "248ab8d0af3e65b560de451ff54ba9f38d976fe83a05bc0ec7bf4cc3482123d1"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "IN Woodgarden.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "b2840b6863a6ea4f6906c70f4f627e3107b3dd4e661b1add5bf5adfee5307ac9"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 5,
+      "file": "Lavender Lake2.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "ee90aecfab5a0139a23bfb1721734528a7835768131c3d62f1fd37de41abcd96"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MM Coastal Flatland.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "c3241d321c5309084394b297258e6f9df65065b84b56c0f4e5c98536221a3a6b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MM Emerald Cliffs.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:268452113"
+      ],
+      "pre_query_supported": false,
+      "sha256": "1bebffd66d18daf32d46c8ca6bc008a560923b995cdd71c7a9a474cc5570d9fe"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MM Maze Valley.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "a917c4bee43085f6dcd7ffbb8ede6e37b61ed6362c57b36e1b53a75204515dd7"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MM Shifting Sands.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "893c09e376aa2f2272d6c2a847b49e7ec3fa0658b45c5613b936c180d3285b09"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MM Weaving Waters.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "85ec60c4da7fd67fb44bbed892c5f5d2d0acac5f84643185c49d2c6dbdeeede1"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map01.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:17842305",
+        "node_Outside:22036609",
+        "node_Outside:268452113",
+        "node_Outside:4194433",
+        "node_Outside:5259393",
+        "prefab:Basic Road",
+        "prefab:Gravel Road",
+        "prefab:Medium Road with Wide Sidewalks Grass",
+        "prefab:Pedestrian Pavement",
+        "prefab:Small Oneway Road with Wide Sidewalks",
+        "prefab:Train Connection Track Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "3d8601328dcc37ce8e97f00a42ccbf3cb20164f1b98a027520188ed45ab10557"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map02.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:5259393",
+        "prefab:Basic Road",
+        "prefab:Gravel Road",
+        "prefab:Pedestrian Gravel",
+        "prefab:Small 4 Lane Road",
+        "prefab:Small 4 Lane Road Elevated",
+        "prefab:Small Road with Wide Sidewalks"
+      ],
+      "pre_query_supported": false,
+      "sha256": "168dcf5347746bc60ae6631f7d7c32a3879f08aee7d67c875d7972ff25e37be0"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map03.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:17842305",
+        "node_Outside:22036609",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "prefab:Gravel Road",
+        "prefab:Highway with Bus Only Lane",
+        "prefab:Medium Road with Wide Sidewalks",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Pavement",
+        "prefab:Small Oneway Road with Wide Sidewalks"
+      ],
+      "pre_query_supported": false,
+      "sha256": "4b5488c840048c0fb79d62b8086f53c33b726332afcde590da64ffc22e460e04"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map04.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433",
+        "prefab:Basic Road",
+        "prefab:Gravel Road",
+        "prefab:Gravel Road Bridge",
+        "prefab:Gravel Road Elevated",
+        "prefab:Medium Road with Wide Sidewalks",
+        "prefab:Medium Road with Wide Sidewalks Grass",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Gravel Elevated",
+        "prefab:Pedestrian Pavement",
+        "prefab:Small 4 Lane Road",
+        "prefab:Small 4 Lane Road Slope",
+        "prefab:Small 4 Lane Road Tunnel",
+        "prefab:Small Road with Tree Median",
+        "prefab:Small Road with Wide Sidewalks"
+      ],
+      "pre_query_supported": false,
+      "sha256": "09a68955266edbfbe8bae2a1b200067f2248cdba0395890095ccad351fe09f9e"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map05.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:22036609",
+        "node_Outside:4194433",
+        "prefab:Gravel Road",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Small 3 Lane 1 Way Road Elevated",
+        "prefab:Small 4 Lane Road",
+        "prefab:Small 4 Lane Road Elevated",
+        "prefab:Small Oneway Road with Wide Sidewalks",
+        "prefab:Small Road with Median"
+      ],
+      "pre_query_supported": false,
+      "sha256": "df7095b939471c4f1b3e34377befd57e993b6a43f3a1ceeb2ac24502531bd43a"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map06.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:22036609",
+        "prefab:Gravel Road",
+        "prefab:Gravel Road Bridge",
+        "prefab:Gravel Road Elevated",
+        "prefab:Small 3 Lane 1 Way Road"
+      ],
+      "pre_query_supported": false,
+      "sha256": "084d9a6f6204b611a66901c8baf1308510931f8b8943d52cc459f1758791e37e"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map07.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:17842305",
+        "node_Outside:21512321",
+        "node_Outside:22036609",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "prefab:City Quay",
+        "prefab:Medium Road with Wide Sidewalks",
+        "prefab:Medium Road with Wide Sidewalks Grass",
+        "prefab:Pedestrian Gravel",
+        "prefab:Pedestrian Pavement",
+        "prefab:Quay",
+        "prefab:Small 4 Lane Road",
+        "prefab:Small 4 Lane Road Elevated",
+        "prefab:Small Oneway Road with Wide Sidewalks",
+        "prefab:Small Road with Median",
+        "prefab:Train Oneway Track",
+        "prefab:Train Oneway Track Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "af4a9e797b1b51e19b58dc873a3af48a01a0b77fe6c81f2dfe33104ccdb2ff87"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map08.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16778241",
+        "node_Outside:17842305",
+        "node_Outside:22036609",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "prefab:Gravel Road",
+        "prefab:Highway with Bus Only Lane",
+        "prefab:Medium Road with Wide Sidewalks",
+        "prefab:Pedestrian Pavement",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Small Oneway Road with Wide Sidewalks"
+      ],
+      "pre_query_supported": false,
+      "sha256": "b90b20e6d08872a4d5f14143bc524a2c375a51c5279ce8c34abfc5dd40f26a8c"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map09.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16778241",
+        "node_Outside:17842305",
+        "node_Outside:22036609",
+        "node_Outside:268452113",
+        "node_Outside:4195329",
+        "node_Outside:5259393",
+        "prefab:Basic Road",
+        "prefab:Basic Road Elevated",
+        "prefab:Bus Only Expressway Ramp",
+        "prefab:Gravel Road",
+        "prefab:Large Road Bridge",
+        "prefab:Large Road Elevated",
+        "prefab:Quay",
+        "prefab:Small Oneway Road with Wide Sidewalks",
+        "prefab:Twoway Bus Only Expressway Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "49d9f09c33f396179625c9ca95492288a66f96e040f2d3788708c0447606a94b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP23_Map10.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:17842305",
+        "node_Outside:22036609",
+        "node_Outside:268452113",
+        "node_Outside:4194433",
+        "node_Outside:5259393",
+        "node_Outside:9453697",
+        "prefab:Basic Road",
+        "prefab:Canal",
+        "prefab:Gravel Road",
+        "prefab:Gravel Road Elevated",
+        "prefab:Medium Road Bridge",
+        "prefab:Medium Road Elevated",
+        "prefab:Medium Road with Wide Sidewalks Grass",
+        "prefab:Quay",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Small 4 Lane 1 Way Road",
+        "prefab:Small 4 Lane Road",
+        "prefab:Small Road with Median"
+      ],
+      "pre_query_supported": false,
+      "sha256": "8b6f74b05a9c9b7c2f98b19f68991def336f9cc8c692aa0ad6627b5bfdc30964"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map01.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:17842305",
+        "node_Outside:5259393",
+        "node_Outside:9453697",
+        "prefab:Gravel Road",
+        "prefab:Large Road Decoration Grass",
+        "prefab:Large Road with Grass Median",
+        "prefab:Large Road with Median",
+        "prefab:Medium Road",
+        "prefab:Medium Road Bridge",
+        "prefab:Medium Road Decoration Grass",
+        "prefab:Medium Road Elevated",
+        "prefab:Medium Road with Wide Sidewalks Grass",
+        "prefab:Small 3 Lane 1 Way Road"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e2435cb8848d64f181632537b24de7fe3035ad59c6de1f4a288aa9e409f6251b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map02.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:17842305",
+        "node_Outside:268452113",
+        "node_Outside:4194433",
+        "node_Outside:5259393",
+        "prefab:Basic Road Decoration Grass",
+        "prefab:Gravel Road",
+        "prefab:Large Road Decoration Grass",
+        "prefab:Medium Road with Wide Sidewalks Grass",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Small Road with Grass Median"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e82ef184a0ce91d3a6cd9b3805b1ec9d03eaa9adede94a291c70a3e7196c4493"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map03.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:1048705",
+        "node_Outside:16777345",
+        "node_Outside:268452113",
+        "node_Outside:4194433",
+        "node_Outside:9437313",
+        "prefab:Basic Road Decoration Grass",
+        "prefab:Gravel Road",
+        "prefab:Medium Road",
+        "prefab:Medium Road Bridge",
+        "prefab:Medium Road Decoration Grass",
+        "prefab:Medium Road Elevated",
+        "prefab:Oneway Road Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e69d5c29ff286651ba1e25fa279703842d40b2aff9c07cdfe8acfb903659292e"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map04.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:10502273",
+        "node_Outside:17842305",
+        "node_Outside:268452113",
+        "node_Outside:5259393",
+        "prefab:Gravel Road",
+        "prefab:Medium Road Decoration Grass",
+        "prefab:Oneway Road",
+        "prefab:Small 4 Lane Road",
+        "prefab:Train Connection Track Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "9579b8cdacfced1a635cd8b2e9d1983a9d617ea15f5bf46b56549df4875c68c4"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map05.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:10502273",
+        "node_Outside:16777345",
+        "node_Outside:17842305",
+        "node_Outside:4194433",
+        "node_Outside:5259393",
+        "prefab:Medium Road",
+        "prefab:Medium Road Bridge",
+        "prefab:Medium Road Elevated",
+        "prefab:Oneway Road",
+        "prefab:Oneway Road Decoration Grass",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Small Road with Wide Sidewalks",
+        "prefab:Train Oneway Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "564550730bd6bc87eec4f40d923db57beea8bae6e939dde7030465515afd3302"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map06.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:268452113",
+        "node_Outside:9453697",
+        "prefab:Gravel Road",
+        "prefab:Medium Road",
+        "prefab:Small 4 Lane Road",
+        "prefab:Train Oneway Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "4f050ceffeb349c87e0b834c4f684cc66ecde0f15ad516e8dff0c066e031573a"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map07.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:16778241",
+        "node_Outside:21512321",
+        "node_Outside:21512481",
+        "node_Outside:268452113",
+        "node_Outside:4194433",
+        "node_Outside:4195329",
+        "prefab:Gravel Road",
+        "prefab:Highway Connection Elevated",
+        "prefab:Large Road Decoration Trees",
+        "prefab:Medium Road",
+        "prefab:Medium Road Bridge",
+        "prefab:Medium Road Elevated",
+        "prefab:Pedestrian Gravel Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "264270d1f6862be93addc2ca4cc9feaa50aaddd3c235b7cc734b5d8fcbeed033"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map08.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:268452113",
+        "node_Outside:4194433",
+        "prefab:Gravel Road",
+        "prefab:Gravel Road Elevated",
+        "prefab:Medium Road",
+        "prefab:Small Road with Grass Median",
+        "prefab:Small Road with Median Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "ea3da76b5594333d60a7858336b8d37363b08144574d509c7364e12b05253247"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map09.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:4194433",
+        "prefab:Gravel Road",
+        "prefab:Highway with Bus Only Lane",
+        "prefab:Highway with Bus Only Lane Elevated",
+        "prefab:Medium Road Decoration Grass",
+        "prefab:Small 3 Lane 1 Way Road"
+      ],
+      "pre_query_supported": false,
+      "sha256": "b96229d802fd0cdb579811fdf057146281b2a3c2469fa08cb068da82d4d303d5"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 10,
+      "file": "MP27_Map10.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:22036609",
+        "prefab:Basic Road Decoration Grass",
+        "prefab:Gravel Road",
+        "prefab:Oneway Road",
+        "prefab:Oneway Road Decoration Grass",
+        "prefab:Small 3 Lane 1 Way Road",
+        "prefab:Small Oneway Road with Wide Sidewalks",
+        "prefab:Small Road with Median Elevated",
+        "prefab:Train Oneway Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "cf423c1ead4cd8e840df1551e1173f1065db7feb5c5cbc9812bca5852c85d56d"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "MT Ferry Empire.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "7a95130d72e65c99025492512477133dbe3da44448d984d61308d429a7e04460"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "MT Fix The Traffic.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "bb71ed8272b749fc91e3cee7addb2d01e531749dfea781690af2fbd6b7fdc04d"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "MT Trains.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "b0f1c245554f0e040ac32269dd86b24a7d8f930e548a8f9f51f58794f4baa4e1"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "ND Alpine Villages.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e156a1aadb5b3fe0e350e1237f240e7148b77b55c44af5d911d8296fdc5ad0aa"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "ND By The Dam.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "496255abdc99616c7329407415e69b8d916bc036e58e7e341ab611a7cee7c6b8"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "ND Floodland.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "210de22ef67c7bedbdfadffcf0a391899ed7f8df5c837ba06f0cef9fd48987fa"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "ND Island Hopping.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "79c3dd9bf24fa67d66d7caaa7ae10e675b5bc7946796340222efe18531ce6e40"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "ND Tornado Country.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "466ee615cbfb86ab7db81ed8249361eb07d6f932832fd82218144182d4a1d51b"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "NorthEurope1FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "a4afe28315db5fbcb7b5a08548a80a495960a358bafdf39ad47d435f01d9d538"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "NorthEurope2FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:1025",
+        "node_Outside:16777233",
+        "node_Outside:16777345",
+        "node_Outside:16778241",
+        "node_Outside:268435489",
+        "node_Outside:268435729",
+        "node_Outside:268435745",
+        "node_Outside:268436481",
+        "node_Outside:4194321",
+        "node_Outside:4194433",
+        "node_Outside:4195329",
+        "node_Outside:557842497",
+        "prefab:Train Station Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e11836b41cd453d2e2b7bd6c53ee6cb4af0bfafe000b32b7babff4b2b969b56f"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "NorthEurope3FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "59d4260880e4bf1f54512deef0efa714b15dff72855564b01082a72f1f4ace1e"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "PB Cape Apple.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "6d2c704b2de51ffbc2603e26c1e0aa73c760a54a67a84f5628e0d680f28441fc"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "PB Coastal Gem.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "ff4ff9ae59877f08948195b83d8efebcbbc618b947bfc83c4862174137ce4702"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "PB Gondola Islands.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "prefab:Train Oneway Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "69bbb192fa8290cb2caff91a1e994e35f7d136de3e80e9c6e48cbfd2ad87f4b7"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "PB Oracle Lake.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "5be0b2bf129233ebe17ac36d54d6fa73a6fc7dccd5331f21b78125e6633bb0b0"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 8,
+      "file": "PB Splitz Tributary.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:268452113",
+        "prefab:Highway with Bus Only Lane",
+        "prefab:Highway with Bus Only Lane Elevated"
+      ],
+      "pre_query_supported": false,
+      "sha256": "7b024b6106e58736c935a948c5f848604cec58d1aaf9dd0a34c757e4aede2238"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "PL Cavern Coast.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "PL Honu Island.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "539367a8ec59d3a298b3c8dacd85034501af30912ee8897c2956df3ca84a2bec"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "PL Mountain Meadows.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "1bebae469b2ad0b30567ea98ca4377bfad3a73695b4140852054706504372536"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "PL Pine Rivers.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "a205dfd0bc99393f186cf8ee4ff76cfc7448499a4d9d4423d827cf7e26c3cbc3"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "PL Windfield.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "801cb6e99debfb22f6008993cc4fc65b6bd03057da3dbc0c1b31833957ad9d5d"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "PU Gray Waters.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:268452113",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "68a328a2efb5952166142ee9c3d1edbc98a3929d7563caaa65fab927ef077adf"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "PU Narrow Passage.crp",
+      "pre_query_exclusion": [
+        "PL-1239-selected-including-metadata"
+      ],
+      "pre_query_missing": null,
+      "pre_query_supported": null,
+      "sha256": "0ab5716c40a77d352a3ed22132bd760ac863997652562a388f066c7e2432ac0e"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "PU River Terrace.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:16777345",
+        "node_Outside:4194433"
+      ],
+      "pre_query_supported": false,
+      "sha256": "cf9880b8f54560a1da5d0cadf06b86514161817d7ff683412ad635eb6d0244cf"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "PU Windblown Coast.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "3d0689ef68902bd225a78505c1b3f7e45c2fb46fea2ccfca82eac3cb66f121e4"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 9,
+      "file": "PU Wyvern Pass.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "e1b05ad4bf3b86b2266359677ca26aafed9e6b8bac4622685e2fd8e7e2d9f93a"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "SouthEurope1FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "c8a8da9ef9885b5c4863e671949ad464adb0f12d2be0dd109a3e19300a092459"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "SouthEurope2FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "675219d2916ae6675eb841d1a15c9f8176d2274c748c47f392483777bc08a2f9"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "SouthEurope3FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "fecdf2f8f80c5ffb503964cc54656ba34ea5d675da4125e611bd1bb24a57282d"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Tropical1FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "3b7cec0c676db754703bc38edc10956d39b25c2821cbd8323efb437e68c82390"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Tropical2FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "a476a16e5a046ae6c97b9b6c34b1f6d7fae8f1d048beecbcfdfdd0f578cf10c7"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "Tropical3FINAL.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "node_Outside:1025",
+        "node_Outside:16777233",
+        "node_Outside:16777345",
+        "node_Outside:16778241",
+        "node_Outside:268435473",
+        "node_Outside:268435489",
+        "node_Outside:268435729",
+        "node_Outside:268435745",
+        "node_Outside:268436481",
+        "node_Outside:268452113",
+        "node_Outside:4194321",
+        "node_Outside:4194433",
+        "node_Outside:4195329",
+        "prefab:Train Station Track"
+      ],
+      "pre_query_supported": false,
+      "sha256": "ceec3eeb5a759dd1394ed38ec91aade7942bdb8cfb84f678d495dd3632ae4d3f"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Winter1Final.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "9d42d6b193e338c06f4a2fe3d30257225b8089e7393cba9d01f07cccf7f786f6"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Winter2Final.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "e0aaa8cfb68bb95827b0de2c0790bc0ee41df31f0541a0ebfd5b8b01cba21481"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 4,
+      "file": "Winter3Final.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [
+        "ValueError: Encoded array run exceeds its declared size"
+      ],
+      "pre_query_supported": false,
+      "sha256": "bffee9b3618c5fb5b48f08cd3fc6da73f13e05ef7f0a949d63b30a55791d2c6a"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "Winter4Final.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "ed043c643093beb6cb5a9a1afc14cd3be41606b32cbce6c3d5217074165ebcd0"
+    },
+    {
+      "asset_count": 4,
+      "crp_format": 6,
+      "file": "Winter5Final.crp",
+      "pre_query_exclusion": null,
+      "pre_query_missing": [],
+      "pre_query_supported": true,
+      "sha256": "5f6af011a30a8b4ab841c2c5f725771367b2661c96215540f92988ef28c2c100"
+    }
+  ],
+  "reader_sha256": "997fcf3f92b629ce3e5add5ac63200e46f4a65ad4649a1eb87e23c1445047d0b",
+  "scope": "read_any header-only recheck of unchanged bytes after capture; all 92 eligible packages already passed through read_any before NetManager decoding in preparation; 23 NetManager decode errors remain unsupported, not repaired",
+  "source_sha256": "0537834a3367d191b21ea9958088ad08d53939d3845724d60a299222b28fd54d",
+  "verified_at": "2026-11-23T12:13:03.953202+00:00"
+}
