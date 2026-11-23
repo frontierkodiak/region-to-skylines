@@ -41,6 +41,10 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def json_bytes(value):
+    return (json.dumps(value, indent=1, sort_keys=True) + "\n").encode()
+
+
 def load_raw(ref, cache):
     path = ref["path"]
     if path not in cache:
@@ -184,12 +188,15 @@ def classify(row, segments):
     success = type(result.get("success")) is bool and result.get("success")
     if not (complete and released):
         return stratum, False, "incomplete_or_unreleased_response", "unknown"
+    if type(result.get("success")) is not bool:
+        return stratum, False, "non_boolean_success", "unknown"
     if success and not returned_match(request, result):
         return stratum, False, "returned_endpoints_mismatch", "unknown"
     return stratum, eligible, exclusion, ("eligible" if eligible else "excluded")
 
 
-def main():
+def build():
+    """Reconstruct all three documents from retained bytes, without writing."""
     evidence_raw = EVIDENCE.read_bytes()
     evidence = json.loads(evidence_raw)
     cache = {}
@@ -428,8 +435,8 @@ def main():
             result = row.get("path_result") or {}
             complete = type(result.get("complete")) is bool and result.get("complete")
             released = type(result.get("released")) is bool and result.get("released")
-            success = type(result.get("success")) is bool and result.get("success")
-            observed = success if complete else None
+            success = result.get("success")
+            observed = success if complete and type(success) is bool else None
             if observed != row.get("observed"):
                 anomalies.append(
                     {
@@ -703,9 +710,7 @@ def main():
         "midpoint_pairs": midpoint_pairs,
         "queries": queries,
     }
-    (HERE / "inventory.json").write_text(
-        json.dumps(inventory, indent=1, sort_keys=True) + "\n"
-    )
+    inventory_bytes = json_bytes(inventory)
 
     # Label-free model inputs. `predict.py` reads only this file, so a frozen
     # prediction cannot have seen an outcome, a returned path or a panel count.
@@ -713,7 +718,7 @@ def main():
         "schema": 1,
         "study": "outside-query-model-v1",
         "source_evidence_sha256": sha(evidence_raw),
-        "inventory_sha256": sha((HERE / "inventory.json").read_bytes()),
+        "inventory_sha256": sha(inventory_bytes),
         "note": (
             "Only pre-query fields: opening locator and SHA-256, mode, protocol "
             "stratum and the literal request. No label, result, path or panel "
@@ -743,17 +748,15 @@ def main():
             and query["stratum"] in {"primary_distinct_edge", "same_edge"}
         ],
     }
-    (HERE / "requests.json").write_text(
-        json.dumps(requests, indent=1, sort_keys=True) + "\n"
-    )
+    requests_bytes = json_bytes(requests)
 
     manifest = {
         "schema": 1,
         "study": "outside-query-model-v1",
         "source": inventory["source"],
         "hashes": {
-            "inventory.json": sha((HERE / "inventory.json").read_bytes()),
-            "requests.json": sha((HERE / "requests.json").read_bytes()),
+            "inventory.json": sha(inventory_bytes),
+            "requests.json": sha(requests_bytes),
         },
         "openings": inventory["openings"],
         "counts": counts,
@@ -780,12 +783,16 @@ def main():
             ),
         },
     }
-    (HERE / "manifest.json").write_text(
-        json.dumps(manifest, indent=1, sort_keys=True) + "\n"
-    )
-    print(json.dumps(counts, indent=1, sort_keys=True))
-    if anomalies:
-        print(json.dumps(anomalies[:10], indent=1))
+    return inventory, requests, manifest
+
+
+def main():
+    inventory, requests, manifest = build()
+    for name, document in (("inventory", inventory), ("requests", requests), ("manifest", manifest)):
+        (HERE / f"{name}.json").write_bytes(json_bytes(document))
+    print(json.dumps(inventory["counts"], indent=1, sort_keys=True))
+    if inventory["anomalies"]:
+        print(json.dumps(inventory["anomalies"][:10], indent=1))
     return inventory
 
 
