@@ -1174,3 +1174,14 @@ All 217 new bound dependencies, 208 old phase26 dependencies and 22 shipping fil
 match. Coastal authored initialization still fails 496/962 contracts. No game,
 default, ledger or holdout change. Next: the operation-local open-interface policy,
 not another provider search or unchanged stage sweep. All promises remain unknown.
+
+### Additive phase27 continuous-point qualification
+
+Raster v1 remains unchanged (1,746/5,096). A separately committed/frozen even-odd
+point test on all 14,952 source/bank nodes finds 1,422/5,096 bank occurrences across
+11/19 interfaces, still one fully covered. No bank occurrence falls in its fixed
+1 mm computational ambiguity band; source accuracy remains unknown. All 219 rings
+sets are retained, including 12 multiring polygons. No source/probe/mask or native
+result changed. Use these continuous membership counts for literal point claims;
+Pillow raster counts remain a separate model. Eight focused tests, both two-file
+replays and 220 bound dependencies pass. No physical admission or old refusal change.

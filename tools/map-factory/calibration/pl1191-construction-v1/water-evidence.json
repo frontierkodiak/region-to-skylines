@@ -1244,5 +1244,16 @@
     "summary_sha256": "7eda3d39dfb3a7bf3817c3d79cabcc74218206d998ffb5a6b9e3923f26f5a1e4",
     "new_physical_or_native": false,
     "promise": "unknown"
+  },
+  "phase27_qld_continuous_point_membership": {
+    "schema": "polli.pl1191-postanalysis-qld-point-binding/2",
+    "postanalysis_not_prospective": true,
+    "prospective_freeze_sha256": "6f60003f10d0733567bde877827b6af6a6a2d95f62fdee946401b1762818744b",
+    "point_coverage_sha256": "de14827cdda230392a234b801c6e92c2430b4b26d24ca3dc199eaa6febdb7f66",
+    "summary_sha256": "5e0a57a547b220488cc126a4bef3d5dc53df0812c2a741045c011e370543e3a9",
+    "source_method_before_outputs": "2135568",
+    "raster_v1_unchanged": true,
+    "new_physical_or_native": false,
+    "promise": "unknown"
   }
 }

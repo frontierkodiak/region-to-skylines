@@ -1,0 +1,290 @@
+{
+  "schema": "polli.pl1191-phase27-continuous-point-results/2",
+  "complete_unique_query_nodes": 14952,
+  "external_polygons": 219,
+  "unresolved_geometry": 0,
+  "multiring_polygons": 12,
+  "raw_clockwise_rings": 219,
+  "raw_counterclockwise_rings": 19,
+  "clipped_parts": 439,
+  "parts_some_membership": 112,
+  "parts_full_membership": 40,
+  "ports_with_some_bank_membership": 11,
+  "ports_with_full_bank_membership": 1,
+  "bank_occurrences_covered": 1422,
+  "bank_occurrences_total": 5096,
+  "bank_boundary_unknown_occurrences": 0,
+  "computational_boundary_m": 0.001,
+  "not_source_accuracy": true,
+  "new_source_point_method_before_freeze_outputs": "2135568",
+  "prospective_freeze_sha256": "6f60003f10d0733567bde877827b6af6a6a2d95f62fdee946401b1762818744b",
+  "source_dependencies": 220,
+  "per_port": [
+    {
+      "component": "source-component:0",
+      "source_clips": [
+        "rivers:0:clip:0",
+        "rivers:2:clip:2",
+        "rivers:3:clip:0",
+        "rivers:8:clip:0"
+      ],
+      "covered": 195,
+      "total": 277,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 195
+      }
+    },
+    {
+      "component": "source-component:4",
+      "source_clips": [
+        "rivers:1:clip:0",
+        "rivers:2:clip:0",
+        "rivers:4:clip:0",
+        "rivers:7:clip:0",
+        "rivers:9:clip:0"
+      ],
+      "covered": 122,
+      "total": 557,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Flat|Saline Coastal Flat|Intermittent": 4,
+        "Watercourse Area|Natural Watercourse|Perennial": 118
+      }
+    },
+    {
+      "component": "source-component:6",
+      "source_clips": [
+        "rivers:23:clip:0",
+        "rivers:25:clip:0",
+        "rivers:26:clip:0",
+        "rivers:27:clip:0",
+        "rivers:28:clip:0",
+        "rivers:30:clip:0",
+        "rivers:34:clip:0",
+        "rivers:35:clip:0"
+      ],
+      "covered": 0,
+      "total": 257,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:7",
+      "source_clips": [
+        "rivers:2:clip:1"
+      ],
+      "covered": 75,
+      "total": 108,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 75
+      }
+    },
+    {
+      "component": "source-component:8",
+      "source_clips": [
+        "rivers:42:clip:0",
+        "rivers:43:clip:0"
+      ],
+      "covered": 175,
+      "total": 274,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 175
+      }
+    },
+    {
+      "component": "source-component:13",
+      "source_clips": [
+        "rivers:56:clip:0",
+        "rivers:57:clip:0",
+        "rivers:67:clip:0"
+      ],
+      "covered": 437,
+      "total": 437,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 437
+      }
+    },
+    {
+      "component": "source-component:16",
+      "source_clips": [
+        "rivers:69:clip:0",
+        "rivers:70:clip:0",
+        "rivers:72:clip:0"
+      ],
+      "covered": 108,
+      "total": 554,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Flat|Saline Coastal Flat|Intermittent": 6,
+        "Watercourse Area|Natural Watercourse|Perennial": 102
+      }
+    },
+    {
+      "component": "source-component:17",
+      "source_clips": [
+        "rivers:74:clip:0",
+        "rivers:75:clip:0",
+        "rivers:76:clip:0",
+        "rivers:77:clip:0",
+        "rivers:78:clip:0",
+        "rivers:79:clip:0",
+        "rivers:82:clip:0"
+      ],
+      "covered": 0,
+      "total": 539,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:18",
+      "source_clips": [
+        "rivers:86:clip:0",
+        "rivers:87:clip:0"
+      ],
+      "covered": 77,
+      "total": 319,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 77
+      }
+    },
+    {
+      "component": "source-component:28",
+      "source_clips": [
+        "streams:117:clip:0",
+        "streams:118:clip:0",
+        "streams:65:clip:0"
+      ],
+      "covered": 0,
+      "total": 110,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:48",
+      "source_clips": [
+        "streams:178:clip:0"
+      ],
+      "covered": 0,
+      "total": 29,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:128",
+      "source_clips": [
+        "streams:369:clip:0"
+      ],
+      "covered": 3,
+      "total": 31,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 3
+      }
+    },
+    {
+      "component": "source-component:134",
+      "source_clips": [
+        "streams:386:clip:0",
+        "streams:398:clip:0"
+      ],
+      "covered": 0,
+      "total": 95,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:135",
+      "source_clips": [
+        "streams:387:clip:0"
+      ],
+      "covered": 120,
+      "total": 151,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Flat|Land Subject to Inundation|Intermittent": 120
+      }
+    },
+    {
+      "component": "source-component:140",
+      "source_clips": [
+        "streams:405:clip:0",
+        "streams:410:clip:0",
+        "streams:411:clip:0",
+        "streams:437:clip:0"
+      ],
+      "covered": 54,
+      "total": 358,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Flat|Land Subject to Inundation|Intermittent": 38,
+        "Lake|Ornamental Lake|Perennial": 16
+      }
+    },
+    {
+      "component": "source-component:143",
+      "source_clips": [
+        "streams:41:clip:0"
+      ],
+      "covered": 0,
+      "total": 39,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:145",
+      "source_clips": [
+        "streams:423:clip:0",
+        "streams:432:clip:0",
+        "streams:445:clip:0",
+        "streams:447:clip:0",
+        "streams:449:clip:0",
+        "streams:452:clip:0",
+        "streams:453:clip:0",
+        "streams:454:clip:0"
+      ],
+      "covered": 56,
+      "total": 864,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {
+        "Flat|Saline Coastal Flat|Intermittent": 39,
+        "Reservoir|Rural Water Storage|Perennial": 1,
+        "Watercourse Area|Natural Watercourse|Perennial": 16
+      }
+    },
+    {
+      "component": "source-component:149",
+      "source_clips": [
+        "streams:430:clip:0",
+        "streams:434:clip:0"
+      ],
+      "covered": 0,
+      "total": 86,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:156",
+      "source_clips": [
+        "streams:56:clip:0"
+      ],
+      "covered": 0,
+      "total": 11,
+      "boundary_unknown": 0,
+      "raw_classified_hits": {}
+    }
+  ],
+  "raster_v1_preserved": {
+    "covered": 1746,
+    "total": 5096,
+    "source_summary_sha256": "7eda3d39dfb3a7bf3817c3d79cabcc74218206d998ffb5a6b9e3923f26f5a1e4"
+  },
+  "no_accepted_physical_admission": true,
+  "new_focused_tests_total": 8,
+  "phase27_independent_acceptance": false,
+  "promise": "unknown"
+}

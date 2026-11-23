@@ -53,3 +53,14 @@ bounded new physical diagnostic is genuinely justified, freeze exact factor,
 physical/source/probe/observer/OWNruntime/reference bytes first. Cheap guarded
 measurement needs no pre-native-review permission; results acceptance precedes
 adoption. No source hunt, rate sweep or old-game rerun merely for progress.
+
+
+## Additive geometric-input qualification
+
+Use the fresh continuous even-odd source-point result, not v1 raster counts as
+literal inclusion. Both models and all failed/unknown cases remain. V2 covers
+1422/5096 bank occurrences across11/19interfaces, still one fully covered; no bank
+occurrence in the fixed1mm computational boundary-unknown band. This does not
+resolve provider positional accuracy or datum transformation. Component13's437/437
+geometric membership and225old-control-buffer contacts remain. No provider search
+or unchanged stage sweep is warranted by this qualification alone.
