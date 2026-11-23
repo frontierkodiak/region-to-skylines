@@ -1,6 +1,7 @@
 """Complete read-only joint-node obligations and conditional water-only intervals."""
 
 import argparse
+import math
 from collections import Counter, defaultdict
 from functools import lru_cache
 from pathlib import Path
@@ -16,13 +17,14 @@ from open_interface_authority import literal_faces
 from stage_contracts_v2 import json_scalars
 from waterway_pieces import digest
 
-POLICY = "source-complete-multi-obligation-joint-initialization-v1"
+POLICY = "source-complete-multi-obligation-joint-initialization-v2"
 SCHEMA = "calibration/pl1191-construction-v1/development/phase31-joint-schema.json"
 FILES = (
     "diagnostics/joint_initialization_plan.py",
     "diagnostics/test_joint_initialization_plan.py",
     SCHEMA,
     "calibration/pl1191-construction-v1/development/phase31-joint-policy.md",
+    "calibration/pl1191-construction-v1/development/phase31-joint-policy-v2.md",
 )
 
 
@@ -156,6 +158,35 @@ def preflight(folder):
         for n, h in f[key].items():
             if sha(root / n) != h:
                 raise ValueError(f"Changed bound source/input: {n}")
+
+
+def requires_open_interface(record):
+    if "classification" in record:
+        return record["classification"] != "proximity_only"
+    required = {
+        "projected_1um_incidence",
+        "path_vertex_membership",
+        "native_raster_contact",
+        "minimum_projected_distance_m",
+    }
+    if not required <= record.keys():
+        raise ValueError("Unsupported interface schema; no silent proximity default")
+    membership = record["path_vertex_membership"]
+    if any(v not in ("inside", "boundary", "outside") for v in membership):
+        raise ValueError("Unknown literal source membership")
+    if (
+        record["projected_1um_incidence"]
+        or record["native_raster_contact"]
+        or any(v != "outside" for v in membership)
+    ):
+        return True
+    distance = record["minimum_projected_distance_m"]
+    return not (
+        membership
+        and isinstance(distance, (int, float))
+        and math.isfinite(distance)
+        and distance > 0
+    )
 
 
 def body_model(geometry, field, index, terrain, water, interfaces):
@@ -306,7 +337,7 @@ def analyze(folder, name):
                 port_roles[(topology["clips"][clip]["source_id"], n)].update(p["roles"])
     interface_by_body = defaultdict(list)
     for i in old["source_body_interfaces"]:
-        if i["classification"] != "proximity_only":
+        if requires_open_interface(i):
             interface_by_body[i["polygon_id"]].append(i)
     last_entry = None
     labels = None

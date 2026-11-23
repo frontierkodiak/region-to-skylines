@@ -5,6 +5,7 @@ from joint_initialization_plan import (
     literal_endpoint_facts,
     local_interval,
     obligations,
+    requires_open_interface,
 )
 
 
@@ -57,6 +58,27 @@ class JointPlanTests(unittest.TestCase):
         facts = literal_endpoint_facts({"clips": {"a": clip(8640, True)}})
         self.assertEqual(facts[0]["literal_faces"], ["east"])
         self.assertEqual(facts[0]["clip_id"], "a:clip:0")
+
+    def test_coastal_interface_schema_is_not_silently_proximity(self):
+        record = {
+            "projected_1um_incidence": [],
+            "path_vertex_membership": ["outside", "outside"],
+            "native_raster_contact": [],
+            "minimum_projected_distance_m": 12.0,
+        }
+        self.assertFalse(requires_open_interface(record))
+        self.assertTrue(
+            requires_open_interface({**record, "native_raster_contact": [[1, 2]]})
+        )
+        self.assertTrue(
+            requires_open_interface({**record, "path_vertex_membership": ["boundary"]})
+        )
+        self.assertFalse(requires_open_interface({"classification": "proximity_only"}))
+        self.assertTrue(
+            requires_open_interface({"classification": "native_raster_only_contact"})
+        )
+        with self.assertRaises(ValueError):
+            requires_open_interface({"polygon_id": "lakes:0"})
 
     def test_exact_fixed_bed_depth_and_margin_intervals(self):
         value = local_interval(64, 0, self.context(), True)
