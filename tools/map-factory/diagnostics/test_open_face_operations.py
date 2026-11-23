@@ -51,12 +51,12 @@ class FaceTests(unittest.TestCase):
     def test_open_port_does_not_remove_low_lateral_bank_bound(self):
         t, c, f, w = fixture()
         f[0, 1] = 6000
-        self.assertEqual(open_profile(t, c, f, w)["status"], "refused_bounds")
+        self.assertEqual(open_profile(t, c, f, w)["status"], "infeasible_bounds")
 
     def test_other_status_not_resolved_again(self):
         t, c, f, w = fixture()
         c["conditional_variable_stage_plan"] = {
-            "status": "refused_bounds",
+            "status": "infeasible_bounds",
             "target_q": None,
         }
         self.assertTrue(open_profile(t, c, f, w)["old_profile_reused_without_resolve"])
