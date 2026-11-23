@@ -256,7 +256,7 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "b2d0f2f40bffe1fbbfa17bcd6f370c09724d3485cc4374ed8170d7bb234222a8",
+    "capabilities.json": "9b9a88bc9b1825cade659bde7bd28761863101c6b0097ae2b52f0e26d3065b92",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1",
@@ -516,9 +516,9 @@
     "tools/map-factory/capability-evidence/rail-stock-holdout-v1/raw-integrity.json": "5cb5f510962ea08c2682f5a41448980dc5cc260a3607473dfa2e3a608a9680df",
     "tools/map-factory/capability-evidence/rail-stock-holdout-v1/resource-journal.json": "a0c509e41000f7cf1a682e83a309f8d2016653a7dfc259ca71ae1f4a9c90b549",
     "tools/map-factory/capability-evidence/rail-stock-holdout-v1/selection-power.json": "ef21e93a4281b4e2feeec82ad3752a893d6fd55e01d3a18562413972cfa3e7ae",
-    "rail-research.mjs": "8f3c186770a8449a018b43ec99fd205147e6abcd1c94ede245fb74a3a3bead23",
-    "tools/map-factory/integrate_rail_research.py": "284aefe21179ced207f12104c668a7ae499f83d42371300b534614764a4bafd2",
+    "rail-research.mjs": "e323361732ac8aa9c7f9663cc8d4bc95f9f8c52207f900dd533332e73f5454a6",
+    "tools/map-factory/integrate_rail_research.py": "a49282eeb69b970f5204fa734cf5f46709b61f5c72af32a66dacda7ccde27f26",
     "tools/map-factory/capability-evidence/rail-research-sources.json": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
-    "tools/map-factory/capability-evidence/rail-research-studies.json": "e826c5938ed3c7b1ee15487f1773157e95559aaaa849c617c55a0d4db1e21c63"
+    "tools/map-factory/capability-evidence/rail-research-studies.json": "f9ad71df4d1ff436324d02c5c875a06e3c01882e8d7a5090926eb430d0db2b75"
   }
 }

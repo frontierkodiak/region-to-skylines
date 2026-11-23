@@ -205,7 +205,7 @@ LIMITS = {
         "failure labels only its exact request and protocol, never geographic absence, service, spawning, "
         "a product promise or a junction law. Four unsupported packages stay metadata-only with no "
         "requests; supported package coverage is 6/10 of the selected packages. The optional Pittsburgh "
-        "replay was not run and the retained successful-path counterexample is unresolved. The four "
+        "replay was not run and the retained successful-path counterexample is unresolved. The three "
         "post-load errors and the dynamic-assembly exclusion stay recorded. FILE identity is not memory "
         "attestation or strict no-mods, and stock packages have no prepared-input or CPU receipt lineage."
     ),
@@ -1328,6 +1328,24 @@ def stock_study(native: dict, publication: dict) -> dict:
         if record["supported"]
     ]
     expect(len(supported) == 6, "stock study supported-package count changed")
+    supported_train_segments = 0
+    for package in supported:
+        opening_audit = evaluation["packages"][package]["audit"]["opening"]
+        post_audit = evaluation["packages"][package]["audit"]["post"]
+        expect(
+            opening_audit["mismatches"] == [] and post_audit["mismatches"] == [],
+            f"stock study supported package lost its clean field audit: {package}",
+        )
+        checked = opening_audit["fields"]["id:checked"]
+        expect(
+            post_audit["fields"]["id:checked"] == checked,
+            f"stock study supported package changed its checked segment count: {package}",
+        )
+        supported_train_segments += checked
+    expect(
+        supported_train_segments == 1277,
+        "stock study supported Train segment count changed",
+    )
     unsupported = [
         package
         for package, record in evaluation["packages"].items()
@@ -1340,6 +1358,14 @@ def stock_study(native: dict, publication: dict) -> dict:
             for package in unsupported
         ),
         "stock study unsupported packages gained requests",
+    )
+    expect(
+        sorted(
+            len(evaluation["packages"][package]["audit"]["opening"]["mismatches"])
+            for package in unsupported
+        )
+        == [6, 8, 14, 44],
+        "stock study unsupported mismatch counts changed",
     )
     for package, record in evaluation["packages"].items():
         expect(
@@ -1662,7 +1688,7 @@ def stock_study(native: dict, publication: dict) -> dict:
             "public_prefab_facts": facts,
             "field_audit": {
                 "supported_packages": supported,
-                "supported_train_segments": 1277,
+                "supported_train_segments": supported_train_segments,
                 "supported_mismatches": {
                     package: {
                         "opening": len(

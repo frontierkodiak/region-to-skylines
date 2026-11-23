@@ -16,9 +16,9 @@ const read = (file) => readFileSync(ROOT + file);
 
 export const RAIL_RESEARCH_STUDIES = ["rail-query-model-v1", "rail-junction-fit-v1", "rail-stock-holdout-v1"];
 export const RAIL_RESEARCH_PROJECTION = "tools/map-factory/capability-evidence/rail-research-studies.json";
-export const RAIL_RESEARCH_PROJECTION_SHA = "e826c5938ed3c7b1ee15487f1773157e95559aaaa849c617c55a0d4db1e21c63";
+export const RAIL_RESEARCH_PROJECTION_SHA = "f9ad71df4d1ff436324d02c5c875a06e3c01882e8d7a5090926eb430d0db2b75";
 export const RAIL_RESEARCH_TOOL = "tools/map-factory/integrate_rail_research.py";
-export const RAIL_RESEARCH_TOOL_SHA = "284aefe21179ced207f12104c668a7ae499f83d42371300b534614764a4bafd2";
+export const RAIL_RESEARCH_TOOL_SHA = "a49282eeb69b970f5204fa734cf5f46709b61f5c72af32a66dacda7ccde27f26";
 export const RAIL_RESEARCH_SOURCES = "tools/map-factory/capability-evidence/rail-research-sources.json";
 export const RAIL_RESEARCH_SOURCES_SHA = "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b";
 export const RAIL_EVIDENCE_PREFIX = "tools/map-factory/capability-evidence/";
@@ -308,7 +308,7 @@ function sourceBlock(escape, study, summary) {
     <dt>Publication</dt><dd><code>${escape(study.source.publication_commit)}</code> on base <code>${escape(study.source.publication_base)}</code>, PR #${escape(study.source.pull_request)}; ${escape(merge)}.</dd>
     <dt>Source issue</dt><dd>${escape(study.source.source_issue)}</dd>
     <dt>Review</dt><dd>${escape(study.review.note)} Review ${escape(study.review.review_comment)}, acceptance ${escape(study.review.acceptance_comment)}${study.review.parent_acceptance_comment ? `, parent acceptance ${escape(study.review.parent_acceptance_comment)}` : ""}.</dd>
-    <dt>Freeze</dt><dd>${escape(study.freeze.name)} · written before any observation: ${study.freeze.frozen_before_observations ? "yes" : "no"}${summary.freeze.sha256 ? ` · <code>${escape(summary.freeze.sha256)}</code>` : ""}${summary.freeze.discordant_predictions != null ? ` · ${escape(String(summary.freeze.discordant_predictions))} discordant predictions` : ""}.</dd>
+    <dt>Freeze</dt><dd>${escape(study.freeze.name)} · written before any observation: ${study.freeze.frozen_before_observations ? "yes" : "no"}${summary.freeze.frozen_at ? ` · frozen ${escape(summary.freeze.frozen_at)}` : ""}${summary.freeze.sha256 ? ` · <code>${escape(summary.freeze.sha256)}</code>` : ""}${summary.freeze.discordant_predictions != null ? ` · ${escape(String(summary.freeze.discordant_predictions))} discordant predictions` : ""}.</dd>
     <dt>File scope</dt><dd>${escape(String(study.closure.publication_files))} publication files: ${escape(String(study.closure.copied_files))} carried here byte for byte, ${escape(String(study.closure.linked_files))} linked as immutable Git blobs with SHA-256 and blob ids in <a href="${escape("./" + summary.source_manifest_file)}">the strict source manifest</a>.</dd>
   </dl>`;
 }

@@ -142,6 +142,10 @@ test("the stock holdout keeps both rules identical, one failing package and the 
   assert.equal(study.selection.strata.no_pair_difference.selected, 4);
   assert.equal(study.selection.strata.unsupported_or_no_pair.selected, 4);
   assert.equal(study.runtime.raw_retention.files, 136);
+  assert.equal(study.runtime.field_audit.supported_train_segments, 1277);
+  assert.match(study.limits, /The three post-load errors/);
+  assert.doesNotMatch(study.limits, /four post-load errors/);
+  assert.deepEqual(study.runtime.field_audit.unsupported.map((entry) => entry.opening_mismatches).sort((a, b) => a - b), [6, 8, 14, 44]);
   assert.equal(study.runtime.native_verification.openings.length, 12);
   assert.deepEqual(study.controls.map((control) => [control.slug, control.boundary_successes, control.boundary_requests]),
     [["stock-1", 8, 8], ["stock-2", 8, 24]]);
@@ -180,6 +184,7 @@ test("the generated page makes the three studies readable without pooling them",
   assert.match(stock, /40 · FP 0 · TN 8/);
   assert.match(stock, /does not prefer tangent over chord/);
   assert.match(stock, /holdout-02/);
+  assert.match(stock, /frozen 2026-11-21T21:51:01\.430026\+00:00/);
   for (const id of RAIL_RESEARCH_STUDIES) {
     const study = studies[id];
     const section = html.slice(html.indexOf(`data-rail-research="${id}"`));
