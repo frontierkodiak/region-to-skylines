@@ -9,11 +9,24 @@ from coupled_interface_contract import (
     entry_site_kind,
     load,
     potential_interface,
+    point_nodes,
     site,
 )
 
 
 class CoupledTests(unittest.TestCase):
+    def test_exact_engineered_unknown_is_not_a_nearby_array(self):
+        p = {
+            "point_xz": [1, 2],
+            "engineered_exact_sampling": "unknown",
+            "node_operations": None,
+        }
+        self.assertIsNone(point_nodes(p))
+        self.assertEqual(p["point_xz"], [1, 2])
+        self.assertEqual(point_nodes({"nodes": [[1, 2]]}), [[1, 2]])
+        with self.assertRaisesRegex(ValueError, "Unsupported point schema"):
+            point_nodes({"point_xz": [1, 2]})
+
     def test_authored_control_is_not_a_mapped_polygon(self):
         self.assertEqual(
             entry_site_kind({"id": "authored:sources:0", "status": "natural_control"}),

@@ -16,7 +16,7 @@ from water_codec_audit import (
     write,
 )
 
-POLICY = "source-authoritative-coupled-interface-spec-v2"
+POLICY = "source-authoritative-coupled-interface-spec-v3"
 SCHEMA = "calibration/pl1191-construction-v1/development/phase33-boundary-schema.json"
 FILES = (
     "diagnostics/coupled_interface_contract.py",
@@ -24,6 +24,7 @@ FILES = (
     SCHEMA,
     "calibration/pl1191-construction-v1/development/phase33-boundary-policy.md",
     "calibration/pl1191-construction-v1/development/phase33-boundary-policy-v2.md",
+    "calibration/pl1191-construction-v1/development/phase33-boundary-policy-v3.md",
 )
 
 
@@ -117,6 +118,19 @@ def entry_site_kind(entry):
     if entry["id"].startswith("authored:"):
         return "authored-plan-domain"
     return "unsupported-entry-domain"
+
+
+def point_nodes(point):
+    if "nodes" in point:
+        return point["nodes"]
+    if (
+        point.get("engineered_exact_sampling") == "unknown"
+        and point.get("node_operations") is None
+    ):
+        return None
+    raise ValueError(
+        "Unsupported point schema; no silent omission or nearby substitution"
+    )
 
 
 def stage(parent, prior_results, review, consumed, output):
@@ -257,10 +271,20 @@ def analyze(folder, name):
             "coupled_queries": None,
             "original_contracts_and_points": joint["contracts"],
         }
-    queries, retained = [], Counter()
+    queries, retained, engineered_unknowns = [], Counter(), []
     for contract in joint["contracts"]:
         for point_index, point in enumerate(contract["points"]):
-            for node in point["nodes"]:
+            nodes = point_nodes(point)
+            if nodes is None:
+                engineered_unknowns.append(
+                    {
+                        "contract_id": contract["contract"]["id"],
+                        "point_index": point_index,
+                        "original_point": point,
+                    }
+                )
+                continue
+            for node in nodes:
                 status = joint["interval_status_legend"][node[5]]
                 retained[status] += 1
                 if status not in (
@@ -294,6 +318,7 @@ def analyze(folder, name):
             "old_controls": joint["old_controls"],
         },
         coupled_queries=queries,
+        engineered_exact_sampling_unknowns=engineered_unknowns,
         coupled_status_occurrences=dict(
             Counter(q["coupled_design_enquiry"]["status"] for q in queries)
         ),
@@ -307,6 +332,19 @@ def evaluate(folder, output):
     f = preflight(folder)
     if output.exists():
         raise ValueError("Fresh boundary output required")
+    # Validate every source cohort shape before any new case result is written.
+    for name in f["cases"]:
+        joint = load(folder / "prior/joint-results" / f"{name}.json")
+        if joint.get("retained_base_refusal"):
+            if any(
+                joint.get(k) is not None
+                for k in ("floor", "initial_water", "old_controls")
+            ):
+                raise ValueError("Original NULL physical support was not retained")
+            continue
+        for contract in joint["contracts"]:
+            for point in contract["points"]:
+                point_nodes(point)
     output.mkdir(parents=True)
     for name in f["cases"]:
         print(name, flush=True)
