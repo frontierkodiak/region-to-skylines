@@ -9,7 +9,7 @@ const GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 export async function capabilityUISources({ read, readSource, activeBytes, currentBytes, current }) {
   const adoption = parse(await read("fixtures/contracts/pl1119-capability-ui-v1/adoption.json"));
   assert.equal(adoption.schema, 1);
-  assert.equal(adoption.scope, "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication; physical writers and historical native qualification unchanged");
+  assert.equal(adoption.scope, "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication and one accepted outside-stock and budget publication; physical writers and historical native qualification unchanged");
   assert.equal(adoption.predecessor_active_sha256, sha(activeBytes), "capability predecessor active pointer changed");
   assert.equal(adoption.predecessor_contract_sha256, sha(currentBytes), "capability predecessor contract changed");
   assert.deepEqual(Object.keys(adoption.archived_gates).sort(), GATES.sort());
@@ -527,6 +527,42 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     "tools/map-factory/capability-evidence/runtime-identities/3499552b48486b2822a80e5ab101af8ad0e1cd70c4512f606c5299d7fe65eb00.json",
     "tools/map-factory/capability-evidence/runtime-identities/b844c6cd44dd32189294b52f03b40fd2e7eb4e8a0e6b51374d3ad29ea584e4c9.json",
     "tools/map-factory/capability-evidence/runtime-identities/b8cc86a4540f96db8628d742afc534caa69679f7c29dac5764ee3c46a14a628d.json",
+    "outside-stock.mjs",
+    "tools/map-factory/integrate_outside_stock.py",
+    "tools/map-factory/capability-evidence/outside-stock-sources.json",
+    "tools/map-factory/capability-evidence/outside-stock-studies.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/JOURNAL.md",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/README.md",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/RESULTS.md",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/audit.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/evaluate.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/frozen-scorer-failure.log",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/header_coverage.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/retain.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/schema-fix.diff.gz",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/source-fix.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/test_wire_schema.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/verify.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/audit.json.gz",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/audit_processes.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/build.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/build_study.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/catalog-membership.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/collect.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/control-stock-1-networks.json.gz",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/control-stock-2-networks.json.gz",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluation.json.gz",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/header-coverage.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/history/pre-query-freeze.json.gz",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/integrity.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/prior-stock-catalogs.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/prior-stock-freeze.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/retention.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/run_one.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/stock-exclusion-source.json",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/study.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/test_study.py",
     "tools/map-factory/integrate_outside_evidence.py",
     "tools/map-factory/integrate_outside_research.py",
     "tools/map-factory/integrate_outside_v2.py",

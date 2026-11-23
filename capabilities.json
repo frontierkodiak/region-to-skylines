@@ -25420,6 +25420,9 @@
       "limits": "Counts do not prove direction, pathfinding or the player's ability to join. The real-roads path remains opt-in.",
       "outside_research_studies": [
         "outside-query-model-v1"
+      ],
+      "outside_stock_studies": [
+        "outside-stock-budget-v1"
       ]
     },
     {
@@ -33489,6 +33492,9 @@
       "limits": "Not restricted by place names or ocean labels. Initial water is not stable water. A negative browser estimate is unknown because coarse sampling can miss a route.",
       "outside_research_studies": [
         "outside-query-model-v1"
+      ],
+      "outside_stock_studies": [
+        "outside-stock-budget-v1"
       ]
     },
     {
@@ -35726,6 +35732,9 @@
       "limits": "Fixture airport fallbacks in the existing generator are not geographic evidence for arbitrary squares. Terrain clearance at high altitude and service remain unverified.",
       "outside_research_studies": [
         "outside-query-model-v1"
+      ],
+      "outside_stock_studies": [
+        "outside-stock-budget-v1"
       ]
     },
     {
@@ -58589,6 +58598,280 @@
       "evidence_files_sha256": "b37c40e095891873ec9d56408643f022affdee6f26ebd38c097dc852b03599b1",
       "certificates": "none"
     }
+  },
+  "outside_stock_studies": {
+    "kind": "outside_stock_budget_study",
+    "study": "outside-stock-budget-v1",
+    "source_commit": "d745b14e3e207ee67f91033811958a2934fb38a4",
+    "source_base": "030db86ce470b972b6ef3462a2698744dff40ebb",
+    "internal_merge": "62b48a01a195f7632747fe52c72b348539dc7f8a",
+    "source_issue": "01a20799-865c-75cc-bdc1-05a81193aff4",
+    "pull_request": 89,
+    "publication_files": 142,
+    "copied_files": 32,
+    "linked_files": 110,
+    "integrity_members": 141,
+    "projection_file": "tools/map-factory/capability-evidence/outside-stock-studies.json",
+    "projection_sha256": "b86d1fd861cff3ffe6ec821205c9f654b83f3ca524e8530d65c24118e3ea44eb",
+    "projection_tool_file": "tools/map-factory/integrate_outside_stock.py",
+    "source_manifest_file": "tools/map-factory/capability-evidence/outside-stock-sources.json",
+    "source_manifest_sha256": "9e8ba66a3dd4bb5d4a7f475119b2f0e056c6a80a6e1a4dd8b19fec7e8e2aef85",
+    "population": {
+      "installed": 105,
+      "eligible": 92,
+      "supported": 28,
+      "abstaining": 64,
+      "decode_errors": 23,
+      "excluded_hashes": 21
+    },
+    "selected_packages": 5,
+    "planned_requests": 84,
+    "observed_requests": 78,
+    "unknown_requests": 6,
+    "stock_requests": 48,
+    "stock_primary": {
+      "tp": 28,
+      "fp": 0,
+      "tn": 20,
+      "fn": 0
+    },
+    "stock_reference_road": {
+      "tp": 12,
+      "fp": 12,
+      "tn": 0,
+      "fn": 0
+    },
+    "stock_modes": {
+      "road": {
+        "primary": {
+          "tp": 12,
+          "fp": 0,
+          "tn": 12,
+          "fn": 0
+        },
+        "reference": {
+          "tp": 12,
+          "fp": 12,
+          "tn": 0,
+          "fn": 0
+        },
+        "discrimination_estimable": true
+      },
+      "ship": {
+        "primary": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "reference": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "discrimination_estimable": true
+      },
+      "air": {
+        "primary": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "reference": {
+          "tp": 8,
+          "fp": 0,
+          "tn": 4,
+          "fn": 0
+        },
+        "discrimination_estimable": true
+      }
+    },
+    "qualified_modes": {
+      "road": false,
+      "ship": false,
+      "air": false
+    },
+    "bridge_subset_requests": 16,
+    "bridge_subset_primary": {
+      "tp": 8,
+      "fp": 0,
+      "tn": 8,
+      "fn": 0
+    },
+    "bridge_subset_reference": {
+      "tp": 8,
+      "fp": 8,
+      "tn": 0,
+      "fn": 0
+    },
+    "bridge_height_drift": {
+      "holdout-01": 33.029134,
+      "holdout-02": 161.935462,
+      "holdout-03": 8.026451
+    },
+    "roslyn_prefab_changes": 4,
+    "opening_pre_post_changes": 3,
+    "opening_fingerprint_mismatches_reported": 17,
+    "controls": {
+      "planned": 12,
+      "unknown": 6,
+      "completed": 6,
+      "all_controls_complete": false
+    },
+    "intervention": {
+      "groups": 8,
+      "rows": 24,
+      "false_positives": 4,
+      "matched_successes": 4,
+      "clean_single_variable_trials": 7,
+      "drifting_groups": 1,
+      "measured_response": [
+        "no_path",
+        "success",
+        "success"
+      ],
+      "error_mechanisms": "unknown"
+    },
+    "runtime": {
+      "openings": 9,
+      "phase_inventories": 25,
+      "process_identities": 45,
+      "installed_crp_receipts": 9
+    },
+    "observation_windows": [
+      {
+        "case_id": "stock-1",
+        "started_at": "2026-11-23T11:32:17.914534+00:00",
+        "finished_at": "2026-11-23T11:34:56.667162+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 108.62,
+        "temperature_peak_c": 38.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1592
+        ]
+      },
+      {
+        "case_id": "stock-2",
+        "started_at": "2026-11-23T11:36:45.984773+00:00",
+        "finished_at": "2026-11-23T11:39:35.111522+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 115.0,
+        "temperature_peak_c": 46.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      },
+      {
+        "case_id": "holdout-01",
+        "started_at": "2026-11-23T11:40:30.266582+00:00",
+        "finished_at": "2026-11-23T11:43:41.129426+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 116.89,
+        "temperature_peak_c": 50.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      },
+      {
+        "case_id": "holdout-02",
+        "started_at": "2026-11-23T11:43:43.914514+00:00",
+        "finished_at": "2026-11-23T11:46:58.626359+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 122.07,
+        "temperature_peak_c": 52.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      },
+      {
+        "case_id": "holdout-03",
+        "started_at": "2026-11-23T11:47:01.397608+00:00",
+        "finished_at": "2026-11-23T11:50:09.128108+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 119.69,
+        "temperature_peak_c": 53.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      },
+      {
+        "case_id": "holdout-04",
+        "started_at": "2026-11-23T11:50:11.910856+00:00",
+        "finished_at": "2026-11-23T11:52:47.662074+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 114.88,
+        "temperature_peak_c": 46.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      },
+      {
+        "case_id": "holdout-05",
+        "started_at": "2026-11-23T11:52:50.039888+00:00",
+        "finished_at": "2026-11-23T11:55:25.283294+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 115.36,
+        "temperature_peak_c": 46.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1592
+        ]
+      },
+      {
+        "case_id": "budget-01",
+        "started_at": "2026-11-23T11:55:27.852513+00:00",
+        "finished_at": "2026-11-23T11:59:52.178161+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 129.74,
+        "temperature_peak_c": 58.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      },
+      {
+        "case_id": "budget-02",
+        "started_at": "2026-11-23T11:59:54.799187+00:00",
+        "finished_at": "2026-11-23T12:02:47.716215+00:00",
+        "host": "blade",
+        "gpu": "RTX 2080 Ti / 05:00.0",
+        "power_limit_watts": 200.0,
+        "power_peak_watts": 126.5,
+        "temperature_peak_c": 51.0,
+        "total_gpu_memory_peak_mib": 10821.0,
+        "game_memory_menu_samples_mib": [
+          1574
+        ]
+      }
+    ],
+    "evidence_files_sha256": "bb167e9f5aabb36bcee34c2793a8463d216fddb0e640e54ce2be596e201b825a",
+    "linked_files_sha256": "160a83c023095eb9d182dbf8fa83fe7060bba6a9b619cbf24d76e5f99b2ef2fe",
+    "certificates": "none",
+    "projection_tool_sha256": "96fac4e2bdfa295ba872c8d177ca7dc047700f31ce18387da7ef8f018f3a46f0"
   },
   "outside_research_studies": {
     "kind": "outside_connection_query_model_study",

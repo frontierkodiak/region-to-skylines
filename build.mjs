@@ -8,6 +8,7 @@ import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
 import { railStudyFiles } from "./rail-study.mjs";
 import { railResearch, railResearchFiles } from "./rail-research.mjs";
 import { outsideResearch, outsideResearchFiles } from "./outside-research.mjs";
+import { outsideStock, outsideStockFiles } from "./outside-stock.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
 const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
@@ -49,6 +50,14 @@ for (const file of railResearchFiles(Object.values(railResearch().studies))) {
 // projection the page renders from. Its bulk source documents stay at the
 // publication commit and are linked, not copied.
 for (const file of outsideResearchFiles()) {
+  mkdirSync(dirname(`dist/${file}`), { recursive: true });
+  copyFileSync(file, `dist/${file}`);
+}
+// Serve the accepted outside-stock publication's present evidence and the
+// projection the page renders from. Its bulky frozen plan, feature dump,
+// preparation archives and raw gzip stay at the publication commit and are
+// linked, not copied.
+for (const file of outsideStockFiles()) {
   mkdirSync(dirname(`dist/${file}`), { recursive: true });
   copyFileSync(file, `dist/${file}`);
 }

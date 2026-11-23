@@ -365,10 +365,13 @@ than being replaced by the protocol timestamp or the publication date.
 Regenerate from an exact publication checkout, then verify:
 
 ```sh
-git archive 030db86ce470b972b6ef3462a2698744dff40ebb -- \
-  tools/map-factory/capability-evidence/outside-query-model-v1 | tar -x -C /tmp/outside
-python3 tools/map-factory/integrate_outside_research.py --source /tmp/outside/.../outside-query-model-v1
+# `git archive` cannot serve this path: .gitattributes marks tools/** export-ignore,
+# so an archive of the commit emits no files for it. Read the commit's tree instead.
+git worktree add --detach /tmp/outside-src 030db86ce470b972b6ef3462a2698744dff40ebb
+python3 tools/map-factory/integrate_outside_research.py --source \
+  /tmp/outside-src/tools/map-factory/capability-evidence/outside-query-model-v1
 python3 tools/map-factory/integrate_outside_research.py --check
+git worktree remove /tmp/outside-src
 ```
 
 The importer never runs the study's model, predictor, collector or the game. It
@@ -383,6 +386,72 @@ publication's own carried documents and by the manifest pinned in
 `outside-research.mjs`, so editing the source data and the manifest together
 still fails. `npm test` re-derives the same summary and refuses changed
 evidence, a changed ledger binding or a changed source chain.
+
+## Outside-stock validation and road-budget limits, kept separate
+
+One accepted publication, `outside-stock-budget-v1`, is carried as a second
+typed study and referenced from **Road, Ship and Air**. It answers two separate
+questions: whether the unchanged `lane:any_lane:forbidden` rule and the
+`weak_component` reference predict new literal outside-connection requests on
+stock packages never opened in the earlier cohorts, and whether eight old road
+requests change under three requested `maxLength` floats. It is **evidence
+only**: no runtime core, qualification gate, native certificate, physical
+writer, default, input, promise level or old contract changes, and it is not
+pooled with the outside-query, rail or native studies. No archived scorer,
+collector, predictor or game run is repeated; only saved-label and count
+arithmetic and integrity reconstruction happen here.
+
+The frozen population stays recoverable: 105 installed builtin packages, 92
+eligible after the declared exclusions (21 hashes), 28 supported, 64 abstaining
+including 23 retained NetManager decode errors, and five fixed selections (three
+queried packages and two metadata-only unsupported packages). All 84 planned
+requests are preserved — 48 new stock, 12 controls and 24 budget rows — with 78
+observed and the six Unknown controls left Unknown. Selection tags overlap and
+are not summed as samples.
+
+The primary rule matches all 48 stock labels: Road 12 TP / 0 FP / 12 TN / 0 FN,
+Ship and Air 8/0/4/0 each, 28/0/20/0 in total. The weak reference is 12/12/0/0
+on Road and identical to the primary on Ship and Air. That is descriptive
+agreement on correlated requests, not qualification: all three modes remain
+**unqualified** because the retained first Asanu control opening failed before a
+query, and Hanami's six complete controls are separate. Only 16 road requests on
+the first two packages have exact export/native field identity; the other 32
+requests fail exact bridge identity and are not admitted to that subset.
+
+The budget intervention is a separate correlated stratum, not a holdout and not
+a rejudge. All four retained road errors fail at 100000, 200000 and 1000000; one
+matched old-success request fails at 100000 and succeeds at both larger budgets.
+Seven groups keep the all-mode graph fingerprint unchanged; the Pittsburgh 093
+group's opening changed two air endpoint heights and retained no per-query
+road-only snapshot, so it is not a clean single-variable trial. The requested
+floats and the flags=8/length sentinel are not native-exhaustion, cost, metre or
+SI proof, and all four error mechanisms remain Unknown.
+
+Regenerate from an exact publication checkout, then verify:
+
+```sh
+# `git archive` omits tools/** via export-ignore; read the commit's tree instead.
+git worktree add --detach /tmp/stock-src d745b14e3e207ee67f91033811958a2934fb38a4
+python3 tools/map-factory/integrate_outside_stock.py --source \
+  /tmp/stock-src/tools/map-factory/capability-evidence/outside-stock-budget-v1
+python3 tools/map-factory/integrate_outside_stock.py --check
+git worktree remove /tmp/stock-src
+```
+
+The importer never runs the study's scorers, audit, collectors or the game. It
+re-checks the publication's exact 142-file scope through
+`capability-evidence/outside-stock-sources.json` (every file pinned by SHA-256,
+byte length and Git blob id), reconstructs the closed 141-member integrity table,
+re-derives the saved population, request, label, bridge, control, intervention,
+runtime and cleanup arithmetic, and refuses a changed binding. The 32 present
+files are carried byte for byte (31 evidence files plus the integrity record);
+the frozen plan, frozen feature dump, three preparation archives and 105 raw gzip
+members stay at the publication commit and are linked as immutable blobs, never
+shipped as archives. Linked raw files and reports are corroborated by the
+retention and evaluation records, the frozen plan by the source-fix record, and
+the four members declared only by the integrity record say so on the page.
+`npm test` re-derives the same summary and refuses changed evidence, a changed
+ledger binding, a changed derived fact or a changed source chain.
 
 ## Score the game, without conflating oracles
 
