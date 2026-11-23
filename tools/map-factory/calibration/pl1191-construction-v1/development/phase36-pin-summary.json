@@ -1,0 +1,74 @@
+{
+  "type": "PRODUCER_complete_sparse_field_pin_and_reverse_ancestor_bound_verifier_not_independent_acceptance",
+  "source_files": 263,
+  "copied_inputs": 194,
+  "cases": {
+    "dry-upland-asia": {
+      "refused_protected_initial_depth_below_design96q": 4
+    },
+    "dry-upland-europe": {
+      "refused_protected_initial_depth_below_design96q": 1,
+      "infeasible_bounds": 1
+    },
+    "lowland-river-south-america": {
+      "refused_protected_initial_depth_below_design96q": 235,
+      "infeasible_bounds": 7,
+      "unresolved_exterior_lateral_bank": 3
+    },
+    "dry-upland-south-america": {
+      "physical_support": null,
+      "conditional_profiles": null,
+      "source_components_retained": 4
+    },
+    "mountain-river-asia": {
+      "physical_support": null,
+      "conditional_profiles": null,
+      "source_components_retained": 18
+    },
+    "low-coast-oceania": {
+      "infeasible_bounds": 16,
+      "refused_protected_initial_depth_below_design96q": 148,
+      "unresolved_exterior_lateral_bank": 2,
+      "feasible": 1
+    }
+  },
+  "new_status_counts": {
+    "refused_protected_initial_depth_below_design96q": 388,
+    "infeasible_bounds": 24,
+    "unresolved_exterior_lateral_bank": 5,
+    "feasible": 1
+  },
+  "protected_depth_conflict_node_occurrences": 8672,
+  "physical_admission": false,
+  "old_refusals_and_NULLs_retained": true,
+  "policy": "immutable-initialization-pinned-reach-v1",
+  "input_freeze_sha256": "0b43559143ba573caed23bae4a343c74f409925e6212388d37333599642627d6",
+  "result_receipt_sha256": "b72744ca34523c3477c1623e0183a751d300dbba446fdf1125d551815ae6c277",
+  "only_numeric_profile": {
+    "case": "low-coast-oceania",
+    "id": "source-component:109",
+    "source_clip": "streams:316:clip:0",
+    "nodes": 2,
+    "constant_stage": true,
+    "pins": 0,
+    "not_a_candidate_or_pond_fallback": true
+  },
+  "first_source_ordered_witness": {
+    "case": "dry-upland-asia",
+    "component": "source-component:0",
+    "source_node_index": 0,
+    "node_rc_north_first": [
+      231,
+      295
+    ],
+    "node_index": 0,
+    "source_terrain_q": 10827,
+    "initial_depth_q": 64,
+    "required_depth_q": 96,
+    "protected_by": [
+      "old_control_radius_plus64m"
+    ]
+  },
+  "all_8672_are_node_occurrences_not_unique_area": true,
+  "no_primary_rescore": true
+}

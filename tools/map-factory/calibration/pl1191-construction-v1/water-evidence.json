@@ -1338,7 +1338,10 @@
     "review_consumed_receipt_sha256": "2eb2473e98b4af4fa2abd87317f351f6affec51efbecbac5a8e9766b3451abef",
     "physical_admission": false,
     "new_geographic_or_native": false,
-    "promise": "unknown"
+    "promise": "unknown",
+    "independent_results_acceptance": true,
+    "acceptance_scope": "LIMITED_PHASE33_34_COUPLED_BOUNDARY_AND_RETAINED_INTERFACE_RESULTS_ONLY",
+    "acceptance_receipt_sha256": "3db902cc12a9cdcfb27467cb979b84542417a1c6f5d3a9d069c6d5ce23083417"
   },
   "phase34_complete_source_interface_observations": {
     "schema": "polli.pl1191-postanalysis-complete-interface-binding/1",
@@ -1351,12 +1354,27 @@
     "report_sha256": "67032ed687f6c9434a60d38632977c964ce92c26afa064e69bd20a56be964587",
     "all289retained_native_hashes_bound": true,
     "source_runtime_or_physical_changed": false,
-    "independent_results_acceptance": false,
-    "promise": "unknown"
+    "independent_results_acceptance": true,
+    "promise": "unknown",
+    "acceptance_scope": "LIMITED_PHASE33_34_COUPLED_BOUNDARY_AND_RETAINED_INTERFACE_RESULTS_ONLY",
+    "acceptance_receipt_sha256": "3db902cc12a9cdcfb27467cb979b84542417a1c6f5d3a9d069c6d5ce23083417"
   },
   "phase35_source_interface_continuity": {
     "status": "experimental_results_not_adopted",
     "binding": "source-continuity-freeze-v2.json",
-    "no_physical_change": true
+    "no_physical_change": true,
+    "independent_results_acceptance": true,
+    "acceptance_scope": "LIMITED_PHASE35_SOURCE_WALK_CONTINUITY_AND_INTERFACE_MODELS_ONLY",
+    "acceptance_receipt_sha256": "7840e5333bb0d17e2fd360415beb2e2e0e8b4ef5550fe27755e385a9b587cddd"
+  },
+  "phase36_immutable_initialization_pins": {
+    "status": "POSTANALYSIS_not_prospective",
+    "actual_CPU_source": "30d98b4",
+    "input_freeze_sha256": "0b43559143ba573caed23bae4a343c74f409925e6212388d37333599642627d6",
+    "result_receipt_sha256": "b72744ca34523c3477c1623e0183a751d300dbba446fdf1125d551815ae6c277",
+    "summary_sha256": "73201dfeef9bfd097ef116109a1402cf2160f15f32406bfb3d27e7900d854818",
+    "report_sha256": "c092d3cc81a261e02459325b1121666f95527172a852c6149f119e8a9b50a688",
+    "new_physical_or_native": false,
+    "adopted": false
   }
 }

@@ -1,0 +1,11 @@
+{
+  "status": "ADDITIVE_POSTANALYSIS_REPORTING_ONLY",
+  "phase35_F1": {
+    "old_path_summary_population": "all439clippedparts,including107excluded/nonperennial",
+    "eligible_path_counts_population": "332eligibleparts",
+    "old_outputs_and_summary_bytes_unchanged": true
+  },
+  "phase35_F2": "Current water-evidence index now records scoped PL1309 acceptance; old snapshots/archives unchanged. No adoption.",
+  "phase36_reference_field": "Inherited operation field reference_hydraulic_floor_q in this v1 output holds SERIALIZED SOURCE terrain T passed to field_operation. It is NOT an observed/qualified native floor. New_native_floor remains null. No reference-floor comparison used in solve.",
+  "NULL_case_components": "components:[] means no conditional profiles computed; physical_support and conditional_operations are null. Full source topology retains4+18original geometric components, not zero source components."
+}

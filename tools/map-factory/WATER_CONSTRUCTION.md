@@ -1376,3 +1376,27 @@ checks pass. No physical edit/game/admission. All old failures/NULLs/protections
 holdout and promises stay unchanged. See `development/phase35-continuity-policy.md`,
 `-v2.md`, summary and postanalysis `source-continuity-freeze-v2.json`. New evidence
 is additive to the complete immutable phase34packet, not standalone raw data.
+
+## Phase thirty-six: immutable initialization inside profile solving
+
+PL1310’s limited phase35PASS is accepted/closed. Additive erratum labels all439
+versus332eligible path populations; current index now records scoped PL1309/1310
+acceptance, not adoption. Old results/source/snapshots stay immutable.
+
+New source-only constructor `diagnostics/immutable_initialization_profile.py`
+incorporates protected terrain AND depth equalities before variable profile solve,
+not posthoc protected-edit rejection.263source/194input freeze precedes allsixcase
+outputs. Of418supportedcomponents:388have a protected W<96qdesign contradiction
+(8672nodeoccurrences),24boundsfail,5lateral-supportunknown,1numeric. Sole fit is the
+old2nodeconstant coastcomponent109, not a candidate/pond fallback. BothNULLcases
+retain full4/18component topology, not zero measured support. Eightfocusedtests,
+all7file byte replay and direct producer pin/ancestor-bound proofs pass.
+
+This uses serialized sourcefloor, NOT coastactual43f4be73; inherited sparse-op
+reference_hydraulic_floor_q is SOURCE T in this protocol (explicit erratum), not
+qualified nativefloor. No physical grids/controls/CRP/game/admission.96q is the
+retained design minimum, not the primary natural>.1m/64m threshold. Changing it
+needs a fresh explicit role model and complete startup/continuity/port reasoning,
+not silent relaxation or another gradient/rate sweep. Alloldrefusals, mandatory
+coverage, banks/protections/holdout and unknownpromises remain. See phase36policy,
+summary/erratum and postanalysis immutable-initialization-freeze-v1.json.
