@@ -1,0 +1,14 @@
+{
+  "schema": "polli.pl1191-postanalysis-joint-plan-binding/2",
+  "postanalysis_not_prospective": true,
+  "failed_v1_source": "7304de9",
+  "final_v2_source": "522aa40",
+  "failed_input_freeze_sha256": "2f59aa95c8128dd1ba9b5582198f51b411f03d94eff5bc2de607db7b92ce5648",
+  "final_input_freeze_sha256": "71f019c9cc5019d91ec45a064fddd839d8218a2d6c90b2d31ce6c9cac48c5394",
+  "final_receipt_sha256": "f64874a995148a5d5d87e6302164b458f35eaeaf415c27e37eac3e82c155dc4d",
+  "summary_sha256": "b619ef309e65c61bbb372c5796abaa0b0af6a5f91eba3fe66bafcf76dff7b680",
+  "report_sha256": "fd0750a3ee84cb0f3c7dafffa9240b333bebdb7e5dc2b76e945852fc370b1ed1",
+  "review_consumed_receipt_sha256": "1e600e0ae3baf15045c0065c5caa545c6569215346885c780e32e72f0bb62338",
+  "no_actual_selected_depth_change_or_physical_admission": true,
+  "promise": "unknown"
+}

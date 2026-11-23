@@ -1255,3 +1255,25 @@ constructability, native acceptance or calibrated flow. A future depth writer mu
 respect compact velocity-array packing, not assume stable offsets. No CRP/water/
 control serialization, game, shipping/default/ledger/holdout action. Combined new
 construction/results need independent acceptance; all promises remain unknown.
+
+## Phase thirty-one: joint-node water-only plan
+
+PL1302's limited phase29/30CPU/field-contract PASS is consumed and closed. Its
+conservative oldbunknowns and scalar-label overlap findings stay; new nodes use
+full simultaneous obligations, not those labels as permission. A fresh frozen
+joint schema retains all six inputs, original source/port topology and every
+contract/probe. All39394points/1939487nodeoccurrences keep original masks.
+
+Only original lake interiors with complete dry source rims/no interface receive
+conditional fixed-bed stage/depth intervals. Open waterways/boundaries never get
+a closed-lake cap. Of19nonempty occurrences, all16unique nodes are ALREADYwet and
+every depth delta is0. This lever repairs no dry startup point under its rules,
+not geographic impossibility or permission to relax protection. No physical plan.
+
+First CPUattempt's coastal schema error and five partial outputs remain. New
+committed/tested reader plus fresh v2protocol completes all six cases; firstfive
+payloads unchanged exceptpolicyheader. Seven focused tests/full7file fresh replay
+pass; complete source/interval/domain verifier passes. No game, CRP/grid/control,
+shipping/default/ledger/holdout action. Next: implement value/control-preserving
+water-payload codec/verifier with synthetic packing fixtures, not an old native
+or rate retry. All original startup failures and promisesunknown remain.

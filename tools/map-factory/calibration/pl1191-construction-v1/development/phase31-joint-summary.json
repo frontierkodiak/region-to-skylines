@@ -1,0 +1,347 @@
+{
+  "dry-upland-asia": {
+    "interval_node_occurrences": {
+      "unresolved_obligations": 18234
+    },
+    "conditional_interval_occurrences": 0,
+    "conditional_interval_unique_entry_nodes": 0,
+    "conditional_nodes_already_wet_at_7q": 0,
+    "all_conditional_examples": [],
+    "preserved_simultaneous_infra_foreign_and_other_body_occurrences": 0,
+    "original_source_walk_incidences_outside_query_cohort": 0,
+    "old_b_conservative_points_retained": 1,
+    "no_source_control_or_physical_admission": true
+  },
+  "dry-upland-europe": {
+    "interval_node_occurrences": {
+      "unresolved_obligations": 13613,
+      "empty_source_space_interval": 135
+    },
+    "conditional_interval_occurrences": 0,
+    "conditional_interval_unique_entry_nodes": 0,
+    "conditional_nodes_already_wet_at_7q": 0,
+    "all_conditional_examples": [],
+    "preserved_simultaneous_infra_foreign_and_other_body_occurrences": 2823,
+    "original_source_walk_incidences_outside_query_cohort": 0,
+    "old_b_conservative_points_retained": 0,
+    "no_source_control_or_physical_admission": true
+  },
+  "lowland-river-south-america": {
+    "interval_node_occurrences": {
+      "unresolved_obligations": 770923,
+      "empty_source_space_interval": 217,
+      "conditional_local_interval": 9,
+      "unresolved_open_or_wet_rim_interface": 13
+    },
+    "conditional_interval_occurrences": 9,
+    "conditional_interval_unique_entry_nodes": 6,
+    "conditional_nodes_already_wet_at_7q": 9,
+    "all_conditional_examples": [
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 578123,
+        "old_depth_q": 114,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 578124,
+        "old_depth_q": 107,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 578127,
+        "old_depth_q": 103,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 578128,
+        "old_depth_q": 121,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 577045,
+        "old_depth_q": 108,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 577046,
+        "old_depth_q": 134,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 578127,
+        "old_depth_q": 103,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 578128,
+        "old_depth_q": 121,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:41",
+        "contract": "lakes:41:0",
+        "node": 577046,
+        "old_depth_q": 134,
+        "stage_q": [
+          18315,
+          18315
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      }
+    ],
+    "preserved_simultaneous_infra_foreign_and_other_body_occurrences": 26192,
+    "original_source_walk_incidences_outside_query_cohort": 0,
+    "old_b_conservative_points_retained": 57,
+    "no_source_control_or_physical_admission": true
+  },
+  "dry-upland-south-america": {
+    "base_refusal": {
+      "square": "dry-upland-south-america",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    "contracts": 55,
+    "new_operations": null
+  },
+  "mountain-river-asia": {
+    "base_refusal": {
+      "square": "mountain-river-asia",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    "contracts": 174,
+    "new_operations": null
+  },
+  "low-coast-oceania": {
+    "interval_node_occurrences": {
+      "unresolved_obligations": 1131412,
+      "empty_source_space_interval": 310,
+      "unresolved_open_or_wet_rim_interface": 4611,
+      "conditional_local_interval": 10
+    },
+    "conditional_interval_occurrences": 10,
+    "conditional_interval_unique_entry_nodes": 10,
+    "conditional_nodes_already_wet_at_7q": 10,
+    "all_conditional_examples": [
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 677015,
+        "old_depth_q": 129,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 677016,
+        "old_depth_q": 112,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 677017,
+        "old_depth_q": 99,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 677018,
+        "old_depth_q": 96,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 675934,
+        "old_depth_q": 125,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 675935,
+        "old_depth_q": 123,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 675936,
+        "old_depth_q": 119,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 675937,
+        "old_depth_q": 122,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 675938,
+        "old_depth_q": 126,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      },
+      {
+        "entry": "lakes:168",
+        "contract": "lakes:168:0",
+        "node": 675939,
+        "old_depth_q": 111,
+        "stage_q": [
+          5779,
+          5779
+        ],
+        "depth_delta_q": [
+          0,
+          0
+        ]
+      }
+    ],
+    "preserved_simultaneous_infra_foreign_and_other_body_occurrences": 77706,
+    "original_source_walk_incidences_outside_query_cohort": 0,
+    "old_b_conservative_points_retained": 12,
+    "no_source_control_or_physical_admission": true
+  }
+}
