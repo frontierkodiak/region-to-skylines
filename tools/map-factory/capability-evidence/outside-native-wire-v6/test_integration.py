@@ -23,7 +23,9 @@ class Integration(unittest.TestCase):
     def setUpClass(cls):
         cls.root = Path(os.environ["PL1321_RUN"])
         cls.store = api.spec.ArtifactStore(cls.root / "evidence")
-        cls.frozen = api.spec.read(cls.root / "candidate.json")
+        cls.frozen = api.spec.read(
+            cls.root / os.environ.get("PL1321_FREEZE", "candidate.json")
+        )
         cls.native, _ = candidate.validate(cls.frozen, cls.store)
         cls.request = request_for(cls.frozen)
         cls.refusals = []

@@ -10,7 +10,7 @@ import sys
 import accepted_api as api
 from loopback_fixture import server, identity
 from runtime import Transport, collect
-from wire import Deadline, Wire, Unknown
+from wire import Deadline, Wire, Unknown, encoded
 
 
 class ConstructedAuthority:

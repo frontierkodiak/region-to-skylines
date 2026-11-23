@@ -14,7 +14,7 @@ import fresh_build as fresh_build  # noqa: E402
 import protocol as protocol  # noqa: E402
 import collect_v2 as collect_v2  # noqa: E402
 import stock_v2 as stock_v2  # noqa: E402
-from api import (
+from api import (  # noqa: E402
     spec as spec,
     consumer as consumer,
     pipeline as pipeline,
