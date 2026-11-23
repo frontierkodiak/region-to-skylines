@@ -123,12 +123,13 @@ def main():
         ),
         "protocol_copied_from_source": (
             "PathManager.CreatePath; vehicle per mode (Car/Ship/Plane), category "
-            "All, laneTypes Vehicle|TransportVehicle|CargoVehicle, seed 857, "
+            "PassengerCar for road / All for ship and air; laneTypes Vehicle for "
+            "road / Vehicle|TransportVehicle|CargoVehicle for ship and air; seed 857, "
             "maxLength 100000, literal [segment,lane,offset] endpoints."
         ),
         "features_allowed": (
             "pre-query network topology: segment id, start/end node ids, prefab, "
-            "endpoint positions, and per-lane index, lane type, vehicle, category "
+            "endpoint positions, segment Invert, and per-lane index, lane type, vehicle, category "
             "and recorded direction."
         ),
         "features_forbidden": (
@@ -138,7 +139,14 @@ def main():
         ),
         "domain": {
             "mode_vehicle": topology.VEHICLE,
-            "accepted_lane_types": sorted(topology.ACCEPTED_LANE_TYPES),
+            "accepted_lane_types": {mode: sorted(types) for mode, types in topology.LANE_TYPES_BY_MODE.items()},
+            "category_by_mode": topology.CATEGORY_BY_MODE,
+            "collector_source": {
+                "revision": "29b095475ba2f93c7e918fefc08c736493670304",
+                "path": "tools/cs1-harness/mod/NetworkOps.cs",
+                "sha256": "d644218e8969f40737ce08367a3a3e4c9adb6a550ba145fb3bf220ffa5f23813",
+                "note": "Exact source hash in retained build receipts, also identical at original outside-v1 publication.",
+            },
             "direction_bits": {
                 name: {"forward": bits[0], "backward": bits[1]}
                 for name, bits in topology.DIRECTION_BITS.items()
@@ -169,7 +177,7 @@ def main():
         "primary_rule_basis": (
             "registered before scoring: the weakest lane-continuation hypothesis "
             "(any lane continues onto any lane) with no reversal, matching the "
-            "protocol's acceptance of every lane type and category All."
+            "protocol's mode-specific lane types and category mask."
         ),
         "positive_label": (
             "complete and released native path whose returned first and last "

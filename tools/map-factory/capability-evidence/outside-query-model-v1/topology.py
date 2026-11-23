@@ -31,6 +31,8 @@ VEHICLE = {"road": "Car", "ship": "Ship", "air": "Plane"}
 # NetInfo lane types the frozen outside-query protocol asks the pathfinder to
 # accept. The protocol is copied from the accepted study's collector recipe.
 ACCEPTED_LANE_TYPES = frozenset({"Vehicle", "TransportVehicle", "CargoVehicle"})
+LANE_TYPES_BY_MODE = {"road": frozenset({"Vehicle"}), "ship": ACCEPTED_LANE_TYPES, "air": ACCEPTED_LANE_TYPES}
+CATEGORY_BY_MODE = {"road": "PassengerCar", "ship": "All", "air": "All"}
 
 # NetInfo lane direction. `bits` is the travel permission the lane grants away
 # from a node: forward, backward, both, or neither.
@@ -63,7 +65,9 @@ def mode_lanes(segment, mode):
         lane
         for lane in segment["lanes"]
         if vehicle in tokens(lane["vehicle"])
-        and tokens(lane.get("lane_type", lane.get("type"))) & ACCEPTED_LANE_TYPES
+        and tokens(lane.get("lane_type", lane.get("type"))) & LANE_TYPES_BY_MODE[mode]
+        and (CATEGORY_BY_MODE[mode] == "All" or "All" in tokens(lane.get("category"))
+             or CATEGORY_BY_MODE[mode] in tokens(lane.get("category")))
     ]
 
 

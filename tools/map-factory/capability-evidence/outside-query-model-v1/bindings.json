@@ -1,6 +1,6 @@
 {
- "domain_sha256": "879634dc1b07a489f9237d715d457d9e8a2404df57ec64e81311debf1dba2473",
- "features_sha256": "3b1692b0662eaa29738b97cc404e898b3fa1e5c248a4964956a4749670f245f5",
+ "domain_sha256": "2549d84fa3b0001bf32cf6fd691786a988fb16b17d6d2b58f3b1279403836108",
+ "features_sha256": "0aa5628e840de1e6b2b7dc13ee7cce507e4c7ff3bcfe4bf20fd4a0a28a7e9d32",
  "files": {
   "bridge.json": "1028b1c138d508f1edf0f0532f415666ae9a782347291cdf8502ece33874f98c",
   "bridge.py": "8b120cc29f2d3306bb539b607c61f878981ea2bdf0a49cb2acd634dcf3461e32",
@@ -10,13 +10,13 @@
   "manifest.json": "e34f2b3bdb34e8d7ed8f2fbfd341117dcabfe2d3d239a03d5c49b172568fffc2",
   "model.py": "6da54b45ad2faff792f2f24a7120c3ef7c7df628f734cdc705c7b6744af274d4",
   "packages.json": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
-  "predict.py": "2ae0200496f590a1d08b30137e4ffa22998e496bc9c31df1bc6acc4c1d5bfc93",
+  "predict.py": "12dc5454c14bbb2f2790c428450a9bffe9be7029cba914abe722190a29cd61d5",
   "predictions.json": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
   "requests.json": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447",
-  "topology.py": "acd2e2c77a7b3306c1fdd3cfb96be763b1f3426555b1e6900f050a9819151528"
+  "topology.py": "2ac4804cd5b0eace2dc4a0b42b84f5e9265a6fe3ac996dd1821ddeb791550fc0"
  },
- "note": "Additive integrity freeze after peer review, before the revised evaluator. Predictions and protocol are unchanged. Publication source binds the retained predictions, not a claim it predates native collection. Only frozen_at is excluded from the protocol digest.",
- "protocol_semantic_sha256": "14fde324d8aa30de6a9c7d353a97b9394b28910e6480f297ecce2b1cd7852811",
+ "note": "Additive integrity freeze with corrected per-mode protocol, before revised scoring. Predictions remain byte-identical to the prior publication. Source revision binds publication, not a claim it predates native collection. Only frozen_at is excluded from the protocol digest.",
+ "protocol_semantic_sha256": "bba21361a650ce9f3deec038c88cb71f09f97ef706948e9fed64f4d898e5180f",
  "publication_source_commit": "10e463490b81d27c312fe972aaa2136e5eea676e",
  "schema": 1,
  "source_revisions": {

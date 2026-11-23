@@ -7,11 +7,32 @@
   "directed_segment"
  ],
  "domain": {
-  "accepted_lane_types": [
-   "CargoVehicle",
-   "TransportVehicle",
-   "Vehicle"
-  ],
+  "accepted_lane_types": {
+   "air": [
+    "CargoVehicle",
+    "TransportVehicle",
+    "Vehicle"
+   ],
+   "road": [
+    "Vehicle"
+   ],
+   "ship": [
+    "CargoVehicle",
+    "TransportVehicle",
+    "Vehicle"
+   ]
+  },
+  "category_by_mode": {
+   "air": "All",
+   "road": "PassengerCar",
+   "ship": "All"
+  },
+  "collector_source": {
+   "note": "Exact source hash in retained build receipts, also identical at original outside-v1 publication.",
+   "path": "tools/cs1-harness/mod/NetworkOps.cs",
+   "revision": "29b095475ba2f93c7e918fefc08c736493670304",
+   "sha256": "d644218e8969f40737ce08367a3a3e4c9adb6a550ba145fb3bf220ffa5f23813"
+  },
   "direction_bits": {
    "Backward": {
     "backward": true,
@@ -40,9 +61,9 @@
   },
   "segment_flags": "`Invert` is applied: travel away from a node counts as forward only when (node == segment start) XOR Invert."
  },
- "features_allowed": "pre-query network topology: segment id, start/end node ids, prefab, endpoint positions, and per-lane index, lane type, vehicle, category and recorded direction.",
+ "features_allowed": "pre-query network topology: segment id, start/end node ids, prefab, endpoint positions, segment Invert, and per-lane index, lane type, vehicle, category and recorded direction.",
  "features_forbidden": "place names, artifact ids, special segment ids, query outcomes, returned paths, panel counts, observation bytes, old scores, the request's own endpoint_roles/endpoint_edges/lane_directions metadata.",
- "frozen_at": "2026-11-23T08:39:44.819507+00:00",
+ "frozen_at": "2026-11-23T08:53:14.972926+00:00",
  "lane_rules": [
   "lane:any_lane:forbidden",
   "lane:any_lane:allowed",
@@ -67,8 +88,8 @@
  "predictions_bytes": 845394,
  "predictions_sha256": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
  "primary_rule": "lane:any_lane:forbidden",
- "primary_rule_basis": "registered before scoring: the weakest lane-continuation hypothesis (any lane continues onto any lane) with no reversal, matching the protocol's acceptance of every lane type and category All.",
- "protocol_copied_from_source": "PathManager.CreatePath; vehicle per mode (Car/Ship/Plane), category All, laneTypes Vehicle|TransportVehicle|CargoVehicle, seed 857, maxLength 100000, literal [segment,lane,offset] endpoints.",
+ "primary_rule_basis": "registered before scoring: the weakest lane-continuation hypothesis (any lane continues onto any lane) with no reversal, matching the protocol's mode-specific lane types and category mask.",
+ "protocol_copied_from_source": "PathManager.CreatePath; vehicle per mode (Car/Ship/Plane), category PassengerCar for road / All for ship and air; laneTypes Vehicle for road / Vehicle|TransportVehicle|CargoVehicle for ship and air; seed 857, maxLength 100000, literal [segment,lane,offset] endpoints.",
  "rules": [
   "always_fail",
   "always_candidate",
