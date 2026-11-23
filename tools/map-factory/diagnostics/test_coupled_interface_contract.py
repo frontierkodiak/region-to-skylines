@@ -6,6 +6,7 @@ from coupled_interface_contract import (
     SCHEMA,
     ROOT,
     coupled_interval,
+    entry_site_kind,
     load,
     potential_interface,
     site,
@@ -13,6 +14,19 @@ from coupled_interface_contract import (
 
 
 class CoupledTests(unittest.TestCase):
+    def test_authored_control_is_not_a_mapped_polygon(self):
+        self.assertEqual(
+            entry_site_kind({"id": "authored:sources:0", "status": "natural_control"}),
+            "authored-plan-domain",
+        )
+        self.assertEqual(
+            entry_site_kind({"id": "lakes:0", "field": "lakes"}), "body-domain"
+        )
+        self.assertIsNone(entry_site_kind({"id": "streams:0", "field": "streams"}))
+        self.assertEqual(
+            entry_site_kind({"id": "missing:0"}), "unsupported-entry-domain"
+        )
+
     def test_quantized_cut_limit_and_no_permission(self):
         a = coupled_interval(1000, 0, 904)
         self.assertEqual(a["minimum_cut_needed_q"], 192)

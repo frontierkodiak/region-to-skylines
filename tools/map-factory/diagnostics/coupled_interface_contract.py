@@ -16,13 +16,14 @@ from water_codec_audit import (
     write,
 )
 
-POLICY = "source-authoritative-coupled-interface-spec-v1"
+POLICY = "source-authoritative-coupled-interface-spec-v2"
 SCHEMA = "calibration/pl1191-construction-v1/development/phase33-boundary-schema.json"
 FILES = (
     "diagnostics/coupled_interface_contract.py",
     "diagnostics/test_coupled_interface_contract.py",
     SCHEMA,
     "calibration/pl1191-construction-v1/development/phase33-boundary-policy.md",
+    "calibration/pl1191-construction-v1/development/phase33-boundary-policy-v2.md",
 )
 
 
@@ -105,6 +106,17 @@ def site(kind, index, record, participants, schema, active=True):
         "conditional_constraints": schema["conditional_constraints"] if active else [],
         "hydraulic_connection_direction_or_capacity_asserted": False,
     }
+
+
+def entry_site_kind(entry):
+    field = entry.get("field")
+    if field in ("rivers", "streams"):
+        return None
+    if field in ("lakes", "riverAreas", "oceans"):
+        return "body-domain"
+    if entry["id"].startswith("authored:"):
+        return "authored-plan-domain"
+    return "unsupported-entry-domain"
 
 
 def stage(parent, prior_results, review, consumed, output):
@@ -196,19 +208,17 @@ def analyze(folder, name):
                     clip_id in topology["eligible_clip_ids"],
                 )
             )
-    body_entries = [
-        e
-        for e in joint["all_original_entries"]
-        if e["field"] not in ("rivers", "streams")
-    ]
-    for i, e in enumerate(body_entries):
+    for i, e in enumerate(joint["all_original_entries"]):
+        kind = entry_site_kind(e)
+        if kind is None:
+            continue
         sites.append(
             site(
-                "body-domain",
+                kind,
                 i,
                 {
                     "entry_id": e["id"],
-                    "field": e["field"],
+                    "field": e.get("field"),
                     "status": e["status"],
                     "complete_entry_sha256": digest(e),
                 },
