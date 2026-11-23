@@ -1,0 +1,41 @@
+{
+  "schema": "polli.coupled-interface-boundary-spec/1",
+  "status": "incomplete_source_authority_not_executable",
+  "physical_admission": false,
+  "required_active_site_fields": [
+    "selected_role_with_source_identity",
+    "lateral_bank_and_water_land_authority",
+    "hydraulic_communication_authority",
+    "direction_and_junction_roles",
+    "receiving_or_inlet_stage_envelope_q_by_time",
+    "supply_outlet_and_retention_contract",
+    "exact_field_operations_and_protection_proof"
+  ],
+  "stage_envelope_requirements": [
+    "exact source/package identity and site domain",
+    "initialization and full observation horizon",
+    "wet free-surface only; dry floor is not a head",
+    "observed sampled range is not an authoritative boundary condition",
+    "serialized sea/control target is a parameter, not measured endpoint stage"
+  ],
+  "conditional_constraints": [
+    "If shared free-surface communication is justified and selected, its stage variables must be compatible at that interface; literal incidence alone cannot assert this.",
+    "A selected nonincreasing authored stage model needs justified source/upstream/downstream roles; floor order and parent arrows are not direction authority.",
+    "At a selected inlet/outlet, bed/depth/stage must jointly meet the declared receiving-stage envelope and retained full lateral banks without retiring any protected in-square node.",
+    "Source-only algebraic enquiry: max(0,T-192)<=B<=T, D>=max(96,oldDepth), H=B+D<=retained full dry source-rim minimum-32. No fill, at most3m cut. No selected stage or depth.",
+    "Every positive cut still conflicts with the current unchanged-terrain contract; arithmetic feasibility does not authorize that edit.",
+    "All original controls and compact raw values stay unchanged; no control reassignment as known piece supply. A complete exact selected joint safety plan is required before any future writer."
+  ],
+  "packing_coordinates": {
+    "legacy_codec_names_unchanged": ["wet", "wet_or_east", "wet_or_south"],
+    "actual_domain_relations": ["wet[r,c]", "wet[r,c] OR wet[r,c+1]", "wet[r,c] OR wet[r+1,c]"],
+    "physical_south_first_r_plus_1": "world +z (north)",
+    "source_north_first_r_plus_1": "world -z (south)",
+    "physical_vector_or_flow_direction_inferred": false
+  },
+  "minimum_design_depth_q": 96,
+  "maximum_cut_q": 192,
+  "freeboard_q": 32,
+  "source_footprint_minimum_q": 64,
+  "all_original_failures_and_refusals_retained": true
+}
