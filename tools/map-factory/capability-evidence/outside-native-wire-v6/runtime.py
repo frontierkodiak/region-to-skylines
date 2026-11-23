@@ -13,8 +13,10 @@ class Transport:
         self.client = session.client
         self.pending = None
         self.completed = []
+        self.inventory_captures = []
         self.rows = []
         self.records = []
+        self.snapshot = lambda: None
 
     def context(self):
         stats = self.client.call("stats")
@@ -33,6 +35,8 @@ class Transport:
 
     def retain(self):
         inv = self.inventory()
+        self.inventory_captures.append(self.api.spec.put_json(self.store, inv))
+        self.snapshot()
         return self.api.adapter.retain_inventory(
             self.native, inv, self.session.read_file, self.store
         )
@@ -84,6 +88,7 @@ class Transport:
             self.pending = dict(
                 state="submission-unacknowledged", query_id=plan["query_id"]
             )
+            self.snapshot()
             effective = self.client.call(
                 "path_start",
                 **{
@@ -96,6 +101,7 @@ class Transport:
             row["effective"] = effective
             handle = self.api.consumer.integer(effective.get("id"), 1, 2**32 - 1)
             self.pending = dict(state="pending", id=handle, query_id=plan["query_id"])
+            self.snapshot()
             request = self.api.consumer.Request(
                 plan["mode"],
                 self.api.consumer.position(plan["request"]["from"]),
@@ -135,6 +141,7 @@ class Transport:
             return row
         except Exception as error:
             row["error"] = f"{type(error).__name__}: {error}"
+            self.snapshot()
             raise
 
 
@@ -177,6 +184,7 @@ def collect(transport, births, limits):
             observed=observed,
         )
         transport.records.append(record)
+        transport.snapshot()
         runtime = observed["runtime"]
 
         def capture(phase):
@@ -210,8 +218,10 @@ def collect(transport, births, limits):
                 raise Unknown("opening post graph drift")
             opening.remaining()
             observed["completed"] = True
+            transport.snapshot()
         except Exception as error:
             observed["error"] = f"{type(error).__name__}: {error}"
+            transport.snapshot()
             raise
     total.remaining()
     return transport.records

@@ -10,6 +10,7 @@ from dataclasses import dataclass
 
 import accepted_api as api
 import candidate
+from authority import ParentAuthority, ConstructedAuthority
 from wire import Deadline, Unknown
 
 
@@ -31,6 +32,10 @@ def preflight(frozen, store, request, authority=None, factory=None):
     )
     if (
         type(request) is not Request
+        or type(request.session) is not str
+        or type(request.binding) is not bytes
+        or type(request.limits) is not bytes
+        or type(request.purpose) is not str
         or not request.session
         or request.session in native.value["prior_sessions"]
     ):
@@ -45,11 +50,28 @@ def preflight(frozen, store, request, authority=None, factory=None):
         raise Unknown("invalid requested purpose")
     if authority is None or factory is None or isinstance(authority, dict):
         raise Unknown("external parent authority and session owner required")
+    if request.purpose == "NATIVE":
+        from native_session import NativeSession
+
+        valid_factories = (NativeSession,)
+    else:
+        from exercise import Factory, ConnectedFixture
+
+        valid_factories = (Factory, ConnectedFixture)
+    if type(factory) not in valid_factories:
+        raise Unknown("unbound session factory")
+    expected_authority = (
+        ParentAuthority if request.purpose == "NATIVE" else ConstructedAuthority
+    )
+    if type(authority) is not expected_authority:
+        raise Unknown(
+            "caller-authored authorizer is not an external authority boundary"
+        )
     if request.purpose != authority.purpose or factory.purpose != request.purpose:
         raise Unknown("constructed authorization cannot authorize native effects")
     # This call is the EXTERNAL trust boundary. It is not evidence about a human.
     # Acceptance is supplied by the parent, never synthesized by this entry.
-    if authority.authorize(request) is not True:
+    if authority.authorize(request, frozen) is not True:
         raise Unknown("external parent did not authorize exact request")
     return native, inputs
 

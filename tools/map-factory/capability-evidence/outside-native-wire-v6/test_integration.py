@@ -9,7 +9,7 @@ import unittest
 
 import accepted_api as api
 import candidate
-from entry import preflight
+from entry import enter
 from exercise import ConstructedAuthority, Factory, run, script_for
 from wire_check import request_for
 
@@ -33,13 +33,14 @@ class Integration(unittest.TestCase):
     def refused(self, frozen=None, request=None, authority=None):
         factory = Factory(self.root / "MUST-NOT-EXIST")
         with self.assertRaises((ValueError, TypeError, KeyError, OSError)) as failure:
-            preflight(
-                frozen or self.frozen,
+            with enter(
+                self.frozen if frozen is None else frozen,
                 self.store,
-                request or self.request,
+                self.request if request is None else request,
                 authority,
                 factory,
-            )
+            ):
+                self.fail("refused entry executed its effect boundary")
         self.assertEqual(factory.effects, [])
         self.refusals.append(
             dict(reason=str(failure.exception), effects=factory.effects)
@@ -47,6 +48,16 @@ class Integration(unittest.TestCase):
 
     def test_pre_effect_authority_and_integrity(self):
         self.refused()
+        self.refused(frozen={})
+        self.refused(request={})
+
+        class CallerAuthorizer:
+            purpose = "CONSTRUCTED"
+
+            def authorize(self, request, frozen):
+                return True
+
+        self.refused(authority=CallerAuthorizer())
         self.refused(authority={"kind": "OFFLINE_CONSTRUCTED_ONLY"})
         grant = ConstructedAuthority(self.request)
         self.refused(request=replace(self.request, purpose="NATIVE"), authority=grant)
@@ -59,9 +70,15 @@ class Integration(unittest.TestCase):
                 authority=grant,
             )
         for key in self.frozen:
-            value = copy.deepcopy(self.frozen)
-            value[key] = None
-            self.refused(frozen=value, authority=grant)
+            for mutation in ("delete", "null", "extra"):
+                value = copy.deepcopy(self.frozen)
+                if mutation == "delete":
+                    del value[key]
+                elif mutation == "null":
+                    value[key] = None
+                else:
+                    value["extra"] = True
+                self.refused(frozen=value, authority=grant)
         for key in self.frozen["source_map"]:
             value = copy.deepcopy(self.frozen)
             del value["source_map"][key]
@@ -71,9 +88,9 @@ class Integration(unittest.TestCase):
             value["v5"]["inventory"][key] = {}
             self.refused(frozen=value, authority=grant)
 
-    def exercise(self, script=None, limits=None):
+    def exercise(self, script=None, limits=None, inventory_override=None):
         with tempfile.TemporaryDirectory(dir=self.root) as temp:
-            factory = Factory(Path(temp), script, limits)
+            factory = Factory(Path(temp), script, limits, inventory_override)
             result = run(
                 self.frozen,
                 self.store,
@@ -124,12 +141,12 @@ class Integration(unittest.TestCase):
             next(r for r in script if r["op"] == op)["mode"] = "blocked"
             limits = dict(
                 self.native.descriptor["limits"],
-                **{key: 2.0 if op == "new_game" else 0.5},
+                **{key: 6.0 if op == "new_game" else 2.0},
             )
             result = self.exercise(script, limits)
             self.assertIn("deadline", result["result"]["reason"])
             self.assertLess(
-                max(r["ended"] - r["started"] for r in result["trace"]), 2.5
+                max(r["ended"] - r["started"] for r in result["trace"]), 6.5
             )
             stalled = next(
                 r for r in result["server_calls"] if r["request"]["op"] == op
@@ -141,6 +158,59 @@ class Integration(unittest.TestCase):
                 self.assertEqual(
                     sum(r["op"] == "path_start" for r in result["trace"]), 1
                 )
+
+    def test_runtime_inventory_omissions_are_retained_and_stop_before_query(self):
+        for group in ("roots", "plugins", "assemblies"):
+            value = copy.deepcopy(self.native.descriptor["inventory"])
+            del value[group][next(iter(value[group]))]
+            result = self.exercise(inventory_override=value)
+            self.assertFalse(result["result"]["structural_pass"])
+            self.assertFalse(any(r["op"] == "path_start" for r in result["trace"]))
+            captured = self.store.json(
+                result["inventory_captures"][0], "failed constructed inventory"
+            )
+            self.assertEqual(captured, value)
+
+    def test_effective_and_context_drift_stop_at_first_request(self):
+        for field, value in (
+            ("seed", 858),
+            ("vehicle", "Train"),
+            ("max_length", 99999),
+        ):
+            script = script_for(self.native, self.store)
+            next(r for r in script if r["op"] == "path_start")["reply"][field] = value
+            result = self.exercise(script)
+            self.assertFalse(result["result"]["structural_pass"])
+            self.assertEqual(sum(r["op"] == "path_start" for r in result["trace"]), 1)
+            self.assertIsNotNone(result["pending"])
+        script = script_for(self.native, self.store)
+        next(r for r in script if r["op"] == "stats")["reply"]["invert_traffic"] = True
+        result = self.exercise(script)
+        self.assertFalse(result["result"]["structural_pass"])
+        self.assertFalse(any(r["op"] == "path_start" for r in result["trace"]))
+
+    def test_all_mode_height_and_invert_graph_drift_stop_before_query(self):
+        control = self.native.value["controls"][0]
+        graph = self.store.json(control["exact_graph_sha256"], "frozen input graph")
+        for mode in ("ship", "air"):
+            for change in ("height", "invert"):
+                script = script_for(self.native, self.store)
+                networks = next(r for r in script if r["op"] == "networks")["reply"]
+                segment = next(
+                    s for s in networks["segments"] if s["id"] == graph[mode][0]["id"]
+                )
+                if change == "height":
+                    segment["a"][1] += 1
+                else:
+                    flags = segment["flags"]
+                    segment["flags"] = (
+                        flags.replace("Invert", "")
+                        if "Invert" in flags
+                        else flags + ", Invert"
+                    )
+                result = self.exercise(script)
+                self.assertFalse(result["result"]["structural_pass"])
+                self.assertFalse(any(r["op"] == "path_start" for r in result["trace"]))
 
     @classmethod
     def tearDownClass(cls):

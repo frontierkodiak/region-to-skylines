@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 import errno
+import hashlib
 import json
 import math
 import select
@@ -140,7 +141,10 @@ class Wire:
                     raise Unknown("invalid error envelope")
                 raise Unknown("remote refusal: " + reply["error"])
             self.deadline.remaining()
-            event["reply"] = reply
+            event["reply_sha256"] = hashlib.sha256(encoded(reply)).hexdigest()
+            # Network bytes are retained by Transport.graph. Keep the trace bounded.
+            if op != "networks":
+                event["reply"] = reply
             return reply
         except (OSError, ValueError) as error:
             event["error"] = str(error)

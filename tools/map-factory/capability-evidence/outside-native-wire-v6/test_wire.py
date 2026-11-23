@@ -122,5 +122,118 @@ class WireTests(unittest.TestCase):
             child.remaining()
 
 
+class ExternalWorkerTests(unittest.TestCase):
+    def test_stalled_ignoring_worker_is_killed_and_joined_by_identity(self):
+        import sys
+        from wire_supervisor import Owned, await_file
+
+        with tempfile.TemporaryDirectory() as temp:
+            directory = Path(temp)
+            code = (
+                "import signal,time,pathlib,sys; signal.signal(signal.SIGTERM,signal.SIG_IGN); "
+                "pathlib.Path(sys.argv[1]).write_text('blocked'); time.sleep(30)"
+            )
+            owned = Owned.start(
+                [sys.executable, "-c", code, str(directory / "ready")],
+                "collector",
+                directory,
+            )
+            try:
+                await_file(directory / "ready", Deadline.after(2), owned.birth)
+                started = time.monotonic()
+                with self.assertRaises(Unknown):
+                    owned.wait(Deadline.after(0.1))
+                owned.stop(grace=0.05)
+                self.assertLess(time.monotonic() - started, 1)
+                self.assertTrue(owned.forced)
+                self.assertIsNone(owned.receipt()["after"])
+                self.assertNotEqual(owned.receipt()["exit_code"], 0)
+            finally:
+                owned.stop()
+
+    def test_changed_birth_refuses_kill(self):
+        import sys
+        from wire_supervisor import Owned
+
+        with tempfile.TemporaryDirectory() as temp:
+            owned = Owned.start(
+                [sys.executable, "-c", "import time; time.sleep(30)"],
+                "collector",
+                Path(temp),
+            )
+            real = owned.birth
+            try:
+                owned.birth = dict(real, start_ticks=real["start_ticks"] + 1)
+                with self.assertRaisesRegex(Unknown, "PID/start changed"):
+                    owned.stop()
+                self.assertIsNone(owned.process.poll())
+            finally:
+                owned.birth = real
+                owned.stop()
+
+
+class ConstructedAuthorityParserTests(unittest.TestCase):
+    def test_records_are_exact_separate_and_ordered(self):
+        import copy
+        from dataclasses import dataclass
+        from authority import (
+            OWNER,
+            TARGET,
+            descriptor,
+            validate_records,
+            ParentAuthority,
+        )
+        from wire import encoded
+
+        @dataclass
+        class FixtureRequest:
+            freeze_sha256: str = "f" * 64
+            binding: bytes = b"{}"
+            session: str = "CONSTRUCTED-parser"
+            limits: bytes = b"{}"
+            purpose: str = "CONSTRUCTED"
+
+        request = FixtureRequest()
+        frozen = dict(source_revision="a" * 40, v5=dict(fresh_build=dict(dll="b" * 64)))
+
+        def record(action, number):
+            body = dict(
+                schema=6,
+                action=action,
+                request=descriptor(request),
+                target=TARGET,
+                source_revision=frozen["source_revision"],
+                build_sha256="b" * 64,
+            )
+            return dict(
+                id="CONSTRUCTED-" + str(number),
+                author_id=OWNER,
+                author_type="agent",
+                revision=1,
+                created_at=f"2026-11-24T00:00:0{number}Z",
+                content=encoded(body).decode(),
+            )
+
+        acceptance, budget = record("accept-study", 1), record("authorize-openings", 2)
+        self.assertTrue(validate_records(acceptance, budget, request, frozen))
+        for mutation in ("actor", "source", "extra", "same", "order"):
+            bad = copy.deepcopy(budget)
+            if mutation == "actor":
+                bad["author_id"] = "caller"
+            if mutation in {"source", "extra"}:
+                body = decode(bad["content"])
+                body["source_revision" if mutation == "source" else "extra"] = "wrong"
+                bad["content"] = encoded(body).decode()
+            if mutation == "same":
+                bad["id"] = acceptance["id"]
+            if mutation == "order":
+                bad["created_at"] = acceptance["created_at"]
+            with self.assertRaises(Unknown):
+                validate_records(acceptance, bad, request, frozen)
+        # A valid constructed parser result is never native authority.
+        with self.assertRaises(Unknown):
+            ParentAuthority("x", "y").authorize(request, frozen)
+
+
 if __name__ == "__main__":
     unittest.main()
