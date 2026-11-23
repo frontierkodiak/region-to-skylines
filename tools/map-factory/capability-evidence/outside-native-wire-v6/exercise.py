@@ -185,7 +185,7 @@ def run(frozen, store, request, authority, factory):
     failure = None
     result = None
     with enter(frozen, store, request, authority, factory) as session:
-        native = api.adapter_spec.validate(frozen["v5"], store)
+        native = session.native
         births["game"] = factory.game["birth"]
         try:
             for role in sorted(api.lifecycle.ROLES - {"game"}):
