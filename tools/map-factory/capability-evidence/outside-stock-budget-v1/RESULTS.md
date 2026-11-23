@@ -66,8 +66,9 @@ packages. Per-package, per-mode, overlapping selection-stratum, null, and
 snapshot-matched counts are retained in `evaluation.json.gz` and `audit.json.gz`.
 
 There are no primary disagreements. Every reference disagreement is a road false
-positive: query IDs `001`, `006`, `007`, and `008` on each of `holdout-01`,
-`holdout-02`, and `holdout-03`. Each is complete and released, with native failure
+positive: query IDs `001`, `006`, `007`, and `008` on each of `holdout-01` and
+`holdout-02`, and `001`, `002`, `007`, and `008` on `holdout-03`.
+Each is complete and released, with native failure
 flags 8, no positions, and returned length 100000. The primary rejects these
 requests using lane-direction grants; weak connectivity cannot represent that
 restriction. Every request, effective argument, and result remains in the audit.
@@ -86,6 +87,15 @@ post-outcome diagnostic, never a replacement pre-export prediction.
 The strict snapshot-matched subset contains only the first two packages' 16
 road requests: TP 8, TN 8, FP/FN 0. The other 32 requests fail exact bridge
 identity; they are not silently admitted to that subset.
+
+CL Roslyn Peninsula (`holdout-03`) also has opening-to-post-batch height drift
+on seven air segments (17396, 20340, 21466, 26056, 29446, 32716, 35098) and two
+ship segments (9993, 31169). On 17 of its 18 queries, the pre-query all-mode
+fingerprint differs from the opening fingerprint. Pre/post-query fingerprints
+differ on `holdout-03/air/002`, `holdout-03/air/007`, and
+`holdout-03/road/006`. This is separate from the `budget-01` air-height drift
+reported below. All 18 `holdout-03` requests remain outside the strict subset;
+the descriptive label counts are unchanged.
 
 The first Asanu opening fails because the collector treats the native MetaBool
 string `"False"` as a Python boolean. It stops before `PathManager.CreatePath`.
