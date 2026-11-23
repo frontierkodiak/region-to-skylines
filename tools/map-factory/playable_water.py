@@ -234,10 +234,16 @@ def hydrology(ground, banks, geometry):
     water, links = join_nearby_water(water, forbidden)
     line |= water & ~(lakes | areas | ocean)
     stage, arc, outlets = stage_tree(water, desired, lakes | ocean, ocean)
+    # A clipped/misconnected DEM branch must not drag a whole valley hundreds
+    # of metres down. Keep channel surfaces in the local valley envelope;
+    # replenishment supports separate cascades where the capture is imperfect.
+    stage[water] = np.clip(stage[water], desired[water] - 12, desired[water] + 0.25)
     for label, box in enumerate(ndimage.find_objects(lake_labels), 1):
         if box is not None:
             own = lake_labels[box] == label
-            stage[box][own] = np.min(stage[box][own])
+            stage[box][own] = desired[box][own]
+    tidal = ndimage.binary_propagation(ocean, mask=water, structure=np.ones((3, 3)))
+    stage[tidal] = np.maximum(stage[tidal], sea)
 
     # Original mapped open-water polygons keep their shapes. Channel width grows
     # with local catchment; reported width/rate settings remain authoring heuristics.
@@ -263,7 +269,9 @@ def hydrology(ground, banks, geometry):
     depth[lakes | areas] = np.maximum(depth[lakes | areas], 16)
     shore_distance = ndimage.distance_transform_edt(ocean) * SPACING
     depth[ocean] = np.clip(8 + shore_distance[ocean] * 0.06, 8, 24)
-    ground[channel] = np.clip(level[channel] - depth[channel], 0, 1023)
+    ground[channel] = np.minimum(
+        original[channel], np.clip(level[channel] - depth[channel], 0, 1023)
+    )
     depth[channel] = np.maximum(0, level[channel] - ground[channel])
 
     # Sculpt a narrow continuous shore. No whole-map sea-plane prefill and no
