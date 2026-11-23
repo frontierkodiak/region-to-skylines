@@ -1,0 +1,19 @@
+test_actual_external_driver_process_boundary (test_adapter.AdapterBoundaries.test_actual_external_driver_process_boundary) ... ok
+test_all_source_roles_and_actual_executable_bytes (test_adapter.AdapterBoundaries.test_all_source_roles_and_actual_executable_bytes) ... ok
+test_bundle_bindings_dll_mvid_arguments_and_raw_facts (test_adapter.AdapterBoundaries.test_bundle_bindings_dll_mvid_arguments_and_raw_facts) ... ok
+test_capture_retains_actual_bytes_and_rejects_bad_reader (test_adapter.AdapterBoundaries.test_capture_retains_actual_bytes_and_rejects_bad_reader) ... ok
+test_deadline_stops_before_first_opening (test_adapter.AdapterBoundaries.test_deadline_stops_before_first_opening) ... ok
+test_default_and_wrong_authority_zero_effect (test_adapter.AdapterBoundaries.test_default_and_wrong_authority_zero_effect) ... ok
+test_exact_descriptor_shape_zero_effect (test_adapter.AdapterBoundaries.test_exact_descriptor_shape_zero_effect) ... ok
+test_first_protocol_failure_stops_without_next_request (test_adapter.AdapterBoundaries.test_first_protocol_failure_stops_without_next_request) ... ok
+test_fresh_build_receipt_and_arguments (test_adapter.AdapterBoundaries.test_fresh_build_receipt_and_arguments) ... ok
+test_full_inventory_shared_omission_and_extra_zero_effect (test_adapter.AdapterBoundaries.test_full_inventory_shared_omission_and_extra_zero_effect) ... ok
+test_historical_preservation (test_adapter.AdapterBoundaries.test_historical_preservation) ... ok
+test_retained_byte_mutations (test_adapter.AdapterBoundaries.test_retained_byte_mutations) ... ok
+test_runtime_preflight_refusal_precedes_effect (test_adapter.AdapterBoundaries.test_runtime_preflight_refusal_precedes_effect) ... ok
+test_shared_api_builder_collector_bundle (test_adapter.AdapterBoundaries.test_shared_api_builder_collector_bundle) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 115.107s
+
+OK
