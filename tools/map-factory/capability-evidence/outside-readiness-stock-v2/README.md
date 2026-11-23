@@ -86,3 +86,26 @@ Run the offline checks from the repository root:
 uv run --project tools/cs1-harness python -m unittest discover \
   -s tools/map-factory/capability-evidence/outside-readiness-stock-v2 -v
 ```
+
+## Post-control tools and the retained outcome
+
+Three tools were added after the two control openings. They are deliberately
+outside the frozen measurement source closure (`stock_v2.COLLECTOR_SOURCES` and
+`schema_v3.SOURCE_KEYS_V3`); they read the frozen facts and never measure,
+select, score or open the game:
+
+- `finalize_v2.py` packages a retained opening and verifies every owned
+  PID/start absence *after* the driver exited. The frozen driver could not
+  attest its own absence; this is the post-exit collection.
+- `assemble_v2.py` rebuilds the readiness bundle from the frozen facts using the
+  contract-exact 30-file closure and retains the licensed runtime bytes.
+- `report_v2.py` writes `evaluation.json` and `RESULTS.md` from retained facts.
+
+The retained outcome is **Unknown**. Both controls completed and returned the
+required literal labels; the byte-backed gate refused admission because the
+frozen runtime `source_sha256` binds the 82-file study tree, while the accepted
+contract requires the 30-file closure digest. Correcting that binding after the
+controls would rewrite a measured field, and changing the closure would change
+the frozen source digest and require new controls, which the no-retry rule
+forbids. All six planned holdout cells stay Unknown and no holdout request was
+issued. `RESULTS.md` records the exact refusal chain.
