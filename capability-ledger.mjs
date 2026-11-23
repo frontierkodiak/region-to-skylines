@@ -266,7 +266,13 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
   }).join("");
   return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Map capabilities · Region to Skylines</title><link rel="stylesheet" href="style.css"></head>
     <body class="ledger-page"><header><h1>Map capabilities</h1><a href="./">Choose a square</a><a href="capabilities.json">JSON ledger</a></header><main><section>
-    <p>${escape(ledger.game)} · updated ${escape(ledger.updated_at)}</p><p>${escape(ledger.scope)}</p>
+    <p>${escape(ledger.game)} · connections and terrain for your square</p>
+    <article id="connection-rules"><h2>Connections from mapped geometry</h2><p>Road and rail cross the square's edge. Ship needs connected mapped water at least ${ledger.connection_rules?.ship_width_m ?? 256} m wide; Maybe is strictly inside the ±${ledger.connection_rules?.margin_m ?? 64} m margin. Air is available by default.</p>
+    <div class="ledger-table"><table><thead><tr><th>Connection</th><th>Stock fit</th><th>Editor agreement</th></tr></thead><tbody>${["road","rail","ship","air"].map((kind) => {
+      const stock = ledger.connection_agreement?.stock?.[kind], editor = ledger.connection_agreement?.editor?.[kind];
+      return `<tr><th>${kind}</th><td>${stock ? `${stock.agree}/${stock.total} (${Math.round(100*stock.agree/stock.total)}%)` : "—"}</td><td>${editor ? `${editor.agree}/${editor.total} (${Math.round(100*editor.agree/editor.total)}%)` : "Pending"}</td></tr>`;
+    }).join("")}</tbody></table></div><p>Stock fit uses 104 shipped maps; road/rail geometry decodes on 100. Water width is sampled every 64 m, with a four-cell minimum. Stock fit is in-sample; the editor checks are separate. This describes geometry, not simulated service.</p><p>${escape(ledger.connection_agreement?.editor_note ?? "")}</p></article>
+    <details><summary>Previous models and research</summary><p>${escape(ledger.scope)}</p>
     ${Object.entries(ledger.evidence_studies ?? {}).map(([id, s]) => {
       const active = (ledger.native_path_certificates ?? []).filter((c) => c.study === id);
       const pending = (s.qualification_candidates ?? []).filter(({ blocked_by, ...candidate }) =>
@@ -277,6 +283,7 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
     ${outsideResearchPage(outsideResearch, escape)}
     ${outsideStockPage(outsideStock, escape)}
     ${outsideReadinessPage(outsideReadiness, escape)}
+    </details>
     <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     ${terrainInterestPage(ledger, escape)}
     <details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>

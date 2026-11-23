@@ -23,6 +23,14 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     archived[name] = raw;
   }
   assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), [
+    "test/connection-browser.mjs",
+    "connection-rules.js",
+    "tools/map-factory/connection_rules.py",
+    "tools/map-factory/survey/connection-fit.json",
+    "tools/map-factory/survey/fit_connections.py",
+    "tools/map-factory/editor_connection_check.py",
+    "tools/cs1-harness/mod/NetworkOps.cs",
+    "test/connection-rules.test.mjs",
     "capabilities.json",
     "capability-evidence-worker.js",
     "capability-evidence.js",

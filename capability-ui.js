@@ -12,8 +12,14 @@ const ICONS = {
   trees: "m12 3-6 8h3l-5 7h6v3h4v-3h6l-5-7h3z",
 };
 const LABELS = { road: "Road", rail: "Rail", ship: "Ship", air: "Air", water: "Water", buildable: "Land", resources: "Resources", trees: "Trees" };
-const LEVELS = { promised: ["✓", "Verified"], likely: ["≈", "Maybe"], not_possible_here: ["×", "No in this plan"], unknown: ["?", "Unknown"], loading: ["…", "Checking"] };
+const LEVELS = { yes: ["✓", "Yes"], no: ["×", "No"], maybe: ["≈", "Maybe"], promised: ["✓", "Verified"], likely: ["≈", "Maybe"], not_possible_here: ["×", "No in this plan"], unknown: ["?", "Unknown"], loading: ["…", "Checking"] };
 const REASONS = {
+  mapped_edge_crossing: "A mapped motorway/trunk or mainline railway crosses this square's edge.",
+  no_mapped_edge_crossing: "No mapped motorway/trunk or mainline railway crosses this square's edge.",
+  near_map_edge: "The mapped line ends within 32 m of the edge.",
+  no_edge_waterway: "No connected mapped water reaches the edge.",
+  mapped_water_width: "Connected mapped water is checked against the stock-map width threshold.",
+  air_paths_stock_default: "Plane paths occur on 103 of 104 stock maps; no geographic restriction was found.",
   initial_deep_corridor: "The initial water estimate has a broad deep corridor reaching two map-edge points and the central 25 tiles. The game's ship path and stable water still need checking.",
   no_corridor_in_estimate: "No broad deep corridor was found in the initial water estimate. This estimate cannot rule out another route or establish what remains wet in the game.",
   mapped_candidate_not_routed: "Mapped transport supplies a candidate. An outside route, legal grades and native pathfinding have not been established.",
@@ -74,6 +80,10 @@ export function mountCapabilities(root) {
   const startValue = document.createElement("span");
   startReadout.append(startLink, startValue); row.after(startReadout);
   const show = (button) => { active = button; detail.textContent = button.title;
+    if (["road", "rail", "ship", "air"].includes(button.dataset.capability)) {
+      const link = document.createElement("a"); link.href = "./capabilities.html#connection-rules";
+      link.textContent = " Connection rules"; detail.append(link);
+    }
     if (button.dataset.capability === "water") {
       const link = document.createElement("a"); link.href = "./capabilities.html#water";
       link.textContent = " Water checks"; detail.append(link);
@@ -86,8 +96,8 @@ export function mountCapabilities(root) {
   const hide = () => { active = null; detail.hidden = true; };
   for (const [id, name] of Object.entries(LABELS)) {
     const button = document.createElement("button");
-    button.type = "button"; button.dataset.capability = id; button.dataset.level = "loading";
-    button.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg><span class="capability-name">${name}</span><span class="capability-mark" aria-hidden="true">…</span>`;
+    button.type = "button"; button.dataset.capability = id; button.dataset.level = "loading"; button.querySelector(".capability-state")?.replaceChildren(document.createTextNode("Checking"));
+    button.innerHTML = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${ICONS[id]}"/></svg><span class="capability-name">${name}</span><span class="capability-mark" aria-hidden="true">…</span><span class="capability-state">Checking</span>`;
     button.addEventListener("pointerenter", () => show(button)); button.addEventListener("focus", () => show(button));
     button.addEventListener("click", () => show(button));
     if (id === "water") button.addEventListener("keydown", (event) => {
@@ -125,7 +135,7 @@ export function mountCapabilities(root) {
     startValue.textContent = ": Checking… · Hookup: Unknown";
     startReadout.removeAttribute("title");
     for (const [id, button] of buttons) {
-      button.dataset.level = "loading";
+      button.dataset.level = "loading"; button.querySelector(".capability-state")?.replaceChildren(document.createTextNode("Checking"));
       button.querySelector(".capability-mark").textContent = "…";
       button.title = `${LABELS[id]}: checking this square.`;
       button.setAttribute("aria-label", button.title);
@@ -139,7 +149,7 @@ export function mountCapabilities(root) {
     startValue.textContent = ": Unknown · Hookup: Unknown";
     startReadout.removeAttribute("title");
     for (const [id, button] of buttons) {
-      button.dataset.level = "unknown"; button.querySelector(".capability-mark").textContent = "?";
+      button.dataset.level = "unknown"; button.querySelector(".capability-mark").textContent = "?"; button.querySelector(".capability-state").textContent = "Unknown";
       button.title = `${LABELS[id]}: unknown. This square's data could not be loaded.`;
       button.setAttribute("aria-label", button.title);
     }
@@ -195,10 +205,10 @@ export function mountCapabilities(root) {
       for (const [id, button] of buttons) {
         const cap = catalog.capabilities.find((c) => c.id === id), result = report.capabilities[id];
         const [mark, name] = LEVELS[result.level];
-        button.dataset.level = result.level; button.querySelector(".capability-mark").textContent = mark;
+        button.dataset.level = result.level; button.querySelector(".capability-mark").textContent = mark; button.querySelector(".capability-state").textContent = name;
         const area = id === "buildable" && result.fraction != null ? ` ${Math.round(result.fraction * 100)}% of sampled central land qualifies.` : "";
         const footprint = id === "buildable" ? footprintDetail(capture.input.start_footprint) : "";
-        button.title = `${cap.name}: ${name}. ${(id === "water" ? waterDetail(result) : placeDetail(result)) ?? REASONS[result.reason] ?? cap.limits}${area}${footprint}`;
+        button.title = `${cap.name}: ${name}. ${(id === "water" ? waterDetail(result) : placeDetail(result)) ?? (result.reason === "mapped_water_width" ? `Mapped water corridor: ${result.width_m} m; threshold ${result.threshold_m} m, margin ±${result.margin_m} m.` : REASONS[result.reason]) ?? cap.limits}${area}${footprint}`;
         button.setAttribute("aria-label", button.title);
       }
       status.textContent = `${square.lat.toFixed(3)}, ${square.lon.toFixed(3)} · estimate`;

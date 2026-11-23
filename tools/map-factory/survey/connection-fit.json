@@ -1,0 +1,1284 @@
+{
+  "rules": {
+    "ship_width_m": 256,
+    "margin_m": 64,
+    "edge_margin_m": 32,
+    "edge_separation_m": 512
+  },
+  "unconstrained_threshold_m": 128,
+  "resolution_floor_cells": 4,
+  "stock_agreement": {
+    "road": {
+      "agree": 100,
+      "total": 100,
+      "fraction": 1.0,
+      "basis": "stock geometry fit (in-sample)"
+    },
+    "rail": {
+      "agree": 100,
+      "total": 100,
+      "fraction": 1.0,
+      "basis": "stock geometry fit (in-sample)"
+    },
+    "ship": {
+      "agree": 93,
+      "total": 104,
+      "fraction": 0.8942307692307693,
+      "basis": "stock geometry fit (in-sample)"
+    },
+    "air": {
+      "agree": 103,
+      "total": 104,
+      "fraction": 0.9903846153846154,
+      "basis": "stock geometry fit (in-sample)"
+    }
+  },
+  "rows": [
+    {
+      "file": "AP Asanu Beach.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6720,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "AP Hanami Bay.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 7360,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "AP Noyou Port.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 9152,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCMP2 Boreal Map 1.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 2880,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCMP2 Boreal Map 2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6720,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCMP2 Desert Map 1.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCMP2 Desert Map 2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCMP2 Euro Map 1.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 64,
+      "network_unavailable": "network layout consistency"
+    },
+    {
+      "file": "CCMP2 Euro Map 2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 192,
+      "network_unavailable": "network layout consistency"
+    },
+    {
+      "file": "CCMP2 Temperate Map 1.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6848,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCMP2 Temperate Map 2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 7872,
+      "network_unavailable": "network layout consistency"
+    },
+    {
+      "file": "CCMP2 Tropical Map 1.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8896,
+      "network_unavailable": "network layout consistency"
+    },
+    {
+      "file": "CCMP2 Tropical Map 2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3776,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 1.crp",
+      "labels": {
+        "road": true,
+        "rail": false,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 7360,
+      "road": true,
+      "rail": false
+    },
+    {
+      "file": "CCP Map 2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 10304,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 3.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3392,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 4.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 5.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 6.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 7.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6080,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CCP Map 8.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CL Marin Bay.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 4672,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CL Murky Coast.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5568,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CL Northwood Hills.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CL Roslyn Peninsula.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 12608,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "CL Wolf Creek.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Cliffside Bay.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 9920,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "DN Azure Gulf.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 4800,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "DN Crater Falls.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "DN Desert Oasis.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "DN Fisher Enclave.crp",
+      "labels": {
+        "road": true,
+        "rail": false,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5440,
+      "road": true,
+      "rail": false
+    },
+    {
+      "file": "DN Swamplands.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 64,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Eden Valley2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5056,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Foggy Hills.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 2880,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Garden Rivers2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 1600,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Grand River.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 1600,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "IN Green Peaks.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 11328,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "IN Marble Canyon.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "IN Pearl Bay.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8640,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "IN Twin Fjords.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": false
+      },
+      "width_m": 3520,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "IN Woodgarden.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Lavender Lake2.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3776,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MM Coastal Flatland.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 11712,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MM Emerald Cliffs.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5568,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MM Maze Valley.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 64,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MM Shifting Sands.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3392,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MM Weaving Waters.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 192,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map01.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 1472,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map02.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map03.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3520,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map04.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 64,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map05.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map06.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map07.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 832,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map08.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 7488,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map09.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6336,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP23_Map10.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 10432,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map01.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 10816,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map02.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6592,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map03.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 192,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map04.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 10688,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map05.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map06.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 1728,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map07.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 7360,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map08.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 2880,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map09.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 64,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MP27_Map10.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MT Ferry Empire.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 64,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MT Fix The Traffic.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 2624,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "MT Trains.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3904,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "ND Alpine Villages.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 3008,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "ND By The Dam.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 10944,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "ND Floodland.crp",
+      "labels": {
+        "road": true,
+        "rail": false,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": false
+    },
+    {
+      "file": "ND Island Hopping.crp",
+      "labels": {
+        "road": true,
+        "rail": false,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8896,
+      "road": true,
+      "rail": false
+    },
+    {
+      "file": "ND Tornado Country.crp",
+      "labels": {
+        "road": true,
+        "rail": false,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5568,
+      "road": true,
+      "rail": false
+    },
+    {
+      "file": "NorthEurope1FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 960,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "NorthEurope2FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 64,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "NorthEurope3FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3008,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PB Cape Apple.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8896,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PB Coastal Gem.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 6336,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PB Gondola Islands.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8640,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PB Oracle Lake.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 4544,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PB Splitz Tributary.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PL Cavern Coast.crp",
+      "labels": {
+        "road": true,
+        "rail": false,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 12480,
+      "road": true,
+      "rail": false
+    },
+    {
+      "file": "PL Honu Island.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 11968,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PL Mountain Meadows.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 1600,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PL Pine Rivers.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PL Windfield.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8896,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PU Gray Waters.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 1216,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PU Narrow Passage.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8512,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PU River Terrace.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3008,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PU Windblown Coast.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8128,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "PU Wyvern Pass.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 4416,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "SouthEurope1FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 10944,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "SouthEurope2FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 4544,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "SouthEurope3FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": false,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Tropical1FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 8768,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Tropical2FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 7872,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Tropical3FINAL.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 9920,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Winter1Final.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 3264,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Winter2Final.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5184,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Winter3Final.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 5696,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Winter4Final.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 9152,
+      "road": true,
+      "rail": true
+    },
+    {
+      "file": "Winter5Final.crp",
+      "labels": {
+        "road": true,
+        "rail": true,
+        "ship": true,
+        "air": true
+      },
+      "width_m": 0,
+      "road": true,
+      "rail": true
+    }
+  ],
+  "fit": "Maximum balanced ship-label accuracy over 256..2048m in 64m steps; four-cell resolution floor; ties use smaller threshold. 104 stock maps; blank CO excluded. Road/rail same edge-crossing predicate where network geometry decodes. Air is the all-yes baseline.",
+  "fidelity": "271x271 point lattice at 64m; stock saved depth >0.5m, live mapped water polygons. Chebyshev bank clearance, 4-connected water, edge points separated >=512m or mapped open sea. No depth or simulation claim."
+}

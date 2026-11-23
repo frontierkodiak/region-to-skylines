@@ -19,6 +19,8 @@ test("import is reproducible; every unowned ledger byte and all four certificate
   assert.deepEqual(startWaterStudy(), study);
   assert.equal(study.projection.sha256, "294e3e3fc301b96311fce546fb2bf6db0951067247f92a6250f758454538f21b");
   let text = original.toString();
+  text = text.slice(text.indexOf('  "schema":'));
+  text = "{\n" + text;
   for (const id of ["start","water"]) {
     const marker = text.indexOf('"id": "' + id + '"'), begin = text.lastIndexOf("    {",marker);
     const end = text.indexOf("\n    }",marker) + "\n    }".length;

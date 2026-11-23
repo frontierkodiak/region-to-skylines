@@ -2,6 +2,7 @@ import { liveShore } from "./water-model.js";
 import { liveFootprint } from "./start-model.js";
 // The pan-time approximation uses captured initial terrain, not a water simulation.
 // Full export reports use final prepared grids through capabilities.py instead.
+import { lonLatToSquare, fillMask } from "./terrain.js";
 import { captureInputs, oceanMask } from "./inputs.js";
 import { measureStockMetrics, STOCK_MEASURES } from "./capability-model.js";
 import { LANDCOVER_SOURCE, MRDS_SOURCE, PLACE_GRID, requestDeposits, requestLandcover } from "./capability-evidence.js";
@@ -55,6 +56,18 @@ function captureDepth({ game, banks, seaLevel, geometry }) {
   return depth;
 }
 
+export function connectionGeometry(geometry) {
+  const sq = geometry.sq, n = 271, extent = 17280, spacing = 64;
+  const project = ([lon, lat]) => lonLatToSquare(sq, lon, lat).map((v) => v / (sq.scale ?? 1));
+  const shapes = [...(geometry.oceans ?? []), ...(geometry.lakes ?? []), ...(geometry.riverAreas ?? [])];
+  const raster = (polygons) => Array.from(fillMask(polygons.map((p) => p.rings.map((ring) => ring.map((point) => {
+    const [x, z] = project(point); return [x / spacing + 135.5, 135.5 - z / spacing];
+  }))), n));
+  return { extent_m: extent,
+    roads: (geometry.roads ?? []).map((r) => ({ class: r.class, subclass: r.subclass ?? null, service: r.service ?? null, pts: r.pts.map(project) })),
+    water_grid: { size: n, spacing_m: spacing, water: raster(shapes), sea: raster(geometry.oceans ?? []) } };
+}
+
 export function estimateInputs(capture, depth = captureDepth(capture), evidence = {}) {
   const { game, geometry } = capture;
   const n = 1081, coarse = NODES;
@@ -75,7 +88,7 @@ export function estimateInputs(capture, depth = captureDepth(capture), evidence 
     }
   }
   const roads = geometry.roads ?? [];
-  return { schema: 1, mode: "estimate", grid: { size: coarse, spacing_m: 64, depth_m: Array.from(ship) },
+  return { schema: 1, mode: "estimate", connection_geometry: connectionGeometry(geometry), grid: { size: coarse, spacing_m: 64, depth_m: Array.from(ship) },
     transport: { road: roads.some((r) => ["motorway", "trunk"].includes(r.class)), rail: roads.some((r) => r.class === "rail"), air: !!geometry.airport },
     buildable_fraction: central ? dry / central : null,
     start_footprint: liveFootprint(game, depth),
