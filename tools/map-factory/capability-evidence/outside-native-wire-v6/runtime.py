@@ -141,10 +141,18 @@ class Transport:
 def collect(transport, births, limits):
     """Fresh literal controls; constructed admission never opens a holdout."""
     api, native = transport.api, transport.native
-    total = Deadline.after(limits["total_seconds"])
-    for control in native.value["controls"]:
-        opening = Deadline.after(limits["opening_seconds"], total)
-        load = Deadline.after(limits["load_seconds"], opening)
+    total = transport.session.total
+    for index, control in enumerate(native.value["controls"]):
+        opening = (
+            transport.session.first_opening
+            if index == 0
+            else Deadline.after(limits["opening_seconds"], total)
+        )
+        load = Deadline.after(
+            limits["load_seconds"],
+            opening,
+            *([transport.session.initial_load] if index == 0 else []),
+        )
         transport.client.deadline = load
         observed = {
             k: copy.deepcopy(control[k])

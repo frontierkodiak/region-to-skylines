@@ -212,6 +212,8 @@ def validate(value, store):
             or api.adapter_spec.raw(store, key) != committed
         ):
             raise Unknown("source/retained/revision bytes differ: " + path)
+    if d["v5"] != api.spec.read(api.V5 / "adapter-freeze.json"):
+        raise Unknown("reused build/spec differs from accepted source475 artifact")
     native = api.adapter_spec.validate(d["v5"], store)
     if (
         d["limits"] != api.adapter_spec.LIMITS
@@ -249,6 +251,12 @@ def validate(value, store):
         or values["selection"]["missing_cells"]
     ):
         raise Unknown("selection/coverage differs")
+    for row in rows:
+        if row["supported"]:
+            store.read(row["feature_sha256"], "input-only decoder features")
+            api.consumer.v1.graph(
+                store, values["input_graphs"][row["sha256"]], "input-only graph"
+            )
     selected = {r["sha256"] for r in values["selection"]["selected"]}
     for chosen in values["selection"]["selected"]:
         retained = api.adapter_spec.raw(store, chosen["sha256"])

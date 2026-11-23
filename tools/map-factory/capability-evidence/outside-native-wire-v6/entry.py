@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 import accepted_api as api
 import candidate
-from wire import Unknown
+from wire import Deadline, Unknown
 
 
 @dataclass(frozen=True)
@@ -57,4 +57,10 @@ def preflight(frozen, store, request, authority=None, factory=None):
 def enter(frozen, store, request, authority=None, factory=None):
     native, inputs = preflight(frozen, store, request, authority, factory)
     # The only effect-bearing call, deliberately after every check above.
-    return factory.open(native, inputs, request, store)
+    return factory.open(
+        native,
+        inputs,
+        request,
+        store,
+        Deadline.after(frozen["limits"]["total_seconds"]),
+    )

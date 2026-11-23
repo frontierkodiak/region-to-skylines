@@ -122,7 +122,7 @@ class Integration(unittest.TestCase):
         for op, key in (("new_game", "load_seconds"), ("path_result", "query_seconds")):
             script = script_for(self.native, self.store)
             next(r for r in script if r["op"] == op)["mode"] = "blocked"
-            limits = dict(self.native.descriptor["limits"], **{key: 0.08})
+            limits = dict(self.native.descriptor["limits"], **{key: 0.5})
             result = self.exercise(script, limits)
             self.assertIn("deadline", result["result"]["reason"])
             self.assertLess(

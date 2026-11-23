@@ -20,7 +20,7 @@ def identity(pid):
 
 
 @contextmanager
-def server(script, directory, mode="script", delay=0.3):
+def server(script, directory, mode="script", delay=1.5):
     """Parent binds the only port a fixture client may use; no service discovery."""
     directory.mkdir(parents=True, exist_ok=False)
     plan = directory / "plan.json"

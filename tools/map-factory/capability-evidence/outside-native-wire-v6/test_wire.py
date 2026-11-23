@@ -1,6 +1,7 @@
 """Portable, real wall-clock socket tests. No game imports, ports or licensed bytes."""
 
 from pathlib import Path
+import socket
 import tempfile
 import time
 import unittest
@@ -87,6 +88,30 @@ class WireTests(unittest.TestCase):
         with self.assertRaises(Unknown):
             Wire(1, Deadline(time.monotonic() - 1), trace).call("path_start")
         self.assertEqual(trace, [])
+
+    def test_blocked_connect_uses_owned_backlog(self):
+        # A full accept queue keeps the second handshake pending on Linux.
+        listener = socket.socket()
+        first = socket.socket()
+        trace = []
+        try:
+            listener.bind(("127.0.0.1", 0))
+            listener.listen(0)
+            first.settimeout(0.5)
+            first.connect(listener.getsockname())
+            start = time.monotonic()
+            with self.assertRaisesRegex(Unknown, "deadline"):
+                Wire(listener.getsockname()[1], Deadline.after(0.12), trace).call(
+                    "status"
+                )
+            self.assertGreater(time.monotonic() - start, 0.09)
+            self.assertLess(time.monotonic() - start, 0.75)
+            self.assertEqual(trace[0]["sent_bytes"], 0)
+            accepted, _ = listener.accept()
+            accepted.close()
+        finally:
+            first.close()
+            listener.close()
 
     def test_minimum_deadline_not_renewed(self):
         parent = Deadline.after(0.04)

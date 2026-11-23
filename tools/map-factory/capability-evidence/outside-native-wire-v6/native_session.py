@@ -23,7 +23,7 @@ class NativeSession:
         )
 
     @contextmanager
-    def open(self, native, inputs, request, store):
+    def open(self, native, inputs, request, store, total):
         from cs1_harness.cli import slot, staging
 
         # Config's per-checkout build_dir is retained; never overwrite shared staging.
@@ -33,7 +33,9 @@ class NativeSession:
             != native.descriptor["fresh_build"]["dll"]
         ):
             raise Unknown("reviewed build is not staged in this checkout")
-        total = Deadline.after(native.descriptor["limits"]["total_seconds"])
+        self.total = total
+        self.first_opening = Deadline.after(900, total)
+        self.initial_load = Deadline.after(600, self.first_opening)
         stage = staging(self.cfg, self.directory)
         with slot(
             self.cfg,
@@ -43,7 +45,7 @@ class NativeSession:
         ) as session:
             total.remaining()
             session.require_offline, session.record, session.live = True, False, False
-            session.client = Wire(self.cfg.port, Deadline.after(600, total), self.trace)
+            session.client = Wire(self.cfg.port, self.initial_load, self.trace)
             self.session, self.native, self.request = session, native, request
             self.client = session.client
             session.launch(["--noWorkshop"], timeout=self.client.deadline.remaining())

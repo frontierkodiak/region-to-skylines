@@ -156,12 +156,22 @@ class Factory:
         self.trace = []
 
     @contextmanager
-    def open(self, native, inputs, request, store):
+    def open(self, native, inputs, request, store, total):
         self.effects.append("constructed session owner")
         script = self.script if self.script is not None else script_for(native, store)
+        limits = self.limits or native.descriptor["limits"]
+        total = Deadline.after(limits["total_seconds"], total)
+        first_opening = Deadline.after(limits["opening_seconds"], total)
+        initial_load = Deadline.after(limits["load_seconds"], first_opening)
         with server(script, self.directory / "server") as game:
             self.game = game
-            yield FixtureSession(store, native, game["port"], self.trace)
+            session = FixtureSession(store, native, game["port"], self.trace)
+            session.total, session.first_opening, session.initial_load = (
+                total,
+                first_opening,
+                initial_load,
+            )
+            yield session
 
 
 def run(frozen, store, request, authority, factory):
