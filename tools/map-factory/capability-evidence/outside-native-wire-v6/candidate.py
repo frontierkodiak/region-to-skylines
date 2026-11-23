@@ -254,7 +254,7 @@ def validate(value, store):
     for row in rows:
         if row["supported"]:
             store.read(row["feature_sha256"], "input-only decoder features")
-            api.consumer.v1.graph(
+            input_graph(
                 store, values["input_graphs"][row["sha256"]], "input-only graph"
             )
     selected = {r["sha256"] for r in values["selection"]["selected"]}
@@ -275,5 +275,65 @@ def validate(value, store):
         if row["package_sha256"] not in selected or row["max_length"] != 100000:
             raise Unknown("holdout package/budget differs")
         graph = values["input_graphs"][row["package_sha256"]]
-        api.consumer.v1.graph(store, graph, "holdout input graph")
+        input_graph(store, graph, "holdout input graph")
     return native, values
+
+
+def input_graph(store, hashed, where):
+    s = api.consumer.v1
+    # Input inventories can have an empty mode. Native control admission remains unchanged.
+    value = store.json(hashed, where)
+    s.exact(value, {"road", "ship", "air"}, where)
+    for mode, records in value.items():
+        for record in s.sequence(records, where + "." + mode, empty=True):
+            row = s.exact(
+                record,
+                {
+                    "id",
+                    "start",
+                    "end",
+                    "a",
+                    "b",
+                    "invert",
+                    "prefab",
+                    "outside",
+                    "lanes",
+                },
+                where + ".segment",
+            )
+            for key in ("id", "start", "end"):
+                s.integer(row[key], 1, 65535)
+            for key in ("a", "b"):
+                import math
+
+                xyz = s.sequence(row[key], where + ".xyz")
+                if len(xyz) != 3 or any(
+                    type(v) not in (int, float) or not math.isfinite(v) for v in xyz
+                ):
+                    raise api.spec.ProtocolError(f"{where}: malformed xyz")
+            s.strict_bool(row["invert"])
+            s.text(row["prefab"], where + ".prefab")
+            outside = s.sequence(row["outside"], where + ".outside")
+            if len(outside) != 2:
+                raise api.spec.ProtocolError(f"{where}: malformed Outside roles")
+            for flag in outside:
+                s.strict_bool(flag)
+            for lane in s.sequence(row["lanes"], where + ".lanes"):
+                s.exact(
+                    lane,
+                    {
+                        "index",
+                        "lane_type",
+                        "vehicle",
+                        "category",
+                        "forward",
+                        "backward",
+                    },
+                    where + ".lane",
+                )
+                s.integer(lane["index"], 0, 255)
+                s.text(lane["lane_type"], where + ".lane_type")
+                s.strings(lane["vehicle"], where + ".vehicle")
+                s.text(lane["category"], where + ".category")
+                s.strict_bool(lane["forward"])
+                s.strict_bool(lane["backward"])
