@@ -179,6 +179,54 @@ def capacity(area_km2, kind):
     return float(np.clip(0.008 * np.sqrt(max(0, area_km2)), minimum, 0.12))
 
 
+def source_pool(ground, depth, levels, forbidden, source):
+    """Give the chosen source a deep inlet pool and a sloping connection.
+
+    The retained source-radius model is a packing/design constraint, not a
+    discharge measurement. A tunnel gap can limit the setting; it is never cut.
+    """
+    col = round((source["position"][0] + HALF) / SPACING)
+    row = round((HALF - source["position"][2]) / SPACING)
+    requested = math.floor(source["capacity"] * 65535 + 0.5)
+    radius = 10 + 0.4 * math.sqrt(requested)
+    extent = math.ceil((radius + 32) / SPACING)
+    region = np.s_[
+        max(0, row - extent) : min(ground.shape[0], row + extent + 1),
+        max(0, col - extent) : min(ground.shape[1], col + extent + 1),
+    ]
+    yy, xx = np.mgrid[region]
+    distance = np.hypot(yy - row, xx - col) * SPACING
+    excluded = forbidden[region]
+    setting = requested
+    if excluded.any():
+        clearance = float(distance[excluded].min()) - 0.01
+        setting = min(setting, max(0, math.floor((max(0, clearance - 10) / 0.4) ** 2)))
+    if setting < requested:
+        source["requested_capacity"] = source["capacity"]
+        source["capacity"] = setting / 65535
+        source["output_capacity"] = min(
+            source.get("output_capacity", source["capacity"]), setting / 65535
+        )
+    radius = 10 + 0.4 * math.sqrt(setting)
+    pool_depth = 16 if source["class"] in ["lake", "ocean"] else 8
+    wanted = pool_depth * np.clip((radius + 32 - distance) / 32, 0, 1)
+    pool = (wanted > 0) & ~excluded
+    target = source["target"]
+    bed = ground[region]
+    bed[pool] = np.minimum(bed[pool], np.maximum(0, target - wanted[pool]))
+    levels[region][pool] = target
+    depth[region][pool] = np.maximum(0, target - bed[pool])
+    core = distance <= radius
+    source["footprint_pool"] = {
+        "radius_model_m": radius,
+        "pool_core_depth_m": pool_depth,
+        "requested_native_rate": requested,
+        "native_rate": setting,
+        "minimum_authored_core_depth_m": float(depth[region][core].min()),
+        "tunnel_gap_cells_changed": int((pool & excluded).sum()),
+    }
+
+
 def source_walk(points):
     """Capture the whole clipped line at native resolution, not clipped endpoints."""
     parts = []
@@ -273,25 +321,6 @@ def hydrology(ground, banks, geometry):
         original[channel], np.clip(level[channel] - depth[channel], 0, 1023)
     )
     depth[channel] = np.maximum(0, level[channel] - ground[channel])
-
-    # Sculpt a narrow continuous shore. No whole-map sea-plane prefill and no
-    # global land floor: low measured land behind the shore remains dry.
-    outside_distance, near_water = ndimage.distance_transform_edt(
-        ~channel, return_indices=True
-    )
-    near_level = level[tuple(near_water)]
-    bank_strip = ~channel & ~forbidden & (outside_distance <= 4)
-    blend = np.clip((5 - outside_distance) / 4, 0, 1)
-    raised = near_level + 2.0
-    ground[bank_strip] = np.maximum(
-        ground[bank_strip],
-        original[bank_strip]
-        + blend[bank_strip] * np.maximum(0, raised[bank_strip] - original[bank_strip]),
-    )
-    # The first16m ring is the full-height barrier; farther rings blend outward.
-    rim = ~channel & ~forbidden & (outside_distance <= 1.5)
-    ground[rim] = np.maximum(ground[rim], raised[rim])
-    ground[:] = np.clip(ground, 0, 1023)
 
     occupied = []
 
@@ -413,6 +442,26 @@ def hydrology(ground, banks, geometry):
                 "terminal_sink",
                 output=False,
             )
+    # Source flow must enter a bed at least as broad as its modeled footprint.
+    # Select controls from the full mapped geometry first, not from dry probes.
+    for source in sources:
+        source_pool(ground, depth, level, forbidden, source)
+    channel |= depth > 0
+    outside_distance, near_water = ndimage.distance_transform_edt(
+        ~channel, return_indices=True
+    )
+    near_level = level[tuple(near_water)]
+    bank_strip = ~channel & ~forbidden & (outside_distance <= 4)
+    blend = np.clip((5 - outside_distance) / 4, 0, 1)
+    raised = near_level + 2.0
+    ground[bank_strip] = np.maximum(
+        ground[bank_strip],
+        original[bank_strip]
+        + blend[bank_strip] * np.maximum(0, raised[bank_strip] - original[bank_strip]),
+    )
+    rim = ~channel & ~forbidden & (outside_distance <= 1.5)
+    ground[rim] = np.maximum(ground[rim], raised[rim])
+    ground[:] = np.clip(ground, 0, 1023)
     changed = np.abs(ground - original) > 1 / 64
     return depth, {
         "sources": sources,
@@ -420,7 +469,7 @@ def hydrology(ground, banks, geometry):
         "rivers": summaries,
         "sea_level_m": sea,
         "surface_water": visibility,
-        "water_construction": "map-maker-v1",
+        "water_construction": "map-maker-v2",
         "unmodeled_short_surface_reaches": [],
         "authored_confluence_links": links,
         "channel_design": {

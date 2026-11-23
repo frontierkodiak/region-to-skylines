@@ -7,12 +7,58 @@ from playable_water import (
     hydrology,
     join_nearby_water,
     section,
+    source_pool,
     source_walk,
     stage_tree,
 )
 
 
 class PlayableWaterTests(unittest.TestCase):
+    def test_chosen_source_gets_a_deep_broad_pool_without_filling_its_bed(self):
+        ground = np.full((31, 31), 99.0)
+        ground[15, 15] = 70
+        before = ground.copy()
+        depth = np.zeros_like(ground)
+        level = np.full_like(ground, 100)
+        source = {
+            "position": [15 * 16 - 8640, 0, 8640 - 15 * 16],
+            "target": 100,
+            "class": "river",
+            "capacity": 0.12,
+            "output_capacity": 0.12,
+        }
+        source_pool(ground, depth, level, np.zeros(ground.shape, bool), source)
+        self.assertGreaterEqual(
+            source["footprint_pool"]["minimum_authored_core_depth_m"], 8
+        )
+        self.assertTrue(np.all(ground <= before))
+        self.assertEqual(ground[15, 15], 70)
+        self.assertEqual(depth[15, 15], 30)
+        self.assertEqual(source["capacity"], 0.12)
+        self.assertEqual(ground[0, 0], 99)
+
+    def test_pool_does_not_cut_a_tunnel_gap_to_fit_a_large_source(self):
+        ground = np.full((31, 31), 99.0)
+        depth = np.zeros_like(ground)
+        forbidden = np.zeros(ground.shape, bool)
+        forbidden[:, 17] = True
+        source = {
+            "position": [15 * 16 - 8640, 0, 8640 - 15 * 16],
+            "target": 100,
+            "class": "river",
+            "capacity": 0.12,
+            "output_capacity": 0.12,
+        }
+        source_pool(ground, depth, np.full_like(ground, 100), forbidden, source)
+        self.assertLess(source["capacity"], 0.12)
+        self.assertEqual(source["requested_capacity"], 0.12)
+        self.assertEqual(source["footprint_pool"]["tunnel_gap_cells_changed"], 0)
+        np.testing.assert_array_equal(ground[forbidden], 99)
+        np.testing.assert_array_equal(depth[forbidden], 0)
+        self.assertGreaterEqual(
+            source["footprint_pool"]["minimum_authored_core_depth_m"], 8
+        )
+
     def test_channel_has_volume_and_sloping_sides(self):
         result = section(np.array([0, 16, 32, 48, 64]), 32, 8)
         self.assertEqual(result[0], 8)
