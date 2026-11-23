@@ -1,7 +1,7 @@
 """Bind frozen predictions to retained labels and score them.
 
-Run only after `predict.py`: this is the first program in the study that reads a
-label. It refuses to run unless `protocol.json` records the SHA-256 of the
+Run only after `predict.py`. It refuses to score unless `protocol.json` records
+the SHA-256 of the
 `predictions.json` on disk, and it re-checks every binding before scoring:
 
 * every prediction's query id and request must equal one eligible inventory
@@ -24,6 +24,7 @@ import json
 import math
 from pathlib import Path
 
+import inventory as retained_inventory
 import model
 import topology
 
@@ -31,6 +32,15 @@ HERE = Path(__file__).resolve().parent
 SOURCE = HERE.parent / "outside-v1"
 MODES = ("road", "ship", "air")
 STRATA = ("primary_distinct_edge", "same_edge")
+SOURCE_FILES = {
+    "evidence": SOURCE / "evidence.json",
+    **{name: HERE / f"{name}.json" for name in ("inventory", "requests", "catalogs", "packages")},
+}
+FROZEN_FILES = {
+    "model.py", "topology.py", "predict.py", "inventory.py", "bridge.py",
+    "catalogs.json", "packages.json", "bridge.json", "inventory.json",
+    "manifest.json", "requests.json", "predictions.json",
+}
 
 
 def sha(data):
@@ -39,6 +49,39 @@ def sha(data):
 
 def load_json(name):
     return json.loads((HERE / name).read_text())
+
+
+def validate_lineage(check):
+    """Check actual retained CPU receipts and per-opening package identities."""
+    evidence = json.loads((SOURCE / "evidence.json").read_bytes())
+    packages = load_json("packages.json")["packages"]
+    check("exact_package_lineage_keys", set(packages) == {case["slug"] for case in evidence["artifacts"]})
+    cache = {}
+    for case in evidence["artifacts"]:
+        slug, package_sha = case["slug"], case["artifact_sha256"]
+        check(f"package_lineage_{slug}", packages.get(slug, {}).get("sha256") == package_sha)
+        for name in ("cpu_evidence", "reproduction_evidence"):
+            ref = case.get(name)
+            if not ref:
+                check(f"{name}_{slug}", True, {"status": "unknown", "reason": "receipt_absent"})
+                continue
+            raw = retained_inventory.load_raw(ref, cache)
+            receipt_case = raw["data"].get("cases", {}).get(slug, {})
+            receipt_sha = receipt_case.get("stage", {}).get("crp_sha256")
+            check(f"{name}_{slug}", raw["actual_sha256"] == ref["sha256"] and receipt_sha == package_sha,
+                  {"path": ref["path"], "raw_sha256": raw["actual_sha256"], "package_sha256": receipt_sha})
+        for attempt in case["attempts"]:
+            ref = attempt["observation_evidence"]
+            raw = retained_inventory.load_raw(ref, cache)
+            check(f"opening_package_{slug}_{attempt['attempt_id']}",
+                  raw["actual_sha256"] == ref["sha256"]
+                  and raw["data"].get("artifact_sha256") == attempt["artifact_sha256"] == package_sha)
+            receipt = raw["data"].get("build_receipt") or {}
+            source_hash = receipt.get("sources", {}).get("NetworkOps.cs")
+            check(f"opening_protocol_source_{slug}_{attempt['attempt_id']}",
+                  source_hash == "d644218e8969f40737ce08367a3a3e4c9adb6a550ba145fb3bf220ffa5f23813"
+                  if raw["data"].get("paths") else True,
+                  {"source_sha256": source_hash, "status": "bound" if source_hash else "unknown"})
 
 
 def confusion(pairs):
@@ -74,7 +117,9 @@ def confusion(pairs):
         "precision": precision,
         "recall": recall,
         "f1": f1,
-        "coverage": positives / (tp + fp + tn + fn) if (tp + fp + tn + fn) else None,
+        "coverage": (tp + fp + tn + fn) / (tp + fp + tn + fn + counts["abstain"])
+        if (tp + fp + tn + fn + counts["abstain"]) else None,
+        "candidate_fraction": positives / (tp + fp + tn + fn) if (tp + fp + tn + fn) else None,
         "actual_negatives": tn + fp,
         "predicted_positives": positives,
         "classes": {
@@ -116,8 +161,38 @@ def shortest_undirected(prepared, request):
     return None
 
 
+def length_sensitivity(cases):
+    """Audit cost sensitivity without treating a short undirected path as proof.
+
+    A successful directed path stays below the cap even if all its chords grow
+    by the bridge error bound. A no-path answer must remain disconnected with
+    the cap removed before we can say that smaller bridge chords cannot flip it.
+    This is an input-only diagnostic, not a fitted or scored extra rule.
+    """
+    ratios, cap_sensitive = [], []
+    for query_id, prepared, request, rules in cases:
+        for rule, answer in rules.items():
+            if rule in ("always_fail", "always_candidate", "weak_component"):
+                continue
+            length = answer["detail"].get("path_lower_bound_length")
+            if length is not None:
+                ratios.append(length / model.MAX_LENGTH)
+            if answer["prediction"] != model.NO_PATH:
+                continue
+            kind, pairing, uturn = model.parse_rule(rule)
+            unbounded, _ = model._search(prepared, request, pairing, uturn, math.inf, kind == "lane")
+            if unbounded != model.NO_PATH:
+                cap_sensitive.append({"query_id": query_id, "rule": rule})
+    maximum = max(ratios) if ratios else None
+    return {
+        "max_directed_chord_over_cap": maximum,
+        "cap_sensitive_no_path": cap_sensitive,
+        "bridge_error_cannot_flip": not cap_sensitive and maximum is not None and maximum * 1.2 < 1.0,
+    }
+
+
 def validate(protocol, predictions_doc, inventory, requests_doc, predictions_sha):
-    """Every binding that must hold before a label may be read.
+    """Every binding that must hold before labels may be scored.
 
     Returns a list of named assertions. `main` refuses to score when any of them
     fails, so a changed prediction, request map or inventory cannot be scored
@@ -143,6 +218,34 @@ def validate(protocol, predictions_doc, inventory, requests_doc, predictions_sha
     )
     check("frozen_rules_match_model", protocol.get("rules") == model.RULES)
     check("frozen_primary_rule", protocol.get("primary_rule") == model.PRIMARY_RULE)
+    sources = protocol.get("sources", {})
+    check("exact_required_source_keys", set(sources) == set(SOURCE_FILES))
+    for name, path in SOURCE_FILES.items():
+        check(f"source_hash_matches_{name}", path.exists() and sources.get(name) == sha(path.read_bytes()))
+    check("inventory_document_matches_bound_bytes", sources.get("inventory") == sha(retained_inventory.json_bytes(inventory)))
+    check("request_document_matches_bound_bytes", sources.get("requests") == sha(retained_inventory.json_bytes(requests_doc)))
+    check("requests_bind_inventory", requests_doc.get("inventory_sha256") == sources.get("inventory"))
+    check("predictions_bind_requests", predictions_doc.get("requests_sha256") == sources.get("requests"))
+    check("predictions_use_frozen_family", predictions_doc.get("rules") == model.RULES
+          and predictions_doc.get("primary_rule") == model.PRIMARY_RULE
+          and predictions_doc.get("model_version") == model.MODEL_VERSION)
+    freeze = load_json("bindings.json")
+    check("fixed_source_revisions", freeze.get("source_revisions") == {
+        "accepted_base": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
+        "outside_v1": "4cef6fb620f403c603e597a46f3bb7d7e5feadb7",
+        "targeted_v2": "29b095475ba2f93c7e918fefc08c736493670304",
+    })
+    check("exact_frozen_file_keys", set(freeze.get("files", {})) == FROZEN_FILES)
+    for name in sorted(FROZEN_FILES):
+        path = HERE / name
+        check(f"frozen_file_{name}", path.exists() and freeze.get("files", {}).get(name) == sha(path.read_bytes()))
+    def digest(value):
+        return sha(json.dumps(value, sort_keys=True, separators=(",", ":")).encode())
+    check("frozen_protocol_semantics", freeze.get("protocol_semantic_sha256") == digest(
+        {key: value for key, value in protocol.items() if key != "frozen_at"}))
+    check("frozen_domain", freeze.get("domain_sha256") == digest(protocol.get("domain")))
+    check("frozen_features", freeze.get("features_sha256") == digest(
+        {key: protocol.get(key) for key in ("features_allowed", "features_forbidden")}))
     check(
         "inventory_source_evidence_unchanged",
         requests_doc.get("source_evidence_sha256")
@@ -183,6 +286,16 @@ def validate(protocol, predictions_doc, inventory, requests_doc, predictions_sha
         len(by_query) == len(query_rows),
         len(query_rows) - len(by_query),
     )
+    request_ids = [record["query_id"] for record in request_rows]
+    check("request_query_ids_are_unique", len(set(request_ids)) == len(request_ids))
+    check("exact_prediction_request_and_eligible_ids", set(predicted) == set(request_ids) == set(eligible))
+    request_map = {record["query_id"]: record for record in request_rows}
+    check("prediction_metadata_matches_requests", all(
+        all(retained_inventory.canonical(record.get(key)) == retained_inventory.canonical(request_map[query_id].get(key))
+            for key in ("slug", "attempt_id", "mode", "stratum", "request"))
+        for query_id, record in predicted.items() if query_id in request_map))
+    check("exact_rule_keys_per_prediction", all(set(record.get("rules", {})) == set(model.RULES)
+          for record in predicted.values()))
     request_mismatches = [
         query_id
         for query_id, record in predicted.items()
@@ -204,6 +317,22 @@ def validate(protocol, predictions_doc, inventory, requests_doc, predictions_sha
         "eligible_queries_are_all_frozen_strata",
         all(query["stratum"] in STRATA for query in eligible.values()),
     )
+    if all(item["ok"] for item in assertions):
+        # Verify labels and runtime/package context against retained bytes, not
+        # just against a mutually consistent set of derived JSON documents.
+        rebuilt_inventory, rebuilt_requests, rebuilt_manifest = retained_inventory.build()
+        check("inventory_reconstructed_from_raw", retained_inventory.json_bytes(inventory)
+              == retained_inventory.json_bytes(rebuilt_inventory))
+        check("requests_reconstructed_from_raw", retained_inventory.json_bytes(requests_doc)
+              == retained_inventory.json_bytes(rebuilt_requests))
+        check("manifest_reconstructed_from_raw", (HERE / "manifest.json").read_bytes()
+              == retained_inventory.json_bytes(rebuilt_manifest))
+        known_missing = {("asheville", "attempt-1"), ("pittsburgh", "native-v2-2"), ("rio", "native-v2-1")}
+        anomalies = rebuilt_inventory["anomalies"]
+        check("only_known_missing_networks", len(anomalies) == len(known_missing)
+              and {(item["slug"], item["attempt_id"]) for item in anomalies} == known_missing
+              and all(item["kind"] == "missing_networks" for item in anomalies))
+        validate_lineage(check)
     return assertions
 
 
@@ -380,6 +509,7 @@ def main():
                         "stratum": query["stratum"],
                         "request": query["request"],
                         "endpoint_roles": query["endpoint_roles"],
+                        "returned_endpoints_match": query["returned_endpoints_match"],
                         "native": query["result"],
                         "model": detail["detail"],
                     }
@@ -390,24 +520,23 @@ def main():
         rule: disagreements(rule) for rule in dict.fromkeys([model.PRIMARY_RULE, global_best])
     }
 
-    # Every disagreement of the best rule must be either a native maxLength
-    # denial or an endpoint mismatch; anything else is an unexplained error.
-    unexplained = []
+    # A failed flag with an unchanged max-length sentinel does not identify why
+    # the native pathfinder failed. Keep the mechanism unknown, not explained.
+    unexplained_by_query = {}
     for rule, items in disagreement_report.items():
         for item in items:
             if item["relation"] == "abstained":
-                unexplained.append(item)
+                unexplained_by_query[item["query_id"]] = item
                 continue
             native = item["native"]
-            length_denial = native["flags"] == 8 and native["length"] == model.MAX_LENGTH
-            endpoint_mismatch = item["returned_endpoints_match"] is False
-            if item["relation"] == "false_positive" and not (
-                length_denial or endpoint_mismatch
-            ):
-                unexplained.append(item)
-            elif item["relation"] == "false_negative":
-                unexplained.append(item)
-    check("no_unexplained_disagreement", not unexplained, unexplained[:10])
+            item["native_failure_sentinel"] = native["flags"] == 8 and native["length"] == model.MAX_LENGTH
+            item["mechanism_status"] = "unknown"
+            unexplained_by_query[item["query_id"]] = {
+                "query_id": item["query_id"],
+                "relation": item["relation"],
+                "mechanism_status": "unknown",
+            }
+    unexplained = list(unexplained_by_query.values())
 
     # Correlated repeats asked in two openings of the same unchanged package.
     repeat_pairs = []
@@ -438,9 +567,8 @@ def main():
         {"pairs": midpoint, "agree": inventory["counts"]["midpoint_agree"]},
     )
 
-    # Length check: an undirected chord lower bound is at most any directed
-    # chord path, so if even it stays far below the cap the maxLength test
-    # cannot bind for an eligible query.
+    # Undirected distance is descriptive only; the cap proof uses actual
+    # successful directed paths and an unbounded check on negative predictions.
     chord_ratios = []
     for record in scored:
         query = record["query"]
@@ -450,15 +578,21 @@ def main():
         distance = shortest_undirected(prepared_package, query["request"])
         if distance is not None:
             chord_ratios.append(distance / model.MAX_LENGTH)
+    sensitivity = length_sensitivity([
+        (record["query_id"], prepared[(record["query"]["slug"], record["query"]["attempt_id"], record["query"]["mode"])],
+         record["query"]["request"], record["prediction"]["rules"])
+        for record in scored
+    ])
     length_report = {
+        **sensitivity,
         "max_length": model.MAX_LENGTH,
         "eligible_queries_with_chord_path": len(chord_ratios),
         "max_undirected_chord_over_cap": max(chord_ratios) if chord_ratios else None,
-        "binds": bool(chord_ratios and max(chord_ratios) >= 1.0),
+        "binds": bool(sensitivity["cap_sensitive_no_path"]),
         "note": (
-            "The chord test cannot change any prediction: the largest eligible "
-            "undirected chord lower bound is well under the protocol maximum, so "
-            "even a 20% chord error cannot reach it."
+            "Undirected lower bounds alone cannot prove cap insensitivity. All "
+            "successful directed paths remain below the cap with 20% longer "
+            "chords; all no-path predictions remain disconnected without a cap."
         ),
     }
     check(
@@ -469,7 +603,7 @@ def main():
     if length_report["max_undirected_chord_over_cap"] is not None:
         check(
             "chord_bridge_error_cannot_flip_the_length_test",
-            length_report["max_undirected_chord_over_cap"] * 1.2 < 1.0,
+            sensitivity["bridge_error_cannot_flip"],
         )
 
     one_class = {}
@@ -602,6 +736,8 @@ def main():
         "assertions": assertions,
         "all_ok": all(item["ok"] for item in assertions),
         "hashes": {
+            "bindings.json": sha((HERE / "bindings.json").read_bytes()),
+            "evaluate.py": sha((HERE / "evaluate.py").read_bytes()),
             "evidence.json": inventory["source"]["evidence_sha256"],
             "inventory.json": sha((HERE / "inventory.json").read_bytes()),
             "requests.json": sha((HERE / "requests.json").read_bytes()),
@@ -644,7 +780,7 @@ def main():
         },
         "one_class": {mode: one_class[mode]["note"] for mode in MODES},
         "folds_estimable": sum(1 for fold in folds if fold["estimable"]),
-        "unexplained": len(unexplained),
+        "unexplained": len({item["query_id"] for item in unexplained}),
         "assertions_failed": [item["name"] for item in assertions if not item["ok"]],
     }
     print(json.dumps(summary, indent=1))

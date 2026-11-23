@@ -11,12 +11,16 @@ the accepted `.crp` packages on disk; they skip when either is absent.
 from __future__ import annotations
 
 import collections
+import contextlib
+import copy
 import gzip
 import hashlib
+import io
 import json
 import math
 import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -539,6 +543,13 @@ class InventoryTests(unittest.TestCase):
         self.assertFalse(eligible)
         self.assertEqual(exclusion, "incomplete_or_unreleased_response")
         self.assertEqual(status, "unknown")
+        for value in (0, 1, None, "false"):
+            with self.subTest(success=value):
+                invalid = copy.deepcopy(good)
+                invalid["path_result"]["success"] = value
+                _, eligible, exclusion, status = inventory.classify(invalid, segments)
+                self.assertFalse(eligible)
+                self.assertEqual((exclusion, status), ("non_boolean_success", "unknown"))
 
     def test_midpoints_are_correlated_repeats_of_their_boundary_request(self):
         self.assertEqual(
@@ -859,13 +870,14 @@ class EvaluationTests(unittest.TestCase):
             self.assertEqual(metrics["classes"]["negatives"], 0)
             self.assertIn("estimable", self.evaluation["one_class"][mode]["note"])
 
-    def test_every_disagreement_is_a_native_length_denial(self):
-        self.assertEqual(self.evaluation["unexplained_disagreements"], [])
+    def test_failure_sentinels_do_not_identify_a_native_mechanism(self):
+        self.assertEqual(len({item["query_id"] for item in self.evaluation["unexplained_disagreements"]}), 19)
         for rule, items in self.evaluation["disagreements"].items():
             for item in items:
                 if item["relation"] == "false_positive":
                     self.assertEqual(item["native"]["flags"], 8, item["query_id"])
                     self.assertEqual(item["native"]["length"], model.MAX_LENGTH)
+                    self.assertEqual(item["mechanism_status"], "unknown")
                 elif item["relation"] == "false_negative":
                     self.fail(f"unexpected false negative: {item['query_id']}")
 
@@ -975,6 +987,137 @@ class EvaluationTests(unittest.TestCase):
         self.assertIsNone(metrics["precision"])
         serialized = json.dumps(self.evaluation)
         self.assertNotIn('"accuracy"', serialized)
+
+
+class StrictSourceBindingTests(unittest.TestCase):
+    def setUp(self):
+        self.protocol, self.predictions, self.inventory, self.requests = (
+            load(name) for name in ("protocol.json", "predictions.json", "inventory.json", "requests.json")
+        )
+        self.predictions_sha = sha((HERE / "predictions.json").read_bytes())
+
+    def failed(self):
+        checks = evaluate.validate(self.protocol, self.predictions, self.inventory,
+                                   self.requests, self.predictions_sha)
+        return {item["name"] for item in checks if not item["ok"]}
+
+    def test_each_missing_and_extra_source_key_is_rejected(self):
+        original = copy.deepcopy(self.protocol["sources"])
+        for name in original:
+            with self.subTest(missing=name):
+                self.protocol["sources"] = {key: value for key, value in original.items() if key != name}
+                self.assertIn("exact_required_source_keys", self.failed())
+        self.protocol["sources"] = {**original, "extra": "0" * 64}
+        self.assertIn("exact_required_source_keys", self.failed())
+
+    def test_each_wrong_source_hash_is_rejected(self):
+        original = copy.deepcopy(self.protocol["sources"])
+        for name in original:
+            with self.subTest(source=name):
+                self.protocol["sources"] = {**original, name: "0" * 64}
+                self.assertIn(f"source_hash_matches_{name}", self.failed())
+
+    def test_changed_response_and_runtime_context_are_rejected(self):
+        original = copy.deepcopy(self.inventory)
+        for field, value in (("result", {"success": False}), ("runtime_bound", "False")):
+            with self.subTest(field=field):
+                self.inventory = copy.deepcopy(original)
+                query = next(row for row in self.inventory["queries"] if row["eligible"])
+                query[field] = value
+                self.assertIn("inventory_document_matches_bound_bytes", self.failed())
+
+    def test_duplicate_and_omitted_request_ids_are_rejected(self):
+        original = copy.deepcopy(self.requests["requests"])
+        self.requests["requests"].append(copy.deepcopy(original[0]))
+        self.assertIn("request_query_ids_are_unique", self.failed())
+        self.requests["requests"] = original[1:]
+        self.assertIn("exact_prediction_request_and_eligible_ids", self.failed())
+
+    def test_seed_or_traffic_protocol_swap_is_rejected(self):
+        self.protocol["protocol_copied_from_source"] = "seed 858; inverted traffic"
+        self.assertIn("frozen_protocol_semantics", self.failed())
+
+    def test_missing_extra_and_wrong_frozen_source_bindings_are_rejected(self):
+        original = load("bindings.json")
+        for change in ("missing", "extra", "wrong"):
+            with self.subTest(change=change):
+                freeze = copy.deepcopy(original)
+                if change == "missing":
+                    del freeze["files"]["model.py"]
+                elif change == "extra":
+                    freeze["files"]["extra.py"] = "0" * 64
+                else:
+                    freeze["files"]["model.py"] = "0" * 64
+                with mock.patch.object(evaluate, "load_json", return_value=freeze):
+                    failed = self.failed()
+                self.assertIn("frozen_file_model.py" if change == "wrong" else "exact_frozen_file_keys", failed)
+
+    def test_reconstruction_checks_raw_responses_not_only_derived_hashes(self):
+        rebuilt = list(inventory.build())
+        query = next(row for row in rebuilt[0]["queries"] if row["eligible"])
+        query["result"]["success"] = not query["result"]["success"]
+        with mock.patch.object(inventory, "build", return_value=tuple(rebuilt)) as build:
+            self.assertIn("inventory_reconstructed_from_raw", self.failed())
+        build.assert_called_once_with()
+
+    def test_actual_cpu_receipt_package_swap_is_rejected(self):
+        read_raw = inventory.load_raw
+        swapped = []
+        def swap(ref, cache):
+            raw = copy.deepcopy(read_raw(ref, cache))
+            if ref["path"] == "raw/cpu-reproduction.json.gz":
+                raw["data"]["cases"]["asheville"]["stage"]["crp_sha256"] = "0" * 64
+                swapped.append(ref["path"])
+            return raw
+        checks = []
+        with mock.patch.object(inventory, "load_raw", side_effect=swap):
+            evaluate.validate_lineage(lambda name, ok, detail=None: checks.append((name, ok)))
+        self.assertTrue(swapped)
+        self.assertIn(("reproduction_evidence_asheville", False), checks)
+
+    def test_real_binding_failure_leaves_reports_byte_identical(self):
+        names = ("evaluation.json", "integrity.json")
+        before = {name: (HERE / name).read_bytes() for name in names}
+        load_document = evaluate.load_json
+        broken = copy.deepcopy(self.inventory)
+        next(row for row in broken["queries"] if row["eligible"])["observed"] = 1
+        def changed(name):
+            return broken if name == "inventory.json" else load_document(name)
+        with mock.patch.object(evaluate, "load_json", side_effect=changed), contextlib.redirect_stdout(io.StringIO()):
+            with self.assertRaises(SystemExit) as raised:
+                evaluate.main()
+        self.assertEqual(raised.exception.code, 2)
+        self.assertEqual(before, {name: (HERE / name).read_bytes() for name in names})
+
+    def test_coverage_counts_answered_queries_not_candidate_share(self):
+        result = evaluate.confusion([(model.SUCCESS, True), (model.NO_PATH, False), (model.ABSTAIN, True)])
+        self.assertAlmostEqual(result["coverage"], 2 / 3)
+        self.assertEqual(result["candidate_fraction"], 0.5)
+        self.assertIsNone(evaluate.confusion([])["coverage"])
+
+    def test_road_filters_use_the_actual_passenger_car_protocol(self):
+        lanes = [lane(0, "Forward"), lane(1, "Forward"), lane(2, "Forward")]
+        lanes[1]["type"] = "TransportVehicle"
+        lanes[2]["category"] = "Bus"
+        self.assertEqual([item["index"] for item in topology.mode_lanes({"lanes": lanes}, "road")], [0])
+        self.assertEqual(topology.LANE_TYPES_BY_MODE["ship"], topology.ACCEPTED_LANE_TYPES)
+        self.assertEqual(topology.CATEGORY_BY_MODE, {"road": "PassengerCar", "ship": "All", "air": "All"})
+
+    def test_short_undirected_path_cannot_prove_directed_cap_insensitivity(self):
+        graph = package([
+            segment(1, 1, 2, [lane(0, "Forward")], a=(0, 0, 0), b=(10, 0, 0)),
+            segment(2, 3, 4, [lane(0, "Forward")], a=(11, 0, 0), b=(21, 0, 0)),
+            segment(3, 2, 3, [lane(0, "Forward")], a=(0, 0, 0), b=(110000, 0, 0)),
+            segment(4, 3, 2, [lane(0, "Forward")], a=(11, 0, 0), b=(10, 0, 0)),
+        ])
+        prepared = model.Prepared(graph, "road")
+        request = {"from": [1, 0, 0], "to": [2, 0, 255]}
+        rules = {rule: model.predict(prepared, request, rule) for rule in (model.PRIMARY_RULE, "directed_segment")}
+        self.assertLess(evaluate.shortest_undirected(prepared, request), model.MAX_LENGTH)
+        self.assertEqual(rules[model.PRIMARY_RULE]["prediction"], model.NO_PATH)
+        audit = evaluate.length_sensitivity([("synthetic", prepared, request, rules)])
+        self.assertFalse(audit["bridge_error_cannot_flip"])
+        self.assertEqual({item["rule"] for item in audit["cap_sensitive_no_path"]}, set(rules))
 
 
 if __name__ == "__main__":

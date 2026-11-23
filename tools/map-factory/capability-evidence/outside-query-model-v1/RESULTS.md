@@ -8,7 +8,8 @@ prospective or blind, and no new capture was made.
 Exact protocol, copied from the accepted study's collector:
 
 > `PathManager.CreatePath`; vehicle `Car` / `Ship` / `Plane` by mode; category
-> `All`; laneTypes `Vehicle|TransportVehicle|CargoVehicle`; seed 857;
+> `PassengerCar` for road / `All` for ship and air; laneTypes `Vehicle` for road
+> / `Vehicle|TransportVehicle|CargoVehicle` for ship and air; seed 857;
 > maxLength 100000; literal `[segment, lane, offset]` endpoints.
 
 A **positive** is a complete, released native path whose first and last returned
@@ -48,7 +49,8 @@ recorded as anomalies.
 Midpoints are not independent: 378 of 378 offset-128 requests return exactly the
 outcome of their boundary sibling on the same segments, lanes and direction.
 Two openings of an unchanged package repeat eight eligible queries; all eight
-agree. Neither repetition is pooled into the counts below.
+agree. Midpoints are not pooled below; repeated openings retain their original
+study group in the per-request counts and are never independent votes.
 
 ## Road endpoint roles
 
@@ -124,6 +126,9 @@ Same-edge literal boundary requests, best rule: TP 9, FP 0, TN 27, FN 0
 
 The fidelity split is the same partition as the study split here: every targeted
 opening recorded a native entry context and every first opening did not.
+
+| Package | n | TP | FP | TN | FN |
+| --- | ---: | ---: | ---: | ---: | ---: |
 | asheville | 20 | 2 | 0 | 18 | 0 |
 | boston | 24 | 6 | 0 | 18 | 0 |
 | charleston | 24 | 6 | 0 | 18 | 0 |
@@ -159,15 +164,17 @@ There are 19, all from the fitted rule, all false positives, all road:
 - `pittsburgh/native-v2-6/road/015, 037, 071, 093, 127, 151, 161, 179, 183, 187, 201, 205, 209`
 
 Each returns `complete = true`, `released = true`, `success = false`,
-`flags = 8`, `length = 100000.0` and no positions. `length` at exactly the
-protocol maximum is the pathfinder reporting that its search budget was
-exhausted, not that the pair is disconnected. Their undirected chord lower bound
-is 21.7–30.9 km, well below the 100 km cap, so nothing observable before the
-query separates them from successes whose lower bound reaches 35.6 km. This is
-reported as a bound on the model, not fitted away: no threshold, no place or
+`flags = 8`, `length = 100000.0` and no positions. The harness reads those fields
+from the failed path unit; it does not report a cause. A retained maximum-length
+sentinel is not proof that a search budget was exhausted. All 19 failure
+mechanisms remain **unknown**, and all 19 disagreements remain unexplained by
+the model. Their primary-rule directed chord paths are 21.7–30.9 km, overlapping
+observed successes up to 35.6 km; a simple length cutoff does not separate them.
+This is reported as a bound on the model, not fitted away: no threshold, no place or
 package exception, and no post-hoc rule was added.
 
-No false negatives. No abstentions. No unexplained error.
+No false negatives. No abstentions. Nineteen unexplained false positives (the
+primary and selected-rule sections each list the same 19 queries).
 
 ## Bounds
 
@@ -186,7 +193,10 @@ No false negatives. No abstentions. No unexplained error.
   one package are correlated. Counts above are per request; they are not
   independent votes and no significance test is applied.
 - **Bridge:** 99.80 % of segments reproduce their chord length within 2 %, all
-  within 20 %; the length check never binds, so a 20 % chord error cannot flip
-  a prediction. One asheville-only and two hong-kong-only node flag values
+  within 20 %. A short undirected path cannot prove a directed length bound.
+  The revised audit instead checks every frozen successful directed path (the
+  longest is 48.9 % of the cap across all rules) and rechecks every negative
+  directed prediction without a cap. None becomes reachable. Thus the reported
+  20 % chord error cannot flip a frozen prediction. One asheville-only and two hong-kong-only node flag values
   cannot be named by a leave-one-package-out catalog; the model does not read
   node flags.

@@ -6,12 +6,13 @@
   "TP": 93,
   "abstain": 0,
   "actual_negatives": 249,
+  "candidate_fraction": 0.32748538011695905,
   "classes": {
    "estimable": true,
    "negatives": 249,
    "positives": 93
   },
-  "coverage": 0.32748538011695905,
+  "coverage": 1.0,
   "f1": 0.9073170731707317,
   "n": 342,
   "precision": 0.8303571428571429,
@@ -29,6 +30,7 @@
     "TP": 102,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 1.0,
     "classes": {
      "estimable": true,
      "negatives": 276,
@@ -50,6 +52,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -70,6 +73,7 @@
      "TP": 76,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": true,
       "negatives": 276,
@@ -90,6 +94,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -112,6 +117,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -132,6 +138,7 @@
      "TP": 67,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": true,
       "negatives": 249,
@@ -152,6 +159,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -173,6 +181,7 @@
     "TP": 93,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 1.0,
     "classes": {
      "estimable": true,
      "negatives": 249,
@@ -193,6 +202,7 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 1.0,
     "classes": {
      "estimable": true,
      "negatives": 27,
@@ -215,12 +225,13 @@
     "TP": 0,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.0,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.0,
+    "coverage": 1.0,
     "f1": null,
     "n": 378,
     "precision": null,
@@ -236,12 +247,13 @@
      "TP": 0,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 0.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
       "positives": 10
      },
-     "coverage": 0.0,
+     "coverage": 1.0,
      "f1": null,
      "n": 10,
      "precision": null,
@@ -256,12 +268,13 @@
      "TP": 0,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.0,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.0,
+     "coverage": 1.0,
      "f1": null,
      "n": 352,
      "precision": null,
@@ -276,12 +289,13 @@
      "TP": 0,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 0.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
       "positives": 16
      },
-     "coverage": 0.0,
+     "coverage": 1.0,
      "f1": null,
      "n": 16,
      "precision": null,
@@ -298,12 +312,13 @@
      "TP": 0,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 0.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
       "positives": 10
      },
-     "coverage": 0.0,
+     "coverage": 1.0,
      "f1": null,
      "n": 10,
      "precision": null,
@@ -318,12 +333,13 @@
      "TP": 0,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.0,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.0,
+     "coverage": 1.0,
      "f1": null,
      "n": 316,
      "precision": null,
@@ -338,12 +354,13 @@
      "TP": 0,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 0.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
       "positives": 16
      },
-     "coverage": 0.0,
+     "coverage": 1.0,
      "f1": null,
      "n": 16,
      "precision": null,
@@ -359,12 +376,13 @@
     "TP": 0,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.0,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.0,
+    "coverage": 1.0,
     "f1": null,
     "n": 342,
     "precision": null,
@@ -379,12 +397,13 @@
     "TP": 0,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.0,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.0,
+    "coverage": 1.0,
     "f1": null,
     "n": 36,
     "precision": null,
@@ -401,12 +420,13 @@
     "TP": 102,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.3201058201058201,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.3201058201058201,
+    "coverage": 1.0,
     "f1": 0.914798206278027,
     "n": 378,
     "precision": 0.8429752066115702,
@@ -422,6 +442,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -442,12 +463,13 @@
      "TP": 76,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.26988636363636365,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.26988636363636365,
+     "coverage": 1.0,
      "f1": 0.888888888888889,
      "n": 352,
      "precision": 0.8,
@@ -462,6 +484,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -484,6 +507,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -504,12 +528,13 @@
      "TP": 67,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2721518987341772,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2721518987341772,
+     "coverage": 1.0,
      "f1": 0.8758169934640523,
      "n": 316,
      "precision": 0.7790697674418605,
@@ -524,6 +549,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -545,12 +571,13 @@
     "TP": 93,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.32748538011695905,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.32748538011695905,
+    "coverage": 1.0,
     "f1": 0.9073170731707317,
     "n": 342,
     "precision": 0.8303571428571429,
@@ -565,12 +592,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -587,12 +615,13 @@
     "TP": 102,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.3201058201058201,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.3201058201058201,
+    "coverage": 1.0,
     "f1": 0.914798206278027,
     "n": 378,
     "precision": 0.8429752066115702,
@@ -608,6 +637,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -628,12 +658,13 @@
      "TP": 76,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.26988636363636365,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.26988636363636365,
+     "coverage": 1.0,
      "f1": 0.888888888888889,
      "n": 352,
      "precision": 0.8,
@@ -648,6 +679,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -670,6 +702,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -690,12 +723,13 @@
      "TP": 67,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2721518987341772,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2721518987341772,
+     "coverage": 1.0,
      "f1": 0.8758169934640523,
      "n": 316,
      "precision": 0.7790697674418605,
@@ -710,6 +744,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -731,12 +766,13 @@
     "TP": 93,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.32748538011695905,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.32748538011695905,
+    "coverage": 1.0,
     "f1": 0.9073170731707317,
     "n": 342,
     "precision": 0.8303571428571429,
@@ -751,12 +787,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -773,12 +810,13 @@
     "TP": 102,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.3201058201058201,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.3201058201058201,
+    "coverage": 1.0,
     "f1": 0.914798206278027,
     "n": 378,
     "precision": 0.8429752066115702,
@@ -794,6 +832,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -814,12 +853,13 @@
      "TP": 76,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.26988636363636365,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.26988636363636365,
+     "coverage": 1.0,
      "f1": 0.888888888888889,
      "n": 352,
      "precision": 0.8,
@@ -834,6 +874,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -856,6 +897,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -876,12 +918,13 @@
      "TP": 67,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2721518987341772,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2721518987341772,
+     "coverage": 1.0,
      "f1": 0.8758169934640523,
      "n": 316,
      "precision": 0.7790697674418605,
@@ -896,6 +939,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -917,12 +961,13 @@
     "TP": 93,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.32748538011695905,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.32748538011695905,
+    "coverage": 1.0,
     "f1": 0.9073170731707317,
     "n": 342,
     "precision": 0.8303571428571429,
@@ -937,12 +982,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -959,12 +1005,13 @@
     "TP": 62,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.18518518518518517,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.18518518518518517,
+    "coverage": 1.0,
     "f1": 0.7209302325581395,
     "n": 378,
     "precision": 0.8857142857142857,
@@ -980,6 +1027,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1000,12 +1048,13 @@
      "TP": 36,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.125,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.125,
+     "coverage": 1.0,
      "f1": 0.6,
      "n": 352,
      "precision": 0.8181818181818182,
@@ -1020,6 +1069,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1042,6 +1092,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1062,12 +1113,13 @@
      "TP": 33,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.12974683544303797,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.12974683544303797,
+     "coverage": 1.0,
      "f1": 0.611111111111111,
      "n": 316,
      "precision": 0.8048780487804879,
@@ -1082,6 +1134,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1103,12 +1156,13 @@
     "TP": 59,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.195906432748538,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.195906432748538,
+    "coverage": 1.0,
     "f1": 0.7375,
     "n": 342,
     "precision": 0.8805970149253731,
@@ -1123,12 +1177,13 @@
     "TP": 3,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.08333333333333333,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.08333333333333333,
+    "coverage": 1.0,
     "f1": 0.5,
     "n": 36,
     "precision": 1.0,
@@ -1145,12 +1200,13 @@
     "TP": 94,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.29894179894179895,
+    "coverage": 1.0,
     "f1": 0.8744186046511628,
     "n": 378,
     "precision": 0.831858407079646,
@@ -1166,6 +1222,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1186,12 +1243,13 @@
      "TP": 68,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.2471590909090909,
+     "coverage": 1.0,
      "f1": 0.8343558282208589,
      "n": 352,
      "precision": 0.7816091954022989,
@@ -1206,6 +1264,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1228,6 +1287,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1248,12 +1308,13 @@
      "TP": 59,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2468354430379747,
+     "coverage": 1.0,
      "f1": 0.8137931034482757,
      "n": 316,
      "precision": 0.7564102564102564,
@@ -1268,6 +1329,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1289,12 +1351,13 @@
     "TP": 85,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.30409356725146197,
+    "coverage": 1.0,
     "f1": 0.8629441624365483,
     "n": 342,
     "precision": 0.8173076923076923,
@@ -1309,12 +1372,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -1331,12 +1395,13 @@
     "TP": 94,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.29894179894179895,
+    "coverage": 1.0,
     "f1": 0.8744186046511628,
     "n": 378,
     "precision": 0.831858407079646,
@@ -1352,6 +1417,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1372,12 +1438,13 @@
      "TP": 68,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.2471590909090909,
+     "coverage": 1.0,
      "f1": 0.8343558282208589,
      "n": 352,
      "precision": 0.7816091954022989,
@@ -1392,6 +1459,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1414,6 +1482,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1434,12 +1503,13 @@
      "TP": 59,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2468354430379747,
+     "coverage": 1.0,
      "f1": 0.8137931034482757,
      "n": 316,
      "precision": 0.7564102564102564,
@@ -1454,6 +1524,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1475,12 +1546,13 @@
     "TP": 85,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.30409356725146197,
+    "coverage": 1.0,
     "f1": 0.8629441624365483,
     "n": 342,
     "precision": 0.8173076923076923,
@@ -1495,12 +1567,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -1517,12 +1590,13 @@
     "TP": 94,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.29894179894179895,
+    "coverage": 1.0,
     "f1": 0.8744186046511628,
     "n": 378,
     "precision": 0.831858407079646,
@@ -1538,6 +1612,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1558,12 +1633,13 @@
      "TP": 68,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.2471590909090909,
+     "coverage": 1.0,
      "f1": 0.8343558282208589,
      "n": 352,
      "precision": 0.7816091954022989,
@@ -1578,6 +1654,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1600,6 +1677,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1620,12 +1698,13 @@
      "TP": 59,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2468354430379747,
+     "coverage": 1.0,
      "f1": 0.8137931034482757,
      "n": 316,
      "precision": 0.7564102564102564,
@@ -1640,6 +1719,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1661,12 +1741,13 @@
     "TP": 85,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.30409356725146197,
+    "coverage": 1.0,
     "f1": 0.8629441624365483,
     "n": 342,
     "precision": 0.8173076923076923,
@@ -1681,12 +1762,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -1703,12 +1785,13 @@
     "TP": 94,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.29894179894179895,
+    "coverage": 1.0,
     "f1": 0.8744186046511628,
     "n": 378,
     "precision": 0.831858407079646,
@@ -1724,6 +1807,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1744,12 +1828,13 @@
      "TP": 68,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.2471590909090909,
+     "coverage": 1.0,
      "f1": 0.8343558282208589,
      "n": 352,
      "precision": 0.7816091954022989,
@@ -1764,6 +1849,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1786,6 +1872,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1806,12 +1893,13 @@
      "TP": 59,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.2468354430379747,
+     "coverage": 1.0,
      "f1": 0.8137931034482757,
      "n": 316,
      "precision": 0.7564102564102564,
@@ -1826,6 +1914,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1847,12 +1936,13 @@
     "TP": 85,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.30409356725146197,
+    "coverage": 1.0,
     "f1": 0.8629441624365483,
     "n": 342,
     "precision": 0.8173076923076923,
@@ -1867,12 +1957,13 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 36,
     "precision": 1.0,
@@ -1889,12 +1980,13 @@
     "TP": 62,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 0.18518518518518517,
     "classes": {
      "estimable": true,
      "negatives": 276,
      "positives": 102
     },
-    "coverage": 0.18518518518518517,
+    "coverage": 1.0,
     "f1": 0.7209302325581395,
     "n": 378,
     "precision": 0.8857142857142857,
@@ -1910,6 +2002,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1930,12 +2023,13 @@
      "TP": 36,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 0.125,
      "classes": {
       "estimable": true,
       "negatives": 276,
       "positives": 76
      },
-     "coverage": 0.125,
+     "coverage": 1.0,
      "f1": 0.6,
      "n": 352,
      "precision": 0.8181818181818182,
@@ -1950,6 +2044,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1972,6 +2067,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -1992,12 +2088,13 @@
      "TP": 33,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 0.12974683544303797,
      "classes": {
       "estimable": true,
       "negatives": 249,
       "positives": 67
      },
-     "coverage": 0.12974683544303797,
+     "coverage": 1.0,
      "f1": 0.611111111111111,
      "n": 316,
      "precision": 0.8048780487804879,
@@ -2012,6 +2109,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -2033,12 +2131,13 @@
     "TP": 59,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 0.195906432748538,
     "classes": {
      "estimable": true,
      "negatives": 249,
      "positives": 93
     },
-    "coverage": 0.195906432748538,
+    "coverage": 1.0,
     "f1": 0.7375,
     "n": 342,
     "precision": 0.8805970149253731,
@@ -2053,12 +2152,13 @@
     "TP": 3,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 0.08333333333333333,
     "classes": {
      "estimable": true,
      "negatives": 27,
      "positives": 9
     },
-    "coverage": 0.08333333333333333,
+    "coverage": 1.0,
     "f1": 0.5,
     "n": 36,
     "precision": 1.0,
@@ -2075,6 +2175,7 @@
     "TP": 102,
     "abstain": 0,
     "actual_negatives": 276,
+    "candidate_fraction": 1.0,
     "classes": {
      "estimable": true,
      "negatives": 276,
@@ -2096,6 +2197,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -2116,6 +2218,7 @@
      "TP": 76,
      "abstain": 0,
      "actual_negatives": 276,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": true,
       "negatives": 276,
@@ -2136,6 +2239,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -2158,6 +2262,7 @@
      "TP": 10,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -2178,6 +2283,7 @@
      "TP": 67,
      "abstain": 0,
      "actual_negatives": 249,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": true,
       "negatives": 249,
@@ -2198,6 +2304,7 @@
      "TP": 16,
      "abstain": 0,
      "actual_negatives": 0,
+     "candidate_fraction": 1.0,
      "classes": {
       "estimable": false,
       "negatives": 0,
@@ -2219,6 +2326,7 @@
     "TP": 93,
     "abstain": 0,
     "actual_negatives": 249,
+    "candidate_fraction": 1.0,
     "classes": {
      "estimable": true,
      "negatives": 249,
@@ -2239,6 +2347,7 @@
     "TP": 9,
     "abstain": 0,
     "actual_negatives": 27,
+    "candidate_fraction": 1.0,
     "classes": {
      "estimable": true,
      "negatives": 27,
@@ -2289,6 +2398,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 29778.33346
@@ -2301,6 +2411,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/013",
     "relation": "false_positive",
@@ -2355,6 +2466,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 21913.198742
@@ -2367,6 +2479,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/021",
     "relation": "false_positive",
@@ -2421,6 +2534,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 29645.056392
@@ -2433,6 +2547,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/061",
     "relation": "false_positive",
@@ -2487,6 +2602,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 21779.921674
@@ -2499,6 +2615,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/069",
     "relation": "false_positive",
@@ -2553,6 +2670,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 29600.470139
@@ -2565,6 +2683,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/085",
     "relation": "false_positive",
@@ -2619,6 +2738,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 21735.335421
@@ -2631,6 +2751,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/093",
     "relation": "false_positive",
@@ -2685,6 +2806,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28398.235303
@@ -2697,6 +2819,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/015",
     "relation": "false_positive",
@@ -2751,6 +2874,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 25593.121819
@@ -2763,6 +2887,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/037",
     "relation": "false_positive",
@@ -2817,6 +2942,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28418.09394
@@ -2829,6 +2955,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/071",
     "relation": "false_positive",
@@ -2883,6 +3010,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 23828.488128
@@ -2895,6 +3023,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/093",
     "relation": "false_positive",
@@ -2949,6 +3078,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 26620.35194
@@ -2961,6 +3091,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/127",
     "relation": "false_positive",
@@ -3015,6 +3146,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28715.335213
@@ -3027,6 +3159,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/151",
     "relation": "false_positive",
@@ -3081,6 +3214,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 27474.819795
@@ -3093,6 +3227,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/161",
     "relation": "false_positive",
@@ -3147,6 +3282,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 25018.870885
@@ -3159,6 +3295,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/179",
     "relation": "false_positive",
@@ -3213,6 +3350,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 25023.984123
@@ -3225,6 +3363,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/183",
     "relation": "false_positive",
@@ -3279,6 +3418,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 23497.318908
@@ -3291,6 +3431,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/187",
     "relation": "false_positive",
@@ -3345,6 +3486,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28054.306599
@@ -3357,6 +3499,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/201",
     "relation": "false_positive",
@@ -3411,6 +3554,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28013.265145
@@ -3423,6 +3567,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/205",
     "relation": "false_positive",
@@ -3477,6 +3622,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 30916.239788
@@ -3489,6 +3635,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/209",
     "relation": "false_positive",
@@ -3545,6 +3692,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 29778.33346
@@ -3557,6 +3705,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/013",
     "relation": "false_positive",
@@ -3611,6 +3760,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 21913.198742
@@ -3623,6 +3773,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/021",
     "relation": "false_positive",
@@ -3677,6 +3828,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 29645.056392
@@ -3689,6 +3841,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/061",
     "relation": "false_positive",
@@ -3743,6 +3896,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 21779.921674
@@ -3755,6 +3909,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/069",
     "relation": "false_positive",
@@ -3809,6 +3964,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 29600.470139
@@ -3821,6 +3977,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/085",
     "relation": "false_positive",
@@ -3875,6 +4032,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 21735.335421
@@ -3887,6 +4045,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "hong-kong",
     "query_id": "hong-kong/native-v2-5/road/093",
     "relation": "false_positive",
@@ -3941,6 +4100,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28398.235303
@@ -3953,6 +4113,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/015",
     "relation": "false_positive",
@@ -4007,6 +4168,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 25593.121819
@@ -4019,6 +4181,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/037",
     "relation": "false_positive",
@@ -4073,6 +4236,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28418.09394
@@ -4085,6 +4249,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/071",
     "relation": "false_positive",
@@ -4139,6 +4304,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 23828.488128
@@ -4151,6 +4317,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/093",
     "relation": "false_positive",
@@ -4205,6 +4372,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 26620.35194
@@ -4217,6 +4385,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/127",
     "relation": "false_positive",
@@ -4271,6 +4440,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28715.335213
@@ -4283,6 +4453,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/151",
     "relation": "false_positive",
@@ -4337,6 +4508,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 27474.819795
@@ -4349,6 +4521,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/161",
     "relation": "false_positive",
@@ -4403,6 +4576,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 25018.870885
@@ -4415,6 +4589,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/179",
     "relation": "false_positive",
@@ -4469,6 +4644,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 25023.984123
@@ -4481,6 +4657,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/183",
     "relation": "false_positive",
@@ -4535,6 +4712,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 23497.318908
@@ -4547,6 +4725,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/187",
     "relation": "false_positive",
@@ -4601,6 +4780,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28054.306599
@@ -4613,6 +4793,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/201",
     "relation": "false_positive",
@@ -4667,6 +4848,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 28013.265145
@@ -4679,6 +4861,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/205",
     "relation": "false_positive",
@@ -4733,6 +4916,7 @@
       "Outside"
      ]
     ],
+    "mechanism_status": "unknown",
     "mode": "road",
     "model": {
      "path_lower_bound_length": 30916.239788
@@ -4745,6 +4929,7 @@
      "released": true,
      "success": false
     },
+    "native_failure_sentinel": true,
     "package": "pittsburgh",
     "query_id": "pittsburgh/native-v2-6/road/209",
     "relation": "false_positive",
@@ -4796,12 +4981,13 @@
      "TP": 27,
      "abstain": 0,
      "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
      "classes": {
       "estimable": true,
       "negatives": 87,
       "positives": 27
      },
-     "coverage": 0.23684210526315788,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 114,
      "precision": 1.0,
@@ -4816,12 +5002,13 @@
      "TP": 27,
      "abstain": 0,
      "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
      "classes": {
       "estimable": true,
       "negatives": 87,
       "positives": 27
      },
-     "coverage": 0.23684210526315788,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 114,
      "precision": 1.0,
@@ -4838,12 +5025,13 @@
      "TP": 75,
      "abstain": 0,
      "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
      "classes": {
       "estimable": true,
       "negatives": 189,
       "positives": 75
      },
-     "coverage": 0.3560606060606061,
+     "coverage": 1.0,
      "f1": 0.8875739644970414,
      "n": 264,
      "precision": 0.7978723404255319,
@@ -4858,12 +5046,13 @@
      "TP": 75,
      "abstain": 0,
      "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
      "classes": {
       "estimable": true,
       "negatives": 189,
       "positives": 75
      },
-     "coverage": 0.3560606060606061,
+     "coverage": 1.0,
      "f1": 0.8875739644970414,
      "n": 264,
      "precision": 0.7978723404255319,
@@ -4882,12 +5071,13 @@
      "TP": 2,
      "abstain": 0,
      "actual_negatives": 18,
+     "candidate_fraction": 0.1,
      "classes": {
       "estimable": true,
       "negatives": 18,
       "positives": 2
      },
-     "coverage": 0.1,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 20,
      "precision": 1.0,
@@ -4902,12 +5092,13 @@
      "TP": 2,
      "abstain": 0,
      "actual_negatives": 18,
+     "candidate_fraction": 0.1,
      "classes": {
       "estimable": true,
       "negatives": 18,
       "positives": 2
      },
-     "coverage": 0.1,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 20,
      "precision": 1.0,
@@ -4924,12 +5115,13 @@
      "TP": 6,
      "abstain": 0,
      "actual_negatives": 18,
+     "candidate_fraction": 0.25,
      "classes": {
       "estimable": true,
       "negatives": 18,
       "positives": 6
      },
-     "coverage": 0.25,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 24,
      "precision": 1.0,
@@ -4944,12 +5136,13 @@
      "TP": 6,
      "abstain": 0,
      "actual_negatives": 18,
+     "candidate_fraction": 0.25,
      "classes": {
       "estimable": true,
       "negatives": 18,
       "positives": 6
      },
-     "coverage": 0.25,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 24,
      "precision": 1.0,
@@ -4966,12 +5159,13 @@
      "TP": 6,
      "abstain": 0,
      "actual_negatives": 18,
+     "candidate_fraction": 0.25,
      "classes": {
       "estimable": true,
       "negatives": 18,
       "positives": 6
      },
-     "coverage": 0.25,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 24,
      "precision": 1.0,
@@ -4986,12 +5180,13 @@
      "TP": 6,
      "abstain": 0,
      "actual_negatives": 18,
+     "candidate_fraction": 0.25,
      "classes": {
       "estimable": true,
       "negatives": 18,
       "positives": 6
      },
-     "coverage": 0.25,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 24,
      "precision": 1.0,
@@ -5008,12 +5203,13 @@
      "TP": 11,
      "abstain": 0,
      "actual_negatives": 91,
+     "candidate_fraction": 0.16666666666666666,
      "classes": {
       "estimable": true,
       "negatives": 91,
       "positives": 11
      },
-     "coverage": 0.16666666666666666,
+     "coverage": 1.0,
      "f1": 0.7857142857142858,
      "n": 102,
      "precision": 0.6470588235294118,
@@ -5028,12 +5224,13 @@
      "TP": 11,
      "abstain": 0,
      "actual_negatives": 91,
+     "candidate_fraction": 0.16666666666666666,
      "classes": {
       "estimable": true,
       "negatives": 91,
       "positives": 11
      },
-     "coverage": 0.16666666666666666,
+     "coverage": 1.0,
      "f1": 0.7857142857142858,
      "n": 102,
      "precision": 0.6470588235294118,
@@ -5050,12 +5247,13 @@
      "TP": 53,
      "abstain": 0,
      "actual_negatives": 95,
+     "candidate_fraction": 0.44594594594594594,
      "classes": {
       "estimable": true,
       "negatives": 95,
       "positives": 53
      },
-     "coverage": 0.44594594594594594,
+     "coverage": 1.0,
      "f1": 0.8907563025210083,
      "n": 148,
      "precision": 0.803030303030303,
@@ -5070,12 +5268,13 @@
      "TP": 53,
      "abstain": 0,
      "actual_negatives": 95,
+     "candidate_fraction": 0.44594594594594594,
      "classes": {
       "estimable": true,
       "negatives": 95,
       "positives": 53
      },
-     "coverage": 0.44594594594594594,
+     "coverage": 1.0,
      "f1": 0.8907563025210083,
      "n": 148,
      "precision": 0.803030303030303,
@@ -5092,12 +5291,13 @@
      "TP": 15,
      "abstain": 0,
      "actual_negatives": 9,
+     "candidate_fraction": 0.625,
      "classes": {
       "estimable": true,
       "negatives": 9,
       "positives": 15
      },
-     "coverage": 0.625,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 24,
      "precision": 1.0,
@@ -5112,12 +5312,13 @@
      "TP": 15,
      "abstain": 0,
      "actual_negatives": 9,
+     "candidate_fraction": 0.625,
      "classes": {
       "estimable": true,
       "negatives": 9,
       "positives": 15
      },
-     "coverage": 0.625,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 24,
      "precision": 1.0,
@@ -5136,12 +5337,13 @@
      "TP": 75,
      "abstain": 0,
      "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
      "classes": {
       "estimable": true,
       "negatives": 189,
       "positives": 75
      },
-     "coverage": 0.3560606060606061,
+     "coverage": 1.0,
      "f1": 0.8875739644970414,
      "n": 264,
      "precision": 0.7978723404255319,
@@ -5156,12 +5358,13 @@
      "TP": 75,
      "abstain": 0,
      "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
      "classes": {
       "estimable": true,
       "negatives": 189,
       "positives": 75
      },
-     "coverage": 0.3560606060606061,
+     "coverage": 1.0,
      "f1": 0.8875739644970414,
      "n": 264,
      "precision": 0.7978723404255319,
@@ -5178,12 +5381,13 @@
      "TP": 27,
      "abstain": 0,
      "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
      "classes": {
       "estimable": true,
       "negatives": 87,
       "positives": 27
      },
-     "coverage": 0.23684210526315788,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 114,
      "precision": 1.0,
@@ -5198,12 +5402,13 @@
      "TP": 27,
      "abstain": 0,
      "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
      "classes": {
       "estimable": true,
       "negatives": 87,
       "positives": 27
      },
-     "coverage": 0.23684210526315788,
+     "coverage": 1.0,
      "f1": 1.0,
      "n": 114,
      "precision": 1.0,
@@ -5283,12 +5488,13 @@
     "TP": 2,
     "abstain": 0,
     "actual_negatives": 18,
+    "candidate_fraction": 0.1,
     "classes": {
      "estimable": true,
      "negatives": 18,
      "positives": 2
     },
-    "coverage": 0.1,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 20,
     "precision": 1.0,
@@ -5320,12 +5526,13 @@
     "TP": 6,
     "abstain": 0,
     "actual_negatives": 18,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 18,
      "positives": 6
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 24,
     "precision": 1.0,
@@ -5357,12 +5564,13 @@
     "TP": 6,
     "abstain": 0,
     "actual_negatives": 18,
+    "candidate_fraction": 0.25,
     "classes": {
      "estimable": true,
      "negatives": 18,
      "positives": 6
     },
-    "coverage": 0.25,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 24,
     "precision": 1.0,
@@ -5394,12 +5602,13 @@
     "TP": 11,
     "abstain": 0,
     "actual_negatives": 91,
+    "candidate_fraction": 0.16666666666666666,
     "classes": {
      "estimable": true,
      "negatives": 91,
      "positives": 11
     },
-    "coverage": 0.16666666666666666,
+    "coverage": 1.0,
     "f1": 0.7857142857142858,
     "n": 102,
     "precision": 0.6470588235294118,
@@ -5431,12 +5640,13 @@
     "TP": 53,
     "abstain": 0,
     "actual_negatives": 95,
+    "candidate_fraction": 0.44594594594594594,
     "classes": {
      "estimable": true,
      "negatives": 95,
      "positives": 53
     },
-    "coverage": 0.44594594594594594,
+    "coverage": 1.0,
     "f1": 0.8907563025210083,
     "n": 148,
     "precision": 0.803030303030303,
@@ -5468,12 +5678,13 @@
     "TP": 15,
     "abstain": 0,
     "actual_negatives": 9,
+    "candidate_fraction": 0.625,
     "classes": {
      "estimable": true,
      "negatives": 9,
      "positives": 15
     },
-    "coverage": 0.625,
+    "coverage": 1.0,
     "f1": 1.0,
     "n": 24,
     "precision": 1.0,
@@ -5494,10 +5705,13 @@
  ],
  "length_check": {
   "binds": false,
+  "bridge_error_cannot_flip": true,
+  "cap_sensitive_no_path": [],
   "eligible_queries_with_chord_path": 378,
+  "max_directed_chord_over_cap": 0.48886885468,
   "max_length": 100000.0,
   "max_undirected_chord_over_cap": 0.3321056612562376,
-  "note": "The chord test cannot change any prediction: the largest eligible undirected chord lower bound is well under the protocol maximum, so even a 20% chord error cannot reach it."
+  "note": "Undirected lower bounds alone cannot prove cap insensitivity. All successful directed paths remain below the cap with 20% longer chords; all no-path predictions remain disconnected without a cap."
  },
  "limitations": [
   "The study is retrospective: the observations existed before the model.",
@@ -5540,12 +5754,13 @@
   "TP": 93,
   "abstain": 0,
   "actual_negatives": 249,
+  "candidate_fraction": 0.32748538011695905,
   "classes": {
    "estimable": true,
    "negatives": 249,
    "positives": 93
   },
-  "coverage": 0.32748538011695905,
+  "coverage": 1.0,
   "f1": 0.9073170731707317,
   "n": 342,
   "precision": 0.8303571428571429,
@@ -5553,7 +5768,7 @@
   "recall": 1.0,
   "scored": 342
  },
- "protocol_sha256": "7a87a7299173456e5cf9fa72a5a94924973cf309e8e208f6ddd1fb1779b23828",
+ "protocol_sha256": "663f747c1b872a72d381454f2488686cc180544226a4cf3506748db6fc9f3de4",
  "repeats": {
   "cross_opening": [
    {
@@ -5606,5 +5821,101 @@
  },
  "schema": 1,
  "study": "outside-query-model-v1",
- "unexplained_disagreements": []
+ "unexplained_disagreements": [
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/013",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/021",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/061",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/069",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/085",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/093",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/015",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/037",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/071",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/093",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/127",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/151",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/161",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/179",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/183",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/187",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/201",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/205",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/209",
+   "relation": "false_positive"
+  }
+ ]
 }

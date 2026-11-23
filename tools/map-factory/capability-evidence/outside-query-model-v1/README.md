@@ -53,13 +53,13 @@ where the length lower bound comes from.
 
 Directed reachability reproduces every observed success and misses no failure in
 230 of 249 negative cases. The 19 misses are all road requests in the two
-targeted second openings, and every one is a native search-budget denial: the
-returned result has `flags = 8` and `length = 100000`, exactly the protocol's
-`maxLength`.
+targeted second openings. Each returned `flags = 8` and `length = 100000`, the
+protocol's `maxLength` sentinel. Those fields do not identify the native failure
+mechanism; all 19 remain unexplained by this model.
 
-No pre-query length rule can separate them. Their undirected chord lower bound is
-21.7–30.9 km, while observed successes reach 35.6 km; the largest lower bound of
-any eligible request is 33 % of the cap. The lane-continuation hypotheses buy
+The primary rule's directed chord path lengths are 21.7–30.9 km for these misses,
+while observed successes reach 35.6 km. A simple length cutoff does not separate
+them. The lane-continuation hypotheses buy
 nothing: `any_lane` and the segment-level graph predict identically, `index_same`
 loses eight successes, and `index_mirror` trades 34 successes for 11 negatives.
 The reversal hypothesis never changes a prediction on this evidence, because
@@ -145,7 +145,8 @@ change a prediction.
 | `requests.json` | the label-free model inputs |
 | `manifest.json` | source hashes, openings, counts and exclusions |
 | `protocol.json`, `predictions.json`, `evaluation.json`, `integrity.json` | the freeze and its scored result |
-| `test_outside_query_model.py` | 78 tests: domain, direction, `Invert`, allocation-id independence, abstention, binding, freeze, metrics, bridge |
+| `bindings.json` | exact source/code/artifact hashes and semantic protocol/domain/feature freeze |
+| `test_outside_query_model.py` | 90 tests: domain, direction, `Invert`, allocation-id independence, abstention, tampering, raw lineage, freeze, metrics, bridge |
 
 ## Order and hashes
 
@@ -156,3 +157,19 @@ of the `predictions.json` on disk; a failed binding exits non-zero before any
 report is written. Each freeze is committed before the evaluation code that
 scores it, so the order in git shows the freeze rather than asserting it.
 `integrity.json` re-checks every binding and hash and records the result.
+
+The return audit added `bindings.json` before committing the revised evaluator.
+It binds code, inputs, catalogs, predictions and the protocol (excluding only
+`frozen_at`). The evaluator requires exact source-map key sets and unique,
+complete query IDs; reconstructs all three inventory documents from raw bytes
+without writing; and checks actual retained CPU receipts and opening package
+identities. A failed binding exits before either report is written. Coverage
+means answered queries divided by all eligible queries; `candidate_fraction`
+separately records the predicted-positive share among answered queries.
+
+The original collector source at `29b095475ba2f93c7e918fefc08c736493670304`,
+`tools/cs1-harness/mod/NetworkOps.cs`, hashes to
+`d644218e8969f40737ce08367a3a3e4c9adb6a550ba145fb3bf220ffa5f23813`,
+matching the retained build receipts. Road used `Vehicle` / `PassengerCar`,
+not the ship/air `Vehicle|TransportVehicle|CargoVehicle` / `All` masks.
+Correcting this domain leaves every retained prediction byte-identical.
