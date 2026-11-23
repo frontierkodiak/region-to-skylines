@@ -132,6 +132,12 @@ def read(path):
     )
 
 
+def freeze_gzip(path, value):
+    with Path(path).open("xb") as stream:
+        stream.write(gzip.compress(encoded(value), mtime=0))
+    return sha(path)
+
+
 def freeze(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -722,7 +728,7 @@ def prepare():
     query_ids = [
         q["query_id"]
         for r in selected.values()
-        for m in r["modes"].values()
+        for _, m in sorted(r["modes"].items())
         for q in m["selected"]
     ]
     query_ids += [r["query_id"] for c in control_plan for r in c["requests"]]
@@ -733,7 +739,7 @@ def prepare():
     ]
     if len(query_ids) != len(set(query_ids)):
         raise ValueError("duplicate planned query IDs")
-    freeze(HERE / "features.json", features)
+    freeze_gzip(HERE / "features.json.gz", features)
     freeze(
         HERE / "catalog-membership.json",
         {
@@ -760,7 +766,7 @@ def prepare():
             "protocol": PROTOCOL,
             "sources": source_files(),
             "catalog_membership_sha256": sha(HERE / "catalog-membership.json"),
-            "features_sha256": sha(HERE / "features.json"),
+            "features_sha256": sha(HERE / "features.json.gz"),
             "exclusion_source": {
                 "commit": STOCK_SOURCE,
                 "path": STOCK_PATH,
@@ -772,7 +778,7 @@ def prepare():
                 [
                     q["request"]
                     for r in selected.values()
-                    for m in r["modes"].values()
+                    for _, m in sorted(r["modes"].items())
                     for q in m["selected"]
                 ]
             ),
@@ -780,7 +786,7 @@ def prepare():
                 [
                     q["rules"]
                     for r in selected.values()
-                    for m in r["modes"].values()
+                    for _, m in sorted(r["modes"].items())
                     for q in m["selected"]
                 ]
             ),
@@ -807,14 +813,14 @@ def check():
         raise ValueError("source key set, bytes, or protocol changed")
     for key, name in [
         ("catalog_membership_sha256", "catalog-membership.json"),
-        ("features_sha256", "features.json"),
+        ("features_sha256", "features.json.gz"),
     ]:
         if frozen[key] != sha(HERE / name):
             raise ValueError("frozen artifact changed")
     ids = [
         q["query_id"]
         for r in frozen["selected"]
-        for m in r["modes"].values()
+        for _, m in sorted(r["modes"].items())
         for q in m["selected"]
     ]
     if len(ids) != len(set(ids)) or len(frozen["selected"]) > 8:
@@ -835,7 +841,7 @@ def check():
             [
                 q["request"]
                 for r in frozen["selected"]
-                for m in r["modes"].values()
+                for _, m in sorted(r["modes"].items())
                 for q in m["selected"]
             ]
         )
@@ -844,7 +850,7 @@ def check():
             [
                 q["rules"]
                 for r in frozen["selected"]
-                for m in r["modes"].values()
+                for _, m in sorted(r["modes"].items())
                 for q in m["selected"]
             ]
         )

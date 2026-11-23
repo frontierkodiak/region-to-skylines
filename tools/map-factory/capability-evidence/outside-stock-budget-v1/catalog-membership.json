@@ -1,0 +1,87 @@
+{
+  "catalog_sha256": "3b2136cd959f23cc77cfb8d28821e58b9a046300ee5f0e9f9e179ca1bf577241",
+  "catalog_source_commit": "914c153687106197e5f3a745d3ff7e181181ea8a",
+  "catalog_source_path": "tools/map-factory/capability-evidence/rail-stock-holdout-v1/catalogs.json",
+  "complete_bindings": {
+    "/mango/training/experiments/PL-1066-eligibility/maps/asheville/PL857-asheville.crp": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+    "/mango/training/experiments/PL-1066-eligibility/maps/charleston/PL857-charleston.crp": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+    "/mango/training/experiments/PL-1066-eligibility/maps/grand-canyon/PL857-grand-canyon.crp": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+    "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/PL857-hong-kong.crp": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+    "/mango/training/experiments/PL-1066-eligibility/maps/innsbruck/PL857-innsbruck.crp": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+    "/mango/training/experiments/PL-1066-eligibility/maps/pittsburgh/PL857-pittsburgh.crp": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+    "/mango/training/experiments/PL-1066-eligibility/maps/rio/PL857-rio.crp": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+    "/mango/training/experiments/PL-1066-eligibility/maps/yosemite/PL857-yosemite.crp": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+    "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+    "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Asanu Beach.crp": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+    "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Hanami Bay.crp": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/networks.json.gz": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/networks.json.gz": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/networks.json.gz": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/networks.json.gz": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/networks.json.gz": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/networks.json.gz": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+    "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/networks.json.gz": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+    "tools/map-factory/capability-evidence/rail-v3/raw/asheville/networks.json.gz": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+    "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/networks.json.gz": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+    "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/networks.json.gz": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+    "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/networks.json.gz": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649"
+  },
+  "note": "fixed accepted eleven-package union; nine geographic plus Asanu/Hanami, not the PL-1239 holdout inventories",
+  "packages": {
+    "asheville": {
+      "bytes": 6894275,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/asheville/PL857-asheville.crp",
+      "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870"
+    },
+    "boston": {
+      "bytes": 6478866,
+      "locator": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp",
+      "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54"
+    },
+    "charleston": {
+      "bytes": 6789679,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/charleston/PL857-charleston.crp",
+      "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff"
+    },
+    "grand-canyon": {
+      "bytes": 6348292,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/grand-canyon/PL857-grand-canyon.crp",
+      "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19"
+    },
+    "hong-kong": {
+      "bytes": 6531657,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/hong-kong/PL857-hong-kong.crp",
+      "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+    },
+    "innsbruck": {
+      "bytes": 5976093,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/innsbruck/PL857-innsbruck.crp",
+      "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6"
+    },
+    "pittsburgh": {
+      "bytes": 7393376,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/pittsburgh/PL857-pittsburgh.crp",
+      "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424"
+    },
+    "rio": {
+      "bytes": 6561930,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/rio/PL857-rio.crp",
+      "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff"
+    },
+    "stock-1": {
+      "bytes": 7146032,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Asanu Beach.crp",
+      "sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166"
+    },
+    "stock-2": {
+      "bytes": 4791928,
+      "locator": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/AP Hanami Bay.crp",
+      "sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6"
+    },
+    "yosemite": {
+      "bytes": 5849190,
+      "locator": "/mango/training/experiments/PL-1066-eligibility/maps/yosemite/PL857-yosemite.crp",
+      "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+    }
+  }
+}
