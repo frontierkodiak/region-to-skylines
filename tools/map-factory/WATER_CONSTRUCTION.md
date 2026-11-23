@@ -1419,3 +1419,17 @@ Ninefocusedtests/full7filebyte replay and producer pin/ancestor-bound/physical-
 identity checks pass. No grids/CRP/controls/native plan/game/admission. Combined
 phase36/37needs independentRESULTSacceptance beforeadoption; allstartup failures,
 refusals/primary/banks/protections/Boston/Charleston/holdout/promises unchanged.
+
+## Phase thirty-eight: joint authoring needs an explicit field rule
+
+PL1311's limited phase36/37 results PASS is accepted and the child closed.
+Its supplemental32local/1edge-only count is corrected additively: all33 retained
+bounds refusals contain local lo>hi; constructor results and the verdict do not
+change. No constructor, physical or native rerun was performed.
+
+Joining target features cannot remove existing field obligations. The concrete
+`development/phase38-joint-authoring-decision.md` proposes a narrow FUTURE joint
+original-interior depth rule, pending an explicit owner decision. It grants no
+current edit, buffer removal, source-width/flow/capacity authority or candidate.
+All six source/contract bindings and both NULLs remain. Shipping/defaults/live
+ledger/holdout and unknown promises are unchanged.

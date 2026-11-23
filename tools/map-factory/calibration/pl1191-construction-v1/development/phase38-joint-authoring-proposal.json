@@ -1,0 +1,39 @@
+{
+  "schema": "polli.experimental-joint-water-field-scope-proposal/1",
+  "status": "PENDING_OWNER_DECISION_NOT_EDIT_AUTHORITY",
+  "recommendation": "Allow a future complete joint plan to propose initial-depth changes within explicitly owned original mapped-water interiors, without blanket buffer removal.",
+  "rule_id": "joint-original-interior-depth/1",
+  "requires_explicit_policy_revision": true,
+  "current_fields_editable": false,
+  "proposed_field": "initialized_depth_only",
+  "proposed_dischargeable_obligation": "water-only mutual participating-feature protection, conditional on complete joint ownership/port/initialization/safety plan",
+  "not_dischargeable": [
+    "all protected terrain identity",
+    "every original bank terrain and depth identity",
+    "old controls raw43/order/positions/targets/rates",
+    "infrastructure, landing and corridor field protections",
+    "foreign/excluded/outside-target water and foreign128m obligations",
+    "unknown, overlapping or ambiguous source ownership",
+    "missing lateral area, junction, direction, receiving-stage or supply/outlet fact"
+  ],
+  "necessary_edit_domain": [
+    "original mapped polygon interior, never buffer/line-only raster/new envelope",
+    "exact unambiguous source-row identity and explicit complete joint target ownership",
+    "all overlapping immutable obligations satisfied independently",
+    "nondecreasing water, unchanged source geometry/masks/probes",
+    "complete same-node value agreement and all original startup/safety contracts"
+  ],
+  "new_controls": null,
+  "selected_operations": null,
+  "eligible_domain_nonempty": null,
+  "repaired_contracts": null,
+  "physical_candidate": false,
+  "native_plan": null,
+  "physical_admission": false,
+  "adoption": false,
+  "promise": "unknown",
+  "retained_definition_sha256": "2d72a80690d26c2f7de729e36d785c790451b4d28f6837fbf7b177af25ea4886",
+  "unopened_holdout_sha256": "181c2fd902b910668f340ef5ca97f2e08788e6fa3b60c41399d0faeca486636c",
+  "if_approved": "New versioned joint compiler, committed method/policy/tests and prospective all-six-case input freeze before new CPU outcomes; no physical execution until a complete exact plan exists.",
+  "if_rejected": "Close the isolated-retrofit model, not mandatory stream coverage; retain all refusals and unknown promises. No further pin/depth/stage/native rounds."
+}

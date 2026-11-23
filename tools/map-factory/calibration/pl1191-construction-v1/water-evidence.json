@@ -1375,7 +1375,14 @@
     "summary_sha256": "73201dfeef9bfd097ef116109a1402cf2160f15f32406bfb3d27e7900d854818",
     "report_sha256": "c092d3cc81a261e02459325b1121666f95527172a852c6149f119e8a9b50a688",
     "new_physical_or_native": false,
-    "adopted": false
+    "adopted": false,
+    "phase36_37_independent_results_acceptance": {
+      "issue": "PL-1311",
+      "verdict": "LIMITED_PASS_ACCEPTED",
+      "scope": "LIMITED_PHASE36_37_IMMUTABLE_INITIALIZATION_AND_EXISTING_WATER_ROLE_RESULTS_ONLY",
+      "consumed_receipt_sha256": "d86bad0a1c6ef3b7f9f96af6da57ac2509a583cf96489689c3931cf448fb6ec3",
+      "adoption": false
+    }
   },
   "phase37_existing_protected_water_role": {
     "status": "POSTANALYSIS_not_prospective",
@@ -1386,6 +1393,22 @@
     "report_sha256": "cb3a2e00e670d200e0202e7f5173a73018cf622f2114a5f9c0f7b65f341b1f02",
     "lever_closed_no_new_numeric_profile": true,
     "physical_or_native": false,
-    "adopted": false
+    "adopted": false,
+    "independent_results_acceptance": {
+      "issue": "PL-1311",
+      "verdict": "LIMITED_PASS_ACCEPTED",
+      "scope": "LIMITED_PHASE36_37_IMMUTABLE_INITIALIZATION_AND_EXISTING_WATER_ROLE_RESULTS_ONLY",
+      "consumed_receipt_sha256": "d86bad0a1c6ef3b7f9f96af6da57ac2509a583cf96489689c3931cf448fb6ec3",
+      "adoption": false
+    }
+  },
+  "phase38_joint_authoring_decision": {
+    "status": "pending_owner_field_scope_decision_not_edit_authority",
+    "proposal": "development/phase38-joint-authoring-proposal.json",
+    "decision": "development/phase38-joint-authoring-decision.md",
+    "physical_operations": null,
+    "new_CPU_or_native_outcomes": false,
+    "live_ledger_changed": false,
+    "promise": "unknown"
   }
 }
