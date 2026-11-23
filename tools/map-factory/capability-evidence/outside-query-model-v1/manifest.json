@@ -1,0 +1,4083 @@
+{
+ "anomalies": [
+  {
+   "attempt_id": "attempt-1",
+   "kind": "missing_networks",
+   "slug": "asheville"
+  },
+  {
+   "attempt_id": "native-v2-2",
+   "kind": "missing_networks",
+   "slug": "pittsburgh"
+  },
+  {
+   "attempt_id": "native-v2-1",
+   "kind": "missing_networks",
+   "slug": "rio"
+  }
+ ],
+ "counts": {
+  "anomalies": 3,
+  "by_exclusion": {
+   "midpoint_diagnostic_unscored": 378,
+   "no_request_recorded": 28,
+   "player_construction_not_unchanged_map": 28,
+   "protocol_fields_absent": 64
+  },
+  "by_mode": {
+   "air": 33,
+   "road": 802,
+   "ship": 41
+  },
+  "by_stratum": {
+   "archived_player_run": 28,
+   "midpoint_diagnostic": 378,
+   "primary_distinct_edge": 342,
+   "same_edge": 36,
+   "unclassified_protocol": 64,
+   "unrequested": 28
+  },
+  "eligible": 378,
+  "eligible_by_mode": {
+   "air": 10,
+   "road": 352,
+   "ship": 16
+  },
+  "eligible_by_stratum": {
+   "primary_distinct_edge": 342,
+   "same_edge": 36
+  },
+  "labels": {
+   "False": 276,
+   "True": 102
+  },
+  "labels_by_mode": {
+   "air": {
+    "True": 10
+   },
+   "road": {
+    "False": 276,
+    "True": 76
+   },
+   "ship": {
+    "True": 16
+   }
+  },
+  "midpoint_agree": 378,
+  "midpoint_pairs": 378,
+  "openings": 17,
+  "queries": 876
+ },
+ "eligibility_rules": {
+  "midpoint_diagnostic": "offset 128 diagnostic; never scored, its boundary sibling is the correlated repeat",
+  "mode_lane_absent_at_endpoint": "endpoint segment carries no lane of the mode's vehicle",
+  "not_a_literal_boundary_request": "endpoint not at 0/255, not at an Outside node, same node or same segment",
+  "player_construction_not_unchanged_map": "archived first-hour player run; excluded",
+  "primary_distinct_edge": "literal boundary request (offsets 0/255 at two distinct Outside nodes on two segments), ends on different map edges, complete and released native response",
+  "requested_source_lane_absent": "the request names a lane the endpoint segment does not have",
+  "requested_target_lane_absent": "the request names a lane the endpoint segment does not have",
+  "same_edge": "same literal boundary test, both ends on one map edge",
+  "unclassified_protocol": "earliest collector version: no position_kind or rail field; unknown, not scored"
+ },
+ "excluded": [
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/000",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/001",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/002",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/003",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/004",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/005",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/006",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/007",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/008",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "asheville/no-attempt/road/009",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "asheville/attempt-1/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "asheville/attempt-1/ship/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "asheville/attempt-1/air/nil-02",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "asheville/attempt-2/ship/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "asheville/attempt-2/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "asheville/attempt-2/air/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "asheville/attempt-2/air/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "boston/attempt-1/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "boston/attempt-1/ship/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "boston/attempt-1/ship/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "boston/attempt-1/air/046",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "boston/attempt-1/air/048",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "boston/native-v2-4/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "boston/native-v2-4/air/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "boston/native-v2-4/ship/001",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "boston/native-v2-4/ship/003",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/000",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/001",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/002",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/003",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/004",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/005",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/006",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/007",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/008",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "charleston/no-attempt/road/009",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "charleston/attempt-1/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "charleston/attempt-1/ship/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "charleston/attempt-1/ship/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "charleston/attempt-1/air/046",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "charleston/attempt-1/air/048",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "charleston/native-v2-3/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "charleston/native-v2-3/air/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "charleston/native-v2-3/ship/001",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "charleston/native-v2-3/ship/003",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "grand-canyon/attempt-1/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "grand-canyon/attempt-1/ship/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "grand-canyon/attempt-1/air/nil-02",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "hong-kong/attempt-1/air/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/attempt-1/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "hong-kong/attempt-1/ship/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "hong-kong/attempt-1/ship/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "hong-kong/native-v2-5/air/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/046",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/048",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/050",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/052",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/054",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/056",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/058",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/060",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/062",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/064",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/066",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/068",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/070",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/072",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/074",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/076",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/078",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/080",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/082",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/084",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/086",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/088",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/090",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/092",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/094",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/096",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/098",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/100",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/102",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/104",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/106",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/108",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/110",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/112",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/114",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/116",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/118",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/120",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/122",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/124",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/126",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/128",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/130",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/132",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/134",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/136",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/138",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/140",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/142",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/144",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/146",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/148",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/150",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/152",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/154",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/156",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/158",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/160",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/162",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/164",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/166",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/168",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/170",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/172",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/174",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/176",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/178",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/180",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/182",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/184",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/186",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/188",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/190",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/192",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/194",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/196",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/198",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/200",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/202",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/204",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/206",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/208",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/210",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/212",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/214",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/216",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/218",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/220",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/222",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/224",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/226",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/228",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/230",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/232",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/234",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/236",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/238",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/240",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/242",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/244",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/246",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/248",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/250",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/252",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/254",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/256",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/258",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "hong-kong/native-v2-5/road/260",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "hong-kong/native-v2-5/ship/262",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "hong-kong/native-v2-5/ship/264",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/000",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/001",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/002",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/003",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/004",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/005",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/006",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "player_construction_not_unchanged_map",
+   "label": "success",
+   "mode": "road",
+   "query_id": "innsbruck/no-attempt/road/007",
+   "stratum": "archived_player_run"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "innsbruck/attempt-1/ship/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/005",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/006",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/007",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/008",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/009",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/010",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/011",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/012",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/013",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/014",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/015",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/016",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/017",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/018",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/019",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/020",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "innsbruck/attempt-1/road/021",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "air",
+   "query_id": "innsbruck/attempt-1/air/022",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "air",
+   "query_id": "innsbruck/attempt-1/air/023",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "pittsburgh/attempt-1/ship/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/attempt-1/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "pittsburgh/attempt-1/air/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "pittsburgh/attempt-1/air/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-2/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "pittsburgh/native-v2-2/ship/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "pittsburgh/native-v2-2/air/nil-02",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "pittsburgh/native-v2-6/ship/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "pittsburgh/native-v2-6/air/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/046",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/048",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/050",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/052",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/054",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/056",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/058",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/060",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/062",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/064",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/066",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/068",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/070",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/072",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/074",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/076",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/078",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/080",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/082",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/084",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/086",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/088",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/090",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/092",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/094",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/096",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/098",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/100",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/102",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/104",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/106",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/108",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/110",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/112",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/114",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/116",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/118",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/120",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/122",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/124",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/126",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/128",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/130",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/132",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/134",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/136",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/138",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/140",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/142",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/144",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/146",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/148",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/150",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/152",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/154",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/156",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/158",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/160",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/162",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/164",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/166",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/168",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/170",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/172",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/174",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/176",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/178",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/180",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/182",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/184",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/186",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/188",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/190",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/192",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/194",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/196",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/198",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/200",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/202",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/204",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/206",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/208",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/210",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/212",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/214",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/216",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/218",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/220",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/222",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/224",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/226",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/228",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/230",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/232",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/234",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/236",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/238",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/240",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/242",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/244",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/246",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/248",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/250",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/252",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/254",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/256",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/258",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "pittsburgh/native-v2-6/road/260",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/000",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/001",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/002",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/003",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "protocol_fields_absent",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/004",
+   "stratum": "unclassified_protocol"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/006",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/008",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/010",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/012",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/014",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/016",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/018",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/020",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/022",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/024",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/026",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/028",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/030",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/032",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/034",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/036",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/038",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "failure",
+   "mode": "road",
+   "query_id": "rio/attempt-1/road/040",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "rio/attempt-1/ship/042",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "rio/attempt-1/ship/044",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "rio/attempt-1/air/046",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "air",
+   "query_id": "rio/attempt-1/air/048",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/native-v2-1/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "rio/native-v2-1/ship/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "rio/native-v2-1/air/nil-02",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "rio/native-v2-2/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "rio/native-v2-2/air/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "rio/native-v2-2/ship/001",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "midpoint_diagnostic_unscored",
+   "label": "success",
+   "mode": "ship",
+   "query_id": "rio/native-v2-2/ship/003",
+   "stratum": "midpoint_diagnostic"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "road",
+   "query_id": "yosemite/attempt-1/road/nil-00",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "ship",
+   "query_id": "yosemite/attempt-1/ship/nil-01",
+   "stratum": "unrequested"
+  },
+  {
+   "exclusion": "no_request_recorded",
+   "label": null,
+   "mode": "air",
+   "query_id": "yosemite/attempt-1/air/nil-02",
+   "stratum": "unrequested"
+  }
+ ],
+ "hashes": {
+  "inventory.json": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
+  "requests.json": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447"
+ },
+ "midpoint_repeats": {
+  "agree": 378,
+  "note": "Each offset-128 midpoint request is the correlated repeat of one boundary request on the same segments, lanes and direction. They are not independent votes and are not scored.",
+  "pairs": 378
+ },
+ "openings": [
+  {
+   "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "e3488f300e8797fd2e92dfb182e7c55988a1831d57d8a97908f74d3a7952a6f6",
+   "completed": null,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": null,
+    "segments": 0,
+    "sha256": null
+   },
+   "observation": {
+    "bytes": 82495,
+    "path": "raw/asheville/attempt-1/observation.json.gz",
+    "sha256": "bfc97b162291125f21297ceba61f7fcc4fea4b8979946e92a334576b2d039814"
+   },
+   "paths": 0,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "asheville",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+   "attempt_id": "attempt-2",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/asheville/attempt-2/networks.json.gz",
+    "segments": 2568,
+    "sha256": "b056e8761902527151d26d2f51126307790403b72fd852f6d819ed794d79a453"
+   },
+   "observation": {
+    "bytes": 244919,
+    "path": "raw/asheville/attempt-2/observation.json.gz",
+    "sha256": "0be1924c7f2783ddf9d41cf31a01c3c4d06955208814e684f3c872184024f72c"
+   },
+   "paths": 45,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "asheville",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/boston/attempt-1/networks.json.gz",
+    "segments": 5993,
+    "sha256": "174d9732b467355717a51385d8d4a7c6c75be89079393029ed6243740608c166"
+   },
+   "observation": {
+    "bytes": 335133,
+    "path": "raw/boston/attempt-1/observation.json.gz",
+    "sha256": "0775ca4ead41446c0743772a3e5117e1ef0b2b51f425893c70d0509122d72bbc"
+   },
+   "paths": 49,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "boston",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+   "attempt_id": "native-v2-4",
+   "build_dll_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+   "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+   "completed": true,
+   "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+   "native_context": {
+    "frame": 202252,
+    "invert_traffic": "False",
+    "mods_enabled": true,
+    "no_workshop": true,
+    "observed_at": "2026-11-21T04:45:28.792443+00:00",
+    "update_mode": "NewGameFromMap"
+   },
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/boston/native-v2-4/networks.json.gz",
+    "segments": 5993,
+    "sha256": "174d9732b467355717a51385d8d4a7c6c75be89079393029ed6243740608c166"
+   },
+   "observation": {
+    "bytes": 213364,
+    "path": "raw/boston/native-v2-4/observation.json.gz",
+    "sha256": "3ee9996e794c7a1d0ff61ce207afc80875d0d3bcc11bb9c096e90af6b7dda1eb"
+   },
+   "paths": 4,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
+   "requested_capabilities": [
+    "ship"
+   ],
+   "runtime_build_matches": true,
+   "slug": "boston",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/charleston/attempt-1/networks.json.gz",
+    "segments": 2241,
+    "sha256": "a9a1cf6729de963fd520fe7037686186607ffc09849c3819d862b9f9a19c7745"
+   },
+   "observation": {
+    "bytes": 336543,
+    "path": "raw/charleston/attempt-1/observation.json.gz",
+    "sha256": "04f38dd86ab853c17740410f6aa6812fdae69c9965592898f9cd04641fceaede"
+   },
+   "paths": 49,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "charleston",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+   "attempt_id": "native-v2-3",
+   "build_dll_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+   "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+   "completed": true,
+   "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+   "native_context": {
+    "frame": 202252,
+    "invert_traffic": "False",
+    "mods_enabled": true,
+    "no_workshop": true,
+    "observed_at": "2026-11-21T04:09:06.115632+00:00",
+    "update_mode": "NewGameFromMap"
+   },
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/charleston/native-v2-3/networks.json.gz",
+    "segments": 2241,
+    "sha256": "a9a1cf6729de963fd520fe7037686186607ffc09849c3819d862b9f9a19c7745"
+   },
+   "observation": {
+    "bytes": 225812,
+    "path": "raw/charleston/native-v2-3/observation.json.gz",
+    "sha256": "5ac7284e2352e30f0aac3ae650f0dfb5e514444c6ecbeef416d6c9f327439d54"
+   },
+   "paths": 4,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
+   "requested_capabilities": [
+    "ship"
+   ],
+   "runtime_build_matches": true,
+   "slug": "charleston",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/grand-canyon/attempt-1/networks.json.gz",
+    "segments": 149,
+    "sha256": "0cd6c763e3061d17c82df893338081db1d4494e2f933676f5edadcde40508a4b"
+   },
+   "observation": {
+    "bytes": 88426,
+    "path": "raw/grand-canyon/attempt-1/observation.json.gz",
+    "sha256": "83506f5d2775a29ea2a00457fc7c0712a957d9bd6ebee31cf3b8999368d3bc79"
+   },
+   "paths": 0,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "grand-canyon",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/hong-kong/attempt-1/networks.json.gz",
+    "segments": 5069,
+    "sha256": "ab0be31b1bb9286efddb3e7afe22f3a64212771930b68962445a5d1d6dc7b760"
+   },
+   "observation": {
+    "bytes": 208299,
+    "path": "raw/hong-kong/attempt-1/observation.json.gz",
+    "sha256": "4d473f93d5e3a5ca28ea8e680afe015ba57619542a8496bcfa648c767152f4c7"
+   },
+   "paths": 21,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "hong-kong",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+   "attempt_id": "native-v2-5",
+   "build_dll_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+   "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+   "completed": true,
+   "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+   "native_context": {
+    "frame": 202252,
+    "invert_traffic": "False",
+    "mods_enabled": true,
+    "no_workshop": true,
+    "observed_at": "2026-11-21T05:44:16.900517+00:00",
+    "update_mode": "NewGameFromMap"
+   },
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/hong-kong/native-v2-5/networks.json.gz",
+    "segments": 5069,
+    "sha256": "ab0be31b1bb9286efddb3e7afe22f3a64212771930b68962445a5d1d6dc7b760"
+   },
+   "observation": {
+    "bytes": 789105,
+    "path": "raw/hong-kong/native-v2-5/observation.json.gz",
+    "sha256": "1a49dce9e098f78c05ef6b42a0c7531435ec8ccc4cd9fb5c48e519172ba26c8a"
+   },
+   "paths": 265,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
+   "requested_capabilities": [
+    "rail",
+    "road",
+    "ship"
+   ],
+   "runtime_build_matches": true,
+   "slug": "hong-kong",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "e3488f300e8797fd2e92dfb182e7c55988a1831d57d8a97908f74d3a7952a6f6",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/innsbruck/attempt-1/networks.json.gz",
+    "segments": 1706,
+    "sha256": "e2ddb4792ed2c98c9c730aa70e3463d4bea40e708cc12c4b9d4c973ba5615556"
+   },
+   "observation": {
+    "bytes": 175540,
+    "path": "raw/innsbruck/attempt-1/observation.json.gz",
+    "sha256": "75fce2bc420b1ae03cca4b119125709bea9ab1b6c12b2dab5ab9afc57db23fc0"
+   },
+   "paths": 24,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "innsbruck",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/pittsburgh/attempt-1/networks.json.gz",
+    "segments": 6064,
+    "sha256": "1c8afdbd0e79ca53379ccc90a33796770497f54f7b0f988d014c228e9ef7f7a7"
+   },
+   "observation": {
+    "bytes": 227618,
+    "path": "raw/pittsburgh/attempt-1/observation.json.gz",
+    "sha256": "109faf308c5c386b000d9d429af290bc787b556422dcbfe8513279b9a0c2c72d"
+   },
+   "paths": 45,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "pittsburgh",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+   "attempt_id": "native-v2-2",
+   "build_dll_sha256": null,
+   "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+   "completed": null,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": null,
+    "segments": 0,
+    "sha256": null
+   },
+   "observation": {
+    "bytes": 1027,
+    "path": "raw/pittsburgh/native-v2-2/observation.json.gz",
+    "sha256": "4fc492ae34697d8d95deacd024ab211f3eaaba7ce220aaeaf97f6e4e1984503b"
+   },
+   "paths": 0,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
+   "requested_capabilities": [
+    "road"
+   ],
+   "runtime_build_matches": false,
+   "slug": "pittsburgh",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+   "attempt_id": "native-v2-6",
+   "build_dll_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+   "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+   "completed": true,
+   "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+   "native_context": {
+    "frame": 202252,
+    "invert_traffic": "False",
+    "mods_enabled": true,
+    "no_workshop": true,
+    "observed_at": "2026-11-21T06:51:16.361701+00:00",
+    "update_mode": "NewGameFromMap"
+   },
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/pittsburgh/native-v2-6/networks.json.gz",
+    "segments": 6064,
+    "sha256": "1c8afdbd0e79ca53379ccc90a33796770497f54f7b0f988d014c228e9ef7f7a7"
+   },
+   "observation": {
+    "bytes": 2191906,
+    "path": "raw/pittsburgh/native-v2-6/observation.json.gz",
+    "sha256": "97ab029dfdc6d0de243f831c6d26b888103d5a8021c4767d38e04fc97ad3c206"
+   },
+   "paths": 261,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
+   "requested_capabilities": [
+    "road"
+   ],
+   "runtime_build_matches": true,
+   "slug": "pittsburgh",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/rio/attempt-1/networks.json.gz",
+    "segments": 3401,
+    "sha256": "6ddd82ec88b49c17cb605e721c8c5e7a688d7b44e9c1e2e360bea9bc8c7307c7"
+   },
+   "observation": {
+    "bytes": 494868,
+    "path": "raw/rio/attempt-1/observation.json.gz",
+    "sha256": "8085e8bfbe4d1a7be77b4c2fd4c995e6d8a58d1a79c885a72e195499510a7233"
+   },
+   "paths": 49,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "rio",
+   "study": "v1"
+  },
+  {
+   "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+   "attempt_id": "native-v2-1",
+   "build_dll_sha256": "083c91197fb0f20d5ef69eb230b26547cd50d15b6e1846153c9f2293d0f73fa5",
+   "collector_sha256": "818e6a12d15fb0a90bd7c3155a2199d942c01ebb744888a03ebfb5f9d5797df1",
+   "completed": null,
+   "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": null,
+    "segments": 0,
+    "sha256": null
+   },
+   "observation": {
+    "bytes": 85709,
+    "path": "raw/rio/native-v2-1/observation.json.gz",
+    "sha256": "38783dd0703c93be420f9d7a88f440058d8aa5de11089f443e6521ff43d1dfaa"
+   },
+   "paths": 0,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; no construction",
+   "requested_capabilities": [
+    "rail",
+    "ship"
+   ],
+   "runtime_build_matches": false,
+   "slug": "rio",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+   "attempt_id": "native-v2-2",
+   "build_dll_sha256": "861811c03026cdd86e559a94bba91aeedea4882963a79605734338e4881e38a7",
+   "collector_sha256": "a1c774edbe768a9d4168aa1df429f0996538c18d9808daecc837c5755c0e1def",
+   "completed": true,
+   "game_executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+   "native_context": {
+    "frame": 202252,
+    "invert_traffic": "False",
+    "mods_enabled": true,
+    "no_workshop": true,
+    "observed_at": "2026-11-21T02:24:08.803324+00:00",
+    "update_mode": "NewGameFromMap"
+   },
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/rio/native-v2-2/networks.json.gz",
+    "segments": 3401,
+    "sha256": "6ddd82ec88b49c17cb605e721c8c5e7a688d7b44e9c1e2e360bea9bc8c7307c7"
+   },
+   "observation": {
+    "bytes": 235487,
+    "path": "raw/rio/native-v2-2/observation.json.gz",
+    "sha256": "7b914c5b96574ffde9775d01ed6c6b09c1393fc3cde9a46700075738488ad7fc"
+   },
+   "paths": 4,
+   "protocol": "NewGameFromMap/noWorkshop/non-inverted; bounded candidate outside lane pairs (256 requests/mode), boundary+midpoint, both directions; native plugin-owner/MVID mod-file binding; post-load simulation metadata readback; no construction",
+   "requested_capabilities": [
+    "rail",
+    "ship"
+   ],
+   "runtime_build_matches": true,
+   "slug": "rio",
+   "study": "targeted-v2"
+  },
+  {
+   "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+   "attempt_id": "attempt-1",
+   "build_dll_sha256": "f760887856abe15232f221a8419f9e0b84c19fb2a9a3adb937844f7945b301f1",
+   "collector_sha256": "d5a40930097dd7482fc71e9124a632c42a4c82a67a682c981cb05aafcac3d358",
+   "completed": true,
+   "game_executable_sha256": null,
+   "native_context": null,
+   "networks": {
+    "node_flag_conflicts": 0,
+    "path": "raw/yosemite/attempt-1/networks.json.gz",
+    "segments": 0,
+    "sha256": "8a3a2aac104979d11b910e0f596b5182c170c17c2847b0b95a04e0c5e1a8cb0f"
+   },
+   "observation": {
+    "bytes": 88395,
+    "path": "raw/yosemite/attempt-1/observation.json.gz",
+    "sha256": "eb3f4ce13879e609212b6a44034c9965a9b45196b2c594313e9bd2ac250cd032"
+   },
+   "paths": 0,
+   "protocol": null,
+   "requested_capabilities": null,
+   "runtime_build_matches": false,
+   "slug": "yosemite",
+   "study": "v1"
+  }
+ ],
+ "schema": 1,
+ "source": {
+  "evidence": "outside-v1/evidence.json",
+  "evidence_bytes": 7651131,
+  "evidence_sha256": "ea2e27fc65ae4d60e7fddb918a9dba59237b6a9c25d50b6be763b7c2b1263b32"
+ },
+ "study": "outside-query-model-v1"
+}

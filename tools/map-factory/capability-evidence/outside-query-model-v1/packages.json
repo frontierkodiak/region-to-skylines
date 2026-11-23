@@ -1,0 +1,52 @@
+{
+ "note": "Exact unchanged packages exported by the accepted outside-v1 generation. The .crp files are read-only inputs and are not redistributed in the repository; their SHA-256 binds each one, and `bridge.py` verifies it before reading.",
+ "packages": {
+  "asheville": {
+   "bytes": 6894275,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/asheville/PL857-asheville.crp",
+   "sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870"
+  },
+  "boston": {
+   "bytes": 6478866,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/boston/maps/boston/PL857-boston.crp",
+   "sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54"
+  },
+  "charleston": {
+   "bytes": 6789679,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/charleston/PL857-charleston.crp",
+   "sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff"
+  },
+  "grand-canyon": {
+   "bytes": 6348292,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/grand-canyon/PL857-grand-canyon.crp",
+   "sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19"
+  },
+  "hong-kong": {
+   "bytes": 6531657,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/hong-kong/PL857-hong-kong.crp",
+   "sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54"
+  },
+  "innsbruck": {
+   "bytes": 5976093,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/innsbruck/PL857-innsbruck.crp",
+   "sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6"
+  },
+  "pittsburgh": {
+   "bytes": 7393376,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/pittsburgh/PL857-pittsburgh.crp",
+   "sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424"
+  },
+  "rio": {
+   "bytes": 6561930,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/rio/PL857-rio.crp",
+   "sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff"
+  },
+  "yosemite": {
+   "bytes": 5849190,
+   "locator": "/mango/training/experiments/PL-1121-outside-oracle/reproduction/maps/yosemite/PL857-yosemite.crp",
+   "sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260"
+  }
+ },
+ "schema": 1,
+ "study": "outside-query-model-v1"
+}

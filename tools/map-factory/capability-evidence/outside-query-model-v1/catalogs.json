@@ -1,0 +1,580 @@
+{
+ "node_name_conflicts": {
+  "20971649": {
+   "Created + Junction + OneWayIn + Original": 553,
+   "Created + Junction + OneWayOut + Original": 563,
+   "Created + Junction + Original": 119
+  },
+  "20988033": {
+   "Created + Junction + OnGround + OneWayIn + OneWayOut + Original": 196,
+   "Created + Junction + OnGround + OneWayIn + Original": 1965,
+   "Created + Junction + OnGround + OneWayOut + Original": 1891,
+   "Created + Junction + OnGround + Original": 754
+  },
+  "21495937": {
+   "Created + Junction + OneWayIn + OneWayOut + Original + Underground": 186,
+   "Created + Junction + OneWayIn + Original + Underground": 3
+  },
+  "268452129": {
+   "Created + DisableOnlyMiddle + Middle + Moveable + OnGround + Original": 2244,
+   "Created + DisableOnlyMiddle + Middle + OnGround + Original": 228
+  }
+ },
+ "node_names": {
+  "129": [
+   "Created",
+   "Junction",
+   "Original"
+  ],
+  "273": [
+   "Created",
+   "End",
+   "Moveable",
+   "Original"
+  ],
+  "289": [
+   "Created",
+   "Middle",
+   "Moveable",
+   "Original"
+  ],
+  "16449": [
+   "Bend",
+   "Created",
+   "OnGround",
+   "Original"
+  ],
+  "16513": [
+   "Created",
+   "Junction",
+   "OnGround",
+   "Original"
+  ],
+  "16657": [
+   "Created",
+   "End",
+   "Moveable",
+   "OnGround",
+   "Original"
+  ],
+  "16673": [
+   "Created",
+   "Middle",
+   "Moveable",
+   "OnGround",
+   "Original"
+  ],
+  "17409": [
+   "Created",
+   "OnGround",
+   "Original",
+   "Outside"
+  ],
+  "524417": [
+   "Created",
+   "Junction",
+   "Original",
+   "Underground"
+  ],
+  "524577": [
+   "Created",
+   "Middle",
+   "Moveable",
+   "Original",
+   "Underground"
+  ],
+  "4194369": [
+   "Bend",
+   "Created",
+   "Original"
+  ],
+  "4194577": [
+   "Created",
+   "End",
+   "Moveable",
+   "OneWayOut",
+   "Original"
+  ],
+  "4210753": [
+   "Bend",
+   "Created",
+   "OnGround",
+   "Original"
+  ],
+  "4210961": [
+   "Created",
+   "End",
+   "Moveable",
+   "OnGround",
+   "OneWayOut",
+   "Original"
+  ],
+  "4211713": [
+   "Created",
+   "OnGround",
+   "OneWayOut",
+   "Original",
+   "Outside"
+  ],
+  "16777281": [
+   "Bend",
+   "Created",
+   "Original"
+  ],
+  "16777489": [
+   "Created",
+   "End",
+   "Moveable",
+   "OneWayIn",
+   "Original"
+  ],
+  "16793665": [
+   "Bend",
+   "Created",
+   "OnGround",
+   "Original"
+  ],
+  "16793729": [
+   "Created",
+   "Junction",
+   "OnGround",
+   "Original"
+  ],
+  "16793873": [
+   "Created",
+   "End",
+   "Moveable",
+   "OnGround",
+   "OneWayIn",
+   "Original"
+  ],
+  "16794625": [
+   "Created",
+   "OnGround",
+   "OneWayIn",
+   "Original",
+   "Outside"
+  ],
+  "20971585": [
+   "Bend",
+   "Created",
+   "OneWayIn",
+   "OneWayOut",
+   "Original"
+  ],
+  "20971649": [
+   "Created",
+   "Junction",
+   "OneWayOut",
+   "Original"
+  ],
+  "20971809": [
+   "Created",
+   "Middle",
+   "Moveable",
+   "OneWayIn",
+   "OneWayOut",
+   "Original"
+  ],
+  "20987969": [
+   "Bend",
+   "Created",
+   "OnGround",
+   "OneWayIn",
+   "OneWayOut",
+   "Original"
+  ],
+  "20988033": [
+   "Created",
+   "Junction",
+   "OnGround",
+   "OneWayIn",
+   "Original"
+  ],
+  "20988193": [
+   "Created",
+   "Middle",
+   "Moveable",
+   "OnGround",
+   "OneWayIn",
+   "OneWayOut",
+   "Original"
+  ],
+  "21495937": [
+   "Created",
+   "Junction",
+   "OneWayIn",
+   "OneWayOut",
+   "Original",
+   "Underground"
+  ],
+  "21496097": [
+   "Created",
+   "Middle",
+   "Moveable",
+   "OneWayIn",
+   "OneWayOut",
+   "Original",
+   "Underground"
+  ],
+  "268452129": [
+   "Created",
+   "DisableOnlyMiddle",
+   "Middle",
+   "Moveable",
+   "OnGround",
+   "Original"
+  ],
+  "268452865": [
+   "Created",
+   "DisableOnlyMiddle",
+   "OnGround",
+   "Original",
+   "Outside"
+  ]
+ },
+ "outside_values": [
+  4211713,
+  16794625,
+  17409,
+  268452865
+ ],
+ "prefab_lanes": {
+  "Airplane Path": [
+   [
+    0,
+    "Vehicle",
+    "Plane",
+    "All",
+    "Both"
+   ]
+  ],
+  "Highway": [
+   [
+    0,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    2,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    3,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    4,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    5,
+    "None",
+    "None",
+    "All",
+    "None"
+   ]
+  ],
+  "Highway Bridge": [
+   [
+    0,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    2,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    3,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    4,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    5,
+    "None",
+    "None",
+    "All",
+    "None"
+   ]
+  ],
+  "Highway Slope": [
+   [
+    0,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    2,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    3,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    4,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    5,
+    "None",
+    "None",
+    "All",
+    "None"
+   ]
+  ],
+  "Highway Tunnel": [
+   [
+    0,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    2,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    3,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    4,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    5,
+    "None",
+    "None",
+    "All",
+    "None"
+   ]
+  ],
+  "HighwayRamp": [
+   [
+    0,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    1,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    2,
+    "None",
+    "None",
+    "All",
+    "None"
+   ]
+  ],
+  "HighwayRampElevated": [
+   [
+    0,
+    "Vehicle",
+    "Car",
+    "All",
+    "Forward"
+   ],
+   [
+    1,
+    "None",
+    "None",
+    "All",
+    "None"
+   ],
+   [
+    2,
+    "None",
+    "None",
+    "All",
+    "None"
+   ]
+  ],
+  "Ship Path": [
+   [
+    0,
+    "Vehicle",
+    "Ship",
+    "All",
+    "Both"
+   ]
+  ],
+  "Train Track": [
+   [
+    0,
+    "Vehicle",
+    "Train",
+    "All",
+    "Backward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Train",
+    "All",
+    "Forward"
+   ]
+  ],
+  "Train Track Elevated": [
+   [
+    0,
+    "Vehicle",
+    "Train",
+    "All",
+    "Backward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Train",
+    "All",
+    "Forward"
+   ]
+  ],
+  "Train Track Slope": [
+   [
+    0,
+    "Vehicle",
+    "Train",
+    "All",
+    "Backward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Train",
+    "All",
+    "Forward"
+   ]
+  ],
+  "Train Track Tunnel": [
+   [
+    0,
+    "Vehicle",
+    "Train",
+    "All",
+    "Backward"
+   ],
+   [
+    1,
+    "Vehicle",
+    "Train",
+    "All",
+    "Forward"
+   ]
+  ]
+ },
+ "prefab_variants": {
+  "Airplane Path": 1,
+  "Highway": 1,
+  "Highway Bridge": 1,
+  "Highway Slope": 1,
+  "Highway Tunnel": 1,
+  "HighwayRamp": 1,
+  "HighwayRampElevated": 1,
+  "Ship Path": 1,
+  "Train Track": 1,
+  "Train Track Elevated": 1,
+  "Train Track Slope": 1,
+  "Train Track Tunnel": 1
+ },
+ "segment_name_conflicts": {
+  "1": {
+   "Created + Flooded + Original": 33,
+   "Created + NameVisible1 + NameVisible2 + Original": 1040,
+   "Created + Original": 25144
+  }
+ },
+ "segment_names": {
+  "1": [
+   "Created",
+   "Original"
+  ],
+  "65": [
+   "Created",
+   "End",
+   "Original"
+  ]
+ }
+}
