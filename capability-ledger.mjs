@@ -246,6 +246,8 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
     : a.scored === 0 ? `${a.unscored} diagnostic or unknown cells; not scored as the same capability predicate.`
     : `${a.agree}/${a.scored} agree; ${a.unscored} unscored; ${a.false_positive} false positives, ${a.false_negative} false negatives.`;
   const caps = ledger.capabilities.map((c) => {
+    const waterRuns = c.id === "water_risk"
+      ? c.game_agreement.filter(r => r.study === "pl1191-playable-water") : [];
     const agreement = [...new Set(c.game_agreement.map((r) => r.study ?? "other"))].flatMap((study) =>
       agreementByOracle(c.game_agreement.filter((r) => (r.study ?? "other") === study)).map((a) => ({ ...a, study })));
     return `<article id="${escape(c.id)}"><div class="ledger-title"><h2>${escape(c.name)}</h2><span>${escape(label(c.status))}</span></div><p>${escape(c.definition)}</p>
@@ -257,6 +259,7 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
       ${c.outside_stock_studies ? outsideStockReference(c.id, outsideStock, escape) : ""}
       ${c.outside_readiness_studies ? outsideReadinessReference(c.id, outsideReadiness, escape) : ""}
       <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies || c.witness_study ? "" : "<p class=note>No scored observations for this model yet.</p>"}
+      ${waterRuns.length ? `<h3>Gameplay-water exports · 60 game-minutes</h3><p><a href="tools/map-factory/capability-evidence/pl1191-playable-water/contact-sheet.jpg">Before and after openings</a> · <a href="tools/map-factory/capability-evidence/pl1191-playable-water/verdicts.json">Measurements</a></p><table><thead><tr><th>Square</th><th>Water verdict</th><th>Reason</th></tr></thead><tbody>${waterRuns.map(r => `<tr><td>${escape(r.square)}</td><td>${escape(r.verdict)}</td><td>${escape(r.reason)}</td></tr>`).join("")}</tbody></table>` : ""}
       ${c.runtime_model ? `<details><summary>Current Start model · unscored</summary><pre>${escape(JSON.stringify(c.runtime_model, null, 2))}</pre></details>` : ""}
       ${c.id === "rail" ? `${railStudyPage(directedRail, escape)}${railResearchPage(railResearch, escape)}` : ""}
       ${c.witness_study ? startWaterPage(ledger.witness_studies[START_WATER_STUDY], c.id, escape) : ""}

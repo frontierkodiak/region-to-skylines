@@ -25,7 +25,8 @@ test("saved study deterministically projects original bytes, distinct from histo
   assert.equal(study.provenance.pre_score_source_commit, "cc9d541604ef05ddf49d08f73d7819f5cf931075");
   assert.equal(study.provenance.native_runtime_commit, "6949182ccf3f8bf066fd24372e1bcfc31c8512f1");
   assert.ok(!ledger.evidence_studies[WATER_STUDY]);
-  assert.deepEqual(cap.game_agreement, []);
+  assert.ok(cap.game_agreement.every(row => row.study !== WATER_STUDY),
+    "the historical failed calibration is not relabeled as current game agreement");
   assert.equal(study.audit.score_sha256, "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b");
 });
 

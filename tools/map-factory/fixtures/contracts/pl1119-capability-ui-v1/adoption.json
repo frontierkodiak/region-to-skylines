@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "ce5e9cca3770217654215f40d4bfd485c82c46afd495463969eeaed4344c1949"
+      "current_sha256": "920baad438ca6690b543328b0d874c96aeb9e4ef53996571b1cd4f3881d565d3"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "4ea28902e82754e0bfc6e4c9c71481221f907dcfcd8f48b0455fb40bbfdd9669"
+      "current_sha256": "5d06e2d39d52de710c1a1d6bde7f90ca03972de3886e231dc495331ca0cce455"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
@@ -268,7 +268,7 @@
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "a2feb0656bd4ef0fc47c7928ccb1959bfda24fcc9753738d0dbdb6231458cc97",
-    "capability-ledger.mjs": "14e1cc42d7fac589567e7e32bbfff8b1b39681e076df3addf9474ac981250d15",
+    "capability-ledger.mjs": "a0ab722bc3c5012770c599b9f928960df867482b517e9107e72d537ecc1eab31",
     "capability-model.js": "5b62de21f79f1f07fd60c10c34654ac54f5c28c7c0b0adeb8399e4f5a2971f27",
     "capability-ui.js": "db6cdd5dd288fdeb22978962e636ae197f83f3334e57d9d5274c7a24b25b2a4f",
     "tools/map-factory/capabilities.py": "76e42f78172294f09fc156f4ad02bc626546c4649b35bb89b8dbcecd993bdd5d",

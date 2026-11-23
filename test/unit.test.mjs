@@ -80,9 +80,10 @@ test("presets with a failed game check say so; the others don't", () => {
 
 const readFixture = async (name) => readFileSync(root + "tools/map-factory/" + name);
 const readContractSource = baselineSource;
+const currentUISource = async name => readFileSync(root + name);
 
 test("retained baseline contract binds all five old native packages without qualifying the rewrite", async () => {
-  const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource);
+  const { manifest, nativeCases, historicalNativeCases, current } = await loadFixtureContract(readFixture, readContractSource, currentUISource);
   assert.equal(manifest.cases.length, 5);
   assert.equal(current.status, "partial_not_accepted");
   assert.equal(nativeCases.asheville.harness_commit, current.native_tested_head);
@@ -98,8 +99,8 @@ test("the changed water writer cannot inherit the old native qualification", asy
 });
 
 test("current fixture contract refuses stale writers, missing regions and fabricated qualification", async () => {
-  await assert.rejects(loadFixtureContract(readFixture, async (name) => name === "tools/map-factory/region.py" ? new Uint8Array([0]) : readContractSource(name)), /current contract source changed/);
-  await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/asheville/terrain.u16.gz" ? new Uint8Array([0]) : readFixture(name), readContractSource), /historical fixture terrain.u16.gz changed/);
+  await assert.rejects(loadFixtureContract(readFixture, async (name) => name === "tools/map-factory/region.py" ? new Uint8Array([0]) : readContractSource(name), currentUISource), /current contract source changed/);
+  await assert.rejects(loadFixtureContract(async (name) => name === "fixtures/asheville/terrain.u16.gz" ? new Uint8Array([0]) : readFixture(name), readContractSource, currentUISource), /historical fixture terrain.u16.gz changed/);
   const active = JSON.parse(await readFixture("fixtures/active.json"));
   const currentPath = "fixtures/" + active.current;
   const original = JSON.parse(await readFixture(currentPath));
@@ -121,6 +122,6 @@ test("current fixture contract refuses stale writers, missing regions and fabric
   ]) {
     const candidate = structuredClone(original);
     mutate(candidate);
-    await assert.rejects(loadFixtureContract(async (name) => name === currentPath ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource));
+    await assert.rejects(loadFixtureContract(async (name) => name === currentPath ? new TextEncoder().encode(JSON.stringify(candidate)) : readFixture(name), readContractSource, currentUISource));
   }
 });

@@ -15,7 +15,8 @@ import { baselineSource } from "./baseline-writer.mjs";
 const root = new URL("../tools/map-factory/", import.meta.url);
 const read = async (f) => new Uint8Array(await (["region.py", "prepare.py"].includes(f)
   ? baselineSource("tools/map-factory/" + f) : readFile(new URL(f, root))));
-const { manifest, nativeCases, historicalNativeCases, current, historicalCaptureSources } = await loadFixtureContract(read, baselineSource);
+const { manifest, nativeCases, historicalNativeCases, current, historicalCaptureSources } = await loadFixtureContract(read, baselineSource,
+  name => readFile(new URL("../" + name, import.meta.url)));
 const captureSource = async (name) => historicalCaptureSources?.[name]
   ? read("fixtures/" + historicalCaptureSources[name].file)
   : readFile(new URL("../" + name, import.meta.url));

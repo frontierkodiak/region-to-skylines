@@ -15,6 +15,18 @@ const rules = ledger.model_rules.ship;
 const node = (outside = null) => ({ outside });
 const edge = (a, b, kind) => ({ a, b, kind });
 
+test("water results show one verdict and reason, with captured text escaped", () => {
+  const measured = structuredClone(ledger);
+  measured.capabilities.find(c => c.id === "water_risk").game_agreement = [{
+    study: "pl1191-playable-water", square: "Test <river>", verdict: "Dries",
+    reason: "Dry reach & no flood", predicted: null, observed: false,
+    oracle: "native_water_60_minutes",
+  }];
+  const page = ledgerPage(measured);
+  assert.match(page, /<td>Test &lt;river&gt;<\/td><td>Dries<\/td><td>Dry reach &amp; no flood<\/td>/);
+  assert.match(page, /Before and after openings/);
+});
+
 test("ledger references real checks, calibrated seed and all 104 stock maps", () => {
   validateLedger(ledger);
   assert.equal(stockReference().maps, 104);

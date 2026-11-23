@@ -631,7 +631,7 @@ def refresh():
         }
     adoption = {
         "schema": 1,
-        "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; physical writers and historical native qualification unchanged",
+        "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; historical native qualification unchanged and scoped to retained baseline-writer snapshots; the gameplay-water constructor is separately measured",
         "predecessor_active_sha256": sha(active_raw),
         "predecessor_contract_sha256": sha(current_raw),
         "archived_gates": gates,

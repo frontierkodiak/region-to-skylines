@@ -8,7 +8,7 @@ import { createHash } from "node:crypto";
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const parse = (b) => JSON.parse(new TextDecoder().decode(b));
 
-export async function loadFixtureContract(read, readSource) {
+export async function loadFixtureContract(read, readSource, currentUISource = readSource) {
   const writer = new TextDecoder().decode(await readSource("mapgen.js"));
   const files = writer.match(/export const FACTORY_FILES = (\[[\s\S]*?\]);/);
   assert.ok(files, "reference writer dependency list is missing");
@@ -22,7 +22,8 @@ export async function loadFixtureContract(read, readSource) {
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
   const currentBytes = await read("fixtures/" + active.current), current = parse(currentBytes);
-  readSource = await capabilityUISources({ read, readSource, activeBytes, currentBytes, current });
+  readSource = await capabilityUISources({ read, readSource: currentUISource,
+    referenceSource: readSource, activeBytes, currentBytes, current });
   if (current.version === "pl1066-optional-runways-v1")
     return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
   if (current.version === "pl912-water-risk-v1")
