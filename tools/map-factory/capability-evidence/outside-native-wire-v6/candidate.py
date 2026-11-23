@@ -18,7 +18,7 @@ NAMES = frozenset(
         "entry.py",
         "native_session.py",
         "exercise.py",
-        "verify.py",
+        "wire_check.py",
         "test_integration.py",
     }
 )

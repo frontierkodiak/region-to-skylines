@@ -11,7 +11,7 @@ import accepted_api as api
 import candidate
 from entry import preflight
 from exercise import ConstructedAuthority, Factory, run, script_for
-from verify import request_for
+from wire_check import request_for
 
 
 @unittest.skipUnless(
