@@ -10,7 +10,7 @@ import sys
 import accepted_api as api
 from loopback_fixture import server, identity
 from runtime import Transport, collect
-from wire import Deadline, Wire, Unknown, encoded
+from wire import Deadline, Wire, Unknown, encoded, decode
 
 
 class ConstructedAuthority:
@@ -287,6 +287,7 @@ def run(frozen, store, request, authority, factory):
         bundle=bundle,
         lifecycle=receipt,
         trace=factory.trace,
+        server_calls=decode((factory.directory / "server/calls.json").read_bytes()),
         records=records,
         pending=transport.pending if transport else None,
         source_revision=frozen["source_revision"],

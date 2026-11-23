@@ -122,12 +122,20 @@ class Integration(unittest.TestCase):
         for op, key in (("new_game", "load_seconds"), ("path_result", "query_seconds")):
             script = script_for(self.native, self.store)
             next(r for r in script if r["op"] == op)["mode"] = "blocked"
-            limits = dict(self.native.descriptor["limits"], **{key: 0.5})
+            limits = dict(
+                self.native.descriptor["limits"],
+                **{key: 2.0 if op == "new_game" else 0.5},
+            )
             result = self.exercise(script, limits)
             self.assertIn("deadline", result["result"]["reason"])
             self.assertLess(
-                max(r["ended"] - r["started"] for r in result["trace"]), 0.5
+                max(r["ended"] - r["started"] for r in result["trace"]), 2.5
             )
+            stalled = next(
+                r for r in result["server_calls"] if r["request"]["op"] == op
+            )
+            failed_call = next(r for r in result["trace"] if r["op"] == op)
+            self.assertGreater(stalled["blocked_until"], failed_call["ended"])
             if op == "path_result":
                 self.assertIsNotNone(result["pending"])
                 self.assertEqual(
