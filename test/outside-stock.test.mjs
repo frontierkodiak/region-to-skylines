@@ -169,6 +169,13 @@ test("the stock primary and reference tables follow from the saved rows", () => 
     air: { tp: 8, fp: 0, tn: 4, fn: 0 },
   });
   assert.deepEqual(study.stock.total, { tp: 28, fp: 0, tn: 20, fn: 0 });
+  const referenceTotal = { tp: 0, fp: 0, tn: 0, fn: 0 };
+  for (const mode of ["road", "ship", "air"]) {
+    for (const key of Object.keys(referenceTotal)) referenceTotal[key] += study.stock.reference[mode][key];
+  }
+  // Summing the per-mode reference tables must keep the 12 road false positives
+  // and the 8 ship + air true negatives.
+  assert.deepEqual(referenceTotal, { tp: 28, fp: 12, tn: 8, fn: 0 });
   assert.deepEqual(study.stock.qualified_modes, { road: false, ship: false, air: false });
   assert.equal(study.stock.modes.road.successes, 12);
   assert.equal(study.stock.modes.road.failures, 12);
@@ -345,6 +352,12 @@ test("the generated page renders the study once, with every table and served evi
   assert.match(section, /data-outside-stock-intervention/);
   assert.match(section, /data-outside-stock-windows/);
   assert.match(section, /data-outside-stock-controls/);
+  // The modes table's total row must report the reference rule's own totals,
+  // not the primary total with TN zeroed.
+  const modes = section.slice(section.indexOf("data-outside-stock-modes"), section.indexOf("</table>", section.indexOf("data-outside-stock-modes")));
+  const totalRow = modes.slice(modes.lastIndexOf("<tr>"));
+  assert.match(totalRow, /TP 28 · FP 12 · TN 8 · FN 0/);
+  assert.doesNotMatch(totalRow, /TP 28 · FP 0 · TN 0 · FN 0/);
   for (const [attribute, expected] of [
     ["population", 5], ["packages", 5], ["modes", 4], ["package-mode", 9], ["strata", 6],
     ["tags", 6], ["subset", 1], ["bridge", 11], ["drift", 2], ["controls", 12],

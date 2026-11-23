@@ -349,7 +349,8 @@ LIMITS = (
     "qualification, global accuracy, a geographic 'no', a service, spawning or sustained-navigation "
     "evidence, or a promise, and it does not transfer to the current runtime checker, the live "
     "estimate, a certificate or any other study. File identity is not memory attestation or a strict "
-    "no-mods claim; dynamic exclusions, plugin state and the three DLL errors remain limitations. "
+    "no-mods claim; dynamic exclusions, plugin state and the three retained historical DLC "
+    "serialization errors remain limitations. "
     "Cleanup coverage is a historical statement about named PID/start identities, not a description "
     "of blade's current slot or process state. Stock packages carry no invented physical-input or CPU "
     "lineage; old exports retain only their exact CRP and old receipts. Observation windows are the "
@@ -2620,7 +2621,7 @@ def assemble(facts: dict, files: dict[str, dict]) -> tuple[dict, dict]:
             "unqualified": "All three modes remain unqualified after the retained first-control failure.",
             "unknown_mechanisms": "All four retained road error mechanisms remain Unknown; a requested float and flags=8 are not exhaustion proof.",
             "no_geography": "No request is a geographic negative, and no result is a service, spawning or sustained-navigation claim.",
-            "file_identity": "File identity is not memory attestation or a strict no-mods claim; dynamic exclusions, plugin state and three DLL errors remain.",
+            "file_identity": "File identity is not memory attestation or a strict no-mods claim; dynamic exclusions, plugin state and the three retained historical DLC serialization errors remain.",
             "cleanup_history": "Cleanup coverage is historical; it is not blade's current slot or process state.",
             "no_lineage": "Stock packages carry no invented physical-input/CPU lineage; old exports retain only their exact CRP and receipts.",
             "no_transfer": "This evidence does not transfer agreement to the current runtime checker, the live estimate, a certificate or any other study.",

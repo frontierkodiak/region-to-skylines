@@ -58612,7 +58612,7 @@
     "linked_files": 110,
     "integrity_members": 141,
     "projection_file": "tools/map-factory/capability-evidence/outside-stock-studies.json",
-    "projection_sha256": "b86d1fd861cff3ffe6ec821205c9f654b83f3ca524e8530d65c24118e3ea44eb",
+    "projection_sha256": "c30b82416e40af2cc22bf10e167a81671a7df1ea611b8e6d7b92039ff245dfba",
     "projection_tool_file": "tools/map-factory/integrate_outside_stock.py",
     "source_manifest_file": "tools/map-factory/capability-evidence/outside-stock-sources.json",
     "source_manifest_sha256": "9e8ba66a3dd4bb5d4a7f475119b2f0e056c6a80a6e1a4dd8b19fec7e8e2aef85",
@@ -58871,7 +58871,7 @@
     "evidence_files_sha256": "bb167e9f5aabb36bcee34c2793a8463d216fddb0e640e54ce2be596e201b825a",
     "linked_files_sha256": "160a83c023095eb9d182dbf8fa83fe7060bba6a9b619cbf24d76e5f99b2ef2fe",
     "certificates": "none",
-    "projection_tool_sha256": "96fac4e2bdfa295ba872c8d177ca7dc047700f31ce18387da7ef8f018f3a46f0"
+    "projection_tool_sha256": "955add2cf2b85a4245c000097a493c757474caf77f4b0105951f2362f19178cb"
   },
   "outside_research_studies": {
     "kind": "outside_connection_query_model_study",

@@ -17,9 +17,9 @@ const read = (file) => readFileSync(ROOT + file);
 
 export const OUTSIDE_STOCK_STUDY = "outside-stock-budget-v1";
 export const OUTSIDE_STOCK_PROJECTION = "tools/map-factory/capability-evidence/outside-stock-studies.json";
-export const OUTSIDE_STOCK_PROJECTION_SHA = "b86d1fd861cff3ffe6ec821205c9f654b83f3ca524e8530d65c24118e3ea44eb";
+export const OUTSIDE_STOCK_PROJECTION_SHA = "c30b82416e40af2cc22bf10e167a81671a7df1ea611b8e6d7b92039ff245dfba";
 export const OUTSIDE_STOCK_TOOL = "tools/map-factory/integrate_outside_stock.py";
-export const OUTSIDE_STOCK_TOOL_SHA = "96fac4e2bdfa295ba872c8d177ca7dc047700f31ce18387da7ef8f018f3a46f0";
+export const OUTSIDE_STOCK_TOOL_SHA = "955add2cf2b85a4245c000097a493c757474caf77f4b0105951f2362f19178cb";
 export const OUTSIDE_STOCK_SOURCES = "tools/map-factory/capability-evidence/outside-stock-sources.json";
 export const OUTSIDE_STOCK_SOURCES_SHA = "9e8ba66a3dd4bb5d4a7f475119b2f0e056c6a80a6e1a4dd8b19fec7e8e2aef85";
 export const OUTSIDE_STOCK_PREFIX = "tools/map-factory/capability-evidence/";
@@ -57,6 +57,7 @@ const EXPECTED = {
   primary: { road: [12, 0, 12, 0], ship: [8, 0, 4, 0], air: [8, 0, 4, 0] },
   primary_total: [28, 0, 20, 0],
   weak: { road: [12, 12, 0, 0], ship: [8, 0, 4, 0], air: [8, 0, 4, 0] },
+  reference_total: [28, 12, 8, 0],
   subset: 16,
   subset_primary: [8, 0, 8, 0],
   subset_reference: [8, 8, 0, 0],
@@ -258,6 +259,13 @@ export function outsideStock(load = read) {
   }
   if (JSON.stringify(tally(rows, "primary")) !== JSON.stringify(EXPECTED.primary_total))
     fail("Outside-stock primary total changed");
+  const referenceTotal = { tp: 0, fp: 0, tn: 0, fn: 0 };
+  for (const mode of MODES) {
+    for (const key of Object.keys(referenceTotal)) referenceTotal[key] += study.stock.reference[mode][key];
+  }
+  if (JSON.stringify([referenceTotal.tp, referenceTotal.fp, referenceTotal.tn, referenceTotal.fn]) !==
+      JSON.stringify(EXPECTED.reference_total))
+    fail("Outside-stock reference total changed");
   const subset = rows.filter((row) => row.snapshot_matched);
   if (subset.length !== EXPECTED.subset ||
       JSON.stringify(tally(subset, "primary")) !== JSON.stringify(EXPECTED.subset_primary) ||
@@ -563,6 +571,10 @@ function packageRows(study) {
 }
 
 function modeRows(study) {
+  const referenceTotal = { tp: 0, fp: 0, tn: 0, fn: 0 };
+  for (const mode of MODES) {
+    for (const key of Object.keys(referenceTotal)) referenceTotal[key] += study.stock.reference[mode][key];
+  }
   return MODES.map((mode) => {
     const primary = study.stock.primary[mode];
     const reference = study.stock.reference[mode];
@@ -583,7 +595,7 @@ function modeRows(study) {
     String(study.stock.modes.road.successes + study.stock.modes.ship.successes + study.stock.modes.air.successes),
     String(study.stock.modes.road.failures + study.stock.modes.ship.failures + study.stock.modes.air.failures),
     pair({ tp: study.stock.total.tp, fp: study.stock.total.fp, tn: study.stock.total.tn, fn: study.stock.total.fn }),
-    pair({ tp: study.stock.total.tp, fp: study.stock.total.fp, tn: 0, fn: study.stock.total.fn }),
+    pair(referenceTotal),
     "descriptive only",
     "UNQUALIFIED",
   ]]);
@@ -699,7 +711,7 @@ export function outsideStockPage({ study }, escape) {
     ${table(escape, ["Population", "Count"], populationRows(study), "data-outside-stock-population")}
     <p>${escape(String(counts.installed))} installed builtin packages; ${escape(String(counts.eligible))} eligible after the declared exclusions, ${escape(String(counts.supported))} supported, ${escape(String(counts.abstaining))} abstaining including ${escape(String(counts.decode_errors))} retained NetManager decode errors. The ${escape(String(counts.excluded_hashes))} excluded hashes and every package hash stay pinned; no package is repaired or replaced after an outcome.</p>
     ${table(escape, ["Case", "Package", "Inputs", "Requests", "Package SHA-256", "Selection reason"], packageRows(study), "data-outside-stock-packages")}
-    <p>Three queried packages carry all ${escape(String(study.stock.requests))} stock requests; two unsupported packages carry null predictions for all three modes, which is ${escape(String(study.stock.package_mode ? 6 : 6))} null package-mode records, not invented requests or native negatives. Selection tags overlap: ${escape(String(Object.values(study.stock.selection_tags).reduce((total, value) => total + value, 0)))} tag memberships cover ${escape(String(study.stock.requests))} requests and must never be summed as independent samples.</p>
+    <p>Three queried packages carry all ${escape(String(study.stock.requests))} stock requests; two unsupported packages carry null predictions for all three modes, which is ${escape(String(study.population.selection.metadata_only_packages * MODES.length))} null package-mode records, not invented requests or native negatives. Selection tags overlap: ${escape(String(Object.values(study.stock.selection_tags).reduce((total, value) => total + value, 0)))} tag memberships cover ${escape(String(study.stock.requests))} requests and must never be summed as independent samples.</p>
 
     <h3>New stock labels · descriptive intent-to-test</h3>
     ${table(escape, ["Mode", "Requests", "Successes", "Failures", "Primary TP/FP/TN/FN", "Reference TP/FP/TN/FN", "Discrimination", "Status"], modeRows(study), "data-outside-stock-modes")}
@@ -741,7 +753,7 @@ export function outsideStockPage({ study }, escape) {
     <h3>Runtime, file identity and cleanup</h3>
     ${table(escape, ["Opening", "Recorded start", "Recorded finish", "Host", "GPU peak power", "GPU peak temp", "Total GPU peak MiB"], windowRows(study), "data-outside-stock-windows")}
     <p>${escape(String(study.runtime.openings))} openings are retained (eight complete, one pre-query control failure). ${escape(String(study.runtime.phase_inventories))} phase inventories bind the executable, assemblies, DLL, declared file trees and plugin state; each records the excluded anonymous dynamic-method assembly and has no unresolved loaded-assembly entry. The DLL is <code>${escape(study.runtime.build.dll_sha256)}</code>. ${escape(String(study.runtime.process_identities))} observed game/collector/driver/auditor/GPU-monitor PID/start identities are gone, including the supplemental first-opening auditor chain. The old launch receipt's "no monitor" caption is stale after the auditor addition; auditor-launch/completion records, not that caption, establish coverage.</p>
-    <p>This is file identity, not memory attestation or a strict no-mods claim; dynamic exclusions, plugin state and three retained DLL errors remain limitations. The cleanup statement is historical about named PID/start identities and says nothing about blade's current slot or process state.</p>
+    <p>This is file identity, not memory attestation or a strict no-mods claim; dynamic exclusions, plugin state and the three retained historical DLC serialization errors remain limitations. The cleanup statement is historical about named PID/start identities and says nothing about blade's current slot or process state.</p>
 
     <details><summary>All ${escape(String(study.requests.records.length))} planned requests · 48 stock, 12 controls, 24 intervention</summary>
       ${table(escape, ["Query", "Kind", "Case", "Mode", "Request", "Label", "State"], requestRows(study), "data-outside-stock-requests")}

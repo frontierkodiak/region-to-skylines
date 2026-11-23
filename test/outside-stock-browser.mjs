@@ -74,6 +74,12 @@ try {
       ]) {
         assert.ok(text.includes(phrase), `${name}: outside-stock section is missing ${phrase}`);
       }
+      // The modes total row must sum the reference rule's per-mode cells.
+      const referenceTotal = await page
+        .locator("[data-outside-stock-modes] tbody tr:last-child td:nth-child(6)")
+        .textContent();
+      assert.equal(referenceTotal.trim(), "TP 28 · FP 12 · TN 8 · FN 0",
+        `${name}: the reference total row is wrong`);
       assert.ok(!/accuracy: \d/.test(text), `${name}: page flattens the study into an accuracy headline`);
       assert.ok(!/promised/i.test(text), `${name}: page promises a capability`);
       // Long hashes and Unknown groups stay legible instead of being clipped to a placeholder.
