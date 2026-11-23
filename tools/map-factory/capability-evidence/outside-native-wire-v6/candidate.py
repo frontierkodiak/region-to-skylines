@@ -3,7 +3,7 @@
 from pathlib import Path
 import subprocess
 
-import bridge as api
+import accepted_api as api
 from wire import Unknown
 
 PIN = "4751c49e0515a8af4c3f753a8bed09f6f55e39b2"
@@ -11,7 +11,7 @@ NAMES = frozenset(
     {
         "wire.py",
         "runtime.py",
-        "bridge.py",
+        "accepted_api.py",
         "loopback_fixture.py",
         "test_wire.py",
         "candidate.py",

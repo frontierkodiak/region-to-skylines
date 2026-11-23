@@ -7,7 +7,7 @@ import os
 import subprocess
 import sys
 
-import bridge as api
+import accepted_api as api
 from loopback_fixture import server, identity
 from runtime import Transport, collect
 from wire import Deadline, Wire, Unknown

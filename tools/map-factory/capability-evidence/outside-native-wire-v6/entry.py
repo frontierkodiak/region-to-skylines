@@ -8,7 +8,7 @@ that implementation. Tests inject explicitly constructed authority and sessions.
 
 from dataclasses import dataclass
 
-import bridge as api
+import accepted_api as api
 import candidate
 from wire import Unknown
 

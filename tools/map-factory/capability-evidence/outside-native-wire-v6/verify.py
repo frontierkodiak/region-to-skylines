@@ -3,7 +3,7 @@
 import argparse
 from pathlib import Path
 
-import bridge as api
+import accepted_api as api
 import candidate
 from entry import Request
 from exercise import ConstructedAuthority, Factory, run

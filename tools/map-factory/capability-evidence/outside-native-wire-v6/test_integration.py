@@ -7,7 +7,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-import bridge as api
+import accepted_api as api
 import candidate
 from entry import preflight
 from exercise import ConstructedAuthority, Factory, run, script_for
