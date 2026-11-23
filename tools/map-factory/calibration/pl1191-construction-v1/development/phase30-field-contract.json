@@ -1,0 +1,39 @@
+{
+  "schema": "polli.experimental-field-operation-contract/1",
+  "status": "reviewable_proposal_not_adopted",
+  "physical_admission": false,
+  "mask_removal_or_old_refusal_override": false,
+  "rules": {
+    "terrain": {
+      "protected_change": "forbidden_under_retained_terrain_policy",
+      "unprotected_change": "requires_complete_source_stage_cut_bank_and_safety_plan"
+    },
+    "initial_depth": {
+      "bank_change": "forbidden_under_retained_untouched_bank_policy",
+      "other_water_change": "preserve_other_water_requires_explicit_joint_plan",
+      "own_body_only_change": "requires_explicit_owned_body_stage_initialization_safety_plan",
+      "infrastructure_or_coupling_change": "no_water_edit_authority_inferred_from_terrain_mask",
+      "unprotected_change": "requires_complete_source_stage_initialization_and_safety_plan",
+      "unknown_owner_change": "requires_target_ownership_before_field_operation",
+      "own_buffer_not_body_change": "no_water_footprint_authority_from_own_body_buffer"
+    },
+    "initial_velocity": "preserve_no_new_velocity_operation_declared",
+    "old_control_raw43": "forbidden_existing_control_change",
+    "new_control_raw43": "undeployed_proposal_requires_complete_source_port_supply_and_safety_plan"
+  },
+  "universal_requirements": [
+    "all original source rows, branches, contracts, probes and refusals retained",
+    "no mask shrunk, original bank retired or existing control retuned",
+    "no fill, cut<=3m, full eight-neighbour untouched banks and quantized freeboard>=0.5m",
+    "source footprint depth>=1m with exact encoded record and no qualified flux-unit inference",
+    "explicit lateral, junction, inlet, outlet, receiving stage and supply roles",
+    "startup safety including Boston inundation constraint and full original acceptance gates",
+    "complete physical proposal frozen before outcomes; independent results acceptance before adoption"
+  ],
+  "notes": [
+    "A rule saying requires is not permission or a satisfied condition.",
+    "Own target membership is original polygon raster provenance only, not surveyed bank, old/current provider identity or hydraulic communication.",
+    "Other-water and source coupling protections stay; scope of an old stream/lake constructor does not authorize a new joint operation.",
+    "Old phase29 conditional obstructions remain unchanged and are not geographic impossibility."
+  ]
+}
