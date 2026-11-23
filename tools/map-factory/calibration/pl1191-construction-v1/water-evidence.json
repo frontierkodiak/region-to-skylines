@@ -1268,5 +1268,21 @@
     "future_test_label_only_fix_commit": "4af0e89",
     "new_physical_or_native": false,
     "promise": "unknown"
+  },
+  "phase29_startup_support": {
+    "schema": "polli.pl1191-postanalysis-startup-support-binding/2",
+    "postanalysis_not_prospective": true,
+    "v1_CPU_source": "1cbf265",
+    "v2_derived_source": "f43586d",
+    "v1_input_freeze_sha256": "c83a04b5d4d0edc2407d50a8d5e940cf0a0936da0170ca92d3454df4195bda28",
+    "v2_input_freeze_sha256": "419b2ab23920600bd206e01a7e4619167699b891d4dcd2deabcbbae31bca8a39",
+    "v1_result_receipt_sha256": "00276701635692e80f560cef8b7408103cfc068fcb9f96511f993ade2bb52e0b",
+    "v2_result_receipt_sha256": "ab1f972cde2295460b00dc9570217d7799048ef0c66c12214f0e6037812af6c1",
+    "summary_sha256": "b324cc37d964f9a1028b8e3b853c72adaca9ef6ec8c4e16f59e440102bc44138",
+    "report_sha256": "64f23f75698cb9dc26efc8f8422f117efb0b1f5065142d6367dc589a31b2f55b",
+    "review_receipt_sha256": "1759806e66aa95e6b090ba925f7a9fde40d45ac0352786529e3ee20e552deb0c",
+    "new_physical_or_native": false,
+    "physical_admission": false,
+    "promise": "unknown"
   }
 }

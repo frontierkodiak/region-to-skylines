@@ -1,0 +1,329 @@
+{
+  "dry-upland-asia": {
+    "natural_contracts": 49,
+    "original_initialization_failures": 8,
+    "engineered_contracts_exact_unknown": 1,
+    "views_natural_only": {
+      "a1_fixed_masks": {
+        "necessary_support_available": 49
+      },
+      "a2_full_operation_masks": {
+        "necessary_support_available": 44,
+        "conditional_preservation_obstruction": 5
+      },
+      "b_known_source_support": {
+        "necessary_support_available": 42,
+        "conditional_preservation_obstruction": 5,
+        "unknown": 2
+      }
+    },
+    "contracts": 50,
+    "natural_points": 364,
+    "a1_unrepairable_point_mask_overlap_counts": {},
+    "first_source_ordered_a1_obstruction_point": null,
+    "subset_corrected_points": 7
+  },
+  "dry-upland-europe": {
+    "natural_contracts": 85,
+    "original_initialization_failures": 68,
+    "engineered_contracts_exact_unknown": 8,
+    "views_natural_only": {
+      "a1_fixed_masks": {
+        "necessary_support_available": 20,
+        "conditional_preservation_obstruction": 65
+      },
+      "a2_full_operation_masks": {
+        "conditional_preservation_obstruction": 66,
+        "necessary_support_available": 19
+      },
+      "b_known_source_support": {
+        "conditional_preservation_obstruction": 66,
+        "necessary_support_available": 19
+      }
+    },
+    "contracts": 93,
+    "natural_points": 279,
+    "a1_unrepairable_point_mask_overlap_counts": {
+      "old_mapped_body_128m": 248
+    },
+    "first_source_ordered_a1_obstruction_point": {
+      "contract": "lakes:0:0",
+      "point": [
+        5168.779156,
+        8513.810624
+      ],
+      "nodes": [
+        12752,
+        12753,
+        12754,
+        12755,
+        12756,
+        11670,
+        11671,
+        11672,
+        11673,
+        11674,
+        11675,
+        11676,
+        10589,
+        10590,
+        10591,
+        10592,
+        10593,
+        10594,
+        10595,
+        9508,
+        9509,
+        9510,
+        9511,
+        9512,
+        9513,
+        9514,
+        9515,
+        8427,
+        8428,
+        8429,
+        8430,
+        8431,
+        8432,
+        8433,
+        7346,
+        7347,
+        7348,
+        7349,
+        7350,
+        7351,
+        7352,
+        6266,
+        6267,
+        6268,
+        6269,
+        6270,
+        5187
+      ],
+      "covering_mask_counts": {
+        "landing_128m": 0,
+        "old_control_radius_plus64m": 0,
+        "old_corridor_112m": 0,
+        "old_mapped_body_128m": 47,
+        "original_stream_bank_union": 0
+      },
+      "node_count": 47
+    },
+    "subset_corrected_points": 2
+  },
+  "dry-upland-south-america": {
+    "original_base_refusal": {
+      "square": "dry-upland-south-america",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    "contracts": 55,
+    "points": 414,
+    "views": "unknown"
+  },
+  "low-coast-oceania": {
+    "natural_contracts": 962,
+    "original_initialization_failures": 496,
+    "engineered_contracts_exact_unknown": 0,
+    "views_natural_only": {
+      "a1_fixed_masks": {
+        "necessary_support_available": 692,
+        "conditional_preservation_obstruction": 270
+      },
+      "a2_full_operation_masks": {
+        "necessary_support_available": 583,
+        "conditional_preservation_obstruction": 379
+      },
+      "b_known_source_support": {
+        "necessary_support_available": 532,
+        "unknown": 43,
+        "conditional_preservation_obstruction": 387
+      }
+    },
+    "contracts": 962,
+    "natural_points": 23113,
+    "a1_unrepairable_point_mask_overlap_counts": {
+      "old_mapped_body_128m": 395,
+      "old_corridor_112m": 72,
+      "old_control_radius_plus64m": 17
+    },
+    "first_source_ordered_a1_obstruction_point": {
+      "contract": "streams:13:1",
+      "point": [
+        -6807.445978,
+        8416.650758
+      ],
+      "nodes": [
+        18489,
+        18490,
+        18491,
+        18492,
+        18493,
+        18494,
+        17408,
+        17409,
+        17410,
+        17411,
+        17412,
+        17413,
+        16326,
+        16327,
+        16328,
+        16329,
+        16330,
+        16331,
+        16332,
+        16333,
+        15245,
+        15246,
+        15247,
+        15248,
+        15249,
+        15250,
+        15251,
+        15252,
+        14164,
+        14165,
+        14166,
+        14167,
+        14168,
+        14169,
+        14170,
+        14171,
+        13084,
+        13085,
+        13086,
+        13087,
+        13088,
+        13089,
+        13090,
+        12003,
+        12004,
+        12005,
+        12006,
+        12007,
+        12008,
+        10924,
+        10925
+      ],
+      "covering_mask_counts": {
+        "landing_128m": 0,
+        "old_control_radius_plus64m": 0,
+        "old_corridor_112m": 0,
+        "old_mapped_body_128m": 51,
+        "original_stream_bank_union": 0
+      },
+      "node_count": 51
+    },
+    "subset_corrected_points": 217
+  },
+  "lowland-river-south-america": {
+    "natural_contracts": 855,
+    "original_initialization_failures": 769,
+    "engineered_contracts_exact_unknown": 3,
+    "views_natural_only": {
+      "a1_fixed_masks": {
+        "necessary_support_available": 660,
+        "conditional_preservation_obstruction": 195
+      },
+      "a2_full_operation_masks": {
+        "necessary_support_available": 320,
+        "conditional_preservation_obstruction": 535
+      },
+      "b_known_source_support": {
+        "necessary_support_available": 233,
+        "conditional_preservation_obstruction": 540,
+        "unknown": 82
+      }
+    },
+    "contracts": 858,
+    "natural_points": 15638,
+    "a1_unrepairable_point_mask_overlap_counts": {
+      "old_mapped_body_128m": 8363,
+      "original_stream_bank_union": 566,
+      "old_control_radius_plus64m": 11,
+      "old_corridor_112m": 164
+    },
+    "first_source_ordered_a1_obstruction_point": {
+      "contract": "streams:9:0",
+      "point": [
+        -5033.361687,
+        8041.048969
+      ],
+      "nodes": [
+        44545,
+        44546,
+        44547,
+        44548,
+        43463,
+        43464,
+        43465,
+        43466,
+        43467,
+        43468,
+        42381,
+        42382,
+        42383,
+        42384,
+        42385,
+        42386,
+        42387,
+        42388,
+        41300,
+        41301,
+        41302,
+        41303,
+        41304,
+        41305,
+        41306,
+        41307,
+        40219,
+        40220,
+        40221,
+        40222,
+        40223,
+        40224,
+        40225,
+        40226,
+        39138,
+        39139,
+        39140,
+        39141,
+        39142,
+        39143,
+        39144,
+        39145,
+        38058,
+        38059,
+        38060,
+        38061,
+        38062,
+        38063,
+        36978,
+        36979,
+        36980,
+        36981
+      ],
+      "covering_mask_counts": {
+        "landing_128m": 0,
+        "old_control_radius_plus64m": 0,
+        "old_corridor_112m": 0,
+        "old_mapped_body_128m": 52,
+        "original_stream_bank_union": 21
+      },
+      "node_count": 52
+    },
+    "subset_corrected_points": 588
+  },
+  "mountain-river-asia": {
+    "original_base_refusal": {
+      "square": "mountain-river-asia",
+      "status": "refused_under_construction_bounds",
+      "reason": "No feasible enclosed reservoir within candidate/protected masks"
+    },
+    "contracts": 174,
+    "points": 2312,
+    "views": "unknown"
+  }
+}

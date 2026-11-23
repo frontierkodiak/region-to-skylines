@@ -1212,3 +1212,24 @@ source/failure/results remain, with no numerical or game retry. No CRP/grid/cont
 installation, native, default, ledger or holdout action. Coastal initialization
 still fails 496/962 contracts; all promises remain unknown. Independent review
 covers these combined construction results, not permission before measurement.
+
+## Phase twenty-nine: complete startup-support obstruction
+
+PL-1300's limited source/CPU/design PASS is consumed and already closed. Following
+its recommendation, a new frozen audit separates fixed masks, full operation
+protection and unique source support across every original six-case contract.
+All original natural initialization counts match. Even the deliberately relaxed
+fixed-mask view leaves 530/1951 contracts without enough startup support; full
+operation preservation leaves 985. These are conditional water-edit-policy bounds,
+not geographic impossibility, hydraulic construction or permission to relax masks.
+Both base refusals remain NULL; 12 engineered exact-depth checks remain unknown.
+
+Original v1 outputs remain. A newly committed/frozen additive subset correction
+changes only ownership-view unknowns already bounded by known full-mask failures;
+no true value, input, mask or physical result changes. Eight focused tests and
+complete 19-file v1/seven-file derived replays pass byte-identically. Independent
+node verification covers all 39394 natural points. No game, CRP/control/new-water
+field, shipping/default/ledger or holdout change. Coastal496/962 failures persist.
+Next: field-specific protection authority and an explicit joint operation contract,
+not a provider search, rate sweep or quiet protected-water relaxation. New results
+need combined construction/results acceptance before adoption. Promises unknown.
