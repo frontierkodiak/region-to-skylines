@@ -1299,3 +1299,29 @@ did not change. Geographic changes are always refused: phase31's only nonempty
 intervals remain identity, not a selected joint initialization/safety/port plan.
 Combined phase31/32 results require independent acceptance before adoption.
 No shipping/default/ledger/game/holdout action; original failures/promisesunknown.
+
+## Phase thirty-three: explicit boundary and coupled bed/stage contract
+
+PL1303 limited phase31/32PASS is consumed and closed. Its low packing-name note
+is retained: native +row is +z/north; the frozen third compact-array label is not
+a compass/flow claim. New schema uses explicit index relations.
+
+The complete six-case boundary specification retains8787site records (including
+excluded/proximity/unknown entries), with5666active missing boundary contracts.
+Literal endpoint/source incidence is not hydraulic communication. Selected roles,
+direction, lateral authority, receiving stages, supply/outlet retention and exact
+field-operation proofs remain separate unknowns; no sea/target/name joins fill them.
+
+A new conditional coupled-bed enquiry preserves the old lake-interior/rim scope:
+215node occurrences (211unique entry/nodes) could fit depth/freeboard within3mcut;
+447cannot fit that bounded model. ALLpositive cuts remain forbidden by current
+unchanged-terrain obligations. No selected bed/stage/water edit or candidate follows.
+The19old zero-minimum-cut occurrences and all original startup failures remain.
+
+Both initial reader failures stopped before case output; old251/252source bytes,
+freezes/logs remain. New committed v3 preserves fieldless authored plans and all
+12engineered exact-sampling unknowns. Nine focused tests/full7file replay and a
+complete producer cohort/algebra check pass. No game/shipping/holdout action.
+Next: source-selected complete interface observations from exact retained native
+grids, not a new run or an invented authoritative boundary condition. Phase33new
+results are not independently accepted/adopted; all promises remain unknown.

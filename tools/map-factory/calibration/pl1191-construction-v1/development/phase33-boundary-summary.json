@@ -1,0 +1,149 @@
+{
+  "schema": "polli.pl1191-phase33-coupled-boundary-summary/1",
+  "actual_CPU_source": "6cfc6f2d72ef2f62cfefa92aaa3ff2e8e24a4890",
+  "input_freeze_sha256": "20a6451a6068e8916b1dae6c4508300d843b6325c1625a063f4fbe4552ec972d",
+  "source_count": 253,
+  "input_count": 286,
+  "cases": {
+    "dry-upland-asia": {
+      "site_counts": {
+        "line": 19,
+        "endpoint": 36,
+        "body-domain": 1,
+        "authored-plan-domain": 58,
+        "unsupported-entry-domain": 1
+      },
+      "total_sites": 115,
+      "active_missing_boundary_contracts": 108,
+      "literal_boundary_endpoint_facts": 2,
+      "natural_points_retained": 364,
+      "node_occurrences_retained": 18234,
+      "engineered_sampling_unknowns": 1,
+      "coupled_status_occurrences": {},
+      "positive_cut_occurrences": 0,
+      "positive_cut_unique_entry_nodes": 0,
+      "positive_cut_min_q": null,
+      "positive_cut_max_q": null,
+      "all_positive_cuts_forbidden_under_current_terrain_contract": true
+    },
+    "dry-upland-europe": {
+      "site_counts": {
+        "line": 602,
+        "body": 91,
+        "endpoint": 718,
+        "body-domain": 107,
+        "authored-plan-domain": 48,
+        "unsupported-entry-domain": 63
+      },
+      "total_sites": 1629,
+      "active_missing_boundary_contracts": 624,
+      "literal_boundary_endpoint_facts": 36,
+      "natural_points_retained": 279,
+      "node_occurrences_retained": 13748,
+      "engineered_sampling_unknowns": 8,
+      "coupled_status_occurrences": {
+        "no_bounded_cut_interval": 114,
+        "conditional_positive_cut_no_authority": 21
+      },
+      "positive_cut_occurrences": 21,
+      "positive_cut_unique_entry_nodes": 21,
+      "positive_cut_min_q": 152,
+      "positive_cut_max_q": 191,
+      "all_positive_cuts_forbidden_under_current_terrain_contract": true
+    },
+    "lowland-river-south-america": {
+      "site_counts": {
+        "line": 1854,
+        "body": 200,
+        "endpoint": 1556,
+        "body-domain": 159,
+        "authored-plan-domain": 49,
+        "unsupported-entry-domain": 47
+      },
+      "total_sites": 3865,
+      "active_missing_boundary_contracts": 2470,
+      "literal_boundary_endpoint_facts": 16,
+      "natural_points_retained": 15638,
+      "node_occurrences_retained": 771162,
+      "engineered_sampling_unknowns": 3,
+      "coupled_status_occurrences": {
+        "no_bounded_cut_interval": 160,
+        "conditional_positive_cut_no_authority": 57,
+        "conditional_zero_minimum_cut_no_selected_plan": 9
+      },
+      "positive_cut_occurrences": 57,
+      "positive_cut_unique_entry_nodes": 53,
+      "positive_cut_min_q": 4,
+      "positive_cut_max_q": 191,
+      "all_positive_cuts_forbidden_under_current_terrain_contract": true
+    },
+    "dry-upland-south-america": {
+      "site_counts": {
+        "line": 20,
+        "endpoint": 42,
+        "authored-plan-domain": 1
+      },
+      "total_sites": 63,
+      "active_missing_boundary_contracts": 55,
+      "literal_boundary_endpoint_facts": 5,
+      "physical": null,
+      "coupled_queries": null,
+      "retained_contracts": 55,
+      "retained_points": 414
+    },
+    "mountain-river-asia": {
+      "site_counts": {
+        "line": 52,
+        "body": 54,
+        "endpoint": 102,
+        "body-domain": 29,
+        "authored-plan-domain": 1
+      },
+      "total_sites": 238,
+      "active_missing_boundary_contracts": 234,
+      "literal_boundary_endpoint_facts": 11,
+      "physical": null,
+      "coupled_queries": null,
+      "retained_contracts": 174,
+      "retained_points": 2312
+    },
+    "low-coast-oceania": {
+      "site_counts": {
+        "line": 755,
+        "body": 521,
+        "endpoint": 878,
+        "body-domain": 556,
+        "authored-plan-domain": 167
+      },
+      "total_sites": 2877,
+      "active_missing_boundary_contracts": 2175,
+      "literal_boundary_endpoint_facts": 24,
+      "natural_points_retained": 23113,
+      "node_occurrences_retained": 1136343,
+      "engineered_sampling_unknowns": 0,
+      "coupled_status_occurrences": {
+        "no_bounded_cut_interval": 173,
+        "conditional_positive_cut_no_authority": 137,
+        "conditional_zero_minimum_cut_no_selected_plan": 10
+      },
+      "positive_cut_occurrences": 137,
+      "positive_cut_unique_entry_nodes": 137,
+      "positive_cut_min_q": 6,
+      "positive_cut_max_q": 192,
+      "all_positive_cuts_forbidden_under_current_terrain_contract": true
+    }
+  },
+  "physical_admission": false,
+  "promise": "unknown",
+  "totals": {
+    "sites": 8787,
+    "active_missing": 5666,
+    "literal_endpoints": 94,
+    "natural_points": 39394,
+    "node_occurrences": 1939487,
+    "engineered_unknowns": 12,
+    "positive_cut_occurrences": 215,
+    "positive_cut_unique_entry_nodes": 211
+  },
+  "new_results_not_independently_accepted": true
+}

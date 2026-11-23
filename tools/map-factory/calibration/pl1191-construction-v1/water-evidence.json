@@ -1326,5 +1326,18 @@
     "new_geographic_physical_or_native": false,
     "independent_results_acceptance": false,
     "promise": "unknown"
+  },
+  "phase33_coupled_interface_boundary_spec": {
+    "schema": "polli.pl1191-postanalysis-coupled-boundary-binding/3",
+    "postanalysis_not_prospective": true,
+    "actual_CPU_source": "6cfc6f2d72ef2f62cfefa92aaa3ff2e8e24a4890",
+    "input_freeze_sha256": "20a6451a6068e8916b1dae6c4508300d843b6325c1625a063f4fbe4552ec972d",
+    "result_receipt_sha256": "17793eac554ce54d1b72c68e189e14a612a7ab6d5523b4e38a180e04877c2085",
+    "summary_sha256": "3d5177264695a1228a45292ee2cdeb511bb5cb137d64c5f5bd25335fb2778ef5",
+    "report_sha256": "5ac349131cb258b7cbb000f5aab3a0610da522c6c8eb3763e183c21b6d1dc7f4",
+    "review_consumed_receipt_sha256": "2eb2473e98b4af4fa2abd87317f351f6affec51efbecbac5a8e9766b3451abef",
+    "physical_admission": false,
+    "new_geographic_or_native": false,
+    "promise": "unknown"
   }
 }
