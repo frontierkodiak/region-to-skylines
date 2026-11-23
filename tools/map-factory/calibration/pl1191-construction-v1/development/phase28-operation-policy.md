@@ -35,3 +35,12 @@ or operation refusal/missing-fact ledger for ALLcases. Numeric operation bounds
 are NOT admission. Copy complete raw QLD point-source evidence and original
 source/physical/contracts in the protocol. Both actual and authored floor spaces,
 all old failures and NULLsupport retained; no default/ledger/holdout action.
+
+
+Before the prospective freeze, also require source-space full-bank freeboard:
+reference/native bank raises cannot supply missing serialized-bank margin. Keep
+all current graph-bank nodes in a separate conservative operation-guard union;
+this is not surveyed bank authority or a changed shipping/protection mask. Test
+old infrastructure/foreign-contact counts byte-exactly before deriving operations.
+All existing source records plus every undeployed proposal must fit the encoded
+source-count bound. Do not materialize a combined map from conflicting pieces.

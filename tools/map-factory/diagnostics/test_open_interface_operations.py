@@ -1,9 +1,11 @@
 import struct
 import unittest
+import numpy as np
 from open_interface_operations import (
     field_operation,
     control_record,
     shared_cell_conflicts,
+    bank_clearance,
 )
 
 
@@ -61,6 +63,17 @@ class OperationTests(unittest.TestCase):
         self.assertFalse(h["deployed"])
         with self.assertRaises(ValueError):
             control_record([0, 0], 1, 97, "per_node_lake")
+
+    def test_source_bank_freeboard_cannot_borrow_raised_native_floor(self):
+        a = np.full((3, 3), 128)
+        b = np.full((3, 3), 256)
+        self.assertTrue(
+            bank_clearance([[1, 1]], [96], a, b)["serialized_freeboard_half_metre"]
+        )
+        a[0, 0] = 100
+        j = bank_clearance([[1, 1]], [96], a, b)
+        self.assertFalse(j["serialized_freeboard_half_metre"])
+        self.assertEqual(j["per_node"][0]["minimum_reference_bank_freeboard_q"], 160)
 
     def test_shared_cells_do_not_arbitrarily_overwrite_other_piece(self):
         a = field_operation([2, 3], 6400, 6400, 0, 6304, 6400, [])

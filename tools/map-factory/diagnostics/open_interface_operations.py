@@ -70,6 +70,51 @@ def field_operation(node, terrain, reference, water, bed, stage, protected):
     }
 
 
+def bank_clearance(nodes, targets, authored, reference):
+    own = set(map(tuple, nodes))
+    records = []
+    for raw, stage in zip(nodes, targets):
+        r, c = raw
+        rim = {(r + y, c + x) for y in (-1, 0, 1) for x in (-1, 0, 1)} - own
+        outside = [
+            n
+            for n in rim
+            if not (0 <= n[0] < authored.shape[0] and 0 <= n[1] < authored.shape[1])
+        ]
+        inside = sorted(rim - set(outside))
+        records.append(
+            {
+                "node_rc": list(raw),
+                "outside_bank_nodes_rc": [list(n) for n in sorted(outside)],
+                "minimum_serialized_bank_freeboard_q": min(
+                    int(authored[n]) - int(stage) for n in inside
+                )
+                if inside
+                else None,
+                "minimum_reference_bank_freeboard_q": min(
+                    int(reference[n]) - int(stage) for n in inside
+                )
+                if inside
+                else None,
+            }
+        )
+    return {
+        "per_node": records,
+        "full_banks_known": all(
+            not r["outside_bank_nodes_rc"]
+            and r["minimum_serialized_bank_freeboard_q"] is not None
+            for r in records
+        ),
+        "serialized_freeboard_half_metre": all(
+            not r["outside_bank_nodes_rc"]
+            and r["minimum_serialized_bank_freeboard_q"] is not None
+            and r["minimum_serialized_bank_freeboard_q"] >= 32
+            for r in records
+        ),
+        "all_bank_terrain_and_water_unchanged_required": True,
+    }
+
+
 def control_record(node, bed, stage, role):
     if role not in ("head_inlet_proposal", "terminal_outlet_or_intake_proposal"):
         raise ValueError("Only declared head/terminal ports, never per-node regulators")
@@ -201,6 +246,16 @@ def context(folder, name, old):
     banks, authority = original_banks(base, old["complete_source_topology"]["rows"])
     guards["original_stream_bank_union"] = np.flipud(banks)
     topo = old["complete_source_topology"]
+    full_banks = np.zeros_like(terrain, dtype=bool)
+    for component in old["components"]:
+        own = {tuple(topo["nodes"][i]["node_rc"]) for i in component["graph_node_ids"]}
+        bank = {
+            (r + y, c + x) for r, c in own for y in (-1, 0, 1) for x in (-1, 0, 1)
+        } - own
+        for n in bank:
+            if 0 <= n[0] <= 1080 and 0 <= n[1] <= 1080:
+                full_banks[n] = True
+    guards["all_current_graph_bank_union"] = full_banks
     owner = {n: i for i, c in enumerate(old["components"]) for n in c["source_clips"]}
     owners = defaultdict(set)
     for clip in topo["clips"].values():
@@ -316,6 +371,16 @@ def analyze(folder, name, source_points):
                 ["all_other_or_excluded_lines_128m"] if foreign_at[n] else []
             )
 
+        if (
+            any(
+                sum(bool(guards[k][n]) for n in valid) != v
+                for k, v in c["fixed_guard_hits"].items()
+            )
+            or sum(foreign_at.values()) != c["foreign_128m_contacts"]
+        ):
+            raise ValueError(
+                "Old fixed contact count changed; no reinterpreted refusal"
+            )
         rows = [
             {
                 "node_rc": list(n),
@@ -415,7 +480,9 @@ def analyze(folder, name, source_points):
                             )
                     port["old_control_full_circle_contacts"] = distances
                     ports.append(port)
+            bank_bounds = bank_clearance(nodes, numeric["target_q"], terrain, floor)
             entry.update(
+                full_bank_source_and_reference_check=bank_bounds,
                 terrain_water_operations=ops,
                 proposed_controls=ports,
                 changed_terrain_nodes=sum(
@@ -429,7 +496,8 @@ def analyze(folder, name, source_points):
                     bool(o["protected_contacts"]) and not o["changed_fields"]
                     for o in ops
                 ),
-                operation_bounds_only=all(
+                operation_bounds_only=bank_bounds["serialized_freeboard_half_metre"]
+                and all(
                     o["serialized_no_fill_cut3_depth1_5_valid"]
                     and not o["protected_edits"]
                     for o in ops
@@ -446,6 +514,11 @@ def analyze(folder, name, source_points):
         result["components"].append(entry)
     result["cross_component_cell_conflicts"] = shared_cell_conflicts(proposed)
     result["no_hypothetical_combined_map_materialized"] = True
+    result["hypothetical_source_count_bound_only"] = (
+        len(controls)
+        + sum(len(c["proposed_controls"] or []) for c in result["components"])
+        <= 65535
+    )
     result["operation_status_counts"] = dict(
         Counter(
             "numeric_operation_bounds_only"
