@@ -1,0 +1,23 @@
+test_coverage_start_identity_and_self_attestation (test_pipeline.ProcessOwnership.test_coverage_start_identity_and_self_attestation) ... ok
+test_live_driver_cannot_be_ready_cleanup (test_pipeline.ProcessOwnership.test_live_driver_cannot_be_ready_cleanup) ... ok
+test_actual_old_freeze_fails_before_missing_build_or_store (test_pipeline.RealPipeline.test_actual_old_freeze_fails_before_missing_build_or_store) ... ok
+test_actual_retained_bytes_corruption_and_missing (test_pipeline.RealPipeline.test_actual_retained_bytes_corruption_and_missing) ... ok
+test_actual_wiring_not_only_relabelled_dictionary (test_pipeline.RealPipeline.test_actual_wiring_not_only_relabelled_dictionary) ... ok
+test_collector_and_bundle_edges_each_binding (test_pipeline.RealPipeline.test_collector_and_bundle_edges_each_binding) ... ok
+test_duplicate_json_fields_fail_at_file_boundary (test_pipeline.RealPipeline.test_duplicate_json_fields_fail_at_file_boundary) ... ok
+test_each_private_build_and_input_role (test_pipeline.RealPipeline.test_each_private_build_and_input_role) ... ok
+test_each_source_hash_and_actual_source_content (test_pipeline.RealPipeline.test_each_source_hash_and_actual_source_content) ... ok
+test_future_types_do_not_forge_admission (test_pipeline.RealPipeline.test_future_types_do_not_forge_admission) ... ok
+test_mvid_is_retained_byte_fact_not_a_uuid_claim (test_pipeline.RealPipeline.test_mvid_is_retained_byte_fact_not_a_uuid_claim) ... ok
+test_original_tree_unchanged (test_pipeline.RealPipeline.test_original_tree_unchanged) ... ok
+test_policy_runtime_and_bundle_gate_edges (test_pipeline.RealPipeline.test_policy_runtime_and_bundle_gate_edges) ... ok
+test_portable_build_modes_and_recipe (test_pipeline.RealPipeline.test_portable_build_modes_and_recipe) ... ok
+test_preflight_consumer_is_before_and_distinct_from_driver_cleanup (test_pipeline.RealPipeline.test_preflight_consumer_is_before_and_distinct_from_driver_cleanup) ... ok
+test_real_builder_same_consumer_and_no_admission (test_pipeline.RealPipeline.test_real_builder_same_consumer_and_no_admission) ... ok
+test_role_keysets_and_digests (test_pipeline.RealPipeline.test_role_keysets_and_digests) ... ok
+test_strict_top_level_shapes (test_pipeline.RealPipeline.test_strict_top_level_shapes) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 38.649s
+
+OK
