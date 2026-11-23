@@ -1,4 +1,266 @@
 {
+  "connection_rules": {
+    "ship_width_m": 256,
+    "margin_m": 64,
+    "edge_margin_m": 32,
+    "edge_separation_m": 512
+  },
+  "connection_agreement": {
+    "stock": {
+      "road": {
+        "agree": 100,
+        "total": 100,
+        "fraction": 1.0,
+        "basis": "stock geometry fit (in-sample)"
+      },
+      "rail": {
+        "agree": 100,
+        "total": 100,
+        "fraction": 1.0,
+        "basis": "stock geometry fit (in-sample)"
+      },
+      "ship": {
+        "agree": 93,
+        "total": 104,
+        "fraction": 0.8942307692307693,
+        "basis": "stock geometry fit (in-sample)"
+      },
+      "air": {
+        "agree": 103,
+        "total": 104,
+        "fraction": 0.9903846153846154,
+        "basis": "stock geometry fit (in-sample)"
+      }
+    },
+    "editor": {
+      "road": {
+        "agree": 9,
+        "total": 9
+      },
+      "rail": {
+        "agree": 9,
+        "total": 9
+      },
+      "ship": {
+        "agree": 9,
+        "total": 9
+      },
+      "air": {
+        "agree": 6,
+        "total": 9
+      }
+    },
+    "editor_rows": [
+      {
+        "square": "asheville",
+        "observed_at": "2026-11-23T21:36:51Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 8,
+          "rail": 4,
+          "ship": 0,
+          "air": 2
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": false,
+          "air": true
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "no",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "boston",
+        "observed_at": "2026-11-23T21:39:44Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 27,
+          "rail": 9,
+          "ship": 2,
+          "air": 2
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": true,
+          "air": true
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "yes",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "charleston",
+        "observed_at": "2026-11-23T21:42:15Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 14,
+          "rail": 1,
+          "ship": 2,
+          "air": 2
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": true,
+          "air": true
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "yes",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "grand-canyon",
+        "observed_at": "2026-11-23T21:44:53Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 0,
+          "rail": 1,
+          "ship": 0,
+          "air": 0
+        },
+        "observed": {
+          "road": false,
+          "rail": true,
+          "ship": false,
+          "air": false
+        },
+        "predicted": {
+          "road": "no",
+          "rail": "yes",
+          "ship": "no",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "hong-kong",
+        "observed_at": "2026-11-23T21:47:22Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 19,
+          "rail": 3,
+          "ship": 2,
+          "air": 0
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": true,
+          "air": false
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "yes",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "innsbruck",
+        "observed_at": "2026-11-23T21:49:54Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 6,
+          "rail": 5,
+          "ship": 0,
+          "air": 2
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": false,
+          "air": true
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "no",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "pittsburgh",
+        "observed_at": "2026-11-23T21:52:22Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 29,
+          "rail": 16,
+          "ship": 0,
+          "air": 2
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": false,
+          "air": true
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "no",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "rio",
+        "observed_at": "2026-11-23T21:54:50Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 20,
+          "rail": 3,
+          "ship": 2,
+          "air": 2
+        },
+        "observed": {
+          "road": true,
+          "rail": true,
+          "ship": true,
+          "air": true
+        },
+        "predicted": {
+          "road": "yes",
+          "rail": "yes",
+          "ship": "yes",
+          "air": "yes"
+        }
+      },
+      {
+        "square": "yosemite",
+        "observed_at": "2026-11-23T21:57:20Z",
+        "mode": "MapEditor",
+        "entries": {
+          "road": 0,
+          "rail": 0,
+          "ship": 0,
+          "air": 0
+        },
+        "observed": {
+          "road": false,
+          "rail": false,
+          "ship": false,
+          "air": false
+        },
+        "predicted": {
+          "road": "no",
+          "rail": "no",
+          "ship": "no",
+          "air": "yes"
+        }
+      }
+    ],
+    "editor_note": "Fixed editor cohort: all nine retained geographic packages, sorted by slug, no rebuilds or replacements. Outside-entry presence, not traffic or service. Air differs on grand-canyon, hong-kong, yosemite: the editor has no authored plane entry; the all-yes stock baseline is retained without place exceptions."
+  },
   "schema": 1,
   "model": "square-capabilities-v5",
   "updated_at": "2026-11-21",
@@ -35809,14 +36071,14 @@
         "agreement": "unscored_new_runtime",
         "stock_comparison": "not_comparable",
         "source_sha256": {
-          "capability-model.js": "0cca4b886eb22db30e5b95f0fe029dc3c186a7c9ff4b80149c40614cb78a17ea",
+          "capability-model.js": "5b62de21f79f1f07fd60c10c34654ac54f5c28c7c0b0adeb8399e4f5a2971f27",
           "water-model.js": "45d7f4653944e7f242e1be3dbda1f2ef3a94a2ba033f104094ca4cdddcfc383a",
           "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
           "tools/map-factory/water_model.py": "9eeb70313868e4457654b9b8a2f44939ca993a96056a96e07d5d2a97be05e43a",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
-          "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
-          "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1"
+          "tools/map-factory/capabilities.py": "76e42f78172294f09fc156f4ad02bc626546c4649b35bb89b8dbcecd993bdd5d",
+          "capability-inputs.js": "a2feb0656bd4ef0fc47c7928ccb1959bfda24fcc9753738d0dbdb6231458cc97"
         }
       }
     },
@@ -35868,10 +36130,10 @@
         "source_sha256": {
           "start-model.js": "d3046b3411c4d1f7425e4e3db3fa6a0b310af6d6f98b5602472cdd69bc8af02e",
           "tools/map-factory/start_model.py": "bc53de8b9a31231fcabd316a7ad2bc36c0279a771b51df9eead4340359f13c9d",
-          "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
+          "tools/map-factory/capabilities.py": "76e42f78172294f09fc156f4ad02bc626546c4649b35bb89b8dbcecd993bdd5d",
           "tools/map-factory/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
           "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
-          "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1"
+          "capability-inputs.js": "a2feb0656bd4ef0fc47c7928ccb1959bfda24fcc9753738d0dbdb6231458cc97"
         }
       }
     },

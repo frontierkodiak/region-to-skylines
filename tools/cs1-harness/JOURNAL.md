@@ -2891,3 +2891,13 @@ packages. Therefore neither the Amherst baseline nor aborted Boston attempt
 qualifies the final PL-1074 heads. Fresh four-case native gates remain required.
 The final four source-derived packages are diagnostic-only: all retain the
 landed water-risk warnings; no public export/install or risk waiver is claimed.
+
+## 2026-11-23 — PL-1119 mapped-connection editor check
+
+Blade, RTX 2080 Ti (05:00.0), nine retained geographic packages sorted by slug;
+21:33–22:00 UTC including separate startup/teardown per map. The read-only
+`networks` operation now accepts MapEditor. Road, rail and ship presence agree
+with the new mapped-geometry rules on 9/9; air on 6/9 (Grand Canyon, Hong Kong,
+Yosemite have no authored plane entry). No path requests, map rebuilds or water
+changes. VRAM/power/temperature peaks were not recorded; startup snapshots show
+1.5–1.6 GiB game VRAM. No GPU settings changed. All nine sessions closed.

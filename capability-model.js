@@ -1,3 +1,4 @@
+import { connectionRules } from "./connection-rules.js";
 import { evaluateWater, normalizeWaterOpportunity } from "./water-model.js";
 import { evaluateStart } from "./start-model.js";
 // Mirrored deterministic core: tools/map-factory/capabilities.py. No DOM or IO.
@@ -290,6 +291,7 @@ export function checkCapabilities(data, ledger) {
       result[key] = { level: observation ? "likely" : "unknown", reason: observation ? "mapped_candidate_not_routed" : "transport_not_established" };
     }
   }
+  if (data.connection_geometry) Object.assign(result, connectionRules(data.connection_geometry, ledger.connection_rules));
   for (const key of ["water", "start", "buildable", "resources", "trees", "water_risk"]) result[key] = { level: "unknown", reason: "not_evaluated" };
   result.water = data.mode === "estimate" && data.planner_enabled?.water !== false
     ? normalizeWaterOpportunity(data.water_opportunity) : evaluateWater(data);

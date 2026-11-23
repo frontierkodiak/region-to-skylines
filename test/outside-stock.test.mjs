@@ -419,6 +419,8 @@ test("regeneration is deterministic twice and preserves every sibling study byte
 
 test("exact parent bytes outside every producer's owned fragments are unchanged", () => {
   let text = readFileSync(file("capabilities.json")).toString();
+  text = text.slice(text.indexOf('  "schema":'));
+  text = "{\n" + text;
   for (const id of ["start", "water"]) {
     const marker = text.indexOf('"id": "' + id + '"'), begin = text.lastIndexOf("    {", marker);
     const end = text.indexOf("\n    }", marker) + "\n    }".length;

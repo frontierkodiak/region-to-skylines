@@ -9,6 +9,14 @@ FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
+    "test/connection-browser.mjs",
+    "connection-rules.js",
+    "tools/map-factory/connection_rules.py",
+    "tools/map-factory/survey/connection-fit.json",
+    "tools/map-factory/survey/fit_connections.py",
+    "tools/map-factory/editor_connection_check.py",
+    "tools/cs1-harness/mod/NetworkOps.cs",
+    "test/connection-rules.test.mjs",
     "water-model.js",
     "tools/map-factory/water_model.py",
     "tools/map-factory/capability-evidence/pl1208-projection/start-water-study.mjs",

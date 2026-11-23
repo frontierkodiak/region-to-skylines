@@ -11,7 +11,7 @@ namespace Cs1Harness
 
         public static void Register()
         {
-            Host.Register("networks", Needs.City, "native segments, node positions and vehicle lanes", q => Networks());
+            Host.Register("networks", Needs.Level, "native segments, node positions and vehicle lanes", q => Networks());
             Host.Register("path_start", Needs.City, "native car/train path: {from:[segment,lane,offset], to:[segment,lane,offset], rail:false}", Start);
             Host.Register("path_result", Needs.City, "poll a harness-owned native path; completed paths are released: {id}", Result);
         }

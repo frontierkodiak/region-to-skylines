@@ -662,6 +662,14 @@ def check(data, ledger):
                 if observation
                 else "transport_not_established",
             }
+    if data.get("connection_geometry") is not None:
+        from connection_rules import check as connection_check
+
+        result.update(
+            connection_check(
+                data["connection_geometry"], ledger.get("connection_rules")
+            )
+        )
     for key in ("water", "start", "buildable", "resources", "trees", "water_risk"):
         result[key] = {"level": "unknown", "reason": "not_evaluated"}
     if (
@@ -880,6 +888,12 @@ def prepared_input(folder):
         / 64
     )
     hydro = json.loads((folder / "hydrology.json").read_text())
+    geometry_file = folder / "geometry.json"
+    connection_geometry = None
+    if geometry_file.exists():
+        from connection_rules import from_geometry
+
+        connection_geometry = from_geometry(json.loads(geometry_file.read_text()))
     start_input = {
         "fidelity": "prepared_16m_south_first",
         "tile": hydro.get("start_tile"),
@@ -900,6 +914,7 @@ def prepared_input(folder):
         "schema": 1,
         "mode": "export",
         "graph": hydro.get("highways"),
+        "connection_geometry": connection_geometry,
         "start_input": start_input,
         "water_plan": {"samples": hydro.get("samples")},
         "planner_enabled": {
@@ -979,6 +994,9 @@ def assess_prepared(folder, native_context=None):
     report = check(prepared_input(folder), ledger)
     report["model_sha256"] = hashlib.sha256(ledger_bytes).hexdigest()
     report["tool_sha256"] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
+    report["connection_rules_sha256"] = hashlib.sha256(
+        Path(__file__).with_name("connection_rules.py").read_bytes()
+    ).hexdigest()
     report["stock_measures"] = stock_binding
     report["inputs_sha256"] = {
         name: hashlib.sha256((folder / name).read_bytes()).hexdigest()

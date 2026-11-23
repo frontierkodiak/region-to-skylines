@@ -1,3 +1,11 @@
+## Current mapped connections
+
+The live row and Python `connection_rules.py` share the same rules: motorway/trunk or mainline rail crossing the square edge; mapped water connecting edge points (or edge to sea); air available by default. Road/rail use a 32 m edge margin. Ship uses a 256 m width threshold with a 64 m margin, sampled on a 64 m lattice. These are geometry answers, not service checks.
+
+`survey/fit_connections.py` fits ship width above a four-cell resolution floor against 104 stock maps. The unconstrained 128 m fit agrees on 96/104; the resolved 256 m rule agrees on 93/104. Stock saved-water masks and live OSM polygons are different sources of the same corridor-width measurement. Four stock network decodes are unavailable, so road/rail denominators are 100. Air's all-yes baseline is 103/104.
+
+The editor check uses all nine retained geographic packages, sorted by slug, without rebuilding them. It reads their outside entries in MapEditor; it does not test traffic, spawning or service. Counts and individual disagreements appear in the ledger's current-connections table. Water remains separate.
+
 # Square capability model
 
 The inventory is the root `capabilities.json`. Its generated page is
