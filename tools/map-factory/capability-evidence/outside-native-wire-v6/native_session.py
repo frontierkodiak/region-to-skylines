@@ -3,7 +3,7 @@
 NOT invoked by this issue. This module contains no native authorization provider.
 """
 
-from contextlib import contextmanager
+from contextlib import contextmanager, ExitStack
 import copy
 from pathlib import Path
 import uuid
@@ -36,23 +36,45 @@ class NativeSession:
         self.total = total
         self.first_opening = Deadline.after(900, total)
         self.initial_load = Deadline.after(600, self.first_opening)
-        stage = staging(self.cfg, self.directory)
-        with slot(
-            self.cfg,
-            stage,
-            0,
-            {"command": "wire-v6", "issue": "PL-1321", "label": request.session},
-        ) as session:
-            total.remaining()
-            session.require_offline, session.record, session.live = True, False, False
-            session.client = Wire(self.cfg.port, self.initial_load, self.trace)
-            self.session, self.native, self.request = session, native, request
-            self.client = session.client
-            session.launch(["--noWorkshop"], timeout=self.client.deadline.remaining())
-            self.receipt = session.receipt
+        self.native, self.request = native, request
+        self.stack = ExitStack()
+        try:
             yield self
+        finally:
+            self.stack.close()
+
+    def begin(self, control, deadline):
+        from cs1_harness.cli import slot, staging
+
+        # A second new_game cannot run in a loaded city. Each opening owns a new slot.
+        self.stack.close()
+        self.stack = ExitStack()
+        stage = staging(self.cfg, self.directory / control["case_id"])
+        session = self.stack.enter_context(
+            slot(
+                self.cfg,
+                stage,
+                0,
+                {
+                    "command": "wire-v6",
+                    "issue": "PL-1321",
+                    "label": self.request.session,
+                },
+            )
+        )
+        self.session = session
+        session.require_offline, session.record, session.live = True, False, False
+        self.installed = self._install(control)
+        session.client = Wire(self.cfg.port, deadline, self.trace)
+        self.client = session.client
+        session.launch(["--noWorkshop"], timeout=deadline.remaining())
+        self.receipt = session.receipt
 
     def install(self, control):
+        # PackageManager enumerates maps at startup; the copy happened before launch.
+        return self.installed
+
+    def _install(self, control):
         controls = self.source.spec.read(self.source.spec.OLD / "freeze.json")[
             "controls"
         ]

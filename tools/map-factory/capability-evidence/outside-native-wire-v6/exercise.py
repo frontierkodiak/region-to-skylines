@@ -31,6 +31,9 @@ class FixtureSession:
         self.client = Wire(port, Deadline.after(10), trace)
         self.receipt = dict(launch_args=["--noWorkshop"])
 
+    def begin(self, control, deadline):
+        deadline.remaining()
+
     def install(self, control):
         return "/CONSTRUCTED/" + control["case_id"]
 

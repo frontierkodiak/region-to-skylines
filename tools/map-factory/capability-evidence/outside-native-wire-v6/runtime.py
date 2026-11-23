@@ -188,6 +188,9 @@ def collect(transport, births, limits):
             )
 
         try:
+            transport.session.begin(control, load)
+            transport.client = transport.session.client
+            transport.client.deadline = load
             capture("launch")
             context, graph = transport.opening(control, load)
             observed.update(native_context=context, opening_graph=graph)
