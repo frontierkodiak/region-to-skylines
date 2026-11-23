@@ -69,6 +69,7 @@ class CodecTests(unittest.TestCase):
             grow_depth(self.state, d, ({}, {}, {}))
         with self.assertRaisesRegex(ValueError, "uint16"):
             grow_depth(self.state, self.state.depth.astype(float), ({}, {}, {}))
+        d = self.state.depth.copy()
         d[0, 0] = 1
         dec = list(declarations(self.state.depth, d))
         dec[0][0] = 65536
