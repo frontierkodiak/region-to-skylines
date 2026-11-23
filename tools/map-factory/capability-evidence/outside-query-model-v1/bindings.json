@@ -8,12 +8,12 @@
   "inventory.json": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
   "inventory.py": "7c52a0f7ecbe5f1cf46d5ef2798e26cb3944b3fbee8eaaf06ecfeee8a5abc220",
   "manifest.json": "e34f2b3bdb34e8d7ed8f2fbfd341117dcabfe2d3d239a03d5c49b172568fffc2",
-  "model.py": "6da54b45ad2faff792f2f24a7120c3ef7c7df628f734cdc705c7b6744af274d4",
+  "model.py": "9e3e2fc05a144d3313150e20113204ec34973d451e3b0a18d6a1875a2f46ef7b",
   "packages.json": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
   "predict.py": "12dc5454c14bbb2f2790c428450a9bffe9be7029cba914abe722190a29cd61d5",
   "predictions.json": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
   "requests.json": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447",
-  "topology.py": "2ac4804cd5b0eace2dc4a0b42b84f5e9265a6fe3ac996dd1821ddeb791550fc0"
+  "topology.py": "1879726587d832e313556e1d2b607dd12e14bda8c902933bea16c9eb3604c9e8"
  },
  "note": "Additive integrity freeze with corrected per-mode protocol, before revised scoring. Predictions remain byte-identical to the prior publication. Source revision binds publication, not a claim it predates native collection. Only frozen_at is excluded from the protocol digest.",
  "protocol_semantic_sha256": "bba21361a650ce9f3deec038c88cb71f09f97ef706948e9fed64f4d898e5180f",

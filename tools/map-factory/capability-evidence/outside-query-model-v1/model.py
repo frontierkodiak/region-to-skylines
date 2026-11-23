@@ -7,8 +7,9 @@ the label it is scored against.
 
 The question is deliberately narrow. Given one literal-boundary request
 `from=[segment,lane,offset]`, `to=[segment,lane,offset]` submitted to
-`PathManager.CreatePath` with the accepted study's vehicle, category `All`,
-laneTypes `Vehicle|TransportVehicle|CargoVehicle`, seed 857, maxLength 100000
+`PathManager.CreatePath` with the accepted study's vehicle; road category
+`PassengerCar` and laneTypes `Vehicle`; ship/air category `All` and laneTypes
+`Vehicle|TransportVehicle|CargoVehicle`; seed 857, maxLength 100000
 and literal endpoints, did the game return a complete, released path whose
 first and last positions equal the requested offsets?
 

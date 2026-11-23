@@ -77,7 +77,7 @@ def _lane(record):
         "index": int(record["index"]),
         "forward": forward,
         "backward": backward,
-        # Recorded features, not filters: the frozen query accepts All categories.
+        # mode_lanes applies the retained request's mode-specific category mask.
         "lane_type": str(record["type"]),
         "vehicle": sorted(tokens(record["vehicle"])),
         "category": str(record["category"]),
