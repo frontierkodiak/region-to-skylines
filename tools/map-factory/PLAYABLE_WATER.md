@@ -15,6 +15,10 @@ It authors every captured visible river/stream, lakes, river areas and ocean:
 - A priority-flood D8 drainage model supplies local catchment area. Source
   capacity is a bounded `0.008 * sqrt(km²)` game setting, not measured discharge.
   Catchment beyond the captured square is unknown.
+- Each chosen source gets an 8 m inlet pool (16 m for body controls) across
+  the retained radius model, `10 + 0.4 * sqrt(encoded rate)`, with sloping sides.
+  A nearby explicit underground gap limits the setting instead of being cut.
+  Both the requested catchment setting and any geometric reduction are recorded.
 - A source-space drainage tree chooses outlets at sea or the map edge where
   available. Short captured gaps up to 160 m can join; explicit underground gaps
   cannot. Closed captured components use an explicit terminal sink. They are
@@ -49,6 +53,11 @@ Asheville, Innsbruck, Rio, Pittsburgh, Charleston, Grand Canyon, Hong Kong and
 Yosemite. The extra three are development comparisons, not an unseen holdout.
 Inputs are shared between before and after. Baseline openings are short runs;
 changed maps receive 60 game-minutes with saved grids every 5 minutes.
+
+The first native constructor attempt is retained separately: Asheville completed
+60 minutes with drying; Innsbruck was interrupted and cleaned up after a CPU
+check found sources straddling shallow/dry footprint cells. The inlet-pool
+correction is a new physical construction, not a rerun to repair reporting.
 
 The existing full source inventory and old probes remain. Unsupported inventory
 rows stay visible. Compiled-only startup success is not complete source coverage.
