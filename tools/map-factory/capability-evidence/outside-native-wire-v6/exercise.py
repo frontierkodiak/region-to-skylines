@@ -25,6 +25,9 @@ class FixtureSession:
     def begin(self, control, deadline):
         deadline.remaining()
 
+    def same_file(self, path, installed):
+        return path == str(installed)
+
     def install(self, control):
         return "/CONSTRUCTED/" + control["case_id"]
 
@@ -137,7 +140,17 @@ def script_for(native, store, cases=None):
 
         inventory()
         add("maps", dict(maps=[dict(path=path)]))
-        add("new_game", dict(job=1), path=path)
+        add(
+            "new_game",
+            dict(
+                loading=path,
+                map_name="CONSTRUCTED",
+                published=True,
+                update_mode="NewGameFromMap",
+                invert_traffic="False",
+            ),
+            path=path,
+        )
         add("status", dict(loading=False, in_game=True))
         stats()
         add("run", paused=True)

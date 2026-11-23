@@ -5,7 +5,6 @@ path does not. This changes no queue, permission, ptrace setting or guard.
 """
 
 import ctypes
-import fcntl
 import os
 from pathlib import Path
 import platform
@@ -41,6 +40,23 @@ class Lease:
                     stat = candidate.stat()
                     if (stat.st_dev, stat.st_ino) != (target.st_dev, target.st_ino):
                         continue
+                    info = (
+                        Path(f"/proc/{self.birth['pid']}/fdinfo") / candidate.name
+                    ).read_text()
+                    # Observe the worker's ALREADY-held lock. Never acquire it
+                    # for the worker: that would bypass its own queue/preflight.
+                    locks = [
+                        line.split()
+                        for line in info.splitlines()
+                        if line.startswith("lock:")
+                    ]
+                    if not any(
+                        len(row) >= 7
+                        and row[2:6]
+                        == ["FLOCK", "ADVISORY", "WRITE", str(self.birth["pid"])]
+                        for row in locks
+                    ):
+                        continue
                     fd = libc.syscall(
                         ctypes.c_long(438),
                         ctypes.c_int(pidfd),
@@ -56,11 +72,6 @@ class Lease:
                     ) != (target.st_dev, target.st_ino):
                         os.close(fd)
                         raise Unknown("lease identity changed while duplicating")
-                    try:
-                        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
-                    except BlockingIOError:
-                        os.close(fd)
-                        return False
                     self.fd = fd
                     return True
                 except FileNotFoundError:

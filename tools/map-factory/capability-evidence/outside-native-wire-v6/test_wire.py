@@ -32,9 +32,9 @@ class WireTests(unittest.TestCase):
 
     def test_success_protocol(self):
         result, trace, calls, _ = self.exercise(
-            dict(op="status", reply=dict(ok=True, loading=False))
+            dict(op="status", reply=dict(ok=True, loading=False, in_game=False))
         )
-        self.assertEqual(result, dict(ok=True, loading=False))
+        self.assertEqual(result, dict(ok=True, loading=False, in_game=False))
         self.assertEqual(calls[0]["request"], dict(op="status"))
         self.assertGreater(trace[0]["sent_bytes"], 0)
 
@@ -112,6 +112,25 @@ class WireTests(unittest.TestCase):
         finally:
             first.close()
             listener.close()
+
+    def test_only_absent_status_listener_is_pollable(self):
+        sock = socket.socket()
+        sock.bind(("127.0.0.1", 0))
+        try:
+            trace = []
+            wire = Wire(sock.getsockname()[1], Deadline.after(1), trace)
+            self.assertIsNone(wire.try_status())
+            self.assertEqual(trace[0]["sent_bytes"], 0)
+            with self.assertRaises(Unknown):
+                wire.call("path_start")
+        finally:
+            sock.close()
+        with tempfile.TemporaryDirectory() as temp:
+            with server(
+                [dict(op="status", raw='{ "ok": "false" }\n')], Path(temp) / "server"
+            ) as owner:
+                with self.assertRaises(Unknown):
+                    Wire(owner["port"], Deadline.after(1)).try_status()
 
     def test_minimum_deadline_not_renewed(self):
         parent = Deadline.after(0.04)
@@ -195,6 +214,33 @@ class ExternalWorkerTests(unittest.TestCase):
                 self.assertIsNone(owned.receipt()["after"])
             finally:
                 owned.stop()
+
+    def test_lease_never_acquires_an_unheld_worker_lock(self):
+        import fcntl
+        import sys
+        from lease import Lease
+        from wire_supervisor import Owned, await_file
+
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            code = (
+                "import pathlib,sys,time; f=open(sys.argv[1],'w'); "
+                "pathlib.Path(sys.argv[2]).write_text('open-not-locked'); time.sleep(30)"
+            )
+            owned = Owned.start(
+                [sys.executable, "-c", code, str(root / "lock"), str(root / "ready")],
+                "collector",
+                root,
+            )
+            lease = Lease(owned.birth, root / "lock")
+            try:
+                await_file(root / "ready", Deadline.after(2), owned.birth)
+                self.assertFalse(lease.pin())
+                with (root / "lock").open("r") as other:
+                    fcntl.flock(other, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            finally:
+                owned.stop()
+                lease.close()
 
     def test_external_lease_survives_worker_exit_until_cleanup(self):
         import fcntl

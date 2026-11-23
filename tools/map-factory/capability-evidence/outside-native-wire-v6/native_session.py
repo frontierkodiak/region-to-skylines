@@ -46,6 +46,14 @@ class NativeSession:
             raise Unknown("native invocation source location differs")
         self.frozen, self.inputs = frozen, inputs
         self.cfg = config_from(frozen["native"]["configuration"])
+        expected_dll = frozen["v5"]["fresh_build"]["dll"]
+        if (
+            self.source.spec.hashed(
+                (self.cfg.build_dir / "Cs1Harness.dll").read_bytes()
+            )
+            != expected_dll
+        ):
+            raise Unknown("retained build file missing/changed before session entry")
 
     @contextmanager
     def open(self, native, inputs, request, store, total):
@@ -82,6 +90,16 @@ class NativeSession:
             self.stack.close()
 
     def begin(self, control, deadline):
+        signal.setitimer(signal.ITIMER_REAL, deadline.remaining())
+        try:
+            self._begin(control, deadline)
+        finally:
+            signal.setitimer(
+                signal.ITIMER_REAL,
+                max(0.001, self.first_opening.end - __import__("time").monotonic()),
+            )
+
+    def _begin(self, control, deadline):
         from cs1_harness.cli import slot, staging
 
         stage = staging(self.cfg, self.directory / control["case_id"])
@@ -179,6 +197,9 @@ class NativeSession:
             )
         return installed
 
+    def same_file(self, path, installed):
+        return Path(path).samefile(installed)
+
     def install(self, control):
         return self.installed
 
@@ -237,7 +258,7 @@ class NativeSession:
                 try:
                     self.client.call("quit")
                 except (OSError, ValueError):
-                    errors.append("quit not acknowledged")
+                    self.receipt["quit_acknowledged"] = False
             result = cleanup(self.cfg, self.directory, deadline, lease_held=True)
             errors.extend(result["unresolved"])
             for path, inode, hashed in self.tracked:

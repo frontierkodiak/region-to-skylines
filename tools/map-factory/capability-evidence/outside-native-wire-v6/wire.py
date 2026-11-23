@@ -14,6 +14,10 @@ class Unknown(ValueError):
     """Stop; this operation must not be retried or replaced."""
 
 
+class Unavailable(Unknown):
+    """A status listener has not started yet; no request bytes were sent."""
+
+
 @dataclass(frozen=True)
 class Deadline:
     end: float
@@ -140,6 +144,20 @@ class Wire:
                 if set(reply) != {"ok", "error"} or type(reply["error"]) is not str:
                     raise Unknown("invalid error envelope")
                 raise Unknown("remote refusal: " + reply["error"])
+            if op == "status":
+                if any(
+                    type(reply.get(key)) is not bool for key in ("loading", "in_game")
+                ):
+                    raise Unknown("invalid status booleans")
+                if "plugins" in reply:
+                    if type(reply["plugins"]) is not list or any(
+                        type(p) is not dict
+                        or any(
+                            type(p.get(k)) is not bool for k in ("enabled", "builtin")
+                        )
+                        for p in reply["plugins"]
+                    ):
+                        raise Unknown("invalid plugin booleans")
             self.deadline.remaining()
             event["reply_sha256"] = hashlib.sha256(encoded(reply)).hexdigest()
             # Network bytes are retained by Transport.graph. Keep the trace bounded.
@@ -149,6 +167,12 @@ class Wire:
         except (OSError, ValueError) as error:
             event["error"] = str(error)
             event["partial_reply_hex"] = bytes(buf[:256]).hex()
+            if (
+                isinstance(error, OSError)
+                and error.errno == errno.ECONNREFUSED
+                and event["sent_bytes"] == 0
+            ):
+                raise Unavailable(str(error)) from error
             raise Unknown(str(error)) from error
         finally:
             sock.close()
@@ -163,13 +187,20 @@ class Wire:
             original = self.deadline
             self.deadline = deadline
             try:
-                status = self.call("status")
+                try:
+                    status = self.call("status")
+                except Unavailable:
+                    status = None
             finally:
                 self.deadline = original
-            if predicate(status):
+            if status is not None and predicate(status):
                 return status
             deadline.pause(poll)
 
     def try_status(self):
-        # Session.launch uses this method. A transport error is terminal, not retryable.
-        return self.call("status")
+        # Only an absent startup listener is pollable; corrupt/error envelopes
+        # remain terminal. Path constructors never use this method.
+        try:
+            return self.call("status")
+        except Unavailable:
+            return None

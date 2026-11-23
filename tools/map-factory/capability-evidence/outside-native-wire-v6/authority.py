@@ -7,6 +7,7 @@ review acceptance and a later explicit opening-budget authorization.
 
 from dataclasses import asdict, dataclass
 import subprocess
+from uuid import UUID
 
 from wire import decode, encoded, Unknown
 
@@ -73,6 +74,11 @@ def native_record(comment_id, frozen):
     """Only the authenticated CLI supplies provider actor and record identity."""
     if type(comment_id) is not str or len(comment_id) != 36:
         raise Unknown("explicit parent comment id required")
+    try:
+        if str(UUID(comment_id)) != comment_id:
+            raise ValueError("noncanonical")
+    except ValueError as error:
+        raise Unknown("canonical parent comment UUID required") from error
     result = subprocess.run(
         [
             frozen["native"]["tools"]["multica"]["path"],

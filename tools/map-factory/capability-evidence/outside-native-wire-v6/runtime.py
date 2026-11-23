@@ -1,6 +1,7 @@
 """Adapter operations mapped to the registered harness protocol; no invented RPCs."""
 
 import copy
+import math
 
 from wire import Deadline, Unknown
 
@@ -27,6 +28,7 @@ class Transport:
     def graph(self):
         networks = self.client.call("networks")
         self.api.spec.put_json(self.store, networks)
+        validate_networks(networks)
         value = self.api.collect_v2.graph_value(networks)
         return self.api.spec.put_json(self.store, value)
 
@@ -45,10 +47,31 @@ class Transport:
         self.client.deadline = deadline
         installed = self.session.install(control)
         maps = self.client.call("maps")
-        entries = [row for row in maps["maps"] if row.get("path") == str(installed)]
+        entries = [
+            row
+            for row in maps["maps"]
+            if row.get("path") and self.session.same_file(row["path"], installed)
+        ]
         if len(entries) != 1:
             raise Unknown("installed map has no unique maps entry")
-        self.client.call("new_game", path=entries[0]["path"])
+        opened = self.client.call("new_game", path=entries[0]["path"])
+        if (
+            set(opened)
+            != {
+                "ok",
+                "loading",
+                "map_name",
+                "published",
+                "update_mode",
+                "invert_traffic",
+            }
+            or opened["loading"] != entries[0]["path"]
+            or type(opened["published"]) is not bool
+            or type(opened["map_name"]) is not str
+            or opened["update_mode"] != "NewGameFromMap"
+            or self.api.protocol.meta_bool(opened["invert_traffic"]) is not False
+        ):
+            raise Unknown("new_game result differs from registered native protocol")
 
         def loaded(row):
             if (
@@ -231,3 +254,46 @@ def collect(transport, births, limits, cases=None):
             raise
     total.remaining()
     return transport.records
+
+
+def validate_networks(value):
+    if type(value.get("segments")) is not list:
+        raise Unknown("native graph segment array missing")
+    for row in value["segments"]:
+        if type(row) is not dict:
+            raise Unknown("native segment is not an object")
+        for key in ("id", "start", "end"):
+            if type(row.get(key)) is not int or not 0 < row[key] <= 65535:
+                raise Unknown("invalid native segment/node type")
+        for key in ("a", "b"):
+            if (
+                type(row.get(key)) is not list
+                or len(row[key]) != 3
+                or any(
+                    type(v) not in (int, float) or not math.isfinite(v)
+                    for v in row[key]
+                )
+            ):
+                raise Unknown("invalid native xyz/height type")
+        if (
+            any(
+                type(row.get(key)) is not str
+                for key in ("flags", "prefab", "start_flags", "end_flags")
+            )
+            or type(row.get("lanes")) is not list
+        ):
+            raise Unknown("native flags/prefab/lane facts missing")
+        for lane in row["lanes"]:
+            if (
+                type(lane) is not dict
+                or type(lane.get("index")) is not int
+                or not 0 <= lane["index"] <= 255
+                or any(
+                    type(lane.get(key)) is not str
+                    for key in ("type", "vehicle", "category", "direction")
+                )
+            ):
+                raise Unknown("invalid native lane types")
+            for key in ("forward", "backward"):
+                if key in lane and type(lane[key]) is not bool:
+                    raise Unknown("invalid native lane direction boolean")

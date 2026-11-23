@@ -240,7 +240,7 @@ def validate(value, store):
                 )
     native = api.adapter_spec.validate(d["v5"], store)
     if (
-        d["limits"] != api.adapter_spec.LIMITS
+        api.spec.canonical(d["limits"]) != api.spec.canonical(api.adapter_spec.LIMITS)
         or d["controls"] != native.value["controls"]
         or d["protocol"] != native.value["inputs"]["protocol"]
         or d["build_reused"] is not True
@@ -276,6 +276,9 @@ def validate(value, store):
         or values["selection"]["missing_cells"]
     ):
         raise Unknown("selection/coverage differs")
+    for control in api.spec.read(api.spec.OLD / "freeze.json")["controls"]:
+        if api.spec.hashed(Path(control["locator"]).read_bytes()) != control["sha256"]:
+            raise Unknown("fixed control package locator/bytes changed")
     for row in rows:
         if row["supported"]:
             store.read(row["feature_sha256"], "input-only decoder features")

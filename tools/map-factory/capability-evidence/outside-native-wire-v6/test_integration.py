@@ -5,6 +5,7 @@ from dataclasses import replace
 import os
 from pathlib import Path
 import tempfile
+import time
 import unittest
 
 import accepted_api as api
@@ -158,6 +159,25 @@ class Integration(unittest.TestCase):
                 self.assertEqual(
                     sum(r["op"] == "path_start" for r in result["trace"]), 1
                 )
+
+    def test_opening_and_whole_study_interrupt_pending_query(self):
+        for key in ("opening_seconds", "total_seconds"):
+            script = script_for(self.native, self.store)
+            next(r for r in script if r["op"] == "path_result")["mode"] = "blocked"
+            limits = dict(self.native.descriptor["limits"], **{key: 6.0})
+            start = time.monotonic()
+            result = self.exercise(script, limits)
+            elapsed = time.monotonic() - start
+            self.assertLess(elapsed, 10)
+            self.assertFalse(result["result"]["structural_pass"])
+            self.assertIsNotNone(result["pending"])
+            self.assertEqual(sum(r["op"] == "path_start" for r in result["trace"]), 1)
+            stalled = next(
+                r for r in result["server_calls"] if r["request"]["op"] == "path_result"
+            )
+            self.assertGreater(stalled["blocked_until"], start + 6)
+            self.assertEqual(result["records"][0]["observed"]["completed"], False)
+            self.assertIn("deadline", result["result"]["reason"])
 
     def test_runtime_inventory_omissions_are_retained_and_stop_before_query(self):
         for group in ("roots", "plugins", "assemblies"):

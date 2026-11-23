@@ -39,10 +39,13 @@ class Owned:
         return owner
 
     def wait(self, deadline):
-        try:
-            return self.process.wait(timeout=deadline.remaining())
-        except subprocess.TimeoutExpired as error:
-            raise Unknown("worker absolute deadline: " + self.role) from error
+        while self.process.poll() is None:
+            self.capture_descendants()
+            try:
+                return self.process.wait(timeout=min(0.02, deadline.remaining()))
+            except subprocess.TimeoutExpired:
+                continue
+        return self.process.returncode
 
     def capture_descendants(self):
         if identity(self.process.pid) != self.birth:
@@ -86,13 +89,13 @@ class Owned:
             if identity(child.pid) != self.birth:
                 raise Unknown("refuse termination: owned PID/start changed")
             self.forced = True
-            child.terminate()
+            signal_owned(self.birth, signal.SIGTERM)
             try:
                 child.wait(timeout=grace)
             except subprocess.TimeoutExpired:
                 if identity(child.pid) != self.birth:
                     raise Unknown("refuse escalation: owned PID/start changed")
-                child.kill()
+                signal_owned(self.birth, signal.SIGKILL)
                 child.wait(timeout=2)
         for birth in reversed(tuple(self.descendants.values())):
             if identity(birth["pid"]) == birth:

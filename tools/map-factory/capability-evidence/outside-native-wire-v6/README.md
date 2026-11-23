@@ -1,62 +1,76 @@
-# Native wire integration, work in progress
+# Native wire integration — parked WIP
 
-PL-1321 is incomplete. Do not use this draft for a native opening.
-The accepted v5 adapter and its refusal are unchanged.
+PL-1321 was parked by the parent owner in comment
+`01a20a49-06d4-7dd1-be9d-6767a43056b0`: PL1119 now pursues visible
+open-data connection rules. Do not use this draft for a native opening or
+continue it without renewed scope. PR97 remains draft against `PL-1142-native-v2`.
+The accepted v5 adapter and its non-recording refusal are unchanged.
 
-`wire.py` implements the harness's one-connection, newline-JSON protocol.
-It applies an absolute monotonic deadline to connect, send, receive and polling.
-`runtime.py` collects literal controls over that client, retains partial failures
-and unresolved handles, and uses the accepted consumer and inventory retention.
-`entry.py` separates integrity checks from an injected external authorizer.
-The supplied authorizer and session factory are explicitly constructed fixtures.
-They grant no native authority.
+## Current implementation
 
-`candidate.py` creates a new input-only inventory and cohort with the unchanged
-old decoder, model, constants and eleven-package catalog. It does not execute
-an old scorer or read holdout outcomes. It retains selected package bytes only
-in the private evidence store. The candidate selects Cavern Coast for six-cell
-coverage. That package remains unobserved.
+The new entry validates source/build/input/request/budget integrity before its
+factory effect boundary. Constructed authority is separate from a native
+provider that reads two exact authenticated parent records using the existing
+Multica CLI. No native acceptance or opening authorization exists.
 
-## Run the public socket tests
+`wire.py` implements the actual one-connection newline-JSON protocol with
+absolute connect/send/read/poll deadlines. `runtime.py` maps actual operations,
+checks independent BuildIndex immediately before path_start, retains raw bytes,
+partial observations and unresolved handles, and uses unchanged v5 policy and
+consumer logic. Completed path_result acknowledges release; no release RPC is
+invented. Strict JSON/type checks precede legacy graph normalization.
+
+The constructed path runs a finite loopback server plus separate collector,
+driver, auditor and monitor processes. The external owner joins them and reads
+actual PID/start/exit/absence. An owned pidfd lock-lease probe preserves an
+already-held original guard through cancellation; it never acquires the lock
+for a worker. This is constructed OS evidence, not native lifecycle evidence.
+The study simulator runs two fresh controls and frozen input-only holdout cases;
+all results remain Constructed, admission/export qualification Unknown.
+
+The future native orchestration, slot/staging/Session adapter and Flatpak
+ownership shim are implemented but UNINVOKED. They are not a verified launch
+path. In particular, cli.slot enters the original Session before yielding it;
+Session.__enter__ can call its original stop on startup failure before our
+instance delegates are installed. That original stop uses display-wide PID
+termination. Startup supervision/cleanup fidelity therefore remains unresolved.
+No old module/global patch was made to conceal this gap.
+
+## Verification snapshots
+
+At executable revision `988ddcaeb73bb76ba3184dcebc60be6f8cca6b75`, private
+`candidate-13.json` passed 22 tests, including a full constructed study. The
+private holding is `~/experiments/PL-1321-native-wire`; candidates are immutable,
+source-specific WIP snapshots, not authority. Build evidence reuses the accepted
+v5 compile after exact byte validation; no new compile occurred.
+
+The later parked source passed 15 public tests and Ruff/format checks. Its new
+opening/whole-study integration test and latest protocol changes have NOT had a
+fresh private-suite run. Candidate13 does not bind this later executable source.
+A resumed task needs a new candidate and fresh private verification before any
+review or future use. Do not overwrite an older candidate.
+
+## Portable tests
 
 ```bash
 module=tools/map-factory/capability-evidence/outside-native-wire-v6
 uv run --no-project python -m unittest discover -s "$module" -p test_wire.py -v
 ```
 
-These tests need no game, compiler, references or private evidence. They bind
-only their own ephemeral loopback sockets and reap their fixture processes.
-
-## Run the private integration checks
-
-Use a task-owned copy of the accepted v5 evidence holding. Never mutate someone
-else's store or put its package, DLL, compiler or reference bytes in Git.
+These use only finite task-owned Python processes and ephemeral loopback
+sockets, no game, licensed inputs or compiler. Private byte checks require the
+separately held evidence store and an exactly matching immutable candidate:
 
 ```bash
-module=tools/map-factory/capability-evidence/outside-native-wire-v6
-run=~/experiments/PL-1321-native-wire
-PL1321_RUN="$run" PL1321_FREEZE=candidate-11.json \
+PL1321_RUN=~/experiments/PL-1321-native-wire PL1321_FREEZE=candidate-13.json \
   uv run --offline --project tools/cs1-harness python -m unittest discover \
   -s "$module" -p 'test_*.py' -v
 ```
 
-The private holding has immutable intermediate candidates. Each binds its own
-source revision. A source change requires a new candidate, never an overwrite.
-Build evidence is reused from accepted v5 after byte validation. No new compile
-or game opening is claimed.
-
-## Remaining work before peer review
-
-- Enforce and prove session entry, launch, shutdown and whole-study cancellation
-  with an external worker supervisor and exact PID/start joins.
-- Complete the native study orchestration after fresh admitted controls,
-  including the frozen holdout. The current collector exercises controls only.
-- Audit the external authority contract and executable dependency retention.
-- Complete the requested inventory, graph, context, argument, interrupted-send,
-  pending-handle and release negative cases through the real entry.
-- Produce the final reviewed invocation, immutable study freeze, complete
-  metadata proof and historical-byte assertions. Refresh the candidate after
-  executable changes.
-
-The native session factory is uninvoked and is not a verified launch path.
-Native admission, export qualification and all six old holdout cells are Unknown.
+That example applies ONLY to revision988, not the parked head. Never copy
+licensed package/DLL/compiler/reference payloads into Git or attachments.
+No game/Steam/queue/native opening, browser, physical build, manual deployment
+or Shelf action was performed. All six old holdout cells remain Unknown;
+old observations are unchanged. File identity is not memory/compiler
+authentication or strict-no-mods. Dynamic assembly exclusions and the three
+historical DLC errors remain limitations.
