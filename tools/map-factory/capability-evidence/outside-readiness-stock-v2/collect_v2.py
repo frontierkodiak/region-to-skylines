@@ -75,7 +75,14 @@ def walk(root):
 
 def runtime_inventory(session, build_receipt, bindings):
     """Full file/root/plugin/assembly inventory for one phase of this opening."""
-    bound = bind_runtime(session, build_receipt)
+    bound = bind_runtime(
+        session,
+        {
+            "game_executable_sha256": build_receipt["game_executable_sha256"],
+            "game_assemblies": build_receipt["reference_assemblies"],
+            "dll_sha256": build_receipt["dll"]["sha256"],
+        },
+    )
     exe = Path(bound["executable"]["path"])
     game_root = exe.parent
     plugins = {}
