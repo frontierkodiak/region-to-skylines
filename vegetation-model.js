@@ -11,6 +11,8 @@ const FORMS = [
   "palm", "shrub", "grass", "unknown",
 ];
 const CLASSES = [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 100];
+const FOREST_FORMS = { 1: "needleleaf_evergreen", 2: "broadleaf_evergreen", 4: "broadleaf_deciduous" };
+const FOREST_SOURCE = "Copernicus Global Land Cover 100m 2019 forest type";
 const HEIGHT_EDGES = [2, 5, 10, 15, 20, 30, 40, 60];
 const ratio = (a, b) => b > 0 ? a / b : null;
 const sourceKey = (source) => typeof source === "string" ? source : "unknown";
@@ -58,6 +60,8 @@ function structureCell() {
   return {
     samples: 0, valid: 0, canopy: 0, validArea: 0, canopyArea: 0,
     landValid: 0, landArea: 0, classes: new Map(), heights: [],
+    forestValid: 0, forestKnown: 0, forestValidArea: 0, forestKnownArea: 0,
+    forestForms: new Map(),
   };
 }
 
@@ -83,13 +87,14 @@ function aggregateStructure(structure, width, size, cellM) {
       const canopy = valid && height >= 2;
       const land = structure.landcover?.[index];
       const landValid = CLASSES.includes(land);
-      addStructure(summary, pixel * pixel, height, valid, canopy, land, landValid);
+      const forest = structure.forest_types?.[index];
+      addStructure(summary, pixel * pixel, height, valid, canopy, land, landValid, forest);
       for (let row = firstRow; row <= lastRow; row++) {
         const dy = Math.min(bottom, (row + 1) * cellM) - Math.max(top, row * cellM);
         for (let col = firstCol; col <= lastCol; col++) {
           const dx = Math.min(right, (col + 1) * cellM) - Math.max(left, col * cellM);
           if (dx > 0 && dy > 0) {
-            addStructure(cells[row * size + col], dx * dy, height, valid, canopy, land, landValid);
+            addStructure(cells[row * size + col], dx * dy, height, valid, canopy, land, landValid, forest);
           }
         }
       }
@@ -98,17 +103,47 @@ function aggregateStructure(structure, width, size, cellM) {
   return { cells, summary };
 }
 
-function addStructure(cell, area, height, valid, canopy, land, landValid) {
+function addStructure(cell, area, height, valid, canopy, land, landValid, forest) {
   cell.samples++;
   if (valid) { cell.valid++; cell.validArea += area; }
   if (canopy) {
     cell.canopy++; cell.canopyArea += area;
     cell.heights.push(height, area);
+    if (Number.isInteger(forest) && forest >= 1 && forest <= 5) {
+      cell.forestValid++; cell.forestValidArea += area;
+    }
+    const form = Number.isInteger(forest) ? FOREST_FORMS[forest] : undefined;
+    if (form) {
+      cell.forestKnown++; cell.forestKnownArea += area;
+      cell.forestForms.set(form, (cell.forestForms.get(form) ?? 0) + area);
+    }
   }
   if (landValid) {
     cell.landValid++; cell.landArea += area;
     cell.classes.set(land, (cell.classes.get(land) ?? 0) + area);
   }
+}
+
+function forestPrior(cell, structure) {
+  return {
+    status: cell.forestKnownArea > 0 ? "estimated" : "unknown",
+    growth_forms: Object.fromEntries(FORMS.map((form) => [form, ratio(
+      form === "unknown" ? cell.canopyArea - cell.forestKnownArea : cell.forestForms.get(form) ?? 0,
+      cell.canopyArea,
+    )])),
+    coverage: {
+      canopy_samples: cell.canopy, valid_samples: cell.forestValid, known_samples: cell.forestKnown,
+      canopy_area_m2: cell.canopyArea, valid_area_m2: cell.forestValidArea,
+      known_area_m2: cell.forestKnownArea,
+      fraction: ratio(cell.forestValidArea, cell.canopyArea),
+      known_fraction: ratio(cell.forestKnownArea, cell.canopyArea),
+    },
+    source: structure?.forest_type_source ?? structure?.forest_source ?? FOREST_SOURCE,
+    fidelity: "global_100m_forest_type_canopy_area_prior",
+    year: 2019, nominal_resolution_m: 100,
+    sample_m: structure?.forest_type_sample_m ?? structure?.forest_sample_m ?? 100,
+    estimand: "estimated forest leaf-form area shares among observed canopy height >= 2 m; mixed, deciduous needleleaf and missing types remain unknown; not individual-tree traits",
+  };
 }
 
 function canopyReport(cell, area, structure) {
@@ -117,6 +152,7 @@ function canopyReport(cell, area, structure) {
     cover: ratio(cell.canopyArea, cell.validArea),
     canopy_area_m2: cell.validArea > 0 ? cell.canopyArea : null,
     height_m: heightStats(cell.heights),
+    form_prior: forestPrior(cell, structure),
     coverage: {
       valid_samples: cell.valid, total_samples: cell.samples,
       canopy_samples: cell.canopy, valid_area_m2: cell.validArea,
@@ -125,6 +161,71 @@ function canopyReport(cell, area, structure) {
     evidence: { source: structure?.source ?? null, sample_m: structure?.sample_m ?? null },
     estimand: "area fraction with top-of-canopy height >= 2 m among valid height area",
     height_estimand: "canopy-area top-of-canopy heights, not individual-tree heights",
+  };
+}
+
+function treeFormReport(canopy, composition) {
+  const recordForms = composition.status !== "unknown" ? composition.growth_forms : null;
+  const unknown = recordForms?.unknown ?? 1;
+  const prior = canopy.form_prior;
+  const hasEvidence = Boolean(recordForms) || (canopy.canopy_area_m2 ?? 0) > 0;
+  const shares = Object.fromEntries(FORMS.map((form) => [form, hasEvidence
+    ? form === "unknown" ? unknown * (prior.growth_forms.unknown ?? 1)
+      : (recordForms?.[form] ?? 0) + unknown * (prior.growth_forms[form] ?? 0)
+    : null]));
+  const knownShare = hasEvidence ? 1 - shares.unknown : null;
+  const priorFilled = hasEvidence ? unknown * (prior.coverage.known_fraction ?? 0) : null;
+  return {
+    status: knownShare > 0 ? "estimated" : "unknown", growth_forms: shares,
+    record_known_share: recordForms ? 1 - unknown : 0, prior_filled_share: priorFilled,
+    method: "explicit_record_traits_with_forest_area_prior_for_unknown_mass_only",
+    coverage: {
+      canopy_area_m2: canopy.canopy_area_m2,
+      known_area_m2: canopy.canopy_area_m2 === null ? null : canopy.canopy_area_m2 * (knownShare ?? 0),
+      known_fraction: knownShare,
+    },
+    evidence: {
+      record_kind: composition.kind, record_method: composition.method,
+      record_count: composition.evidence.record_count, record_sources: composition.evidence.sources,
+      forest_source: prior.source, forest_fidelity: prior.fidelity,
+    },
+    estimand: "estimated tree-form mixture retaining explicit record traits and filling only unknown record mass with canopy-area forest-type prior; not individual traits or genus abundance",
+  };
+}
+
+function treeFormSummary(cells) {
+  const forms = Object.fromEntries(FORMS.map((form) => [form, 0]));
+  const forestSources = new Set(), recordSources = new Set();
+  let area = 0, recordKnown = 0, priorFilled = 0, count = 0;
+  for (const cell of cells) {
+    const weight = cell.canopy.canopy_area_m2 ?? 0;
+    if (!weight) continue;
+    area += weight;
+    count++;
+    for (const form of FORMS) forms[form] += (cell.tree_forms.growth_forms[form] ?? 0) * weight;
+    recordKnown += cell.tree_forms.record_known_share * weight;
+    priorFilled += (cell.tree_forms.prior_filled_share ?? 0) * weight;
+    if (cell.tree_forms.prior_filled_share > 0) forestSources.add(cell.tree_forms.evidence.forest_source);
+    if (cell.tree_forms.record_known_share > 0) {
+      for (const source of cell.tree_forms.evidence.record_sources) recordSources.add(source);
+    }
+  }
+  const shares = Object.fromEntries(FORMS.map((form) => [form, ratio(forms[form], area)]));
+  const knownArea = area - forms.unknown;
+  return {
+    status: knownArea > 0 ? "estimated" : "unknown", growth_forms: shares,
+    record_known_share: ratio(recordKnown, area), prior_filled_share: ratio(priorFilled, area),
+    method: "observed_canopy_area_weighted_cell_tree_forms",
+    weight_basis: "observed_canopy_area",
+    coverage: {
+      cells: count, canopy_area_m2: area, known_area_m2: knownArea,
+      known_fraction: ratio(knownArea, area),
+    },
+    evidence: {
+      forest_sources: [...forestSources].sort(), record_sources: [...recordSources].sort(),
+      forest_fidelity: "global_100m_forest_type_canopy_area_prior", year: 2019,
+    },
+    estimand: "observed-canopy-area-weighted cell tree-form estimates, retaining unclassified canopy as unknown; shrub and grass land-cover shares have separate denominators",
   };
 }
 
@@ -483,6 +584,9 @@ function compositionSummary(cells, cellArea, totalArea) {
  * Aggregate a square into real-metre cells. structure.size² pixels cover the
  * entire square, north-first in its rotated local frame; null is missing and
  * height zero is observed non-canopy. Heights are top-of-canopy measurements.
+ * Optional forest_types is the same grid, using Copernicus 2019 forest codes:
+ * 1 evergreen needleleaf, 2 evergreen broadleaf, 4 deciduous broadleaf. Other
+ * types stay unknown in this vocabulary and never create missing canopy.
  *
  * Optional surveys: [{kind:"inventory", complete:true, source,
  * bounds:[south,west,north,east]}]. Only matching-source inventory records can
@@ -508,10 +612,11 @@ export function expectation(square, evidence = {}, { cellSize = 160 } = {}) {
     const row = Math.floor(i / size), col = i % size;
     const x = (col + 0.5) * cellM - width / 2, z = width / 2 - (row + 0.5) * cellM;
     const landcover = landcoverReport(sample, cellArea, structure);
+    const canopy = canopyReport(sample, cellArea, structure);
+    const composition = compositionReport(context, x, z, landcover.built_share >= 0.5);
     return {
       row, col, x_m: x, z_m: z,
-      canopy: canopyReport(sample, cellArea, structure), landcover,
-      composition: compositionReport(context, x, z, landcover.built_share >= 0.5),
+      canopy, landcover, composition, tree_forms: treeFormReport(canopy, composition),
       density: densities[i],
     };
   });
@@ -525,6 +630,7 @@ export function expectation(square, evidence = {}, { cellSize = 160 } = {}) {
       canopy: canopyReport(raster.summary, area, structure),
       landcover: landcoverReport(raster.summary, area, structure),
       composition: compositionSummary(cells, cellArea, area),
+      tree_forms: treeFormSummary(cells),
       density: {
         status: surveyedArea ? "available" : "unknown",
         trees_per_ha: surveyedArea ? inventoryCount / surveyedArea * 10000 : null,
@@ -539,6 +645,7 @@ export function expectation(square, evidence = {}, { cellSize = 160 } = {}) {
       "Canopy heights describe canopy area, not individual-tree heights or tree counts.",
       "Genus and growth-form shares describe local evidence composition, not abundance; occurrence absence is not zero trees.",
       "Unknown growth forms remain unknown; genus and latitude do not assign evergreen or deciduous traits.",
+      "Copernicus 2019 forest-type area is an estimated prior only for unknown tree-form mass, not individual traits or genus abundance.",
       "WorldCover shrub, grass, herbaceous wetland and moss/lichen classes are not converted to tree density.",
     ],
   };

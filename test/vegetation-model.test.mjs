@@ -233,3 +233,95 @@ test("aggregation is pure and boundary validation is explicit", () => {
   assert.throws(() => expectation(sq, {}, { cellSize: 49 }), /50 and 200/);
   assert.throws(() => compositionAt(sq, [], NaN, 0), /Finite real-metre/);
 });
+
+test("forest raster supplies a canopy-area prior without inventing genus or individual traits", () => {
+  const report = expectation(square(320, { lat: -22.9, lon: -43.2 }), {
+    structure: {
+      size: 2, heights: [10, 20, 10, 20], forest_types: [2, 2, 2, 2],
+      forest_type_source: "Copernicus analytic Rio forest type", forest_type_sample_m: 100,
+    },
+  });
+  const prior = report.summary.canopy.form_prior;
+  assert.equal(prior.growth_forms.broadleaf_evergreen, 1);
+  assert.equal(prior.coverage.known_fraction, 1);
+  assert.equal(prior.year, 2019);
+  assert.equal(prior.nominal_resolution_m, 100);
+  assert.match(prior.source, /Copernicus/);
+  assert.match(prior.estimand, /not individual-tree/);
+  assert.equal(report.summary.tree_forms.growth_forms.broadleaf_evergreen, 1);
+  assert.equal(report.summary.tree_forms.prior_filled_share, 1);
+  assert.deepEqual(report.summary.composition.genus, [], "leaf-form raster does not invent genera");
+  assert.equal(report.summary.density.trees_per_ha, null);
+  assert.equal(report.summary.landcover.grass_share, null);
+});
+
+test("missing, mixed and deciduous-needleleaf priors retain unknown mass in the six-form vocabulary", () => {
+  const observed = expectation(square(), {
+    structure: { size: 2, heights: [10, 10, 10, 10], forest_types: [1, 2, 3, 4] },
+  });
+  const prior = observed.summary.canopy.form_prior;
+  close(prior.growth_forms.needleleaf_evergreen, 0.25);
+  close(prior.growth_forms.broadleaf_evergreen, 0.25);
+  close(prior.growth_forms.broadleaf_deciduous, 0.25);
+  close(prior.growth_forms.unknown, 0.25);
+  assert.equal(prior.coverage.fraction, 1, "deciduous needleleaf is valid forest-type evidence");
+  assert.equal(prior.coverage.known_fraction, 0.75, "but not evergreen needleleaf");
+  assert.equal(observed.cells[2].tree_forms.growth_forms.unknown, 1);
+
+  const unclassified = expectation(square(), {
+    structure: { size: 2, heights: [10, 10, 10, 10], forest_types: [5, 0, 255, "1"] },
+  });
+  assert.equal(unclassified.summary.canopy.form_prior.growth_forms.unknown, 1);
+  assert.equal(unclassified.summary.canopy.form_prior.coverage.fraction, 0.25);
+  assert.equal(unclassified.summary.tree_forms.growth_forms.unknown, 1);
+  const missing = expectation(square(), { structure: { size: 2, heights: [10, 10, 10, 10] } });
+  assert.equal(missing.summary.tree_forms.growth_forms.unknown, 1);
+  assert.equal(missing.summary.tree_forms.status, "unknown");
+});
+
+test("explicit palm records are retained and the forest prior fills only unknown record mass", () => {
+  const sq = square();
+  const palm = record(sq, "palm", 0, 0, "Sabal", { growth_form: "palm" });
+  const unknown = record(sq, "unknown", 0, 0, "Magnolia");
+  const structure = { size: 2, heights: [10, 10, 10, 10], forest_types: [2, 2, 2, 2] };
+  const known = expectation(sq, { records: [palm], structure });
+  assert.equal(known.summary.tree_forms.growth_forms.palm, 1);
+  assert.equal(known.summary.tree_forms.growth_forms.broadleaf_evergreen, 0);
+  assert.equal(known.summary.tree_forms.prior_filled_share, 0);
+  const mixed = expectation(sq, { records: [palm, unknown], structure });
+  assert.equal(mixed.summary.tree_forms.growth_forms.palm, 0.5);
+  assert.equal(mixed.summary.tree_forms.growth_forms.broadleaf_evergreen, 0.5);
+  assert.equal(mixed.summary.tree_forms.growth_forms.unknown, 0);
+  assert.equal(mixed.summary.tree_forms.record_known_share, 0.5);
+  assert.equal(mixed.summary.tree_forms.prior_filled_share, 0.5);
+  assert.equal(mixed.summary.composition.growth_forms.unknown, 0.5,
+    "raw record composition remains distinct from the estimated forest prior");
+});
+
+test("forest form overlap is exact, masked by observed canopy and canopy-area weighted", () => {
+  const report = expectation(square(300), {
+    structure: { size: 2, heights: [10, 0, 10, 0], forest_types: [1, 2, 4, 2] },
+  }, { cellSize: 100 });
+  const middle = report.cells[4].canopy.form_prior;
+  close(middle.coverage.canopy_area_m2, 5000);
+  close(middle.growth_forms.needleleaf_evergreen, 0.5);
+  close(middle.growth_forms.broadleaf_deciduous, 0.5);
+  assert.equal(middle.growth_forms.broadleaf_evergreen, 0, "forest pixels over height zero are excluded");
+  assert.equal(report.summary.tree_forms.weight_basis, "observed_canopy_area");
+  close(report.summary.tree_forms.coverage.canopy_area_m2, 45000);
+  close(report.summary.tree_forms.growth_forms.needleleaf_evergreen, 0.5);
+  close(report.summary.tree_forms.growth_forms.broadleaf_deciduous, 0.5);
+  const partial = expectation(square(), {
+    structure: { size: 2, heights: [10, 10, 10, null], forest_types: [1, 2, 2, 1] },
+  });
+  close(partial.summary.tree_forms.growth_forms.needleleaf_evergreen, 1 / 3);
+  close(partial.summary.tree_forms.growth_forms.broadleaf_evergreen, 2 / 3);
+  const missing = expectation(square(), {
+    structure: { size: 2, heights: [null, NaN, 0, -1], forest_types: [2, 2, 2, 2] },
+  });
+  assert.equal(missing.summary.canopy.canopy_area_m2, 0);
+  assert.equal(missing.summary.canopy.form_prior.growth_forms.broadleaf_evergreen, null);
+  assert.equal(missing.summary.tree_forms.growth_forms.broadleaf_evergreen, null);
+  assert.equal(missing.summary.tree_forms.status, "unknown");
+  assert.equal(missing.cells[0].canopy.cover, null, "a forest type cannot create missing canopy heights");
+});
