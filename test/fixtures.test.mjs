@@ -10,10 +10,12 @@ import { createHash } from "node:crypto";
 import { loadPyodide } from "pyodide";
 import { startFactory, buildMap, clearWork } from "../mapgen.js";
 import { loadFixtureContract } from "./fixture-contract.mjs";
+import { baselineSource } from "./baseline-writer.mjs";
 
 const root = new URL("../tools/map-factory/", import.meta.url);
-const read = async (f) => new Uint8Array(await readFile(new URL(f, root)));
-const { manifest, nativeCases, historicalNativeCases, current, historicalCaptureSources } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
+const read = async (f) => new Uint8Array(await (["region.py", "prepare.py"].includes(f)
+  ? baselineSource("tools/map-factory/" + f) : readFile(new URL(f, root))));
+const { manifest, nativeCases, historicalNativeCases, current, historicalCaptureSources } = await loadFixtureContract(read, baselineSource);
 const captureSource = async (name) => historicalCaptureSources?.[name]
   ? read("fixtures/" + historicalCaptureSources[name].file)
   : readFile(new URL("../" + name, import.meta.url));
@@ -25,7 +27,7 @@ const only = process.env.FIXTURES ? process.env.FIXTURES.split(",") : null;
 const sha = (b) => createHash("sha256").update(b).digest("hex");
 const captureModuleSha = sha(await captureSource("inputs.js"));
 const shippingSources = Object.fromEntries(await Promise.all(["mapgen.js", "tools/map-factory/web.py"].map(async (f) =>
-  [f, sha(await readFile(new URL("../" + f, import.meta.url)))])));
+  [f, sha(await baselineSource(f))])));
 
 const factory = await startFactory({ loadPyodide, read });
 if (process.env.RISK_BUILD_PROOF) await mkdir(process.env.RISK_BUILD_PROOF, { recursive: true });
