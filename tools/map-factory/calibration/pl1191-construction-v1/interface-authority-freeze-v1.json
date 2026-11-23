@@ -1,0 +1,10 @@
+{
+  "schema": "polli.pl1191-postanalysis-open-interface-authority/1",
+  "postanalysis_not_prospective": true,
+  "interface_freeze_sha256": "f8e10f750a7aaed3dce23fd4dbeacc182dda9cc40bae2d4ac7e6ea536ddefb97",
+  "external_source_freeze_sha256": "2a21c2a81c11b11099d6a7001e852bcb8c6c3590ece8d6f520dcaf2fed03f7ad",
+  "external_coverage_freeze_sha256": "81c054d202013f1c45d7e478a14326cf640925a028ff71a19b7bfe5f321e2caf",
+  "summary_sha256": "2d3afe1bd439a84b9735a093f2c8d215c656a708c7240f6dbc0ffeb414b6411e",
+  "new_physical_or_native": false,
+  "promise": "unknown"
+}

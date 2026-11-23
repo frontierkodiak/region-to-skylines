@@ -1123,3 +1123,31 @@ All37numeric profiles recheck full8banks/no-fill/cut<=3m/1.5m depth. Seven new t
 scopedchecks and7file byte-identical replay pass; no game/CRP/control/mask change.
 Coastal authored initialization496/962 still fails. All promisesunknown. Seephase25
 policy/summary/report and postanalysisbinding; old evidence remains immutable.
+
+## Phase twenty-six: literal open faces and external source authority
+
+PL-1295's limited phase25 CPU/results PASS is consumed and the child is closed.
+No result-changing finding warrants a native retry. The new same-cell guard rejects
+conflicting targets or beds; all 37 prior numeric profiles are consistent here.
+Of 35 open-port bank cases, 30 have exterior neighbours explained by literal
+clipped endpoint faces; five retain 45 unknown exterior lateral occurrences.
+No in-square bank is removed and no profile is solved or admitted. The registry
+retains all 967 eligible river/stream parts, including 837 mandatory stream parts,
+with unresolved piece-linked lateral, direction and port-plan authority.
+
+The original BOM metadata HTTP 403 and a separate partial metadata capture are
+retained. A fresh prospective feature query on the same coastal square captured
+all 68 stream and five waterbody IDs, attributes and geometries in four HTTP 200
+requests. These independent Geofabric records do not establish historical OSM
+identity, replenishment or calibrated flow.
+
+A separately committed/frozen overlay retains all 439 original clipped parts and
+19 coastal open-port components. The five polygons cover none of the 5,096
+in-square bank-union occurrences (not unique area); four clipped parts have some
+polygon membership. This capture supplies no lateral mapped-area support at those
+ports, not proof of absent real water or banks. All source geometry, masks, probes,
+initial water and controls remain unchanged; 496/962 authored coastal contracts
+still fail initialization. Twelve focused tests, scoped checks and byte-identical
+seven-file authority/two-file coverage replays pass. No game, physical candidate,
+default, ledger or holdout change. Next: the bounded Queensland source policy in
+`development/phase26-next-qld-source-policy.md`. All promises remain unknown.

@@ -1,0 +1,141 @@
+{
+  "schema": "polli.pl1191-phase26-interface-authority-summary/1",
+  "method_commit": "80b8108",
+  "prospective_freeze_sha256": "f8e10f750a7aaed3dce23fd4dbeacc182dda9cc40bae2d4ac7e6ea536ddefb97",
+  "PL1295_limited_PASS_consumed_closed": true,
+  "cases": [
+    {
+      "case": "dry-upland-asia",
+      "eligible_line_parts": 16,
+      "all_missing_piece_linked_authority": true,
+      "raw_unvalidated_hints": 0,
+      "open_port_components": 2,
+      "full_literal_exterior_face_declaration_components": 2,
+      "unknown_exterior_lateral_nodes": 0,
+      "numeric_profiles_checked": 0,
+      "duplicate_cells_checked": 0,
+      "conflicting_cells": 0,
+      "physical_admission": false
+    },
+    {
+      "case": "dry-upland-europe",
+      "eligible_line_parts": 2,
+      "all_missing_piece_linked_authority": true,
+      "raw_unvalidated_hints": 0,
+      "open_port_components": 1,
+      "full_literal_exterior_face_declaration_components": 1,
+      "unknown_exterior_lateral_nodes": 0,
+      "numeric_profiles_checked": 0,
+      "duplicate_cells_checked": 0,
+      "conflicting_cells": 0,
+      "physical_admission": false
+    },
+    {
+      "case": "lowland-river-south-america",
+      "eligible_line_parts": 548,
+      "all_missing_piece_linked_authority": true,
+      "raw_unvalidated_hints": 0,
+      "open_port_components": 13,
+      "full_literal_exterior_face_declaration_components": 10,
+      "unknown_exterior_lateral_nodes": 39,
+      "numeric_profiles_checked": 19,
+      "duplicate_cells_checked": 0,
+      "conflicting_cells": 0,
+      "physical_admission": false
+    },
+    {
+      "case": "dry-upland-south-america",
+      "eligible_line_parts": 18,
+      "all_missing_piece_linked_authority": true,
+      "raw_unvalidated_hints": 0,
+      "open_port_components": null,
+      "full_literal_exterior_face_declaration_components": 0,
+      "unknown_exterior_lateral_nodes": 0,
+      "numeric_profiles_checked": null,
+      "duplicate_cells_checked": 0,
+      "conflicting_cells": 0,
+      "physical_admission": false
+    },
+    {
+      "case": "mountain-river-asia",
+      "eligible_line_parts": 51,
+      "all_missing_piece_linked_authority": true,
+      "raw_unvalidated_hints": 0,
+      "open_port_components": null,
+      "full_literal_exterior_face_declaration_components": 0,
+      "unknown_exterior_lateral_nodes": 0,
+      "numeric_profiles_checked": null,
+      "duplicate_cells_checked": 0,
+      "conflicting_cells": 0,
+      "physical_admission": false
+    },
+    {
+      "case": "low-coast-oceania",
+      "eligible_line_parts": 332,
+      "all_missing_piece_linked_authority": true,
+      "raw_unvalidated_hints": 0,
+      "open_port_components": 19,
+      "full_literal_exterior_face_declaration_components": 17,
+      "unknown_exterior_lateral_nodes": 6,
+      "numeric_profiles_checked": 18,
+      "duplicate_cells_checked": 2,
+      "conflicting_cells": 0,
+      "physical_admission": false
+    }
+  ],
+  "profiles_or_envelopes_resolved": 0,
+  "in_square_banks_removed": 0,
+  "no_geometry_protection_probe_or_native_change": true,
+  "promise": "unknown",
+  "source_capture": {
+    "method_commit": "9161f46",
+    "prospective_freeze_sha256": "2a21c2a81c11b11099d6a7001e852bcb8c6c3590ece8d6f520dcaf2fed03f7ad",
+    "stream_records": 68,
+    "waterbody_records": 5,
+    "all_expected_ids_returned_exactly_once": true,
+    "feature_query_requests": 4,
+    "all_HTTP200": true,
+    "atomic_database_snapshot": false,
+    "no_old_OSM_identity_or_width_or_stage_capacity_claim": true
+  },
+  "external_coverage": {
+    "method_commit": "876f504",
+    "prospective_freeze_sha256": "81c054d202013f1c45d7e478a14326cf640925a028ff71a19b7bfe5f321e2caf",
+    "original_clipped_parts": 439,
+    "clipped_parts_with_any_external_polygon_membership": 4,
+    "coastal_open_port_components": 19,
+    "in_square_bank_union_occurrences": 5096,
+    "covered_bank_occurrences": 0,
+    "network_FlowDir_raw_counts": {
+      "1": 68
+    },
+    "network_PlanAcc_raw_counts": {
+      "15": 68
+    },
+    "polygon_width_or_hydraulic_authority": false,
+    "replay": {
+      "all2coverage_files_byte_identical": true,
+      "files_sha256": {
+        "coverage.json": "8771dce4fd311f3e087b0e246d727da99b1986610e4882f08ef15700793dc663",
+        "receipt.json": "1ce46b8b1e2f5fbb1f0e328439412f5bcd37737f85764c777c3d60013db4d406"
+      }
+    }
+  },
+  "metadata_failures": {
+    "original_BOM_service_HTTP403_preserved": true,
+    "published_service_metadata_partial": true,
+    "published_successful_bodies": [
+      "service.json",
+      "layer-table-6.json",
+      "layer-table-7.json",
+      "layer-table-9.json",
+      "layer-table-10.json"
+    ],
+    "failed_table_12_network_unreachable_no_body": true,
+    "tables13_15_not_requested_after_failure": true,
+    "same_request_retries": 0
+  },
+  "new_focused_tests": 12,
+  "new_native_or_collector_or_install": false,
+  "independent_acceptance_of_phase26": false
+}
