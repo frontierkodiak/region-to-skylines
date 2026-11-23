@@ -1,0 +1,5921 @@
+{
+ "best_rule_metrics": {
+  "FN": 0,
+  "FP": 19,
+  "TN": 230,
+  "TP": 93,
+  "abstain": 0,
+  "actual_negatives": 249,
+  "candidate_fraction": 0.32748538011695905,
+  "classes": {
+   "estimable": true,
+   "negatives": 249,
+   "positives": 93
+  },
+  "coverage": 1.0,
+  "f1": 0.9073170731707317,
+  "n": 342,
+  "precision": 0.8303571428571429,
+  "predicted_positives": 112,
+  "recall": 1.0,
+  "scored": 342
+ },
+ "best_rule_on_primary": "directed_segment",
+ "by_rule": {
+  "always_candidate": {
+   "all_strata": {
+    "FN": 0,
+    "FP": 276,
+    "TN": 0,
+    "TP": 102,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 1.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.425,
+    "n": 378,
+    "precision": 0.2698412698412698,
+    "predicted_positives": 378,
+    "recall": 1.0,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 276,
+     "TN": 0,
+     "TP": 76,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.3551401869158879,
+     "n": 352,
+     "precision": 0.2159090909090909,
+     "predicted_positives": 352,
+     "recall": 1.0,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 249,
+     "TN": 0,
+     "TP": 67,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.3498694516971279,
+     "n": 316,
+     "precision": 0.2120253164556962,
+     "predicted_positives": 316,
+     "recall": 1.0,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 0,
+    "FP": 249,
+    "TN": 0,
+    "TP": 93,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 1.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.42758620689655175,
+    "n": 342,
+    "precision": 0.2719298245614035,
+    "predicted_positives": 342,
+    "recall": 1.0,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 27,
+    "TN": 0,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 1.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 0.4,
+    "n": 36,
+    "precision": 0.25,
+    "predicted_positives": 36,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "always_fail": {
+   "all_strata": {
+    "FN": 102,
+    "FP": 0,
+    "TN": 276,
+    "TP": 0,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": null,
+    "n": 378,
+    "precision": null,
+    "predicted_positives": 0,
+    "recall": 0.0,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 10,
+     "FP": 0,
+     "TN": 0,
+     "TP": 0,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 0.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": null,
+     "n": 10,
+     "precision": null,
+     "predicted_positives": 0,
+     "recall": 0.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 76,
+     "FP": 0,
+     "TN": 276,
+     "TP": 0,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.0,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": null,
+     "n": 352,
+     "precision": null,
+     "predicted_positives": 0,
+     "recall": 0.0,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 16,
+     "FP": 0,
+     "TN": 0,
+     "TP": 0,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 0.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": null,
+     "n": 16,
+     "precision": null,
+     "predicted_positives": 0,
+     "recall": 0.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 10,
+     "FP": 0,
+     "TN": 0,
+     "TP": 0,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 0.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": null,
+     "n": 10,
+     "precision": null,
+     "predicted_positives": 0,
+     "recall": 0.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 67,
+     "FP": 0,
+     "TN": 249,
+     "TP": 0,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.0,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": null,
+     "n": 316,
+     "precision": null,
+     "predicted_positives": 0,
+     "recall": 0.0,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 16,
+     "FP": 0,
+     "TN": 0,
+     "TP": 0,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 0.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": null,
+     "n": 16,
+     "precision": null,
+     "predicted_positives": 0,
+     "recall": 0.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 93,
+    "FP": 0,
+    "TN": 249,
+    "TP": 0,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": null,
+    "n": 342,
+    "precision": null,
+    "predicted_positives": 0,
+    "recall": 0.0,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 9,
+    "FP": 0,
+    "TN": 27,
+    "TP": 0,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": null,
+    "n": 36,
+    "precision": null,
+    "predicted_positives": 0,
+    "recall": 0.0,
+    "scored": 36
+   }
+  },
+  "directed_segment": {
+   "all_strata": {
+    "FN": 0,
+    "FP": 19,
+    "TN": 257,
+    "TP": 102,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.3201058201058201,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.914798206278027,
+    "n": 378,
+    "precision": 0.8429752066115702,
+    "predicted_positives": 121,
+    "recall": 1.0,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 257,
+     "TP": 76,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.26988636363636365,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.888888888888889,
+     "n": 352,
+     "precision": 0.8,
+     "predicted_positives": 95,
+     "recall": 1.0,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 230,
+     "TP": 67,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2721518987341772,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8758169934640523,
+     "n": 316,
+     "precision": 0.7790697674418605,
+     "predicted_positives": 86,
+     "recall": 1.0,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 0,
+    "FP": 19,
+    "TN": 230,
+    "TP": 93,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.32748538011695905,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.9073170731707317,
+    "n": 342,
+    "precision": 0.8303571428571429,
+    "predicted_positives": 112,
+    "recall": 1.0,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:any_lane:allowed": {
+   "all_strata": {
+    "FN": 0,
+    "FP": 19,
+    "TN": 257,
+    "TP": 102,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.3201058201058201,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.914798206278027,
+    "n": 378,
+    "precision": 0.8429752066115702,
+    "predicted_positives": 121,
+    "recall": 1.0,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 257,
+     "TP": 76,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.26988636363636365,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.888888888888889,
+     "n": 352,
+     "precision": 0.8,
+     "predicted_positives": 95,
+     "recall": 1.0,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 230,
+     "TP": 67,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2721518987341772,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8758169934640523,
+     "n": 316,
+     "precision": 0.7790697674418605,
+     "predicted_positives": 86,
+     "recall": 1.0,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 0,
+    "FP": 19,
+    "TN": 230,
+    "TP": 93,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.32748538011695905,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.9073170731707317,
+    "n": 342,
+    "precision": 0.8303571428571429,
+    "predicted_positives": 112,
+    "recall": 1.0,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:any_lane:forbidden": {
+   "all_strata": {
+    "FN": 0,
+    "FP": 19,
+    "TN": 257,
+    "TP": 102,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.3201058201058201,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.914798206278027,
+    "n": 378,
+    "precision": 0.8429752066115702,
+    "predicted_positives": 121,
+    "recall": 1.0,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 257,
+     "TP": 76,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.26988636363636365,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.888888888888889,
+     "n": 352,
+     "precision": 0.8,
+     "predicted_positives": 95,
+     "recall": 1.0,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 230,
+     "TP": 67,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2721518987341772,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8758169934640523,
+     "n": 316,
+     "precision": 0.7790697674418605,
+     "predicted_positives": 86,
+     "recall": 1.0,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 0,
+    "FP": 19,
+    "TN": 230,
+    "TP": 93,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.32748538011695905,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.9073170731707317,
+    "n": 342,
+    "precision": 0.8303571428571429,
+    "predicted_positives": 112,
+    "recall": 1.0,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:index_mirror:forbidden": {
+   "all_strata": {
+    "FN": 40,
+    "FP": 8,
+    "TN": 268,
+    "TP": 62,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.18518518518518517,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.7209302325581395,
+    "n": 378,
+    "precision": 0.8857142857142857,
+    "predicted_positives": 70,
+    "recall": 0.6078431372549019,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 40,
+     "FP": 8,
+     "TN": 268,
+     "TP": 36,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.125,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.6,
+     "n": 352,
+     "precision": 0.8181818181818182,
+     "predicted_positives": 44,
+     "recall": 0.47368421052631576,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 34,
+     "FP": 8,
+     "TN": 241,
+     "TP": 33,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.12974683544303797,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.611111111111111,
+     "n": 316,
+     "precision": 0.8048780487804879,
+     "predicted_positives": 41,
+     "recall": 0.4925373134328358,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 34,
+    "FP": 8,
+    "TN": 241,
+    "TP": 59,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.195906432748538,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.7375,
+    "n": 342,
+    "precision": 0.8805970149253731,
+    "predicted_positives": 67,
+    "recall": 0.6344086021505376,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 6,
+    "FP": 0,
+    "TN": 27,
+    "TP": 3,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.08333333333333333,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 0.5,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 3,
+    "recall": 0.3333333333333333,
+    "scored": 36
+   }
+  },
+  "lane:index_same:allowed": {
+   "all_strata": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 257,
+    "TP": 94,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.8744186046511628,
+    "n": 378,
+    "precision": 0.831858407079646,
+    "predicted_positives": 113,
+    "recall": 0.9215686274509803,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 257,
+     "TP": 68,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.8343558282208589,
+     "n": 352,
+     "precision": 0.7816091954022989,
+     "predicted_positives": 87,
+     "recall": 0.8947368421052632,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 230,
+     "TP": 59,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8137931034482757,
+     "n": 316,
+     "precision": 0.7564102564102564,
+     "predicted_positives": 78,
+     "recall": 0.8805970149253731,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 230,
+    "TP": 85,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.8629441624365483,
+    "n": 342,
+    "precision": 0.8173076923076923,
+    "predicted_positives": 104,
+    "recall": 0.9139784946236559,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:index_same:forbidden": {
+   "all_strata": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 257,
+    "TP": 94,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.8744186046511628,
+    "n": 378,
+    "precision": 0.831858407079646,
+    "predicted_positives": 113,
+    "recall": 0.9215686274509803,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 257,
+     "TP": 68,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.8343558282208589,
+     "n": 352,
+     "precision": 0.7816091954022989,
+     "predicted_positives": 87,
+     "recall": 0.8947368421052632,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 230,
+     "TP": 59,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8137931034482757,
+     "n": 316,
+     "precision": 0.7564102564102564,
+     "predicted_positives": 78,
+     "recall": 0.8805970149253731,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 230,
+    "TP": 85,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.8629441624365483,
+    "n": 342,
+    "precision": 0.8173076923076923,
+    "predicted_positives": 104,
+    "recall": 0.9139784946236559,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:orientation_index:allowed": {
+   "all_strata": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 257,
+    "TP": 94,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.8744186046511628,
+    "n": 378,
+    "precision": 0.831858407079646,
+    "predicted_positives": 113,
+    "recall": 0.9215686274509803,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 257,
+     "TP": 68,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.8343558282208589,
+     "n": 352,
+     "precision": 0.7816091954022989,
+     "predicted_positives": 87,
+     "recall": 0.8947368421052632,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 230,
+     "TP": 59,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8137931034482757,
+     "n": 316,
+     "precision": 0.7564102564102564,
+     "predicted_positives": 78,
+     "recall": 0.8805970149253731,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 230,
+    "TP": 85,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.8629441624365483,
+    "n": 342,
+    "precision": 0.8173076923076923,
+    "predicted_positives": 104,
+    "recall": 0.9139784946236559,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:orientation_index:forbidden": {
+   "all_strata": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 257,
+    "TP": 94,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.29894179894179895,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.8744186046511628,
+    "n": 378,
+    "precision": 0.831858407079646,
+    "predicted_positives": 113,
+    "recall": 0.9215686274509803,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 257,
+     "TP": 68,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.2471590909090909,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.8343558282208589,
+     "n": 352,
+     "precision": 0.7816091954022989,
+     "predicted_positives": 87,
+     "recall": 0.8947368421052632,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 8,
+     "FP": 19,
+     "TN": 230,
+     "TP": 59,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.2468354430379747,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.8137931034482757,
+     "n": 316,
+     "precision": 0.7564102564102564,
+     "predicted_positives": 78,
+     "recall": 0.8805970149253731,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 8,
+    "FP": 19,
+    "TN": 230,
+    "TP": 85,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.30409356725146197,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.8629441624365483,
+    "n": 342,
+    "precision": 0.8173076923076923,
+    "predicted_positives": 104,
+    "recall": 0.9139784946236559,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 27,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 9,
+    "recall": 1.0,
+    "scored": 36
+   }
+  },
+  "lane:orientation_mirror:forbidden": {
+   "all_strata": {
+    "FN": 40,
+    "FP": 8,
+    "TN": 268,
+    "TP": 62,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 0.18518518518518517,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.7209302325581395,
+    "n": 378,
+    "precision": 0.8857142857142857,
+    "predicted_positives": 70,
+    "recall": 0.6078431372549019,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 40,
+     "FP": 8,
+     "TN": 268,
+     "TP": 36,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 0.125,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.6,
+     "n": 352,
+     "precision": 0.8181818181818182,
+     "predicted_positives": 44,
+     "recall": 0.47368421052631576,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 34,
+     "FP": 8,
+     "TN": 241,
+     "TP": 33,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 0.12974683544303797,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.611111111111111,
+     "n": 316,
+     "precision": 0.8048780487804879,
+     "predicted_positives": 41,
+     "recall": 0.4925373134328358,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 34,
+    "FP": 8,
+    "TN": 241,
+    "TP": 59,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 0.195906432748538,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.7375,
+    "n": 342,
+    "precision": 0.8805970149253731,
+    "predicted_positives": 67,
+    "recall": 0.6344086021505376,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 6,
+    "FP": 0,
+    "TN": 27,
+    "TP": 3,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 0.08333333333333333,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 0.5,
+    "n": 36,
+    "precision": 1.0,
+    "predicted_positives": 3,
+    "recall": 0.3333333333333333,
+    "scored": 36
+   }
+  },
+  "weak_component": {
+   "all_strata": {
+    "FN": 0,
+    "FP": 276,
+    "TN": 0,
+    "TP": 102,
+    "abstain": 0,
+    "actual_negatives": 276,
+    "candidate_fraction": 1.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 276,
+     "positives": 102
+    },
+    "coverage": 1.0,
+    "f1": 0.425,
+    "n": 378,
+    "precision": 0.2698412698412698,
+    "predicted_positives": 378,
+    "recall": 1.0,
+    "scored": 378
+   },
+   "by_mode": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 276,
+     "TN": 0,
+     "TP": 76,
+     "abstain": 0,
+     "actual_negatives": 276,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": true,
+      "negatives": 276,
+      "positives": 76
+     },
+     "coverage": 1.0,
+     "f1": 0.3551401869158879,
+     "n": 352,
+     "precision": 0.2159090909090909,
+     "predicted_positives": 352,
+     "recall": 1.0,
+     "scored": 352
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "by_mode_primary": {
+    "air": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 10,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 10
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 10,
+     "precision": 1.0,
+     "predicted_positives": 10,
+     "recall": 1.0,
+     "scored": 10
+    },
+    "road": {
+     "FN": 0,
+     "FP": 249,
+     "TN": 0,
+     "TP": 67,
+     "abstain": 0,
+     "actual_negatives": 249,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": true,
+      "negatives": 249,
+      "positives": 67
+     },
+     "coverage": 1.0,
+     "f1": 0.3498694516971279,
+     "n": 316,
+     "precision": 0.2120253164556962,
+     "predicted_positives": 316,
+     "recall": 1.0,
+     "scored": 316
+    },
+    "ship": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 0,
+     "TP": 16,
+     "abstain": 0,
+     "actual_negatives": 0,
+     "candidate_fraction": 1.0,
+     "classes": {
+      "estimable": false,
+      "negatives": 0,
+      "positives": 16
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 16,
+     "precision": 1.0,
+     "predicted_positives": 16,
+     "recall": 1.0,
+     "scored": 16
+    }
+   },
+   "primary_distinct_edge": {
+    "FN": 0,
+    "FP": 249,
+    "TN": 0,
+    "TP": 93,
+    "abstain": 0,
+    "actual_negatives": 249,
+    "candidate_fraction": 1.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 249,
+     "positives": 93
+    },
+    "coverage": 1.0,
+    "f1": 0.42758620689655175,
+    "n": 342,
+    "precision": 0.2719298245614035,
+    "predicted_positives": 342,
+    "recall": 1.0,
+    "scored": 342
+   },
+   "same_edge": {
+    "FN": 0,
+    "FP": 27,
+    "TN": 0,
+    "TP": 9,
+    "abstain": 0,
+    "actual_negatives": 27,
+    "candidate_fraction": 1.0,
+    "classes": {
+     "estimable": true,
+     "negatives": 27,
+     "positives": 9
+    },
+    "coverage": 1.0,
+    "f1": 0.4,
+    "n": 36,
+    "precision": 0.25,
+    "predicted_positives": 36,
+    "recall": 1.0,
+    "scored": 36
+   }
+  }
+ },
+ "counts": {
+  "by_mode": {
+   "air": 10,
+   "road": 352,
+   "ship": 16
+  },
+  "by_package": {
+   "asheville": 20,
+   "boston": 24,
+   "charleston": 24,
+   "hong-kong": 138,
+   "pittsburgh": 148,
+   "rio": 24
+  },
+  "eligible": 378,
+  "primary": 342,
+  "same_edge": 36
+ },
+ "disagreements": {
+  "directed_segment": [
+   {
+    "endpoint_edges": [
+     "west",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 29778.33346
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/013",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 2,
+     "position_kind": "boundary",
+     "to": [
+      435,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 21913.198742
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/021",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 4,
+     "position_kind": "boundary",
+     "to": [
+      2451,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 29645.056392
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/061",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      11,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 14,
+     "position_kind": "boundary",
+     "to": [
+      435,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 21779.921674
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/069",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      11,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 16,
+     "position_kind": "boundary",
+     "to": [
+      2451,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 29600.470139
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/085",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      14,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 20,
+     "position_kind": "boundary",
+     "to": [
+      435,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 21735.335421
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/093",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      14,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 22,
+     "position_kind": "boundary",
+     "to": [
+      2451,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28398.235303
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/015",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 2,
+     "position_kind": "boundary",
+     "to": [
+      7,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "north",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 25593.121819
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/037",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "north",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      38,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 8,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28418.09394
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/071",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 16,
+     "position_kind": "boundary",
+     "to": [
+      54,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "north",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 23828.488128
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/093",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "north",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      69,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 22,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 26620.35194
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/127",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 30,
+     "position_kind": "boundary",
+     "to": [
+      73,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "west"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28715.335213
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/151",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "west"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 36,
+     "position_kind": "boundary",
+     "to": [
+      110,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 27474.819795
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/161",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      111,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 39,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 25018.870885
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/179",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      2505,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 43,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 25023.984123
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/183",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      2546,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 44,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "south",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 23497.318908
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/187",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "south",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      3204,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 45,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "west"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28054.306599
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/201",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "east",
+      "west"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 49,
+     "position_kind": "boundary",
+     "to": [
+      2529,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "west"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28013.265145
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/205",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "east",
+      "west"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 50,
+     "position_kind": "boundary",
+     "to": [
+      2536,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "south"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 30916.239788
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/209",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "east",
+      "south"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 51,
+     "position_kind": "boundary",
+     "to": [
+      3209,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   }
+  ],
+  "lane:any_lane:forbidden": [
+   {
+    "endpoint_edges": [
+     "west",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 29778.33346
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/013",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 2,
+     "position_kind": "boundary",
+     "to": [
+      435,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 21913.198742
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/021",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 4,
+     "position_kind": "boundary",
+     "to": [
+      2451,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 29645.056392
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/061",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      11,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 14,
+     "position_kind": "boundary",
+     "to": [
+      435,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 21779.921674
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/069",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      11,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 16,
+     "position_kind": "boundary",
+     "to": [
+      2451,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 29600.470139
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/085",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      14,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 20,
+     "position_kind": "boundary",
+     "to": [
+      435,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 21735.335421
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "hong-kong",
+    "query_id": "hong-kong/native-v2-5/road/093",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      14,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 22,
+     "position_kind": "boundary",
+     "to": [
+      2451,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28398.235303
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/015",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 2,
+     "position_kind": "boundary",
+     "to": [
+      7,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "north",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 25593.121819
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/037",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "north",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      38,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 8,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28418.09394
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/071",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 16,
+     "position_kind": "boundary",
+     "to": [
+      54,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "north",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 23828.488128
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/093",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "north",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      69,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 22,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "north"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 26620.35194
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/127",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "north"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 30,
+     "position_kind": "boundary",
+     "to": [
+      73,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "west"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28715.335213
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/151",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "east",
+      "west"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 36,
+     "position_kind": "boundary",
+     "to": [
+      110,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 27474.819795
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/161",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      111,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 39,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 25018.870885
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/179",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      2505,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 43,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "west",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 25023.984123
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/183",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "west",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      2546,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 44,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "south",
+     "east"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 23497.318908
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/187",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 1,
+     "endpoint_edges": [
+      "south",
+      "east"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      3204,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 45,
+     "position_kind": "boundary",
+     "to": [
+      1001,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "west"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28054.306599
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/201",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "east",
+      "west"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 49,
+     "position_kind": "boundary",
+     "to": [
+      2529,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "west"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 28013.265145
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/205",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "east",
+      "west"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 50,
+     "position_kind": "boundary",
+     "to": [
+      2536,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   },
+   {
+    "endpoint_edges": [
+     "east",
+     "south"
+    ],
+    "endpoint_roles": [
+     [
+      "OneWayOut",
+      "Outside"
+     ],
+     [
+      "OneWayIn",
+      "Outside"
+     ]
+    ],
+    "mechanism_status": "unknown",
+    "mode": "road",
+    "model": {
+     "path_lower_bound_length": 30916.239788
+    },
+    "native": {
+     "complete": true,
+     "flags": 8,
+     "length": 100000,
+     "positions": 0,
+     "released": true,
+     "success": false
+    },
+    "native_failure_sentinel": true,
+    "package": "pittsburgh",
+    "query_id": "pittsburgh/native-v2-6/road/209",
+    "relation": "false_positive",
+    "request": {
+     "capability": "road",
+     "direction": 0,
+     "endpoint_edges": [
+      "east",
+      "south"
+     ],
+     "endpoint_roles": [
+      [
+       "OneWayOut"
+      ],
+      [
+       "OneWayIn"
+      ]
+     ],
+     "from": [
+      1867,
+      0,
+      0
+     ],
+     "lane_directions": [
+      "Forward",
+      "Forward"
+     ],
+     "name": "outside-to-outside",
+     "pair_index": 51,
+     "position_kind": "boundary",
+     "to": [
+      3209,
+      0,
+      255
+     ]
+    },
+    "returned_endpoints_match": false,
+    "stratum": "primary_distinct_edge"
+   }
+  ]
+ },
+ "groups": {
+  "by_fidelity": {
+   "False": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 87,
+     "TP": 27,
+     "abstain": 0,
+     "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
+     "classes": {
+      "estimable": true,
+      "negatives": 87,
+      "positives": 27
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 114,
+     "precision": 1.0,
+     "predicted_positives": 27,
+     "recall": 1.0,
+     "scored": 114
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 87,
+     "TP": 27,
+     "abstain": 0,
+     "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
+     "classes": {
+      "estimable": true,
+      "negatives": 87,
+      "positives": 27
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 114,
+     "precision": 1.0,
+     "predicted_positives": 27,
+     "recall": 1.0,
+     "scored": 114
+    }
+   },
+   "True": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 170,
+     "TP": 75,
+     "abstain": 0,
+     "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
+     "classes": {
+      "estimable": true,
+      "negatives": 189,
+      "positives": 75
+     },
+     "coverage": 1.0,
+     "f1": 0.8875739644970414,
+     "n": 264,
+     "precision": 0.7978723404255319,
+     "predicted_positives": 94,
+     "recall": 1.0,
+     "scored": 264
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 170,
+     "TP": 75,
+     "abstain": 0,
+     "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
+     "classes": {
+      "estimable": true,
+      "negatives": 189,
+      "positives": 75
+     },
+     "coverage": 1.0,
+     "f1": 0.8875739644970414,
+     "n": 264,
+     "precision": 0.7978723404255319,
+     "predicted_positives": 94,
+     "recall": 1.0,
+     "scored": 264
+    }
+   }
+  },
+  "by_package": {
+   "asheville": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 18,
+     "TP": 2,
+     "abstain": 0,
+     "actual_negatives": 18,
+     "candidate_fraction": 0.1,
+     "classes": {
+      "estimable": true,
+      "negatives": 18,
+      "positives": 2
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 20,
+     "precision": 1.0,
+     "predicted_positives": 2,
+     "recall": 1.0,
+     "scored": 20
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 18,
+     "TP": 2,
+     "abstain": 0,
+     "actual_negatives": 18,
+     "candidate_fraction": 0.1,
+     "classes": {
+      "estimable": true,
+      "negatives": 18,
+      "positives": 2
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 20,
+     "precision": 1.0,
+     "predicted_positives": 2,
+     "recall": 1.0,
+     "scored": 20
+    }
+   },
+   "boston": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 18,
+     "TP": 6,
+     "abstain": 0,
+     "actual_negatives": 18,
+     "candidate_fraction": 0.25,
+     "classes": {
+      "estimable": true,
+      "negatives": 18,
+      "positives": 6
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 24,
+     "precision": 1.0,
+     "predicted_positives": 6,
+     "recall": 1.0,
+     "scored": 24
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 18,
+     "TP": 6,
+     "abstain": 0,
+     "actual_negatives": 18,
+     "candidate_fraction": 0.25,
+     "classes": {
+      "estimable": true,
+      "negatives": 18,
+      "positives": 6
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 24,
+     "precision": 1.0,
+     "predicted_positives": 6,
+     "recall": 1.0,
+     "scored": 24
+    }
+   },
+   "charleston": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 18,
+     "TP": 6,
+     "abstain": 0,
+     "actual_negatives": 18,
+     "candidate_fraction": 0.25,
+     "classes": {
+      "estimable": true,
+      "negatives": 18,
+      "positives": 6
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 24,
+     "precision": 1.0,
+     "predicted_positives": 6,
+     "recall": 1.0,
+     "scored": 24
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 18,
+     "TP": 6,
+     "abstain": 0,
+     "actual_negatives": 18,
+     "candidate_fraction": 0.25,
+     "classes": {
+      "estimable": true,
+      "negatives": 18,
+      "positives": 6
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 24,
+     "precision": 1.0,
+     "predicted_positives": 6,
+     "recall": 1.0,
+     "scored": 24
+    }
+   },
+   "hong-kong": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 6,
+     "TN": 85,
+     "TP": 11,
+     "abstain": 0,
+     "actual_negatives": 91,
+     "candidate_fraction": 0.16666666666666666,
+     "classes": {
+      "estimable": true,
+      "negatives": 91,
+      "positives": 11
+     },
+     "coverage": 1.0,
+     "f1": 0.7857142857142858,
+     "n": 102,
+     "precision": 0.6470588235294118,
+     "predicted_positives": 17,
+     "recall": 1.0,
+     "scored": 102
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 6,
+     "TN": 85,
+     "TP": 11,
+     "abstain": 0,
+     "actual_negatives": 91,
+     "candidate_fraction": 0.16666666666666666,
+     "classes": {
+      "estimable": true,
+      "negatives": 91,
+      "positives": 11
+     },
+     "coverage": 1.0,
+     "f1": 0.7857142857142858,
+     "n": 102,
+     "precision": 0.6470588235294118,
+     "predicted_positives": 17,
+     "recall": 1.0,
+     "scored": 102
+    }
+   },
+   "pittsburgh": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 13,
+     "TN": 82,
+     "TP": 53,
+     "abstain": 0,
+     "actual_negatives": 95,
+     "candidate_fraction": 0.44594594594594594,
+     "classes": {
+      "estimable": true,
+      "negatives": 95,
+      "positives": 53
+     },
+     "coverage": 1.0,
+     "f1": 0.8907563025210083,
+     "n": 148,
+     "precision": 0.803030303030303,
+     "predicted_positives": 66,
+     "recall": 1.0,
+     "scored": 148
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 13,
+     "TN": 82,
+     "TP": 53,
+     "abstain": 0,
+     "actual_negatives": 95,
+     "candidate_fraction": 0.44594594594594594,
+     "classes": {
+      "estimable": true,
+      "negatives": 95,
+      "positives": 53
+     },
+     "coverage": 1.0,
+     "f1": 0.8907563025210083,
+     "n": 148,
+     "precision": 0.803030303030303,
+     "predicted_positives": 66,
+     "recall": 1.0,
+     "scored": 148
+    }
+   },
+   "rio": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 9,
+     "TP": 15,
+     "abstain": 0,
+     "actual_negatives": 9,
+     "candidate_fraction": 0.625,
+     "classes": {
+      "estimable": true,
+      "negatives": 9,
+      "positives": 15
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 24,
+     "precision": 1.0,
+     "predicted_positives": 15,
+     "recall": 1.0,
+     "scored": 24
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 9,
+     "TP": 15,
+     "abstain": 0,
+     "actual_negatives": 9,
+     "candidate_fraction": 0.625,
+     "classes": {
+      "estimable": true,
+      "negatives": 9,
+      "positives": 15
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 24,
+     "precision": 1.0,
+     "predicted_positives": 15,
+     "recall": 1.0,
+     "scored": 24
+    }
+   }
+  },
+  "by_study": {
+   "targeted-v2": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 170,
+     "TP": 75,
+     "abstain": 0,
+     "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
+     "classes": {
+      "estimable": true,
+      "negatives": 189,
+      "positives": 75
+     },
+     "coverage": 1.0,
+     "f1": 0.8875739644970414,
+     "n": 264,
+     "precision": 0.7978723404255319,
+     "predicted_positives": 94,
+     "recall": 1.0,
+     "scored": 264
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 19,
+     "TN": 170,
+     "TP": 75,
+     "abstain": 0,
+     "actual_negatives": 189,
+     "candidate_fraction": 0.3560606060606061,
+     "classes": {
+      "estimable": true,
+      "negatives": 189,
+      "positives": 75
+     },
+     "coverage": 1.0,
+     "f1": 0.8875739644970414,
+     "n": 264,
+     "precision": 0.7978723404255319,
+     "predicted_positives": 94,
+     "recall": 1.0,
+     "scored": 264
+    }
+   },
+   "v1": {
+    "directed_segment": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 87,
+     "TP": 27,
+     "abstain": 0,
+     "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
+     "classes": {
+      "estimable": true,
+      "negatives": 87,
+      "positives": 27
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 114,
+     "precision": 1.0,
+     "predicted_positives": 27,
+     "recall": 1.0,
+     "scored": 114
+    },
+    "lane:any_lane:forbidden": {
+     "FN": 0,
+     "FP": 0,
+     "TN": 87,
+     "TP": 27,
+     "abstain": 0,
+     "actual_negatives": 87,
+     "candidate_fraction": 0.23684210526315788,
+     "classes": {
+      "estimable": true,
+      "negatives": 87,
+      "positives": 27
+     },
+     "coverage": 1.0,
+     "f1": 1.0,
+     "n": 114,
+     "precision": 1.0,
+     "predicted_positives": 27,
+     "recall": 1.0,
+     "scored": 114
+    }
+   }
+  }
+ },
+ "identical_rules": {
+  "air": [
+   [
+    "always_candidate",
+    "weak_component",
+    "directed_segment",
+    "lane:any_lane:forbidden",
+    "lane:any_lane:allowed",
+    "lane:index_same:forbidden",
+    "lane:index_same:allowed",
+    "lane:index_mirror:forbidden",
+    "lane:orientation_index:forbidden",
+    "lane:orientation_index:allowed",
+    "lane:orientation_mirror:forbidden"
+   ]
+  ],
+  "road": [
+   [
+    "always_candidate",
+    "weak_component"
+   ],
+   [
+    "directed_segment",
+    "lane:any_lane:forbidden",
+    "lane:any_lane:allowed"
+   ],
+   [
+    "lane:index_same:forbidden",
+    "lane:index_same:allowed",
+    "lane:orientation_index:forbidden",
+    "lane:orientation_index:allowed"
+   ],
+   [
+    "lane:index_mirror:forbidden",
+    "lane:orientation_mirror:forbidden"
+   ]
+  ],
+  "ship": [
+   [
+    "always_candidate",
+    "weak_component",
+    "directed_segment",
+    "lane:any_lane:forbidden",
+    "lane:any_lane:allowed",
+    "lane:index_same:forbidden",
+    "lane:index_same:allowed",
+    "lane:index_mirror:forbidden",
+    "lane:orientation_index:forbidden",
+    "lane:orientation_index:allowed",
+    "lane:orientation_mirror:forbidden"
+   ]
+  ]
+ },
+ "inventory_sha256": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
+ "leave_one_package_out": [
+  {
+   "estimable": true,
+   "held_out": "asheville",
+   "held_out_labels": {
+    "False": 18,
+    "True": 2
+   },
+   "held_out_metrics": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 18,
+    "TP": 2,
+    "abstain": 0,
+    "actual_negatives": 18,
+    "candidate_fraction": 0.1,
+    "classes": {
+     "estimable": true,
+     "negatives": 18,
+     "positives": 2
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 20,
+    "precision": 1.0,
+    "predicted_positives": 2,
+    "recall": 1.0,
+    "scored": 20
+   },
+   "held_out_n": 20,
+   "identical_to_global_best": true,
+   "selected_rule": "directed_segment",
+   "training_classes": {
+    "estimable": true,
+    "negatives": 231,
+    "positives": 91
+   },
+   "training_n": 322
+  },
+  {
+   "estimable": true,
+   "held_out": "boston",
+   "held_out_labels": {
+    "False": 18,
+    "True": 6
+   },
+   "held_out_metrics": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 18,
+    "TP": 6,
+    "abstain": 0,
+    "actual_negatives": 18,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 18,
+     "positives": 6
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 24,
+    "precision": 1.0,
+    "predicted_positives": 6,
+    "recall": 1.0,
+    "scored": 24
+   },
+   "held_out_n": 24,
+   "identical_to_global_best": true,
+   "selected_rule": "directed_segment",
+   "training_classes": {
+    "estimable": true,
+    "negatives": 231,
+    "positives": 87
+   },
+   "training_n": 318
+  },
+  {
+   "estimable": true,
+   "held_out": "charleston",
+   "held_out_labels": {
+    "False": 18,
+    "True": 6
+   },
+   "held_out_metrics": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 18,
+    "TP": 6,
+    "abstain": 0,
+    "actual_negatives": 18,
+    "candidate_fraction": 0.25,
+    "classes": {
+     "estimable": true,
+     "negatives": 18,
+     "positives": 6
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 24,
+    "precision": 1.0,
+    "predicted_positives": 6,
+    "recall": 1.0,
+    "scored": 24
+   },
+   "held_out_n": 24,
+   "identical_to_global_best": true,
+   "selected_rule": "directed_segment",
+   "training_classes": {
+    "estimable": true,
+    "negatives": 231,
+    "positives": 87
+   },
+   "training_n": 318
+  },
+  {
+   "estimable": true,
+   "held_out": "hong-kong",
+   "held_out_labels": {
+    "False": 91,
+    "True": 11
+   },
+   "held_out_metrics": {
+    "FN": 0,
+    "FP": 6,
+    "TN": 85,
+    "TP": 11,
+    "abstain": 0,
+    "actual_negatives": 91,
+    "candidate_fraction": 0.16666666666666666,
+    "classes": {
+     "estimable": true,
+     "negatives": 91,
+     "positives": 11
+    },
+    "coverage": 1.0,
+    "f1": 0.7857142857142858,
+    "n": 102,
+    "precision": 0.6470588235294118,
+    "predicted_positives": 17,
+    "recall": 1.0,
+    "scored": 102
+   },
+   "held_out_n": 102,
+   "identical_to_global_best": true,
+   "selected_rule": "directed_segment",
+   "training_classes": {
+    "estimable": true,
+    "negatives": 158,
+    "positives": 82
+   },
+   "training_n": 240
+  },
+  {
+   "estimable": true,
+   "held_out": "pittsburgh",
+   "held_out_labels": {
+    "False": 95,
+    "True": 53
+   },
+   "held_out_metrics": {
+    "FN": 0,
+    "FP": 13,
+    "TN": 82,
+    "TP": 53,
+    "abstain": 0,
+    "actual_negatives": 95,
+    "candidate_fraction": 0.44594594594594594,
+    "classes": {
+     "estimable": true,
+     "negatives": 95,
+     "positives": 53
+    },
+    "coverage": 1.0,
+    "f1": 0.8907563025210083,
+    "n": 148,
+    "precision": 0.803030303030303,
+    "predicted_positives": 66,
+    "recall": 1.0,
+    "scored": 148
+   },
+   "held_out_n": 148,
+   "identical_to_global_best": true,
+   "selected_rule": "directed_segment",
+   "training_classes": {
+    "estimable": true,
+    "negatives": 154,
+    "positives": 40
+   },
+   "training_n": 194
+  },
+  {
+   "estimable": true,
+   "held_out": "rio",
+   "held_out_labels": {
+    "False": 9,
+    "True": 15
+   },
+   "held_out_metrics": {
+    "FN": 0,
+    "FP": 0,
+    "TN": 9,
+    "TP": 15,
+    "abstain": 0,
+    "actual_negatives": 9,
+    "candidate_fraction": 0.625,
+    "classes": {
+     "estimable": true,
+     "negatives": 9,
+     "positives": 15
+    },
+    "coverage": 1.0,
+    "f1": 1.0,
+    "n": 24,
+    "precision": 1.0,
+    "predicted_positives": 15,
+    "recall": 1.0,
+    "scored": 24
+   },
+   "held_out_n": 24,
+   "identical_to_global_best": true,
+   "selected_rule": "directed_segment",
+   "training_classes": {
+    "estimable": true,
+    "negatives": 240,
+    "positives": 78
+   },
+   "training_n": 318
+  }
+ ],
+ "length_check": {
+  "binds": false,
+  "bridge_error_cannot_flip": true,
+  "cap_sensitive_no_path": [],
+  "eligible_queries_with_chord_path": 378,
+  "max_directed_chord_over_cap": 0.48886885468,
+  "max_length": 100000.0,
+  "max_undirected_chord_over_cap": 0.3321056612562376,
+  "note": "Undirected lower bounds alone cannot prove cap insensitivity. All successful directed paths remain below the cap with 20% longer chords; all no-path predictions remain disconnected without a cap."
+ },
+ "limitations": [
+  "The study is retrospective: the observations existed before the model.",
+  "Road, ship and air observations are not independent votes across direction pairs, midpoint repeats or repeated openings of the same package.",
+  "Ship and air can only be checked for positive consistency; their evidence contains no observed failures.",
+  "A failure is an observed failure of that exact request under that exact protocol, never evidence that a place cannot support the mode."
+ ],
+ "one_class": {
+  "air": {
+   "discrimination_estimable": false,
+   "negatives": 0,
+   "note": "one class only: the retained evidence for this mode contains successful requests and no observed failures. The arithmetic precision is therefore trivially 1 and no discrimination among the frozen rules is estimable.",
+   "positives": 10,
+   "precision": 1.0,
+   "recall": 1.0
+  },
+  "road": {
+   "discrimination_estimable": true,
+   "negatives": 249,
+   "note": "both classes present",
+   "positives": 67,
+   "precision": 0.7790697674418605,
+   "recall": 1.0
+  },
+  "ship": {
+   "discrimination_estimable": false,
+   "negatives": 0,
+   "note": "one class only: the retained evidence for this mode contains successful requests and no observed failures. The arithmetic precision is therefore trivially 1 and no discrimination among the frozen rules is estimable.",
+   "positives": 16,
+   "precision": 1.0,
+   "recall": 1.0
+  }
+ },
+ "predictions_sha256": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
+ "primary_rule": "lane:any_lane:forbidden",
+ "primary_rule_metrics": {
+  "FN": 0,
+  "FP": 19,
+  "TN": 230,
+  "TP": 93,
+  "abstain": 0,
+  "actual_negatives": 249,
+  "candidate_fraction": 0.32748538011695905,
+  "classes": {
+   "estimable": true,
+   "negatives": 249,
+   "positives": 93
+  },
+  "coverage": 1.0,
+  "f1": 0.9073170731707317,
+  "n": 342,
+  "precision": 0.8303571428571429,
+  "predicted_positives": 112,
+  "recall": 1.0,
+  "scored": 342
+ },
+ "protocol_sha256": "663f747c1b872a72d381454f2488686cc180544226a4cf3506748db6fc9f3de4",
+ "repeats": {
+  "cross_opening": [
+   {
+    "agree": true,
+    "query_id": "boston/native-v2-4/ship/000",
+    "repeat_of": "boston/attempt-1/ship/041"
+   },
+   {
+    "agree": true,
+    "query_id": "boston/native-v2-4/ship/002",
+    "repeat_of": "boston/attempt-1/ship/043"
+   },
+   {
+    "agree": true,
+    "query_id": "charleston/native-v2-3/ship/000",
+    "repeat_of": "charleston/attempt-1/ship/041"
+   },
+   {
+    "agree": true,
+    "query_id": "charleston/native-v2-3/ship/002",
+    "repeat_of": "charleston/attempt-1/ship/043"
+   },
+   {
+    "agree": true,
+    "query_id": "hong-kong/native-v2-5/ship/261",
+    "repeat_of": "hong-kong/attempt-1/ship/017"
+   },
+   {
+    "agree": true,
+    "query_id": "hong-kong/native-v2-5/ship/263",
+    "repeat_of": "hong-kong/attempt-1/ship/019"
+   },
+   {
+    "agree": true,
+    "query_id": "rio/native-v2-2/ship/000",
+    "repeat_of": "rio/attempt-1/ship/041"
+   },
+   {
+    "agree": true,
+    "query_id": "rio/native-v2-2/ship/002",
+    "repeat_of": "rio/attempt-1/ship/043"
+   }
+  ],
+  "cross_opening_agree": 8,
+  "cross_opening_pairs": 8,
+  "midpoint": {
+   "agree": 378,
+   "pairs": 378
+  }
+ },
+ "schema": 1,
+ "study": "outside-query-model-v1",
+ "unexplained_disagreements": [
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/013",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/021",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/061",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/069",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/085",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "hong-kong/native-v2-5/road/093",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/015",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/037",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/071",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/093",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/127",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/151",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/161",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/179",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/183",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/187",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/201",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/205",
+   "relation": "false_positive"
+  },
+  {
+   "mechanism_status": "unknown",
+   "query_id": "pittsburgh/native-v2-6/road/209",
+   "relation": "false_positive"
+  }
+ ]
+}

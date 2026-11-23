@@ -25417,7 +25417,10 @@
           "outcomes": []
         }
       ],
-      "limits": "Counts do not prove direction, pathfinding or the player's ability to join. The real-roads path remains opt-in."
+      "limits": "Counts do not prove direction, pathfinding or the player's ability to join. The real-roads path remains opt-in.",
+      "outside_research_studies": [
+        "outside-query-model-v1"
+      ]
     },
     {
       "id": "rail",
@@ -33483,7 +33486,10 @@
           ]
         }
       ],
-      "limits": "Not restricted by place names or ocean labels. Initial water is not stable water. A negative browser estimate is unknown because coarse sampling can miss a route."
+      "limits": "Not restricted by place names or ocean labels. Initial water is not stable water. A negative browser estimate is unknown because coarse sampling can miss a route.",
+      "outside_research_studies": [
+        "outside-query-model-v1"
+      ]
     },
     {
       "id": "air",
@@ -35717,7 +35723,10 @@
           "outcomes": []
         }
       ],
-      "limits": "Fixture airport fallbacks in the existing generator are not geographic evidence for arbitrary squares. Terrain clearance at high altitude and service remain unverified."
+      "limits": "Fixture airport fallbacks in the existing generator are not geographic evidence for arbitrary squares. Terrain clearance at high altitude and service remain unverified.",
+      "outside_research_studies": [
+        "outside-query-model-v1"
+      ]
     },
     {
       "id": "water",
@@ -58580,5 +58589,97 @@
       "evidence_files_sha256": "b37c40e095891873ec9d56408643f022affdee6f26ebd38c097dc852b03599b1",
       "certificates": "none"
     }
+  },
+  "outside_research_studies": {
+    "kind": "outside_connection_query_model_study",
+    "study": "outside-query-model-v1",
+    "source_commit": "030db86ce470b972b6ef3462a2698744dff40ebb",
+    "source_base": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
+    "internal_merge": "f6c73b17a9b211c6887ede23d313545caac3735b",
+    "source_issue": "01a2006b-105d-7bc7-af9e-c3e42ea9c944",
+    "pull_request": 87,
+    "publication_files": 21,
+    "copied_files": 18,
+    "linked_files": 3,
+    "projection_file": "tools/map-factory/capability-evidence/outside-research-studies.json",
+    "projection_sha256": "8c3e785d26bf864f325d78de8b543008870d2816f8608a940c1b94947cb115e4",
+    "projection_tool_file": "tools/map-factory/integrate_outside_research.py",
+    "projection_tool_sha256": "4ac7e82fe17bd4a04fab4ceb9201bc3e9c219d0cea5f34477fe7ad92e509662b",
+    "source_manifest_file": "tools/map-factory/capability-evidence/outside-research-sources.json",
+    "source_manifest_sha256": "bfe001f5a450fb8166ff9131dba92de1a313883694920cf1450ef31c4bf63f7e",
+    "freeze": {
+      "name": "outside-query-model-v1",
+      "frozen_at": "2026-11-23T08:53:14.972926+00:00",
+      "predictions_sha256": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
+      "retrospective": true,
+      "frozen_before_observations": false,
+      "observation_dates": "unknown"
+    },
+    "selected_queries": 378,
+    "primary_queries": 342,
+    "rows": 876,
+    "packages": 9,
+    "modes": {
+      "road": {
+        "primary": 316,
+        "successes": 67,
+        "failures": 249,
+        "discrimination_estimable": true,
+        "fitted": {
+          "tp": 67,
+          "fp": 19,
+          "tn": 230,
+          "fn": 0,
+          "abstain": 0,
+          "unknown": 0
+        }
+      },
+      "ship": {
+        "primary": 16,
+        "successes": 16,
+        "failures": 0,
+        "discrimination_estimable": false,
+        "fitted": {
+          "tp": 16,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "abstain": 0,
+          "unknown": 0
+        }
+      },
+      "air": {
+        "primary": 10,
+        "successes": 10,
+        "failures": 0,
+        "discrimination_estimable": false,
+        "fitted": {
+          "tp": 10,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "abstain": 0,
+          "unknown": 0
+        }
+      }
+    },
+    "primary_fitted": {
+      "tp": 93,
+      "fp": 19,
+      "tn": 230,
+      "fn": 0,
+      "abstain": 0,
+      "unknown": 0
+    },
+    "same_edge_fitted": {
+      "tp": 9,
+      "fp": 0,
+      "tn": 27,
+      "fn": 0,
+      "abstain": 0,
+      "unknown": 0
+    },
+    "evidence_files_sha256": "47400ce528ab716cfb30f1bd44f605b9eee0c0f27402d17baf635144d4706b6f",
+    "certificates": "none"
   }
 }

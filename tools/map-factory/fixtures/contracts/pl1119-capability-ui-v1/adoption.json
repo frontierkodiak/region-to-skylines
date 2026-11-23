@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study and three accepted rail research publications; physical writers and historical native qualification unchanged",
+  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication; physical writers and historical native qualification unchanged",
   "predecessor_active_sha256": "610f43cb1d8265763afb418a6aae663b02379eea6e3efbd4ed5b320d87058aab",
   "predecessor_contract_sha256": "cc2f7327e2148a999ac0f8b14053c620612805e9f11a57279321aef182c5123a",
   "archived_gates": {
@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "3fdd00b5dfa23cd790c0862094f821829c11747f415e5923e65cf7a69a23d819"
+      "current_sha256": "23ecc6fb5d258626ada2b2f94aefdd28f12b78a96614c83ccc905692e98c3ae0"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,11 +18,11 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "b48c3a207fd2f0722f42b1737dd3da1a5d4ff7fd79b1d08ace87b92e8392c262"
+      "current_sha256": "e50427e0750f32762b9b7793ed70da373684c012a2ecfdb9b32b91ef98803f7d"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
-      "current_sha256": "7c5a4e08802927c7027d151a387a020e31f0e9f6becf80b761f717e64da916d7"
+      "current_sha256": "3ce3668bded9fc6bb6759f4d29abad67e79af48875ffeeecce0e4c0be0f8644f"
     }
   },
   "added_files_sha256": {
@@ -256,11 +256,11 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "9b9a88bc9b1825cade659bde7bd28761863101c6b0097ae2b52f0e26d3065b92",
+    "capabilities.json": "9c868e478367618c724e93c75f7bbd277e50ba878c81e0985eb660635ae46eff",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "dea3dfc31b1d56d3e53d67d679b9c367a487549f0f358112380185df62714cd1",
-    "capability-ledger.mjs": "d982da91ae360b361b1c5985b884d3376eae1bd26082d6f0344ab119c4dbdcef",
+    "capability-ledger.mjs": "5cdca0b8d57af6ad46a3770423a67fb32bf24bd7533c6dd54da4049b94471a86",
     "capability-model.js": "0cca4b886eb22db30e5b95f0fe029dc3c186a7c9ff4b80149c40614cb78a17ea",
     "capability-ui.js": "4ad29a27aea8e5e714503ec4e6bebc2e43e55e53c94d746a9e732805a873f853",
     "tools/map-factory/capabilities.py": "da6863eaa5290a894d5cb665fbfbfa17a0c98386cfb3efd0b903c3ae85ac4438",
@@ -519,6 +519,28 @@
     "rail-research.mjs": "e323361732ac8aa9c7f9663cc8d4bc95f9f8c52207f900dd533332e73f5454a6",
     "tools/map-factory/integrate_rail_research.py": "a49282eeb69b970f5204fa734cf5f46709b61f5c72af32a66dacda7ccde27f26",
     "tools/map-factory/capability-evidence/rail-research-sources.json": "00bab93bfa5a6884567f1e46845fa863ba8a2bf1fb2c46c5ee3586f58c77247b",
-    "tools/map-factory/capability-evidence/rail-research-studies.json": "f9ad71df4d1ff436324d02c5c875a06e3c01882e8d7a5090926eb430d0db2b75"
+    "tools/map-factory/capability-evidence/rail-research-studies.json": "f9ad71df4d1ff436324d02c5c875a06e3c01882e8d7a5090926eb430d0db2b75",
+    "outside-research.mjs": "8125f9a54ca057c1fbefd3975c7a94d3d019d731081922e5cc2fe1acb62bce66",
+    "tools/map-factory/integrate_outside_research.py": "4ac7e82fe17bd4a04fab4ceb9201bc3e9c219d0cea5f34477fe7ad92e509662b",
+    "tools/map-factory/capability-evidence/outside-research-sources.json": "bfe001f5a450fb8166ff9131dba92de1a313883694920cf1450ef31c4bf63f7e",
+    "tools/map-factory/capability-evidence/outside-research-studies.json": "8c3e785d26bf864f325d78de8b543008870d2816f8608a940c1b94947cb115e4",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/README.md": "2e0ee53424cb1d4e3ae427be47715111d13d8ef9794b272f5ee2ef5525515cb8",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/REPRODUCE.md": "ba71de8928f32c6f96faf22c0f6e0c045c6fb925c668d913f13054d5b7575858",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/RESULTS.md": "6eae9ddff08688d415eb8f0c9d049bb8aed90a30231b2f38844a80088026a891",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/bindings.json": "8b3178e1e42f76d50324a26c06ae31d11e64c025dff98a07840dd071594771e4",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/bridge.json": "1028b1c138d508f1edf0f0532f415666ae9a782347291cdf8502ece33874f98c",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/bridge.py": "8b120cc29f2d3306bb539b607c61f878981ea2bdf0a49cb2acd634dcf3461e32",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/catalogs.json": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/evaluate.py": "55b6b6d37dbe77fe49d6627bbb2191c2610f29240c0cd1a8d9e20c81e6ab535e",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/evaluation.json": "3e7f968b1c2c05887aacda960d1b1c34b980cf6408e0db44a5b3588a9ed09370",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/integrity.json": "6a4ed204fcc3d18b3122629e9a5fb63fb6f75ce0fe5795e4b6b964179c42e4c4",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/inventory.py": "7c52a0f7ecbe5f1cf46d5ef2798e26cb3944b3fbee8eaaf06ecfeee8a5abc220",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/manifest.json": "e34f2b3bdb34e8d7ed8f2fbfd341117dcabfe2d3d239a03d5c49b172568fffc2",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/model.py": "9e3e2fc05a144d3313150e20113204ec34973d451e3b0a18d6a1875a2f46ef7b",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/packages.json": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/predict.py": "12dc5454c14bbb2f2790c428450a9bffe9be7029cba914abe722190a29cd61d5",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/protocol.json": "663f747c1b872a72d381454f2488686cc180544226a4cf3506748db6fc9f3de4",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/test_outside_query_model.py": "99357978b7f190d0058974e13225f53c8619ccaee56dfd74cfb672ad6f3f3c21",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/topology.py": "1879726587d832e313556e1d2b607dd12e14bda8c902933bea16c9eb3604c9e8"
   }
 }

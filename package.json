@@ -38,7 +38,7 @@
     "tools/map-factory/templates/native-corridors.json"
   ],
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs",
+    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs",
     "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs"
   },
   "engines": {

@@ -14,6 +14,8 @@ import { RAIL_STUDY, railStudy, validateRailStudy, railStudyPage } from "./rail-
 
 import { railResearch as loadRailResearch, railResearchPage, validateRailResearch } from "./rail-research.mjs";
 
+import { outsideResearch as loadOutsideResearch, outsideResearchPage, outsideResearchReference, validateOutsideResearch } from "./outside-research.mjs";
+
 export const START_WATER_PROJECTION_SHA = "26f5a6cc0c9412970eb80888c0e378af11c316bf1ca3bd8501c8fc8ebf6b73da";
 export const WATER_PROJECTION_SHA = "250090642bcb9fff1ba111e149e0127fb787e516fbf8d6428281f139abf1d8cf";
 export const ROOT = fileURLToPath(new URL(".", import.meta.url));
@@ -183,6 +185,7 @@ export function validateLedger(ledger) {
   }
   validateRailStudy(ledger);
   validateRailResearch(ledger);
+  validateOutsideResearch(ledger);
   validateWaterStudy(ledger.capabilities.find((c) => c.id === "water_risk"), undefined, WATER_PROJECTION_SHA);
   validateStartWaterStudy(ledger, undefined, START_WATER_PROJECTION_SHA);
   const source = JSON.parse(readFileSync(ROOT + "tools/map-factory/water-risk-model.json", "utf8")).calibration;
@@ -228,6 +231,7 @@ function terrainInterestLaunchBar(proposal, escape) {
 export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
   const directedRail = railStudy();
   const railResearch = loadRailResearch();
+  const outsideResearch = loadOutsideResearch();
   const sourceLink = (ref) => `<a href="https://github.com/frontierkodiak/region-to-skylines/blob/${encodeURIComponent(revision)}/${escape(ref.split(":")[0])}">${escape(ref)}</a>`;
   const scoreText = (a) => a.oracle === "native_two_edge_witness"
     ? `${a.agree} witnessed positives consistent with ${a.scored} scored predictions; ${a.unscored} unknown; ${a.false_negative} model-negative witness mismatches. No native-negative accuracy measured.`
@@ -241,6 +245,7 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
       <p>Exporter: ${c.exporter_check ? sourceLink(c.exporter_check) : "Not implemented"}<br>Browser: ${c.browser_check ? sourceLink(c.browser_check) : "Not implemented"}</p><p>Existing work: ${c.existing_checks.map(sourceLink).join(", ")}</p></details>
       ${c.evidence_metrics ? `<h3>Place evidence measures</h3><dl>${Object.entries(c.evidence_metrics).map(([id, m]) => `<dt>${escape(m.name)} (${escape(m.unit)})</dt><dd>${escape(m.definition)}</dd>`).join("")}</dl>` : ""}
       ${c.source_coverage ? `<details><summary>Sources, coverage and fidelity</summary><dl>${Object.entries(c.source_coverage).map(([key, value]) => `<dt>${escape(label(key))}</dt><dd>${escape(value)}</dd>`).join("")}</dl><p>${escape(c.fidelity)}</p></details>` : ""}
+      ${c.outside_research_studies ? outsideResearchReference(c.id, outsideResearch, escape) : ""}
       <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies || c.witness_study ? "" : "<p class=note>No scored observations for this model yet.</p>"}
       ${c.runtime_model ? `<details><summary>Current Start model · unscored</summary><pre>${escape(JSON.stringify(c.runtime_model, null, 2))}</pre></details>` : ""}
       ${c.id === "rail" ? `${railStudyPage(directedRail, escape)}${railResearchPage(railResearch, escape)}` : ""}
@@ -258,7 +263,8 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
         blocked_by?.includes("independent_review_pending") && !active.some((certificate) => isDeepStrictEqual(certificate, candidate))).length;
       return `<aside class=note data-study="${escape(id)}"><h2>Native study: what was scored · ${escape(id)}</h2><p>Frozen predictor: ${escape(s.prediction_model)} at ${escape(s.prediction_source_sha)}. Current runtime adds exact-context qualification; it is not a new native boundary fit.</p><p>${escape(s.method)}</p><p>${escape(s.limits)}</p><p>${s.qualification_candidates?.length ?? 0} retained control sets; ${pending} awaiting independent review. Active certificates: ${active.length}. Studies are not pooled as independent votes.</p><a href="${escape(s.source_url)}">Immutable study, raw receipts and failures</a></aside>`;
     }).join("")}
-    <nav aria-label="Capabilities">${ledger.capabilities.map((c) => `<a href="#${escape(c.id)}">${escape(c.name)}</a>`).join(" ")}</nav>${caps}
+    <nav aria-label="Capabilities">${ledger.capabilities.map((c) => `<a href="#${escape(c.id)}">${escape(c.name)}</a>`).join(" ")}<a href="#outside-research-study">Outside queries</a></nav>${caps}
+    ${outsideResearchPage(outsideResearch, escape)}
     <article id="stock"><h2>Against the stock maps</h2><p>${ledger.stock_reference.maps} shipped maps. Below p25, typical, above p75 describe abundance and interest, not a pass/fail rating.</p><div class="ledger-table"><table><thead><tr><th>Measure</th><th>Unit</th><th>p25</th><th>Median</th><th>p75</th></tr></thead><tbody>${Object.values(ledger.stock_reference.metrics).map((m) => `<tr><th>${escape(m.name)}</th><td>${escape(m.unit)}</td>${[m.p25, m.median, m.p75].map((v) => `<td>${escape(Number(v.toFixed(4)))}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
     ${terrainInterestPage(ledger, escape)}
     <details><summary>Source and method</summary><pre>${escape(JSON.stringify({ ...ledger.stock_reference, metrics: undefined }, null, 2))}</pre></details></article>

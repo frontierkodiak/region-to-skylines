@@ -321,6 +321,69 @@ and bulk predictions/raw data linked as immutable blobs), then writes
 `rail-research.mjs`. `npm test` re-derives the same summary and refuses changed
 evidence, a changed ledger binding or a changed source chain.
 
+## Outside-connection query evidence, kept separate
+
+One accepted publication, `outside-query-model-v1`, is carried as a single typed
+study and referenced from **Road, Ship and Air**. It answers one retrospective,
+query-scoped question: given one literal-boundary outside-connection request on
+the accepted outside-v1 packages, does the native pathfinder return a complete
+path whose returned endpoints equal the requested offsets? It is **evidence
+only**: no runtime core, qualification gate, native certificate, physical
+writer, default, input, promise level or old contract changes, and it is not
+pooled with the native outside-v1/v2 studies or with any rail study. No
+research code runs as a product check and no scorer, predictor or native run is
+repeated.
+
+All 876 retained rows are kept, with their exclusions and Unknowns: 342
+distinct-edge primary, 36 same-edge, 378 correlated offset-128 midpoint repeats,
+64 earliest-collector rows with no `position_kind`, 28 archived player probes and
+28 unrequested rows. 820 rows carry a literal request and bind to their raw
+entries; three openings failed before a network snapshot existed and stay
+recorded as anomalies. A failure labels that exact request, never a place.
+
+The ledger cites:
+
+- Primary stratum, fitted and registered primary tied: 93 TP / 19 FP / 230 TN /
+  0 FN on 342 distinct-edge requests. Same edge is 9/0/27/0. `directed_segment`
+  and `lane:any_lane:forbidden` predict identically here, so the tie is not a
+  proven equivalence; lane continuity buys nothing on this evidence.
+- Road: 67/19/230/0 on 316 requests. Ship (16) and air (10) are one class only:
+  every retained request succeeded, so their precision of 1 carries no
+  information and no rule can be distinguished on them.
+- Six package-held-out retrospective folds, all selecting `directed_segment`.
+- Every false positive is a road failure in the two targeted second openings:
+  all 19 return `flags = 8` and `length = 100000` and all remain **unexplained**.
+  The sentinel is not proof of budget exhaustion, and chord length is not a
+  native cost, grade, width, depth or SI conversion.
+
+The corrected actual protocol is recorded per mode: `Car`/`PassengerCar`/
+`Vehicle` for road, `Ship`+`Plane`/`All`/`Vehicle|TransportVehicle|CargoVehicle`
+for ship and air, seed 857, maxLength 100000, literal offsets. No observation
+date exists in the publication, so every observation date stays Unknown rather
+than being replaced by the protocol timestamp or the publication date.
+
+Regenerate from an exact publication checkout, then verify:
+
+```sh
+git archive 030db86ce470b972b6ef3462a2698744dff40ebb -- \
+  tools/map-factory/capability-evidence/outside-query-model-v1 | tar -x -C /tmp/outside
+python3 tools/map-factory/integrate_outside_research.py --source /tmp/outside/.../outside-query-model-v1
+python3 tools/map-factory/integrate_outside_research.py --check
+```
+
+The importer never runs the study's model, predictor, collector or the game. It
+re-checks the publication's complete 21-file scope through
+`capability-evidence/outside-research-sources.json` (every file pinned by
+SHA-256, byte length and Git blob id), re-derives every table from the preserved
+request rows, and refuses a changed binding. The 18 compact evidence and tool
+files are carried byte for byte; the bulk frozen requests, frozen predictions
+and retained inventory stay at the publication commit and are linked as
+immutable blobs. Each linked hash is corroborated by at least two of the
+publication's own carried documents and by the manifest pinned in
+`outside-research.mjs`, so editing the source data and the manifest together
+still fails. `npm test` re-derives the same summary and refuses changed
+evidence, a changed ledger binding or a changed source chain.
+
 ## Score the game, without conflating oracles
 
 Each capability's `game_agreement` is an array of observations. A row includes

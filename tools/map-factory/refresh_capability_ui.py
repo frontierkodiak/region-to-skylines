@@ -505,6 +505,28 @@ ADDITIONS = [
     "tools/map-factory/integrate_rail_research.py",
     "tools/map-factory/capability-evidence/rail-research-sources.json",
     "tools/map-factory/capability-evidence/rail-research-studies.json",
+    "outside-research.mjs",
+    "tools/map-factory/integrate_outside_research.py",
+    "tools/map-factory/capability-evidence/outside-research-sources.json",
+    "tools/map-factory/capability-evidence/outside-research-studies.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/README.md",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/REPRODUCE.md",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/RESULTS.md",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/bindings.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/bridge.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/bridge.py",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/catalogs.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/evaluate.py",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/evaluation.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/integrity.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/inventory.py",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/manifest.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/model.py",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/packages.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/predict.py",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/protocol.json",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/test_outside_query_model.py",
+    "tools/map-factory/capability-evidence/outside-query-model-v1/topology.py",
 ]
 
 
@@ -531,7 +553,7 @@ def refresh():
         }
     adoption = {
         "schema": 1,
-        "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study and three accepted rail research publications; physical writers and historical native qualification unchanged",
+        "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication; physical writers and historical native qualification unchanged",
         "predecessor_active_sha256": sha(active_raw),
         "predecessor_contract_sha256": sha(current_raw),
         "archived_gates": gates,

@@ -12,7 +12,7 @@
 .ledger-page main > section { max-width: 960px; margin: auto; }
 .ledger-page nav { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 16px 0; }
 .ledger-page nav a, .ledger-page summary { min-height: 44px; display: inline-flex; align-items: center; }
-#rail-research-studies summary { display: list-item; }
+#rail-research-studies summary, #outside-research-study summary { display: list-item; }
 .ledger-page article { border-top: 1px solid var(--line); padding: 20px 0; scroll-margin-top: 16px; }
 .ledger-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; }
 .ledger-title h2 { margin: 0; }
