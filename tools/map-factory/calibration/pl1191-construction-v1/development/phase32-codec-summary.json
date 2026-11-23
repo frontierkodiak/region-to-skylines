@@ -1,0 +1,189 @@
+{
+  "schema": "polli.pl1191-phase32-codec-summary/1",
+  "actual_CPU_source": "b2d780a2f5000c02a54ee81d2b1df0ab872a9c71",
+  "input_freeze_sha256": "504367a8f3bd63c81bc200a18ef98a5216b9b74304642c244596795ef936dcf0",
+  "bound_sources": 247,
+  "copied_inputs": 258,
+  "synthetic_growth_cases": 6,
+  "synthetic_alternate_values_equal_bytes_differ": true,
+  "no_geographic_edit_authority": true,
+  "cases": {
+    "dry-upland-asia": {
+      "status": "read_only_values_verified",
+      "package_sha256": "6ab38e8b707ccbe77b475f7a3d90be055ecdea13ededd83c76babfad861ef9cc",
+      "manager_original_sha256": "0b5eaf083d04b1f56d90da0a1614a116b57dbe5872ca9d5dd9d9030c2bec0c36",
+      "manager_reencoded_sha256": "0b5eaf083d04b1f56d90da0a1614a116b57dbe5872ca9d5dd9d9030c2bec0c36",
+      "manager_bytes_equal": true,
+      "package_reencoded_in_memory_bytes_equal": true,
+      "all_depth_and_compact_values_equal": true,
+      "compact": [
+        {
+          "domain": "wet",
+          "elements": 5051,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "82d059a49cbc3b302b8dfbb78d9e5c9812f1206ce1483d243f3a0eb14095a946"
+        },
+        {
+          "domain": "wet_or_east",
+          "elements": 5664,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "75959df39edf96805287f7d6802aa2e048b05f3c5cb729c8999f0e26ea190e1d"
+        },
+        {
+          "domain": "wet_or_south",
+          "elements": 5798,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "873704cb81ddcfaf4ff9d041815f5ff999b067ab7857cffc11d02a7f932de2d5"
+        }
+      ],
+      "depth_raw_le_u16_sha256": "cddfcf1f3d32db018d12f40cad37e008abef6f5141d0c244b524d0a2e1b21dd3",
+      "controls_count": 58,
+      "raw43_concatenated_sha256": "64ac63a2662d514248e5797d74b40c3a96264f671647ac33f58aee35a814d72c",
+      "all_controls_order_header_trailer_tail_nonwater_equal": true,
+      "trailer_hex": "000000000000000000031614",
+      "tail_hex": "0003",
+      "old_source_count_offset_in_simulation": 2452801,
+      "reencoded_source_count_offset_in_simulation": 2452801,
+      "geographic_CRPor_new_water_grid_written": false
+    },
+    "dry-upland-europe": {
+      "status": "read_only_values_verified",
+      "package_sha256": "cb696d4eeae4f175ba56832ceb14d0176f0aa46063fc5a39f07d630aeabe535b",
+      "manager_original_sha256": "63ce5a774bd48339fdee9dbcd95841574d5f8983fc81ec801000977be84ded61",
+      "manager_reencoded_sha256": "63ce5a774bd48339fdee9dbcd95841574d5f8983fc81ec801000977be84ded61",
+      "manager_bytes_equal": true,
+      "package_reencoded_in_memory_bytes_equal": true,
+      "all_depth_and_compact_values_equal": true,
+      "compact": [
+        {
+          "domain": "wet",
+          "elements": 3604,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "60dc967d4dafb3b6f13ca634cbf99cf10e4b91bce66667a3a39366f1241c6721"
+        },
+        {
+          "domain": "wet_or_east",
+          "elements": 4389,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "027845eb7af6ee7749954a3a08492c46298cad258d1000a005eae03cfdced1f7"
+        },
+        {
+          "domain": "wet_or_south",
+          "elements": 4221,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "bb01f03ba3190981e4d1720f90904c24acfb2f54c9b6c07f452d3b918629899d"
+        }
+      ],
+      "depth_raw_le_u16_sha256": "02a3cd473bde69cc8496efc65aac4cacb0737f793bb35cd75e9a7360957dc467",
+      "controls_count": 48,
+      "raw43_concatenated_sha256": "94ce15a776cb823f9afa53c59c0d810754fe57d2675bcff8ac9b610778a7c241",
+      "all_controls_order_header_trailer_tail_nonwater_equal": true,
+      "trailer_hex": "000000000000000000031614",
+      "tail_hex": "0003",
+      "old_source_count_offset_in_simulation": 2480508,
+      "reencoded_source_count_offset_in_simulation": 2480508,
+      "geographic_CRPor_new_water_grid_written": false
+    },
+    "lowland-river-south-america": {
+      "status": "read_only_values_verified",
+      "package_sha256": "5eabf10554655ca69542727018b69d0874724237d8cbca44f6f5444e895714f2",
+      "manager_original_sha256": "5a80807cbfc78c39e7cb4771293d767f94f1b131b5adc0a7b54a36a1a9287a9e",
+      "manager_reencoded_sha256": "5a80807cbfc78c39e7cb4771293d767f94f1b131b5adc0a7b54a36a1a9287a9e",
+      "manager_bytes_equal": true,
+      "package_reencoded_in_memory_bytes_equal": true,
+      "all_depth_and_compact_values_equal": true,
+      "compact": [
+        {
+          "domain": "wet",
+          "elements": 47345,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "960c38acc4c492b3d13bdf7385e42b69e020cb8d4d52f737c70a51eb1019591c"
+        },
+        {
+          "domain": "wet_or_east",
+          "elements": 48182,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "0968ebb034f72497488cc1d9e02ce98ab73b83c1bd498444aa80462f9c23edf1"
+        },
+        {
+          "domain": "wet_or_south",
+          "elements": 48331,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "6ecbc337cd3a1e616e3c1d04ab2d37a43915a908661f63c5c6466fd7d1ac75a3"
+        }
+      ],
+      "depth_raw_le_u16_sha256": "c46229e01e1697899c96b917588edfabd628bceeb6320441d396913e8306ea52",
+      "controls_count": 49,
+      "raw43_concatenated_sha256": "34248e0d3981767e2d74058556a88c612db49c59b37c14b86e6498b99f4303d9",
+      "all_controls_order_header_trailer_tail_nonwater_equal": true,
+      "trailer_hex": "000000000000000000031614",
+      "tail_hex": "0003",
+      "old_source_count_offset_in_simulation": 2395577,
+      "reencoded_source_count_offset_in_simulation": 2395577,
+      "geographic_CRPor_new_water_grid_written": false
+    },
+    "dry-upland-south-america": {
+      "status": "unknown_original_base_refusal",
+      "physical": null,
+      "operations": null
+    },
+    "mountain-river-asia": {
+      "status": "unknown_original_base_refusal",
+      "physical": null,
+      "operations": null
+    },
+    "low-coast-oceania": {
+      "status": "read_only_values_verified",
+      "package_sha256": "457905c4a00cc6e83ab1f40a84feb2fa8888fa50de1bf4702bb082f1a55ed563",
+      "manager_original_sha256": "290195958b5e231a5b6c22cd85e6bc7a95ad3ea737ca34eb6a644a6a77323407",
+      "manager_reencoded_sha256": "290195958b5e231a5b6c22cd85e6bc7a95ad3ea737ca34eb6a644a6a77323407",
+      "manager_bytes_equal": true,
+      "package_reencoded_in_memory_bytes_equal": true,
+      "all_depth_and_compact_values_equal": true,
+      "compact": [
+        {
+          "domain": "wet",
+          "elements": 341318,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "c63149d091c6067138edcf3986f9883a0d8490afc248b64721ad44b31435f2d9"
+        },
+        {
+          "domain": "wet_or_east",
+          "elements": 347127,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "b085e90c78d5de449cdedeadd76033fdfcf1869aec12802e24ba2908e801d67f"
+        },
+        {
+          "domain": "wet_or_south",
+          "elements": 346596,
+          "nonzero_values": 0,
+          "raw_le_u16_sha256": "0ebcb27fea4a481b8e4352c4fbfd4b1f4c00844156a3e2b716b8794aafc9b32e"
+        }
+      ],
+      "depth_raw_le_u16_sha256": "c41b149b2eb6da80ae631558de3e2b59918a0a66afb1c355219e9bac3fdf5416",
+      "controls_count": 167,
+      "raw43_concatenated_sha256": "bbc008e7b51122a4d79b861cc4a7d0f5fc8c8d18bb2b822347022c4efb0e6dcd",
+      "all_controls_order_header_trailer_tail_nonwater_equal": true,
+      "trailer_hex": "000042b40000000000031614",
+      "tail_hex": "0003",
+      "old_source_count_offset_in_simulation": 2623035,
+      "reencoded_source_count_offset_in_simulation": 2623035,
+      "geographic_CRPor_new_water_grid_written": false
+    }
+  },
+  "old_controls_preserved": 322,
+  "all22_shipping_bytes_equal_base": true,
+  "two_NULLcases_unknown": true,
+  "all_phase31_results_and_original_inputs_preserved": true,
+  "seven_focused_tests": "pass",
+  "new_output_files_replay_equal": 25,
+  "original_startup_failures_unchanged": {
+    "Asia": "8/49",
+    "Europe": "68/85",
+    "South": "769/855",
+    "coast": "496/962"
+  },
+  "physical_admission": false,
+  "independent_results_acceptance": false,
+  "promise": "unknown"
+}

@@ -1277,3 +1277,25 @@ pass; complete source/interval/domain verifier passes. No game, CRP/grid/control
 shipping/default/ledger/holdout action. Next: implement value/control-preserving
 water-payload codec/verifier with synthetic packing fixtures, not an old native
 or rate retry. All original startup failures and promisesunknown remain.
+
+## Phase thirty-two: value-preserving initial-water payload codec
+
+The experimental codec retains full depth and three compact raw-value arrays by
+their exact wet/adjacency domain keys. Persistent values never default to zero;
+new keys require explicit values. Nondecreasing depth, raw43 control order,
+known header/trailer/tail and non-water assets are checked. Unsupported layouts
+fail closed. Packing domains are not calibrated physical velocity/flow units.
+
+All four unchanged physical packages round-trip byte-for-byte in memory, with
+322 controls preserved; two base refusals stay NULL/unknown. Six predeclared
+synthetic topology-growth fixtures preserve nonzero raw values and exact source
+sentinels. A legal alternate RLE encoding has equal values but different bytes,
+reported separately. No changed geographic CRP/grid/native plan was produced.
+
+Seven focused tests and a full25file fresh replay pass. The first test reused a
+depth-removal fixture incorrectly; its frozen failure/source remain, followed by
+a committed test-only correction and fresh input freeze. Codec/physical inputs
+did not change. Geographic changes are always refused: phase31's only nonempty
+intervals remain identity, not a selected joint initialization/safety/port plan.
+Combined phase31/32 results require independent acceptance before adoption.
+No shipping/default/ledger/game/holdout action; original failures/promisesunknown.

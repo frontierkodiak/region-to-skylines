@@ -1,0 +1,16 @@
+{
+  "schema": "polli.pl1191-postanalysis-water-codec-binding/1",
+  "postanalysis_not_prospective": true,
+  "actual_CPU_source": "b2d780a2f5000c02a54ee81d2b1df0ab872a9c71",
+  "input_freeze_sha256": "504367a8f3bd63c81bc200a18ef98a5216b9b74304642c244596795ef936dcf0",
+  "receipt_sha256": "8605369ed45adf2d8abfa84dd57bc69d5b95dc92990a1b6ee79e78bf5d5972c0",
+  "summary_sha256": "dc3e82d6582dd6391b640a72a53e8da90809da6ee6fdcff2d8bb00d22046b4f8",
+  "report_sha256": "ded5d0388e20ef41fbfe5e4cce7dbefc48ba058b2387d7d41fe88c17e1e06754",
+  "prior_joint_receipt_sha256": "f64874a995148a5d5d87e6302164b458f35eaeaf415c27e37eac3e82c155dc4d",
+  "all_four_readonly_packages_bytes_and_values_equal": true,
+  "all322oldcontrols_preserved": true,
+  "six_synthetic_growth_fixtures_only": true,
+  "new_geographic_physical_or_native": false,
+  "independent_results_acceptance": false,
+  "promise": "unknown"
+}
