@@ -1,0 +1,328 @@
+{
+  "schema": "polli.pl1191-phase27-qld-source-results/1",
+  "new_physical_or_native": false,
+  "source_counts": [
+    {
+      "layer": 62,
+      "ids": 734,
+      "features": 734
+    },
+    {
+      "layer": 63,
+      "ids": 219,
+      "features": 219
+    }
+  ],
+  "feature_requests_HTTP200": 8,
+  "all_expected_ids_returned_exactly_once": true,
+  "metadata_catalogue_HTTP202_WAF_partial_preserved": true,
+  "catalogue_license_text_obtained": false,
+  "new_source_not_old_OSM_identity": true,
+  "bound_source_files": 217,
+  "original_clipped_parts": 439,
+  "parts_some_membership": 116,
+  "parts_full_membership": 34,
+  "open_port_components": 19,
+  "ports_some_bank_membership": 11,
+  "ports_full_bank_membership": 1,
+  "bank_occurrences_covered": 1746,
+  "bank_occurrences_total": 5096,
+  "not_unique_or_surveyed_area": true,
+  "per_port": [
+    {
+      "component": "source-component:0",
+      "source_clips": [
+        "rivers:0:clip:0",
+        "rivers:2:clip:2",
+        "rivers:3:clip:0",
+        "rivers:8:clip:0"
+      ],
+      "covered": 196,
+      "total": 277,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 196
+      }
+    },
+    {
+      "component": "source-component:4",
+      "source_clips": [
+        "rivers:1:clip:0",
+        "rivers:2:clip:0",
+        "rivers:4:clip:0",
+        "rivers:7:clip:0",
+        "rivers:9:clip:0"
+      ],
+      "covered": 171,
+      "total": 557,
+      "raw_classified_hits": {
+        "Flat|Saline Coastal Flat|Intermittent": 9,
+        "Watercourse Area|Natural Watercourse|Perennial": 162
+      }
+    },
+    {
+      "component": "source-component:6",
+      "source_clips": [
+        "rivers:23:clip:0",
+        "rivers:25:clip:0",
+        "rivers:26:clip:0",
+        "rivers:27:clip:0",
+        "rivers:28:clip:0",
+        "rivers:30:clip:0",
+        "rivers:34:clip:0",
+        "rivers:35:clip:0"
+      ],
+      "covered": 0,
+      "total": 257,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:7",
+      "source_clips": [
+        "rivers:2:clip:1"
+      ],
+      "covered": 84,
+      "total": 108,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 84
+      }
+    },
+    {
+      "component": "source-component:8",
+      "source_clips": [
+        "rivers:42:clip:0",
+        "rivers:43:clip:0"
+      ],
+      "covered": 192,
+      "total": 274,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 192
+      }
+    },
+    {
+      "component": "source-component:13",
+      "source_clips": [
+        "rivers:56:clip:0",
+        "rivers:57:clip:0",
+        "rivers:67:clip:0"
+      ],
+      "covered": 437,
+      "total": 437,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 437
+      }
+    },
+    {
+      "component": "source-component:16",
+      "source_clips": [
+        "rivers:69:clip:0",
+        "rivers:70:clip:0",
+        "rivers:72:clip:0"
+      ],
+      "covered": 278,
+      "total": 554,
+      "raw_classified_hits": {
+        "Flat|Saline Coastal Flat|Intermittent": 12,
+        "Watercourse Area|Natural Watercourse|Perennial": 269
+      }
+    },
+    {
+      "component": "source-component:17",
+      "source_clips": [
+        "rivers:74:clip:0",
+        "rivers:75:clip:0",
+        "rivers:76:clip:0",
+        "rivers:77:clip:0",
+        "rivers:78:clip:0",
+        "rivers:79:clip:0",
+        "rivers:82:clip:0"
+      ],
+      "covered": 0,
+      "total": 539,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:18",
+      "source_clips": [
+        "rivers:86:clip:0",
+        "rivers:87:clip:0"
+      ],
+      "covered": 74,
+      "total": 319,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 74
+      }
+    },
+    {
+      "component": "source-component:28",
+      "source_clips": [
+        "streams:117:clip:0",
+        "streams:118:clip:0",
+        "streams:65:clip:0"
+      ],
+      "covered": 0,
+      "total": 110,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:48",
+      "source_clips": [
+        "streams:178:clip:0"
+      ],
+      "covered": 0,
+      "total": 29,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:128",
+      "source_clips": [
+        "streams:369:clip:0"
+      ],
+      "covered": 3,
+      "total": 31,
+      "raw_classified_hits": {
+        "Watercourse Area|Natural Watercourse|Perennial": 3
+      }
+    },
+    {
+      "component": "source-component:134",
+      "source_clips": [
+        "streams:386:clip:0",
+        "streams:398:clip:0"
+      ],
+      "covered": 0,
+      "total": 95,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:135",
+      "source_clips": [
+        "streams:387:clip:0"
+      ],
+      "covered": 124,
+      "total": 151,
+      "raw_classified_hits": {
+        "Flat|Land Subject to Inundation|Intermittent": 124
+      }
+    },
+    {
+      "component": "source-component:140",
+      "source_clips": [
+        "streams:405:clip:0",
+        "streams:410:clip:0",
+        "streams:411:clip:0",
+        "streams:437:clip:0"
+      ],
+      "covered": 85,
+      "total": 358,
+      "raw_classified_hits": {
+        "Flat|Land Subject to Inundation|Intermittent": 63,
+        "Lake|Ornamental Lake|Perennial": 22
+      }
+    },
+    {
+      "component": "source-component:143",
+      "source_clips": [
+        "streams:41:clip:0"
+      ],
+      "covered": 0,
+      "total": 39,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:145",
+      "source_clips": [
+        "streams:423:clip:0",
+        "streams:432:clip:0",
+        "streams:445:clip:0",
+        "streams:447:clip:0",
+        "streams:449:clip:0",
+        "streams:452:clip:0",
+        "streams:453:clip:0",
+        "streams:454:clip:0"
+      ],
+      "covered": 102,
+      "total": 864,
+      "raw_classified_hits": {
+        "Flat|Saline Coastal Flat|Intermittent": 45,
+        "Reservoir|Rural Water Storage|Perennial": 1,
+        "Watercourse Area|Natural Watercourse|Perennial": 56
+      }
+    },
+    {
+      "component": "source-component:149",
+      "source_clips": [
+        "streams:430:clip:0",
+        "streams:434:clip:0"
+      ],
+      "covered": 0,
+      "total": 86,
+      "raw_classified_hits": {}
+    },
+    {
+      "component": "source-component:156",
+      "source_clips": [
+        "streams:56:clip:0"
+      ],
+      "covered": 0,
+      "total": 11,
+      "raw_classified_hits": {}
+    }
+  ],
+  "raw_area_classifications": {
+    "feature_type": {
+      "Watercourse Area": 21,
+      "Lake": 74,
+      "Reservoir": 19,
+      "Flat": 105
+    },
+    "function": {
+      "Natural Watercourse": 16,
+      "Drainage Channel": 5,
+      "Ornamental Lake": 45,
+      "Natural Lake": 29,
+      "Rural Water Storage": 13,
+      "Industrial Water Storage": 6,
+      "Marine Swamp": 5,
+      "Saline Coastal Flat": 75,
+      "Land Subject to Inundation": 11,
+      "Swamp": 14
+    },
+    "perenniality": {
+      "Perennial": 115,
+      "Unknown": 17,
+      "Intermittent": 87
+    }
+  },
+  "raw_line_classifications": {
+    "feature_type": {
+      "Watercourse": 563,
+      "Underground Connector": 8,
+      "Connector": 163
+    },
+    "function": {
+      "Drain": 264,
+      "Canal Line": 7,
+      "Linear Connection": 171,
+      "Natural Watercourse": 226,
+      "Culvert": 66
+    },
+    "perenniality": {
+      "Intermittent": 372,
+      "Ephemeral": 233,
+      "Perennial": 128,
+      "Not Applicable": 1
+    }
+  },
+  "new_focused_tests": 5,
+  "replay": {
+    "all2outputs_byte_identical": true,
+    "files_sha256": {
+      "coverage.json": "4438c781bd2e8fea6a0336d299b912ce7f2fa5b7e11724272d1e3ee500220c31",
+      "receipt.json": "8b6d161a862787b0fcac0ab2fcf7f4cbd2424cc27dfd0317782dfaea73e70ef4"
+    }
+  },
+  "phase27_independent_acceptance": false,
+  "old_coastal_initialization_failures_unchanged": "496/962",
+  "admission": false,
+  "promise": "unknown"
+}

@@ -1226,5 +1226,23 @@
     "summary_sha256": "2d3afe1bd439a84b9735a093f2c8d215c656a708c7240f6dbc0ffeb414b6411e",
     "new_physical_or_native": false,
     "promise": "unknown"
+  },
+  "phase27_qld_source_authority": {
+    "schema": "polli.pl1191-postanalysis-qld-source/1",
+    "postanalysis_not_prospective": true,
+    "method_commits_before_own_freezes_outputs": [
+      "dc63d23",
+      "f090f6e",
+      "fd1d777"
+    ],
+    "prospective_freezes": {
+      "qld-production-metadata-v1": "6a62d09532683bf394bfb2035538545ecdd9a2dde6073873994c83498c461d49",
+      "qld-coastal-source-v1": "18db6ca3099a1d1b62167b1007458577d2df6f1de036fbe118767b560f7c9c1f",
+      "qld-source-coverage-v1": "6561f6457c4f194c4d556f2b9fbb5c7146c1c8a3c6233b5d03d726b799a1cd7f"
+    },
+    "coverage_sha256": "4438c781bd2e8fea6a0336d299b912ce7f2fa5b7e11724272d1e3ee500220c31",
+    "summary_sha256": "7eda3d39dfb3a7bf3817c3d79cabcc74218206d998ffb5a6b9e3923f26f5a1e4",
+    "new_physical_or_native": false,
+    "promise": "unknown"
   }
 }

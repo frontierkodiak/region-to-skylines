@@ -1151,3 +1151,26 @@ still fail initialization. Twelve focused tests, scoped checks and byte-identica
 seven-file authority/two-file coverage replays pass. No game, physical candidate,
 default, ledger or holdout change. Next: the bounded Queensland source policy in
 `development/phase26-next-qld-source-policy.md`. All promises remain unknown.
+
+## Phase twenty-seven: Queensland mapped-area evidence
+
+New committed/frozen readers capture the same coastal square. Production root
+and layers 62/63 succeed; the catalogue HTTP 202 WAF challenge remains as partial
+metadata, without retry or bypass. Current catalogue license text was not obtained.
+All 734 line and 219 polygon records return exactly once in eight HTTP 200 queries.
+Full attributes/geometry and raw classifications remain; cartographic inclusion
+is not historical OSM identity, surveyed bank floor or outlet capacity.
+
+The complete overlay retains all 439 clipped parts and 19 open-port bank unions.
+Polygons cover 1,746/5,096 bank occurrences across 11 ports; one has full membership.
+Perennial natural-watercourse areas, intermittent flats/inundation land and other
+classes stay separate. Component13 (rivers56/57/67) has all 437 bank nodes inside
+mapped perennial natural-watercourse area, but 225 old-control-buffer contacts and
+all other guards, junction, stage and supply uncertainties remain. No bank, mask,
+probe, geometry, control or old refusal changes; no admission.
+
+Five focused tests and scoped checks pass; a two-file fresh replay is byte-identical.
+All 217 new bound dependencies, 208 old phase26 dependencies and 22 shipping files
+match. Coastal authored initialization still fails 496/962 contracts. No game,
+default, ledger or holdout change. Next: the operation-local open-interface policy,
+not another provider search or unchanged stage sweep. All promises remain unknown.
