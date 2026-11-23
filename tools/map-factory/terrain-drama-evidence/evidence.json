@@ -1,0 +1,536 @@
+{
+  "schema": 1,
+  "version": "pl1329-terrain-drama-evidence-v1",
+  "generated_by": "tools/map-factory/audit_terrain_drama.mjs",
+  "scope": "Offline terrain-shape comparison of the shipping fit and the opt-in drama fit. No game, no writer, no water-safety claim.",
+  "spacing_m": 16,
+  "grid": "1081 x 1081, south-first",
+  "terrain_unit_m": 0.015625,
+  "stock_band": {
+    "roughness_percent": {
+      "p25": 11.2625,
+      "median": 15.5,
+      "p75": 21.185
+    },
+    "central_terrain_diversity_m": {
+      "p25": 114.625,
+      "median": 182.2,
+      "p75": 300.65
+    },
+    "relief_m": {
+      "p25": 595.875,
+      "median": 761.6,
+      "p75": 989.925
+    },
+    "buildable_percent": {
+      "p25": 57
+    },
+    "source": "104 shipped CS1 maps, 1081-square 16 m south-first grids at the 1/64 m terrain unit"
+  },
+  "stock_band_source": "tools/map-factory/survey/terrain-interest.json and capabilities.json (104 shipped maps, frozen 2026-11-21)",
+  "rule": {
+    "declared_before_measuring": true,
+    "candidates": [
+      {
+        "slug": "new-orleans",
+        "name": "New Orleans",
+        "source_relief_m": 11.9
+      },
+      {
+        "slug": "amsterdam",
+        "name": "Amsterdam",
+        "source_relief_m": 21
+      },
+      {
+        "slug": "chicago",
+        "name": "Chicago",
+        "source_relief_m": 32.5
+      },
+      {
+        "slug": "yosemite",
+        "name": "Yosemite Valley",
+        "source_relief_m": 1839.2
+      },
+      {
+        "slug": "hong-kong",
+        "name": "Hong Kong",
+        "source_relief_m": 593.9
+      },
+      {
+        "slug": "grand-canyon",
+        "name": "Grand Canyon",
+        "source_relief_m": 1602.8
+      }
+    ],
+    "flat": "new-orleans",
+    "steep": "yosemite",
+    "text": "Among these six squares, the one with the lowest source relief is 'very flat' and the highest is 'very steep'. Source relief is the range of the square's own ground above sea level, before any transform; open sea and seabed are excluded."
+  },
+  "gradients": "mean terrain gradient magnitude at 16 m spacing, percent; central height range is the 10th-90th percentile over the central 25 tiles' nodes",
+  "rows": [
+    {
+      "slug": "asheville",
+      "kind": "fixture",
+      "name": "Asheville",
+      "center": {
+        "lon": -82.555,
+        "lat": 35.58
+      },
+      "scale": 1,
+      "source_relief_m": 639.4,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 1
+        },
+        "relief_m": 648.8,
+        "roughness_percent": 18.42,
+        "central_height_range_m": 93,
+        "terracing": 0.0023,
+        "game_max_m": 689.4
+      },
+      "drama": {
+        "gains": {
+          "regional": 1.329785,
+          "local": 0.988381
+        },
+        "limited_by": null,
+        "target": {
+          "roughness_percent": 18.12,
+          "central_terrain_diversity_m": 118.3
+        },
+        "achieved": {
+          "roughness_percent": 18.12,
+          "central_terrain_diversity_m": 118.4
+        },
+        "relief_m": 724.4,
+        "roughness_percent": 18.41,
+        "central_height_range_m": 117.1,
+        "terracing": 0.0023,
+        "game_max_m": 774.4,
+        "reversed_pair_fraction": 0.0138,
+        "reversed_over_1m_fraction": 0,
+        "max_reversal_m": 0.14,
+        "rank_agreement": 0.9805
+      },
+      "bands": {
+        "legacy": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "below_p25"
+        },
+        "drama": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        }
+      }
+    },
+    {
+      "slug": "charleston",
+      "kind": "fixture",
+      "name": "Charleston",
+      "center": {
+        "lon": -79.93,
+        "lat": 32.78
+      },
+      "scale": 1,
+      "source_relief_m": 107.9,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 1
+        },
+        "relief_m": 77.6,
+        "roughness_percent": 2.39,
+        "central_height_range_m": 13.8,
+        "terracing": 0.0748,
+        "game_max_m": 127.6
+      },
+      "drama": {
+        "gains": {
+          "regional": 12,
+          "local": 7.840416
+        },
+        "limited_by": "gain_cap",
+        "target": {
+          "roughness_percent": 11.46,
+          "central_terrain_diversity_m": 118.3
+        },
+        "achieved": {
+          "roughness_percent": 11.46,
+          "central_terrain_diversity_m": 49.1
+        },
+        "relief_m": 362.3,
+        "roughness_percent": 12.92,
+        "central_height_range_m": 48.5,
+        "terracing": 0.0478,
+        "game_max_m": 412.3,
+        "reversed_pair_fraction": 0.0273,
+        "reversed_over_1m_fraction": 0.0012,
+        "max_reversal_m": 5.91,
+        "rank_agreement": 0.9792
+      },
+      "bands": {
+        "legacy": {
+          "relief": "below_p25",
+          "roughness": "below_p25",
+          "central_height_range": "below_p25"
+        },
+        "drama": {
+          "relief": "below_p25",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "below_p25"
+        }
+      }
+    },
+    {
+      "slug": "innsbruck",
+      "kind": "fixture",
+      "name": "Innsbruck",
+      "center": {
+        "lon": 11.4,
+        "lat": 47.27
+      },
+      "scale": 1,
+      "source_relief_m": 2125.6,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 0.4469348561033608
+        },
+        "relief_m": 953.9,
+        "roughness_percent": 20.07,
+        "central_height_range_m": 466.3,
+        "terracing": 0.0027,
+        "game_max_m": 1000
+      },
+      "drama": {
+        "gains": {
+          "regional": 0.244271,
+          "local": 0.493637
+        },
+        "limited_by": null,
+        "target": {
+          "roughness_percent": 19.97,
+          "central_terrain_diversity_m": 296.9
+        },
+        "achieved": {
+          "roughness_percent": 19.97,
+          "central_terrain_diversity_m": 296.9
+        },
+        "relief_m": 705.4,
+        "roughness_percent": 20.06,
+        "central_height_range_m": 290.2,
+        "terracing": 0.0042,
+        "game_max_m": 755.4,
+        "reversed_pair_fraction": 0.0797,
+        "reversed_over_1m_fraction": 0,
+        "max_reversal_m": 0.42,
+        "rank_agreement": 0.9906
+      },
+      "bands": {
+        "legacy": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "above_p75"
+        },
+        "drama": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        }
+      }
+    },
+    {
+      "slug": "pittsburgh",
+      "kind": "fixture",
+      "name": "Pittsburgh",
+      "center": {
+        "lon": -80,
+        "lat": 40.44
+      },
+      "scale": 1,
+      "source_relief_m": 200.9,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 1
+        },
+        "relief_m": 210.8,
+        "roughness_percent": 16.19,
+        "central_height_range_m": 129.7,
+        "terracing": 0.0027,
+        "game_max_m": 250.9
+      },
+      "drama": {
+        "gains": {
+          "regional": 0.999905,
+          "local": 0.999994
+        },
+        "limited_by": null,
+        "target": {
+          "roughness_percent": 15.73,
+          "central_terrain_diversity_m": 129.7
+        },
+        "achieved": {
+          "roughness_percent": 15.73,
+          "central_terrain_diversity_m": 129.7
+        },
+        "relief_m": 200.9,
+        "roughness_percent": 16.03,
+        "central_height_range_m": 129.7,
+        "terracing": 0.0092,
+        "game_max_m": 250.9,
+        "reversed_pair_fraction": 0,
+        "reversed_over_1m_fraction": 0,
+        "max_reversal_m": 0,
+        "rank_agreement": 0.9999
+      },
+      "bands": {
+        "legacy": {
+          "relief": "below_p25",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        },
+        "drama": {
+          "relief": "below_p25",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        }
+      }
+    },
+    {
+      "slug": "rio",
+      "kind": "fixture",
+      "name": "Rio de Janeiro",
+      "center": {
+        "lon": -43.205,
+        "lat": -22.94
+      },
+      "scale": 1,
+      "source_relief_m": 3042.4,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 0.9198811898929851
+        },
+        "relief_m": 950,
+        "roughness_percent": 14.9,
+        "central_height_range_m": 289.2,
+        "terracing": 0.0302,
+        "game_max_m": 1000
+      },
+      "drama": {
+        "gains": {
+          "regional": 0.915281,
+          "local": 0.917345
+        },
+        "limited_by": "headroom",
+        "target": {
+          "roughness_percent": 15.05,
+          "central_terrain_diversity_m": 293.5
+        },
+        "achieved": {
+          "roughness_percent": 14.88,
+          "central_terrain_diversity_m": 290
+        },
+        "relief_m": 949.5,
+        "roughness_percent": 14.91,
+        "central_height_range_m": 288.7,
+        "terracing": 0.0303,
+        "game_max_m": 999.5,
+        "reversed_pair_fraction": 0.0003,
+        "reversed_over_1m_fraction": 0,
+        "max_reversal_m": 0.04,
+        "rank_agreement": 0.9964
+      },
+      "bands": {
+        "legacy": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        },
+        "drama": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        }
+      }
+    },
+    {
+      "slug": "boston",
+      "kind": "boston",
+      "name": "Boston",
+      "center": {
+        "lon": -71.06,
+        "lat": 42.355
+      },
+      "scale": 1,
+      "source_relief_m": 117.9,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 1
+        },
+        "relief_m": 127.9,
+        "roughness_percent": 3.62,
+        "central_height_range_m": 27.4,
+        "terracing": 0.0683,
+        "game_max_m": 197.9
+      },
+      "drama": {
+        "gains": {
+          "regional": 4.875051,
+          "local": 3.492028
+        },
+        "limited_by": null,
+        "target": {
+          "roughness_percent": 11.46,
+          "central_terrain_diversity_m": 118.3
+        },
+        "achieved": {
+          "roughness_percent": 11.46,
+          "central_terrain_diversity_m": 118.3
+        },
+        "relief_m": 490.1,
+        "roughness_percent": 11.82,
+        "central_height_range_m": 117.9,
+        "terracing": 0.023,
+        "game_max_m": 540.1,
+        "reversed_pair_fraction": 0.0432,
+        "reversed_over_1m_fraction": 0.0003,
+        "max_reversal_m": 1.23,
+        "rank_agreement": 0.9858
+      },
+      "bands": {
+        "legacy": {
+          "relief": "below_p25",
+          "roughness": "below_p25",
+          "central_height_range": "below_p25"
+        },
+        "drama": {
+          "relief": "below_p25",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "inside_p25_p75"
+        }
+      }
+    },
+    {
+      "slug": "new-orleans",
+      "kind": "rule_flat",
+      "name": "New Orleans",
+      "center": {
+        "lon": -90.07,
+        "lat": 29.95
+      },
+      "scale": 1,
+      "source_relief_m": 15.6,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 1
+        },
+        "relief_m": 21.9,
+        "roughness_percent": 0.93,
+        "central_height_range_m": 4.1,
+        "terracing": 0.0203,
+        "game_max_m": 65.6
+      },
+      "drama": {
+        "gains": {
+          "regional": 12,
+          "local": 12
+        },
+        "limited_by": "gain_cap",
+        "target": {
+          "roughness_percent": 11.46,
+          "central_terrain_diversity_m": 118.3
+        },
+        "achieved": {
+          "roughness_percent": 5.14,
+          "central_terrain_diversity_m": 41
+        },
+        "relief_m": 187,
+        "roughness_percent": 5.65,
+        "central_height_range_m": 33.3,
+        "terracing": 0.0062,
+        "game_max_m": 237,
+        "reversed_pair_fraction": 0.0112,
+        "reversed_over_1m_fraction": 0.0004,
+        "max_reversal_m": 1.99,
+        "rank_agreement": 0.7379
+      },
+      "bands": {
+        "legacy": {
+          "relief": "below_p25",
+          "roughness": "below_p25",
+          "central_height_range": "below_p25"
+        },
+        "drama": {
+          "relief": "below_p25",
+          "roughness": "below_p25",
+          "central_height_range": "below_p25"
+        }
+      }
+    },
+    {
+      "slug": "yosemite",
+      "kind": "rule_steep",
+      "name": "Yosemite Valley",
+      "center": {
+        "lon": -119.575,
+        "lat": 37.735
+      },
+      "scale": 1,
+      "source_relief_m": 1839.2,
+      "legacy": {
+        "gains": {
+          "regional": 1,
+          "local": 0.5165352474376669
+        },
+        "relief_m": 953.6,
+        "roughness_percent": 19.64,
+        "central_height_range_m": 581.6,
+        "terracing": 0.0022,
+        "game_max_m": 1000
+      },
+      "drama": {
+        "gains": {
+          "regional": 0.1,
+          "local": 0.556783
+        },
+        "limited_by": null,
+        "target": {
+          "roughness_percent": 19.51,
+          "central_terrain_diversity_m": 296.9
+        },
+        "achieved": {
+          "roughness_percent": 19.51,
+          "central_terrain_diversity_m": 407
+        },
+        "relief_m": 730.8,
+        "roughness_percent": 19.62,
+        "central_height_range_m": 407.2,
+        "terracing": 0.003,
+        "game_max_m": 780.8,
+        "reversed_pair_fraction": 0.0665,
+        "reversed_over_1m_fraction": 0,
+        "max_reversal_m": 0.67,
+        "rank_agreement": 0.7446
+      },
+      "bands": {
+        "legacy": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "above_p75"
+        },
+        "drama": {
+          "relief": "inside_p25_p75",
+          "roughness": "inside_p25_p75",
+          "central_height_range": "above_p75"
+        }
+      }
+    }
+  ]
+}
