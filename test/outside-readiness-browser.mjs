@@ -80,6 +80,13 @@ try {
       }
 
       const text = await section.textContent();
+      // Regression: array fields render counts and names, never NaN or an empty table cell.
+      assert.ok(!text.includes("NaN"), `${name}: the study section renders NaN`);
+      assert.ok(text.includes("6 files were written after the controls"), `${name}: the post-control file count is missing`);
+      assert.ok(text.includes("2 changed after the freeze"), `${name}: the frozen-changed count is missing`);
+      assert.ok(text.includes("other 18 publication files are the frozen bytes"), `${name}: the unchanged frozen count is missing`);
+      const missingCell = (await page.locator("[data-outside-readiness-selection] tbody tr td:last-child").textContent()).trim();
+      assert.equal(missingCell, "0", `${name}: the Missing cells column is not 0`);
       for (const phrase of [
         "Outcome · Unknown",
         "Zero of six planned holdout requests were issued",

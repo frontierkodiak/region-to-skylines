@@ -234,6 +234,14 @@ test("the page renders the one study once and keeps it distinct from qualificati
   ]) assert.ok(html.includes(phrase), `missing ${phrase}`);
   assert.ok(!/accuracy:\s*\d/.test(html), "the page flattens the study into an accuracy headline");
   assert.ok(!/promised/i.test(html), "the page promises a capability");
+  // Regression: array fields must render counts and names, never NaN or an empty cell.
+  assert.ok(!html.includes("NaN"), "the page renders NaN");
+  assert.ok(html.includes("6 files were written after the controls"), "the post-control file count is missing");
+  assert.ok(html.includes("2 changed after the freeze"), "the frozen-changed count is missing");
+  assert.ok(html.includes("other 18 publication files are the frozen bytes"), "the unchanged frozen count is missing");
+  const selectionTable = html.match(/data-outside-readiness-selection[\s\S]*?<\/table>/)[0];
+  assert.match(selectionTable, /<td>6<\/td><td>0<\/td><\/tr>/, "the selection table lost its covered/missing counts");
+  assert.equal((html.match(/The outcome is Unknown and limited/g) ?? []).length, 1, "the limits paragraph is repeated");
   for (const id of ["road", "ship", "air"]) {
     const reference = outsideReadinessReference(id, { study }, escape);
     assert.ok(reference.includes("Unknown"), `${id}: the reference hides the Unknown state`);
