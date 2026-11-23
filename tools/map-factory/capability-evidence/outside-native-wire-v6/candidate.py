@@ -76,6 +76,12 @@ def inventory(directory, store):
     selection = old.select(rows)
     if selection["missing_cells"]:
         raise Unknown("STOP before launch: missing input-only six-cell coverage")
+    for chosen in selection["selected"]:
+        if (
+            api.spec.put(store, Path(chosen["locator"]).read_bytes())
+            != chosen["sha256"]
+        ):
+            raise Unknown("selected package changed during preparation")
     requests = old.holdout_requests(rows, selection, decoded)
     # Distinct new study identifiers; no new observation is read or implied.
     for row in requests:
@@ -244,6 +250,10 @@ def validate(value, store):
     ):
         raise Unknown("selection/coverage differs")
     selected = {r["sha256"] for r in values["selection"]["selected"]}
+    for chosen in values["selection"]["selected"]:
+        retained = api.adapter_spec.raw(store, chosen["sha256"])
+        if Path(chosen["locator"]).read_bytes() != retained:
+            raise Unknown("selected package bytes changed")
     holdout = values["holdout"]
     if (
         len(holdout) > 18

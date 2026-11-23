@@ -44,7 +44,7 @@ def main():
             encoded(
                 dict(
                     freeze_sha256=api.spec.digest(value),
-                    source_revision=a.source_revision,
+                    source_revision=value["source_revision"],
                     selected=store.json(value["inputs"]["selection"], "selection"),
                     native_openings=0,
                 )

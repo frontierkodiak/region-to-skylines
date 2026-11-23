@@ -139,23 +139,13 @@ class Transport:
 
 
 def collect(transport, births, limits):
-    """Controls only. Real controls must be independently admitted before holdout."""
+    """Fresh literal controls; constructed admission never opens a holdout."""
     api, native = transport.api, transport.native
     total = Deadline.after(limits["total_seconds"])
     for control in native.value["controls"]:
         opening = Deadline.after(limits["opening_seconds"], total)
         load = Deadline.after(limits["load_seconds"], opening)
-        # Launch inventory is before new_game. Installation/launch is the session owner's job.
         transport.client.deadline = load
-        runtime = {}
-        for phase in ("launch",):
-            captured = transport.retain()
-            runtime[phase] = dict(
-                {k: v for k, v in captured.items() if k != "process_roles"},
-                **births["game"],
-                unresolved=[],
-            )
-        context, graph = transport.opening(control, load)
         observed = {
             k: copy.deepcopy(control[k])
             for k in api.consumer.v1.HASHES | {"consumed_fields"}
@@ -164,10 +154,10 @@ def collect(transport, births, limits):
             completed=False,
             error=None,
             session_id=transport.session.session_id(control),
-            native_context=context,
-            opening_graph=graph,
+            native_context=None,
+            opening_graph=None,
             post_graph=None,
-            runtime=runtime,
+            runtime={},
             paths=[],
             cleanup={},
             owned_processes={},
@@ -179,15 +169,23 @@ def collect(transport, births, limits):
             observed=observed,
         )
         transport.records.append(record)
-        transport.client.deadline = opening
-        captured = transport.retain()
-        runtime["pre"] = dict(
-            {k: v for k, v in captured.items() if k != "process_roles"},
-            **births["game"],
-            unresolved=[],
-        )
-        transport.client.call("run", paused=False, speed=1)
+        runtime = observed["runtime"]
+
+        def capture(phase):
+            captured = transport.retain()
+            runtime[phase] = dict(
+                {k: v for k, v in captured.items() if k != "process_roles"},
+                **births["game"],
+                unresolved=[],
+            )
+
         try:
+            capture("launch")
+            context, graph = transport.opening(control, load)
+            observed.update(native_context=context, opening_graph=graph)
+            transport.client.deadline = opening
+            capture("pre")
+            transport.client.call("run", paused=False, speed=1)
             for plan in control["requests"]:
                 transport.rows = observed["paths"]
                 transport.query(
@@ -196,12 +194,7 @@ def collect(transport, births, limits):
             transport.client.deadline = opening
             transport.client.call("run", paused=True)
             observed["post_graph"] = transport.graph()
-            captured = transport.retain()
-            runtime["post"] = dict(
-                {k: v for k, v in captured.items() if k != "process_roles"},
-                **births["game"],
-                unresolved=[],
-            )
+            capture("post")
             if observed["post_graph"] != graph:
                 raise Unknown("opening post graph drift")
             opening.remaining()

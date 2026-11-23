@@ -176,9 +176,20 @@ def run(frozen, store, request, authority, factory):
         births["game"] = factory.game["birth"]
         try:
             for role in sorted(api.lifecycle.ROLES - {"game"}):
-                code = "import sys,select; select.select([sys.stdin],[],[],20); sys.stdin.readline()"
+                code = (
+                    "import sys,select,pathlib; select.select([sys.stdin],[],[],20); "
+                    "data=sys.stdin.buffer.readline(); pathlib.Path(sys.argv[1]).write_bytes(data)"
+                    if role == "driver"
+                    else "import sys,select; select.select([sys.stdin],[],[],20); sys.stdin.readline()"
+                )
                 child = subprocess.Popen(
-                    [sys.executable, "-c", code], stdin=subprocess.PIPE
+                    [
+                        sys.executable,
+                        "-c",
+                        code,
+                        str(factory.directory / "driver.json"),
+                    ],
+                    stdin=subprocess.PIPE,
                 )
                 birth = identity(child.pid)
                 children[role] = api.lifecycle.OwnedChild(
@@ -194,6 +205,16 @@ def run(frozen, store, request, authority, factory):
         except Exception as error:
             failure = f"{type(error).__name__}: {error}"
         finally:
+            if "driver" in children:
+                handoff = dict(
+                    kind="CONSTRUCTED",
+                    binding=native.bindings(),
+                    births=births,
+                    driver_pid=births["driver"]["pid"],
+                    records=copy.deepcopy(transport.records if transport else []),
+                )
+                children["driver"].process.stdin.write(encoded(handoff) + b"\n")
+                children["driver"].process.stdin.flush()
             for owned in children.values():
                 owned.process.stdin.close()
             for owned in children.values():
@@ -226,15 +247,10 @@ def run(frozen, store, request, authority, factory):
         fixture="CONSTRUCTED Python processes, not game observations",
         external_finalizer_pid=os.getpid(),
     )
-    handoff = dict(
-        kind="CONSTRUCTED",
-        binding=native.bindings(),
-        births=births,
-        driver_pid=births["driver"]["pid"],
-        records=copy.deepcopy(records),
-    )
-    # Parent-owned retention, not a child's self-absence assertion.
-    receipt["driver_handoff_sha256"] = api.spec.put_json(store, handoff)
+    handoff_bytes = (factory.directory / "driver.json").read_bytes().rstrip(b"\n")
+    if api.spec.decode(handoff_bytes) != handoff:
+        raise Unknown("actual driver handoff differs")
+    receipt["driver_handoff_sha256"] = api.spec.put(store, handoff_bytes)
     if failure is None:
         for record in records:
             record["observed"]["cleanup"] = cleanup
