@@ -1,0 +1,11 @@
+{
+  "status": "POSTANALYSIS_result_binding_not_prospective",
+  "actual_method_source": "7c3ef9f",
+  "protocol": "source-interface-continuity-v2-attempt-2",
+  "prospective_input_freeze_sha256": "0222067a754e6de37d8dc67e7b2b7156ff45b0ece52d15786ad72b5010509b4d",
+  "result_receipt_sha256": "bec5c69ba8d5fd555bf78a82713896a67f0e634571cdedac17082b09f8b94fb8",
+  "summary_sha256": "65ab0332d57d7420a1df6b138defacd9bc5b3aa06c361775bb6d452725aca24d",
+  "report_sha256": "5efcb54d1474ad74e1eaa57f2cbbb12d8f4712b9114e47c56c01a38da0f9c563",
+  "new_physical": false,
+  "adopted": false
+}

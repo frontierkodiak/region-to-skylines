@@ -1350,3 +1350,29 @@ Combined phase33/34 needs independent RESULTS acceptance; no candidate, field ed
 shipping/default/ledger/holdout or native change. Sampled stage ranges constrain
 a proposal; they do not supply missing direction/lateral/supply/outlet authority.
 Fullhour/runtime/visual/Boston/Charleston/original failure limits stay; promisesunknown.
+
+## Phase thirty-five: source-walk and interface continuity
+
+PL1309’s limited phase33/34 PASS is accepted and the child closed. Both low
+reporting notes are retained additively: the old25582cell partition has5intermittent
+exact90m cells, and APIwet/griddepth are separate views, not interchangeable.
+No old result or source is rewritten.
+
+New read-only `diagnostics/source_interface_continuity.py` freezes all six source
+topologies and every coastal source path/site before new CPUoutputs. First
+preparation failed before cohort/freeze/results because historical junction IDs
+refer to pre-quotient keys, not merged graph nodes. That259source/error is kept.
+Fresh v2 resolves exact own source aliases;260sources/825inputs precede outputs.
+
+All439coastal clips/332eligible/2877sites/167source-graph components survive. Among
+eligible parts64have a fully positive-depth8-adjacent source path atall61captures,
+62at>=7q.115show both adjacent wet-head signs within some capture. Same-cell
+equality is tautological; different-cell gradients are not hydraulic contradiction;
+a dry source centreline does not exclude another wet route. Digital source graphs
+are NOT engine connectivity, new primary denominators or geographic direction.
+Full29313cell current/target/depth/head traces match accepted phase34on all25582
+overlap cells. Nine focused tests, eleven-file replay and full raw/SciPy producer
+checks pass. No physical edit/game/admission. All old failures/NULLs/protections/
+holdout and promises stay unchanged. See `development/phase35-continuity-policy.md`,
+`-v2.md`, summary and postanalysis `source-continuity-freeze-v2.json`. New evidence
+is additive to the complete immutable phase34packet, not standalone raw data.

@@ -1353,5 +1353,10 @@
     "source_runtime_or_physical_changed": false,
     "independent_results_acceptance": false,
     "promise": "unknown"
+  },
+  "phase35_source_interface_continuity": {
+    "status": "experimental_results_not_adopted",
+    "binding": "source-continuity-freeze-v2.json",
+    "no_physical_change": true
   }
 }

@@ -1,0 +1,68 @@
+{
+  "policy": "source-walk-interface-continuity-v2",
+  "case": "low-coast-oceania",
+  "clips": 439,
+  "eligible_clips": 332,
+  "sites": 2877,
+  "graph_components": 167,
+  "source_grid_shape": [
+    61,
+    29313,
+    4
+  ],
+  "source_grid_sha256": "e085d8bfb7b684619e5eab5318e9a3a89fc4ae1f42d93f698c1c6d62ff7c08a6",
+  "old_phase34_disjoint_partition": {
+    "all61_wet_exact90": 6,
+    "constant_non90_wet_head": 60,
+    "intermittent_wet_exact90": 5,
+    "never_positive_depth": 2149,
+    "variable_wet_head": 23362
+  },
+  "path_summary": {
+    "1": {
+      "all61_complete_adj8": 65,
+      "ever_both_signed_head_directions": 116
+    },
+    "7": {
+      "all61_complete_adj8": 63,
+      "ever_both_signed_head_directions": 115
+    }
+  },
+  "no_hydraulic_disconnection_or_constant_stage_gate": true,
+  "authority_or_field_operations": null,
+  "physical_admission": false,
+  "primary_rescore": false,
+  "promise": "unknown",
+  "eligible_path_counts": {
+    "1": {
+      "parts": 332,
+      "all61_complete_adj8": 64,
+      "initial_complete_adj8": 80,
+      "endpoint_complete_adj8": 71,
+      "ever_both_signed_directions_in_one_capture": 115
+    },
+    "7": {
+      "parts": 332,
+      "all61_complete_adj8": 62,
+      "initial_complete_adj8": 80,
+      "endpoint_complete_adj8": 69,
+      "ever_both_signed_directions_in_one_capture": 114
+    }
+  },
+  "all_site_capture_states": {
+    "one_cell_equality_tautology": 24478,
+    "no_support_unknown": 36356,
+    "all_dry_no_surface": 86910,
+    "all_wet_equal_q": 1855,
+    "all_wet_distinct_q": 16250,
+    "mixed_dry_and_wet": 9648
+  },
+  "scopes": {
+    "graph": "original eligible source quotient graph, not hydraulic/full-square connectivity",
+    "path": "complete original source-raster path; dry does not rule out other wet paths",
+    "stage": "unequal adjacent wet heads are gradients, not hydraulic contradiction",
+    "primary": "original <=64m nearby95% per contract remains unchanged",
+    "API": "not fused with raw grid; SampleWaterData wet semantics not proved identical to grid depth>0",
+    "other_cases": "authored-only/NULL, no native qualification transfer"
+  }
+}
