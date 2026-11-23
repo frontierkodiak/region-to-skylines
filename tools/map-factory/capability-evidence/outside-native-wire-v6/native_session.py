@@ -24,8 +24,6 @@ class NativeSession:
 
     @contextmanager
     def open(self, native, inputs, request, store, total):
-        from cs1_harness.cli import slot, staging
-
         # Config's per-checkout build_dir is retained; never overwrite shared staging.
         built = self.cfg.build_dir / "Cs1Harness.dll"
         if (
@@ -38,6 +36,7 @@ class NativeSession:
         self.initial_load = Deadline.after(600, self.first_opening)
         self.native, self.request = native, request
         self.stack = ExitStack()
+        self.client = Wire(self.cfg.port, self.initial_load, self.trace)
         try:
             yield self
         finally:
