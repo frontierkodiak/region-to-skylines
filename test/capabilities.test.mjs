@@ -36,7 +36,12 @@ test("eight gameplay-water rows bind the fixed selection and actual failed evide
   assert.deepEqual(result.rows, rows);
   for (const row of rows) {
     const raw = readFileSync(new URL("../" + row.evidence[0], import.meta.url));
-    assert.equal(createHash("sha256").update(raw).digest("hex"), row.artifact_sha256);
+    const verdict = JSON.parse(raw);
+    const square = result.squares.find(s => s.square === row.square);
+    assert.equal(createHash("sha256").update(raw).digest("hex"), row.verdict_sha256);
+    assert.equal(row.verdict_sha256, square.verdict_sha256);
+    assert.equal(row.artifact_sha256, verdict.map_sha256);
+    assert.equal(row.artifact_sha256, square.package_sha256);
     assert.equal(row.source_sha, result.source_sha);
     const outcome = JSON.parse(readFileSync(new URL("../" + prefix + row.square + "-maintained-feature-outcome.json", import.meta.url)));
     assert.ok(outcome.contracts.some(c => c.status === "fail"), "all eight observed packages lose required water");

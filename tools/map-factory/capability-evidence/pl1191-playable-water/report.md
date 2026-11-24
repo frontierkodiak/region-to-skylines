@@ -4,6 +4,8 @@
 
 **Recommendation: leave this constructor unmerged.** The dense source-pool and bank design still loses required water and creates conspicuous artificial pools/terraces; bank raises reach about 350 m. This rejects this design, not the geography or all gameplay-first water construction.
 
+Reporting correction after review of `a8da051`: the eight capability rows and `verdicts.json.rows` now use the observed map's saved `package_sha256` as `artifact_sha256`. The verdict-file digest is retained separately as `verdict_sha256`. The earlier rows incorrectly used that verdict digest for the map artifact. No native observations, outcome labels, source bindings or construction settings changed.
+
 ## Game results
 
 Flooding is the existing maximum area with depth >0.5 m beyond 128 m of **initial OR mapped water**, limit 0.05 km². Natural retention uses the unchanged original contracts: >0.1 m within 64 m at >=95% of each <=512 m sector/body, including initialization. Engineered anchors require exact depth >=0.5 m at every sampled time. The counts below are contracts, not areas or source counts.

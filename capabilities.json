@@ -36307,7 +36307,8 @@
           "observed_at": "2026-11-24T02:42:52.965091Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "f01bd4f9ece8877b7c2fa44fff6001a77ef572f71aae169e1be4b0cd1401ecb8",
+          "artifact_sha256": "265db85ff845c3062587b4a0abec5691a75016425e48035db1f52472c7b601fd",
+          "verdict_sha256": "f01bd4f9ece8877b7c2fa44fff6001a77ef572f71aae169e1be4b0cd1401ecb8",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/asheville-verdict.json"
           ],
@@ -36322,7 +36323,8 @@
           "observed_at": "2026-11-24T03:02:42.207832Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "50996165e381d14376411fc7a009ed332696d049bfc05869b495e9f1d80bce2d",
+          "artifact_sha256": "71be6b2b865be206e41d7a2488382faf2eb37a66f0051f5f7e373791ec8ac2b1",
+          "verdict_sha256": "50996165e381d14376411fc7a009ed332696d049bfc05869b495e9f1d80bce2d",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/innsbruck-verdict.json"
           ],
@@ -36337,7 +36339,8 @@
           "observed_at": "2026-11-24T03:21:46.234963Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "a46d96f6428da2b327afdc9e6681c1768931bef06e8445cbaa23ce3dbc1aa4ba",
+          "artifact_sha256": "9f5c2e7a2d53b63dcb4c39fd67ba6947b1c93b8ceeb29d00aba82b4150d4b158",
+          "verdict_sha256": "a46d96f6428da2b327afdc9e6681c1768931bef06e8445cbaa23ce3dbc1aa4ba",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/rio-verdict.json"
           ],
@@ -36352,7 +36355,8 @@
           "observed_at": "2026-11-24T03:40:45.653990Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "23c6b4b4077d467b4b8218912b4c5d28594e7a23de5ff4a04b3c1d7df53bc7ef",
+          "artifact_sha256": "b90320ef569bcf247a917a1aafd5a1a43dfa66a5d096aa446df48bf969dfc548",
+          "verdict_sha256": "23c6b4b4077d467b4b8218912b4c5d28594e7a23de5ff4a04b3c1d7df53bc7ef",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/pittsburgh-verdict.json"
           ],
@@ -36367,7 +36371,8 @@
           "observed_at": "2026-11-24T04:00:49.017202Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "244e425ebbfb8444ecdc2459644470d87be62f77c4779f391f65977fe1454746",
+          "artifact_sha256": "1cee3f36ddf2f3997548b8e72300f339c235ec2bc66372fea72b74cee128e65d",
+          "verdict_sha256": "244e425ebbfb8444ecdc2459644470d87be62f77c4779f391f65977fe1454746",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/charleston-verdict.json"
           ],
@@ -36382,7 +36387,8 @@
           "observed_at": "2026-11-24T04:20:41.331132Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "09b34e40f94143e7ffe38e5b3b79faad1636d8e07fb12a4758e57a9076e992d1",
+          "artifact_sha256": "2133095deb4e5923b6fb35a30e28cbdcbcd46a83f3a822f7cf8b75356494ba3b",
+          "verdict_sha256": "09b34e40f94143e7ffe38e5b3b79faad1636d8e07fb12a4758e57a9076e992d1",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/grand-canyon-verdict.json"
           ],
@@ -36397,7 +36403,8 @@
           "observed_at": "2026-11-24T04:43:26.310704Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "1636653e1d44296b70e7d32dc7d16928594f56c6d28f01b36834eeae04676f38",
+          "artifact_sha256": "58764d06090c9e415ed9b21db948527ec4409dabb555c5be70466820b66880b1",
+          "verdict_sha256": "1636653e1d44296b70e7d32dc7d16928594f56c6d28f01b36834eeae04676f38",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/hong-kong-verdict.json"
           ],
@@ -36412,7 +36419,8 @@
           "observed_at": "2026-11-24T05:02:25.116471Z",
           "oracle": "native_game_water",
           "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
-          "artifact_sha256": "ff7614e13d8812f9fc72854d2d4aa8d4bed03a00ed3dca81a0d06f2238c5f74f",
+          "artifact_sha256": "ff72d60afda19e926a7538c8060e479255f2dfe9ef8da5a2c0a857fe433daea1",
+          "verdict_sha256": "ff7614e13d8812f9fc72854d2d4aa8d4bed03a00ed3dca81a0d06f2238c5f74f",
           "evidence": [
             "tools/map-factory/capability-evidence/pl1191-playable-water/yosemite-verdict.json"
           ],
