@@ -37,10 +37,16 @@
     "tools/map-factory/templates/native-corridors.crp",
     "tools/map-factory/templates/native-corridors.json",
     "connection-rules.js",
-    "tools/map-factory/connection_rules.py"
+    "tools/map-factory/connection_rules.py",
+    "vegetation-model.js",
+    "vegetation-inputs.js",
+    "capability-evidence.js",
+    "capability-model.js",
+    "vegetation-data",
+    "vegetation-traits.js"
   ],
   "scripts": {
-    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/outside-stock.test.mjs test/outside-readiness.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs test/connection-rules.test.mjs",
+    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/outside-stock.test.mjs test/outside-readiness.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs test/connection-rules.test.mjs test/vegetation-model.test.mjs test/vegetation-inputs.test.mjs",
     "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs"
   },
   "engines": {
