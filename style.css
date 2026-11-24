@@ -204,3 +204,13 @@ footer li { margin-bottom: 3px; }
 .capability-row [data-level="yes"] { color: var(--accent); border-color: var(--accent); }
 .capability-row [data-level="no"] { color: var(--square); }
 .capability-state { font-size: .7rem; }
+#vegetation { border-bottom: 1px solid var(--line); padding: 10px 0; }
+#vegetation summary { cursor: pointer; min-height: 40px; line-height: 1.5; }
+.vegetation-summary { font-variant-numeric: tabular-nums; font-size: .85em; margin-left: 8px; color: var(--muted); }
+.vegetation-body { display: flex; gap: 12px; padding-top: 8px; }
+.vegetation-body canvas { width: 108px; height: 108px; flex: 0 0 108px; image-rendering: pixelated; background: #e8eee5; }
+.vegetation-body p { margin: 0 0 8px; }
+.vegetation-genera { font-size: .85em; }
+.vegetation-coverage, .vegetation-cell { font-variant-numeric: tabular-nums; }
+.vegetation-cell { min-height: 2.5em; }
+.vegetation-download { min-height: 40px; }

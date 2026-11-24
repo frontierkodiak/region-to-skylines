@@ -12,7 +12,7 @@ import { outsideStock, outsideStockFiles } from "./outside-stock.mjs";
 import { outsideReadiness, outsideReadinessFiles } from "./outside-readiness.mjs";
 
 const SITE = "https://region-to-skylines.vercel.app";
-const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "connection-rules.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js"];
+const PAGE = ["index.html", "app.js", "terrain.js", "inputs.js", "mapgen.js", "mapgen-worker.js", "water-risk.js", "style.css", "agents.md", "llms.txt", "capabilities.json", "capability-model.js", "connection-rules.js", "start-model.js", "water-model.js", "capability-inputs.js", "capability-ui.js", "capability-evidence.js", "capability-evidence-worker.js", "vegetation-traits.js", "vegetation-model.js", "vegetation-inputs.js", "vegetation-ui.js", "vegetation-worker.js"];
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ||
   (() => { try { return execFileSync("git", ["rev-parse", "HEAD"], { encoding: "utf8" }).trim(); } catch { return ""; } })();
 // The prompt and agents.md name GitHub's tarball of this exact commit: it never changes or goes
@@ -21,6 +21,9 @@ const cli = /^[0-9a-f]{40}$/.test(sha) ? `https://codeload.github.com/frontierko
 
 rmSync("dist", { recursive: true, force: true });
 mkdirSync("dist");
+mkdirSync("dist/vegetation-data");
+for (const f of ["tree-taxa.json", "tree-taxa-provenance.json", "inventories.json", "boston.json"])
+  copyFileSync(`vegetation-data/${f}`, `dist/vegetation-data/${f}`);
 // /cli.tgz: the latest tool, packed from this deploy, for the README
 const [{ filename }] = JSON.parse(execFileSync("npm", ["pack", "--json", "--pack-destination", "dist"], { encoding: "utf8" }));
 renameSync(`dist/${filename}`, "dist/cli.tgz");

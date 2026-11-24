@@ -6,23 +6,23 @@
   "archived_gates": {
     "app.js": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/app.js",
-      "current_sha256": "0e8f08a3a157cc090d511012b1d4c198d8b263a646619fc83587ac9bcb3736f0"
+      "current_sha256": "47fb646d58363c0f4e6e7386589954370e6f230bd28bcb664eb11aaebf3e8656"
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "ce5e9cca3770217654215f40d4bfd485c82c46afd495463969eeaed4344c1949"
+      "current_sha256": "f30208d0fc24acb0c874ae41cdcae07bd361b98c1eb66ac32647d88605945681"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
-      "current_sha256": "53116abaf8e93aa910d27e48bb2028d545a5743bc65009d3eccedcbe2c1b5809"
+      "current_sha256": "abbe27e6f6b7d1c7eddbdbc76fd81ee2440bc17084c008413b4c2056c8756324"
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "4ea28902e82754e0bfc6e4c9c71481221f907dcfcd8f48b0455fb40bbfdd9669"
+      "current_sha256": "3836b93a9e2d97461689760985b94892c1d89518c24b5aea1024c89aeb71075f"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
-      "current_sha256": "357012e4fae9ed45651428cbff3f45d8604b6d01a9192e594024c5477f4cb9a6"
+      "current_sha256": "f7f76c8ae07008a2b486fb13594674711896a2eb9303b20ce9cb717ce5a624f2"
     }
   },
   "added_files_sha256": {
@@ -619,6 +619,18 @@
     "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/drivers/stock-2/driver-launch.json.gz": "4a67fc09da6ae99ab6dfd2444d030e05feb2137ea57d8024c62a12ca2465e1e0",
     "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/readiness-result.json.gz": "6300d3f4e9c8eee9c315f3c919cfbe0182deed138214ac88d63f6c037b092f2e",
     "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-1/auditor-receipt.json.gz": "aa185d11eb7d9b9c1af7782beb4f54d093547623e170764cee34644eff79f00d",
-    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz": "c37d2533c970bca57761bdf201b5a8cf4027eccc3867a46b95a71cada1161eea"
+    "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz": "c37d2533c970bca57761bdf201b5a8cf4027eccc3867a46b95a71cada1161eea",
+    "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
+    "vegetation-inputs.js": "26351d454dd0cee450686d934612ac7d8a29e8579e73db55379925ed0cc387f6",
+    "vegetation-worker.js": "9634272542d430de38cf7724e88a8f22fbf1d6b95c280d6945bf3c90f4b80a4f",
+    "vegetation-ui.js": "79396f67a14ca2357825a5762e805768eb5b7950125083584d00730e115acc8e",
+    "vegetation-data/tree-taxa.json": "f3eba9acfb435d0742e86f573db08718ab4dee4a0a09c074f6617b4566b7545f",
+    "vegetation-data/inventories.json": "d85793dcd47336ccd1ae906e4b9415c3f558abea594a22a1214bcaf51180416d",
+    "vegetation-data/boston.json": "5373f844ccb3f09b74a7711421270a1be5f490fa577ea2c103b8ed309a24543e",
+    "vegetation-traits.js": "7877cca94031ad748201e73afa02a11fe050de3974226238fec5c8f249001f72"
+  },
+  "vegetation_extension": {
+    "issue": "PL-1327",
+    "scope": "Vegetation demand readout only; capability levels, physical writer and historical native evidence unchanged"
   }
 }

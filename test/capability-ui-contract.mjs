@@ -23,6 +23,14 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
     archived[name] = raw;
   }
   assert.deepEqual(Object.keys(adoption.added_files_sha256).sort(), [
+    "vegetation-model.js",
+    "vegetation-traits.js",
+    "vegetation-inputs.js",
+    "vegetation-worker.js",
+    "vegetation-ui.js",
+    "vegetation-data/tree-taxa.json",
+    "vegetation-data/inventories.json",
+    "vegetation-data/boston.json",
     "test/connection-browser.mjs",
     "connection-rules.js",
     "tools/map-factory/connection_rules.py",
