@@ -22,13 +22,18 @@ namespace Cs1Harness
         {
             Host.Register("themes", Needs.Any, "built-in Asset Editor themes (environments)", q => Themes());
             Host.Register("asset_editor", Needs.MainMenu, "open the Asset Editor on a new asset: {theme, safe_readback (default true)}", OpenEditor);
-            Host.Register("templates", Needs.AssetEditor, "building templates: {service, sub_service, level, width, length, limit}", Templates);
+            Host.Register("asset_import_wizard", Needs.AssetEditor, "reopen the native import wizard for the next asset", q =>
+            {
+                UIView.library.ShowModal<AssetImporterWizard>("AssetImporterPanel");
+                return Host.Obj("visible", true);
+            });
+            Host.Register("templates", Needs.AssetEditor, "templates: {kind:building|tree, service, sub_service, level, width, length, limit}", Templates);
             Host.Register(
                 "asset_build",
                 Needs.AssetEditor,
                 "job: import <name>.fbx (+ <name>_lod.fbx and maps) from Addons/Import onto a building template, "
                     + "set the lot, save a .crp: {name, template, cells:[w,l], scale, expect_size:[x,y,z], "
-                    + "asset_name, save_name, description, overwrite, keep_import, color_variations (default false), stepwise}",
+                    + "asset_name, save_name, kind:building|tree, description, overwrite, keep_import, color_variations (default false), stepwise}",
                 Build
             );
             Host.Register("job", Needs.Any, "the current or last job: state, step, log, result", q => Jobs.Status());
@@ -82,6 +87,16 @@ namespace Cs1Harness
 
         static Dictionary<string, object> Templates(Dictionary<string, object> q)
         {
+            if (Json.Str(q, "kind", "building") == "tree")
+            {
+                var trees = new List<object>();
+                for (uint i = 0; i < PrefabCollection<TreeInfo>.LoadedCount(); i++)
+                {
+                    var tree = PrefabCollection<TreeInfo>.GetLoaded(i);
+                    if (tree != null) trees.Add(Describe(tree));
+                }
+                return Host.Obj("templates", trees);
+            }
             string service = Json.Str(q, "service", "Residential");
             string sub = Json.Str(q, "sub_service", "");
             int level = (int)Json.Num(q, "level", 0);
@@ -166,6 +181,26 @@ namespace Cs1Harness
                 ),
                 "generated_basement_triangles", m.triangles.Length / 3 - bodyTriangles
             );
+        }
+
+        internal static Dictionary<string, object> Describe(TreeInfo t)
+        {
+            return Host.Obj("name", t.name, "kind", "tree",
+                "mesh", TreeMeshInfo(t.m_mesh),
+                "material", t.m_material == null ? null : MaterialInfo(t.m_material),
+                "lod_distance", t.m_lodRenderDistance,
+                "scale_range", new object[] { t.m_minScale, t.m_maxScale },
+                "brightness_range", new object[] { t.m_minBrightness, t.m_maxBrightness });
+        }
+
+        static Dictionary<string, object> TreeMeshInfo(Mesh m)
+        {
+            if (m == null) return null;
+            var b = m.bounds;
+            return Host.Obj("vertices", m.vertexCount,
+                "triangles", m.isReadable ? (object)(m.triangles.Length / 3) : null,
+                "size", new object[] { b.size.x, b.size.y, b.size.z },
+                "vertex_color_count", m.isReadable ? (object)m.colors32.Length : null);
         }
 
         // BuildingInfoBase.CalculateGeneratedInfo marks original vertices alpha=0,
@@ -299,9 +334,13 @@ namespace Cs1Harness
             string templateName = Json.Str(q, "template", "");
             if (name == "" || templateName == "")
                 throw new Exception("asset_build needs {name, template}");
-            var template = PrefabCollection<BuildingInfo>.FindLoaded(templateName);
+            string kind = Json.Str(q, "kind", "building");
+            if (kind != "building" && kind != "tree") throw new ArgumentException("kind must be building or tree");
+            bool tree = kind == "tree";
+            PrefabInfo template = tree ? (PrefabInfo)PrefabCollection<TreeInfo>.FindLoaded(templateName)
+                : PrefabCollection<BuildingInfo>.FindLoaded(templateName);
             if (template == null)
-                throw new Exception("no building template '" + templateName + "'; `templates` lists them");
+                throw new Exception("no " + kind + " template '" + templateName + "'; `templates` lists them");
             string importDir = AssetImporterAssetImport.assetImportPath;
             string file = name + ".fbx";
             if (!File.Exists(Path.Combine(importDir, file)))
@@ -323,7 +362,7 @@ namespace Cs1Harness
         static IEnumerator BuildSteps(
             Job job,
             Dictionary<string, object> q,
-            BuildingInfo template,
+            PrefabInfo template,
             string importDir,
             string name,
             List<object> cells,
@@ -334,7 +373,8 @@ namespace Cs1Harness
         {
             int errorsBefore;
             Host.ErrorSnapshot(out errorsBefore);
-            job.Result["template"] = Describe(template);
+            bool tree = template is TreeInfo;
+            job.Result["template"] = tree ? Describe((TreeInfo)template) : Describe((BuildingInfo)template);
             job.Result["import_dir"] = importDir;
             job.Result["save_path"] = savePath;
 
@@ -392,16 +432,17 @@ namespace Cs1Harness
             Reflect.Get<UITextField>(importPanel, "m_Scale").text = scale.ToString(CultureInfo.InvariantCulture);
             importPanel.ApplyTransform();
             var mesh = current.Object.GetComponent<MeshFilter>().sharedMesh;
-            job.Result["imported_mesh"] = MeshInfo(mesh);
+            job.Result["imported_mesh"] = tree ? TreeMeshInfo(mesh) : MeshInfo(mesh);
             job.Result["default_scale"] = current.CalculateDefaultScale();
-            job.Result["lod_from_file"] = !Reflect.Get<bool>(current, "m_NeedToBuildLODModel");
-            job.Result["lod_textures_from_file"] = !Reflect.Get<bool>(current, "m_NeedToBakeLODTextures");
+            job.Result["lod_from_file"] = !tree && !Reflect.Get<bool>(current, "m_NeedToBuildLODModel");
+            job.Result["lod_textures_from_file"] = !tree && !Reflect.Get<bool>(current, "m_NeedToBakeLODTextures");
+            job.Result["native_tree_billboard"] = tree;
             if (q.ContainsKey("expect_size"))
             {
                 // Catch unit and axis slips here, not in the game: x across, y up, z deep.
                 var want = (List<object>)q["expect_size"];
                 int bodyVertices, bodyTriangles;
-                var got = AuthoredBounds(mesh, out bodyVertices, out bodyTriangles).size;
+                var got = tree ? mesh.bounds.size : AuthoredBounds(mesh, out bodyVertices, out bodyTriangles).size;
                 var have = new[] { got.x, got.y, got.z };
                 for (int i = 0; i < 3; i++)
                 {
@@ -479,10 +520,20 @@ namespace Cs1Harness
             );
             yield return Jobs.Frames(2);
 
-            var info = ToolsModifierControl.toolController.m_editPrefabInfo as BuildingInfo;
-            if (info == null)
+            var edited = ToolsModifierControl.toolController.m_editPrefabInfo;
+            if (tree)
+            {
+                var t = edited as TreeInfo;
+                if (t == null) throw new Exception("the editor has no tree after import");
+                t.m_minScale = t.m_maxScale = 1f;
+                t.m_material.color = Color.white;
+                t.m_defaultColor = Color.white;
+                job.Result["edit_prefab"] = Describe(t);
+            }
+            var info = edited as BuildingInfo;
+            if (!tree && info == null)
                 throw new Exception("the editor has no building after import");
-            if (cells != null)
+            if (!tree && cells != null)
             {
                 int w = Convert.ToInt32(cells[0]), l = Convert.ToInt32(cells[cells.Count > 1 ? 1 : 0]);
                 int minW, maxW, minL, maxL;
@@ -493,7 +544,7 @@ namespace Cs1Harness
                 info.m_cellWidth = w;
                 info.m_cellLength = l;
             }
-            if (!Json.Bool(q, "color_variations", false))
+            if (!tree && !Json.Bool(q, "color_variations", false))
             {
                 // The model's own colours: no tint from the template's variation colours. With
                 // variations off the game uses the material's _Color, which the template set,
@@ -517,7 +568,7 @@ namespace Cs1Harness
                 }
                 job.Result["template_colours_replaced"] = tint;
             }
-            job.Result["edit_prefab"] = Describe(info);
+            if (!tree) job.Result["edit_prefab"] = Describe(info);
 
             job.Note("save panel: snapshots and thumbnails");
             var panel = UIView.library.ShowModal<SaveAssetPanel>("SaveAssetPanel");

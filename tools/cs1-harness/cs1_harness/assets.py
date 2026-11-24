@@ -112,6 +112,8 @@ class Driver:
         save_name: str,
         theme: str,
         load_timeout: float,
+        kind: str = "building",
+        launch: bool = True,
     ) -> dict:
         cfg = self.s.cfg
         assets_dir = cfg.data_dir / "Addons" / "Assets"
@@ -120,10 +122,14 @@ class Driver:
             raise HarnessError(f"{crp} already exists; it isn't the harness's to replace (pick another --save-name)")
         files = [self.s.install_file(f, cfg.data_dir / "Addons" / "Import") for f in import_set(src, name)]
         self.record("import_set", {"files": [f.name for f in files]})
-        menu = self.s.launch(["--noWorkshop"])
-        self.log(f"opening the Asset Editor ({theme})")
-        self.c.call("asset_editor", theme=theme)
-        self.wait_level("in_asset_editor", load_timeout, "the Asset Editor to load")
+        if launch:
+            menu = self.s.launch(["--noWorkshop"])
+            self.log(f"opening the Asset Editor ({theme})")
+            self.c.call("asset_editor", theme=theme)
+            self.wait_level("in_asset_editor", load_timeout, "the Asset Editor to load")
+        else:
+            menu = self.c.call("status")
+            self.c.call("asset_import_wizard")
         self.s.track(crp)  # the job writes it; it leaves the game's data at `down`
         service, sub_service = "Residential", "ResidentialLow"
         if template.startswith("auto:"):
@@ -132,9 +138,13 @@ class Driver:
                 raise HarnessError("template selector must be auto:SERVICE:SUB_SERVICE")
             _, service, sub_service = parts
             template = "auto"
-        templates = self.c.call("templates", service=service, sub_service=sub_service, limit=200)["templates"]
+        templates = self.c.call("templates", kind=kind, service=service, sub_service=sub_service, limit=200)[
+            "templates"
+        ]
         self.record("templates", {"templates": templates})
         if template == "auto":
+            if kind == "tree":
+                raise HarnessError("tree builds require an explicit native template name")
             # Level 1 in the selected class, on the same lot if one exists.
             fits = [t for t in templates if t["level"] == 1 and (not cells or t["cells"] == list(cells))]
             fits = fits or [t for t in templates if t["level"] == 1]
@@ -142,14 +152,21 @@ class Driver:
                 raise HarnessError(f"no {service}/{sub_service} level-1 template in this game")
             template = sorted(fits, key=lambda t: t["name"])[0]["name"]
             self.log(f"template: {template}")
-        args = {"name": name, "template": template, "scale": scale, "asset_name": asset_name, "save_name": save_name}
+        args = {
+            "name": name,
+            "template": template,
+            "kind": kind,
+            "scale": scale,
+            "asset_name": asset_name,
+            "save_name": save_name,
+        }
         if cells:
             args["cells"] = list(cells)
         if expect_size:
             args["expect_size"] = expect_size
         result = self.job(self.c.call("asset_build", **args), 900, "asset_build")
         self.c.call("camera", position=[0, 0], size=40, yaw=200, pitch=25)
-        self.shot("editor", ui=True)
+        self.shot("editor-" + name if kind == "tree" else "editor", ui=True)
         self.c.call("camera", release=True)
         written = pathlib.Path(result["crp"])
         if written.resolve() != crp.resolve():

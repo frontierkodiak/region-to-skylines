@@ -103,6 +103,7 @@ namespace Cs1Harness
             TraceOps.Register();
 #endif
             DumpOps.Register();
+            VegetationOps.Register();
             listener = new TcpListener(IPAddress.Loopback, port);
             listener.Start();
             acceptThread = new Thread(Accept) { IsBackground = true, Name = "Cs1Harness" };
