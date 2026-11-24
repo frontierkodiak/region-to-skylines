@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 
 const snapshots = {
   "mapgen.js": "mapgen.js",
+  "agents.md": "agents.md",
   "tools/map-factory/region.py": "region.py",
   "tools/map-factory/prepare.py": "prepare.py",
   "package.json": "package.json",
