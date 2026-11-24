@@ -19,6 +19,7 @@ PROFILES = {
         "base": 0.55,
         "depth": 0.34,
         "cards": 155,
+        "atlas_leaves": 480,
         "green": (0.24, 0.33, 0.12),
     },
     "Tilia": {
@@ -26,6 +27,7 @@ PROFILES = {
         "base": 0.29,
         "depth": 0.68,
         "cards": 210,
+        "atlas_leaves": 65,
         "green": (0.17, 0.29, 0.10),
     },
     "Ulmus": {
@@ -33,6 +35,7 @@ PROFILES = {
         "base": 0.47,
         "depth": 0.48,
         "cards": 180,
+        "atlas_leaves": 65,
         "green": (0.20, 0.31, 0.12),
     },
 }
@@ -62,8 +65,8 @@ def atlas(genus, out, name, seed):
     noise = np.random.default_rng(seed).uniform(-0.025, 0.025, (n, n))
     rgb[bark, :3] = np.clip(np.array([0.24, 0.19, 0.14]) + noise[bark, None], 0, 0.54)
     alpha[bark] = 1
-    # A compound leaflet spray for honey locust, broader blades for linden/elm.
-    count = 115 if genus == "Gleditsia" else 65
+    # Cluster density must survive alpha-test minification, not only the close view.
+    count = PROFILES[genus]["atlas_leaves"]
     for k in range(count):
         cx, cy = rng.uniform(0.06, 0.74), rng.uniform(0.08, 0.92)
         if ((cx - 0.4) / 0.37) ** 2 + ((cy - 0.5) / 0.47) ** 2 > 1:
@@ -347,6 +350,7 @@ def build(out, genus, height, seed, route):
         "genus": genus,
         "nominal_height_m": height,
         "seed": seed,
+        "atlas_leaves": PROFILES[genus]["atlas_leaves"],
         "route": route,
         "main_triangles": triangles,
         "size_xyz_z_up_m": bounds,

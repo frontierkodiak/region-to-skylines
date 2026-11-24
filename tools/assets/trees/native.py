@@ -215,6 +215,13 @@ def main():
                     )
                     d.shot(t["name"].split(".")[0] + "-" + label)
             write(out / "specimens.json", specimens)
+            if not a.skip_specimens:
+                remaining = c.call("vegetation_catalog")["instances"]
+                write(out / "post-specimen-count.json", {"instances": remaining})
+                if remaining != 2:
+                    raise RuntimeError(
+                        f"Expected only the specimen pair, got {remaining} trees"
+                    )
             write(out / "status.json", c.call("status"))
             c.call("camera", release=True)
     finally:
