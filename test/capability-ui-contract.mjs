@@ -659,6 +659,10 @@ export async function capabilityUISources({ read, readSource, activeBytes, curre
   }
   const historicalFactory = Object.keys(current.source_files_sha256).filter(k => k.startsWith("tools/map-factory/")).map(k => k.slice("tools/map-factory/".length)).sort();
   assert.deepEqual([...adoption.historical_factory_files].sort(), historicalFactory);
+  // Historical native fixtures still exercise their original constructor.
+  // The stock-style writer has separate behavior and native comparisons.
+  for (const name of ["region.py", "prepare.py"])
+    archived["tools/map-factory/" + name] = await read("fixtures/baseline-writer/" + name);
   const historicalRead = (name) => archived[name] ?? readSource(name);
   historicalRead.historicalFactoryFiles = adoption.historical_factory_files;
   return historicalRead;

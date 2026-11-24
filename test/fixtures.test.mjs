@@ -12,7 +12,8 @@ import { startFactory, buildMap, clearWork } from "../mapgen.js";
 import { loadFixtureContract } from "./fixture-contract.mjs";
 
 const root = new URL("../tools/map-factory/", import.meta.url);
-const read = async (f) => new Uint8Array(await readFile(new URL(f, root)));
+const read = async (f) => new Uint8Array(await readFile(new URL(
+  ["region.py", "prepare.py"].includes(f) ? "fixtures/baseline-writer/" + f : f, root)));
 const { manifest, nativeCases, historicalNativeCases, current, historicalCaptureSources } = await loadFixtureContract(read, async (f) => new Uint8Array(await readFile(new URL("../" + f, import.meta.url))));
 const captureSource = async (name) => historicalCaptureSources?.[name]
   ? read("fixtures/" + historicalCaptureSources[name].file)
