@@ -21,15 +21,18 @@ It authors every captured visible river/stream, lakes, river areas and ocean:
   Both the requested catchment setting and any geometric reduction are recorded.
 - A source-space drainage tree chooses outlets at sea or the map edge where
   available. Short captured gaps up to 160 m can join; explicit underground gaps
-  cannot. Closed captured components are recorded explicitly; an intake-only
-  terminal is placed where the existing source-spacing rule permits it. These
-  are **not** represented as real edge outlets, and a recorded terminal does
-  not prove that a sink was placed or that its capacity is sufficient.
+  cannot. Every final component gets an intake-only receiving control, and every
+  otherwise-unsupplied component gets a catchment-sized head inlet. Closed
+  captures receive explicitly engineered drains, **not** invented geographic
+  edge outlets. Packed intake settings cover the component's emitting settings;
+  equal settings do not establish measured throughput or sufficient capacity.
 - Local surface limits prevent a high captured sill from raising a whole river
   or cutting an entire valley down. This can leave cascades; it is not a claim
   that all branches form one gently graded hydraulic reach.
 - Lakes/river areas are deepened to at least 16 m, with body-level controls.
   Ocean gets an 8–24 m shelf. Existing deeper beds are retained.
+- Each receiving port gets an 8 m deep, 32 m radius basin restricted to its own
+  existing water footprint. Only the bed lowers; surface, banks and target stay.
 - A 2 m shoreline barrier blends back to measured land over 64 m. No global
   sea-plane prefill is used. Terrain away from this strip is unchanged.
 
@@ -41,10 +44,11 @@ No old native qualification applies to this constructor.
 The complete channel widths, body margins and source-pool footprint are formed
 before the final surface is solved. `joint_surface.py` contracts level lake/ocean
 bodies, removes incompatible adjacent heads, and routes each component toward a
-receiving port. The preferred descending grade is 1 m/km; a 2% maximum fitted
-grade is an engineering choice for this construction, not a measured game rule.
-If necessary, a whole component is vertically compressed to fit the engine's
-height range. No independent DEM clipping or flat source-disk reset follows.
+receiving port. The preferred descending grade is 1 m/km. Steep terrain stays
+as local cascades rather than forcing a global grade cap and excavating whole
+mountain valleys. A 2% edge slope labels cascade diagnostics, not a fitted limit.
+Near the engine ceiling only the extra routing grade loses headroom; lower
+reaches are not compressed. No independent DEM clipping or source-disk reset follows.
 Beds, initial depths and source targets all use that one quantized surface.
 Immediate banks clear the maximum adjacent head, not merely the nearest one.
 
@@ -74,9 +78,12 @@ check found sources straddling shallow/dry footprint cells. The inlet-pool
 correction is a new physical construction, not a rerun to repair reporting.
 That correction also failed Asheville: local surface seams and below-head banks
 remained. Full-field checks found this defect on every prepared square. The
-joint-surface revision keeps source locations and packed rates fixed while
-changing their targets and the coupled bed/bank geometry; failed attempts remain
-separate evidence.
+joint-surface revision kept source locations and packed rates fixed while
+changing targets and coupled bed/bank geometry. A global gentle-grade trial was
+rejected before the game for broad mountain excavation. The terrain-following
+revision still flooded and lost water in Asheville and Innsbruck. The current
+functional-port revision adds missing-component supply and receiving controls;
+all failed native attempts and both failed preparations remain separate evidence.
 
 The existing full source inventory and old probes remain. Unsupported inventory
 rows stay visible. Compiled-only startup success is not complete source coverage.
