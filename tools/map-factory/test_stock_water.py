@@ -88,6 +88,24 @@ class StockWaterTest(unittest.TestCase):
         self.assertAlmostEqual(depth[540, round((1000 + 8640) / 16)], 40)
         self.assertEqual(len(report["lake_components"]), 2)
 
+    def test_inland_tributary_head_is_fed_without_a_pool_or_node_regulators(self):
+        ground = np.full((1081, 1081), 100.0)
+        geometry = {
+            "sq": SQUARE,
+            "rivers": [{"pts": [point(-9000, 0), point(9000, 0)]}],
+            "streams": [{"pts": [point(0, 3000), point(0, 0)]}],
+        }
+        with patch(
+            "stock_water.local_catchment_area", return_value=np.full_like(ground, 75e6)
+        ):
+            depth, report = hydrology(ground, ground.copy(), geometry, DESIGN)
+        self.assertEqual(len(report["sources"]), 2)
+        self.assertTrue(all(s["role"] == "inlet" for s in report["sources"]))
+        self.assertTrue(
+            any(abs(s["position"][2] - 3000) <= 16 for s in report["sources"])
+        )
+        self.assertEqual(depth[350, 545], 0)
+
     def test_stream_uses_continuous_narrow_channel_not_regulator_pools(self):
         ground = np.full((1081, 1081), 100.0)
         banks = ground.copy()

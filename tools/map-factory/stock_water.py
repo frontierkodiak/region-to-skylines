@@ -189,6 +189,9 @@ def hydrology(ground, banks, geometry, design):
     receiving_levels = []
     rr, cc = np.indices(ground.shape)
     edge_distance = np.minimum.reduce([rr, cc, SIZE - 1 - rr, SIZE - 1 - cc]) * SPACING
+    neighbours = np.ones((3, 3), dtype=np.uint8)
+    neighbours[1, 1] = 0
+    endpoints = line & (ndimage.convolve(line.astype(np.uint8), neighbours) == 1)
 
     def source(row, col, setting, role, component):
         x, z = col * SPACING - HALF, HALF - row * SPACING
@@ -244,7 +247,22 @@ def hydrology(ground, banks, geometry, design):
                 if len(ys):
                     i = int(np.argmin((ys - row) ** 2 + (xs - col) ** 2))
                     inboard.append((int(ys[i]), int(xs[i])))
-            inlets = list(dict.fromkeys(inboard))
+            inland_heads = []
+            ys, xs = np.nonzero(
+                river_nodes & endpoints & (edge_distance >= 128) & ~ocean & ~lakes
+            )
+            for row, col in zip(ys, xs):
+                adjacent = [
+                    (row + dr, col + dc)
+                    for dr in [-1, 0, 1]
+                    for dc in [-1, 0, 1]
+                    if (dr or dc) and line[row + dr, col + dc]
+                ]
+                # This selects an engineered feed by the authored stage slope;
+                # it does not establish a geographic spring or flow direction.
+                if stage[row, col] >= stage[adjacent[0]]:
+                    inland_heads.append((int(row), int(col)))
+            inlets = list(dict.fromkeys(inboard + inland_heads))
             if not inlets:
                 rows, cols = np.nonzero(river_nodes & (edge_distance >= 128))
                 if not len(rows):
@@ -280,6 +298,7 @@ def hydrology(ground, banks, geometry, design):
                     "role": "edge/sea receiving boundary",
                     "outlet_source_row_col": list(outlet) if outlet else None,
                     "inlet_source_row_cols": [list(rc) for rc in inlets],
+                    "inland_head_source_row_cols": [list(rc) for rc in inland_heads],
                     "map_local_catchment_km2": catchment_km2,
                     "inlet_settings": settings,
                     "off_map_catchment": "unknown",

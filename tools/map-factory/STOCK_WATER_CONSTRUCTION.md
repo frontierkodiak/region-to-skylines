@@ -14,8 +14,10 @@ authoring only cuts terrain. Existing transport grading remains separate.
   use the narrow channel, not a series of pools. Explicit intermittent
   reaches remain unforced. A disconnected reach without an edge/sea outlet
   receives no invented supply; this limitation remains in its port report.
-- River feeds sit at least 128 m inside mapped entry reaches. One inland
-  head is used where there is a single receiving outlet. There is no
+- River feeds sit at least 128 m inside mapped entry reaches, and at captured
+  inland endpoints whose authored stage descends into the channel. These
+  are engineered feeds, not claims of geographic springs. One inland
+  high point is used if no inlet was found. There is no
   regulator at each river node and no automatic starting reservoir.
 - A local D8 catchment scales the experimental source setting, capped at
   32767/65535; line-only feeds are capped at 655/65535. These are game
