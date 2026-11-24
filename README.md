@@ -107,11 +107,11 @@ The map file is written by the map writer in [`tools/map-factory`](tools/map-fac
 `cs1-harness`. The page doesn't port it: it runs it, under [Pyodide](https://pyodide.org)
 (Python compiled to WebAssembly) in a Web Worker, and the CLI runs it under Pyodide in
 Node. So the page, the CLI and the reference give the same bytes for the same inputs;
-`npm run test:fixtures` checks all five presets byte for byte, with both the shipping
-MRDS resource inputs and the richer offline wells/mines reference. Both use the same
-`inputs.js` captures and native-tested terrain and water grids. The [current fixture contract](tools/map-factory/CURRENT_FIXTURE_CONTRACT.md)
-is a partial evaluation: Asheville improves, Rio remains unresolved, and Rio flooding
-and Charleston terrain correlation still fail. Byte conformance is not native acceptance. The first map downloads
+`npm run test:fixtures` preserves the five-region historical contract using its
+frozen writer, with both shipping MRDS inputs and the richer offline wells/mines
+reference. Those old game results do not qualify the gameplay-water constructor.
+The new constructor's fixed eight-square results and before/after openings appear
+in the water capability row. Byte conformance is not native acceptance. The first map downloads
 about 30 MB (cached afterwards); a map takes about a
 minute and half a gigabyte of memory, so a phone may run out, in which case the page offers
 the heightmap instead.
@@ -186,8 +186,8 @@ node dev.mjs 8000   # then open http://localhost:8000
 writer's inputs and `mapgen.js` running the writer, all with no DOM or canvas, so the page
 and the CLI share them; `app.js` is the map, controls and 3D preview (MapLibre GL JS and
 three.js from CDNs); `cli.mjs` is the command line. `npm test` runs the quick checks;
-`npm run test:fixtures` builds both resource variants for all five maps under Pyodide
-and checks the versioned current contract against exact package, grid and control identities
+`npm run test:fixtures` builds both historical resource variants for all five maps under Pyodide
+with their frozen writer and checks exact package, grid and control identities
 (about a minute each). The page's import map loads
 `@mapbox/vector-tile` and `pbf` from jsDelivr; Node takes the same versions from
 `package.json`. To run the CLI from a checkout: `npm install`, then

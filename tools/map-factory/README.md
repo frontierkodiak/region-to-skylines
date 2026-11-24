@@ -2,10 +2,11 @@
 
 The Python reference writes terrain, initialized water, natural sources and
 terrain-following connection corridors into a native `.crp` template. It needs
-no game DLLs at export time. **Five exact shipping-input packages completed
-60-game-minute soaks and ordinary vanilla starts. Two raw checks remain failed with measured
-limitations; see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). This does not qualify
-arbitrary squares or populated-city growth.** The website and CLI run this writer
+no game DLLs at export time. **The historical five-region writer completed
+60-game-minute soaks and ordinary vanilla starts, with two raw checks still failed;
+see [NATIVE_FINDINGS.md](NATIVE_FINDINGS.md). Those results do not qualify the new
+gameplay-water constructor. Its fixed eight-square results appear in the water
+capability row. Neither study qualifies arbitrary squares or populated-city growth.** The website and CLI run this writer
 under Pyodide; [LIVE_INPUTS.md](LIVE_INPUTS.md) describes their capture contract.
 
 The original PL-848 Asheville template passed ordinary **New Game** and city

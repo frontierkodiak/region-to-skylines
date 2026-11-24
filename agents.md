@@ -83,9 +83,10 @@ The command prints the steps. For a **ready-to-play map**:
    forests and fields are in place. The map's theme follows the place — temperate,
    tropical or boreal — so its trees suit the region.
 
-Native evidence exists for the default Asheville, Innsbruck, Rio de Janeiro, Pittsburgh and
-Charleston squares, including separate no-mods city starts. Other squares, rotations,
-scales and the 81 Tiles 2 mod haven't been tested. Pass on any region-specific finding
+Historical native evidence exists for the default Asheville, Innsbruck, Rio de Janeiro,
+Pittsburgh and Charleston squares, including separate no-mods city starts. It does
+not qualify the new gameplay-water constructor; use its per-square water capability
+results. Other rotations, scales and the 81 Tiles 2 mod haven't been tested. Pass on any region-specific finding
 the command prints. Those results include water and elevation failures; they do not
 qualify every map or every stream. Pass on the selected square's water-risk report too.
 
