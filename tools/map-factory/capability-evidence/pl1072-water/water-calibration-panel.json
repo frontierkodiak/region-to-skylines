@@ -1,0 +1,518 @@
+{
+  "schema": 1,
+  "version": "PL-1072-panel-v1",
+  "selection": "Five ex-ante strata x six world regions; SHA256 offsets within +/-3 km of fixed written anchors. All 30 retained, including capture failures and unexpected terrain. No fixture squares.",
+  "estimand": "Equal-weight performance on this purposive panel, not global deployment prevalence.",
+  "squares": [
+    {
+      "stratum": "dry_upland",
+      "world_region": "north_america",
+      "anchor_lat": 39.2,
+      "anchor_lon": -110.3,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "dry-upland-north-america",
+        "name": "Calibration dry-upland-north-america",
+        "lat": 39.1859905,
+        "lon": -110.3117429,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "dry_upland",
+      "world_region": "south_america",
+      "anchor_lat": -24.6,
+      "anchor_lon": -65.7,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "dry-upland-south-america",
+        "name": "Calibration dry-upland-south-america",
+        "lat": -24.59583297,
+        "lon": -65.72841136,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "dry_upland",
+      "world_region": "europe",
+      "anchor_lat": 37.2,
+      "anchor_lon": -2.5,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "dry-upland-europe",
+        "name": "Calibration dry-upland-europe",
+        "lat": 37.17806086,
+        "lon": -2.50032956,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "dry_upland",
+      "world_region": "africa",
+      "anchor_lat": 30.6,
+      "anchor_lon": -6.5,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "dry-upland-africa",
+        "name": "Calibration dry-upland-africa",
+        "lat": 30.61211963,
+        "lon": -6.52780294,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "dry_upland",
+      "world_region": "asia",
+      "anchor_lat": 31.3,
+      "anchor_lon": 79.8,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "dry-upland-asia",
+        "name": "Calibration dry-upland-asia",
+        "lat": 31.29024509,
+        "lon": 79.82236898,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "dry_upland",
+      "world_region": "oceania",
+      "anchor_lat": -23.6,
+      "anchor_lon": 133.8,
+      "expected_drying_negative": true,
+      "sq": {
+        "slug": "dry-upland-oceania",
+        "name": "Calibration dry-upland-oceania",
+        "lat": -23.61780328,
+        "lon": 133.80928744,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "north_america",
+      "anchor_lat": 50.7,
+      "anchor_lon": -121.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "mountain-river-north-america",
+        "name": "Calibration mountain-river-north-america",
+        "lat": 50.68885415,
+        "lon": -121.41755125,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "south_america",
+      "anchor_lat": -13.3,
+      "anchor_lon": -72.1,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "mountain-river-south-america",
+        "name": "Calibration mountain-river-south-america",
+        "lat": -13.28540821,
+        "lon": -72.07458913,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "europe",
+      "anchor_lat": 46.3,
+      "anchor_lon": 7.9,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "mountain-river-europe",
+        "name": "Calibration mountain-river-europe",
+        "lat": 46.31621441,
+        "lon": 7.873159,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "africa",
+      "anchor_lat": -29.3,
+      "anchor_lon": 28.2,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "mountain-river-africa",
+        "name": "Calibration mountain-river-africa",
+        "lat": -29.29029968,
+        "lon": 28.21683814,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "asia",
+      "anchor_lat": 29.4,
+      "anchor_lon": 103.5,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "mountain-river-asia",
+        "name": "Calibration mountain-river-asia",
+        "lat": 29.41629771,
+        "lon": 103.49204627,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "mountain_river",
+      "world_region": "oceania",
+      "anchor_lat": -42.8,
+      "anchor_lon": 171.1,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "mountain-river-oceania",
+        "name": "Calibration mountain-river-oceania",
+        "lat": -42.82092485,
+        "lon": 171.10487659,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "north_america",
+      "anchor_lat": 38.6,
+      "anchor_lon": -90.2,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lowland-river-north-america",
+        "name": "Calibration lowland-river-north-america",
+        "lat": 38.59025944,
+        "lon": -90.1929148,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "south_america",
+      "anchor_lat": -3.1,
+      "anchor_lon": -60.0,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lowland-river-south-america",
+        "name": "Calibration lowland-river-south-america",
+        "lat": -3.08193151,
+        "lon": -60.00913257,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "europe",
+      "anchor_lat": 48.3,
+      "anchor_lon": 16.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lowland-river-europe",
+        "name": "Calibration lowland-river-europe",
+        "lat": 48.3114465,
+        "lon": 16.43727799,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "africa",
+      "anchor_lat": 15.6,
+      "anchor_lon": 32.5,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lowland-river-africa",
+        "name": "Calibration lowland-river-africa",
+        "lat": 15.57671077,
+        "lon": 32.47695674,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "asia",
+      "anchor_lat": 30.6,
+      "anchor_lon": 114.3,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lowland-river-asia",
+        "name": "Calibration lowland-river-asia",
+        "lat": 30.61867794,
+        "lon": 114.31554454,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lowland_river",
+      "world_region": "oceania",
+      "anchor_lat": -34.4,
+      "anchor_lon": 140.6,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lowland-river-oceania",
+        "name": "Calibration lowland-river-oceania",
+        "lat": -34.38645303,
+        "lon": 140.60523854,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "north_america",
+      "anchor_lat": 46.8,
+      "anchor_lon": -92.1,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lake-shore-north-america",
+        "name": "Calibration lake-shore-north-america",
+        "lat": 46.79151974,
+        "lon": -92.07786564,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "south_america",
+      "anchor_lat": -15.8,
+      "anchor_lon": -69.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lake-shore-south-america",
+        "name": "Calibration lake-shore-south-america",
+        "lat": -15.80909409,
+        "lon": -69.42411084,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "europe",
+      "anchor_lat": 46.5,
+      "anchor_lon": 6.6,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lake-shore-europe",
+        "name": "Calibration lake-shore-europe",
+        "lat": 46.50516356,
+        "lon": 6.56793225,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "africa",
+      "anchor_lat": -2.5,
+      "anchor_lon": 32.9,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lake-shore-africa",
+        "name": "Calibration lake-shore-africa",
+        "lat": -2.48646428,
+        "lon": 32.92417332,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "asia",
+      "anchor_lat": 52.5,
+      "anchor_lon": 106.0,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lake-shore-asia",
+        "name": "Calibration lake-shore-asia",
+        "lat": 52.52502462,
+        "lon": 105.99997966,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "lake_shore",
+      "world_region": "oceania",
+      "anchor_lat": -38.1,
+      "anchor_lon": 176.1,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "lake-shore-oceania",
+        "name": "Calibration lake-shore-oceania",
+        "lat": -38.08747128,
+        "lon": 176.12043838,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "north_america",
+      "anchor_lat": 29.3,
+      "anchor_lon": -94.8,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "low-coast-north-america",
+        "name": "Calibration low-coast-north-america",
+        "lat": 29.3020289,
+        "lon": -94.78840988,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "south_america",
+      "anchor_lat": -34.6,
+      "anchor_lon": -58.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "low-coast-south-america",
+        "name": "Calibration low-coast-south-america",
+        "lat": -34.60690643,
+        "lon": -58.39397535,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "europe",
+      "anchor_lat": 51.9,
+      "anchor_lon": 4.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "low-coast-europe",
+        "name": "Calibration low-coast-europe",
+        "lat": 51.88767806,
+        "lon": 4.40897428,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "africa",
+      "anchor_lat": 6.4,
+      "anchor_lon": 3.4,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "low-coast-africa",
+        "name": "Calibration low-coast-africa",
+        "lat": 6.38038622,
+        "lon": 3.38024102,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "asia",
+      "anchor_lat": 31.3,
+      "anchor_lon": 121.8,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "low-coast-asia",
+        "name": "Calibration low-coast-asia",
+        "lat": 31.31930093,
+        "lon": 121.79466228,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    },
+    {
+      "stratum": "low_coast",
+      "world_region": "oceania",
+      "anchor_lat": -27.4,
+      "anchor_lon": 153.1,
+      "expected_drying_negative": false,
+      "sq": {
+        "slug": "low-coast-oceania",
+        "name": "Calibration low-coast-oceania",
+        "lat": -27.40732944,
+        "lon": 153.11839675,
+        "rotation": 0,
+        "scale": 1,
+        "vscale": "auto",
+        "rivers": true
+      }
+    }
+  ]
+}

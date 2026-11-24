@@ -1,0 +1,2640 @@
+{
+  "schema": 1,
+  "staging_sha256": "5b8da959bf43d46ab08edddf9b866011f72ab2dfaf88f48cda9609ed8e9d723c",
+  "panel_sha256": "37d88f277973a709a61b496925bb911255bbeb201e863f61629377ca172c014e",
+  "model_sha256": "233534080d1f063fd96d5ca62167c3e3e2292503961184ed70f63a348a89e23d",
+  "metrics": {
+    "flood": {
+      "tp": 1,
+      "fp": 4,
+      "tn": 18,
+      "fn": 5,
+      "precision": {
+        "n": 5,
+        "events": 1,
+        "rate": 0.2,
+        "ci95": [
+          0.0050507633794680575,
+          0.7164179361180895
+        ]
+      },
+      "recall": {
+        "n": 6,
+        "events": 1,
+        "rate": 0.16666666666666666,
+        "ci95": [
+          0.00421074451448947,
+          0.6412345789976748
+        ]
+      },
+      "specificity": {
+        "n": 22,
+        "events": 18,
+        "rate": 0.8181818181818182,
+        "ci95": [
+          0.5971542169221286,
+          0.9481327006875631
+        ]
+      },
+      "always_warn_precision": {
+        "n": 28,
+        "events": 6,
+        "rate": 0.21428571428571427,
+        "ci95": [
+          0.0829606123876385,
+          0.4095310265058281
+        ]
+      },
+      "always_warn_recall": {
+        "n": 6,
+        "events": 6,
+        "rate": 1.0,
+        "ci95": [
+          0.5407418735600995,
+          1.0
+        ]
+      },
+      "cleared_risk": {
+        "n": 23,
+        "events": 5,
+        "rate": 0.21739130434782608,
+        "ci95": [
+          0.07460340764880372,
+          0.4370307262368146
+        ]
+      },
+      "unknown_squares": [
+        "lake-shore-south-america",
+        "low-coast-africa"
+      ],
+      "identical_to_always_warn": false,
+      "misses": [
+        "dry-upland-south-america",
+        "dry-upland-europe",
+        "dry-upland-asia",
+        "mountain-river-asia",
+        "lowland-river-south-america"
+      ],
+      "false_alarms": [
+        "low-coast-north-america",
+        "low-coast-south-america",
+        "low-coast-asia",
+        "low-coast-oceania"
+      ]
+    },
+    "drying": {
+      "tp": 27,
+      "fp": 1,
+      "tn": 0,
+      "fn": 0,
+      "precision": {
+        "n": 28,
+        "events": 27,
+        "rate": 0.9642857142857143,
+        "ci95": [
+          0.8165224024553763,
+          0.999096201244342
+        ]
+      },
+      "recall": {
+        "n": 27,
+        "events": 27,
+        "rate": 1.0,
+        "ci95": [
+          0.8722971323845676,
+          1.0
+        ]
+      },
+      "specificity": {
+        "n": 1,
+        "events": 0,
+        "rate": 0.0,
+        "ci95": [
+          0.0,
+          0.975
+        ]
+      },
+      "always_warn_precision": {
+        "n": 28,
+        "events": 27,
+        "rate": 0.9642857142857143,
+        "ci95": [
+          0.8165224024553763,
+          0.999096201244342
+        ]
+      },
+      "always_warn_recall": {
+        "n": 27,
+        "events": 27,
+        "rate": 1.0,
+        "ci95": [
+          0.8722971323845676,
+          1.0
+        ]
+      },
+      "cleared_risk": {
+        "n": 0,
+        "events": 0,
+        "rate": null,
+        "ci95": null
+      },
+      "unknown_squares": [
+        "lake-shore-south-america",
+        "low-coast-africa"
+      ],
+      "identical_to_always_warn": true,
+      "misses": [],
+      "false_alarms": [
+        "dry-upland-asia"
+      ]
+    }
+  },
+  "rule_clearance": {
+    "base_risk": {
+      "n": 28,
+      "events": 28,
+      "rate": 1.0,
+      "ci95": [
+        0.8765638814997362,
+        1.0
+      ]
+    },
+    "cleared_risk": {
+      "n": 0,
+      "events": 0,
+      "rate": null,
+      "ci95": null
+    },
+    "cleared_squares": [],
+    "absolute_risk_reduction": null,
+    "relative_risk": null,
+    "relative_risk_reduction": null,
+    "separated_rate_intervals": false,
+    "limits": "Intervals are conditional binomial summaries, not design-based global prevalence bounds. Relative reduction is descriptive; it has no confidence interval. Zero observed failures is not zero underlying risk."
+  },
+  "deployed_product_clearance": {
+    "base_risk": {
+      "n": 28,
+      "events": 28,
+      "rate": 1.0,
+      "ci95": [
+        0.8765638814997362,
+        1.0
+      ]
+    },
+    "cleared_risk": {
+      "n": 0,
+      "events": 0,
+      "rate": null,
+      "ci95": null
+    },
+    "cleared_squares": [],
+    "absolute_risk_reduction": null,
+    "relative_risk": null,
+    "relative_risk_reduction": null,
+    "separated_rate_intervals": false,
+    "limits": "Intervals are conditional binomial summaries, not design-based global prevalence bounds. Relative reduction is descriptive; it has no confidence interval. Zero observed failures is not zero underlying risk."
+  },
+  "coverage": {
+    "planned": 30,
+    "complete": 28,
+    "unscored": [
+      "lake-shore-south-america",
+      "low-coast-africa"
+    ]
+  },
+  "per_stratum": {
+    "dry_upland": {
+      "flood": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 3,
+        "fn": 3,
+        "precision": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "recall": {
+          "n": 3,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.7075982261787133
+          ]
+        },
+        "specificity": {
+          "n": 3,
+          "events": 3,
+          "rate": 1.0,
+          "ci95": [
+            0.2924017738212866,
+            1.0
+          ]
+        },
+        "always_warn_precision": {
+          "n": 6,
+          "events": 3,
+          "rate": 0.5,
+          "ci95": [
+            0.11811724875702521,
+            0.8818827512429748
+          ]
+        },
+        "always_warn_recall": {
+          "n": 3,
+          "events": 3,
+          "rate": 1.0,
+          "ci95": [
+            0.2924017738212866,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 6,
+          "events": 3,
+          "rate": 0.5,
+          "ci95": [
+            0.11811724875702521,
+            0.8818827512429748
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [
+          "dry-upland-south-america",
+          "dry-upland-europe",
+          "dry-upland-asia"
+        ],
+        "false_alarms": []
+      },
+      "drying": {
+        "tp": 5,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 6,
+          "events": 5,
+          "rate": 0.8333333333333334,
+          "ci95": [
+            0.35876542100232517,
+            0.9957892554855106
+          ]
+        },
+        "recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "always_warn_precision": {
+          "n": 6,
+          "events": 5,
+          "rate": 0.8333333333333334,
+          "ci95": [
+            0.35876542100232517,
+            0.9957892554855106
+          ]
+        },
+        "always_warn_recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": [
+          "dry-upland-asia"
+        ]
+      }
+    },
+    "lake_shore": {
+      "flood": {
+        "tp": 1,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "precision": {
+          "n": 1,
+          "events": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.025,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 1,
+          "events": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.025,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 1,
+          "rate": 0.2,
+          "ci95": [
+            0.0050507633794680575,
+            0.7164179361180895
+          ]
+        },
+        "always_warn_recall": {
+          "n": 1,
+          "events": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.025,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 4,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.6023646356164746
+          ]
+        },
+        "unknown_squares": [
+          "lake-shore-south-america"
+        ],
+        "identical_to_always_warn": false,
+        "misses": [],
+        "false_alarms": []
+      },
+      "drying": {
+        "tp": 5,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [
+          "lake-shore-south-america"
+        ],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "low_coast": {
+      "flood": {
+        "tp": 0,
+        "fp": 4,
+        "tn": 1,
+        "fn": 0,
+        "precision": {
+          "n": 4,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.6023646356164746
+          ]
+        },
+        "recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "specificity": {
+          "n": 5,
+          "events": 1,
+          "rate": 0.2,
+          "ci95": [
+            0.0050507633794680575,
+            0.7164179361180895
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.5218237501049814
+          ]
+        },
+        "always_warn_recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "cleared_risk": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "unknown_squares": [
+          "low-coast-africa"
+        ],
+        "identical_to_always_warn": false,
+        "misses": [],
+        "false_alarms": [
+          "low-coast-north-america",
+          "low-coast-south-america",
+          "low-coast-asia",
+          "low-coast-oceania"
+        ]
+      },
+      "drying": {
+        "tp": 5,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [
+          "low-coast-africa"
+        ],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "lowland_river": {
+      "flood": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 5,
+        "fn": 1,
+        "precision": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "recall": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "specificity": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_precision": {
+          "n": 6,
+          "events": 1,
+          "rate": 0.16666666666666666,
+          "ci95": [
+            0.00421074451448947,
+            0.6412345789976748
+          ]
+        },
+        "always_warn_recall": {
+          "n": 1,
+          "events": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.025,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 6,
+          "events": 1,
+          "rate": 0.16666666666666666,
+          "ci95": [
+            0.00421074451448947,
+            0.6412345789976748
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [
+          "lowland-river-south-america"
+        ],
+        "false_alarms": []
+      },
+      "drying": {
+        "tp": 6,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "mountain_river": {
+      "flood": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 5,
+        "fn": 1,
+        "precision": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "recall": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "specificity": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_precision": {
+          "n": 6,
+          "events": 1,
+          "rate": 0.16666666666666666,
+          "ci95": [
+            0.00421074451448947,
+            0.6412345789976748
+          ]
+        },
+        "always_warn_recall": {
+          "n": 1,
+          "events": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.025,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 6,
+          "events": 1,
+          "rate": 0.16666666666666666,
+          "ci95": [
+            0.00421074451448947,
+            0.6412345789976748
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [
+          "mountain-river-asia"
+        ],
+        "false_alarms": []
+      },
+      "drying": {
+        "tp": 6,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 6,
+          "events": 6,
+          "rate": 1.0,
+          "ci95": [
+            0.5407418735600995,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    }
+  },
+  "per_world_region": {
+    "africa": {
+      "flood": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 4,
+        "fn": 0,
+        "precision": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "specificity": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "always_warn_precision": {
+          "n": 4,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.6023646356164746
+          ]
+        },
+        "always_warn_recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "cleared_risk": {
+          "n": 4,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.6023646356164746
+          ]
+        },
+        "unknown_squares": [
+          "low-coast-africa"
+        ],
+        "identical_to_always_warn": false,
+        "misses": [],
+        "false_alarms": []
+      },
+      "drying": {
+        "tp": 4,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [
+          "low-coast-africa"
+        ],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "asia": {
+      "flood": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 2,
+        "fn": 2,
+        "precision": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "recall": {
+          "n": 2,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.841886116991581
+          ]
+        },
+        "specificity": {
+          "n": 3,
+          "events": 2,
+          "rate": 0.6666666666666666,
+          "ci95": [
+            0.09429932405024609,
+            0.9915962413403874
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 2,
+          "rate": 0.4,
+          "ci95": [
+            0.052744950526316906,
+            0.8533672003653268
+          ]
+        },
+        "always_warn_recall": {
+          "n": 2,
+          "events": 2,
+          "rate": 1.0,
+          "ci95": [
+            0.15811388300841897,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 4,
+          "events": 2,
+          "rate": 0.5,
+          "ci95": [
+            0.06758598648854294,
+            0.932414013511457
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [
+          "dry-upland-asia",
+          "mountain-river-asia"
+        ],
+        "false_alarms": [
+          "low-coast-asia"
+        ]
+      },
+      "drying": {
+        "tp": 4,
+        "fp": 1,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 5,
+          "events": 4,
+          "rate": 0.8,
+          "ci95": [
+            0.2835820638819105,
+            0.9949492366205319
+          ]
+        },
+        "recall": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 4,
+          "rate": 0.8,
+          "ci95": [
+            0.2835820638819105,
+            0.9949492366205319
+          ]
+        },
+        "always_warn_recall": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": [
+          "dry-upland-asia"
+        ]
+      }
+    },
+    "europe": {
+      "flood": {
+        "tp": 1,
+        "fp": 0,
+        "tn": 3,
+        "fn": 1,
+        "precision": {
+          "n": 1,
+          "events": 1,
+          "rate": 1.0,
+          "ci95": [
+            0.025,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 2,
+          "events": 1,
+          "rate": 0.5,
+          "ci95": [
+            0.01257911709342505,
+            0.9874208829065749
+          ]
+        },
+        "specificity": {
+          "n": 3,
+          "events": 3,
+          "rate": 1.0,
+          "ci95": [
+            0.2924017738212866,
+            1.0
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 2,
+          "rate": 0.4,
+          "ci95": [
+            0.052744950526316906,
+            0.8533672003653268
+          ]
+        },
+        "always_warn_recall": {
+          "n": 2,
+          "events": 2,
+          "rate": 1.0,
+          "ci95": [
+            0.15811388300841897,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 4,
+          "events": 1,
+          "rate": 0.25,
+          "ci95": [
+            0.006309463209709866,
+            0.8058795503167565
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [
+          "dry-upland-europe"
+        ],
+        "false_alarms": []
+      },
+      "drying": {
+        "tp": 5,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "north_america": {
+      "flood": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 4,
+        "fn": 0,
+        "precision": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "specificity": {
+          "n": 5,
+          "events": 4,
+          "rate": 0.8,
+          "ci95": [
+            0.2835820638819105,
+            0.9949492366205319
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.5218237501049814
+          ]
+        },
+        "always_warn_recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "cleared_risk": {
+          "n": 4,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.6023646356164746
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [],
+        "false_alarms": [
+          "low-coast-north-america"
+        ]
+      },
+      "drying": {
+        "tp": 5,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "oceania": {
+      "flood": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 4,
+        "fn": 0,
+        "precision": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "specificity": {
+          "n": 5,
+          "events": 4,
+          "rate": 0.8,
+          "ci95": [
+            0.2835820638819105,
+            0.9949492366205319
+          ]
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.5218237501049814
+          ]
+        },
+        "always_warn_recall": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "cleared_risk": {
+          "n": 4,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.6023646356164746
+          ]
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": false,
+        "misses": [],
+        "false_alarms": [
+          "low-coast-oceania"
+        ]
+      },
+      "drying": {
+        "tp": 5,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 5,
+          "events": 5,
+          "rate": 1.0,
+          "ci95": [
+            0.4781762498950185,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    },
+    "south_america": {
+      "flood": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 1,
+        "fn": 2,
+        "precision": {
+          "n": 1,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.975
+          ]
+        },
+        "recall": {
+          "n": 2,
+          "events": 0,
+          "rate": 0.0,
+          "ci95": [
+            0.0,
+            0.841886116991581
+          ]
+        },
+        "specificity": {
+          "n": 2,
+          "events": 1,
+          "rate": 0.5,
+          "ci95": [
+            0.01257911709342505,
+            0.9874208829065749
+          ]
+        },
+        "always_warn_precision": {
+          "n": 4,
+          "events": 2,
+          "rate": 0.5,
+          "ci95": [
+            0.06758598648854294,
+            0.932414013511457
+          ]
+        },
+        "always_warn_recall": {
+          "n": 2,
+          "events": 2,
+          "rate": 1.0,
+          "ci95": [
+            0.15811388300841897,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 3,
+          "events": 2,
+          "rate": 0.6666666666666666,
+          "ci95": [
+            0.09429932405024609,
+            0.9915962413403874
+          ]
+        },
+        "unknown_squares": [
+          "lake-shore-south-america"
+        ],
+        "identical_to_always_warn": false,
+        "misses": [
+          "dry-upland-south-america",
+          "lowland-river-south-america"
+        ],
+        "false_alarms": [
+          "low-coast-south-america"
+        ]
+      },
+      "drying": {
+        "tp": 4,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "recall": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "specificity": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "always_warn_precision": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "always_warn_recall": {
+          "n": 4,
+          "events": 4,
+          "rate": 1.0,
+          "ci95": [
+            0.3976353643835253,
+            1.0
+          ]
+        },
+        "cleared_risk": {
+          "n": 0,
+          "events": 0,
+          "rate": null,
+          "ci95": null
+        },
+        "unknown_squares": [
+          "lake-shore-south-america"
+        ],
+        "identical_to_always_warn": true,
+        "misses": [],
+        "false_alarms": []
+      }
+    }
+  },
+  "squares": [
+    {
+      "slug": "dry-upland-north-america",
+      "stratum": "dry_upland",
+      "world_region": "north_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "9808eff604124e8939f9097658511508d41e109613b379381cc5a2ad2a7bd1d6",
+      "receipt_hashes": {
+        "report.json": "729ae23d326413e8c7888136ff7bed63d8451c6ad5ed15d9f6a3e609e2f935e4",
+        "verdict.json": "c84eed70a94e4ab3d8023f9bbf3a3af62ff9db0f8d4a02e6a5e405fc203f7381"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0031,
+      "required": 1,
+      "required_wet_end": 1,
+      "required_water_loss": false,
+      "initialized_observations": 2409,
+      "initialized_water_loss_end": 137,
+      "exact_point_wet_loss_end": 608,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "dry-upland-south-america",
+      "stratum": "dry_upland",
+      "world_region": "south_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": true,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "25c317f3cbbabb9050ae1dc37137eefb9cf657335be1112a4f21e72e5525af49",
+      "receipt_hashes": {
+        "report.json": "5fbed0f924111fb04cc69f30d4537a8e880a156616ab749e7d22ad988f296179",
+        "verdict.json": "6491eab4d3cba5abc565686b163f0afa1042b2c0c76febfac5f55053205f1220"
+      },
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.085,
+      "required": 1,
+      "required_wet_end": 1,
+      "required_water_loss": false,
+      "initialized_observations": 790,
+      "initialized_water_loss_end": 55,
+      "exact_point_wet_loss_end": 180,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    {
+      "slug": "dry-upland-europe",
+      "stratum": "dry_upland",
+      "world_region": "europe",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": true,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "d11047db69708d4b27d8680ca7b3e3a4f3ca03de556adb8815b3d2946c4a62cb",
+      "receipt_hashes": {
+        "report.json": "0c34388818ba5304d7757f734cbcb2f0415bd3162d8e1e29bea76b4672c6a92a",
+        "verdict.json": "0dd6eebda2f139bce049d16fa1f4b2ac2b852a4c61ad9b06ee6b947894202861"
+      },
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.1132,
+      "required": 1,
+      "required_wet_end": 1,
+      "required_water_loss": false,
+      "initialized_observations": 697,
+      "initialized_water_loss_end": 225,
+      "exact_point_wet_loss_end": 300,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    {
+      "slug": "dry-upland-africa",
+      "stratum": "dry_upland",
+      "world_region": "africa",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "78a30b8a8fef299dbb8a732c31890dbf6f850f68398e7eadb12f878fb319397a",
+      "receipt_hashes": {
+        "report.json": "91128276fdb1ecced7abf85e6534f86089ba50eb76bd52f4438591f3e52e87c9",
+        "verdict.json": "139edd2cba2b78f2c37f0143f50a82227760bfd019841e2e3aca7c1bd08eb011"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1971,
+      "required_wet_end": 1635,
+      "required_water_loss": true,
+      "initialized_observations": 7069,
+      "initialized_water_loss_end": 841,
+      "exact_point_wet_loss_end": 1936,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    {
+      "slug": "dry-upland-asia",
+      "stratum": "dry_upland",
+      "world_region": "asia",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": true,
+        "drying": false
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "4bac9961d22b00924b77789160f47ea4f73ed816822573609233cc6edf2e4fa7",
+      "receipt_hashes": {
+        "report.json": "d1df338d7054784c186f361c6fee00b1196936fe607281b2f3e6248f7d612d3c",
+        "verdict.json": "deb0335cdbfd3a9e41cedcf901461866ceaec463bcd255515eff47208973a587"
+      },
+      "labels": {
+        "flood": true,
+        "drying": false
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.2452,
+      "required": 50,
+      "required_wet_end": 50,
+      "required_water_loss": false,
+      "initialized_observations": 1255,
+      "initialized_water_loss_end": 0,
+      "exact_point_wet_loss_end": 279,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    {
+      "slug": "dry-upland-oceania",
+      "stratum": "dry_upland",
+      "world_region": "oceania",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "4597eb5316aa76d4c5fa5c50ee2e476c0af7a79b14ecbcc494f4e95f0290928e",
+      "receipt_hashes": {
+        "report.json": "9e0b0beaa81698889bfc1982650579e5d482df93609376b9c342486ea65dac09",
+        "verdict.json": "55fc46230c4776be8af58858baa9ed4944d3d8d36405c1fdde312366cba948aa"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 136,
+      "required_wet_end": 136,
+      "required_water_loss": false,
+      "initialized_observations": 1947,
+      "initialized_water_loss_end": 164,
+      "exact_point_wet_loss_end": 395,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "mountain-river-north-america",
+      "stratum": "mountain_river",
+      "world_region": "north_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "986ac754f533c11947bd476b66dcfbc4bad60d4c3558fd3aac15b3db3e9cef46",
+      "receipt_hashes": {
+        "report.json": "629b92cc2379d36c480ee11ef9474fa934ddd8f905f997ff3ab30745adb251e4",
+        "verdict.json": "7e9d43e3d7608aaa96c7c461b3cd93b445462b357c9d228518c99bfc786b1acc"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0108,
+      "required": 1,
+      "required_wet_end": 1,
+      "required_water_loss": false,
+      "initialized_observations": 1523,
+      "initialized_water_loss_end": 140,
+      "exact_point_wet_loss_end": 262,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "mountain-river-south-america",
+      "stratum": "mountain_river",
+      "world_region": "south_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "8c4e1f38030c25a9ccfabab95b214ef88eb4f5644f6f2d96a407b82193223cb1",
+      "receipt_hashes": {
+        "report.json": "314758f3afc4153eeb3c132bc7871ae09a96ec988853ee5e4254a503beb091b9",
+        "verdict.json": "b170242591a385dda676bb4061339763f2b5c61a47e01f24636867604e88eb74"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 407,
+      "required_wet_end": 368,
+      "required_water_loss": true,
+      "initialized_observations": 1973,
+      "initialized_water_loss_end": 141,
+      "exact_point_wet_loss_end": 344,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    {
+      "slug": "mountain-river-europe",
+      "stratum": "mountain_river",
+      "world_region": "europe",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "28fd1bee94469dab2c4a161a8a6d5bdf365b7647d9c8ab335ac6b44a64c7c47a",
+      "receipt_hashes": {
+        "report.json": "9f0806d0f4efff66ee755979170fe043200b084992ac683375f283c7e4873536",
+        "verdict.json": "7108d66ca24bb38f05360fa2b5b160191b28b7745df823bdefa93a3ea32dc8b9"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0451,
+      "required": 842,
+      "required_wet_end": 833,
+      "required_water_loss": true,
+      "initialized_observations": 2413,
+      "initialized_water_loss_end": 323,
+      "exact_point_wet_loss_end": 548,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "mountain-river-africa",
+      "stratum": "mountain_river",
+      "world_region": "africa",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "00347510e5976b16d46ff8ed4a88cac605c639e4070cd2b35540b48cb1698d20",
+      "receipt_hashes": {
+        "report.json": "d3f9d515e4d334b46a5d170380f28128d6aad4d21848712f5c43176ceb20f371",
+        "verdict.json": "a772d1bcf780142e8cbfe84579f2c86de236a54d7b4353373f3c3dfd56a3e1e5"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1663,
+      "required_wet_end": 1660,
+      "required_water_loss": true,
+      "initialized_observations": 4664,
+      "initialized_water_loss_end": 59,
+      "exact_point_wet_loss_end": 1083,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "mountain-river-asia",
+      "stratum": "mountain_river",
+      "world_region": "asia",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": true,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "4b24efdf0e20c0e205de50669efbf4e0931006132179745e6fc8d1d8e10881e9",
+      "receipt_hashes": {
+        "report.json": "05e03c88264fb9b263ef1b7caa60df4294d15e5f34da4d2fdf7e506c8ffa881a",
+        "verdict.json": "22f8b6584dc9e0cffa2ece7b25524634df8f60015d2e8f1c96cd96f120ab68f6"
+      },
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.1526,
+      "required": 1,
+      "required_wet_end": 1,
+      "required_water_loss": false,
+      "initialized_observations": 2580,
+      "initialized_water_loss_end": 658,
+      "exact_point_wet_loss_end": 1263,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    {
+      "slug": "mountain-river-oceania",
+      "stratum": "mountain_river",
+      "world_region": "oceania",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "d9467268f1e8b0230f00da933125aba29b1c93007851860526bd8f3e6d6ed8f7",
+      "receipt_hashes": {
+        "report.json": "e26c392568ae6dd137e72e55ef61df6b8318542030044d650253388407cfa642",
+        "verdict.json": "4f4902370eeb9169d659c8bc477d55d42c75bd810ff40c7575e98a7ee3eb4646"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 227,
+      "required_wet_end": 227,
+      "required_water_loss": false,
+      "initialized_observations": 5552,
+      "initialized_water_loss_end": 651,
+      "exact_point_wet_loss_end": 1224,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "lowland-river-north-america",
+      "stratum": "lowland_river",
+      "world_region": "north_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "0dc90a8663e41d90c91ad400f378487b1e44c9d21b3e00312ca43c35436f9e0b",
+      "receipt_hashes": {
+        "report.json": "620f7c0f9c0900618636172c25825711eca5dadef0ccd79812c9c4ad44f3bd9a",
+        "verdict.json": "542cdf7de85ffd677e464b1f72553484d0030b56d95a2841996bb72f431e31b6"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 843,
+      "required_wet_end": 843,
+      "required_water_loss": false,
+      "initialized_observations": 6154,
+      "initialized_water_loss_end": 361,
+      "exact_point_wet_loss_end": 497,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "lowland-river-south-america",
+      "stratum": "lowland_river",
+      "world_region": "south_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": true,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "2334146aa186ea934d141fc6c0f1cb74bb7fb51c8de36b9d677e80dd1dfa3683",
+      "receipt_hashes": {
+        "report.json": "0a0c155f33f0851fd3c6c5bcb1480759843c613732a221b9fef82c8b3a385c49",
+        "verdict.json": "e3b438b05eb10b90c1393d567f2452207a6d111d2e75d11125abf2f8470b4c9d"
+      },
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.1152,
+      "required": 1,
+      "required_wet_end": 1,
+      "required_water_loss": false,
+      "initialized_observations": 4123,
+      "initialized_water_loss_end": 125,
+      "exact_point_wet_loss_end": 261,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    {
+      "slug": "lowland-river-europe",
+      "stratum": "lowland_river",
+      "world_region": "europe",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "48590d00db4282582e1af9a9ca8cf3cc5aad16a89e987a9d6b85c55670c414ab",
+      "receipt_hashes": {
+        "report.json": "4255a02481cc404781c9761969b61349ac0d41a1e60ddf04f413291dbdf89931",
+        "verdict.json": "bdd9a746e9f6d982a5f79417544493736e546df4a51af18f8bb69b46e15857cf"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 6,
+      "required_wet_end": 6,
+      "required_water_loss": false,
+      "initialized_observations": 4164,
+      "initialized_water_loss_end": 506,
+      "exact_point_wet_loss_end": 776,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "lowland-river-africa",
+      "stratum": "lowland_river",
+      "world_region": "africa",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "0f03110e87521aabfddf3450fea93021c5c61652feb0f1b03aba81b138e591a1",
+      "receipt_hashes": {
+        "report.json": "7d932ee84f23e3b215a91ff85ca778ac6e5229c4c8e8f59e16562186aa7e6c87",
+        "verdict.json": "d50e357424ab8cd478a30f2c7bc9178a51e10df3f12c1453b3254a4f8671789e"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1215,
+      "required_wet_end": 1059,
+      "required_water_loss": true,
+      "initialized_observations": 4420,
+      "initialized_water_loss_end": 555,
+      "exact_point_wet_loss_end": 982,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    {
+      "slug": "lowland-river-asia",
+      "stratum": "lowland_river",
+      "world_region": "asia",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "59c45202873ff85c2cb21995ced0def48b8a301f8b1fc77b931045ea45aefff6",
+      "receipt_hashes": {
+        "report.json": "2040420d823f670284568ac0ff46cf980bec4fd825e7e39d7829969e98131495",
+        "verdict.json": "01c07b69153021d2daf8e127f614b37c6055354aa8d95fedaedf75e1826e8c12"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0338,
+      "required": 1410,
+      "required_wet_end": 844,
+      "required_water_loss": true,
+      "initialized_observations": 8891,
+      "initialized_water_loss_end": 1693,
+      "exact_point_wet_loss_end": 2657,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    {
+      "slug": "lowland-river-oceania",
+      "stratum": "lowland_river",
+      "world_region": "oceania",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "568bd8604c729a3581e84e6e01b8eb1e0b5f31a8975ea412d05fb52cc75459ba",
+      "receipt_hashes": {
+        "report.json": "88cb36abb6c3b34c5908f5eb6f3b0f951e2c8f0e8ebb7b10baa05ceae95496c4",
+        "verdict.json": "80f5b221dd73fcb9ab39b8d799b942e9d92655772d7afefe137d2ff5d36a5cab"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 1357,
+      "required_wet_end": 1238,
+      "required_water_loss": true,
+      "initialized_observations": 3535,
+      "initialized_water_loss_end": 1046,
+      "exact_point_wet_loss_end": 1463,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    {
+      "slug": "lake-shore-north-america",
+      "stratum": "lake_shore",
+      "world_region": "north_america",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "96244d5c21edff94d750d91ef18e14180ef77e78c1e45e67388a6020706f9ea3",
+      "receipt_hashes": {
+        "report.json": "60f6b2a65a8a9c121ace33bf99b1a51fd49ad028f50b9b5fc5fbc70b1c299a12",
+        "verdict.json": "408a03a5347c376da96a3a58a79ffae8b78ae8d59fb71f7122e46d0ddfe3c1a8"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 251,
+      "required_wet_end": 251,
+      "required_water_loss": false,
+      "initialized_observations": 6575,
+      "initialized_water_loss_end": 690,
+      "exact_point_wet_loss_end": 1086,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "lake-shore-south-america",
+      "stratum": "lake_shore",
+      "world_region": "south_america",
+      "status": "capture_failed",
+      "failure_sha256": "015188d6642ed70ae857b9e22dbf0d17af9bd52c7397e91050473491ed318ea9",
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "product_clear": false
+    },
+    {
+      "slug": "lake-shore-europe",
+      "stratum": "lake_shore",
+      "world_region": "europe",
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": true,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "dbdc1397e222214c4465f689ffeb784999110b369b2d72c7aaff5fd15fe11733",
+      "receipt_hashes": {
+        "report.json": "7b252060d822e934f2b75078fd8dde9b29a9cea62444aa76dc6ac43a4e035158",
+        "verdict.json": "9711bd5d6807e7932c756a4a6e030bdc8fe5ebfdfab5a9a6c06b4af4c7bbf71c"
+      },
+      "labels": {
+        "flood": true,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0627,
+      "required": 918,
+      "required_wet_end": 911,
+      "required_water_loss": true,
+      "initialized_observations": 5809,
+      "initialized_water_loss_end": 319,
+      "exact_point_wet_loss_end": 1029,
+      "original_native_water_failures": [
+        "no_flooding"
+      ]
+    },
+    {
+      "slug": "lake-shore-africa",
+      "stratum": "lake_shore",
+      "world_region": "africa",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "5e69d03456b458dcfea677dddffc54f31413131166131d3920cfc9ff9796b8dd",
+      "receipt_hashes": {
+        "report.json": "d51ad84daf3338137cf07a9352947d014fb2daa19875aebab065e9f1d7f45e4d",
+        "verdict.json": "97b6a5abc6e9ec202fcc0fdb6856cc05db0da0bc196350c17d6ec917d81169ba"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0177,
+      "required": 448,
+      "required_wet_end": 443,
+      "required_water_loss": true,
+      "initialized_observations": 1202,
+      "initialized_water_loss_end": 138,
+      "exact_point_wet_loss_end": 282,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "lake-shore-asia",
+      "stratum": "lake_shore",
+      "world_region": "asia",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "909b390ddd6dbd87821b4d63417cdb2fc6036382b4968d45c0c8bd812be354a5",
+      "receipt_hashes": {
+        "report.json": "743f783fa0817655838801e06c6520db1afd627e53fe65b0034396689306cb0f",
+        "verdict.json": "33abf7d1dfae01e959a6bd26d770126c820363dfae0b45021aec3abe194b1421"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 381,
+      "required_wet_end": 381,
+      "required_water_loss": false,
+      "initialized_observations": 1839,
+      "initialized_water_loss_end": 11,
+      "exact_point_wet_loss_end": 294,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "lake-shore-oceania",
+      "stratum": "lake_shore",
+      "world_region": "oceania",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "5cf4aa35d18f9dc95f6298142cebdf21f028d5646a4ae50ee8e762947af967fe",
+      "receipt_hashes": {
+        "report.json": "e3409cdc14a6e51d425b1e844a219e8b1de674891e73c0deae6ad1a6b1dbd9b5",
+        "verdict.json": "81f95974d79d737d44ea76c59e75953f8f9f1d304a843a79b3547242bb4778f0"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0394,
+      "required": 200,
+      "required_wet_end": 200,
+      "required_water_loss": false,
+      "initialized_observations": 1411,
+      "initialized_water_loss_end": 230,
+      "exact_point_wet_loss_end": 461,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "low-coast-north-america",
+      "stratum": "low_coast",
+      "world_region": "north_america",
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "970d69d1a1343b18ac7651cbc663421f32fcecb3ed003c9fdc7f0649a490eb6d",
+      "receipt_hashes": {
+        "report.json": "e59e05f8a46e8f6bbf12f22db0846f2cc14917b8a43c1b4db4bd1b66b2c8dab0",
+        "verdict.json": "f0c14f97c20f1e9572cd9e298a039ce3c33b5d39426862b35a8ec2f91c800638"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0079,
+      "required": 0,
+      "required_wet_end": null,
+      "required_water_loss": null,
+      "initialized_observations": 57562,
+      "initialized_water_loss_end": 424,
+      "exact_point_wet_loss_end": 485,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "low-coast-south-america",
+      "stratum": "low_coast",
+      "world_region": "south_america",
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "dbb7295400e5cdfef837ae90762816b5e15c15c2d64cc6fa5ea766d733f7dcbe",
+      "receipt_hashes": {
+        "report.json": "e859e4ae3fde027ccbe853b8bed8c8748a70d30e9f03a0357d72831990a3906a",
+        "verdict.json": "8fcbeb361e0930fe3db40cc79042cf22c2e62155c19567445845b64a827b58a5"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 230,
+      "required_wet_end": 135,
+      "required_water_loss": true,
+      "initialized_observations": 24950,
+      "initialized_water_loss_end": 1134,
+      "exact_point_wet_loss_end": 1235,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    },
+    {
+      "slug": "low-coast-europe",
+      "stratum": "low_coast",
+      "world_region": "europe",
+      "flags": {
+        "flood": false,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "5bb2eb1d0b24b84c3fc28170646c6ff584cd185d9d73dc58c9147a8dd7122958",
+      "receipt_hashes": {
+        "report.json": "b6db6cc194b2d98ba7dfb3799e3b16cae41af7228d225d66a91c20e70cce6a58",
+        "verdict.json": "6fe74af3541c83ae592b832b38c3f10d86d7058ceca2142c00028cd3ee92e0f7"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 836,
+      "required_wet_end": 836,
+      "required_water_loss": false,
+      "initialized_observations": 8838,
+      "initialized_water_loss_end": 319,
+      "exact_point_wet_loss_end": 472,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "low-coast-africa",
+      "stratum": "low_coast",
+      "world_region": "africa",
+      "status": "capture_failed",
+      "failure_sha256": "67e047d36155b578eb8e3ccd566b02512c15f307dbffa0bbb5200e6adcaa910d",
+      "labels": {
+        "flood": null,
+        "drying": null
+      },
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "product_clear": false
+    },
+    {
+      "slug": "low-coast-asia",
+      "stratum": "low_coast",
+      "world_region": "asia",
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "8893e5d611e9029acd4dc7f7aace7e8649a2836c2083c8e2db9949b46ef73670",
+      "receipt_hashes": {
+        "report.json": "afbe306c4e63f7f25172547c41e78d88b960a1a60f457ca6fc90a53b22417f4c",
+        "verdict.json": "267b995ee4111ef26f537164095fb31614a6985909015233e32605081932a660"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": false,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0,
+      "required": 733,
+      "required_wet_end": 733,
+      "required_water_loss": false,
+      "initialized_observations": 44808,
+      "initialized_water_loss_end": 592,
+      "exact_point_wet_loss_end": 660,
+      "original_native_water_failures": []
+    },
+    {
+      "slug": "low-coast-oceania",
+      "stratum": "low_coast",
+      "world_region": "oceania",
+      "flags": {
+        "flood": true,
+        "drying": true
+      },
+      "native_labels": {
+        "flood": false,
+        "drying": true
+      },
+      "candidate_product_clear": false,
+      "product_clear": false,
+      "status": "complete",
+      "package_sha256": "b743ed32eb7ab7e7c1ada61377fd66be841f744b3be14920a2d21ab132b5b4ce",
+      "receipt_hashes": {
+        "report.json": "9c1302204da0de88711ea610c1052e7fb6b9c7b482e88a6f9025b8c096e560eb",
+        "verdict.json": "db603c1700a107f043b202a67a0376df1a9836b4856dd651312c559554dc29f0"
+      },
+      "labels": {
+        "flood": false,
+        "drying": true
+      },
+      "original_dry_gate_failed": true,
+      "flood_reference": "probe file reference_water (frozen copy) union hash-bound mapped_water",
+      "flood_worst_km2": 0.0003,
+      "required": 1149,
+      "required_wet_end": 987,
+      "required_water_loss": true,
+      "initialized_observations": 26098,
+      "initialized_water_loss_end": 976,
+      "exact_point_wet_loss_end": 1666,
+      "original_native_water_failures": [
+        "probes_wet_end",
+        "probes_wet_throughout"
+      ]
+    }
+  ]
+}

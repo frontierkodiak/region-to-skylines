@@ -1,0 +1,1036 @@
+{
+  "schema": 1,
+  "source_commit": "9a4aad77101fbdb0190c7ceaa11ec643065bec56",
+  "files": [
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/README.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/README.md",
+      "sha256": "0d4eeb3e14a664249ea43a031aaff8553b54a26c7f1d7154889ab94476f8531c"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/export-identities-and-warnings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/export-identities-and-warnings.json",
+      "sha256": "35a9c73cbc6271f67e7d5ac99497ba8439c11aef6342eca11b95c8e3fb299054"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/README.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/README.md",
+      "sha256": "dbed4b4b31dcc6a122aaaab9afa99ceb2356e43c310650c29f35660c512dccc6"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/after-manifest.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/after-manifest.json",
+      "sha256": "d309963ef27047e77406a81628154c3b3de9b59585557a445680024adb5c8245"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/before-manifest.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/before-manifest.json",
+      "sha256": "ba36624d7b8725d76ccd9c3204cf51c2c53195d0f9486fa122cf026cc1f94b5e"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/cases.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/cases.csv",
+      "sha256": "b85545291592514a73cd7148fd83c1026f99fb3d3bc8b5089b03903ec5a16f3c"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/comparison.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/comparison.json",
+      "sha256": "bd1003b2dc27374171077b5e7dd8ff3aaaf346ec84f8ebeab4ff58257ffa9817"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/evidence-index.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/evidence-index.json",
+      "sha256": "c9a75023f5e4078c06034928b17b37170404fd52f10ad2d036f1524b3fbef4a8"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/post-run-identity.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/post-run-identity.json",
+      "sha256": "167b63b0a2945c9e1110503f05e2c279c390444faacb43cc5892f3abd785c526"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/pre-rule-original-eight.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/pre-rule-original-eight.json",
+      "sha256": "dcf0e35204589a338e19c1359ac1fc3fc9c3d6f9ec1531a8c5e0bacc8da28efb"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/stock-manifest.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/stock-manifest.json",
+      "sha256": "e4c4fb2ba74170c56e6cdb9bd86e020b0f9c6b75f35a18882189dfa7210cc41d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/asheville/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/asheville/verdict.json",
+      "sha256": "87659d8ec99abc4695287d044799cded18b34520dba9c67360ed4555ca3387a7"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/charleston/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/charleston/verdict.json",
+      "sha256": "01ae244df1f3a34cd6fc5371445117e4c8aea1e253f5ee6f26f8cd8682fb31ab"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/grand-canyon/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/grand-canyon/verdict.json",
+      "sha256": "b0f50969fdc7f95839ac92735372a6f75eb7c4bf024754816890d34e4950a1b4"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/grand-canyon-northeast/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/grand-canyon-northeast/verdict.json",
+      "sha256": "f14bb7c8875a03e3eed17fcdd058f46a973c802ef75716861cabe73c9400bb50"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/hong-kong/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/hong-kong/verdict.json",
+      "sha256": "25e44868256e1f7bacdcea721a9c13c39050fbedd0f1028f5997cdc5de7b55df"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/hong-kong-northeast/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/hong-kong-northeast/verdict.json",
+      "sha256": "bcb0a0b16b76088296b1fabce756b8af831345cc1ed3be35333fc869207c51ab"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/innsbruck/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/innsbruck/verdict.json",
+      "sha256": "de99af9051a0271dee77024baf467e82c20b7b7132b3ea4defa590f99a5cddd7"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/pittsburgh/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/pittsburgh/verdict.json",
+      "sha256": "228bd9a2ecf5924dc91c220d08ecf66e876a7ce5351767498b4146ec2f3c928b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/rio/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/rio/verdict.json",
+      "sha256": "fe902dc3b17b0aed40774d343bfd97ddf50ddb51fe18122fd9bc40776c97fdaf"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/rio-northeast/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/rio-northeast/verdict.json",
+      "sha256": "8e54ca4ee021783c712736fdefead9029bc4b07f9414c68ed52c26f13bceaba3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/yosemite/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/after/yosemite/verdict.json",
+      "sha256": "cb83f5692d7f59a98486a8dbfaac4ec1239477ff6165464d87812cbc021c6834"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/asheville/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/asheville/verdict.json",
+      "sha256": "0da18c80771f3ea6f2b1fc59882f4700f22a5e3cb27a6ecbed55fd8f547970c2"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/charleston/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/charleston/verdict.json",
+      "sha256": "135a8cc4acbee5d2e3144e3ad885de84ec7e945142ab3b04ee15daaf2030359a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/grand-canyon/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/grand-canyon/verdict.json",
+      "sha256": "27fb7f0ddcd33f067df1fe9b6abe395656bc9384293798a7b2f3f66451e29c0f"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/grand-canyon-northeast/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/grand-canyon-northeast/verdict.json",
+      "sha256": "0463a9f2afc3df6576b9dca72c1954fda77ce9198b4ba0df690d8613ff15b5ff"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/hong-kong/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/hong-kong/verdict.json",
+      "sha256": "45baa244c3a6b05f42496c381e169343bed4b6594ed84a6f09b93d0902253d10"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/hong-kong-northeast/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/hong-kong-northeast/verdict.json",
+      "sha256": "b0331972b9634ddaa95d4ce269afa7b993e3423a9a9aa30c07f779651b24dd40"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/innsbruck/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/innsbruck/verdict.json",
+      "sha256": "fbb26ff1ba74e0de69f825e929ab75455bd4d369b117ff6988cf82c764839f77"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/pittsburgh/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/pittsburgh/verdict.json",
+      "sha256": "caa9f7434eed7ff797ef283c6b2e6ef578276862a8d81c1350b484bb26b8184c"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/rio/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/rio/verdict.json",
+      "sha256": "526ef562334882fc953d84b4eb77b91bb8e169a6a24ff1a9a45ae1cfe23e745b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/rio-northeast/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/rio-northeast/verdict.json",
+      "sha256": "b4effe37d32f301d8f0d5c2c6c932eedda3d9eec936aba67668e85f6dbc7fc9c"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/yosemite/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/before/yosemite/verdict.json",
+      "sha256": "491c0bf6af4151474cfd2dea00bb03529efcaeebc7fab228d3e0a5197ac2a265"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/stock/cliffside-bay/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/stock/cliffside-bay/verdict.json",
+      "sha256": "51a756bd3d9c39c4da88d3128d65855b06aee525f5ee32eb268277c9c4b59fe9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/stock/foggy-hills/verdict.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/first-hour/verdicts/stock/foggy-hills/verdict.json",
+      "sha256": "9adf9720299e4915fcf6651d8d664a72bc898053b02354e95d06a898bda1c797"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/fitting-decision.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/fitting-decision.json",
+      "sha256": "85a52c3e767738c07cf760335bf515e3c05f0a4a137334c640d79371906ec7e0"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/fitting-observations.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/fitting-observations.json",
+      "sha256": "b6e0e9a0030063b72ac82073c458e4d013c65357d589cb82aa5e7860f7960a65"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/fitting-start-observations.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/fitting-start-observations.json",
+      "sha256": "81235d4029e6b8f1ea334e0514f5286f9576a43feca5c963d9f501aa6e43317a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/history/mixed-api-reference/interruption.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/history/mixed-api-reference/interruption.json",
+      "sha256": "f9500435fcca88c9e93a5fa0c4e61ab78616eb1c3b8135bc0e2d1978585f7cab"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/history/mixed-api-reference/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/history/mixed-api-reference/observation.json",
+      "sha256": "b1c64a99b7f210ea26a7d041fec1d05738bb19fc6835b23a184e07b46d0bc9fa"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/history/mixed-api-reference/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/history/mixed-api-reference/witness-job.json.gz",
+      "sha256": "2a424de3863c2aee44ecef56e947affd52976d32020973c4e931992bcdf3bdae"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/gpu.csv",
+      "sha256": "2437a399261813d1a93ef490f1159a9eec4c74778a265f5d40e53cfe544a69a6"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/new-game-panel-review.json",
+      "sha256": "20cfda7ad9500641aee397436b310feba5dd7ce74eeac85ab9c5454eaaa048a9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/new-game-panel.png",
+      "sha256": "34672a809a3369b2aa06ff3c5611c83810a9d01532ed58fff594f0d509bc7a4d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/observation.json",
+      "sha256": "17ee955590e8a5abf0dbf509c8aaf52f3029ad15b8ff0885f363e6de2d3fd4b7"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/prediction.json",
+      "sha256": "2ee2498934060a884b583516962af615c70e79e6c25c23dca660d917e69b62f4"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/receipt-bindings.json",
+      "sha256": "2ce1900166349263f960596c47eed12a14bcaf35a29adda8417c48dab6075fe3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/startup-area_zoom.png",
+      "sha256": "3687481266de5697fe7ec425f18a887170ac2e31303e91a13ba6171288b32dd8"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/startup-opening.png",
+      "sha256": "fe2b8976c39f2cb6c225f4d1d7b2d0894eb9c106b674a2e8f98a715bdb377c54"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/startup-views-review.json",
+      "sha256": "049790b073116ccd20fc667673f133e946f6fd68706b41333e3beab714867723"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/summary.json",
+      "sha256": "9e48d149d5e410a28051e5087a747a6fe47e2802a29e592c6c5257ebc100c194"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/charleston/witness-job.json.gz",
+      "sha256": "3436a569da0e928f8171abfefdcf005f99fae1d58c07ec8eb15829e24fbdf27d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/gpu.csv",
+      "sha256": "d80e3e40c8fc74615a429088a9b6b8448b41a6b4909f1bb03d3d9c9ad45bd511"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/native-paths.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/native-paths.json",
+      "sha256": "702410360ea4246ace9c3d693e8fd7c0cdcba3583dd5a7dcb7a5e7277292e2ea"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/native-water-points.json",
+      "sha256": "18c82906b08c4ad863e89ac644b4f97e7f5eaf8654ab029ba8ff8423b120d0eb"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/new-game-panel-review.json",
+      "sha256": "0998d249562ea67cb435a9ea0ce5c3638b669bf6e55c96db1c3f779cd74389f1"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/new-game-panel.png",
+      "sha256": "f7e6533a1a8c4c3079327683c4a021be51281df562153073ec40c5a0e0c0891f"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/observation.json",
+      "sha256": "bf45ec10acd18ec834fdfdedb3f08ef0590d4db833a5b2e90005c6a9b475af0b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/prediction.json",
+      "sha256": "a56a1c11ea0c535f4015c4a74677f60dc8d9139732fd321352ad359d542868db"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/receipt-bindings.json",
+      "sha256": "9af4bb319eefb0652fffaaff6583ce9c0eaf50befede48baaf23a46f594c19a9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/startup-area_zoom.png",
+      "sha256": "ec5dd4fc6f95a7644412f6342056c13eaaa2cac1062e5cf3cde8684ef9410c66"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/startup-opening.png",
+      "sha256": "52c027bc09a1f0c11887007d06f9764fa47bdc273b4fe33e032580eed9dd4171"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/startup-views-review.json",
+      "sha256": "9f51e30aa72e65baf8f0d755a6d877e281c1bef01e58e90a5dc4f84996e7bcee"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/summary.json",
+      "sha256": "dbf18efc0180ee4c99fa2f997255e2b46964bccf3a622ceb4eb899c73743d215"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/innsbruck/witness-job.json.gz",
+      "sha256": "0c64d8fb6d7c3080e76790e5e19bd562c1bc89e93fc97125b40bb048f77256eb"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/gpu.csv",
+      "sha256": "e959506a3e16141e4132595143ec8664bc9c171a9da43d3e1db11b89a605a49e"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/native-paths.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/native-paths.json",
+      "sha256": "494f490b2ff391f4e0fceade3ba0973b9bacbc50b66c9bca5ea9db0ff44bfffb"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/native-water-points.json",
+      "sha256": "fcec1bd2abc84aa2809193cf03ac53a436dc41e851337745cced89cf017ddb42"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/new-game-panel-review.json",
+      "sha256": "969cfa72365b01e02725855705ed1a439a1e395fe24bf4f30e8a798c07b3e8a2"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/new-game-panel.png",
+      "sha256": "223dc2eda5f1a37fea72eab4d183a6a118797e4a37cc256d25708f6ef31c3eed"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/observation.json",
+      "sha256": "0319aba72514204c0dda97e4940c959df746e6854f891374628563c3a9747c7d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/prediction.json",
+      "sha256": "f38e6442859c2020ce306d401c6ae0da3560c8d32648b413d096bdfe337b67f5"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/receipt-bindings.json",
+      "sha256": "676c6bf627cb500cf45609abb532c177d12475e2ead1dbe5cdd16cbf925565ad"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/startup-area_zoom.png",
+      "sha256": "1722db932fbcb07396b40900e67fcc555c76cd8fb617462ae33122032db11fcc"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/startup-opening.png",
+      "sha256": "e55e91758e643c6ae0942cb89c65916fa3c4bb3a652445c8dda9164a681ed0a9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/startup-views-review.json",
+      "sha256": "15f852c144a100af4ddcb162fcdeef04ff8dbf138ef9275b36aa0d6e8f4c7f23"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/summary.json",
+      "sha256": "9f897527743b5118a2734fb11efd6e61971b187690d3ba075cb0702d90582097"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-start/pittsburgh/witness-job.json.gz",
+      "sha256": "56a3b3322ec21f4d6b6804ab125fe1b35d25ace795003b81aa2daa6962700b76"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/gpu.csv",
+      "sha256": "6a6aa6183310d32c4b2f37a4e3b6d255b5ab184322f0015f7307e72bddb30051"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/native-water-points.json",
+      "sha256": "df13c39ac09ad103e6440905279c7e4b1772a793154e79e6aa5d06ab42b8eb4c"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/new-game-panel-review.json",
+      "sha256": "2aba0750a5e8e465a68c9e5b2d34ad15096af20ed64dc1d3d55da045730318fa"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/new-game-panel.png",
+      "sha256": "be73e191c859322779434e7fa909c1f707ab58d8d5ccb807e44269e1ba6adae3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/observation.json",
+      "sha256": "e35638c83d7917a195e6edd97c2f4ec4c1d9d5303aa686c763ef1b83a3062038"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/prediction.json",
+      "sha256": "6272f0246ba192a157bb5ef2f5c8ac4234c9b9d4a343d2f97d629255dfbcd09a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/receipt-bindings.json",
+      "sha256": "b8abbe8e7c4d0ed54108dd761ea787015bd910560d118fa5e369407396eac2ea"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/startup-area_zoom.png",
+      "sha256": "793f3d9a36146518a3c36e7b558aec541c230158aad96fbefe95219776ed37b9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/startup-opening.png",
+      "sha256": "6d69d291c18358618b7fe0d1d29a1644ba96f4f75d5e757f59ea57dab36b0254"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/startup-views-review.json",
+      "sha256": "d39e92f2fb2ec0008ae2723fca4632b8cf7abacb60aba5967c1abbe1b39ddab1"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/summary.json",
+      "sha256": "936c95259d2564042c37034a4e1a532334c824b0f05a4a62ff7493f8fb27a2fb"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/asheville/witness-job.json.gz",
+      "sha256": "c75411631b37fc0e787692df29927558966f1acfd4bcd9ecaa16d85e1ae22b19"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/gpu.csv",
+      "sha256": "b18757e7bdb4343092fb0017a8e4a5dd3a3fa7fe3f5e3cc8b025a05c1380797e"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/native-water-points.json",
+      "sha256": "18c82906b08c4ad863e89ac644b4f97e7f5eaf8654ab029ba8ff8423b120d0eb"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/new-game-panel-review.json",
+      "sha256": "128bf27600f0848781d23a8d9910aa2cf13aaed263b7ef40c09b936200315000"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/new-game-panel.png",
+      "sha256": "5c0afbb0c27d0ab9285a3764b6762685aa282988810f8ac8bee1f989fda05e76"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/observation.json",
+      "sha256": "5154fa2a627d30b76bc03dfde515953db4e7ced016af2a8d3c46d08d393648b2"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/prediction.json",
+      "sha256": "a56a1c11ea0c535f4015c4a74677f60dc8d9139732fd321352ad359d542868db"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/receipt-bindings.json",
+      "sha256": "c6eb8bce62736143068fa8b436191eee241dc1cc39af87ed0dec10664a0d2723"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/startup-area_zoom.png",
+      "sha256": "13ea902400ec2901a0bddcff3fb279af917e39089ce953f1ef01b23b308c16d6"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/startup-opening.png",
+      "sha256": "4d9be09599e391e67ef80194222d18cbcde16f1cc99d028b5dac0c846f933920"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/startup-views-review.json",
+      "sha256": "f2576b21c44c772bafa25c09b939d6773bb021c9daabe2c482772fa8c1513cbd"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/summary.json",
+      "sha256": "547258887826043a91aa96b81ccb022c44d6de799fadedb6c5d3c32354b7deef"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/innsbruck/witness-job.json.gz",
+      "sha256": "bef3a5dc3775e427e94ce1edd3591a799ee240a56873e134db52dbe04399d89e"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/gpu.csv",
+      "sha256": "6aba1401871fae0624176eca662364d5cbec0d912175437ae7aecc769ee60ee5"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/native-water-points.json",
+      "sha256": "fcec1bd2abc84aa2809193cf03ac53a436dc41e851337745cced89cf017ddb42"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/new-game-panel-review.json",
+      "sha256": "44e403e0c894c31b6ca0a7dcd5635140821720e044300f7ee05ae3f720e750b6"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/new-game-panel.png",
+      "sha256": "ecf85fd0f7dc1128b1b27c60a4ee035e669c96c4a76f982dcb10eda5c3b5224f"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/observation.json",
+      "sha256": "2d0830e386c0cb19c7ebc5a253f75b39515268b1414b4cf33c119020ed4e903b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/prediction.json",
+      "sha256": "f38e6442859c2020ce306d401c6ae0da3560c8d32648b413d096bdfe337b67f5"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/receipt-bindings.json",
+      "sha256": "db03fd9985a0c32d43bba8de3474b52e6061db9b3a883d1691ab232dc59c1156"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/startup-area_zoom.png",
+      "sha256": "57b2ddd89d43061ea286aa426dd4894310b95f6562a0e0bad7f9cdfd4167ea4b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/startup-opening.png",
+      "sha256": "3d0b3d4fbae15da33bad4d36e61c4dac84655bc1f1e3284f06d2e90ca064d955"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/startup-views-review.json",
+      "sha256": "d7d92774c7d3fc25935044516195da1296308991ed24098b19b7663c5e9d38a7"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/summary.json",
+      "sha256": "cc875873e3ae0f6035b02043e32265b7733994742157f2020b873a61677f0d5b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface/pittsburgh/witness-job.json.gz",
+      "sha256": "f9ae893d44519e7b84e01b17c7a788ea9b000e1ad6afd73725ba45253c1d9544"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/gpu.csv",
+      "sha256": "a5fd77650199f7ff782e49a9c115d3f26af77f500bc335239507947f855457a3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/native-water-points.json",
+      "sha256": "43043dabcb9ca5b61b83438d27c7b8ac9397a81ff89e333a2349cba03f512f4a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/new-game-panel-review.json",
+      "sha256": "56d0b9bc3c95d89aef3f13b9676dbbbe3d583aeaec7591ba493e57af18e93b4a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/new-game-panel.png",
+      "sha256": "b866ef4b586f1dfc98316105f29df0ca43e48c932b184e0b2a39b18a35720000"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/observation.json",
+      "sha256": "e7a385e2f3981b22126d2a27e3a361d7a357d081a4cc0aa62b8154aecf1be274"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/prediction.json",
+      "sha256": "ec5ce8889bc6c01cb5868112f0a4759bd5c93203986afb7f58187e27da4e6685"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/receipt-bindings.json",
+      "sha256": "f8f90ef008c3fe96474cb5e7bc3dd6dac635cca74a1468855d89c3cb3ca3b801"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/startup-area_zoom.png",
+      "sha256": "f568b3d93e6ed1da33d95605ef6b17eeff655f4376693ca569125d94484ee7a6"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/startup-opening.png",
+      "sha256": "53e386cf2243d3b4f87102699f993c2b22f56c90e437e772760b45753bdb89a5"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/startup-views-review.json",
+      "sha256": "8e7e0966fb987c685852760f38a31a9315167dc3b73544b1d8481aa08ba52801"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/summary.json",
+      "sha256": "9f7080c3d0fa429847dfa4adb040a06873d935b497556ad9b9bbafec51c30aad"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/hong-kong-northeast/witness-job.json.gz",
+      "sha256": "8550f865b1e5400409022e29b39a24a59ae1629be339ce7fa71188ee10edd406"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/gpu.csv",
+      "sha256": "fe214931c91176edf1e23453ba24eab268cb0c0f9bfed8b171550cbf891b8208"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/native-water-points.json",
+      "sha256": "297fb7e6c89a9427253fd0d637bf837d1f70d59e289b0393f9807217dad320f4"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/new-game-panel-review.json",
+      "sha256": "d1b98b33946efb00b01efb5f7d9eac54399c4ffaec7fc734e61e14075144b1c8"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/new-game-panel.png",
+      "sha256": "76c8728cc783864b8ceedf6f054b5ed9d9f285824d2c5e739169a57f13e020b4"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/observation.json",
+      "sha256": "9e31921a2bf0a4b692b6b046db50392a8a4ce1b77688632eb8dd4cabdc3fdc08"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/prediction.json",
+      "sha256": "3ae31024345347358f070e2541aa1cc67fa88b49debd00e7e3733b2fc29f1eba"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/receipt-bindings.json",
+      "sha256": "0d6403b814ad734e3ad66c207292e570c1cb6b4e173e3b73733f77cb877f2ea8"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/startup-area_zoom.png",
+      "sha256": "b414ba81c59274649179742cb98291bcaa92cc9bd3f69bfbf4b108f9d5016720"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/startup-opening.png",
+      "sha256": "1ea05d38a0d88e4784b45e8839bda1edec9b963764d77b3d73655729e84b0422"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/startup-views-review.json",
+      "sha256": "ce81e50fd67666a0207c0556fd57cc5cee2cb1c951c629b917e7a6f17889586a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/summary.json",
+      "sha256": "f4165213aa2892a4c4e5dd3e3b36f0d93b5411b154cf9f0c406b5d7cf92a1f8d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/native-v2-surface-heldout/rio-northeast/witness-job.json.gz",
+      "sha256": "b3f3e76ddcc38b6a3420116e9f1a95d4bf351863aa172a343c0153de434b9e69"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/observations.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/observations.json",
+      "sha256": "85ce024d015ef0b43c801770d49df2d09ffb6274a9029537855396d0631b35a5"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/player-arm-identity.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/player-arm-identity.json",
+      "sha256": "da991c7f2079e20fbcda69861e8c17f72bd83085427833b769d6945bc543f418"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/predictions.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/predictions.json",
+      "sha256": "fd3875416400e1d13cf94f3bd77a75e1c34da1f2ba5481a7ee5f7abec2679087"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/gpu.csv",
+      "sha256": "c936a60a830a993daa88812c7667434bb2180ad262ed5aeabc0b2da4d3b59f04"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/new-game-panel-review.json",
+      "sha256": "0ae2d90693bec4821302229c008a6317f8a1900f02f49b06d81569f193c359d3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/new-game-panel.png",
+      "sha256": "6f3884d6a65aeab4ab342feec8fbf2a6d1f770ff90a6fef557c7322baf9785a9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/observation.json",
+      "sha256": "0eed1d5369919e76b42beeb4b86689bc6717dbb6a4d53ee845fb9a11c08757cf"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/prediction.json",
+      "sha256": "1dd23ff2fed4c613b08b9fb3928a4a4f9e1e442dc6d829c8a1310d47215391c3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/receipt-bindings.json",
+      "sha256": "79038ce96bf8e00106cea2a5fa1e4e14ae65f36080489caebe54cc135e4ae0cf"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/summary.json",
+      "sha256": "1870620a4e72c0b209a7dbe74f92bed7a4af5c7835189fb3cd4dca7e879acf3d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/cliffside-bay/witness-job.json.gz",
+      "sha256": "6c0e12145b9cd88d1b3acec22e202dcc669bfc4d4e5592298288fc0b927c5726"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/gpu.csv",
+      "sha256": "7eb20b97893d20409984d6b5112ac2224c67d60acae403aad10bc9814e0d8266"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/native-water-points.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/native-water-points.json",
+      "sha256": "1c7c2e0bb3312b832cf490f1032246dc526017c9bd911d9042e32dfb12ddd878"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/new-game-panel-review.json",
+      "sha256": "e711732f545c20e13d5e861ff0657cf773c62014b2a8b920c47182a299182b80"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/new-game-panel.png",
+      "sha256": "83fc3e26b3d618f97173af89f4b8b0e4f1429bfb8ac82b3b868f06fc24750eb4"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/observation.json",
+      "sha256": "525b8f13b5626016775abaa34e6d6ae634f73722362eaadaa24b970e7765cfc1"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/prediction.json",
+      "sha256": "cdcdb6d6b0e5471e37bc1abc0717b6753ef06a86e6f3532dcdf764273f9546d8"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/receipt-bindings.json",
+      "sha256": "9ede63f319175c64fb0d0f83eb17dfc0573a406b7a545a378f6dce970210dc9d"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/summary.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/summary.json",
+      "sha256": "96fb6df4d41efbacee2e433cdd083a897c21d67dae0d8cf20bc95be39138c066"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/witness-job.json.gz",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/foggy-hills/witness-job.json.gz",
+      "sha256": "5e325d2f2c40329cdcf573fee41e429b42499fd76870ec600cfed380437a3645"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/quantity-qualification.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reference-controls/quantity-qualification.json",
+      "sha256": "0d923d8effb50f4ba57b80e7fe399aecfa4cfd9e509b226325ec0d6e6814c6b8"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/capability-evidence-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/capability-evidence-review.md",
+      "sha256": "ce14874773bee7a7cd649a93e005067f41378434ebaf214778305b186f2fb748"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/current-start-fitting-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/current-start-fitting-review.md",
+      "sha256": "deee5a09a756585f1ae2988a617e6652516c7651262db5a0d0164d89ccd87c14"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/heldout-capability-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/heldout-capability-review.md",
+      "sha256": "d4c8105cca50239c27ac73b085632b8c7620d6b286ac1947c6a4836594f95522"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/paired-player-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/paired-player-review.md",
+      "sha256": "49c282226edc4d5496d2745b6c514f93cee6a42efa430be8eeb38a86eebbce9c"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/start-geometry-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/start-geometry-review.md",
+      "sha256": "32c05c6e903a20088e3991fb4a4aaac0c114e3f60ca4fabb7001977a7f9162e0"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/stock-surface-reference-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/stock-surface-reference-review.md",
+      "sha256": "747f581eaa9aca790cc0c8c5053f2d62f1c791d4d82216e1aaf0860c188a8776"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/study-projection-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/study-projection-review.md",
+      "sha256": "4fe3d273f110b087715190215f04cf3d6d80334b9d3b88f17176600bd5816cc9"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/surface-fixes-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/surface-fixes-review.md",
+      "sha256": "e80c5c7f238f4a2c6052a1e1b3ae8289983f4c3e5c42d51892da8804492d3ddc"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/surface-oracle-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/surface-oracle-review.md",
+      "sha256": "99bb0a3d3bf013a5af0840c40e088a8cca81d5e8ee05a8a39f5e6fa22fa92ff7"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/surface-spatial-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/surface-spatial-review.md",
+      "sha256": "bc5a9a40d79ceedfec5b95cd09e98ef744fd951f207d38b1fa4109b5a8d6da99"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/water-fitting-review.md",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-water-v2/reviews/water-fitting-review.md",
+      "sha256": "f605c704f9e03cb7b049b5c0c7cff67f2129b127573e47f043f7310cd9841385"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/fitting-observations.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/fitting-observations.json",
+      "sha256": "6c054915240c4c60581d42f28d3a9339bd210e6965507dcb7d8877d55a02d18f"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/gpu.csv",
+      "sha256": "03ec2420cc1279057bc339f1f85a6edf220143db81ceb239e121c5a881a720e7"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/new-game-panel-review.json",
+      "sha256": "6eb5bef0ecb04d87d1412cec64df441c581acf388a242b3e487940b0772fadee"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/new-game-panel.png",
+      "sha256": "3a6fee29cba94ba2498e781477c49b878c0ffc087b7c8533f19626a8396048c5"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/observation.json",
+      "sha256": "72f1736b0dacdf7af53ec9cd9b091ca2bc9246789ae086d1c4036d374db8d62b"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/prediction.json",
+      "sha256": "e1cf3e7b6d6c1546fc808f75a5307245401f7ebd33e37182cd7cd361dd0cfe64"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/receipt-bindings.json",
+      "sha256": "2890a35e2f91d611f1b3f188fbdce5b70ec88498e777e6735b9b45eaef9bcaa3"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/startup-area_zoom.png",
+      "sha256": "6fb5c735bae66b33dff9c6a52db247667b46d623ef3d330e4472b17f3e1951db"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/startup-opening.png",
+      "sha256": "c0fa8b1c581fc6422bf3a0bcb0f9bfa4b7c8d15b4f4289c428145af8c7dad3fd"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/startup-views-review.json",
+      "sha256": "82ef8fab3c4101c89f8c57128811a304e0cf626bc7eca3a0e53d7c536a83f6b0"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/witness-job.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/charleston-attempt1/witness-job.json",
+      "sha256": "102187fd0996e64d641e6a93beb539d9b9561eabe78a3ce100c5984add0c4356"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/gpu.csv",
+      "sha256": "950aeead787bb4692cbfee6d652106f8c9b9aa283e603c873325a002a504ef3e"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/new-game-panel-review.json",
+      "sha256": "87ea814928f7edba47f1aa675bd7ac5cf3a3bef9928e5a8e643317de70e134ef"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/new-game-panel.png",
+      "sha256": "d839d4a71492801fc1744661bd2285b5de97187ff4b317a0f1554f26c76a891f"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/observation.json",
+      "sha256": "9044194dfd05cf832163e85163f471e993111574d43430c3e36c13d4b422b85f"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/prediction.json",
+      "sha256": "53dc5d247cc4a0a63759f6968364b1522c61b91dcda5a4be16b9f4a2c4bc780a"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/receipt-bindings.json",
+      "sha256": "a6d8a68774dfab761d7c3de2eb1ba0f85911fbf5f1ce4941aba954c22b8c5fb2"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/startup-area_zoom.png",
+      "sha256": "3687e2c473d0cf64f9df409aa0556beadbfff9c5d24940dbcf94cc2ad21c91a0"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/startup-opening.png",
+      "sha256": "293f65205aa7b5c00111058d3b54339aea0cc832fd89d7e6d4585fde1b5fdca6"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/startup-views-review.json",
+      "sha256": "b31c07cc1d74f3269683c3671a008c4f0a4b3ac8d011e3ce8abb8db6c1b4ef34"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/witness-job.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/innsbruck-attempt1/witness-job.json",
+      "sha256": "c48905928dbad48a315ed3e21c3402a3a2ffbcb7c1e4d694a2b6102e898de7f2"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/gpu.csv",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/gpu.csv",
+      "sha256": "a13ac7aa22e88f5bee42dd3da1c06f23da4a8eff7b63d2e08ff75a2556f67d66"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/native-paths.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/native-paths.json",
+      "sha256": "70924854eb43abc31505d8d21a9f8290ab238900217c69818cb8887930cdea83"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/new-game-panel-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/new-game-panel-review.json",
+      "sha256": "d3c24c2ea4132e734d8e022a233a5fd57c5c4e84cb46ef6f378748747e760608"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/new-game-panel.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/new-game-panel.png",
+      "sha256": "5602c7e2dfb0cede192fa6ab2c92dc7e025dfc7a3a5bb16b7fdb6f8bbdfa8133"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/observation.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/observation.json",
+      "sha256": "3256618bf3c4da91304e1908a7b540228eeed4beafb4733f34b5f3ed74090571"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/prediction.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/prediction.json",
+      "sha256": "0b6254eb65844a97703f68bf04736d053930214cfccf4218762ae5c78afcfb35"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/receipt-bindings.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/receipt-bindings.json",
+      "sha256": "efd35aa8bb295c99ccaab18bc3039e64d9d793c100c5edbe1d845490b4d958b4"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/startup-area_zoom.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/startup-area_zoom.png",
+      "sha256": "ebaabbf62561dbf497194a5a2448c4dc2d7c449062d4fe50c85157f6cb9b8948"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/startup-opening.png",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/startup-opening.png",
+      "sha256": "4d41b6f30032a1f1c01d13d2638c747a3303664ee26205097e26e68fa17c06de"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/startup-views-review.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/startup-views-review.json",
+      "sha256": "768c2d9c7261de8478bdb80384d77a9e0e1c38b4464d64612d2fd9e6468fba16"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/witness-job.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/native-witness-v1/pittsburgh-attempt1/witness-job.json",
+      "sha256": "3a6845b38a22ba343d9d956e7bdb2d975b3f61f1fa9355a473326835d394da47"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/PL-1078-start-v1/predictions.json",
+      "source_file": "tools/map-factory/capability-evidence/PL-1078-start-v1/predictions.json",
+      "sha256": "456dfa1b85188d7e46b1b5339b50171c7d6f23a0ffe44e42f4c758d1785a0033"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/pl1078-components/report_start_water.py",
+      "source_file": "tools/map-factory/report_start_water.py",
+      "sha256": "7d283f6e810b71e2d10b1851d1006249fa06592d69e9279b40a8bff5c374f749"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/pl1078-components/start_capabilities.py",
+      "source_file": "tools/map-factory/start_capabilities.py",
+      "sha256": "3255c2c4f28c8417a748ca829c2a8fcc23508bf7b3e81617bfbabc532b4cefbe"
+    },
+    {
+      "file": "tools/map-factory/capability-evidence/pl1078-components/surface_intake.py",
+      "source_file": "tools/map-factory/surface_intake.py",
+      "sha256": "4cc4fa4f7ed72d538cf4c1319304b125cebc9f8e1625bf35460910c28d4863bf"
+    }
+  ]
+}

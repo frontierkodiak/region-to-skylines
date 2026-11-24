@@ -1,0 +1,3701 @@
+{
+  "cleanup": {
+    "audit_source_sha256": "e6aaeb2258721297dd90e823a077182189742e4588d795b4923622260c6fe9a9",
+    "audited_at": "2026-11-21T15:28:55.028957+00:00",
+    "collector_pids": [
+      155376,
+      182790,
+      336345
+    ],
+    "coverage": "every observation's game PID/start, telemetry owner PID and reported teardown remainder; audit time after every observation; other owners' Steam untouched",
+    "degraded": true,
+    "findings": [
+      {
+        "attempt": "pittsburgh-attempt-1",
+        "later_state": "Steam listed at teardown; later audit proves listed instance absent",
+        "raw_cleanup": {
+          "game": [],
+          "steam_instances": [
+            "3933505219"
+          ],
+          "units_active": []
+        }
+      }
+    ],
+    "games_covered": 11,
+    "remaining_steam_instances": [
+      "1535750170",
+      "2805625336",
+      "383239864"
+    ],
+    "reported_steam_remainders": [
+      "3933505219"
+    ]
+  },
+  "cohort": [
+    {
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "attempts": [
+        {
+          "attempt": "asheville",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "reversed-positions-diagnostic",
+              "outcome": "selected_query_failure",
+              "position_kind": "boundary"
+            },
+            {
+              "name": "invalid-train-to-car-lane",
+              "outcome": "selected_query_failure",
+              "position_kind": "invalid_vehicle_pair"
+            }
+          ],
+          "distinct_edge_successes": 2,
+          "error": null,
+          "finished_at": "2026-11-21T14:25:49.634242+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 186636,
+            "namespace_pid": 957,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136357945"
+          },
+          "missing_reason": null,
+          "observed_at": "2026-11-21T14:23:04.406267+00:00",
+          "query_frozen_at": "2026-11-21T14:25:12.273136+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 12,
+          "selected_failures": 10,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "likely",
+        "predicted": true,
+        "reason": "authored_edge_to_edge_route",
+        "witness": {
+          "candidate": true,
+          "endpoints": [
+            1840,
+            1961
+          ],
+          "incoming": 4,
+          "outgoing": 4
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "0d396d1cdfcda129be31e525cbd921a287d1eaac8deb025f77c0d885552aef9a",
+        "terrain.u16": "f70236327038371148df83c7b130b895ce63b0b879d264c8c065a5c7fd72daf4",
+        "water.u16": "49cbd283c61e20cb8fc6ff6924517d77b54a2bfefec792e12b7010b9a8d0882c"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "64ea8d0a9ea0ad5d15d618888fb762b49108a72b976183903f75fd92aa344198",
+      "slug": "asheville",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 35.58,
+        "lon": -82.555,
+        "name": "Asheville",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "asheville"
+      },
+      "status": "sampled_positive"
+    },
+    {
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "attempts": [
+        {
+          "attempt": "innsbruck",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "reversed-positions-diagnostic",
+              "outcome": "selected_query_failure",
+              "position_kind": "boundary"
+            },
+            {
+              "name": "invalid-train-to-car-lane",
+              "outcome": "selected_query_failure",
+              "position_kind": "invalid_vehicle_pair"
+            }
+          ],
+          "distinct_edge_successes": 2,
+          "error": null,
+          "finished_at": "2026-11-21T14:28:42.818415+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 199478,
+            "namespace_pid": 965,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136374570"
+          },
+          "missing_reason": null,
+          "observed_at": "2026-11-21T14:25:50.345478+00:00",
+          "query_frozen_at": "2026-11-21T14:27:57.222115+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 20,
+          "selected_failures": 18,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "likely",
+        "predicted": true,
+        "reason": "authored_edge_to_edge_route",
+        "witness": {
+          "candidate": true,
+          "endpoints": [
+            814,
+            1369
+          ],
+          "incoming": 5,
+          "outgoing": 5
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "4a544cca94dd3b0e49a6f45e02fa6a674eb4633d3d63e0519bf1de9a54856135",
+        "terrain.u16": "79aa3d9f97bad3d31463b1ac7755cd2e1c9b0848e5818bcbe8ef9556defe54d5",
+        "water.u16": "3d5dce28386c4720d0940a08eed5d001bd03f1af8928be2bf61ece5ee9b6c375"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "ee23c15629876d819bf28bc35354e0b302a16e4dd3fe715a468dea18668743ad",
+      "slug": "innsbruck",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 47.27,
+        "lon": 11.4,
+        "name": "Innsbruck",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "innsbruck"
+      },
+      "status": "sampled_positive"
+    },
+    {
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "attempts": [
+        {
+          "attempt": "rio",
+          "cleanup": null,
+          "completed": false,
+          "diagnostics": [],
+          "distinct_edge_successes": 0,
+          "error": "1 older waiters are ahead in the slot queue",
+          "finished_at": "2026-11-21T14:28:42.851804+00:00",
+          "identity": null,
+          "missing_reason": null,
+          "observed_at": "2026-11-21T14:28:42.837865+00:00",
+          "query_frozen_at": null,
+          "same_edge_successes": 0,
+          "selected_boundary": 0,
+          "selected_failures": 0,
+          "unqueried_boundary_candidates": 0
+        },
+        {
+          "attempt": "rio-attempt-2",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "reversed-positions-diagnostic",
+              "outcome": "selected_query_failure",
+              "position_kind": "boundary"
+            },
+            {
+              "name": "invalid-train-to-car-lane",
+              "outcome": "selected_query_failure",
+              "position_kind": "invalid_vehicle_pair"
+            }
+          ],
+          "distinct_edge_successes": 0,
+          "error": null,
+          "finished_at": "2026-11-21T15:07:32.467630+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 340388,
+            "namespace_pid": 964,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136608886"
+          },
+          "missing_reason": null,
+          "observed_at": "2026-11-21T15:04:53.647359+00:00",
+          "query_frozen_at": "2026-11-21T15:07:01.886935+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 6,
+          "selected_failures": 6,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "likely",
+        "predicted": true,
+        "reason": "authored_edge_to_edge_route",
+        "witness": {
+          "candidate": true,
+          "endpoints": [
+            2488,
+            2706
+          ],
+          "incoming": 3,
+          "outgoing": 3
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "0b91900c4d7222d34cc12ddc87d79eab6bd5bc80d8dda8e4251930c02d938e1e",
+        "terrain.u16": "0bd6f24ea5912802d90043ff35055657f65f3b189a4143e7e3685903e027435b",
+        "water.u16": "45f417a72c4469b114b6a8fba89f19fc8cc38e30b2d8b89279d1dfb000de8540"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "70378abefa62b69c4d06996cee8bd2a75ae15811922bc1f8dc318df663ef4321",
+      "slug": "rio",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": -22.94,
+        "lon": -43.205,
+        "name": "Rio de Janeiro",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "rio"
+      },
+      "status": "Unknown"
+    },
+    {
+      "artifact_sha256": "144926cde405c55071cc0299c91e80088db9252d594d65a8334de80100af8424",
+      "attempts": [
+        {
+          "attempt": "pittsburgh-attempt-1",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [
+              "3933505219"
+            ],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "reversed-positions-diagnostic",
+              "outcome": "selected_query_failure",
+              "position_kind": "boundary"
+            },
+            {
+              "name": "invalid-train-to-car-lane",
+              "outcome": "selected_query_failure",
+              "position_kind": "invalid_vehicle_pair"
+            }
+          ],
+          "distinct_edge_successes": 3,
+          "error": null,
+          "finished_at": "2026-11-21T15:11:59.015601+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 351497,
+            "namespace_pid": 968,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136624833"
+          },
+          "missing_reason": null,
+          "observed_at": "2026-11-21T15:07:33.183334+00:00",
+          "query_frozen_at": "2026-11-21T15:09:47.198289+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 128,
+          "selected_failures": 125,
+          "unqueried_boundary_candidates": 112
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "likely",
+        "predicted": true,
+        "reason": "authored_edge_to_edge_route",
+        "witness": {
+          "candidate": true,
+          "endpoints": [
+            3683,
+            5608
+          ],
+          "incoming": 16,
+          "outgoing": 16
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "7076a0d1918e5d2f0491bc9a9d2a0cc160a1db1176cb18a2a4129775d7727977",
+        "terrain.u16": "7ecc9ea1ae96216712210690eb8cdf1a90bfc8e222ac91b1316d783cf3a39120",
+        "water.u16": "f54f3119e6eb42bbbf6bf1601b0270ac5264250b8bcb6b344797b86abe2c5bb0"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "4d858139a0a4b7658b1994e3d18ac239b5483cc0c9523e35acd37ffb80174ada",
+      "slug": "pittsburgh",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 40.44,
+        "lon": -80,
+        "name": "Pittsburgh",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "pittsburgh"
+      },
+      "status": "sampled_positive"
+    },
+    {
+      "artifact_sha256": "517441f3c22ca893807bafab0c168f570d0ced850a6a7c8813cc749969fb97ff",
+      "attempts": [
+        {
+          "attempt": "charleston-attempt-1",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [],
+          "distinct_edge_successes": 0,
+          "error": null,
+          "finished_at": "2026-11-21T15:14:30.772797+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 369278,
+            "namespace_pid": 957,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136651499"
+          },
+          "missing_reason": "no_pair_or_directed_lane",
+          "observed_at": "2026-11-21T15:11:59.726298+00:00",
+          "query_frozen_at": "2026-11-21T15:14:05.645174+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 0,
+          "selected_failures": 0,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "not_possible_here",
+        "predicted": false,
+        "reason": "no_authored_edge_to_edge_route",
+        "witness": {
+          "candidate": false,
+          "endpoints": [],
+          "incoming": 1,
+          "outgoing": 1
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "109ad2af6b8a2977354f2940d5752ddd0663c54003ceb3fcccc62d0dcbe5790e",
+        "terrain.u16": "0b8f91e15ebbd6d16cfe077ff19da3e50f830f6142c15e3f7a1fcc78116ec3c6",
+        "water.u16": "aa91b1bdacef5a8e424aa5a4c22409f0bdd3c33df69f9a325f8f60c8cd88b7e9"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "4515b727d38c9141973c0d09ebad6ec3ee100176f4ed0d973488c31a42dba86e",
+      "slug": "charleston",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 32.78,
+        "lon": -79.93,
+        "name": "Charleston",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "charleston"
+      },
+      "status": "Unknown"
+    },
+    {
+      "artifact_sha256": "acce5c25c9239c1e0ba7f662f21ad35f0a4d4a50708807a3e1deeafdea31fa19",
+      "attempts": [
+        {
+          "attempt": "grand-canyon-attempt-1",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [],
+          "distinct_edge_successes": 0,
+          "error": null,
+          "finished_at": "2026-11-21T15:17:02.153804+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 381294,
+            "namespace_pid": 960,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136666664"
+          },
+          "missing_reason": "no_pair_or_directed_lane",
+          "observed_at": "2026-11-21T15:14:31.476360+00:00",
+          "query_frozen_at": "2026-11-21T15:16:37.591001+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 0,
+          "selected_failures": 0,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "not_possible_here",
+        "predicted": false,
+        "reason": "no_authored_edge_to_edge_route",
+        "witness": {
+          "candidate": false,
+          "endpoints": [],
+          "incoming": 1,
+          "outgoing": 1
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "7f9a19495a0adc955d63137bef041154e3b71f7107981d76fcc2d79e8273fb46",
+        "terrain.u16": "e137dcc96546d8a26d84c606b61625770a3e0a50ab745fdd2d07b190d8eac5ed",
+        "water.u16": "6bca756264c0ec275f82b711fae839b942778a0f5ec8ec0d15c649c9bda01b97"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "590af4d83efc2603b0df03989b2b3bcebc7e7e2b18c387681017d4d64e910334",
+      "slug": "grand-canyon",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 36.08,
+        "lon": -112.11,
+        "name": "Grand Canyon",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "grand-canyon"
+      },
+      "status": "Unknown"
+    },
+    {
+      "artifact_sha256": "18e9ceec2f0b704da88a3a61982b149d1139bfce70fccc5048968ecb33635c54",
+      "attempts": [
+        {
+          "attempt": "hong-kong-attempt-1",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "reversed-positions-diagnostic",
+              "outcome": "selected_query_failure",
+              "position_kind": "boundary"
+            },
+            {
+              "name": "invalid-train-to-car-lane",
+              "outcome": "selected_query_failure",
+              "position_kind": "invalid_vehicle_pair"
+            }
+          ],
+          "distinct_edge_successes": 0,
+          "error": null,
+          "finished_at": "2026-11-21T15:19:40.367602+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 392829,
+            "namespace_pid": 959,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136681808"
+          },
+          "missing_reason": null,
+          "observed_at": "2026-11-21T15:17:02.879206+00:00",
+          "query_frozen_at": "2026-11-21T15:19:10.824196+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 6,
+          "selected_failures": 6,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "likely",
+        "predicted": true,
+        "reason": "authored_edge_to_edge_route",
+        "witness": {
+          "candidate": true,
+          "endpoints": [
+            4032,
+            4214
+          ],
+          "incoming": 3,
+          "outgoing": 3
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "ce0c44e636cb811d9cd48a22d493de6de408818728add1dad5f015d4084abdf2",
+        "terrain.u16": "54d5d480d85955ff3420c2cb079664e652f1c46bcec87120c8884808e017b013",
+        "water.u16": "e620cd1055105af9f4f2fa83e633ea24de470aa657076575c5c4cd3582ccef29"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "cdaa5fe624aca71471878dc41d7d1ccc7729b9b575c2d572c3ee9b64a40e6d24",
+      "slug": "hong-kong",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 22.29,
+        "lon": 114.17,
+        "name": "Hong Kong",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "hong-kong"
+      },
+      "status": "Unknown"
+    },
+    {
+      "artifact_sha256": "bc0d9f4a464700871bb89504b6336f0860e0a1f4edca0227003a1d6e2aaaf260",
+      "attempts": [
+        {
+          "attempt": "yosemite-attempt-1",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [],
+          "distinct_edge_successes": 0,
+          "error": null,
+          "finished_at": "2026-11-21T15:22:13.054776+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 404054,
+            "namespace_pid": 957,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136697629"
+          },
+          "missing_reason": "no_pair_or_directed_lane",
+          "observed_at": "2026-11-21T15:19:41.085380+00:00",
+          "query_frozen_at": "2026-11-21T15:21:48.099008+00:00",
+          "same_edge_successes": 0,
+          "selected_boundary": 0,
+          "selected_failures": 0,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1066-eligibility/cpu-report.json",
+      "cpu_report_sha256": "23223ca0ed8f09c17afdc6af65a0f6d6be2971e0c5823a1fdfb790a3d6286415",
+      "exporter_source_sha": null,
+      "frozen_model_prediction": {
+        "level": "not_possible_here",
+        "predicted": false,
+        "reason": "no_authored_edge_to_edge_route",
+        "witness": {
+          "candidate": false,
+          "endpoints": [],
+          "incoming": 0,
+          "outgoing": 0
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "4c173d39adacd4d0be88c26626ae7bafd1edde0d6703c0d5b68c6161b21d5777",
+        "terrain.u16": "eed4f040b070a4f6f70160d1b927bf86b5dfbea296d92877423ccff707edd197",
+        "water.u16": "fe1f0c8d145fba8e6fc92e987f06d61a4df2a95dd51853dd2d4fab6f187e701b"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "7660558c9e8fc4dc1c011e0889d7935db746eebefa12359ea3e3c2ea1b31c3dd",
+      "slug": "yosemite",
+      "source_revision_limitation": [
+        "qualify_connections.py",
+        "report_connections.py",
+        "test_qualify_connections.py",
+        "verify_regions.py"
+      ],
+      "square": {
+        "lat": 37.735,
+        "lon": -119.575,
+        "name": "Yosemite Valley",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "yosemite"
+      },
+      "status": "Unknown"
+    },
+    {
+      "artifact_sha256": "35f379bc6eb8534fe4edbd355550fb6e47954ccd9dc4c3755c8451f71b70be54",
+      "attempts": [
+        {
+          "attempt": "boston-attempt-1",
+          "cleanup": {
+            "game": [],
+            "steam_instances": [],
+            "units_active": []
+          },
+          "completed": true,
+          "diagnostics": [
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "exact_path_success",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "directed-outside-to-outside",
+              "outcome": "selected_query_failure",
+              "position_kind": "midpoint"
+            },
+            {
+              "name": "reversed-positions-diagnostic",
+              "outcome": "selected_query_failure",
+              "position_kind": "boundary"
+            },
+            {
+              "name": "invalid-train-to-car-lane",
+              "outcome": "selected_query_failure",
+              "position_kind": "invalid_vehicle_pair"
+            }
+          ],
+          "distinct_edge_successes": 2,
+          "error": null,
+          "finished_at": "2026-11-21T15:25:58.738081+00:00",
+          "identity": {
+            "assemblies": 23,
+            "build_matches": true,
+            "dynamic_exclusions": [
+              "Anonymously Hosted DynamicMethods Assembly"
+            ],
+            "enabled_mod_count": 0,
+            "error_count": 3,
+            "errors": [
+              "Error: Assembly resolution failure. No assembly named 'ServicePointGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'HotelGroupPanel' was found.  [Serialization]",
+              "Error: Assembly resolution failure. No assembly named 'RaceGroupPanel' was found.  [Serialization]"
+            ],
+            "executable_sha256": "a18607b230f20b5653379a8debb6d5fe69e3ccd45863798f2e2a5ec403b8a9ca",
+            "file_identity_only": true,
+            "host_pid": 417207,
+            "namespace_pid": 957,
+            "plugins": [
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "HardMode",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedMoney",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedOilAndOre",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlimitedSoil",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+              },
+              {
+                "builtin": true,
+                "enabled": false,
+                "name": "UnlockAll",
+                "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "CitiesBridge",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+              },
+              {
+                "builtin": false,
+                "enabled": false,
+                "name": "Cs1Harness",
+                "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+              }
+            ],
+            "process_start_ticks": "136712887"
+          },
+          "missing_reason": null,
+          "observed_at": "2026-11-21T15:22:13.766358+00:00",
+          "query_frozen_at": "2026-11-21T15:24:25.776663+00:00",
+          "same_edge_successes": 2,
+          "selected_boundary": 72,
+          "selected_failures": 68,
+          "unqueried_boundary_candidates": 0
+        }
+      ],
+      "cpu_report": "/mango/training/experiments/PL-1121-outside-oracle/boston/cpu-report.json",
+      "cpu_report_sha256": "cba2cd6eb977c79f94ec7d3578aca93a88563c1f81dbe59668ae939abc993a2a",
+      "exporter_source_sha": "0986cf14baabd3317a3b4c18d6690349fc713fb3",
+      "frozen_model_prediction": {
+        "level": "likely",
+        "predicted": true,
+        "reason": "authored_edge_to_edge_route",
+        "witness": {
+          "candidate": true,
+          "endpoints": [
+            4120,
+            4711
+          ],
+          "incoming": 9,
+          "outgoing": 9
+        }
+      },
+      "inputs_sha256_frozen_prepared_lineage": {
+        "hydrology.json": "7d3732db9081d371cda29d080f2cb30a342325969ac3fd82671f66711f32dd5e",
+        "terrain.u16": "1e1ffd73314c428b95378d6596ebece042b1895c007738679de247a47261799e",
+        "water.u16": "e64f85c0ce0be3577763bd47a5029ba99664006bcd7c9fb2a05e8682e111b6fd"
+      },
+      "normalized_input_sha256_frozen_prepared_lineage": "1efd3024a306f0708b7d8321c956377abc363cfcd8587e972aeb43954917528a",
+      "slug": "boston",
+      "source_revision_limitation": [],
+      "square": {
+        "lat": 42.36,
+        "lon": -71.057,
+        "name": "Boston",
+        "rotation": 0,
+        "scale": 1,
+        "slug": "boston"
+      },
+      "status": "sampled_positive"
+    }
+  ],
+  "controls": [
+    {
+      "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+      "attempt": "stock-1",
+      "distinct_edge_successes": 8,
+      "file": "AP Asanu Beach.crp",
+      "invalid_vehicle_pair_rejected": true,
+      "observed_at": "2026-11-21T14:17:04.738299+00:00",
+      "reciprocal_positives": true,
+      "same_edge_successes": 0,
+      "selected_boundary": 8,
+      "selected_failures": 0,
+      "slug": "stock-1"
+    },
+    {
+      "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+      "attempt": "stock-2",
+      "distinct_edge_successes": 8,
+      "file": "AP Hanami Bay.crp",
+      "invalid_vehicle_pair_rejected": true,
+      "observed_at": "2026-11-21T14:19:41.839396+00:00",
+      "reciprocal_positives": true,
+      "same_edge_successes": 0,
+      "selected_boundary": 24,
+      "selected_failures": 16,
+      "slug": "stock-2"
+    }
+  ],
+  "documents": [
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v1/README.md",
+      "sha256": "7f07f766881b43a25cf644432893b564e55ee8ab314ff1383bff43ba39d0d79f"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3/README.md",
+      "sha256": "774209edaba739ddb89e83a31f7b9d74d54b2abaf83559b0404c07773fc78277"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3/REPRODUCE.md",
+      "sha256": "681fa79b7fafc3293ddc4b40e9563f9a89e31e5c6d56772a650c595da99b8cdf"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3/RESULTS.md",
+      "sha256": "596d725f3c0ab0f74fa46d1ac9a05cda1fc73530e8297fb9c307361c2c68455c"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3/selection.json",
+      "sha256": "57a6c222c816ecb683fb6142316938a88dddbd9b10029738787f0e95817ca7f5"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/README.md",
+      "sha256": "ad89646eb70c2b526569362de3084be22b27ff54ce2793313f468d451184236e"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/RESULTS.md",
+      "sha256": "9186e822ca885232699e58286ea8f39657492e836fccaf5595a0e3b5113d469a"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/cleanup-audit.json",
+      "sha256": "2c6098841da0640b4593c6c71c4a5a9a197e5608937396a4b4e8d155450c36ee"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/strict-verifier-failure.txt",
+      "sha256": "d93b203d5068cf8fa20e4c23cf3fbc59be12a04793cfe80d69f0b1a7e829fac3"
+    },
+    {
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/verification.json",
+      "sha256": "779485e519408fb1f0f395b24bea83c214741a40340e4f53bf610fe0e1d69fbc"
+    }
+  ],
+  "earlier_revisions": [
+    {
+      "raw_files": 14,
+      "raw_files_sha256": {
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/game.log.gz": "2c5603fb70965efd5b1c42d9660a775e7c1f860c48ca1ffda9a929a0d8d28ae3",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/gpu.csv.gz": "89539150db4da7128c2aacf54f96ae80cf77c5120fa46f45f5ebce543842f523",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/networks.json.gz": "620b64d9f10196e3d43b80e5427887adb35a157192b80c2f7f8e1e861959ae76",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/observation.json.gz": "3eb5a570d46394cbadf3061617bf4eb6c1de696467aecb03f97feda7a0775b2c",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/panel.json.gz": "4f2eac654194a70c6707668c65a91c8f0c116feb100bac844bf852966089468d",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/query-freeze.json.gz": "233f70a999ab40cacadc5c8b165d22ebab7e5670c3b45d0c323da4225aa24e27",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/ship-water-at-opening.json.gz": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/game.log.gz": "02d5c97ecb0a38d780b430c2ed52c12fd9133e8d8ccb08f5841b5234b4d875a3",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/gpu.csv.gz": "7cb8887222fdb5e4bd1b33da4072ab2c58849e4ab716af7dccf41a90cc6cd540",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/networks.json.gz": "bb410307231c003745762b088e6b1f434089d0bd9c8b25194b06f3233adc4c55",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/observation.json.gz": "c24f04c3817a12ae6753a6fa338dc091cec5301456ad9aa3ce452e227121cfb3",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/panel.json.gz": "58c98de916a3de09e5d31a55e91e8c04cb9681503de4d08f6e5b51b49634a3a3",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/query-freeze.json.gz": "b661edc72dd3b308068d0988af6bd3436d79cd5ab297778048afd6457605d2f2",
+        "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/ship-water-at-opening.json.gz": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+      },
+      "retained_at": "2026-11-21T14:08:22.936382+00:00",
+      "section": "rail-v1",
+      "selection_sha256": "dce33184b1a083235c5d5b48dbd6782ae0ade2687b0d6e008ca55c973e3a539a",
+      "status": "separate earlier selector revision; diagnostics only, never an independent vote",
+      "verifier_sha256": "12a394a35e323afcd7a537f2c21bbee24666afc5a2c41195f3f3d88c4d755803"
+    },
+    {
+      "raw_files": 14,
+      "raw_files_sha256": {
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/game.log.gz": "141b49232b71a432463eb1dd6a0ed536860431020febf27021a53e1f6d9d7cd0",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/gpu.csv.gz": "d17893b4a918bdd826c0fe27630559ec6c7bb7307f63ff249e0bec0017521676",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/networks.json.gz": "e50793bdb5d142bc47bf0a20cb8bd7a9db804ec20e7e194754370c1e90d7f065",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/observation.json.gz": "9692b99a74ac6015806576af8cee1db2cddbe0f89aeecfa467e4eb846f4cf1a5",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/panel.json.gz": "bfaf06a8cc3c8537244601b2b5ec561b5bda760935805e0d81926b78edb00bdb",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/query-freeze.json.gz": "60974f0d1f0e1d909c6490ba10139f356eeae24451087c64d42210c221d4268f",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/ship-water-at-opening.json.gz": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/game.log.gz": "c2ee31cd8b6ecba5e4f88af3bf9b2c629bc08c32b7c83c45b97d7dec5e845199",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/gpu.csv.gz": "335419fe11b3fc1277aee5fdbd53c5ddfaab879bb9d702bde43dcf145d1dfe4f",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/networks.json.gz": "01b097c60d4bab142f5ccd0ec38e9edafac5abdd4f43fc7e152a356f651fce64",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/observation.json.gz": "23a35592a0b3eb5b334633172acd7f51098a15f72a170e1c283b8d95da1d81a8",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/panel.json.gz": "0d6a4248c130e133deacbb478bf71d6eb69f2fabb239f1ba4cc010d86115983e",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/query-freeze.json.gz": "9f4bbba3ec9b96a479dadd54b2cc80d09fd89922b7a903d4c829fed0cd4a3de6",
+        "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/ship-water-at-opening.json.gz": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+      },
+      "retained_at": "2026-11-21T14:15:15.742643+00:00",
+      "section": "rail-v2",
+      "selection_sha256": "22cbb7923877ac44860c6a45f06736449f011b35fdb9f7d4fb9f5d15f2e2f45c",
+      "status": "separate earlier selector revision; diagnostics only, never an independent vote",
+      "verifier_sha256": "0911ff63c14ce7190b64ef4ebebbff0e8500298af6023a56cf34aee09beb0641"
+    }
+  ],
+  "frozen_predictions": {
+    "binding": "exact artifact sha256 + cpu receipt sha256, never place name",
+    "file": "tools/map-factory/capability-evidence/pl1119-v3-predictions.json",
+    "freeze_tool_sha256": "26d93575c78483b6db183f9fac53aace3bff12f59db4a6784ed2cbb53aacc109",
+    "frozen_at": "2026-11-20T22:56:40.986166+00:00",
+    "model": "square-capabilities-v3",
+    "model_source_files_sha256": {
+      "capabilities.json": "275ddf4a1099bfa53cf82f50ca154bac9c4297d8e1869bc4a4a4ada0b96c553a",
+      "tools/map-factory/capabilities.py": "b361999d2381ad553bcb3a9183f616f5929b7544d756a70ff5df661bb107af8e"
+    },
+    "model_source_head": "f9368399d232a433b27c886ccb603a83040c75c7",
+    "preserved_byte_for_byte": true,
+    "scope": "Predictions only. No game-label file is read, no fitting is performed, and no game agreement is claimed. Some oracle runs may already exist; this is not a claim that all predictions predate all observations.",
+    "selection_sha256": "892dc05174e498237a970db42fc7ca40421534899f18cde3bddc20cb1edfa0c9",
+    "sha256": "1f2db0bb64e62965137cce05ffe0cea7bf8aa339c2a8a9e9560fafe4ef64ae03"
+  },
+  "kind": "directed_rail_control_and_cohort_study",
+  "limits": "Reviewed directed-rail native path study, not accuracy, blind holdout, geographic negative or a place-level rail promise. Selected requests are a bounded sample at opening in this exact loaded-file and plugin context; a failed query or an empty candidate list is Unknown, never absence. Pittsburgh's fixed cap left 112 candidates unqueried and Boston's two same-edge successes are not distinct-edge witnesses. The four positive cells agree with the preserved frozen-v3 rail candidates by exact artifact hash and CPU receipt lineage; that is positive-witness agreement on an already observed cohort, not accuracy. Native raw receipts bind CRP bytes, not freshly rehashed prepared inputs: the three input hashes are reused frozen lineage. File identity is not in-memory code attestation or strict no-mods; dynamic assemblies are excluded and three DLC-panel errors are retained at every opening. enabled_mod_count=0 does not mean unloaded/no mods: CitiesBridge, the harness and built-ins are loaded. No rail service, train spawning, station/port, editor/gameplay parity, sustained gameplay or human play is established. No native rail certificate is issued and no live Yes is claimed.",
+  "method": "Two fixed stock controls establish that this exact directed literal-boundary Train query can return a complete, released path whose first and last positions are the requested Outside offsets, that both controls carry reciprocal successes, and that a Train query to an explicit Car-but-not-Train lane is rejected. Only then does the unchanged nine-package geographic cohort run. Each opening freezes the full native network snapshot, endpoint/lane inventory and ordered requests before any query, then binds the actual executable and every resolved loaded-assembly file through the rendering process's namespace PID/start. Selected failures and unqueried candidates stay Unknown. Earlier selector revisions and repeats are retained as separate diagnostics, never pooled votes.",
+  "protocol": {
+    "category": "All",
+    "diagnostics": "midpoint per selected directed pair; reverse first boundary without changing lanes (not assumed invalid); Train query from first boundary source to smallest Car-but-not-Train segment/lane at offset128 (invalid vehicle pair)",
+    "entry": "NewGameFromMap/noWorkshop/non-inverted/mods-enabled",
+    "id": "PL-1215-directed-rail-v3",
+    "lane_types": [
+      "Vehicle",
+      "TransportVehicle",
+      "CargoVehicle"
+    ],
+    "max_length": 100000,
+    "order": "distinct-edge first, then lexicographic from/to [segment,lane,offset]; first 128 boundary requests",
+    "prediction": "direction-compatible candidates, not predicted native successes; all finite misses remain Unknown",
+    "query": "NetworkOps.path_start mode=train; existing CreatePath overload",
+    "random_seed": 857,
+    "rule": "source away from outside node, destination towards it; swap direction for segment Invert; test native Forward/Backward bits directly, not composite Avoid enum values or display names",
+    "scope": "sampled_native_lane_paths_at_opening; file identity, not memory attestation or strict no-mods",
+    "vehicle": "Train"
+  },
+  "raw_file_counts": {
+    "earlier_revisions": 28,
+    "final_protocol": 83,
+    "runtime_openings": 11,
+    "total": 111
+  },
+  "raw_files": [
+    {
+      "bytes": 103686,
+      "gzip_sha256": "b7ddaf706b853ae2693ac4a49ea8f8f5c313f2b185bc7d3d164432699a78a8cb",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/game.log.gz",
+      "section": "rail-v1",
+      "sha256": "2c5603fb70965efd5b1c42d9660a775e7c1f860c48ca1ffda9a929a0d8d28ae3"
+    },
+    {
+      "bytes": 2033,
+      "gzip_sha256": "7e9101036db07b9801432836a2c1b1f696b8078773e3a246b579c7cda5481ca4",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/gpu.csv.gz",
+      "section": "rail-v1",
+      "sha256": "89539150db4da7128c2aacf54f96ae80cf77c5120fa46f45f5ebce543842f523"
+    },
+    {
+      "bytes": 2361261,
+      "gzip_sha256": "c854e78788d4938088d41570638ad0bc5a666db6576764098967dbc13c8d9353",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/networks.json.gz",
+      "section": "rail-v1",
+      "sha256": "620b64d9f10196e3d43b80e5427887adb35a157192b80c2f7f8e1e861959ae76"
+    },
+    {
+      "bytes": 130958,
+      "gzip_sha256": "3bb4516a35461d80275b022a700d8510f9053fe9399b330cc8f1024e21516bdd",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/observation.json.gz",
+      "section": "rail-v1",
+      "sha256": "3eb5a570d46394cbadf3061617bf4eb6c1de696467aecb03f97feda7a0775b2c"
+    },
+    {
+      "bytes": 3617,
+      "gzip_sha256": "9eb5bf059492c2898e5010aec556891d209493e7357d4aefe4351f0d683bb6d7",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/panel.json.gz",
+      "section": "rail-v1",
+      "sha256": "4f2eac654194a70c6707668c65a91c8f0c116feb100bac844bf852966089468d"
+    },
+    {
+      "bytes": 16489,
+      "gzip_sha256": "7f494d4785a986c1f821508df5ed48f808a7a37c3d10afe88b157d6ce1155eb4",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/query-freeze.json.gz",
+      "section": "rail-v1",
+      "sha256": "233f70a999ab40cacadc5c8b165d22ebab7e5670c3b45d0c323da4225aa24e27"
+    },
+    {
+      "bytes": 149171,
+      "gzip_sha256": "b7837183c5bd7520e5dfb288e048fc06b7a1a405226f8354049daa909a49611a",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-1/ship-water-at-opening.json.gz",
+      "section": "rail-v1",
+      "sha256": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370"
+    },
+    {
+      "bytes": 103684,
+      "gzip_sha256": "4911871d0e76497bd0d0e435ad510798115b7f78a5cdd2400fab676be240f6d8",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/game.log.gz",
+      "section": "rail-v1",
+      "sha256": "02d5c97ecb0a38d780b430c2ed52c12fd9133e8d8ccb08f5841b5234b4d875a3"
+    },
+    {
+      "bytes": 2101,
+      "gzip_sha256": "d9bff98b75560439d8bdd305ae6ccaf68a577758ce3497af3a3dc8856f2b9b91",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/gpu.csv.gz",
+      "section": "rail-v1",
+      "sha256": "7cb8887222fdb5e4bd1b33da4072ab2c58849e4ab716af7dccf41a90cc6cd540"
+    },
+    {
+      "bytes": 2891013,
+      "gzip_sha256": "24fd31bdc8f45474fafa1d1de54ebee74274ac52d95dada368c58f80d38b9250",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/networks.json.gz",
+      "section": "rail-v1",
+      "sha256": "bb410307231c003745762b088e6b1f434089d0bd9c8b25194b06f3233adc4c55"
+    },
+    {
+      "bytes": 130972,
+      "gzip_sha256": "42e921e8ebf666e3501e2e9b7f4e642767139a141920ca0d49fb69dfd9a27e2f",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/observation.json.gz",
+      "section": "rail-v1",
+      "sha256": "c24f04c3817a12ae6753a6fa338dc091cec5301456ad9aa3ce452e227121cfb3"
+    },
+    {
+      "bytes": 3614,
+      "gzip_sha256": "3ffc49660e128e10bf790515354d504956b1cf7012448567caa60d1e4f437454",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/panel.json.gz",
+      "section": "rail-v1",
+      "sha256": "58c98de916a3de09e5d31a55e91e8c04cb9681503de4d08f6e5b51b49634a3a3"
+    },
+    {
+      "bytes": 17269,
+      "gzip_sha256": "2f9e738b36b3f288e5bb5b12e4c3b4d26a51edf8577de1433e60f984660b4353",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/query-freeze.json.gz",
+      "section": "rail-v1",
+      "sha256": "b661edc72dd3b308068d0988af6bd3436d79cd5ab297778048afd6457605d2f2"
+    },
+    {
+      "bytes": 182232,
+      "gzip_sha256": "1961abe9e99b778f05c21a095a553974cfea03d916994ca74f727073187cfcb5",
+      "path": "tools/map-factory/capability-evidence/rail-v1/raw/stock-2/ship-water-at-opening.json.gz",
+      "section": "rail-v1",
+      "sha256": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+    },
+    {
+      "bytes": 103782,
+      "gzip_sha256": "4fa6b8e9b53d5ec1899c3edd80e77dee6e0fc9cc543e727fae92b523cea26640",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/game.log.gz",
+      "section": "rail-v2",
+      "sha256": "141b49232b71a432463eb1dd6a0ed536860431020febf27021a53e1f6d9d7cd0"
+    },
+    {
+      "bytes": 2102,
+      "gzip_sha256": "87d0f3c9ca74ea3cb469624978364d713d15c1b6737b0cada5cb7b8fdb517bb2",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/gpu.csv.gz",
+      "section": "rail-v2",
+      "sha256": "d17893b4a918bdd826c0fe27630559ec6c7bb7307f63ff249e0bec0017521676"
+    },
+    {
+      "bytes": 3002963,
+      "gzip_sha256": "4862ba535d2e4eecc467f9409f38d173af5ae271e15616dc4234cc0552260d55",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/networks.json.gz",
+      "section": "rail-v2",
+      "sha256": "e50793bdb5d142bc47bf0a20cb8bd7a9db804ec20e7e194754370c1e90d7f065"
+    },
+    {
+      "bytes": 410057,
+      "gzip_sha256": "403e14b68fd6049e0161929096dcfe2eaf741de18bf3162bd316cbd512659c61",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/observation.json.gz",
+      "section": "rail-v2",
+      "sha256": "9692b99a74ac6015806576af8cee1db2cddbe0f89aeecfa467e4eb846f4cf1a5"
+    },
+    {
+      "bytes": 3697,
+      "gzip_sha256": "fb3e577e06736ad10518b264177cdcd4815c6fb3f682bbfc8bed74733eb22564",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/panel.json.gz",
+      "section": "rail-v2",
+      "sha256": "bfaf06a8cc3c8537244601b2b5ec561b5bda760935805e0d81926b78edb00bdb"
+    },
+    {
+      "bytes": 23539,
+      "gzip_sha256": "5002339e9587ed2c6a99ea2f53955dab50bb073de4797af57eaeac8b24d821c9",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/query-freeze.json.gz",
+      "section": "rail-v2",
+      "sha256": "60974f0d1f0e1d909c6490ba10139f356eeae24451087c64d42210c221d4268f"
+    },
+    {
+      "bytes": 149171,
+      "gzip_sha256": "b7837183c5bd7520e5dfb288e048fc06b7a1a405226f8354049daa909a49611a",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-1/ship-water-at-opening.json.gz",
+      "section": "rail-v2",
+      "sha256": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370"
+    },
+    {
+      "bytes": 103748,
+      "gzip_sha256": "8fc8e8f142697e7c7d58b2057c29e8d607b7591cb995ff6741c7f6bb47c21575",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/game.log.gz",
+      "section": "rail-v2",
+      "sha256": "c2ee31cd8b6ecba5e4f88af3bf9b2c629bc08c32b7c83c45b97d7dec5e845199"
+    },
+    {
+      "bytes": 2373,
+      "gzip_sha256": "6a5f416247ac9674a114753a8303ca778a4fa7555696c7980129b851ab09be46",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/gpu.csv.gz",
+      "section": "rail-v2",
+      "sha256": "335419fe11b3fc1277aee5fdbd53c5ddfaab879bb9d702bde43dcf145d1dfe4f"
+    },
+    {
+      "bytes": 3683839,
+      "gzip_sha256": "8dd9d56d1f01fb9cf8ff6614cfc1e981993004f409809e6d2235da1884fb994d",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/networks.json.gz",
+      "section": "rail-v2",
+      "sha256": "01b097c60d4bab142f5ccd0ec38e9edafac5abdd4f43fc7e152a356f651fce64"
+    },
+    {
+      "bytes": 350684,
+      "gzip_sha256": "72319e8dcf3fb87cda5ceb8aa169278c8f631137bcf8d295efbb12cfa3aff5b0",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/observation.json.gz",
+      "section": "rail-v2",
+      "sha256": "23a35592a0b3eb5b334633172acd7f51098a15f72a170e1c283b8d95da1d81a8"
+    },
+    {
+      "bytes": 3635,
+      "gzip_sha256": "095ebac6c453cf88c327a6609122dad0190822b15fc4b5abad0c4dccd0191686",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/panel.json.gz",
+      "section": "rail-v2",
+      "sha256": "0d6a4248c130e133deacbb478bf71d6eb69f2fabb239f1ba4cc010d86115983e"
+    },
+    {
+      "bytes": 36589,
+      "gzip_sha256": "fb11a6fed2d7aab7ccbf6b2e5bbe05b6f8f65b1b36ff3ee0602113687ccba466",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/query-freeze.json.gz",
+      "section": "rail-v2",
+      "sha256": "9f4bbba3ec9b96a479dadd54b2cc80d09fd89922b7a903d4c829fed0cd4a3de6"
+    },
+    {
+      "bytes": 182232,
+      "gzip_sha256": "1961abe9e99b778f05c21a095a553974cfea03d916994ca74f727073187cfcb5",
+      "path": "tools/map-factory/capability-evidence/rail-v2/raw/stock-2/ship-water-at-opening.json.gz",
+      "section": "rail-v2",
+      "sha256": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+    },
+    {
+      "bytes": 103816,
+      "gzip_sha256": "45001589cd90dc8cf74a3c9bd78d552984897e2a0c28dd2eb11e81d7b2d8d0ba",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/asheville/game.log.gz",
+      "section": "rail-v3",
+      "sha256": "c0e90b1c730182b65f06713c4b841cda5b1e78a3c79604f4868ac65efee10d05"
+    },
+    {
+      "bytes": 2235,
+      "gzip_sha256": "7ce4ccb1ef1627957fbee1cafa79aef39be52bd01f7668bf517627e8878844a1",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/asheville/gpu.csv.gz",
+      "section": "rail-v3",
+      "sha256": "2a1b568c07e2c8b00217e59c23bef2426fe9d6fdb5d22c3e8c021456aab71d84"
+    },
+    {
+      "bytes": 5726513,
+      "gzip_sha256": "46449757e88fe0b75fafa79684c204f6bf0c2c0d8c526d4089de10365fef2ae2",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/asheville/networks.json.gz",
+      "section": "rail-v3",
+      "sha256": "eadf48d9c0037862790b60063b62353b9254c434f64b851128ae5bde8e8d6d12"
+    },
+    {
+      "bytes": 239047,
+      "gzip_sha256": "70bcebdfc5d06d9d825e5b9a4022a1f7c5459fd5f63341f2d75e9c641d5ee072",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/asheville/observation.json.gz",
+      "section": "rail-v3",
+      "sha256": "d8ad8658966775557eb7b5ff06b8dcff833d816eaeb4827b5acab692bc1750fb"
+    },
+    {
+      "bytes": 3663,
+      "gzip_sha256": "1d28facfab0d25f09702a21b313a739ce3c8895d6c3dc013f53577353ff24bca",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/asheville/panel.json.gz",
+      "section": "rail-v3",
+      "sha256": "01727ca5c3b25929d3aa7a2b9d7d092d91a6de9a3947ccdbc3d54fd08fd8bccc"
+    },
+    {
+      "bytes": 28901,
+      "gzip_sha256": "db73b2d2c02bb6c19bfc3cd6d653b64dd9bb321a39660051eae1b7bc87712d3d",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/asheville/query-freeze.json.gz",
+      "section": "rail-v3",
+      "sha256": "b287635c428991da07922ec32acb72a36587b8320c5ad17e79a126ecc883ef77"
+    },
+    {
+      "bytes": 103979,
+      "gzip_sha256": "358fc16226ae8284cac1be9548448d289229ddf1afde61c1772615a61159b89a",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/game.log.gz",
+      "section": "rail-v3",
+      "sha256": "c28fcb96b71cba0d6fe16337cc89b586c70a7807e2ccb1116c6c923f9d8c2996"
+    },
+    {
+      "bytes": 2309,
+      "gzip_sha256": "ad7aa13729a133e6f72bbb956d62fa5c1b546e60fdcecfc03bf577d9ba07b20c",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/gpu.csv.gz",
+      "section": "rail-v3",
+      "sha256": "4ca5188fff7d02a7e18c51aff41f2bc4f2cd141a3e1d282d237b7d9ffcf9e9a0"
+    },
+    {
+      "bytes": 3613136,
+      "gzip_sha256": "6d375e3d1109997f1923a831b21daa6612710aa9703239f66dddb64fcfcf71f4",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/networks.json.gz",
+      "section": "rail-v3",
+      "sha256": "3471843c0281e75506f93190666a82484d5bcd09645ce6069a9c0368d4faed8c"
+    },
+    {
+      "bytes": 203599,
+      "gzip_sha256": "5b24cb6699484bbf11f14698dcd7a2957597464fd49b266aaeafc6c1719bc198",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/observation.json.gz",
+      "section": "rail-v3",
+      "sha256": "72580e0d1c67c331d6442a4660543f53d5509c9795821d1dac7a1b8ce00b5ca6"
+    },
+    {
+      "bytes": 3687,
+      "gzip_sha256": "a775fa819b583162b310a25965f8d58e7d41ea52211d905b7baa19850e7fb2cf",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/panel.json.gz",
+      "section": "rail-v3",
+      "sha256": "a72586b0813d8a38f417cf8103f658e8284809502739435b8a6389659467a78f"
+    },
+    {
+      "bytes": 35824,
+      "gzip_sha256": "b9278d72a84e0eff99c6d265a42730dc695742a44bd58ec03a5b9224cb29ee6b",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/innsbruck/query-freeze.json.gz",
+      "section": "rail-v3",
+      "sha256": "a6e7a252c43d4192b9ced8bb1b7a9d6369c3f674149a1c1593129d24f9d689fb"
+    },
+    {
+      "bytes": 1071,
+      "gzip_sha256": "ce0525b059c45cb09540d8de55d9fe6cda630b24e4ff64ed0d6b8500dc0be582",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/rio/observation.json.gz",
+      "section": "rail-v3",
+      "sha256": "0b1eb958ba840c53412bedecaf6323fc8536c3492bcaeea1b7bce31e589aca2c"
+    },
+    {
+      "bytes": 103782,
+      "gzip_sha256": "16dcea8caad80acb959e6f447c1cd8a1166699af0dee1bda218cdd8fc4630a9c",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/game.log.gz",
+      "section": "rail-v3",
+      "sha256": "11414e40d3e5b27ea2444bf332ebfa5e5aaecd0d25219ac196eb19235705e876"
+    },
+    {
+      "bytes": 2104,
+      "gzip_sha256": "0e4bf73fcbc3cd1fc470aaeb87f476883ab5673ccb5302747ecb29060dc14078",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/gpu.csv.gz",
+      "section": "rail-v3",
+      "sha256": "4fdc8a26dc95258753d281c28573c3540f983629e4c4680aadc2c098914dac18"
+    },
+    {
+      "bytes": 3005384,
+      "gzip_sha256": "25f3f9a197155e71350ba8fb700a0ecca27427d587618190fd83452e39a02d7b",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/networks.json.gz",
+      "section": "rail-v3",
+      "sha256": "bc1f09f7a31437b5d389ac787078ace910d2beb1fdf4206dcda8ec22af914b6f"
+    },
+    {
+      "bytes": 410889,
+      "gzip_sha256": "23e31086b16c072594be93ebe56031b7a713bae2cf1b7dfec6f0be7531387c5b",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/observation.json.gz",
+      "section": "rail-v3",
+      "sha256": "9d6889555ab31c2c57a4387b796c757d37784e62c42698f117e69ed7b9573c8e"
+    },
+    {
+      "bytes": 3618,
+      "gzip_sha256": "49b8fa34ecaaa8bba5f2476c26a4986b46e1908192d48b11a49f1d3274ff5a76",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/panel.json.gz",
+      "section": "rail-v3",
+      "sha256": "72e3c960aeba67e9d3b2e31bcc28f5151bb41320ea7e89140184d302fd546261"
+    },
+    {
+      "bytes": 24004,
+      "gzip_sha256": "b534b54e0c3128e16ef317fc82840de6ac3617c777be8a6aeb057e75e8e766e7",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/query-freeze.json.gz",
+      "section": "rail-v3",
+      "sha256": "7b11714a52cc0a6ad3c1a2fc7b19c30baca4c30bfc8153055285c8c4af9a102a"
+    },
+    {
+      "bytes": 149171,
+      "gzip_sha256": "b7837183c5bd7520e5dfb288e048fc06b7a1a405226f8354049daa909a49611a",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-1/ship-water-at-opening.json.gz",
+      "section": "rail-v3",
+      "sha256": "7944f941deaea3dc32384a54300e852238831bca40fc9117a053e6984dde5370"
+    },
+    {
+      "bytes": 103748,
+      "gzip_sha256": "f89647e678e72006ca41f3489b1f0fc9f784bd8a3a496a8c880717b63c791a8d",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/game.log.gz",
+      "section": "rail-v3",
+      "sha256": "03a58f7b4550597aa7a99a0fae0e14e6ab584ef636b112320e873d2194b1974b"
+    },
+    {
+      "bytes": 2309,
+      "gzip_sha256": "ef32ab2a2ec9c142d24831d88d14d3ca4fd8ac9406e2ce23815ba4c7dca4a54a",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/gpu.csv.gz",
+      "section": "rail-v3",
+      "sha256": "ad28ffccd0de07be83447dd8961990d57b1c3cc10939725c0cd8deef56c59ece"
+    },
+    {
+      "bytes": 3686823,
+      "gzip_sha256": "a18efd5a81179c717f1d341307066ecc0f667f9801cf264c6a9ef71437a3a649",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/networks.json.gz",
+      "section": "rail-v3",
+      "sha256": "0690640093062e6666624d0317f02f687548777b2d7c120b4f9f6e37a6c0ee04"
+    },
+    {
+      "bytes": 351519,
+      "gzip_sha256": "6d4672c2698344b243bcc4ebaf406055ec50faa5be9147a996297d0f32cde9f1",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/observation.json.gz",
+      "section": "rail-v3",
+      "sha256": "2cd7b3a4829238699414d1e5a83feb188153159602c6e256bdb57594abee4011"
+    },
+    {
+      "bytes": 3614,
+      "gzip_sha256": "66a9ecd6ae53228a304b8e9ed7c54cb977a53596ce6a3ef2353519768da5a9ac",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/panel.json.gz",
+      "section": "rail-v3",
+      "sha256": "4fc8afe0aad804e46b4c7eb7b212406da98912019fd48c1fbcdad5a2f942f959"
+    },
+    {
+      "bytes": 37054,
+      "gzip_sha256": "49af42b6f60b94e213bdeebe7c9a8c9727ebbb2970712cd9142bc2e38f2f5c81",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/query-freeze.json.gz",
+      "section": "rail-v3",
+      "sha256": "ad91a75b5a182e7ab81cefb9d953cb86aa049e910b659c4017d263859ba6f152"
+    },
+    {
+      "bytes": 182232,
+      "gzip_sha256": "1961abe9e99b778f05c21a095a553974cfea03d916994ca74f727073187cfcb5",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/stock-2/ship-water-at-opening.json.gz",
+      "section": "rail-v3",
+      "sha256": "65c35083165324457a39c7f871ec228032dfcc82245d947c2c514af84384a79b"
+    },
+    {
+      "bytes": 1051,
+      "gzip_sha256": "4193461190090ccbfe94a3c92f7455ebfafcfc67ee9cfded1934fe57f7049f03",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/telemetry/cohort/collector.log.gz",
+      "section": "rail-v3",
+      "sha256": "7f466f8d9fc2b6a4692e8005d3eb6242284ae42bd4c5e50060c29014bf967dac"
+    },
+    {
+      "bytes": 645,
+      "gzip_sha256": "93296dfe6364a0febcaa3b15d730a6406aa64406435e5de37029fb8385522750",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/telemetry/cohort/driver.json.gz",
+      "section": "rail-v3",
+      "sha256": "5458e2c6482774462401a5477bf32f600dd468d9d5625c349d140ff9f2d2d763"
+    },
+    {
+      "bytes": 68533,
+      "gzip_sha256": "8ae000e749f7d14bdf07d60707ca73309b2c6ae85cdac840f874343866a18032",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/telemetry/cohort/process-gpu.jsonl.gz",
+      "section": "rail-v3",
+      "sha256": "84b13430a7ecee916bc7718c5cf1fa647656665a444498c8934d0a024b17eb67"
+    },
+    {
+      "bytes": 956,
+      "gzip_sha256": "2f35589116bb0397c1bf543f70df95576e4ebb8e26713b1ab4115827bcaca3bc",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/telemetry/controls/collector.log.gz",
+      "section": "rail-v3",
+      "sha256": "78d0fbbf6cc8a3d00ed090745dd2e3e8bcdc2f717d6ca43935bce05d6099c33b"
+    },
+    {
+      "bytes": 647,
+      "gzip_sha256": "85caeba7b251b46a4deb9aa22c51b44a0a0ca3d2d79f8addeeae8e9d23f201be",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/telemetry/controls/driver.json.gz",
+      "section": "rail-v3",
+      "sha256": "7df1ef3143aef36cf57ad225f56f9c7ea8b70b59549e84d91c9e41a236cb15be"
+    },
+    {
+      "bytes": 66868,
+      "gzip_sha256": "a233206f30d72e63e34465667761f4a40c16788f9ad5a78bfb34fd89e31e0b3c",
+      "path": "tools/map-factory/capability-evidence/rail-v3/raw/telemetry/controls/process-gpu.jsonl.gz",
+      "section": "rail-v3",
+      "sha256": "d1b1d504cb184a3e3e892265b5d4bd46d4fb61d80e4690deb8c15be537f74ca2"
+    },
+    {
+      "bytes": 77253,
+      "gzip_sha256": "3d2fdd55badd808b1fc65e4eaed7f0865d1477253afc57d3da91bc67c99e8081",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/batches/followup-1.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "4821e350fc6fcfc296dc9622e97eb9c10c2b5490e76a6b9cae42e773e5773f67"
+    },
+    {
+      "bytes": 104237,
+      "gzip_sha256": "7c82a626578e789f31ac27e97f15c4be0e234623627c0a44286a5b1107b70cdd",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "9d596255ade492707b6a36b902d371f74eb5f5b100e82dbb4d4e92292d5b4e15"
+    },
+    {
+      "bytes": 3049,
+      "gzip_sha256": "9666e2f40f165b1da2b12dfe0baa96919a4d0188e41fd31f6176c201587616ae",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "42e41015641ea9debf3cda317e3344a25102db56db0ed97553cc5430d72d11a7"
+    },
+    {
+      "bytes": 14023171,
+      "gzip_sha256": "891911492bae70cfc381aca673f052d8d6274d7bfbf0f3de07489054c1646684",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "6366818b8ff1f1ffbd904445c6f4e666539e4377d9802a9afcef1ef2222db9e5"
+    },
+    {
+      "bytes": 352122,
+      "gzip_sha256": "c59dd390515d48727e058ed3dd605178806d273761fe4414b2ff7f94c1a3ea16",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "eb653d805069768f95ff7f268095d03177992670fe2e156382a5357dd4f781d2"
+    },
+    {
+      "bytes": 3653,
+      "gzip_sha256": "09d0fae3d85609da272accb07296473aeeec0b02be01ba12cfeb764e5351870a",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "974b355273acd8a166d4abb59d320c4a7f84117f859ef4988597a8b7ee3d9c75"
+    },
+    {
+      "bytes": 78896,
+      "gzip_sha256": "43c404ebaaf4c1d42953f4fafbc4946161ecba7a96828105c3c9833b64120299",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "1a074e4e9d3d6283b52e870dc6e1f9e0a1f426bf0a9d02d3414e4c82a8099991"
+    },
+    {
+      "bytes": 214392,
+      "gzip_sha256": "7686586fc23a9dbe203bee5b7b556f04d3de04109fc3c9ca50bf15cf9f0cdf18",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/boston-attempt-1/ship-water-at-opening.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "d17bb0f03fb8a1b1dc8aa0b1d4f7047eb2f952e903715f84456e942b8a5e28d0"
+    },
+    {
+      "bytes": 103840,
+      "gzip_sha256": "cc047830ff7daab971fc63b2801d714f69dea23203fa8cf3b2c032f4c14c6229",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "456d28475284fb8157d403be11d62619f2991447ff1745a0fd76368490295d55"
+    },
+    {
+      "bytes": 2036,
+      "gzip_sha256": "af8f6c9dd17bba283b6b54b0cc56af6d915039120a50d87288666ec16b4d1364",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "14e00b077e79cc1ff266a673debb7705cb43c569b7105ede2547cdca7f4f4d23"
+    },
+    {
+      "bytes": 4794866,
+      "gzip_sha256": "5fabfb427a2b2cfb39d425563a49746cfeedceb09438ac70284c99471b5cb3a5",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "bd55677d7ee1e36c0723cf05a26eab0b823de5fe100863de23fc7efee69e4a25"
+    },
+    {
+      "bytes": 131321,
+      "gzip_sha256": "5b89ea2a7353426c4fb57f6b5b8c49c61c860d67a0f3af8764dadc401775ebad",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "7fa33620e28fe00a7361622633adf105baecdd2c51e579d5d6eac0cae9e557d9"
+    },
+    {
+      "bytes": 3725,
+      "gzip_sha256": "537e933556571a475f9dd36dc78d349e48509a6e0219c20dbd065a692fa38205",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "10ddfdedc01979e37fda364df1a336585c64cf908f3b674ab9170730f29c87c0"
+    },
+    {
+      "bytes": 16145,
+      "gzip_sha256": "bd3396296d54d29272859bd00df386933dfe866036a858b5c4f27aef52412720",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "0d1ba9d574a2254681e918faadadb3dc0c2d5fcd66ef258b044b83e79b03346f"
+    },
+    {
+      "bytes": 248224,
+      "gzip_sha256": "aa5c50313ec14e5b3dc1b8e9bed7f72e72a82545ac512388775236c53d3a888c",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/charleston-attempt-1/ship-water-at-opening.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "f0ac790fe255c775d22c13d79f730ae43d885466531b508ca4068b8bb6a2c803"
+    },
+    {
+      "bytes": 103848,
+      "gzip_sha256": "153d943798e97a92a288edc03bf172ba06f312e25b70f8e85ef5a609fda22833",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "a9ac8e9f2310e23139a71fb531e8f4a53419f121c2bea84d461b096e75de3291"
+    },
+    {
+      "bytes": 2037,
+      "gzip_sha256": "6a55282a7806fb8f47786c634d866d5dcc8cb0c819296a9623b781dd4bdc1732",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "9f983723fb9f3a149b8b268e03f3c20857a2e042bf728e2885a618a3db11c392"
+    },
+    {
+      "bytes": 265764,
+      "gzip_sha256": "196f9918fa4c3c9a70899baff41b80addd556937ad43da405680d88ee5f0568e",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "5b775fcfdfac174b24fbb78a717e17f86bd30ca4596b411675aad63d613c412c"
+    },
+    {
+      "bytes": 131344,
+      "gzip_sha256": "749cc68dbf48ac2f262952a0f7ce97e0e71a8fcc30eea6e69f15b519d8c8fa28",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "6c35db0ba6bafc077fbe11ec6d6af011a57aa30466e40245af221dcdbbe8a327"
+    },
+    {
+      "bytes": 3675,
+      "gzip_sha256": "4142c624ec3426fd45458ecf6fda557dedfd88b526cd71b32e29ac83bde87e51",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "49b97516d8381d50dd0c7c7b0dd73ff8a0cab330622099c9c291f62fef54a677"
+    },
+    {
+      "bytes": 16138,
+      "gzip_sha256": "af86d3ff0a65706311c2e2cb1e16d3cdd1d884808d3c72f7c33a5f199cd755e5",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/grand-canyon-attempt-1/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "c52b4464f1e2c2ff56d9f74001e2ebcf6a79f967229d87a622a7a7ef07d5878d"
+    },
+    {
+      "bytes": 104035,
+      "gzip_sha256": "29c5d19ec45983b468492901f1f0a019b136cf02dd396e4b513dfdaca5de6584",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "0775c110d45f6850a18fac4b7eab9b880efce5b053337677047924de3a1d864a"
+    },
+    {
+      "bytes": 2104,
+      "gzip_sha256": "7e88e57ef4ea25e64e71bd770a0b680d97f96c613f138fc52f8cdbead23cbf7f",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "fa889791904b74b389a49d5350761634c7bde15e8412cc6ab9ae5f19fdbe1ffc"
+    },
+    {
+      "bytes": 12239422,
+      "gzip_sha256": "4b5fb87698d6d6628f69c91105f41900f199266c4b6be4e504aabf60bf6fafa9",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "bcae383a2380f5d6c4395513f9bfa6c6b28a1f9e94285872df6875c7d3b5f39c"
+    },
+    {
+      "bytes": 141083,
+      "gzip_sha256": "ff9f13650a62440967d2c4e65df6cb72914103e76a0432415c56afdedcce6926",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "162b829285718ab46a40b72f744b2ee975e93158a246254bfa46b6f4a145cf9f"
+    },
+    {
+      "bytes": 3643,
+      "gzip_sha256": "4c704469d5a24daf9ca704c8727c327c34090d34f3ec0c131983e18228031916",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "9c92118d0fc6c473483a0ea13bd191ef366bd32664771751341990ac8ca96801"
+    },
+    {
+      "bytes": 23439,
+      "gzip_sha256": "9e906763e8c4b01db5e90c7963c7f64c3db361649ad62125c6e57674267b1ab6",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "3f2918292ea9f7de89b3e91488ed73fbb410e2a6ff90f38e53f851278cb10919"
+    },
+    {
+      "bytes": 237656,
+      "gzip_sha256": "7c902d20427fe353e9c55fa96843a8dd43da42cc0c858b8efcc2a24b7a24f9cc",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/hong-kong-attempt-1/ship-water-at-opening.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "a6caef6a089519be76cc30bacb95fc020b0c3882dc78c3cc9b284e8f2813694c"
+    },
+    {
+      "bytes": 103978,
+      "gzip_sha256": "cb9eb3ee4d3723a39e4966f006d86815eb921e61314c717ef980d2f36a450bf2",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "0d2bbf3e5730befd80f46dfd010767d697554773e3e5674e2cbd2f8f13cabae1"
+    },
+    {
+      "bytes": 3600,
+      "gzip_sha256": "30ae7a9a122cb19c29069294caebc86cb7ca4d3e725230f7c941aa066f292cc3",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "26bf28d11122ce63c163a7761355448ed3850ff58f6277a7630e7c914698f79e"
+    },
+    {
+      "bytes": 13289257,
+      "gzip_sha256": "c82ee5ca875ab82014e7710196913461d4ada3755a0954801d54eab53864cfc1",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "44d6c9a0aeea6741cca16c77df49dd62595b0780ab943638810000cb5abc4f0e"
+    },
+    {
+      "bytes": 411196,
+      "gzip_sha256": "d1937e734adcbcf45c3203e79e5cc47c550da25e6c06c3a11662da231115ed3f",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "ed502e0d04d503685bd900d93f5246793eb6e6618d57afd890eea05fea7f22be"
+    },
+    {
+      "bytes": 3695,
+      "gzip_sha256": "8aa61d79b1614610d4d41dae86ab0342b21e75cd4659746131a6ebeb733997a5",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "3e0c51e717f2ff5ba2859778473f7dc2cc37fd651beac8a7e07dd1a85ce3541e"
+    },
+    {
+      "bytes": 127727,
+      "gzip_sha256": "ede78fa077ea0cc337ee80417dcffd202330bec876bed1146bada30ff3bf603a",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/pittsburgh-attempt-1/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "0f50412ba4e22998bc15f48d79b271a61f1fefc249845604a818522ef8911e72"
+    },
+    {
+      "bytes": 103782,
+      "gzip_sha256": "78185d5fd65477994a4cfd18fda777624ac0fbf8cfe093a550c7c55c43c49c98",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "79f16a2a833b41c25a4e8542027e4c3c842bd50c1b699946d377ba9ea4b186c2"
+    },
+    {
+      "bytes": 2102,
+      "gzip_sha256": "08b1577567759841941c5f56c9539e4ce8cb4dbd42193e6e0da7a8010fefc6f8",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "9e790b9461697a8dc69307d5995161f8a265af5c014bc98b5a7376810a558251"
+    },
+    {
+      "bytes": 8144683,
+      "gzip_sha256": "4f919ab39c8cb217c34fdf55587730c17341454883cad43d99189819c28eeff9",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "3eace8be0b39d06d64e7193e8941d4a95a88a39c0027899790c2d52aec95ba1f"
+    },
+    {
+      "bytes": 142017,
+      "gzip_sha256": "7da2cec0d0ece85e1cc67b87335376106ed7116c5d5fd6e8b0db1c493bc8e466",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "100c59d1e0524baeef8e2828ea76cba1bafafd67727fc188c1dd9d494507bf61"
+    },
+    {
+      "bytes": 3658,
+      "gzip_sha256": "6b7968ffcc51730914124118d63794c9e855752a1b0dbf3c05342c83b07213e7",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "18e63182d7c256e7f91252001ae9497900e5d6186303a4bf685b093547cc7e83"
+    },
+    {
+      "bytes": 23412,
+      "gzip_sha256": "14080eabcec185c869005ea0a914a876c8d1d7659abb9eb2b5046ffd7e3be9f2",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "29f743ee27eebffcce7b6a2ee30b1f656018c70a3c1eadd680393097a9b26fea"
+    },
+    {
+      "bytes": 241575,
+      "gzip_sha256": "d460264282645a8eac19c09c50e10a3e92d1ad72d0607a951509a6494bad8178",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/rio-attempt-2/ship-water-at-opening.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "a7c125d160554dec8ca8d2a21e60f7432b94bc1ba33f1ed9f80cf7a07498bdcd"
+    },
+    {
+      "bytes": 3588,
+      "gzip_sha256": "751a0eaa1481c1426652d1d0eb9f69261d646a01152ced213b0d59efb79fccec",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/telemetry/followup-1/collector.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "e0ec0cb3a62e450e0d5dcb8d2a1f218710083b8a57399db76ad5adcdcd9e363f"
+    },
+    {
+      "bytes": 317,
+      "gzip_sha256": "3583b23060b89a8b568b9352b76eca4e3df123cd0ec6af6240f9821ffa5e0e0a",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/telemetry/followup-1/driver.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "0c10d66e2277d508fde0fa9b92855d51fe4891ea24c93a04a41781a42d427f09"
+    },
+    {
+      "bytes": 284431,
+      "gzip_sha256": "e2f779bf4fd3fd45ddb3694772077f00db14538da3bb08f8dd74b8146424d959",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/telemetry/followup-1/process-gpu.jsonl.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "602eff4a5534e4febe4afd8e8cd7fc05c2c7acb6381a0e7607e7987c49e93984"
+    },
+    {
+      "bytes": 103832,
+      "gzip_sha256": "3847f9b257629583ebd67d4e320678ac4dfa3f766ef4c3d5603e12864560da14",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/game.log.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "907589114cd54fd9c17d3bdc52ef9a3b86886dd8e996bdbdb745227e67aea029"
+    },
+    {
+      "bytes": 2041,
+      "gzip_sha256": "3613202643d221199c04f1b395886e3e04bca81c096c2a7d8ebc5c86d593a4f6",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/gpu.csv.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "fffc1beb26d15dd90b5faf874001712c0b50435a66a45f38e96b2d82e33cac3f"
+    },
+    {
+      "bytes": 153,
+      "gzip_sha256": "7dda1c1860926facbb10c62c9a52f486003e3596c6592259e215da922d9e9580",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/networks.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "d4ee9b3d8fb7c64221ef63bb725bd486ca1ed7b399ee98b8bf78e3002a8e12f8"
+    },
+    {
+      "bytes": 132286,
+      "gzip_sha256": "03dfa2cf1063d95dc529c2d486c4ec815a867f6ca51c5ed15e14c8816d3c33a4",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/observation.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "9bcc4457e8738d2df81bf060fa4099187ba85bb9f318fd59493e263f5d121388"
+    },
+    {
+      "bytes": 3674,
+      "gzip_sha256": "d73848b4a3c26e206d6fc14e5bd45e4610122145d126a3def2f789a8ae403da4",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/panel.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "b27ec404de4a0bef0a0bf666052f683a28de5193b7565b84d0e20c12c743734d"
+    },
+    {
+      "bytes": 15126,
+      "gzip_sha256": "566805cd1f8bd9d537acc20360cec40e5c9139e3f49cfa2cd3a33b0749f5eac1",
+      "path": "tools/map-factory/capability-evidence/rail-v3-followup-1/raw/yosemite-attempt-1/query-freeze.json.gz",
+      "section": "rail-v3-followup-1",
+      "sha256": "f1aafa37f89ef0e471318daad0e2cf37b76937bad7f6ab6a210f2b63eff51843"
+    }
+  ],
+  "schema": 1,
+  "selection": {
+    "cohort_gate": "both stock controls completed and bound; at least one exact directed literal-boundary success; each control rejects the invalid Train-to-Car query; freeze cohort enumeration only after this gate",
+    "corpus_count": 104,
+    "corpus_sha256": "95840ef01f77faae5e35466077c95f9f6827adbcdf5456faeb90d2a8747e7eba",
+    "fixed_controls": [
+      "AP Asanu Beach.crp",
+      "AP Hanami Bay.crp"
+    ],
+    "frozen_at": "2026-11-21T14:17:02.967137+00:00",
+    "original_selection_sha256": "892dc05174e498237a970db42fc7ca40421534899f18cde3bddc20cb1edfa0c9",
+    "source_base": "29b095475ba2f93c7e918fefc08c736493670304",
+    "stock_rule": "first two builtin corpus filenames lexicographically with metadata incoming/outgoing train > 0; no replacement after native inspection"
+  },
+  "source": {
+    "final_thread": "01a1fec0-0768-7b0d-96fe-025862c1c155",
+    "independent_review_pass": "01a1fecc-f7d3-78f0-a858-6552d25e4f00",
+    "note": "publication1a is not a native observation date and does not claim the publication commit existed before collection",
+    "publication1a_pinned": true,
+    "publication_base": "29b095475ba2f93c7e918fefc08c736493670304",
+    "publication_commit": "1a0e45c65745ba5f05cf22f947da2e88fed25277",
+    "publication_url": "https://github.com/frontierkodiak/region-to-skylines/pull/78",
+    "source_issue": "01a1fe64-7010-7533-bf2d-34ed498286c7",
+    "source_url": "https://github.com/frontierkodiak/region-to-skylines/tree/1a0e45c65745ba5f05cf22f947da2e88fed25277/tools/map-factory/capability-evidence/rail-v3",
+    "test_receipt_addendum": "01a1fed0-5a2b-759d-b58e-372e2d70d029"
+  },
+  "source_closure": {
+    "build_source_count": 17,
+    "build_sources": {
+      "CheckOps.cs": "b05f18afd257f73a93625f61667e37ed407541fb4ebe3313a6eb603111258011",
+      "CityOps.cs": "0320e35b391cdc52ff664b6c50469d52c6d9fe02f2350a972fb668768f056a7c",
+      "CoreOps.cs": "9dc99fd6e91359f342149a1983aaf3187de0389a07a986065af76a8f6359b6d3",
+      "DumpOps.cs": "02ac58f3c16150b2158fb380351cd273620fcf9e5d6dd7534676a9a7c695fcf9",
+      "EditorOps.cs": "8d2f030a69a2eed15247a7c42ab00557b4d902cd8ee65c05fc705f094b35f536",
+      "Harness.cs": "abaf8e32ee4432734688cf44b4f6121f1be288d2a24631e7002d5141b0a6b766",
+      "Jobs.cs": "02285b8d553d9857feb1b4e400e78b11ea4ff2c299b80bbbd98c8a9002cbf113",
+      "Json.cs": "3f05ed8308976e26de590d83e36a3660a3c8ac1105fd3f9b5167cd1018381884",
+      "NetworkOps.cs": "383e9caff7515bcbb95e9fce490f517f298cee76bca599786884bac5eb144bb4",
+      "PanelOps.cs": "724a2bc21faa0bd18aedc3a97279483adf32c9391e1fa3d2c1866c6aba50e9f3",
+      "Readback.cs": "c8793d06360f01b32accd6ffd0c2f9b9834e3bfcb24f5de47b7c1b07c7d1471e",
+      "ScenarioOps.cs": "0bea0d39df13fd4f906f0e7cd8d2db022173c09e2819e8bb2b1cda57fca10cf1",
+      "TemplateOps.cs": "b8abeb4f5904d21dd029a81c98227f0ecc0c0b7c498961092f36f1d162a03f3f",
+      "TraceIL.cs": "1d75c1f5f6518ea6584346cbdade3aee69f76d2983a43c6524ec7b079f1cb6ef",
+      "TraceOps.cs": "fabb166d9a4a306a8e843f657f553bf8fb03f20f37793a6b2b590d3a170f96ba",
+      "TraceRecorder.cs": "42f879f776b91c675eefb2fa227314908515ba46d9ee4851df12802a3beb2fa4",
+      "WorldOps.cs": "6a35766794c9252c5672d15955d3c5e616b36fc38b243f41effb59ed61d06da6"
+    },
+    "files": {
+      "tools/cs1-harness/cs1_harness/__init__.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/__init__.py",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "tools/cs1-harness/cs1_harness/assets.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/assets.py",
+        "sha256": "6d62197cbe7eaa8e1f6610b9b9895b780244290ef0d3518d1e023d3b47aa5b83"
+      },
+      "tools/cs1-harness/cs1_harness/audio.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/audio.py",
+        "sha256": "89b14306604482dff83e2490cc9ee99a2451cecd54e4e5a17501f04ee3f4cfd6"
+      },
+      "tools/cs1-harness/cs1_harness/bench.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/bench.py",
+        "sha256": "4a91b20270939e6c4b63e1d6c740a7c0aab41d59616e85d7881e25dac23e08e8"
+      },
+      "tools/cs1-harness/cs1_harness/build.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/build.py",
+        "sha256": "415002cf6e7442e60e029e53382916972207f3f4710c933654b6bb4e7e6fe95d"
+      },
+      "tools/cs1-harness/cs1_harness/citydump.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/citydump.py",
+        "sha256": "f6c85c66204de254341922ce9d500614c0aa557cec56d0d8a58dcd510764b035"
+      },
+      "tools/cs1-harness/cs1_harness/cli.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/cli.py",
+        "sha256": "7d33e170ffd83d9284ff40590831ad71be7ff8c0913da930c624cdf1dc03266b"
+      },
+      "tools/cs1-harness/cs1_harness/client.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/client.py",
+        "sha256": "cc376931a91c8a9769e133eaf4a884589a822d1a8c7810f7811e82dca8120b6d"
+      },
+      "tools/cs1-harness/cs1_harness/config.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/config.py",
+        "sha256": "33c9edc86938804fbcefc78fa0041a5655966c77a3257cde140cf0a4020f8523"
+      },
+      "tools/cs1-harness/cs1_harness/connections.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/connections.py",
+        "sha256": "4a48d43e869a8d6ad9acedf1e0c9401427c7a7b7c0d878061e7698aa27c4cdb6"
+      },
+      "tools/cs1-harness/cs1_harness/first_hour.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/first_hour.py",
+        "sha256": "74ffbc7b6596c17cdd92b821ba3dd7735ad28e612b24aabc1fabfa6ca9d26093"
+      },
+      "tools/cs1-harness/cs1_harness/flood_region.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/flood_region.py",
+        "sha256": "399359fbc236cfed407493165303a5f088297f192b2fb102b794de65b6c20532"
+      },
+      "tools/cs1-harness/cs1_harness/gpu.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/gpu.py",
+        "sha256": "017ab47549f992bf6866eb99780b03e16cbd3938d3ed41189ab592f9494b5a71"
+      },
+      "tools/cs1-harness/cs1_harness/groundtruth.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/groundtruth.py",
+        "sha256": "f2d0164c093a1e0edba52fa9feeec03a108c30a4a2907216aad910a8163758e8"
+      },
+      "tools/cs1-harness/cs1_harness/landmarks.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/landmarks.py",
+        "sha256": "8e19e768fc8a6e681487afe8e712b24bfa7231705bf832904de8266d682a5991"
+      },
+      "tools/cs1-harness/cs1_harness/mapcheck.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/mapcheck.py",
+        "sha256": "c220e66034e8c48c741ca8f6d43e04969b8d10aace30395d2515d494331a231f"
+      },
+      "tools/cs1-harness/cs1_harness/mapped_water.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/mapped_water.py",
+        "sha256": "f997e3a27b5df20b99c3e17959cd5d6b2f4a311eb89969db1909d032a98dbd4e"
+      },
+      "tools/cs1-harness/cs1_harness/mcp_server.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/mcp_server.py",
+        "sha256": "e6d0a2484a7eb99a8efc6cded4f168f8f5af545fc08134afbf034f94c2377e5e"
+      },
+      "tools/cs1-harness/cs1_harness/new_game_panel.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/new_game_panel.py",
+        "sha256": "c07b919ed884c549b75e3cc050df192c39d0901456322d00ffedd9a6164371b1"
+      },
+      "tools/cs1-harness/cs1_harness/notify.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/notify.py",
+        "sha256": "5d776db963aa9ed83f9aae5037102f11ee3160761e8aaf03495580c839b0de76"
+      },
+      "tools/cs1-harness/cs1_harness/observe.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/observe.py",
+        "sha256": "9ae8e280d3a9d200702507cf0328c693d7972782d0828f4c78a05127b1a77c5f"
+      },
+      "tools/cs1-harness/cs1_harness/offline_steam.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/offline_steam.py",
+        "sha256": "271029d9f2a8f3a6722dec402d1b3eecc698a0d88825e9ce4de3cc047faa38bb"
+      },
+      "tools/cs1-harness/cs1_harness/rail_study.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/rail_study.py",
+        "sha256": "a81fa6d63204314139604e12999ec573c6ffd2a9988df25ea91dd589704b35ea"
+      },
+      "tools/cs1-harness/cs1_harness/registry.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/registry.py",
+        "sha256": "67d06b27abb9d3f9b50b84c08839cb1ca876f2296db469609c9080b2d14e5847"
+      },
+      "tools/cs1-harness/cs1_harness/report.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/report.py",
+        "sha256": "5dcf1e2ecab7c73b4c5aeee53dd354619af96dfe4133411a8aa9789fb2cbaf8d"
+      },
+      "tools/cs1-harness/cs1_harness/runtime_identity.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/runtime_identity.py",
+        "sha256": "f4803a1e859161035a15253b8d3bd441c8d29fcc4783f98dd600c653fdc423b9"
+      },
+      "tools/cs1-harness/cs1_harness/saves.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/saves.py",
+        "sha256": "bdd7fd8446b0a9c3f7f67068d8b6b6551820730450e1f2ce09a5c8cd480d0dde"
+      },
+      "tools/cs1-harness/cs1_harness/scenario.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/scenario.py",
+        "sha256": "0d23901a3af1a544446e9c0aa9506dbbec8ecdab3df16fe812f062bcc42da094"
+      },
+      "tools/cs1-harness/cs1_harness/session.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/session.py",
+        "sha256": "9a62d8770fddc3b7bbef11e14a186ecd76870c57687c8b8cbe76ca9b420a8ec6"
+      },
+      "tools/cs1-harness/cs1_harness/setup.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/setup.py",
+        "sha256": "08e81f2f988b596b71e2f6bced69f60e2e856ac059e822d2f00679a3548843e1"
+      },
+      "tools/cs1-harness/cs1_harness/slots.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/slots.py",
+        "sha256": "2fdee7b085d22bfae6d6c39737dca2d75a12807decf01120274ab6aad36f73c6"
+      },
+      "tools/cs1-harness/cs1_harness/startup_views.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/startup_views.py",
+        "sha256": "de56b7efe6e78e323ff33bce4c825b6724501821b7416e605b870968b1027ae2"
+      },
+      "tools/cs1-harness/cs1_harness/steam.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/steam.py",
+        "sha256": "e22860f30fb7f37a6c69bd5e3304ffd1500d0d39c421825f19d13edc7b87dd8a"
+      },
+      "tools/cs1-harness/cs1_harness/template_author.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/template_author.py",
+        "sha256": "ceaa42650ecabb7f6733b2645a41f63243c4ba1feb87647ab34997330d9a3787"
+      },
+      "tools/cs1-harness/cs1_harness/triage.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/triage.py",
+        "sha256": "c88d30207dbd4c6186aac5faa2a5825fde5568cbecab4185af1c8637a3ab50c5"
+      },
+      "tools/cs1-harness/cs1_harness/verdict.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/verdict.py",
+        "sha256": "f9cb1c4e0a07680ab1eed55fb5414ba6054f50090565712c99dc5801e3cfd5dd"
+      },
+      "tools/cs1-harness/cs1_harness/vision.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/vision.py",
+        "sha256": "300622c67df45cef8639ccfbccbb14e6b5edb37acc3b2728bc352ffdd9b162c1"
+      },
+      "tools/cs1-harness/cs1_harness/watertrace.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/watertrace.py",
+        "sha256": "dd67811681ddad0fd674e4f25233766535c7b7cf1fcee2511071a074e23f8ccd"
+      },
+      "tools/cs1-harness/cs1_harness/x11.py": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/cs1_harness/x11.py",
+        "sha256": "6941255c4089a67b1090062d20be73aa130a483ac7e62e8a0b0173dde29354bc"
+      },
+      "tools/cs1-harness/mod/CheckOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/CheckOps.cs",
+        "sha256": "b05f18afd257f73a93625f61667e37ed407541fb4ebe3313a6eb603111258011"
+      },
+      "tools/cs1-harness/mod/CityOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/CityOps.cs",
+        "sha256": "0320e35b391cdc52ff664b6c50469d52c6d9fe02f2350a972fb668768f056a7c"
+      },
+      "tools/cs1-harness/mod/CoreOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/CoreOps.cs",
+        "sha256": "9dc99fd6e91359f342149a1983aaf3187de0389a07a986065af76a8f6359b6d3"
+      },
+      "tools/cs1-harness/mod/DumpOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/DumpOps.cs",
+        "sha256": "02ac58f3c16150b2158fb380351cd273620fcf9e5d6dd7534676a9a7c695fcf9"
+      },
+      "tools/cs1-harness/mod/EditorOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/EditorOps.cs",
+        "sha256": "8d2f030a69a2eed15247a7c42ab00557b4d902cd8ee65c05fc705f094b35f536"
+      },
+      "tools/cs1-harness/mod/Harness.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/Harness.cs",
+        "sha256": "abaf8e32ee4432734688cf44b4f6121f1be288d2a24631e7002d5141b0a6b766"
+      },
+      "tools/cs1-harness/mod/Jobs.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/Jobs.cs",
+        "sha256": "02285b8d553d9857feb1b4e400e78b11ea4ff2c299b80bbbd98c8a9002cbf113"
+      },
+      "tools/cs1-harness/mod/Json.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/Json.cs",
+        "sha256": "3f05ed8308976e26de590d83e36a3660a3c8ac1105fd3f9b5167cd1018381884"
+      },
+      "tools/cs1-harness/mod/NetworkOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/NetworkOps.cs",
+        "sha256": "383e9caff7515bcbb95e9fce490f517f298cee76bca599786884bac5eb144bb4"
+      },
+      "tools/cs1-harness/mod/PanelOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/PanelOps.cs",
+        "sha256": "724a2bc21faa0bd18aedc3a97279483adf32c9391e1fa3d2c1866c6aba50e9f3"
+      },
+      "tools/cs1-harness/mod/Readback.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/Readback.cs",
+        "sha256": "c8793d06360f01b32accd6ffd0c2f9b9834e3bfcb24f5de47b7c1b07c7d1471e"
+      },
+      "tools/cs1-harness/mod/ScenarioOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/ScenarioOps.cs",
+        "sha256": "0bea0d39df13fd4f906f0e7cd8d2db022173c09e2819e8bb2b1cda57fca10cf1"
+      },
+      "tools/cs1-harness/mod/TemplateOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/TemplateOps.cs",
+        "sha256": "b8abeb4f5904d21dd029a81c98227f0ecc0c0b7c498961092f36f1d162a03f3f"
+      },
+      "tools/cs1-harness/mod/TraceIL.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/TraceIL.cs",
+        "sha256": "1d75c1f5f6518ea6584346cbdade3aee69f76d2983a43c6524ec7b079f1cb6ef"
+      },
+      "tools/cs1-harness/mod/TraceOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/TraceOps.cs",
+        "sha256": "fabb166d9a4a306a8e843f657f553bf8fb03f20f37793a6b2b590d3a170f96ba"
+      },
+      "tools/cs1-harness/mod/TraceRecorder.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/TraceRecorder.cs",
+        "sha256": "42f879f776b91c675eefb2fa227314908515ba46d9ee4851df12802a3beb2fa4"
+      },
+      "tools/cs1-harness/mod/WorldOps.cs": {
+        "file": "tools/map-factory/capability-evidence/rail-native-sources/mod/WorldOps.cs",
+        "sha256": "6a35766794c9252c5672d15955d3c5e616b36fc38b243f41effb59ed61d06da6"
+      }
+    },
+    "harness_sources": 56,
+    "manifest_file": "tools/map-factory/capability-evidence/rail-native-sources/manifest.json",
+    "prefix": "tools/map-factory/capability-evidence/rail-native-sources"
+  },
+  "study": "directed-rail-v3",
+  "totals": {
+    "distinct_edge_successes": 9,
+    "same_edge_successes": 2,
+    "sampled_positive": 4,
+    "selected_boundary": 244,
+    "selected_failures": 233,
+    "unknown": 5,
+    "unqueried_boundary_candidates": 112
+  }
+}

@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { loadWaterRiskContract } from "./water-risk-fixture-contract.mjs";
 import { loadRunwayContract } from "./runway-fixture-contract.mjs";
 import { loadSeaNeighbourContract } from "./sea-neighbour-fixture-contract.mjs";
+import { capabilityUISources } from "./capability-ui-contract.mjs";
 import { loadTransientContract } from "./transient-fixture-contract.mjs";
 import { FACTORY_FILES } from "../mapgen.js";
 import { createHash } from "node:crypto";
@@ -14,23 +15,25 @@ export async function loadFixtureContract(read, readSource) {
   const historicalNativeBytes = await read("fixtures/native-qualification.json");
   const historical = parse(historicalBytes);
   const historicalNativeCases = Object.fromEntries(parse(historicalNativeBytes).cases.map((c) => [c.slug, c]));
-  const active = parse(await read("fixtures/active.json"));
+  const activeBytes = await read("fixtures/active.json"), active = parse(activeBytes);
   assert.equal(active.format, 2);
   assert.match(active.current, /^contracts\/[a-z0-9-]+\/current\.json$/);
-  const current = parse(await read("fixtures/" + active.current));
+  const currentBytes = await read("fixtures/" + active.current), current = parse(currentBytes);
+  readSource = await capabilityUISources({ read, readSource, activeBytes, currentBytes, current });
+  const factoryFiles = readSource.historicalFactoryFiles ?? FACTORY_FILES;
   if (current.version === "pl1072-sea-neighbours-v1")
-    return loadSeaNeighbourContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadSeaNeighbourContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl1066-optional-runways-v1")
-    return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadRunwayContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl912-water-risk-v1")
-    return loadWaterRiskContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadWaterRiskContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   if (current.version === "pl912-transient-storage-v1")
-    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles: FACTORY_FILES });
+    return loadTransientContract({ read, readSource, current, historical, historicalNativeCases, factoryFiles });
   assert.equal(current.previous_contracts.accepted_presentation.file, "current.json");
   assert.equal(current.previous_contracts.native_baseline.file, "contracts/pl912-native-dry-subreach-v1/current.json");
   for (const parent of Object.values(current.previous_contracts))
     assert.equal(sha(await read("fixtures/" + parent.file)), parent.sha256, "predecessor contract changed");
-  assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...FACTORY_FILES.map((f) => "tools/map-factory/" + f)].sort(), "every shipping runtime dependency must be bound");
+  assert.deepEqual(Object.keys(current.source_files_sha256).sort(), ["inputs.js", "terrain.js", "mapgen.js", ...factoryFiles.map((f) => "tools/map-factory/" + f)].sort(), "every shipping runtime dependency must be bound");
   assert.equal(current.format, 1);
   assert.equal(current.status, "partial_not_accepted");
   assert.equal(sha(historicalBytes), current.historical_manifest_sha256, "historical fixture contract changed");

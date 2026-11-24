@@ -32,7 +32,7 @@ test("refresh archives, current source and native-case identity fail closed", as
   const current = JSON.parse(await read(PREFIX + "current.json"));
   current.cases[0].status = "invented acceptance";
   await assert.rejects(loadFixtureContract(path => path === PREFIX + "current.json" ?
-    Promise.resolve(encode(current)) : read(path), source), /screen evidence relabelled/);
+    Promise.resolve(encode(current)) : read(path), source), /capability predecessor contract changed/);
 });
 
 test("coherent hash rewrites cannot relabel the old corpus or change unrelated features", async () => {
@@ -54,6 +54,6 @@ test("coherent hash rewrites cannot relabel the old corpus or change unrelated f
       [PREFIX + "corpus.json", corpusBytes],
     ]);
     await assert.rejects(loadFixtureContract(path => overrides.has(path) ?
-      Promise.resolve(overrides.get(path)) : read(path), source), /refresh changed labels, bindings or unrelated features/);
+    Promise.resolve(overrides.get(path)) : read(path), source), /capability predecessor contract changed/);
   }
 });

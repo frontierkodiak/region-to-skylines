@@ -1,0 +1,299 @@
+{
+  "method": "Cabinet metadata query over ALL supplied TreeGOER-listed species, not a handpicked genus subset",
+  "retrieved_at": "2026-11-23T23:42:21.673619+00:00",
+  "snapshot": "20261027",
+  "snapshot_manifest_sha256": "3a9ab65245e8e4c080ec028f88b1224e234d37b4ced6d1a428809455c84f3ccd",
+  "snapshot_manifest_receipt": "cabinet_snapshot_manifest.json",
+  "query_sha256": "60e460aa2a1b3dc0a82f11fe8d48ffea425d294edd031c4a2412e6a6d95a3dc4",
+  "csv_sha256": "7b8735b9ff3f680581a0c5d75daddfa95d8377f028a4a20e852e2aefc50a5eb5",
+  "tree_list_source": "https://doi.org/10.5281/zenodo.13132613",
+  "tree_list_license": "CC-BY-4.0",
+  "tree_list_sha256": "f3eba9acfb435d0742e86f573db08718ab4dee4a0a09c074f6617b4566b7545f",
+  "tree_list_species_n": 48518,
+  "filters": "Active taxonomy; exact species scientific-name match or first-two-token binomial for infraspecific taxa; research-grade; nonnull positional accuracy<=100m; full exact production squares. Deterministic UUID hash cap10000 per square.",
+  "license_status": "TreeGOER list CC-BY-4.0 per supplied provenance. iNaturalist metadata blanket reuse license not established here; no photo rights or commercial-AI-training permission asserted.",
+  "limitations": [
+    "Occurrence sample frequencies are not tree abundance, nor natural-only evidence. No captive/cultivated flag in this Cabinet snapshot.",
+    "Species-list match is not an individual growth-form or height measurement. Taxonomic synonyms missing from the list can produce false negatives.",
+    "No cap correction or observer-effort weighting is claimed.",
+    "Preliminary handpicked-genus files are retained only as acquisition history; use these full TreeGOER-query files."
+  ],
+  "regions": {
+    "asheville": {
+      "records": 3160,
+      "eligible_before_cap": 3160,
+      "top_genera": [
+        [
+          "Acer",
+          280
+        ],
+        [
+          "Quercus",
+          240
+        ],
+        [
+          "Liriodendron",
+          230
+        ],
+        [
+          "Pinus",
+          161
+        ],
+        [
+          "Cornus",
+          149
+        ],
+        [
+          "Ailanthus",
+          141
+        ],
+        [
+          "Rhododendron",
+          134
+        ],
+        [
+          "Ilex",
+          125
+        ],
+        [
+          "Kalmia",
+          122
+        ],
+        [
+          "Platanus",
+          110
+        ]
+      ]
+    },
+    "boston": {
+      "records": 8555,
+      "eligible_before_cap": 8555,
+      "top_genera": [
+        [
+          "Acer",
+          1163
+        ],
+        [
+          "Ailanthus",
+          1055
+        ],
+        [
+          "Rhus",
+          795
+        ],
+        [
+          "Quercus",
+          462
+        ],
+        [
+          "Pinus",
+          452
+        ],
+        [
+          "Prunus",
+          349
+        ],
+        [
+          "Frangula",
+          309
+        ],
+        [
+          "Rhamnus",
+          260
+        ],
+        [
+          "Hamamelis",
+          219
+        ],
+        [
+          "Juniperus",
+          199
+        ]
+      ]
+    },
+    "charleston": {
+      "records": 1290,
+      "eligible_before_cap": 1290,
+      "top_genera": [
+        [
+          "Quercus",
+          162
+        ],
+        [
+          "Sabal",
+          158
+        ],
+        [
+          "Triadica",
+          95
+        ],
+        [
+          "Ilex",
+          77
+        ],
+        [
+          "Baccharis",
+          72
+        ],
+        [
+          "Ligustrum",
+          63
+        ],
+        [
+          "Juniperus",
+          62
+        ],
+        [
+          "Magnolia",
+          60
+        ],
+        [
+          "Morella",
+          50
+        ],
+        [
+          "Prunus",
+          48
+        ]
+      ]
+    },
+    "innsbruck": {
+      "records": 1641,
+      "eligible_before_cap": 1641,
+      "top_genera": [
+        [
+          "Acer",
+          211
+        ],
+        [
+          "Prunus",
+          118
+        ],
+        [
+          "Ailanthus",
+          103
+        ],
+        [
+          "Robinia",
+          91
+        ],
+        [
+          "Sambucus",
+          87
+        ],
+        [
+          "Corylus",
+          86
+        ],
+        [
+          "Fagus",
+          72
+        ],
+        [
+          "Pinus",
+          70
+        ],
+        [
+          "Euonymus",
+          68
+        ],
+        [
+          "Fraxinus",
+          65
+        ]
+      ]
+    },
+    "rio": {
+      "records": 856,
+      "eligible_before_cap": 856,
+      "top_genera": [
+        [
+          "Artocarpus",
+          76
+        ],
+        [
+          "Cecropia",
+          51
+        ],
+        [
+          "Psychotria",
+          33
+        ],
+        [
+          "Eugenia",
+          27
+        ],
+        [
+          "Ficus",
+          23
+        ],
+        [
+          "Schizolobium",
+          19
+        ],
+        [
+          "Lecythis",
+          18
+        ],
+        [
+          "Croton",
+          18
+        ],
+        [
+          "Schinus",
+          18
+        ],
+        [
+          "Cassia",
+          18
+        ]
+      ]
+    },
+    "rovaniemi": {
+      "records": 75,
+      "eligible_before_cap": 75,
+      "top_genera": [
+        [
+          "Sorbus",
+          23
+        ],
+        [
+          "Pinus",
+          19
+        ],
+        [
+          "Juniperus",
+          6
+        ],
+        [
+          "Populus",
+          5
+        ],
+        [
+          "Betula",
+          4
+        ],
+        [
+          "Picea",
+          4
+        ],
+        [
+          "Prunus",
+          4
+        ],
+        [
+          "Salix",
+          3
+        ],
+        [
+          "Alnus",
+          2
+        ],
+        [
+          "Caragana",
+          1
+        ]
+      ]
+    }
+  }
+}

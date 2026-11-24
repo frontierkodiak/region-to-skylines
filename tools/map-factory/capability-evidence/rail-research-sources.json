@@ -1,0 +1,1272 @@
+{
+ "schema": 1,
+ "note": "Strict file scope for the three accepted rail research publications. Every listed file is pinned by its SHA-256 and Git blob id at its publication commit; `copied` names select evidence carried byte for byte in this repository, `linked` names are served as immutable Git blobs at the publication commit.",
+ "publications": {
+  "rail-query-model-v1": {
+   "commit": "364628b81701c134e3f469f9e175c4fe40f7a311",
+   "prefix": "tools/map-factory/capability-evidence/rail-query-model-v1",
+   "files": {
+    "README.md": {
+     "bytes": 4743,
+     "sha256": "7dfe5a1527b88403bcd58b4e7a7609858d5b00641ad60ccda7296370cad67f55",
+     "git_blob": "faa666ee4cae7f414d87be088d46abdcc3925e3d"
+    },
+    "REPRODUCE.md": {
+     "bytes": 5880,
+     "sha256": "473ae7afadf033ab5f24e543b0d7589173d472c3e884cb00f5bf31faf215fc8e",
+     "git_blob": "15dcb5250ebab71318e7c9b1aed4aa856dcd5a08"
+    },
+    "RESULTS.md": {
+     "bytes": 14673,
+     "sha256": "4c5dddef52c75a4d94c5c2a8bda97901202d4116ce794045308ecadf340828a5",
+     "git_blob": "d1b0ee9c675b3a1eecb413b5458e83ef115f3e0e"
+    },
+    "bridge.json": {
+     "bytes": 18429,
+     "sha256": "cc1794b78600ca482528627d41a883a364e3ff93eef7f0251895116cc8fd711d",
+     "git_blob": "4d18f391bd7d01efd62eda0a2bf284654ebcf5d9"
+    },
+    "bridge.py": {
+     "bytes": 25022,
+     "sha256": "0963ff4a9cbbe3045adbf463a0749c7ef8f145d180f61d3d5e0587568f6bf78a",
+     "git_blob": "a988db0f7e4ab53871d37090d84dac926df4663d"
+    },
+    "catalogs.json": {
+     "bytes": 12968,
+     "sha256": "f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0",
+     "git_blob": "e30fc5eb4f14f6080ea697848b32952ffe903735"
+    },
+    "corrected/CORRECTION.md": {
+     "bytes": 6777,
+     "sha256": "94e7442fce6b2df604881eab7f0ede1c650a3c4bbbe14a4b19a2e9c1b8d3e315",
+     "git_blob": "fba44340055b1c65ba6827832e389e5a6bf46b32"
+    },
+    "corrected/bridge.json": {
+     "bytes": 21321,
+     "sha256": "94398542221512b71dca71021a5c3609d56b72e9383badc3425d07fe1b1ff6c9",
+     "git_blob": "931e215922d5254901fcb44326b2106dadf366df"
+    },
+    "corrected/catalogs.json": {
+     "bytes": 12968,
+     "sha256": "f4c13451b806dcb280d23765d509f1ad7591b7cf33623131688b7a2c2d3920b0",
+     "git_blob": "e30fc5eb4f14f6080ea697848b32952ffe903735"
+    },
+    "corrected/evaluation.json": {
+     "bytes": 476670,
+     "sha256": "252e4d6cbf8276c061b9edd5d9cc1171d0f05dbddbbad2836bcfe64b374b52f8",
+     "git_blob": "b4440add48a064aa1bc80f0d8a4b7ad354f822f8"
+    },
+    "corrected/evidence/binding-probe-at-97e.log": {
+     "bytes": 104,
+     "sha256": "9425d5c975fe18c13e262c83e7381978609ed7f843fcbbb33da30c4955faca04",
+     "git_blob": "dfa22a8ecab76e16563c17ce45de3f09eaa5f458"
+    },
+    "corrected/evidence/binding-probe-at-corrected.log": {
+     "bytes": 150,
+     "sha256": "ba5d132229793e360d94d42f8c2208868f3dfb38a4884a865f3a4b6061491ee8",
+     "git_blob": "b08f4e9bb79dc680138db86b150f0267a18019f4"
+    },
+    "corrected/evidence/binding-probe.py": {
+     "bytes": 1427,
+     "sha256": "66d3ade02c63acb0e94993c160d78041327a9e197a2b652eb289d53959d49f18",
+     "git_blob": "0a0d4a1718d4e1e8e8a5e3c247f5b4794e724b8b"
+    },
+    "corrected/evidence/domain-and-binding-contract-at-corrected.log": {
+     "bytes": 1697,
+     "sha256": "b20411bef93f4de40ac846ae99598a3d0de88a8048d9e4d96fc9e2133ada93cc",
+     "git_blob": "f7d5972a97665a27e52fd529a389c1af701d3745"
+    },
+    "corrected/evidence/domain-contract-at-97e.log": {
+     "bytes": 5624,
+     "sha256": "492d33f509a4635a5639e9ef4cad06731d4ead742c01bb25c5750fa12bb6b87a",
+     "git_blob": "ce7d3b54a024debb813aa5e6e1e8d151cd251be3"
+    },
+    "corrected/integrity.json": {
+     "bytes": 10763,
+     "sha256": "f6cfe4be004da17a66fe4bfd650de0fa585bb5f033f6cede860a15a3c249b2f7",
+     "git_blob": "3d4cd54635bd3cc68edd889270bf32d643b03f39"
+    },
+    "corrected/predictions.json": {
+     "bytes": 1574691,
+     "sha256": "e8268d16fd5b69da88e6a6a2052a55b2282a7366d4c893c781080b3077286a74",
+     "git_blob": "acf4c9d9c34104e8a42348edd3ae3f0c8f21a260"
+    },
+    "corrected/protocol.json": {
+     "bytes": 7275,
+     "sha256": "89665a2b7e067412f58ff851b8ccbc7ec61bbb569be37e2185f9108da1235c2a",
+     "git_blob": "5d977ad6478006a5916023425822e2c5751f9c55"
+    },
+    "evaluate.py": {
+     "bytes": 17359,
+     "sha256": "579f7ee1c68852503090fd63f81f21b7e9381041a983a6d3b5d16fa9ac4e0f72",
+     "git_blob": "f9d16c062747a8a0889b26ac49ae19711eb14c53"
+    },
+    "evaluation.json": {
+     "bytes": 443451,
+     "sha256": "1e345edcd5c2759b107847f5433308bd50de675e26cfb39921ffcad1ad455533",
+     "git_blob": "d51488ca81aa5f1a7ebc214e45ec7fd777ce116c"
+    },
+    "integrity.json": {
+     "bytes": 9206,
+     "sha256": "8ce8c9bef003b998d6948d6afb9b5af84e9f81d3882c0c24fe2b3f0fe9228253",
+     "git_blob": "5cf06b3f3e4e752c0f152cc9cf16f256437f0b5d"
+    },
+    "model.py": {
+     "bytes": 19896,
+     "sha256": "adad224e12968af755f72986d29cc8069f9dadf7d9e7dd611c36fad83ab8a950",
+     "git_blob": "b8308a0b85d3fef318a66afd961b9bdd20cc2c5e"
+    },
+    "openings.json": {
+     "bytes": 3796,
+     "sha256": "68585cb0fe6e2759a30f259b52e92d2745b72aa1d1b85c6b80783ae1d3594120",
+     "git_blob": "29f02fcca03fe27371846e11d6e015557cb058ce"
+    },
+    "packages.json": {
+     "bytes": 2855,
+     "sha256": "a906556fb9b6c9ab9ff77294e75f8eea8706e75326725ec32adc2ceffbf0114d",
+     "git_blob": "663f0da4382c2ecab5d1fb8c559357bf3c3a9876"
+    },
+    "predict.py": {
+     "bytes": 10676,
+     "sha256": "add34d69344c967e4de102cafc98a7092d1dd244218de851d27e6621e001a755",
+     "git_blob": "2bb214b48c48819f611df3e0e91abd9d17d3c98d"
+    },
+    "predictions.json": {
+     "bytes": 1478260,
+     "sha256": "2b7a0b0b6304a6bbf7010141cdb553a79909e2e83505a7c54442dc68155ea74d",
+     "git_blob": "db5a842d8a6e71c76af0d09ddbde48e93a3a7ae1"
+    },
+    "protocol.json": {
+     "bytes": 6343,
+     "sha256": "1c736e72800d7d469d337be94f2588a366f9772a067e8a0b366cc7e57399699b",
+     "git_blob": "1181891a130a8be13fbc3884677c82fc2a7de9d3"
+    },
+    "test_rail_query_model.py": {
+     "bytes": 32389,
+     "sha256": "4ffbd1ea961661334980adcc274c3b22563794013e0d4b765b26e10e789abdb7",
+     "git_blob": "d945af69838480d266c7748821bfd4d1cd900d53"
+    },
+    "topology.py": {
+     "bytes": 3817,
+     "sha256": "66e4058155b24e3fca584758318c09f5abf77eec27b90948884963fe6c5aba2d",
+     "git_blob": "f58826903264ebc79b9959584117ad6da6125702"
+    }
+   },
+   "copied": [
+    "README.md",
+    "REPRODUCE.md",
+    "RESULTS.md",
+    "corrected/CORRECTION.md",
+    "corrected/bridge.json",
+    "corrected/catalogs.json",
+    "corrected/evaluation.json",
+    "corrected/evidence/binding-probe-at-97e.log",
+    "corrected/evidence/binding-probe-at-corrected.log",
+    "corrected/evidence/binding-probe.py",
+    "corrected/evidence/domain-and-binding-contract-at-corrected.log",
+    "corrected/evidence/domain-contract-at-97e.log",
+    "corrected/integrity.json",
+    "corrected/predictions.json",
+    "corrected/protocol.json",
+    "integrity.json",
+    "openings.json",
+    "packages.json",
+    "protocol.json"
+   ],
+   "linked": [
+    "bridge.json",
+    "bridge.py",
+    "catalogs.json",
+    "evaluate.py",
+    "evaluation.json",
+    "model.py",
+    "predict.py",
+    "predictions.json",
+    "test_rail_query_model.py",
+    "topology.py"
+   ]
+  },
+  "rail-junction-fit-v1": {
+   "commit": "49cf49516f4aa8b24a154d9923c1a6fd149bf1a3",
+   "prefix": "tools/map-factory/capability-evidence/rail-junction-fit-v1",
+   "files": {
+    "README.md": {
+     "bytes": 3922,
+     "sha256": "b670b3683930014c5be177e76ab15541edbd455a3762cca0cfd7301520bfaabe",
+     "git_blob": "a9d7144090bb35739faf87a53e0207ce9f6fc7ce"
+    },
+    "REPRODUCE.md": {
+     "bytes": 5901,
+     "sha256": "1ff4bb33733fffb6d9804bd7c287860b85cd020555b84b1dfceb7aff992e76c0",
+     "git_blob": "3f239378ff90c13d5905056c2ad9b7633205ed65"
+    },
+    "RESULTS.md": {
+     "bytes": 14186,
+     "sha256": "18b1e7a702a126f0284d4c8da25c53eeda7f32c87cd971942017ace2e72790a0",
+     "git_blob": "d6f8ab39b0c521a9cf34a815470a4f8fa16a0efb"
+    },
+    "binding.py": {
+     "bytes": 26030,
+     "sha256": "6d6ac8a1aab8731a39ab15b3f29f2e448db1aed72ff90d02c0a5bf6d2065e1f8",
+     "git_blob": "6e64860237fd7a1ff80d088fedcd816fbf11f5c8"
+    },
+    "bridge-audit.json": {
+     "bytes": 59388,
+     "sha256": "cb49abcac5ad8a305e62a4a07ea71550613b566e19ccbfda226b7a5ffbbc4d78",
+     "git_blob": "8723ba6549a4a52384e0939ce4d9e891d3880b1d"
+    },
+    "diagnose.py": {
+     "bytes": 27635,
+     "sha256": "9939798440911786971010077edfbada8148c5fb66137f3c2ad2030ac347ae7f",
+     "git_blob": "eee710c862b532fa519c142700e4b99da4f47b98"
+    },
+    "diagnostics.json": {
+     "bytes": 54113,
+     "sha256": "d35953f1f5d3899cd481df020e672da4da753c74c7abb61bb5883c477bc58b8e",
+     "git_blob": "f5d274c2855801578e544235b4208d1b8a754f48"
+    },
+    "evaluate.py": {
+     "bytes": 14463,
+     "sha256": "05905acd692dabe94f79808ef5ea3a26b747b62d866505a6f7cd20fc991d2c50",
+     "git_blob": "2a316dc3ecd02837730ef9ad3bcaac9734cad481"
+    },
+    "evaluation.json": {
+     "bytes": 358545,
+     "sha256": "64cfbe21495771acc9362ab8c9a8daa6ab286aded34d450c402e5535876d9dcc",
+     "git_blob": "8298629e0d545f11ead87df483dcde9d84409f9a"
+    },
+    "export_bridge.py": {
+     "bytes": 14544,
+     "sha256": "3ae532f4fa64e5115d98c489e07cb0d1f66603723557977f8553070a533a9b3f",
+     "git_blob": "6249aaf81fa91190b3dca79c045a859a01a22e29"
+    },
+    "export_topology.py": {
+     "bytes": 15210,
+     "sha256": "1a38d06199a2cc6dc89fcab0937f8a9e42039edb0cabdfb4a5e287135f69d822",
+     "git_blob": "cda9046498c1522e9f470c088299c5096d217a40"
+    },
+    "features.json": {
+     "bytes": 45839,
+     "sha256": "d38cf3e634d75d0ed69d08f35444f6548e621bf2fdd9b85f43a9b2d8f0d07551",
+     "git_blob": "3aff912d39ab89d4d40db5f7abed739ce2ce6318"
+    },
+    "freeze.py": {
+     "bytes": 17632,
+     "sha256": "b8a658ae25ac3722b64abed760a138c2fae476e5913e77f524ce14620ccbefda",
+     "git_blob": "124ec77b7a1f943662651199a6a84265fd4b5d26"
+    },
+    "junction_model.py": {
+     "bytes": 14596,
+     "sha256": "aef0dd0a353bbd9d92f219fa19d69b135770fd69ce0ae201cbcb92b0b18f62ad",
+     "git_blob": "a0f1f1457855d29bb22a90adbd0a0370b8605047"
+    },
+    "manifest.json": {
+     "bytes": 4082,
+     "sha256": "3ec070f05c74c14bc0d4613dc0ea6a8cba4a1ce1281b11dbe5fd6867a25b5aa7",
+     "git_blob": "43324aebe6b6baf909503fafa1299c3ba76b399a"
+    },
+    "predictions.json": {
+     "bytes": 3109685,
+     "sha256": "ce0830d379f344697f958bca12161bd3a2e53f5aef87678b2a78d144ccfbcbd4",
+     "git_blob": "f384d41a51b10d408054e4c129995998e69ea03c"
+    },
+    "protocol.json": {
+     "bytes": 21164,
+     "sha256": "f7607cff8807170da70f0152d1752617e0930561cf1fe648537b8b1610ffccce",
+     "git_blob": "f755bd40baa9c0e8c9ec80a2bd392ce230f5353c"
+    },
+    "test_rail_junction_fit.py": {
+     "bytes": 34308,
+     "sha256": "3953c288c992c9234eac91e1aa57d3ff5561ae65b4ddba562d9985ba6569d5c6",
+     "git_blob": "670ede0f072da16254f0c81d529fed10d5377bbc"
+    }
+   },
+   "copied": [
+    "README.md",
+    "REPRODUCE.md",
+    "RESULTS.md",
+    "bridge-audit.json",
+    "diagnostics.json",
+    "evaluation.json",
+    "features.json",
+    "manifest.json",
+    "predictions.json",
+    "protocol.json"
+   ],
+   "linked": [
+    "binding.py",
+    "diagnose.py",
+    "evaluate.py",
+    "export_bridge.py",
+    "export_topology.py",
+    "freeze.py",
+    "junction_model.py",
+    "test_rail_junction_fit.py"
+   ]
+  },
+  "rail-stock-holdout-v1": {
+   "commit": "914c153687106197e5f3a745d3ff7e181181ea8a",
+   "prefix": "tools/map-factory/capability-evidence/rail-stock-holdout-v1",
+   "files": {
+    "README.md": {
+     "bytes": 4972,
+     "sha256": "370ad32eed85c75ed387dcb10cc0d59fb8c33ab83c94f5ef8b4be72c4e35598b",
+     "git_blob": "6621d55bc19bc25f3385faa04fad8066bd0d2af4"
+    },
+    "RESULTS.md": {
+     "bytes": 7054,
+     "sha256": "8a4a01ec14ad0f9272e241719dc397a74e8685001e92003cbc477b7cf79e6c04",
+     "git_blob": "b22572957f570f89889b9b97ac4675dd4fdb8ca0"
+    },
+    "RailMetadata.cs": {
+     "bytes": 4279,
+     "sha256": "5dcef64acd5df80b80e1250ffb372d9b8d73772639f771ca86244ab4e0a221c8",
+     "git_blob": "eff3ec5ffc93ebc9e7e1985aa5ae0923e667db23"
+    },
+    "build_metadata.py": {
+     "bytes": 1514,
+     "sha256": "ccc70cf070571c47164fc21a455c09858acbac13a8d078aced11fb8db48d5688",
+     "git_blob": "5bd67b0687dfccee3c9f8f6a9029bf067c3dded4"
+    },
+    "catalogs.json": {
+     "bytes": 24840,
+     "sha256": "3b2136cd959f23cc77cfb8d28821e58b9a046300ee5f0e9f9e179ca1bf577241",
+     "git_blob": "10dba102e21d224d6c4cbeec3e5780e158419f18"
+    },
+    "collect.py": {
+     "bytes": 10751,
+     "sha256": "d45d90bd722d52059f168be2302293e3e5e4cb82c41200bb4c49e1d2e7457f3b",
+     "git_blob": "2b6bcc5b0096cde09f31d84eda9bd9d3005eb977"
+    },
+    "collection-deferred.json": {
+     "bytes": 1890,
+     "sha256": "a820eb42aa98e4cf350bf020a0ccccb5ec56fd1240295b6462178ee4c4765f00",
+     "git_blob": "fa1cb2876abc59c8dc1666dbf9801862a4935182"
+    },
+    "evaluate.py": {
+     "bytes": 11131,
+     "sha256": "4373a593084e17d024a4fed0dee660abf7b15e7c02f6080f305f046b843f2f76",
+     "git_blob": "8e830639596337bbd1955a12abebc9c69fe890cf"
+    },
+    "evaluation.json": {
+     "bytes": 1581043,
+     "sha256": "3f27a3055727b9c8ecd3943b6a5c9a4427b5542d526712a855297b97f23b19ee",
+     "git_blob": "a2a7abb8f9ad22ef075aaaf1e6f3228d651a91e2"
+    },
+    "features.json": {
+     "bytes": 2942804,
+     "sha256": "13936718f60afdb998b167416d59b3f40639831f30fe53323551933176321b3d",
+     "git_blob": "1a090738ce043db4482119836ed375cdc93f4148"
+    },
+    "freeze.json": {
+     "bytes": 266055,
+     "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+     "git_blob": "d954d4a0430f180c58a39d44322b38ea51e70047"
+    },
+    "history/pre-native-RESULTS.md.gz": {
+     "bytes": 1543,
+     "sha256": "0db3ca889b46cc43e9be21a7123528fe022b7aa76dfadf8b7483b91d97347ff8",
+     "git_blob": "d17578ad050c589507432716b96451a939def592"
+    },
+    "history/pre-native-evaluation.json.gz": {
+     "bytes": 2084,
+     "sha256": "b9dd6acacdddf41b85af1c2af1a04c4e30d5ca481a403316b4d0fbe6958a9748",
+     "git_blob": "dd9e3d611426dd829d331314ad5c49ecfcb26f98"
+    },
+    "metadata-build.json": {
+     "bytes": 6102,
+     "sha256": "2427b6f327f002c39720e96d252e37618b95c61df78421ac7984384176a692f1",
+     "git_blob": "c9a3f4f49d3d972882de18ca6a0b8cd92996d43c"
+    },
+    "native-verification.json": {
+     "bytes": 5242,
+     "sha256": "7b484347e54e178977d118d98951607b629004d7e4e90e4f92026d9976caf426",
+     "git_blob": "1c8564536e6994a20d3369e084b92f0a58215b97"
+    },
+    "pre-native-correction.zip": {
+     "bytes": 370078,
+     "sha256": "91d813b4bb954cc90421dc9412698866dccacbe9543b2f7535b93249dba44173",
+     "git_blob": "207d277acb903e62d5f08e073d5baf2fd87d5a2d"
+    },
+    "public-prefab-facts.json": {
+     "bytes": 1404,
+     "sha256": "cf80ad8cd784bd03c7a03314387c1c4e697c7a37074ef5380246c729ad8d8b18",
+     "git_blob": "2378dc40cf203f6d7ed0e9c23c24c66ea84477c5"
+    },
+    "raw/attempt-2/holdout-01/game.log.gz": {
+     "bytes": 8712,
+     "sha256": "05056d41bdaff5679684faaac559230220bfa92b8a714e1a7203e6c9ad90fe64",
+     "git_blob": "6642d337fb264715a49f15f94090b95e2fce74d2"
+    },
+    "raw/attempt-2/holdout-01/gpu.csv.gz": {
+     "bytes": 675,
+     "sha256": "ac879ee2a6ddf3bd55c8ada97e705dcd2079fa74a9873461ae54ea0265c1b186",
+     "git_blob": "5a41c9540041d4c2b175148c0fcea9699a81da83"
+    },
+    "raw/attempt-2/holdout-01/metadata-post.json.gz": {
+     "bytes": 38102,
+     "sha256": "ddc7f02812b9b759dcecea7a96798d69206547f3df92aa7093a5b25ae0543103",
+     "git_blob": "69fc034b3b5a7e1e6f200fb8940bd8b60e5117b0"
+    },
+    "raw/attempt-2/holdout-01/metadata.json.gz": {
+     "bytes": 38102,
+     "sha256": "a318b41db6de4881725fd98ddd3a06471ad8b5d13dcf85c53ee71efc5355f759",
+     "git_blob": "acf7d08a97e340eb5ca4ba2d5e62ce0816be713c"
+    },
+    "raw/attempt-2/holdout-01/networks-post.json.gz": {
+     "bytes": 236680,
+     "sha256": "20f6e7d3bb6a125291f98aeb43973623451ee3a89f6331eb9da94868b921b83e",
+     "git_blob": "8f843a75add1b2859ff8eaad6caf621ec415fea0"
+    },
+    "raw/attempt-2/holdout-01/networks.json.gz": {
+     "bytes": 236680,
+     "sha256": "20f6e7d3bb6a125291f98aeb43973623451ee3a89f6331eb9da94868b921b83e",
+     "git_blob": "8f843a75add1b2859ff8eaad6caf621ec415fea0"
+    },
+    "raw/attempt-2/holdout-01/observation.json.gz": {
+     "bytes": 34525,
+     "sha256": "b757c56e5b14828ac36607f3e3aec5ea9913622afe8ad3b0d4dad8407b989140",
+     "git_blob": "b70f2fa385d08650a7818379394e0f3f2d566a05"
+    },
+    "raw/attempt-2/holdout-01/query-freeze.json.gz": {
+     "bytes": 5574,
+     "sha256": "d843eea0ec090c21ac49d11454b211523f24d02a55072c21282b568208b60f2c",
+     "git_blob": "61dc278ec8a11c4d51f2e32101f75e2d80634ddb"
+    },
+    "raw/attempt-2/holdout-02/game.log.gz": {
+     "bytes": 9105,
+     "sha256": "44321eaef785c3da4a15ab08f753d59f11fa0558ac04a2072a52ea83a2bef6bb",
+     "git_blob": "f8e2ff8b64344ecc5c14c6d93b192b04f167c9fc"
+    },
+    "raw/attempt-2/holdout-02/gpu.csv.gz": {
+     "bytes": 659,
+     "sha256": "38dfe6eb42972fccae04ad135fa5959ed15e96dccbb6763b528c9b7b69a7bbd4",
+     "git_blob": "78bae2befaebc74e89203fc6a74f8a3b48047fc6"
+    },
+    "raw/attempt-2/holdout-02/metadata-post.json.gz": {
+     "bytes": 23936,
+     "sha256": "33cb86325406002dc9bf88a3acdcbd15434dd3cea1f623d946c55bdf91c4637e",
+     "git_blob": "fdea42b58846af3ebe1f7b4be036420f9ed9a973"
+    },
+    "raw/attempt-2/holdout-02/metadata.json.gz": {
+     "bytes": 23936,
+     "sha256": "f40ebcc8b2772beb75757f52ec10a8d697bb70e5265a17cb8c9c3d50a2696213",
+     "git_blob": "1685415d42d57bb10cd7d3fad8b0fdab412b7ce7"
+    },
+    "raw/attempt-2/holdout-02/networks-post.json.gz": {
+     "bytes": 227903,
+     "sha256": "5fb8952120eef827446509a6d2d0c6bb37613fc4474c41d05244de5436119842",
+     "git_blob": "b07ff717790b83b6842ff76391de15c598258b8b"
+    },
+    "raw/attempt-2/holdout-02/networks.json.gz": {
+     "bytes": 227903,
+     "sha256": "5fb8952120eef827446509a6d2d0c6bb37613fc4474c41d05244de5436119842",
+     "git_blob": "b07ff717790b83b6842ff76391de15c598258b8b"
+    },
+    "raw/attempt-2/holdout-02/observation.json.gz": {
+     "bytes": 24775,
+     "sha256": "2c2ef88272faf8700a2f8f0840b8ca2ba45dc62c83ddce19ef7ed39d2403f349",
+     "git_blob": "e6251922d3f6602e159a90f8b29b585e274ac8f1"
+    },
+    "raw/attempt-2/holdout-02/query-freeze.json.gz": {
+     "bytes": 5579,
+     "sha256": "1b3903e4d293138359ab995ed8f1aa65a6d2a85d702999e8cf6ab02ed8cc6a12",
+     "git_blob": "779e31acdfb3231cdca12183084c0175525bdd73"
+    },
+    "raw/attempt-2/holdout-03/game.log.gz": {
+     "bytes": 8830,
+     "sha256": "192c6ca767f725cc60408f3e84733a78dbbe504bd1dd88bfe5070b2101273a4c",
+     "git_blob": "362effdfd14c880414e18fe9db9827561813a350"
+    },
+    "raw/attempt-2/holdout-03/gpu.csv.gz": {
+     "bytes": 690,
+     "sha256": "3dcf4ddafb079ad64d5e9d75e9dc559214e487f3e72810c36434693f91fb4282",
+     "git_blob": "2dd3fca2f794ef559d711a99172ac74d572924dd"
+    },
+    "raw/attempt-2/holdout-03/metadata-post.json.gz": {
+     "bytes": 27865,
+     "sha256": "81b8dc09c8679852e1f4ab753c268f5c3086c9b34a64dcdb17004c581501ef4d",
+     "git_blob": "3db2454220b1a65c1d27dae98f8a7253634e6a4d"
+    },
+    "raw/attempt-2/holdout-03/metadata.json.gz": {
+     "bytes": 27864,
+     "sha256": "74f4ec251abb015cfb480e3bafb36b6a617b4f4c53ca7660c9baff1ca60a1c11",
+     "git_blob": "7f79b804f57bf0f8527cad848cedcdc672c159db"
+    },
+    "raw/attempt-2/holdout-03/networks-post.json.gz": {
+     "bytes": 242918,
+     "sha256": "f525ff194d2e713ee3fec754adfec0e6aa571fcc28ca8f82f586206cba54021e",
+     "git_blob": "9f3d58688b9ae3598beff49c31cf3655425be160"
+    },
+    "raw/attempt-2/holdout-03/networks.json.gz": {
+     "bytes": 242933,
+     "sha256": "80c613b3286409300a92e22f200f63df1bdfcbe1ca67266669f962dbc4e821bf",
+     "git_blob": "6067b44e67ee97d897967749adea35e5bd867b2d"
+    },
+    "raw/attempt-2/holdout-03/observation.json.gz": {
+     "bytes": 34208,
+     "sha256": "fc8222042892807f4f256f617ee36fa72bfb825121900087141009de9321bf2b",
+     "git_blob": "3d35442e14027e4c7ec1fc4db0a73f6eb4a26870"
+    },
+    "raw/attempt-2/holdout-03/query-freeze.json.gz": {
+     "bytes": 5563,
+     "sha256": "fe0a9d72f19970b146038b54b2e9ae882be421e4f3ddc7c1ac2b87a4ac53c4e8",
+     "git_blob": "10b0c60092e772648fff9c9805b57027069ca6dc"
+    },
+    "raw/attempt-2/holdout-04/game.log.gz": {
+     "bytes": 8822,
+     "sha256": "9d1bf9bf99fa1e141c1334a2d782c0784209bcaab94a2782604fcc074ca4c827",
+     "git_blob": "5025396158336dcea9fa6b3809503db8eb74d350"
+    },
+    "raw/attempt-2/holdout-04/gpu.csv.gz": {
+     "bytes": 657,
+     "sha256": "953fdf66df9ceaded96c3306661ae95f193fc0e2a08cadc8530d3ddd41099862",
+     "git_blob": "a343da2dfde0c9d20bab0222310419d4ae201c3d"
+    },
+    "raw/attempt-2/holdout-04/metadata-post.json.gz": {
+     "bytes": 26997,
+     "sha256": "d157b0375bca18f24161292b765de147e6bdb75c1c8110a8eeb313b4cc92cb65",
+     "git_blob": "9ecf885c1e36a39763573857eb44ccf4c2743c6f"
+    },
+    "raw/attempt-2/holdout-04/metadata.json.gz": {
+     "bytes": 26997,
+     "sha256": "9f3d37932f4ef16c0996de279a966b240d66e053689cd183677f82a58db95e81",
+     "git_blob": "788b289e1671f4a005781f8e245da87df3c840e1"
+    },
+    "raw/attempt-2/holdout-04/networks-post.json.gz": {
+     "bytes": 155734,
+     "sha256": "b7df845e63a874343cfae8db4431a09821b7ad5c8a1b28c943dd7a967243ad8c",
+     "git_blob": "ea72b7d1bc43d6c2d04eebd5d7d79f6b075823d5"
+    },
+    "raw/attempt-2/holdout-04/networks.json.gz": {
+     "bytes": 155738,
+     "sha256": "62120429074879f4d8359f6021468cf6cbd78f66bd2a43e1d492e91c255093e6",
+     "git_blob": "81859dba5407815c353c4f3d305cc8a150ea4d7e"
+    },
+    "raw/attempt-2/holdout-04/observation.json.gz": {
+     "bytes": 33508,
+     "sha256": "e13c5e68b6d360fd35e0293137253a75f54475d2297e3d443b2243880af67dbf",
+     "git_blob": "af947cd24db70efd1527dcc858927a801f93bbf2"
+    },
+    "raw/attempt-2/holdout-04/query-freeze.json.gz": {
+     "bytes": 5575,
+     "sha256": "44da8447e4b51ded7fa3f0b40cb2965047e481097f1369fd1aac8f064c4e2779",
+     "git_blob": "0f15ed05ba986cf10d3b191f4d2919db8e6e807a"
+    },
+    "raw/attempt-2/holdout-05/game.log.gz": {
+     "bytes": 8825,
+     "sha256": "81d3f71df4cdb207aedfc619bbbd416f4e992a48fc77be84581f2a717bbf4fbd",
+     "git_blob": "c57a0dc745f39dd4cd34d51c50a4f2a2e5694415"
+    },
+    "raw/attempt-2/holdout-05/gpu.csv.gz": {
+     "bytes": 669,
+     "sha256": "0b1439b32baf19dbdc93b90210f003af4baa30f8adc1d43c573a67cd5a21b4a1",
+     "git_blob": "3d9706efa18048a42e82c0bbc73f5aca0aa44215"
+    },
+    "raw/attempt-2/holdout-05/metadata-post.json.gz": {
+     "bytes": 25960,
+     "sha256": "430348aab970231a25a0a6f9cc2e37e4e706eaa27dfd01aa52ac96ff8d9f812a",
+     "git_blob": "1677c15fb4814d39ca9edac55f42d29d0f382d55"
+    },
+    "raw/attempt-2/holdout-05/metadata.json.gz": {
+     "bytes": 25960,
+     "sha256": "e164b2101fa7c5d007acf8b4ecc0bc5446dc166499998cd75b64512936cb338c",
+     "git_blob": "6546a0ff5f1a2ec1f733f48e7d1ab75de1a830ac"
+    },
+    "raw/attempt-2/holdout-05/networks-post.json.gz": {
+     "bytes": 138968,
+     "sha256": "03541e95213aaa8ae098d1189377c886caa91c19cbad19e50be5e08e0c9b4451",
+     "git_blob": "144ec5dd2380ec598a5c5f919503c5002ead50e3"
+    },
+    "raw/attempt-2/holdout-05/networks.json.gz": {
+     "bytes": 138968,
+     "sha256": "03541e95213aaa8ae098d1189377c886caa91c19cbad19e50be5e08e0c9b4451",
+     "git_blob": "144ec5dd2380ec598a5c5f919503c5002ead50e3"
+    },
+    "raw/attempt-2/holdout-05/observation.json.gz": {
+     "bytes": 29063,
+     "sha256": "66aacf0e99879988315c0c5ef2fee9ead4c9fa12465d196881f3bfbe2b4592bb",
+     "git_blob": "6524c8c821a70ebdcbeba7127c3631295a33d230"
+    },
+    "raw/attempt-2/holdout-05/query-freeze.json.gz": {
+     "bytes": 5563,
+     "sha256": "7cfda5f032c8b49b9a3c3598301192fd2225bea1fd8ac0bfef7731a682b1e3f0",
+     "git_blob": "9880f124c9f878e3a61c0df6a43e564579797e05"
+    },
+    "raw/attempt-2/holdout-06/game.log.gz": {
+     "bytes": 8731,
+     "sha256": "f4614e05e1a32a9914e607906012173f7ddd2379366f1b11c5f999969559483b",
+     "git_blob": "2ce7a8074e802bc3fcc53c28bdf74e29b8dbcfcb"
+    },
+    "raw/attempt-2/holdout-06/gpu.csv.gz": {
+     "bytes": 648,
+     "sha256": "c639c61f68609f58c59a200afba7961f9b09a51530d21c0a84614b510c458904",
+     "git_blob": "1ec1c8b27018b1214c4fa15f811b849ecbb10fbb"
+    },
+    "raw/attempt-2/holdout-06/metadata-post.json.gz": {
+     "bytes": 17592,
+     "sha256": "f2f887e280036433cbaf7d5f5fc017d05e496993c0111bfdf4b0281f35572638",
+     "git_blob": "e1bdb4850475c99edbee5d15a2bac49a25683eb6"
+    },
+    "raw/attempt-2/holdout-06/metadata.json.gz": {
+     "bytes": 17591,
+     "sha256": "762d64a1e5ccb2d0f4c8cff960fea9a4be678b2ce91168f343d62366c06ed9d0",
+     "git_blob": "60084cf2c931d9322dd1873f3d1fc2812c4340eb"
+    },
+    "raw/attempt-2/holdout-06/networks-post.json.gz": {
+     "bytes": 137362,
+     "sha256": "3e7ea8db0df7ff2be7f0c6aef56524299dc20ce192708f8194a6eea74a3585eb",
+     "git_blob": "dd296c10fcce31b8d3049544fd23d34f3bb0d8cf"
+    },
+    "raw/attempt-2/holdout-06/networks.json.gz": {
+     "bytes": 137362,
+     "sha256": "3e7ea8db0df7ff2be7f0c6aef56524299dc20ce192708f8194a6eea74a3585eb",
+     "git_blob": "dd296c10fcce31b8d3049544fd23d34f3bb0d8cf"
+    },
+    "raw/attempt-2/holdout-06/observation.json.gz": {
+     "bytes": 28592,
+     "sha256": "b50397ddcd6ec4bb22ae76f5396b01daf5b05aa1a8846fd779f92a5549990919",
+     "git_blob": "55806c07f8584d52dc10a3faba810dd1c109f8e2"
+    },
+    "raw/attempt-2/holdout-06/query-freeze.json.gz": {
+     "bytes": 5558,
+     "sha256": "8e4f41d9e8f24164fe8a6d6422ea0305520cc65b7ed0a2e80a7c1bd2f4dd7da3",
+     "git_blob": "527b7792ee24b4c7c711c8f380612907e70e826a"
+    },
+    "raw/attempt-2/holdout-07/game.log.gz": {
+     "bytes": 8826,
+     "sha256": "bb5ea5c023d23ed9f69ca43d83587c0a35b6b39fefb26b1bfaea8cc2c8eba891",
+     "git_blob": "8fa0c4f28545f27492667121de3c44e5138c7108"
+    },
+    "raw/attempt-2/holdout-07/gpu.csv.gz": {
+     "bytes": 626,
+     "sha256": "1187f1472ed4a0ece6615ccd3135f3738639522d97fe7f19d26a06ccb34cbfc1",
+     "git_blob": "cb996208d56c97aaf43c2f0ef45405077a595476"
+    },
+    "raw/attempt-2/holdout-07/metadata-post.json.gz": {
+     "bytes": 10328,
+     "sha256": "cbec855867e4c9fe190d592b38381ea8c30be79c44a222469c71e333b3274ca5",
+     "git_blob": "56fc71dc7164dcd037dda56291475b665cf679d7"
+    },
+    "raw/attempt-2/holdout-07/metadata.json.gz": {
+     "bytes": 10326,
+     "sha256": "ebc02d137f71efb7946b61682fdf98b39bbb464bf7631835305d4367410e8dc9",
+     "git_blob": "31fee8f1b17cccddffd71b7ebb6283f7bac7e78f"
+    },
+    "raw/attempt-2/holdout-07/networks-post.json.gz": {
+     "bytes": 273437,
+     "sha256": "28c60dfa9a404326c81decbc9f1f7c2cc57dff4e5fa2d0164f5f1a539e1bfada",
+     "git_blob": "d222795df0730afb00736afa8fff33e5b7143750"
+    },
+    "raw/attempt-2/holdout-07/networks.json.gz": {
+     "bytes": 273437,
+     "sha256": "28c60dfa9a404326c81decbc9f1f7c2cc57dff4e5fa2d0164f5f1a539e1bfada",
+     "git_blob": "d222795df0730afb00736afa8fff33e5b7143750"
+    },
+    "raw/attempt-2/holdout-07/observation.json.gz": {
+     "bytes": 20109,
+     "sha256": "2b3ae3930effbf1fd2cce470ecfcb9a0f2d6f95ea941378747d8f30e7c96734c",
+     "git_blob": "e9da2203755c465e384db5d988edcef8594c8436"
+    },
+    "raw/attempt-2/holdout-07/query-freeze.json.gz": {
+     "bytes": 5395,
+     "sha256": "fa5e8220196de33570811f7bb344bdac01c989d648aa01eb0e0bb9f1e8031d21",
+     "git_blob": "6e23a92db3412e761d6a8a1bda05427611b71708"
+    },
+    "raw/attempt-2/holdout-08/game.log.gz": {
+     "bytes": 9082,
+     "sha256": "1f53b00692ec743dc3753366161fba450338bd9bc8d93f017d6dda5b66a4d23f",
+     "git_blob": "785c74d01daa02804a45d06de334eeb58ab168b6"
+    },
+    "raw/attempt-2/holdout-08/gpu.csv.gz": {
+     "bytes": 635,
+     "sha256": "547fbeb540570fd67421971042bbb2f75942fe0eb72a1bb080693de9a113b94c",
+     "git_blob": "37eefc17e00ad6bcc6949912d0e5e8da30f9e4f3"
+    },
+    "raw/attempt-2/holdout-08/metadata-post.json.gz": {
+     "bytes": 54919,
+     "sha256": "7a4dea175c0dcb3c5f525430d097a052530ccce41c7ee7445b220b47d5c37e3f",
+     "git_blob": "4abef5e7cb2607037e3eeff799bbc46e6c151855"
+    },
+    "raw/attempt-2/holdout-08/metadata.json.gz": {
+     "bytes": 54919,
+     "sha256": "04a5757f582af7f51062e4480a2b0da037969c2ae7356e01b510b21a4c0cc0d8",
+     "git_blob": "ee94a84af29095569372fb2b79b82d275c8d7202"
+    },
+    "raw/attempt-2/holdout-08/networks-post.json.gz": {
+     "bytes": 282266,
+     "sha256": "a7edb4bd642eac1473997180d1656b5274d96a1c9a914cb9f8904cbd1c25c991",
+     "git_blob": "84c0bfd95634f9bce1cffe27681338da5e0e22eb"
+    },
+    "raw/attempt-2/holdout-08/networks.json.gz": {
+     "bytes": 282266,
+     "sha256": "a7edb4bd642eac1473997180d1656b5274d96a1c9a914cb9f8904cbd1c25c991",
+     "git_blob": "84c0bfd95634f9bce1cffe27681338da5e0e22eb"
+    },
+    "raw/attempt-2/holdout-08/observation.json.gz": {
+     "bytes": 20095,
+     "sha256": "5cca75403d7a35b9965222549fb18516eafb539c361e2372b6ebb97efe30b902",
+     "git_blob": "173c1691944f643700115e4d744d702b09b719ec"
+    },
+    "raw/attempt-2/holdout-08/query-freeze.json.gz": {
+     "bytes": 5375,
+     "sha256": "d99654558067730319cdc7c8444ef603363dac84dfcc2b4a2fa77ae0233337cc",
+     "git_blob": "f682bc42e65c23f922125ff99ce930af45808bcc"
+    },
+    "raw/attempt-2/holdout-09/game.log.gz": {
+     "bytes": 9100,
+     "sha256": "70e9dc3cd969473bb59313f3df5259bdb721173d38a32e73ff5698e6a31625e5",
+     "git_blob": "d0229da341a12c1d5d41bdad5b77c818360a585a"
+    },
+    "raw/attempt-2/holdout-09/gpu.csv.gz": {
+     "bytes": 624,
+     "sha256": "9a5ba33dfa66a2ed886562e1fd60463cd8e8bf534eadbe2f43792a1d7f7cbade",
+     "git_blob": "a748b4a440730de4d3101deb15654b399f1a8576"
+    },
+    "raw/attempt-2/holdout-09/metadata-post.json.gz": {
+     "bytes": 59254,
+     "sha256": "6dc7bd8d740b84264b35bf8a828dd52aef358daf9a75e891de36dec7f257c7e1",
+     "git_blob": "414bf0a8187045ae666b670608ce566213f6b7e8"
+    },
+    "raw/attempt-2/holdout-09/metadata.json.gz": {
+     "bytes": 59254,
+     "sha256": "279d4c0e3c2e5e972441961a9efca15d43fd47295a3330d8e8606488d4467646",
+     "git_blob": "e3a913f2afc6b43f63dfe1db3b7b459c211d3ecf"
+    },
+    "raw/attempt-2/holdout-09/networks-post.json.gz": {
+     "bytes": 383114,
+     "sha256": "c14d706e00c23fa57896aa3e901a5db110858e42c2222869604ca961d6d7712b",
+     "git_blob": "b8b74de7e99f60a5e1374364fa26d32e1341851f"
+    },
+    "raw/attempt-2/holdout-09/networks.json.gz": {
+     "bytes": 383114,
+     "sha256": "c14d706e00c23fa57896aa3e901a5db110858e42c2222869604ca961d6d7712b",
+     "git_blob": "b8b74de7e99f60a5e1374364fa26d32e1341851f"
+    },
+    "raw/attempt-2/holdout-09/observation.json.gz": {
+     "bytes": 20108,
+     "sha256": "8a1ab3d80788ea51852ce4148be6c249eba4ef7dd038f24bb8d26b46fc192b75",
+     "git_blob": "e72d4bc00ab681fa766d6f3ae47381fc14895e9e"
+    },
+    "raw/attempt-2/holdout-09/query-freeze.json.gz": {
+     "bytes": 5380,
+     "sha256": "0ba734e8cd5aac6cc0179cc6f5f1341860a8b7264fd350862e8b46b95e2208d1",
+     "git_blob": "7244a076b01935cf99477bd0cfd7d80ec16591ab"
+    },
+    "raw/attempt-2/holdout-10/game.log.gz": {
+     "bytes": 9043,
+     "sha256": "d9de6b4e8425446b669c4356eeda2c5074ca4ea5e470829b335bc7476af502ae",
+     "git_blob": "f531bd4f54450f8e488d895a983df8377d9d24bd"
+    },
+    "raw/attempt-2/holdout-10/gpu.csv.gz": {
+     "bytes": 646,
+     "sha256": "b12c4f055d6dc0ffad1ed75197157ba145c821f561d41a33104f6a7d5667be02",
+     "git_blob": "ffa055954eb6b9fe8189e5fd456ecaf6a584660c"
+    },
+    "raw/attempt-2/holdout-10/metadata-post.json.gz": {
+     "bytes": 69381,
+     "sha256": "29a0becaf71b590a52aa160e2d016f79349266a47dc691bdf83f9bcb1bd28716",
+     "git_blob": "c0f922a72a2f74322a59ca174b5c19be1c7481fe"
+    },
+    "raw/attempt-2/holdout-10/metadata.json.gz": {
+     "bytes": 69380,
+     "sha256": "e61d01e04ad456ebe200aa7e4a35b2c45efee8c95a98cbe9dc8efaee8d817478",
+     "git_blob": "76e9aca9929ed2ec5c9b25702f4e4793ac17b9b2"
+    },
+    "raw/attempt-2/holdout-10/networks-post.json.gz": {
+     "bytes": 322230,
+     "sha256": "a6120b2b64ebff9d46c1e8242c9d876cd7e04d2d18074d807303dd1efc652dea",
+     "git_blob": "650ace4ba23b553ffa6f46e654934afbc3d5cca0"
+    },
+    "raw/attempt-2/holdout-10/networks.json.gz": {
+     "bytes": 322230,
+     "sha256": "a6120b2b64ebff9d46c1e8242c9d876cd7e04d2d18074d807303dd1efc652dea",
+     "git_blob": "650ace4ba23b553ffa6f46e654934afbc3d5cca0"
+    },
+    "raw/attempt-2/holdout-10/observation.json.gz": {
+     "bytes": 20093,
+     "sha256": "620a8d1b93740a16ccb714b9f14556d4e4b00cbeb8cab2760d1ccf1bd033fe57",
+     "git_blob": "d7587f9375350e2d3512570ad54f5585590cf343"
+    },
+    "raw/attempt-2/holdout-10/query-freeze.json.gz": {
+     "bytes": 5381,
+     "sha256": "7a69647488311925bd5e33fa60d309783da18a2574e99ec59ae33bec4fda3673",
+     "git_blob": "e432da2b11375df7d4488167223ca38b59caecd2"
+    },
+    "raw/attempt-2/stock-1/game.log.gz": {
+     "bytes": 8830,
+     "sha256": "d33d225f7bf6aedbab710f8f4e990c2bbf61c1cf3c6ee284e967603ddbca0aab",
+     "git_blob": "5935b465686020668c48b4065d80c3506badbe35"
+    },
+    "raw/attempt-2/stock-1/gpu.csv.gz": {
+     "bytes": 679,
+     "sha256": "502791e84169b4fdd8cc26a5ff25c098d6e6822d75291404af32fbf2c9be8cd1",
+     "git_blob": "f47947eb27717e769d1451a2547330888c467b91"
+    },
+    "raw/attempt-2/stock-1/metadata-post.json.gz": {
+     "bytes": 29527,
+     "sha256": "b5f97621ebf21136a4d4272057a041e59cc104feed6000c00f63e0cd0c65de58",
+     "git_blob": "689d5fe0ed1c1a124982f77113335e2550513d2e"
+    },
+    "raw/attempt-2/stock-1/metadata.json.gz": {
+     "bytes": 29526,
+     "sha256": "3a8a6f5e9541b2bfbef290fa4664ae446c3618b0a16d373c3001b1aa62b75f52",
+     "git_blob": "2a1470ab006d313ae3124988d8829e22a4eded82"
+    },
+    "raw/attempt-2/stock-1/networks-post.json.gz": {
+     "bytes": 216833,
+     "sha256": "602f1305bdf84403e6be8f1a98ec8deecabe5d04d92538edbcaedc28a65e2101",
+     "git_blob": "713ed4db3d3620a9b7ba160458d10fd89771dea4"
+    },
+    "raw/attempt-2/stock-1/networks.json.gz": {
+     "bytes": 216833,
+     "sha256": "602f1305bdf84403e6be8f1a98ec8deecabe5d04d92538edbcaedc28a65e2101",
+     "git_blob": "713ed4db3d3620a9b7ba160458d10fd89771dea4"
+    },
+    "raw/attempt-2/stock-1/observation.json.gz": {
+     "bytes": 32809,
+     "sha256": "3df789d4e09f4fc881ae502d1ff1d6f726d7cad645b394d16c02c638ad968c78",
+     "git_blob": "57acf1e576daedec431b6983397d25f0d2d9bc2c"
+    },
+    "raw/attempt-2/stock-1/query-freeze.json.gz": {
+     "bytes": 5713,
+     "sha256": "ec260eaad3877d9ee4b2d3e7728e7599ebc464f64b8adf2012d6b8591395b8d6",
+     "git_blob": "6b898675656df2950fd06af3971706dd8e1d7a26"
+    },
+    "raw/attempt-2/stock-2/game.log.gz": {
+     "bytes": 8826,
+     "sha256": "e28add10267a6924c9a7e6adac51df582701d0fd1b654a8be057ed2ddde2a401",
+     "git_blob": "41325eea3333f3b079366c69c09832c61a24cb66"
+    },
+    "raw/attempt-2/stock-2/gpu.csv.gz": {
+     "bytes": 780,
+     "sha256": "f82577837ab4c55acd6c1fe64d28da2289fd6de7a23d4a826f6d286036a002b6",
+     "git_blob": "5c98f2f59ea3c6ff562a4cbd5733cd2fbaf603ca"
+    },
+    "raw/attempt-2/stock-2/metadata-post.json.gz": {
+     "bytes": 32861,
+     "sha256": "0d3185468b3d029fe206902910b5394c4b8c2471f35ae5366ba4f2a1d2e96940",
+     "git_blob": "1242d3d50f3496434db54c1860b2b49ce3b2d674"
+    },
+    "raw/attempt-2/stock-2/metadata.json.gz": {
+     "bytes": 32860,
+     "sha256": "2c20cff8ca7af308573847ef07e35d38d285adc9635a22a4dd23f880d5759541",
+     "git_blob": "a80679a978512789f7cd3cad5949e1475bdb7137"
+    },
+    "raw/attempt-2/stock-2/networks-post.json.gz": {
+     "bytes": 273637,
+     "sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885",
+     "git_blob": "11cdd002a52ac24d9f52d19ae878d9cf576b988b"
+    },
+    "raw/attempt-2/stock-2/networks.json.gz": {
+     "bytes": 273637,
+     "sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885",
+     "git_blob": "11cdd002a52ac24d9f52d19ae878d9cf576b988b"
+    },
+    "raw/attempt-2/stock-2/observation.json.gz": {
+     "bytes": 32010,
+     "sha256": "805cdd20e05c43d7cdec78b0437b2eaa95946ffbc3cbe06f55274fbb68cf8040",
+     "git_blob": "b7039591bfe46b0e673d2722306d1c3013d3c64b"
+    },
+    "raw/attempt-2/stock-2/query-freeze.json.gz": {
+     "bytes": 5902,
+     "sha256": "d63ba50d0a0013aac773f7d262b94e49245f2ac292906746c8d5564c1d5f7342",
+     "git_blob": "156c9accad32844d24d0a894fe8ed98ea365067d"
+    },
+    "raw/attempt-2/telemetry/holdout-01/collector.log.gz": {
+     "bytes": 353,
+     "sha256": "80513924bf1cc7ac3edc6d11b285b9b97e6d6d9d72584e84cd44f43554b9acb8",
+     "git_blob": "f90244f4f37f6dcc08855dcb59d8515c988d2a36"
+    },
+    "raw/attempt-2/telemetry/holdout-01/driver.json.gz": {
+     "bytes": 363,
+     "sha256": "593689fde0cbf6ca1a0962c6fef5eef8a8fed74275e0adb56a92ff3785273568",
+     "git_blob": "667d7e666a64292a49961abb180422db053fa019"
+    },
+    "raw/attempt-2/telemetry/holdout-01/process-gpu.jsonl.gz": {
+     "bytes": 1214,
+     "sha256": "b92da9190fceedfbcea5a5be7488e2658fc59453f1d8954bd318eabe8c843c32",
+     "git_blob": "d76fdf812829cb6c820415d848e2ac4fa955e9f4"
+    },
+    "raw/attempt-2/telemetry/holdout-02/collector.log.gz": {
+     "bytes": 353,
+     "sha256": "1b44f32021ae7b2d00b2a2999cb2bc34ff194c65f5cb47d92dac731902fc0f9c",
+     "git_blob": "239b727247cbaee943c45733ebf2bc35a412fed3"
+    },
+    "raw/attempt-2/telemetry/holdout-02/driver.json.gz": {
+     "bytes": 363,
+     "sha256": "490e9d1c6ed22a250e1dfb5dd7cd09ea55909844e9f842d063501fdb3b65a44a",
+     "git_blob": "c985bf18e443fb414223cbc9dc1bfba4d9e9f7c5"
+    },
+    "raw/attempt-2/telemetry/holdout-02/process-gpu.jsonl.gz": {
+     "bytes": 1215,
+     "sha256": "d477df8ca5b9bc527cade3d2a6c1de1debd5e52aedbbae5ae5e288f584c6430c",
+     "git_blob": "b2b72d59bd741faef6e68355c0c67b42e675af01"
+    },
+    "raw/attempt-2/telemetry/holdout-03/collector.log.gz": {
+     "bytes": 353,
+     "sha256": "37879f0224b4b3e494fd1f9576e1b339831eff7b4238cdd67680085c15eb8e34",
+     "git_blob": "0b4cc0503f5116dab8f025b83071c67876301760"
+    },
+    "raw/attempt-2/telemetry/holdout-03/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "2b18f3d65e427cfbbb807680a388a266a5849d834fcd7d22b7508e405ca67bc9",
+     "git_blob": "425876c68954e2cc57dc625207dc765090483593"
+    },
+    "raw/attempt-2/telemetry/holdout-03/process-gpu.jsonl.gz": {
+     "bytes": 1224,
+     "sha256": "c5d97909c03cdebafd238f6df5c2ea391eb3ac6011f1a2902fd86b3df0a58152",
+     "git_blob": "980aeb9eddbf3eac48c3d00024a0b00a39d0e100"
+    },
+    "raw/attempt-2/telemetry/holdout-04/collector.log.gz": {
+     "bytes": 354,
+     "sha256": "78f1d057e8aba7c5d83cf72c500b17cd27e0bfc726a002a97f4caf62c789d7ba",
+     "git_blob": "c7a01ccfd77f94cff6fb0925df932c9c16e933d2"
+    },
+    "raw/attempt-2/telemetry/holdout-04/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "2ff71e267f7f49982db285f9583248a79f4738014dc03b466e0934baa30c29c4",
+     "git_blob": "6ed33f7895be3e31ef7751bab0909152fe08cc3d"
+    },
+    "raw/attempt-2/telemetry/holdout-04/process-gpu.jsonl.gz": {
+     "bytes": 1218,
+     "sha256": "8fd6421fe70808697727f65aeba27114a50f738c03d1daf9059292d32b47f205",
+     "git_blob": "0b8d4b5ee590005ba112e7fb108bcec960899c51"
+    },
+    "raw/attempt-2/telemetry/holdout-05/collector.log.gz": {
+     "bytes": 352,
+     "sha256": "ca016e4c062a3fc017c269fa0ee2edca4f7e3a8967fdb524b3b771a22883f37b",
+     "git_blob": "2b5fe8e1b8d2b669d820de6db1ef8e24b51b7ee8"
+    },
+    "raw/attempt-2/telemetry/holdout-05/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "dd27596c24d27b799725dfc26eedd8384f8e1765fe8ff2101bd61b82302b4100",
+     "git_blob": "9f599d63cf2314177fefd9b6f1ddbf0e3fb95a9a"
+    },
+    "raw/attempt-2/telemetry/holdout-05/process-gpu.jsonl.gz": {
+     "bytes": 1236,
+     "sha256": "3649bb83d65a1a561b2da3db58d097596b435d64fb2e28532ce8b9427b6ac023",
+     "git_blob": "59e955ee488d8e51b77dedd12f1457116071e817"
+    },
+    "raw/attempt-2/telemetry/holdout-06/collector.log.gz": {
+     "bytes": 356,
+     "sha256": "ea5dbc36de126e558037345562c0b247b99f18e4a7c457c8bb9437e7abb155e3",
+     "git_blob": "38b73b3b157f88181ba8ad50c046ef44558235b3"
+    },
+    "raw/attempt-2/telemetry/holdout-06/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "087c4b751f4e79335a30eef009f3b37d487cfd4309de7865b639b2be256c1f80",
+     "git_blob": "9d4857cb12bea2c8842d8149beb65843e7363eb9"
+    },
+    "raw/attempt-2/telemetry/holdout-06/process-gpu.jsonl.gz": {
+     "bytes": 1196,
+     "sha256": "30cfa599273dd20262c23c2a75763695bdc9267f3d673268a3d0003ea7f91286",
+     "git_blob": "262717edfdf29bc3025f84f6b6a89b32aa8eba8c"
+    },
+    "raw/attempt-2/telemetry/holdout-07/collector.log.gz": {
+     "bytes": 353,
+     "sha256": "fcb8caad467005d7a6ce4572e0c15f80bd8d71fc3ac254cbaef7fc84c6290595",
+     "git_blob": "28495780fcf5507124d562198051943dfea3647b"
+    },
+    "raw/attempt-2/telemetry/holdout-07/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "d2c617e1c88ec14ea4f450fcadb540b6a4ab41cad1a4bc5125dddef5c5e554bb",
+     "git_blob": "7e15de753a2caa2c01d838b72014b0c35b9a1b3e"
+    },
+    "raw/attempt-2/telemetry/holdout-07/process-gpu.jsonl.gz": {
+     "bytes": 1171,
+     "sha256": "2e4a85343b858a26c4bebea7bc0d12e047918749c9c125a0fcf0d9789945607e",
+     "git_blob": "38851d8f145cb86febc68b574f3df3b33dc65a43"
+    },
+    "raw/attempt-2/telemetry/holdout-08/collector.log.gz": {
+     "bytes": 353,
+     "sha256": "f6db888bdadc62c2a6368a062d3c9f9b9edd31e73300cbadb9e2dca4d63a5033",
+     "git_blob": "5a70776843bab1491e053ac92eb5f196d9216dae"
+    },
+    "raw/attempt-2/telemetry/holdout-08/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "96aa607f64b3cee6af97e412b26f02196728ca48fcf0824d5ac00de5586f39e1",
+     "git_blob": "a94fbab4c0d2e2f00d8788ac6b0cbb2c3a16da3e"
+    },
+    "raw/attempt-2/telemetry/holdout-08/process-gpu.jsonl.gz": {
+     "bytes": 1171,
+     "sha256": "bf003d17298347737a20c5c56e6edee25110567ddb2243f8949152969679fb44",
+     "git_blob": "18b34d95690d9ec2e8b0cb7f75cfa39da3e298c0"
+    },
+    "raw/attempt-2/telemetry/holdout-09/collector.log.gz": {
+     "bytes": 352,
+     "sha256": "4658de4f83adb7c49510f6fe6926bcf3d5444e9917a87b221b77438198ff8de7",
+     "git_blob": "9daaf4f570177999ddc15d6bab48a5398da020f2"
+    },
+    "raw/attempt-2/telemetry/holdout-09/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "00bfffbe12941184fc1dc1bac936276c5f30d37782214f8742bdeb8828509aee",
+     "git_blob": "c8260f126d6030099e35d38ac27a63d29f928bec"
+    },
+    "raw/attempt-2/telemetry/holdout-09/process-gpu.jsonl.gz": {
+     "bytes": 1167,
+     "sha256": "2a971234e9272962a5e85e032994403ed2d0926241a4af6f0ebfa23d9faf42db",
+     "git_blob": "25e381592e25fae4e419a04c86e2f1ee020c90ab"
+    },
+    "raw/attempt-2/telemetry/holdout-10/collector.log.gz": {
+     "bytes": 355,
+     "sha256": "31f731a6b6063044d0769979b084ecbf39f826acf08615877c803d362a46b568",
+     "git_blob": "db4bbea600dc566ac6550f1c7c5f3caba44546cc"
+    },
+    "raw/attempt-2/telemetry/holdout-10/driver.json.gz": {
+     "bytes": 365,
+     "sha256": "4e533db0515c7a53f402e479816fb723e6b236a86a16135b169bb60517ad30c8",
+     "git_blob": "275171fd32aa7bd6e59c499c00dc32aca7bc0791"
+    },
+    "raw/attempt-2/telemetry/holdout-10/process-gpu.jsonl.gz": {
+     "bytes": 1159,
+     "sha256": "465a8f945b131d3213f2eaf5b16a1379cbc6b175a239f04385a75237db32f102",
+     "git_blob": "91ecde9b530a0ee5b5c08db562795a8e5e25f7ed"
+    },
+    "raw/attempt-2/telemetry/stock-1/collector.log.gz": {
+     "bytes": 349,
+     "sha256": "60c924756c6b7c367577dc4f128e4862bd68176ea40f794fab46424473b60fb2",
+     "git_blob": "3e995ab77f6fd193547535ccbbde9450efdaf629"
+    },
+    "raw/attempt-2/telemetry/stock-1/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "b1bf16c4aba1382cb326f9781c160514ab403b60510908c575251db513f95cfc",
+     "git_blob": "44072cd5df20d2c7beceaef90157ec64a76d08a1"
+    },
+    "raw/attempt-2/telemetry/stock-1/process-gpu.jsonl.gz": {
+     "bytes": 1265,
+     "sha256": "5a88b1c2b52af5c2f65a5b2be5bb54c8f0ae3b263c9f5c0024abd5f8fad3e7e3",
+     "git_blob": "3fc7953a4574b36525492f4482fe3be8ca9e4bb9"
+    },
+    "raw/attempt-2/telemetry/stock-2/collector.log.gz": {
+     "bytes": 349,
+     "sha256": "d5c5c13b2c22b48c85ddb08fe58662ac1ddabc9fe5d58510f69523b9eb4978b7",
+     "git_blob": "bf50f3127132cd439398b6a1d8301f10ac81fc61"
+    },
+    "raw/attempt-2/telemetry/stock-2/driver.json.gz": {
+     "bytes": 364,
+     "sha256": "9b526ba24ac8b63d966a0c717a22e79b268cdae33337ccc8db11c896fb670282",
+     "git_blob": "59f946302f776cb0f662dc21d6ae14c6b2c3680b"
+    },
+    "raw/attempt-2/telemetry/stock-2/process-gpu.jsonl.gz": {
+     "bytes": 1360,
+     "sha256": "3013a299ecdd130c45a741b7540b978da99ca39f820fddd4a4995fcce126b837",
+     "git_blob": "dbb9a764f56f167c7f36446c863d0162b40bbd61"
+    },
+    "raw/stock-1/observation.json.gz": {
+     "bytes": 1587,
+     "sha256": "0a5993ba30195ac4a0feee874f0df7acd16ad0028ff67e4b83e0fa358188f5af",
+     "git_blob": "d502b9b8c8fff4eaed69b03ef7e75f79183b1ada"
+    },
+    "raw/telemetry/stock-1/collector.log.gz": {
+     "bytes": 103,
+     "sha256": "a3fb47fe8466f045928dc46538d13291399357fbaf449f721a2e809873bec88b",
+     "git_blob": "bcfdeb6710fe5da52041559c898b91ada7aeda13"
+    },
+    "raw/telemetry/stock-1/driver.json.gz": {
+     "bytes": 356,
+     "sha256": "e91501e814e57f2555d96c0858af699c563159d14a85aa10742aa77bf3959629",
+     "git_blob": "9d7232f083558ee0be4cea1fe84c4a49680b4ecc"
+    },
+    "raw/telemetry/stock-1/process-gpu.jsonl.gz": {
+     "bytes": 20,
+     "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+     "git_blob": "86e43ea3218b5890302b754bbf8927f94e79f7ee"
+    },
+    "raw-integrity.json": {
+     "bytes": 41550,
+     "sha256": "5cb5f510962ea08c2682f5a41448980dc5cc260a3607473dfa2e3a608a9680df",
+     "git_blob": "150c4b3ade0e757fd7d4c9b865268f8f61b9d8a1"
+    },
+    "resource-journal.json": {
+     "bytes": 5510,
+     "sha256": "a0c509e41000f7cf1a682e83a309f8d2016653a7dfc259ca71ae1f4a9c90b549",
+     "git_blob": "5c0162da9d3373223815e454477b8fe445300515"
+    },
+    "run_one.py": {
+     "bytes": 1674,
+     "sha256": "fb9d475a4ec6ed550898ff1c299f32260d6290aaf496c1cc07587a44f2c7b289",
+     "git_blob": "20be6293ba96719efae0a2e2a75b203343a8a2d7"
+    },
+    "selection-power.json": {
+     "bytes": 4094,
+     "sha256": "ef21e93a4281b4e2feeec82ad3752a893d6fd55e01d3a18562413972cfa3e7ae",
+     "git_blob": "871b37f1a3d00839ecbf6ae8135eb07a3cabd27d"
+    },
+    "study.py": {
+     "bytes": 27507,
+     "sha256": "e1a8c4ca12efc9134a431d001d3255418538f4c7496a381af05cff91b877e4cc",
+     "git_blob": "2ab48fa4faaae470d564244e3eff433609980670"
+    },
+    "test_study.py": {
+     "bytes": 4791,
+     "sha256": "0971477604aabf2e876150b03c45e9d950a45bcf79f330e1723a7628d758d653",
+     "git_blob": "15c96069ed71aad7e2f7803fe68e6596e6a1a06c"
+    }
+   },
+   "copied": [
+    "README.md",
+    "RESULTS.md",
+    "RailMetadata.cs",
+    "catalogs.json",
+    "collection-deferred.json",
+    "evaluation.json",
+    "freeze.json",
+    "history/pre-native-RESULTS.md.gz",
+    "history/pre-native-evaluation.json.gz",
+    "metadata-build.json",
+    "native-verification.json",
+    "pre-native-correction.zip",
+    "public-prefab-facts.json",
+    "raw-integrity.json",
+    "resource-journal.json",
+    "selection-power.json"
+   ],
+   "linked": [
+    "build_metadata.py",
+    "collect.py",
+    "evaluate.py",
+    "features.json",
+    "raw/attempt-2/holdout-01/game.log.gz",
+    "raw/attempt-2/holdout-01/gpu.csv.gz",
+    "raw/attempt-2/holdout-01/metadata-post.json.gz",
+    "raw/attempt-2/holdout-01/metadata.json.gz",
+    "raw/attempt-2/holdout-01/networks-post.json.gz",
+    "raw/attempt-2/holdout-01/networks.json.gz",
+    "raw/attempt-2/holdout-01/observation.json.gz",
+    "raw/attempt-2/holdout-01/query-freeze.json.gz",
+    "raw/attempt-2/holdout-02/game.log.gz",
+    "raw/attempt-2/holdout-02/gpu.csv.gz",
+    "raw/attempt-2/holdout-02/metadata-post.json.gz",
+    "raw/attempt-2/holdout-02/metadata.json.gz",
+    "raw/attempt-2/holdout-02/networks-post.json.gz",
+    "raw/attempt-2/holdout-02/networks.json.gz",
+    "raw/attempt-2/holdout-02/observation.json.gz",
+    "raw/attempt-2/holdout-02/query-freeze.json.gz",
+    "raw/attempt-2/holdout-03/game.log.gz",
+    "raw/attempt-2/holdout-03/gpu.csv.gz",
+    "raw/attempt-2/holdout-03/metadata-post.json.gz",
+    "raw/attempt-2/holdout-03/metadata.json.gz",
+    "raw/attempt-2/holdout-03/networks-post.json.gz",
+    "raw/attempt-2/holdout-03/networks.json.gz",
+    "raw/attempt-2/holdout-03/observation.json.gz",
+    "raw/attempt-2/holdout-03/query-freeze.json.gz",
+    "raw/attempt-2/holdout-04/game.log.gz",
+    "raw/attempt-2/holdout-04/gpu.csv.gz",
+    "raw/attempt-2/holdout-04/metadata-post.json.gz",
+    "raw/attempt-2/holdout-04/metadata.json.gz",
+    "raw/attempt-2/holdout-04/networks-post.json.gz",
+    "raw/attempt-2/holdout-04/networks.json.gz",
+    "raw/attempt-2/holdout-04/observation.json.gz",
+    "raw/attempt-2/holdout-04/query-freeze.json.gz",
+    "raw/attempt-2/holdout-05/game.log.gz",
+    "raw/attempt-2/holdout-05/gpu.csv.gz",
+    "raw/attempt-2/holdout-05/metadata-post.json.gz",
+    "raw/attempt-2/holdout-05/metadata.json.gz",
+    "raw/attempt-2/holdout-05/networks-post.json.gz",
+    "raw/attempt-2/holdout-05/networks.json.gz",
+    "raw/attempt-2/holdout-05/observation.json.gz",
+    "raw/attempt-2/holdout-05/query-freeze.json.gz",
+    "raw/attempt-2/holdout-06/game.log.gz",
+    "raw/attempt-2/holdout-06/gpu.csv.gz",
+    "raw/attempt-2/holdout-06/metadata-post.json.gz",
+    "raw/attempt-2/holdout-06/metadata.json.gz",
+    "raw/attempt-2/holdout-06/networks-post.json.gz",
+    "raw/attempt-2/holdout-06/networks.json.gz",
+    "raw/attempt-2/holdout-06/observation.json.gz",
+    "raw/attempt-2/holdout-06/query-freeze.json.gz",
+    "raw/attempt-2/holdout-07/game.log.gz",
+    "raw/attempt-2/holdout-07/gpu.csv.gz",
+    "raw/attempt-2/holdout-07/metadata-post.json.gz",
+    "raw/attempt-2/holdout-07/metadata.json.gz",
+    "raw/attempt-2/holdout-07/networks-post.json.gz",
+    "raw/attempt-2/holdout-07/networks.json.gz",
+    "raw/attempt-2/holdout-07/observation.json.gz",
+    "raw/attempt-2/holdout-07/query-freeze.json.gz",
+    "raw/attempt-2/holdout-08/game.log.gz",
+    "raw/attempt-2/holdout-08/gpu.csv.gz",
+    "raw/attempt-2/holdout-08/metadata-post.json.gz",
+    "raw/attempt-2/holdout-08/metadata.json.gz",
+    "raw/attempt-2/holdout-08/networks-post.json.gz",
+    "raw/attempt-2/holdout-08/networks.json.gz",
+    "raw/attempt-2/holdout-08/observation.json.gz",
+    "raw/attempt-2/holdout-08/query-freeze.json.gz",
+    "raw/attempt-2/holdout-09/game.log.gz",
+    "raw/attempt-2/holdout-09/gpu.csv.gz",
+    "raw/attempt-2/holdout-09/metadata-post.json.gz",
+    "raw/attempt-2/holdout-09/metadata.json.gz",
+    "raw/attempt-2/holdout-09/networks-post.json.gz",
+    "raw/attempt-2/holdout-09/networks.json.gz",
+    "raw/attempt-2/holdout-09/observation.json.gz",
+    "raw/attempt-2/holdout-09/query-freeze.json.gz",
+    "raw/attempt-2/holdout-10/game.log.gz",
+    "raw/attempt-2/holdout-10/gpu.csv.gz",
+    "raw/attempt-2/holdout-10/metadata-post.json.gz",
+    "raw/attempt-2/holdout-10/metadata.json.gz",
+    "raw/attempt-2/holdout-10/networks-post.json.gz",
+    "raw/attempt-2/holdout-10/networks.json.gz",
+    "raw/attempt-2/holdout-10/observation.json.gz",
+    "raw/attempt-2/holdout-10/query-freeze.json.gz",
+    "raw/attempt-2/stock-1/game.log.gz",
+    "raw/attempt-2/stock-1/gpu.csv.gz",
+    "raw/attempt-2/stock-1/metadata-post.json.gz",
+    "raw/attempt-2/stock-1/metadata.json.gz",
+    "raw/attempt-2/stock-1/networks-post.json.gz",
+    "raw/attempt-2/stock-1/networks.json.gz",
+    "raw/attempt-2/stock-1/observation.json.gz",
+    "raw/attempt-2/stock-1/query-freeze.json.gz",
+    "raw/attempt-2/stock-2/game.log.gz",
+    "raw/attempt-2/stock-2/gpu.csv.gz",
+    "raw/attempt-2/stock-2/metadata-post.json.gz",
+    "raw/attempt-2/stock-2/metadata.json.gz",
+    "raw/attempt-2/stock-2/networks-post.json.gz",
+    "raw/attempt-2/stock-2/networks.json.gz",
+    "raw/attempt-2/stock-2/observation.json.gz",
+    "raw/attempt-2/stock-2/query-freeze.json.gz",
+    "raw/attempt-2/telemetry/holdout-01/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-01/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-01/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-02/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-02/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-02/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-03/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-03/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-03/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-04/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-04/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-04/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-05/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-05/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-05/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-06/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-06/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-06/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-07/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-07/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-07/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-08/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-08/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-08/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-09/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-09/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-09/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/holdout-10/collector.log.gz",
+    "raw/attempt-2/telemetry/holdout-10/driver.json.gz",
+    "raw/attempt-2/telemetry/holdout-10/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/stock-1/collector.log.gz",
+    "raw/attempt-2/telemetry/stock-1/driver.json.gz",
+    "raw/attempt-2/telemetry/stock-1/process-gpu.jsonl.gz",
+    "raw/attempt-2/telemetry/stock-2/collector.log.gz",
+    "raw/attempt-2/telemetry/stock-2/driver.json.gz",
+    "raw/attempt-2/telemetry/stock-2/process-gpu.jsonl.gz",
+    "raw/stock-1/observation.json.gz",
+    "raw/telemetry/stock-1/collector.log.gz",
+    "raw/telemetry/stock-1/driver.json.gz",
+    "raw/telemetry/stock-1/process-gpu.jsonl.gz",
+    "run_one.py",
+    "study.py",
+    "test_study.py"
+   ]
+  }
+ }
+}

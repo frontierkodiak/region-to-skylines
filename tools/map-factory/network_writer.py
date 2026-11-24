@@ -109,7 +109,7 @@ def _angle(direction):
     return math.atan2(direction[0], direction[2]) % (2 * math.pi)
 
 
-def apply_highways(data, graph, ground_height):
+def apply_highways(data, graph, ground_height, *, preserve_existing=False):
     """Return (new payload, report). `ground_height(x, z)` gives final terrain metres."""
     net_start = section_start(data, "NetManager")
     building_start = section_start(data, "BuildingManager")
@@ -123,7 +123,11 @@ def apply_highways(data, graph, ground_height):
     # Prototype buildings are cloned before the template roads are removed. The
     # template railway goes too: absent real rail must remain absent.
     replaced = TEMPLATE_ROADS | TEMPLATE_RAIL
-    old_roads = [n for n in net.nodes if names[net.node_prefab[n]] in replaced]
+    old_roads = (
+        []
+        if preserve_existing
+        else [n for n in net.nodes if names[net.node_prefab[n]] in replaced]
+    )
     old_buildings = [
         net.nodes[n]["building"] for n in old_roads if net.nodes[n]["building"]
     ]

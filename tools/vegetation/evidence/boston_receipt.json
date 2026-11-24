@@ -1,0 +1,308 @@
+{
+  "source": "boston",
+  "retrieved_at": "2026-11-23T23:30:08.821450+00:00",
+  "count_endpoint_records": 55227,
+  "downloaded_records": 55227,
+  "raw_sha256": "97ef54c48ba7065f812295a4c98b662353f7aa77f1f2c044ba0454381e320d5c",
+  "fields_requested": [
+    "ObjectId",
+    "id",
+    "spp_com",
+    "spp_bot",
+    "dbh",
+    "dbh_range",
+    "numberof_st",
+    "date_plant",
+    "park",
+    "x_longitude",
+    "y_latitude"
+  ],
+  "schema_sha256": "4a165bea624e6ddec0bccb525a8b8881e4b33dba688bb0f55d4deb87c8bf1c6e",
+  "base": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0",
+  "fields": "ObjectId,id,spp_com,spp_bot,dbh,dbh_range,numberof_st,date_plant,park,x_longitude,y_latitude",
+  "order": "ObjectId",
+  "license": "Open Data Commons PDDL (official Analyze Boston package license_id=odc-pddl)",
+  "catalog": "https://data.boston.gov/dataset/bprd-trees",
+  "requests": [
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=0&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "d3502811a6862519f58983f0cbf4e242d0a3232e7c4877d686bb4558d6cbdc43",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=1000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "86876fc2dd21e2d7d3f6be319a141b1d1102daa3ff1c82caa110bb006ad0eaea",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=2000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "e715090ac3cfdf93a0b723de389d46eaf017e2d14aa22b4b849abf473c6287a1",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=3000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "8b1d22eb97f1229e1e1a707d33d518d35bae238a7017c6af3347f3e85c159a09",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=4000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "836c3c4a6edbc90df1128bd13e0c946eccb7083c3f2be536c52a096aa0271fec",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=5000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6daae1da6728475149f0ddf6ffc3229bd22102129ab395987b335fa33f4e7ac7",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=6000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "421808285c202a319ed1243a01956774e27e2912c955f4e5715e18688783cd70",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=7000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "fb7423bb464c40defbf6f68e0954ce69378b2b59ce7922c42ae6603375116b12",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=8000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "602f80b51297674da129eb0773cfdb3092ef1b1ab55c4499857b753501201420",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=9000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "9c6f040f99b332f9248ee815c3422e5990cc6d7a6a6385294520c644855b8b2a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=10000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "f9293ea5fe7a89d78c4bef0418ce18f665c98dcda08d11f9937a82e60639835a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=11000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6971ea69e9ce6e0f3af7ea6ec9bfa5e4583ea517c4a9e09574c6847efe65fc56",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=12000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "761b9d9b4bec0a7f000f2e11bbdc7a1b6651b4a876f6aa8fbb2f135888ed605b",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=13000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6f3d288806c363dbef3631d951b433acbb187d4158ae89a5433df3c817635634",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=14000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6fbf3a6288bc2e15372eef75d1320cfc5fae522ac829c80f7e576bac29045c8e",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=15000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "5968164f6bb6d43dc43eebd3a8546bd5c4323f59d498939ae374af60c3d875ea",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=16000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "f9c43286cbb318e8a97abf75e2ad86f9462a34c5a12b98d887b377c2a294bf2d",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=17000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "288c771d13ea07a5b9da1ea09ac8bad9e97715a385c458ce0a5e52850a4c7fd6",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=18000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "e93e1a7a11f2004b4d434c4d16d88463b3614ae0ec9862345ea1f44a06b9675a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=19000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6308fcf20fbdfecbdbaef9207a14c87ba81f52bb54b057369f5479651b1cd6fa",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=20000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6ec0b35b174e94825057c28d54ac1beb157a329d1b897ec8872e63f47a5f7c9a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=21000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "a308ef172c6bdb63f15c7fe6ca4df2a09b8cd81237cfd43007951bf2d48169d9",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=22000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "bca2943865af754c3d8da98b3fbd47b1b910e98ad1c4c763e4adc0127a62e6b1",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=23000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "15af56dc5212a417573c93e24c78a28caeecdf708ec223229e65e926562db35e",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=24000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "5a9b6712cca4b4d3de944a533d18ed692a0df45e174ea7af9ccb1d07f174e77d",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=25000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "f0baea1b7ddf08a1c428b94da9a3c59c17bf95f2b6f28f2d8ea076fe0f757e9d",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=26000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "fdf595e776051cdfb5174d95815f6ad06fc1f17f413190246a1284935772c5bc",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=27000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "66ee64d215900173834e91bebfde2d0d0f0554b03cc71f7ce946888d4978dfa7",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=28000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "b0a91d4e233e0e474acd6f7766c796017fb3019847eb16a205a229478cddceaa",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=29000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "e7e0fdf459cbd92183d8c95a1174b5a995b7fd0fa76c398594da4da8bdfb7666",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=30000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "277752845825a2efd12c0f6b9c09c8c4b6bb718a0e49528be609a4945518fb7f",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=31000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "df8baeca5c860565fb77f888dcacc8c65993d913f48b0ae9692938679cb61dc3",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=32000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "6d924031d34e30da1220dd03df57ee128fe03d05e417fb90e8bab373d155aa36",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=33000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "26bd095d792ad07663ad1271bad2418a02e5e301aeaa38d6279a804f17ce7890",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=34000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "9b20d705cf73d28ddc39535431c1f74e68ad687f41a5cad6bd3c26738c51f66a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=35000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "467a2f993100241c86ca8ab9071a627c6937948e96646ed5ba805361fc36fc3e",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=36000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "b9fd8a5289d45c0b79d79200e2f7b4addac6686502ee98a8607a3e68552b86da",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=37000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "cf9e306e2c4242d330d19369e8678198e70831d381b7c01d7bb8ea05fcbf0db1",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=38000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "57f1c9e5ef912e0191d22a61b0e01b2479b60c89db01adebd3b367d2a2e97a2f",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=39000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "caaf5f4cdb80e75add08505cf7b0144980a5e01d8a7e30abf4af69b2d59ca9e9",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=40000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "afc3334f4bb16929f72e899d62f62dcba414e228840bf772909940494ec35c3a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=41000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "a58b17dbac9ba961251abeafb16bde0943df1c8cfc1bb6e4176b6c650b15320d",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=42000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "deb98ff404db0344bd7f7b5c7db22cc823f59eb00fa98f61edd2c46b6168bb2c",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=43000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "d0df65d229c300fa09a2f8b5b7831573511acf46a85eacd10f8b819e315516a9",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=44000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "ad438f6205f6d15bb311c3149646b4c2eb55aaf08ac6c1247f8c9685fd05e341",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=45000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "74ee9c5908d9f52b79861b046df13b670747cc24c72d75289a0593d8f9d49980",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=46000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "ba39a4dd1f816856d1c8ccfbf108fe42b97e3f54a25b96c5e97546882380a83a",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=47000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "98989ef53e490f4df14ca4349984fe7e3e6a30e1c51547bb8d81f5e1f0ce3dcc",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=48000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "416327bf0e10c543c518f654b99aac791847b5b3ce9992d834fa2e22dafc92de",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=49000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "e247029652e7695a2b9af3b960fc652dfa6df3a631ba5da1754fc2e71a9088ed",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=50000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "feadcf8ebf08227748f9d60cfe50d6f2c48d4b876282e0e52bf3f6b922b90595",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=51000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "405c996222f218a0a8678fb77bd463282976a1ed3baf675a037bc62f0802e3c8",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=52000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "3f0e61adbe2ddcc88000dbc7639bb78f418dcabcea90c07ee0713ca59f269fda",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=53000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "42e0a2990d41ca2f9c8eff96bee66e4fabdad6d121c748b871f5290982fef305",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=54000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "4246858cfa6ac7eebcc106c5c42bf19b06a36426844ba3bd3775526381f22a54",
+      "records": 1000
+    },
+    {
+      "url": "https://services.arcgis.com/sFnw0xNflSi8J0uh/arcgis/rest/services/BPRD_Trees/FeatureServer/0/query?where=1%3D1&outFields=ObjectId%2Cid%2Cspp_com%2Cspp_bot%2Cdbh%2Cdbh_range%2Cnumberof_st%2Cdate_plant%2Cpark%2Cx_longitude%2Cy_latitude&outSR=4326&f=geojson&resultOffset=55000&resultRecordCount=1000&orderByFields=ObjectId",
+      "sha256": "aca066994066fb18135a74b55eefaef8e0229b4f08431340f71eb6229b5e9e19",
+      "records": 227
+    }
+  ]
+}

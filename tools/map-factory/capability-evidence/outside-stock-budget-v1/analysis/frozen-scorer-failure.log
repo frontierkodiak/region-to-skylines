@@ -1,0 +1,11 @@
+{"verified": true, "collection_ready": true, "queries": 48, "selected": [["holdout-01", "CCP Map 1.crp", true], ["holdout-02", "DN Fisher Enclave.crp", true], ["holdout-03", "CL Roslyn Peninsula.crp", true], ["holdout-04", "CCMP2 Desert Map 2.crp", false], ["holdout-05", "CCMP2 Euro Map 1.crp", false]], "strata": [{"available": 27, "selected_sha256": "6d54e0ff803655322b61e7dbc9e14e6b42a0f799f5b7242d0d5b20b7d5743e7b", "stratum": "road:success:distinct_edge"}, {"available": 27, "selected_sha256": "6d54e0ff803655322b61e7dbc9e14e6b42a0f799f5b7242d0d5b20b7d5743e7b", "stratum": "road:no_path:distinct_edge"}, {"available": 15, "selected_sha256": "6d54e0ff803655322b61e7dbc9e14e6b42a0f799f5b7242d0d5b20b7d5743e7b", "stratum": "ship:success:distinct_edge"}, {"available": 4, "selected_sha256": "bd2504849e9d7086298bc549c53bd45e3ebc921980c36af3ddf634a2e4640990", "stratum": "ship:no_path:distinct_edge"}, {"available": 27, "selected_sha256": "6d54e0ff803655322b61e7dbc9e14e6b42a0f799f5b7242d0d5b20b7d5743e7b", "stratum": "air:success:distinct_edge"}, {"available": 13, "selected_sha256": "56e9c5b67d0e49e4a40c8c4ec90c37fa38c41d2ad1c9309bf40474a0042dd7f2", "stratum": "air:no_path:distinct_edge"}]}
+Traceback (most recent call last):
+  File "/banana-pool/banana/agent-workspaces/multica/workspaces/polli-labs-94477025d634/pl-1294-28336a8f0cb5/workdir/region-to-skylines/tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py", line 455, in <module>
+    args.output.write_bytes(study.encoded(evaluate(args.raw)))
+                                          ~~~~~~~~^^^^^^^^^^
+  File "/banana-pool/banana/agent-workspaces/multica/workspaces/polli-labs-94477025d634/pl-1294-28336a8f0cb5/workdir/region-to-skylines/tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py", line 263, in evaluate
+    c["case_id"]: read_observation(c, k, raw, frozen)
+                  ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/banana-pool/banana/agent-workspaces/multica/workspaces/polli-labs-94477025d634/pl-1294-28336a8f0cb5/workdir/region-to-skylines/tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py", line 166, in read_observation
+    raise ValueError("native result schema differs")
+ValueError: native result schema differs

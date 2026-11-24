@@ -1,0 +1,1113 @@
+{
+ "schema": 1,
+ "version": "pl1228-terrain-interest-v1",
+ "generated_at": "2026-11-21T20:27:01Z",
+ "scope": "Terrain shape only: no water mask and no buildability screen.",
+ "fidelity": "Shipped CRP terrain at the game's 1/64 m unit on the 1081 x 1081, 16 m, south-first grid, decoded by survey/measure_maps.py (CS1 1.21.1-f9 gates).",
+ "quantiles_policy": "Linear interpolation at (n-1)*p over the included rows; bands are strictly below p25, inclusive typical, strictly above p75. Descriptive, not quality gates.",
+ "measures": {
+  "terrain_roughness_percent": {
+   "name": "Terrain roughness",
+   "unit": "%",
+   "kind": "terrain_shape",
+   "definition": "mean terrain gradient magnitude at 16 m spacing over all 1081 x 1081 nodes, in percent"
+  },
+  "central_terrain_diversity_m": {
+   "name": "Central height range",
+   "unit": "m",
+   "kind": "terrain_shape",
+   "definition": "90th minus 10th percentile of terrain height over the central 25 tiles' nodes, in metres"
+  }
+ },
+ "tool": {
+  "reader": {
+   "file": "tools/map-factory/survey/measure_maps.py",
+   "sha256": "997fcf3f92b629ce3e5add5ac63200e46f4a65ad4649a1eb87e23c1445047d0b"
+  },
+  "measure_tool": {
+   "file": "tools/map-factory/survey/measure_terrain_interest.py",
+   "sha256": "d6061b7a428eba022b594443dc24aa512913020c8cddddae98be7b5fa57b8dfe"
+  },
+  "measure_source": {
+   "file": "tools/map-factory/terrain_interest.py",
+   "sha256": "a5b3a67e5d6c2e683160ddd86b3c69b7afc5f3fece576d562b5057019f822a77"
+  }
+ },
+ "maps": {
+  "directory": "/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Maps/",
+  "read_only": true,
+  "files_seen": 105,
+  "included": 104,
+  "excluded": [
+   {
+    "file": "CO.crp",
+    "reason": "blank editor terrain system package, not a playable shipped map"
+   }
+  ],
+  "failures": []
+ },
+ "quantiles": {
+  "terrain_roughness_percent": {
+   "name": "Terrain roughness",
+   "unit": "%",
+   "kind": "terrain_shape",
+   "definition": "mean terrain gradient magnitude at 16 m spacing over all 1081 x 1081 nodes, in percent",
+   "n": 104,
+   "p25": 11.262500000000001,
+   "median": 15.5,
+   "p75": 21.185
+  },
+  "central_terrain_diversity_m": {
+   "name": "Central height range",
+   "unit": "m",
+   "kind": "terrain_shape",
+   "definition": "90th minus 10th percentile of terrain height over the central 25 tiles' nodes, in metres",
+   "n": 104,
+   "p25": 114.625,
+   "median": 182.2,
+   "p75": 300.65000000000003
+  }
+ },
+ "rows": [
+  {
+   "file": "AP Asanu Beach.crp",
+   "sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+   "bytes": 7146032,
+   "package_format": 8,
+   "data_version": 114007,
+   "display": "Asanu Beach",
+   "terrain_roughness_percent": 14.38,
+   "central_terrain_diversity_m": 125.9
+  },
+  {
+   "file": "AP Hanami Bay.crp",
+   "sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+   "bytes": 4791928,
+   "package_format": 8,
+   "data_version": 114009,
+   "display": "Hanami Bay",
+   "terrain_roughness_percent": 14.48,
+   "central_terrain_diversity_m": 134.4
+  },
+  {
+   "file": "AP Noyou Port.crp",
+   "sha256": "991d55217c6d9fbaddcdcf3dbeedd216109201c17347aa5d29b4db5d5d447381",
+   "bytes": 5014378,
+   "package_format": 8,
+   "data_version": 114008,
+   "display": "Noyou Port",
+   "terrain_roughness_percent": 10.29,
+   "central_terrain_diversity_m": 151.5
+  },
+  {
+   "file": "CCMP2 Boreal Map 1.crp",
+   "sha256": "8eb2a4fa6a1544cd740887ad3347d19aca810d7373257ab9c783a3ded00fb725",
+   "bytes": 4497197,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Boreal Map 1",
+   "terrain_roughness_percent": 22.16,
+   "central_terrain_diversity_m": 314.2
+  },
+  {
+   "file": "CCMP2 Boreal Map 2.crp",
+   "sha256": "4183237b98074318b28b2677810f591526f8b78b9f449bb6e626ac3b52258ccb",
+   "bytes": 5044997,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Boreal Map 2",
+   "terrain_roughness_percent": 34.36,
+   "central_terrain_diversity_m": 255.5
+  },
+  {
+   "file": "CCMP2 Desert Map 1.crp",
+   "sha256": "95f5f8c2f661d8d512baaaabb936f9998560b89f7949617baa997288fdbd1e59",
+   "bytes": 3765153,
+   "package_format": 9,
+   "data_version": 116020,
+   "display": "CCMP2 Desert Map 1",
+   "terrain_roughness_percent": 23.03,
+   "central_terrain_diversity_m": 323.6
+  },
+  {
+   "file": "CCMP2 Desert Map 2.crp",
+   "sha256": "2075eb1cfe094830881d29462e53d8d86b815f91f84f4945efd3d2a5ff91ff9d",
+   "bytes": 4514511,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Desert Map 2",
+   "terrain_roughness_percent": 13.69,
+   "central_terrain_diversity_m": 176.1
+  },
+  {
+   "file": "CCMP2 Euro Map 1.crp",
+   "sha256": "b0acaaeafd51eb9815713a26b43a8ac2b69332f8979875763718e918390e8116",
+   "bytes": 4704009,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Euro Map 1",
+   "terrain_roughness_percent": 13.49,
+   "central_terrain_diversity_m": 183.3
+  },
+  {
+   "file": "CCMP2 Euro Map 2.crp",
+   "sha256": "68d1f7fb7088885efc1b25b6bcd49b6b5424e911f5f7633e9cb31b1069fa757b",
+   "bytes": 4662653,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Euro Map 2",
+   "terrain_roughness_percent": 14.64,
+   "central_terrain_diversity_m": 258.4
+  },
+  {
+   "file": "CCMP2 Temperate Map 1.crp",
+   "sha256": "e749530c4ccaaf17376b4528c79567d9d2be3b81490eba70a01ec3a19791fdc8",
+   "bytes": 6072940,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Temperate Map 1",
+   "terrain_roughness_percent": 22.55,
+   "central_terrain_diversity_m": 170.4
+  },
+  {
+   "file": "CCMP2 Temperate Map 2.crp",
+   "sha256": "1ab6cd1115d210efbbeeabb9c61af65205755892437149efb1ff326cc7887d76",
+   "bytes": 5932631,
+   "package_format": 9,
+   "data_version": 116020,
+   "display": "CCMP2 Temperate Map 2",
+   "terrain_roughness_percent": 26.55,
+   "central_terrain_diversity_m": 249.2
+  },
+  {
+   "file": "CCMP2 Tropical Map 1.crp",
+   "sha256": "e6c591bcff1dc43fb81b8a8998213ae04afb32f7ad96c05a248f6fdea0c263fb",
+   "bytes": 5521510,
+   "package_format": 9,
+   "data_version": 116019,
+   "display": "CCMP2 Tropical Map 1",
+   "terrain_roughness_percent": 28.29,
+   "central_terrain_diversity_m": 222.6
+  },
+  {
+   "file": "CCMP2 Tropical Map 2.crp",
+   "sha256": "e323308582a13625e5eae81af51fb6c53909ac41bbdecbf4a08c7c5a9d38885e",
+   "bytes": 5393770,
+   "package_format": 9,
+   "data_version": 116020,
+   "display": "CCMP2 Tropical Map 2",
+   "terrain_roughness_percent": 11.52,
+   "central_terrain_diversity_m": 216.2
+  },
+  {
+   "file": "CCP Map 1.crp",
+   "sha256": "6d54e0ff803655322b61e7dbc9e14e6b42a0f799f5b7242d0d5b20b7d5743e7b",
+   "bytes": 5013238,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 1",
+   "terrain_roughness_percent": 10.72,
+   "central_terrain_diversity_m": 82.4
+  },
+  {
+   "file": "CCP Map 2.crp",
+   "sha256": "f6ca9905fda298fce7cc8f8f68abb24ecf1d4778e573d2562fe04725dc355f45",
+   "bytes": 5382022,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 2",
+   "terrain_roughness_percent": 9.17,
+   "central_terrain_diversity_m": 115.3
+  },
+  {
+   "file": "CCP Map 3.crp",
+   "sha256": "cf0c06953158a5e5e3daded78da2ff86bf32a90468b6b7e4e4aa0aac7613d4b0",
+   "bytes": 3646254,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 3",
+   "terrain_roughness_percent": 25.26,
+   "central_terrain_diversity_m": 260.0
+  },
+  {
+   "file": "CCP Map 4.crp",
+   "sha256": "ec6dd74b34f4033d076b480f8144e7ab9a0d7dabaf7d39899658ed34070d9175",
+   "bytes": 4064527,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 4",
+   "terrain_roughness_percent": 42.21,
+   "central_terrain_diversity_m": 468.3
+  },
+  {
+   "file": "CCP Map 5.crp",
+   "sha256": "ec61b55714b3fe9749681f910eb8d973fd0eaf56195e3c88c6653b5494bb8d8b",
+   "bytes": 3328179,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 5",
+   "terrain_roughness_percent": 8.23,
+   "central_terrain_diversity_m": 106.5
+  },
+  {
+   "file": "CCP Map 6.crp",
+   "sha256": "a5a455833df44d3c13c410a361e60fca4c44e103978b39732306dd37ca70ae51",
+   "bytes": 3608598,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 6",
+   "terrain_roughness_percent": 8.26,
+   "central_terrain_diversity_m": 81.1
+  },
+  {
+   "file": "CCP Map 7.crp",
+   "sha256": "3e9e55c7e2fdb0c5e1cc1e3b9a33fa884d4b0bd55eb57619ad98773f1803de1f",
+   "bytes": 4677753,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 7",
+   "terrain_roughness_percent": 8.95,
+   "central_terrain_diversity_m": 63.6
+  },
+  {
+   "file": "CCP Map 8.crp",
+   "sha256": "e82d32bccf7fd49154d47e14354585f5385f5a2a647863f63d5d7771f7577fa1",
+   "bytes": 3975719,
+   "package_format": 8,
+   "data_version": 114011,
+   "display": "CCP Map 8",
+   "terrain_roughness_percent": 12.51,
+   "central_terrain_diversity_m": 89.4
+  },
+  {
+   "file": "CL Marin Bay.crp",
+   "sha256": "be0e93a258f178d51e3874bffcb220a822b771fb174e89eb7a98e5bc6e985b5b",
+   "bytes": 5077536,
+   "package_format": 6,
+   "data_version": 112004,
+   "display": "Marin Bay",
+   "terrain_roughness_percent": 18.11,
+   "central_terrain_diversity_m": 250.4
+  },
+  {
+   "file": "CL Murky Coast.crp",
+   "sha256": "6714a11603a1faec2996cce750477bff9fdad28a5dbe0580942eebe7f1b373f6",
+   "bytes": 5095649,
+   "package_format": 6,
+   "data_version": 112004,
+   "display": "Murky Coast",
+   "terrain_roughness_percent": 17.14,
+   "central_terrain_diversity_m": 194.6
+  },
+  {
+   "file": "CL Northwood Hills.crp",
+   "sha256": "be2d3d29b41c32fe1fe35f21a6e4d4ffc6ffaa03248efab5134025e1aef95208",
+   "bytes": 4768794,
+   "package_format": 6,
+   "data_version": 112004,
+   "display": "Northwood Hills",
+   "terrain_roughness_percent": 28.34,
+   "central_terrain_diversity_m": 309.6
+  },
+  {
+   "file": "CL Roslyn Peninsula.crp",
+   "sha256": "56e9c5b67d0e49e4a40c8c4ec90c37fa38c41d2ad1c9309bf40474a0042dd7f2",
+   "bytes": 5681539,
+   "package_format": 6,
+   "data_version": 112004,
+   "display": "Roslyn Peninsula",
+   "terrain_roughness_percent": 11.15,
+   "central_terrain_diversity_m": 202.3
+  },
+  {
+   "file": "CL Wolf Creek.crp",
+   "sha256": "8f2b88f997e35b295aa2761e183a9cffe498d01ea7357f5fe6530000f65a1d9c",
+   "bytes": 4606513,
+   "package_format": 6,
+   "data_version": 112004,
+   "display": "Wolf Creek",
+   "terrain_roughness_percent": 33.22,
+   "central_terrain_diversity_m": 292.4
+  },
+  {
+   "file": "Cliffside Bay.crp",
+   "sha256": "2d5d38ff8c447b02727f6230679935ab32dfa2f5616a73846a0b5e064d17897c",
+   "bytes": 4523312,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Cliffside Bay",
+   "terrain_roughness_percent": 15.91,
+   "central_terrain_diversity_m": 432.8
+  },
+  {
+   "file": "DN Azure Gulf.crp",
+   "sha256": "8ab34f5dc7b3616f912998de9eb6b785ff2a24be02e89a5c9af8beb0212863be",
+   "bytes": 5690094,
+   "package_format": 6,
+   "data_version": 113007,
+   "display": "Azure Gulf",
+   "terrain_roughness_percent": 21.04,
+   "central_terrain_diversity_m": 192.9
+  },
+  {
+   "file": "DN Crater Falls.crp",
+   "sha256": "fc67a978d11786ffaba6e5449d4eee91f3b554a88eb78cc3f0cbaa77835ebc45",
+   "bytes": 5189815,
+   "package_format": 7,
+   "data_version": 113010,
+   "display": "Crater Falls",
+   "terrain_roughness_percent": 38.42,
+   "central_terrain_diversity_m": 367.7
+  },
+  {
+   "file": "DN Desert Oasis.crp",
+   "sha256": "3fa90904df708a337cc2f6c31e6917a3b444933f26681358b92557820b8f6315",
+   "bytes": 3815380,
+   "package_format": 7,
+   "data_version": 113010,
+   "display": "Desert Oasis",
+   "terrain_roughness_percent": 23.51,
+   "central_terrain_diversity_m": 305.3
+  },
+  {
+   "file": "DN Fisher Enclave.crp",
+   "sha256": "bd2504849e9d7086298bc549c53bd45e3ebc921980c36af3ddf634a2e4640990",
+   "bytes": 6270859,
+   "package_format": 7,
+   "data_version": 113010,
+   "display": "Fisher Enclave",
+   "terrain_roughness_percent": 9.91,
+   "central_terrain_diversity_m": 86.3
+  },
+  {
+   "file": "DN Swamplands.crp",
+   "sha256": "7a70b3457d68b3e8d506c780b2b2672a453e0eaac734b07c8303d074da036c96",
+   "bytes": 5264302,
+   "package_format": 7,
+   "data_version": 113010,
+   "display": "Swamplands",
+   "terrain_roughness_percent": 12.21,
+   "central_terrain_diversity_m": 65.9
+  },
+  {
+   "file": "Eden Valley2.crp",
+   "sha256": "b5f8fc541b0e402464f62b8035ce620152edbdbfbc0842592e166e3c8bc33aa1",
+   "bytes": 4908829,
+   "package_format": 6,
+   "data_version": 109011,
+   "display": "Eden Valley",
+   "terrain_roughness_percent": 14.55,
+   "central_terrain_diversity_m": 68.8
+  },
+  {
+   "file": "Foggy Hills.crp",
+   "sha256": "076cb4dcf2207ea9dd9e212fdf7cfb03cc85ff8da511ab1b386323b094bcb136",
+   "bytes": 4339492,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Foggy Hills",
+   "terrain_roughness_percent": 15.88,
+   "central_terrain_diversity_m": 236.5
+  },
+  {
+   "file": "Garden Rivers2.crp",
+   "sha256": "0d9968aa7f32fc5d289b4f76005354fc3458b80a3320a3d99f99ea9c21f6f30c",
+   "bytes": 4284991,
+   "package_format": 5,
+   "data_version": 109006,
+   "display": "Garden Rivers",
+   "terrain_roughness_percent": 7.49,
+   "central_terrain_diversity_m": 106.9
+  },
+  {
+   "file": "Grand River.crp",
+   "sha256": "cfb59ca03e6a7f856efe9031347ef97942a841d9cdae90dfc31b940a01bb552f",
+   "bytes": 4148599,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Grand River",
+   "terrain_roughness_percent": 11.3,
+   "central_terrain_diversity_m": 115.6
+  },
+  {
+   "file": "IN Green Peaks.crp",
+   "sha256": "46fd4a7e389faead5a3f90e4cde06161789de68be7faa4b6a35136b881123e3a",
+   "bytes": 4832163,
+   "package_format": 6,
+   "data_version": 111013,
+   "display": "Green Peaks",
+   "terrain_roughness_percent": 12.68,
+   "central_terrain_diversity_m": 96.2
+  },
+  {
+   "file": "IN Marble Canyon.crp",
+   "sha256": "f9b5b60f2c0ab5bc4de59e5fccc4beb969af950848b901d2d0b3fe05ff8cd781",
+   "bytes": 4398377,
+   "package_format": 6,
+   "data_version": 111013,
+   "display": "Marble Canyon",
+   "terrain_roughness_percent": 16.7,
+   "central_terrain_diversity_m": 198.8
+  },
+  {
+   "file": "IN Pearl Bay.crp",
+   "sha256": "64fb595458d9b04363411ee97ef960c5b1e7fc39b2d1b2013390d7b2ed13840f",
+   "bytes": 5714132,
+   "package_format": 6,
+   "data_version": 111013,
+   "display": "Pearl Bay",
+   "terrain_roughness_percent": 10.97,
+   "central_terrain_diversity_m": 188.3
+  },
+  {
+   "file": "IN Twin Fjords.crp",
+   "sha256": "248ab8d0af3e65b560de451ff54ba9f38d976fe83a05bc0ec7bf4cc3482123d1",
+   "bytes": 4499446,
+   "package_format": 6,
+   "data_version": 111013,
+   "display": "Twin Fjords",
+   "terrain_roughness_percent": 26.01,
+   "central_terrain_diversity_m": 658.8
+  },
+  {
+   "file": "IN Woodgarden.crp",
+   "sha256": "b2840b6863a6ea4f6906c70f4f627e3107b3dd4e661b1add5bf5adfee5307ac9",
+   "bytes": 4833103,
+   "package_format": 6,
+   "data_version": 111013,
+   "display": "Woodgarden",
+   "terrain_roughness_percent": 12.95,
+   "central_terrain_diversity_m": 181.1
+  },
+  {
+   "file": "Lavender Lake2.crp",
+   "sha256": "ee90aecfab5a0139a23bfb1721734528a7835768131c3d62f1fd37de41abcd96",
+   "bytes": 4246262,
+   "package_format": 5,
+   "data_version": 109006,
+   "display": "Lavender Lake",
+   "terrain_roughness_percent": 11.96,
+   "central_terrain_diversity_m": 196.5
+  },
+  {
+   "file": "MM Coastal Flatland.crp",
+   "sha256": "c3241d321c5309084394b297258e6f9df65065b84b56c0f4e5c98536221a3a6b",
+   "bytes": 6198863,
+   "package_format": 10,
+   "data_version": 117005,
+   "display": "Coastal Flatland",
+   "terrain_roughness_percent": 9.35,
+   "central_terrain_diversity_m": 147.2
+  },
+  {
+   "file": "MM Emerald Cliffs.crp",
+   "sha256": "1bebffd66d18daf32d46c8ca6bc008a560923b995cdd71c7a9a474cc5570d9fe",
+   "bytes": 5494723,
+   "package_format": 10,
+   "data_version": 117004,
+   "display": "Emerald Cliffs",
+   "terrain_roughness_percent": 17.25,
+   "central_terrain_diversity_m": 198.5
+  },
+  {
+   "file": "MM Maze Valley.crp",
+   "sha256": "a917c4bee43085f6dcd7ffbb8ede6e37b61ed6362c57b36e1b53a75204515dd7",
+   "bytes": 5143043,
+   "package_format": 10,
+   "data_version": 117005,
+   "display": "Maze Valley",
+   "terrain_roughness_percent": 22.52,
+   "central_terrain_diversity_m": 320.2
+  },
+  {
+   "file": "MM Shifting Sands.crp",
+   "sha256": "893c09e376aa2f2272d6c2a847b49e7ec3fa0658b45c5613b936c180d3285b09",
+   "bytes": 4632468,
+   "package_format": 10,
+   "data_version": 117005,
+   "display": "Shifting Sands",
+   "terrain_roughness_percent": 14.53,
+   "central_terrain_diversity_m": 108.7
+  },
+  {
+   "file": "MM Weaving Waters.crp",
+   "sha256": "85ec60c4da7fd67fb44bbed892c5f5d2d0acac5f84643185c49d2c6dbdeeede1",
+   "bytes": 4780999,
+   "package_format": 10,
+   "data_version": 117005,
+   "display": "Weaving Waters",
+   "terrain_roughness_percent": 10.96,
+   "central_terrain_diversity_m": 112.6
+  },
+  {
+   "file": "MP23_Map01.crp",
+   "sha256": "3d8601328dcc37ce8e97f00a42ccbf3cb20164f1b98a027520188ed45ab10557",
+   "bytes": 5418922,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map01",
+   "terrain_roughness_percent": 27.79,
+   "central_terrain_diversity_m": 454.8
+  },
+  {
+   "file": "MP23_Map02.crp",
+   "sha256": "168dcf5347746bc60ae6631f7d7c32a3879f08aee7d67c875d7972ff25e37be0",
+   "bytes": 4120042,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map02",
+   "terrain_roughness_percent": 16.12,
+   "central_terrain_diversity_m": 229.2
+  },
+  {
+   "file": "MP23_Map03.crp",
+   "sha256": "4b5488c840048c0fb79d62b8086f53c33b726332afcde590da64ffc22e460e04",
+   "bytes": 5592015,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map03",
+   "terrain_roughness_percent": 20.59,
+   "central_terrain_diversity_m": 465.8
+  },
+  {
+   "file": "MP23_Map04.crp",
+   "sha256": "09a68955266edbfbe8bae2a1b200067f2248cdba0395890095ccad351fe09f9e",
+   "bytes": 5391193,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map04",
+   "terrain_roughness_percent": 28.86,
+   "central_terrain_diversity_m": 164.4
+  },
+  {
+   "file": "MP23_Map05.crp",
+   "sha256": "df7095b939471c4f1b3e34377befd57e993b6a43f3a1ceeb2ac24502531bd43a",
+   "bytes": 3811005,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map05",
+   "terrain_roughness_percent": 24.31,
+   "central_terrain_diversity_m": 349.0
+  },
+  {
+   "file": "MP23_Map06.crp",
+   "sha256": "084d9a6f6204b611a66901c8baf1308510931f8b8943d52cc459f1758791e37e",
+   "bytes": 4874421,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map06",
+   "terrain_roughness_percent": 22.3,
+   "central_terrain_diversity_m": 228.0
+  },
+  {
+   "file": "MP23_Map07.crp",
+   "sha256": "af4a9e797b1b51e19b58dc873a3af48a01a0b77fe6c81f2dfe33104ccdb2ff87",
+   "bytes": 5551142,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map07",
+   "terrain_roughness_percent": 15.62,
+   "central_terrain_diversity_m": 395.1
+  },
+  {
+   "file": "MP23_Map08.crp",
+   "sha256": "b90b20e6d08872a4d5f14143bc524a2c375a51c5279ce8c34abfc5dd40f26a8c",
+   "bytes": 6764068,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map08",
+   "terrain_roughness_percent": 15.56,
+   "central_terrain_diversity_m": 299.1
+  },
+  {
+   "file": "MP23_Map09.crp",
+   "sha256": "49d9f09c33f396179625c9ca95492288a66f96e040f2d3788708c0447606a94b",
+   "bytes": 6205106,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map09",
+   "terrain_roughness_percent": 30.02,
+   "central_terrain_diversity_m": 388.0
+  },
+  {
+   "file": "MP23_Map10.crp",
+   "sha256": "8b6f74b05a9c9b7c2f98b19f68991def336f9cc8c692aa0ad6627b5bfdc30964",
+   "bytes": 6619636,
+   "package_format": 10,
+   "data_version": 117013,
+   "display": "MP23_Map10",
+   "terrain_roughness_percent": 14.44,
+   "central_terrain_diversity_m": 165.8
+  },
+  {
+   "file": "MP27_Map01.crp",
+   "sha256": "e2435cb8848d64f181632537b24de7fe3035ad59c6de1f4a288aa9e409f6251b",
+   "bytes": 5667464,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map01",
+   "terrain_roughness_percent": 3.12,
+   "central_terrain_diversity_m": 41.0
+  },
+  {
+   "file": "MP27_Map02.crp",
+   "sha256": "e82ef184a0ce91d3a6cd9b3805b1ec9d03eaa9adede94a291c70a3e7196c4493",
+   "bytes": 6030533,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map02",
+   "terrain_roughness_percent": 16.84,
+   "central_terrain_diversity_m": 349.1
+  },
+  {
+   "file": "MP27_Map03.crp",
+   "sha256": "e69d5c29ff286651ba1e25fa279703842d40b2aff9c07cdfe8acfb903659292e",
+   "bytes": 4980322,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map03",
+   "terrain_roughness_percent": 5.74,
+   "central_terrain_diversity_m": 21.2
+  },
+  {
+   "file": "MP27_Map04.crp",
+   "sha256": "9579b8cdacfced1a635cd8b2e9d1983a9d617ea15f5bf46b56549df4875c68c4",
+   "bytes": 6337442,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map04",
+   "terrain_roughness_percent": 3.59,
+   "central_terrain_diversity_m": 50.2
+  },
+  {
+   "file": "MP27_Map05.crp",
+   "sha256": "564550730bd6bc87eec4f40d923db57beea8bae6e939dde7030465515afd3302",
+   "bytes": 4678692,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map05",
+   "terrain_roughness_percent": 8.28,
+   "central_terrain_diversity_m": 153.0
+  },
+  {
+   "file": "MP27_Map06.crp",
+   "sha256": "4f050ceffeb349c87e0b834c4f684cc66ecde0f15ad516e8dff0c066e031573a",
+   "bytes": 5180196,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map06",
+   "terrain_roughness_percent": 25.25,
+   "central_terrain_diversity_m": 619.8
+  },
+  {
+   "file": "MP27_Map07.crp",
+   "sha256": "264270d1f6862be93addc2ca4cc9feaa50aaddd3c235b7cc734b5d8fcbeed033",
+   "bytes": 5851295,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map07",
+   "terrain_roughness_percent": 20.5,
+   "central_terrain_diversity_m": 443.0
+  },
+  {
+   "file": "MP27_Map08.crp",
+   "sha256": "ea3da76b5594333d60a7858336b8d37363b08144574d509c7364e12b05253247",
+   "bytes": 5251251,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map08",
+   "terrain_roughness_percent": 18.46,
+   "central_terrain_diversity_m": 213.0
+  },
+  {
+   "file": "MP27_Map09.crp",
+   "sha256": "b96229d802fd0cdb579811fdf057146281b2a3c2469fa08cb068da82d4d303d5",
+   "bytes": 4869239,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map09",
+   "terrain_roughness_percent": 21.62,
+   "central_terrain_diversity_m": 331.0
+  },
+  {
+   "file": "MP27_Map10.crp",
+   "sha256": "cf423c1ead4cd8e840df1551e1173f1065db7feb5c5cbc9812bca5852c85d56d",
+   "bytes": 4575324,
+   "package_format": 10,
+   "data_version": 118011,
+   "display": "MP27_Map10",
+   "terrain_roughness_percent": 5.72,
+   "central_terrain_diversity_m": 55.4
+  },
+  {
+   "file": "MT Ferry Empire.crp",
+   "sha256": "7a95130d72e65c99025492512477133dbe3da44448d984d61308d429a7e04460",
+   "bytes": 4144994,
+   "package_format": 4,
+   "data_version": 316,
+   "display": "Seven Lakes",
+   "terrain_roughness_percent": 9.88,
+   "central_terrain_diversity_m": 44.4
+  },
+  {
+   "file": "MT Fix The Traffic.crp",
+   "sha256": "bb71ed8272b749fc91e3cee7addb2d01e531749dfea781690af2fbd6b7fdc04d",
+   "bytes": 3756190,
+   "package_format": 4,
+   "data_version": 316,
+   "display": "Regal Hills",
+   "terrain_roughness_percent": 15.56,
+   "central_terrain_diversity_m": 339.1
+  },
+  {
+   "file": "MT Trains.crp",
+   "sha256": "b0f1c245554f0e040ac32269dd86b24a7d8f930e548a8f9f51f58794f4baa4e1",
+   "bytes": 3412845,
+   "package_format": 4,
+   "data_version": 320,
+   "display": "Arid Plains",
+   "terrain_roughness_percent": 14.95,
+   "central_terrain_diversity_m": 161.5
+  },
+  {
+   "file": "ND Alpine Villages.crp",
+   "sha256": "e156a1aadb5b3fe0e350e1237f240e7148b77b55c44af5d911d8296fdc5ad0aa",
+   "bytes": 4894674,
+   "package_format": 4,
+   "data_version": 316,
+   "display": "Prussian Peaks",
+   "terrain_roughness_percent": 36.84,
+   "central_terrain_diversity_m": 363.3
+  },
+  {
+   "file": "ND By The Dam.crp",
+   "sha256": "496255abdc99616c7329407415e69b8d916bc036e58e7e341ab611a7cee7c6b8",
+   "bytes": 5456804,
+   "package_format": 4,
+   "data_version": 312,
+   "display": "By The Dam",
+   "terrain_roughness_percent": 15.57,
+   "central_terrain_diversity_m": 424.0
+  },
+  {
+   "file": "ND Floodland.crp",
+   "sha256": "210de22ef67c7bedbdfadffcf0a391899ed7f8df5c837ba06f0cef9fd48987fa",
+   "bytes": 4444131,
+   "package_format": 4,
+   "data_version": 312,
+   "display": "Floodland",
+   "terrain_roughness_percent": 20.63,
+   "central_terrain_diversity_m": 337.3
+  },
+  {
+   "file": "ND Island Hopping.crp",
+   "sha256": "79c3dd9bf24fa67d66d7caaa7ae10e675b5bc7946796340222efe18531ce6e40",
+   "bytes": 6206027,
+   "package_format": 4,
+   "data_version": 316,
+   "display": "The Archipelago",
+   "terrain_roughness_percent": 7.19,
+   "central_terrain_diversity_m": 68.5
+  },
+  {
+   "file": "ND Tornado Country.crp",
+   "sha256": "466ee615cbfb86ab7db81ed8249361eb07d6f932832fd82218144182d4a1d51b",
+   "bytes": 5049569,
+   "package_format": 4,
+   "data_version": 316,
+   "display": "The Dust Bowl",
+   "terrain_roughness_percent": 6.32,
+   "central_terrain_diversity_m": 97.8
+  },
+  {
+   "file": "NorthEurope1FINAL.crp",
+   "sha256": "a4afe28315db5fbcb7b5a08548a80a495960a358bafdf39ad47d435f01d9d538",
+   "bytes": 4833605,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Green Plains",
+   "terrain_roughness_percent": 16.71,
+   "central_terrain_diversity_m": 123.2
+  },
+  {
+   "file": "NorthEurope2FINAL.crp",
+   "sha256": "e11836b41cd453d2e2b7bd6c53ee6cb4af0bfafe000b32b7babff4b2b969b56f",
+   "bytes": 4703014,
+   "package_format": 9,
+   "data_version": 116011,
+   "display": "Riverrun",
+   "terrain_roughness_percent": 18.7,
+   "central_terrain_diversity_m": 130.3
+  },
+  {
+   "file": "NorthEurope3FINAL.crp",
+   "sha256": "59d4260880e4bf1f54512deef0efa714b15dff72855564b01082a72f1f4ace1e",
+   "bytes": 5179137,
+   "package_format": 4,
+   "data_version": 293,
+   "display": "Black Woods",
+   "terrain_roughness_percent": 15.67,
+   "central_terrain_diversity_m": 164.8
+  },
+  {
+   "file": "PB Cape Apple.crp",
+   "sha256": "6d2c704b2de51ffbc2603e26c1e0aa73c760a54a67a84f5628e0d680f28441fc",
+   "bytes": 5299876,
+   "package_format": 8,
+   "data_version": 115014,
+   "display": "Cape Apple",
+   "terrain_roughness_percent": 9.35,
+   "central_terrain_diversity_m": 104.2
+  },
+  {
+   "file": "PB Coastal Gem.crp",
+   "sha256": "ff4ff9ae59877f08948195b83d8efebcbbc618b947bfc83c4862174137ce4702",
+   "bytes": 4870181,
+   "package_format": 8,
+   "data_version": 115014,
+   "display": "Coastal Gem",
+   "terrain_roughness_percent": 5.82,
+   "central_terrain_diversity_m": 143.1
+  },
+  {
+   "file": "PB Gondola Islands.crp",
+   "sha256": "69bbb192fa8290cb2caff91a1e994e35f7d136de3e80e9c6e48cbfd2ad87f4b7",
+   "bytes": 5908510,
+   "package_format": 8,
+   "data_version": 115014,
+   "display": "Gondola Islands",
+   "terrain_roughness_percent": 4.85,
+   "central_terrain_diversity_m": 52.1
+  },
+  {
+   "file": "PB Oracle Lake.crp",
+   "sha256": "5be0b2bf129233ebe17ac36d54d6fa73a6fc7dccd5331f21b78125e6633bb0b0",
+   "bytes": 4688234,
+   "package_format": 8,
+   "data_version": 115014,
+   "display": "Oracle Lake",
+   "terrain_roughness_percent": 13.92,
+   "central_terrain_diversity_m": 198.4
+  },
+  {
+   "file": "PB Splitz Tributary.crp",
+   "sha256": "7b024b6106e58736c935a948c5f848604cec58d1aaf9dd0a34c757e4aede2238",
+   "bytes": 4117316,
+   "package_format": 8,
+   "data_version": 115023,
+   "display": "Splitz Tributary",
+   "terrain_roughness_percent": 13.21,
+   "central_terrain_diversity_m": 382.8
+  },
+  {
+   "file": "PL Cavern Coast.crp",
+   "sha256": "8888d2e4cff59babd69afa0a11417e97f4c8486bcffde6891e9dd8afb29245ac",
+   "bytes": 6488856,
+   "package_format": 6,
+   "data_version": 110025,
+   "display": "Cavern Coast",
+   "terrain_roughness_percent": 15.48,
+   "central_terrain_diversity_m": 238.5
+  },
+  {
+   "file": "PL Honu Island.crp",
+   "sha256": "539367a8ec59d3a298b3c8dacd85034501af30912ee8897c2956df3ca84a2bec",
+   "bytes": 6798937,
+   "package_format": 6,
+   "data_version": 110025,
+   "display": "Honu Island",
+   "terrain_roughness_percent": 14.92,
+   "central_terrain_diversity_m": 188.2
+  },
+  {
+   "file": "PL Mountain Meadows.crp",
+   "sha256": "1bebae469b2ad0b30567ea98ca4377bfad3a73695b4140852054706504372536",
+   "bytes": 4309821,
+   "package_format": 6,
+   "data_version": 110025,
+   "display": "Mountain Meadows",
+   "terrain_roughness_percent": 24.94,
+   "central_terrain_diversity_m": 95.4
+  },
+  {
+   "file": "PL Pine Rivers.crp",
+   "sha256": "a205dfd0bc99393f186cf8ee4ff76cfc7448499a4d9d4423d827cf7e26c3cbc3",
+   "bytes": 3304416,
+   "package_format": 6,
+   "data_version": 110025,
+   "display": "Pine Rivers",
+   "terrain_roughness_percent": 8.56,
+   "central_terrain_diversity_m": 78.5
+  },
+  {
+   "file": "PL Windfield.crp",
+   "sha256": "801cb6e99debfb22f6008993cc4fc65b6bd03057da3dbc0c1b31833957ad9d5d",
+   "bytes": 5773241,
+   "package_format": 6,
+   "data_version": 110025,
+   "display": "Windfield",
+   "terrain_roughness_percent": 11.98,
+   "central_terrain_diversity_m": 151.0
+  },
+  {
+   "file": "PU Gray Waters.crp",
+   "sha256": "68a328a2efb5952166142ee9c3d1edbc98a3929d7563caaa65fab927ef077adf",
+   "bytes": 5449491,
+   "package_format": 9,
+   "data_version": 116010,
+   "display": "Gray Waters",
+   "terrain_roughness_percent": 18.18,
+   "central_terrain_diversity_m": 74.6
+  },
+  {
+   "file": "PU Narrow Passage.crp",
+   "sha256": "0ab5716c40a77d352a3ed22132bd760ac863997652562a388f066c7e2432ac0e",
+   "bytes": 5811082,
+   "package_format": 9,
+   "data_version": 116010,
+   "display": "Narrow Passage",
+   "terrain_roughness_percent": 14.32,
+   "central_terrain_diversity_m": 122.1
+  },
+  {
+   "file": "PU River Terrace.crp",
+   "sha256": "cf9880b8f54560a1da5d0cadf06b86514161817d7ff683412ad635eb6d0244cf",
+   "bytes": 4957024,
+   "package_format": 9,
+   "data_version": 116010,
+   "display": "River Terrace",
+   "terrain_roughness_percent": 12.67,
+   "central_terrain_diversity_m": 157.4
+  },
+  {
+   "file": "PU Windblown Coast.crp",
+   "sha256": "3d0689ef68902bd225a78505c1b3f7e45c2fb46fea2ccfca82eac3cb66f121e4",
+   "bytes": 4644541,
+   "package_format": 9,
+   "data_version": 116010,
+   "display": "Windblown Coast",
+   "terrain_roughness_percent": 20.19,
+   "central_terrain_diversity_m": 293.4
+  },
+  {
+   "file": "PU Wyvern Pass.crp",
+   "sha256": "e1b05ad4bf3b86b2266359677ca26aafed9e6b8bac4622685e2fd8e7e2d9f93a",
+   "bytes": 4885028,
+   "package_format": 9,
+   "data_version": 116010,
+   "display": "Wyvern Pass",
+   "terrain_roughness_percent": 26.06,
+   "central_terrain_diversity_m": 313.7
+  },
+  {
+   "file": "SouthEurope1FINAL.crp",
+   "sha256": "c8a8da9ef9885b5c4863e671949ad464adb0f12d2be0dd109a3e19300a092459",
+   "bytes": 5601936,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Islands",
+   "terrain_roughness_percent": 11.06,
+   "central_terrain_diversity_m": 206.2
+  },
+  {
+   "file": "SouthEurope2FINAL.crp",
+   "sha256": "675219d2916ae6675eb841d1a15c9f8176d2274c748c47f392483777bc08a2f9",
+   "bytes": 5723200,
+   "package_format": 4,
+   "data_version": 293,
+   "display": "Shady Strands",
+   "terrain_roughness_percent": 10.03,
+   "central_terrain_diversity_m": 153.7
+  },
+  {
+   "file": "SouthEurope3FINAL.crp",
+   "sha256": "fecdf2f8f80c5ffb503964cc54656ba34ea5d675da4125e611bd1bb24a57282d",
+   "bytes": 4828105,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Two Rivers",
+   "terrain_roughness_percent": 15.52,
+   "central_terrain_diversity_m": 49.9
+  },
+  {
+   "file": "Tropical1FINAL.crp",
+   "sha256": "3b7cec0c676db754703bc38edc10956d39b25c2821cbd8323efb437e68c82390",
+   "bytes": 5301972,
+   "package_format": 4,
+   "data_version": 293,
+   "display": "Sandy Beach",
+   "terrain_roughness_percent": 14.42,
+   "central_terrain_diversity_m": 142.0
+  },
+  {
+   "file": "Tropical2FINAL.crp",
+   "sha256": "a476a16e5a046ae6c97b9b6c34b1f6d7fae8f1d048beecbcfdfdd0f578cf10c7",
+   "bytes": 5400124,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Diamond Coast",
+   "terrain_roughness_percent": 12.58,
+   "central_terrain_diversity_m": 174.7
+  },
+  {
+   "file": "Tropical3FINAL.crp",
+   "sha256": "ceec3eeb5a759dd1394ed38ec91aade7942bdb8cfb84f678d495dd3632ae4d3f",
+   "bytes": 6177392,
+   "package_format": 6,
+   "data_version": 112031,
+   "display": "Lagoon Shore",
+   "terrain_roughness_percent": 11.58,
+   "central_terrain_diversity_m": 179.6
+  },
+  {
+   "file": "Winter1Final.crp",
+   "sha256": "9d42d6b193e338c06f4a2fe3d30257225b8089e7393cba9d01f07cccf7f786f6",
+   "bytes": 5307786,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Snowy Coast",
+   "terrain_roughness_percent": 15.82,
+   "central_terrain_diversity_m": 135.5
+  },
+  {
+   "file": "Winter2Final.crp",
+   "sha256": "e0aaa8cfb68bb95827b0de2c0790bc0ee41df31f0541a0ebfd5b8b01cba21481",
+   "bytes": 5406015,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Icy Islands",
+   "terrain_roughness_percent": 15.92,
+   "central_terrain_diversity_m": 89.8
+  },
+  {
+   "file": "Winter3Final.crp",
+   "sha256": "bffee9b3618c5fb5b48f08cd3fc6da73f13e05ef7f0a949d63b30a55791d2c6a",
+   "bytes": 5487329,
+   "package_format": 4,
+   "data_version": 244,
+   "display": "Frosty Rivers",
+   "terrain_roughness_percent": 15.74,
+   "central_terrain_diversity_m": 126.1
+  },
+  {
+   "file": "Winter4Final.crp",
+   "sha256": "ed043c643093beb6cb5a9a1afc14cd3be41606b32cbce6c3d5217074165ebcd0",
+   "bytes": 5239413,
+   "package_format": 6,
+   "data_version": 111015,
+   "display": "Frozenshire",
+   "terrain_roughness_percent": 36.48,
+   "central_terrain_diversity_m": 318.2
+  },
+  {
+   "file": "Winter5Final.crp",
+   "sha256": "5f6af011a30a8b4ab841c2c5f725771367b2661c96215540f92988ef28c2c100",
+   "bytes": 3576147,
+   "package_format": 6,
+   "data_version": 111015,
+   "display": "Winter Hills",
+   "terrain_roughness_percent": 22.72,
+   "central_terrain_diversity_m": 330.9
+  }
+ ]
+}

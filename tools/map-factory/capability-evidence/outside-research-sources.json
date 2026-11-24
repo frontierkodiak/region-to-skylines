@@ -1,0 +1,142 @@
+{
+ "schema": 1,
+ "note": "Strict file scope for the accepted outside-query-model-v1 publication. Every listed file is pinned by its SHA-256, byte length and Git blob id at the publication commit. `copied` names evidence carried byte for byte in this repository; `linked` names the bulk frozen requests, frozen predictions and retained inventory served as immutable blobs at that commit.",
+ "publications": {
+  "outside-query-model-v1": {
+   "commit": "030db86ce470b972b6ef3462a2698744dff40ebb",
+   "prefix": "tools/map-factory/capability-evidence/outside-query-model-v1",
+   "files": {
+    "README.md": {
+     "bytes": 9575,
+     "sha256": "2e0ee53424cb1d4e3ae427be47715111d13d8ef9794b272f5ee2ef5525515cb8",
+     "git_blob": "7a68ee4ce62e49677798e1fdf3623b24573931eb"
+    },
+    "REPRODUCE.md": {
+     "bytes": 4389,
+     "sha256": "ba71de8928f32c6f96faf22c0f6e0c045c6fb925c668d913f13054d5b7575858",
+     "git_blob": "34f116856d3653bb3fa43467389f5bf8b2bc1404"
+    },
+    "RESULTS.md": {
+     "bytes": 10278,
+     "sha256": "6eae9ddff08688d415eb8f0c9d049bb8aed90a30231b2f38844a80088026a891",
+     "git_blob": "d2abf30ab3f617a968a7d9b85d673ae8f79a87a8"
+    },
+    "bindings.json": {
+     "bytes": 1941,
+     "sha256": "8b3178e1e42f76d50324a26c06ae31d11e64c025dff98a07840dd071594771e4",
+     "git_blob": "b79ebbd64559690d1c29061c45db3e68ba62a0d5"
+    },
+    "bridge.json": {
+     "bytes": 104422,
+     "sha256": "1028b1c138d508f1edf0f0532f415666ae9a782347291cdf8502ece33874f98c",
+     "git_blob": "ef82a9feaf9457b33efa7ac4dcd19a25e5f5ff9f"
+    },
+    "bridge.py": {
+     "bytes": 23377,
+     "sha256": "8b120cc29f2d3306bb539b607c61f878981ea2bdf0a49cb2acd634dcf3461e32",
+     "git_blob": "b676c7fcedc6d0b708b33c0f806841ef864be172"
+    },
+    "catalogs.json": {
+     "bytes": 7272,
+     "sha256": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc",
+     "git_blob": "793d9146fc919105a42452373d8844b8fafbc045"
+    },
+    "evaluate.py": {
+     "bytes": 34131,
+     "sha256": "55b6b6d37dbe77fe49d6627bbb2191c2610f29240c0cd1a8d9e20c81e6ab535e",
+     "git_blob": "cb014a41ec41ccd0623c1ef40898dff5f97e6c73"
+    },
+    "evaluation.json": {
+     "bytes": 113254,
+     "sha256": "3e7f968b1c2c05887aacda960d1b1c34b980cf6408e0db44a5b3588a9ed09370",
+     "git_blob": "d2d9895c1808d0c332daad715c77268e3a9e75d8"
+    },
+    "integrity.json": {
+     "bytes": 18530,
+     "sha256": "6a4ed204fcc3d18b3122629e9a5fb63fb6f75ce0fe5795e4b6b964179c42e4c4",
+     "git_blob": "d56d8f85de2bcdfd3e68aa8232ff58d4f605b4a7"
+    },
+    "inventory.py": {
+     "bytes": 33472,
+     "sha256": "7c52a0f7ecbe5f1cf46d5ef2798e26cb3944b3fbee8eaaf06ecfeee8a5abc220",
+     "git_blob": "5b53c7762afd9b1a98204daffd720122db7f3fc5"
+    },
+    "manifest.json": {
+     "bytes": 111861,
+     "sha256": "e34f2b3bdb34e8d7ed8f2fbfd341117dcabfe2d3d239a03d5c49b172568fffc2",
+     "git_blob": "1397dd583c2f2933e9c8ed3c5ffa16a493102637"
+    },
+    "model.py": {
+     "bytes": 13840,
+     "sha256": "9e3e2fc05a144d3313150e20113204ec34973d451e3b0a18d6a1875a2f46ef7b",
+     "git_blob": "4a3d8ff4ec636e1cca3d72d7260ecddc0236eb93"
+    },
+    "packages.json": {
+     "bytes": 2441,
+     "sha256": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
+     "git_blob": "42faf8d58fa099a8af34b8092304d4daaea32684"
+    },
+    "predict.py": {
+     "bytes": 9679,
+     "sha256": "12dc5454c14bbb2f2790c428450a9bffe9be7029cba914abe722190a29cd61d5",
+     "git_blob": "2a88687d5767d35320ad72b44074228efda45124"
+    },
+    "protocol.json": {
+     "bytes": 13267,
+     "sha256": "663f747c1b872a72d381454f2488686cc180544226a4cf3506748db6fc9f3de4",
+     "git_blob": "bd4f1e60398dddb63d0fb1fb7daba0e555348861"
+    },
+    "test_outside_query_model.py": {
+     "bytes": 48854,
+     "sha256": "99357978b7f190d0058974e13225f53c8619ccaee56dfd74cfb672ad6f3f3c21",
+     "git_blob": "3f67096b6f612a9abfdef7ea981493e16c52e2ce"
+    },
+    "topology.py": {
+     "bytes": 7211,
+     "sha256": "1879726587d832e313556e1d2b607dd12e14bda8c902933bea16c9eb3604c9e8",
+     "git_blob": "2a8afd64c19ecbfaad79a0fda489dd4714b843e5"
+    },
+    "inventory.json": {
+     "bytes": 1419755,
+     "sha256": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
+     "git_blob": "c39cf7831986e6dcfefa8748288253509e30112e"
+    },
+    "predictions.json": {
+     "bytes": 845394,
+     "sha256": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
+     "git_blob": "a2ef1499f012031fffd71d565a473495d0e070fa"
+    },
+    "requests.json": {
+     "bytes": 218049,
+     "sha256": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447",
+     "git_blob": "cadc8e9b6a59c3bee50194fe64266f4274e6175c"
+    }
+   },
+   "copied": [
+    "README.md",
+    "REPRODUCE.md",
+    "RESULTS.md",
+    "bindings.json",
+    "bridge.json",
+    "bridge.py",
+    "catalogs.json",
+    "evaluate.py",
+    "evaluation.json",
+    "integrity.json",
+    "inventory.py",
+    "manifest.json",
+    "model.py",
+    "packages.json",
+    "predict.py",
+    "protocol.json",
+    "test_outside_query_model.py",
+    "topology.py"
+   ],
+   "linked": [
+    "inventory.json",
+    "predictions.json",
+    "requests.json"
+   ]
+  }
+ }
+}

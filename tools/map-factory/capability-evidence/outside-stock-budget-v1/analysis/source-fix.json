@@ -1,0 +1,151 @@
+{
+  "analysis_sources": {
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/audit.py": "246b5b253d8a0986f90c154b25a38147141be04517ec2c772f00d137bd0140f4",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/evaluate.py": "d8ebb2c4816f29ca5e698c66f638e3de408fab9b77b7633fe047dd2de4af03e6",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/header_coverage.py": "0537834a3367d191b21ea9958088ad08d53939d3845724d60a299222b28fd54d",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/retain.py": "c894887b0969cf743a9362290d505cc1379b74d15888db2d0414dd5654a7104f",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/test_wire_schema.py": "9bdf226076e9f9b73b2574380d79955a95f21700f2b6c578c6df356fdef5d5ac",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/verify.py": "3dc1538538268d1d4991f57d7c5d2b0775e7208c6241a341e674d14a40172117"
+  },
+  "base_evaluator_sha256": "33e9389c24f36503cbf738137ae549b10f9ec4e9da3dc8b7354619a4ac553b62",
+  "created_at": "2026-11-23T12:17:22.946899+00:00",
+  "diff_path": "analysis/schema-fix.diff.gz",
+  "diff_raw_sha256": "c915293ba0d70a99745b21dd763783bf8d34961fc32b8a3681ea5b7c0ddb8a80",
+  "diff_retained_sha256": "970a1c0bea5dde5df8cf9060411660675ee49f673fd9b59cc10074940f5831dc",
+  "evaluator_sha256": "d8ebb2c4816f29ca5e698c66f638e3de408fab9b77b7633fe047dd2de4af03e6",
+  "frozen_plan_sha256": "717f6c0335f4558c77d2d23b4b1181a540f70ca21779365eeae6939c8c1ef3c8",
+  "frozen_primary_sources": {
+    "harness": {
+      "tools/cs1-harness/cs1_harness/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tools/cs1-harness/cs1_harness/assets.py": "6d62197cbe7eaa8e1f6610b9b9895b780244290ef0d3518d1e023d3b47aa5b83",
+      "tools/cs1-harness/cs1_harness/audio.py": "89b14306604482dff83e2490cc9ee99a2451cecd54e4e5a17501f04ee3f4cfd6",
+      "tools/cs1-harness/cs1_harness/bench.py": "4a91b20270939e6c4b63e1d6c740a7c0aab41d59616e85d7881e25dac23e08e8",
+      "tools/cs1-harness/cs1_harness/build.py": "415002cf6e7442e60e029e53382916972207f3f4710c933654b6bb4e7e6fe95d",
+      "tools/cs1-harness/cs1_harness/citydump.py": "f6c85c66204de254341922ce9d500614c0aa557cec56d0d8a58dcd510764b035",
+      "tools/cs1-harness/cs1_harness/cli.py": "7d33e170ffd83d9284ff40590831ad71be7ff8c0913da930c624cdf1dc03266b",
+      "tools/cs1-harness/cs1_harness/client.py": "cc376931a91c8a9769e133eaf4a884589a822d1a8c7810f7811e82dca8120b6d",
+      "tools/cs1-harness/cs1_harness/config.py": "33c9edc86938804fbcefc78fa0041a5655966c77a3257cde140cf0a4020f8523",
+      "tools/cs1-harness/cs1_harness/connections.py": "4a48d43e869a8d6ad9acedf1e0c9401427c7a7b7c0d878061e7698aa27c4cdb6",
+      "tools/cs1-harness/cs1_harness/first_hour.py": "74ffbc7b6596c17cdd92b821ba3dd7735ad28e612b24aabc1fabfa6ca9d26093",
+      "tools/cs1-harness/cs1_harness/flood_region.py": "399359fbc236cfed407493165303a5f088297f192b2fb102b794de65b6c20532",
+      "tools/cs1-harness/cs1_harness/gpu.py": "017ab47549f992bf6866eb99780b03e16cbd3938d3ed41189ab592f9494b5a71",
+      "tools/cs1-harness/cs1_harness/groundtruth.py": "f2d0164c093a1e0edba52fa9feeec03a108c30a4a2907216aad910a8163758e8",
+      "tools/cs1-harness/cs1_harness/landmarks.py": "8e19e768fc8a6e681487afe8e712b24bfa7231705bf832904de8266d682a5991",
+      "tools/cs1-harness/cs1_harness/mapcheck.py": "c220e66034e8c48c741ca8f6d43e04969b8d10aace30395d2515d494331a231f",
+      "tools/cs1-harness/cs1_harness/mapped_water.py": "f997e3a27b5df20b99c3e17959cd5d6b2f4a311eb89969db1909d032a98dbd4e",
+      "tools/cs1-harness/cs1_harness/mcp_server.py": "e6d0a2484a7eb99a8efc6cded4f168f8f5af545fc08134afbf034f94c2377e5e",
+      "tools/cs1-harness/cs1_harness/new_game_panel.py": "c07b919ed884c549b75e3cc050df192c39d0901456322d00ffedd9a6164371b1",
+      "tools/cs1-harness/cs1_harness/notify.py": "5d776db963aa9ed83f9aae5037102f11ee3160761e8aaf03495580c839b0de76",
+      "tools/cs1-harness/cs1_harness/observe.py": "9ae8e280d3a9d200702507cf0328c693d7972782d0828f4c78a05127b1a77c5f",
+      "tools/cs1-harness/cs1_harness/offline_steam.py": "271029d9f2a8f3a6722dec402d1b3eecc698a0d88825e9ce4de3cc047faa38bb",
+      "tools/cs1-harness/cs1_harness/rail_study.py": "a81fa6d63204314139604e12999ec573c6ffd2a9988df25ea91dd589704b35ea",
+      "tools/cs1-harness/cs1_harness/registry.py": "67d06b27abb9d3f9b50b84c08839cb1ca876f2296db469609c9080b2d14e5847",
+      "tools/cs1-harness/cs1_harness/report.py": "5dcf1e2ecab7c73b4c5aeee53dd354619af96dfe4133411a8aa9789fb2cbaf8d",
+      "tools/cs1-harness/cs1_harness/runtime_identity.py": "f4803a1e859161035a15253b8d3bd441c8d29fcc4783f98dd600c653fdc423b9",
+      "tools/cs1-harness/cs1_harness/saves.py": "bdd7fd8446b0a9c3f7f67068d8b6b6551820730450e1f2ce09a5c8cd480d0dde",
+      "tools/cs1-harness/cs1_harness/scenario.py": "0d23901a3af1a544446e9c0aa9506dbbec8ecdab3df16fe812f062bcc42da094",
+      "tools/cs1-harness/cs1_harness/session.py": "9a62d8770fddc3b7bbef11e14a186ecd76870c57687c8b8cbe76ca9b420a8ec6",
+      "tools/cs1-harness/cs1_harness/setup.py": "08e81f2f988b596b71e2f6bced69f60e2e856ac059e822d2f00679a3548843e1",
+      "tools/cs1-harness/cs1_harness/slots.py": "2fdee7b085d22bfae6d6c39737dca2d75a12807decf01120274ab6aad36f73c6",
+      "tools/cs1-harness/cs1_harness/startup_views.py": "de56b7efe6e78e323ff33bce4c825b6724501821b7416e605b870968b1027ae2",
+      "tools/cs1-harness/cs1_harness/steam.py": "e22860f30fb7f37a6c69bd5e3304ffd1500d0d39c421825f19d13edc7b87dd8a",
+      "tools/cs1-harness/cs1_harness/template_author.py": "ceaa42650ecabb7f6733b2645a41f63243c4ba1feb87647ab34997330d9a3787",
+      "tools/cs1-harness/cs1_harness/triage.py": "c88d30207dbd4c6186aac5faa2a5825fde5568cbecab4185af1c8637a3ab50c5",
+      "tools/cs1-harness/cs1_harness/verdict.py": "f9cb1c4e0a07680ab1eed55fb5414ba6054f50090565712c99dc5801e3cfd5dd",
+      "tools/cs1-harness/cs1_harness/vision.py": "300622c67df45cef8639ccfbccbb14e6b5edb37acc3b2728bc352ffdd9b162c1",
+      "tools/cs1-harness/cs1_harness/watertrace.py": "dd67811681ddad0fd674e4f25233766535c7b7cf1fcee2511071a074e23f8ccd",
+      "tools/cs1-harness/cs1_harness/x11.py": "6941255c4089a67b1090062d20be73aa130a483ac7e62e8a0b0173dde29354bc",
+      "tools/cs1-harness/mod/CheckOps.cs": "b05f18afd257f73a93625f61667e37ed407541fb4ebe3313a6eb603111258011",
+      "tools/cs1-harness/mod/CityOps.cs": "0320e35b391cdc52ff664b6c50469d52c6d9fe02f2350a972fb668768f056a7c",
+      "tools/cs1-harness/mod/CoreOps.cs": "9dc99fd6e91359f342149a1983aaf3187de0389a07a986065af76a8f6359b6d3",
+      "tools/cs1-harness/mod/DumpOps.cs": "02ac58f3c16150b2158fb380351cd273620fcf9e5d6dd7534676a9a7c695fcf9",
+      "tools/cs1-harness/mod/EditorOps.cs": "8d2f030a69a2eed15247a7c42ab00557b4d902cd8ee65c05fc705f094b35f536",
+      "tools/cs1-harness/mod/Harness.cs": "abaf8e32ee4432734688cf44b4f6121f1be288d2a24631e7002d5141b0a6b766",
+      "tools/cs1-harness/mod/Jobs.cs": "02285b8d553d9857feb1b4e400e78b11ea4ff2c299b80bbbd98c8a9002cbf113",
+      "tools/cs1-harness/mod/Json.cs": "3f05ed8308976e26de590d83e36a3660a3c8ac1105fd3f9b5167cd1018381884",
+      "tools/cs1-harness/mod/NetworkOps.cs": "383e9caff7515bcbb95e9fce490f517f298cee76bca599786884bac5eb144bb4",
+      "tools/cs1-harness/mod/PanelOps.cs": "724a2bc21faa0bd18aedc3a97279483adf32c9391e1fa3d2c1866c6aba50e9f3",
+      "tools/cs1-harness/mod/Readback.cs": "c8793d06360f01b32accd6ffd0c2f9b9834e3bfcb24f5de47b7c1b07c7d1471e",
+      "tools/cs1-harness/mod/ScenarioOps.cs": "0bea0d39df13fd4f906f0e7cd8d2db022173c09e2819e8bb2b1cda57fca10cf1",
+      "tools/cs1-harness/mod/TemplateOps.cs": "b8abeb4f5904d21dd029a81c98227f0ecc0c0b7c498961092f36f1d162a03f3f",
+      "tools/cs1-harness/mod/TraceIL.cs": "1d75c1f5f6518ea6584346cbdade3aee69f76d2983a43c6524ec7b079f1cb6ef",
+      "tools/cs1-harness/mod/TraceOps.cs": "fabb166d9a4a306a8e843f657f553bf8fb03f20f37793a6b2b590d3a170f96ba",
+      "tools/cs1-harness/mod/TraceRecorder.cs": "42f879f776b91c675eefb2fa227314908515ba46d9ee4851df12802a3beb2fa4",
+      "tools/cs1-harness/mod/WorldOps.cs": "6a35766794c9252c5672d15955d3c5e616b36fc38b243f41effb59ed61d06da6"
+    },
+    "model": {
+      "tools/map-factory/capability-evidence/outside-query-model-v1/bridge.py": "8b120cc29f2d3306bb539b607c61f878981ea2bdf0a49cb2acd634dcf3461e32",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/model.py": "9e3e2fc05a144d3313150e20113204ec34973d451e3b0a18d6a1875a2f46ef7b",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/topology.py": "1879726587d832e313556e1d2b607dd12e14bda8c902933bea16c9eb3604c9e8"
+    },
+    "old_inputs": {
+      "tools/map-factory/capability-evidence/outside-query-model-v1/bindings.json": "8b3178e1e42f76d50324a26c06ae31d11e64c025dff98a07840dd071594771e4",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/catalogs.json": "bb17277cbcb4cf901f1d77d9f980a03059da1823b642bc2e9e9e1e69e508dccc",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/inventory.json": "afef57cbf1a2246104a9027206554900ad1010020f60fd3b3af988d400acbdda",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/packages.json": "06a3ce9a85241d1260af85f14e13627da2f46731464e6b3887d05d120cd42ccb",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/predictions.json": "3c38dd19b38fadc90b2e2b0240b2e6a35ad13c2953c591e8cc71270e9a2cfc11",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/protocol.json": "663f747c1b872a72d381454f2488686cc180544226a4cf3506748db6fc9f3de4",
+      "tools/map-factory/capability-evidence/outside-query-model-v1/requests.json": "2f4b87074261824174ce1e55793b3b2dedb3d154d8b46206f54b74245815c447"
+    },
+    "prior_stock_inputs": {
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/control-stock-1-networks.json.gz": "602f1305bdf84403e6be8f1a98ec8deecabe5d04d92538edbcaedc28a65e2101",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/control-stock-2-networks.json.gz": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/prior-stock-catalogs.json": "3b2136cd959f23cc77cfb8d28821e58b9a046300ee5f0e9f9e179ca1bf577241",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/prior-stock-freeze.json": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18"
+    },
+    "reader": {
+      "tools/map-factory/crp.py": "2275bf3670f8f15ac9031e07b708121344507f6ddfa5cf1536c4d9c5c1c0a8f8",
+      "tools/map-factory/netcodec.py": "1312689a3b4149b045128e625cf486ac97f26fb5c329a4bedb11b423129d4512",
+      "tools/map-factory/network_writer.py": "d432a52c9c141bd23cc2b9719dce43c5db64815f63fc842afa91199b09d30bb4",
+      "tools/map-factory/survey/measure_maps.py": "997fcf3f92b629ce3e5add5ac63200e46f4a65ad4649a1eb87e23c1445047d0b",
+      "tools/map-factory/template.py": "492bd2c0883da49226d2031f2e08adc525bbeb95131cee49bbc9c6474d605a62"
+    },
+    "study": {
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/audit_processes.py": "ceedb4362b6a32235ca81adfdef73671e37a9819b6c85a401b704bda1ced28b9",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/build_study.py": "8b5629cebac5bb9265e9c13492f3890920bf4f3aa4ba2d00b6d7d1edf1f05b6d",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/collect.py": "8ce860916346b4fe2ea3312243807dc51a1377a83e241a84853f08130ae8a806",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/evaluate.py": "33e9389c24f36503cbf738137ae549b10f9ec4e9da3dc8b7354619a4ac553b62",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/run_one.py": "c0592f88c300fc7247aad29028e2f65a80436420a18236033edfc9a4224bcf6f",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/study.py": "916f73503868c49d2dea4f5d36e1c79dcad9d80cc7c4da7f70cf1619547935f1",
+      "tools/map-factory/capability-evidence/outside-stock-budget-v1/test_study.py": "ce09c445eb4e7da2de9e9101ac878d240cc72b2552cb5b14f09fc063c14622f6"
+    }
+  },
+  "frozen_scorer_failure_sha256": "2d11834d1afdde1f799fb64819eb0658e44cc1109103f216bb3bb79310e7c962",
+  "reason": "Owned frozen Harness.cs appends ok=true. The original body-schema validator omitted that envelope. The repaired scorer admits exactly the frozen body plus ok=true. Native rows, requests, labels, rules, thresholds, predictions and control qualification remain unchanged.",
+  "source_key_set": [
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/audit.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/evaluate.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/header_coverage.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/retain.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/test_wire_schema.py",
+    "tools/map-factory/capability-evidence/outside-stock-budget-v1/analysis/verify.py"
+  ],
+  "timing": "analysis correction after stock-2 control outcomes; no model refit",
+  "wire_schema": {
+    "body_effective_keys": [
+      "id",
+      "mode",
+      "max_length",
+      "build_index",
+      "seed",
+      "from",
+      "to",
+      "vehicle",
+      "category",
+      "lane_types"
+    ],
+    "body_result_keys": [
+      "id",
+      "flags",
+      "complete",
+      "success",
+      "length",
+      "positions",
+      "released"
+    ],
+    "other_transport_keys": [],
+    "transport_required": {
+      "ok": true
+    }
+  }
+}

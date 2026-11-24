@@ -5,18 +5,59 @@
   "license": "MIT",
   "type": "module",
   "homepage": "https://region-to-skylines.vercel.app",
-  "repository": { "type": "git", "url": "git+https://github.com/frontierkodiak/region-to-skylines.git" },
-  "bin": { "region-to-skylines": "cli.mjs" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frontierkodiak/region-to-skylines.git"
+  },
+  "bin": {
+    "region-to-skylines": "cli.mjs"
+  },
   "files": [
-    "cli.mjs", "terrain.js", "inputs.js", "mapgen.js", "water-risk.js",
-    "tools/map-factory/generate.py", "tools/map-factory/region.py", "tools/map-factory/prepare.py", "tools/map-factory/surface_water.py", "tools/map-factory/crp.py", "tools/map-factory/template.py", "tools/map-factory/map_metadata.py",
-    "tools/map-factory/paint.py", "tools/map-factory/resources.py", "tools/map-factory/landcover.py", "tools/map-factory/evidence.py", "tools/map-factory/web.py", "tools/map-factory/wet_reach_admission.py", "tools/map-factory/native-water-admission.json", "tools/map-factory/water_risk.py", "tools/map-factory/water-risk-model.json", "tools/map-factory/templates/native-corridors.crp", "tools/map-factory/templates/native-corridors.json"
+    "cli.mjs",
+    "terrain.js",
+    "inputs.js",
+    "mapgen.js",
+    "water-risk.js",
+    "tools/map-factory/generate.py",
+    "tools/map-factory/region.py",
+    "tools/map-factory/prepare.py",
+    "tools/map-factory/surface_water.py",
+    "tools/map-factory/crp.py",
+    "tools/map-factory/template.py",
+    "tools/map-factory/map_metadata.py",
+    "tools/map-factory/paint.py",
+    "tools/map-factory/resources.py",
+    "tools/map-factory/landcover.py",
+    "tools/map-factory/evidence.py",
+    "tools/map-factory/web.py",
+    "tools/map-factory/wet_reach_admission.py",
+    "tools/map-factory/native-water-admission.json",
+    "tools/map-factory/water_risk.py",
+    "tools/map-factory/water-risk-model.json",
+    "tools/map-factory/templates/native-corridors.crp",
+    "tools/map-factory/templates/native-corridors.json",
+    "connection-rules.js",
+    "tools/map-factory/connection_rules.py",
+    "place-rules.js",
+    "tools/map-factory/place_rules.py",
+    "tools/map-factory/plane_entries.py",
+    "tools/map-factory/network_writer.py",
+    "tools/map-factory/netcodec.py",
+    "tools/map-factory/transport_paths.py",
+    "vegetation-model.js",
+    "vegetation-inputs.js",
+    "capability-evidence.js",
+    "capability-model.js",
+    "vegetation-data",
+    "vegetation-traits.js"
   ],
   "scripts": {
-    "test": "node --test test/unit.test.mjs test/water-risk.test.mjs",
+    "test": "node --test --test-concurrency=1 test/unit.test.mjs test/water-risk.test.mjs test/capabilities.test.mjs test/outside-v2.test.mjs test/rail-study.test.mjs test/rail-research.test.mjs test/outside-research.test.mjs test/outside-stock.test.mjs test/outside-readiness.test.mjs test/water-calibration.test.mjs test/start-water-study.test.mjs test/start-model.test.mjs test/water-model.test.mjs test/connection-rules.test.mjs test/place-rules.test.mjs test/vegetation-model.test.mjs test/vegetation-inputs.test.mjs",
     "test:fixtures": "node --test --test-concurrency=1 test/fixtures.test.mjs"
   },
-  "engines": { "node": ">=20.3" },
+  "engines": {
+    "node": ">=20.3"
+  },
   "dependencies": {
     "@mapbox/vector-tile": "2.0.3",
     "geotiff": "2.1.3",

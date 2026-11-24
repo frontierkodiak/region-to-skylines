@@ -1,0 +1,1753 @@
+{
+  "stock_gate": true,
+  "raw_files": 33,
+  "controls": {
+    "stock-1": {
+      "artifact_sha256": "254f5ee48d22dae83d002915b76b89bb90a5bd184f74dc49a39984826de31166",
+      "completed": true,
+      "error": null,
+      "context_bound": true,
+      "boundary_successes": 8,
+      "distinct_edge_boundary_successes": 8,
+      "boundary_failures": 0,
+      "boundary_unknown": 0,
+      "diagnostics": [
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "south"
+            ],
+            "from": [
+              21142,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              35862,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "south"
+            ],
+            "from": [
+              21142,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              35862,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "south"
+            ],
+            "from": [
+              21142,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              35862,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "south"
+            ],
+            "from": [
+              21142,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              35862,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "north"
+            ],
+            "from": [
+              35862,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              21142,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "north"
+            ],
+            "from": [
+              35862,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              21142,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "north"
+            ],
+            "from": [
+              35862,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              21142,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "north"
+            ],
+            "from": [
+              35862,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              21142,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "north"
+            ],
+            "from": [
+              35862,
+              0,
+              0
+            ],
+            "name": "reversed-positions-diagnostic",
+            "position_kind": "boundary",
+            "to": [
+              21142,
+              0,
+              0
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              null
+            ],
+            "from": [
+              21142,
+              0,
+              0
+            ],
+            "name": "invalid-train-to-car-lane",
+            "position_kind": "invalid_vehicle_pair",
+            "to": [
+              35,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        }
+      ],
+      "candidate_boundary_count": 8,
+      "unqueried_boundary_candidates": 0,
+      "missing_reason": null
+    },
+    "stock-2": {
+      "artifact_sha256": "f621eaa42d1236db722e8ed70d870a94bf85ca21cac3357509129b84057319c6",
+      "completed": true,
+      "error": null,
+      "context_bound": true,
+      "boundary_successes": 8,
+      "distinct_edge_boundary_successes": 8,
+      "boundary_failures": 16,
+      "boundary_unknown": 0,
+      "diagnostics": [
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              11400,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              11400,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              11400,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              11400,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              30037,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              30037,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              30037,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              30037,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              18485,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              11400,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              11400,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              11400,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              11400,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              30037,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              30037,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              30037,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              30037,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              30037,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              11400,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              18485,
+              0,
+              0
+            ],
+            "name": "reversed-positions-diagnostic",
+            "position_kind": "boundary",
+            "to": [
+              11400,
+              0,
+              0
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              null
+            ],
+            "from": [
+              11400,
+              0,
+              0
+            ],
+            "name": "invalid-train-to-car-lane",
+            "position_kind": "invalid_vehicle_pair",
+            "to": [
+              88,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        }
+      ],
+      "candidate_boundary_count": 24,
+      "unqueried_boundary_candidates": 0,
+      "missing_reason": null
+    }
+  },
+  "cohort": {
+    "asheville": {
+      "artifact_sha256": "0b92ed3ddd833d48c3af993ca254e4b891bac1d8ac84b99a98b679e47f047870",
+      "completed": true,
+      "error": null,
+      "context_bound": true,
+      "boundary_successes": 2,
+      "distinct_edge_boundary_successes": 2,
+      "boundary_failures": 10,
+      "boundary_unknown": 0,
+      "diagnostics": [
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "west"
+            ],
+            "from": [
+              1890,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2012,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "south"
+            ],
+            "from": [
+              1890,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2113,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              "east"
+            ],
+            "from": [
+              1890,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2114,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "north"
+            ],
+            "from": [
+              2012,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1890,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              2012,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2113,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "east"
+            ],
+            "from": [
+              2012,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2114,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "north"
+            ],
+            "from": [
+              2113,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1890,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              2113,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2012,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "east"
+            ],
+            "from": [
+              2113,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2114,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "north"
+            ],
+            "from": [
+              2114,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1890,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "west"
+            ],
+            "from": [
+              2114,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2012,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "south"
+            ],
+            "from": [
+              2114,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              2113,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "north"
+            ],
+            "from": [
+              2012,
+              1,
+              255
+            ],
+            "name": "reversed-positions-diagnostic",
+            "position_kind": "boundary",
+            "to": [
+              1890,
+              0,
+              255
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "north",
+              null
+            ],
+            "from": [
+              1890,
+              0,
+              255
+            ],
+            "name": "invalid-train-to-car-lane",
+            "position_kind": "invalid_vehicle_pair",
+            "to": [
+              1,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        }
+      ],
+      "candidate_boundary_count": 12,
+      "unqueried_boundary_candidates": 0,
+      "missing_reason": null
+    },
+    "innsbruck": {
+      "artifact_sha256": "43e5166c90a74cdb7fedb9822e5762130f770e31f9f9a0c78d12f089c94c47d6",
+      "completed": true,
+      "error": null,
+      "context_bound": true,
+      "boundary_successes": 2,
+      "distinct_edge_boundary_successes": 2,
+      "boundary_failures": 18,
+      "boundary_unknown": 0,
+      "diagnostics": [
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "west"
+            ],
+            "from": [
+              835,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1146,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "west"
+            ],
+            "from": [
+              835,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1332,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "south"
+            ],
+            "from": [
+              835,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1392,
+              1,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "west"
+            ],
+            "from": [
+              927,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1146,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "west"
+            ],
+            "from": [
+              927,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1332,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "south"
+            ],
+            "from": [
+              927,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1392,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "east"
+            ],
+            "from": [
+              1146,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              835,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "east"
+            ],
+            "from": [
+              1146,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              927,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              1146,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1392,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "east"
+            ],
+            "from": [
+              1332,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              835,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "east"
+            ],
+            "from": [
+              1332,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              927,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "south"
+            ],
+            "from": [
+              1332,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1392,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "east"
+            ],
+            "from": [
+              1392,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              835,
+              0,
+              128
+            ]
+          },
+          "outcome": "exact_path_success"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "east"
+            ],
+            "from": [
+              1392,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              927,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              1392,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1146,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "south",
+              "west"
+            ],
+            "from": [
+              1392,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1332,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "east"
+            ],
+            "from": [
+              835,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              927,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              "east"
+            ],
+            "from": [
+              927,
+              1,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              835,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              1146,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1332,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "west"
+            ],
+            "from": [
+              1332,
+              0,
+              128
+            ],
+            "name": "directed-outside-to-outside",
+            "position_kind": "midpoint",
+            "to": [
+              1146,
+              1,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "west",
+              "east"
+            ],
+            "from": [
+              1146,
+              1,
+              255
+            ],
+            "name": "reversed-positions-diagnostic",
+            "position_kind": "boundary",
+            "to": [
+              835,
+              1,
+              0
+            ]
+          },
+          "outcome": "selected_query_failure"
+        },
+        {
+          "request": {
+            "capability": "rail",
+            "diagnostic": true,
+            "endpoint_edges": [
+              "east",
+              null
+            ],
+            "from": [
+              835,
+              1,
+              0
+            ],
+            "name": "invalid-train-to-car-lane",
+            "position_kind": "invalid_vehicle_pair",
+            "to": [
+              1,
+              0,
+              128
+            ]
+          },
+          "outcome": "selected_query_failure"
+        }
+      ],
+      "candidate_boundary_count": 20,
+      "unqueried_boundary_candidates": 0,
+      "missing_reason": null
+    },
+    "rio": {
+      "artifact_sha256": "a6e5820c3a09f0e0dfac055df0a949eaee578e3b3032831a289d1209b725bbff",
+      "completed": false,
+      "error": "1 older waiters are ahead in the slot queue",
+      "context_bound": false,
+      "boundary_successes": 0,
+      "distinct_edge_boundary_successes": 0,
+      "boundary_failures": 0,
+      "boundary_unknown": 0,
+      "diagnostics": []
+    },
+    "pittsburgh": {
+      "status": "Unknown/not_run"
+    },
+    "charleston": {
+      "status": "Unknown/not_run"
+    },
+    "grand-canyon": {
+      "status": "Unknown/not_run"
+    },
+    "hong-kong": {
+      "status": "Unknown/not_run"
+    },
+    "yosemite": {
+      "status": "Unknown/not_run"
+    },
+    "boston": {
+      "status": "Unknown/not_run"
+    }
+  }
+}

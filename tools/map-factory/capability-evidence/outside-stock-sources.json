@@ -1,0 +1,1013 @@
+{
+ "schema": 1,
+ "note": "Strict file scope for the accepted outside-stock-budget-v1 publication at its exact commit. Every one of the 142 added files is pinned by SHA-256, byte length and Git blob id. `copied` names the 31 files carried in this repository byte for byte plus integrity; `linked` names the 110 bulky members (frozen plan, frozen features, the three preparation archives and every retained raw gzip) served as immutable blobs at that commit.",
+ "publications": {
+  "outside-stock-budget-v1": {
+   "commit": "d745b14e3e207ee67f91033811958a2934fb38a4",
+   "prefix": "tools/map-factory/capability-evidence/outside-stock-budget-v1",
+   "files": {
+    "JOURNAL.md": {
+     "bytes": 1100,
+     "sha256": "573f07dd2df68f9c177c813ddb69d3ee27cffdd690e50f04cb4732d21f7c0352",
+     "git_blob": "c2e31e1a39b6e210cf625c54fb449b39672cb7da",
+     "role": "document"
+    },
+    "README.md": {
+     "bytes": 5446,
+     "sha256": "6ca76b8982adafe222a3a1ae2a812ae9104d55d385e2578ce150445bc05a114c",
+     "git_blob": "a51a7b88627ad5621fb9e4d43a074aa098297e8c",
+     "role": "document"
+    },
+    "RESULTS.md": {
+     "bytes": 10102,
+     "sha256": "139db18b18190e0efa3a4f4667326d27a29e9fa35bc7e255954155a3b3326cd2",
+     "git_blob": "fd093e85814be696a60c4c193fd0d21a916c6d5b",
+     "role": "document"
+    },
+    "analysis/audit.py": {
+     "bytes": 17316,
+     "sha256": "246b5b253d8a0986f90c154b25a38147141be04517ec2c772f00d137bd0140f4",
+     "git_blob": "bb26fa624668e18e389c063e74ed47943135de39",
+     "role": "tool"
+    },
+    "analysis/evaluate.py": {
+     "bytes": 19153,
+     "sha256": "d8ebb2c4816f29ca5e698c66f638e3de408fab9b77b7633fe047dd2de4af03e6",
+     "git_blob": "cdb0052d0069e44d2c5cc68988d3d4ad524c02a0",
+     "role": "tool"
+    },
+    "analysis/frozen-scorer-failure.log": {
+     "bytes": 2267,
+     "sha256": "2d11834d1afdde1f799fb64819eb0658e44cc1109103f216bb3bb79310e7c962",
+     "git_blob": "524698fdd5842cd675efe684f02c977592c9ab49",
+     "role": "retained_failure"
+    },
+    "analysis/header_coverage.py": {
+     "bytes": 1406,
+     "sha256": "0537834a3367d191b21ea9958088ad08d53939d3845724d60a299222b28fd54d",
+     "git_blob": "5531589953a90d775d11cc92a034d31ea0ca3668",
+     "role": "tool"
+    },
+    "analysis/retain.py": {
+     "bytes": 4081,
+     "sha256": "c894887b0969cf743a9362290d505cc1379b74d15888db2d0414dd5654a7104f",
+     "git_blob": "419ee6e990dec3d83f84fe47b998e327232fdbf7",
+     "role": "tool"
+    },
+    "analysis/schema-fix.diff.gz": {
+     "bytes": 463,
+     "sha256": "970a1c0bea5dde5df8cf9060411660675ee49f673fd9b59cc10074940f5831dc",
+     "git_blob": "448a010808356308b896039d568a7f19f933c4d5",
+     "role": "schema_repair_diff"
+    },
+    "analysis/source-fix.json": {
+     "bytes": 13546,
+     "sha256": "7d626184fed9e8c0649539269ecca665e58e076fd385c14a259e283d313c671c",
+     "git_blob": "e4e4b6e431d36127440a86c030448283f05a0131",
+     "role": "provenance"
+    },
+    "analysis/test_wire_schema.py": {
+     "bytes": 780,
+     "sha256": "9bdf226076e9f9b73b2574380d79955a95f21700f2b6c578c6df356fdef5d5ac",
+     "git_blob": "7dff6f29ff3cd92f4730bec019a8292bc9c0ccdc",
+     "role": "test"
+    },
+    "analysis/verify.py": {
+     "bytes": 3293,
+     "sha256": "3dc1538538268d1d4991f57d7c5d2b0775e7208c6241a341e674d14a40172117",
+     "git_blob": "4ae9782ff025fd2c8dd3edf6b2dfd9ead6804e72",
+     "role": "tool"
+    },
+    "audit.json.gz": {
+     "bytes": 61189,
+     "sha256": "5c156f09b4860576937fd3e493a13298cd4bc20885a6e2175c255927e6d5f0f1",
+     "git_blob": "32af772253e7887fc4b25f1916925da51fe986f2",
+     "role": "report"
+    },
+    "audit_processes.py": {
+     "bytes": 2447,
+     "sha256": "ceedb4362b6a32235ca81adfdef73671e37a9819b6c85a401b704bda1ced28b9",
+     "git_blob": "8a01a9e6967fbe60a8a762b8d612b8f5065017c4",
+     "role": "tool"
+    },
+    "build.json": {
+     "bytes": 14379,
+     "sha256": "964f18e261cefeb146209d9d74f1ff0b7c88a7bf260ae61e855411e1b5b6e39e",
+     "git_blob": "0052b59f50e5fdc8c4ef8a7d718489bdce906262",
+     "role": "provenance"
+    },
+    "build_study.py": {
+     "bytes": 2732,
+     "sha256": "8b5629cebac5bb9265e9c13492f3890920bf4f3aa4ba2d00b6d7d1edf1f05b6d",
+     "git_blob": "920f276ac35a5f8bb237799b9c5ba8be47c1981b",
+     "role": "tool"
+    },
+    "catalog-membership.json": {
+     "bytes": 6591,
+     "sha256": "6d1c6ff8cb348407bfc71eb43a89eb3ad9a9456e7ee27d7600d20bf7049b96bd",
+     "git_blob": "95913c33a584d7df2d79823cb8c9f59638020302",
+     "role": "provenance"
+    },
+    "collect.py": {
+     "bytes": 12292,
+     "sha256": "8ce860916346b4fe2ea3312243807dc51a1377a83e241a84853f08130ae8a806",
+     "git_blob": "30e8a024428cda33bc9b545d5e75c3bdfbc11570",
+     "role": "tool"
+    },
+    "control-stock-1-networks.json.gz": {
+     "bytes": 216833,
+     "sha256": "602f1305bdf84403e6be8f1a98ec8deecabe5d04d92538edbcaedc28a65e2101",
+     "git_blob": "713ed4db3d3620a9b7ba160458d10fd89771dea4",
+     "role": "control_graph"
+    },
+    "control-stock-2-networks.json.gz": {
+     "bytes": 273637,
+     "sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885",
+     "git_blob": "11cdd002a52ac24d9f52d19ae878d9cf576b988b",
+     "role": "control_graph"
+    },
+    "evaluate.py": {
+     "bytes": 18873,
+     "sha256": "33e9389c24f36503cbf738137ae549b10f9ec4e9da3dc8b7354619a4ac553b62",
+     "git_blob": "ccce9b9be36641e28f3cdc57fa7c85a1a22ebc5d",
+     "role": "tool"
+    },
+    "evaluation.json.gz": {
+     "bytes": 163603,
+     "sha256": "167548e2a6ba88d13d4cd86ec3969755b67b99e4607b99c9ca464f2a1f58ae43",
+     "git_blob": "c9dbb6a4381e61dca3be2ea0f5cc228e8d68813f",
+     "role": "report"
+    },
+    "features.json.gz": {
+     "bytes": 11191546,
+     "sha256": "af212ff420a1f5ce1121f8c62da7675fa135c83c346f000fbe1598668f759532",
+     "git_blob": "9aafbc8c40f362cc5420004fe1cf5dae59973adb",
+     "role": "frozen_features"
+    },
+    "freeze.json": {
+     "bytes": 9865201,
+     "sha256": "717f6c0335f4558c77d2d23b4b1181a540f70ca21779365eeae6939c8c1ef3c8",
+     "git_blob": "c4b5e9e7496d6054fb0af99dab73e5cf74852a44",
+     "role": "frozen_plan"
+    },
+    "header-coverage.json": {
+     "bytes": 45529,
+     "sha256": "b137069b943dd129863807635b3bf59252deffe5320bf694f1ade077876fe4ab",
+     "git_blob": "d05eb7d4e7243abff38903fddc9841bf60ccf0d5",
+     "role": "provenance"
+    },
+    "history/pre-query-freeze.json.gz": {
+     "bytes": 128486,
+     "sha256": "74566e4b87ba07003d86c94dafafcd8c75e5226305750e272661a9eaa29040b0",
+     "git_blob": "79a023878fde7cec904bcba14a92e347d6550180",
+     "role": "history"
+    },
+    "integrity.json": {
+     "bytes": 15416,
+     "sha256": "f9b0e12870447a185da12ee113f7979802b99707f3c10068627e818350a636dd",
+     "git_blob": "692425bc9468481d5f79bb8a589c8d7497f63e2e",
+     "role": "integrity"
+    },
+    "pre-native-checksum-correction.zip": {
+     "bytes": 174561,
+     "sha256": "baddedefed882f1fe2a22aee449768f4ffbbe78b3ea474a6c8fa18584fd99b64",
+     "git_blob": "cc95211112b95c2435c7e1b8f3e4abfb0c421c8e",
+     "role": "preparation_archive"
+    },
+    "pre-native-preparation-v0.zip": {
+     "bytes": 14861640,
+     "sha256": "498c1f26f8802648852edfa39ad19f80d88b1cdc49edf460d77a5db4b8f070b4",
+     "git_blob": "835b2bfb2e01fbe395f87141f4b33fecb1fa1104",
+     "role": "preparation_archive"
+    },
+    "pre-native-preparation-v1.zip": {
+     "bytes": 12025513,
+     "sha256": "4a47bb27a5cb6ad89259cb5a31c57630e5ffb5f5aee6e74d9ed44a4029eb7ddb",
+     "git_blob": "2811e52d0ea8bf15c0876063722eaeaf5b12efa9",
+     "role": "preparation_archive"
+    },
+    "prior-stock-catalogs.json": {
+     "bytes": 24840,
+     "sha256": "3b2136cd959f23cc77cfb8d28821e58b9a046300ee5f0e9f9e179ca1bf577241",
+     "git_blob": "10dba102e21d224d6c4cbeec3e5780e158419f18",
+     "role": "provenance"
+    },
+    "prior-stock-freeze.json": {
+     "bytes": 266055,
+     "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+     "git_blob": "d954d4a0430f180c58a39d44322b38ea51e70047",
+     "role": "provenance"
+    },
+    "raw/budget-01/game.log.gz": {
+     "bytes": 8908,
+     "sha256": "6210e84764f1034c8df14886a0c7e17c00516c3731accde235b45024b82af841",
+     "git_blob": "e6c50e13508fad61d5dfc499062dd9cb49b8ac25",
+     "role": "raw_game_log"
+    },
+    "raw/budget-01/gpu.csv.gz": {
+     "bytes": 954,
+     "sha256": "96da3c2799c946e4d6d7cdeddeb15329b26b89b7453ee3c47c3fcd830885a635",
+     "git_blob": "cb6f4b6118d790e33bb0f771ea3c69f9b0cc1a18",
+     "role": "raw_gpu_sample"
+    },
+    "raw/budget-01/networks-post.json.gz": {
+     "bytes": 748322,
+     "sha256": "087c9147287492eb15aaa267e2127b4428e2027ce33e7c4f36902a03230b2b65",
+     "git_blob": "92cea00c792a316255a38df5523bd6282e3f3cbb",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/budget-01/networks.json.gz": {
+     "bytes": 748412,
+     "sha256": "7784ef91f460cf798a6c97f39fb84fac2373a4c5a28aecd3167b399458a34b9f",
+     "git_blob": "7f2917d23ef490a8217b71c5d4541f060b4f072d",
+     "role": "raw_network_snapshot"
+    },
+    "raw/budget-01/observation.json.gz": {
+     "bytes": 33249,
+     "sha256": "9685c1bf5e2f45e7d44c311144220efbb009bf2e6f327d324a834575b274ae82",
+     "git_blob": "34c09c6d9368834ac438837336a24f2c330902c8",
+     "role": "raw_observation"
+    },
+    "raw/budget-01/query-freeze.json.gz": {
+     "bytes": 1226,
+     "sha256": "9b970c2c16450ca3ce754445d81e3b08b6f8d2eaa33a2690a4c87c6939df1c6e",
+     "git_blob": "d841f88675cd18e4302925cd23b86b6ea4d81a08",
+     "role": "raw_query_freeze"
+    },
+    "raw/budget-02/game.log.gz": {
+     "bytes": 8874,
+     "sha256": "ba112ce931c0aa51ff2aa97f53d901315f552b14085c00610a00d28afeca33e1",
+     "git_blob": "ef3fd71c66b48e165b25a1362e5fdd94691d1e22",
+     "role": "raw_game_log"
+    },
+    "raw/budget-02/gpu.csv.gz": {
+     "bytes": 707,
+     "sha256": "dc5c8e162f6642fc3156d7a9cae3b786f14f25b7888f6371958e483a9d0215cb",
+     "git_blob": "550f2790114408dffb9646f8ca32c27fa788187d",
+     "role": "raw_gpu_sample"
+    },
+    "raw/budget-02/networks-post.json.gz": {
+     "bytes": 658992,
+     "sha256": "2b14e538458ec109264e638401f951d2121da14c11d3c53f8a4684b51c9f6d8e",
+     "git_blob": "a96f3959e728bee09a4fe7da7f285ade6a1f12b9",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/budget-02/networks.json.gz": {
+     "bytes": 659012,
+     "sha256": "063e4740ef8f648151b3fbd53ae0f67b9f9df977c9deabd3c45c0882cd08acd9",
+     "git_blob": "5cb68c920e25ec43ec523b9896a4b07a2097fd2b",
+     "role": "raw_network_snapshot"
+    },
+    "raw/budget-02/observation.json.gz": {
+     "bytes": 29304,
+     "sha256": "418a61fe2ccf3965843bc873dcfd6b7043e4da88425d67941972aea0ee2a7e91",
+     "git_blob": "1190a8737218fd620903fbea30ca298bf8985ab6",
+     "role": "raw_observation"
+    },
+    "raw/budget-02/query-freeze.json.gz": {
+     "bytes": 689,
+     "sha256": "d717f3645fb2b63b031282d326e53013d390a46ad92e862fda51681ba527c1f2",
+     "git_blob": "e518afd4c8a63e7b66c502a7e50fb6084f22acff",
+     "role": "raw_query_freeze"
+    },
+    "raw/drivers/budget-01/audit-completion.json.gz": {
+     "bytes": 423,
+     "sha256": "c2ad0e5ab6d8e236557cfa2517c54ac29ac0956630e299d2ef23a13ee746834f",
+     "git_blob": "00f7147fe896ab6054de28e170b22af329e852ef",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/budget-01/audit-source-freeze.json.gz": {
+     "bytes": 304,
+     "sha256": "44e84ff88edb090878def21b3e68266b497b23a59cbfe9a02ca3acdb2719ca02",
+     "git_blob": "6e82942a17c0ae8e19410ae792ea7873fc9757e4",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/budget-01/auditor-launch.json.gz": {
+     "bytes": 380,
+     "sha256": "8875043846cfc52bbd94212b8f4f0b844ec4dbcfa39f88257b93a7e44055947d",
+     "git_blob": "1d051de920ea66bf15909d92b911c392a1b04f51",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/budget-01/collector.log.gz": {
+     "bytes": 836,
+     "sha256": "0a00db66e4489c8a64e6fbe4047a3642f4ad17324b07d1716102fc67fc00991d",
+     "git_blob": "8c8cbe1eb0e8054e29d8e2d4b137d04cb3fb4913",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/budget-01/completion.json.gz": {
+     "bytes": 189,
+     "sha256": "59a58ced6ee56998b3353e6438ae7220c0322c78fa0dc55e8e6ffaf9727c5ec4",
+     "git_blob": "f769842a8d715edbca2b663a9412f5e662798ae3",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/budget-01/launch.json.gz": {
+     "bytes": 462,
+     "sha256": "1e5567eec284782cdea56f7a7475b9acf52c11b2e10b5ff0ce62525646608803",
+     "git_blob": "aaa6e59ed7fa0797e639284174a8a558df6b5e0a",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/budget-02/audit-completion.json.gz": {
+     "bytes": 430,
+     "sha256": "fa13a52672729743018fce238d9340980f532364b7c08fc54a932a5d39f65773",
+     "git_blob": "7d71555b7994f2852f9eae379265ad3518590313",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/budget-02/audit-source-freeze.json.gz": {
+     "bytes": 305,
+     "sha256": "e806ff6be35431b3161a2790d82a30df52b083d95d24790edeaa2614abaa1d28",
+     "git_blob": "6e6738e22c444c4158eac9f68affe31000f672ad",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/budget-02/auditor-launch.json.gz": {
+     "bytes": 378,
+     "sha256": "6134547bd28f39d8f0d046622d3e0b38ffc5dcab85038bdb2ea61b5295ea8dee",
+     "git_blob": "fcad9affc6f8ed6fb495a15b2326dd8090298016",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/budget-02/collector.log.gz": {
+     "bytes": 840,
+     "sha256": "9f315204f4a0b91538e0c2345c3804327811deb5845495d1fc833b700d5743bc",
+     "git_blob": "213e61c9b1ce322171165be0000f8a99f091c83c",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/budget-02/completion.json.gz": {
+     "bytes": 188,
+     "sha256": "dc1579e97a523f0f43a7b6096ecb427f497be376e6b26a06b7fc3c2f39c33baa",
+     "git_blob": "91fa4e0586432c1de1ddeba7c50b529f7bb9888b",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/budget-02/launch.json.gz": {
+     "bytes": 462,
+     "sha256": "2df9e1ff964119c5948800f9b41dd2d0a646eca9321e9c58b89f5d126a0b29da",
+     "git_blob": "7d50b9fa42909323746136fb36a56e78b8721023",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/holdout-01/audit-completion.json.gz": {
+     "bytes": 426,
+     "sha256": "6292b81cb5116b15735b72fa45fc8d6146684c53d3ee82191d92c7de8b5c5916",
+     "git_blob": "e22369814fd78cbbaebc1b5ab328df1cf8b88c84",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/holdout-01/audit-source-freeze.json.gz": {
+     "bytes": 303,
+     "sha256": "707b9c45beab39def45fc263aeec00d51110badc9944aa50e272b8b101252110",
+     "git_blob": "d74834b85f726926e1987123e0be0b1856a4e706",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/holdout-01/auditor-launch.json.gz": {
+     "bytes": 382,
+     "sha256": "e23281c4915e314a4ae02b39e6de9169081f884adb89d6f85c36bb8bd22fc233",
+     "git_blob": "6d49678c21221a79ba46882069caf9c38ca88836",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/holdout-01/collector.log.gz": {
+     "bytes": 837,
+     "sha256": "ff51bc1b994c8e1cbe5a39ce16e141e78007aada8b1d9194da618220251a467d",
+     "git_blob": "807b54af50f4a3879ceae013ebcdf3e789ed9053",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/holdout-01/completion.json.gz": {
+     "bytes": 189,
+     "sha256": "c458b4b85b1f0bfe8c0e4d511fcf585988a78b781ad5420fd109ad21d5924666",
+     "git_blob": "d3bc6df33eb66c8a944a3dac22081e1384cf5105",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/holdout-01/launch.json.gz": {
+     "bytes": 466,
+     "sha256": "ad79aea001676047da1de89aa849a486781c88020ab1b3e04798a371460872f9",
+     "git_blob": "1db22668368ce733db8734246b5f5e510daaac7c",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/holdout-02/audit-completion.json.gz": {
+     "bytes": 427,
+     "sha256": "217f3e3ed98ecc5257d8dd10e1accdd1787edc2044a7cfa5639f6e69feaf422e",
+     "git_blob": "313a03eb909558c9cc99287e80b59c86c0ca1b78",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/holdout-02/audit-source-freeze.json.gz": {
+     "bytes": 304,
+     "sha256": "86dc4e78ee0b520d41227d715de8c69547032250bbce14ac96f5ac611a139d73",
+     "git_blob": "463f4423f7888b10c48eaa371f850051a7b95014",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/holdout-02/auditor-launch.json.gz": {
+     "bytes": 380,
+     "sha256": "a7ce1e9d7a5562c2a98e906f178544d914dc56ded1e5a3cc77d79dff96c28b8f",
+     "git_blob": "d5e9d1dba77ee9810bb20b52e2acc3588e51899f",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/holdout-02/collector.log.gz": {
+     "bytes": 838,
+     "sha256": "152fe2cf251b789fd319c3137cdb8d5222a5f8589cecf965136661e02da997f4",
+     "git_blob": "29542a2f486727a8d0dfbbe2b38dd21970763403",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/holdout-02/completion.json.gz": {
+     "bytes": 189,
+     "sha256": "37e302d739ecccf5fd5f1a7d5092e26063df23e670e889e63a59bc18e64fcec8",
+     "git_blob": "a5c83f2318eddddd01a7a64e2d62279472011569",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/holdout-02/launch.json.gz": {
+     "bytes": 464,
+     "sha256": "b2e7fcbe6a158d3e657b26298e0aef12d9de8391321277ca3810aca61b997eb2",
+     "git_blob": "b74deab7a7cfef65427d58c957a54e7480e0e56c",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/holdout-03/audit-completion.json.gz": {
+     "bytes": 428,
+     "sha256": "f09e15a18002dd4ae524fec02d8519457d09443bee5ad4f81fd85bdb9e1d4f35",
+     "git_blob": "78d684a8f0417fdc0961d287341ec40197857fcb",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/holdout-03/audit-source-freeze.json.gz": {
+     "bytes": 303,
+     "sha256": "183cbec618c6dfb67beb828475d23c6aa29558ebe24e81b0fa542ffc32fa559b",
+     "git_blob": "719936c3d655493c956ec420d991fc6020fe3208",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/holdout-03/auditor-launch.json.gz": {
+     "bytes": 381,
+     "sha256": "123c55d9430096c390b508060fcd96297db998919be7b8ef9518dfe3f492e4c2",
+     "git_blob": "6f9d022fa8567c8454e5fe96ceb1d624c5aaf3bc",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/holdout-03/collector.log.gz": {
+     "bytes": 840,
+     "sha256": "caf8ee53f9e5a52ede3ffd9cfc1910a6e04b5216623a6f1da72dd778309d96b4",
+     "git_blob": "21ad6714e3cac65987932be0c4721b41ac1a44c6",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/holdout-03/completion.json.gz": {
+     "bytes": 187,
+     "sha256": "441557c15af47bb9dc8899a15be1ee7eac3c4528667cae74b65e1118338446c0",
+     "git_blob": "0fa85668e3cb4ccc691818cfed7d5673676e0f95",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/holdout-03/launch.json.gz": {
+     "bytes": 465,
+     "sha256": "47d14fc9e5ee5f5f757c8063a49f362ee94aad81838c38cea2aaa538b681052c",
+     "git_blob": "d34629413b704e05389a8b6d42a7c2f7d4e7d21d",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/holdout-04/audit-completion.json.gz": {
+     "bytes": 428,
+     "sha256": "829b6963a951fe2faa12b1c27a81aabebe08bef7d3c2d308eb1dba1b158e9024",
+     "git_blob": "01ec274b89e55eb049a402a1bc62600bbc65727a",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/holdout-04/audit-source-freeze.json.gz": {
+     "bytes": 302,
+     "sha256": "976f4fe90d723baa6eddb7b6c564593b2e77d83cd7385c29cc53736e8f46c3fa",
+     "git_blob": "e2609c47b1fef0b854eca79622290fff816d49bc",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/holdout-04/auditor-launch.json.gz": {
+     "bytes": 382,
+     "sha256": "2f5fcaabd4af50e80715ffa69181b41103cd2c1dc2a1128549ec4a1cac9f808f",
+     "git_blob": "03bdad2d22f7ee96ea452e56ad8167c8518e67ca",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/holdout-04/collector.log.gz": {
+     "bytes": 838,
+     "sha256": "fbd17327aa80569121515bb30b7cdea24cdcb9a5828023f61e1fca0910c59ec0",
+     "git_blob": "8b94ec2b9aa9baa901b810290e09239b1dec67af",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/holdout-04/completion.json.gz": {
+     "bytes": 189,
+     "sha256": "b147370f53ee40ccadb87166d9ca835fff11c73c2ba1cad1a25e613637a879c0",
+     "git_blob": "2499356690634228266707c3ba0622692c09e3ea",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/holdout-04/launch.json.gz": {
+     "bytes": 465,
+     "sha256": "ba739bc4a8534037bc39cc484c203b249e82d0fa2eeee5d8c933afedfe5cb0b6",
+     "git_blob": "f6472cbb8216219ad9de2af5d1dce3dfedf73ba5",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/holdout-05/audit-completion.json.gz": {
+     "bytes": 428,
+     "sha256": "452c2fa4ef54025ebf46f0cd888f0ba5bacfd165e47f3053a590bf123f452f10",
+     "git_blob": "6e90665ca938753a6cd8f2e0f94b9325f07a624b",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/holdout-05/audit-source-freeze.json.gz": {
+     "bytes": 305,
+     "sha256": "5b24662b2b419a9c1e8e9d44949c6c8a587b69e7f47f15f4c2aa72bb8ad62065",
+     "git_blob": "eb5661de52439b416252aabc9c6cdd36ad46d5f1",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/holdout-05/auditor-launch.json.gz": {
+     "bytes": 381,
+     "sha256": "f40c93e2460d57ebc2bf7217c7bd6d5ca48ac7f55760fade22b189fbf903a863",
+     "git_blob": "cc3460b963f989236135a1923d4fd1ddcbb3213e",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/holdout-05/collector.log.gz": {
+     "bytes": 837,
+     "sha256": "95adaa347e410845f39a0eb727cd2a76268871d17328f6317acd9d2b5345cf9f",
+     "git_blob": "c47cf3a549a33975257d6df85b5efa22fc476b4e",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/holdout-05/completion.json.gz": {
+     "bytes": 189,
+     "sha256": "b6b179e3d567296b2b3a5a62e971a9e4df83e71f4aa9c04a51c32dc1f71356c3",
+     "git_blob": "d79eb162111ea3e525373cf09bde92e003247335",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/holdout-05/launch.json.gz": {
+     "bytes": 464,
+     "sha256": "7d11aa981d7079445ac40c97771f93f9e30d3aca285ef2ae450d642ed35f86fb",
+     "git_blob": "1bd06795524863fb8df3d26e60d9d10b6cef759c",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/stock-1/audit-completion.json.gz": {
+     "bytes": 430,
+     "sha256": "39eaf900073eaa6229a9a17a49083c98e3208e44cece3fd81b67cd4597bc4140",
+     "git_blob": "95f939817d2a0d4985cd84bda7387f546b467d98",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/stock-1/audit-source-freeze.json.gz": {
+     "bytes": 310,
+     "sha256": "733775a4d4b589af6c2fb508e6decb08ca8d4ea4ddc7f542bd89fd6a680f8b21",
+     "git_blob": "26ff94329e76a6993d2579425b4ab57f505688ef",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/stock-1/collector.log.gz": {
+     "bytes": 747,
+     "sha256": "007fca01987a6155cccf9d91ca3c8ad5103fab4f98380459dd987503d9f79c20",
+     "git_blob": "1d0856f2237ccea8ca4e12661b662c2864372152",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/stock-1/completion.json.gz": {
+     "bytes": 167,
+     "sha256": "a4c50f4a78aedd77869187108f7eb8e049cedd60e159fcf938787577ff700711",
+     "git_blob": "e9220ddcbfc7fe9e06d17529df77553261686409",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/stock-1/launch.json.gz": {
+     "bytes": 461,
+     "sha256": "84c64dae93fa42f098b6209349aa8ed4b5eef6c63b370332e59ecf04b195ec9c",
+     "git_blob": "d9dc94996d63eeb42e51923622ecc2fe9f865981",
+     "role": "raw_driver_launch"
+    },
+    "raw/drivers/stock-2/audit-completion.json.gz": {
+     "bytes": 430,
+     "sha256": "3efdbc6cff42d8160cdef2ab8da8bac57c1e03490e7f6e83ef9a346cdbe68ace",
+     "git_blob": "6422da6a7af3fe39afaa62499e05cda2bceb116a",
+     "role": "raw_auditor_completion"
+    },
+    "raw/drivers/stock-2/audit-source-freeze.json.gz": {
+     "bytes": 305,
+     "sha256": "d6eeb97eb82400098cf740a9dc37bcc6a26a7cd2ad39ac32d9fc04d752801d0a",
+     "git_blob": "2a1131de253d9e7ec2ee4f170ac3850505e799a9",
+     "role": "raw_auditor_source_freeze"
+    },
+    "raw/drivers/stock-2/auditor-launch.json.gz": {
+     "bytes": 377,
+     "sha256": "e0ba42a3e16debb7fe000aaa60350b819bd2526402565e94725b5678eaaebd51",
+     "git_blob": "11ac7403822e26c838180b9f02df27465d0af54c",
+     "role": "raw_auditor_launch"
+    },
+    "raw/drivers/stock-2/collector.log.gz": {
+     "bytes": 838,
+     "sha256": "22d2f0918bcb857ee461e62d06ca45b6f6d80a3c23a4e6bf4da9a28c4567fbfc",
+     "git_blob": "e2f0a35a586a0b925f3087c613dad61157b05dc7",
+     "role": "raw_driver_log"
+    },
+    "raw/drivers/stock-2/completion.json.gz": {
+     "bytes": 189,
+     "sha256": "1543c62bcc62849ad8cfa6ef90a8531b7aa9cd740657a3aae58988867cf791f4",
+     "git_blob": "322c7cb47e572d28869b819ed4d78ab9d82899f6",
+     "role": "raw_driver_completion"
+    },
+    "raw/drivers/stock-2/launch.json.gz": {
+     "bytes": 463,
+     "sha256": "df397fa430d392ba84a1223cb7ad530b36e7657c69266912632d59b1d6dcd2fe",
+     "git_blob": "281fc7bc823a1ecf2f4fd5a00d3eb76055c96ba5",
+     "role": "raw_driver_launch"
+    },
+    "raw/holdout-01/game.log.gz": {
+     "bytes": 8821,
+     "sha256": "ee773ee829f7bdad12203ca960518b7359e5b45ecdf38ea7e271792ca9b37ca6",
+     "git_blob": "25ee2ed2c074dda6c6fdc184d786eae2d46445c1",
+     "role": "raw_game_log"
+    },
+    "raw/holdout-01/gpu.csv.gz": {
+     "bytes": 748,
+     "sha256": "55de9544297b5590c9ae3d8aad23b767290bb0cd20823fe59f59a40713f8e5d9",
+     "git_blob": "5d6a8a94facb56f95f60cc719ccf1662585f5245",
+     "role": "raw_gpu_sample"
+    },
+    "raw/holdout-01/networks-post.json.gz": {
+     "bytes": 230226,
+     "sha256": "7df3b848535c76f614bd6b7e4fda1e10f912f8e0f8b2d48472fb8d014515cf58",
+     "git_blob": "78b7488d31ed6bcd7292ad3c2dd99b63782b000f",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/holdout-01/networks.json.gz": {
+     "bytes": 230226,
+     "sha256": "7df3b848535c76f614bd6b7e4fda1e10f912f8e0f8b2d48472fb8d014515cf58",
+     "git_blob": "78b7488d31ed6bcd7292ad3c2dd99b63782b000f",
+     "role": "raw_network_snapshot"
+    },
+    "raw/holdout-01/observation.json.gz": {
+     "bytes": 34153,
+     "sha256": "d6131c1af3dd52bab932bef054d84777ee8586c694e3462f44fbdaa03da91ff5",
+     "git_blob": "230a33538393404022c0e2434dd278260c4813b6",
+     "role": "raw_observation"
+    },
+    "raw/holdout-01/query-freeze.json.gz": {
+     "bytes": 897,
+     "sha256": "27cb60f2df726b62919001a2a83be9858fb55013e790903b422c271933901b8c",
+     "git_blob": "3ff60d244992c96604477e52b6961219dceea2af",
+     "role": "raw_query_freeze"
+    },
+    "raw/holdout-02/game.log.gz": {
+     "bytes": 8770,
+     "sha256": "a1ad6a858914a585e527b8992a16ccb29c638338a87789f2061ede689454c454",
+     "git_blob": "4c66240fcc4efc0829cc4d49bb5a7281d1b909b7",
+     "role": "raw_game_log"
+    },
+    "raw/holdout-02/gpu.csv.gz": {
+     "bytes": 780,
+     "sha256": "dff42e7e2600506b8ecb635fd0ed60cb54625bf0e1ece5040548015c3dd251c8",
+     "git_blob": "3f652040434ca8dd211ba6026d978c984a7c5cdf",
+     "role": "raw_gpu_sample"
+    },
+    "raw/holdout-02/networks-post.json.gz": {
+     "bytes": 306154,
+     "sha256": "533d9f69926c3523b4781e0488d660e3390ed4d2a02c3e864981fe8665ff29a0",
+     "git_blob": "1fc257fc120783e414aefcd2de2c879fd0455761",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/holdout-02/networks.json.gz": {
+     "bytes": 306154,
+     "sha256": "533d9f69926c3523b4781e0488d660e3390ed4d2a02c3e864981fe8665ff29a0",
+     "git_blob": "1fc257fc120783e414aefcd2de2c879fd0455761",
+     "role": "raw_network_snapshot"
+    },
+    "raw/holdout-02/observation.json.gz": {
+     "bytes": 37209,
+     "sha256": "faaccea8f3573295b3bff9b1623ee43677122006a0779df5479b8c616aa7c158",
+     "git_blob": "b58fa63eccf3133d32c2175e02d5ae2be7eecf51",
+     "role": "raw_observation"
+    },
+    "raw/holdout-02/query-freeze.json.gz": {
+     "bytes": 1082,
+     "sha256": "304de54f04a7385d1d9397413781c2ccebc71682664e57e8dc7752fcee884d1f",
+     "git_blob": "8e7deef869bfbca44f181cbf00ab2b9a5152d668",
+     "role": "raw_query_freeze"
+    },
+    "raw/holdout-03/game.log.gz": {
+     "bytes": 8848,
+     "sha256": "b3ebc550b5a70580640945353bf4a5b5c236dd644d8aa0483f1b2acdabf2fcab",
+     "git_blob": "7f1a2b58ade54fc52fd907741f0063409ccc7489",
+     "role": "raw_game_log"
+    },
+    "raw/holdout-03/gpu.csv.gz": {
+     "bytes": 747,
+     "sha256": "3e4d1be63fd1d6beb19284d9a9d378157c9db84ac4182539eac3e8c50bf5ae87",
+     "git_blob": "2527ee0950fdb17fcae2d2db325fe9bd65d57ead",
+     "role": "raw_gpu_sample"
+    },
+    "raw/holdout-03/networks-post.json.gz": {
+     "bytes": 247046,
+     "sha256": "379814f9bffdc9b2247e265176dfa955778c533f12a283b710671a227bd59c9d",
+     "git_blob": "e6e11b0fc1590d9ed3a23348071ddb6bdd11481e",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/holdout-03/networks.json.gz": {
+     "bytes": 247057,
+     "sha256": "eb056af9d914f311df254e64520b52fd05e5e5f1bad31f73fe4cb36084ba7e7d",
+     "git_blob": "df4efa992e39bf86f527dcbccdbf71baaa105548",
+     "role": "raw_network_snapshot"
+    },
+    "raw/holdout-03/observation.json.gz": {
+     "bytes": 36907,
+     "sha256": "8b2627656003d20bab3ed7b2caca6caa6dd3fa50ff4c7f5ce865788e026ec2f5",
+     "git_blob": "14a7cb4554b69029c82017f09e02ee74db6ac31a",
+     "role": "raw_observation"
+    },
+    "raw/holdout-03/query-freeze.json.gz": {
+     "bytes": 1045,
+     "sha256": "9609295a451dda1d771dd35f3e4bedbfcda5e2b9e19eb9b9bddbb8f73e47d0e5",
+     "git_blob": "e511b8a14c446de20dca30771d240c68564e1d7d",
+     "role": "raw_query_freeze"
+    },
+    "raw/holdout-04/game.log.gz": {
+     "bytes": 9066,
+     "sha256": "5f8074129048e9e7fc6aeae118a10edcb231e361dd8239867603c6442c032633",
+     "git_blob": "ea5e8b25d1271a95347712d01f3f4b6f02dd7c64",
+     "role": "raw_game_log"
+    },
+    "raw/holdout-04/gpu.csv.gz": {
+     "bytes": 637,
+     "sha256": "fb9df133da59b17ff62679e10cf42143b3bb060fd1c0611dcdfc371e0886088f",
+     "git_blob": "43469d7aeeb7ebee3eb85c598e759bb41af20025",
+     "role": "raw_gpu_sample"
+    },
+    "raw/holdout-04/networks-post.json.gz": {
+     "bytes": 450197,
+     "sha256": "0525a4f85ccb3d9895f881b09dba61a308aee54444efee9cba212f061e33aea5",
+     "git_blob": "49e41869e8adf30897ce9bc356b110f269d1d1a1",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/holdout-04/networks.json.gz": {
+     "bytes": 450197,
+     "sha256": "0525a4f85ccb3d9895f881b09dba61a308aee54444efee9cba212f061e33aea5",
+     "git_blob": "49e41869e8adf30897ce9bc356b110f269d1d1a1",
+     "role": "raw_network_snapshot"
+    },
+    "raw/holdout-04/observation.json.gz": {
+     "bytes": 19917,
+     "sha256": "20abc30ce0eab839daf1b55a9ef83d83fca465c31ebc849be18b1a5bf6c21c4f",
+     "git_blob": "fad28648ab9a41fe25a127a84e23eae898f93423",
+     "role": "raw_observation"
+    },
+    "raw/holdout-04/query-freeze.json.gz": {
+     "bytes": 338,
+     "sha256": "5d372bda59cd45eacb748dab9ffabfaf11796552d89d1e8b3e9c79395b7833a6",
+     "git_blob": "69a2a31ae21146493068da6883e0998907023ce9",
+     "role": "raw_query_freeze"
+    },
+    "raw/holdout-05/game.log.gz": {
+     "bytes": 9037,
+     "sha256": "d15f41f2fecf71593191f28c39f414e2988e51106837e1cbf8c8fbdfa9020806",
+     "git_blob": "ae640decdca8c380bbab32ed5f3301d494e74e2e",
+     "role": "raw_game_log"
+    },
+    "raw/holdout-05/gpu.csv.gz": {
+     "bytes": 626,
+     "sha256": "aaf15388d4cffb765698c9cb47d4e7bb432811890b30cc41414e99232183b49e",
+     "git_blob": "663802376b834437ece847a07108672bb34dca54",
+     "role": "raw_gpu_sample"
+    },
+    "raw/holdout-05/networks-post.json.gz": {
+     "bytes": 316454,
+     "sha256": "6e250688045e9c2e6763dcf8f31ea9c70499eb1546071aa38f96fbfdb0238146",
+     "git_blob": "127bc4b148ca156278de3d6f1f9d125347166646",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/holdout-05/networks.json.gz": {
+     "bytes": 316454,
+     "sha256": "6e250688045e9c2e6763dcf8f31ea9c70499eb1546071aa38f96fbfdb0238146",
+     "git_blob": "127bc4b148ca156278de3d6f1f9d125347166646",
+     "role": "raw_network_snapshot"
+    },
+    "raw/holdout-05/observation.json.gz": {
+     "bytes": 19926,
+     "sha256": "08fd3031d16eaf75985dfbf671de32138c41113962f8d0ab04542a1330dff6e5",
+     "git_blob": "2a848f89a393e83dc32e4e2399dd3402dd571ff9",
+     "role": "raw_observation"
+    },
+    "raw/holdout-05/query-freeze.json.gz": {
+     "bytes": 340,
+     "sha256": "6cab910e5512c808f5542128a6817410b5d2a66ca3f13658d54b58fa4b9ba5aa",
+     "git_blob": "c43d931e50f0b3d35ebdb1224dbfbd60daabd4ee",
+     "role": "raw_query_freeze"
+    },
+    "raw/process-audit/audit.py.txt.gz": {
+     "bytes": 1036,
+     "sha256": "4a69f15d0364dfdbff274f02be76b8527ed8efe2c876886039ab045be6ce1c97",
+     "git_blob": "d69b542ce9cb19268b6b54ae7f28a873107a08c0",
+     "role": "raw_process_audit"
+    },
+    "raw/stock-1/game.log.gz": {
+     "bytes": 8771,
+     "sha256": "ee1a2ee84e0d5b66ba39854763e5ce4f16d185fa80e0e8c084369615bab6d51f",
+     "git_blob": "ef2a3136e94a38c5d7fcecacb7fad607a8a2fa81",
+     "role": "raw_game_log"
+    },
+    "raw/stock-1/gpu.csv.gz": {
+     "bytes": 604,
+     "sha256": "6c5dbb7cfdedd7cb9f1c6796a6c4379b670609ffc606410e3cf61e0809293b81",
+     "git_blob": "bab1343a3ebdfd059b9a2d515492ade598fdad28",
+     "role": "raw_gpu_sample"
+    },
+    "raw/stock-1/observation.json.gz": {
+     "bytes": 18793,
+     "sha256": "1d2d07763eee7bc324c4446fbd8c1ae6396208a7cf36960f2470ec04a005e1fe",
+     "git_blob": "682e9750b9a80ff8e34dde229c021d55b5842fb6",
+     "role": "raw_observation"
+    },
+    "raw/stock-2/game.log.gz": {
+     "bytes": 8831,
+     "sha256": "76c72be294d8e8ac83dce52a8b54d5e438d559e15be0b796840661c4427287c2",
+     "git_blob": "d21f8ca80445c2835f7f14409a5a67fe59006a48",
+     "role": "raw_game_log"
+    },
+    "raw/stock-2/gpu.csv.gz": {
+     "bytes": 665,
+     "sha256": "01cdc3c8c106727d452541c0328478a5f8c86f32bf5dfd7dbfcbd56238f00a55",
+     "git_blob": "0dbdd5acbaa3343b99fb91b8837c13629a859ae8",
+     "role": "raw_gpu_sample"
+    },
+    "raw/stock-2/networks-post.json.gz": {
+     "bytes": 273637,
+     "sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885",
+     "git_blob": "11cdd002a52ac24d9f52d19ae878d9cf576b988b",
+     "role": "raw_network_snapshot_post"
+    },
+    "raw/stock-2/networks.json.gz": {
+     "bytes": 273637,
+     "sha256": "0aceac8cf11c9136ebcb5b32f4c63de72a72c2c1159edda53fed6cd849d78885",
+     "git_blob": "11cdd002a52ac24d9f52d19ae878d9cf576b988b",
+     "role": "raw_network_snapshot"
+    },
+    "raw/stock-2/observation.json.gz": {
+     "bytes": 28014,
+     "sha256": "8bf98faf4daf2d4db7010876aff8260195e50f944e644ca735ccac3c896fffa3",
+     "git_blob": "0fef3d6e97d2c6a59a7d6a450d1237d2685abb6e",
+     "role": "raw_observation"
+    },
+    "raw/stock-2/query-freeze.json.gz": {
+     "bytes": 606,
+     "sha256": "2e00f776ddc34377190ab1822bb5b384481798d840e1c44e575fd9ff2f221cab",
+     "git_blob": "e59e66ebb734c1a12456e167fa86b994678cab44",
+     "role": "raw_query_freeze"
+    },
+    "retention.json": {
+     "bytes": 33181,
+     "sha256": "a525b506b399a18b19544f9930e6f3a5bf74ab0e82c85e521048098c1fefaa6f",
+     "git_blob": "f4691ea659110b70d1af03841549c432fdb06efa",
+     "role": "provenance"
+    },
+    "run_one.py": {
+     "bytes": 2991,
+     "sha256": "c0592f88c300fc7247aad29028e2f65a80436420a18236033edfc9a4224bcf6f",
+     "git_blob": "e8a7ce89b2fac98d3ec057b59cbecae1afa15605",
+     "role": "tool"
+    },
+    "stock-exclusion-source.json": {
+     "bytes": 266055,
+     "sha256": "20dfb33d863deb4fd13abcbeb952a59e139f93910216771c74fd21c069935a18",
+     "git_blob": "d954d4a0430f180c58a39d44322b38ea51e70047",
+     "role": "provenance"
+    },
+    "study.py": {
+     "bytes": 31068,
+     "sha256": "916f73503868c49d2dea4f5d36e1c79dcad9d80cc7c4da7f70cf1619547935f1",
+     "git_blob": "4590fc203371c6b91fb50f78d2a2aec8e12b1a26",
+     "role": "tool"
+    },
+    "test_study.py": {
+     "bytes": 4016,
+     "sha256": "ce09c445eb4e7da2de9e9101ac878d240cc72b2552cb5b14f09fc063c14622f6",
+     "git_blob": "183eb5779dc7b590f4422a0808af71db6157d518",
+     "role": "test"
+    }
+   },
+   "copied": [
+    "JOURNAL.md",
+    "README.md",
+    "RESULTS.md",
+    "analysis/audit.py",
+    "analysis/evaluate.py",
+    "analysis/frozen-scorer-failure.log",
+    "analysis/header_coverage.py",
+    "analysis/retain.py",
+    "analysis/schema-fix.diff.gz",
+    "analysis/source-fix.json",
+    "analysis/test_wire_schema.py",
+    "analysis/verify.py",
+    "audit.json.gz",
+    "audit_processes.py",
+    "build.json",
+    "build_study.py",
+    "catalog-membership.json",
+    "collect.py",
+    "control-stock-1-networks.json.gz",
+    "control-stock-2-networks.json.gz",
+    "evaluate.py",
+    "evaluation.json.gz",
+    "header-coverage.json",
+    "history/pre-query-freeze.json.gz",
+    "integrity.json",
+    "prior-stock-catalogs.json",
+    "prior-stock-freeze.json",
+    "retention.json",
+    "run_one.py",
+    "stock-exclusion-source.json",
+    "study.py",
+    "test_study.py"
+   ],
+   "linked": [
+    "features.json.gz",
+    "freeze.json",
+    "pre-native-checksum-correction.zip",
+    "pre-native-preparation-v0.zip",
+    "pre-native-preparation-v1.zip",
+    "raw/budget-01/game.log.gz",
+    "raw/budget-01/gpu.csv.gz",
+    "raw/budget-01/networks-post.json.gz",
+    "raw/budget-01/networks.json.gz",
+    "raw/budget-01/observation.json.gz",
+    "raw/budget-01/query-freeze.json.gz",
+    "raw/budget-02/game.log.gz",
+    "raw/budget-02/gpu.csv.gz",
+    "raw/budget-02/networks-post.json.gz",
+    "raw/budget-02/networks.json.gz",
+    "raw/budget-02/observation.json.gz",
+    "raw/budget-02/query-freeze.json.gz",
+    "raw/drivers/budget-01/audit-completion.json.gz",
+    "raw/drivers/budget-01/audit-source-freeze.json.gz",
+    "raw/drivers/budget-01/auditor-launch.json.gz",
+    "raw/drivers/budget-01/collector.log.gz",
+    "raw/drivers/budget-01/completion.json.gz",
+    "raw/drivers/budget-01/launch.json.gz",
+    "raw/drivers/budget-02/audit-completion.json.gz",
+    "raw/drivers/budget-02/audit-source-freeze.json.gz",
+    "raw/drivers/budget-02/auditor-launch.json.gz",
+    "raw/drivers/budget-02/collector.log.gz",
+    "raw/drivers/budget-02/completion.json.gz",
+    "raw/drivers/budget-02/launch.json.gz",
+    "raw/drivers/holdout-01/audit-completion.json.gz",
+    "raw/drivers/holdout-01/audit-source-freeze.json.gz",
+    "raw/drivers/holdout-01/auditor-launch.json.gz",
+    "raw/drivers/holdout-01/collector.log.gz",
+    "raw/drivers/holdout-01/completion.json.gz",
+    "raw/drivers/holdout-01/launch.json.gz",
+    "raw/drivers/holdout-02/audit-completion.json.gz",
+    "raw/drivers/holdout-02/audit-source-freeze.json.gz",
+    "raw/drivers/holdout-02/auditor-launch.json.gz",
+    "raw/drivers/holdout-02/collector.log.gz",
+    "raw/drivers/holdout-02/completion.json.gz",
+    "raw/drivers/holdout-02/launch.json.gz",
+    "raw/drivers/holdout-03/audit-completion.json.gz",
+    "raw/drivers/holdout-03/audit-source-freeze.json.gz",
+    "raw/drivers/holdout-03/auditor-launch.json.gz",
+    "raw/drivers/holdout-03/collector.log.gz",
+    "raw/drivers/holdout-03/completion.json.gz",
+    "raw/drivers/holdout-03/launch.json.gz",
+    "raw/drivers/holdout-04/audit-completion.json.gz",
+    "raw/drivers/holdout-04/audit-source-freeze.json.gz",
+    "raw/drivers/holdout-04/auditor-launch.json.gz",
+    "raw/drivers/holdout-04/collector.log.gz",
+    "raw/drivers/holdout-04/completion.json.gz",
+    "raw/drivers/holdout-04/launch.json.gz",
+    "raw/drivers/holdout-05/audit-completion.json.gz",
+    "raw/drivers/holdout-05/audit-source-freeze.json.gz",
+    "raw/drivers/holdout-05/auditor-launch.json.gz",
+    "raw/drivers/holdout-05/collector.log.gz",
+    "raw/drivers/holdout-05/completion.json.gz",
+    "raw/drivers/holdout-05/launch.json.gz",
+    "raw/drivers/stock-1/audit-completion.json.gz",
+    "raw/drivers/stock-1/audit-source-freeze.json.gz",
+    "raw/drivers/stock-1/collector.log.gz",
+    "raw/drivers/stock-1/completion.json.gz",
+    "raw/drivers/stock-1/launch.json.gz",
+    "raw/drivers/stock-2/audit-completion.json.gz",
+    "raw/drivers/stock-2/audit-source-freeze.json.gz",
+    "raw/drivers/stock-2/auditor-launch.json.gz",
+    "raw/drivers/stock-2/collector.log.gz",
+    "raw/drivers/stock-2/completion.json.gz",
+    "raw/drivers/stock-2/launch.json.gz",
+    "raw/holdout-01/game.log.gz",
+    "raw/holdout-01/gpu.csv.gz",
+    "raw/holdout-01/networks-post.json.gz",
+    "raw/holdout-01/networks.json.gz",
+    "raw/holdout-01/observation.json.gz",
+    "raw/holdout-01/query-freeze.json.gz",
+    "raw/holdout-02/game.log.gz",
+    "raw/holdout-02/gpu.csv.gz",
+    "raw/holdout-02/networks-post.json.gz",
+    "raw/holdout-02/networks.json.gz",
+    "raw/holdout-02/observation.json.gz",
+    "raw/holdout-02/query-freeze.json.gz",
+    "raw/holdout-03/game.log.gz",
+    "raw/holdout-03/gpu.csv.gz",
+    "raw/holdout-03/networks-post.json.gz",
+    "raw/holdout-03/networks.json.gz",
+    "raw/holdout-03/observation.json.gz",
+    "raw/holdout-03/query-freeze.json.gz",
+    "raw/holdout-04/game.log.gz",
+    "raw/holdout-04/gpu.csv.gz",
+    "raw/holdout-04/networks-post.json.gz",
+    "raw/holdout-04/networks.json.gz",
+    "raw/holdout-04/observation.json.gz",
+    "raw/holdout-04/query-freeze.json.gz",
+    "raw/holdout-05/game.log.gz",
+    "raw/holdout-05/gpu.csv.gz",
+    "raw/holdout-05/networks-post.json.gz",
+    "raw/holdout-05/networks.json.gz",
+    "raw/holdout-05/observation.json.gz",
+    "raw/holdout-05/query-freeze.json.gz",
+    "raw/process-audit/audit.py.txt.gz",
+    "raw/stock-1/game.log.gz",
+    "raw/stock-1/gpu.csv.gz",
+    "raw/stock-1/observation.json.gz",
+    "raw/stock-2/game.log.gz",
+    "raw/stock-2/gpu.csv.gz",
+    "raw/stock-2/networks-post.json.gz",
+    "raw/stock-2/networks.json.gz",
+    "raw/stock-2/observation.json.gz",
+    "raw/stock-2/query-freeze.json.gz"
+   ],
+   "integrity_file": "integrity.json",
+   "publication_files": 142,
+   "integrity_members": 141
+  }
+ }
+}

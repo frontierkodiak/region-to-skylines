@@ -3,10 +3,14 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sampleElevation, fetchBasemapWater, seaMask, buildMap, mapDetails, parseHash, squareHash, encode16, png16, pngRGB, waterMap, slugify, coordName, describeSpot } from "./terrain.js";
 import { captureInputs } from "./inputs.js";
 import { waterRiskDecision, calibrationText } from "./water-risk.js";
+import { mountCapabilities } from "./capability-ui.js";
+import { mountVegetation } from "./vegetation-ui.js";
 
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
 let result = null, job = null;
+const capabilityView = mountCapabilities($("capabilities"));
+const vegetationView = mountVegetation($("vegetation"));
 // What the map is called in the game's New Game list: a name typed into the name field, else
 // the preset's or searched place's name, else the name field.
 let typedTitle = null, searched = null;
@@ -107,6 +111,7 @@ map.on("move", () => {
   refreshSquare();
 });
 map.on("moveend", () => { writeHash(); schedule(); });
+map.on("movestart", () => { job?.abort(); capabilityView.reset(); vegetationView.reset(); });
 
 // ---------------------------------------------------------------- controls
 
@@ -216,6 +221,9 @@ $("search").onsubmit = async (e) => {
 
 let timer;
 function schedule(delay = 450) {
+  job?.abort();
+  capabilityView.reset();
+  vegetationView.reset();
   resetWaterRisk();
   clearTimeout(timer);
   timer = setTimeout(build, delay);
@@ -227,6 +235,7 @@ async function build() {
   const ctl = (job = new AbortController());
   // the square as the link records it (5 decimals), so the page builds what the link and the CLI build
   const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5) };
+  vegetationView.update(sq);
   renderPresets();
   setDownload("busy");
   try {
@@ -237,7 +246,11 @@ async function build() {
     });
     if (ctl.signal.aborted) return;
     elev.sea = seaMask(elev.heights);
-    if (!sq.rivers) return finish({ sq, elev, w: null, waterNote: "off", water: "off" });
+    if (!sq.rivers) {
+      finish({ sq, elev, w: null, waterNote: "off", water: "off" });
+      void capabilityView.update(sq);
+      return;
+    }
     // Bare terrain at once; then the rivers and lakes from the basemap's vector tiles, a second or two.
     finish({ sq, elev, w: null, waterNote: "loading…", water: "loading" }, "Loading rivers and lakes…");
     let w = null;
@@ -249,8 +262,12 @@ async function build() {
     if (ctl.signal.aborted) return;
     finish({ sq, elev, w, water: w ? "basemap" : "failed",
       waterNote: w ? undefined : "The basemap's water tiles didn't load: not cut. Move the map a little to retry." });
+    void capabilityView.update(sq);
   } catch (err) {
-    if (!ctl.signal.aborted) setStatus(`Failed: ${err.message}. Move the map to retry.`);
+    if (!ctl.signal.aborted) {
+      setStatus(`Failed: ${err.message}. Move the map to retry.`);
+      capabilityView.unavailable();
+    }
   }
 }
 
