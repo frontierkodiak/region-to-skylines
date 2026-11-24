@@ -1,5 +1,37 @@
 # cs1-harness journal
 
+## 2026-11-24 — PL-1191 stock references and cut-only first-two trial
+
+Seven complete 60-game-minute unpopulated observations on clean runtime
+205d24797b917be4037a79d52e6b6be077875442, DLL368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346.
+References: installed Gray Waters, Weaving Waters, Mountain Meadows and unchanged
+shipping Asheville/Pittsburgh. Then two new cut-only packages authored by014aedc.
+Normal offline/carbon/Steam/FIFO/GPU guards; fair wait, no preemption or shared
+configuration/power change. All seven owned game/Steam/unit teardowns empty.
+
+Blade RTX2080Ti05:00.0, other-work baseline8146MiB, menu game1574–1592MiB.
+Card sampled peak10821/11264MiB,141.43W,57°C; actual200W limit unchanged.
+Continuous game-only peak unknown. Reference simulation wall times954.9–960.5s;
+new Asheville997.3s/Pittsburgh1001.8s. Five-minute water samples/grids, opening
+and15-minute screenshots retained. Reads are not asserted atomic.
+
+All three stocks pass the stock-backed flood/retention/surface checks; both
+shipping exports fail retention. New Asheville/Pittsburgh also fail: flood
+1.0102/1.0125km² beyond the128m margin, minimum original-point nearby retention
+82.97/85.14%, maximum wet-surface movement p95 13.83/12.08m. Main rivers persist;
+many tributaries without sources in the same initial raster component dry.
+That classification is not proven hydraulic connectivity/exclusive cause.
+The remaining six fixed development squares were NOT run after this failure.
+
+All stock references hit panel/startup-view review/camera expectations too;
+those raw failures remain but are excluded from water. Advisory Bridge/TypeLoad/
+Reflection errors, full runtime health, loaded-image/JIT identity and long-term/
+populated behavior remain unverified. No native repeat for a reporting fix.
+
+This journal edit follows completed collection. It is not a native observation
+on the later journal head. Evidence and the failed constructor stay draft;
+no public merge/deployment or geographic promise is made.
+
 ## 2026-11-21 — PL-1191 remaining-output-zero coastal diagnostic
 
 One new15.031390-minute run on exact clean9c41756/DLL368955b1, same runtime
