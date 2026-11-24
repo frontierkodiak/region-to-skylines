@@ -1,0 +1,30 @@
+{
+  "scope": "Gameplay water during an unpopulated 60-game-minute run; not a geographic safe class, pumping or long-term promise. Chosen after all five reference results and BEFORE any new-constructor native result.",
+  "flood_limit_km2": 0.05,
+  "minimum_natural_point_fraction": 0.95,
+  "minimum_checked_body_nodes": 54,
+  "minimum_body_retained_fraction": 0.95,
+  "maximum_surface_movement_p95_m": 3,
+  "stock_maximum_surface_movement_p95_m": 1.4375,
+  "retention_definition": "Same >0.1m/<=64m nearby-water predicate. Aggregate ALL original natural-point occurrences, not any failed sector causing whole-map failure. Original per-sector outcomes stay unchanged.",
+  "body_definition": "All pre-native authored wet native nodes; >=7q/<=64m. Check each component >=54 nodes; this is the predeclared construction body-size policy, not a learned safe class. Every original geographic point remains in the aggregate.",
+  "surface_definition": "Maximum across captures of the 95th percentile absolute change from t0 among paired positive-depth/wet API samples. Dry/missing remain separate; this is not prescribed boundary stage or flow. Tolerance is twice the largest observed stock movement, rounded UP to whole metres.",
+  "excluded_from_water_verdict": [
+    "new_game_panel",
+    "startup_views"
+  ],
+  "exclusion_reason": "All three stock maps hit missing image-review/authored-camera expectations too. Raw checks and screenshots remain; these are not water failures.",
+  "capture": {
+    "game_minutes": 60,
+    "sample_every": 5,
+    "dump_every": 5,
+    "screenshot_every": 15
+  },
+  "reference_cases": [
+    "gray-waters",
+    "weaving-waters",
+    "mountain-meadows",
+    "shipping-asheville",
+    "shipping-pittsburgh"
+  ]
+}

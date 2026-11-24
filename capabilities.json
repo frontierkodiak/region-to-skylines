@@ -36654,7 +36654,40 @@
       "metric_ids": [
         "wet_central_fraction"
       ],
-      "game_agreement": [],
+      "game_agreement": [
+        {
+          "study": "pl1191-stock-water",
+          "square": "asheville",
+          "observed_at": "2026-11-24T21:50:18.393603Z",
+          "oracle": "native_first_hour_water",
+          "source_sha": "014aedc2558a6039f713c919fb865f55355e0068",
+          "artifact_sha256": "f4c0e9f2e088515aa7b00749edbaa88c2b228289d5f08a38a4c923e188f71f70",
+          "verdict_json_sha256": "5da5924801e65bec99050e1b1a0871dc977145d0959265fd0864965a9a86da66",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-stock-water/asheville-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "fail",
+          "reason": "1.0102 km\u00b2 flooding beyond the reference-water margin; 83.0% minimum original mapped-water point retention; 49 authored water bodies lost more than the calibrated fraction; 13.83 m maximum 95th-percentile wet-surface movement"
+        },
+        {
+          "study": "pl1191-stock-water",
+          "square": "pittsburgh",
+          "observed_at": "2026-11-24T22:10:14.150169Z",
+          "oracle": "native_first_hour_water",
+          "source_sha": "014aedc2558a6039f713c919fb865f55355e0068",
+          "artifact_sha256": "b8ca9f71654821d7c8b2d9c1f14f3422a94e3faae8bd6d05abb45d75769ef953",
+          "verdict_json_sha256": "e0a4c9602aafd0f743bc5124bb8e501e2e37005d01c366217dab8542c53328c7",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-stock-water/pittsburgh-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "fail",
+          "reason": "1.0125 km\u00b2 flooding beyond the reference-water margin; 85.1% minimum original mapped-water point retention; 60 authored water bodies lost more than the calibrated fraction; 12.08 m maximum 95th-percentile wet-surface movement"
+        }
+      ],
       "calibration": {
         "source": "tools/map-factory/water-risk-model.json",
         "squares": 5,

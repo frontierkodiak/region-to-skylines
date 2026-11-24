@@ -14,7 +14,7 @@ import subprocess
 from pathlib import Path
 
 import numpy as np
-from crp import Reader, metadata_value, read_package, write_map
+from crp import write_map
 from region import raster
 from surface_water import surface_geometry
 
@@ -107,20 +107,23 @@ def world_references(data, geometry, landmarks=None):
 
 def panel_expectations(crp):
     """Require native selection to agree with the exact package being tested."""
-    _, assets = read_package(crp.read_bytes())
-    r = Reader(next(a["payload"] for a in assets if a["kind"] == 100))
-    if r.number("B") or not r.string().startswith("MapMetaData,"):
-        raise ValueError("Expected native map metadata")
-    r.string()
-    fields = {}
-    for _ in range(r.number("i")):
-        if r.number("B"):
-            continue
-        typename, name = r.string().split(",")[0], r.string()
-        fields[name] = metadata_value(r, typename)
+    from survey.craft_anatomy import Reader, parse_meta, read_package
+
+    raw = crp.read_bytes()
+    _, assets = read_package(raw)
+    fields, problems = parse_meta(
+        next(a["payload"] for a in assets if a["kind"] == 100)
+    )
+    if problems or fields.get("_type") != "MapMetaData":
+        raise ValueError(f"Unsupported map metadata: {problems}")
+    reader = Reader(raw)
+    reader.take(4)
+    reader.num("H")
+    reader.string()
+    author = reader.string()
     return {
         "map_name": fields["mapName"],
-        "author": "",
+        "author": author,
         "require_resource_bars": True,
         "require_window_capture": True,
         "buildableArea": fields["buildableArea"],

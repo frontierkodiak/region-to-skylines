@@ -1,0 +1,15 @@
+{
+  "square": "Asheville",
+  "slug": "asheville",
+  "water_verdict": "fail",
+  "reason": "1.0102 km\u00b2 flooding beyond the reference-water margin; 83.0% minimum original mapped-water point retention; 49 authored water bodies lost more than the calibrated fraction; 13.83 m maximum 95th-percentile wet-surface movement",
+  "source_sha": "014aedc2558a6039f713c919fb865f55355e0068",
+  "artifact_sha256": "f4c0e9f2e088515aa7b00749edbaa88c2b228289d5f08a38a4c923e188f71f70",
+  "observed_at": "2026-11-24T21:50:18.393603Z",
+  "game_minutes": 60.125558691347635,
+  "flood_km2": 1.0102,
+  "minimum_original_point_retention": 0.8296674658605233,
+  "authored_bodies_below_retention": 49,
+  "maximum_surface_movement_p95_m": 13.828125,
+  "scope": "Unpopulated first hour on this exact package. No safe class, pumping or long-term promise."
+}

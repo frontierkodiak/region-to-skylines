@@ -1,3 +1,4 @@
+import { beforeStockWater } from "./stock-water-ledger.mjs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -418,7 +419,7 @@ test("regeneration is deterministic twice and preserves every sibling study byte
 });
 
 test("exact parent bytes outside every producer's owned fragments are unchanged", () => {
-  let text = readFileSync(file("capabilities.json")).toString();
+  let text = beforeStockWater(readFileSync(file("capabilities.json")).toString());
   text = text.slice(text.indexOf('  "schema":'));
   text = "{\n" + text;
   for (const id of ["start", "water"]) {

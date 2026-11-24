@@ -235,6 +235,8 @@ function terrainInterestLaunchBar(proposal, escape) {
 }
 
 export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
+  const waterTrialPath = "tools/map-factory/capability-evidence/pl1191-stock-water/verdicts.json";
+  const waterTrial = existsSync(ROOT + waterTrialPath) ? JSON.parse(readFileSync(ROOT + waterTrialPath)) : null;
   const directedRail = railStudy();
   const railResearch = loadRailResearch();
   const outsideResearch = loadOutsideResearch();
@@ -257,6 +259,7 @@ export function ledgerPage(ledger, revision = "PL-1119-capability-ledger") {
       ${c.outside_stock_studies ? outsideStockReference(c.id, outsideStock, escape) : ""}
       ${c.outside_readiness_studies ? outsideReadinessReference(c.id, outsideReadiness, escape) : ""}
       <h3>Agreement with the game</h3>${agreement.length ? `<ul>${agreement.map((a) => `<li>${escape(a.study)} · ${escape(label(a.oracle))}: ${escape(scoreText(a))}</li>`).join("")}</ul><details><summary>Measured squares and dates</summary><pre>${escape(JSON.stringify(c.game_agreement, null, 2))}</pre></details>` : c.calibration_studies || c.witness_study ? "" : "<p class=note>No scored observations for this model yet.</p>"}
+      ${c.id === "water_risk" && waterTrial ? `<h3>Stock-backed water trial</h3><p><a href="tools/map-factory/capability-evidence/pl1191-stock-water/contact-sheet.jpg">Before and after</a> · <a href="${waterTrialPath}">First-hour results</a></p><table><thead><tr><th>Square</th><th>Water</th><th>Reason</th></tr></thead><tbody>${waterTrial.rows.map(r => `<tr><td>${escape(r.square)}</td><td>${escape(r.water_verdict)}</td><td>${escape(r.reason)}</td></tr>`).join("")}</tbody></table>` : ""}
       ${c.runtime_model ? `<details><summary>Current Start model · unscored</summary><pre>${escape(JSON.stringify(c.runtime_model, null, 2))}</pre></details>` : ""}
       ${c.id === "rail" ? `${railStudyPage(directedRail, escape)}${railResearchPage(railResearch, escape)}` : ""}
       ${c.witness_study ? startWaterPage(ledger.witness_studies[START_WATER_STUDY], c.id, escape) : ""}
