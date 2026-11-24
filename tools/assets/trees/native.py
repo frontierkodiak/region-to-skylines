@@ -148,6 +148,7 @@ def main():
                         for arm, target in zip(
                             ("a1", "b", "a2"), (control, t["name"], control)
                         ):
+                            c.call("ui", visible=False)
                             count = d.job(
                                 c.call("vegetation_retarget", name=target),
                                 90,
@@ -165,6 +166,7 @@ def main():
                                     "target": target,
                                     "repeat": rep,
                                     "count": count,
+                                    "timing_ui_visible": False,
                                     **sample,
                                 }
                             )

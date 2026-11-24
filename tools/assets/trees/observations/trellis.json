@@ -1,0 +1,46 @@
+{
+  "model": "microsoft/TRELLIS.2-4B",
+  "weights_revision": "af44b45f2e35a493886929c6d786e563ec68364d",
+  "source_commit": "75fbf0183001ed9876c8dbb35de6b68552ee08bd",
+  "ss_decoder_revision": "25e0d31ffbebe4b5a97464dd851910efc3002d96",
+  "setup_seconds": 230.49975983705372,
+  "seed": 1328,
+  "pipeline_type": "512",
+  "steps": {
+    "sparse_structure_sampler": 12,
+    "shape_slat_sampler": 12,
+    "tex_slat_sampler": 12
+  },
+  "torch": "2.6.0+cu124",
+  "device": "NVIDIA GeForce RTX 3090",
+  "background_removal": "procedural-tree control render alpha; not a photograph",
+  "assets": {
+    "Gleditsia": {
+      "inference_seconds": 49.4782145190984,
+      "total_seconds": 54.930669371038675,
+      "raw_triangles": 2597600,
+      "triangles": 1339,
+      "peak_allocated_bytes": 2824699392,
+      "sha256": "b6ab3d683e43529b0c9206f36baab564ccf1f58f3275069d52a4dc25f191b304",
+      "input_sha256": "990bffa204accbf747f6a735871bb5858dd0e8bac0530bd1ee7506a7b6342e4b"
+    },
+    "Tilia": {
+      "inference_seconds": 74.29613639204763,
+      "total_seconds": 91.31628456385806,
+      "raw_triangles": 13592258,
+      "triangles": 944,
+      "peak_allocated_bytes": 7377196032,
+      "sha256": "9661ca5e624c27cdba16477ebe816bbed486027444131c182be415b7312f0616",
+      "input_sha256": "372611c7bf18c9d9a4370cf717968d6cf5c8b5fcf9bf415dd8dabe26c4bd7389"
+    },
+    "Ulmus": {
+      "inference_seconds": 45.26916141016409,
+      "total_seconds": 54.18423050199635,
+      "raw_triangles": 7809206,
+      "triangles": 1116,
+      "peak_allocated_bytes": 5188626944,
+      "sha256": "5a3ba5fe18f1e68473273f25439a79b60e8fa334659b8f34d692d62ae89dfb56",
+      "input_sha256": "e3df420487cbd2f8acf3561f689e2188fe449595e566b0824d4178b25daa9147"
+    }
+  }
+}

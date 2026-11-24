@@ -1,0 +1,131 @@
+{
+  "passed": 18,
+  "assets": [
+    {
+      "name": "KudzuGleditsia15blender",
+      "triangles": 570,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "62d52d7d939a076b426cff3541c8a90c4663978fb29f5f4452afd19b79df4232"
+    },
+    {
+      "name": "KudzuGleditsia15sand3d",
+      "triangles": 518,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "1a6e544e64146af5e468a0fcae57e5d4aacd096c1dca4e8af6dd9d9673a72db8"
+    },
+    {
+      "name": "KudzuGleditsia15sapling",
+      "triangles": 1142,
+      "zero_area_triangles": 28,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "8dc378eeee388c6c67389dc2b39023110986f3830c23d3478b433ae5c7286d65"
+    },
+    {
+      "name": "KudzuGleditsia15trellis",
+      "triangles": 1339,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 8.248806082633564e-09,
+      "fbx_sha256": "6a90aeb70b5c20a9316eb0fae37d14de34f7a2c44be7da675bafc71807e35da1"
+    },
+    {
+      "name": "KudzuGleditsia22sand3d",
+      "triangles": 518,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 9.5367431640625e-07,
+      "fbx_sha256": "7811cb3b31e31be3baa4d450576a64944b98995bb385f54aba2606db8cce927f"
+    },
+    {
+      "name": "KudzuGleditsia9sand3d",
+      "triangles": 518,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 1.045564701485091e-08,
+      "fbx_sha256": "ba775f55f2ba1e90123584ad933bfe1c965ad836b8c8f20f64f9f9715ed30af8"
+    },
+    {
+      "name": "KudzuTilia15blender",
+      "triangles": 680,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 0.0,
+      "fbx_sha256": "cc9fe91923db1f330630e9ecfc6ddda429d83a092648459a5407796099f4952b"
+    },
+    {
+      "name": "KudzuTilia15sand3d",
+      "triangles": 628,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "c0a5fa9b4d8547400da2d7b24940f0574d734c0feae493ef57eaeec19d2861fe"
+    },
+    {
+      "name": "KudzuTilia15sapling",
+      "triangles": 1252,
+      "zero_area_triangles": 28,
+      "roundtrip_error_m": 1.1190042670250477e-08,
+      "fbx_sha256": "db28c001ad353fcce308ffe4c32cbb838313b6acc65f1ca071f560a06a05a5c6"
+    },
+    {
+      "name": "KudzuTilia15trellis",
+      "triangles": 944,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "1c568e8642216c140e29098bca28c3a7b1a4c450ffe79ebaf03d400a0f2256f4"
+    },
+    {
+      "name": "KudzuTilia22sand3d",
+      "triangles": 628,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 9.5367431640625e-07,
+      "fbx_sha256": "cce3c7a18ef33960c5a3c42627d332a6203d5f42e626749c5e9533a22b03352e"
+    },
+    {
+      "name": "KudzuTilia9sand3d",
+      "triangles": 628,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 9.84494796796298e-09,
+      "fbx_sha256": "2183e64e425dc7094b8b8b0cc06e8dc12de83916fcd7bca437d2d27ad388b1dc"
+    },
+    {
+      "name": "KudzuUlmus15blender",
+      "triangles": 620,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "9b343709b9a2dfafb3b5e19b1a835e73845e5346b2327bea7c68d4894de223fd"
+    },
+    {
+      "name": "KudzuUlmus15sand3d",
+      "triangles": 568,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "e012fb13735b51a428205105110b320e41a34058ea39381dd100711f9e579fe6"
+    },
+    {
+      "name": "KudzuUlmus15sapling",
+      "triangles": 1192,
+      "zero_area_triangles": 28,
+      "roundtrip_error_m": 4.76837158203125e-07,
+      "fbx_sha256": "39fce5b617a5a7fc467d4459489b03ac39cb0d273eaa350cb97a4aa7a70e947d"
+    },
+    {
+      "name": "KudzuUlmus15trellis",
+      "triangles": 1116,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 7.53236335526708e-08,
+      "fbx_sha256": "6194d787f9dd0730250a0c329309b9dc5ceb0daf14efac91c409f78cf25b86f9"
+    },
+    {
+      "name": "KudzuUlmus22sand3d",
+      "triangles": 568,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 9.5367431640625e-07,
+      "fbx_sha256": "4011070bb58ee304cd66eb61f75f2985878910ad27392d6a7781e46053bd3102"
+    },
+    {
+      "name": "KudzuUlmus9sand3d",
+      "triangles": 568,
+      "zero_area_triangles": 0,
+      "roundtrip_error_m": 9.952454860240323e-09,
+      "fbx_sha256": "7a43680c93889ffefb0b095695a4f9214c3e895fd563308ab2c973cd344430b6"
+    }
+  ]
+}

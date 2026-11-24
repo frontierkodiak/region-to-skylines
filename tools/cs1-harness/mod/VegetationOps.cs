@@ -144,7 +144,10 @@ namespace Cs1Harness
                 var manager = Singleton<TreeManager>.instance;
                 for (uint i = 1; i < manager.m_trees.m_buffer.Length; i++)
                     if ((manager.m_trees.m_buffer[i].m_flags & (ushort)TreeInstance.Flags.Created) != 0)
+                    {
+                        manager.UpdateTreeRenderer(i, true);
                         manager.ReleaseTree(i);
+                    }
                 var random = new Randomizer(1326);
                 int index = 0;
                 foreach (var info in new[] { left, right })

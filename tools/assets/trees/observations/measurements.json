@@ -1,0 +1,914 @@
+{
+  "schema": 1,
+  "fixture_warning": "V6 focused pairs are visible but background stock render groups persist after deletion. Head's deletion invalidation fix awaits a native retest; specimen screenshots remain provisional.",
+  "assets": [
+    {
+      "name": "KudzuGleditsia15blender",
+      "genus": "Gleditsia",
+      "route": "blender",
+      "height_m": 15.0,
+      "main_triangles": 570,
+      "native_main_triangles": 570,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 5.310741542140022,
+      "native_build_wall_seconds": 131.91830149805173,
+      "native_import_job_seconds": 6.9,
+      "crp_sha256": "97dbb44c9b64eba552b7cc958fcccd2e43f59c96e90c4370134131888993ce32",
+      "shots": {
+        "close": "images/KudzuGleditsia15blender-close.png",
+        "gameplay": "images/KudzuGleditsia15blender-gameplay.png",
+        "billboard": "images/KudzuGleditsia15blender-billboard.png"
+      },
+      "preview": "images/KudzuGleditsia15blender-authoring.png",
+      "frames": [
+        {
+          "camera_size": 180,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 31.299591064453125,
+          "candidate_p95_ms": 35.495758056640625,
+          "last_stock_p95_ms": 35.93597412109375,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.012250010615260543,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.03191460228610854
+        },
+        {
+          "camera_size": 500,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 38.6505126953125,
+          "candidate_p95_ms": 60.8642578125,
+          "last_stock_p95_ms": 37.11853027343749,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": 0.6397270410260629,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.001399637740819859
+        }
+      ],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuGleditsia15sand3d",
+      "genus": "Gleditsia",
+      "route": "sand3d",
+      "height_m": 15,
+      "main_triangles": 518,
+      "native_main_triangles": 518,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 9.056671249913052,
+      "native_build_wall_seconds": 15.136888123117387,
+      "native_import_job_seconds": 7.1,
+      "crp_sha256": "9c580a33e7032e22980f0b257281d7d74a525d09fef6c4a6d96749ce8319ddcf",
+      "shots": {
+        "close": "images/KudzuGleditsia15sand3d-close.png",
+        "gameplay": "images/KudzuGleditsia15sand3d-gameplay.png",
+        "billboard": "images/KudzuGleditsia15sand3d-billboard.png"
+      },
+      "preview": "images/KudzuGleditsia15sand3d-authoring.png",
+      "frames": [
+        {
+          "camera_size": 180,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 30.99822998046875,
+          "candidate_p95_ms": 35.24284362792969,
+          "last_stock_p95_ms": 36.15226745605469,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.025155374534403974,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.0091793954981233
+        },
+        {
+          "camera_size": 500,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 31.0211181640625,
+          "candidate_p95_ms": 35.1898193359375,
+          "last_stock_p95_ms": 36.07635498046875,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.0245738696442922,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.018310911808669617
+        }
+      ],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuGleditsia15sapling",
+      "genus": "Gleditsia",
+      "route": "sapling",
+      "height_m": 15.0,
+      "main_triangles": 1142,
+      "native_main_triangles": 1114,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 4.235034542158246,
+      "native_build_wall_seconds": 14.561597913969308,
+      "native_import_job_seconds": 7.28,
+      "crp_sha256": "07ea2accefc90547f32e14b48fa4d15892a92a57373256165209b35cb5e7bf8d",
+      "shots": {
+        "close": "images/KudzuGleditsia15sapling-close.png",
+        "gameplay": "images/KudzuGleditsia15sapling-gameplay.png",
+        "billboard": "images/KudzuGleditsia15sapling-billboard.png"
+      },
+      "preview": "images/KudzuGleditsia15sapling-authoring.png",
+      "frames": [
+        {
+          "camera_size": 180,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 31.55517578125,
+          "candidate_p95_ms": 35.645294189453125,
+          "last_stock_p95_ms": 36.637115478515625,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.027071489556652284,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.027308025543111958
+        },
+        {
+          "camera_size": 500,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 31.219482421875,
+          "candidate_p95_ms": 35.55450439453125,
+          "last_stock_p95_ms": 36.59210205078125,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.02835578166048125,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.01636587366694009
+        }
+      ],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuGleditsia15trellis",
+      "genus": "Gleditsia",
+      "route": "trellis",
+      "height_m": 15,
+      "main_triangles": 1339,
+      "native_main_triangles": 1339,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 0.25753454212099314,
+      "native_build_wall_seconds": 14.346932065906003,
+      "native_import_job_seconds": 7.28,
+      "crp_sha256": "6cc68a46b65d0864143e60f8a260bd87b67d6c9df4b9c514dda797895cae648b",
+      "shots": {
+        "close": "images/KudzuGleditsia15trellis-close.png",
+        "gameplay": "images/KudzuGleditsia15trellis-gameplay.png",
+        "billboard": "images/KudzuGleditsia15trellis-billboard.png"
+      },
+      "preview": "",
+      "frames": [
+        {
+          "camera_size": 180,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 30.21240234375,
+          "candidate_p95_ms": 34.200286865234375,
+          "last_stock_p95_ms": 36.017608642578125,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.050456480755788125,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.01905414952416573
+        },
+        {
+          "camera_size": 500,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 29.9072265625,
+          "candidate_p95_ms": 34.8968505859375,
+          "last_stock_p95_ms": 36.80877685546875,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.05194212991750613,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.14545325728860392
+        }
+      ],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      },
+      "inference": {
+        "inference_seconds": 49.4782145190984,
+        "total_seconds": 54.930669371038675,
+        "raw_triangles": 2597600,
+        "triangles": 1339,
+        "peak_allocated_bytes": 2824699392,
+        "sha256": "b6ab3d683e43529b0c9206f36baab564ccf1f58f3275069d52a4dc25f191b304",
+        "input_sha256": "990bffa204accbf747f6a735871bb5858dd0e8bac0530bd1ee7506a7b6342e4b"
+      },
+      "shared_cold_setup_seconds": 230.49975983705372
+    },
+    {
+      "name": "KudzuGleditsia22sand3d",
+      "genus": "Gleditsia",
+      "route": "sand3d",
+      "height_m": 22,
+      "main_triangles": 518,
+      "native_main_triangles": 518,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 6.9229102078825235,
+      "native_build_wall_seconds": 14.996331245172769,
+      "native_import_job_seconds": 7.09,
+      "crp_sha256": "bc3d8ad4589e660f41c4f85269bee87a106b98229d62bb9b306d8b6df69855cb",
+      "shots": {
+        "close": "images/KudzuGleditsia22sand3d-close.png",
+        "gameplay": "images/KudzuGleditsia22sand3d-gameplay.png",
+        "billboard": "images/KudzuGleditsia22sand3d-billboard.png"
+      },
+      "preview": "images/KudzuGleditsia22sand3d-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuGleditsia9sand3d",
+      "genus": "Gleditsia",
+      "route": "sand3d",
+      "height_m": 9,
+      "main_triangles": 518,
+      "native_main_triangles": 518,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 10.285071667050943,
+      "native_build_wall_seconds": 15.084902071161196,
+      "native_import_job_seconds": 7.1,
+      "crp_sha256": "d07df10180bc3542f0199c5f4481838760d65ba1c9b50e0641db737d83dfc987",
+      "shots": {
+        "close": "images/KudzuGleditsia9sand3d-close.png",
+        "gameplay": "images/KudzuGleditsia9sand3d-gameplay.png",
+        "billboard": "images/KudzuGleditsia9sand3d-billboard.png"
+      },
+      "preview": "images/KudzuGleditsia9sand3d-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuTilia15blender",
+      "genus": "Tilia",
+      "route": "blender",
+      "height_m": 15.0,
+      "main_triangles": 680,
+      "native_main_triangles": 680,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 8.434711917070672,
+      "native_build_wall_seconds": 14.85841631796211,
+      "native_import_job_seconds": 7.27,
+      "crp_sha256": "977f547454989e39aac881dad45e5cba3d468732da6599c1243737549bef8475",
+      "shots": {
+        "close": "images/KudzuTilia15blender-close.png",
+        "gameplay": "images/KudzuTilia15blender-gameplay.png",
+        "billboard": "images/KudzuTilia15blender-billboard.png"
+      },
+      "preview": "images/KudzuTilia15blender-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuTilia15sand3d",
+      "genus": "Tilia",
+      "route": "sand3d",
+      "height_m": 15,
+      "main_triangles": 628,
+      "native_main_triangles": 628,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 6.165885124821216,
+      "native_build_wall_seconds": 14.120371172903106,
+      "native_import_job_seconds": 7.11,
+      "crp_sha256": "63109614ba1355f71b8eb8d9b2317a4adbae22fa528dd1f7ce65c90e82288f9c",
+      "shots": {
+        "close": "images/KudzuTilia15sand3d-close.png",
+        "gameplay": "images/KudzuTilia15sand3d-gameplay.png",
+        "billboard": "images/KudzuTilia15sand3d-billboard.png"
+      },
+      "preview": "images/KudzuTilia15sand3d-authoring.png",
+      "frames": [
+        {
+          "camera_size": 180,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 33.599853515625,
+          "candidate_p95_ms": 42.12036132812499,
+          "last_stock_p95_ms": 38.195037841796875,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": 0.10277050915846009,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.06489832383221295
+        },
+        {
+          "camera_size": 500,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 29.72412109375,
+          "candidate_p95_ms": 33.69903564453125,
+          "last_stock_p95_ms": 35.5499267578125,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.052064554897416127,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.2567946918463696
+        }
+      ],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuTilia15sapling",
+      "genus": "Tilia",
+      "route": "sapling",
+      "height_m": 15.0,
+      "main_triangles": 1252,
+      "native_main_triangles": 1224,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 4.3271854592021555,
+      "native_build_wall_seconds": 14.824063703184947,
+      "native_import_job_seconds": 7.41,
+      "crp_sha256": "4ba481f785dd0e6dbc53716d73c568980cc519d70eeb519501fb916413f551bf",
+      "shots": {
+        "close": "images/KudzuTilia15sapling-close.png",
+        "gameplay": "images/KudzuTilia15sapling-gameplay.png",
+        "billboard": "images/KudzuTilia15sapling-billboard.png"
+      },
+      "preview": "images/KudzuTilia15sapling-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuTilia15trellis",
+      "genus": "Tilia",
+      "route": "trellis",
+      "height_m": 15,
+      "main_triangles": 944,
+      "native_main_triangles": 944,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 0.18778274999931455,
+      "native_build_wall_seconds": 14.775233046151698,
+      "native_import_job_seconds": 7.63,
+      "crp_sha256": "acd3fcf8542b9cce471042386249955757bf8e92ef56761c411389deed05c80b",
+      "shots": {
+        "close": "images/KudzuTilia15trellis-close.png",
+        "gameplay": "images/KudzuTilia15trellis-gameplay.png",
+        "billboard": "images/KudzuTilia15trellis-billboard.png"
+      },
+      "preview": "",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      },
+      "inference": {
+        "inference_seconds": 74.29613639204763,
+        "total_seconds": 91.31628456385806,
+        "raw_triangles": 13592258,
+        "triangles": 944,
+        "peak_allocated_bytes": 7377196032,
+        "sha256": "9661ca5e624c27cdba16477ebe816bbed486027444131c182be415b7312f0616",
+        "input_sha256": "372611c7bf18c9d9a4370cf717968d6cf5c8b5fcf9bf415dd8dabe26c4bd7389"
+      },
+      "shared_cold_setup_seconds": 230.49975983705372
+    },
+    {
+      "name": "KudzuTilia22sand3d",
+      "genus": "Tilia",
+      "route": "sand3d",
+      "height_m": 22,
+      "main_triangles": 628,
+      "native_main_triangles": 628,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 5.9300283750053495,
+      "native_build_wall_seconds": 14.58133727312088,
+      "native_import_job_seconds": 7.35,
+      "crp_sha256": "857a9f1dd8d803a04787e7ff4101569440660cb179b12db922ee15a38c163d84",
+      "shots": {
+        "close": "images/KudzuTilia22sand3d-close.png",
+        "gameplay": "images/KudzuTilia22sand3d-gameplay.png",
+        "billboard": "images/KudzuTilia22sand3d-billboard.png"
+      },
+      "preview": "images/KudzuTilia22sand3d-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuTilia9sand3d",
+      "genus": "Tilia",
+      "route": "sand3d",
+      "height_m": 9,
+      "main_triangles": 628,
+      "native_main_triangles": 628,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 4.823874792084098,
+      "native_build_wall_seconds": 14.846808103844523,
+      "native_import_job_seconds": 7.32,
+      "crp_sha256": "7ddf90ee778a995f1712dbd27c716c1bdde0ddda98384893f62f0fa472193540",
+      "shots": {
+        "close": "images/KudzuTilia9sand3d-close.png",
+        "gameplay": "images/KudzuTilia9sand3d-gameplay.png",
+        "billboard": "images/KudzuTilia9sand3d-billboard.png"
+      },
+      "preview": "images/KudzuTilia9sand3d-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuUlmus15blender",
+      "genus": "Ulmus",
+      "route": "blender",
+      "height_m": 15.0,
+      "main_triangles": 620,
+      "native_main_triangles": 620,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 5.2833043748978525,
+      "native_build_wall_seconds": 14.520937121938914,
+      "native_import_job_seconds": 7.38,
+      "crp_sha256": "e3a3726f78b7179c8b2cfadfb20ced43ed054c8b59ffffd39383f16a5eda2514",
+      "shots": {
+        "close": "images/KudzuUlmus15blender-close.png",
+        "gameplay": "images/KudzuUlmus15blender-gameplay.png",
+        "billboard": "images/KudzuUlmus15blender-billboard.png"
+      },
+      "preview": "images/KudzuUlmus15blender-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuUlmus15sand3d",
+      "genus": "Ulmus",
+      "route": "sand3d",
+      "height_m": 15,
+      "main_triangles": 568,
+      "native_main_triangles": 568,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 3.8771887498442084,
+      "native_build_wall_seconds": 15.099991413997486,
+      "native_import_job_seconds": 7.31,
+      "crp_sha256": "d756f5b7ba73e5cf9769ee72bfd1a7803ba16f485d50e52817266c479f1352af",
+      "shots": {
+        "close": "images/KudzuUlmus15sand3d-close.png",
+        "gameplay": "images/KudzuUlmus15sand3d-gameplay.png",
+        "billboard": "images/KudzuUlmus15sand3d-billboard.png"
+      },
+      "preview": "images/KudzuUlmus15sand3d-authoring.png",
+      "frames": [
+        {
+          "camera_size": 180,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 31.74591064453125,
+          "candidate_p95_ms": 37.18109130859375,
+          "last_stock_p95_ms": 40.34423828125,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.07840393343419061,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.053957349363102924
+        },
+        {
+          "camera_size": 500,
+          "repeat": 0,
+          "stock_instances": 139362,
+          "candidate_median_ms": 29.4036865234375,
+          "candidate_p95_ms": 33.5174560546875,
+          "last_stock_p95_ms": 36.3525390625,
+          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+          "timing_ui_visible": true,
+          "paired_p95_fraction": -0.07798858294157152,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.011892626571525566
+        }
+      ],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuUlmus15sapling",
+      "genus": "Ulmus",
+      "route": "sapling",
+      "height_m": 15.0,
+      "main_triangles": 1192,
+      "native_main_triangles": 1164,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 4.14578775013797,
+      "native_build_wall_seconds": 14.969401123002172,
+      "native_import_job_seconds": 7.43,
+      "crp_sha256": "f637ba21ae4381b8f6f42b7faad38d58002ca08ad88559371f83dfeebb8132e1",
+      "shots": {
+        "close": "images/KudzuUlmus15sapling-close.png",
+        "gameplay": "images/KudzuUlmus15sapling-gameplay.png",
+        "billboard": "images/KudzuUlmus15sapling-billboard.png"
+      },
+      "preview": "images/KudzuUlmus15sapling-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuUlmus15trellis",
+      "genus": "Ulmus",
+      "route": "trellis",
+      "height_m": 15,
+      "main_triangles": 1116,
+      "native_main_triangles": 1116,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 0.3420727918855846,
+      "native_build_wall_seconds": 15.206274684984237,
+      "native_import_job_seconds": 7.7,
+      "crp_sha256": "dbf4c0a2fa009c3390789640ef60fa9e9383218a119a5e186c225c074b4c01cf",
+      "shots": {
+        "close": "images/KudzuUlmus15trellis-close.png",
+        "gameplay": "images/KudzuUlmus15trellis-gameplay.png",
+        "billboard": "images/KudzuUlmus15trellis-billboard.png"
+      },
+      "preview": "",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      },
+      "inference": {
+        "inference_seconds": 45.26916141016409,
+        "total_seconds": 54.18423050199635,
+        "raw_triangles": 7809206,
+        "triangles": 1116,
+        "peak_allocated_bytes": 5188626944,
+        "sha256": "5a3ba5fe18f1e68473273f25439a79b60e8fa334659b8f34d692d62ae89dfb56",
+        "input_sha256": "e3df420487cbd2f8acf3561f689e2188fe449595e566b0824d4178b25daa9147"
+      },
+      "shared_cold_setup_seconds": 230.49975983705372
+    },
+    {
+      "name": "KudzuUlmus22sand3d",
+      "genus": "Ulmus",
+      "route": "sand3d",
+      "height_m": 22,
+      "main_triangles": 568,
+      "native_main_triangles": 568,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 3.730762624880299,
+      "native_build_wall_seconds": 14.67773536592722,
+      "native_import_job_seconds": 7.56,
+      "crp_sha256": "4e929f71eb7e8f45e17d622ee9bb178c70022252f418e19e3fe16e1d801fba11",
+      "shots": {
+        "close": "images/KudzuUlmus22sand3d-close.png",
+        "gameplay": "images/KudzuUlmus22sand3d-gameplay.png",
+        "billboard": "images/KudzuUlmus22sand3d-billboard.png"
+      },
+      "preview": "images/KudzuUlmus22sand3d-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    },
+    {
+      "name": "KudzuUlmus9sand3d",
+      "genus": "Ulmus",
+      "route": "sand3d",
+      "height_m": 9,
+      "main_triangles": 568,
+      "native_main_triangles": 568,
+      "import_errors": [
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
+        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
+      ],
+      "authoring_seconds": 4.150039667030796,
+      "native_build_wall_seconds": 14.531180270947516,
+      "native_import_job_seconds": 7.42,
+      "crp_sha256": "9e36c310277771b4faecf06ed9d29666263f3cd09c9d0ae6f56b469c8f538858",
+      "shots": {
+        "close": "images/KudzuUlmus9sand3d-close.png",
+        "gameplay": "images/KudzuUlmus9sand3d-gameplay.png",
+        "billboard": "images/KudzuUlmus9sand3d-billboard.png"
+      },
+      "preview": "images/KudzuUlmus9sand3d-authoring.png",
+      "frames": [],
+      "dollars": {
+        "new_external_generation_api_spend": 0,
+        "full_cost": null,
+        "unknown_components": [
+          "Codex subscription allocation",
+          "electricity/depreciation",
+          "review labour rate",
+          "review/rework duration and quality-accepted yield"
+        ]
+      }
+    }
+  ],
+  "accounting": {
+    "under_five_dollars_established": false,
+    "new_external_generation_api_spend": 0,
+    "full_cost_per_asset": null,
+    "reason": "Owned hardware and a subscription are not priced marginal API calls; full dollars require an explicit allocation and review rate."
+  },
+  "performance": "Render-group-corrected B/A2 wall-frame screening. Frozen v6 uses post-hoc matching HUD-visible pairs and excludes every A1; future driver windows record UI state explicitly. Six candidates, one pair at two zooms; other candidates have no valid timing. Earlier v5 cache-stale timings discarded. No renderer-isolated GPU time or quality-bar pass."
+}

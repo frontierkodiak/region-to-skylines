@@ -1,0 +1,42 @@
+{
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": null,
+    "mem_used_before_mib": 8146,
+    "mem_total_mib": 11264
+  },
+  "mod_sha256": "685229c1443c2ecaa40d1e47d444fc883e5ca149245b5ae02d720a7c631acb1a",
+  "game_gpu": [
+    {
+      "bus": "05:00.0",
+      "pid": 1126966,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1576
+    }
+  ],
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  },
+  "sampled_whole_card_peaks": {
+    "temperature.gpu": 77.0,
+    "power.draw [W]": 156.94,
+    "memory.used [MiB]": 10821.0
+  },
+  "power_limits_w": [
+    200.0
+  ],
+  "first_sample": "2026/11/24 14:52:42.215",
+  "last_sample": "2026/11/24 15:07:05.643",
+  "frame_windows": 36,
+  "pending_render_group_update_receipts": 1,
+  "native_driver_commit": "2e0897353ca0b8c439d2beaaf47e8ec9513de75f",
+  "native_driver_sha256": "612011bf787371ccfc6fe4ff5a557b8d3b8cea1e88bc27981b5b198d8b0def9e",
+  "performance_basis": "post-hoc matching-HUD B/A2 only; no A1 enters comparisons; not a performance pass",
+  "specimen_pairs": 18,
+  "shots": 90
+}

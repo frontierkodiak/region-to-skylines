@@ -3905,3 +3905,61 @@ pass on blade, RTX 2080 Ti bus05:00.0/egl0, 7974 MiB pre-existing card use out
 of11264 MiB. Doctor only, no Steam/game or performance measurement; its private
 display/bus context exited normally. The earlier eight-minute blocked attempt
 is not rewritten. Existing current-source build/Ruff receipts remain valid.
+
+## PL-1328 budgeted parametric tree trial — 2026-11-24
+
+On blade's disposable install, imported 18 authored tree packages in one
+serial Asset Editor session, then loaded all 18 in a separate fresh Grand
+River city. Nine Sand3D variants cover Gleditsia/Tilia/Ulmus at 9/15/22 m;
+Blender, Sapling and TRELLIS controls cover 15 m. Actual native main counts
+518–1339 triangles; generated native billboards are two triangles. All 18
+exported FBXs reimport at their stated metre height and ground pivot.
+Sapling's 28 zero-area triangles per export are removed by the native importer.
+Procedural textures are 512px with flat normals, not photographic bakes.
+The template import logs contain 163 native mesh-readability errors; these
+are retained, not represented as error-free builds. The fresh city reports
+three missing stock panel assemblies. Detailed evidence and limits are in
+`../assets/trees/REPORT.md` and its `observations/` directory.
+
+Build, 170 harness tests, full harness Ruff/format and a real doctor pass.
+Native editor batch wall 1461.90 s includes queue; warm build median14.82 s,
+import jobs6.90–7.70 s. Doctor/editor/fresh-city GPU: RTX2080 Ti bus05:00.0,
+egl0, 8146 MiB pre-existing use of11264 MiB. The v5 city session's sampled
+whole-card peaks were10821 MiB,158.19 W,77°C over25m53s of telemetry; its
+menu-only game share was1594 MiB, not a continuous game peak. Live observed
+power.limit was200 W, not the150 W noted above; no power setting was changed.
+Editor and v5 city teardown receipts show no owned game, Steam or unit left.
+
+V5 performance comparisons are discarded. A forest screenshot exposed
+nearby authored crowns but distant stock sprites: `UpdateTree` queues work
+that is not flushed while paused. The fix explicitly invalidates tree
+renderers and flushes RenderManager groups from the simulation action.
+No claim that a normal run exit proves renderer validity or performance.
+Native pair billboards are recaptured with the same fix. See the follow-up
+run observations for corrected frame screening; no certification is claimed.
+
+TRELLIS reconstruction used the held3090 (model revision and exact timings
+in `../assets/trees/observations/trellis.json`), with peak Torch allocation
+2.63/6.87/4.83 GiB for the three genera, then exited and released its load.
+No commercial generation API calls. Full dollar cost remains unestablished:
+subscription allocation, hardware rates and review/rework are not priced.
+
+V6 follow-up completed36 retarget windows and18 specimen pairs/90 shots.
+Actual mod685229c1 matches its compiled source receipt; driver2e089735 is
+frozen. Sampled native GPU span14m23s (after13m45s slot wait), whole-card
+peaks10821 MiB,156.94 W,77°C, menu game1576 MiB. Teardown empty. Retarget
+photos at180/500 visibly change the forest; one global pending-update flag
+was still true at a job receipt, not treated as a per-tree pass/fail probe.
+Screenshot helper restores the HUD: first A1 per zoom differs, so reported
+numbers use only matched HUD-visible B/A2 pairs for all six candidates.
+Blender500 p95 +64% and Tilia180 +10.3% remain in the data; one pair and an
+unattributed limiter cannot certify performance. The final driver hides the
+HUD explicitly before every arm, but that protocol has not been rerun yet.
+
+V6 specimen photos expose a separate deletion defect: the focused pair is
+visible but distant deleted stock groups persist. `ReleaseTree` does not
+mark those render groups dirty while paused. Head now marks each old group
+before release; compiled in `observations/pair-deletion-build.json`, native
+retest pending behind the shared slot. Do not merge or accept that fixture
+from a normal exit or file count. The PR stays draft; exact continuation is
+`../assets/trees/NEXT.md`. No owned game or queue waiter is left running.
