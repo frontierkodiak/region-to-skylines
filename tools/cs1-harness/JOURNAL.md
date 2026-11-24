@@ -1,5 +1,42 @@
 # cs1-harness journal
 
+## 2026-11-23 — PL-1326 vegetation inventory and reference timing (blade)
+
+Added loaded-tree metrics, disposable retarget/pair jobs and uncapped wall-frame
+sampling. Build e9b720c1 uses game assembly c7f0e723; source hashes are in
+`tools/vegetation/observations/native/build.json`. GPU-only meshes report null
+CPU triangle/colour counts, not invented zeros; generated physical size is
+separate from inflated renderer bounds. Forest-camera selection stays inside
+the rendered interior and the driver verifies dry terrain and actual pixels.
+
+Accepted native-5: Grand River, fixed noon/paused, 139362 trees, Conifer2 versus
+cached Lodgepole Pine03 19m. Five A/B/A repetitions at camera sizes350/1400,
+120 warm-up and300 samples per arm. Paired p95 deltas +4.84%/+1.91%; max A/A
+drift1.13%/4.03%. Limiter unknown: **inconclusive, not asset certification**.
+RTX2080Ti PCI05:00.0, 121 resource samples: total peak10821MiB, game2673MiB,
+148.18W,65°C; observed unchanged limit200W (not the older documented150W).
+Controller window18m04s including queue/load. Three pre-existing serialization
+errors unchanged; receipt cleanup and installed-copy checks empty. No save,
+new login, download, subscription, carbon game or power-setting change.
+
+Attempts1/3 ended at menu (wait-predicate/map-alias bugs);2 was cancelled while
+queued. Attempt4's outer decorative-world camera showed sky despite valid
+terrain hits, so its timings are excluded. All were collected and torn down.
+The surviving timing driver snapshot and input hashes accompany the observations.
+Attempt4's106 samples peaked at10821MiB total/2673MiB game,146.53W,66°C;
+these resource observations do not rehabilitate its rejected render timings.
+Attempts1–3 have no continuous peak/wall measurements;1 reached a1576MiB menu
+observation and2 never launched a game. Missing measurements remain unknown.
+
+Native-6 sheet supplement: same host/GPU, 98 samples, total10821MiB/game2673MiB,
+130.75W,62°C, unchanged200W cap; controller window28m12s including FIFO wait.
+Own controller was paused while an offline-guarded adapter recaptured20 pairs,
+then interrupted to invoke its context cleanup. Receipt cleanup empty, no
+offline-account error and the same three serialization errors. Some tall
+built-in crowns still clip at2× random scale; wide views are supplied. The
+subsequent maximum-scale/frustum fix has geometric test evidence, not another
+native recapture. The cached sheet is exploratory, not a visual-quality pass.
+
 ## 2026-11-21 — PL-1078 frozen capability witnesses and load references (blade)
 
 The original-eight player baseline was frozen before capability implementation:

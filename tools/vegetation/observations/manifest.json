@@ -1,0 +1,61 @@
+{
+  "source_base_commit": "ed8489eda6638b09f6e33cf4635a86ef1cda6d91",
+  "executed_extractor_sha256": "a4d49cd50b162de03c5a9e7b35ec144d44f7e5f9faa53fffb8d45b0ed45628e9",
+  "reviewed_extractor_sha256": "82d603e01184fb92fefe5b4b239d4b47e0dc27d3f7e65db34e44b57e19e356a2",
+  "extractor_ast_equal": true,
+  "inputs": {
+    "installed.json": "1a2aa70fc7c31fb9d6527e88f633fb1348609d8939bed4069c2bebd9b85a0b08",
+    "workshop.json": "1936b61e13aaa9d8b3d2236aa62c9b59acfe7809cb76246855bb8f6a156a5a67"
+  },
+  "native_attempts": {
+    "native-1": "stopped at main menu after incorrect wait predicate; cleanup completed",
+    "native-2": "cancelled while queued to increase repeats; no game launched",
+    "native-3": "rejected stock-map path alias lookup; cleanup completed",
+    "native-4": "rejected sky-only framing and inaccessible GPU mesh reads; no timings accepted",
+    "native-5": "accepted framing and fixed-population timing; original sheet is superseded by native-6 closeups",
+    "native-6": "Exploratory 20-pair sheet completed by guarded adapter in owned paused session, original controller interrupted for verified cleanup; some scaled crowns clip; final scale-aware camera correction not recaptured"
+  },
+  "native_benchmark": {
+    "directory": "native",
+    "driver_snapshot": "native/benchmark-driver.txt",
+    "receipt": "native/session-receipt.json",
+    "timing": "native/frame-samples.json",
+    "dll_sha256": "e9b720c1b699d5863e81f8c48c5706b604f8fed6eddd86cdb2279c1325387264"
+  },
+  "native_sheet": {
+    "directory": "native",
+    "driver_snapshot": "native/sheet-driver.txt",
+    "adapter_snapshot": "native/sheet-adapter.txt",
+    "control": "native/control.json",
+    "receipt": "native/sheet-session-receipt.json",
+    "frame_source": "native-6-final",
+    "final_scale_aware_camera_native_verified": false
+  },
+  "native_files_sha256": {
+    "benchmark-driver.txt": "9665d220024a36025bfec5e05651668bdae5d9fd46b12644c2449c03a8a8e54f",
+    "build.json": "b20e2576908e1d7c5ba8e451399e8f26a8ffca1ba737bd1e2699fc9ad5aa80a4",
+    "cleanup.json": "d3c0d3d4cea51050a0da48e5d119b5dc48d2e5cdc8e0241e76d9920911a02dfe",
+    "control.json": "b7d6e2f47ea7912dac26f4e4aa27322ca60c6943ad932dcb97022fae12a651ed",
+    "environment.json": "4e8e3e6386afebb87d8b6ef0626e8e5b5845ccd71fa4b11a847b9237606d04d2",
+    "frame-samples.json": "e097ddeee36764e1644e9a1186996e2b33e45633ed322524251509d226579fcf",
+    "framing-1400.json": "6c27f4111c0e3bfff65321d66d6c3ba592d75e8a27c2cad966260a53a4ab122d",
+    "framing-350.json": "a04b985152dd747338ed5df786c34525e0f5732646ad6e982b36b787067d3ba1",
+    "image-sha256.json": "0e7b235af7d4a8304c849d0ef6fbcb67c5a5bdd003eb82602141db67d9a2863d",
+    "map.json": "58230a69eed863b67452c484b4f5236643a5c5d5a66eb3731b0f0e5a0594f7e0",
+    "native-catalog.json": "898bb23c8c1a80e72c175f10dadd5e69ca06ccf28b074515c6cd046dbcbaea55",
+    "resource-probe.txt": "d56e2fab8cad7ba70b52a635dcfc9ad78898cca2acf3f9257d795473d1553ed0",
+    "resources.json": "b46f1add82f5476a517b27c7885801294663172709841a4b7267ee5a87274638",
+    "selected.json": "03515a85f5b803d88b319082017359502ab9797631f362da07ecdcea241f4ef6",
+    "session-receipt.json": "8748dcc62f00225b6f72bc784035f9fb46b0ac6e1deef591c299fc16f8f643aa",
+    "sheet-adapter.txt": "3b3f13c46d9b4101ddf3d0b2b91901081272b0b0aebf08b090f8a08b02e5b462",
+    "sheet-catalog.json": "898bb23c8c1a80e72c175f10dadd5e69ca06ccf28b074515c6cd046dbcbaea55",
+    "sheet-driver.txt": "036d5607bb0608bdb446230cc6417c6d61668981903d3ab563239df13c06b069",
+    "sheet-environment.json": "8a3af73029c62fa1f32bb773c8fc61fadc914762e5fdea3f7f0053eb8b4ad3e6",
+    "sheet-resources.json": "b0b3848b0c920914d68a004d2ba9b2cf4e75dd51220ab8258a1e725bc5f38d0f",
+    "sheet-selected.json": "03515a85f5b803d88b319082017359502ab9797631f362da07ecdcea241f4ef6",
+    "sheet-session-receipt.json": "ae344fd8d6ec52e76b30503684113f5f10e0c30fb8974e3ae56408e4b1ad7eb8",
+    "sheet-status.json": "156afe7775cb1677636812e27918918eb2eec7ad42e0e5f32d673a5b6855d075",
+    "specimens.json": "546ff06e46dc5a2f9a0e960212cde28d59e38dfb2cc1c4c848aec755398566a3",
+    "status.json": "b6d78aa8624746f11e07600e25468ba53a57521d023d380e98e32a295530905c"
+  }
+}

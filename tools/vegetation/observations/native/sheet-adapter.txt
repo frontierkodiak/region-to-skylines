@@ -1,0 +1,41 @@
+"""Reframe only PL-1326's paused, already-owned disposable native session."""
+import hashlib
+import json
+from pathlib import Path
+import sys
+import time
+
+root = Path('/home/caleb/experiments/PL-1326-vegetation')
+sys.path.insert(0, str(root / 'source/tools/vegetation'))
+from native import capture_sheet, write
+from cs1_harness.config import Config
+from cs1_harness.session import Session, SteamLog, game_pids
+from cs1_harness.offline_steam import Guard
+
+owner = 1517959
+assert b'native-6' in Path(f'/proc/{owner}/cmdline').read_bytes()
+assert Path(f'/proc/{owner}/stat').read_text().split(') ')[1].startswith('T ')
+cfg = Config.for_host()
+assert set(game_pids(cfg.display)) == {1584814}
+session = Session(cfg, cfg.harness_home / 'runs/native-6-1517959')
+session.offline_guard = Guard(cfg.steam_root)
+session.steam_log = SteamLog(cfg, session.steam.log_path)
+assert session.stage.name == 'native-6-1517959', session.stage
+out = root / 'native-6-final'
+out.mkdir(exist_ok=False)
+original = root / 'native-6'
+catalog = json.loads((original / 'native-catalog.json').read_text())
+selected = json.loads((original / 'selected.json').read_text())
+base = [t for t in catalog['trees'] if '.' not in t['name'] and t.get('main')
+        and not any(w in t['name'].lower() for w in ('grass','bush','flower','reed','fern','winter'))]
+deadline = time.monotonic() + 60
+while session.client.call('job').get('state') == 'running':
+    if time.monotonic() > deadline:
+        raise TimeoutError('Earlier owned job did not finish')
+    time.sleep(.25)
+write(out / 'control.json', {'stage':str(session.stage), 'owner_pid':owner,
+      'driver_sha256':hashlib.sha256((root/'source/tools/vegetation/native.py').read_bytes()).hexdigest(),
+      'adapter_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+      'purpose':'Reframe both-tree height envelope in the already-owned paused disposable session'})
+capture_sheet(session, out, catalog, selected, base)
+write(out / 'status.json', session.client.call('status'))

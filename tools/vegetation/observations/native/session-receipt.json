@@ -1,0 +1,2400 @@
+{
+  "stage": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/native-5-1442283",
+  "audio_environment": {
+    "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+    "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+    "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+    "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+    "SDL_AUDIODRIVER": "dummy"
+  },
+  "audio_sinks": [
+    {
+      "index": 15,
+      "state": "SUSPENDED",
+      "name": "cs1-null",
+      "description": "CS1 silent sink",
+      "driver": "PipeWire",
+      "sample_specification": "float32le 2ch 48000Hz",
+      "channel_map": "front-left,front-right",
+      "owner_module": 4294967295,
+      "mute": false,
+      "volume": {
+        "front-left": {
+          "value": 65536,
+          "value_percent": "100%",
+          "db": "0.00 dB"
+        },
+        "front-right": {
+          "value": 65536,
+          "value_percent": "100%",
+          "db": "0.00 dB"
+        }
+      },
+      "balance": 0.0,
+      "base_volume": {
+        "value": 65536,
+        "value_percent": "100%",
+        "db": "0.00 dB"
+      },
+      "monitor_source": "cs1-null.monitor",
+      "latency": {
+        "actual": 0.0,
+        "configured": 0.0
+      },
+      "flags": [
+        "HARDWARE",
+        "DECIBEL_VOLUME",
+        "LATENCY"
+      ],
+      "properties": {
+        "factory.name": "support.null-audio-sink",
+        "node.name": "cs1-null",
+        "device.description": "CS1 silent sink",
+        "media.class": "Audio/Sink",
+        "audio.position": "[ FL FR ]",
+        "factory.id": "7",
+        "clock.quantum-limit": "8192",
+        "node.driver": "true",
+        "factory.mode": "merge",
+        "audio.adapt.follower": "",
+        "library.name": "audioconvert/libspa-audioconvert",
+        "object.id": "15",
+        "object.serial": "15"
+      },
+      "ports": [],
+      "active_port": null,
+      "formats": [
+        "pcm"
+      ]
+    }
+  ],
+  "audio_graph": [
+    {
+      "id": 0,
+      "type": "PipeWire:Interface:Core",
+      "version": 4,
+      "permissions": [
+        "r",
+        "x",
+        "m"
+      ],
+      "info": {
+        "cookie": 2832237934,
+        "user-name": "caleb",
+        "host-name": "blade",
+        "version": "1.0.5",
+        "name": "cs1-null",
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "clock.power-of-two-quantum": true,
+          "config.name": "cs1-null.conf",
+          "core.daemon": true,
+          "core.name": "cs1-null",
+          "cpu.max-align": 32,
+          "default.clock.max-quantum": 2048,
+          "default.clock.min-quantum": 32,
+          "default.clock.quantum": 1024,
+          "default.clock.quantum-floor": 4,
+          "default.clock.quantum-limit": 8192,
+          "default.clock.rate": 48000,
+          "default.video.height": 480,
+          "default.video.rate.denom": 1,
+          "default.video.rate.num": 25,
+          "default.video.width": 640,
+          "link.max-buffers": 64,
+          "log.level": 2,
+          "mem.allow-mlock": true,
+          "mem.warn-mlock": false,
+          "object.id": 0,
+          "object.serial": 0,
+          "settings.check-quantum": false,
+          "settings.check-rate": false,
+          "support.dbus": false
+        }
+      }
+    },
+    {
+      "id": 1,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-protocol-native",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-protocol-native.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Native protocol using unix sockets",
+          "module.name": "libpipewire-module-protocol-native",
+          "module.version": "1.0.5",
+          "object.id": 1,
+          "object.serial": 1
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-spa-node-factory",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-spa-node-factory.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Provide a factory to make SPA nodes",
+          "module.name": "libpipewire-module-spa-node-factory",
+          "module.version": "1.0.5",
+          "object.id": 2,
+          "object.serial": 2
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": "PipeWire:Interface:Factory",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "spa-node-factory",
+        "type": "PipeWire:Interface:Node",
+        "version": 3,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "factory.name": "spa-node-factory",
+          "factory.type.name": "PipeWire:Interface:Node",
+          "factory.type.version": 3,
+          "module.id": 2,
+          "object.id": 3,
+          "object.serial": 3
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-client-node",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-client-node.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Allow clients to create and control remote nodes",
+          "module.name": "libpipewire-module-client-node",
+          "module.version": "1.0.5",
+          "object.id": 4,
+          "object.serial": 4
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": "PipeWire:Interface:Factory",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "client-node",
+        "type": "PipeWire:Interface:ClientNode",
+        "version": 5,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "factory.name": "client-node",
+          "factory.type.name": "PipeWire:Interface:ClientNode",
+          "factory.type.version": 5,
+          "module.id": 4,
+          "object.id": 5,
+          "object.serial": 5
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-adapter",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-adapter.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Manage adapter nodes",
+          "module.name": "libpipewire-module-adapter",
+          "module.version": "1.0.5",
+          "object.id": 6,
+          "object.serial": 6
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": "PipeWire:Interface:Factory",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "adapter",
+        "type": "PipeWire:Interface:Node",
+        "version": 3,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "factory.name": "adapter",
+          "factory.type.name": "PipeWire:Interface:Node",
+          "factory.type.version": 3,
+          "factory.usage": "factory.name=<factory-name> (library.name=<library-name>) node.name=<string> ",
+          "module.id": 6,
+          "object.id": 7,
+          "object.serial": 7
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-link-factory",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-link-factory.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Allow clients to create links",
+          "module.name": "libpipewire-module-link-factory",
+          "module.usage": "( allow.link.passive=<bool, default false> ) ",
+          "module.version": "1.0.5",
+          "object.id": 8,
+          "object.serial": 8
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": "PipeWire:Interface:Factory",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "link-factory",
+        "type": "PipeWire:Interface:Link",
+        "version": 3,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "factory.name": "link-factory",
+          "factory.type.name": "PipeWire:Interface:Link",
+          "factory.type.version": 3,
+          "factory.usage": "(link.output.node=<output-node>) (link.output.port=<output-port>) (link.input.node=<input-node>) (link.input.port=<input-port>) (object.linger=<bool>) (link.passive=<bool>)",
+          "module.id": 8,
+          "object.id": 9,
+          "object.serial": 9
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-metadata",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-metadata.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Allow clients to create metadata store",
+          "module.name": "libpipewire-module-metadata",
+          "module.version": "1.0.5",
+          "object.id": 10,
+          "object.serial": 10
+        }
+      }
+    },
+    {
+      "id": 11,
+      "type": "PipeWire:Interface:Factory",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "metadata",
+        "type": "PipeWire:Interface:Metadata",
+        "version": 3,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "factory.name": "metadata",
+          "factory.type.name": "PipeWire:Interface:Metadata",
+          "factory.type.version": 3,
+          "factory.usage": "(metadata.name = <name> ) (metadata.values = [    { ( id = <int> ) key = <string> ( type = <string> ) value = <json> }    ...  ] )",
+          "module.id": 10,
+          "object.id": 11,
+          "object.serial": 11
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-access",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-access.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Perform access check",
+          "module.name": "libpipewire-module-access",
+          "module.usage": "( access.socket={ <socket>=<access>, ... } ) ( access.legacy=true ) ",
+          "module.version": "1.0.5",
+          "object.id": 12,
+          "object.serial": 12
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": "PipeWire:Interface:Module",
+      "version": 3,
+      "permissions": [
+        "r",
+        "m"
+      ],
+      "info": {
+        "name": "libpipewire-module-protocol-pulse",
+        "filename": "/usr/lib/x86_64-linux-gnu/pipewire-0.3/libpipewire-module-protocol-pulse.so",
+        "args": null,
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "module.author": "Wim Taymans <wim.taymans@gmail.com>",
+          "module.description": "Implement a PulseAudio server",
+          "module.name": "libpipewire-module-protocol-pulse",
+          "module.usage": "[ server.address=(tcp:[<ip>:]<port>|unix:<path>)[,...] ] ",
+          "module.version": "1.0.5",
+          "object.id": 13,
+          "object.serial": 13
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": "PipeWire:Interface:Node",
+      "version": 3,
+      "permissions": [
+        "r",
+        "w",
+        "x",
+        "m"
+      ],
+      "info": {
+        "max-input-ports": 0,
+        "max-output-ports": 0,
+        "change-mask": [
+          "input-ports",
+          "output-ports",
+          "state",
+          "props",
+          "params"
+        ],
+        "n-input-ports": 0,
+        "n-output-ports": 0,
+        "state": "suspended",
+        "error": null,
+        "props": {
+          "clock.id": "monotonic",
+          "clock.name": "clock.system.monotonic",
+          "clock.quantum-limit": 8192,
+          "factory.id": 3,
+          "factory.name": "support.node.driver",
+          "node.driver": true,
+          "node.group": "pipewire.dummy",
+          "node.name": "Dummy-Driver",
+          "object.id": 14,
+          "object.serial": 14,
+          "priority.driver": 20000
+        },
+        "params": {}
+      }
+    },
+    {
+      "id": 15,
+      "type": "PipeWire:Interface:Node",
+      "version": 3,
+      "permissions": [
+        "r",
+        "w",
+        "x",
+        "m"
+      ],
+      "info": {
+        "max-input-ports": 65,
+        "max-output-ports": 0,
+        "change-mask": [
+          "input-ports",
+          "output-ports",
+          "state",
+          "props",
+          "params"
+        ],
+        "n-input-ports": 0,
+        "n-output-ports": 0,
+        "state": "suspended",
+        "error": null,
+        "props": {
+          "audio.adapt.follower": "",
+          "audio.position": "[ FL FR ]",
+          "clock.quantum-limit": 8192,
+          "factory.id": 7,
+          "factory.mode": "merge",
+          "factory.name": "support.null-audio-sink",
+          "library.name": "audioconvert/libspa-audioconvert",
+          "media.class": "Audio/Sink",
+          "node.description": "CS1 silent sink",
+          "node.driver": true,
+          "node.name": "cs1-null",
+          "object.id": 15,
+          "object.serial": 15
+        },
+        "params": {
+          "EnumFormat": [
+            {
+              "mediaType": "audio",
+              "mediaSubtype": "raw",
+              "format": {
+                "default": "F32P",
+                "alt1": "F32P",
+                "alt2": "F32LE"
+              },
+              "rate": {
+                "default": 48000,
+                "min": 1,
+                "max": 2147483647
+              },
+              "channels": 2,
+              "position": [
+                "FL",
+                "FR"
+              ]
+            }
+          ],
+          "PropInfo": [
+            {
+              "id": "volume",
+              "description": "Volume",
+              "type": {
+                "default": 1.0,
+                "min": 0.0,
+                "max": 10.0
+              }
+            },
+            {
+              "id": "mute",
+              "description": "Mute",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              }
+            },
+            {
+              "id": "channelVolumes",
+              "description": "Channel Volumes",
+              "type": {
+                "default": 1.0,
+                "min": 0.0,
+                "max": 10.0
+              },
+              "container": "Array"
+            },
+            {
+              "id": "channelMap",
+              "description": "Channel Map",
+              "type": "",
+              "container": "Array"
+            },
+            {
+              "id": "monitorMute",
+              "description": "Monitor Mute",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              }
+            },
+            {
+              "id": "monitorVolumes",
+              "description": "Monitor Volumes",
+              "type": {
+                "default": 1.0,
+                "min": 0.0,
+                "max": 10.0
+              },
+              "container": "Array"
+            },
+            {
+              "id": "softMute",
+              "description": "Soft Mute",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              }
+            },
+            {
+              "id": "softVolumes",
+              "description": "Soft Volumes",
+              "type": {
+                "default": 1.0,
+                "min": 0.0,
+                "max": 10.0
+              },
+              "container": "Array"
+            },
+            {
+              "name": "monitor.channel-volumes",
+              "description": "Monitor channel volume",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.disable",
+              "description": "Disable Channel mixing",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.min-volume",
+              "description": "Minimum volume level",
+              "type": {
+                "default": 0.0,
+                "min": 0.0,
+                "max": 10.0
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.max-volume",
+              "description": "Maximum volume level",
+              "type": {
+                "default": 10.0,
+                "min": 0.0,
+                "max": 10.0
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.normalize",
+              "description": "Normalize Volumes",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.mix-lfe",
+              "description": "Mix LFE into channels",
+              "type": {
+                "default": true,
+                "alt1": true,
+                "alt2": false
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.upmix",
+              "description": "Enable upmixing",
+              "type": {
+                "default": true,
+                "alt1": true,
+                "alt2": false
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.lfe-cutoff",
+              "description": "LFE cutoff frequency",
+              "type": {
+                "default": 0.0,
+                "min": 0.0,
+                "max": 1000.0
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.fc-cutoff",
+              "description": "FC cutoff frequency (Hz)",
+              "type": {
+                "default": 0.0,
+                "min": 0.0,
+                "max": 48000.0
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.rear-delay",
+              "description": "Rear channels delay (ms)",
+              "type": {
+                "default": 0.0,
+                "min": 0.0,
+                "max": 1000.0
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.stereo-widen",
+              "description": "Stereo widen",
+              "type": {
+                "default": 0.0,
+                "min": 0.0,
+                "max": 1.0
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.hilbert-taps",
+              "description": "Taps for phase shift of rear",
+              "type": {
+                "default": 0,
+                "min": 0,
+                "max": 255
+              },
+              "params": true
+            },
+            {
+              "name": "channelmix.upmix-method",
+              "description": "Upmix method to use",
+              "type": "none",
+              "params": true,
+              "labels": [
+                "none",
+                "Disabled",
+                "simple",
+                "Simple upmixing",
+                "psd",
+                "Passive Surround Decoding"
+              ]
+            },
+            {
+              "id": "rate",
+              "description": "Rate scaler",
+              "type": {
+                "default": 1.0,
+                "min": 0.0,
+                "max": 10.0
+              }
+            },
+            {
+              "id": "quality",
+              "name": "resample.quality",
+              "description": "Resample Quality",
+              "type": {
+                "default": 4,
+                "min": 0,
+                "max": 14
+              },
+              "params": true
+            },
+            {
+              "name": "resample.disable",
+              "description": "Disable Resampling",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              },
+              "params": true
+            },
+            {
+              "name": "dither.noise",
+              "description": "Add noise bits",
+              "type": {
+                "default": 0,
+                "min": 0,
+                "max": 16
+              },
+              "params": true
+            },
+            {
+              "name": "dither.method",
+              "description": "The dithering method",
+              "type": "none",
+              "params": true,
+              "labels": [
+                "none",
+                "Disabled",
+                "rectangular",
+                "Rectangular dithering",
+                "triangular",
+                "Triangular dithering",
+                "triangular-hf",
+                "Sloped Triangular dithering",
+                "wannamaker3",
+                "Wannamaker 3 dithering",
+                "shaped5",
+                "Lipshitz 5 dithering"
+              ]
+            },
+            {
+              "name": "debug.wav-path",
+              "description": "Path to WAV file",
+              "type": "",
+              "params": true
+            },
+            {
+              "name": "channelmix.lock-volumes",
+              "description": "Disable volume updates",
+              "type": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              },
+              "params": true
+            }
+          ],
+          "Props": [
+            {
+              "volume": 1.0,
+              "mute": false,
+              "channelVolumes": [
+                1.0,
+                1.0
+              ],
+              "channelMap": [
+                "FL",
+                "FR"
+              ],
+              "softMute": false,
+              "softVolumes": [
+                1.0,
+                1.0
+              ],
+              "monitorMute": false,
+              "monitorVolumes": [
+                1.0,
+                1.0
+              ],
+              "params": [
+                "monitor.channel-volumes",
+                false,
+                "channelmix.disable",
+                false,
+                "channelmix.min-volume",
+                0.0,
+                "channelmix.max-volume",
+                10.0,
+                "channelmix.normalize",
+                false,
+                "channelmix.mix-lfe",
+                true,
+                "channelmix.upmix",
+                true,
+                "channelmix.lfe-cutoff",
+                0.0,
+                "channelmix.fc-cutoff",
+                0.0,
+                "channelmix.rear-delay",
+                0.0,
+                "channelmix.stereo-widen",
+                0.0,
+                "channelmix.hilbert-taps",
+                0,
+                "channelmix.upmix-method",
+                "none",
+                "resample.quality",
+                4,
+                "resample.disable",
+                false,
+                "dither.noise",
+                0,
+                "dither.method",
+                "none",
+                "debug.wav-path",
+                "",
+                "channelmix.lock-volumes",
+                false
+              ]
+            }
+          ],
+          "Format": [],
+          "EnumPortConfig": [
+            {
+              "direction": "Input",
+              "mode": {
+                "default": "none",
+                "alt1": "none",
+                "alt2": "dsp",
+                "alt3": "convert"
+              },
+              "monitor": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              },
+              "control": {
+                "default": false,
+                "alt1": false,
+                "alt2": true
+              }
+            }
+          ],
+          "PortConfig": [
+            {
+              "direction": "Input",
+              "mode": "dsp",
+              "monitor": false,
+              "control": false
+            }
+          ],
+          "Latency": [],
+          "ProcessLatency": [],
+          "Tag": []
+        }
+      }
+    },
+    {
+      "id": 16,
+      "type": "PipeWire:Interface:Metadata",
+      "version": 3,
+      "permissions": [
+        "r",
+        "w",
+        "x"
+      ],
+      "props": {
+        "metadata.name": "settings",
+        "object.serial": 16
+      },
+      "metadata": [
+        {
+          "subject": 0,
+          "key": "log.level",
+          "type": "",
+          "value": 2
+        },
+        {
+          "subject": 0,
+          "key": "clock.rate",
+          "type": "",
+          "value": 48000
+        },
+        {
+          "subject": 0,
+          "key": "clock.allowed-rates",
+          "type": "",
+          "value": "[ 48000 ]"
+        },
+        {
+          "subject": 0,
+          "key": "clock.quantum",
+          "type": "",
+          "value": 1024
+        },
+        {
+          "subject": 0,
+          "key": "clock.min-quantum",
+          "type": "",
+          "value": 32
+        },
+        {
+          "subject": 0,
+          "key": "clock.max-quantum",
+          "type": "",
+          "value": 2048
+        },
+        {
+          "subject": 0,
+          "key": "clock.force-quantum",
+          "type": "",
+          "value": 0
+        },
+        {
+          "subject": 0,
+          "key": "clock.force-rate",
+          "type": "",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "type": "PipeWire:Interface:Client",
+      "version": 3,
+      "permissions": [
+        "r",
+        "w",
+        "x",
+        "m"
+      ],
+      "info": {
+        "change-mask": [
+          "props"
+        ],
+        "props": {
+          "application.language": "en_US.UTF-8",
+          "application.name": "pw-dump",
+          "application.process.binary": "pw-dump",
+          "application.process.host": "blade",
+          "application.process.id": 1461494,
+          "application.process.session-id": 265985,
+          "application.process.user": "caleb",
+          "clock.power-of-two-quantum": true,
+          "core.name": "pipewire-caleb-1461494",
+          "core.version": "1.0.5",
+          "cpu.max-align": 32,
+          "default.clock.max-quantum": 2048,
+          "default.clock.min-quantum": 32,
+          "default.clock.quantum": 1024,
+          "default.clock.quantum-floor": 4,
+          "default.clock.quantum-limit": 8192,
+          "default.clock.rate": 48000,
+          "default.video.height": 480,
+          "default.video.rate.denom": 1,
+          "default.video.rate.num": 25,
+          "default.video.width": 640,
+          "link.max-buffers": 64,
+          "log.level": 0,
+          "mem.allow-mlock": true,
+          "mem.warn-mlock": false,
+          "module.id": 1,
+          "object.id": 17,
+          "object.serial": 18,
+          "pipewire.access": "unrestricted",
+          "pipewire.protocol": "protocol-native",
+          "pipewire.sec.gid": 1000,
+          "pipewire.sec.label": "unconfined",
+          "pipewire.sec.pid": 1461494,
+          "pipewire.sec.socket": "cs1-null",
+          "pipewire.sec.uid": 1000,
+          "remote.name": "[pipewire-0-manager,pipewire-0]",
+          "settings.check-quantum": false,
+          "settings.check-rate": false,
+          "window.x11.display": ":57"
+        }
+      }
+    }
+  ],
+  "display": ":57",
+  "offline_steam": {
+    "flags": {
+      "wants_offline_mode": true,
+      "skip_offline_mode_warning": true
+    },
+    "preflight_sync": [
+      {
+        "timestamp": "2026-11-23 19:43:53",
+        "login": false,
+        "offline_mode": true,
+        "failed_sync": true
+      }
+    ],
+    "latest_sync": [
+      {
+        "timestamp": "2026-11-23 19:56:30",
+        "login": false,
+        "offline_mode": true,
+        "failed_sync": true
+      }
+    ],
+    "fresh_syncs": 3,
+    "cloud_initial_sha256": "5c5b630c49d3db4ec6f2b4d984a1e38e5934a31ac311828e3e6b8a758101fa7a"
+  },
+  "carbon_preflight": {
+    "idle": true,
+    "checked_utc": "2026-11-24T00:44:08Z"
+  },
+  "gpu": {
+    "bus": "05:00.0",
+    "name": "NVIDIA GeForce RTX 2080 Ti",
+    "egl": "egl0",
+    "label": "PL-1326 vegetation supply",
+    "mem_used_before_mib": 8146,
+    "mem_total_mib": 11264
+  },
+  "control": true,
+  "mod_sha256": "e9b720c1b699d5863e81f8c48c5706b604f8fed6eddd86cdb2279c1325387264",
+  "launch_args": [
+    "-silent",
+    "-applaunch",
+    "255710",
+    "-screen-width",
+    "1920",
+    "-screen-height",
+    "1080",
+    "-screen-fullscreen",
+    "1",
+    "--noWorkshop",
+    "-logFile",
+    "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/runs/native-5-1442283/game.log"
+  ],
+  "observe": {
+    "record": null,
+    "live_dir": null,
+    "live_url": null
+  },
+  "audio_processes": [
+    {
+      "pid": 1461491,
+      "name": "pipewire",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461501,
+      "name": "dbus-daemon",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461661,
+      "name": "flatpak-session",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461666,
+      "name": "p11-kit-server",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461674,
+      "name": "xdg-permission-",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461684,
+      "name": "at-spi-bus-laun",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461691,
+      "name": "dbus-daemon",
+      "display": ":57",
+      "ppid": 1461684,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461763,
+      "name": "bwrap",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461764,
+      "name": "xdg-dbus-proxy",
+      "display": ":57",
+      "ppid": 1461763,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461793,
+      "name": "bash",
+      "display": ":57",
+      "ppid": 1461790,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1461815,
+      "name": "srt-logger",
+      "display": ":57",
+      "ppid": 1461790,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1461830,
+      "name": "steam",
+      "display": ":57",
+      "ppid": 1461793,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1461838,
+      "name": "flatpak-portal",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461905,
+      "name": "xdg-desktop-por",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461921,
+      "name": "xdg-desktop-por",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461927,
+      "name": "at-spi2-registr",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461933,
+      "name": "gvfsd",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1461992,
+      "name": "srt-client-cont",
+      "display": ":57",
+      "ppid": 1461830,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462003,
+      "name": "x86_64-linux-gn",
+      "display": ":57",
+      "ppid": 1461992,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462008,
+      "name": "steam-runtime-l",
+      "display": ":57",
+      "ppid": 1461992,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462055,
+      "name": "bwrap",
+      "display": null,
+      "ppid": 1461838,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": null,
+        "PULSE_CLIENTCONFIG": null,
+        "PULSE_SERVER": null,
+        "PIPEWIRE_REMOTE": null,
+        "SDL_AUDIODRIVER": null
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": null,
+        "kind": "unset",
+        "run_owned": false
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1462070,
+      "name": "bwrap",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1462071,
+      "name": "xdg-dbus-proxy",
+      "display": ":57",
+      "ppid": 1462070,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1462075,
+      "name": "bwrap",
+      "display": null,
+      "ppid": 1462055,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": null,
+        "PULSE_CLIENTCONFIG": null,
+        "PULSE_SERVER": null,
+        "PIPEWIRE_REMOTE": null,
+        "SDL_AUDIODRIVER": null
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": null,
+        "kind": "unset",
+        "run_owned": false
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462077,
+      "name": "pv-adverb",
+      "display": ":57",
+      "ppid": 1462075,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462101,
+      "name": "steam",
+      "display": ":57",
+      "ppid": 1462077,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462289,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462101,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462347,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462289,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462348,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462289,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462372,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462289,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462373,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462348,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1462539,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462347,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465112,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462348,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465516,
+      "name": "steamwebhelper",
+      "display": ":57",
+      "ppid": 1462348,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465523,
+      "name": "steam-runtime-l",
+      "display": ":57",
+      "ppid": 1462101,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465528,
+      "name": "steam-runtime-s",
+      "display": ":57",
+      "ppid": 1462003,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465529,
+      "name": "reaper",
+      "display": ":57",
+      "ppid": 1465528,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465535,
+      "name": "steam-runtime-l",
+      "display": ":57",
+      "ppid": 1465529,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465784,
+      "name": "bwrap",
+      "display": null,
+      "ppid": 1461838,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": null,
+        "PULSE_CLIENTCONFIG": null,
+        "PULSE_SERVER": null,
+        "PIPEWIRE_REMOTE": null,
+        "SDL_AUDIODRIVER": null
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": null,
+        "kind": "unset",
+        "run_owned": false
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1465804,
+      "name": "bwrap",
+      "display": ":57",
+      "ppid": 1376635,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1465805,
+      "name": "xdg-dbus-proxy",
+      "display": ":57",
+      "ppid": 1465804,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "absent",
+        "run_owned": false
+      }
+    },
+    {
+      "pid": 1465810,
+      "name": "bwrap",
+      "display": null,
+      "ppid": 1465784,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": null,
+        "PULSE_CLIENTCONFIG": null,
+        "PULSE_SERVER": null,
+        "PIPEWIRE_REMOTE": null,
+        "SDL_AUDIODRIVER": null
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": null,
+        "kind": "unset",
+        "run_owned": false
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465814,
+      "name": "pv-adverb",
+      "display": ":57",
+      "ppid": 1465810,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/run/flatpak/pulse/config",
+        "PULSE_SERVER": "unix:/run/flatpak/pulse/native",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    },
+    {
+      "pid": 1465838,
+      "name": "Cities.x64",
+      "display": ":57",
+      "ppid": 1465814,
+      "audio_environment": {
+        "ALSA_CONFIG_PATH": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/alsa.conf",
+        "PULSE_CLIENTCONFIG": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse.conf",
+        "PULSE_SERVER": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "PIPEWIRE_REMOTE": "/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/cs1-null",
+        "SDL_AUDIODRIVER": "dummy"
+      },
+      "physical_audio_fds": [],
+      "pulse_endpoint": {
+        "server": "unix:/home/caleb/.var/app/com.valvesoftware.Steam/opt/cs1-harness/run-audio/pulse",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      },
+      "flatpak_pulse_endpoint": {
+        "server": "unix:/run/flatpak/pulse/native",
+        "kind": "socket",
+        "device": 66307,
+        "inode": 59010051,
+        "run_owned": true
+      }
+    }
+  ],
+  "menu_status": {
+    "protocol": 1,
+    "scene": "IntroScreen",
+    "in_game": false,
+    "in_asset_editor": false,
+    "modal": {
+      "count": 0,
+      "top": null,
+      "top_visible": false
+    },
+    "color_space": "Linear",
+    "safe_readback": {
+      "installed": false,
+      "reads": 0,
+      "from_cpu": 0,
+      "from_gpu": 0
+    },
+    "mode": "None",
+    "loading": false,
+    "loading_complete": false,
+    "unity": "5.6.7f1",
+    "gpu": "NVIDIA GeForce RTX 2080 Ti/PCIe/SSE2",
+    "gpu_memory_mb": 11264,
+    "screen": [
+      1920,
+      1080
+    ],
+    "fixed_delta_time": 0.01666666753590107,
+    "frame_ms": 19.872905731201172,
+    "render_fps": 50.319766998291016,
+    "enabled_mod_count": 0,
+    "plugins": [
+      {
+        "name": "HardMode",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/HardMode"
+      },
+      {
+        "name": "UnlimitedMoney",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedMoney"
+      },
+      {
+        "name": "UnlimitedOilAndOre",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedOilAndOre"
+      },
+      {
+        "name": "UnlimitedSoil",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlimitedSoil"
+      },
+      {
+        "name": "UnlockAll",
+        "enabled": false,
+        "builtin": true,
+        "path": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Files/Mods/UnlockAll"
+      },
+      {
+        "name": "CitiesBridge",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/CitiesBridge"
+      },
+      {
+        "name": "Cs1Harness",
+        "enabled": false,
+        "builtin": false,
+        "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Mods/Cs1Harness"
+      }
+    ],
+    "error_count": 0,
+    "errors": [],
+    "ok": true
+  },
+  "game_gpu": [
+    {
+      "bus": "05:00.0",
+      "pid": 1465838,
+      "type": "G",
+      "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
+      "mib": 1576
+    }
+  ],
+  "pointer_parked": {
+    "display": ":57",
+    "root_position": [
+      960,
+      540
+    ]
+  },
+  "cleanup": {
+    "game": [],
+    "steam_instances": [],
+    "units_active": []
+  }
+}
