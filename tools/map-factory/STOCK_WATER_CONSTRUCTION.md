@@ -10,8 +10,10 @@ authoring only cuts terrain. Existing transport grading remains separate.
 - Mapped broad rivers use a 192 m section and up to 40 m depth; line-only
   side channels use 64 m and 16 m. River-area interiors are retained.
 - Large mapped lakes are deepened in place. Bodies below 54 native nodes
-  remain ground/marsh, without an automatic pool. Small mapped streams are
-  unforced, not silently credited with maintained water.
+  remain ground/marsh, without an automatic pool. Perennial mapped streams
+  use the narrow channel, not a series of pools. Explicit intermittent
+  reaches remain unforced. A disconnected reach without an edge/sea outlet
+  receives no invented supply; this limitation remains in its port report.
 - River feeds sit at least 128 m inside mapped entry reaches. One inland
   head is used where there is a single receiving outlet. There is no
   regulator at each river node and no automatic starting reservoir.

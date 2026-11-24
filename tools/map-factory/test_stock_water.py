@@ -88,7 +88,7 @@ class StockWaterTest(unittest.TestCase):
         self.assertAlmostEqual(depth[540, round((1000 + 8640) / 16)], 40)
         self.assertEqual(len(report["lake_components"]), 2)
 
-    def test_small_stream_is_not_replaced_by_regulator_pools(self):
+    def test_stream_uses_continuous_narrow_channel_not_regulator_pools(self):
         ground = np.full((1081, 1081), 100.0)
         banks = ground.copy()
         geometry = {
@@ -97,12 +97,24 @@ class StockWaterTest(unittest.TestCase):
                 {"pts": [point(-9000, 0), point(9000, 0)], "name": "test stream"}
             ],
         }
-        depth, report = hydrology(ground, banks, geometry, DESIGN)
-        self.assertFalse(depth.any())
-        self.assertTrue(np.array_equal(ground, banks))
-        self.assertEqual(report["sources"], [])
+        with patch(
+            "stock_water.local_catchment_area", return_value=np.full_like(ground, 75e6)
+        ):
+            depth, report = hydrology(ground, banks, geometry, DESIGN)
+        self.assertAlmostEqual(depth[540, 540], 16)
+        self.assertEqual(depth[545, 540], 0)
+        self.assertTrue((ground <= banks).all())
+        self.assertEqual(len(report["sources"]), 1)
+        self.assertEqual(report["sources"][0]["role"], "inlet")
         self.assertTrue(report["samples"])
-        self.assertGreater(report["mapped_stream_nodes_left_unforced"], 0)
+        self.assertEqual(report["mapped_stream_nodes_without_initial_water"], 0)
+
+        ground[:] = banks
+        geometry["streams"][0]["intermittent"] = 1
+        dry, unforced = hydrology(ground, banks, geometry, DESIGN)
+        self.assertFalse(dry.any())
+        self.assertEqual(unforced["sources"], [])
+        self.assertGreater(unforced["mapped_stream_nodes_without_initial_water"], 0)
 
 
 if __name__ == "__main__":

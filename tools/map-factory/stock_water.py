@@ -75,8 +75,16 @@ def hydrology(ground, banks, geometry, design):
     geometry, classification = surface_geometry(geometry)
     square = geometry["sq"]
     original = ground.copy()
-    line = raster(square, geometry.get("rivers", []))
     all_streams = raster(square, geometry.get("streams", []))
+    line = raster(
+        square,
+        [
+            feature
+            for field in ["rivers", "streams"]
+            for feature in geometry.get(field, [])
+            if feature.get("intermittent") not in (True, 1, "yes", "true")
+        ],
+    )
     ocean = raster(square, geometry.get("oceans", []), True)
     river_area = raster(square, geometry.get("riverAreas", []), True)
     lakes = raster(square, geometry.get("lakes", []), True)
@@ -308,7 +316,9 @@ def hydrology(ground, banks, geometry, design):
         "water_max_cut_m": float((original - ground).max()),
         "water_max_raise_m": 0,
         "water_changed_nodes": int((original != ground).sum()),
-        "mapped_stream_nodes_left_unforced": int(all_streams.sum()),
+        "mapped_stream_nodes_without_initial_water": int(
+            (all_streams & (depth <= 0.1)).sum()
+        ),
         "mapped_lake_components": lake_count,
         "wet_components": count,
         "unmodeled_short_surface_reaches": [],
