@@ -18,3 +18,7 @@ Map-makers use deliberate outlets and submerged sink controls: [Maestro and Jake
 Commit the implementation/tests before preparing any v7 output. Prepare all eight original cases and full original natural cohorts plus the new engineered outlet anchors before native outcomes. Keep both earlier native attempts and all rejected packages; do not overwrite them. Run the complete new eight-case native cohort through the existing blade/offline/FIFO guards. Independent review is for the finished source and results, not permission to measure.
 
 Natural retention remains >0.1 m within 64 m for at least 95% of each original sector/body, including initialization. Engineered anchors remain exact depth >=0.5 m at every captured sample. Original flooding gates, historical reports and holdouts are unchanged. No new admission/readiness system or general safe-water class is introduced.
+
+## Preparation correction before the new native cohort
+
+The first v7 preparation stopped before a package: a radial source apron could author a shallow detached island on the far side of an excluded underground strip. No source with the required1m pool could then be placed there. The source-pool operation now writes only the allowed apron connected to its own centre. It does not remove original mapped water, change source geometry, cross the underground strip or select native wet outcomes. The failed preparation/source commit0e5fbb6 remain; the corrected method gets a fresh source/input binding and all eight cases before native outcomes.

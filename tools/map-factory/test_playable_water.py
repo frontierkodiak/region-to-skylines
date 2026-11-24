@@ -325,6 +325,12 @@ class PlayableWaterTests(unittest.TestCase):
         self.assertEqual(source["footprint_pool"]["tunnel_gap_cells_changed"], 0)
         np.testing.assert_array_equal(ground[forbidden], 99)
         np.testing.assert_array_equal(depth[forbidden], 0)
+        # A radial apron cannot teleport across the dry tunnel barrier.
+        np.testing.assert_array_equal(depth[:, 18:], 0)
+        np.testing.assert_array_equal(ground[:, 18:], 99)
+        self.assertGreater(
+            source["footprint_pool"]["disconnected_apron_cells_not_authored"], 0
+        )
         self.assertGreaterEqual(
             source["footprint_pool"]["minimum_authored_core_depth_m"], 8
         )

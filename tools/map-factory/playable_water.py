@@ -211,7 +211,15 @@ def source_pool(ground, depth, levels, forbidden, source, design_depth=None):
     radius = 10 + 0.4 * math.sqrt(setting)
     pool_depth = 16 if source["class"] in ["lake", "ocean"] else 8
     wanted = pool_depth * np.clip((radius + 32 - distance) / 32, 0, 1)
-    pool = (wanted > 0) & ~excluded
+    allowed_pool = (wanted > 0) & ~excluded
+    seed = np.zeros(allowed_pool.shape, bool)
+    centre = (row - region[0].start, col - region[1].start)
+    if not allowed_pool[centre]:
+        raise ValueError("An emitting source centre is outside its permitted pool")
+    seed[centre] = True
+    pool = ndimage.binary_propagation(
+        seed, structure=np.ones((3, 3)), mask=allowed_pool
+    )
     if design_depth is not None:
         design_depth[region][pool] = np.maximum(
             design_depth[region][pool], wanted[pool]
@@ -229,6 +237,7 @@ def source_pool(ground, depth, levels, forbidden, source, design_depth=None):
         "native_rate": setting,
         "minimum_authored_core_depth_m": float(depth[region][core].min()),
         "tunnel_gap_cells_changed": int((pool & excluded).sum()),
+        "disconnected_apron_cells_not_authored": int((allowed_pool & ~pool).sum()),
     }
 
 
