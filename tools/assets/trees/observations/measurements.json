@@ -1,6 +1,5 @@
 {
   "schema": 1,
-  "fixture_warning": "V6 focused pairs are visible but background stock render groups persist after deletion. Head's deletion invalidation fix awaits a native retest; specimen screenshots remain provisional.",
   "assets": [
     {
       "name": "KudzuGleditsia15blender",

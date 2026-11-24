@@ -3954,12 +3954,18 @@ Screenshot helper restores the HUD: first A1 per zoom differs, so reported
 numbers use only matched HUD-visible B/A2 pairs for all six candidates.
 Blender500 p95 +64% and Tilia180 +10.3% remain in the data; one pair and an
 unattributed limiter cannot certify performance. The final driver hides the
-HUD explicitly before every arm, but that protocol has not been rerun yet.
+HUD explicitly before every arm; v7 subsequently exercised six such windows.
 
-V6 specimen photos expose a separate deletion defect: the focused pair is
-visible but distant deleted stock groups persist. `ReleaseTree` does not
-mark those render groups dirty while paused. Head now marks each old group
-before release; compiled in `observations/pair-deletion-build.json`, native
-retest pending behind the shared slot. Do not merge or accept that fixture
-from a normal exit or file count. The PR stays draft; exact continuation is
-`../assets/trees/NEXT.md`. No owned game or queue waiter is left running.
+The suspected deletion defect was not established. V7 still showed low
+background vegetation, but a live native catalog showed exactly two
+TreeManager instances, and source inspection confirmed `FinalizeTree`
+already invalidates the old groups. The extra pre-release invalidation was
+redundant and removed; no phantom-tree fix is claimed. Final C# source hash
+matches native v6 exactly. V7 exercised the final driver's HUD reset (six
+windows, all explicitly hidden) and18 specimen pairs/60 shots at source
+4b4cdac. These focused windows are not mixed into v6's post-hoc screening.
+V7 GPU sample span8m41s after4m35s queue wait: whole-card peaks10821 MiB,
+155.76 W,76°C; menu game1576 MiB. Teardown empty. Final combined head was
+not rerun after rolling back the redundant call; source-level provenance is
+explicit in the report and both native receipts remain. Asset quality and
+full <$5 cost remain unestablished, independent of fixture verification.

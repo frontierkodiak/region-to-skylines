@@ -28,11 +28,6 @@ def main():
     p.add_argument("out", type=pathlib.Path)
     p.add_argument("--trellis", type=pathlib.Path)
     p.add_argument(
-        "--provisional-specimens",
-        action="store_true",
-        help="specimen deletion-cache fix has not been retested",
-    )
-    p.add_argument(
         "--legacy-v6-ui",
         action="store_true",
         help="frozen 2e08973 driver: B/A2 both HUD-visible",
@@ -180,9 +175,6 @@ def main():
         )
     report = {
         "schema": 1,
-        "fixture_warning": "V6 focused pairs are visible but background stock render groups persist after deletion. Head's deletion invalidation fix awaits a native retest; specimen screenshots remain provisional."
-        if a.provisional_specimens
-        else None,
         "assets": assets,
         "accounting": {
             "under_five_dollars_established": False,
@@ -198,11 +190,6 @@ def main():
 <main><header><p>PL-1328 · Native tree trial</p><h1>Three genera, four authoring routes</h1><p>Gleditsia, Tilia and Ulmus. Sand3D variants at 9, 15 and 22 metres; 15-metre controls from direct Blender, Sapling and TRELLIS.2.</p><p><b>Prototypes, not an approved palette.</b> The form profiles need botanical review. TRELLIS has no bark mask. Native performance screening does not establish renderer cost, and full cost below $5 is not yet established.</p><p><a href="measurements.json">Measurements and cost fields</a> · <a href="pl1328-tree-trial.zip">18 import sets and native packages</a> · <a href="REPORT.md">Trial report</a></p></header>
 <nav><label>Genus <select id="genus"><option value="">All</option><option>Gleditsia</option><option>Tilia</option><option>Ulmus</option></select></label><label>Route <select id="route"><option value="">All</option><option>sand3d</option><option>blender</option><option>sapling</option><option>trellis</option></select></label><label>Native view <select id="view"><option>close</option><option>gameplay</option><option>billboard</option></select></label></nav><section>"""
     document += "".join(cards)
-    if a.provisional_specimens:
-        document = document.replace(
-            "<nav>",
-            "<p><b>Fixture check pending:</b> these v6 specimens retain stale background stock-tree groups. The focused pairs are visible; the deletion-cache fix still needs a native retest.</p><nav>",
-        )
     document += """</section><footer><p>No Workshop content is redistributed. Sand3D library: Apache-2.0; Sapling external generator: GPL-3.0-or-later; TRELLIS.2: MIT. These newly written trial programs do not redistribute Sand3D Nature programs or meshes.</p></footer></main><script>
 const data=DATA;const cards=[...document.querySelectorAll('article')];const genus=document.querySelector('#genus'),route=document.querySelector('#route'),view=document.querySelector('#view');
 function update(){cards.forEach((card,i)=>{card.hidden=Boolean((genus.value&&card.dataset.genus!==genus.value)||(route.value&&card.dataset.route!==route.value));const img=card.querySelector('img');if(img){const shot=data[i].shots[view.value];img.src=shot||data[i].preview;}})}

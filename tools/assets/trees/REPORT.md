@@ -7,11 +7,11 @@ tree library. The new program produces nine native assets across three crown
 profiles and three sizes without decimation. Its engineering path works;
 botanical fidelity, best-in-market appearance and the full <$5 cost do not
 yet pass acceptance. Do not ship these prototypes as the regional palette.
-The last fixture correction also awaits a native retest: v6's specimen
-background retains deleted stock-tree render groups. The candidate pairs
-are visible, but those photos are provisional fixture evidence. Head marks
-each old group dirty before releasing its trees; this compiled fix has not
-yet been exercised in a fresh native session. See `NEXT.md`.
+Native v7 additionally verified the explicit HUD-reset driver and all 18
+specimen pairs. A suspected background-deletion defect was not established:
+the live TreeManager had exactly two instances, and the engine's
+`FinalizeTree` already invalidates deleted groups. An extra pre-release
+invalidation call was redundant and was removed; no phantom-tree fix is claimed.
 
 In this batch the procedural leaf-card routes retain a more tree-like,
 perforated canopy than TRELLIS reconstruction after a 1,500-triangle budget.
@@ -83,17 +83,23 @@ V6 used driver revision `2e0897353ca0b8c439d2beaaf47e8ec9513de75f`.
 The screenshot helper restores the HUD, so the first A1 at each zoom was
 HUD-hidden while B and A2 were HUD-visible. The reported comparisons use
 **only B/A2**, with matching HUD state, for every candidate. This is a
-post-hoc screening choice, not a clean preregistered A/B/A study. The final
-driver explicitly hides the HUD before each arm to fix future runs.
+post-hoc screening choice, not a clean preregistered A/B/A study. Native v7
+verified the explicit HUD reset in all six focused timing windows; those
+windows remain separate from the v6 screening table.
 Completed observations retain the raw windows and diagnostic flags; a
 pending render-update flag is not treated as proof of a valid frame.
 
-V6's retargeted forest screenshots visibly change at both zooms. Deleting
-those trees for specimen pairs is a separate path: `ReleaseTree` does not
-invalidate the old distant groups while paused. V6 therefore retains a
-phantom stock forest behind the focused pair. The pending correction marks
-the old group **before** release, then flushes after placing the pair. Do not
-treat a successful v6 exit as verification of that later fix.
+V6's retargeted forest screenshots visibly change at both zooms. The later
+background-deletion hypothesis was rejected after checking the live instance
+count and the engine's finalization path. Low background vegetation alone
+is not a tree-cache correctness test.
+
+Verification provenance: the final C# module has exactly the source hash of
+the native v6 module. The final native driver has exactly the source hash
+exercised in v7 (`4b4cdac`), which included a redundant pre-release group mark.
+That mark duplicated `FinalizeTree`'s invalidation and was removed, restoring
+the v6 C# source. The combined final head was not rerun after this rollback;
+the per-module/source hashes and both native receipts are retained.
 
 These wall-frame samples do not isolate the renderer limiter. One B/A2 pair,
 stock random scales versus fixed authored scales, and different canopy
