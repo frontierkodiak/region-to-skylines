@@ -23,6 +23,10 @@ Request the same opening/Areas observations. The existing panel/view checks
 also require a separate visual-review file; their missing-review failures
 are not water failures. Keep those raw results separate from flood/drying.
 
+Code and cheap authoring previews may be prepared while the references run;
+do not begin new-constructor native trials until the five reference outcomes
+have been compared and the water checks chosen.
+
 After the five references, keep the measures that separate stock water from
 bad output; report and justify any relaxed or dropped check without rewriting
 historical verdicts. Measure stock depth, width, banks, sources and receiving
