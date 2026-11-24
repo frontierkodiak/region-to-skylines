@@ -453,9 +453,26 @@ def hydrology(ground, banks, geometry):
     for source in sources:
         source_pool(ground, depth, level, forbidden, source, design_depth)
     channel |= depth > 0
-    level, joint_profile = connected_surface(
-        channel, desired, lakes | ocean, ocean, sea
-    )
+    # Emission cores are level inlet pools; the connecting reaches can descend
+    # steeply outside them. A global gentle-grade cap would excavate mountains.
+    flat_pools = lakes | ocean
+    for source in sources:
+        col = round((source["position"][0] + HALF) / SPACING)
+        row = round((HALF - source["position"][2]) / SPACING)
+        radius = source["footprint_pool"]["radius_model_m"]
+        extent = math.ceil(radius / SPACING)
+        region = np.s_[
+            max(0, row - extent) : min(1081, row + extent + 1),
+            max(0, col - extent) : min(1081, col + extent + 1),
+        ]
+        yy, xx = np.mgrid[region]
+        flat_pools[region] |= (
+            np.hypot(yy - row, xx - col) * SPACING <= radius
+        ) & channel[region]
+    # Extend source-derived valley heights across each expanded cross-section;
+    # widened shoulders must not lift the stream to the adjacent hillside.
+    preferred = desired[tuple(nearest)]
+    level, joint_profile = connected_surface(channel, preferred, flat_pools, ocean, sea)
     head_q = np.zeros(ground.shape, np.int32)
     head_q[channel] = np.floor(level[channel] * 64 + 0.5).astype(np.int32)
     bed_q = np.minimum(
@@ -508,7 +525,7 @@ def hydrology(ground, banks, geometry):
         "rivers": summaries,
         "sea_level_m": sea,
         "surface_water": visibility,
-        "water_construction": "map-maker-v3-joint-profile",
+        "water_construction": "map-maker-v4-cascade-profile",
         "joint_profile": joint_profile,
         "unmodeled_short_surface_reaches": [],
         "authored_confluence_links": links,

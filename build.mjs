@@ -1,7 +1,7 @@
 // Vercel build: the static page, with the command it hands agents pinned to this commit, so the
 // tool runs exactly the code the page runs (and needs no git).
 import { execFileSync } from "node:child_process";
-import { mkdirSync, rmSync, readFileSync, writeFileSync, renameSync, copyFileSync } from "node:fs";
+import { mkdirSync, rmSync, readFileSync, writeFileSync, renameSync, copyFileSync, readdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { FACTORY_FILES } from "./mapgen.js";
 import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
@@ -82,8 +82,9 @@ for (const study of Object.values(ledger.capabilities.find((c) => c.id === "wate
   }
 }
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
-for (const name of ["verdicts.json", "contact-sheet.jpg"]) {
-  const file = `tools/map-factory/capability-evidence/pl1191-playable-water/${name}`;
+const waterEvidence = "tools/map-factory/capability-evidence/pl1191-playable-water";
+for (const name of readdirSync(waterEvidence).sort()) {
+  const file = `${waterEvidence}/${name}`;
   mkdirSync(dirname(`dist/${file}`), { recursive: true });
   copyFileSync(file, `dist/${file}`);
 }

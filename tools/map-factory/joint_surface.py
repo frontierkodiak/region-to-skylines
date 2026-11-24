@@ -9,21 +9,19 @@ import math
 
 import numpy as np
 from scipy import ndimage, sparse
-from scipy.sparse.csgraph import dijkstra
 
 SPACING = 16
 MIN_GRADE = 0.001
-MAX_GRADE = 0.02
+CASCADE_GRADE = 0.02
 HEAD_CEILING = 1021.0  # Leaves the authored2m bank below the terrain limit.
 
 
 def connected_surface(mask, preferred, flat, ocean, sea_level):
-    """Fit a continuous surface, then drain its depressions toward explicit ports.
+    """Follow local terrain and join depressions to explicit receiving ports.
 
-    Preferred DEM heights are soft authoring targets. The Lipschitz minorant
-    removes abrupt head seams without raising a low neighbouring water surface.
-    A minimum-slope priority flood then joins each component to its receiving
-    port. No independent local clipping or source-disk level reset follows.
+    ``flat`` may include source cores as well as lakes. Each connected flat
+    domain is one pool; its aprons remain ordinary flowing cells. Steep parent
+    edges are cascades, not reasons to lower an entire upstream valley.
     """
     if mask.ndim != 2 or not mask.any() or preferred.shape != mask.shape:
         raise ValueError(
@@ -31,8 +29,8 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
         )
     if not np.isfinite(preferred[mask]).all():
         raise ValueError("Preferred water heights must be finite")
-    flat = flat & mask
     ocean = ocean & mask
+    flat = (flat | ocean) & mask
     if ocean.any() and not (0 < sea_level < HEAD_CEILING):
         raise ValueError("The ocean plane needs positive depth and bank headroom")
     components, component_count = ndimage.label(mask, np.ones((3, 3)))
@@ -52,6 +50,11 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
         desired[ocean] = sea_level
     preferred_node = np.full(count, np.inf)
     np.minimum.at(preferred_node, ids[mask], desired[mask])
+    for body, box in enumerate(ndimage.find_objects(bodies), 1):
+        own = bodies[box] == body
+        preferred_node[body - 1] = (
+            sea_level if ocean[box][own].any() else float(np.median(desired[box][own]))
+        )
 
     rows, cols, lengths = [], [], []
     for dy, dx in [(0, 1), (1, -1), (1, 0), (1, 1)]:
@@ -75,13 +78,6 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
     length = np.minimum.reduceat(length[order], first) if len(first) else length
     row, col = unique // count, unique % count
     graph = sparse.csr_matrix((length, (row, col)), shape=(count, count))
-    source_row = np.concatenate([row, np.full(count, count)])
-    source_col = np.concatenate([col, np.arange(count)])
-    costs = np.concatenate([length * MAX_GRADE, preferred_node])
-    fit_graph = sparse.csr_matrix(
-        (costs, (source_row, source_col)), shape=(count + 1, count + 1)
-    )
-    fitted = dijkstra(fit_graph, directed=True, indices=count)[:count]
 
     edge = np.zeros(mask.shape, bool)
     edge[[0, -1], :] = True
@@ -90,12 +86,11 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
     np.minimum.at(representatives, ids[mask], np.flatnonzero(mask))
     heights = np.full(count, np.inf)
     parent = np.full(count, -1, np.int32)
+    parent_distance = np.zeros(count)
     queue = []
     outlets = []
-    groups = []
     for component, box in enumerate(ndimage.find_objects(components), 1):
         own = components[box] == component
-        nodes = np.unique(ids[box][own])
         receiving = ocean[box] & own
         boundary = edge[box] & own
         candidates = (
@@ -103,7 +98,9 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
         )
         choices = np.unique(ids[box][candidates])
         seeds = (
-            choices if receiving.any() else [int(choices[np.argmin(fitted[choices])])]
+            choices
+            if receiving.any()
+            else [int(choices[np.argmin(preferred_node[choices])])]
         )
         role = (
             "sea"
@@ -113,7 +110,7 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
             else "closed_component"
         )
         for node in seeds:
-            heights[node] = fitted[node]
+            heights[node] = preferred_node[node]
             heapq.heappush(queue, (float(heights[node]), int(node)))
         root = int(seeds[0])
         locations = np.argwhere(candidates & (ids[box] == root))
@@ -122,7 +119,6 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
             int(locations[0, 1] + box[1].start),
         )
         outlets.append({"row": r, "col": c, "role": role, "component": component})
-        groups.append((nodes, float(fitted[root])))
     while queue:
         height, node = heapq.heappop(queue)
         if height != heights[node]:
@@ -131,39 +127,60 @@ def connected_surface(mask, preferred, flat, ocean, sea_level):
         for neighbour, distance in zip(
             graph.indices[lo:hi], graph.data[lo:hi], strict=True
         ):
-            proposed = max(
-                float(fitted[neighbour]), height + MIN_GRADE * float(distance)
-            )
+            # At the vertical limit only the extra routing grade runs out of
+            # headroom; lower reaches are not compressed to accommodate it.
+            increment = min(MIN_GRADE * float(distance), HEAD_CEILING - height)
+            proposed = max(float(preferred_node[neighbour]), height + increment)
             if proposed < heights[neighbour]:
                 heights[neighbour] = proposed
                 parent[neighbour] = node
+                parent_distance[neighbour] = distance
                 heapq.heappush(queue, (proposed, int(neighbour)))
     if not np.isfinite(heights).all():
         raise ValueError("A physical water component has no authored receiving port")
 
-    # Fit a whole component into CS1's vertical range if necessary. A uniform
-    # compression preserves junctions, lakes, ordering and the pinned sea plane.
-    compression = []
-    for nodes, base in groups:
-        high = float(heights[nodes].max())
-        factor = min(1.0, (HEAD_CEILING - base) / (high - base)) if high > base else 1.0
-        heights[nodes] = base + factor * (heights[nodes] - base)
-        compression.append(factor)
     quantized = np.floor(heights * 64 + 0.5 + 1e-8).astype(np.int32)
     adverse = int((quantized[parent[parent >= 0]] > quantized[parent >= 0]).sum())
     maximum_jump = int(np.abs(quantized[row] - quantized[col]).max()) if len(row) else 0
+    routed = np.flatnonzero(parent >= 0)
+    drops = (quantized[routed] - quantized[parent[routed]]) / 64
+    cascades = routed[drops > CASCADE_GRADE * parent_distance[routed] + 1 / 64]
+    cascade_examples = []
+    for node in cascades[:12]:
+        downstream = parent[node]
+        cascade_examples.append(
+            {
+                "upstream_domain_representative_rc": list(
+                    map(int, divmod(int(representatives[node]), mask.shape[1]))
+                ),
+                "downstream_domain_representative_rc": list(
+                    map(int, divmod(int(representatives[downstream]), mask.shape[1]))
+                ),
+                "drop_m": float((quantized[node] - quantized[downstream]) / 64),
+                "connection_length_m": float(parent_distance[node]),
+            }
+        )
     result = np.full(mask.shape, np.nan)
     result[mask] = quantized[ids[mask]] / 64
     return result, {
-        "method": "joint-physical-footprint-v1",
+        "method": "terrain-following-physical-footprint-v2",
         "preferred_minimum_authored_grade": MIN_GRADE,
-        "maximum_fitted_grade": MAX_GRADE,
+        "maximum_fitted_grade": None,
+        "cascade_grade_classification_threshold": CASCADE_GRADE,
+        "cascade_tree_edges": int(len(cascades)),
+        "cascade_examples": cascade_examples,
         "physical_footprint_cells": int(mask.sum()),
         "model_components": component_count,
         "level_body_components": body_count,
         "packed_adverse_downstream_edges": adverse,
         "maximum_packed_adjacent_head_jump_m": maximum_jump / 64,
-        "minimum_vertical_compression_factor": min(compression),
+        "minimum_vertical_compression_factor": 1.0,
+        "headroom_limited_tree_edges": int(
+            (
+                heights[routed] - heights[parent[routed]]
+                < MIN_GRADE * parent_distance[routed] - 1e-8
+            ).sum()
+        ),
         "outlets": outlets,
         "scope": "Authored physical topology, not measured geographic communication, direction or capacity",
     }
