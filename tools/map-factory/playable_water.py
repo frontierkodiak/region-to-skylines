@@ -245,15 +245,195 @@ def source_walk(points):
     return xy[:, ::-1]
 
 
+def cover_component_emitters(
+    ground,
+    depth,
+    levels,
+    forbidden,
+    channel,
+    contributing,
+    classes,
+    sources,
+    design_depth,
+):
+    """Supply unsupplied physical components using only planned source fields."""
+    added = []
+    while True:
+        labels, _ = ndimage.label(channel, np.ones((3, 3)))
+        supplied = set()
+        for source in sources:
+            if (
+                math.floor(
+                    source.get("output_capacity", source["capacity"]) * 65535 + 0.5
+                )
+                <= 0
+            ):
+                continue
+            col = round((source["position"][0] + HALF) / SPACING)
+            row = round((HALF - source["position"][2]) / SPACING)
+            supplied.add(int(labels[row, col]))
+        missing = [i for i in range(1, int(labels.max()) + 1) if i not in supplied]
+        if not missing:
+            return added
+        component = missing[0]
+        eligible = (labels == component) & (depth >= 1) & ~forbidden
+        candidates = np.flatnonzero(eligible)
+        if not len(candidates):
+            raise ValueError(
+                "An unsupplied physical component has no planned depth>=1m inlet"
+            )
+        if len(sources) >= 65535:
+            raise ValueError("Component inlets exceed the UInt16 source-table count")
+        chosen = int(candidates[np.argmax(levels.ravel()[candidates])])
+        row, col = divmod(chosen, ground.shape[1])
+        kind = {1: "stream", 2: "river", 3: "lake", 4: "ocean"}[int(classes[row, col])]
+        area = float(contributing[row, col])
+        setting = max(0.01, capacity(area, kind))
+        source = {
+            "name": "physical component fallback inlet",
+            "class": kind,
+            "role": "component_fallback_inlet",
+            "position": [int(col * SPACING - HALF), 0, int(HALF - row * SPACING)],
+            "target": float(levels[row, col]),
+            "capacity": setting,
+            "output_capacity": setting,
+            "local_catchment_km2": area,
+            "catchment_scope": "map-local priority-flood D8 model; outside-frame inflow unknown",
+        }
+        source_pool(ground, depth, levels, forbidden, source, design_depth)
+        if source["output_capacity"] <= 0:
+            raise ValueError(
+                "A component fallback inlet has no permitted emission setting"
+            )
+        added.append(len(sources))
+        sources.append(source)
+        channel |= depth > 0
+
+
+def component_outlet_intakes(channel, depth, levels, ports, sources):
+    """Add intake-only controls without changing any authored physical field.
+
+    Summed settings are a declared control budget, not measured discharge.
+    An intake may cover partially dry cells: it has no emission permission.
+    """
+    labels, count = ndimage.label(channel, np.ones((3, 3)))
+    if sorted(p["component"] for p in ports) != list(range(1, count + 1)):
+        raise ValueError(
+            "Receiving ports must name every final joint-profile component once"
+        )
+    members = [[] for _ in range(count + 1)]
+    for index, source in enumerate(sources):
+        col = round((source["position"][0] + HALF) / SPACING)
+        row = round((HALF - source["position"][2]) / SPACING)
+        component = int(labels[row, col])
+        if not component:
+            raise ValueError(
+                "A planned control is outside the final physical footprint"
+            )
+        members[component].append(index)
+    additions, summaries = [], []
+    for port in ports:
+        component = port["component"]
+        r, c = port["row"], port["col"]
+        if port["role"] not in ("sea", "map_edge", "closed_component"):
+            raise ValueError("An intake needs a supported final receiving-port role")
+        if int(labels[r, c]) != component:
+            raise ValueError(
+                "A receiving port disagrees with final physical component labels"
+            )
+        target = float(levels[r, c])
+        receiving_depth = target - (levels - depth)
+        candidates = np.argwhere(
+            (labels == component) & (depth >= 1) & (receiving_depth >= 1)
+        )
+        if not len(candidates):
+            raise ValueError(
+                f"Final physical component {component} has no legal receiving-stage intake anchor "
+                "with planned and receiving-stage depth>=1m"
+            )
+        distances = (candidates[:, 0] - r) ** 2 + (candidates[:, 1] - c) ** 2
+        row, col = map(int, candidates[int(np.argmin(distances))])
+        outputs = [
+            float(sources[i].get("output_capacity", sources[i]["capacity"]))
+            for i in members[component]
+        ]
+        if any(not math.isfinite(v) or not 0 <= v <= 1 for v in outputs):
+            raise ValueError("A component emission setting is outside supported [0,1]")
+        packed_sum = sum(math.floor(v * 65535 + 0.5) for v in outputs)
+        budget = max(1, packed_sum)
+        records = (budget + 65534) // 65535
+        if len(sources) + len(additions) + records > 65535:
+            raise ValueError(
+                "Component outlet controls exceed the UInt16 source-table count"
+            )
+        first = len(sources) + len(additions)
+        receiving = {
+            "namespace": "joint_profile.outlets",
+            "component": component,
+            "row": int(r),
+            "col": int(c),
+            "role": port["role"],
+        }
+        for replica in range(records):
+            raw_setting = min(65535, budget - replica * 65535)
+            additions.append(
+                {
+                    "name": "engineered receiving-port intake",
+                    "class": "intake",
+                    "role": "engineered_outlet_intake",
+                    "position": [
+                        int(np.clip(col * SPACING - HALF, -HALF, HALF)),
+                        0,
+                        int(np.clip(HALF - row * SPACING, -HALF, HALF)),
+                    ],
+                    "target": target,
+                    "capacity": raw_setting / 65535,
+                    "output_capacity": 0,
+                    "receiving_port": receiving.copy(),
+                    "outlet_kind": "engineered_closed_component_drain"
+                    if port["role"] == "closed_component"
+                    else port["role"],
+                    "intake_footprint": "partial wet coverage permitted; emission disabled",
+                }
+            )
+        summaries.append(
+            {
+                "receiving_port": receiving,
+                "source_indices": members[component],
+                "intake_indices": list(range(first, first + records)),
+                "anchor_rc": [row, col],
+                "anchor_planned_depth_m": float(depth[row, col]),
+                "anchor_depth_at_receiving_stage_m": float(receiving_depth[row, col]),
+                "receiving_stage_m": target,
+                "summed_requested_output_settings": math.fsum(outputs),
+                "summed_output_settings": packed_sum / 65535,
+                "summed_output_raw_settings": packed_sum,
+                "summed_packed_output_settings": packed_sum / 65535,
+                "declared_intake_settings": budget / 65535,
+                "declared_intake_raw_settings": budget,
+                "intake_records": records,
+                "scope": "control-setting budget, not calibrated hydraulic capacity",
+            }
+        )
+    sources.extend(additions)
+    return summaries
+
+
 def hydrology(ground, banks, geometry):
     geometry, visibility = surface_geometry(geometry)
     sq = geometry["sq"]
     original = ground.copy()
     lines = geometry.get("rivers", []) + geometry.get("streams", [])
     line = raster(sq, lines)
+    mapped_classes = np.zeros(ground.shape, np.uint8)
+    mapped_classes[raster(sq, geometry.get("streams", []))] = 1
+    mapped_classes[raster(sq, geometry.get("rivers", []))] = 2
     lakes = raster(sq, geometry.get("lakes", []), True)
     areas = raster(sq, geometry.get("riverAreas", []), True)
     ocean = raster(sq, geometry.get("oceans", []), True)
+    mapped_classes[areas] = 2
+    mapped_classes[lakes] = 3
+    mapped_classes[ocean] = 4
     water = line | lakes | areas | ocean
     underground = raster(sq, geometry.get("undergroundWaterways", []))
     forbidden = ndimage.binary_dilation(underground, iterations=2) & ~water
@@ -453,6 +633,20 @@ def hydrology(ground, banks, geometry):
     for source in sources:
         source_pool(ground, depth, level, forbidden, source, design_depth)
     channel |= depth > 0
+    _, original_nearest = ndimage.distance_transform_edt(
+        mapped_classes == 0, return_indices=True
+    )
+    fallback_inlets = cover_component_emitters(
+        ground,
+        depth,
+        level,
+        forbidden,
+        channel,
+        contributing,
+        mapped_classes[tuple(original_nearest)],
+        sources,
+        design_depth,
+    )
     # Emission cores are level inlet pools; the connecting reaches can descend
     # steeply outside them. A global gentle-grade cap would excavate mountains.
     flat_pools = lakes | ocean
@@ -518,6 +712,9 @@ def hydrology(ground, banks, geometry):
     adjacent_head = ndimage.maximum_filter(np.where(channel, level, -np.inf), size=3)
     ground[rim] = np.maximum(ground[rim], adjacent_head[rim] + 2)
     ground[channel | bank_strip] = np.clip(ground[channel | bank_strip], 0, 65535 / 64)
+    functional_components = component_outlet_intakes(
+        channel, depth, level, joint_profile["outlets"], sources
+    )
     changed = np.abs(ground - original) > 1 / 64
     return depth, {
         "sources": sources,
@@ -525,8 +722,10 @@ def hydrology(ground, banks, geometry):
         "rivers": summaries,
         "sea_level_m": sea,
         "surface_water": visibility,
-        "water_construction": "map-maker-v4-cascade-profile",
+        "water_construction": "map-maker-v5-component-supply-outlets",
         "joint_profile": joint_profile,
+        "fallback_inlet_indices": fallback_inlets,
+        "functional_water_components": functional_components,
         "unmodeled_short_surface_reaches": [],
         "authored_confluence_links": links,
         "channel_design": {
@@ -540,6 +739,7 @@ def hydrology(ground, banks, geometry):
         },
         "catchment_model": "map-local priority-flood D8 area; capacity setting=0.008*sqrt(km2), bounded by feature class, not calibrated discharge",
         "outlets": outlets,
+        "outlets_scope": "pre-expansion stage_tree components; final ports use joint_profile.outlets",
         "terrain_changed_cells": int(changed.sum()),
         "maximum_cut_m": float(np.maximum(0, original - ground).max()),
         "maximum_bank_raise_m": float(np.maximum(0, ground - original).max()),

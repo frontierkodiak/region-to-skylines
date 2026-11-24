@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; physical writers and historical native qualification unchanged",
+  "scope": "Capability checks, four retained exact-context path certificates, one reviewed directed-rail evidence study, three accepted rail research publications and one accepted outside-connection query-model publication, one accepted outside-stock and budget publication and one accepted outside-readiness stopped-control study; historical native qualification unchanged and scoped to retained baseline-writer snapshots; the gameplay-water constructor is separately measured",
   "predecessor_active_sha256": "610f43cb1d8265763afb418a6aae663b02379eea6e3efbd4ed5b320d87058aab",
   "predecessor_contract_sha256": "cc2f7327e2148a999ac0f8b14053c620612805e9f11a57279321aef182c5123a",
   "archived_gates": {
@@ -10,7 +10,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "920baad438ca6690b543328b0d874c96aeb9e4ef53996571b1cd4f3881d565d3"
+      "current_sha256": "37df751b393fed033af8b098c040f1a0303b45de5aec921ad985ca3f991ff859"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -18,7 +18,7 @@
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "5d06e2d39d52de710c1a1d6bde7f90ca03972de3886e231dc495331ca0cce455"
+      "current_sha256": "82dc4291007bb58bceac6b9185ad509554f1416351b7a1891b8961ad57f7077f"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
