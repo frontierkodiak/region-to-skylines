@@ -1,0 +1,32 @@
+{
+  "native_run": "v8",
+  "source_commit": "2348a9e2c3456401e55b50594042a813a60d2583",
+  "gate": "Author inspected actual camera-size550 images; all five repaired crowns retained. Not botanical acceptance.",
+  "assets": [
+    {
+      "name": "KudzuGleditsia9sand3d",
+      "crown_retained": true,
+      "shot_sha256": "2483819dcc2af4aa6a1d7e78bbbc076f445f40e843e13b43d05cd19967c799d4"
+    },
+    {
+      "name": "KudzuGleditsia15sand3d",
+      "crown_retained": true,
+      "shot_sha256": "6606d7c8c4ce019a0658896ad3398e325b1c4ac7c100bee492087a10d7cadee0"
+    },
+    {
+      "name": "KudzuGleditsia22sand3d",
+      "crown_retained": true,
+      "shot_sha256": "20ca35f7bfd7f639a4b8dd55101c499dd1ef9f25810bda6b453c3a0a03e9a0ed"
+    },
+    {
+      "name": "KudzuGleditsia15blender",
+      "crown_retained": true,
+      "shot_sha256": "14c22052821841f08bc5a364145cf14a6fa80188486c3da4c1e6cee125160c4a"
+    },
+    {
+      "name": "KudzuGleditsia15sapling",
+      "crown_retained": true,
+      "shot_sha256": "e68adec1abf27adc15e733d81ce14e3c170a291787c4e2b80b98c0f04a53d9bc"
+    }
+  ]
+}

@@ -4,6 +4,7 @@
     "genus": "Gleditsia",
     "nominal_height_m": 15.0,
     "seed": 1328,
+    "atlas_leaves": 480,
     "route": "blender",
     "main_triangles": 570,
     "size_xyz_z_up_m": [
@@ -14,15 +15,15 @@
     "scale_at_import": 100,
     "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
     "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
-    "generation_and_preview_seconds": 5.310741542140022,
+    "generation_and_preview_seconds": 5.233594374964014,
     "blender": "5.2.1 LTS",
     "files": {
       "KudzuGleditsia15blender_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
-      "KudzuGleditsia15blender.blend": "9359adf16b4554cacbee300b2ed00d4107a470926b2ec067124c7458d433aa2b",
-      "billboard-preview.png": "43224a1780bba217743b3985a48c036f7ba4e64457a367b04d6bd17149aa7941",
-      "KudzuGleditsia15blender.fbx": "62d52d7d939a076b426cff3541c8a90c4663978fb29f5f4452afd19b79df4232",
-      "KudzuGleditsia15blender_d.png": "dfdbd7145e0d41e69ec8d5ee699746f85ec2675a9994a3c4d7be6f36a4b62037",
-      "KudzuGleditsia15blender_a.png": "28f831312d1489a0bfdf23b2e615bf27f230f8aaae72b132af24f59188bd1b1e",
+      "KudzuGleditsia15blender.blend": "bfc4aa92b41c3732d7178e40a9bea476ccac0f8fc6ef91833c7da8c0ffab266c",
+      "billboard-preview.png": "c9ea46dfcac0154da34f7c8a9b8362494364e4fa42d730d2736e323485756bec",
+      "KudzuGleditsia15blender.fbx": "07c5b6c64541724a3817449598b6c9e48003761f0f5374287b96271a0a250cb1",
+      "KudzuGleditsia15blender_d.png": "298bfa37b29a3a97d4ed81d16da7516b98151fa4f8d96bd99acaa8cef225d824",
+      "KudzuGleditsia15blender_a.png": "2305d2e3a5c97601cddd61e8cdb356df1ed78e4c49eccc063af7b70ef8e61326",
       "KudzuGleditsia15blender_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54"
     }
   },
@@ -31,6 +32,7 @@
     "genus": "Gleditsia",
     "nominal_height_m": 15,
     "seed": 1329,
+    "atlas_leaves": 480,
     "route": "sand3d",
     "main_triangles": 518,
     "size_xyz_z_up_m": [
@@ -41,16 +43,16 @@
     "scale_at_import": 100,
     "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
     "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
-    "generation_and_preview_seconds": 9.056671249913052,
+    "generation_and_preview_seconds": 4.365488708019257,
     "blender": "5.2.1 LTS",
     "files": {
-      "KudzuGleditsia15sand3d.fbx": "1a6e544e64146af5e468a0fcae57e5d4aacd096c1dca4e8af6dd9d9673a72db8",
-      "KudzuGleditsia15sand3d.blend": "08ea1c3bfdc8a99463dc8fda05b620cba77c0e1b606338fa945f967cb278d496",
+      "KudzuGleditsia15sand3d.fbx": "360183830ede2f404918dad7fdce87deff97bd630e37bd4d0f2ce57956b83079",
+      "KudzuGleditsia15sand3d.blend": "0c32eef6899103453ec996d58249fbab3e6cd55cd432d47edfd8e30ec2e603d9",
       "KudzuGleditsia15sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
-      "billboard-preview.png": "990bffa204accbf747f6a735871bb5858dd0e8bac0530bd1ee7506a7b6342e4b",
+      "billboard-preview.png": "802d1a8c9ba2a2fe18694ab827dffaad2151a00dd3997f1cb44250ec2b5c7219",
       "KudzuGleditsia15sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
-      "KudzuGleditsia15sand3d_a.png": "2bcd42b496816d794383b9a66d1519be08277f8e0dfd4c8c087f40c2ad597a1a",
-      "KudzuGleditsia15sand3d_d.png": "0a19ae57915ec111e4b616534fb61c9b9f92758f177231892b6c4a42b42b2fec"
+      "KudzuGleditsia15sand3d_a.png": "7fbfbf66dbc525342ea4fd416c1e29058fcbedffbebcff31e4d124d4e95ada4c",
+      "KudzuGleditsia15sand3d_d.png": "60aad4be0270e8cabee4d097a49bf8590786c9c31fc92a1a53bea77998407ab9"
     }
   },
   {
@@ -58,6 +60,7 @@
     "genus": "Gleditsia",
     "nominal_height_m": 15.0,
     "seed": 1328,
+    "atlas_leaves": 480,
     "route": "sapling",
     "main_triangles": 1142,
     "size_xyz_z_up_m": [
@@ -68,15 +71,15 @@
     "scale_at_import": 100,
     "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
     "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
-    "generation_and_preview_seconds": 4.235034542158246,
+    "generation_and_preview_seconds": 4.800415374804288,
     "blender": "5.2.1 LTS",
     "files": {
       "KudzuGleditsia15sapling_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
-      "KudzuGleditsia15sapling_a.png": "28f831312d1489a0bfdf23b2e615bf27f230f8aaae72b132af24f59188bd1b1e",
-      "KudzuGleditsia15sapling_d.png": "dfdbd7145e0d41e69ec8d5ee699746f85ec2675a9994a3c4d7be6f36a4b62037",
-      "billboard-preview.png": "e08fdec45f3a34a59933c63896f21686b194fa751e1c08c621141a4e22efbeb0",
-      "KudzuGleditsia15sapling.fbx": "8dc378eeee388c6c67389dc2b39023110986f3830c23d3478b433ae5c7286d65",
-      "KudzuGleditsia15sapling.blend": "56a7906442f985dcf25afde9c03d7b8d70988a8abed974541a09fb972acda708",
+      "KudzuGleditsia15sapling_a.png": "2305d2e3a5c97601cddd61e8cdb356df1ed78e4c49eccc063af7b70ef8e61326",
+      "KudzuGleditsia15sapling_d.png": "298bfa37b29a3a97d4ed81d16da7516b98151fa4f8d96bd99acaa8cef225d824",
+      "billboard-preview.png": "a8737e27ae0321ccf49e9f8c12e3a148afc4a96562d7250b4b5ff25400b21d59",
+      "KudzuGleditsia15sapling.fbx": "d09c9149ba255cc596eb740fbb17e80fe75a8282382b5e5654408f3f75840ae4",
+      "KudzuGleditsia15sapling.blend": "d41230c7839f8eb321aee48b84381a34c27cd3fdf4664ef107c37a0680ffe89c",
       "KudzuGleditsia15sapling_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587"
     }
   },
@@ -108,6 +111,7 @@
     "genus": "Gleditsia",
     "nominal_height_m": 22,
     "seed": 1330,
+    "atlas_leaves": 480,
     "route": "sand3d",
     "main_triangles": 518,
     "size_xyz_z_up_m": [
@@ -118,15 +122,15 @@
     "scale_at_import": 100,
     "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
     "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
-    "generation_and_preview_seconds": 6.9229102078825235,
+    "generation_and_preview_seconds": 4.469585207989439,
     "blender": "5.2.1 LTS",
     "files": {
       "KudzuGleditsia22sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
-      "KudzuGleditsia22sand3d.blend": "54e4e2795ade8e929eddf844d29afeab0433da79ead48d19c2175c16a04aa765",
-      "billboard-preview.png": "b9555139144d826c2a0400f2bd9228c403d21fac4cdf0fa2850a9c9675fb3096",
-      "KudzuGleditsia22sand3d_d.png": "5b73b43871d4ae142a1f1297a4438601adff4b9b3c1ab418d41b4c9d0b514339",
-      "KudzuGleditsia22sand3d_a.png": "abcbf9a07f9b8b0c6aef988881eb0e191f238b2387bad384fce9cfbd75af4bb1",
-      "KudzuGleditsia22sand3d.fbx": "7811cb3b31e31be3baa4d450576a64944b98995bb385f54aba2606db8cce927f",
+      "KudzuGleditsia22sand3d.blend": "6fb3c502b5200da6153d02e2ac199d19cc4e5501c8dd220bf2108c433cdc0dbc",
+      "billboard-preview.png": "7e5769c551fe8bafa271d03588880e9c2a684caae1039e2384221c516fb133ca",
+      "KudzuGleditsia22sand3d_d.png": "fb1604d5134fc5884477e7676171c0b02b054d6b28a14564cef192775ad457d5",
+      "KudzuGleditsia22sand3d_a.png": "45c66ac22dfa26cfac80b792277e615a182eeea323fed8b360b51e7a8b4cf562",
+      "KudzuGleditsia22sand3d.fbx": "f0e3feccd0ec53d105d6f080e9fdd5f7b9e7cea8040dbc390624f0b769d91daf",
       "KudzuGleditsia22sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54"
     }
   },
@@ -135,6 +139,7 @@
     "genus": "Gleditsia",
     "nominal_height_m": 9,
     "seed": 1328,
+    "atlas_leaves": 480,
     "route": "sand3d",
     "main_triangles": 518,
     "size_xyz_z_up_m": [
@@ -145,16 +150,16 @@
     "scale_at_import": 100,
     "lod": "native CS1 camera-updated billboard; not a building LOD mesh",
     "textures": "512px diffuse/alpha/leaf-bark mask; deliberately flat normals",
-    "generation_and_preview_seconds": 10.285071667050943,
+    "generation_and_preview_seconds": 5.230604957789183,
     "blender": "5.2.1 LTS",
     "files": {
-      "KudzuGleditsia9sand3d_d.png": "dfdbd7145e0d41e69ec8d5ee699746f85ec2675a9994a3c4d7be6f36a4b62037",
-      "KudzuGleditsia9sand3d_a.png": "28f831312d1489a0bfdf23b2e615bf27f230f8aaae72b132af24f59188bd1b1e",
+      "KudzuGleditsia9sand3d_d.png": "298bfa37b29a3a97d4ed81d16da7516b98151fa4f8d96bd99acaa8cef225d824",
+      "KudzuGleditsia9sand3d_a.png": "2305d2e3a5c97601cddd61e8cdb356df1ed78e4c49eccc063af7b70ef8e61326",
       "KudzuGleditsia9sand3d_c.png": "b337242411b3765bcc7ad8d348e9f70db7cb3f7ef44cb424c381c95d17bd0e54",
-      "KudzuGleditsia9sand3d.fbx": "ba775f55f2ba1e90123584ad933bfe1c965ad836b8c8f20f64f9f9715ed30af8",
-      "billboard-preview.png": "0803e0f1cc78de5ee107771ea848f862d9ce1736d7f92a38225fb61d07cdb420",
+      "KudzuGleditsia9sand3d.fbx": "9f1ee91df59463529f8930b17699b366bdeabd2ec98bebefae08ac03006c03e5",
+      "billboard-preview.png": "73cdf249c5ce4012c7b4d3d1968ac494e2fe5532c0af1207b298a64f02ef0f44",
       "KudzuGleditsia9sand3d_n.png": "02b88dbad749a9824293f6a05b6d46724b04db2c9614838405da13a7fdb41587",
-      "KudzuGleditsia9sand3d.blend": "8a486ed4b5abcb4c0f78ebf102e00b3dbfe71f07264533f67ecb7a2f5b29992d"
+      "KudzuGleditsia9sand3d.blend": "d8cb4af94a93abd0fbb31371f77c4a07429003c5675c705e82f3499da0d32765"
     }
   },
   {

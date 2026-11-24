@@ -3969,3 +3969,24 @@ V7 GPU sample span8m41s after4m35s queue wait: whole-card peaks10821 MiB,
 not rerun after rolling back the redundant call; source-level provenance is
 explicit in the report and both native receipts remain. Asset quality and
 full <$5 cost remain unestablished, independent of fixture verification.
+
+V8 closes a real distant-render failure: original Gleditsia cutouts lost
+crowns across Sand3D, Blender and Sapling, unlike the other genera/opaque
+controls. Native LOD count and screenshot existence were insufficient. A
+shared atlas115->480 blades changes mean leaf alpha0.343–0.363->0.690–0.713
+without geometry/seed/triangle changes. The mip proxy alone was not accepted:
+all five repaired assets visibly retain crowns in actual camera-size550
+native images. Before/after pixel crops and raw hashes are retained.
+
+Runtime2348a9e, input-v4, native-v8: five changed assets reimported,13 unchanged
+packages retained, all18 loaded in a new Grand River process.36 timed windows
+have explicit hidden HUD and matching A/B/A counts139362;18 pairs/90 images,
+automatic final TreeManager count2, empty owned teardown. Actual DLL685229c1
+matches final-build.json. Editor batch1167.44 s includes queue. City GPU
+sample span13m45s, whole-card peaks10821 MiB,157.66 W,77°C; pre-existing8146
+MiB, menu game1576 MiB, limit200 W unchanged. The 36 windows replace the old
+missing-crown/HUD-variant screening; one repeat and an unknown limiter are
+not performance certification. The retained TRELLIS Gleditsia input remains
+pre-density-fix and is not image-matched to the revised procedural masks.
+No native job or queue waiter remains; full dollars and palette quality are
+unestablished. Independent review/acceptance still required; no self-merge.

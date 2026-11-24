@@ -78,13 +78,17 @@ def main():
                         "Missing timing UI state; only frozen v6 is eligible for --legacy-v6-ui"
                     )
                 timing_ui_visible = True
+                baseline = percentile(last["frame_ms"], 0.95)
+                comparison_basis = "B/A2 only; post-hoc screening for frozen v6"
             else:
                 timing_ui_visible = candidate["timing_ui_visible"]
-                if timing_ui_visible != last["timing_ui_visible"]:
-                    raise ValueError("Candidate and stock timing UI states differ")
-            # V6's screenshot helper restores the HUD. B and A2 match; the first
-            # A1 at each zoom does not. Use the same post-hoc B/A2 policy for all.
-            baseline = percentile(last["frame_ms"], 0.95)
+                if any(f.get("timing_ui_visible") != timing_ui_visible for f in group):
+                    raise ValueError("A/B/A timing UI states differ")
+                baseline = (
+                    percentile(first["frame_ms"], 0.95)
+                    + percentile(last["frame_ms"], 0.95)
+                ) / 2
+                comparison_basis = "A/B/A; mean of stock p95s; recorded common UI state"
             comparisons.append(
                 {
                     "camera_size": zoom,
@@ -92,8 +96,9 @@ def main():
                     "stock_instances": candidate["instances"],
                     "candidate_median_ms": statistics.median(candidate["frame_ms"]),
                     "candidate_p95_ms": percentile(candidate["frame_ms"], 0.95),
-                    "last_stock_p95_ms": baseline,
-                    "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
+                    "paired_stock_p95_ms": baseline,
+                    "last_stock_p95_ms": percentile(last["frame_ms"], 0.95),
+                    "comparison_basis": comparison_basis,
                     "timing_ui_visible": timing_ui_visible,
                     "paired_p95_fraction": percentile(candidate["frame_ms"], 0.95)
                     / baseline
@@ -121,6 +126,7 @@ def main():
             "genus": r["genus"],
             "route": r["route"],
             "height_m": r["nominal_height_m"],
+            "atlas_leaves": r.get("atlas_leaves"),
             "main_triangles": r["main_triangles"],
             "native_main_triangles": build.get("build", {})
             .get("imported_mesh", {})
@@ -156,6 +162,10 @@ def main():
         if r["route"] == "trellis":
             row["inference"] = inference.get("assets", {}).get(r["genus"])
             row["shared_cold_setup_seconds"] = inference.get("setup_seconds")
+            if r["genus"] == "Gleditsia":
+                row["reference_limit"] = (
+                    "Retained reconstruction of the pre-density-fix preview; not input-image-matched to revised procedural masks"
+                )
         assets.append(row)
         actual = shots.get("close")
         picture = actual or preview_name
@@ -182,12 +192,20 @@ def main():
             "full_cost_per_asset": None,
             "reason": "Owned hardware and a subscription are not priced marginal API calls; full dollars require an explicit allocation and review rate.",
         },
-        "performance": "Render-group-corrected B/A2 wall-frame screening. Frozen v6 uses post-hoc matching HUD-visible pairs and excludes every A1; future driver windows record UI state explicitly. Six candidates, one pair at two zooms; other candidates have no valid timing. Earlier v5 cache-stale timings discarded. No renderer-isolated GPU time or quality-bar pass.",
+        "performance": {
+            "protocol": "post-hoc matching-UI B/A2 for frozen v6"
+            if a.legacy_v6_ui
+            else "A/B/A with recorded common UI state; mean stock p95 baseline",
+            "timed_candidates": len({f["candidate"] for f in frames}),
+            "camera_sizes": sorted({f["size"] for f in frames}),
+            "certified": False,
+            "limitations": "Single-repeat wall-frame screening; limiter not isolated. Crown extents and stock random scale differ. No per-triangle cost or quality-bar pass. V5 stale-cache timing discarded.",
+        },
     }
     (a.out / "measurements.json").write_text(json.dumps(report, indent=2) + "\n")
     document = """<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PL-1328 · Tree trial</title>
 <style>body{font:16px/1.5 system-ui;background:#eef0e8;color:#182b22;margin:0;padding:32px}main{max-width:1400px;margin:auto}h1{font-size:36px;line-height:1.1}header{max-width:900px}nav{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}select{font:inherit;padding:8px}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}article{padding:16px;background:white;border:1px solid #c9d1c6}h2{font-size:20px;margin:0}article p{margin:5px 0 14px}img{width:100%;display:block;aspect-ratio:16/9;object-fit:contain;background:#e5e9df}small{display:block;margin-top:10px}.empty{padding:60px 10px;background:#e5e9df}a{color:#16513b}footer{margin-top:32px;max-width:900px}[hidden]{display:none}</style>
-<main><header><p>PL-1328 · Native tree trial</p><h1>Three genera, four authoring routes</h1><p>Gleditsia, Tilia and Ulmus. Sand3D variants at 9, 15 and 22 metres; 15-metre controls from direct Blender, Sapling and TRELLIS.2.</p><p><b>Prototypes, not an approved palette.</b> The form profiles need botanical review. TRELLIS has no bark mask. Native performance screening does not establish renderer cost, and full cost below $5 is not yet established.</p><p><a href="measurements.json">Measurements and cost fields</a> · <a href="pl1328-tree-trial.zip">18 import sets and native packages</a> · <a href="REPORT.md">Trial report</a></p></header>
+<main><header><p>PL-1328 · Native tree trial</p><h1>Three genera, four authoring routes</h1><p>Gleditsia, Tilia and Ulmus. Sand3D variants at 9, 15 and 22 metres; 15-metre controls from direct Blender, Sapling and TRELLIS.2.</p><p><b>Prototypes, not an approved palette.</b> The form profiles need botanical review. TRELLIS has no bark mask. Native performance screening does not establish renderer cost, and full cost below $5 is not yet established.</p><p><a href="measurements.json">Measurements and cost fields</a> · <a href="pl1328-tree-trial.zip">18 import sets and native packages</a> · <a href="REPORT.md">Trial report</a> · <a href="native-contact.png">Close contact sheet</a> · <a href="billboard-contact.png">Distant pixel crops</a> · <a href="billboard-before-after.png">Density repair</a></p></header>
 <nav><label>Genus <select id="genus"><option value="">All</option><option>Gleditsia</option><option>Tilia</option><option>Ulmus</option></select></label><label>Route <select id="route"><option value="">All</option><option>sand3d</option><option>blender</option><option>sapling</option><option>trellis</option></select></label><label>Native view <select id="view"><option>close</option><option>gameplay</option><option>billboard</option></select></label></nav><section>"""
     document += "".join(cards)
     document += """</section><footer><p>No Workshop content is redistributed. Sand3D library: Apache-2.0; Sapling external generator: GPL-3.0-or-later; TRELLIS.2: MIT. These newly written trial programs do not redistribute Sand3D Nature programs or meshes.</p></footer></main><script>

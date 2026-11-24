@@ -2,35 +2,28 @@
 
 ## Decision
 
-Keep Sand3D programs as a candidate **parametric layer**, not as a finished
-tree library. The new program produces nine native assets across three crown
-profiles and three sizes without decimation. Its engineering path works;
-botanical fidelity, best-in-market appearance and the full <$5 cost do not
-yet pass acceptance. Do not ship these prototypes as the regional palette.
-Native v7 additionally verified the explicit HUD-reset driver and all 18
-specimen pairs. A suspected background-deletion defect was not established:
-the live TreeManager had exactly two instances, and the engine's
-`FinalizeTree` already invalidates deleted groups. An extra pre-release
-invalidation call was redundant and was removed; no phantom-tree fix is claimed.
+Sand3D is a useful candidate **program layer**, not a finished tree library
+or a proved <$5 asset. One authored system emits Gleditsia, Tilia and Ulmus
+at 9/15/22 m; nine controls compare direct Blender, Sapling and TRELLIS at
+15 m. All 18 packages loaded in a separate fresh native city on blade.
+Keep this as an engineering proof and an inconclusive quality/cost experiment,
+not an approved regional palette.
 
-In this batch the procedural leaf-card routes retain a more tree-like,
-perforated canopy than TRELLIS reconstruction after a 1,500-triangle budget.
-That is a visual judgment of the supplied specimens, not a general verdict
-on image-to-3D. The same procedural card/texture algorithm is shared across
-Sand3D, direct Blender and Sapling, so it cannot establish Sand3D as the
-best foliage generator. The visible next bottleneck is foliage/shape quality,
-not another reduction in branch triangles.
+The procedural card routes retain more perforated, tree-like crowns in this
+batch than the severely budgeted TRELLIS meshes. That visual judgment is not
+a general verdict on image-to-3D. Card/atlas logic is shared across Sand3D,
+Blender and Sapling; it cannot establish Sand3D as the best foliage generator.
+Better foliage and botanical form, not fewer branch triangles, are the next
+quality lever.
 
-## Why these genera
+## Targets and native geometry
 
-Pinned demand and supply evidence is in `selection.json`. Boston's planted
-tree inventory gives Gleditsia 14.66%, Tilia 9.12%, Ulmus 7.09%; these are
-urban inventory records, not forest canopy shares. There is no identified
-base-game Gleditsia/Ulmus match. Tilia has the approximately 7.2 m
-`mp9-YoungLinden`, but mature 15/22 m supply is not established. The supply
-ledger has no fully reviewed Workshop pass; that does not mean none exists.
-
-## What was built and verified
+Pinned demand/supply evidence is in `selection.json`. Boston's planted-tree
+inventory gives Gleditsia 14.66%, Tilia 9.12%, Ulmus 7.09%; these are urban
+stem records, not regional forest shares. There is no identified base-game
+Gleditsia/Ulmus match. Tilia has approximately 7.2 m YoungLinden, but mature
+15/22 m supply is not established. Zero fully reviewed Workshop passes in the
+pinned ledger does not mean none exist.
 
 | Genus | Sand3D, each 9/15/22 m | Blender 15 m | Sapling 15 m | TRELLIS 15 m |
 |---|---:|---:|---:|---:|
@@ -38,135 +31,133 @@ ledger has no fully reviewed Workshop pass; that does not mean none exists.
 | Tilia | 628 | 680 | 1,224 | 944 |
 | Ulmus | 568 | 620 | 1,164 | 1,116 |
 
-Numbers are native main-mesh triangles. Sapling export meshes contain 28
-zero-area triangles each; the native importer drops precisely those 28.
-Actual FBX reimport validates all 18 exports: ground pivot, metre heights
-(within 2 mm), finite UVs and the 1,500-triangle bound. Hash-bound receipts
-identify the exact inputs and CRPs. Sizes use separate seeds, not only scale.
+Numbers are native main-mesh triangles. Sapling export meshes have exactly
+28 zero-area triangles each, removed by the native importer. Actual exported
+FBX reimport verifies all 18: <=1,500 triangles, metre heights within 2 mm,
+ground pivot, finite UVs and receipt hashes. Independent size seeds vary
+layout, not only uniform scale; Sand3D 15 m uses seed 1329 and the controls 1328.
+This is candidate-asset comparison, not a seed-matched skeleton study.
 
-All 18 packages loaded in a separate, fresh Grand River city on blade's
-disposable native CS1 install. All use `Custom/Trees/Default`, 512px texture
-inputs and CS1's generated two-triangle, camera-updated billboard. There is
-no building-style `_lod.fbx`; the native billboard is the tree LOD. Native
-close, gameplay and billboard views exist for every candidate. Tilia is
-beside YoungLinden; other genera are beside generic stock Tree2. These are
-the available stock references, **not a claim to the best Workshop tree**.
+CS1 uses `Custom/Trees/Default`, 512px diffuse/alpha/leaf-bark/normal maps and
+native camera-updated two-triangle billboards. There is no building `_lod.fbx`
+or building `_s` convention. Initial textures are rasterised procedural maps,
+not photographic or high-poly lighting bakes; normals are deliberately flat.
+TRELLIS has opaque geometry and an all-leaf colour mask, not snow-ready bark.
 
-The texture maps are rasterised procedural diffuse/alpha/colour maps with
-flat normals, not a photographic or high-poly lighting bake. The tree shader
-uses `_a`/`_c` conventions rather than building `_s` packing. TRELLIS preserves
-its reconstructed UV texture but currently has opaque geometry and an
-all-leaf colour mask: it is not snow-ready. No photographic quality is claimed.
+Tilia specimens are beside YoungLinden; the others use generic stock Tree2.
+These are available stock references, **not the best vetted Workshop tree**.
+No Workshop mesh, texture or package is redistributed.
 
-Native editor diagnostics retain 163 template-mesh readability errors
-(27 on the first import, eight on each subsequent import), before authored
-FBX selection. All authored meshes are readable and their native counts are
-recorded. The fresh city also reports three missing stock panel assemblies
-(`ServicePointGroupPanel`, `HotelGroupPanel`, `RaceGroupPanel`). Neither is
-silently relabelled a warning-free import.
+## Distant foliage survival
 
-## Native measurement correction
+The original Gleditsia cutouts failed the distant view across all three
+procedural routes: mostly trunks remained. Other genera and opaque TRELLIS
+retained crowns. A two-triangle LOD mesh and a screenshot file were therefore
+not sufficient evidence of usable foliage.
 
-The first forest timing run, v5, is **invalid for comparing assets**. While
-paused, `TreeManager.UpdateTree` queues updates but does not refresh distant
-render groups. A forest screenshot exposed custom nearby crowns beside old
-stock distant sprites. All v5 timing comparisons are discarded, not averaged
-with later measurements.
+The shared Gleditsia atlas now uses 480 small leaf blades instead of 115,
+without changing geometry, seeds or triangle counts. Leaf-UV mean alpha rose
+from 0.343–0.363 to 0.690–0.713. A BOX-filter proxy loses all old coverage at
+2×2/1×1 with cutoff 128, while the new masks retain it. That proxy alone is
+not a native pass: **native v8 visibly retains crowns in all five revised
+Gleditsia assets**, including all three Sand3D sizes and both controls.
+The before/after contact sheets preserve the actual, magnified native pixels.
 
-The corrected harness invalidates tree renderers and flushes RenderManager's
-pending groups on the simulation action while the city remains paused.
-The follow-up v6 tests four 15 m Gleditsia routes plus Sand3D Tilia/Ulmus, with
-one A/B/A sequence at each camera size (180 and 500), 120 warmup frames and
-120 measured frames per arm, at the original 139,362 stock tree positions.
-It captures the actual forest after every timed arm, outside the timing window.
-V6 used driver revision `2e0897353ca0b8c439d2beaaf47e8ec9513de75f`.
-The screenshot helper restores the HUD, so the first A1 at each zoom was
-HUD-hidden while B and A2 were HUD-visible. The reported comparisons use
-**only B/A2**, with matching HUD state, for every candidate. This is a
-post-hoc screening choice, not a clean preregistered A/B/A study. Native v7
-verified the explicit HUD reset in all six focused timing windows; those
-windows remain separate from the v6 screening table.
-Completed observations retain the raw windows and diagnostic flags; a
-pending render-update flag is not treated as proof of a valid frame.
+The retained Gleditsia TRELLIS control reconstructs the pre-density-fix
+reference, not the repaired input image. This limits causal model comparisons;
+it remains a same-genus, same-height/budget candidate control.
 
-V6's retargeted forest screenshots visibly change at both zooms. The later
-background-deletion hypothesis was rejected after checking the live instance
-count and the engine's finalization path. Low background vegetation alone
-is not a tree-cache correctness test.
+## Native fixture and frame screening
 
-Verification provenance: the final C# module has exactly the source hash of
-the native v6 module. The final native driver has exactly the source hash
-exercised in v7 (`4b4cdac`), which included a redundant pre-release group mark.
-That mark duplicated `FinalizeTree`'s invalidation and was removed, restoring
-the v6 C# source. The combined final head was not rerun after this rollback;
-the per-module/source hashes and both native receipts are retained.
+V8 used source `2348a9e2c3456401e55b50594042a813a60d2583`, input set
+`inputs-v4`, and the exact final C# DLL hash in `native-v8-summary.json`.
+Five changed assets were reimported serially; thirteen byte-identical packages
+were retained. All 18 were checked in a separate fresh Grand River process
+with `--noWorkshop`, paused at noon. Automatic post-pair checking reports
+exactly two TreeManager instances. All 90 captures and empty owned teardown
+are recorded. Later changes are analysis/report data, not runtime code.
 
-These wall-frame samples do not isolate the renderer limiter. One B/A2 pair,
-stock random scales versus fixed authored scales, and different canopy
-extents preclude certification against PL-1326's proposed performance bar.
-Untimed sizes/routes have no performance pass. Do not infer frame cost from
-triangle counts alone.
-
-Raw p95 wall-frame milliseconds, **candidate / following stock control**,
-at 139,362 tree positions; both windows have the HUD visible:
+At the original 139,362 tree positions, each of six candidates has one
+A/B/A at camera sizes 180/500, 120 warmup and 120 measured frames per arm.
+HUD state is explicitly hidden in every window. Forest photographs are taken
+outside the timed window. Raw p95 wall-frame ms are **candidate / mean of
+stock A1/A2 p95s**:
 
 | 15 m candidate | Camera size 180 | Camera size 500 |
 |---|---:|---:|
-| Gleditsia / Sand3D | 35.2 / 36.2 | 35.2 / 36.1 |
-| Gleditsia / Blender | 35.5 / 35.9 | **60.9 / 37.1** |
-| Gleditsia / Sapling | 35.6 / 36.6 | 35.6 / 36.6 |
-| Gleditsia / TRELLIS | 34.2 / 36.0 | 34.9 / 36.8 |
-| Tilia / Sand3D | 42.1 / 38.2 | 33.7 / 35.6 |
-| Ulmus / Sand3D | 37.2 / 40.3 | 33.5 / 36.4 |
+| Gleditsia / blender | 30.6 / 35.9 | 30.3 / 32.0 |
+| Gleditsia / sand3d | 30.9 / 33.5 | 30.8 / 31.6 |
+| Gleditsia / sapling | 30.9 / 33.4 | 30.7 / 31.6 |
+| Gleditsia / trellis | 30.8 / 33.1 | 31.0 / 31.5 |
+| Tilia / sand3d | 30.6 / 33.6 | 30.8 / 31.3 |
+| Ulmus / sand3d | 31.1 / 34.3 | 30.4 / 31.3 |
 
-The Blender wide-view +64% p95 anomaly is retained, not discarded as noise;
-the Tilia close-view pair is +10.3%. A single pair cannot establish whether
-these are repeatable renderer costs or transient effects. Nor do the small
-negative differences establish a speedup. The raw windows and source hashes
-are available for independent review; the performance verdict is inconclusive.
+These small negative differences do **not** establish speedups. One repeat,
+unattributed CPU/GPU/capture limiting, different crown extents and fixed
+candidate scale versus stock random scale preclude performance certification
+against PL-1326's proposed bar. This is not per-triangle GPU cost. Untimed
+sizes/routes have no performance pass.
 
-## Time and money
+Discarded or superseded observations remain identified:
 
-| Work | Observed time | What it excludes |
+- V5 timings are invalid: `UpdateTree` only queued updates while paused,
+  leaving distant groups stale. Explicit renderer invalidation and a
+  RenderManager flush fix retargeting; actual forest pixels verify it.
+- V6's first A1 per zoom had a different HUD state because the screenshot
+  helper restores it. Its post-hoc B/A2 screening is historical, not mixed
+  with v8. Old Gleditsia masks additionally fail crown retention.
+- A suspected deletion-cache defect was not established. A live count of two
+  trees and `FinalizeTree`'s existing invalidation contradicted that premise;
+  a duplicate pre-release mark was removed. Low background vegetation is not
+  evidence of phantom TreeManager instances. V7's explicit HUD reset was
+  verified before v8 exercised the final runtime combination.
+
+## Time and dollars
+
+| Work | Observed time | Boundary |
 |---|---:|---|
-| Procedural generation + preview | 3.73–10.29 s/asset | Blender startup, setup, author/reviewer labour |
-| Warm native build driver | median 14.82 s/asset | First process launch, queue, batch setup |
-| Native import job | 6.90–7.70 s/asset | Editor launch/save-driver overhead |
-| Entire 18-asset editor batch | 1,461.90 s | Includes shared queue, not steady production throughput |
-| TRELLIS shared cold setup | 230.50 s | Model/runtime preparation from the earlier bake-off |
-| TRELLIS Gleditsia/Tilia/Ulmus | 54.93 / 91.32 / 54.18 s | Includes per-asset mesh export; excludes cold setup and conversion |
+| Current procedural generation + preview | 3.73–8.43 s/asset | excludes Blender startup, shared setup and review |
+| Repaired-batch warm native build | median 14.32 s/asset | four warm builds; excludes first launch and queue |
+| Repaired five-asset editor batch | 1167.44 s | includes slot wait; not production throughput |
+| Initial 18-asset editor batch | 1,461.90 s | includes shared queue, setup and cold launch |
+| TRELLIS shared cold setup | 230.50 s | excludes earlier runtime/model preparation |
+| TRELLIS Gleditsia/Tilia/Ulmus | 54.93 / 91.32 / 54.18 s | per-asset inference + mesh export, excludes setup/conversion |
 
-TRELLIS used the held RTX 3090 and released its load. Its inference-only
-times were 49.48 / 74.30 / 45.27 s; peak Torch allocation was approximately
-2.63 / 6.87 / 4.83 GiB, not whole-card or whole-process peak memory.
+TRELLIS inference alone took 49.48/74.30/45.27 s on the held 3090, peak Torch
+allocation 2.63/6.87/4.83 GiB (not whole-card peaks), then released its load.
 No commercial image/mesh-generation API call was made. That is **not a
-zero-dollar full-cost result**. Multica records prior Codex tokens as
-uncosted, and the current run's terminal usage is unavailable before exit.
-No electricity/depreciation rate, subscription allocation or review-labour
-rate was provided. `measurements.json` deliberately leaves full dollars null.
-
-Use this accounting boundary when costing production:
+zero-dollar full-cost result**. Codex authoring/review tokens are explicitly
+uncosted in Multica; this producer run cannot appear in terminal usage until
+it exits. Subscription allocation, hardware rates, review/rework and a
+quality-accepted yield are not established. Full dollars stay null.
 
 `accepted asset cost = (shared development + failed attempts)/accepted count
  + per-asset model/compute + native build compute + review/rework labour`.
 
 Report marginal production and amortised R&D separately. At a hypothetical
-$60/hour review rate, five minutes alone uses the entire $5 budget before
-compute; this is sensitivity arithmetic, not a rate or duration measured here.
-The <$5 full-cost claim is therefore unestablished.
+$60/hour review rate, five minutes uses the $5 budget before compute; this is
+sensitivity arithmetic, not a measured rate or duration. Internal guidance
+calls held GPUs free capacity, not a fully allocated accounting rate. Its
+API-equivalent priors do not price this Codex subscription run. No <$5 claim.
 
-## Scope and next gate
+## Verification and remaining gates
 
-This tests a newly authored Sand3D idiom, LLM-written Blender generation,
-low-detail Sapling and the currently published TRELLIS.2 weights (unchanged
-from the earlier building trial). It does not import Nature dataset meshes,
-exhaust current commercial models, test photogrammetry without a calibrated
-specimen set, or rank Sapling's best high-detail presets. No Workshop mesh,
-texture or package is redistributed.
+C# build, 170 harness tests, full harness/tree Ruff/format, real native doctor,
+18 FBX roundtrips, eighteen loaded CRPs, actual near/gameplay/distant views,
+all five repaired crowns, common-HUD timing and empty teardown are verified.
+Desktop 1440/mobile 390 gallery checks cover all native cards/images, filters,
+view changes, no JS errors or horizontal overflow; the headless shell closes.
 
-Before approving a palette: review the native specimens for actual genus
-identity and foliage quality; compare against the best supply-ledger asset
-once that lane has vetted imports; resolve snow/wind and renderer-limited
-performance; price review/rework and amortised development. The reusable
-generator/import harness is concrete progress, not a substitute for those
-gates. Source/license and reproduction details are in `README.md`.
+Native template import logs contain 163 mesh-readability errors before authored
+FBX selection; the fresh city reports three missing stock panel assemblies.
+These are preserved, not represented as warning-free imports. V8 whole-card
+sample peaks are 10821 MiB, 157.66 W, 77°C, with 8146 MiB pre-existing use and a
+1576 MiB menu game reading (not continuous game peak). Observed power.limit
+is 200 W; it was never changed. Exact sources and per-run context are retained.
+
+Botanical identity, leaf morphology/allometry, best-market comparison,
+snow/wind qualification, renderer-limited performance and full-cost acceptance
+remain open. No calibrated multi-view specimen set was available, so no
+photogrammetry result is claimed. Commercial models were not called; this
+is not a ranking of every current generator or Sapling's best presets.
+Reproduction/source/license details are in `README.md`; next gates in `NEXT.md`.

@@ -136,7 +136,7 @@
           "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
         ],
         "crp": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Assets/KudzuGleditsia15blender.crp",
-        "crp_bytes": 1080606,
+        "crp_bytes": 1078377,
         "prefab_name": "KudzuGleditsia15blender.KudzuGleditsia15blender_Data",
         "import_files_removed": [
           "KudzuGleditsia15blender.fbx",
@@ -147,7 +147,7 @@
         ]
       },
       "crp": "KudzuGleditsia15blender.crp",
-      "crp_sha256": "97dbb44c9b64eba552b7cc958fcccd2e43f59c96e90c4370134131888993ce32",
+      "crp_sha256": "a48508550011658b38ecc784df722b842c584196458502241ee18f286d2e81aa",
       "errors": [
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
@@ -184,9 +184,6 @@
           "file": "shots/editor-KudzuGleditsia15blender.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 131.91830149805173
     }
   },
   {
@@ -307,7 +304,7 @@
           "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
         ],
         "crp": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Assets/KudzuGleditsia15sand3d.crp",
-        "crp_bytes": 1081507,
+        "crp_bytes": 1075851,
         "prefab_name": "KudzuGleditsia15sand3d.KudzuGleditsia15sand3d_Data",
         "import_files_removed": [
           "KudzuGleditsia15sand3d.fbx",
@@ -318,7 +315,7 @@
         ]
       },
       "crp": "KudzuGleditsia15sand3d.crp",
-      "crp_sha256": "9c580a33e7032e22980f0b257281d7d74a525d09fef6c4a6d96749ce8319ddcf",
+      "crp_sha256": "21d1eaaa98dfdd83041c13e1f053517bb98442874f75d88b51e70477f184fab9",
       "errors": [
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
@@ -363,9 +360,6 @@
           "file": "shots/editor-KudzuGleditsia15sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 15.136888123117387
     }
   },
   {
@@ -486,7 +480,7 @@
           "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
         ],
         "crp": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Assets/KudzuGleditsia15sapling.crp",
-        "crp_bytes": 1119604,
+        "crp_bytes": 1114813,
         "prefab_name": "KudzuGleditsia15sapling.KudzuGleditsia15sapling_Data",
         "import_files_removed": [
           "KudzuGleditsia15sapling.fbx",
@@ -497,7 +491,7 @@
         ]
       },
       "crp": "KudzuGleditsia15sapling.crp",
-      "crp_sha256": "07ea2accefc90547f32e14b48fa4d15892a92a57373256165209b35cb5e7bf8d",
+      "crp_sha256": "e596e2c4390e7b969caf4e8cbd69367218fece0e91b2cd5f5228f38eb5ed208e",
       "errors": [
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
@@ -550,9 +544,6 @@
           "file": "shots/editor-KudzuGleditsia15sapling.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.561597913969308
     }
   },
   {
@@ -745,9 +736,6 @@
           "file": "shots/editor-KudzuGleditsia15trellis.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.346932065906003
     }
   },
   {
@@ -868,7 +856,7 @@
           "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
         ],
         "crp": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Assets/KudzuGleditsia22sand3d.crp",
-        "crp_bytes": 1083828,
+        "crp_bytes": 1078489,
         "prefab_name": "KudzuGleditsia22sand3d.KudzuGleditsia22sand3d_Data",
         "import_files_removed": [
           "KudzuGleditsia22sand3d.fbx",
@@ -879,7 +867,7 @@
         ]
       },
       "crp": "KudzuGleditsia22sand3d.crp",
-      "crp_sha256": "bc3d8ad4589e660f41c4f85269bee87a106b98229d62bb9b306d8b6df69855cb",
+      "crp_sha256": "1693efa7bfe262585f26c371ba8b65a2c8dc19b0c4e1a29d1387927ee55a9def",
       "errors": [
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
@@ -931,26 +919,15 @@
         "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "error_count": 59,
+      "error_count": 51,
       "shots": [
         {
           "label": "editor-KudzuGleditsia22sand3d",
           "file": "shots/editor-KudzuGleditsia22sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.996331245172769
     }
   },
   {
@@ -1071,7 +1048,7 @@
           "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
         ],
         "crp": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Addons/Assets/KudzuGleditsia9sand3d.crp",
-        "crp_bytes": 1085259,
+        "crp_bytes": 1082484,
         "prefab_name": "KudzuGleditsia9sand3d.KudzuGleditsia9sand3d_Data",
         "import_files_removed": [
           "KudzuGleditsia9sand3d.fbx",
@@ -1082,7 +1059,7 @@
         ]
       },
       "crp": "KudzuGleditsia9sand3d.crp",
-      "crp_sha256": "d07df10180bc3542f0199c5f4481838760d65ba1c9b50e0641db737d83dfc987",
+      "crp_sha256": "13b022d29cb45280532650d07b64232f500bb1d2ec0f2cd55acc34e655c12966",
       "errors": [
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
@@ -1142,26 +1119,15 @@
         "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access normals on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access colors on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access uv on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access tangents on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access triangles/indices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
-        "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "error_count": 67,
+      "error_count": 59,
       "shots": [
         {
           "label": "editor-KudzuGleditsia9sand3d",
           "file": "shots/editor-KudzuGleditsia9sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 15.084902071161196
     }
   },
   {
@@ -1378,9 +1344,6 @@
           "file": "shots/editor-KudzuTilia15blender.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.85841631796211
     }
   },
   {
@@ -1605,9 +1568,6 @@
           "file": "shots/editor-KudzuTilia15sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.120371172903106
     }
   },
   {
@@ -1840,9 +1800,6 @@
           "file": "shots/editor-KudzuTilia15sapling.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.824063703184947
     }
   },
   {
@@ -2083,9 +2040,6 @@
           "file": "shots/editor-KudzuTilia15trellis.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.775233046151698
     }
   },
   {
@@ -2334,9 +2288,6 @@
           "file": "shots/editor-KudzuTilia22sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.58133727312088
     }
   },
   {
@@ -2593,9 +2544,6 @@
           "file": "shots/editor-KudzuTilia9sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.846808103844523
     }
   },
   {
@@ -2860,9 +2808,6 @@
           "file": "shots/editor-KudzuUlmus15blender.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.520937121938914
     }
   },
   {
@@ -3135,9 +3080,6 @@
           "file": "shots/editor-KudzuUlmus15sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 15.099991413997486
     }
   },
   {
@@ -3418,9 +3360,6 @@
           "file": "shots/editor-KudzuUlmus15sapling.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.969401123002172
     }
   },
   {
@@ -3709,9 +3648,6 @@
           "file": "shots/editor-KudzuUlmus15trellis.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 15.206274684984237
     }
   },
   {
@@ -4008,9 +3944,6 @@
           "file": "shots/editor-KudzuUlmus22sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.67773536592722
     }
   },
   {
@@ -4315,9 +4248,6 @@
           "file": "shots/editor-KudzuUlmus9sand3d.png"
         }
       ]
-    },
-    "timing": {
-      "wall_seconds": 14.531180270947516
     }
   }
 ]

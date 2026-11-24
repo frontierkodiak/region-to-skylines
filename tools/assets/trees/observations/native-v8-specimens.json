@@ -1,0 +1,452 @@
+[
+  {
+    "specimens": [
+      {
+        "name": "KudzuGleditsia15blender.KudzuGleditsia15blender_Data",
+        "created": true,
+        "id": 39640,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 125694,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuGleditsia15sand3d.KudzuGleditsia15sand3d_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuGleditsia15sapling.KudzuGleditsia15sapling_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuGleditsia15trellis.KudzuGleditsia15trellis_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuGleditsia22sand3d.KudzuGleditsia22sand3d_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuGleditsia9sand3d.KudzuGleditsia9sand3d_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuTilia15blender.KudzuTilia15blender_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "mp9-YoungLinden",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Named Tilia age-class match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuTilia15sand3d.KudzuTilia15sand3d_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "mp9-YoungLinden",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Named Tilia age-class match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuTilia15sapling.KudzuTilia15sapling_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "mp9-YoungLinden",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Named Tilia age-class match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuTilia15trellis.KudzuTilia15trellis_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "mp9-YoungLinden",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Named Tilia age-class match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuTilia22sand3d.KudzuTilia22sand3d_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "mp9-YoungLinden",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Named Tilia age-class match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuTilia9sand3d.KudzuTilia9sand3d_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "mp9-YoungLinden",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Named Tilia age-class match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuUlmus15blender.KudzuUlmus15blender_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuUlmus15sand3d.KudzuUlmus15sand3d_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuUlmus15sapling.KudzuUlmus15sapling_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuUlmus15trellis.KudzuUlmus15trellis_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuUlmus22sand3d.KudzuUlmus22sand3d_Data",
+        "created": true,
+        "id": 125694,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 39640,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  },
+  {
+    "specimens": [
+      {
+        "name": "KudzuUlmus9sand3d.KudzuUlmus9sand3d_Data",
+        "created": true,
+        "id": 262141,
+        "position": [
+          -12.5,
+          106.66181182861328,
+          300
+        ]
+      },
+      {
+        "name": "Tree2",
+        "created": true,
+        "id": 262139,
+        "position": [
+          12.5,
+          111.19481658935547,
+          300
+        ]
+      }
+    ],
+    "comparison_basis": "Generic stock control, not a vetted genus match"
+  }
+]

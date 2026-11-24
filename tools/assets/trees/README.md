@@ -1,5 +1,7 @@
 # Parametric tree trial (PL-1328)
 
+Final evidence is native v8 with input set `inputs-v4`; see `REPORT.md`.
+Gleditsia uses denser cutout clusters after the original distant crown failure.
 This is an asset-generation and native-import experiment, not an exporter
 palette or a Workshop release. It does not change map generation.
 The decision, measured limits and outstanding acceptance gates are in
@@ -44,8 +46,10 @@ No calibrated multi-view specimen set was available in this trial. No
 photogrammetry result or cost is claimed. Commercial model services were not
 called. The results do not rank every contemporary mesh-generation model.
 
-For the TRELLIS control, copy the 15 m Sand3D transparent previews to
-`$RUN/references/{Gleditsia,Tilia,Ulmus}-input.png`. In the frozen TRELLIS
+For the retained TRELLIS controls, use the archive’s hash-bound
+`reference-images/{Gleditsia,Tilia,Ulmus}-input.png` files. They are the original
+15 m Sand3D previews; the revised dense Gleditsia preview is a new input, not
+a reproduction of that control. In the frozen TRELLIS
 runtime documented under `../bakeoff/environment`, run `run_trellis.py`
 with positional `references output` and `--weights` / `--dino` paths.
 Then run Blender with `--python convert_trellis.py -- "$RUN/trellis" "$RUN/inputs"`.
@@ -124,7 +128,8 @@ the timing window. It screens six representative candidates, not every size/rout
 A1 at each zoom has a different HUD state because the screenshot helper
 restores it. Reported v6 comparisons therefore use only common-state B/A2
 pairs; this is post-hoc screening, not performance certification. The final
-driver explicitly hides the HUD before every arm for future runs.
+driver explicitly hides the HUD before every arm; native v8 verifies this
+with 36 common-state windows and a post-specimen count of two.
 
 CS1 generates a camera-updated, two-triangle tree billboard itself. There
 is no authored `_lod.fbx` in these tree import sets. Native distant captures,
@@ -155,3 +160,9 @@ report drift and unresolved render limiting, not a performance pass.
 
 No Workshop asset is redistributed. Base-game comparison images do not
 grant redistribution rights to the base-game meshes or textures.
+
+The first sparse Gleditsia masks lost crowns at camera-size 550. Its shared
+atlas now uses 480 leaf blades rather than 115, with unchanged geometry/seeds.
+All five revised assets retain distant crowns in native v8. The crop/mip
+audit is only a proxy; the actual native before/after witnesses are the gate.
+TRELLIS Gleditsia retains its pre-density reference, not a newly matched image.

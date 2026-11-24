@@ -6,21 +6,21 @@
       "triangles": 570,
       "zero_area_triangles": 0,
       "roundtrip_error_m": 4.76837158203125e-07,
-      "fbx_sha256": "62d52d7d939a076b426cff3541c8a90c4663978fb29f5f4452afd19b79df4232"
+      "fbx_sha256": "07c5b6c64541724a3817449598b6c9e48003761f0f5374287b96271a0a250cb1"
     },
     {
       "name": "KudzuGleditsia15sand3d",
       "triangles": 518,
       "zero_area_triangles": 0,
       "roundtrip_error_m": 4.76837158203125e-07,
-      "fbx_sha256": "1a6e544e64146af5e468a0fcae57e5d4aacd096c1dca4e8af6dd9d9673a72db8"
+      "fbx_sha256": "360183830ede2f404918dad7fdce87deff97bd630e37bd4d0f2ce57956b83079"
     },
     {
       "name": "KudzuGleditsia15sapling",
       "triangles": 1142,
       "zero_area_triangles": 28,
       "roundtrip_error_m": 4.76837158203125e-07,
-      "fbx_sha256": "8dc378eeee388c6c67389dc2b39023110986f3830c23d3478b433ae5c7286d65"
+      "fbx_sha256": "d09c9149ba255cc596eb740fbb17e80fe75a8282382b5e5654408f3f75840ae4"
     },
     {
       "name": "KudzuGleditsia15trellis",
@@ -34,14 +34,14 @@
       "triangles": 518,
       "zero_area_triangles": 0,
       "roundtrip_error_m": 9.5367431640625e-07,
-      "fbx_sha256": "7811cb3b31e31be3baa4d450576a64944b98995bb385f54aba2606db8cce927f"
+      "fbx_sha256": "f0e3feccd0ec53d105d6f080e9fdd5f7b9e7cea8040dbc390624f0b769d91daf"
     },
     {
       "name": "KudzuGleditsia9sand3d",
       "triangles": 518,
       "zero_area_triangles": 0,
       "roundtrip_error_m": 1.045564701485091e-08,
-      "fbx_sha256": "ba775f55f2ba1e90123584ad933bfe1c965ad836b8c8f20f64f9f9715ed30af8"
+      "fbx_sha256": "9f1ee91df59463529f8930b17699b366bdeabd2ec98bebefae08ac03006c03e5"
     },
     {
       "name": "KudzuTilia15blender",

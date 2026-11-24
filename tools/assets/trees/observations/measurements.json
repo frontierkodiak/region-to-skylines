@@ -6,6 +6,7 @@
       "genus": "Gleditsia",
       "route": "blender",
       "height_m": 15.0,
+      "atlas_leaves": 480,
       "main_triangles": 570,
       "native_main_triangles": 570,
       "import_errors": [
@@ -37,10 +38,10 @@
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "authoring_seconds": 5.310741542140022,
-      "native_build_wall_seconds": 131.91830149805173,
-      "native_import_job_seconds": 6.9,
-      "crp_sha256": "97dbb44c9b64eba552b7cc958fcccd2e43f59c96e90c4370134131888993ce32",
+      "authoring_seconds": 5.233594374964014,
+      "native_build_wall_seconds": 132.60058354004286,
+      "native_import_job_seconds": 7,
+      "crp_sha256": "a48508550011658b38ecc784df722b842c584196458502241ee18f286d2e81aa",
       "shots": {
         "close": "images/KudzuGleditsia15blender-close.png",
         "gameplay": "images/KudzuGleditsia15blender-gameplay.png",
@@ -52,25 +53,27 @@
           "camera_size": 180,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 31.299591064453125,
-          "candidate_p95_ms": 35.495758056640625,
-          "last_stock_p95_ms": 35.93597412109375,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.012250010615260543,
-          "diagnostic_a1_a2_p95_drift_fraction": 0.03191460228610854
+          "candidate_median_ms": 27.24456787109375,
+          "candidate_p95_ms": 30.626678466796875,
+          "paired_stock_p95_ms": 35.92672348022461,
+          "last_stock_p95_ms": 33.38279724121094,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.14752375112484373,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.13225283469759097
         },
         {
           "camera_size": 500,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 38.6505126953125,
-          "candidate_p95_ms": 60.8642578125,
-          "last_stock_p95_ms": 37.11853027343749,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": 0.6397270410260629,
-          "diagnostic_a1_a2_p95_drift_fraction": 0.001399637740819859
+          "candidate_median_ms": 27.374267578125,
+          "candidate_p95_ms": 30.27801513671875,
+          "paired_stock_p95_ms": 32.01751708984375,
+          "last_stock_p95_ms": 32.35321044921875,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.054329695467759564,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.021191542647979622
         }
       ],
       "dollars": {
@@ -89,6 +92,7 @@
       "genus": "Gleditsia",
       "route": "sand3d",
       "height_m": 15,
+      "atlas_leaves": 480,
       "main_triangles": 518,
       "native_main_triangles": 518,
       "import_errors": [
@@ -101,10 +105,10 @@
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "authoring_seconds": 9.056671249913052,
-      "native_build_wall_seconds": 15.136888123117387,
-      "native_import_job_seconds": 7.1,
-      "crp_sha256": "9c580a33e7032e22980f0b257281d7d74a525d09fef6c4a6d96749ce8319ddcf",
+      "authoring_seconds": 4.365488708019257,
+      "native_build_wall_seconds": 14.708607864100486,
+      "native_import_job_seconds": 7.21,
+      "crp_sha256": "21d1eaaa98dfdd83041c13e1f053517bb98442874f75d88b51e70477f184fab9",
       "shots": {
         "close": "images/KudzuGleditsia15sand3d-close.png",
         "gameplay": "images/KudzuGleditsia15sand3d-gameplay.png",
@@ -116,25 +120,27 @@
           "camera_size": 180,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 30.99822998046875,
-          "candidate_p95_ms": 35.24284362792969,
-          "last_stock_p95_ms": 36.15226745605469,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.025155374534403974,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.0091793954981233
+          "candidate_median_ms": 27.77862548828125,
+          "candidate_p95_ms": 30.948638916015625,
+          "paired_stock_p95_ms": 33.50028991699219,
+          "last_stock_p95_ms": 33.728790283203125,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.07616802742003437,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.01373538179316669
         },
         {
           "camera_size": 500,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 31.0211181640625,
-          "candidate_p95_ms": 35.1898193359375,
-          "last_stock_p95_ms": 36.07635498046875,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.0245738696442922,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.018310911808669617
+          "candidate_median_ms": 27.2369384765625,
+          "candidate_p95_ms": 30.828857421875,
+          "paired_stock_p95_ms": 31.603240966796875,
+          "last_stock_p95_ms": 31.7413330078125,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.024503295270743353,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.008777459871005311
         }
       ],
       "dollars": {
@@ -153,6 +159,7 @@
       "genus": "Gleditsia",
       "route": "sapling",
       "height_m": 15.0,
+      "atlas_leaves": 480,
       "main_triangles": 1142,
       "native_main_triangles": 1114,
       "import_errors": [
@@ -165,10 +172,10 @@
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "authoring_seconds": 4.235034542158246,
-      "native_build_wall_seconds": 14.561597913969308,
-      "native_import_job_seconds": 7.28,
-      "crp_sha256": "07ea2accefc90547f32e14b48fa4d15892a92a57373256165209b35cb5e7bf8d",
+      "authoring_seconds": 4.800415374804288,
+      "native_build_wall_seconds": 14.316340500023216,
+      "native_import_job_seconds": 7.19,
+      "crp_sha256": "e596e2c4390e7b969caf4e8cbd69367218fece0e91b2cd5f5228f38eb5ed208e",
       "shots": {
         "close": "images/KudzuGleditsia15sapling-close.png",
         "gameplay": "images/KudzuGleditsia15sapling-gameplay.png",
@@ -180,25 +187,27 @@
           "camera_size": 180,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 31.55517578125,
-          "candidate_p95_ms": 35.645294189453125,
-          "last_stock_p95_ms": 36.637115478515625,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.027071489556652284,
-          "diagnostic_a1_a2_p95_drift_fraction": 0.027308025543111958
+          "candidate_median_ms": 27.7099609375,
+          "candidate_p95_ms": 30.890655517578125,
+          "paired_stock_p95_ms": 33.390045166015625,
+          "last_stock_p95_ms": 33.052825927734375,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.07485433565634636,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.019996833080733856
         },
         {
           "camera_size": 500,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 31.219482421875,
-          "candidate_p95_ms": 35.55450439453125,
-          "last_stock_p95_ms": 36.59210205078125,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.02835578166048125,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.01636587366694009
+          "candidate_median_ms": 27.83203125,
+          "candidate_p95_ms": 30.706787109375,
+          "paired_stock_p95_ms": 31.620025634765625,
+          "last_stock_p95_ms": 31.7718505859375,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.028881650380021662,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.009649420549871612
         }
       ],
       "dollars": {
@@ -217,6 +226,7 @@
       "genus": "Gleditsia",
       "route": "trellis",
       "height_m": 15,
+      "atlas_leaves": null,
       "main_triangles": 1339,
       "native_main_triangles": 1339,
       "import_errors": [
@@ -244,25 +254,27 @@
           "camera_size": 180,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 30.21240234375,
-          "candidate_p95_ms": 34.200286865234375,
-          "last_stock_p95_ms": 36.017608642578125,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.050456480755788125,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.01905414952416573
+          "candidate_median_ms": 27.64892578125,
+          "candidate_p95_ms": 30.773162841796875,
+          "paired_stock_p95_ms": 33.05244445800781,
+          "last_stock_p95_ms": 32.94525146484375,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.06895954757920253,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.0064652693095276215
         },
         {
           "camera_size": 500,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 29.9072265625,
-          "candidate_p95_ms": 34.8968505859375,
-          "last_stock_p95_ms": 36.80877685546875,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.05194212991750613,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.14545325728860392
+          "candidate_median_ms": 27.4505615234375,
+          "candidate_p95_ms": 31.00738525390625,
+          "paired_stock_p95_ms": 31.4666748046875,
+          "last_stock_p95_ms": 31.744384765625,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.014596062457569614,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.017808219178082174
         }
       ],
       "dollars": {
@@ -284,13 +296,15 @@
         "sha256": "b6ab3d683e43529b0c9206f36baab564ccf1f58f3275069d52a4dc25f191b304",
         "input_sha256": "990bffa204accbf747f6a735871bb5858dd0e8bac0530bd1ee7506a7b6342e4b"
       },
-      "shared_cold_setup_seconds": 230.49975983705372
+      "shared_cold_setup_seconds": 230.49975983705372,
+      "reference_limit": "Retained reconstruction of the pre-density-fix preview; not input-image-matched to revised procedural masks"
     },
     {
       "name": "KudzuGleditsia22sand3d",
       "genus": "Gleditsia",
       "route": "sand3d",
       "height_m": 22,
+      "atlas_leaves": 480,
       "main_triangles": 518,
       "native_main_triangles": 518,
       "import_errors": [
@@ -303,10 +317,10 @@
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "authoring_seconds": 6.9229102078825235,
-      "native_build_wall_seconds": 14.996331245172769,
-      "native_import_job_seconds": 7.09,
-      "crp_sha256": "bc3d8ad4589e660f41c4f85269bee87a106b98229d62bb9b306d8b6df69855cb",
+      "authoring_seconds": 4.469585207989439,
+      "native_build_wall_seconds": 14.313295852858573,
+      "native_import_job_seconds": 7.23,
+      "crp_sha256": "1693efa7bfe262585f26c371ba8b65a2c8dc19b0c4e1a29d1387927ee55a9def",
       "shots": {
         "close": "images/KudzuGleditsia22sand3d-close.png",
         "gameplay": "images/KudzuGleditsia22sand3d-gameplay.png",
@@ -330,6 +344,7 @@
       "genus": "Gleditsia",
       "route": "sand3d",
       "height_m": 9,
+      "atlas_leaves": 480,
       "main_triangles": 518,
       "native_main_triangles": 518,
       "import_errors": [
@@ -342,10 +357,10 @@
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)",
         "Error: Not allowed to access vertices on mesh 'Mesh' (isReadable is false; Read/Write must be enabled in import settings)"
       ],
-      "authoring_seconds": 10.285071667050943,
-      "native_build_wall_seconds": 15.084902071161196,
-      "native_import_job_seconds": 7.1,
-      "crp_sha256": "d07df10180bc3542f0199c5f4481838760d65ba1c9b50e0641db737d83dfc987",
+      "authoring_seconds": 5.230604957789183,
+      "native_build_wall_seconds": 14.322767809964716,
+      "native_import_job_seconds": 7.22,
+      "crp_sha256": "13b022d29cb45280532650d07b64232f500bb1d2ec0f2cd55acc34e655c12966",
       "shots": {
         "close": "images/KudzuGleditsia9sand3d-close.png",
         "gameplay": "images/KudzuGleditsia9sand3d-gameplay.png",
@@ -369,6 +384,7 @@
       "genus": "Tilia",
       "route": "blender",
       "height_m": 15.0,
+      "atlas_leaves": null,
       "main_triangles": 680,
       "native_main_triangles": 680,
       "import_errors": [
@@ -408,6 +424,7 @@
       "genus": "Tilia",
       "route": "sand3d",
       "height_m": 15,
+      "atlas_leaves": null,
       "main_triangles": 628,
       "native_main_triangles": 628,
       "import_errors": [
@@ -435,25 +452,27 @@
           "camera_size": 180,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 33.599853515625,
-          "candidate_p95_ms": 42.12036132812499,
-          "last_stock_p95_ms": 38.195037841796875,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": 0.10277050915846009,
-          "diagnostic_a1_a2_p95_drift_fraction": 0.06489832383221295
+          "candidate_median_ms": 27.87017822265625,
+          "candidate_p95_ms": 30.629730224609375,
+          "paired_stock_p95_ms": 33.567047119140625,
+          "last_stock_p95_ms": 33.53271484375,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.08750596631588514,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.002043503928068624
         },
         {
           "camera_size": 500,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 29.72412109375,
-          "candidate_p95_ms": 33.69903564453125,
-          "last_stock_p95_ms": 35.5499267578125,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.052064554897416127,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.2567946918463696
+          "candidate_median_ms": 27.7099609375,
+          "candidate_p95_ms": 30.8013916015625,
+          "paired_stock_p95_ms": 31.31561279296875,
+          "last_stock_p95_ms": 31.2225341796875,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.016420601276616487,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.005926933540614021
         }
       ],
       "dollars": {
@@ -472,6 +491,7 @@
       "genus": "Tilia",
       "route": "sapling",
       "height_m": 15.0,
+      "atlas_leaves": null,
       "main_triangles": 1252,
       "native_main_triangles": 1224,
       "import_errors": [
@@ -511,6 +531,7 @@
       "genus": "Tilia",
       "route": "trellis",
       "height_m": 15,
+      "atlas_leaves": null,
       "main_triangles": 944,
       "native_main_triangles": 944,
       "import_errors": [
@@ -560,6 +581,7 @@
       "genus": "Tilia",
       "route": "sand3d",
       "height_m": 22,
+      "atlas_leaves": null,
       "main_triangles": 628,
       "native_main_triangles": 628,
       "import_errors": [
@@ -599,6 +621,7 @@
       "genus": "Tilia",
       "route": "sand3d",
       "height_m": 9,
+      "atlas_leaves": null,
       "main_triangles": 628,
       "native_main_triangles": 628,
       "import_errors": [
@@ -638,6 +661,7 @@
       "genus": "Ulmus",
       "route": "blender",
       "height_m": 15.0,
+      "atlas_leaves": null,
       "main_triangles": 620,
       "native_main_triangles": 620,
       "import_errors": [
@@ -677,6 +701,7 @@
       "genus": "Ulmus",
       "route": "sand3d",
       "height_m": 15,
+      "atlas_leaves": null,
       "main_triangles": 568,
       "native_main_triangles": 568,
       "import_errors": [
@@ -704,25 +729,27 @@
           "camera_size": 180,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 31.74591064453125,
-          "candidate_p95_ms": 37.18109130859375,
-          "last_stock_p95_ms": 40.34423828125,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.07840393343419061,
-          "diagnostic_a1_a2_p95_drift_fraction": -0.053957349363102924
+          "candidate_median_ms": 28.08380126953125,
+          "candidate_p95_ms": 31.060028076171875,
+          "paired_stock_p95_ms": 34.32273864746094,
+          "last_stock_p95_ms": 34.636688232421875,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.09505973881633789,
+          "diagnostic_a1_a2_p95_drift_fraction": 0.018462849964106187
         },
         {
           "camera_size": 500,
           "repeat": 0,
           "stock_instances": 139362,
-          "candidate_median_ms": 29.4036865234375,
-          "candidate_p95_ms": 33.5174560546875,
-          "last_stock_p95_ms": 36.3525390625,
-          "comparison_basis": "B/A2 only; post-hoc screening for frozen v6",
-          "timing_ui_visible": true,
-          "paired_p95_fraction": -0.07798858294157152,
-          "diagnostic_a1_a2_p95_drift_fraction": 0.011892626571525566
+          "candidate_median_ms": 27.2369384765625,
+          "candidate_p95_ms": 30.39703369140625,
+          "paired_stock_p95_ms": 31.2530517578125,
+          "last_stock_p95_ms": 30.91888427734375,
+          "comparison_basis": "A/B/A; mean of stock p95s; recorded common UI state",
+          "timing_ui_visible": false,
+          "paired_p95_fraction": -0.027389903329752996,
+          "diagnostic_a1_a2_p95_drift_fraction": -0.021158398145017188
         }
       ],
       "dollars": {
@@ -741,6 +768,7 @@
       "genus": "Ulmus",
       "route": "sapling",
       "height_m": 15.0,
+      "atlas_leaves": null,
       "main_triangles": 1192,
       "native_main_triangles": 1164,
       "import_errors": [
@@ -780,6 +808,7 @@
       "genus": "Ulmus",
       "route": "trellis",
       "height_m": 15,
+      "atlas_leaves": null,
       "main_triangles": 1116,
       "native_main_triangles": 1116,
       "import_errors": [
@@ -829,6 +858,7 @@
       "genus": "Ulmus",
       "route": "sand3d",
       "height_m": 22,
+      "atlas_leaves": null,
       "main_triangles": 568,
       "native_main_triangles": 568,
       "import_errors": [
@@ -868,6 +898,7 @@
       "genus": "Ulmus",
       "route": "sand3d",
       "height_m": 9,
+      "atlas_leaves": null,
       "main_triangles": 568,
       "native_main_triangles": 568,
       "import_errors": [
@@ -909,5 +940,14 @@
     "full_cost_per_asset": null,
     "reason": "Owned hardware and a subscription are not priced marginal API calls; full dollars require an explicit allocation and review rate."
   },
-  "performance": "Render-group-corrected B/A2 wall-frame screening. Frozen v6 uses post-hoc matching HUD-visible pairs and excludes every A1; future driver windows record UI state explicitly. Six candidates, one pair at two zooms; other candidates have no valid timing. Earlier v5 cache-stale timings discarded. No renderer-isolated GPU time or quality-bar pass."
+  "performance": {
+    "protocol": "A/B/A with recorded common UI state; mean stock p95 baseline",
+    "timed_candidates": 6,
+    "camera_sizes": [
+      180,
+      500
+    ],
+    "certified": false,
+    "limitations": "Single-repeat wall-frame screening; limiter not isolated. Crown extents and stock random scale differ. No per-triangle cost or quality-bar pass. V5 stale-cache timing discarded."
+  }
 }

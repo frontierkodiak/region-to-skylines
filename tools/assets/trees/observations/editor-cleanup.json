@@ -7,11 +7,11 @@
     "mem_used_before_mib": 8146,
     "mem_total_mib": 11264
   },
-  "mod_sha256": "a67b9ed0214748a62ca36eb531ec23355fea9427ee9a43d6525347e0deb36a26",
+  "mod_sha256": "685229c1443c2ecaa40d1e47d444fc883e5ca149245b5ae02d720a7c631acb1a",
   "game_gpu": [
     {
       "bus": "05:00.0",
-      "pid": 4031542,
+      "pid": 2612461,
       "type": "G",
       "name": "/peach-pool/peach/Games/SteamLibrary/steamapps/common/Cities_Skylines/Cities.x64",
       "mib": 1574

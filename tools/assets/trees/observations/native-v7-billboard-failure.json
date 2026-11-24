@@ -1,0 +1,20 @@
+{
+  "native_run": "v7",
+  "failure": "Distant cutout canopies vanish in Gleditsia; other genera and opaque controls retain crowns. Not a general billboard API failure.",
+  "failed_assets": [
+    "KudzuGleditsia9sand3d",
+    "KudzuGleditsia15sand3d",
+    "KudzuGleditsia22sand3d",
+    "KudzuGleditsia15blender",
+    "KudzuGleditsia15sapling"
+  ],
+  "evidence": {
+    "KudzuGleditsia9sand3d": "e44eaa991d816d0af321810806b318f991902e29d331002c3cabcead147ad81d",
+    "KudzuGleditsia15sand3d": "01c5cada8789f5e9c059302006b7380f4175868b9135f37d824f1e29984a369f",
+    "KudzuGleditsia22sand3d": "06422deb364ac6842276f68401aa8549a5766a1c27114685423662119c0843d0",
+    "KudzuGleditsia15blender": "c2146a9bd840324bbd0960360baad10999cc73d7f0e83261a9ff9437fc12be05",
+    "KudzuGleditsia15sapling": "7630c0dc00223cba37f0b9bd7b59c0a591b4402181cda954388670a23a6352c4"
+  },
+  "repair": "atlas115 ->480; same geometry/seeds; native v8 pending",
+  "current_generator_commit": "2348a9e"
+}

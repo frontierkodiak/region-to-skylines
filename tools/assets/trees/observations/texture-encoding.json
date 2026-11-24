@@ -1,8 +1,9 @@
 {
+  "input_set": "v4",
   "passed": 18,
   "checks": [
-    "all diffuse RGB channels <=140/255",
-    "flat normals encoded 128/128/255, not gamma shifted"
+    "diffuse RGB channels <=140/255",
+    "flat normals encoded128/128/255, not gamma shifted"
   ],
   "assets": [
     {
@@ -88,7 +89,7 @@
         "d": [
           [
             28,
-            84
+            85
           ],
           [
             41,
@@ -327,7 +328,7 @@
           ],
           [
             12,
-            45
+            46
           ],
           [
             255,
