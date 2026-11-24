@@ -3019,3 +3019,49 @@ sample2590MiB, continuous game-only peak unknown. Observed200Wcap unchanged.
 No sharedconfig/power/preemption/previews/tabs. Producer also additively corrects
 phase20supplemental control/boundary-axis labels; primary79/nativeunchanged.
 IndependentRESULTSreview beforeadoption; allpromisesunknown/defaultsunchanged.
+
+
+## PL-1191 gameplay-water eight-square increment · 2026-11-23/24
+
+All observations below used own clean runtime `05b19b2` and own bound build
+`368955b1f0b0855c80b8078bf22805fcd7f8f8db8e0428218f262bd37eda6346`;
+this JOURNAL addition is after collection, not a later-head native claim.
+Blade / RTX 2080 Ti / 05:00.0. VRAM is total-card peak / game-at-menu snapshot,
+not continuous game-only peak (unknown). Wall seconds are report observation
+wall time, not inclusive launcher/teardown time. Card power limit was 200 W,
+unchanged; other CUDA work was not preempted. FIFO/offline/carbon guards and
+all 22 normal/interrupted collected teardowns left game/Steam/units empty.
+
+| Attempt | Game min | VRAM MiB total/menu | Peak W / C | Obs wall s | Result |
+|---|---:|---:|---:|---:|---|
+| before/asheville | 0.2 | 10821.0 / 1620.0 | 132.9 / 48.0 | 2.6 | opening only |
+| before/innsbruck | 0.2 | 10821.0 / 1574.0 | 136.4 / 51.0 | 2.6 | opening only |
+| before/rio | 0.2 | 10821.0 / 1592.0 | 132.2 / 51.0 | 2.6 | opening only |
+| before/pittsburgh | 0.2 | 10821.0 / 1574.0 | 137.6 / 52.0 | 2.6 | opening only |
+| before/charleston | 0.2 | 10821.0 / 1574.0 | 139.5 / 52.0 | 2.6 | opening only |
+| before/grand-canyon | 0.2 | 10821.0 / 1620.0 | 136.7 / 51.0 | 2.6 | opening only |
+| before/hong-kong | 0.2 | 10821.0 / 1574.0 | 138.2 / 52.0 | 2.6 | opening only |
+| before/yosemite | 0.2 | 10821.0 / 1574.0 | 144.4 / 53.0 | 2.6 | opening only |
+| after-native-v3/asheville | 60.1 | 10821.0 / 1620.0 | 137.7 / 55.0 | 956.7 | water failures; see raw verdict |
+| after-native-v3/innsbruck | unknown | unknown / unknown | unknown / unknown | unknown | interrupted, retained |
+| after-native-v4/asheville | 60.1 | 10821.0 / 1574.0 | 138.1 / 57.0 | 957.0 | water failures; see raw verdict |
+| after-native-v4/innsbruck | 60.1 | 10821.0 / 1574.0 | 138.5 / 57.0 | 954.4 | water failures; see raw verdict |
+| after-native-v6/asheville | 60.1 | 10821.0 / 1574.0 | 140.8 / 58.0 | 956.7 | water failures; see raw verdict |
+| after-native-v6/innsbruck | 60.1 | 10821.0 / 1574.0 | 140.0 / 60.0 | 953.3 | water failures; see raw verdict |
+| after-native-v7/asheville | 60.1 | 10821.0 / 1574.0 | 145.0 / 53.0 | 955.4 | water failures; see raw verdict |
+| after-native-v7/innsbruck | 60.1 | 10821.0 / 1574.0 | 137.6 / 58.0 | 953.5 | water failures; see raw verdict |
+| after-native-v7/rio | 60.1 | 10821.0 / 1574.0 | 149.4 / 62.0 | 958.3 | water failures; see raw verdict |
+| after-native-v7/pittsburgh | 60.0 | 10821.0 / 1574.0 | 138.4 / 60.0 | 952.1 | water failures; see raw verdict |
+| after-native-v7/charleston | 60.0 | 10821.0 / 1574.0 | 142.5 / 59.0 | 958.9 | water failures; see raw verdict |
+| after-native-v7/grand-canyon | 60.1 | 10821.0 / 1592.0 | 142.7 / 48.0 | 952.6 | water failures; see raw verdict |
+| after-native-v7/hong-kong | 60.0 | 10821.0 / 1574.0 | 153.2 / 60.0 | 965.0 | water failures; see raw verdict |
+| after-native-v7/yosemite | 60.0 | 10821.0 / 1574.0 | 142.9 / 48.0 | 953.6 | water failures; see raw verdict |
+
+Hong Kong v7 also has one pre-map blocked launch: Cloud log rotation/truncation
+broke offline-audit continuity; zero water samples, empty teardown. The failed launch
+is preserved. One fresh normal guarded attempt used identical package/probes/
+runtime after a fresh doctor; no guard, credential or configuration change.
+All 8 final maps have full first-hour captures; raw runtime/startup/panel failures
+remain. New constructor is not a safe-water class or public-release approval.
+Five fixtures plus three remaining named presets were fixed before implementation;
+Old 12 holdout inputs unopened. All owned native jobs collected; no preview/tab/deploy.
