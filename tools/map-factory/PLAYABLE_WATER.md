@@ -36,6 +36,18 @@ It authors every captured visible river/stream, lakes, river areas and ocean:
 These are gameplay settings to test in the game, not a fitted physical model.
 No old native qualification applies to this constructor.
 
+### Joint surface correction
+
+The complete channel widths, body margins and source-pool footprint are formed
+before the final surface is solved. `joint_surface.py` contracts level lake/ocean
+bodies, removes incompatible adjacent heads, and routes each component toward a
+receiving port. The preferred descending grade is 1 m/km; a 2% maximum fitted
+grade is an engineering choice for this construction, not a measured game rule.
+If necessary, a whole component is vertically compressed to fit the engine's
+height range. No independent DEM clipping or flat source-disk reset follows.
+Beds, initial depths and source targets all use that one quantized surface.
+Immediate banks clear the maximum adjacent head, not merely the nearest one.
+
 ## Practitioner basis
 
 [MB's mapping guide](https://steamcommunity.com/sharedfiles/filedetails/?id=1782964859)
@@ -60,6 +72,11 @@ The first native constructor attempt is retained separately: Asheville completed
 60 minutes with drying; Innsbruck was interrupted and cleaned up after a CPU
 check found sources straddling shallow/dry footprint cells. The inlet-pool
 correction is a new physical construction, not a rerun to repair reporting.
+That correction also failed Asheville: local surface seams and below-head banks
+remained. Full-field checks found this defect on every prepared square. The
+joint-surface revision keeps source locations and packed rates fixed while
+changing their targets and the coupled bed/bank geometry; failed attempts remain
+separate evidence.
 
 The existing full source inventory and old probes remain. Unsupported inventory
 rows stay visible. Compiled-only startup success is not complete source coverage.

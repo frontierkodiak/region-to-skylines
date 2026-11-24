@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw
 from scipy import ndimage
 
 from catchment import local_catchment_area
+from joint_surface import connected_surface
 from prepare import pixel
 from surface_water import surface_geometry
 
@@ -179,7 +180,7 @@ def capacity(area_km2, kind):
     return float(np.clip(0.008 * np.sqrt(max(0, area_km2)), minimum, 0.12))
 
 
-def source_pool(ground, depth, levels, forbidden, source):
+def source_pool(ground, depth, levels, forbidden, source, design_depth=None):
     """Give the chosen source a deep inlet pool and a sloping connection.
 
     The retained source-radius model is a packing/design constraint, not a
@@ -211,6 +212,10 @@ def source_pool(ground, depth, levels, forbidden, source):
     pool_depth = 16 if source["class"] in ["lake", "ocean"] else 8
     wanted = pool_depth * np.clip((radius + 32 - distance) / 32, 0, 1)
     pool = (wanted > 0) & ~excluded
+    if design_depth is not None:
+        design_depth[region][pool] = np.maximum(
+            design_depth[region][pool], wanted[pool]
+        )
     target = source["target"]
     bed = ground[region]
     bed[pool] = np.minimum(bed[pool], np.maximum(0, target - wanted[pool]))
@@ -317,6 +322,7 @@ def hydrology(ground, banks, geometry):
     depth[lakes | areas] = np.maximum(depth[lakes | areas], 16)
     shore_distance = ndimage.distance_transform_edt(ocean) * SPACING
     depth[ocean] = np.clip(8 + shore_distance[ocean] * 0.06, 8, 24)
+    design_depth = depth.copy()
     ground[channel] = np.minimum(
         original[channel], np.clip(level[channel] - depth[channel], 0, 1023)
     )
@@ -445,8 +451,38 @@ def hydrology(ground, banks, geometry):
     # Source flow must enter a bed at least as broad as its modeled footprint.
     # Select controls from the full mapped geometry first, not from dry probes.
     for source in sources:
-        source_pool(ground, depth, level, forbidden, source)
+        source_pool(ground, depth, level, forbidden, source, design_depth)
     channel |= depth > 0
+    level, joint_profile = connected_surface(
+        channel, desired, lakes | ocean, ocean, sea
+    )
+    head_q = np.zeros(ground.shape, np.int32)
+    head_q[channel] = np.floor(level[channel] * 64 + 0.5).astype(np.int32)
+    bed_q = np.minimum(
+        np.floor(original[channel] * 64 + 0.5).astype(np.int32),
+        head_q[channel] - np.ceil(design_depth[channel] * 64).astype(np.int32),
+    ).clip(0, 65535)
+    ground[channel] = bed_q / 64
+    depth[channel] = (head_q[channel] - bed_q) / 64
+    for source in sources:
+        col = round((source["position"][0] + HALF) / SPACING)
+        row = round((HALF - source["position"][2]) / SPACING)
+        source["target"] = float(level[row, col])
+        radius = source["footprint_pool"]["radius_model_m"]
+        extent = math.ceil(radius / SPACING)
+        region = np.s_[
+            max(0, row - extent) : min(1081, row + extent + 1),
+            max(0, col - extent) : min(1081, col + extent + 1),
+        ]
+        yy, xx = np.mgrid[region]
+        core = np.hypot(yy - row, xx - col) * SPACING <= radius
+        source["footprint_pool"]["minimum_authored_core_depth_m"] = float(
+            depth[region][core].min()
+        )
+        if source["footprint_pool"]["minimum_authored_core_depth_m"] < 1:
+            raise ValueError(
+                "The joint profile leaves a source footprint shallower than1m"
+            )
     outside_distance, near_water = ndimage.distance_transform_edt(
         ~channel, return_indices=True
     )
@@ -460,8 +496,9 @@ def hydrology(ground, banks, geometry):
         + blend[bank_strip] * np.maximum(0, raised[bank_strip] - original[bank_strip]),
     )
     rim = ~channel & ~forbidden & (outside_distance <= 1.5)
-    ground[rim] = np.maximum(ground[rim], raised[rim])
-    ground[:] = np.clip(ground, 0, 1023)
+    adjacent_head = ndimage.maximum_filter(np.where(channel, level, -np.inf), size=3)
+    ground[rim] = np.maximum(ground[rim], adjacent_head[rim] + 2)
+    ground[channel | bank_strip] = np.clip(ground[channel | bank_strip], 0, 65535 / 64)
     changed = np.abs(ground - original) > 1 / 64
     return depth, {
         "sources": sources,
@@ -469,7 +506,8 @@ def hydrology(ground, banks, geometry):
         "rivers": summaries,
         "sea_level_m": sea,
         "surface_water": visibility,
-        "water_construction": "map-maker-v2",
+        "water_construction": "map-maker-v3-joint-profile",
+        "joint_profile": joint_profile,
         "unmodeled_short_surface_reaches": [],
         "authored_confluence_links": links,
         "channel_design": {

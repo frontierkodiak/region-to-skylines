@@ -22,6 +22,7 @@
     "tools/map-factory/region.py",
     "tools/map-factory/prepare.py",
     "tools/map-factory/playable_water.py",
+    "tools/map-factory/joint_surface.py",
     "tools/map-factory/catchment.py",
     "tools/map-factory/surface_water.py",
     "tools/map-factory/crp.py",
