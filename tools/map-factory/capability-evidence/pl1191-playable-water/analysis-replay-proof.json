@@ -1,0 +1,60 @@
+{
+  "files": [
+    {
+      "file": "native-measurements-v7.json",
+      "sha256": "20107cb311e774366065dea696954fd7290446979e68cf68c3f27b3fae0c2224",
+      "fresh_sha256": "20107cb311e774366065dea696954fd7290446979e68cf68c3f27b3fae0c2224",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/asheville/maintained-feature-outcome.json",
+      "sha256": "f4816e0af940207cf10effa5fc11835f460091920c1b232c62bcf306d5171c86",
+      "fresh_sha256": "f4816e0af940207cf10effa5fc11835f460091920c1b232c62bcf306d5171c86",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/innsbruck/maintained-feature-outcome.json",
+      "sha256": "813f730959583156745654700a528803742cedd6bbd5449c4067ca0e2775d293",
+      "fresh_sha256": "813f730959583156745654700a528803742cedd6bbd5449c4067ca0e2775d293",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/rio/maintained-feature-outcome.json",
+      "sha256": "f9d7fa74db6e6b349f829a2e5ff3916fa05ee0a6d3949222322369c580463f3e",
+      "fresh_sha256": "f9d7fa74db6e6b349f829a2e5ff3916fa05ee0a6d3949222322369c580463f3e",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/pittsburgh/maintained-feature-outcome.json",
+      "sha256": "9ee080eef63367aa58aa58b274a80df34f9ecdf86aaa579c75dd8661ceac91cf",
+      "fresh_sha256": "9ee080eef63367aa58aa58b274a80df34f9ecdf86aaa579c75dd8661ceac91cf",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/charleston/maintained-feature-outcome.json",
+      "sha256": "62c64e90ef7d43664f751e5ffca7e8382fe1b79ea3cabf23fc07abbd4977bbcb",
+      "fresh_sha256": "62c64e90ef7d43664f751e5ffca7e8382fe1b79ea3cabf23fc07abbd4977bbcb",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/grand-canyon/maintained-feature-outcome.json",
+      "sha256": "c867fc7950cdb13c30d1a8e6729a90d697f86c98cd2495e5730630049cc7ee79",
+      "fresh_sha256": "c867fc7950cdb13c30d1a8e6729a90d697f86c98cd2495e5730630049cc7ee79",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/hong-kong/maintained-feature-outcome.json",
+      "sha256": "c575bd5cd81580f3289f2e0fc0c16cc365b95a8ff86b75cb756e379e9c9ef16e",
+      "fresh_sha256": "c575bd5cd81580f3289f2e0fc0c16cc365b95a8ff86b75cb756e379e9c9ef16e",
+      "exact": true
+    },
+    {
+      "file": "after-native-v7/yosemite/maintained-feature-outcome.json",
+      "sha256": "8a06f356965a05cab06e6e5c3a6860b7d6653874551e7bcdbb53f6aed16b940e",
+      "fresh_sha256": "8a06f356965a05cab06e6e5c3a6860b7d6653874551e7bcdbb53f6aed16b940e",
+      "exact": true
+    }
+  ],
+  "all_exact": true,
+  "source_commit": "0740464f1808f3ae9af18eded4a081cf012700f4"
+}

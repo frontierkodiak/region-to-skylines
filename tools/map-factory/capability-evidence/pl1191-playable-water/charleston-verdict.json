@@ -1,0 +1,1036 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "fail",
+  "failed": [
+    "new_game_panel",
+    "startup_views",
+    "paths",
+    "no_terracing",
+    "ground_truth"
+  ],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "fail",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-charleston.crp",
+          "selected_index": 14,
+          "map_name": "Charleston - Ready to Play",
+          "author": "",
+          "published": true,
+          "buildableArea": 43,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 569,
+            "realtime": 16.263545989990234,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.35154181718826294,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.35154181718826294,
+                "target_value": 0.35154181718826294,
+                "amount": 632594,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.37124577164649963,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.37124577164649963,
+                "target_value": 0.37124577164649963,
+                "amount": 758706,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.39384138584136963,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.39384138584136963,
+                "target_value": 0.39384138584136963,
+                "amount": 3200205,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.44285279512405396,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.44285279512405396,
+                "target_value": 0.44285279512405396,
+                "amount": 1365840,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.733869194984436,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.733869194984436,
+                "target_value": 0.733869194984436,
+                "amount": 11111493,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 632594,
+            "oreAmount": 758706,
+            "forestAmount": 3200205,
+            "fertileLandAmount": 1365840,
+            "waterAmount": 11111493
+          },
+          "connections": {
+            "incomingRoads": 1,
+            "outgoingRoads": 1,
+            "incomingTrainTracks": 2,
+            "outgoingTrainTracks": 2,
+            "incomingShipPath": 0,
+            "outgoingShipPath": 0,
+            "incomingPlanePath": 0,
+            "outgoingPlanePath": 0
+          },
+          "imageRef": {
+            "name": "Charleston - Ready to Play_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "Charleston - Ready to Play_SteamPreview",
+            "resolved": true,
+            "width": 1800,
+            "height": 1008
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 43 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": null,
+        "problems": [
+          "native resources.oilAmount differs from expectation",
+          "native resources.oreAmount differs from expectation",
+          "native resources.forestAmount differs from expectation",
+          "native resources.fertileLandAmount differs from expectation",
+          "native resources.waterAmount differs from expectation",
+          "screenshot unreviewed (requires hash, reviewer and notes)",
+          "rendered map_name unconfirmed/mismatched",
+          "rendered author unconfirmed/mismatched",
+          "rendered buildableArea unconfirmed/mismatched",
+          "rendered preview_matches_map unconfirmed/mismatched",
+          "rendered resources_match unconfirmed/mismatched",
+          "rendered connections_match unconfirmed/mismatched",
+          "rendered selected_map_visible unconfirmed/mismatched"
+        ],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native resources.oilAmount differs from expectation; native resources.oreAmount differs from expectation; native resources.forestAmount differs from expectation; native resources.fertileLandAmount differs from expectation; native resources.waterAmount differs from expectation; screenshot unreviewed (requires hash, reviewer and notes); rendered map_name unconfirmed/mismatched; rendered author unconfirmed/mismatched; rendered buildableArea unconfirmed/mismatched; rendered preview_matches_map unconfirmed/mismatched; rendered resources_match unconfirmed/mismatched; rendered connections_match unconfirmed/mismatched; rendered selected_map_visible unconfirmed/mismatched"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "skip",
+      "value": null,
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "not requested"
+    },
+    {
+      "name": "startup_views",
+      "status": "fail",
+      "value": {
+        "views": {
+          "opening": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-opening.png",
+            "sha256": "d8ca6119f0512f09d3f4c63685929a9e27f383b829eb841b03028440547724c4",
+            "current_position": [
+              -1920,
+              160.9832763671875,
+              1920
+            ],
+            "target_position": [
+              -1920,
+              160.9832763671875,
+              1920
+            ],
+            "expected_center": {
+              "x": -1920,
+              "z": 1920,
+              "tolerance_m": 64
+            }
+          },
+          "area_zoom": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-area_zoom.png",
+            "sha256": "f8e568f78915af203e0fcdd71bcf0f57feec6cfb1d7fa90b2327fd4a9ee05768"
+          }
+        },
+        "problems": [
+          "screenshots unreviewed (requires reviewer and notes)",
+          "opening screenshot content unreviewed/mismatched",
+          "area_zoom screenshot content unreviewed/mismatched"
+        ]
+      },
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "screenshots unreviewed (requires reviewer and notes); opening screenshot content unreviewed/mismatched; area_zoom screenshot content unreviewed/mismatched"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.05,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "pass",
+      "value": {
+        "wet": 32583,
+        "required": 32622,
+        "fraction": 0.999,
+        "dry": [
+          "maintained:streams:20:0:2",
+          "maintained:streams:21:0:0",
+          "maintained:streams:22:0:0",
+          "maintained:streams:22:0:1",
+          "maintained:streams:22:0:2",
+          "maintained:streams:285:0:0",
+          "maintained:streams:285:0:1",
+          "maintained:streams:433:0:0",
+          "maintained:streams:589:0:2",
+          "maintained:streams:645:0:2",
+          "maintained:streams:669:0:0",
+          "maintained:streams:691:0:2",
+          "maintained:streams:691:0:3",
+          "maintained:streams:691:0:4",
+          "maintained:streams:696:0:2",
+          "maintained:streams:746:0:2",
+          "maintained:streams:746:0:3",
+          "maintained:streams:746:0:4",
+          "maintained:streams:746:0:5",
+          "maintained:streams:850:0:0",
+          "maintained:streams:850:0:1",
+          "maintained:streams:944:0:2",
+          "maintained:streams:944:0:3",
+          "maintained:streams:944:0:4",
+          "maintained:streams:944:0:5",
+          "maintained:streams:944:0:6",
+          "maintained:streams:996:0:2",
+          "maintained:streams:996:0:3",
+          "maintained:streams:996:0:4",
+          "maintained:streams:996:0:5",
+          "maintained:streams:1582:0:1",
+          "maintained:streams:1582:0:2",
+          "maintained:streams:1582:0:3",
+          "maintained:streams:1582:0:4",
+          "maintained:streams:1584:0:0",
+          "maintained:streams:1584:0:1",
+          "maintained:authored:sources:2186:0:0",
+          "maintained:authored:sources:2208:0:0",
+          "maintained:authored:sources:2217:0:0"
+        ]
+      },
+      "threshold": ">= 95% of required probes",
+      "detail": "6028 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "pass",
+      "value": {
+        "required": 32622,
+        "samples": 13,
+        "observations": 424086,
+        "wet_throughout": 32583,
+        "fraction": 0.9988,
+        "without_water_probes": 39,
+        "without_water_names": [
+          "maintained:authored:sources:2186:0:0",
+          "maintained:authored:sources:2208:0:0",
+          "maintained:authored:sources:2217:0:0",
+          "maintained:streams:1582:0:1",
+          "maintained:streams:1582:0:2",
+          "maintained:streams:1582:0:3",
+          "maintained:streams:1582:0:4",
+          "maintained:streams:1584:0:0",
+          "maintained:streams:1584:0:1",
+          "maintained:streams:20:0:2",
+          "maintained:streams:21:0:0",
+          "maintained:streams:22:0:0",
+          "maintained:streams:22:0:1",
+          "maintained:streams:22:0:2",
+          "maintained:streams:285:0:0",
+          "maintained:streams:285:0:1",
+          "maintained:streams:433:0:0",
+          "maintained:streams:589:0:2",
+          "maintained:streams:645:0:2",
+          "maintained:streams:669:0:0",
+          "maintained:streams:691:0:2",
+          "maintained:streams:691:0:3",
+          "maintained:streams:691:0:4",
+          "maintained:streams:696:0:2",
+          "maintained:streams:746:0:2",
+          "maintained:streams:746:0:3",
+          "maintained:streams:746:0:4",
+          "maintained:streams:746:0:5",
+          "maintained:streams:850:0:0",
+          "maintained:streams:850:0:1",
+          "maintained:streams:944:0:2",
+          "maintained:streams:944:0:3",
+          "maintained:streams:944:0:4",
+          "maintained:streams:944:0:5",
+          "maintained:streams:944:0:6",
+          "maintained:streams:996:0:2",
+          "maintained:streams:996:0:3",
+          "maintained:streams:996:0:4",
+          "maintained:streams:996:0:5"
+        ],
+        "without_water_names_truncated": 0,
+        "exact_dry": {
+          "probes": 163,
+          "observations": 1424,
+          "names": [
+            "maintained:authored:sources:2186:0:0",
+            "maintained:authored:sources:2207:0:0",
+            "maintained:authored:sources:2208:0:0",
+            "maintained:authored:sources:2210:0:0",
+            "maintained:authored:sources:2216:0:0",
+            "maintained:authored:sources:2217:0:0",
+            "maintained:authored:sources:2250:0:0",
+            "maintained:riverAreas:39:0:80",
+            "maintained:riverAreas:40:0:184",
+            "maintained:riverAreas:44:0:219",
+            "maintained:riverAreas:44:0:233",
+            "maintained:streams:1011:0:0",
+            "maintained:streams:1030:0:0",
+            "maintained:streams:1121:0:2",
+            "maintained:streams:1198:0:7",
+            "maintained:streams:1204:0:1",
+            "maintained:streams:1251:0:1",
+            "maintained:streams:1253:0:0",
+            "maintained:streams:1259:0:4",
+            "maintained:streams:12:0:0",
+            "maintained:streams:12:0:1",
+            "maintained:streams:1413:0:1",
+            "maintained:streams:1415:0:2",
+            "maintained:streams:1419:0:0",
+            "maintained:streams:1421:0:0",
+            "maintained:streams:1431:0:4",
+            "maintained:streams:1433:0:1",
+            "maintained:streams:1433:0:2",
+            "maintained:streams:1435:0:0",
+            "maintained:streams:1571:0:0",
+            "maintained:streams:1582:0:0",
+            "maintained:streams:1582:0:1",
+            "maintained:streams:1582:0:2",
+            "maintained:streams:1582:0:3",
+            "maintained:streams:1582:0:4",
+            "maintained:streams:1584:0:0",
+            "maintained:streams:1584:0:1",
+            "maintained:streams:1584:0:2",
+            "maintained:streams:20:0:1",
+            "maintained:streams:20:0:2"
+          ],
+          "names_truncated": 123
+        },
+        "native_no_nearby": {
+          "probes": 39,
+          "observations": 205,
+          "names": [
+            "maintained:authored:sources:2186:0:0",
+            "maintained:authored:sources:2208:0:0",
+            "maintained:authored:sources:2217:0:0",
+            "maintained:streams:1582:0:1",
+            "maintained:streams:1582:0:2",
+            "maintained:streams:1582:0:3",
+            "maintained:streams:1582:0:4",
+            "maintained:streams:1584:0:0",
+            "maintained:streams:1584:0:1",
+            "maintained:streams:20:0:2",
+            "maintained:streams:21:0:0",
+            "maintained:streams:22:0:0",
+            "maintained:streams:22:0:1",
+            "maintained:streams:22:0:2",
+            "maintained:streams:285:0:0",
+            "maintained:streams:285:0:1",
+            "maintained:streams:433:0:0",
+            "maintained:streams:589:0:2",
+            "maintained:streams:645:0:2",
+            "maintained:streams:669:0:0",
+            "maintained:streams:691:0:2",
+            "maintained:streams:691:0:3",
+            "maintained:streams:691:0:4",
+            "maintained:streams:696:0:2",
+            "maintained:streams:746:0:2",
+            "maintained:streams:746:0:3",
+            "maintained:streams:746:0:4",
+            "maintained:streams:746:0:5",
+            "maintained:streams:850:0:0",
+            "maintained:streams:850:0:1",
+            "maintained:streams:944:0:2",
+            "maintained:streams:944:0:3",
+            "maintained:streams:944:0:4",
+            "maintained:streams:944:0:5",
+            "maintained:streams:944:0:6",
+            "maintained:streams:996:0:2",
+            "maintained:streams:996:0:3",
+            "maintained:streams:996:0:4",
+            "maintained:streams:996:0:5"
+          ],
+          "names_truncated": 0
+        },
+        "native_nearby_observations": 424086,
+        "native_nearby_wet_observations": 423881,
+        "sampled_minutes": [
+          0.0,
+          60.045280909383045
+        ],
+        "largest_sample_gap_minutes": 5.1500002685934305,
+        "coordinate_identity_tolerance_m": 0.001,
+        "per_sample": [
+          {
+            "frame": 202252,
+            "minute": 0.0,
+            "label": "t000",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 220792,
+            "minute": 5.15,
+            "label": "t005",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 238396,
+            "minute": 10.04,
+            "label": "t010",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 256488,
+            "minute": 15.066,
+            "label": "t015",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 274613,
+            "minute": 20.1,
+            "label": "t020",
+            "without_water": 2,
+            "names": [
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:2"
+            ]
+          },
+          {
+            "frame": 292732,
+            "minute": 25.133,
+            "label": "t025",
+            "without_water": 2,
+            "names": [
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:2"
+            ]
+          },
+          {
+            "frame": 310328,
+            "minute": 30.021,
+            "label": "t030",
+            "without_water": 2,
+            "names": [
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:2"
+            ]
+          },
+          {
+            "frame": 328512,
+            "minute": 35.072,
+            "label": "t035",
+            "without_water": 6,
+            "names": [
+              "maintained:streams:20:0:2",
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:0",
+              "maintained:streams:22:0:1",
+              "maintained:streams:22:0:2",
+              "maintained:authored:sources:2186:0:0"
+            ]
+          },
+          {
+            "frame": 346640,
+            "minute": 40.108,
+            "label": "t040",
+            "without_water": 37,
+            "names": [
+              "maintained:streams:20:0:2",
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:0",
+              "maintained:streams:22:0:1",
+              "maintained:streams:22:0:2",
+              "maintained:streams:285:0:0",
+              "maintained:streams:285:0:1",
+              "maintained:streams:433:0:0",
+              "maintained:streams:589:0:2",
+              "maintained:streams:645:0:2",
+              "maintained:streams:669:0:0",
+              "maintained:streams:691:0:2",
+              "maintained:streams:691:0:3",
+              "maintained:streams:696:0:2",
+              "maintained:streams:746:0:2",
+              "maintained:streams:746:0:3",
+              "maintained:streams:746:0:4",
+              "maintained:streams:746:0:5",
+              "maintained:streams:850:0:0",
+              "maintained:streams:850:0:1",
+              "maintained:streams:944:0:2",
+              "maintained:streams:944:0:3",
+              "maintained:streams:944:0:4",
+              "maintained:streams:944:0:5",
+              "maintained:streams:996:0:2",
+              "maintained:streams:996:0:3",
+              "maintained:streams:996:0:4",
+              "maintained:streams:996:0:5",
+              "maintained:streams:1582:0:1",
+              "maintained:streams:1582:0:2",
+              "maintained:streams:1582:0:3",
+              "maintained:streams:1582:0:4",
+              "maintained:streams:1584:0:0",
+              "maintained:streams:1584:0:1",
+              "maintained:authored:sources:2186:0:0",
+              "maintained:authored:sources:2208:0:0",
+              "maintained:authored:sources:2217:0:0"
+            ]
+          },
+          {
+            "frame": 364591,
+            "minute": 45.094,
+            "label": "t045",
+            "without_water": 39,
+            "names": [
+              "maintained:streams:20:0:2",
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:0",
+              "maintained:streams:22:0:1",
+              "maintained:streams:22:0:2",
+              "maintained:streams:285:0:0",
+              "maintained:streams:285:0:1",
+              "maintained:streams:433:0:0",
+              "maintained:streams:589:0:2",
+              "maintained:streams:645:0:2",
+              "maintained:streams:669:0:0",
+              "maintained:streams:691:0:2",
+              "maintained:streams:691:0:3",
+              "maintained:streams:691:0:4",
+              "maintained:streams:696:0:2",
+              "maintained:streams:746:0:2",
+              "maintained:streams:746:0:3",
+              "maintained:streams:746:0:4",
+              "maintained:streams:746:0:5",
+              "maintained:streams:850:0:0",
+              "maintained:streams:850:0:1",
+              "maintained:streams:944:0:2",
+              "maintained:streams:944:0:3",
+              "maintained:streams:944:0:4",
+              "maintained:streams:944:0:5",
+              "maintained:streams:944:0:6",
+              "maintained:streams:996:0:2",
+              "maintained:streams:996:0:3",
+              "maintained:streams:996:0:4",
+              "maintained:streams:996:0:5",
+              "maintained:streams:1582:0:1",
+              "maintained:streams:1582:0:2",
+              "maintained:streams:1582:0:3",
+              "maintained:streams:1582:0:4",
+              "maintained:streams:1584:0:0",
+              "maintained:streams:1584:0:1",
+              "maintained:authored:sources:2186:0:0",
+              "maintained:authored:sources:2208:0:0",
+              "maintained:authored:sources:2217:0:0"
+            ]
+          },
+          {
+            "frame": 382777,
+            "minute": 50.146,
+            "label": "t050",
+            "without_water": 39,
+            "names": [
+              "maintained:streams:20:0:2",
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:0",
+              "maintained:streams:22:0:1",
+              "maintained:streams:22:0:2",
+              "maintained:streams:285:0:0",
+              "maintained:streams:285:0:1",
+              "maintained:streams:433:0:0",
+              "maintained:streams:589:0:2",
+              "maintained:streams:645:0:2",
+              "maintained:streams:669:0:0",
+              "maintained:streams:691:0:2",
+              "maintained:streams:691:0:3",
+              "maintained:streams:691:0:4",
+              "maintained:streams:696:0:2",
+              "maintained:streams:746:0:2",
+              "maintained:streams:746:0:3",
+              "maintained:streams:746:0:4",
+              "maintained:streams:746:0:5",
+              "maintained:streams:850:0:0",
+              "maintained:streams:850:0:1",
+              "maintained:streams:944:0:2",
+              "maintained:streams:944:0:3",
+              "maintained:streams:944:0:4",
+              "maintained:streams:944:0:5",
+              "maintained:streams:944:0:6",
+              "maintained:streams:996:0:2",
+              "maintained:streams:996:0:3",
+              "maintained:streams:996:0:4",
+              "maintained:streams:996:0:5",
+              "maintained:streams:1582:0:1",
+              "maintained:streams:1582:0:2",
+              "maintained:streams:1582:0:3",
+              "maintained:streams:1582:0:4",
+              "maintained:streams:1584:0:0",
+              "maintained:streams:1584:0:1",
+              "maintained:authored:sources:2186:0:0",
+              "maintained:authored:sources:2208:0:0",
+              "maintained:authored:sources:2217:0:0"
+            ]
+          },
+          {
+            "frame": 400360,
+            "minute": 55.03,
+            "label": "t055",
+            "without_water": 39,
+            "names": [
+              "maintained:streams:20:0:2",
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:0",
+              "maintained:streams:22:0:1",
+              "maintained:streams:22:0:2",
+              "maintained:streams:285:0:0",
+              "maintained:streams:285:0:1",
+              "maintained:streams:433:0:0",
+              "maintained:streams:589:0:2",
+              "maintained:streams:645:0:2",
+              "maintained:streams:669:0:0",
+              "maintained:streams:691:0:2",
+              "maintained:streams:691:0:3",
+              "maintained:streams:691:0:4",
+              "maintained:streams:696:0:2",
+              "maintained:streams:746:0:2",
+              "maintained:streams:746:0:3",
+              "maintained:streams:746:0:4",
+              "maintained:streams:746:0:5",
+              "maintained:streams:850:0:0",
+              "maintained:streams:850:0:1",
+              "maintained:streams:944:0:2",
+              "maintained:streams:944:0:3",
+              "maintained:streams:944:0:4",
+              "maintained:streams:944:0:5",
+              "maintained:streams:944:0:6",
+              "maintained:streams:996:0:2",
+              "maintained:streams:996:0:3",
+              "maintained:streams:996:0:4",
+              "maintained:streams:996:0:5",
+              "maintained:streams:1582:0:1",
+              "maintained:streams:1582:0:2",
+              "maintained:streams:1582:0:3",
+              "maintained:streams:1582:0:4",
+              "maintained:streams:1584:0:0",
+              "maintained:streams:1584:0:1",
+              "maintained:authored:sources:2186:0:0",
+              "maintained:authored:sources:2208:0:0",
+              "maintained:authored:sources:2217:0:0"
+            ]
+          },
+          {
+            "frame": 418415,
+            "minute": 60.045,
+            "label": "t060",
+            "without_water": 39,
+            "names": [
+              "maintained:streams:20:0:2",
+              "maintained:streams:21:0:0",
+              "maintained:streams:22:0:0",
+              "maintained:streams:22:0:1",
+              "maintained:streams:22:0:2",
+              "maintained:streams:285:0:0",
+              "maintained:streams:285:0:1",
+              "maintained:streams:433:0:0",
+              "maintained:streams:589:0:2",
+              "maintained:streams:645:0:2",
+              "maintained:streams:669:0:0",
+              "maintained:streams:691:0:2",
+              "maintained:streams:691:0:3",
+              "maintained:streams:691:0:4",
+              "maintained:streams:696:0:2",
+              "maintained:streams:746:0:2",
+              "maintained:streams:746:0:3",
+              "maintained:streams:746:0:4",
+              "maintained:streams:746:0:5",
+              "maintained:streams:850:0:0",
+              "maintained:streams:850:0:1",
+              "maintained:streams:944:0:2",
+              "maintained:streams:944:0:3",
+              "maintained:streams:944:0:4",
+              "maintained:streams:944:0:5",
+              "maintained:streams:944:0:6",
+              "maintained:streams:996:0:2",
+              "maintained:streams:996:0:3",
+              "maintained:streams:996:0:4",
+              "maintained:streams:996:0:5",
+              "maintained:streams:1582:0:1",
+              "maintained:streams:1582:0:2",
+              "maintained:streams:1582:0:3",
+              "maintained:streams:1582:0:4",
+              "maintained:streams:1584:0:0",
+              "maintained:streams:1584:0:1",
+              "maintained:authored:sources:2186:0:0",
+              "maintained:authored:sources:2208:0:0",
+              "maintained:authored:sources:2217:0:0"
+            ]
+          }
+        ]
+      },
+      "threshold": ">= 95% of required probes wet exactly OR natively within64m at every observed sample",
+      "detail": "Sampled evidence only, not continuous/every-frame wetness; no inferred legacy nearby values."
+    },
+    {
+      "name": "no_flooding",
+      "status": "pass",
+      "value": {
+        "worst_km2": 0.0243,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.0243
+          },
+          {
+            "grid": "t010-water.u16",
+            "km2": 0.02
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 0.02
+          },
+          {
+            "grid": "t020-water.u16",
+            "km2": 0.02
+          },
+          {
+            "grid": "t025-water.u16",
+            "km2": 0.0207
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.0205
+          },
+          {
+            "grid": "t035-water.u16",
+            "km2": 0.0205
+          },
+          {
+            "grid": "t040-water.u16",
+            "km2": 0.0205
+          },
+          {
+            "grid": "t045-water.u16",
+            "km2": 0.0202
+          },
+          {
+            "grid": "t050-water.u16",
+            "km2": 0.0202
+          },
+          {
+            "grid": "t055-water.u16",
+            "km2": 0.0202
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.0205
+          }
+        ],
+        "reference": "the run's first water dump union hash-bound mapped_water",
+        "reference_sha256": "a840b7f3058c86fa943589c29d02580d3f69bf65539e49496fde4ae337d55def",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "5af74268d52e4cbf07036daa4d88062869a91254f84b7981bbbb4ac163f7b63b",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 190801
+        },
+        "failing_grids": [],
+        "initial_only_diagnostic": {
+          "worst_km2": 0.0243,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.0243
+            },
+            {
+              "grid": "t010-water.u16",
+              "km2": 0.02
+            },
+            {
+              "grid": "t015-water.u16",
+              "km2": 0.02
+            },
+            {
+              "grid": "t020-water.u16",
+              "km2": 0.02
+            },
+            {
+              "grid": "t025-water.u16",
+              "km2": 0.0207
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.0205
+            },
+            {
+              "grid": "t035-water.u16",
+              "km2": 0.0205
+            },
+            {
+              "grid": "t040-water.u16",
+              "km2": 0.0205
+            },
+            {
+              "grid": "t045-water.u16",
+              "km2": 0.0202
+            },
+            {
+              "grid": "t050-water.u16",
+              "km2": 0.0202
+            },
+            {
+              "grid": "t055-water.u16",
+              "km2": 0.0202
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.0205
+            }
+          ],
+          "would_fail": false,
+          "status": "pass",
+          "reference_cells": 458578,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested (use --scenario test-city)"
+    },
+    {
+      "name": "outside_connection",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested"
+    },
+    {
+      "name": "utilities",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested"
+    },
+    {
+      "name": "first_hour",
+      "status": "skip",
+      "value": null,
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "not requested (use --scenario first-hour)"
+    },
+    {
+      "name": "paths",
+      "status": "fail",
+      "value": {
+        "checked": 6,
+        "broken": [
+          {
+            "when": "start",
+            "name": "rail",
+            "success": false,
+            "missing": 173
+          }
+        ]
+      },
+      "threshold": "every native path found, no expected segment missing",
+      "detail": ""
+    },
+    {
+      "name": "no_terracing",
+      "status": "fail",
+      "value": 0.1818,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 10,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "fail",
+      "value": {
+        "orientation": "as is",
+        "correlation_as_is": 0.5363,
+        "best_other": 0.2442,
+        "landmarks": [
+          {
+            "name": "highest DEM point",
+            "x": 3776.0,
+            "z": 6464.0,
+            "dem_m": 41.5,
+            "game_m": 89.2,
+            "dem_from_game_m": 3.3,
+            "error_m": -38.2
+          },
+          {
+            "name": "lowest DEM point",
+            "x": -1856.0,
+            "z": 7296.0,
+            "dem_m": -75.6,
+            "game_m": 91.0,
+            "dem_from_game_m": 3.6,
+            "error_m": 79.2
+          }
+        ]
+      },
+      "threshold": "terrain correlates with the real DEM >= 0.9 as is, and beats every rotation or mirror by >= 0.15",
+      "detail": "the game shows the world as is"
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 0.0,
+        "facing": "north"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 3,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "1cee3f36ddf2f3997548b8e72300f339c235ec2bc66372fea72b74cee128e65d",
+  "harness": {
+    "commit": "05b19b2afffc0e7689119da030328d610b15e3b3",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "05b19b2afffc0e7689119da030328d610b15e3b3",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "failed checks: ground_truth, new_game_panel, no_terracing, paths, startup_views",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "triage-steam.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

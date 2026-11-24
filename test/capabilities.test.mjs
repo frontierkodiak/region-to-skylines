@@ -27,6 +27,24 @@ test("water results show one verdict and reason, with captured text escaped", ()
   assert.match(page, /Before and after openings/);
 });
 
+test("eight gameplay-water rows bind the fixed selection and actual failed evidence", () => {
+  const prefix = "tools/map-factory/capability-evidence/pl1191-playable-water/";
+  const selection = JSON.parse(readFileSync(new URL("../tools/map-factory/calibration/pl1191-construction-v1/gameplay-water/eight-squares.json", import.meta.url)));
+  const result = JSON.parse(readFileSync(new URL("../" + prefix + "verdicts.json", import.meta.url)));
+  const rows = ledger.capabilities.find(c => c.id === "water_risk").game_agreement.filter(r => r.study === "pl1191-playable-water");
+  assert.deepEqual(rows.map(r => r.square), selection.squares.map(s => s.slug));
+  assert.deepEqual(result.rows, rows);
+  for (const row of rows) {
+    const raw = readFileSync(new URL("../" + row.evidence[0], import.meta.url));
+    assert.equal(createHash("sha256").update(raw).digest("hex"), row.artifact_sha256);
+    assert.equal(row.source_sha, result.source_sha);
+    const outcome = JSON.parse(readFileSync(new URL("../" + prefix + row.square + "-maintained-feature-outcome.json", import.meta.url)));
+    assert.ok(outcome.contracts.some(c => c.status === "fail"), "all eight observed packages lose required water");
+    assert.equal(row.observed, false);
+    assert.equal(row.predicted, null);
+  }
+});
+
 test("ledger references real checks, calibrated seed and all 104 stock maps", () => {
   validateLedger(ledger);
   assert.equal(stockReference().maps, 104);

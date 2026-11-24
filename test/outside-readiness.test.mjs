@@ -1,3 +1,4 @@
+import { beforeGameplayWater } from "./gameplay-ledger.mjs";
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -361,7 +362,7 @@ test("only this study's ledger fields differ from the exact source ledger", () =
   assert.equal(digest(ledger.rail_studies), "7d56922c9c7099791b36544376674fd579b1f49b19a92a632eb439aab7a4f498");
   assert.equal(digest(ledger.rail_research_studies), "8acfe9cf7cd6b0c78f16ffb3929b5ca8d410942407f060523515d4185f0adfa2");
   assert.equal(digest(ledger.witness_studies), "5a98de5c788682a90f00ae9b1228d270c09bb92a08590301d92484ab7bee1d88");
-  const stripped = ledger.capabilities.map(({ outside_readiness_studies, ...rest }) => rest);
+  const stripped = JSON.parse(beforeGameplayWater(readUtf8("capabilities.json").toString())).capabilities.map(({ outside_readiness_studies, ...rest }) => rest);
   // Shared core hashes evolve; the active-model validator checks them separately.
   for (const c of stripped) if (["start", "water"].includes(c.id)) delete c.runtime_model;
   assert.equal(digest(stripped), "1f96f2e53a5f4f23b2f76337b1d406d453abd4abb1afe1360103554c37ff8e3b");

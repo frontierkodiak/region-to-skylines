@@ -1,0 +1,1304 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "fail",
+  "failed": [
+    "new_game_panel",
+    "startup_views",
+    "no_flooding"
+  ],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "fail",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-rio.crp",
+          "selected_index": 16,
+          "map_name": "Rio de Janeiro - Ready to Play",
+          "author": "",
+          "published": true,
+          "buildableArea": 70,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 541,
+            "realtime": 15.814794540405273,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.33454346656799316,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.33454346656799316,
+                "target_value": 0.33454346656799316,
+                "amount": 536262,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.41940778493881226,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.41940778493881226,
+                "target_value": 0.41940778493881226,
+                "amount": 1139349,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.4538537561893463,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4538537561893463,
+                "target_value": 0.4538537561893463,
+                "amount": 4249785,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.27242395281791687,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.27242395281791687,
+                "target_value": 0.27242395281791687,
+                "amount": 270408,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.4660302698612213,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4660302698612213,
+                "target_value": 0.4660302698612213,
+                "amount": 4480880,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 536262,
+            "oreAmount": 1139349,
+            "forestAmount": 4249785,
+            "fertileLandAmount": 270408,
+            "waterAmount": 4480880
+          },
+          "connections": {
+            "incomingRoads": 1,
+            "outgoingRoads": 1,
+            "incomingTrainTracks": 2,
+            "outgoingTrainTracks": 2,
+            "incomingShipPath": 0,
+            "outgoingShipPath": 0,
+            "incomingPlanePath": 0,
+            "outgoingPlanePath": 0
+          },
+          "imageRef": {
+            "name": "Rio de Janeiro - Ready to Play_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "Rio de Janeiro - Ready to Play_SteamPreview",
+            "resolved": true,
+            "width": 1800,
+            "height": 1008
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 70 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": null,
+        "problems": [
+          "native resources.oilAmount differs from expectation",
+          "native resources.oreAmount differs from expectation",
+          "native resources.forestAmount differs from expectation",
+          "native resources.fertileLandAmount differs from expectation",
+          "native resources.waterAmount differs from expectation",
+          "screenshot unreviewed (requires hash, reviewer and notes)",
+          "rendered map_name unconfirmed/mismatched",
+          "rendered author unconfirmed/mismatched",
+          "rendered buildableArea unconfirmed/mismatched",
+          "rendered preview_matches_map unconfirmed/mismatched",
+          "rendered resources_match unconfirmed/mismatched",
+          "rendered connections_match unconfirmed/mismatched",
+          "rendered selected_map_visible unconfirmed/mismatched"
+        ],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native resources.oilAmount differs from expectation; native resources.oreAmount differs from expectation; native resources.forestAmount differs from expectation; native resources.fertileLandAmount differs from expectation; native resources.waterAmount differs from expectation; screenshot unreviewed (requires hash, reviewer and notes); rendered map_name unconfirmed/mismatched; rendered author unconfirmed/mismatched; rendered buildableArea unconfirmed/mismatched; rendered preview_matches_map unconfirmed/mismatched; rendered resources_match unconfirmed/mismatched; rendered connections_match unconfirmed/mismatched; rendered selected_map_visible unconfirmed/mismatched"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "skip",
+      "value": null,
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "not requested"
+    },
+    {
+      "name": "startup_views",
+      "status": "fail",
+      "value": {
+        "views": {
+          "opening": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-opening.png",
+            "sha256": "66498aeafd6d103310e492e8494dc1be47203b0cb78bc1a71e76046aba4ac418",
+            "current_position": [
+              -1920,
+              170.1373291015625,
+              3840
+            ],
+            "target_position": [
+              -1920,
+              170.1373291015625,
+              3840
+            ],
+            "expected_center": {
+              "x": -1920,
+              "z": 3840,
+              "tolerance_m": 64
+            }
+          },
+          "area_zoom": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-area_zoom.png",
+            "sha256": "07bb6b2d69fbd4a94d89cbfe1b8626d806f399749ebd9ea0f1b7036f30ef431d"
+          }
+        },
+        "problems": [
+          "screenshots unreviewed (requires reviewer and notes)",
+          "opening screenshot content unreviewed/mismatched",
+          "area_zoom screenshot content unreviewed/mismatched"
+        ]
+      },
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "screenshots unreviewed (requires reviewer and notes); opening screenshot content unreviewed/mismatched; area_zoom screenshot content unreviewed/mismatched"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.07,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "pass",
+      "value": {
+        "wet": 34873,
+        "required": 35095,
+        "fraction": 0.994,
+        "dry": [
+          "Rio Maracan\u00e3 [river] #7:00",
+          "Rio Maracan\u00e3 [river] #7:01",
+          "Rio Maracan\u00e3 [river] #7:02",
+          "Rio Maracan\u00e3 [river] #9:00",
+          "Rio Maracan\u00e3 [river] #9:01",
+          "Rio Maracan\u00e3 [river] #9:02",
+          "Rio Maracan\u00e3 [river] #9:03",
+          "Rio Maracan\u00e3 [river] #9:04",
+          "Rio Maracan\u00e3 [river] #9:12",
+          "Rio Maracan\u00e3 [river] #9:13",
+          "Rio Maracan\u00e3 [river] #9:14",
+          "Rio Maracan\u00e3 [river] #9:15",
+          "Rio Maracan\u00e3 [river] #9:16",
+          "Rio Maracan\u00e3 [river] #9:17",
+          "Rio Maracan\u00e3 [river] #9:18",
+          "Rio Maracan\u00e3 [river] #9:19",
+          "Rio Maracan\u00e3 [river] #12:02",
+          "Rio Maracan\u00e3 [river] #12:03",
+          "Rio Maracan\u00e3 [river] #12:04",
+          "Rio Maracan\u00e3 [river] #12:05",
+          "Rio Maracan\u00e3 [river] #12:06",
+          "Rio Maracan\u00e3 [river] #12:12",
+          "Rio Maracan\u00e3 [river] #12:13",
+          "Rio Maracan\u00e3 [river] #12:14",
+          "Rio Maracan\u00e3 [river] #12:15",
+          "Rio Trapicheiros [river] #14:04",
+          "Rio Trapicheiros [river] #14:05",
+          "Rio Trapicheiros [river] #14:06",
+          "Rio Trapicheiros [river] #14:07",
+          "Rio Trapicheiros [river] #14:08",
+          "Rio Trapicheiros [river] #14:09",
+          "Rio Trapicheiros [river] #14:10",
+          "Rio Trapicheiros [river] #14:11",
+          "Rio Trapicheiros [river] #14:12",
+          "Rio Trapicheiros [river] #14:13",
+          "Rio Trapicheiros [river] #14:14",
+          "Rio Trapicheiros [river] #14:15",
+          "Rio Joana [river] #1:05",
+          "Rio Joana [river] #1:06",
+          "Rio Joana [river] #1:07"
+        ]
+      },
+      "threshold": ">= 95% of required probes",
+      "detail": "2689 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "pass",
+      "value": {
+        "required": 35095,
+        "samples": 13,
+        "observations": 456235,
+        "wet_throughout": 34873,
+        "fraction": 0.9937,
+        "without_water_probes": 222,
+        "without_water_names": [
+          "Rio Joana [river] #11:01",
+          "Rio Joana [river] #11:10",
+          "Rio Joana [river] #11:11",
+          "Rio Joana [river] #11:12",
+          "Rio Joana [river] #11:13",
+          "Rio Joana [river] #11:14",
+          "Rio Joana [river] #11:15",
+          "Rio Joana [river] #11:16",
+          "Rio Joana [river] #11:17",
+          "Rio Joana [river] #11:18",
+          "Rio Joana [river] #11:19",
+          "Rio Joana [river] #11:20",
+          "Rio Joana [river] #11:21",
+          "Rio Joana [river] #11:22",
+          "Rio Joana [river] #11:23",
+          "Rio Joana [river] #11:24",
+          "Rio Joana [river] #11:25",
+          "Rio Joana [river] #11:26",
+          "Rio Joana [river] #11:27",
+          "Rio Joana [river] #11:28",
+          "Rio Joana [river] #11:29",
+          "Rio Joana [river] #11:30",
+          "Rio Joana [river] #11:31",
+          "Rio Joana [river] #1:05",
+          "Rio Joana [river] #1:06",
+          "Rio Joana [river] #1:07",
+          "Rio Joana [river] #1:08",
+          "Rio Joana [river] #1:09",
+          "Rio Joana [river] #1:10",
+          "Rio Maracan\u00e3 [river] #12:02",
+          "Rio Maracan\u00e3 [river] #12:03",
+          "Rio Maracan\u00e3 [river] #12:04",
+          "Rio Maracan\u00e3 [river] #12:05",
+          "Rio Maracan\u00e3 [river] #12:06",
+          "Rio Maracan\u00e3 [river] #12:12",
+          "Rio Maracan\u00e3 [river] #12:13",
+          "Rio Maracan\u00e3 [river] #12:14",
+          "Rio Maracan\u00e3 [river] #12:15",
+          "Rio Maracan\u00e3 [river] #7:00",
+          "Rio Maracan\u00e3 [river] #7:01"
+        ],
+        "without_water_names_truncated": 182,
+        "exact_dry": {
+          "probes": 546,
+          "observations": 4024,
+          "names": [
+            "Desvio do Rio Joana [river] #1:02",
+            "Desvio do Rio Joana [river] #1:03",
+            "Rio Comprido [river] #3:10",
+            "Rio Comprido [river] #3:11",
+            "Rio Comprido [river] #3:12",
+            "Rio Comprido [river] #3:13",
+            "Rio Comprido [river] #3:14",
+            "Rio Comprido [river] #3:15",
+            "Rio Comprido [river] #3:16",
+            "Rio Comprido [river] #3:17",
+            "Rio Comprido [river] #3:18",
+            "Rio Comprido [river] #3:26",
+            "Rio Comprido [river] #3:27",
+            "Rio Comprido [river] #3:30",
+            "Rio Comprido [river] #3:31",
+            "Rio Comprido [river] #3:32",
+            "Rio Comprido [river] #3:33",
+            "Rio Joana [river] #10:00",
+            "Rio Joana [river] #11:00",
+            "Rio Joana [river] #11:01",
+            "Rio Joana [river] #11:02",
+            "Rio Joana [river] #11:03",
+            "Rio Joana [river] #11:07",
+            "Rio Joana [river] #11:08",
+            "Rio Joana [river] #11:09",
+            "Rio Joana [river] #11:10",
+            "Rio Joana [river] #11:11",
+            "Rio Joana [river] #11:12",
+            "Rio Joana [river] #11:13",
+            "Rio Joana [river] #11:14",
+            "Rio Joana [river] #11:15",
+            "Rio Joana [river] #11:16",
+            "Rio Joana [river] #11:17",
+            "Rio Joana [river] #11:18",
+            "Rio Joana [river] #11:19",
+            "Rio Joana [river] #11:20",
+            "Rio Joana [river] #11:21",
+            "Rio Joana [river] #11:22",
+            "Rio Joana [river] #11:23",
+            "Rio Joana [river] #11:24"
+          ],
+          "names_truncated": 506
+        },
+        "native_no_nearby": {
+          "probes": 222,
+          "observations": 1183,
+          "names": [
+            "Rio Joana [river] #11:01",
+            "Rio Joana [river] #11:10",
+            "Rio Joana [river] #11:11",
+            "Rio Joana [river] #11:12",
+            "Rio Joana [river] #11:13",
+            "Rio Joana [river] #11:14",
+            "Rio Joana [river] #11:15",
+            "Rio Joana [river] #11:16",
+            "Rio Joana [river] #11:17",
+            "Rio Joana [river] #11:18",
+            "Rio Joana [river] #11:19",
+            "Rio Joana [river] #11:20",
+            "Rio Joana [river] #11:21",
+            "Rio Joana [river] #11:22",
+            "Rio Joana [river] #11:23",
+            "Rio Joana [river] #11:24",
+            "Rio Joana [river] #11:25",
+            "Rio Joana [river] #11:26",
+            "Rio Joana [river] #11:27",
+            "Rio Joana [river] #11:28",
+            "Rio Joana [river] #11:29",
+            "Rio Joana [river] #11:30",
+            "Rio Joana [river] #11:31",
+            "Rio Joana [river] #1:05",
+            "Rio Joana [river] #1:06",
+            "Rio Joana [river] #1:07",
+            "Rio Joana [river] #1:08",
+            "Rio Joana [river] #1:09",
+            "Rio Joana [river] #1:10",
+            "Rio Maracan\u00e3 [river] #12:02",
+            "Rio Maracan\u00e3 [river] #12:03",
+            "Rio Maracan\u00e3 [river] #12:04",
+            "Rio Maracan\u00e3 [river] #12:05",
+            "Rio Maracan\u00e3 [river] #12:06",
+            "Rio Maracan\u00e3 [river] #12:12",
+            "Rio Maracan\u00e3 [river] #12:13",
+            "Rio Maracan\u00e3 [river] #12:14",
+            "Rio Maracan\u00e3 [river] #12:15",
+            "Rio Maracan\u00e3 [river] #7:00",
+            "Rio Maracan\u00e3 [river] #7:01"
+          ],
+          "names_truncated": 182
+        },
+        "native_nearby_observations": 456235,
+        "native_nearby_wet_observations": 455052,
+        "sampled_minutes": [
+          0.0,
+          60.07111424406369
+        ],
+        "largest_sample_gap_minutes": 5.138889156902829,
+        "coordinate_identity_tolerance_m": 0.001,
+        "per_sample": [
+          {
+            "frame": 202252,
+            "minute": 0.0,
+            "label": "t000",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 220752,
+            "minute": 5.139,
+            "label": "t005",
+            "without_water": 25,
+            "names": [
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:lakes:106:0:0",
+              "maintained:lakes:119:0:0",
+              "maintained:authored:sources:1681:0:0",
+              "maintained:authored:sources:1772:0:0"
+            ]
+          },
+          {
+            "frame": 238354,
+            "minute": 10.028,
+            "label": "t010",
+            "without_water": 29,
+            "names": [
+              "maintained:rivers:12:0:2",
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:78:0:2",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:streams:65:1:2",
+              "maintained:streams:65:1:3",
+              "maintained:lakes:106:0:0",
+              "maintained:lakes:119:0:0",
+              "maintained:authored:sources:1681:0:0",
+              "maintained:authored:sources:1772:0:0"
+            ]
+          },
+          {
+            "frame": 256473,
+            "minute": 15.061,
+            "label": "t015",
+            "without_water": 32,
+            "names": [
+              "maintained:rivers:12:0:2",
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:78:0:2",
+              "maintained:rivers:78:0:3",
+              "maintained:rivers:78:0:4",
+              "maintained:rivers:78:0:5",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:streams:65:1:2",
+              "maintained:streams:65:1:3",
+              "maintained:lakes:106:0:0",
+              "maintained:lakes:119:0:0",
+              "maintained:authored:sources:1681:0:0",
+              "maintained:authored:sources:1772:0:0"
+            ]
+          },
+          {
+            "frame": 274660,
+            "minute": 20.113,
+            "label": "t020",
+            "without_water": 32,
+            "names": [
+              "maintained:rivers:12:0:2",
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:78:0:2",
+              "maintained:rivers:78:0:3",
+              "maintained:rivers:78:0:4",
+              "maintained:rivers:78:0:5",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:streams:65:1:2",
+              "maintained:streams:65:1:3",
+              "maintained:lakes:106:0:0",
+              "maintained:lakes:119:0:0",
+              "maintained:authored:sources:1681:0:0",
+              "maintained:authored:sources:1772:0:0"
+            ]
+          },
+          {
+            "frame": 292776,
+            "minute": 25.146,
+            "label": "t025",
+            "without_water": 33,
+            "names": [
+              "maintained:rivers:12:0:2",
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:78:0:2",
+              "maintained:rivers:78:0:3",
+              "maintained:rivers:78:0:4",
+              "maintained:rivers:78:0:5",
+              "maintained:rivers:78:0:6",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:streams:65:1:2",
+              "maintained:streams:65:1:3",
+              "maintained:lakes:106:0:0",
+              "maintained:lakes:119:0:0",
+              "maintained:authored:sources:1681:0:0",
+              "maintained:authored:sources:1772:0:0"
+            ]
+          },
+          {
+            "frame": 310372,
+            "minute": 30.033,
+            "label": "t030",
+            "without_water": 36,
+            "names": [
+              "maintained:rivers:12:0:2",
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:78:0:2",
+              "maintained:rivers:78:0:3",
+              "maintained:rivers:78:0:4",
+              "maintained:rivers:78:0:5",
+              "maintained:rivers:78:0:6",
+              "maintained:rivers:78:1:3",
+              "maintained:rivers:78:1:4",
+              "maintained:rivers:78:1:5",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:streams:65:1:2",
+              "maintained:streams:65:1:3",
+              "maintained:lakes:106:0:0",
+              "maintained:lakes:119:0:0",
+              "maintained:authored:sources:1681:0:0",
+              "maintained:authored:sources:1772:0:0"
+            ]
+          },
+          {
+            "frame": 328555,
+            "minute": 35.084,
+            "label": "t035",
+            "without_water": 45,
+            "names": [
+              "Rio Maracan\u00e3 [river] #9:12",
+              "geography:Rio Maracan\u00e3 [river] @346,405",
+              "maintained:rivers:12:0:2",
+              "maintained:rivers:12:0:3",
+              "maintained:rivers:38:0:0",
+              "maintained:rivers:78:0:2",
+              "maintained:rivers:78:0:3",
+              "maintained:rivers:78:0:4",
+              "maintained:rivers:78:0:5",
+              "maintained:rivers:78:0:6",
+              "maintained:rivers:78:0:7",
+              "maintained:rivers:78:0:8",
+              "maintained:rivers:78:1:0",
+              "maintained:rivers:78:1:1",
+              "maintained:rivers:78:1:2",
+              "maintained:rivers:78:1:3",
+              "maintained:rivers:78:1:4",
+              "maintained:rivers:78:1:5",
+              "maintained:rivers:232:0:1",
+              "maintained:rivers:232:0:2",
+              "maintained:rivers:232:0:3",
+              "maintained:rivers:232:0:4",
+              "maintained:rivers:232:0:5",
+              "maintained:rivers:232:0:6",
+              "maintained:streams:6:0:0",
+              "maintained:streams:7:0:0",
+              "maintained:streams:8:0:0",
+              "maintained:streams:8:0:1",
+              "maintained:streams:15:0:0",
+              "maintained:streams:23:0:0",
+              "maintained:streams:23:0:1",
+              "maintained:streams:23:0:2",
+              "maintained:streams:23:0:3",
+              "maintained:streams:23:0:4",
+              "maintained:streams:23:0:5",
+              "maintained:streams:63:0:0",
+              "maintained:streams:65:1:0",
+              "maintained:streams:65:1:1",
+              "maintained:streams:65:1:2",
+              "maintained:streams:65:1:3"
+            ]
+          },
+          {
+            "frame": 346669,
+            "minute": 40.116,
+            "label": "t040",
+            "without_water": 126,
+            "names": [
+              "Rio Maracan\u00e3 [river] #7:00",
+              "Rio Maracan\u00e3 [river] #7:01",
+              "Rio Maracan\u00e3 [river] #7:02",
+              "Rio Maracan\u00e3 [river] #9:00",
+              "Rio Maracan\u00e3 [river] #9:01",
+              "Rio Maracan\u00e3 [river] #9:02",
+              "Rio Maracan\u00e3 [river] #9:03",
+              "Rio Maracan\u00e3 [river] #9:04",
+              "Rio Maracan\u00e3 [river] #9:12",
+              "Rio Maracan\u00e3 [river] #9:13",
+              "Rio Maracan\u00e3 [river] #9:14",
+              "Rio Maracan\u00e3 [river] #9:15",
+              "Rio Maracan\u00e3 [river] #9:16",
+              "Rio Maracan\u00e3 [river] #9:17",
+              "Rio Maracan\u00e3 [river] #9:18",
+              "Rio Maracan\u00e3 [river] #9:19",
+              "Rio Maracan\u00e3 [river] #12:02",
+              "Rio Maracan\u00e3 [river] #12:03",
+              "Rio Maracan\u00e3 [river] #12:04",
+              "Rio Maracan\u00e3 [river] #12:05",
+              "Rio Maracan\u00e3 [river] #12:06",
+              "Rio Maracan\u00e3 [river] #12:12",
+              "Rio Maracan\u00e3 [river] #12:13",
+              "Rio Maracan\u00e3 [river] #12:14",
+              "Rio Maracan\u00e3 [river] #12:15",
+              "Rio Trapicheiros [river] #14:04",
+              "Rio Trapicheiros [river] #14:05",
+              "Rio Joana [river] #1:09",
+              "Rio Joana [river] #1:10",
+              "Rio Joana [river] #11:10",
+              "Rio Joana [river] #11:11",
+              "Rio Joana [river] #11:12",
+              "Rio Joana [river] #11:13",
+              "Rio Joana [river] #11:14",
+              "geography:Rio Joana [river] @368,335",
+              "geography:Rio Joana [river] @369,335",
+              "geography:Rio Joana [river] @258,421",
+              "geography:Rio Joana [river] @259,421",
+              "geography:Rio Joana [river] @257,422",
+              "geography:Rio Joana [river] @256,423"
+            ]
+          },
+          {
+            "frame": 364785,
+            "minute": 45.148,
+            "label": "t045",
+            "without_water": 171,
+            "names": [
+              "Rio Maracan\u00e3 [river] #7:00",
+              "Rio Maracan\u00e3 [river] #7:01",
+              "Rio Maracan\u00e3 [river] #7:02",
+              "Rio Maracan\u00e3 [river] #9:00",
+              "Rio Maracan\u00e3 [river] #9:01",
+              "Rio Maracan\u00e3 [river] #9:02",
+              "Rio Maracan\u00e3 [river] #9:03",
+              "Rio Maracan\u00e3 [river] #9:04",
+              "Rio Maracan\u00e3 [river] #9:12",
+              "Rio Maracan\u00e3 [river] #9:13",
+              "Rio Maracan\u00e3 [river] #9:14",
+              "Rio Maracan\u00e3 [river] #9:15",
+              "Rio Maracan\u00e3 [river] #9:16",
+              "Rio Maracan\u00e3 [river] #9:17",
+              "Rio Maracan\u00e3 [river] #9:18",
+              "Rio Maracan\u00e3 [river] #9:19",
+              "Rio Maracan\u00e3 [river] #12:02",
+              "Rio Maracan\u00e3 [river] #12:03",
+              "Rio Maracan\u00e3 [river] #12:04",
+              "Rio Maracan\u00e3 [river] #12:05",
+              "Rio Maracan\u00e3 [river] #12:06",
+              "Rio Maracan\u00e3 [river] #12:12",
+              "Rio Maracan\u00e3 [river] #12:13",
+              "Rio Maracan\u00e3 [river] #12:14",
+              "Rio Maracan\u00e3 [river] #12:15",
+              "Rio Trapicheiros [river] #14:04",
+              "Rio Trapicheiros [river] #14:05",
+              "Rio Trapicheiros [river] #14:06",
+              "Rio Trapicheiros [river] #14:07",
+              "Rio Trapicheiros [river] #14:08",
+              "Rio Trapicheiros [river] #14:09",
+              "Rio Trapicheiros [river] #14:10",
+              "Rio Trapicheiros [river] #14:11",
+              "Rio Trapicheiros [river] #14:12",
+              "Rio Trapicheiros [river] #14:13",
+              "Rio Trapicheiros [river] #14:14",
+              "Rio Trapicheiros [river] #14:15",
+              "Rio Joana [river] #1:09",
+              "Rio Joana [river] #1:10",
+              "Rio Joana [river] #11:01"
+            ]
+          },
+          {
+            "frame": 382412,
+            "minute": 50.044,
+            "label": "t050",
+            "without_water": 210,
+            "names": [
+              "Rio Maracan\u00e3 [river] #7:00",
+              "Rio Maracan\u00e3 [river] #7:01",
+              "Rio Maracan\u00e3 [river] #7:02",
+              "Rio Maracan\u00e3 [river] #9:00",
+              "Rio Maracan\u00e3 [river] #9:01",
+              "Rio Maracan\u00e3 [river] #9:02",
+              "Rio Maracan\u00e3 [river] #9:03",
+              "Rio Maracan\u00e3 [river] #9:04",
+              "Rio Maracan\u00e3 [river] #9:12",
+              "Rio Maracan\u00e3 [river] #9:13",
+              "Rio Maracan\u00e3 [river] #9:14",
+              "Rio Maracan\u00e3 [river] #9:15",
+              "Rio Maracan\u00e3 [river] #9:16",
+              "Rio Maracan\u00e3 [river] #9:17",
+              "Rio Maracan\u00e3 [river] #9:18",
+              "Rio Maracan\u00e3 [river] #9:19",
+              "Rio Maracan\u00e3 [river] #12:02",
+              "Rio Maracan\u00e3 [river] #12:03",
+              "Rio Maracan\u00e3 [river] #12:04",
+              "Rio Maracan\u00e3 [river] #12:05",
+              "Rio Maracan\u00e3 [river] #12:06",
+              "Rio Maracan\u00e3 [river] #12:12",
+              "Rio Maracan\u00e3 [river] #12:13",
+              "Rio Maracan\u00e3 [river] #12:14",
+              "Rio Maracan\u00e3 [river] #12:15",
+              "Rio Trapicheiros [river] #14:04",
+              "Rio Trapicheiros [river] #14:05",
+              "Rio Trapicheiros [river] #14:06",
+              "Rio Trapicheiros [river] #14:07",
+              "Rio Trapicheiros [river] #14:08",
+              "Rio Trapicheiros [river] #14:09",
+              "Rio Trapicheiros [river] #14:10",
+              "Rio Trapicheiros [river] #14:11",
+              "Rio Trapicheiros [river] #14:12",
+              "Rio Trapicheiros [river] #14:13",
+              "Rio Trapicheiros [river] #14:14",
+              "Rio Trapicheiros [river] #14:15",
+              "Rio Joana [river] #1:05",
+              "Rio Joana [river] #1:06",
+              "Rio Joana [river] #1:07"
+            ]
+          },
+          {
+            "frame": 400536,
+            "minute": 55.079,
+            "label": "t055",
+            "without_water": 222,
+            "names": [
+              "Rio Maracan\u00e3 [river] #7:00",
+              "Rio Maracan\u00e3 [river] #7:01",
+              "Rio Maracan\u00e3 [river] #7:02",
+              "Rio Maracan\u00e3 [river] #9:00",
+              "Rio Maracan\u00e3 [river] #9:01",
+              "Rio Maracan\u00e3 [river] #9:02",
+              "Rio Maracan\u00e3 [river] #9:03",
+              "Rio Maracan\u00e3 [river] #9:04",
+              "Rio Maracan\u00e3 [river] #9:12",
+              "Rio Maracan\u00e3 [river] #9:13",
+              "Rio Maracan\u00e3 [river] #9:14",
+              "Rio Maracan\u00e3 [river] #9:15",
+              "Rio Maracan\u00e3 [river] #9:16",
+              "Rio Maracan\u00e3 [river] #9:17",
+              "Rio Maracan\u00e3 [river] #9:18",
+              "Rio Maracan\u00e3 [river] #9:19",
+              "Rio Maracan\u00e3 [river] #12:02",
+              "Rio Maracan\u00e3 [river] #12:03",
+              "Rio Maracan\u00e3 [river] #12:04",
+              "Rio Maracan\u00e3 [river] #12:05",
+              "Rio Maracan\u00e3 [river] #12:06",
+              "Rio Maracan\u00e3 [river] #12:12",
+              "Rio Maracan\u00e3 [river] #12:13",
+              "Rio Maracan\u00e3 [river] #12:14",
+              "Rio Maracan\u00e3 [river] #12:15",
+              "Rio Trapicheiros [river] #14:04",
+              "Rio Trapicheiros [river] #14:05",
+              "Rio Trapicheiros [river] #14:06",
+              "Rio Trapicheiros [river] #14:07",
+              "Rio Trapicheiros [river] #14:08",
+              "Rio Trapicheiros [river] #14:09",
+              "Rio Trapicheiros [river] #14:10",
+              "Rio Trapicheiros [river] #14:11",
+              "Rio Trapicheiros [river] #14:12",
+              "Rio Trapicheiros [river] #14:13",
+              "Rio Trapicheiros [river] #14:14",
+              "Rio Trapicheiros [river] #14:15",
+              "Rio Joana [river] #1:05",
+              "Rio Joana [river] #1:06",
+              "Rio Joana [river] #1:07"
+            ]
+          },
+          {
+            "frame": 418508,
+            "minute": 60.071,
+            "label": "t060",
+            "without_water": 222,
+            "names": [
+              "Rio Maracan\u00e3 [river] #7:00",
+              "Rio Maracan\u00e3 [river] #7:01",
+              "Rio Maracan\u00e3 [river] #7:02",
+              "Rio Maracan\u00e3 [river] #9:00",
+              "Rio Maracan\u00e3 [river] #9:01",
+              "Rio Maracan\u00e3 [river] #9:02",
+              "Rio Maracan\u00e3 [river] #9:03",
+              "Rio Maracan\u00e3 [river] #9:04",
+              "Rio Maracan\u00e3 [river] #9:12",
+              "Rio Maracan\u00e3 [river] #9:13",
+              "Rio Maracan\u00e3 [river] #9:14",
+              "Rio Maracan\u00e3 [river] #9:15",
+              "Rio Maracan\u00e3 [river] #9:16",
+              "Rio Maracan\u00e3 [river] #9:17",
+              "Rio Maracan\u00e3 [river] #9:18",
+              "Rio Maracan\u00e3 [river] #9:19",
+              "Rio Maracan\u00e3 [river] #12:02",
+              "Rio Maracan\u00e3 [river] #12:03",
+              "Rio Maracan\u00e3 [river] #12:04",
+              "Rio Maracan\u00e3 [river] #12:05",
+              "Rio Maracan\u00e3 [river] #12:06",
+              "Rio Maracan\u00e3 [river] #12:12",
+              "Rio Maracan\u00e3 [river] #12:13",
+              "Rio Maracan\u00e3 [river] #12:14",
+              "Rio Maracan\u00e3 [river] #12:15",
+              "Rio Trapicheiros [river] #14:04",
+              "Rio Trapicheiros [river] #14:05",
+              "Rio Trapicheiros [river] #14:06",
+              "Rio Trapicheiros [river] #14:07",
+              "Rio Trapicheiros [river] #14:08",
+              "Rio Trapicheiros [river] #14:09",
+              "Rio Trapicheiros [river] #14:10",
+              "Rio Trapicheiros [river] #14:11",
+              "Rio Trapicheiros [river] #14:12",
+              "Rio Trapicheiros [river] #14:13",
+              "Rio Trapicheiros [river] #14:14",
+              "Rio Trapicheiros [river] #14:15",
+              "Rio Joana [river] #1:05",
+              "Rio Joana [river] #1:06",
+              "Rio Joana [river] #1:07"
+            ]
+          }
+        ]
+      },
+      "threshold": ">= 95% of required probes wet exactly OR natively within64m at every observed sample",
+      "detail": "Sampled evidence only, not continuous/every-frame wetness; no inferred legacy nearby values."
+    },
+    {
+      "name": "no_flooding",
+      "status": "fail",
+      "value": {
+        "worst_km2": 0.5804,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.4733
+          },
+          {
+            "grid": "t010-water.u16",
+            "km2": 0.5128
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 0.5284
+          },
+          {
+            "grid": "t020-water.u16",
+            "km2": 0.5358
+          },
+          {
+            "grid": "t025-water.u16",
+            "km2": 0.5581
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.5617
+          },
+          {
+            "grid": "t035-water.u16",
+            "km2": 0.565
+          },
+          {
+            "grid": "t040-water.u16",
+            "km2": 0.5645
+          },
+          {
+            "grid": "t045-water.u16",
+            "km2": 0.5706
+          },
+          {
+            "grid": "t050-water.u16",
+            "km2": 0.5696
+          },
+          {
+            "grid": "t055-water.u16",
+            "km2": 0.5804
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.577
+          }
+        ],
+        "reference": "the run's first water dump union hash-bound mapped_water",
+        "reference_sha256": "b79aa963704a96d123e9e22d73a8dcc58e21d82fd159ae39bfd544530783d901",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "a8ad3c31a3c76087ab30c766bce878d5eb317eaccb8995010cce5a32c377d993",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 16997
+        },
+        "failing_grids": [
+          {
+            "grid": "t005-water.u16",
+            "km2": 0.4733
+          },
+          {
+            "grid": "t010-water.u16",
+            "km2": 0.5128
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 0.5284
+          },
+          {
+            "grid": "t020-water.u16",
+            "km2": 0.5358
+          },
+          {
+            "grid": "t025-water.u16",
+            "km2": 0.5581
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 0.5617
+          },
+          {
+            "grid": "t035-water.u16",
+            "km2": 0.565
+          },
+          {
+            "grid": "t040-water.u16",
+            "km2": 0.5645
+          },
+          {
+            "grid": "t045-water.u16",
+            "km2": 0.5706
+          },
+          {
+            "grid": "t050-water.u16",
+            "km2": 0.5696
+          },
+          {
+            "grid": "t055-water.u16",
+            "km2": 0.5804
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 0.577
+          }
+        ],
+        "initial_only_diagnostic": {
+          "worst_km2": 0.5804,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 0.4733
+            },
+            {
+              "grid": "t010-water.u16",
+              "km2": 0.5128
+            },
+            {
+              "grid": "t015-water.u16",
+              "km2": 0.5284
+            },
+            {
+              "grid": "t020-water.u16",
+              "km2": 0.5358
+            },
+            {
+              "grid": "t025-water.u16",
+              "km2": 0.5581
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 0.5617
+            },
+            {
+              "grid": "t035-water.u16",
+              "km2": 0.565
+            },
+            {
+              "grid": "t040-water.u16",
+              "km2": 0.5645
+            },
+            {
+              "grid": "t045-water.u16",
+              "km2": 0.5706
+            },
+            {
+              "grid": "t050-water.u16",
+              "km2": 0.5696
+            },
+            {
+              "grid": "t055-water.u16",
+              "km2": 0.5804
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 0.577
+            }
+          ],
+          "would_fail": true,
+          "status": "fail",
+          "reference_cells": 541630,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested (use --scenario test-city)"
+    },
+    {
+      "name": "outside_connection",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested"
+    },
+    {
+      "name": "utilities",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested"
+    },
+    {
+      "name": "first_hour",
+      "status": "skip",
+      "value": null,
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "not requested (use --scenario first-hour)"
+    },
+    {
+      "name": "paths",
+      "status": "pass",
+      "value": {
+        "checked": 6,
+        "broken": []
+      },
+      "threshold": "every native path found, no expected segment missing",
+      "detail": ""
+    },
+    {
+      "name": "no_terracing",
+      "status": "pass",
+      "value": 0.0235,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 10,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "pass",
+      "value": {
+        "orientation": "as is",
+        "correlation_as_is": 0.9964,
+        "best_other": 0.4015,
+        "landmarks": [
+          {
+            "name": "highest DEM point",
+            "x": -7552.0,
+            "z": 64.0,
+            "dem_m": 834.2,
+            "game_m": 849.8,
+            "dem_from_game_m": 814.7,
+            "error_m": -19.5
+          },
+          {
+            "name": "lowest DEM point",
+            "x": -5824.0,
+            "z": -7232.0,
+            "dem_m": -52.4,
+            "game_m": 50.0,
+            "dem_from_game_m": -28.2,
+            "error_m": 24.2
+          }
+        ]
+      },
+      "threshold": "terrain correlates with the real DEM >= 0.9 as is, and beats every rotation or mirror by >= 0.15",
+      "detail": ""
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 0.0,
+        "facing": "north"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 3,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "9f5c2e7a2d53b63dcb4c39fd67ba6947b1c93b8ceeb29d00aba82b4150d4b158",
+  "harness": {
+    "commit": "05b19b2afffc0e7689119da030328d610b15e3b3",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "05b19b2afffc0e7689119da030328d610b15e3b3",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "failed checks: new_game_panel, no_flooding, startup_views",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "triage-steam.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}

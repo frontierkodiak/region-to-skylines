@@ -36300,7 +36300,128 @@
       "metric_ids": [
         "wet_central_fraction"
       ],
-      "game_agreement": [],
+      "game_agreement": [
+        {
+          "study": "pl1191-playable-water",
+          "square": "asheville",
+          "observed_at": "2026-11-24T02:42:52.965091Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "f01bd4f9ece8877b7c2fa44fff6001a77ef572f71aae169e1be4b0cd1401ecb8",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/asheville-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Floods; water retention fails",
+          "reason": "0.107 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 82/2069 fail (0 at initialization; 82 later losses). Engineered anchors: 59/234 fail. 605 source records unresolved. Main course recognizable; side channels oversized and partly dry."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "innsbruck",
+          "observed_at": "2026-11-24T03:02:42.207832Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "50996165e381d14376411fc7a009ed332696d049bfc05869b495e9f1d80bce2d",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/innsbruck-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Floods; water retention fails",
+          "reason": "0.554 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 43/1105 fail (0 at initialization; 43 later losses). Engineered anchors: 19/193 fail. 175 source records unresolved. Valley alignment retained; enlarged water and banks overwhelm the opening."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "rio",
+          "observed_at": "2026-11-24T03:21:46.234963Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "a46d96f6428da2b327afdc9e6681c1768931bef06e8445cbaa23ce3dbc1aa4ba",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/rio-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Floods; water retention fails",
+          "reason": "0.580 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 29/480 fail (0 at initialization; 29 later losses). Engineered anchors: 18/239 fail. 62 source records unresolved. Coast and hills recognizable; inland channels look like oversized pools."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "pittsburgh",
+          "observed_at": "2026-11-24T03:40:45.653990Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "23c6b4b4077d467b4b8218912b4c5d28594e7a23de5ff4a04b3c1d7df53bc7ef",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/pittsburgh-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Floods; water retention fails",
+          "reason": "0.202 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 45/1214 fail (0 at initialization; 45 later losses). Engineered anchors: 35/246 fail. 349 source records unresolved. Three-river confluence recognizable; artificial round pools and widened tributaries remain."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "charleston",
+          "observed_at": "2026-11-24T04:00:49.017202Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "244e425ebbfb8444ecdc2459644470d87be62f77c4779f391f65977fe1454746",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/charleston-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Water retention fails",
+          "reason": "0.024 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 16/2653 fail (0 at initialization; 16 later losses). Engineered anchors: 7/208 fail. 601 source records unresolved. Harbor outline recognizable; many circular inland pools look artificial."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "grand-canyon",
+          "observed_at": "2026-11-24T04:20:41.331132Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "09b34e40f94143e7ffe38e5b3b79faad1636d8e07fb12a4758e57a9076e992d1",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/grand-canyon-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Water retention fails",
+          "reason": "0.025 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 1/137 fail (0 at initialization; 1 later losses). Engineered anchors: 8/30 fail. 11 source records unresolved. Canyon relief retained; start moved to the rim and wet tributaries are exaggerated."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "hong-kong",
+          "observed_at": "2026-11-24T04:43:26.310704Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "1636653e1d44296b70e7d32dc7d16928594f56c6d28f01b36834eeae04676f38",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/hong-kong-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Floods; water retention fails",
+          "reason": "1.031 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 60/1358 fail (0 at initialization; 60 later losses). Engineered anchors: 11/276 fail. 200 source records unresolved. Harbor outline retained; steep banks and pool patterns exaggerate inland water."
+        },
+        {
+          "study": "pl1191-playable-water",
+          "square": "yosemite",
+          "observed_at": "2026-11-24T05:02:25.116471Z",
+          "oracle": "native_game_water",
+          "source_sha": "0740464f1808f3ae9af18eded4a081cf012700f4",
+          "artifact_sha256": "ff7614e13d8812f9fc72854d2d4aa8d4bed03a00ed3dca81a0d06f2238c5f74f",
+          "evidence": [
+            "tools/map-factory/capability-evidence/pl1191-playable-water/yosemite-verdict.json"
+          ],
+          "observed": false,
+          "predicted": null,
+          "verdict": "Floods; water retention fails",
+          "reason": "1.698 km² with depth >0.5 m beyond 128 m of initial or mapped water. Natural sectors: 7/444 fail (0 at initialization; 7 later losses). Engineered anchors: 3/27 fail. 77 source records unresolved. Valley outline retained; excessive water terraces and banks dominate."
+        }
+      ],
       "calibration": {
         "source": "tools/map-factory/water-risk-model.json",
         "squares": 5,

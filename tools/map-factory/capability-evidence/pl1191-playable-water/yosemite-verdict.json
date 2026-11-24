@@ -1,0 +1,892 @@
+{
+  "schema": 1,
+  "check_type": "map-soak",
+  "verdict": "fail",
+  "failed": [
+    "new_game_panel",
+    "startup_views",
+    "no_flooding"
+  ],
+  "warnings": [],
+  "checks": [
+    {
+      "name": "new_game_panel",
+      "status": "fail",
+      "value": {
+        "observed": {
+          "source": "native NewGamePanel",
+          "path": "/home/caleb/.var/app/com.valvesoftware.Steam/data/Colossal Order/Cities_Skylines/Maps/PL857-yosemite.crp",
+          "selected_index": 16,
+          "map_name": "Yosemite Valley - Ready to Play",
+          "author": "",
+          "published": true,
+          "buildableArea": 64,
+          "selection_refreshed": false,
+          "resource_bars": {
+            "schema": 1,
+            "source": "native UIProgressBar.value / NewGamePanel resource targets",
+            "frame": 569,
+            "realtime": 15.947561264038086,
+            "bars": {
+              "oil": {
+                "component": "ResourceBarOil",
+                "value": 0.33677858114242554,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.33677858114242554,
+                "target_value": 0.33677858114242554,
+                "amount": 548298,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "ore": {
+                "component": "ResourceBarOre",
+                "value": 0.4126470386981964,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.4126470386981964,
+                "target_value": 0.4126470386981964,
+                "amount": 1079272,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "forest": {
+                "component": "ResourceBarForestry",
+                "value": 0.5348013639450073,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.5348013639450073,
+                "target_value": 0.5348013639450073,
+                "amount": 5900925,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "fertility": {
+                "component": "ResourceBarFarming",
+                "value": 0.3686459958553314,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.3686459958553314,
+                "target_value": 0.3686459958553314,
+                "amount": 741140,
+                "denominator": 20631704,
+                "exponent": 0.30000001192092896,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              },
+              "water": {
+                "component": "ResourceBarWater",
+                "value": 0.33101579546928406,
+                "min_value": 0,
+                "max_value": 1,
+                "normalized_target": 0.33101579546928406,
+                "target_value": 0.33101579546928406,
+                "amount": 2260646,
+                "denominator": 20631704,
+                "exponent": 0.5,
+                "no_resource_visible": false,
+                "expected_no_resource": false,
+                "visible": true,
+                "animating": false
+              }
+            }
+          },
+          "resources": {
+            "maxResourceAmount": 20631704,
+            "oilAmount": 548298,
+            "oreAmount": 1079272,
+            "forestAmount": 5900925,
+            "fertileLandAmount": 741140,
+            "waterAmount": 2260646
+          },
+          "connections": {
+            "incomingRoads": 1,
+            "outgoingRoads": 1,
+            "incomingTrainTracks": 2,
+            "outgoingTrainTracks": 2,
+            "incomingShipPath": 0,
+            "outgoingShipPath": 0,
+            "incomingPlanePath": 0,
+            "outgoingPlanePath": 0
+          },
+          "imageRef": {
+            "name": "Yosemite Valley - Ready to Play_Snapshot",
+            "resolved": true,
+            "width": 400,
+            "height": 224
+          },
+          "steamPreviewRef": {
+            "name": "Yosemite Valley - Ready to Play_SteamPreview",
+            "resolved": true,
+            "width": 1800,
+            "height": 1008
+          },
+          "snapshot_texture_present": true,
+          "author_label": "Created by xxx",
+          "author_visible": false,
+          "buildable_label": "Suitable area for building: 64 %",
+          "ok": true
+        },
+        "screenshot": "new-game-panel.png",
+        "reviewer": null,
+        "problems": [
+          "native resources.oilAmount differs from expectation",
+          "native resources.oreAmount differs from expectation",
+          "native resources.forestAmount differs from expectation",
+          "native resources.fertileLandAmount differs from expectation",
+          "native resources.waterAmount differs from expectation",
+          "screenshot unreviewed (requires hash, reviewer and notes)",
+          "rendered map_name unconfirmed/mismatched",
+          "rendered author unconfirmed/mismatched",
+          "rendered buildableArea unconfirmed/mismatched",
+          "rendered preview_matches_map unconfirmed/mismatched",
+          "rendered resources_match unconfirmed/mismatched",
+          "rendered connections_match unconfirmed/mismatched",
+          "rendered selected_map_visible unconfirmed/mismatched"
+        ],
+        "resource_bars_required": true,
+        "resource_bars_verified": true
+      },
+      "threshold": "native listing + resolvable image refs + hash-bound visual review; five native bars at target (1e-4) and stable (1e-5) on three distinct frames",
+      "detail": "native resources.oilAmount differs from expectation; native resources.oreAmount differs from expectation; native resources.forestAmount differs from expectation; native resources.fertileLandAmount differs from expectation; native resources.waterAmount differs from expectation; screenshot unreviewed (requires hash, reviewer and notes); rendered map_name unconfirmed/mismatched; rendered author unconfirmed/mismatched; rendered buildableArea unconfirmed/mismatched; rendered preview_matches_map unconfirmed/mismatched; rendered resources_match unconfirmed/mismatched; rendered connections_match unconfirmed/mismatched; rendered selected_map_visible unconfirmed/mismatched"
+    },
+    {
+      "name": "terrain_landmarks",
+      "status": "skip",
+      "value": null,
+      "threshold": "each independently referenced landmark within its declared height tolerance",
+      "detail": "not requested"
+    },
+    {
+      "name": "startup_views",
+      "status": "fail",
+      "value": {
+        "views": {
+          "opening": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-opening.png",
+            "sha256": "0ff45f78c1fb7e47638eb176bd19ea9d334de50ab44b84c9f4e7e73d5d9b9cfc",
+            "current_position": [
+              -1920,
+              750.86083984375,
+              -3840
+            ],
+            "target_position": [
+              -1920,
+              750.86083984375,
+              -3840
+            ],
+            "expected_center": {
+              "x": -1920,
+              "z": -3840,
+              "tolerance_m": 64
+            }
+          },
+          "area_zoom": {
+            "native_yaw_degrees": 0,
+            "render_heading_degrees": 0,
+            "screenshot": "startup-area_zoom.png",
+            "sha256": "5f07876cb104640720eaf1372a2a5cc6dfd836413ee8b054616924d1f4cfede0"
+          }
+        },
+        "problems": [
+          "screenshots unreviewed (requires reviewer and notes)",
+          "opening screenshot content unreviewed/mismatched",
+          "area_zoom screenshot content unreviewed/mismatched"
+        ]
+      },
+      "threshold": "untouched opening + native Areas tool; explicit heading tolerance + hash-bound PNG review",
+      "detail": "screenshots unreviewed (requires reviewer and notes); opening screenshot content unreviewed/mismatched; area_zoom screenshot content unreviewed/mismatched"
+    },
+    {
+      "name": "completed",
+      "status": "pass",
+      "value": 60.01,
+      "threshold": ">= 99% of 60.0",
+      "detail": ""
+    },
+    {
+      "name": "probes_wet_end",
+      "status": "pass",
+      "value": {
+        "wet": 4616,
+        "required": 4625,
+        "fraction": 0.998,
+        "dry": [
+          "maintained:streams:4:0:0",
+          "maintained:streams:4:0:1",
+          "maintained:streams:4:0:2",
+          "maintained:streams:22:0:0",
+          "maintained:streams:99:0:0",
+          "maintained:streams:283:0:0",
+          "maintained:streams:329:0:0",
+          "maintained:streams:378:0:0",
+          "maintained:lakes:0:0:0"
+        ]
+      },
+      "threshold": ">= 95% of required probes",
+      "detail": "6420 probes not required (outside the playable 25 tiles, on the edge, or streams)"
+    },
+    {
+      "name": "probes_wet_throughout",
+      "status": "pass",
+      "value": {
+        "required": 4625,
+        "samples": 13,
+        "observations": 60125,
+        "wet_throughout": 4616,
+        "fraction": 0.9981,
+        "without_water_probes": 9,
+        "without_water_names": [
+          "maintained:lakes:0:0:0",
+          "maintained:streams:22:0:0",
+          "maintained:streams:283:0:0",
+          "maintained:streams:329:0:0",
+          "maintained:streams:378:0:0",
+          "maintained:streams:4:0:0",
+          "maintained:streams:4:0:1",
+          "maintained:streams:4:0:2",
+          "maintained:streams:99:0:0"
+        ],
+        "without_water_names_truncated": 0,
+        "exact_dry": {
+          "probes": 65,
+          "observations": 723,
+          "names": [
+            "geography:Merced River [river] @399,514",
+            "geography:Merced River [river] @631,554",
+            "geography:Merced River [river] @631,555",
+            "geography:Merced River [river] @631,556",
+            "maintained:authored:sources:383:0:0",
+            "maintained:authored:sources:384:0:0",
+            "maintained:authored:sources:401:0:0",
+            "maintained:lakes:0:0:0",
+            "maintained:rivers:21:0:0",
+            "maintained:rivers:37:2:4",
+            "maintained:streams:102:0:0",
+            "maintained:streams:112:0:0",
+            "maintained:streams:11:0:0",
+            "maintained:streams:138:0:5",
+            "maintained:streams:13:0:0",
+            "maintained:streams:14:0:0",
+            "maintained:streams:187:0:0",
+            "maintained:streams:191:0:0",
+            "maintained:streams:22:0:0",
+            "maintained:streams:22:0:1",
+            "maintained:streams:22:0:2",
+            "maintained:streams:230:0:0",
+            "maintained:streams:239:0:0",
+            "maintained:streams:283:0:0",
+            "maintained:streams:283:0:1",
+            "maintained:streams:284:0:0",
+            "maintained:streams:294:0:1",
+            "maintained:streams:296:0:0",
+            "maintained:streams:299:0:3",
+            "maintained:streams:2:0:0",
+            "maintained:streams:300:0:0",
+            "maintained:streams:323:0:0",
+            "maintained:streams:327:0:0",
+            "maintained:streams:329:0:0",
+            "maintained:streams:330:0:0",
+            "maintained:streams:345:0:0",
+            "maintained:streams:347:0:0",
+            "maintained:streams:351:0:0",
+            "maintained:streams:374:0:0",
+            "maintained:streams:378:0:0"
+          ],
+          "names_truncated": 25
+        },
+        "native_no_nearby": {
+          "probes": 9,
+          "observations": 108,
+          "names": [
+            "maintained:lakes:0:0:0",
+            "maintained:streams:22:0:0",
+            "maintained:streams:283:0:0",
+            "maintained:streams:329:0:0",
+            "maintained:streams:378:0:0",
+            "maintained:streams:4:0:0",
+            "maintained:streams:4:0:1",
+            "maintained:streams:4:0:2",
+            "maintained:streams:99:0:0"
+          ],
+          "names_truncated": 0
+        },
+        "native_nearby_observations": 60125,
+        "native_nearby_wet_observations": 60017,
+        "sampled_minutes": [
+          0.0,
+          60.01111424093445
+        ],
+        "largest_sample_gap_minutes": 5.14666693508625,
+        "coordinate_identity_tolerance_m": 0.001,
+        "per_sample": [
+          {
+            "frame": 202252,
+            "minute": 0.0,
+            "label": "t000",
+            "without_water": 0,
+            "names": []
+          },
+          {
+            "frame": 220780,
+            "minute": 5.147,
+            "label": "t005",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 238289,
+            "minute": 10.01,
+            "label": "t010",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 256327,
+            "minute": 15.021,
+            "label": "t015",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 274732,
+            "minute": 20.133,
+            "label": "t020",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 292716,
+            "minute": 25.129,
+            "label": "t025",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 310726,
+            "minute": 30.132,
+            "label": "t030",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 328721,
+            "minute": 35.13,
+            "label": "t035",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 346732,
+            "minute": 40.133,
+            "label": "t040",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 364769,
+            "minute": 45.144,
+            "label": "t045",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 382324,
+            "minute": 50.02,
+            "label": "t050",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 400363,
+            "minute": 55.031,
+            "label": "t055",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          },
+          {
+            "frame": 418292,
+            "minute": 60.011,
+            "label": "t060",
+            "without_water": 9,
+            "names": [
+              "maintained:streams:4:0:0",
+              "maintained:streams:4:0:1",
+              "maintained:streams:4:0:2",
+              "maintained:streams:22:0:0",
+              "maintained:streams:99:0:0",
+              "maintained:streams:283:0:0",
+              "maintained:streams:329:0:0",
+              "maintained:streams:378:0:0",
+              "maintained:lakes:0:0:0"
+            ]
+          }
+        ]
+      },
+      "threshold": ">= 95% of required probes wet exactly OR natively within64m at every observed sample",
+      "detail": "Sampled evidence only, not continuous/every-frame wetness; no inferred legacy nearby values."
+    },
+    {
+      "name": "no_flooding",
+      "status": "fail",
+      "value": {
+        "worst_km2": 1.6975,
+        "grids": [
+          {
+            "grid": "t000-water.u16",
+            "km2": 0.0
+          },
+          {
+            "grid": "t005-water.u16",
+            "km2": 1.3156
+          },
+          {
+            "grid": "t010-water.u16",
+            "km2": 1.6097
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 1.655
+          },
+          {
+            "grid": "t020-water.u16",
+            "km2": 1.6666
+          },
+          {
+            "grid": "t025-water.u16",
+            "km2": 1.6873
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 1.6893
+          },
+          {
+            "grid": "t035-water.u16",
+            "km2": 1.6804
+          },
+          {
+            "grid": "t040-water.u16",
+            "km2": 1.6886
+          },
+          {
+            "grid": "t045-water.u16",
+            "km2": 1.6965
+          },
+          {
+            "grid": "t050-water.u16",
+            "km2": 1.6911
+          },
+          {
+            "grid": "t055-water.u16",
+            "km2": 1.6934
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 1.6975
+          }
+        ],
+        "reference": "the run's first water dump union hash-bound mapped_water",
+        "reference_sha256": "93ab6d836d44ea30dd805af75ec4320f633d005a0a5e0755c307f77a94af65b6",
+        "mapped_water": {
+          "file": "mapped-water.u8",
+          "sha256": "a349f0bf881877bc9c9b13846804109983b6bac7c4612115ed8875549e248633",
+          "format": "cs1-water-mask-u8-v1",
+          "cells": 15787
+        },
+        "failing_grids": [
+          {
+            "grid": "t005-water.u16",
+            "km2": 1.3156
+          },
+          {
+            "grid": "t010-water.u16",
+            "km2": 1.6097
+          },
+          {
+            "grid": "t015-water.u16",
+            "km2": 1.655
+          },
+          {
+            "grid": "t020-water.u16",
+            "km2": 1.6666
+          },
+          {
+            "grid": "t025-water.u16",
+            "km2": 1.6873
+          },
+          {
+            "grid": "t030-water.u16",
+            "km2": 1.6893
+          },
+          {
+            "grid": "t035-water.u16",
+            "km2": 1.6804
+          },
+          {
+            "grid": "t040-water.u16",
+            "km2": 1.6886
+          },
+          {
+            "grid": "t045-water.u16",
+            "km2": 1.6965
+          },
+          {
+            "grid": "t050-water.u16",
+            "km2": 1.6911
+          },
+          {
+            "grid": "t055-water.u16",
+            "km2": 1.6934
+          },
+          {
+            "grid": "t060-water.u16",
+            "km2": 1.6975
+          }
+        ],
+        "initial_only_diagnostic": {
+          "worst_km2": 1.6975,
+          "grids": [
+            {
+              "grid": "t000-water.u16",
+              "km2": 0.0
+            },
+            {
+              "grid": "t005-water.u16",
+              "km2": 1.3156
+            },
+            {
+              "grid": "t010-water.u16",
+              "km2": 1.6097
+            },
+            {
+              "grid": "t015-water.u16",
+              "km2": 1.655
+            },
+            {
+              "grid": "t020-water.u16",
+              "km2": 1.6666
+            },
+            {
+              "grid": "t025-water.u16",
+              "km2": 1.6873
+            },
+            {
+              "grid": "t030-water.u16",
+              "km2": 1.6893
+            },
+            {
+              "grid": "t035-water.u16",
+              "km2": 1.6804
+            },
+            {
+              "grid": "t040-water.u16",
+              "km2": 1.6886
+            },
+            {
+              "grid": "t045-water.u16",
+              "km2": 1.6965
+            },
+            {
+              "grid": "t050-water.u16",
+              "km2": 1.6911
+            },
+            {
+              "grid": "t055-water.u16",
+              "km2": 1.6934
+            },
+            {
+              "grid": "t060-water.u16",
+              "km2": 1.6975
+            }
+          ],
+          "would_fail": true,
+          "status": "fail",
+          "reference_cells": 71694,
+          "gating": false
+        }
+      },
+      "threshold": "<= 0.05 km\u00b2 deeper than 0.5 m beyond 128 m",
+      "detail": ""
+    },
+    {
+      "name": "population_growth",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested (use --scenario test-city)"
+    },
+    {
+      "name": "outside_connection",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested"
+    },
+    {
+      "name": "utilities",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "no scenario requested"
+    },
+    {
+      "name": "first_hour",
+      "status": "skip",
+      "value": null,
+      "threshold": "60 game-minutes; growth, both car paths, sampled services/movement, land and native panel",
+      "detail": "not requested (use --scenario first-hour)"
+    },
+    {
+      "name": "paths",
+      "status": "pass",
+      "value": {
+        "checked": 6,
+        "broken": []
+      },
+      "threshold": "every native path found, no expected segment missing",
+      "detail": ""
+    },
+    {
+      "name": "no_terracing",
+      "status": "pass",
+      "value": 0.0066,
+      "threshold": "<= 0.08",
+      "detail": ""
+    },
+    {
+      "name": "screenshots",
+      "status": "pass",
+      "value": {
+        "shots": 10,
+        "blank_or_missing": []
+      },
+      "threshold": "grey-level spread >= 6.0",
+      "detail": ""
+    },
+    {
+      "name": "frame_kinds",
+      "status": "skip",
+      "value": null,
+      "threshold": null,
+      "detail": "Clef not run (pass --clef)"
+    },
+    {
+      "name": "ground_truth",
+      "status": "pass",
+      "value": {
+        "orientation": "as is",
+        "correlation_as_is": 0.9999,
+        "best_other": 0.3752,
+        "landmarks": [
+          {
+            "name": "highest DEM point",
+            "x": 7552.0,
+            "z": 3648.0,
+            "dem_m": 3024.4,
+            "game_m": 998.4,
+            "dem_from_game_m": 3010.4,
+            "error_m": -14.0
+          },
+          {
+            "name": "lowest DEM point",
+            "x": -7616.0,
+            "z": -1984.0,
+            "dem_m": 1182.1,
+            "game_m": 40.3,
+            "dem_from_game_m": 1159.1,
+            "error_m": -23.0
+          }
+        ]
+      },
+      "threshold": "terrain correlates with the real DEM >= 0.9 as is, and beats every rotation or mirror by >= 0.15",
+      "detail": ""
+    },
+    {
+      "name": "opening_camera",
+      "status": "pass",
+      "value": {
+        "heading_deg": 0.0,
+        "facing": "north"
+      },
+      "threshold": "faces within 45\u00b0 of north, so the first view matches a north-up map",
+      "detail": ""
+    },
+    {
+      "name": "cleanup",
+      "status": "pass",
+      "value": {},
+      "threshold": "nothing left running",
+      "detail": ""
+    },
+    {
+      "name": "game_errors",
+      "status": "pass",
+      "value": {
+        "errors": 3,
+        "unexplained": []
+      },
+      "threshold": "no errors beyond the known vanilla ones",
+      "detail": "advisory; not yet calibrated to fail a run"
+    }
+  ],
+  "thresholds": {
+    "wet_end_min_fraction": 0.95,
+    "playable_half_m": 4800.0,
+    "edge_m": 8624.0,
+    "flood_depth_m": 0.5,
+    "flood_distance_m": 128.0,
+    "flood_max_km2": 0.05,
+    "reference_min_wet_cells": 100,
+    "min_minutes_fraction": 0.99,
+    "blank_shot_spread": 6.0,
+    "clef_fail_fraction": 0.5,
+    "population_min_growth": 50,
+    "population_growth_by_minute": 5.0
+  },
+  "map_sha256": "ff72d60afda19e926a7538c8060e479255f2dfe9ef8da5a2c0a857fe433daea1",
+  "harness": {
+    "commit": "05b19b2afffc0e7689119da030328d610b15e3b3",
+    "dirty": false
+  },
+  "judged_by": {
+    "commit": "05b19b2afffc0e7689119da030328d610b15e3b3",
+    "dirty": false
+  },
+  "triage": {
+    "class": "unknown",
+    "why": "failed checks: new_game_panel, no_flooding, startup_views",
+    "evidence": [
+      "triage-game.log.tail.txt",
+      "triage-game-stdout.log.tail.txt",
+      "triage-steam.tail.txt",
+      "session-receipt.json",
+      "gpu.csv"
+    ]
+  }
+}
