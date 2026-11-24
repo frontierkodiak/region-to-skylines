@@ -319,6 +319,50 @@ def cover_component_emitters(
         channel |= depth > 0
 
 
+def receiving_sumps(ground, depth, levels, channel, ports):
+    """Deepen each receiving basin within its existing physical component."""
+    labels, _ = ndimage.label(channel, np.ones((3, 3)))
+    operations = []
+    for port in ports:
+        row, col = port["row"], port["col"]
+        component = port["component"]
+        if int(labels[row, col]) != component:
+            raise ValueError(
+                "A receiving sump port disagrees with its physical component"
+            )
+        region = np.s_[
+            max(0, row - 2) : min(ground.shape[0], row + 3),
+            max(0, col - 2) : min(ground.shape[1], col + 3),
+        ]
+        yy, xx = np.mgrid[region]
+        own = (labels[region] == component) & ((yy - row) ** 2 + (xx - col) ** 2 <= 4)
+        bed = ground[region]
+        old = bed[own].copy()
+        bed[own] = np.minimum(old, np.maximum(0, levels[region][own] - 8))
+        depth[region][own] = levels[region][own] - bed[own]
+        cut = old - bed[own]
+        operations.append(
+            {
+                "component_namespace": "joint_profile.outlets",
+                "component": component,
+                "root_rc": [int(row), int(col)],
+                "carved_cells": int((cut > 0).sum()),
+                "maximum_additional_cut_m": float(cut.max()),
+            }
+        )
+    return {
+        "operation_count": len(operations),
+        "radius_m": 32,
+        "design_depth_m": 8,
+        "carved_cells": sum(o["carved_cells"] for o in operations),
+        "maximum_additional_cut_m": max(
+            (o["maximum_additional_cut_m"] for o in operations), default=0.0
+        ),
+        "operations": operations,
+        "scope": "bed lowering only inside the existing same-component footprint; local surface preserved",
+    }
+
+
 def component_outlet_intakes(channel, depth, levels, ports, sources):
     """Add intake-only controls without changing any authored physical field.
 
@@ -721,6 +765,9 @@ def hydrology(ground, banks, geometry):
     adjacent_head = ndimage.maximum_filter(np.where(channel, level, -np.inf), size=3)
     ground[rim] = np.maximum(ground[rim], adjacent_head[rim] + 2)
     ground[channel | bank_strip] = np.clip(ground[channel | bank_strip], 0, 65535 / 64)
+    sump_operations = receiving_sumps(
+        ground, depth, level, channel, joint_profile["outlets"]
+    )
     functional_components = component_outlet_intakes(
         channel, depth, level, joint_profile["outlets"], sources
     )
@@ -735,6 +782,7 @@ def hydrology(ground, banks, geometry):
         "joint_profile": joint_profile,
         "fallback_inlet_indices": fallback_inlets,
         "functional_water_components": functional_components,
+        "receiving_sumps": sump_operations,
         "unmodeled_short_surface_reaches": [],
         "authored_confluence_links": links,
         "channel_design": {

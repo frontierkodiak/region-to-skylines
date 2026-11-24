@@ -11,6 +11,7 @@ from playable_water import (
     hydrology,
     join_nearby_water,
     raster,
+    receiving_sumps,
     section,
     source_pool,
     source_walk,
@@ -19,6 +20,59 @@ from playable_water import (
 
 
 class PlayableWaterTests(unittest.TestCase):
+    def test_receiving_sumps_lower_only_same_component_bed_and_preserve_surface(self):
+        channel = np.zeros((11, 11), bool)
+        channel[2:7, 1:4] = True
+        channel[2:7, 5:8] = True
+        levels = 100 + np.indices(channel.shape)[0].astype(float)
+        ground = levels - np.where(channel, 0.5, -2)
+        ground[4, 2] = levels[4, 2] - 20
+        depth = np.where(channel, levels - ground, 0)
+        old_bed, old_depth, old_mask, old_levels = (
+            ground.copy(),
+            depth.copy(),
+            channel.copy(),
+            levels.copy(),
+        )
+        ports = [
+            {"component": 1, "row": 4, "col": 3, "role": "closed_component"},
+            {"component": 2, "row": 2, "col": 7, "role": "closed_component"},
+        ]
+        old_ports = deepcopy(ports)
+        report = receiving_sumps(ground, depth, levels, channel, ports)
+        yy, xx = np.indices(channel.shape)
+        selected = (old_mask & (xx <= 3) & ((yy - 4) ** 2 + (xx - 3) ** 2 <= 4)) | (
+            old_mask & (xx >= 5) & ((yy - 2) ** 2 + (xx - 7) ** 2 <= 4)
+        )
+        self.assertTrue(np.all(ground <= old_bed))
+        np.testing.assert_array_equal(ground[~selected], old_bed[~selected])
+        np.testing.assert_array_equal(depth[~selected], old_depth[~selected])
+        np.testing.assert_array_equal((ground + depth)[channel], old_levels[channel])
+        np.testing.assert_array_equal(levels, old_levels)
+        np.testing.assert_array_equal(channel, old_mask)
+        np.testing.assert_array_equal(depth > 0, old_mask)
+        self.assertEqual(ground[4, 2], old_bed[4, 2])
+        self.assertEqual(ports, old_ports)
+        self.assertEqual(report["operation_count"], 2)
+        self.assertEqual(report["maximum_additional_cut_m"], 7.5)
+        self.assertEqual(report["carved_cells"], int((ground < old_bed).sum()))
+
+    def test_uniform_receiving_sump_makes_a_shallow_root_a_legal_unchanged_target(self):
+        channel = np.ones((5, 5), bool)
+        levels = np.full(channel.shape, 10.0)
+        levels[0, 0] = 2
+        ground = levels - 0.5
+        depth = np.full(channel.shape, 0.5)
+        ports = [{"component": 1, "row": 0, "col": 0, "role": "map_edge"}]
+        receiving_sumps(ground, depth, levels, channel, ports)
+        self.assertEqual(ground[0, 0], 0)
+        self.assertEqual(depth[0, 0], 2)
+        sources = [self.emitter(4, 4)]
+        receipt = component_outlet_intakes(channel, depth, levels, ports, sources)[0]
+        self.assertEqual(receipt["anchor_rc"], [0, 0])
+        self.assertEqual(receipt["anchor_depth_at_receiving_stage_m"], 2)
+        self.assertEqual(sources[-1]["target"], 2)
+
     @staticmethod
     def emitter(row, col, setting=0.01):
         return {
@@ -273,6 +327,10 @@ class PlayableWaterTests(unittest.TestCase):
         )
         self.assertEqual(report["joint_profile"]["packed_adverse_downstream_edges"], 0)
         self.assertEqual(report["away_land_changed_cells"], 0)
+        self.assertEqual(
+            report["receiving_sumps"]["operation_count"],
+            report["joint_profile"]["model_components"],
+        )
         self.assertEqual(
             len(report["functional_water_components"]),
             report["joint_profile"]["model_components"],
