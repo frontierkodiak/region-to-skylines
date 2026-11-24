@@ -34,3 +34,26 @@ geometry. Build one simple new construction from those measurements: no bank
 raising or automatic engineered pool for every small feature. Test Asheville
 and Pittsburgh first. Only test the other six fixed squares if both pass the
 calibrated checks. No intermediate review child or new readiness system.
+
+## Chosen checks, before the new construction enters the game
+
+All five reference hours completed. All three stocks have zero measured
+flooding and complete saved-footprint retention. Their largest 95th-percentile
+wet-surface movement is 1.4375 m. The shipping exports' worst original natural
+point retention is 24.38% in Asheville and 56.03% in Pittsburgh.
+
+Keep the 0.05 km² flood limit. Retain the >0.1 m / <=64 m water predicate,
+but require 95% over **all original natural-point occurrences**, rather than
+failing a whole square for one sector. Also require 95% retention of each
+authored component >=54 native nodes, the construction's minimum body size;
+this is not a learned safe class. Report every tiny fragment and old sector.
+
+For visible stability, allow up to 3 m maximum 95th-percentile absolute
+wet-surface movement from t0: twice the largest stock result, rounded up.
+Dry/missing samples are not water surfaces. These are first-hour gameplay
+tolerances, not statistical equivalence, a flow budget or long-term promises.
+
+Exclude `new_game_panel` and `startup_views` from the water verdict: all three
+stocks hit their missing-review/authored-camera expectations. Keep raw checks
+and actual pictures. Original reports, definitions and old scores are unchanged.
+Exact tolerances and reference rows are in `capability-evidence/pl1191-stock-water/`.

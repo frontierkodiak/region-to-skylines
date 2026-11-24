@@ -1,0 +1,90 @@
+{
+  "scope": "Five fixed references, before any new-constructor native outcome. Stock saved-surface and export geographic denominators differ; this is not an independent safe-class validation.",
+  "rows": [
+    {
+      "square": "gray-waters",
+      "kind": "stock",
+      "game_minutes": 60.147780914728834,
+      "observation_complete": true,
+      "flood_km2": 0.0,
+      "minimum_point_occurrence_wet_fraction": 0.9999430426610468,
+      "natural_contract_states": {
+        "pass": 746,
+        "fail": 1
+      },
+      "calibrated_water_verdict": "pass",
+      "calibrated_failures": [],
+      "minimum_authored_footprint_retention": 1.0,
+      "maximum_surface_movement_p95_m": 0.859375
+    },
+    {
+      "square": "weaving-waters",
+      "kind": "stock",
+      "game_minutes": 60.03000313080847,
+      "observation_complete": true,
+      "flood_km2": 0.0,
+      "minimum_point_occurrence_wet_fraction": 1.0,
+      "natural_contract_states": {
+        "pass": 142
+      },
+      "calibrated_water_verdict": "pass",
+      "calibrated_failures": [],
+      "minimum_authored_footprint_retention": 1.0,
+      "maximum_surface_movement_p95_m": 0.84375
+    },
+    {
+      "square": "mountain-meadows",
+      "kind": "stock",
+      "game_minutes": 60.083336466923356,
+      "observation_complete": true,
+      "flood_km2": 0.0,
+      "minimum_point_occurrence_wet_fraction": 1.0,
+      "natural_contract_states": {
+        "pass": 115
+      },
+      "calibrated_water_verdict": "pass",
+      "calibrated_failures": [],
+      "minimum_authored_footprint_retention": 1.0,
+      "maximum_surface_movement_p95_m": 1.4375
+    },
+    {
+      "square": "shipping-asheville",
+      "kind": "shipping",
+      "game_minutes": 60.083336466923356,
+      "observation_complete": true,
+      "flood_km2": 0.0,
+      "minimum_point_occurrence_wet_fraction": 0.24382362139059732,
+      "natural_contract_states": {
+        "fail": 1645,
+        "pass": 424
+      },
+      "calibrated_water_verdict": "fail",
+      "calibrated_failures": [
+        "original mapped-water point retention",
+        "authored body retention"
+      ],
+      "minimum_authored_footprint_retention": 0.3900518495588918,
+      "maximum_surface_movement_p95_m": 2.417187499999997
+    },
+    {
+      "square": "shipping-pittsburgh",
+      "kind": "shipping",
+      "game_minutes": 60.084447578092416,
+      "observation_complete": true,
+      "flood_km2": 0.0,
+      "minimum_point_occurrence_wet_fraction": 0.5603081827842721,
+      "natural_contract_states": {
+        "pass": 354,
+        "fail": 860
+      },
+      "calibrated_water_verdict": "fail",
+      "calibrated_failures": [
+        "original mapped-water point retention",
+        "authored body retention",
+        "surface movement"
+      ],
+      "minimum_authored_footprint_retention": 0.8267540655073795,
+      "maximum_surface_movement_p95_m": 5.186718749999997
+    }
+  ]
+}
