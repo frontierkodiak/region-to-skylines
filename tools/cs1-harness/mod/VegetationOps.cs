@@ -108,13 +108,18 @@ namespace Cs1Harness
                     {
                         manager.m_trees.m_buffer[i].Info = info;
                         manager.UpdateTree(i);
+                        manager.UpdateTreeRenderer(i, true);
                         count++;
                     }
+                // Render groups normally flush on a simulation tick; this fixture is paused.
+                Singleton<RenderManager>.instance.SimulationStep(0);
                 done = true;
             });
             yield return Jobs.Until(() => done, 60, "retarget trees");
             job.Result["instances"] = count;
             job.Result["name"] = info.name;
+            job.Result["render_groups_refreshed_while_paused"] = true;
+            job.Result["pending_render_group_updates"] = Singleton<RenderManager>.instance.m_groupsUpdated1;
         }
 
         static Dictionary<string, object> Pair(Dictionary<string, object> q)
@@ -148,10 +153,16 @@ namespace Cs1Harness
                     pos.y = Singleton<TerrainManager>.instance.SampleRawHeightSmooth(pos);
                     uint id;
                     bool ok = manager.CreateTree(out id, ref random, info, pos, true);
-                    if (ok) { manager.m_trees.m_buffer[id].GrowState = 15; manager.UpdateTree(id); }
+                    if (ok)
+                    {
+                        manager.m_trees.m_buffer[id].GrowState = 15;
+                        manager.UpdateTree(id);
+                        manager.UpdateTreeRenderer(id, true);
+                    }
                     created.Add(Host.Obj("name", info.name, "created", ok, "id", id,
                         "position", new object[] { pos.x, pos.y, pos.z }));
                 }
+                Singleton<RenderManager>.instance.SimulationStep(0);
                 done = true;
             });
             yield return Jobs.Until(() => done, 60, "place specimen pair");
