@@ -6,6 +6,75 @@ import json
 from pathlib import Path
 import sys
 
+import numpy as np
+
+
+def sampled_surfaces(folder, inventory):
+    """Keep dry/missing samples separate; dry ground is not a water surface."""
+    wanted = {
+        name
+        for entry in inventory["entries"]
+        for contract in entry.get("contracts", [])
+        if contract["kind"] == "natural"
+        for name in contract["probe_names"]
+    }
+    initial, traces = None, []
+    with (folder / "timeline.jsonl").open() as stream:
+        for line in stream:
+            sample = json.loads(line)
+            if sample["kind"] != "sample":
+                continue
+            heads, dry, missing = {}, 0, 0
+            seen = set()
+            for point in sample["water"]["samples"]:
+                name = point.get("name")
+                if name not in wanted:
+                    continue
+                if name in seen:
+                    raise ValueError("Ambiguous duplicate natural-point name")
+                seen.add(name)
+                surface = point.get("surface")
+                depth = point.get("depth")
+                if (
+                    point.get("wet") is True
+                    and isinstance(surface, (float, int))
+                    and np.isfinite(surface)
+                    and isinstance(depth, (float, int))
+                    and np.isfinite(depth)
+                    and depth > 0
+                ):
+                    heads[name] = surface
+                elif point.get("wet") is False or (
+                    isinstance(depth, (float, int))
+                    and np.isfinite(depth)
+                    and depth <= 0
+                ):
+                    dry += 1
+                else:
+                    missing += 1
+            missing += len(wanted - seen)
+            if initial is None:
+                initial = heads
+            changes = [
+                head - initial[name] for name, head in heads.items() if name in initial
+            ]
+            traces.append(
+                {
+                    "label": sample["label"],
+                    "wet_heads": len(heads),
+                    "dry": dry,
+                    "missing": missing,
+                    "paired_initial_wet_heads": len(changes),
+                    "delta_p10_p50_p90_m": np.percentile(changes, [10, 50, 90]).tolist()
+                    if changes
+                    else None,
+                    "absolute_delta_p95_m": float(np.percentile(np.abs(changes), 95))
+                    if changes
+                    else None,
+                }
+            )
+    return traces
+
 
 def summarize(slug, kind, folder, outcome):
     report = json.loads((folder / "report.json").read_text())
@@ -76,7 +145,9 @@ def main(root, prior, observer, output):
                 row for line in stream if (row := json.loads(line))["kind"] == "sample"
             ]
         outcome = feature_outcome(inventory, report, samples)
-        rows.append(summarize(case["slug"], case["kind"], folder, outcome))
+        row = summarize(case["slug"], case["kind"], folder, outcome)
+        row["sampled_surface_traces"] = sampled_surfaces(folder, inventory)
+        rows.append(row)
     for slug in [
         "asheville",
         "innsbruck",
@@ -89,7 +160,14 @@ def main(root, prior, observer, output):
     ]:
         folder = prior / "after-native-v7" / slug
         outcome = json.loads((folder / "maintained-feature-outcome.json").read_text())
-        rows.append(summarize(slug, "rejected-PR99", folder, outcome))
+        inventory = json.loads(
+            (
+                prior / "after-native-v7/maps" / slug / "maintained-inventory.json"
+            ).read_text()
+        )
+        row = summarize(slug, "rejected-PR99", folder, outcome)
+        row["sampled_surface_traces"] = sampled_surfaces(folder, inventory)
+        rows.append(row)
     result = {
         "scope": "Reference comparison, no threshold choice or historical relabeling",
         "complete_reference_cases": sum(
