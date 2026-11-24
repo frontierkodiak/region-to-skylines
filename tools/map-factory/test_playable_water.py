@@ -1,6 +1,7 @@
 import unittest
 
 import numpy as np
+from scipy import ndimage
 
 from playable_water import (
     capacity,
@@ -14,6 +15,32 @@ from playable_water import (
 
 
 class PlayableWaterTests(unittest.TestCase):
+    def test_packed_banks_clear_all_adjacent_water_after_footprint_expansion(self):
+        rows, _ = np.indices((1081, 1081))
+        ground = 100 + 30 * np.sin(rows / 80)
+        geometry = {
+            "sq": {"lat": 0, "lon": 0, "scale": 1, "rotation": 0},
+            "rivers": [{"name": "test river", "pts": [[0, -0.05], [0, 0.05]]}],
+            "streams": [],
+            "lakes": [],
+            "riverAreas": [],
+            "oceans": [],
+        }
+        depth, report = hydrology(ground, ground.copy(), geometry)
+        t = np.floor(ground * 64 + 0.5).astype(np.int32)
+        w = np.floor(depth * 64 + 0.5).astype(np.int32)
+        wet = w > 0
+        rim = ndimage.maximum_filter(wet, size=3) & ~wet
+        head = np.where(wet, t + w, -1000000)
+        self.assertTrue(wet.any())
+        self.assertTrue(rim.any())
+        self.assertGreater(len(report["sources"]), 1)
+        self.assertGreaterEqual(
+            int((t - ndimage.maximum_filter(head, size=3))[rim].min()), 128
+        )
+        self.assertEqual(report["joint_profile"]["packed_adverse_downstream_edges"], 0)
+        self.assertEqual(report["away_land_changed_cells"], 0)
+
     def test_chosen_source_gets_a_deep_broad_pool_without_filling_its_bed(self):
         ground = np.full((31, 31), 99.0)
         ground[15, 15] = 70
