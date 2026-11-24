@@ -57,7 +57,7 @@
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "277857a3b493397a58486d513f192ad4b5e2018ad169408a048a3ff8b6d7f74d"
+      "current_sha256": "d04ab2c57dcd86829299dfa1b5c64c0ab1f93a1ea1aa2ae7d03edeba2ecf9689"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
@@ -340,11 +340,11 @@
     "tools/map-factory/capability-evidence/pl1072-water/water-risk-model.json": "e3bcba51880755724812a665c1d3a5363abf8b888339e4fca417492a0559d5a0",
     "tools/map-factory/capability-evidence/pl1072-water/run_water_panel.py": "b9e49395924cba456faba0fe714519b9589695e969a2f92576d0497c38608ef7",
     "tools/map-factory/capability-evidence/pl1072-water/stage_water_panel.py": "f2450cddf2eba44440846e658acaff3b4b46ad0bde81ad7b9243921ebbc523e5",
-    "capabilities.json": "02985f577ca0b52bc8698156c5a69abc225623946f0a7feeafca794647096122",
+    "capabilities.json": "b0715bf6d4efcb6a5cb4da21f7559edcb5cca21aa9b25161a976934fd3082bd4",
     "capability-evidence.js": "5bb63ed6667533d92ac88590db1929f8705d7a96709057d35af12e83baf3d394",
     "capability-evidence-worker.js": "5a819e45f0c610c6dca99bb34be94cf07c7773c237108469ab956649125e0276",
     "capability-inputs.js": "f79fc038a3a27347e5c732f5aa0c585be27a5352292197927b48b1504bf0fa1e",
-    "capability-ledger.mjs": "368d9bee4b7a862b796c96154f861e41f7f39a30aaa17ba365916fad60a252d0",
+    "capability-ledger.mjs": "866003b4a4482897ea23198521f45eab187bf861305097514af316e846263720",
     "capability-model.js": "f0e925f72c2954df97814e0e8e34bbc659f6699c28315b6f9cca1742efe1940a",
     "capability-ui.js": "1a142825988923796a5e22b1305251923bdc57265b428ccc75ce5fb2353c10e2",
     "tools/map-factory/capabilities.py": "9a155584a86d4215adf9b20ef31f0cb7a00683e918e162c248b41a0b172891bb",

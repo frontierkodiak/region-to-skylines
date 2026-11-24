@@ -1,0 +1,15 @@
+{
+  "square": "Pittsburgh",
+  "slug": "pittsburgh",
+  "water_verdict": "fail",
+  "reason": "1.0125 km\u00b2 flooding beyond the reference-water margin; 85.1% minimum original mapped-water point retention; 60 authored water bodies lost more than the calibrated fraction; 12.08 m maximum 95th-percentile wet-surface movement",
+  "source_sha": "014aedc2558a6039f713c919fb865f55355e0068",
+  "artifact_sha256": "b8ca9f71654821d7c8b2d9c1f14f3422a94e3faae8bd6d05abb45d75769ef953",
+  "observed_at": "2026-11-24T22:10:14.150169Z",
+  "game_minutes": 60.124447580178575,
+  "flood_km2": 1.0125,
+  "minimum_original_point_retention": 0.8513549415515409,
+  "authored_bodies_below_retention": 60,
+  "maximum_surface_movement_p95_m": 12.078125,
+  "scope": "Unpopulated first hour on this exact package. No safe class, pumping or long-term promise."
+}

@@ -1,7 +1,7 @@
 // Vercel build: the static page, with the command it hands agents pinned to this commit, so the
 // tool runs exactly the code the page runs (and needs no git).
 import { execFileSync } from "node:child_process";
-import { mkdirSync, rmSync, readFileSync, writeFileSync, renameSync, copyFileSync } from "node:fs";
+import { mkdirSync, rmSync, readFileSync, writeFileSync, renameSync, copyFileSync, readdirSync } from "node:fs";
 import { dirname } from "node:path";
 import { FACTORY_FILES } from "./mapgen.js";
 import { ledgerPage, validateLedger } from "./capability-ledger.mjs";
@@ -85,6 +85,9 @@ for (const study of Object.values(ledger.capabilities.find((c) => c.id === "wate
   }
 }
 writeFileSync("dist/capabilities.html", ledgerPage(ledger, sha));
+const waterTrial = "tools/map-factory/capability-evidence/pl1191-stock-water";
+mkdirSync(`dist/${waterTrial}`, { recursive: true });
+for (const name of readdirSync(waterTrial)) copyFileSync(`${waterTrial}/${name}`, `dist/${waterTrial}/${name}`);
 // The terrain-shape survey the stock reference cites, byte for byte.
 mkdirSync("dist/tools/map-factory/survey", { recursive: true });
 copyFileSync("tools/map-factory/survey/terrain-interest.json", "dist/tools/map-factory/survey/terrain-interest.json");

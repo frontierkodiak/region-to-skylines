@@ -6,6 +6,7 @@ import { isDeepStrictEqual } from "node:util";
 import { WATER_FILES, WATER_STUDY, waterStudy, validateWaterStudy } from "../water-calibration.mjs";
 import { validateLedger, ledgerPage, WATER_PROJECTION_SHA } from "../capability-ledger.mjs";
 import { checkCapabilities } from "../capability-model.js";
+import { beforeStockWater } from "./stock-water-ledger.mjs";
 
 const read = (file) => readFileSync(new URL("../" + file, import.meta.url));
 const ledger = JSON.parse(read("capabilities.json"));
@@ -25,8 +26,26 @@ test("saved study deterministically projects original bytes, distinct from histo
   assert.equal(study.provenance.pre_score_source_commit, "cc9d541604ef05ddf49d08f73d7819f5cf931075");
   assert.equal(study.provenance.native_runtime_commit, "6949182ccf3f8bf066fd24372e1bcfc31c8512f1");
   assert.ok(!ledger.evidence_studies[WATER_STUDY]);
-  assert.deepEqual(cap.game_agreement, []);
+  assert.deepEqual(JSON.parse(beforeStockWater(read("capabilities.json").toString())).capabilities.find(c => c.id === "water_risk").game_agreement, []);
   assert.equal(study.audit.score_sha256, "b42412a2e6575a462bc831505a5ed199d3592849964db4b30b5428787fae424b");
+});
+
+test("the new failed packages do not invent six observations or a cleared-water prediction", () => {
+  const trial = JSON.parse(read("tools/map-factory/capability-evidence/pl1191-stock-water/verdicts.json"));
+  assert.equal(trial.rows.length, 8);
+  const observed = cap.game_agreement.filter(row => row.study === "pl1191-stock-water");
+  assert.deepEqual(observed.map(row => row.square), ["asheville", "pittsburgh"]);
+  for (const row of observed) {
+    const raw = read(row.evidence[0]), verdict = JSON.parse(raw);
+    assert.equal(row.verdict_json_sha256, sha(raw));
+    assert.equal(row.artifact_sha256, verdict.artifact_sha256);
+    assert.notEqual(row.artifact_sha256, row.verdict_json_sha256);
+    assert.equal(row.observed, false);
+    assert.equal(row.predicted, null);
+  }
+  const unrun = trial.rows.filter(row => row.observed_at === null);
+  assert.equal(unrun.length, 6);
+  assert.ok(unrun.every(row => row.water_verdict === "unknown"));
 });
 
 test("all immutable byte mutations, even coherent score/model/projection replacements, are rejected", () => {

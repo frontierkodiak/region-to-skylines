@@ -1,0 +1,105 @@
+{
+  "scope": "All original natural probe names, at the final capture. Initial 8-adjacent depth>=7q components and exact source-node membership are raster diagnostics, not hydraulic communication or exclusive causal attribution. No failed points were selected for a repair or new gate.",
+  "rows": [
+    {
+      "square": "asheville",
+      "initial_raster_components": 102,
+      "source_records": 274,
+      "port_roles": {
+        "edge/sea receiving boundary": 30,
+        "no inboard river source location; source not added": 7,
+        "unresolved receiving outlet; no river source added": 65
+      },
+      "endpoint_point_counts": [
+        {
+          "initial_component_role": "no_source_in_same_initial_component",
+          "state": "nearby_dry",
+          "points": 1527
+        },
+        {
+          "initial_component_role": "no_source_in_same_initial_component",
+          "state": "nearby_wet",
+          "points": 807
+        },
+        {
+          "initial_component_role": "source_in_same_initial_component",
+          "state": "nearby_dry",
+          "points": 107
+        },
+        {
+          "initial_component_role": "source_in_same_initial_component",
+          "state": "nearby_wet",
+          "points": 7152
+        }
+      ],
+      "original_fields": {
+        "rivers": {
+          "points": 902,
+          "nearby_wet_end": 902
+        },
+        "streams": {
+          "points": 8220,
+          "nearby_wet_end": 6658
+        },
+        "lakes": {
+          "points": 214,
+          "nearby_wet_end": 142
+        },
+        "riverAreas": {
+          "points": 257,
+          "nearby_wet_end": 257
+        }
+      }
+    },
+    {
+      "square": "pittsburgh",
+      "initial_raster_components": 121,
+      "source_records": 122,
+      "port_roles": {
+        "edge/sea receiving boundary": 13,
+        "no inboard river source location; source not added": 5,
+        "unresolved receiving outlet; no river source added": 100
+      },
+      "endpoint_point_counts": [
+        {
+          "initial_component_role": "no_source_in_same_initial_component",
+          "state": "nearby_dry",
+          "points": 1021
+        },
+        {
+          "initial_component_role": "no_source_in_same_initial_component",
+          "state": "nearby_wet",
+          "points": 680
+        },
+        {
+          "initial_component_role": "source_in_same_initial_component",
+          "state": "nearby_dry",
+          "points": 98
+        },
+        {
+          "initial_component_role": "source_in_same_initial_component",
+          "state": "nearby_wet",
+          "points": 5729
+        }
+      ],
+      "original_fields": {
+        "rivers": {
+          "points": 1502,
+          "nearby_wet_end": 1502
+        },
+        "streams": {
+          "points": 3448,
+          "nearby_wet_end": 2433
+        },
+        "lakes": {
+          "points": 1067,
+          "nearby_wet_end": 964
+        },
+        "riverAreas": {
+          "points": 1511,
+          "nearby_wet_end": 1510
+        }
+      }
+    }
+  ]
+}
