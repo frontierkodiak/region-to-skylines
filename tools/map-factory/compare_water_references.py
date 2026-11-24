@@ -7,6 +7,73 @@ from pathlib import Path
 import sys
 
 import numpy as np
+from scipy import ndimage
+
+
+def footprint_retention(initial_q, snapshots):
+    """Every planned wet node, not just an eroded interior or an OSM sample.
+
+    This measures persistence of authored water. It is not geographic feature
+    coverage. The unchanged API/source-contract result is reported alongside it.
+    """
+    initial = np.asarray(initial_q) >= 7
+    labels, count = ndimage.label(initial, np.ones((3, 3)))
+    sizes = np.bincount(labels.ravel(), minlength=count + 1)
+    minimum = np.ones(count + 1)
+    worst = [None] * (count + 1)
+    traces = []
+    for label, depth in snapshots:
+        current = np.asarray(depth) >= 7
+        if current.shape != initial.shape:
+            raise ValueError("Water grids have different frames/shapes")
+        nearby = (
+            ndimage.distance_transform_edt(~current) <= 4
+            if current.any()
+            else np.zeros_like(current)
+        )
+        retained = np.bincount(labels[initial & nearby], minlength=count + 1)
+        fractions = np.divide(retained, sizes, out=np.ones(count + 1), where=sizes > 0)
+        lower = fractions < minimum
+        minimum[lower] = fractions[lower]
+        for identity in np.flatnonzero(lower):
+            worst[identity] = label
+        total = int(initial.sum())
+        traces.append(
+            {
+                "label": label,
+                "planned_wet_nodes": total,
+                "retained_nearby_nodes": int(retained[1:].sum()),
+                "fraction": float(retained[1:].sum() / total) if total else None,
+            }
+        )
+    return {
+        "scope": "Complete serialized authored-water footprint; >=7q, <=64m native-grid circle. Nodes/areas are raster proxies. Reads are separate from API samples, not asserted atomic.",
+        "traces": traces,
+        "components": [
+            {
+                "id": i,
+                "initial_nodes": int(sizes[i]),
+                "node_area_km2": float(sizes[i] * 256 / 1e6),
+                "minimum_retained_fraction": float(minimum[i]),
+                "worst_label": worst[i],
+            }
+            for i in range(1, count + 1)
+        ],
+    }
+
+
+def saved_footprint(folder, prepared):
+    raw = np.fromfile(prepared / "water.u16", dtype="<u2")
+    if raw.size != 1081 * 1081:
+        raise ValueError("Missing complete prepared water grid")
+    paths = sorted((folder / "grids").glob("t[0-9][0-9][0-9]-water.u16"))
+    if not paths:
+        raise ValueError("Missing native water snapshots")
+    snapshots = (
+        (p.name.split("-")[0], np.fromfile(p, dtype="<u2").reshape(1081, 1081))
+        for p in paths
+    )
+    return footprint_retention(raw.reshape(1081, 1081), snapshots)
 
 
 def sampled_surfaces(folder, inventory):
@@ -147,6 +214,9 @@ def main(root, prior, observer, output):
         outcome = feature_outcome(inventory, report, samples)
         row = summarize(case["slug"], case["kind"], folder, outcome)
         row["sampled_surface_traces"] = sampled_surfaces(folder, inventory)
+        row["authored_water_footprint"] = saved_footprint(
+            folder, root / "maps" / case["slug"]
+        )
         rows.append(row)
     for slug in [
         "asheville",
@@ -167,6 +237,9 @@ def main(root, prior, observer, output):
         )
         row = summarize(slug, "rejected-PR99", folder, outcome)
         row["sampled_surface_traces"] = sampled_surfaces(folder, inventory)
+        row["authored_water_footprint"] = saved_footprint(
+            folder, prior / "after-native-v7/maps" / slug
+        )
         rows.append(row)
     result = {
         "scope": "Reference comparison, no threshold choice or historical relabeling",

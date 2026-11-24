@@ -3,10 +3,30 @@ from pathlib import Path
 import tempfile
 import unittest
 
-from compare_water_references import sampled_surfaces
+import numpy as np
+
+from compare_water_references import sampled_surfaces, footprint_retention
 
 
 class ReferenceComparisonTest(unittest.TestCase):
+    def test_complete_footprint_retains_thin_limbs_and_64m_circle(self):
+        initial = np.zeros((17, 17), dtype=np.uint16)
+        initial[8, 4] = 7
+        initial[8, 13] = 7
+        current = np.zeros_like(initial)
+        current[8, 8] = 7
+        result = footprint_retention(initial, [("t005", current)])
+        self.assertEqual(result["traces"][0]["fraction"], 0.5)
+        self.assertEqual(len(result["components"]), 2)
+        self.assertEqual(result["components"][0]["minimum_retained_fraction"], 1)
+        self.assertEqual(result["components"][1]["minimum_retained_fraction"], 0)
+
+    def test_no_planned_water_is_unknown_not_a_zero_loss_pass(self):
+        initial = np.zeros((17, 17), dtype=np.uint16)
+        result = footprint_retention(initial, [("t005", initial)])
+        self.assertIsNone(result["traces"][0]["fraction"])
+        self.assertEqual(result["components"], [])
+
     def test_no_surface_from_dry_ground_or_zero_depth_api_flag(self):
         inventory = {
             "entries": [
