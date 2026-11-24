@@ -30,6 +30,7 @@ try{
   try{
    const page=await browser.newPage({viewport:{width:1280,height:950},ignoreHTTPSErrors:true});
    page.on('pageerror',e=>console.error(name,e.message));
+   const recapture=async action=>{const pending=page.waitForFunction(()=>document.querySelector('[data-capability=ship]')?.dataset.level==='loading',{},{timeout:20000});await action();await pending;await page.waitForFunction(()=>document.querySelector('[data-capability=ship]')?.dataset.level==='yes',{},{timeout:180000});};
    for(const [slug,lon,lat,ship]of places){
     await page.goto('about:blank');
     await page.goto(origin+`/#c=${lon},${lat}&r=0&s=1&h=auto&rivers=1&n=${slug}`,{waitUntil:'domcontentloaded'});
@@ -55,12 +56,14 @@ try{
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);assert.equal(overflow,false);
    await page.locator('[data-capability=resources]').focus();await page.keyboard.press('Enter');
    await page.screenshot({path:resolve(out,`${name}-boston-detail-390.png`),fullPage:true});
-   await page.setViewportSize({width:320,height:740});
+   await recapture(()=>page.setViewportSize({width:320,height:740}));
+   await page.locator('[data-capability=resources]').click();
+   assert.match(await page.locator('.capability-detail').innerText(),/Fertile: Yes/);
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
    await page.screenshot({path:resolve(out,`${name}-boston-detail-320.png`),fullPage:true});
-   await page.setViewportSize({width:1280,height:950});
+   await recapture(()=>page.setViewportSize({width:1280,height:950}));
    await page.locator('#map').scrollIntoViewIfNeeded();const box=await page.locator('#map').boundingBox();
-   await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await page.mouse.down();await page.mouse.move(box.x+box.width/2+35,box.y+box.height/2+15,{steps:6});await page.mouse.up();
+   await page.mouse.move(box.x+box.width/2,box.y+box.height/2);await recapture(async()=>{await page.mouse.down();await page.mouse.move(box.x+box.width/2+35,box.y+box.height/2+15,{steps:6});await page.mouse.up();});
    await page.waitForFunction(()=>document.querySelector('[data-capability=ship]')?.dataset.level==='yes',{},{timeout:180000});
    results.push({browser:name,pan:'Boston ship yes'});
   }finally{await browser.close();}

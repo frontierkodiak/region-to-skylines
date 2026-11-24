@@ -94,7 +94,7 @@
     "tools/map-factory/transport_paths.py": "4ec7338d05ea94e1568bd007af9437486f2f6ba02400584c1915526617b49340",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/transport_paths.py": "88ace8c11da059fbfbf0946251ee03396d4793acd14651f68fa1a10673b4c52c",
     "test/place-rules.test.mjs": "49939dde555eb4b23c274db9964ffac5417c7f733f1122acd9fcfc8432c3f111",
-    "test/connection-browser.mjs": "e9b6a4c2dbac535e85c5a4f17ab9b733304b4ac3d57e7177abe7674ea1b5ad18",
+    "test/connection-browser.mjs": "965ea941283dd46209ba12f525b063fbe1b3713b8d6a90b36cffb466d0ae83eb",
     "connection-rules.js": "8f50470ac28e355f49a4ee5bbf966194b2abb4d11ff4ea8bb63a8689092eafa0",
     "tools/map-factory/connection_rules.py": "80a8e9175789dbb91c15903e64321b549e234adce3bcc361c2aead74e561b818",
     "tools/map-factory/survey/connection-fit.json": "bd4eee55e386e6780a2fadb9b29a64d7f82012d8bae11b3affd68136f556f7ca",
