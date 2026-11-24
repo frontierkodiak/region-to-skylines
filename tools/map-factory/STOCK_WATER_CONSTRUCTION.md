@@ -9,6 +9,8 @@ authoring only cuts terrain. Existing transport grading remains separate.
 
 - Mapped broad rivers use a 192 m section and up to 40 m depth; line-only
   side channels use 64 m and 16 m. River-area interiors are retained.
+  Surface caps sample the untouched exterior channel rim, not unrelated
+  low ground beyond it or the bed of another mapped water body.
 - Large mapped lakes are deepened in place. Bodies below 54 native nodes
   remain ground/marsh, without an automatic pool. Perennial mapped streams
   use the narrow channel, not a series of pools. Explicit intermittent

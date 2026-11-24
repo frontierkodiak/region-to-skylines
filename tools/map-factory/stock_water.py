@@ -114,9 +114,17 @@ def hydrology(ground, banks, geometry, design):
         )
         # Sample banks outside the physical channel, not a running downstream
         # minimum or an artificial levee. Smooth only the source-line signal.
-        cap = ndimage.minimum_filter(
-            np.where(~river, banks, np.inf), size=int(np.ceil(radius / SPACING)) * 2 + 5
+        rim = ndimage.binary_dilation(river, np.ones((3, 3))) & ~(
+            river | river_area | lakes | ocean
         )
+        bank_values = np.where(rim, banks, np.inf)
+        broad_cap = ndimage.minimum_filter(
+            bank_values, size=int(np.ceil(radius / SPACING)) * 2 + 5
+        )
+        minor_cap = ndimage.minimum_filter(
+            bank_values, size=int(np.ceil(minor_radius / SPACING)) * 2 + 5
+        )
+        cap = np.where(broad_channel | river_area, broad_cap, minor_cap)
         seed = np.minimum(
             banks - design.bank_clearance_m, cap - design.bank_clearance_m
         )
