@@ -1,0 +1,30 @@
+[
+  {
+    "source": "Boston Parks and Recreation tree inventory, retrieved 2026-11-23",
+    "file": "boston.json",
+    "url": "https://data.boston.gov/dataset/bprd-trees",
+    "license": "ODC-PDDL",
+    "bounds": [
+      42.232876,
+      -71.186075511,
+      42.393433,
+      -70.99657
+    ],
+    "scope": "Public street and park inventory; not all private trees",
+    "complete": false
+  },
+  {
+    "source": "Asheville public tree inventory",
+    "api": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0",
+    "url": "https://gis.ashevillenc.gov/server/rest/services/Environmental/TreeMapView/MapServer/0",
+    "bounds": [
+      35.4,
+      -82.75,
+      35.75,
+      -82.25
+    ],
+    "scope": "Active public inventory records; no claim to private-tree coverage",
+    "license": "No explicit license found; fetched live, not redistributed in the bundle",
+    "complete": false
+  }
+]

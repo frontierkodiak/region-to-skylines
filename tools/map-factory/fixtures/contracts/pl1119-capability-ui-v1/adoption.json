@@ -53,26 +53,34 @@
   "archived_gates": {
     "app.js": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/app.js",
-      "current_sha256": "0e8f08a3a157cc090d511012b1d4c198d8b263a646619fc83587ac9bcb3736f0"
+      "current_sha256": "47fb646d58363c0f4e6e7386589954370e6f230bd28bcb664eb11aaebf3e8656"
     },
     "build.mjs": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/build.mjs",
-      "current_sha256": "61e6043d380b2041b68bb4080302260519deb0d2872f62d53ad74bc431dda0c6"
+      "current_sha256": "277857a3b493397a58486d513f192ad4b5e2018ad169408a048a3ff8b6d7f74d"
     },
     "index.html": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/index.html",
-      "current_sha256": "53116abaf8e93aa910d27e48bb2028d545a5743bc65009d3eccedcbe2c1b5809"
+      "current_sha256": "abbe27e6f6b7d1c7eddbdbc76fd81ee2440bc17084c008413b4c2056c8756324"
     },
     "package.json": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/package.json",
-      "current_sha256": "9ec52bdfaef4c710740f6964b55c401e98b622a0d680bbab5a41720857187ab7"
+      "current_sha256": "3000281e3133bc12829079c5b65dd2c130fa156bfe06b310f152e27f82c15270"
     },
     "style.css": {
       "file": "contracts/pl1119-capability-ui-v1/baseline/style.css",
-      "current_sha256": "ea67ced5b7d9e5e42f4b3d295ddceb83045db235a2193e8fc9f63b8f33f969da"
+      "current_sha256": "b67e49f611dcf4a8ec80f1ad72e548f19a2ad7621f9ef755ffd9920e44261bc2"
     }
   },
   "added_files_sha256": {
+    "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
+    "vegetation-traits.js": "7877cca94031ad748201e73afa02a11fe050de3974226238fec5c8f249001f72",
+    "vegetation-inputs.js": "f3659619db4df92571f127912d4ebbeb6cbbb52b8cd86657e6773fa4d989f6e2",
+    "vegetation-worker.js": "9634272542d430de38cf7724e88a8f22fbf1d6b95c280d6945bf3c90f4b80a4f",
+    "vegetation-ui.js": "79396f67a14ca2357825a5762e805768eb5b7950125083584d00730e115acc8e",
+    "vegetation-data/tree-taxa.json": "f3eba9acfb435d0742e86f573db08718ab4dee4a0a09c074f6617b4566b7545f",
+    "vegetation-data/inventories.json": "d85793dcd47336ccd1ae906e4b9415c3f558abea594a22a1214bcaf51180416d",
+    "vegetation-data/boston.json": "5373f844ccb3f09b74a7711421270a1be5f490fa577ea2c103b8ed309a24543e",
     "tools/map-factory/real_roads.py": "6ec1be70700610b5eed2381594f2a52033f268be355877038b2e825957f1d90a",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py": "917ce28f11877c8120041cecad357e0bf7d7e7e67ecb6b650a0c9c20e62bb344",
     ".gitattributes": "00064e01a5597d1c92e695c32a632796d841f805c1b9a278b50254b6f68eacb9",
@@ -85,16 +93,16 @@
     "tools/map-factory/check_authored_air.py": "f8cfae1908fbc9e2484dfb90f6fa7b7cadbe3f72de9ce1d8c9329a3bddee0458",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/generate.py": "f6dbe29ce4d4e96d483506576f9f517af4591dfdecbf341e0f52db2d2b6558ce",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/mapgen.js": "e3b99ce463519821b6a82012d8ff44a7493c4c0b76aef1ea126a58740ce80de3",
-    "place-rules.js": "4059d8d4ad5ba6722ca5cc3e2b0181d3ea318e81300369a7cf37921b31adf0a7",
-    "tools/map-factory/place_rules.py": "93a79f5250c835839037e412e7b210c52a1961dedec4ad594fcc1df35b07eccd",
+    "place-rules.js": "88eeed125759bfebd7697b0c73d7327665c506dea43aaa6866a638d2cdf808ef",
+    "tools/map-factory/place_rules.py": "61dd3ed5efa18f4e18c53b4b917b65188834d3325d2c137c0139e0acc1a0add7",
     "tools/map-factory/survey/fit_place_rules.py": "f9a0bbf306f5698a11d523d7d1fc47b25794f58ce72fdf8ac5e951754fe7ee9a",
     "tools/map-factory/survey/place-fit.json": "59ca814b023d74183e56018ef5c75188d34e680a3096c9add7e3e0a2917f0dd9",
     "tools/map-factory/test_plane_entries.py": "e2a27add2d092584c5df839e7821def4a3d3d44202787505ba7316b3a6456ea2",
-    "tools/map-factory/test_place_rules.py": "687fa476828ef434f443e8a5b17e7a28d1bd02613164799ccec201fa04243a25",
+    "tools/map-factory/test_place_rules.py": "93719b3deca1226b68765ad6b6974101426419f95c6b397c93c2f73ee0360853",
     "tools/map-factory/transport_paths.py": "4ec7338d05ea94e1568bd007af9437486f2f6ba02400584c1915526617b49340",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/transport_paths.py": "88ace8c11da059fbfbf0946251ee03396d4793acd14651f68fa1a10673b4c52c",
-    "test/place-rules.test.mjs": "49939dde555eb4b23c274db9964ffac5417c7f733f1122acd9fcfc8432c3f111",
-    "test/connection-browser.mjs": "965ea941283dd46209ba12f525b063fbe1b3713b8d6a90b36cffb466d0ae83eb",
+    "test/place-rules.test.mjs": "d2d53285d3028ed4196eaf39e0a65f56219f78826f09763e0910523d7bac8065",
+    "test/connection-browser.mjs": "bc99c36875212355c8643e2cc4d0a21257ad4f6fe9e287efd435b45091b3735d",
     "connection-rules.js": "8f50470ac28e355f49a4ee5bbf966194b2abb4d11ff4ea8bb63a8689092eafa0",
     "tools/map-factory/connection_rules.py": "80a8e9175789dbb91c15903e64321b549e234adce3bcc361c2aead74e561b818",
     "tools/map-factory/survey/connection-fit.json": "bd4eee55e386e6780a2fadb9b29a64d7f82012d8bae11b3affd68136f556f7ca",

@@ -4,11 +4,13 @@ import { CS1, SITE, DEFAULTS, PRESETS, corners, extentOf, squareToLonLat, sample
 import { captureInputs } from "./inputs.js";
 import { waterRiskDecision, calibrationText } from "./water-risk.js";
 import { mountCapabilities } from "./capability-ui.js";
+import { mountVegetation } from "./vegetation-ui.js";
 
 const $ = (id) => document.getElementById(id);
 const state = { lon: -82.555, lat: 35.58, rotation: 0, scale: 1, vscale: "auto", rivers: true, ...DEFAULTS };
 let result = null, job = null;
 const capabilityView = mountCapabilities($("capabilities"));
+const vegetationView = mountVegetation($("vegetation"));
 // What the map is called in the game's New Game list: a name typed into the name field, else
 // the preset's or searched place's name, else the name field.
 let typedTitle = null, searched = null;
@@ -109,7 +111,7 @@ map.on("move", () => {
   refreshSquare();
 });
 map.on("moveend", () => { writeHash(); schedule(); });
-map.on("movestart", () => { job?.abort(); capabilityView.reset(); });
+map.on("movestart", () => { job?.abort(); capabilityView.reset(); vegetationView.reset(); });
 
 // ---------------------------------------------------------------- controls
 
@@ -221,6 +223,7 @@ let timer;
 function schedule(delay = 450) {
   job?.abort();
   capabilityView.reset();
+  vegetationView.reset();
   resetWaterRisk();
   clearTimeout(timer);
   timer = setTimeout(build, delay);
@@ -232,6 +235,7 @@ async function build() {
   const ctl = (job = new AbortController());
   // the square as the link records it (5 decimals), so the page builds what the link and the CLI build
   const sq = { ...state, lon: +state.lon.toFixed(5), lat: +state.lat.toFixed(5) };
+  vegetationView.update(sq);
   renderPresets();
   setDownload("busy");
   try {

@@ -1,5 +1,5 @@
 // Default-plan potential, mirrored in tools/map-factory/place_rules.py.
-export const PLACE_RULES = { land_yes_fraction: 0.57, ore_target: 0.052, oil_target: 0.027, fertile_target: 0.034 };
+export const PLACE_RULES = { land_yes_fraction: 0.46, ore_target: 0.052, oil_target: 0.027, fertile_target: 0.034 };
 const rounded = x => Math.floor(x * 1e6 + 0.5) / 1e6;
 export function measurePlace(ground, depth, cover=null) {
   const n=1081;
@@ -29,7 +29,7 @@ export function placeDecisions(metrics,evidence,footprint,rules=PLACE_RULES) {
     details[kind]={level:!valid?'maybe':share===0?'no':share>=target||records?'yes':'maybe',reason:records?'recorded_resource_and_dry_land':'balanced_plan_space',eligible_fraction:share,target_fraction:target};
   }
   const noLand=valid&&metrics.dry_fraction===0;
-  const cover=evidence?.landcover?.status==='available'&&evidence.landcover.coverage_of_central_land>=0.5&&Number.isFinite(evidence.vegetation?.tree_suitability);
+  const cover=evidence?.landcover?.status==='available'&&Number.isFinite(evidence.landcover.coverage_of_central_land)&&evidence.landcover.coverage_of_central_land>=0.5&&Number.isFinite(evidence.vegetation?.tree_suitability);
   const support=noLand?0:cover?evidence.vegetation.tree_suitability:null;
   details.forest={level:noLand?'no':!cover?'maybe':support>0?'yes':'no',reason:noLand?'no_dry_land':cover?'existing_forest_resource_support':'forest_evidence_unavailable',suitability:support};
   const values=Object.values(details).map(d=>d.level);

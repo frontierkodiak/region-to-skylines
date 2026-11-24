@@ -10,8 +10,9 @@ await mkdir(out,{recursive:true});
 const server=createServer(async(req,res)=>{
  const u=new URL(req.url,'http://local');
  try {
-  if(u.pathname.startsWith('/worldcover/')){
-   const r=await fetch('https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/'+u.pathname.split('/').at(-1),{headers:req.headers.range?{Range:req.headers.range}:{}});
+  if(u.pathname.startsWith('/worldcover/')||u.pathname.startsWith('/canopy/')||u.pathname==='/forest-types.tif'){
+   const upstream=u.pathname.startsWith('/worldcover/')?'https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/'+u.pathname.split('/').at(-1):u.pathname.startsWith('/canopy/')?'https://dataforgood-fb-data.s3.us-east-1.amazonaws.com/forests/v2/global/dinov3_global_chm_v2_ml3/chm/'+u.pathname.split('/').at(-1):'https://zenodo.org/api/records/3939050/files/PROBAV_LC100_global_v3.0.1_2019-nrt_Forest-Type-layer_EPSG-4326.tif/content';
+   const r=await fetch(upstream,{headers:{...(req.headers.range?{Range:req.headers.range}:{}),'User-Agent':'Polli-Region-to-Skylines/vegetation (https://github.com/frontierkodiak/region-to-skylines)'},signal:AbortSignal.timeout(30000)});
    for(const k of ['content-type','content-length','content-range','accept-ranges'])if(r.headers.get(k))res.setHeader(k,r.headers.get(k));
    res.writeHead(r.status);return res.end(Buffer.from(await r.arrayBuffer()));
   }
@@ -37,7 +38,7 @@ try{
     await page.waitForFunction(()=>['yes','no','maybe'].includes(document.querySelector('[data-capability=ship]')?.dataset.level),{},{timeout:180000});
     const row=await page.locator('[data-capability]').evaluateAll(es=>Object.fromEntries(es.map(e=>[e.dataset.capability,e.dataset.level])));
     assert.equal(row.ship,ship,slug);if(slug==='asheville')assert.equal(row.road,'yes');
-    assert.equal(Object.keys(row).length,8);assert.equal(row.air,'yes');
+    assert.equal(await page.locator('#vegetation canvas').count(),1,'retain vegetation UI');assert.equal(Object.keys(row).length,8);assert.equal(row.air,'yes');
     for(const k of ['buildable','resources'])assert.ok(['yes','no','maybe'].includes(row[k]));
     assert.match(await page.locator('[data-capability=air]').getAttribute('title'),/writes two plane entries/);
     const footprint=await page.locator('.start-footprint').innerText();assert.match(footprint,/(Yes|Maybe|No).*384.*Hookup: Unknown/);

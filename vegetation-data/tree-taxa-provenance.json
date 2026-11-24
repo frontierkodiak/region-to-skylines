@@ -1,0 +1,46 @@
+{
+  "title": "TreeGOER 2024.07 taxonomy whitelist",
+  "source": "https://zenodo.org/api/records/13132613/files/TreeGOER_Taxonomy.txt/content",
+  "record": "https://zenodo.org/records/13132613",
+  "version": "2024.07",
+  "license": "cc-by-4.0",
+  "retrievedAt": "2026-11-23T23:33:18.567696+00:00",
+  "sourceSha256": "a05e2ff2ecca6471c11fc48a06f0c6e28aa812d4ac87f303a1d9af860dd353af",
+  "outputSha256": "f3eba9acfb435d0742e86f573db08718ab4dee4a0a09c074f6617b4566b7545f",
+  "sourceMd5": "md5:0342656bfcc2166b5cec7c115797f31f",
+  "sourceBytes": 5221363,
+  "outputBytes": 1076145,
+  "rows": 48518,
+  "speciesNames": 48518,
+  "resolvedNames": 48219,
+  "headers": [
+    "SpID",
+    "Species",
+    "Match.Type",
+    "Backbone",
+    "SID",
+    "scientificFinal",
+    "scientificNameAuthorship",
+    "taxonomicStatus",
+    "taxonRank",
+    "Switchboard"
+  ],
+  "taxonomicStatus": {
+    "ACCEPTED": 47423,
+    "DOUBTFUL": 74,
+    "Unplaced": 2,
+    "UNCHECKED": 464,
+    "": 64,
+    "Accepted": 488,
+    "(NA)": 3
+  },
+  "paperDoi": "10.1111/gcb.16914",
+  "zoteroKey": "BDJPBIW6",
+  "nameColumn": "Species",
+  "caveats": [
+    "The downloadable 2024.07 taxonomy file contains 48,518 rows/names, whereas the 2023 paper and environmental-range dataset describe 48,129 species. Report the artifact's actual count.",
+    "Original source species names, not a newly reconciled GBIF accepted-name list. A GBIF record with a later synonym may fail exact matching; this is unknown coverage, not proof of non-tree habit.",
+    "Tree species identity does not prove each occurrence is a tree or reflect planted abundance; no occurrence count is an inventory count.",
+    "A smaller tree catalog reduces some over-inclusive matches but does not establish an absolute tree/shrub growth-form boundary."
+  ]
+}

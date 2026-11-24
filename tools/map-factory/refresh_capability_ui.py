@@ -9,6 +9,14 @@ FOLDER = ROOT / "tools/map-factory/fixtures"
 PREFIX = "contracts/pl1119-capability-ui-v1"
 GATES = ["app.js", "build.mjs", "index.html", "package.json", "style.css"]
 ADDITIONS = [
+    "vegetation-model.js",
+    "vegetation-traits.js",
+    "vegetation-inputs.js",
+    "vegetation-worker.js",
+    "vegetation-ui.js",
+    "vegetation-data/tree-taxa.json",
+    "vegetation-data/inventories.json",
+    "vegetation-data/boston.json",
     "tools/map-factory/real_roads.py",
     "tools/map-factory/fixtures/contracts/pl1119-capability-ui-v1/baseline/real_roads.py",
     ".gitattributes",

@@ -3,7 +3,7 @@
 import math
 
 DEFAULTS = dict(
-    land_yes_fraction=0.57, ore_target=0.052, oil_target=0.027, fertile_target=0.034
+    land_yes_fraction=0.46, ore_target=0.052, oil_target=0.027, fertile_target=0.034
 )
 
 
@@ -97,13 +97,11 @@ def place_decisions(metrics, evidence=None, footprint=None, rules=None):
     no_land = valid and metrics["dry_fraction"] == 0
     cover = (
         evidence.get("landcover", {}).get("status") == "available"
-        and isinstance(
-            evidence["landcover"].get("coverage_of_central_land"), (int, float)
-        )
+        and type(evidence["landcover"].get("coverage_of_central_land")) in (int, float)
+        and math.isfinite(evidence["landcover"]["coverage_of_central_land"])
         and evidence["landcover"]["coverage_of_central_land"] >= 0.5
-        and isinstance(
-            evidence.get("vegetation", {}).get("tree_suitability"), (int, float)
-        )
+        and type(evidence.get("vegetation", {}).get("tree_suitability")) in (int, float)
+        and math.isfinite(evidence["vegetation"]["tree_suitability"])
     )
     support = (
         0
