@@ -4,6 +4,8 @@ import { speciesGrowthForm, TRAIT_SOURCES } from "./vegetation-traits.js";
 export const CANOPY_S3 = "https://dataforgood-fb-data.s3.us-east-1.amazonaws.com/forests/v2/global/dinov3_global_chm_v2_ml3/chm/";
 export const FOREST_TYPES_URL = "https://zenodo.org/api/records/3939050/files/PROBAV_LC100_global_v3.0.1_2019-nrt_Forest-Type-layer_EPSG-4326.tif/content";
 const RAD = Math.PI / 180;
+const IS_NODE = Boolean(globalThis.process?.versions?.node);
+const PROJECT_USER_AGENT = "Polli-Region-to-Skylines/vegetation (https://github.com/frontierkodiak/region-to-skylines)";
 const timeout = (signal) => signal ? AbortSignal.any([signal, AbortSignal.timeout(45000)]) : AbortSignal.timeout(45000);
 
 /** Equal-area sample centres in the export's rotated frame, in real metres. */
@@ -44,8 +46,7 @@ export async function collectRaster(sq, kind, { fromUrl, size = 432, signal, can
       const [tile, indices] = jobs.shift(), url = canopy ? canopyUrl(tile) : kind === "forest" ? forestUrl : coverUrl(tile);
       signal?.throwIfAborted();
       try {
-        const headers = kind === "forest" && globalThis.process?.versions?.node
-          ? { "User-Agent": "Polli-Region-to-Skylines/vegetation (https://github.com/frontierkodiak/region-to-skylines)" } : undefined;
+        const headers = kind === "forest" && IS_NODE ? { "User-Agent": PROJECT_USER_AGENT } : undefined;
         const tiff = await fromUrl(url, { allowFullFile: false, headers }, signal);
         const base = await tiff.getImage(0), count = await tiff.getImageCount();
         const xs = [], ys = [], bounds = [Infinity, Infinity, -Infinity, -Infinity];
@@ -103,7 +104,14 @@ export async function collectRaster(sq, kind, { fromUrl, size = 432, signal, can
 }
 
 async function json(url, { signal, fetchImpl = fetch } = {}) {
-  const response = await fetchImpl(url, { signal: signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000) });
+  const requestSignal = signal ? AbortSignal.any([signal, AbortSignal.timeout(15000)]) : AbortSignal.timeout(15000);
+  requestSignal.throwIfAborted();
+  if (IS_NODE && String(url).startsWith("file:")) {
+    const { readFile } = await import("node:fs/promises");
+    return JSON.parse(await readFile(new URL(url), { encoding: "utf8", signal: requestSignal }));
+  }
+  const headers = IS_NODE ? { "User-Agent": PROJECT_USER_AGENT } : undefined;
+  const response = await fetchImpl(url, { signal: requestSignal, headers });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   return response.json();
 }
@@ -152,7 +160,11 @@ export function growthForm(genus, tags = {}, species) {
 export async function collectRecords(sq, { signal, fetchImpl = fetch, dataUrl = (f) => new URL(`./vegetation-data/${f}`, import.meta.url).href } = {}) {
   const box = boundsOf(sq, 2000), records = [], sources = [];
   const options = { signal, fetchImpl };
-  const [catalogResult, inventoryResult] = await Promise.allSettled([json(dataUrl("tree-taxa.json"), options), json(dataUrl("inventories.json"), options)]);
+  const catalogUrl = dataUrl("tree-taxa.json"), inventoryUrl = dataUrl("inventories.json");
+  const [catalogResult, inventoryResult] = await Promise.allSettled([json(catalogUrl, options), json(inventoryUrl, options)]);
+  signal?.throwIfAborted();
+  if (inventoryResult.status === "rejected") sources.push({ source: "Public tree inventory catalog", url: inventoryUrl,
+    status: "unavailable", error: String(inventoryResult.reason?.message ?? inventoryResult.reason) });
   const catalog = catalogResult.status === "fulfilled" ? catalogResult.value : null;
   const species = new Set(catalog?.species ?? []);
   const inventories = inventoryResult.status === "fulfilled" ? inventoryResult.value : [];

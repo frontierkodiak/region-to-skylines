@@ -621,7 +621,7 @@
     "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-1/auditor-receipt.json.gz": "aa185d11eb7d9b9c1af7782beb4f54d093547623e170764cee34644eff79f00d",
     "tools/map-factory/capability-evidence/outside-readiness-stock-v2-raw/stock-2/auditor-receipt.json.gz": "c37d2533c970bca57761bdf201b5a8cf4027eccc3867a46b95a71cada1161eea",
     "vegetation-model.js": "7593fef8bfadc4535d4e0dd8983b23fefaac713e779d2e4f09ca4319acf64ae4",
-    "vegetation-inputs.js": "26351d454dd0cee450686d934612ac7d8a29e8579e73db55379925ed0cc387f6",
+    "vegetation-inputs.js": "f3659619db4df92571f127912d4ebbeb6cbbb52b8cd86657e6773fa4d989f6e2",
     "vegetation-worker.js": "9634272542d430de38cf7724e88a8f22fbf1d6b95c280d6945bf3c90f4b80a4f",
     "vegetation-ui.js": "79396f67a14ca2357825a5762e805768eb5b7950125083584d00730e115acc8e",
     "vegetation-data/tree-taxa.json": "f3eba9acfb435d0742e86f573db08718ab4dee4a0a09c074f6617b4566b7545f",
