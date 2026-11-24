@@ -7,6 +7,7 @@ from playable_water import (
     capacity,
     hydrology,
     join_nearby_water,
+    raster,
     section,
     source_pool,
     source_walk,
@@ -18,6 +19,7 @@ class PlayableWaterTests(unittest.TestCase):
     def test_packed_banks_clear_all_adjacent_water_after_footprint_expansion(self):
         rows, _ = np.indices((1081, 1081))
         ground = 100 + 30 * np.sin(rows / 80)
+        ground[500:580, 544:550] = 30
         geometry = {
             "sq": {"lat": 0, "lon": 0, "scale": 1, "rotation": 0},
             "rivers": [{"name": "test river", "pts": [[0, -0.05], [0, 0.05]]}],
@@ -25,6 +27,9 @@ class PlayableWaterTests(unittest.TestCase):
             "lakes": [],
             "riverAreas": [],
             "oceans": [],
+            "undergroundWaterways": [
+                {"brunnel": "tunnel", "pts": [[0.0006, -0.02], [0.0006, 0.02]]}
+            ],
         }
         depth, report = hydrology(ground, ground.copy(), geometry)
         t = np.floor(ground * 64 + 0.5).astype(np.int32)
@@ -34,6 +39,11 @@ class PlayableWaterTests(unittest.TestCase):
         head = np.where(wet, t + w, -1000000)
         self.assertTrue(wet.any())
         self.assertTrue(rim.any())
+        tunnel = ndimage.binary_dilation(
+            raster(geometry["sq"], geometry["undergroundWaterways"]), iterations=2
+        ) & ~raster(geometry["sq"], geometry["rivers"])
+        self.assertTrue((rim & tunnel).any())
+        self.assertFalse(wet[tunnel].any())
         self.assertGreater(len(report["sources"]), 1)
         self.assertGreaterEqual(
             int((t - ndimage.maximum_filter(head, size=3))[rim].min()), 128

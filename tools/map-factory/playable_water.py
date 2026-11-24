@@ -487,7 +487,9 @@ def hydrology(ground, banks, geometry):
         ~channel, return_indices=True
     )
     near_level = level[tuple(near_water)]
-    bank_strip = ~channel & ~forbidden & (outside_distance <= 4)
+    # An underground reach is not initialized as surface water. It is not a
+    # prohibition on dry bank earthworks beside a mapped surface channel.
+    bank_strip = ~channel & (outside_distance <= 4)
     blend = np.clip((5 - outside_distance) / 4, 0, 1)
     raised = near_level + 2.0
     ground[bank_strip] = np.maximum(
@@ -495,7 +497,7 @@ def hydrology(ground, banks, geometry):
         original[bank_strip]
         + blend[bank_strip] * np.maximum(0, raised[bank_strip] - original[bank_strip]),
     )
-    rim = ~channel & ~forbidden & (outside_distance <= 1.5)
+    rim = ~channel & (outside_distance <= 1.5)
     adjacent_head = ndimage.maximum_filter(np.where(channel, level, -np.inf), size=3)
     ground[rim] = np.maximum(ground[rim], adjacent_head[rim] + 2)
     ground[channel | bank_strip] = np.clip(ground[channel | bank_strip], 0, 65535 / 64)

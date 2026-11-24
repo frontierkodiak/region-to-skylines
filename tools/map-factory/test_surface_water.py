@@ -1,13 +1,26 @@
-"""Behavioral fixtures for underground gaps; no native acceptance claim."""
+"""Historical bounded-water fixtures on their retained baseline writer.
+
+The live gameplay constructor is exercised in test_playable_water.py.
+"""
 
 import copy
+import importlib.util
+from pathlib import Path
 import unittest
 
 import numpy as np
 
 from prepare import route
-from region import hydrology, limit_source_footprints, raster
 from surface_water import surface_geometry
+
+spec = importlib.util.spec_from_file_location(
+    "baseline_region", Path(__file__).parent / "fixtures/baseline-writer/region.py"
+)
+baseline = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(baseline)
+hydrology = baseline.hydrology
+limit_source_footprints = baseline.limit_source_footprints
+raster = baseline.raster
 
 
 class SurfaceWaterTests(unittest.TestCase):
@@ -390,7 +403,9 @@ class SurfaceWaterTests(unittest.TestCase):
         self.assertTrue(report["rivers"][0]["uncarved_infeasible_stream"])
         self.assertTrue(report["samples"])
         self.assertFalse(report["sources"])
-        self.assertEqual(report["mapped_waterway_coverage"][0]["initial_wet_fraction"], 0)
+        self.assertEqual(
+            report["mapped_waterway_coverage"][0]["initial_wet_fraction"], 0
+        )
 
     def test_bank_limited_river_bounds_prefill_and_source_head_together(self):
         def coord(x):
