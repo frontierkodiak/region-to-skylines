@@ -10,8 +10,8 @@ isolated-retrofit restriction, not the historical evidence or its labels.
 `region.hydrology` and the standalone `prepare.py` both use `playable_water.py`.
 It authors every captured visible river/stream, lakes, river areas and ocean:
 
-- Channels start 8 m deep, with 24–112 m half-width increasing with map-local
-  contributing area. Sloping sides join the measured valley.
+- Channel design depth starts at 8 m, with 24–112 m half-width increasing with
+  map-local contributing area. Sloping sides join the measured valley.
 - A priority-flood D8 drainage model supplies local catchment area. Source
   capacity is a bounded `0.008 * sqrt(km²)` game setting, not measured discharge.
   Catchment beyond the captured square is unknown.
@@ -29,8 +29,9 @@ It authors every captured visible river/stream, lakes, river areas and ocean:
 - Local surface limits prevent a high captured sill from raising a whole river
   or cutting an entire valley down. This can leave cascades; it is not a claim
   that all branches form one gently graded hydraulic reach.
-- Lakes/river areas are deepened to at least 16 m, with body-level controls.
-  Ocean gets an 8–24 m shelf. Existing deeper beds are retained.
+- Lakes/river areas use a 16 m design depth, with body-level controls; the ocean
+  shelf uses 8–24 m. The game's zero-elevation floor can limit realized depth.
+  Existing deeper beds are retained. Per-node packed grids record actual depths.
 - Each receiving port gets an 8 m deep, 32 m radius basin restricted to its own
   existing water footprint. Only the bed lowers; surface, banks and target stay.
 - A 2 m shoreline barrier blends back to measured land over 64 m. No global
